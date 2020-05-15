@@ -1,0 +1,809 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.9 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global}
+    \entry{abramowitz}{book}{}
+      \name{author}{2}{}{%
+        {{hash=f2e87f07b7c50bdd4764ffe4e1a365f0}{%
+           family={Abramowitz},
+           familyi={A\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=94f6324b7703529de7d72aec11303101}{%
+           family={Stegun},
+           familyi={S\bibinitperiod},
+           given={I.\bibnamedelimi A.},
+           giveni={I\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \strng{namehash}{42a47e8ab20941ac04ce0464187e4a23}
+      \strng{fullhash}{42a47e8ab20941ac04ce0464187e4a23}
+      \strng{bibnamehash}{42a47e8ab20941ac04ce0464187e4a23}
+      \strng{authorbibnamehash}{42a47e8ab20941ac04ce0464187e4a23}
+      \strng{authornamehash}{42a47e8ab20941ac04ce0464187e4a23}
+      \strng{authorfullhash}{42a47e8ab20941ac04ce0464187e4a23}
+      \field{sortinit}{A}
+      \field{sortinithash}{d77c7cdd82ff690d4c3ef13216f92f0b}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{subtitle}{With Formulas, Graphs, and Mathematical Tables}
+      \field{title}{Handbook of Mathematical Functions}
+      \field{year}{2014}
+      \field{dateera}{ce}
+    \endentry
+    \entry{nasa_earth}{online}{}
+      \name{author}{2}{}{%
+        {{hash=0b3f3a8d27a25574fc4053765e403b39}{%
+           family={Aeronautics},
+           familyi={A\bibinitperiod},
+           given={National},
+           giveni={N\bibinitperiod}}}%
+        {{hash=9c02d660c937ad8dad98c4b674d36009}{%
+           family={Administration},
+           familyi={A\bibinitperiod},
+           given={Space},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{87ae985fae3d1fded2fb890a89b5d675}
+      \strng{fullhash}{87ae985fae3d1fded2fb890a89b5d675}
+      \strng{bibnamehash}{87ae985fae3d1fded2fb890a89b5d675}
+      \strng{authorbibnamehash}{87ae985fae3d1fded2fb890a89b5d675}
+      \strng{authornamehash}{87ae985fae3d1fded2fb890a89b5d675}
+      \strng{authorfullhash}{87ae985fae3d1fded2fb890a89b5d675}
+      \field{sortinit}{A}
+      \field{sortinithash}{d77c7cdd82ff690d4c3ef13216f92f0b}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Earth Fact Sheet}
+      \field{year}{2016}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://nssdc.gsfc.nasa.gov/planetary/factsheet/earthfact.html
+      \endverb
+      \verb{url}
+      \verb https://nssdc.gsfc.nasa.gov/planetary/factsheet/earthfact.html
+      \endverb
+    \endentry
+    \entry{weller}{article}{}
+      \name{author}{1}{}{%
+        {{hash=6b31b21af5bd1510fab3a36e73d77507}{%
+           family={al.},
+           familyi={a\bibinitperiod},
+           given={H.\bibnamedelimi Weller},
+           giveni={H\bibinitperiod\bibinitdelim W\bibinitperiod},
+           prefix={et},
+           prefixi={e\bibinitperiod}}}%
+      }
+      \strng{namehash}{6b31b21af5bd1510fab3a36e73d77507}
+      \strng{fullhash}{6b31b21af5bd1510fab3a36e73d77507}
+      \strng{bibnamehash}{6b31b21af5bd1510fab3a36e73d77507}
+      \strng{authorbibnamehash}{6b31b21af5bd1510fab3a36e73d77507}
+      \strng{authornamehash}{6b31b21af5bd1510fab3a36e73d77507}
+      \strng{authorfullhash}{6b31b21af5bd1510fab3a36e73d77507}
+      \field{sortinit}{a}
+      \field{sortinithash}{d77c7cdd82ff690d4c3ef13216f92f0b}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Monthly Weather Review}
+      \field{number}{8}
+      \field{title}{Computational Modes and Grid Imprinting on Five Quasi-Uniform Spherical C Grids}
+      \field{volume}{140}
+      \field{year}{2012}
+      \field{dateera}{ce}
+      \field{pages}{2734\bibrangedash 2755}
+      \range{pages}{22}
+    \endentry
+    \entry{arakawa}{article}{}
+      \name{author}{2}{}{%
+        {{hash=1620c060bcb902b39c2ac7702e37296d}{%
+           family={Arakawa},
+           familyi={A\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=3968143cd74f369c4bc420b3b1e5e66d}{%
+           family={Lamb},
+           familyi={L\bibinitperiod},
+           given={V.\bibnamedelimi R.},
+           giveni={V\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \strng{namehash}{23657546ce6a5c902e7cd9985b897f04}
+      \strng{fullhash}{23657546ce6a5c902e7cd9985b897f04}
+      \strng{bibnamehash}{23657546ce6a5c902e7cd9985b897f04}
+      \strng{authorbibnamehash}{23657546ce6a5c902e7cd9985b897f04}
+      \strng{authornamehash}{23657546ce6a5c902e7cd9985b897f04}
+      \strng{authorfullhash}{23657546ce6a5c902e7cd9985b897f04}
+      \field{sortinit}{A}
+      \field{sortinithash}{d77c7cdd82ff690d4c3ef13216f92f0b}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Methods of Computational Physics}
+      \field{title}{Computational design of the basic dynamical processes of the UCLA general circulation model}
+      \field{volume}{17}
+      \field{year}{1977}
+      \field{dateera}{ce}
+      \field{pages}{173\bibrangedash 265}
+      \range{pages}{93}
+    \endentry
+    \entry{chandrasekhar}{book}{}
+      \name{author}{1}{}{%
+        {{hash=a329a55b8ba8df167178de6c393a6ac4}{%
+           family={Chandrasekhar},
+           familyi={C\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Dover Publications}%
+      }
+      \strng{namehash}{a329a55b8ba8df167178de6c393a6ac4}
+      \strng{fullhash}{a329a55b8ba8df167178de6c393a6ac4}
+      \strng{bibnamehash}{a329a55b8ba8df167178de6c393a6ac4}
+      \strng{authorbibnamehash}{a329a55b8ba8df167178de6c393a6ac4}
+      \strng{authornamehash}{a329a55b8ba8df167178de6c393a6ac4}
+      \strng{authorfullhash}{a329a55b8ba8df167178de6c393a6ac4}
+      \field{sortinit}{C}
+      \field{sortinithash}{963e9d84a3da2344e8833203de5aed05}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Radiative Transfer}
+      \field{year}{1960}
+      \field{dateera}{ce}
+    \endentry
+    \entry{cushman}{book}{}
+      \name{author}{2}{}{%
+        {{hash=51e06d33e1cacb0ca2a365f67d462b05}{%
+           family={Cushman-Roisin},
+           familyi={C\bibinithyphendelim R\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod}}}%
+        {{hash=cad32c280d6940898c196fe678bc5ebd}{%
+           family={Beckers},
+           familyi={B\bibinitperiod},
+           given={J.-M.},
+           giveni={J\bibinithyphendelim M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Academic Press}%
+      }
+      \strng{namehash}{20bfc249f466436b7303747afa592110}
+      \strng{fullhash}{20bfc249f466436b7303747afa592110}
+      \strng{bibnamehash}{20bfc249f466436b7303747afa592110}
+      \strng{authorbibnamehash}{20bfc249f466436b7303747afa592110}
+      \strng{authornamehash}{20bfc249f466436b7303747afa592110}
+      \strng{authorfullhash}{20bfc249f466436b7303747afa592110}
+      \field{sortinit}{C}
+      \field{sortinithash}{963e9d84a3da2344e8833203de5aed05}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2}
+      \field{series}{International Geophysics Series}
+      \field{subtitle}{Physical and Numerical Aspects}
+      \field{title}{Introduction to Geophysical Fluid Dynamics}
+      \field{volume}{101}
+      \field{year}{2011}
+      \field{dateera}{ce}
+    \endentry
+    \entry{fliessbach_theo_2}{book}{}
+      \name{author}{1}{}{%
+        {{hash=30db6011e4e7c4075396cdeb2c4c5420}{%
+           family={Fließbach},
+           familyi={F\bibinitperiod},
+           given={T.},
+           giveni={T\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Heidelberg}%
+      }
+      \list{publisher}{1}{%
+        {Spektrum Akademischer Verlag}%
+      }
+      \strng{namehash}{30db6011e4e7c4075396cdeb2c4c5420}
+      \strng{fullhash}{30db6011e4e7c4075396cdeb2c4c5420}
+      \strng{bibnamehash}{30db6011e4e7c4075396cdeb2c4c5420}
+      \strng{authorbibnamehash}{30db6011e4e7c4075396cdeb2c4c5420}
+      \strng{authornamehash}{30db6011e4e7c4075396cdeb2c4c5420}
+      \strng{authorfullhash}{30db6011e4e7c4075396cdeb2c4c5420}
+      \field{sortinit}{F}
+      \field{sortinithash}{669c706c6f1fbf3b5a83d26f1d9e9e72}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{subtitle}{Lehrbuch zur Theoretischen Physik II}
+      \field{title}{Elektrodynamik}
+      \field{year}{2012}
+      \field{dateera}{ce}
+    \endentry
+    \entry{fliessbach_theo_1}{mvbook}{}
+      \name{author}{1}{}{%
+        {{hash=30db6011e4e7c4075396cdeb2c4c5420}{%
+           family={Fließbach},
+           familyi={F\bibinitperiod},
+           given={T.},
+           giveni={T\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Heidelberg}%
+      }
+      \list{publisher}{1}{%
+        {Spektrum Akademischer Verlag}%
+      }
+      \strng{namehash}{30db6011e4e7c4075396cdeb2c4c5420}
+      \strng{fullhash}{30db6011e4e7c4075396cdeb2c4c5420}
+      \strng{bibnamehash}{30db6011e4e7c4075396cdeb2c4c5420}
+      \strng{authorbibnamehash}{30db6011e4e7c4075396cdeb2c4c5420}
+      \strng{authornamehash}{30db6011e4e7c4075396cdeb2c4c5420}
+      \strng{authorfullhash}{30db6011e4e7c4075396cdeb2c4c5420}
+      \field{sortinit}{F}
+      \field{sortinithash}{669c706c6f1fbf3b5a83d26f1d9e9e72}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{subtitle}{Lehrbuch zur Theoretischen Physik I}
+      \field{title}{Mechanik}
+      \field{year}{2009}
+      \field{dateera}{ce}
+    \endentry
+    \entry{fliessbach_theo_3}{book}{}
+      \name{author}{1}{}{%
+        {{hash=30db6011e4e7c4075396cdeb2c4c5420}{%
+           family={Fließbach},
+           familyi={F\bibinitperiod},
+           given={T.},
+           giveni={T\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Heidelberg}%
+      }
+      \list{publisher}{1}{%
+        {Spektrum Akademischer Verlag}%
+      }
+      \strng{namehash}{30db6011e4e7c4075396cdeb2c4c5420}
+      \strng{fullhash}{30db6011e4e7c4075396cdeb2c4c5420}
+      \strng{bibnamehash}{30db6011e4e7c4075396cdeb2c4c5420}
+      \strng{authorbibnamehash}{30db6011e4e7c4075396cdeb2c4c5420}
+      \strng{authornamehash}{30db6011e4e7c4075396cdeb2c4c5420}
+      \strng{authorfullhash}{30db6011e4e7c4075396cdeb2c4c5420}
+      \field{sortinit}{F}
+      \field{sortinithash}{669c706c6f1fbf3b5a83d26f1d9e9e72}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{subtitle}{Lehrbuch zur Theoretischen Physik III}
+      \field{title}{Quantenmechanik}
+      \field{year}{2008}
+      \field{dateera}{ce}
+    \endentry
+    \entry{fliessbach_theo_4}{book}{}
+      \name{author}{1}{}{%
+        {{hash=30db6011e4e7c4075396cdeb2c4c5420}{%
+           family={Fließbach},
+           familyi={F\bibinitperiod},
+           given={T.},
+           giveni={T\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Heidelberg}%
+      }
+      \list{publisher}{1}{%
+        {Spektrum Akademischer Verlag}%
+      }
+      \strng{namehash}{30db6011e4e7c4075396cdeb2c4c5420}
+      \strng{fullhash}{30db6011e4e7c4075396cdeb2c4c5420}
+      \strng{bibnamehash}{30db6011e4e7c4075396cdeb2c4c5420}
+      \strng{authorbibnamehash}{30db6011e4e7c4075396cdeb2c4c5420}
+      \strng{authornamehash}{30db6011e4e7c4075396cdeb2c4c5420}
+      \strng{authorfullhash}{30db6011e4e7c4075396cdeb2c4c5420}
+      \field{sortinit}{F}
+      \field{sortinithash}{669c706c6f1fbf3b5a83d26f1d9e9e72}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{subtitle}{Lehrbuch zur Theoretischen Physik IV}
+      \field{title}{Statistische Physik}
+      \field{year}{2010}
+      \field{dateera}{ce}
+    \endentry
+    \entry{wmo_recommendations}{manual}{}
+      \list{organization}{1}{%
+        {World Meteorological Organization}%
+      }
+      \field{sortinit}{G}
+      \field{sortinithash}{5e8d2bf9d38de41b1528bd307546008f}
+      \field{labeltitlesource}{title}
+      \field{subtitle}{Volume V - Quality Assurance and Management of Observing Systems; Part I - Measurement of Meteorological Variables}
+      \field{title}{Guide to Instruments and Methods of Observation}
+      \field{urlday}{21}
+      \field{urlmonth}{11}
+      \field{urlyear}{2019}
+      \field{year}{2018}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://library.wmo.int/index.php?lvl=notice_display&id=19660
+      \endverb
+      \verb{url}
+      \verb https://library.wmo.int/index.php?lvl=notice_display&id=19660
+      \endverb
+    \endentry
+    \entry{hantel}{book}{}
+      \name{author}{1}{}{%
+        {{hash=38e9eb0b5f6e1829aa9fa71b1dad86c5}{%
+           family={Hantel},
+           familyi={H\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Berlin, Heidelberg}%
+      }
+      \list{publisher}{1}{%
+        {Springer Spektrum}%
+      }
+      \strng{namehash}{38e9eb0b5f6e1829aa9fa71b1dad86c5}
+      \strng{fullhash}{38e9eb0b5f6e1829aa9fa71b1dad86c5}
+      \strng{bibnamehash}{38e9eb0b5f6e1829aa9fa71b1dad86c5}
+      \strng{authorbibnamehash}{38e9eb0b5f6e1829aa9fa71b1dad86c5}
+      \strng{authornamehash}{38e9eb0b5f6e1829aa9fa71b1dad86c5}
+      \strng{authorfullhash}{38e9eb0b5f6e1829aa9fa71b1dad86c5}
+      \field{sortinit}{H}
+      \field{sortinithash}{5f15a7bc777ad49ff15aa4d2831b1681}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Einführung Theoretische Meteorologie}
+      \field{year}{2013}
+      \field{dateera}{ce}
+    \endentry
+    \entry{holton}{book}{}
+      \name{author}{1}{}{%
+        {{hash=cace485a99e2d2c32c1d6f1318f9a3ca}{%
+           family={Holton},
+           familyi={H\bibinitperiod},
+           given={J.\bibnamedelimi R.},
+           giveni={J\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York}%
+      }
+      \list{publisher}{1}{%
+        {Academic Press, Inc.}%
+      }
+      \strng{namehash}{cace485a99e2d2c32c1d6f1318f9a3ca}
+      \strng{fullhash}{cace485a99e2d2c32c1d6f1318f9a3ca}
+      \strng{bibnamehash}{cace485a99e2d2c32c1d6f1318f9a3ca}
+      \strng{authorbibnamehash}{cace485a99e2d2c32c1d6f1318f9a3ca}
+      \strng{authornamehash}{cace485a99e2d2c32c1d6f1318f9a3ca}
+      \strng{authorfullhash}{cace485a99e2d2c32c1d6f1318f9a3ca}
+      \field{sortinit}{H}
+      \field{sortinithash}{5f15a7bc777ad49ff15aa4d2831b1681}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{An Introduction to Dynamic Meteorology}
+      \field{year}{1979}
+      \field{dateera}{ce}
+    \endentry
+    \entry{wgs84}{manual}{}
+      \name{author}{2}{}{%
+        {{hash=5cd37596994084d9cca3feabc3de3c19}{%
+           family={Imagery},
+           familyi={I\bibinitperiod},
+           given={National},
+           giveni={N\bibinitperiod}}}%
+        {{hash=a61f42820534d7fb7d0a48e76f106b82}{%
+           family={Agency},
+           familyi={A\bibinitperiod},
+           given={Mapping},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{3c99c6136481eb2810c15881a9e4494a}
+      \strng{fullhash}{3c99c6136481eb2810c15881a9e4494a}
+      \strng{bibnamehash}{3c99c6136481eb2810c15881a9e4494a}
+      \strng{authorbibnamehash}{3c99c6136481eb2810c15881a9e4494a}
+      \strng{authornamehash}{3c99c6136481eb2810c15881a9e4494a}
+      \strng{authorfullhash}{3c99c6136481eb2810c15881a9e4494a}
+      \field{sortinit}{I}
+      \field{sortinithash}{320bc8fe8101b9376f9f21cd507de0e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{subtitle}{Its Definition and Relationships with Local Geodetic Systems}
+      \field{title}{Department of Defense World Geodetic System 1984}
+      \field{year}{2000}
+      \field{dateera}{ce}
+    \endentry
+    \entry{jablonowski}{article}{}
+      \name{author}{2}{}{%
+        {{hash=930f4f7344a05ef26cc138366c2927bb}{%
+           family={Jablonowski},
+           familyi={J\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+        {{hash=4e63cd9f1bff643ee9f5273e71d8c554}{%
+           family={Williamson},
+           familyi={W\bibinitperiod},
+           given={D.\bibnamedelimi L.},
+           giveni={D\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+      }
+      \strng{namehash}{2789669d9b2c0c9169f4be60c82eba17}
+      \strng{fullhash}{2789669d9b2c0c9169f4be60c82eba17}
+      \strng{bibnamehash}{2789669d9b2c0c9169f4be60c82eba17}
+      \strng{authorbibnamehash}{2789669d9b2c0c9169f4be60c82eba17}
+      \strng{authornamehash}{2789669d9b2c0c9169f4be60c82eba17}
+      \strng{authorfullhash}{2789669d9b2c0c9169f4be60c82eba17}
+      \field{sortinit}{J}
+      \field{sortinithash}{fce5f8d0bd05e8d93f3dbe21c78897ca}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Q. J. R. Meteorol. Soc.}
+      \field{number}{132}
+      \field{title}{A baroclinic instabiliy test case for atmospheric model dynamical cores}
+      \field{year}{2006}
+      \field{dateera}{ce}
+      \field{pages}{2943\bibrangedash 2975}
+      \range{pages}{33}
+    \endentry
+    \entry{pruppacher_klett}{book}{}
+      \name{author}{2}{}{%
+        {{hash=410a4972b663e891f78a67b7b2000369}{%
+           family={Klett},
+           familyi={K\bibinitperiod},
+           given={J.\bibnamedelimi D.},
+           giveni={J\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=6fd94bef11d359f7fe43c085555cc51a}{%
+           family={Pruppacher},
+           familyi={P\bibinitperiod},
+           given={H.\bibnamedelimi R.},
+           giveni={H\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer Science+Business Media}%
+      }
+      \strng{namehash}{b4d7e4ef806ea7d5c83b8fede91f714e}
+      \strng{fullhash}{b4d7e4ef806ea7d5c83b8fede91f714e}
+      \strng{bibnamehash}{b4d7e4ef806ea7d5c83b8fede91f714e}
+      \strng{authorbibnamehash}{b4d7e4ef806ea7d5c83b8fede91f714e}
+      \strng{authornamehash}{b4d7e4ef806ea7d5c83b8fede91f714e}
+      \strng{authorfullhash}{b4d7e4ef806ea7d5c83b8fede91f714e}
+      \field{sortinit}{K}
+      \field{sortinithash}{9fd838a31ba64d981e8f44562bd33f89}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2}
+      \field{series}{Atmospheric and Oceanographic Sciences Library}
+      \field{title}{Mircrophysisc of Clouds and Precipitation}
+      \field{volume}{18}
+      \field{year}{2010}
+      \field{dateera}{ce}
+    \endentry
+    \entry{formelsammlung}{book}{}
+      \name{author}{3}{}{%
+        {{hash=67bb59286a51f11c381c80ebb3546b3e}{%
+           family={Kurzweil},
+           familyi={K\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod}}}%
+        {{hash=c883771be923f1b1591b27f435940e14}{%
+           family={Frenzel},
+           familyi={F\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod}}}%
+        {{hash=8501876d4b2be61a36cd067485cba021}{%
+           family={Gebhard},
+           familyi={G\bibinitperiod},
+           given={F.},
+           giveni={F\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Wiesbaden}%
+      }
+      \list{publisher}{1}{%
+        {Springer Vieweg}%
+      }
+      \strng{namehash}{4f67b505662fdb4ac1bf526e0ed9020a}
+      \strng{fullhash}{4f67b505662fdb4ac1bf526e0ed9020a}
+      \strng{bibnamehash}{4f67b505662fdb4ac1bf526e0ed9020a}
+      \strng{authorbibnamehash}{4f67b505662fdb4ac1bf526e0ed9020a}
+      \strng{authornamehash}{4f67b505662fdb4ac1bf526e0ed9020a}
+      \strng{authorfullhash}{4f67b505662fdb4ac1bf526e0ed9020a}
+      \field{sortinit}{K}
+      \field{sortinithash}{9fd838a31ba64d981e8f44562bd33f89}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Physik Formelsammlung}
+      \field{year}{2014}
+      \field{dateera}{ce}
+    \endentry
+    \entry{surface_waves}{book}{}
+      \name{author}{1}{}{%
+        {{hash=30a22de7fb0ff246dd0a58085f240b6e}{%
+           family={Massel},
+           familyi={M\bibinitperiod},
+           given={Stanisłav\bibnamedelima R.},
+           giveni={S\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {World Scientific Publishing}%
+      }
+      \strng{namehash}{30a22de7fb0ff246dd0a58085f240b6e}
+      \strng{fullhash}{30a22de7fb0ff246dd0a58085f240b6e}
+      \strng{bibnamehash}{30a22de7fb0ff246dd0a58085f240b6e}
+      \strng{authorbibnamehash}{30a22de7fb0ff246dd0a58085f240b6e}
+      \strng{authornamehash}{30a22de7fb0ff246dd0a58085f240b6e}
+      \strng{authorfullhash}{30a22de7fb0ff246dd0a58085f240b6e}
+      \field{sortinit}{M}
+      \field{sortinithash}{cfd219b90152c06204fab207bc6c7cab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{3}
+      \field{series}{Advanced Series on Ocean Engineering}
+      \field{subtitle}{Their Physics and Prediction}
+      \field{title}{Ocean Surface Waves}
+      \field{volume}{45}
+      \field{year}{2018}
+      \field{dateera}{ce}
+    \endentry
+    \entry{iers}{manual}{}
+      \name{author}{2}{}{%
+        {{hash=3a9c8095139a70fb4dc890550a990302}{%
+           family={McCarthy},
+           familyi={M\bibinitperiod},
+           given={D.\bibnamedelimi D.},
+           giveni={D\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=a485b0b0a2fe5e11bfe9a89b40a8748a}{%
+           family={Petit},
+           familyi={P\bibinitperiod},
+           given={G.},
+           giveni={G\bibinitperiod}}}%
+      }
+      \list{organization}{2}{%
+        {International Earth Rotation}%
+        {Reference Systems Service}%
+      }
+      \strng{namehash}{6a32ff042bb03a04e9617d440790bc06}
+      \strng{fullhash}{6a32ff042bb03a04e9617d440790bc06}
+      \strng{bibnamehash}{6a32ff042bb03a04e9617d440790bc06}
+      \strng{authorbibnamehash}{6a32ff042bb03a04e9617d440790bc06}
+      \strng{authornamehash}{6a32ff042bb03a04e9617d440790bc06}
+      \strng{authorfullhash}{6a32ff042bb03a04e9617d440790bc06}
+      \field{sortinit}{M}
+      \field{sortinithash}{cfd219b90152c06204fab207bc6c7cab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{IERS Conventions (2003)}
+      \field{year}{2003}
+      \field{dateera}{ce}
+    \endentry
+    \entry{codata}{article}{}
+      \name{author}{3}{}{%
+        {{hash=efb2d5c814432497a292669bd1243860}{%
+           family={Mohr},
+           familyi={M\bibinitperiod},
+           given={P.\bibnamedelimi J.},
+           giveni={P\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=0088d68000e372fd607f63abf02d9315}{%
+           family={Newell},
+           familyi={N\bibinitperiod},
+           given={D.\bibnamedelimi B.},
+           giveni={D\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+        {{hash=73e2d690454b1cfdd975cbb863c9f2f0}{%
+           family={Taylor},
+           familyi={T\bibinitperiod},
+           given={B.\bibnamedelimi N.},
+           giveni={B\bibinitperiod\bibinitdelim N\bibinitperiod}}}%
+      }
+      \strng{namehash}{da6052defb3498b68f3d925a6af8b29e}
+      \strng{fullhash}{da6052defb3498b68f3d925a6af8b29e}
+      \strng{bibnamehash}{da6052defb3498b68f3d925a6af8b29e}
+      \strng{authorbibnamehash}{da6052defb3498b68f3d925a6af8b29e}
+      \strng{authornamehash}{da6052defb3498b68f3d925a6af8b29e}
+      \strng{authorfullhash}{da6052defb3498b68f3d925a6af8b29e}
+      \field{sortinit}{M}
+      \field{sortinithash}{cfd219b90152c06204fab207bc6c7cab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Reviews of Modern Physics}
+      \field{title}{CODATA recommended values of the fundamental physical constants: 2014}
+      \field{volume}{88}
+      \field{year}{2016}
+      \field{dateera}{ce}
+    \endentry
+    \entry{iapws}{manual}{}
+      \name{author}{2}{}{%
+        {{hash=02eca29aac8134bfb7dc9e6f473bf172}{%
+           family={Properties\bibnamedelimb of\bibnamedelima Water},
+           familyi={P\bibinitperiod\bibinitdelim o\bibinitperiod\bibinitdelim W\bibinitperiod},
+           given={International\bibnamedelima Association},
+           giveni={I\bibinitperiod\bibinitdelim A\bibinitperiod},
+           prefix={for\bibnamedelima the},
+           prefixi={f\bibinitperiod\bibinitdelim t\bibinitperiod}}}%
+        {{hash=4db4563826bad0eb2f60ee6e42d0ea4b}{%
+           family={Steam},
+           familyi={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{8d76d4a24cbf2da576d2119ea0182c3f}
+      \strng{fullhash}{8d76d4a24cbf2da576d2119ea0182c3f}
+      \strng{bibnamehash}{8d76d4a24cbf2da576d2119ea0182c3f}
+      \strng{authorbibnamehash}{8d76d4a24cbf2da576d2119ea0182c3f}
+      \strng{authornamehash}{8d76d4a24cbf2da576d2119ea0182c3f}
+      \strng{authorfullhash}{8d76d4a24cbf2da576d2119ea0182c3f}
+      \field{sortinit}{P}
+      \field{sortinithash}{8d51b3d5b78d75b54308d706b9bbe285}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{subtitle}{IAPWS G5-01(2016)}
+      \field{title}{Guideline on the Use of Fundamental Physical Constants and Basic Constants of Water}
+      \field{year}{2016}
+      \field{dateera}{ce}
+    \endentry
+    \entry{mesoscale}{book}{}
+      \name{editor}{1}{}{%
+        {{hash=ec1c4ff773d687fad39193a97a106414}{%
+           family={Ray},
+           familyi={R\bibinitperiod},
+           given={Peter\bibnamedelima S.},
+           giveni={P\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {American Meteorological Society}%
+      }
+      \strng{namehash}{ec1c4ff773d687fad39193a97a106414}
+      \strng{fullhash}{ec1c4ff773d687fad39193a97a106414}
+      \strng{bibnamehash}{ec1c4ff773d687fad39193a97a106414}
+      \strng{editorbibnamehash}{ec1c4ff773d687fad39193a97a106414}
+      \strng{editornamehash}{ec1c4ff773d687fad39193a97a106414}
+      \strng{editorfullhash}{ec1c4ff773d687fad39193a97a106414}
+      \field{sortinit}{R}
+      \field{sortinithash}{da6b42bd3ab22fee61abed031ee405f7}
+      \field{labelnamesource}{editor}
+      \field{labeltitlesource}{title}
+      \field{title}{Mesoscale Meteorology and Forecasting}
+      \field{year}{1987}
+      \field{dateera}{ce}
+    \endentry
+    \entry{staniforth_grids}{article}{}
+      \name{author}{2}{}{%
+        {{hash=f770a96aa678a83da5d418076e3bfc6e}{%
+           family={Staniforth},
+           familyi={S\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=af966a6b2706721ca534f9da00b41bc0}{%
+           family={Thuburn},
+           familyi={T\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{9a817218953150a23e3620620298d9f2}
+      \strng{fullhash}{9a817218953150a23e3620620298d9f2}
+      \strng{bibnamehash}{9a817218953150a23e3620620298d9f2}
+      \strng{authorbibnamehash}{9a817218953150a23e3620620298d9f2}
+      \strng{authornamehash}{9a817218953150a23e3620620298d9f2}
+      \strng{authorfullhash}{9a817218953150a23e3620620298d9f2}
+      \field{sortinit}{S}
+      \field{sortinithash}{322b1d5276f2f6c1bccdcd15920dbee6}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Quarterly Journal of the Royal Meteorological Society}
+      \field{title}{Horizontal grids for global weather and climate prediction: a review}
+      \field{year}{2011}
+      \field{dateera}{ce}
+    \endentry
+    \entry{arakawa_grids_figure}{misc}{}
+      \field{sortinit}{T}
+      \field{sortinithash}{6f7aff9db9dcfeb7f95fd5bbd2f78df9}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Wikimedia Commons, user: Rpnl ocn, license: CC BY - SA 4.0}
+      \field{title}{The five different grids by Arakawa}
+    \endentry
+    \entry{bott_dynamics}{book}{}
+      \name{author}{2}{}{%
+        {{hash=f67a35ac68b241a43b9109134a75225c}{%
+           family={Zdunkowski},
+           familyi={Z\bibinitperiod},
+           given={W.},
+           giveni={W\bibinitperiod}}}%
+        {{hash=f494ca8c884a14be5e61ec76881b7c75}{%
+           family={Bott.},
+           familyi={B\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{e2d2cf6be438ba69fd72afa3f22a849e}
+      \strng{fullhash}{e2d2cf6be438ba69fd72afa3f22a849e}
+      \strng{bibnamehash}{e2d2cf6be438ba69fd72afa3f22a849e}
+      \strng{authorbibnamehash}{e2d2cf6be438ba69fd72afa3f22a849e}
+      \strng{authornamehash}{e2d2cf6be438ba69fd72afa3f22a849e}
+      \strng{authorfullhash}{e2d2cf6be438ba69fd72afa3f22a849e}
+      \field{sortinit}{Z}
+      \field{sortinithash}{156173bd08b075d7295bc3e0f4735a04}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{subtitle}{A Course in Theoretical Meteorology}
+      \field{title}{Dynamics of the Atmosphere}
+      \field{year}{2013}
+      \field{dateera}{ce}
+    \endentry
+    \entry{bott_thermodynamics}{book}{}
+      \name{author}{2}{}{%
+        {{hash=f67a35ac68b241a43b9109134a75225c}{%
+           family={Zdunkowski},
+           familyi={Z\bibinitperiod},
+           given={W.},
+           giveni={W\bibinitperiod}}}%
+        {{hash=f494ca8c884a14be5e61ec76881b7c75}{%
+           family={Bott.},
+           familyi={B\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{e2d2cf6be438ba69fd72afa3f22a849e}
+      \strng{fullhash}{e2d2cf6be438ba69fd72afa3f22a849e}
+      \strng{bibnamehash}{e2d2cf6be438ba69fd72afa3f22a849e}
+      \strng{authorbibnamehash}{e2d2cf6be438ba69fd72afa3f22a849e}
+      \strng{authornamehash}{e2d2cf6be438ba69fd72afa3f22a849e}
+      \strng{authorfullhash}{e2d2cf6be438ba69fd72afa3f22a849e}
+      \field{sortinit}{Z}
+      \field{sortinithash}{156173bd08b075d7295bc3e0f4735a04}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{subtitle}{A Course in Theoretical Meteorology}
+      \field{title}{Thermodynamics of the Atmosphere}
+      \field{year}{2004}
+      \field{dateera}{ce}
+    \endentry
+    \entry{bott_radiation}{book}{}
+      \name{author}{3}{}{%
+        {{hash=f67a35ac68b241a43b9109134a75225c}{%
+           family={Zdunkowski},
+           familyi={Z\bibinitperiod},
+           given={W.},
+           giveni={W\bibinitperiod}}}%
+        {{hash=eacf2b7ceddcf0fe3674a52a68330ce4}{%
+           family={Trautmann},
+           familyi={T\bibinitperiod},
+           given={T.},
+           giveni={T\bibinitperiod}}}%
+        {{hash=f494ca8c884a14be5e61ec76881b7c75}{%
+           family={Bott.},
+           familyi={B\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{216c1a145486f11ac0be9c9ff692f060}
+      \strng{fullhash}{216c1a145486f11ac0be9c9ff692f060}
+      \strng{bibnamehash}{216c1a145486f11ac0be9c9ff692f060}
+      \strng{authorbibnamehash}{216c1a145486f11ac0be9c9ff692f060}
+      \strng{authornamehash}{216c1a145486f11ac0be9c9ff692f060}
+      \strng{authorfullhash}{216c1a145486f11ac0be9c9ff692f060}
+      \field{sortinit}{Z}
+      \field{sortinithash}{156173bd08b075d7295bc3e0f4735a04}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{subtitle}{A Course in Theoretical Meteorology}
+      \field{title}{Radiation in the Atmosphere}
+      \field{year}{2007}
+      \field{dateera}{ce}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
