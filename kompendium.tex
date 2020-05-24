@@ -4,9 +4,9 @@
 \usepackage[nodisplayskipstretch]{setspace}
 \usepackage[oldsyntax]{stackengine}
 \usepackage{csquotes, makeidx, fancybox, microtype, graphicx, mathtools, subcaption, amssymb, fancyhdr, titlesec, mathspec, fontspec, listings, color, array}
-\setmainfont{OldStandard}[Extension = .otf, Path = /home/max/custom_builds/fonts/oldstandard/fonts/opentype/public/oldstandard/, UprightFont = *-Regular, BoldFont = *-Bold, ItalicFont = *-Italic, Ligatures = TeX]
-\setmathsfont(Latin)[Path = /home/max/custom_builds/fonts/oldstandard/fonts/opentype/public/oldstandard/, Extension = .otf]{OldStandard-Italic}
-\setmathrm[Path = /home/max/custom_builds/fonts/oldstandard/fonts/opentype/public/oldstandard/, Extension = .otf]{OldStandard-BoldItalic}
+\setmainfont{OldStandard}[Extension = .otf, Path = /home/max/latex_man_fonts/oldstandard/fonts/opentype/public/oldstandard/, UprightFont = *-Regular, BoldFont = *-Bold, ItalicFont = *-Italic, Ligatures = TeX]
+\setmathsfont(Latin)[Path = /home/max/latex_man_fonts/oldstandard/fonts/opentype/public/oldstandard/, Extension = .otf]{OldStandard-Italic}
+\setmathrm[Path = /home/max/latex_man_fonts/oldstandard/fonts/opentype/public/oldstandard/, Extension = .otf]{OldStandard-BoldItalic}
 % \setmainfont{OldStandard}[Extension = .otf, Path = /home/max/custom_builds/fonts/oldstandard/opentype/, UprightFont = *-Regular, BoldFont = *-Bold, ItalicFont = *-Italic, Ligatures = TeX]
 % \setmathsfont(Latin)[Path = /home/max/custom_builds/fonts/oldstandard/opentype/, Extension = .otf]{OldStandard-Italic}
 % \setmathrm[Path = /home/max/custom_builds/fonts/oldstandard/opentype/, Extension = .otf]{OldStandard-BoldItalic}
@@ -107,7 +107,7 @@
 \newfontfamily{\bask}{GFS Baskerville}
 \let\sum\relax
 \DeclareMathOperator*{\sum}{\raisebox{-3.5pt}{\scalebox{2}{\rotatebox{1}{{\bask Σ}}}}}
-\newfontfamily{\osgbi}[Path = /home/max/custom_builds/fonts/oldstandard/fonts/opentype/public/oldstandard/, Extension = .otf]{OldStandard-BoldItalic}
+\newfontfamily{\osgbi}[Path = /home/max/latex_man_fonts/oldstandard/fonts/opentype/public/oldstandard/, Extension = .otf]{OldStandard-BoldItalic}
 % \newfontfamily{\osgbi}[Path = /home/max/custom_builds/fonts/oldstandard/opentype/, Extension = .otf]{OldStandard-BoldItalic}
 \newcommand{\omegabi}{\text{{\osgbi ω}}}
 \newcommand{\mubi}{\text{{\osgbi μ}}}
@@ -15118,30 +15118,6 @@ g = \left|\begin{array}{ccc}
 \end{array}\right| = r^4\sin^2\left(\theta\right).
 \end{eqnarray}
 %
-Ihre Inverse ist
-%
-\begin{eqnarray}
-J^{-1} & = & \left(\begin{array}{ccc}
-\frac{\partial r}{\partial x}&\frac{\partial r}{\partial y}&\frac{\partial r}{\partial z}\\
-\frac{\partial \theta}{\partial x}&\frac{\partial \theta}{\partial y}&\frac{\partial \theta}{\partial z}\\
-\frac{\partial\phi}{\partial x}&\frac{\partial\phi}{\partial y}&\frac{\partial\phi}{\partial z}
-\end{array}\right) = \left(\begin{array}{ccc}
-\sin\left(\theta\right)\cos\left(\phi\right)&\sin\left(\theta\right)\sin\left(\phi\right)&\cos\left(\theta\right)\\
-\frac{1}{r}\cos\left(\theta\right)\cos\left(\phi\right)&\frac{1}{r}\cos\left(\theta\right)\sin\left(\phi\right)& -\frac{1}{r}\sin\left(\theta\right)\\
-- \frac{1}{r}\frac{\sin\left(\phi\right)}{\sin\left(\theta\right)}&\frac{1}{r}\frac{\cos\left(\phi\right)}{\sin\left(\theta\right)}&0
-\end{array}\right).
-\end{eqnarray}
-%
-Die Probe ist
-%
-\begin{eqnarray}
-J^{-1}J = \left(\begin{array}{ccc}
-1&r\sin\left(\theta\right)\cos\left(\theta\right) - r\sin\left(\theta\right)\cos\left(\theta\right)&0\\
-\frac{1}{r}\cos\left(\theta\right)\sin\left(\theta\right) - \frac{1}{r}\sin\left(\theta\right)\cos\left(\theta\right)&1&0\\
-0&0&1
-\end{array}\right) = 1.
-\end{eqnarray}
-%
 Die normierten Spalten von $J$ sind die ortsabhängigen Basisvektoren:
 %
 \begin{eqnarray}
@@ -15162,25 +15138,7 @@ Die normierten Spalten von $J$ sind die ortsabhängigen Basisvektoren:
 \end{array}\right)\label{eq:kugel_zu_global_3}
 \end{eqnarray}
 %
-Wegen
-%
-\begin{eqnarray}
-\mathbf{e}_\theta \times \mathbf{e}_\phi & = & \left(\begin{array}{c}
-\cos\left(\theta\right)\cos\left(\phi\right)\\
-\cos\left(\theta\right)\sin\left(\phi\right)\\
--\sin\left(\theta\right)
-\end{array}\right) \times \left(\begin{array}{c}
--\sin\left(\phi\right)\\
-\cos\left(\phi\right)\\
-0
-\end{array}\right) = \left(\begin{array}{c}
-\sin\left(\theta\right)\cos\left(\phi\right)\\
-\sin\left(\theta\right)\sin\left(\phi\right)\\
-\cos\left(\theta\right)
-\end{array}\right) = \mathbf{e}_r
-\end{eqnarray}
-%
-sind Kugelkoordinaten orthogonal und man kann die Glg.en \eqref{eq:div_gen} - \eqref{eq:tot_derivative_gen} anwenden. Um dies tun zu können, benötigt man die Wirkungen der Differenzialoperatoren auf die ortsabhängige Basis, diese sind in Termen von Ableitungen der Komponenten von $\mathbf{e}_r, \mathbf{e}_\theta, \mathbf{e}_\phi$ nach $x, y, z$ gegeben. Sei $e$ eine solche Komponente und sei $x_i$ eine kartesische Koordinate. Dann gilt nach Glg. \eqref{eq:mehr_dim_kette}
+Man kann die Glg.en \eqref{eq:div_gen} - \eqref{eq:tot_derivative_gen} anwenden. Um dies tun zu können, benötigt man die Wirkungen der Differenzialoperatoren auf die ortsabhängige Basis, diese sind in Termen von Ableitungen der Komponenten von $\mathbf{e}_r, \mathbf{e}_\theta, \mathbf{e}_\phi$ nach $x, y, z$ gegeben. Sei $e$ eine solche Komponente und sei $x_i$ eine kartesische Koordinate. Dann gilt nach Glg. \eqref{eq:mehr_dim_kette}
 %
 \begin{eqnarray}
 \frac{\partial e}{\partial x_i} = \frac{d}{dx_i}e\left(\left(r, \theta, \phi\right)\left(x_1, x_2, x_3\right)\right) = \left(\begin{array}{c}
@@ -15192,76 +15150,6 @@ sind Kugelkoordinaten orthogonal und man kann die Glg.en \eqref{eq:div_gen} - \e
 \frac{\partial \theta}{\partial x_i}\\
 \frac{\partial\phi}{\partial x_i}
 \end{array}\right).
-\end{eqnarray}
-%
-Somit kann man nun die partiellen Ableitungen der Komponenten der Basisvektoren bestimmen:
-%
-\begin{eqnarray}
-\frac{\partial}{\partial x}e_r^{(x)} & = & \cos\left(\theta\right)\cos\left(\phi\right)\frac{1}{r}\cos\left(\theta\right)\cos\left(\phi\right) - \sin\left(\theta\right)\sin\left(\phi\right)\cdot\left(-\frac{1}{r}\frac{\sin\left(\phi\right)}{\sin\left(\theta\right)}\right)\nonumber\\
-& = & \frac{1}{r}\cos^2\theta\cos^2\left(\phi\right) + \frac{1}{r}\sin^2\left(\phi\right)\\
-\frac{\partial}{\partial y}e_r^{(x)}& = & \cos\left(\theta\right)\cos\left(\phi\right)\frac{1}{r}\cos\left(\theta\right)\sin\left(\phi\right) - \sin\left(\theta\right)\sin\left(\phi\right)\frac{1}{r}\frac{\cos\left(\phi\right)}{\sin\left(\theta\right)}\nonumber\\
-& = & \frac{1}{r}\cos^2\theta\cos\left(\phi\right)\sin\left(\phi\right) - \frac{1}{r}\sin\left(\phi\right)\cos\left(\phi\right)\\
-\frac{\partial}{\partial z}e_r^{(x)} & = & \cos\left(\theta\right)\cos\left(\phi\right)\cdot\left(-\frac{1}{r}\sin\left(\theta\right)\right)\\
-\frac{\partial}{\partial x}e_r^{(y)} & = & \cos\left(\theta\right)\sin\left(\phi\right)\frac{1}{r}\cos\left(\theta\right)\cos\left(\phi\right) + \sin\left(\theta\right)\cos\left(\phi\right)\cdot\left(-\frac{1}{r}\frac{\sin\left(\phi\right)}{\sin\left(\theta\right)}\right)\nonumber\\
-& = & \frac{1}{r}\cos^2\theta\cos\left(\phi\right)\sin\left(\phi\right) - \frac{1}{r}\cos\left(\phi\right)\sin\left(\phi\right)\\
-\frac{\partial}{\partial y}e_r^{(y)} & = & \cos\left(\theta\right)\sin\left(\phi\right)\frac{1}{r}\cos\left(\theta\right)\sin\left(\phi\right) + \sin\left(\theta\right)\cos\left(\phi\right)\frac{1}{r}\frac{\cos\left(\phi\right)}{\sin\left(\theta\right)}\nonumber\\
-& = & \frac{1}{r}\cos^2\theta\sin^2\left(\phi\right) + \frac{1}{r}\cos^2\left(\phi\right)\\
-\frac{\partial}{\partial z}e_r^{(y)} & = & -\frac{1}{r}\sin\left(\theta\right)\cos\left(\theta\right)\sin\left(\phi\right)\\
-\frac{\partial}{\partial x}e_r^{(z)} & = & -\frac{1}{r}\sin\left(\theta\right)\cos\left(\theta\right)\cos\left(\phi\right)\\
-\frac{\partial}{\partial y}e_r^{(z)} & = & -\frac{1}{r}\cos\left(\theta\right)\sin\left(\phi\right)\sin\left(\theta\right)\\
-\frac{\partial}{\partial z}e_r^{(z)} & = & \frac{1}{r}\sin^2\left(\theta\right)
-\end{eqnarray}
-\begin{eqnarray}
-\frac{\partial}{\partial x}e_\theta^{(x)} & = & - \sin\left(\theta\right)\cos\left(\phi\right)\frac{1}{r}\cos\left(\theta\right)\cos\left(\phi\right) + \cos\left(\theta\right)\sin\left(\phi\right)\frac{1}{r}\frac{\sin\left(\phi\right)}{\sin\left(\theta\right)}\\
-\frac{\partial}{\partial y}e_\theta^{(x)} & = & - \sin\left(\theta\right)\cos\left(\phi\right)\frac{1}{r}\cos\left(\theta\right)\sin\left(\phi\right) - \cos\left(\theta\right)\sin\left(\phi\right)\frac{1}{r}\frac{\cos\left(\phi\right)}{\sin\left(\theta\right)}\\
-\frac{\partial}{\partial z}e_\theta^{(x)} & = & \frac{1}{r}\sin^2\left(\theta\right)\cos\left(\phi\right)\\
-\frac{\partial}{\partial x}e_\theta^{(y)} & = & -\sin\left(\theta\right)\sin\left(\phi\right)\frac{1}{r}\cos\left(\theta\right)\cos\left(\phi\right) + \cos\left(\theta\right)\cos\left(\phi\right)\cdot\left(-\frac{1}{r}\frac{\sin\left(\phi\right)}{\sin\left(\theta\right)}\right)\\
-\frac{\partial}{\partial y}e_\theta^{(y)} & = & -\sin\left(\theta\right)\sin\left(\phi\right)\frac{1}{r}\cos\left(\theta\right)\sin\left(\phi\right) + \cos\left(\theta\right)\cos\left(\phi\right)\frac{1}{r}\frac{\cos\left(\phi\right)}{\sin\left(\theta\right)}\\
-\frac{\partial}{\partial z}e_\theta^{(y)} & = & \frac{1}{r}\sin^2\left(\theta\right)\sin\left(\phi\right)\\
-\frac{\partial}{\partial x}e_\theta^{(z)} & = & -\frac{1}{r}\cos^2\theta\cos\left(\phi\right)\\
-\frac{\partial}{\partial y}e_\theta^{(z)} & = & -\cos\left(\theta\right)\frac{1}{r}\cos\left(\theta\right)\sin\left(\phi\right)\\
-\frac{\partial}{\partial z}e_\theta^{(z)} & = & \frac{1}{r}\sin\left(\theta\right)\cos\left(\theta\right)
-\end{eqnarray}
-\begin{eqnarray}
-\frac{\partial}{\partial x}e_\phi^{(x)} & = & \cos\left(\phi\right)\frac{1}{r}\frac{\sin\left(\phi\right)}{\sin\left(\theta\right)}\\
-\frac{\partial}{\partial y}e_\phi^{(x)} & = & - \frac{1}{r}\frac{\cos^2\left(\phi\right)}{\sin\left(\theta\right)}\\
-\frac{\partial}{\partial z}e_\phi^{(x)} & = & 0\\
-\frac{\partial}{\partial x}e_\phi^{(y)} & = & \frac{1}{r}\frac{\sin^2\left(\phi\right)}{\sin\left(\theta\right)}\\
-\frac{\partial}{\partial y}e_\phi^{(y)} & = & -\sin\left(\phi\right)\frac{1}{r}\frac{\cos\left(\phi\right)}{\sin\left(\theta\right)}\\
-\frac{\partial}{\partial z}e_\phi^{(y)} & = & 0\\
-\frac{\partial}{\partial x}e_\phi^{(z)} & = & 0\\
-\frac{\partial}{\partial y}e_\phi^{(z)} & = & 0\\
-\frac{\partial}{\partial z}e_\phi^{(z)} & = & 0
-\end{eqnarray}
-%
-Für die Divergenzen der Basiselemente gilt somit
-%
-\begin{eqnarray}
-\nabla\cdot\mathbf{e}_r & = & \frac{2}{r},\\
-\nabla\cdot\mathbf{e}_\theta & = & \frac{1}{r}\frac{1}{\tan\left(\theta\right)},\\
-\nabla\cdot\mathbf{e}_\phi & = & 0.
-\end{eqnarray}
-%
-Für die Rotationen der Basiselemente folgt
-%
-\begin{eqnarray}
-\nabla\times\mathbf{e}_r = \mathbf{0}, \label{eq:er_rot}
-\end{eqnarray}
-%
-\begin{eqnarray}
-\nabla\times\mathbf{e}_\theta = \left(\begin{array}{c}
-- \frac{1}{r}\sin\left(\phi\right)\\
-\frac{1}{r}\cos\left(\phi\right)\\
-0
-\end{array}\right) = \frac{1}{r}\mathbf{e}_\varphi, 
-\end{eqnarray}
-%
-\begin{eqnarray}
-\nabla\times\mathbf{e}_\phi = \left(\begin{array}{c}
-0\\
-0\\
-\frac{1}{r\sin\left(\theta\right)}
-\end{array}\right) = -\frac{1}{r}\mathbf{e}_\theta + \frac{1}{r\tan\left(\theta\right)}\mathbf{e}_r.
 \end{eqnarray}
 %
 Damit gilt nach Glg. \eqref{eq:laplace_gen}
@@ -15303,44 +15191,6 @@ als Winkelanteil des Laplace-Operators. Dieser Winkelanteil wird in Kugelkoordin
 \Delta_{\theta, \phi} = \frac{1}{\sin\left(\theta\right)}\frac{\partial}{\partial\theta}\left(\sin\left(\theta\right)\frac{\partial}{\partial\theta}\right) + \frac{1}{\sin^2\left(\theta\right)}\frac{\partial^2}{\partial\phi^2}.\label{eq:laplace_winkelanteil}
 \end{eqnarray}
 %
-Wendet man die Darstellung \eqref{eq:laplace_klugel} auf die Basiselemente an, erhält man
-%
-\begin{eqnarray}
-\Delta\mathbf{e}_r & = & \frac{1}{r^2}\left(\begin{array}{c}
-- \sin\left(\theta\right)\cos\left(\phi\right) + \frac{\cos^2\theta}{\sin\left(\theta\right)}\cos\left(\phi\right) - \frac{\cos\left(\phi\right)}{\sin\left(\theta\right)}\\
-- \sin\left(\theta\right)\sin\left(\phi\right) + \frac{\cos^2\theta}{\sin\left(\theta\right)}\sin\left(\phi\right) - \frac{\sin\left(\phi\right)}{\sin\left(\theta\right)}\\
-- 2\cos\left(\theta\right)
-\end{array}\right)\nonumber\\
-& = & \frac{1}{r^2\sin\left(\theta\right)}\left(\begin{array}{c}
-- \sin^2\left(\theta\right)\cos\left(\phi\right) + \cos^2\theta\cos\left(\phi\right) - \cos\left(\phi\right)\\
-- \sin^2\left(\theta\right)\sin\left(\phi\right) + \cos^2\theta\sin\left(\phi\right) - \sin\left(\phi\right)\\
-- 2\cos\left(\theta\right)\sin\left(\theta\right)
-\end{array}\right)\nonumber\\
-& = & \frac{1}{r^2\sin\left(\theta\right)}\left(\begin{array}{c}
-- 2\sin^2\left(\theta\right)\cos\left(\phi\right)\\
-- 2\sin^2\left(\theta\right)\sin\left(\phi\right)\\
-- 2\cos\left(\theta\right)\sin\left(\theta\right)
-\end{array}\right) = -\frac{2}{r^2}\mathbf{e}_r
-, \end{eqnarray}
-\begin{eqnarray}
-\Delta\mathbf{e}_\theta & = & \frac{1}{r^2}\left(\begin{array}{c}
-- \cos\left(\theta\right)\cos\left(\phi\right) - \cos\left(\phi\right)\cos\left(\theta\right) - \frac{\cos\left(\theta\right)\cos\left(\phi\right)}{\sin^2\left(\theta\right)}\\
-- \cos\left(\theta\right)\sin\left(\phi\right) - \sin\left(\phi\right)\cos\left(\theta\right) - \frac{\cos\left(\theta\right)\sin\left(\phi\right)}{\sin^2\left(\theta\right)}\\
-2\sin\left(\theta\right) - \frac{1}{\sin\left(\theta\right)}
-\end{array}\right) = -\frac{2}{r^2}\mathbf{e}_\theta - \frac{1}{r^2\sin^2\left(\theta\right)}\mathbf{\left(\begin{array}{c}
-\cos\left(\theta\right)\cos\left(\phi\right)\\
-\cos\left(\theta\right)\sin\left(\phi\right)\\
-\sin\left(\theta\right)
-\end{array}\right)}\nonumber\\
-& = & -\frac{2}{r^2}\mathbf{e}_\theta - \frac{1}{r^2\sin^2\left(\theta\right)}\left[2\cos\left(\theta\right)\sin\left(\theta\right)\mathbf{e}_r + \left(\cos^2\theta - \sin^2\left(\theta\right)\right)\mathbf{e}_\theta\right]\nonumber\\
-& = & -\frac{2\cos\left(\theta\right)}{r^2\sin\left(\theta\right)}\mathbf{e}_r - \frac{1}{r^2}\left[1 + \frac{\cos^2\theta}{\sin^2\left(\theta\right)}\right]\mathbf{e}_\theta = -\frac{2\cos\left(\theta\right)}{r^2\sin\left(\theta\right)}\mathbf{e}_r - \frac{1}{r^2\sin^2\left(\theta\right)}\mathbf{e}_\theta,\\
-\Delta\mathbf{e}_\phi & = & \frac{1}{r^2\sin^2\left(\theta\right)}\left(\begin{array}{c}
-\sin\left(\phi\right)\\
-- \cos\left(\phi\right)\\
-0
-\end{array}\right) = -\frac{1}{r^2\sin^2\left(\theta\right)}\mathbf{e}_\phi.
-\end{eqnarray}
-%
 Für Vektorfelder schreibt man dann
 %
 \begin{eqnarray}
@@ -15358,39 +15208,6 @@ Es gilt
 \begin{eqnarray}
 \nabla\times\mathbf{v} & = & \frac{v_\theta}{r}\mathbf{e}_\phi + \frac{v_\phi}{r\tan\left(\theta\right)}\mathbf{e}_r - \frac{v_\phi}{r}\mathbf{e}_\theta + \mathbf{e}_r\left(\frac{1}{r}\frac{\partial v_\phi}{\partial\theta} - \frac{1}{r\sin\left(\theta\right)}\frac{\partial v_\theta}{\partial\phi}\right)\nonumber\\
 &&+ \mathbf{e}_\theta\left(\frac{1}{r\sin\left(\theta\right)}\frac{\partial v_r}{\partial\phi} - \frac{\partial v_\phi}{\partial r}\right) + \mathbf{e}_\phi\left(\frac{\partial v_\theta}{\partial r} - \frac{1}{r}\frac{\partial v_r}{\partial\theta}\right)\label{eq:rot_kugel}.
-\end{eqnarray}
-%
-Es gilt mit Glg. \eqref{eq:laplace_vekt_gen}
-%
-\begin{eqnarray}
-\Delta\mathbf{v} & = & \Delta v_r\mathbf{e}_r + \Delta v_\theta\mathbf{e}_\theta + \Delta v_\phi \mathbf{e}_\phi + v_r\Delta\mathbf{e}_r + v_\theta\Delta\mathbf{e}_\theta + v_\phi\Delta\mathbf{e}_\phi + \frac{2}{\left|\frac{\partial\mathbf{r}}{\partial r}\right|^2}\frac{\partial v_r}{\partial r}\frac{\partial\mathbf{e}_r}{\partial r}\nonumber\\
-&&+ \frac{2}{\left|\frac{\partial\mathbf{r}}{\partial \theta}\right|^2}\frac{\partial v_r}{\partial\theta}\frac{\partial\mathbf{e}_r}{\partial\theta} + \frac{2}{\left|\frac{\partial\mathbf{r}}{\partial\phi}\right|^2}\frac{\partial v_r}{\partial\phi}\frac{\partial\mathbf{e}_r}{\partial\phi} + \frac{2}{\left|\frac{\partial\mathbf{r}}{\partial r}\right|^2}\frac{\partial v_\theta}{\partial r}\frac{\partial\mathbf{e}_\theta}{\partial r} + \frac{2}{\left|\frac{\partial\mathbf{r}}{\partial \theta}\right|^2}\frac{\partial v_\theta}{\partial\theta}\frac{\partial\mathbf{e}_\theta}{\partial\theta}\nonumber\\
-&&+ \frac{2}{\left|\frac{\partial\mathbf{r}}{\partial\phi}\right|^2}\frac{\partial v_\theta}{\partial\phi}\frac{\partial\mathbf{e}_\theta}{\partial\phi} + \frac{2}{\left|\frac{\partial\mathbf{r}}{\partial r}\right|^2}\frac{\partial v_\phi}{\partial r}\frac{\partial\mathbf{e}_\phi}{\partial r} + \frac{2}{\left|\frac{\partial\mathbf{r}}{\partial \theta}\right|^2}\frac{\partial v_\phi}{\partial\theta}\frac{\partial\mathbf{e}_\phi}{\partial\theta} + \frac{2}{\left|\frac{\partial\mathbf{r}}{\partial\phi}\right|^2}\frac{\partial v_\phi}{\partial\phi}\frac{\partial\mathbf{e}_\phi}{\partial\phi}.
-\end{eqnarray}
-%
-Dabei sind
-%
-\begin{eqnarray}
-\frac{1}{\left|\frac{\partial\mathbf{r}}{\partial r}\right|} & = & 1,\\
-\frac{1}{\left|\frac{\partial\mathbf{r}}{\partial\theta}\right|} & = & r,\\
-\frac{1}{\left|\frac{\partial\mathbf{r}}{\partial\phi}\right|} & = & r\sin\left(\theta\right),\\
-\frac{\partial\mathbf{e}_r}{\partial r} & = & \mathbf{0},\\
-\frac{\partial\mathbf{e}_r}{\partial\theta} & = & \mathbf{e}_\theta,\\
-\frac{\partial\mathbf{e}_r}{\partial\phi} & = & \sin\left(\theta\right)\mathbf{e}_\phi,\\
-\frac{\partial\mathbf{e}_\theta}{\partial r} & = & -\mathbf{0},\\
-\frac{\partial\mathbf{e}_\theta}{\partial\theta} & = & -\mathbf{e}_r,\\
-\frac{\partial\mathbf{e}_\theta}{\partial\phi} & = & \cos\left(\theta\right)\mathbf{e}_\phi,\\
-\frac{\partial\mathbf{e}_\phi}{\partial r} & = & \mathbf{0},\\
-\frac{\partial\mathbf{e}_\phi}{\partial\theta} & = & \mathbf{0},\\
-\frac{\partial\mathbf{e}_\phi}{\partial\phi} & = & -\sin\left(\theta\right)\mathbf{e}_r - \cos\left(\theta\right)\mathbf{e}_\theta.
-\end{eqnarray}
-%
-Man erhält somit
-%
-\begin{eqnarray}
-\Delta\mathbf{v} & = & \mathbf{e}_r\left(\Delta v_r - \frac{2v_r}{r^2} - \frac{2}{r^2\sin\left(\theta\right)}\frac{\partial v_\phi}{\partial\phi} - \frac{2}{r^2}\frac{\partial v_\theta}{\partial\theta} - \frac{2}{r^2\tan\left(\theta\right)}v_\theta\right)\nonumber\\
-&&+ \mathbf{e}_\theta\left(\Delta v_\theta - \frac{2\cos\left(\theta\right)}{r^2\sin^2\left(\theta\right)}\frac{\partial v_\phi}{\partial\phi} - \frac{v_\theta}{r^2\sin^2\left(\theta\right)} + \frac{2}{r^2}\frac{\partial v_r}{\partial\theta}\right)\nonumber\\
-&&+ \mathbf{e}_\phi\left(\Delta v_\phi - \frac{1}{r^2\sin^2\left(\theta\right)}v_\phi + \frac{2\cos\left(\theta\right)}{r^2\sin^2\left(\theta\right)}\frac{\partial v_\theta}{\partial\phi} + \frac{2}{r^2\sin\left(\theta\right)}\frac{\partial v_r}{\partial\phi}\right).\label{eq:laplace_vek_kugel}
 \end{eqnarray}
 %
 Nun ist noch die materielle Ableitung (s. Glg. \eqref{eq:tot_derivative_gen}) zu bearbeiten:
@@ -15461,25 +15278,6 @@ Zu beachten ist, dass gilt
 %
 \begin{eqnarray}
 \nabla_H \times \mathbf{V} & = & \left(\frac{\partial v}{\partial x} - \frac{\partial u}{\partial y}\right)\mathbf{k} + \frac{u\tan\left(\varphi\right)}{r}\mathbf{k} + \frac{u}{r}\mathbf{j} - \frac{v}{r}\mathbf{i} \not= \zeta\mathbf{k}.
-\end{eqnarray}
-%
-Für den vektoriellen Laplace-Operator folgt mit Glg. \eqref{eq:laplace_vek_kugel}
-%
-\begin{eqnarray}
-\Delta\mathbf{v} & = & \mathbf{k}\left(\Delta v_r - \frac{2v_r}{r^2} - \frac{2}{r^2\cos\left(\varphi\right)}\frac{\partial v_x}{\partial\lambda} - \frac{2}{r^2}\frac{\partial v_y}{\partial\phi} + \frac{2\tan\left(\varphi\right)}{r^2}v_y\right)\nonumber\\
-&&+ \mathbf{j}\left(\Delta v_y + \frac{2\sin\left(\varphi\right)}{r^2\cos^2\left(\varphi\right)}\frac{\partial v_x}{\partial\lambda} - \frac{v_y}{r^2\cos^2\left(\varphi\right)} + \frac{2}{r^2}\frac{\partial v_r}{\partial\varphi}\right)\nonumber\\
-&&+ \mathbf{i}\left(\Delta v_x - \frac{1}{r^2\cos^2\left(\varphi\right)}v_x - \frac{2\sin\left(\varphi\right)}{r^2\cos^2\left(\varphi\right)}\frac{\partial v_y}{\partial\lambda} + \frac{2}{r^2\cos\left(\varphi\right)}\frac{\partial v_r}{\partial\lambda}\right)\nonumber\\
-& = & \mathbf{k}\left(\Delta v_r - \frac{2v_r}{r^2} - \frac{2}{r}\frac{\partial v_x}{\partial x} - \frac{2}{r}\frac{\partial v_y}{\partial y} + \frac{2\tan\left(\varphi\right)}{r^2}v_y\right)\nonumber\\
-&&+ \mathbf{j}\left(\Delta v_y + \frac{2}{r}\tan\left(\varphi\right)\frac{\partial v_x}{\partial x} - \frac{v_y}{r^2\cos^2\left(\varphi\right)} + \frac{2}{r}\frac{\partial v_r}{\partial y}\right)\nonumber\\
-&&+ \mathbf{i}\left(\Delta v_x - \frac{1}{r^2\cos^2\left(\varphi\right)}v_x - \frac{2}{r}\tan\left(\varphi\right)\frac{\partial v_y}{\partial x} + \frac{2}{r}\frac{\partial v_r}{\partial x}\right).
-\end{eqnarray}
-%
-Für $\mathbf{v} = \mathbf{U}$ gilt
-%
-\begin{eqnarray}
-\Delta\mathbf{U} & = & \left(\Delta u - \frac{1}{r^2\cos^2\left(\varphi\right)}u - \frac{2}{r}\tan\left(\varphi\right)\frac{\partial v}{\partial x} + \frac{2}{r}\frac{\partial w}{\partial x}\right)\mathbf{i}\nonumber\\
-&& + \left(\Delta v + \frac{2}{r}\tan\left(\varphi\right)\frac{\partial u}{\partial x} - \frac{v}{r^2\cos^2\left(\varphi\right)} + \frac{2}{r}\frac{\partial w}{\partial y}\right)\mathbf{j}\nonumber\\
-&& + \left(\Delta w - \frac{2w}{r^2} - \frac{2}{r}\frac{\partial u}{\partial x} - \frac{2}{r}\frac{\partial v}{\partial y} + \frac{2\tan\left(\varphi\right)}{r^2}v\right)\mathbf{k}.
 \end{eqnarray}
 %
 Für die \textit{materielle Ableitung}\index{materielle Ableitung}\index{Ableitung!materielle} folgt mit Glg. \eqref{eq:mat_derivative_kugel}
