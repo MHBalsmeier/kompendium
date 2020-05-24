@@ -7470,13 +7470,13 @@ c_h^{(v)}\left(\frac{p}{p_0}\right)^{R_s/c^{(p)}}\md{\theta} + \frac{T}{p}\omega
 \Leftrightarrow \left(\frac{p}{p_0}\right)^{R_s/c^{(p)}}\md{\theta}\frac{c_h^{(p)}}{c_h^{(v)}} + \frac{\omega R_hT}{p}\frac{c_h^{(v)} - c_h^{(p)} + R_h}{c_h^{(v)}c_h^{(p)}} & = & \frac{1}{c_h^{(v)}}\frac{q_h}{\rho_h}.
 \end{eqnarray}
 %
-Damit wird der Erste Hauptsatz der Thermodynamik für feuchte Luft zu
+Damit wird der Erste Hauptsatz der Thermodynamik für ein Gas zu
 %
 \begin{center}
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{eqnarray}
-\md{\theta} = \left(\frac{p_0}{p}\right)^{R_s/c^{(p)}}\frac{1}{c_h^{(p)}}\frac{q_h}{\rho_h} = \frac{\theta}{T c_h^{(p)}\rho_h}q_h.\label{eq:td1_humid_pot}
+\md{\theta} = \left(\frac{p_0}{p}\right)^{R_s/c^{(p)}}\frac{1}{c^{(p)}}\frac{q_T}{\rho} = \frac{\theta}{Tc_h^{(p)}\rho}\left(q_T - \frac{p}{\rho_h}q_\rho\right).\label{eq:td1_humid_pot}
 \end{eqnarray}
 \end{center}
 }}
@@ -7485,7 +7485,7 @@ Damit wird der Erste Hauptsatz der Thermodynamik für feuchte Luft zu
 Multipliziert man diese Gleichung mit $\rho_h$, erhält man
 %
 \begin{eqnarray}
-\rho_h\frac{\partial\theta}{\partial t} + \rho_h\mathbf{U}\cdot\nabla\theta = \frac{\theta}{T c_h^{(p)}}q_h
+\rho_h\frac{\partial\theta}{\partial t} + \rho_h\mathbf{U}\cdot\nabla\theta = \frac{\theta}{Tc_h^{(p)}}\left(q_h - \frac{p}{\rho_h}Q_h\right)
 \end{eqnarray}
 %
 Addiert man das Produkt der potentiellen Temperatur\index{potentielle Temperatur}\index{Temperatur!potentielle} mit der Kontinuitätsgleichung für feuchte Luft\index{Kontinuitätsgleichung!feuchte Luft}\index{feuchte Luft!Kontinuitätsgleichung}
@@ -7497,7 +7497,7 @@ Addiert man das Produkt der potentiellen Temperatur\index{potentielle Temperatur
 hinzu, folgt
 %
 \begin{eqnarray}
-\frac{\partial\left(\rho_h\theta\right)}{\partial t} + \nabla\cdot\left(\rho_h\theta\mathbf{U}\right) = \theta\left(\frac{q_h}{T c_h^{(p)}} + Q_h\right).\label{eq:td1_humid_pot_mod}
+\frac{\partial\left(\rho_h\theta\right)}{\partial t} + \nabla\cdot\left(\rho_h\theta\mathbf{U}\right) = \frac{\theta}{Tc_h^{(p)}}\left(q_h - \frac{p}{\rho_h}Q_h\right) + \theta Q_h.\label{eq:td1_humid_pot_mod}
 \end{eqnarray}
 %
 Nun soll noch die Definition der potentiellen Temperatur\index{potentielle Temperatur}\index{Temperatur!potentielle} in die Zustandsgleichung eingesetzt werden:
@@ -7505,6 +7505,28 @@ Nun soll noch die Definition der potentiellen Temperatur\index{potentielle Tempe
 \begin{eqnarray}
 p & = & \rho R_d\theta\left(\frac{p}{p_0}\right)^{R_d/c^{(p)}}\Rightarrow p^{1 - R_s/c^{(p)}} = \rho R_d\theta\frac{1}{p_0^{R_s/c^{(p)}}}\nonumber\\
 \Rightarrow p^{1/\kappa} & = & \rho R_d\theta\frac{1}{p_0^{R_s/c^{(p)}}}\Rightarrow p = \left(\rho R_d\theta\right)^\kappa\left(\frac{1}{p_0}\right)^{\kappa - 1}\label{eq:state_theta}
+\end{eqnarray}
+%
+Auch für $p$ kann eine prognostiosche Gleichung\index{prognostische Gleichung!Druck}\index{Druck!prognostische Gleichung}\index{Druck!Gleichung!prognostische}\index{Gleichung!prognostische!Druck} hergeleitet werden. Hierzu geht man zunächst davon aus, dass $R_h$ homogen ist:
+%
+\begin{eqnarray}
+p & = & \rho R_hT \Rightarrow \md{p} = R_h\left(T\md{\rho} + \rho\md{T}\right)
+\end{eqnarray}
+%
+Mit
+%
+\begin{eqnarray}
+\md{\rho} & = & -\rho\nabla\cdot\mathbf{U} + q_m,\\
+\md{T} & = & \frac{T}{\theta}\md{\theta} + \frac{TR_h}{c^{(p)}p}\md{p}
+\end{eqnarray}
+%
+folgt
+%
+\begin{eqnarray}
+\md{p} & = & R_dT\left(-\rho\nabla\cdot\mathbf{U} + q_{\rho_h}\right) + R_h\rho\left(\frac{T}{\theta}\md{\theta} + \frac{TR_h}{c^{(p)}p}\md{p}\right)\nonumber\\
+& = & -p\nabla\cdot\mathbf{U} + R_hTq_{\rho_h} + \frac{p}{\theta}\md{\theta} + \frac{R_d}{c^{(p)}}\md{p}\nonumber\\
+\Leftrightarrow \frac{c^{(v)}}{c^{(p)}}\md{p} & = & -p\nabla\cdot\mathbf{U} + R_dTq_{\rho_h} + \frac{p}{\theta}\md{\theta}\nonumber\\
+\md{p} & = & -\mathbf{U}\cdot\nabla p + \frac{c^{(p)}}{c^{(v)}}\left[-p\nabla\cdot\mathbf{U} + R_dTq_{\rho_h} + \frac{p}{Tc_h^{(p)}\rho_h}\left(q_h - \frac{p}{\rho_h}q_m\right)\right].
 \end{eqnarray}
 %
 Definiert man den \textit{Exner-Druck}\index{Exner-Druck} $\Pi$ durch
@@ -7574,7 +7596,20 @@ Für die spezifische Entropie $s$ gilt somit
 s = c^{(p)}\ln\left(\theta\right).\label{eq:entropy_spec_id_gas}
 \end{eqnarray}
 %
-In der isentropen Atmosphäre (Atmosphäre homogener spezifischer Entropie) ist also auch die potentielle Temperatur homogen. Dies führt zu einer anderen Abhängigkeit des Drucks von der Höhe als im Fall der isothermen Atmosphäre. Ist $\Gamma_d > 0$ der trockenadiabatische Temperaturgradient, gilt für die Temperatur $T(z) = T_0 - \Gamma_d z$ mit $T_0 \coloneqq T(z = 0)$. Damit folgt
+Man kann auch $s$ bzw. $s' \coloneqq \ln\left(\theta\right)$ als Zustandsgröße verwenden. Es gilt nämlich
+%
+\begin{eqnarray}
+\md{s'} = \frac{1}{\theta}\md\theta = \frac{1}{Tc_h^{(p)}\rho}\left(q_T - \frac{p}{\rho}q_\rho\right).
+\end{eqnarray}
+%
+Hieraus folgt mit der Kontinuitätsgleichung für $\rho$
+%
+\begin{eqnarray}
+\rho\md{s'} & = & \frac{\rho}{\theta}\md\theta\nonumber\\
+\Rightarrow \frac{\partial\left(\rho s'\right)}{\partial t} + \nabla\cdot\left(\rho s'\mathbf{U}\right) & = & \frac{1}{Tc^{(p)}}\left(q_T - \frac{p}{\rho}q_\rho\right) + s'q_\rho = \frac{q_T}{Tc^{(p)}} + q_\rho\left(s' - \frac{R_d}{c^{(p)}}\right).
+\end{eqnarray}
+%
+In der isentropen Atmosphäre (Atmosphäre homogener spezifischer Entropie) ist also nach Glg. \eqref{eq:entropy_spec_id_gas} auch die potentielle Temperatur homogen. Dies führt zu einer anderen Abhängigkeit des Drucks von der Höhe als im Fall der isothermen Atmosphäre. Ist $\Gamma_d > 0$ der trockenadiabatische Temperaturgradient, gilt für die Temperatur $T(z) = T_0 - \Gamma_d z$ mit $T_0 \coloneqq T(z = 0)$. Damit folgt
 %
 \begin{eqnarray}
 \frac{\partial p}{\partial z} = -g\rho = -g\frac{p}{R_dT} = -\frac{g}{R_d}\frac{p}{T_0 - \Gamma_d z} = \frac{gp}{R_d(\Gamma_d z - T_0)}
@@ -8164,16 +8199,18 @@ Für die potentielle Energie\index{potentielle Energie}\index{Energie!potentiell
 mit $z_S$ als Orographie\index{Orographie}. Man definiert die \textit{totale potentielle Energie}\index{Energie!potentielle!totale}\index{totale potentielle Energie} oder auch kurz potentielle Energie $\TPE$ durch
 %
 \begin{eqnarray}
-\TPE \coloneqq p_Sz_S + g^{-1}\int_0^{p_S}hdp = p_Sz_S + \frac{c^{(p)}}{g}\int_0^{p_S}\theta\left(\frac{p}{p_0}\right)^{R_d/c^{(p)}}dp\label{eq:tpe_id_1}
+\TPE \coloneqq = \PE + \IE = p_Sz_S + g^{-1}\int_0^{p_S}\left(c^{(v)} + R_d\right)dp = p_Sz_S + g^{-1}\int_0^{p_S}hdp = p_Sz_S + \frac{c^{(p)}}{g}\int_0^{p_S}\theta\left(\frac{p}{p_0}\right)^{R_d/c^{(p)}}dp\label{eq:tpe_id_1}
 \end{eqnarray}
 %
-mit $h = c^{(p)}T$ als Enthalpie\index{Enthalpie}. Man schätzt ab
+mit $h = c^{(p)}T$ als Enthalpie\index{Enthalpie}.Man schätzt ab
 %
 \begin{eqnarray}
-\frac{\KE}{\TPE} \sim \frac{\newoverline{V}^2}{2c^{(p)}\newoverline{T}} \sim 0, 02\text{ \%}.
+\frac{\KE}{\IE} \sim \frac{\newoverline{V}^2}{2c^{(v)}\newoverline{T}} \sim 0, 03\text{ \%}.
 \end{eqnarray}
 %
-Es ist also viel mehr innere als kinetische Energie in der Atmosphäre vorhanden, außerdem könnte man auch das Schwerepotential um eine beliebige Konstante verschieben, daher führt man das Konzept der \textit{verfügbaren potentiellen Energie}\index{Energie!potentielle!verfügbare}\index{verfügbare potentielle Energie} $\APE$ ein. Hierfür transformiert man zunächst Glg. \eqref{eq:tpe_id_1} ins $\theta-$System\index{$\theta-$System}:
+Es ist also viel mehr innere als kinetische Energie in der Atmosphäre vorhanden.
+
+Da man das Schwerepotential auch um eine beliebige Konstante verschieben könnte, führt man das Konzept der \textit{verfügbaren potentiellen Energie}\index{Energie!potentielle!verfügbare}\index{verfügbare potentielle Energie} $\APE$ ein. Hierfür transformiert man zunächst Glg. \eqref{eq:tpe_id_1} ins $\theta-$System\index{$\theta-$System}:
 %
 \begin{eqnarray}
 \TPE = p_Sz_S + \frac{c^{(p)}}{gp_0^{R_d/c^{(p)}}}\int_\infty^{\theta_S}\theta p\left(\theta\right)^{R_d/c^{(p)}}\frac{\partial p}{\partial\theta}d\theta
@@ -8283,7 +8320,6 @@ Nimmt man einen klimatologischen Wert $\newoverline{\Gamma} \approx \frac{2}{3}\
 Für $A$ wählt man die gesamte Erdoberfläche und setzt $T' \sim 15$ K, $\newoverline{T} \sim 270$ K an, dann folgen
 %
 \begin{eqnarray}
-\frac{\APE/A}{\TPE} & \sim & \frac{3\newoverline{T'^2}}{2\newoverline{T}^2} \sim 0, 5\text{ }\%,\\
 \frac{\APE/A}{\KE} & \sim & \frac{3\newoverline{T'^2}c^{(p)}}{\newoverline{T}\mathbf{V}^2} \sim 25.
 \end{eqnarray}
 %
@@ -12530,7 +12566,25 @@ Die Abschätzung der Auswirkungen subskaliger Variabilität auf die gemittelten 
 \subsection{Beispiel: skalare Diffusion}
 \label{sec:beispiel:skalare_diffusion}\index{skalare Diffusion!Parametrisierung}\index{Diffusion!skalare!Parametrisierung}\index{Parametrisierung!skalare Diffusion}\index{Parametrisierung!Diffusion!skalare}
 
-Um die Auswirkung der Subskala auf die Diffusion von skalaren Größen herzuleiten, wird von den primitiven Gleichungen in der Form
+Die Natur diffundiert die Größen Temperatur $T$ und Gasdichten $\rho_n$. Sei $\psi$ eine solche Größe. Die Diffusion erfolgt durch einen von den thermodynamischen Zustandsgrößen abhängenden Diffusionskoeffizienten $\kappa_\psi$, der somit von Ort und Zeit abhängt. Man notiert
+%
+\begin{eqnarray}
+\frac{\partial\psi}{\partial t} = \dots + \nabla\cdot\left(\kappa_\psi\nabla\psi\right).
+\end{eqnarray}
+%
+$\kappa_{psi}$ ist zunächst einmal molekularen Ursprungs. Durch die in nichtlinearen Systemen bei Mittelung entstehenden Kovarianzterme jedoch parametrisiert man subskaligen Fluss skalarer Größen sinnvollerweise so, dass man ansetzt
+%
+\begin{eqnarray}
+\kappa_{\psi, \Delta} = \kappa_\psi + \kappa_{\psi, S},
+\end{eqnarray}
+%
+wobei der Index $\Delta$ für den in die Diskretisierung einzusetzenden Diffusionskoeffizienten steht und der Index $S$ für die Auswirkung der Subskala. Auf diese Weise ist physikalische Konsistenz gewährleistet. Mit kleiner werdenden $\Delta x, \Delta t$, also mit höherer Ausflösung, konvergiert $\kappa_{\psi, \Delta}$ gegen $\kappa_{\psi}.$ Bei niedriger Ausflösung gilt in guter Näherung $\kappa_{\psi, \Delta} = \kappa_{\psi, S}$. Da der vertikale Gitterpunktabstand üblicherweise deutlich kleiner ist als der horizontale, kann man $\kappa_{\psi, S}$ richtungsabhängig ansetzen, also
+%
+\begin{eqnarray}
+\kappa_{\psi, \Delta}\nabla\psi \to \kappa_{\psi, \Delta, H}\nabla_H\psi + \kappa_{\psi, \Delta, z}\frac{\partial\psi}{\partial z}\mathbf{k}.
+\end{eqnarray}
+%
+Dabei ist der horizontale Diffusionskoeffizient größer als der vertikale.
 
 \subsection{Beispiel: Phasenübergangsraten}
 \label{sec:beispiel:phasenuebergangsraten}\index{Phasenübergangsrate!Parametrisierung}\index{Parametrisierung!Phasenübergangsrate}
@@ -13027,7 +13081,56 @@ Es gibt nur fünf platonische Körper. Dementsprechend existieren nur fünf unif
 
 Diskretisiert man ein zweidimensionales Vektorfeld auf ein ebenes Gitter, so müssen keineswegs alle Variablen an den gleichen Punkten ausgewertet werden. Die unterschiedlichen Größen können an unterschiedlichen Stellen der Polygone definiert werden. Fünf Arten, dies zu tun, sind die Arakawa-Gitter \cite{arakawa}, die in Abb. \ref{fig:arakawa} dargestellt sind.
 
-Alles in allem ist das C-Gitter dasjenige mit den besten Eigenschaften \cite{staniforth_grids}: Da die Geschwindigkeitskomponenten senkrecht zu den Kanten der Polygone sind (um dies in Abb. \ref{fig:arakawa} zu sehen, muss man die Linien um die Hälfte einer Gitterbox in beide Richtungen verschieben), lässt sich der Divergenzoperator über den Gauß'schen Satz formulieren, was Massenerhaltung ermöglicht. Auch die Diskretisierung des Gradienten ist einfach und sofort zweiter Ordnung, da es um einen zentralen Differenzenquotienten handelt (s. Absch. \ref{sec:finite_differenzen}). Die Vorticity kann auf dem dualen Gitter ohne weiteres aus dem Stokes'schen Satz bestimmt werden.
+\subsection{Skalare Erhaltungseigenschaft}
+\label{sec:skalare_erhaltungseigenschaft}
+
+Ist $q$ eine Erhaltungsgröße, also eine Größe, für die $\md{q} = 0$ gilt, so kann man für $\newtilde{q} \coloneqq \rho q$ eine Kontinuitätsgleichung herleiten:
+%
+\begin{eqnarray}
+\md{q} = \frac{\partial q}{\partial t} + \mathbf{U}\cdot\nabla q & = & 0,\\
+\frac{\partial\rho}{\partial t} + \mathbf{U}\cdot\nabla \rho + \rho\nabla\cdot\mathbf{U} & = & 0,\\
+\Rightarrow \frac{\partial\newtilde{q}}{\partial t} + \nabla\cdot \mathbf{j}_{\newtilde{q}} & = & 0,
+\end{eqnarray}
+%
+wobei die Größe $\mathbf{j}_{\newtilde{q}} \coloneqq \newtilde{q}\mathbf{U}$ den Fluss der Größe $q$ bezeichnet. Definiert man
+%
+\begin{eqnarray}
+Q \coloneqq \int_A\newtilde{q}d^3r
+\end{eqnarray}
+%
+als das globale Integral der Größe $q$, so ist $Q$ unter kinematischen Randbedingungen erhalten:
+%
+\begin{eqnarray}
+\frac{dQ}{dt} = -\int_A\nabla\cdot \mathbf{j}_{\newtilde{q}}d^3r = -\int_{\partial A}\mathbf{j}_{\newtilde{q}}\cdot d\mathbf{n}
+\end{eqnarray}
+%
+Zerlegt man $A$ nun in $N \geq 1$ Gitterboxen $A = A_1 \cup A_2 \cup \dots \cup A_N$, so gilt
+%
+\begin{eqnarray}
+Q = \sum_{i = 1}^NQ_i
+\end{eqnarray} 
+%
+mit
+%
+\begin{eqnarray}
+Q_i\coloneqq\int_{A_i}\newtilde{q}d^3r.
+\end{eqnarray}
+%
+Somit gilt
+%
+\begin{eqnarray}
+\frac{dQ}{dt} = \sum_{i = 1}^N\frac{dQ_i}{dt} = -\sum_{i = 1}^N\int_{\partial A_i}\mathbf{j}_{\newtilde{q}}\cdot d\mathbf{n} = -\sum_{i = 1}^N\sum_{F \in F_i}\mathbf{j}_{\newtilde{q}}\cdot\mathbf{n}_F,
+\end{eqnarray}
+%
+wobei $F_i$ die Menge aller Seitenflächen der Gitterbox $i$ ist, und $\mathbf{n}_F$ der auf der Fläche $F$ senkrecht stehende Normalenvektor (nach außen zeigend). Dabei wird davon ausgegangen, dass $\partial A_i$ jeweils aus einer Anzahl glatter Flächen besteht, über die einzeln zu summieren ist, da sie durch Kanten getrennt sind. Da jede Fläche $F$ in der Doppelsumme zweimal auftritt, jedoch der Vektor $\mathbf{n}$ dabei in zwei entgegengesetzte Richtungen zeigt, ergibt sich die Summe zu null, sodass auf einem C-Gitter auch nach der Diskretisierung
+%
+\begin{eqnarray}
+Q = \text{const.}
+\end{eqnarray}
+%
+gilt. Flächen, die Teil von $\partial A$ sind, stellen dabei trivialerweise kein Problem da, da durch sie unter kinematischen Randbedingungen per Definition überhaupt kein Massenfluss stattfindet. Auch unter der verallgemeinerten Voraussetzung, dass $\mathbf{j}_{\newtilde{q}}$ nicht nur aus $\newtilde{q}\mathbf{U}$, sondern aus weiteren, insbesondere diffusive,n Flüssen besteht, gilt dies noch. Angemerkt werden sollte außerdem, dass selbst bei fehlerhafter Berechnung von Gittergeometrien $Q$ eine Erhaltungsgröße bleibt.
+
+Auch die Diskretisierung des Gradienten ist einfach und sofort zweiter Ordnung, da es um einen zentralen Differenzenquotienten handelt (s. Absch. \ref{sec:finite_differenzen}). Die Vorticity kann auf dem dualen Gitter ohne weiteres aus dem Stokes'schen Satz bestimmt werden.
 
 \begin{figure}
 \centering
@@ -13414,10 +13517,10 @@ Das Gleichungssystem des dynamischen Kerns ist das der PNE Glg.en \eqref{eq:pne_
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{eqnarray}
-\frac{\partial\mathbf{U}}{\partial t}&\stackrel{\text{Glg.en }\eqref{eq:diff_op_rule_10},\text{ }\eqref{eq:exner_pressure_gradient_acc}}{=}& -c^{(p)}\theta\nabla\Pi + \mathbf{U}\times\etabi - \nabla k + \mathbf{g}\label{eq:pne_mod_1}\\
-\frac{\partial\left(\rho\theta\right)}{\partial} & \stackrel{\text{Glg. }\eqref{eq:td1_humid_pot_mod}}{=} & -\nabla\cdot\left(\rho\theta\mathbf{U}\right)\label{eq:pne_mod_2}\\
+\frac{\partial\mathbf{U}}{\partial t}&\stackrel{\text{Glg.en }\eqref{eq:diff_op_rule_10},\text{ }\eqref{eq:exner_pressure_gradient_acc}}{=}& -c^{(p)}\exp\left(\frac{\newtilde{s}}{\rho}\right)\nabla\Pi + \mathbf{U}\times\etabi - \nabla k + \mathbf{g}\label{eq:pne_mod_1}\\
+\frac{\partial\newtilde{s}}{\partial t} & \stackrel{\text{Glg. }\eqref{eq:td1_humid_pot_mod}}{=} & -\nabla\cdot\left(\newtilde{s}\mathbf{U}\right)\label{eq:pne_mod_2}\\
 \frac{\partial\rho}{\partial t} & \stackrel{\text{Glg. }\eqref{eq:diff_op_rule_3}}{=} & -\nabla\cdot\left(\rho\mathbf{U}\right)\label{eq:pne_mod_3}\\
-\Pi & \stackrel{\text{Glg. }\eqref{eq:exner_pressure_diag}}{=}& \left(\frac{\rho R_d\theta}{p_0}\right)^{R_d/c^{(v)}}.\label{eq:pne_mod_4}
+\Pi & \stackrel{\text{Glg. }\eqref{eq:exner_pressure_diag}}{=}& \left(\frac{\rho R_d\exp\left(\frac{\newtilde{s}}{\rho}\right)}{p_0}\right)^{R_d/c^{(v)}}.\label{eq:pne_mod_4}
 \end{eqnarray}
 \end{center}
 }}
@@ -14843,7 +14946,10 @@ Seien $\mathbf{k} = \left(k_1, k_2, k_3\right)^T\in\mathbb{C}^3$ und $\varphi:\m
 & = & \sum_{i = 1}^{3}k_i\exp\left(\mathbf{k}\cdot\mathbf{r}\right)\mathbf{e}_i = \varphi\left(\mathbf{r}\right)\mathbf{k},\\
 \Delta\varphi\left(\mathbf{r}\right) & = & \nabla\cdot\nabla\varphi\left(\mathbf{r}\right) = \nabla\cdot\left(\varphi\left(\mathbf{r}\right)\mathbf{k}\right) = \mathbf{k}\cdot\nabla\varphi = \mathbf{k}^2\varphi\left(\mathbf{r}\right).
 \end{eqnarray}
-%
+
+\section{Differenzialoperatoren unter Koordinatentransformationen}
+\label{sec:differenzialoperatoren:unter_koordinatentransformationen}\index{Differenzialoperator!unter Koordinatentransformation}\index{Koordinatentransformation!Differenzialoperator}
+
 Allgemein bezeichnet man Punkte im $\mathbb{R}^3$ durch drei reelle Zahlen $x = \left(x_1, x_2, x_3\right)$, die in Linearkombination mit der Standardbasis $\mathbf{c}_1, \mathbf{c}_2, \mathbf{c}_3$ einen Vektor $\mathbf{r}$ ergeben:
 %
 \begin{eqnarray}
@@ -14980,6 +15086,36 @@ J & = & \left(\begin{array}{ccc}
 \sin\left(\theta\right)\sin\left(\phi\right)&r\cos\left(\theta\right)\sin\left(\phi\right)&r\sin\left(\theta\right)\cos\left(\phi\right)\\
 \cos\left(\theta\right)& -r\sin\left(\theta\right)&0
 \end{array}\right).
+\end{eqnarray}
+%
+Die Spalten dieser Matrix sind die unnormierten, ortsabhängigen Basisvektoren
+%
+\begin{eqnarray}
+\mathbf{i}_r & = & \left(\begin{array}{c}
+\sin\left(\theta\right)\cos\left(\phi\right)\\
+\sin\left(\theta\right)\sin\left(\phi\right)\\
+\cos\left(\theta\right)
+\end{array}\right),\\
+\mathbf{i}_\theta & = & r\left(\begin{array}{c}
+\cos\left(\theta\right)\cos\left(\phi\right)\\
+\cos\left(\theta\right)\sin\left(\phi\right)\\
+-\sin\left(\theta\right)
+\end{array}\right),\\
+\mathbf{i}_\phi & = & r\sin\left(\theta\right)\left(\begin{array}{c}
+-\sin\left(\phi\right)\\
+\cos\left(\phi\right)\\
+0
+\end{array}\right).
+\end{eqnarray}
+%
+Hieraus ergibt sich für die Determinante $g$ des metrischen Tensors\index{metrischer Tensor}\index{Tensor!metrischer}
+%
+\begin{eqnarray}
+g = \left|\begin{array}{ccc}
+1 & 0 & 0 \\
+0 & r^2 & 0 \\
+0 & 0 & r^2\sin^2\left(\theta\right)
+\end{array}\right| = r^4\sin^2\left(\theta\right).
 \end{eqnarray}
 %
 Ihre Inverse ist
@@ -16575,3 +16711,5 @@ zu achten ist.
 \printindex
 
 \end{document}
+
+
