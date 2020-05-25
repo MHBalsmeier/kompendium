@@ -1,0 +1,74 @@
+Für die Divergenz eines Vektorfeldes $\mathbf{v}$ gilt mit Glg. \eqref{eq:diff_op_rule_3}
+%
+\begin{eqnarray}
+\nabla\cdot\mathbf{v} & = & \nabla\cdot\sum_{i = 1}^{3}v_i\mathbf{e}_i = \sum_{i = 1}^{3}\nabla\cdot\left(v_i\mathbf{e}_i\right) = \sum_{i = 1}^{3}v_i\nabla\cdot\mathbf{e}_i + \mathbf{e}_i\cdot\nabla v_i = \sum_{i = 1}^{3}\left[v_i\nabla\cdot\mathbf{e}_i + \mathbf{e}_i\cdot\sum_{j = 1}^{3}\frac{1}{|\frac{\partial\mathbf{r}}{\partial q_j}|}\frac{\partial v_i}{\partial q_j}\mathbf{e}_j\right]\nonumber\\
+& = & \sum_{i = 1}^{3}v_i\nabla\cdot\mathbf{e}_i + \sum_{i = 1}^{3}\frac{1}{|\frac{\partial\mathbf{r}}{\partial q_i}|}\frac{\partial v_i}{\partial q_i}\label{eq:div_gen}.
+\end{eqnarray}
+%
+Für die Rotation eines Vektorfeldes gilt mit Glg. \eqref{eq:diff_op_rule_5}
+%
+\begin{eqnarray}
+\nabla\times\mathbf{v} & = & \nabla\times\sum_{i = 1}^{3}v_i\mathbf{e}_i = \sum_{i = 1}^{3}\nabla\times\left(v_i\mathbf{e}_i\right) = \sum_{i = 1}^{3}\left[v_i\nabla\times\mathbf{e}_i - \mathbf{e}_i\times\nabla v_i\right] = \sum_{i = 1}^{3}\left[v_i\nabla\times\mathbf{e}_i - \mathbf{e}_i\times\sum_{j = 1}^{3}\frac{1}{|\frac{\partial\mathbf{r}}{\partial q_j}|}\frac{\partial v_i}{\partial q_j}\mathbf{e}_j\right]\nonumber\\
+& = & \sum_{i = 1}^{3}v_i\nabla\times\mathbf{e}_i - \sum_{i, j = 1}^{3}\left(\mathbf{e}_i\times\mathbf{e}_j\right)\frac{1}{|\frac{\partial\mathbf{r}}{\partial q_j}|}\frac{\partial v_i}{\partial q_j} = \sum_{i = 1}^{3}v_i\nabla\times\mathbf{e}_i - \sum_{i, j, k = 1}^{3}\epsilon_{i, j, k}\mathbf{e}_k\frac{1}{|\frac{\partial\mathbf{r}}{\partial q_j}|}\frac{\partial v_i}{\partial q_j}\nonumber\\
+& = & \sum_{i = 1}^{3}v_i\nabla\times\mathbf{e}_i + \sum_{i, j, k = 1}^{3}\epsilon_{k, j, i}\mathbf{e}_k\frac{1}{|\frac{\partial\mathbf{r}}{\partial q_j}|}\frac{\partial v_i}{\partial q_j} = \sum_{i = 1}^{3}v_i\nabla\times\mathbf{e}_i + \sum_{i, j, k = 1}^{3}\epsilon_{i, j, k}\mathbf{e}_i\frac{1}{|\frac{\partial\mathbf{r}}{\partial q_j}|}\frac{\partial v_k}{\partial q_j}.
+\end{eqnarray}
+%
+Für den Laplace-Operator gilt
+%
+\begin{eqnarray}
+\Delta f & = & \nabla\cdot\nabla f = \nabla\cdot\sum_{i = 1}^{3}\frac{1}{|\frac{\partial\mathbf{r}}{\partial q_i}|}\frac{\partial f}{\partial q_i}\mathbf{e}_i = \sum_{i = 1}^{3}\nabla\cdot\left[\frac{1}{|\frac{\partial\mathbf{r}}{\partial q_i}|}\frac{\partial f}{\partial q_i}\mathbf{e}_i\right]\nonumber\\
+& = & \sum_{i = 1}^{3}\left[\frac{1}{|\frac{\partial\mathbf{r}}{\partial q_i}|}\frac{\partial f}{\partial q_i}\nabla\cdot\mathbf{e}_i + \frac{1}{|\frac{\partial\mathbf{r}}{\partial q_i}|^2}\frac{\partial^2 f}{\partial q_i^2}\right].\label{eq:laplace_gen}
+\end{eqnarray}
+%
+Dabei wurde Glg. \eqref{eq:div_gen} für die Divergenz eingesetzt.
+
+Für die Berechnung des vektoriellen Laplace-Operator definiert man zunächst noch eine ortsunabhängige Basis $\left(\newtilde{\mathbf{e}}_i\right)$. Man kann dann schreiben
+%
+\begin{eqnarray}
+\mathbf{v} = \sum_{i = 1}^{3}v_i\mathbf{e}_i = \sum_{i = 1}^3\newtilde{v}_i\newtilde{\mathbf{e}}_i
+\end{eqnarray}
+%
+sowie
+%
+\begin{eqnarray}
+e_j^{(i)} \coloneqq \newtilde{\mathbf{e}}_i\cdot\mathbf{e}_j
+\end{eqnarray}
+%
+definieren. Damit ergeben sich
+%
+\begin{eqnarray}
+\newtilde{v}_i & = & \newtilde{\mathbf{e}}_i\cdot\mathbf{v} = \sum_{j = 1}^{3}v_j\newtilde{\mathbf{e}}_i\cdot\mathbf{e}_j = \sum_{j = 1}^{3}v_je_j^{(i)},\\
+\mathbf{e}_j & = & \sum_{i = 1}^3\newtilde{\mathbf{e}}_ie_j^{(i)}.
+\end{eqnarray}
+%
+Es folgt
+%
+\begin{eqnarray}
+\Delta\mathbf{v} & = & \sum_{i = 1}^{3}\left(\Delta\newtilde{v}_i\right)\newtilde{\mathbf{e}}_i = \sum_{i = 1}^{3}\left[\sum_{j = 1}^{3}\Delta\left(v_je_j^{(i)}\right)\right]\newtilde{\mathbf{e}}_i\nonumber\\
+& = & \sum_{i = 1}^{3}\left[\sum_{j = 1}^3\sum_{k = 1}^3\underbrace{\frac{\partial^2v_j}{\partial x_k^2}e_j^{(i)}}_{(a)} + \underbrace{2\frac{\partial v_j}{\partial x_k}\frac{\partial
+e_j^{(i)}}{\partial x_k}}_{(b)} + \underbrace{v_j\frac{\partial^2e_j^{(i)}}{\partial x_k^2}}_{(c)}\right]\newtilde{\mathbf{e}}_i.
+\end{eqnarray}
+%
+Die bezeichneten Summen werden separat untersucht:
+%
+\begin{eqnarray}
+(a) & = & \sum_{i = 1}^{3}\left[\sum_{j = 1}^{3}e_j^{(i)}\Delta v_j\right]\newtilde{\mathbf{e}}_i = \sum_{j = 1}^{3}\Delta v_j\sum_{i = 1}^{3}e_j^{(i)}\newtilde{\mathbf{e}}_i = \sum_{j = 1}^{3}\Delta v_j\mathbf{e}_j\\
+(b) & = & 2\sum_{i = 1}^{3}\left[\sum_{j = 1}^{3}\sum_{k = 1}^{3}\frac{\partial v_j}{\partial x_k}\frac{\partial e_j^{(i)}}{\partial x_k}\right]\newtilde{\mathbf{e}}_i = 2\sum_{j = 1}^{3}\sum_{k = 1}^{3}\frac{\partial v_j}{\partial x_k}\frac{\partial}{\partial x_k}\left(\sum_{i = 1}^{3}e_j^{(i)}\newtilde{\mathbf{e}}_i\right) = 2\sum_{j = 1}^{3}\sum_{k = 1}^{3}\frac{\partial v_j}{\partial x_k}\frac{\partial\mathbf{e}_j}{\partial x_k}\\
+(c) & = & \sum_{i = 1}^{3}\left[\sum_{j = 1}^{3}\sum_{k = 1}^{3}v_j\frac{\partial^2e_j^{(i)}}{\partial x_k^2}\right]\newtilde{\mathbf{e}}_i = \sum_{j = 1}^{3}\sum_{k = 1}^{3}v_j\frac{\partial^2}{\partial x_k^2}\sum_{i = 1}^{3}e_j^{(i)}\newtilde{\mathbf{e}}_i = \sum_{j = 1}^{3}v_j\sum_{k = 1}^{3}\frac{\partial^2}{\partial x_k^2}\mathbf{e}_j = \sum_{j}^{}v_j\Delta\mathbf{e}_j
+\end{eqnarray}
+%
+Somit gilt
+%
+\begin{eqnarray}
+\Delta\mathbf{v} = \sum_{j = 1}^{3}\left[\Delta v_j\mathbf{e}_j + v_j\Delta\mathbf{e}_j + 2\sum_{k = 1}^{3}\frac{1}{|\frac{\partial\mathbf{r}}{\partial q_k}|^2}\frac{\partial v_j}{\partial q_k}\frac{\partial\mathbf{e}_j}{\partial q_k}\right].\label{eq:laplace_vekt_gen}
+\end{eqnarray}
+%
+Zuletzt wird die Wirkung der materiellen Zeitableitung auf eine vektorielle Größe\index{materielle Zeitableitung!Wirkung auf ein Vektorfeld}\index{Zeitableitung!materielle!Wirkung auf ein Vektorfeld}\index{Vektorfeld!Wirkung der materiellen Zeitableitung} betrachtet:
+%
+\begin{eqnarray}
+\md{\mathbf{v}} & = & \md{}\sum_{i = 1}^{3}v_i\mathbf{e}_i = \md{}\sum_{i = 1}^3v_i\left(\sum_{j = 1}^{3}e_i^{(j)}\newtilde{\mathbf{e}}_j\right) = \sum_{i, j = 1}^{3}\left[\md{v_i}e_i^{(j)} + v_i\md{e_i^{(j)}}\right]\newtilde{\mathbf{e}}_j\nonumber\\
+& = & \sum_{i, j = 1}^3\left[\left(\frac{\partial v_i}{\partial t} + \sum_{k = 1}^3\md{x_k}\frac{\partial v_i}{\partial x_k}\right)e_i^{(j)} + v_i\sum_{k = 1}^3\md{x_k}\frac{\partial e_i^{(j)}}{\partial x_k}\right]\newtilde{\mathbf{e}}_j\nonumber\\
+& = & \sum_{i = 1}^{3}\left(\frac{\partial v_i}{\partial t} + \sum_{k = 1}^{3}\md{x_k}\frac{\partial v_i}{\partial x_k}\right)\mathbf{e}_i + \sum_{i = 1}^{3}v_i\sum_{k = 1}^{3}\md{x_k}\frac{\partial\mathbf{e}_i}{\partial x_k}\label{eq:tot_derivative_gen}
+\end{eqnarray}
+%
+

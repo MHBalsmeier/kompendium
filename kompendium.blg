@@ -1,33 +1,34 @@
 [0] Config.pm:304> INFO - This is Biber 2.14 (beta)
 [0] Config.pm:307> INFO - Logfile is 'kompendium.blg'
-[54] biber:322> INFO - === So Mai 24, 2020, 01:12:35
-[70] Biber.pm:415> INFO - Reading 'kompendium.bcf'
-[120] Biber.pm:943> INFO - Found 27 citekeys in bib section 0
-[130] Biber.pm:4256> INFO - Processing section 0
-[130] Utils.pm:75> INFO - Globbing data source '../references.bib'
-[130] Utils.pm:91> INFO - Globbed data source '../references.bib' to ../references.bib
-[140] Biber.pm:4455> INFO - Looking for bibtex format file '../references.bib' for section 0
-[147] bibtex.pm:1653> INFO - LaTeX decoding ...
-[222] bibtex.pm:1471> INFO - Found BibTeX data source '../references.bib'
-[333] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
-[333] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
-[333] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
-[333] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
-[333] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
-[333] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
-[333] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
-[333] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
-[333] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
-[333] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
-[333] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
-[333] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
-[333] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
-[333] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
-[333] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
-[361] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[361] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[361] Biber.pm:4084> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
-[362] Biber.pm:4090> INFO - No sort tailoring available for locale 'en-US'
-[389] bbl.pm:652> INFO - Writing 'kompendium.bbl' with encoding 'UTF-8'
-[398] bbl.pm:755> INFO - Output to kompendium.bbl
-[399] Biber.pm:128> INFO - WARNINGS: 15
+[59] biber:322> INFO - === So Mai 24, 2020, 20:22:05
+[80] Biber.pm:415> INFO - Reading 'kompendium.bcf'
+[132] Biber.pm:943> INFO - Found 28 citekeys in bib section 0
+[142] Biber.pm:4256> INFO - Processing section 0
+[143] Utils.pm:75> INFO - Globbing data source '../references.bib'
+[143] Utils.pm:91> INFO - Globbed data source '../references.bib' to ../references.bib
+[153] Biber.pm:4455> INFO - Looking for bibtex format file '../references.bib' for section 0
+[160] bibtex.pm:1653> INFO - LaTeX decoding ...
+[236] bibtex.pm:1471> INFO - Found BibTeX data source '../references.bib'
+[351] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
+[352] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
+[352] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
+[352] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
+[352] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
+[352] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
+[352] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
+[352] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
+[352] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
+[352] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
+[352] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
+[352] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
+[352] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
+[352] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
+[352] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
+[352] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
+[379] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[379] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[379] Biber.pm:4084> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
+[379] Biber.pm:4090> INFO - No sort tailoring available for locale 'en-US'
+[403] bbl.pm:652> INFO - Writing 'kompendium.bbl' with encoding 'UTF-8'
+[412] bbl.pm:755> INFO - Output to kompendium.bbl
+[414] Biber.pm:128> INFO - WARNINGS: 16
