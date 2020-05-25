@@ -14982,16 +14982,26 @@ wobei sowohl die $v_i$ als auch die $\mathbf{e}_i$ vom Ort abhängen. Man defini
 \frac{\partial}{\partial x_i} \coloneqq \mathbf{e}_i\cdot\nabla = \frac{1}{|\frac{\partial\mathbf{r}}{\partial q_i}|}\left(\frac{\partial x}{\partial q_i}\frac{\partial}{\partial x} + \frac{\partial y}{\partial q_i}\frac{\partial }{\partial y} + \frac{\partial z}{\partial q_i}\frac{\partial }{\partial z}\right) = \frac{1}{|\frac{\partial\mathbf{r}}{\partial q_i}|}\frac{\partial}{\partial q_i}.\label{eq:part_derivative_gen}
 \end{eqnarray}
 %
+Seien $\mathbf{U}$, $\mathbf{V}$ zwei Vektorfelder, dann gilt für das Skalarprodukt\index{Skalarprodukt!generalisierte Koordinaten}\index{generalisierte Koordinaten!Skalarprodukt}
+%
+\begin{eqnarray}
+\mathbf{U}\cdot\mathbf{V} = U^{(m)}V^{(n)}g_{m,n}.\label{eq:inner_gen}
+\end{eqnarray}
+%
+Für das Vektorprodukt\index{Vektorprodukt!generalisierte Koordinaten}\index{generalisierte Koordinaten!Vektorprodukt} gilt
+%
+\begin{eqnarray}
+\mathbf{U}\times\mathbf{V} = \left|\begin{array}{ccc}
+\mathbf{q}_2\times\mathbf{q}_3 & \mathbf{q}_3\times\mathbf{q}_1 & \mathbf{q}_1\times\mathbf{q}_2\\
+U^{(1)} & U^{(2)} & U^{(3)}\\
+V^{(1)} & V^{(2)} & V^{(3)}
+\end{array}\right|\label{eq:vector_product_gen}
+\end{eqnarray}
+%
 Sei $f$ ein Skalarfeld, dann gilt für den Gradienten von $f$ in generalisierten Koordinaten
 %
 \begin{eqnarray}
-\nabla f & = & \sum_{i = 1}^{3}\frac{\partial f}{\partial x_i}\mathbf{e}_i = \sum_{i = 1}^{3}\frac{1}{|\frac{\partial\mathbf{r}}{\partial q_i}|}\frac{\partial f}{\partial q_i}\mathbf{e}_i.\label{eq:grad_gen}
-\end{eqnarray}
-%
-Für den Gradienten erhält man somit
-%
-\begin{eqnarray}
-\nabla f = \mathbf{q}^{(n)}\frac{\partial}{\partial q^{(n)}} = \mathbf{q}^{(n)}\nabla_n.
+\nabla f = \mathbf{q}^{(n)}\frac{\partial}{\partial q^{(n)}} = \mathbf{q}^{(n)}\nabla_nf.\label{eq:grad_gen}
 \end{eqnarray}
 %
 Somit gilt in generalisierten Koordinaten
@@ -15057,7 +15067,7 @@ Die normierten Spalten hiervon sind
 \end{array}\right).\label{eq:kugel_zu_global_3}
 \end{eqnarray}
 %
-Die Spalten von $\overleftrightarrow{J}$ sind die unnormierten, ortsabhängigen Basisvektoren
+Die Spalten von $\overleftrightarrow{J}$ sind die kovarianten Basisvektoren
 %
 \begin{eqnarray}
 \mathbf{q}_r & = & \left(\begin{array}{c}
@@ -15087,30 +15097,50 @@ g = \left|\begin{array}{ccc}
 \end{array}\right| = r^4\sin^2\left(\theta\right).
 \end{eqnarray}
 %
-Da diese Matrix diagonal ist, tritt keine Unterscheidung zwischen ko- und kontravarianten Vektorkomponenten auf. Man schreibt nun für ein Vektorfeld
+Da diese Matrix diagonal ist, sind Kugelkoordinaten orthogonal.  Somit gilt für die kovarianten Basisvektoren
 %
 \begin{eqnarray}
-\mathbf{U} & = & U^{(r)}\mathbf{q}_r + U^{(\theta)}\mathbf{q}_\theta + U^{(\phi)}\mathbf{q}_\phi = U_r\mathbf{q}^{(r)} + U_\theta\mathbf{q}^{(\theta)} + U_\phi\mathbf{q}^{(\phi)}\nonumber\\
-& = & \newtilde{U}^{(r)}\mathbf{e}_r + \newtilde{U}^{(\theta)}\mathbf{e}_\theta + \newtilde{U}^{(\phi)}\mathbf{e}_\phi = \newtilde{U}_r\mathbf{e}^{(r)} + \newtilde{U}_\theta\mathbf{e}^{(\theta)} + \newtilde{U}_\phi\mathbf{e}^{(\phi)}.
+\mathbf{q}^{(r)} & = & \left(\begin{array}{c}
+\sin\left(\theta\right)\cos\left(\phi\right)\\
+\sin\left(\theta\right)\sin\left(\phi\right)\\
+\cos\left(\theta\right)
+\end{array}\right),\\
+\mathbf{q}^{(\theta)} & = & \frac{1}{r}\left(\begin{array}{c}
+\cos\left(\theta\right)\cos\left(\phi\right)\\
+\cos\left(\theta\right)\sin\left(\phi\right)\\
+-\sin\left(\theta\right)
+\end{array}\right),\\
+\mathbf{q}^{(\phi)} & = & \frac{1}{r\sin\left(\theta\right)}\left(\begin{array}{c}
+-\sin\left(\phi\right)\\
+\cos\left(\phi\right)\\
+0
+\end{array}\right).
 \end{eqnarray}
 %
-Man mache sich an dieser Stelle klar, dass die Dimensionen der hier in der ersten Zeile auftretenden Maßzahlen von $\mathbf{U}$ nicht uniform sind, da es sich für die Bassielemente ebenso verhält. Aufgrund der Orthogonalität der Kugelkoordinaten gilt
+Man schreibt nun für ein Vektorfeld
 %
 \begin{eqnarray}
-\newtilde{U}^{(r)} & = & \newtilde{U}_r,\\
-\newtilde{U}^{(\theta)} & = & \newtilde{U}_\theta,\\
-\newtilde{U}^{(\phi)} & = & \newtilde{U}_\phi.
+\mathbf{V} & = & V^{(r)}\mathbf{q}_r + V^{(\theta)}\mathbf{q}_\theta + V^{(\phi)}\mathbf{q}_\phi = V_r\mathbf{q}^{(r)} + V_\theta\mathbf{q}^{(\theta)} + V_\phi\mathbf{q}^{(\phi)}\nonumber\\
+& = & \newtilde{V}^{(r)}\mathbf{e}_r + \newtilde{V}^{(\theta)}\mathbf{e}_\theta + \newtilde{V}^{(\phi)}\mathbf{e}_\phi = \newtilde{V}_r\mathbf{e}^{(r)} + \newtilde{V}_\theta\mathbf{e}^{(\theta)} + \newtilde{V}_\phi\mathbf{e}^{(\phi)}.
 \end{eqnarray}
 %
-Die Umrechung der Maßzahlen lautet
+Man mache sich an dieser Stelle klar, dass die Dimensionen der hier in der ersten Zeile auftretenden Maßzahlen von $\mathbf{V}$ nicht uniform sind, da es sich für die Bassielemente ebenso verhält. Aufgrund der Orthogonalität der Kugelkoordinaten gilt
 %
 \begin{eqnarray}
-U_r & = & \newtilde{U}_r,\\
-U_\theta & = & r\newtilde{U}_\theta,\\
-U_\phi & = & r\sin\left(\theta\right)\newtilde{U}_\phi,\\
-U^{(r)} & = & \newtilde{U}_r,\\
-U^{(\theta)} & = & \frac{1}{r}\newtilde{U}_\theta,\\
-U^{(\phi)} & = & \frac{1}{r\sin\left(\theta\right)}\newtilde{U}_\phi.
+\newtilde{V}^{(r)} & = & \newtilde{V}_r,\\
+\newtilde{V}^{(\theta)} & = & \newtilde{V}_\theta,\\
+\newtilde{V}^{(\phi)} & = & \newtilde{V}_\phi.
+\end{eqnarray}
+%
+Die Vmrechung der Maßzahlen lautet
+%
+\begin{eqnarray}
+V_r & = & \newtilde{V}_r,\\
+V_\theta & = & r\newtilde{V}_\theta,\\
+V_\phi & = & r\sin\left(\theta\right)\newtilde{V}_\phi,\\
+V^{(r)} & = & \newtilde{V}_r,\\
+V^{(\theta)} & = & \frac{1}{r}\newtilde{V}_\theta,\\
+V^{(\phi)} & = & \frac{1}{r\sin\left(\theta\right)}\newtilde{V}_\phi.
 \end{eqnarray}
 %
 Zunächst wird der Gradient betrachtet, mit Glg. \eqref{eq:grad_gen} erhält man
@@ -15119,20 +15149,20 @@ Zunächst wird der Gradient betrachtet, mit Glg. \eqref{eq:grad_gen} erhält man
 \nabla f & = & \mathbf{q}^{(r)}\frac{\partial f}{\partial r} + \mathbf{q}^{(\theta)}\frac{\partial f}{\partial\theta} + \mathbf{q}^{(\phi)}\frac{\partial f}{\partial\phi} = \mathbf{e}^{(r)}\frac{\partial f}{\partial r} + \frac{1}{r}\mathbf{e}^{(\theta)}\frac{\partial f}{\partial\theta} + \frac{1}{r\sin\left(\theta\right)}\mathbf{e}^{(\phi)}\frac{\partial f}{\partial\phi}.\label{eq:grad_sphere}
 \end{eqnarray}
 %
-Nun wird die Divergenz betrachtet. Um Glg. \eqref{eq:div_gen} anwenden zu können, rechnet man zunächst
+Nun wird die Divergenz betrachtet. Vm Glg. \eqref{eq:div_gen} anwenden zu können, rechnet man zunächst
 %
 \begin{eqnarray}
-\mathbf{q}^{(r)}\cdot\mathbf{U} & = & U^{(r)},\\
-\mathbf{q}^{(\theta)}\cdot\mathbf{U} & = & U^{(\theta)},\\
-\mathbf{q}^{(\phi)}\cdot\mathbf{U} & = & U^{(\phi)}.
+\mathbf{q}^{(r)}\cdot\mathbf{V} & = & V^{(r)},\\
+\mathbf{q}^{(\theta)}\cdot\mathbf{V} & = & V^{(\theta)},\\
+\mathbf{q}^{(\phi)}\cdot\mathbf{V} & = & V^{(\phi)}.
 \end{eqnarray}
 %
 Somit gilt
 %
 \begin{eqnarray}
-\nabla\cdot\mathbf{U} & = & \frac{1}{r^2\sin\left(\theta\right)}\left(\frac{\partial\left(U^{(r)}r^2\sin\left(\theta\right)\right)}{\partial r} + \frac{\partial\left(U^{(\theta)}r^2\sin\left(\theta\right)\right)}{\partial\theta} + \frac{\partial\left(U^{(\phi)}r^2\sin\left(\theta\right)\right)}{\partial\phi}\right)\nonumber\\
-& = & \frac{\partial U^{(r)}}{\partial r} + \frac{\partial U^{(\theta)}}{\partial\theta} + \frac{\partial U^{(\phi)}}{\partial\phi} + \frac{2U^{(r)}}{r} + \cot\left(\theta\right)U^{(\theta)}\nonumber\\
-& = & \frac{\partial\newtilde{U}^{(r)}}{\partial r} + \frac{1}{r}\frac{\partial\newtilde{U}^{(\theta)}}{\partial\theta} + \frac{1}{r\sin\left(\theta\right)}\frac{\partial\newtilde{U}^{(\phi)}}{\partial\phi} + \frac{2\newtilde{U}^{(r)}}{r} + \frac{\cot\left(\theta\right)}{r}\newtilde{U}^{(\theta)}.\label{eq:div_sphere}
+\nabla\cdot\mathbf{V} & = & \frac{1}{r^2\sin\left(\theta\right)}\left(\frac{\partial\left(V^{(r)}r^2\sin\left(\theta\right)\right)}{\partial r} + \frac{\partial\left(V^{(\theta)}r^2\sin\left(\theta\right)\right)}{\partial\theta} + \frac{\partial\left(V^{(\phi)}r^2\sin\left(\theta\right)\right)}{\partial\phi}\right)\nonumber\\
+& = & \frac{\partial V^{(r)}}{\partial r} + \frac{\partial V^{(\theta)}}{\partial\theta} + \frac{\partial V^{(\phi)}}{\partial\phi} + \frac{2V^{(r)}}{r} + \cot\left(\theta\right)V^{(\theta)}\nonumber\\
+& = & \frac{\partial\newtilde{V}^{(r)}}{\partial r} + \frac{1}{r}\frac{\partial\newtilde{V}^{(\theta)}}{\partial\theta} + \frac{1}{r\sin\left(\theta\right)}\frac{\partial\newtilde{V}^{(\phi)}}{\partial\phi} + \frac{2\newtilde{V}^{(r)}}{r} + \frac{\cot\left(\theta\right)}{r}\newtilde{V}^{(\theta)}.\label{eq:div_sphere}
 \end{eqnarray}
 %
 Durch eine Kombination der Glg.en \eqref{eq:grad_sphere} und \eqref{eq:div_sphere} folgt für den Laplace-Operator\index{Laplace-Operator!Kugelkoordinaten}\index{Kugelkoordinaten!Laplace-Operator}
@@ -15177,28 +15207,85 @@ als Winkelanteil des Laplace-Operators. Dieser Winkelanteil wird in Kugelkoordin
 Nun wird die Rotation berechnet, es gilt mit Glg. \eqref{eq:rot_gen}
 %
 \begin{eqnarray}
-\nabla\times\mathbf{U} & = & \frac{1}{r^2\sin\left(\theta\right)}\left[\mathbf{q}_r\left(\frac{\partial U_\phi}{\partial\theta} - \frac{\partial U_\theta}{\partial\phi}\right) + \mathbf{q}_\theta\left(\frac{\partial U_r}{\partial\phi} - \frac{\partial U_\phi}{\partial r}\right) + \mathbf{q}_\phi\left(\frac{\partial U_\theta}{\partial r} - \frac{\partial U_r}{\partial\theta}\right)\right].
+\nabla\times\mathbf{V} & = & \frac{1}{r^2\sin\left(\theta\right)}\left[\mathbf{q}_r\left(\frac{\partial V_\phi}{\partial\theta} - \frac{\partial V_\theta}{\partial\phi}\right) + \mathbf{q}_\theta\left(\frac{\partial V_r}{\partial\phi} - \frac{\partial V_\phi}{\partial r}\right) + \mathbf{q}_\phi\left(\frac{\partial V_\theta}{\partial r} - \frac{\partial V_r}{\partial\theta}\right)\right].
 \end{eqnarray}
 %
-Mit der Ummskalierung auf normierte Basiselemente erhält man
+Mit der Vmskalierung auf normierte Basiselemente erhält man
 %
 \begin{eqnarray}
-\nabla\times\mathbf{U} & = & \frac{1}{r^2\sin\left(\theta\right)}\Bigg[\mathbf{e}_r\left(\frac{\partial\left(r\sin\left(\theta\right)\newtilde{U}_\phi\right)}{\partial\theta} - \frac{\partial\left(r\newtilde{U}_\theta\right)}{\partial\phi}\right) + r\mathbf{e}_\theta\left(\frac{\partial\newtilde{U}_r}{\partial\phi} - \frac{\partial\left(r\sin\left(\theta\right)\newtilde{U}_\phi\right)}{\partial r}\right)\nonumber\\
-&& + r\sin\left(\theta\right)\mathbf{e}_\phi\left(\frac{\partial\left(r\newtilde{U}_\theta\right)}{\partial r} - \frac{\partial\newtilde{U}_r}{\partial\theta}\right)\Bigg]\nonumber\\
-& = & \frac{\newtilde{U}_\theta}{r}\mathbf{e}_\phi + \frac{\newtilde{U}_\phi}{r\tan\left(\theta\right)}\mathbf{e}_r - \frac{\newtilde{U}_\phi}{r}\mathbf{e}_\theta + \mathbf{e}_r\left(\frac{1}{r}\frac{\partial\newtilde{U}_\phi}{\partial\theta} - \frac{1}{r\sin\left(\theta\right)}\frac{\partial\newtilde{U}_\theta}{\partial\phi}\right)\nonumber\\
-&& + \mathbf{e}_\theta\left(\frac{1}{r\sin\left(\theta\right)}\frac{\partial\newtilde{U}_r}{\partial\phi} - \frac{\partial\newtilde{U}_\phi}{\partial r}\right) + \mathbf{e}_\phi\left(\frac{\partial \newtilde{U}_\theta}{\partial r} - \frac{1}{r}\frac{\partial\newtilde{U}_r}{\partial\theta}\right)\label{eq:rot_kugel}
+\nabla\times\mathbf{V} & = & \frac{1}{r^2\sin\left(\theta\right)}\Bigg[\mathbf{e}_r\left(\frac{\partial\left(r\sin\left(\theta\right)\newtilde{V}_\phi\right)}{\partial\theta} - \frac{\partial\left(r\newtilde{V}_\theta\right)}{\partial\phi}\right) + r\mathbf{e}_\theta\left(\frac{\partial\newtilde{V}_r}{\partial\phi} - \frac{\partial\left(r\sin\left(\theta\right)\newtilde{V}_\phi\right)}{\partial r}\right)\nonumber\\
+&& + r\sin\left(\theta\right)\mathbf{e}_\phi\left(\frac{\partial\left(r\newtilde{V}_\theta\right)}{\partial r} - \frac{\partial\newtilde{V}_r}{\partial\theta}\right)\Bigg]\nonumber\\
+& = & \frac{\newtilde{V}_\theta}{r}\mathbf{e}_\phi + \frac{\newtilde{V}_\phi}{r\tan\left(\theta\right)}\mathbf{e}_r - \frac{\newtilde{V}_\phi}{r}\mathbf{e}_\theta + \mathbf{e}_r\left(\frac{1}{r}\frac{\partial\newtilde{V}_\phi}{\partial\theta} - \frac{1}{r\sin\left(\theta\right)}\frac{\partial\newtilde{V}_\theta}{\partial\phi}\right)\nonumber\\
+&& + \mathbf{e}_\theta\left(\frac{1}{r\sin\left(\theta\right)}\frac{\partial\newtilde{V}_r}{\partial\phi} - \frac{\partial\newtilde{V}_\phi}{\partial r}\right) + \mathbf{e}_\phi\left(\frac{\partial \newtilde{V}_\theta}{\partial r} - \frac{1}{r}\frac{\partial\newtilde{V}_r}{\partial\theta}\right)\label{eq:rot_kugel}
 \end{eqnarray}
 %
-Nun ist noch die materielle Ableitung (s. Glg. \eqref{eq:tot_derivative_gen}) zu bearbeiten:
+Für die Geschwindigkeitsadvektion\index{Geschwindigkeitsadvektion!Kugelkoordinaten}\index{Kugelkoordinaten!Geschwindigkeitsadvektion} verwendet man die Weber-Transformation\index{Weber-Transformation} Glg. \eqref{eq:diff_op_rule_10}
 %
 \begin{eqnarray}
-\md{\mathbf{v}} & = & \md{v_r}\mathbf{e}_r + \md{v_\theta}\mathbf{e}_\theta + \md{v_\phi}{\phi}\mathbf{e}_\phi + v_r\md{\mathbf{e}_r} + v_\theta\md{\mathbf{e}_\theta} + v_\phi\md{\mathbf{e}_\phi}\nonumber\\
-& = & \md{v_r}\mathbf{e}_r + \md{v_\theta}\mathbf{e}_\theta + \md{v_\phi}{\phi}\mathbf{e}_\phi + v_r\left(\md{x_r}\frac{\partial\mathbf{e}_r}{\partial x_r} + \md{x_\theta}\frac{\partial\mathbf{e}_r}{\partial x_\theta} + \md{x_\phi}\frac{\partial\mathbf{e}_r}{\partial x_\phi}\right) + v_\theta\left(\md{x_r}\frac{\partial\mathbf{e}_\theta}{\partial x_r} + \md{x_\theta}\frac{\partial\mathbf{e}_\theta}{\partial x_\theta} + \md{x_\phi}\frac{\partial\mathbf{e}_\theta}{\partial x_\phi}\right)\nonumber\\
-&&+ v_\phi\left(\md{x_r}\frac{\partial\mathbf{e}_\phi}{\partial x_r} + \md{x_\theta}\frac{\partial\mathbf{e}_\phi}{\partial x_\theta} + \md{x_\phi}\frac{\partial\mathbf{e}_\phi}{\partial x_\phi}\right)\nonumber\\
-& = & \md{v_r}\mathbf{e}_r + \md{v_\theta}\mathbf{e}_\theta + \md{v_\phi}{\phi}\mathbf{e}_\phi + v_r\left(\md{x_\theta}\frac{1}{r}\mathbf{e}_\theta + \md{x_\phi}\frac{1}{r}\mathbf{e}_\phi\right) + v_\theta\left(-\md{x_\theta}\frac{1}{r}\mathbf{e}_r + \md{x_\phi}\frac{1}{r\tan\left(\theta\right)}\mathbf{e}_\phi\right)\nonumber\\
-&&- v_\phi\md{x_\phi}\frac{1}{r}\mathbf{e}_r - v_\phi\md{x_\phi}\frac{1}{r\tan\left(\theta\right)}\mathbf{e}_\theta\nonumber\\
-& = & \mathbf{e}_r\left(\md{v_r} - \frac{1}{r}v_\theta\md{x_\theta} - \frac{1}{r}v_\phi\md{x_\phi}\right) + \mathbf{e}_\theta\left(\md{v_\theta} + \frac{1}{r}v_r\md{x_\theta} - \frac{1}{r\tan\left(\theta\right)}v_\phi\md{x_\phi}\right)\nonumber\\
-&&+ \mathbf{e}_\phi\left(\md{v_\phi} + \frac{1}{r}v_r\md{x_\phi} + \frac{1}{r\tan\left(\theta\right)}v_\theta\md{x_\phi}\right)\label{eq:mat_derivative_kugel}
+\left(\mathbf{V}\cdot\nabla\right)\mathbf{V}& = & \frac{1}{2}\nabla\left(\mathbf{V}\cdot\mathbf{V}\right) + \left(\nabla\times\mathbf{V}\right)\times\mathbf{V}.
+\end{eqnarray} 
+%
+Vorbereitend stellt man mit Glg. \eqref{eq:inner_gen} fest:
+%
+\begin{eqnarray}
+\mathbf{V}^2 = \left(V^{(r)}\right)^2 + r^2\left(V^{(\theta)}\right)^2 + r^2\sin^2\left(\theta\right)\left(V^{(\phi)}\right)^2
+\end{eqnarray}
+%
+Hieraus folgt
+%
+\begin{eqnarray}
+\frac{1}{2}\nabla\left(\mathbf{V}\cdot\mathbf{V}\right) & = & \frac{1}{2}\mathbf{q}^{(r)}\frac{\partial}{\partial r}\left(\left(V^{(r)}\right)^2 + r^2\left(V^{(\theta)}\right)^2 + r^2\sin^2\left(\theta\right)\left(V^{(\phi)}\right)^2\right)\nonumber\\
+&& + \frac{1}{2}\mathbf{q}^{(\theta)}\frac{\partial}{\partial\theta}\left(\left(V^{(r)}\right)^2 + r^2\left(V^{(\theta)}\right)^2 + r^2\sin^2\left(\theta\right)\left(V^{(\phi)}\right)^2\right)\nonumber\\
+&& + \frac{1}{2}\mathbf{q}^{(\phi)}\frac{\partial}{\partial\phi}\left(\left(V^{(r)}\right)^2 + r^2\left(V^{(\theta)}\right)^2 + r^2\sin^2\left(\theta\right)\left(V^{(\phi)}\right)^2\right)\nonumber\\
+& = & \mathbf{q}^{(r)}\left(V^{(r)}\frac{\partial V^{(r)}}{\partial r} + r^2V^{(\theta)}\frac{\partial V^{(\theta)}}{\partial r} + r\left(V^{(\theta)}\right)^2 + r\sin^2\left(\theta\right)\left(V^{(\phi)}\right)^2 + r^2\sin^2\left(\theta\right)V^{(\phi)}\frac{\partial V^{(\phi)}}{\partial r}\right)\nonumber\\
+&& + \mathbf{q}^{(\theta)}\left(V^{(r)}\frac{\partial V^{(r)}}{\partial\theta} + r^2V^{(\theta)}\frac{\partial V^{(\theta)}}{\partial\theta} + r^2\sin\left(\theta\right)\cos\left(\theta\right)\left(V^{(\phi)}\right)^2 + r^2\sin^2\left(\theta\right)V^{(\phi)}\frac{\partial V^{(\phi)}}{\partial\theta}\right)\nonumber\\
+&& + \mathbf{q}^{(\phi)}\left(V^{(r)}\frac{\partial V^{(r)}}{\partial\phi} + r^2V^{(\theta)}\frac{\partial V^{(\theta)}}{\partial\phi} + r^2\sin^2\left(\theta\right)V^{(\phi)}\frac{\partial V^{(\phi)}}{\partial\phi}\right).
+\end{eqnarray}
+%
+Vm Glg. \eqref{eq:vector_product_gen} auswerten zu können, berechnet man zunächst
+%
+\begin{eqnarray}
+\mathbf{q}_r\times\mathbf{q}_\theta & = & \frac{1}{\sin\left(\theta\right)}\mathbf{q}_\phi = r^2\sin\left(\theta\right)\mathbf{q}^{(\phi)},\\
+\mathbf{q}_\theta\times\mathbf{q}_\phi & = & r^2\sin\left(\theta\right)\mathbf{q}_r = r^2\sin\left(\theta\right)\mathbf{q}^{(r)},\\
+\mathbf{q}_\phi\times\mathbf{q}_r & = & \sin\left(\theta\right)\mathbf{q}_\theta = r^2\sin\left(\theta\right)\mathbf{q}^{(\theta)}.
+\end{eqnarray}
+%
+Es folgt mit Glg. \eqref{eq:vector_product_gen}
+%
+\begin{eqnarray}
+&& \left(\nabla\times\mathbf{V}\right)\times\mathbf{V}\nonumber\\
+& = & \left|\begin{array}{ccc}
+\mathbf{q}^{(r)} & \mathbf{q}^{(\theta)} & \mathbf{q}^{(\phi)}\\
+\frac{\partial V_\phi}{\partial\theta} - \frac{\partial V_\theta}{\partial\phi} & \frac{\partial V_r}{\partial\phi} - \frac{\partial V_\phi}{\partial r} & \frac{\partial V_\theta}{\partial r} - \frac{\partial V_r}{\partial\theta}\\
+V^{(r)} & V^{(\theta)} & V^{(\phi)}
+\end{array}\right|\nonumber\\
+& = & \mathbf{q}^{(r)}\left[V^{(\phi)}\left(\frac{\partial V_r}{\partial\phi} - \frac{\partial V_\phi}{\partial r}\right) - V^{(\theta)}\left(\frac{\partial V_\theta}{\partial r} - \frac{\partial V_r}{\partial\theta}\right)\right]\nonumber\\
+&& + \mathbf{q}^{(\theta)}\left[V^{(r)}\left(\frac{\partial V_\theta}{\partial r} - \frac{\partial V_r}{\partial\theta}\right) - V^{(\phi)}\left(\frac{\partial V_\phi}{\partial\theta} - \frac{\partial V_\theta}{\partial\phi}\right)\right]\nonumber\\
+&& + \mathbf{q}^{(\phi)}\left[V^{(\theta)}\left(\frac{\partial V_\phi}{\partial\theta} - \frac{\partial V_\theta}{\partial\phi}\right) - V^{(r)}\left(\frac{\partial V_r}{\partial\phi} - \frac{\partial V_\phi}{\partial r}\right)\right]\nonumber\\
+& = & \mathbf{q}^{(r)}\left[V^{(\phi)}\left(\frac{\partial V^{(r)}}{\partial\phi} - \frac{\partial\left(r^2\sin^2\left(\theta\right)V^{(\phi)}\right)}{\partial r}\right) - V^{(\theta)}\left(\frac{\partial\left(r^2V^{(\theta)}\right)}{\partial r} - \frac{\partial V^{(r)}}{\partial\theta}\right)\right]\nonumber\\
+&& + \mathbf{q}^{(\theta)}\left[V^{(r)}\left(\frac{\partial \left(r^2V^{(\theta)}\right)}{\partial r} - \frac{\partial V^{(r)}}{\partial\theta}\right) - V^{(\phi)}\left(\frac{\partial\left(r^2\sin^2\left(\theta\right)V^{(\phi)}\right)}{\partial\theta} - \frac{\partial\left(r^2V^{(\theta)}\right)}{\partial\phi}\right)\right]\nonumber\\
+&& + \mathbf{q}^{(\phi)}\left[V^{(\theta)}\left(\frac{\partial\left(r^2\sin^2\left(\theta\right)V^{(\phi)}\right)}{\partial\theta} - \frac{\partial\left(r^2V^{(\theta)}\right)}{\partial\phi}\right) - V^{(r)}\left(\frac{\partial V^{(r)}}{\partial\phi} - \frac{\partial\left(r^2\sin^2\left(\theta\right)V^{(\phi)}\right)}{\partial r}\right)\right]\nonumber\\
+& = & \mathbf{q}^{(r)}\left[V^{(\phi)}\left(\frac{\partial V^{(r)}}{\partial\phi} - r^2\sin^2\left(\theta\right)\frac{\partial V^{(\phi)}}{\partial r} - 2r\sin^2\left(\theta\right)V^{(\phi)}\right) - V^{(\theta)}\left(2rV^{(\theta)} + r^2\frac{\partial V^{(\theta)}}{\partial r} - \frac{\partial V^{(r)}}{\partial\theta}\right)\right]\nonumber\\
+&& + \mathbf{q}^{(\theta)}\left[V^{(r)}\left(2rV^{(\theta)} + r^2\frac{\partial V^{(\theta)}}{\partial r} - \frac{\partial V^{(r)}}{\partial\theta}\right) - V^{(\phi)}\left(r^2\sin^2\left(\theta\right)\frac{\partial V^{(\phi)}}{\partial\theta} + 2r^2\sin\left(\theta\right)\cos\left(\theta\right)V^{(\phi)} - r^2\frac{\partial V^{(\theta)}}{\partial\phi}\right)\right]\nonumber\\
+&& + \mathbf{q}^{(\phi)}\bigg[V^{(\theta)}\left(r^2\sin^2\left(\theta\right)\frac{\partial V^{(\phi)}}{\partial\theta} + 2r^2\sin\left(\theta\right)\cos\left(\theta\right)V^{(\phi)} - r^2\frac{\partial V^{(\theta)}}{\partial\phi}\right)\nonumber\\
+&& - V^{(r)}\left(\frac{\partial V^{(r)}}{\partial\phi} - 2r\sin^2\left(\theta\right)V^{(\phi)} - r^2\sin^2\left(\theta\right)\frac{\partial V^{(\phi)}}{\partial r}\right)\bigg].
+\end{eqnarray}
+%
+Somit folgt
+%
+\begin{eqnarray}
+&& \left(\mathbf{V}\cdot\nabla\right)\mathbf{V}\nonumber\\
+& = & \mathbf{q}^{(r)}\left[V^{(r)}\frac{\partial V^{(r)}}{\partial r} + V^{(\theta)}\frac{\partial V^{(r)}}{\partial\theta} + V^{(\phi)}\frac{\partial V^{(r)}}{\partial\phi} - r\left(V^{(\theta)}\right)^2 - r\sin^2\left(\theta\right)\left(V^{(\phi)}\right)^2\right]\nonumber\\
+&& + \mathbf{q}^{(\theta)}\left[r^2\left(V^{(r)}\frac{\partial V^{(\theta)}}{\partial r} + V^{(\theta)}\frac{\partial V^{(\theta)}}{\partial\theta} + V^{(\phi)}\frac{\partial V^{(\theta)}}{\partial\phi}\right) - r^2\sin\left(\theta\right)\cos\left(\theta\right)\left(V^{(\phi)}\right)^2 + 2rV^{(\theta)}V^{(r)}\right]\nonumber\\
+&& + \mathbf{q}^{(\phi)}\bigg[r^2\sin^2\left(\theta\right)\left(V^{(r)}\frac{\partial V^{(\phi)}}{\partial r} + V^{(\theta)}\frac{\partial V^{(\phi)}}{\partial\theta} + V^{(\phi)}\frac{\partial V^{(\phi)}}{\partial\phi}\right)\nonumber\\
+&& + 2r\sin\left(\theta\right)V^{(\phi)}\left(\sin\left(\theta\right)V^{(r)} + r\cos\left(\theta\right)V^{(\theta)}\right)\bigg].
+\end{eqnarray}
+%
+Für die materielle Ableitung\index{materielle Ableitung!Kugelkoordinaten}\index{Ableitung!materielle!Kugelkoordinaten}\index{Kugelkoordinaten!materielle Ableitung} gilt also
+%
+\begin{eqnarray}
+\md{\mathbf{V}} & = & \mathbf{e}_r\left(\md{\newtilde{V}_r} - \frac{\newtilde{V}_\phi^2 + \newtilde{V}_\theta^2}{r}\right) + \mathbf{e}_\theta\left(\md{\newtilde{V}_\theta} + \frac{\newtilde{V}_r\newtilde{V}_\theta}{r} - \frac{\newtilde{V}_\phi^2}{r\tan\left(\theta\right)}\right)\nonumber\\
+&&+ \mathbf{e}_\phi\left(\md{\newtilde{V}_\phi} + \frac{\newtilde{V}_r\newtilde{V}_\phi}{r} + \frac{\newtilde{V}_\theta\newtilde{V}_\phi}{r\tan\left(\theta\right)}\right)\label{eq:mat_derivative_kugel}
 \end{eqnarray}
 %
 \subsubsection{Transformation auf geographische Koordinaten}
@@ -15222,11 +15309,11 @@ Die letzte Identität transformiert in die gewöhnlichen Kugelkoordinaten. Analo
 Glg. \eqref{eq:div_kugel} wird zu
 %
 \begin{eqnarray}
-\nabla\cdot\mathbf{v} & = & \frac{\partial v_z}{\partial r} + \frac{1}{r}\frac{\partial v_y}{\partial\varphi} + \frac{1}{r\cos\left(\varphi\right)}\frac{\partial v_x}{\partial\lambda} + \frac{2v_z}{r} - \frac{v_y\tan\left(\varphi\right)}{r} = \nabla\cdot\mathbf{v}\nonumber\\
-& = & \frac{\partial v_z}{\partial r} + \frac{\partial v_y}{\partial y} + \frac{\partial v_x}{\partial x} + \frac{2v_z}{r} - \frac{v_y\tan\left(\varphi\right)}{r}.\label{eq:div_geo}
+\nabla\cdot\mathbf{V} & = & \frac{\partial V_z}{\partial r} + \frac{1}{r}\frac{\partial V_y}{\partial\varphi} + \frac{1}{r\cos\left(\varphi\right)}\frac{\partial V_x}{\partial\lambda} + \frac{2V_z}{r} - \frac{V_y\tan\left(\varphi\right)}{r} = \nabla\cdot\mathbf{V}\nonumber\\
+& = & \frac{\partial V_z}{\partial r} + \frac{\partial V_y}{\partial y} + \frac{\partial V_x}{\partial x} + \frac{2V_z}{r} - \frac{V_y\tan\left(\varphi\right)}{r}.\label{eq:div_geo}
 \end{eqnarray}
 %
-Für $\mathbf{v} = \mathbf{U}$ folgt
+Für $\mathbf{V} = \mathbf{U}$ folgt
 %
 \begin{eqnarray}
 \nabla\cdot\mathbf{U} & = & \frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} + \frac{\partial w}{\partial z} - \frac{v\tan\left(\varphi\right)}{r} + \frac{2w}{r}.
@@ -15235,13 +15322,13 @@ Für $\mathbf{v} = \mathbf{U}$ folgt
 Glg. \eqref{eq:rot_kugel} wird zu
 %
 \begin{eqnarray}
-\nabla\times\mathbf{v} & = & -\frac{v_y}{r}\mathbf{i} + \frac{v_x\tan\left(\varphi\right)}{r}\mathbf{k} + \frac{v_x}{r}\mathbf{j} + \mathbf{k}\left(-\frac{1}{r}\frac{\partial v_x}{\partial\varphi} + \frac{1}{r\cos\left(\varphi\right)}\frac{\partial v_y}{\partial\lambda}\right)\nonumber\\
-&&-\mathbf{j}\left(\frac{1}{r\cos\left(\varphi\right)}\frac{\partial v_z}{\partial\lambda} - \frac{\partial v_x}{\partial r}\right) + \mathbf{i}\left(-\frac{\partial v_y}{\partial r} + \frac{1}{r}\frac{\partial v_z}{\partial\varphi}\right)\nonumber\\
-& = & -\frac{v_y}{r}\mathbf{i} + \frac{v_x\tan\left(\varphi\right)}{r}\mathbf{k} + \frac{v_x}{r}\mathbf{j} + \mathbf{k}\left(-\frac{\partial v_x}{\partial y} + \frac{\partial v_y}{\partial x}\right)\nonumber\\
-&& -\mathbf{j}\left(\frac{\partial v_z}{\partial x} - \frac{\partial v_x}{\partial r}\right) + \mathbf{i}\left(-\frac{\partial v_y}{\partial r} + \frac{\partial v_z}{\partial y}\right).\label{eq:rot_geo}
+\nabla\times\mathbf{V} & = & -\frac{V_y}{r}\mathbf{i} + \frac{V_x\tan\left(\varphi\right)}{r}\mathbf{k} + \frac{V_x}{r}\mathbf{j} + \mathbf{k}\left(-\frac{1}{r}\frac{\partial V_x}{\partial\varphi} + \frac{1}{r\cos\left(\varphi\right)}\frac{\partial V_y}{\partial\lambda}\right)\nonumber\\
+&&-\mathbf{j}\left(\frac{1}{r\cos\left(\varphi\right)}\frac{\partial V_z}{\partial\lambda} - \frac{\partial V_x}{\partial r}\right) + \mathbf{i}\left(-\frac{\partial V_y}{\partial r} + \frac{1}{r}\frac{\partial V_z}{\partial\varphi}\right)\nonumber\\
+& = & -\frac{V_y}{r}\mathbf{i} + \frac{V_x\tan\left(\varphi\right)}{r}\mathbf{k} + \frac{V_x}{r}\mathbf{j} + \mathbf{k}\left(-\frac{\partial V_x}{\partial y} + \frac{\partial V_y}{\partial x}\right)\nonumber\\
+&& -\mathbf{j}\left(\frac{\partial V_z}{\partial x} - \frac{\partial V_x}{\partial r}\right) + \mathbf{i}\left(-\frac{\partial V_y}{\partial r} + \frac{\partial V_z}{\partial y}\right).\label{eq:rot_geo}
 \end{eqnarray}
 %
-Für $\mathbf{v} = \mathbf{U}$ folgt
+Für $\mathbf{V} = \mathbf{U}$ folgt
 %
 \begin{eqnarray}
 \nabla\times\mathbf{U} & = & \left(\frac{\partial w}{\partial y} - \frac{\partial v}{\partial z}\right)\mathbf{i} + \left(\frac{\partial u}{\partial z} - \frac{\partial w}{\partial x}\right)\mathbf{j} + \left(\frac{\partial v}{\partial x} - \frac{\partial u}{\partial y}\right)\mathbf{k} + \frac{u\tan\left(\varphi\right)}{r}\mathbf{k} + \frac{u}{r}\mathbf{j} - \frac{v}{r}\mathbf{i}.\label{eq:rot_local}
@@ -15260,13 +15347,6 @@ Zu beachten ist, dass gilt
 \end{eqnarray}
 %
 Für die \textit{materielle Ableitung}\index{materielle Ableitung}\index{Ableitung!materielle} folgt mit Glg. \eqref{eq:mat_derivative_kugel}
-%
-\begin{eqnarray}
-\md{\mathbf{v}} & = & \mathbf{k}\left(\md{v_r} - \frac{1}{r}v_\varphi v - \frac{1}{r}v_\lambda u\right) + \mathbf{j}\left(\md{v_\varphi} + \frac{1}{r}v_rv + \frac{\tan\left(\varphi\right)}{r}v_\lambda u\right)\nonumber\\
-&&+ \mathbf{i}\left(\md{v_\lambda} + \frac{1}{r}v_ru - \frac{\tan\left(\varphi\right)}{r}v_\varphi u\right).
-\end{eqnarray}
-%
-Für $\mathbf{v} = \mathbf{U}$ folgt
 %
 \begin{eqnarray}
 \md{\mathbf{U}} & = & \mathbf{i}\left(\frac{\partial u}{\partial t} + u\frac{\partial u}{\partial x} + v\frac{\partial u}{\partial y} + w\frac{\partial u}{\partial z} - \frac{uv\tan\left(\varphi\right)}{a + z} + \frac{uw}{a + z}\right)\nonumber\\
