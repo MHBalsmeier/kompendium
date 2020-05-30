@@ -283,7 +283,7 @@
 \indexentry{freie Energie}{82}
 \indexentry{Energie!freie}{82}
 \indexentry{Enthalpie}{82}
-\indexentry{Gibbspotential}{82}
+\indexentry{Gibbs-Potential}{82}
 \indexentry{freie Enthalpie}{82}
 \indexentry{Enthalpie!freie}{82}
 \indexentry{großkanonisches Potential}{82}
@@ -296,6 +296,9 @@
 \indexentry{chemisches Potential!ideales Gas}{87}
 \indexentry{ideales Gas!chemisches Potential}{87}
 \indexentry{Gas!ideales!chemisches Potential}{87}
+\indexentry{Gibbs-Potential}{87}
+\indexentry{extensive Größe}{87}
+\indexentry{Größe!extensive}{87}
 \indexentry{virtuelle Temperatur}{88}
 \indexentry{Temperatur!virtuelle}{88}
 \indexentry{virtueller Temperaturzuschlag}{88}
@@ -425,13 +428,17 @@
 \indexentry{Erster Hauptsatz!trockene Luft}{120}
 \indexentry{Luft!trockene!Erster Hauptsatz}{120}
 \indexentry{Hauptsatz!Erster!trockene Luft}{120}
+\indexentry{spezifische Entropie}{120}
+\indexentry{Entropie!spezifische}{120}
+\indexentry{Zustandsgleichung idealer Gase}{120}
+\indexentry{ideales Gas!Zustandsgleichung}{120}
 \indexentry{Stabilitätsparameter}{121}
 \indexentry{Temperatur!potentielle}{122}
 \indexentry{potentielle Temperatur}{122}
 \indexentry{trockenadiabatischer Temperaturgradient}{122}
 \indexentry{Temperaturgradient!trockenadiabatischer}{122}
-\indexentry{Trockenadiabate}{122}
 \indexentry{Hebungskurve}{123}
+\indexentry{Trockenadiabate}{123}
 \indexentry{potentielle Temperatur}{124}
 \indexentry{Temperatur!potentielle}{124}
 \indexentry{Kontinuitätsgleichung}{124}
@@ -441,761 +448,760 @@
 \indexentry{Druck!prognostische Gleichung}{124}
 \indexentry{Druck!Gleichung!prognostische}{124}
 \indexentry{Gleichung!prognostische!Druck}{124}
-\indexentry{Exner-Druck}{124}
+\indexentry{Exner-Druck}{125}
 \indexentry{Druckgradientbeschleunigung!Exner-Druck}{125}
 \indexentry{Exner-Druck!Druckgradientbeschleunigung}{125}
 \indexentry{spezifische Enthalpie}{125}
 \indexentry{Enthalpie!spezifische}{125}
-\indexentry{Standardatmosphäre}{126}
-\indexentry{isentrope Koordinate}{126}
-\indexentry{isentropes Koordinatensystem}{126}
-\indexentry{Koordinate!isentrope}{126}
-\indexentry{Koordinatensystem!isentropes}{126}
-\indexentry{feuchte Luft}{126}
-\indexentry{Luft!feuchte}{126}
-\indexentry{Kondensat}{126}
-\indexentry{virtuelle potentielle Temperatur}{128}
-\indexentry{potentielle Temperatur!virtuelle}{128}
-\indexentry{virtuelle Temperatur!potentielle}{128}
-\indexentry{Temperatur!virtuelle!potentielle}{128}
-\indexentry{Temperatur!potentielle!virtuelle}{128}
-\indexentry{pseudopotentielle Temperatur}{128}
-\indexentry{Temperatur!pseudopotentielle}{128}
-\indexentry{Diabatie}{128}
-\indexentry{Wärmeleitung}{128}
-\indexentry{Wärmeübergang}{128}
-\indexentry{latente Wärme}{128}
-\indexentry{Wärme!latente}{128}
-\indexentry{Strahlung}{128}
-\indexentry{Dissipation}{128}
-\indexentry{Diffusion}{128}
-\indexentry{Phasenübergang}{128}
-\indexentry{Kollision}{128}
-\indexentry{Zerfall}{128}
-\indexentry{Wärmeleitung}{128}
-\indexentry{Phasenübergangswärme}{128}
-\indexentry{Wärmeübergang}{129}
-\indexentry{Wärmedurchgangszahl}{129}
-\indexentry{Dissipation}{129}
-\indexentry{Strahlungstransport}{130}
-\indexentry{Strahlungsübertragungsgleichung}{130}
-\indexentry{Absorptionskoeffizient}{131}
-\indexentry{Streuquerschnitt}{131}
-\indexentry{Strahlungsübertragungsgleichung}{131}
-\indexentry{Randbedingung}{131}
-\indexentry{Integralrelation!einer einphasigen Atmosphäre}{131}
-\indexentry{Atmosphäre!einphasige!Integralrelation}{131}
-\indexentry{spezifische kinetische Energie}{131}
-\indexentry{kinetische Energie!spezifische}{131}
-\indexentry{Energie!kinetische!spezifische}{131}
-\indexentry{kinetische Energiedichte}{132}
-\indexentry{Energiedichte!kinetische}{132}
-\indexentry{Geopotential}{132}
-\indexentry{innere Energie}{132}
-\indexentry{Energie!innere}{132}
-\indexentry{Energiedichte}{132}
-\indexentry{Poynting-Theorem!Meteorologie}{132}
-\indexentry{Bernoulli-Gleichung}{132}
-\indexentry{kinematische Randbedingung}{133}
-\indexentry{Randbedingung!kinematische}{133}
-\indexentry{Entropiedichte}{133}
-\indexentry{kinematische Randbedingung}{133}
-\indexentry{Ranbedingung!kinematische}{133}
-\indexentry{reversibel}{133}
-\indexentry{innere Energie}{133}
-\indexentry{Energie!innere}{133}
-\indexentry{Enthalpie}{133}
-\indexentry{Gesamtimpuls der Atmosphäre}{133}
-\indexentry{Atmosphäre!Gesamtimpuls}{133}
-\indexentry{Impuls!der Atmosphäre}{133}
-\indexentry{Zweites Newton'sches Axiom}{134}
-\indexentry{Newton'sches Axiom!Zweites}{134}
-\indexentry{Axiom!Zweites!Newton'sches}{134}
-\indexentry{externe Kraft}{134}
-\indexentry{Kraft!externe}{134}
-\indexentry{Gesamtdrehimpuls der Atmosphäre}{134}
-\indexentry{Atmosphäre!Gesamtdrehimpuls}{134}
-\indexentry{Drehimpuls!der Atmosphäre}{134}
-\indexentry{Koordinaten!ruhende}{134}
-\indexentry{ruhende Koordinaten}{134}
-\indexentry{available potential Energy (APE)}{134}
-\indexentry{APE}{134}
-\indexentry{Energie!potentielle!verfügbare}{134}
-\indexentry{potentielle Energie!verfügbare}{134}
-\indexentry{verfügbare potentielle Energie}{134}
-\indexentry{kinetische Energie}{134}
-\indexentry{Energie!kinetische}{134}
+\indexentry{Entropie}{127}
+\indexentry{Entropie}{127}
+\indexentry{Kontinuitätsgleichung}{127}
+\indexentry{Standardatmosphäre}{128}
+\indexentry{isentrope Koordinate}{128}
+\indexentry{isentropes Koordinatensystem}{128}
+\indexentry{Koordinate!isentrope}{128}
+\indexentry{Koordinatensystem!isentropes}{128}
+\indexentry{Tracer}{129}
+\indexentry{ideales Gasgemisch}{129}
+\indexentry{Gasgemisch!ideales}{129}
+\indexentry{ideales Gas!Gemisch}{129}
+\indexentry{Gas!ideales!Gemisch}{129}
+\indexentry{feuchte Luft}{129}
+\indexentry{Luft!feuchte}{129}
+\indexentry{kondensierte Materie}{129}
+\indexentry{Materie!kondensierte}{129}
+\indexentry{Wärmefluss}{130}
+\indexentry{Wärmeleitung}{130}
+\indexentry{Wärmeübergang}{130}
+\indexentry{latente Wärme}{130}
+\indexentry{Wärme!latente}{130}
+\indexentry{Strahlung}{130}
+\indexentry{Dissipation}{130}
+\indexentry{Diffusion}{130}
+\indexentry{Phasenübergang}{130}
+\indexentry{Kollision}{130}
+\indexentry{Zerfall}{130}
+\indexentry{Wärmeleitung}{130}
+\indexentry{Phasenübergangswärme}{130}
+\indexentry{Wärmeübergang}{131}
+\indexentry{Wärmedurchgangszahl}{131}
+\indexentry{Dissipation}{131}
+\indexentry{Strahlungstransport}{132}
+\indexentry{Strahlungsübertragungsgleichung}{132}
+\indexentry{Absorptionskoeffizient}{133}
+\indexentry{Streuquerschnitt}{133}
+\indexentry{Strahlungsübertragungsgleichung}{133}
+\indexentry{Randbedingung}{133}
+\indexentry{Integralrelation!einer einphasigen Atmosphäre}{133}
+\indexentry{Atmosphäre!einphasige!Integralrelation}{133}
+\indexentry{spezifische kinetische Energie}{133}
+\indexentry{kinetische Energie!spezifische}{133}
+\indexentry{Energie!kinetische!spezifische}{133}
+\indexentry{kinetische Energiedichte}{134}
+\indexentry{Energiedichte!kinetische}{134}
+\indexentry{Geopotential}{134}
 \indexentry{innere Energie}{134}
 \indexentry{Energie!innere}{134}
-\indexentry{potentielle Energie}{134}
-\indexentry{Energie!potentielle}{134}
-\indexentry{Orographie}{134}
-\indexentry{Energie!potentielle!totale}{134}
-\indexentry{totale potentielle Energie}{134}
-\indexentry{Enthalpie}{134}
-\indexentry{Energie!potentielle!verfügbare}{134}
-\indexentry{verfügbare potentielle Energie}{134}
-\indexentry{$\theta-$System}{134}
-\indexentry{partielle Integration}{135}
-\indexentry{Integration!partielle}{135}
-\indexentry{p-System}{136}
-\indexentry{Gleichung!herrschende}{138}
-\indexentry{herrschende Gleichung}{138}
-\indexentry{Dynamik}{141}
-\indexentry{Hydrostatik}{141}
-\indexentry{Grundgleichung!hydrostatische}{141}
-\indexentry{hydrostatische Grundgleichung}{141}
-\indexentry{Zyklogenese}{141}
-\indexentry{Filterung}{141}
-\indexentry{Newton'sche Gravitationskonstante}{142}
-\indexentry{Gravitationskonstante!Newton'sche}{142}
-\indexentry{Gauß'scher Satz}{142}
-\indexentry{Satz!Gauß'scher}{142}
-\indexentry{generalisierte Vertikalkoordinate}{142}
-\indexentry{Vertikalkoordinate!generalisierte}{142}
-\indexentry{geopotentielle Höhe}{142}
-\indexentry{Höhe!geopotentielle}{142}
-\indexentry{Barotropie}{142}
-\indexentry{Geostrophie}{143}
-\indexentry{Rossby-Zahl}{143}
-\indexentry{thermischer Wind}{144}
-\indexentry{Wind!thermischer}{144}
-\indexentry{Boussinesq-Approximation}{144}
-\indexentry{Boussinesq-Approximation}{145}
-\indexentry{Rossby-Parameter}{145}
-\indexentry{f-Ebene}{145}
-\indexentry{f-Kugel}{145}
-\indexentry{$\beta-$Ebene}{146}
-\indexentry{Gradientenwind}{146}
-\indexentry{Wind!subgeostrophischer}{146}
-\indexentry{subgeostrophischer Wind}{146}
-\indexentry{Subgeostrohpie}{146}
-\indexentry{Wind!supergeostrophischer}{146}
-\indexentry{supergeostrophischer Wind}{146}
-\indexentry{Supergeostrohpie}{146}
-\indexentry{Reibungswind}{147}
-\indexentry{Ekman-Spirale}{147}
-\indexentry{Euler-Wind}{147}
-\indexentry{Zyklostrophischer Wind}{147}
-\indexentry{Wind!zyklostrophsicher}{147}
-\indexentry{Tornado}{147}
-\indexentry{Vorticity}{149}
-\indexentry{Divergenz}{149}
-\indexentry{Poisson-Gleichung}{149}
-\indexentry{Geschwindigkeitspotential}{149}
-\indexentry{Hauptsatz der Vektoranalysis}{149}
-\indexentry{Stromfunktion}{149}
-\indexentry{Vorticity}{150}
-\indexentry{planetare Vorticity}{150}
-\indexentry{Vorticity!planetare}{150}
-\indexentry{Vorticity!relative}{150}
-\indexentry{relative Vorticity}{150}
-\indexentry{Stokes'scher Satz}{151}
-\indexentry{Satz von Stokes}{151}
-\indexentry{Scherungsvorticity}{151}
-\indexentry{Krümmungsvorticity}{151}
-\indexentry{Zirkulationssatz}{152}
-\indexentry{Stokes'scher Satz}{152}
-\indexentry{Satz von Stokes}{152}
-\indexentry{Vorticitygleichung}{153}
-\indexentry{Solenoidterm}{154}
-\indexentry{barotrope Vorticitygleichung}{154}
-\indexentry{Vorticitygleichung!barotrope}{154}
-\indexentry{Vorticitygleichung!p-System}{155}
-\indexentry{Vorticity!potentielle!barotrope}{156}
-\indexentry{barotrope potentielle Vorticity}{156}
-\indexentry{$\beta-$Effekt!orographischer}{157}
-\indexentry{orographischer $\beta-$Effekt}{157}
-\indexentry{Divergenz}{157}
-\indexentry{zeitabhängige Bernoulli-Gleichung}{157}
-\indexentry{Bernoulli-Gleichung!zeitabhängige}{157}
-\indexentry{Geschwindigkeitsdivergenz}{157}
-\indexentry{Richtungsdivergenz}{157}
-\indexentry{Divergenzgleichung}{157}
-\indexentry{Divergenzgleichung!p-System}{158}
-\indexentry{Balancegleichung}{159}
-\indexentry{Balancegleichung!lineare}{159}
-\indexentry{lineare Balancegleichung}{159}
-\indexentry{potentielle Vorticity}{160}
-\indexentry{Vorticity!potentielle}{160}
-\indexentry{Ertel'scher Wirbelsatz}{160}
-\indexentry{Wirbelsatz!Ertel'scher}{160}
-\indexentry{potentielle Vorticity}{160}
-\indexentry{Vorticity!potentielle}{160}
-\indexentry{Ertel'scher Wirbelsatz}{160}
-\indexentry{Wirbelsatz!Ertel'scher}{160}
-\indexentry{potentielle Vorticity}{161}
-\indexentry{Vorticity!potentielle}{161}
-\indexentry{p-System}{161}
-\indexentry{p-System}{162}
-\indexentry{iseentrope Koordinate}{162}
-\indexentry{Koordinate!isentrope}{162}
-\indexentry{hydrostatische Stabilität im $\theta-$System}{162}
-\indexentry{$\theta-$System!hydrostatische Stabilität}{162}
-\indexentry{Welle}{163}
-\indexentry{Instabilität}{163}
-\indexentry{Kinematik!Welle}{163}
-\indexentry{Welle!Kinematik}{163}
-\indexentry{Welle!evaneszente}{163}
-\indexentry{evaneszente Welle}{163}
-\indexentry{Dispersionsrelation}{164}
-\indexentry{Gruppengeschwindigkeit}{164}
-\indexentry{anormale Dispersion}{165}
-\indexentry{Dispersion!anormale}{165}
-\indexentry{Longitudinalwelle}{165}
-\indexentry{Transversalwelle}{165}
-\indexentry{Wellenhöhe}{165}
-\indexentry{Steilheit}{165}
-\indexentry{Linearisierung!Wellengleichung}{165}
-\indexentry{Schallwelle}{166}
-\indexentry{Adiabatenexponent}{167}
-\indexentry{Isentropenexponent}{167}
-\indexentry{barotrope Welle}{167}
-\indexentry{Welle!barotrope}{167}
-\indexentry{Sub-Poincaré-Welle}{167}
-\indexentry{Welle!Sub-Poincaré}{167}
-\indexentry{Dispersionsrelation}{168}
-\indexentry{Flachwasserwelle}{168}
-\indexentry{Welle!Flachwasser}{168}
-\indexentry{Tiefwasserwelle}{168}
-\indexentry{Welle!Tiefwasser}{168}
-\indexentry{Stokes-Drift}{168}
-\indexentry{Poincaré-Welle}{169}
-\indexentry{Welle!Poincaré-Welle}{169}
-\indexentry{Kapillarwellen}{170}
-\indexentry{mechanische Oberflächenspannung}{171}
-\indexentry{Oberflächenspannung!mechanische}{171}
-\indexentry{Kapilardruck}{171}
-\indexentry{Inertialwelle}{172}
-\indexentry{Welle!Inertialwelle}{172}
-\indexentry{Inertialwellen}{172}
-\indexentry{Welle!Inertialwelle}{172}
-\indexentry{Kelvin-Welle}{172}
-\indexentry{Welle!Kelvin-Welle}{172}
-\indexentry{Kelvin-Welle!äquatoriale}{174}
-\indexentry{äquatoriale Kelvin-Welle}{174}
-\indexentry{globale Mode}{176}
-\indexentry{Mode!globale}{176}
-\indexentry{f-Kugel}{176}
-\indexentry{Rossby-Welle}{176}
-\indexentry{Welle!Rossby-Welle!barotrope}{176}
-\indexentry{barotrope Rossby-Welle}{176}
-\indexentry{Rossby-Welle!barotrope}{176}
-\indexentry{Welle!barokline}{178}
-\indexentry{barokline Welle}{178}
-\indexentry{Welle!Schichtungswelle}{178}
-\indexentry{Schichtungswelle}{178}
-\indexentry{Brunt-Väisälä-Frequenz}{179}
-\indexentry{vertikale Mode}{180}
-\indexentry{Mode!vertikale}{180}
-\indexentry{Rossby-Welle!barokline}{181}
-\indexentry{Welle!Rossby-Welle!barokline}{181}
-\indexentry{barokline Rossby-Wellen}{181}
-\indexentry{Quasigeostrophie}{181}
-\indexentry{Stabilitätsparameter!statischer}{181}
-\indexentry{statischer Stabilitätsparameter}{181}
-\indexentry{Vorticitygleichung!quasigeostrophische}{182}
-\indexentry{quasigeostrophische Vorticitygleichung}{182}
-\indexentry{Vorticity!quasigeostrophische!potentielle}{183}
-\indexentry{quasigeostrophische potentielle Vorticity}{183}
-\indexentry{Tendenzgleichung}{183}
-\indexentry{$\omega-$Gleichung}{184}
-\indexentry{Frontogenese}{184}
-\indexentry{Zyklogenese}{184}
-\indexentry{Zweischichtmodell!quasigeostrophisches}{184}
-\indexentry{quasigeostrophisches Zweischichtmodell}{184}
-\indexentry{Stabilitätswellenzahl}{184}
-\indexentry{Schwerewelle}{187}
-\indexentry{Instabilität}{187}
-\indexentry{Welle!Instabilität}{187}
-\indexentry{Instabilität}{187}
-\indexentry{Instabilität!barotrope}{187}
-\indexentry{barotrope Instabilität}{187}
-\indexentry{Vorticitygleichung!barotrope}{188}
-\indexentry{barotrope Vorticitygleichung}{188}
-\indexentry{Jet}{188}
-\indexentry{Instabilität!barokline}{189}
-\indexentry{barokline Instabilität}{189}
-\indexentry{Kelvon-Helmholtz-Instabilität}{190}
-\indexentry{Schichtung!diskrete!Kelvin-Helmholtz-Instabilität}{190}
-\indexentry{diskrete Schichtung!Kelvin-Helmholtz-Instabilität}{190}
-\indexentry{Kelvin-Helmholtz-Instabilität!in diskreter Schichtung}{190}
-\indexentry{Zirkulationssatz}{191}
-\indexentry{Stromfunktion}{191}
-\indexentry{kinematische Randbedingung}{191}
-\indexentry{Randbedingung!kinematische}{191}
-\indexentry{dynamische Randbedingung}{191}
-\indexentry{Randbedingung!dynamische}{191}
-\indexentry{kinematische Randbedingung}{191}
-\indexentry{Randbedingung!kinematische}{191}
-\indexentry{zeitabhängige Bernoulli-Gleichung}{191}
-\indexentry{Bernoulli-Gleichung!zeitabhängige}{191}
-\indexentry{dynamische Randbedingung}{191}
-\indexentry{Randbedingung!dynamische}{191}
-\indexentry{Laplace-Gleichung}{192}
-\indexentry{Schichtung!kontinuierliche!Kelvin-Helmholtz-Instabilität}{193}
-\indexentry{kontinuierliche Schichtung!Kelvin-Helmholtz-Instabilität}{193}
-\indexentry{Kelvin-Helmholtz-Instabilität!in kontinuierlicher Schichtung}{193}
-\indexentry{Brunt-Väisälä-Frequenz}{195}
-\indexentry{Taylor-Goldstein-Gleichung}{195}
-\indexentry{Richardson-Zahl}{196}
-\indexentry{Prandtl-Frequenz}{196}
-\indexentry{thermische Instabilität}{196}
-\indexentry{Instabilität!thermische}{196}
-\indexentry{Inversion}{197}
-\indexentry{trockenadiabatischer Temperaturgradient}{197}
-\indexentry{Temperaturgradient!trockenadiabatischer}{197}
-\indexentry{lifted condensation level (LCL)}{197}
-\indexentry{Hebungskondensationsniveau (HKN)}{197}
-\indexentry{HKN}{197}
-\indexentry{LCL}{197}
-\indexentry{reversible Feuchtadiabate}{197}
-\indexentry{Feuchtadiabate!reversible}{197}
-\indexentry{irreversible Feuchtadiabate}{197}
-\indexentry{Feuchtadiabate!irreversible}{197}
-\indexentry{feuchtadiabatischer Temperaturgradient}{199}
-\indexentry{Temperaturgradient!feuchtadiabatischer}{199}
-\indexentry{pseudopotentielle Temperatur}{200}
-\indexentry{Temperatur!pseudopotentielle}{200}
-\indexentry{LCL}{200}
-\indexentry{lifted condensation level (LCL)}{200}
-\indexentry{Hebungskondensationsniveau (HKN)}{200}
-\indexentry{HKN}{200}
-\indexentry{LCL}{200}
-\indexentry{Feuchtadiabate!irreversible}{200}
-\indexentry{irreversible Feuchtadiabate}{200}
-\indexentry{reversibel-pseudopotentielle Temperatur}{200}
-\indexentry{Temperatur!reversibelpseudopotentielle}{200}
-\indexentry{convective available potential Energy (CAPE)}{200}
-\indexentry{CAPE}{200}
-\indexentry{Energie!potentielle!konvektiv verfügbare}{200}
-\indexentry{potentielle Energie!konvektiv verfügbare}{200}
-\indexentry{konvektiv verfügbare potentielle Energie}{200}
-\indexentry{Tropopausenhöhe}{200}
-\indexentry{convective available potential Energy (CAPE)}{200}
-\indexentry{CAPE}{200}
-\indexentry{Energie!potentielle!konvektiv verfügbare}{200}
-\indexentry{potentielle Energie!konvektiv verfügbare}{200}
-\indexentry{konvektiv verfügbare potentielle Energie}{200}
-\indexentry{$\Theta-$Funktion}{200}
-\indexentry{level of free convection}{201}
-\indexentry{LFC}{201}
-\indexentry{freie Konvektion}{201}
-\indexentry{Konvektion!freie}{201}
-\indexentry{Gleichgewichtsniveau}{201}
-\indexentry{maximale Wolkenobergrenze}{201}
-\indexentry{Wolkenobergrenze!maximale}{201}
-\indexentry{Schichtungswelle}{201}
-\indexentry{overshooting top}{201}
-\indexentry{Auslösetemperatur}{201}
-\indexentry{konvektive Schranke}{201}
-\indexentry{Schranke!konvektive}{201}
-\indexentry{convective inhibition (CIN)}{201}
-\indexentry{CIN}{201}
-\indexentry{convective condensation level (CCL)}{201}
-\indexentry{Konvektionskondensationsniveau (KKN)}{201}
-\indexentry{KKN}{201}
-\indexentry{CCL}{201}
-\indexentry{Synoptik!der Extratropen}{203}
-\indexentry{Skala!Mesoskala}{203}
-\indexentry{Mesoskala}{203}
-\indexentry{Skala!Meso$-\alpha-$Skala}{203}
-\indexentry{Meso$-\alpha-$Skala}{203}
-\indexentry{Wendekreis}{203}
-\indexentry{Tropen}{203}
-\indexentry{Extratropen}{203}
-\indexentry{Polarkreis}{203}
-\indexentry{Breiten!hohe}{203}
-\indexentry{hohe Breiten}{203}
-\indexentry{mittlere Breiten}{203}
-\indexentry{Breiten!mittlere}{203}
-\indexentry{Quasigeostrophie}{203}
-\indexentry{Geopotentialtendenz}{203}
-\indexentry{Tendenz!des Geopotentials}{203}
-\indexentry{Tendenzgleichung}{203}
-\indexentry{Zyklogenese}{203}
-\indexentry{Antizyklogenese}{204}
-\indexentry{differenzielle Temperaturadvektion}{204}
-\indexentry{Temperaturadvektion!differenzielle}{204}
-\indexentry{$\omega-$Gleichung}{204}
-\indexentry{Semigeostrophie}{204}
-\indexentry{Front}{204}
-\indexentry{PV-Denken}{204}
-\indexentry{potentielle Vorticitiy}{204}
-\indexentry{Vorticity!potentielle}{204}
-\indexentry{Dynamik!tropische}{205}
-\indexentry{Skalenanalyse!Tropen}{205}
+\indexentry{Energiedichte}{134}
+\indexentry{Poynting-Theorem!Meteorologie}{134}
+\indexentry{Bernoulli-Gleichung}{134}
+\indexentry{kinematische Randbedingung}{135}
+\indexentry{Randbedingung!kinematische}{135}
+\indexentry{reversibel}{135}
+\indexentry{innere Energie}{135}
+\indexentry{Energie!innere}{135}
+\indexentry{Enthalpie}{136}
+\indexentry{Gesamtimpuls der Atmosphäre}{136}
+\indexentry{Atmosphäre!Gesamtimpuls}{136}
+\indexentry{Impuls!der Atmosphäre}{136}
+\indexentry{Zweites Newton'sches Axiom}{136}
+\indexentry{Newton'sches Axiom!Zweites}{136}
+\indexentry{Axiom!Zweites!Newton'sches}{136}
+\indexentry{externe Kraft}{136}
+\indexentry{Kraft!externe}{136}
+\indexentry{Gesamtdrehimpuls der Atmosphäre}{136}
+\indexentry{Atmosphäre!Gesamtdrehimpuls}{136}
+\indexentry{Drehimpuls!der Atmosphäre}{136}
+\indexentry{Koordinaten!ruhende}{136}
+\indexentry{ruhende Koordinaten}{136}
+\indexentry{available potential Energy (APE)}{136}
+\indexentry{APE}{136}
+\indexentry{Energie!potentielle!verfügbare}{136}
+\indexentry{potentielle Energie!verfügbare}{136}
+\indexentry{verfügbare potentielle Energie}{136}
+\indexentry{kinetische Energie}{136}
+\indexentry{Energie!kinetische}{136}
+\indexentry{innere Energie}{136}
+\indexentry{Energie!innere}{136}
+\indexentry{potentielle Energie}{136}
+\indexentry{Energie!potentielle}{136}
+\indexentry{Orographie}{136}
+\indexentry{Energie!potentielle!totale}{136}
+\indexentry{totale potentielle Energie}{136}
+\indexentry{Enthalpie}{136}
+\indexentry{Energie!potentielle!verfügbare}{136}
+\indexentry{verfügbare potentielle Energie}{136}
+\indexentry{$\theta-$System}{136}
+\indexentry{partielle Integration}{137}
+\indexentry{Integration!partielle}{137}
+\indexentry{p-System}{138}
+\indexentry{Gleichung!herrschende}{140}
+\indexentry{herrschende Gleichung}{140}
+\indexentry{Dynamik}{143}
+\indexentry{Hydrostatik}{143}
+\indexentry{Grundgleichung!hydrostatische}{143}
+\indexentry{hydrostatische Grundgleichung}{143}
+\indexentry{Zyklogenese}{143}
+\indexentry{Filterung}{143}
+\indexentry{Newton'sche Gravitationskonstante}{144}
+\indexentry{Gravitationskonstante!Newton'sche}{144}
+\indexentry{Gauß'scher Satz}{144}
+\indexentry{Satz!Gauß'scher}{144}
+\indexentry{generalisierte Vertikalkoordinate}{144}
+\indexentry{Vertikalkoordinate!generalisierte}{144}
+\indexentry{geopotentielle Höhe}{144}
+\indexentry{Höhe!geopotentielle}{144}
+\indexentry{Barotropie}{144}
+\indexentry{Geostrophie}{145}
+\indexentry{Rossby-Zahl}{145}
+\indexentry{thermischer Wind}{146}
+\indexentry{Wind!thermischer}{146}
+\indexentry{Boussinesq-Approximation}{146}
+\indexentry{Boussinesq-Approximation}{147}
+\indexentry{Rossby-Parameter}{147}
+\indexentry{f-Ebene}{147}
+\indexentry{f-Kugel}{147}
+\indexentry{$\beta-$Ebene}{148}
+\indexentry{Gradientenwind}{148}
+\indexentry{Wind!subgeostrophischer}{148}
+\indexentry{subgeostrophischer Wind}{148}
+\indexentry{Subgeostrohpie}{148}
+\indexentry{Wind!supergeostrophischer}{148}
+\indexentry{supergeostrophischer Wind}{148}
+\indexentry{Supergeostrohpie}{148}
+\indexentry{Reibungswind}{149}
+\indexentry{Ekman-Spirale}{149}
+\indexentry{Euler-Wind}{149}
+\indexentry{Zyklostrophischer Wind}{149}
+\indexentry{Wind!zyklostrophsicher}{149}
+\indexentry{Tornado}{149}
+\indexentry{Vorticity}{151}
+\indexentry{Divergenz}{151}
+\indexentry{Poisson-Gleichung}{151}
+\indexentry{Geschwindigkeitspotential}{151}
+\indexentry{Hauptsatz der Vektoranalysis}{151}
+\indexentry{Stromfunktion}{151}
+\indexentry{Vorticity}{152}
+\indexentry{planetare Vorticity}{152}
+\indexentry{Vorticity!planetare}{152}
+\indexentry{Vorticity!relative}{152}
+\indexentry{relative Vorticity}{152}
+\indexentry{Stokes'scher Satz}{153}
+\indexentry{Satz von Stokes}{153}
+\indexentry{Scherungsvorticity}{153}
+\indexentry{Krümmungsvorticity}{153}
+\indexentry{Zirkulationssatz}{154}
+\indexentry{Stokes'scher Satz}{154}
+\indexentry{Satz von Stokes}{154}
+\indexentry{Vorticitygleichung}{155}
+\indexentry{Solenoidterm}{156}
+\indexentry{barotrope Vorticitygleichung}{156}
+\indexentry{Vorticitygleichung!barotrope}{156}
+\indexentry{Vorticitygleichung!p-System}{157}
+\indexentry{Vorticity!potentielle!barotrope}{158}
+\indexentry{barotrope potentielle Vorticity}{158}
+\indexentry{$\beta-$Effekt!orographischer}{159}
+\indexentry{orographischer $\beta-$Effekt}{159}
+\indexentry{Divergenz}{159}
+\indexentry{zeitabhängige Bernoulli-Gleichung}{159}
+\indexentry{Bernoulli-Gleichung!zeitabhängige}{159}
+\indexentry{Geschwindigkeitsdivergenz}{159}
+\indexentry{Richtungsdivergenz}{159}
+\indexentry{Divergenzgleichung}{159}
+\indexentry{Divergenzgleichung!p-System}{160}
+\indexentry{Balancegleichung}{161}
+\indexentry{Balancegleichung!lineare}{161}
+\indexentry{lineare Balancegleichung}{161}
+\indexentry{potentielle Vorticity}{162}
+\indexentry{Vorticity!potentielle}{162}
+\indexentry{Ertel'scher Wirbelsatz}{162}
+\indexentry{Wirbelsatz!Ertel'scher}{162}
+\indexentry{potentielle Vorticity}{162}
+\indexentry{Vorticity!potentielle}{162}
+\indexentry{Ertel'scher Wirbelsatz}{162}
+\indexentry{Wirbelsatz!Ertel'scher}{162}
+\indexentry{potentielle Vorticity}{163}
+\indexentry{Vorticity!potentielle}{163}
+\indexentry{p-System}{163}
+\indexentry{p-System}{164}
+\indexentry{iseentrope Koordinate}{164}
+\indexentry{Koordinate!isentrope}{164}
+\indexentry{hydrostatische Stabilität im $\theta-$System}{164}
+\indexentry{$\theta-$System!hydrostatische Stabilität}{164}
+\indexentry{Welle}{165}
+\indexentry{Instabilität}{165}
+\indexentry{Kinematik!Welle}{165}
+\indexentry{Welle!Kinematik}{165}
+\indexentry{Welle!evaneszente}{165}
+\indexentry{evaneszente Welle}{165}
+\indexentry{Dispersionsrelation}{166}
+\indexentry{Gruppengeschwindigkeit}{166}
+\indexentry{anormale Dispersion}{167}
+\indexentry{Dispersion!anormale}{167}
+\indexentry{Longitudinalwelle}{167}
+\indexentry{Transversalwelle}{167}
+\indexentry{Wellenhöhe}{167}
+\indexentry{Steilheit}{167}
+\indexentry{Linearisierung!Wellengleichung}{167}
+\indexentry{Schallwelle}{168}
+\indexentry{Adiabatenexponent}{169}
+\indexentry{Isentropenexponent}{169}
+\indexentry{barotrope Welle}{169}
+\indexentry{Welle!barotrope}{169}
+\indexentry{Sub-Poincaré-Welle}{169}
+\indexentry{Welle!Sub-Poincaré}{169}
+\indexentry{Dispersionsrelation}{170}
+\indexentry{Flachwasserwelle}{170}
+\indexentry{Welle!Flachwasser}{170}
+\indexentry{Tiefwasserwelle}{170}
+\indexentry{Welle!Tiefwasser}{170}
+\indexentry{Stokes-Drift}{170}
+\indexentry{Poincaré-Welle}{171}
+\indexentry{Welle!Poincaré-Welle}{171}
+\indexentry{Kapillarwellen}{172}
+\indexentry{mechanische Oberflächenspannung}{173}
+\indexentry{Oberflächenspannung!mechanische}{173}
+\indexentry{Kapilardruck}{173}
+\indexentry{Inertialwelle}{174}
+\indexentry{Welle!Inertialwelle}{174}
+\indexentry{Inertialwellen}{174}
+\indexentry{Welle!Inertialwelle}{174}
+\indexentry{Kelvin-Welle}{174}
+\indexentry{Welle!Kelvin-Welle}{174}
+\indexentry{Kelvin-Welle!äquatoriale}{176}
+\indexentry{äquatoriale Kelvin-Welle}{176}
+\indexentry{globale Mode}{178}
+\indexentry{Mode!globale}{178}
+\indexentry{f-Kugel}{178}
+\indexentry{Rossby-Welle}{178}
+\indexentry{Welle!Rossby-Welle!barotrope}{178}
+\indexentry{barotrope Rossby-Welle}{178}
+\indexentry{Rossby-Welle!barotrope}{178}
+\indexentry{Welle!barokline}{180}
+\indexentry{barokline Welle}{180}
+\indexentry{Welle!Schichtungswelle}{180}
+\indexentry{Schichtungswelle}{180}
+\indexentry{Brunt-Väisälä-Frequenz}{181}
+\indexentry{vertikale Mode}{182}
+\indexentry{Mode!vertikale}{182}
+\indexentry{Rossby-Welle!barokline}{183}
+\indexentry{Welle!Rossby-Welle!barokline}{183}
+\indexentry{barokline Rossby-Wellen}{183}
+\indexentry{Quasigeostrophie}{183}
+\indexentry{Stabilitätsparameter!statischer}{183}
+\indexentry{statischer Stabilitätsparameter}{183}
+\indexentry{Vorticitygleichung!quasigeostrophische}{184}
+\indexentry{quasigeostrophische Vorticitygleichung}{184}
+\indexentry{Vorticity!quasigeostrophische!potentielle}{185}
+\indexentry{quasigeostrophische potentielle Vorticity}{185}
+\indexentry{Tendenzgleichung}{185}
+\indexentry{$\omega-$Gleichung}{186}
+\indexentry{Frontogenese}{186}
+\indexentry{Zyklogenese}{186}
+\indexentry{Zweischichtmodell!quasigeostrophisches}{186}
+\indexentry{quasigeostrophisches Zweischichtmodell}{186}
+\indexentry{Stabilitätswellenzahl}{186}
+\indexentry{Schwerewelle}{189}
+\indexentry{Instabilität}{189}
+\indexentry{Welle!Instabilität}{189}
+\indexentry{Instabilität}{189}
+\indexentry{Instabilität!barotrope}{189}
+\indexentry{barotrope Instabilität}{189}
+\indexentry{Vorticitygleichung!barotrope}{190}
+\indexentry{barotrope Vorticitygleichung}{190}
+\indexentry{Jet}{190}
+\indexentry{Instabilität!barokline}{191}
+\indexentry{barokline Instabilität}{191}
+\indexentry{Kelvon-Helmholtz-Instabilität}{192}
+\indexentry{Schichtung!diskrete!Kelvin-Helmholtz-Instabilität}{192}
+\indexentry{diskrete Schichtung!Kelvin-Helmholtz-Instabilität}{192}
+\indexentry{Kelvin-Helmholtz-Instabilität!in diskreter Schichtung}{192}
+\indexentry{Zirkulationssatz}{193}
+\indexentry{Stromfunktion}{193}
+\indexentry{kinematische Randbedingung}{193}
+\indexentry{Randbedingung!kinematische}{193}
+\indexentry{dynamische Randbedingung}{193}
+\indexentry{Randbedingung!dynamische}{193}
+\indexentry{kinematische Randbedingung}{193}
+\indexentry{Randbedingung!kinematische}{193}
+\indexentry{zeitabhängige Bernoulli-Gleichung}{193}
+\indexentry{Bernoulli-Gleichung!zeitabhängige}{193}
+\indexentry{dynamische Randbedingung}{193}
+\indexentry{Randbedingung!dynamische}{193}
+\indexentry{Laplace-Gleichung}{194}
+\indexentry{Schichtung!kontinuierliche!Kelvin-Helmholtz-Instabilität}{195}
+\indexentry{kontinuierliche Schichtung!Kelvin-Helmholtz-Instabilität}{195}
+\indexentry{Kelvin-Helmholtz-Instabilität!in kontinuierlicher Schichtung}{195}
+\indexentry{Brunt-Väisälä-Frequenz}{197}
+\indexentry{Taylor-Goldstein-Gleichung}{197}
+\indexentry{Richardson-Zahl}{198}
+\indexentry{Prandtl-Frequenz}{198}
+\indexentry{thermische Instabilität}{198}
+\indexentry{Instabilität!thermische}{198}
+\indexentry{Inversion}{199}
+\indexentry{trockenadiabatischer Temperaturgradient}{199}
+\indexentry{Temperaturgradient!trockenadiabatischer}{199}
+\indexentry{lifted condensation level (LCL)}{199}
+\indexentry{Hebungskondensationsniveau (HKN)}{199}
+\indexentry{HKN}{199}
+\indexentry{LCL}{199}
+\indexentry{reversible Feuchtadiabate}{199}
+\indexentry{Feuchtadiabate!reversible}{199}
+\indexentry{irreversible Feuchtadiabate}{199}
+\indexentry{Feuchtadiabate!irreversible}{199}
+\indexentry{feuchtadiabatischer Temperaturgradient}{201}
+\indexentry{Temperaturgradient!feuchtadiabatischer}{201}
+\indexentry{pseudopotentielle Temperatur}{202}
+\indexentry{Temperatur!pseudopotentielle}{202}
+\indexentry{LCL}{202}
+\indexentry{lifted condensation level (LCL)}{202}
+\indexentry{Hebungskondensationsniveau (HKN)}{202}
+\indexentry{HKN}{202}
+\indexentry{LCL}{202}
+\indexentry{Feuchtadiabate!irreversible}{202}
+\indexentry{irreversible Feuchtadiabate}{202}
+\indexentry{reversibel-pseudopotentielle Temperatur}{202}
+\indexentry{Temperatur!reversibelpseudopotentielle}{202}
+\indexentry{convective available potential Energy (CAPE)}{202}
+\indexentry{CAPE}{202}
+\indexentry{Energie!potentielle!konvektiv verfügbare}{202}
+\indexentry{potentielle Energie!konvektiv verfügbare}{202}
+\indexentry{konvektiv verfügbare potentielle Energie}{202}
+\indexentry{Tropopausenhöhe}{202}
+\indexentry{convective available potential Energy (CAPE)}{202}
+\indexentry{CAPE}{202}
+\indexentry{Energie!potentielle!konvektiv verfügbare}{202}
+\indexentry{potentielle Energie!konvektiv verfügbare}{202}
+\indexentry{konvektiv verfügbare potentielle Energie}{202}
+\indexentry{$\Theta-$Funktion}{202}
+\indexentry{level of free convection}{203}
+\indexentry{LFC}{203}
+\indexentry{freie Konvektion}{203}
+\indexentry{Konvektion!freie}{203}
+\indexentry{Gleichgewichtsniveau}{203}
+\indexentry{maximale Wolkenobergrenze}{203}
+\indexentry{Wolkenobergrenze!maximale}{203}
+\indexentry{Schichtungswelle}{203}
+\indexentry{overshooting top}{203}
+\indexentry{Auslösetemperatur}{203}
+\indexentry{konvektive Schranke}{203}
+\indexentry{Schranke!konvektive}{203}
+\indexentry{convective inhibition (CIN)}{203}
+\indexentry{CIN}{203}
+\indexentry{convective condensation level (CCL)}{203}
+\indexentry{Konvektionskondensationsniveau (KKN)}{203}
+\indexentry{KKN}{203}
+\indexentry{CCL}{203}
+\indexentry{Synoptik!der Extratropen}{205}
+\indexentry{Skala!Mesoskala}{205}
+\indexentry{Mesoskala}{205}
+\indexentry{Skala!Meso$-\alpha-$Skala}{205}
+\indexentry{Meso$-\alpha-$Skala}{205}
+\indexentry{Wendekreis}{205}
+\indexentry{Tropen}{205}
+\indexentry{Extratropen}{205}
+\indexentry{Polarkreis}{205}
+\indexentry{Breiten!hohe}{205}
+\indexentry{hohe Breiten}{205}
+\indexentry{mittlere Breiten}{205}
+\indexentry{Breiten!mittlere}{205}
+\indexentry{Quasigeostrophie}{205}
+\indexentry{Geopotentialtendenz}{205}
+\indexentry{Tendenz!des Geopotentials}{205}
+\indexentry{Tendenzgleichung}{205}
 \indexentry{Zyklogenese}{205}
-\indexentry{Turbulenz}{207}
-\indexentry{laminare Strömung}{207}
-\indexentry{Strömung!laminare}{207}
-\indexentry{Turbulenz!volle}{207}
-\indexentry{volle Turbulenz}{207}
-\indexentry{Reynolds-Operator}{207}
-\indexentry{Reynolds-Mittelung}{207}
-\indexentry{Korrelationsfluss}{207}
-\indexentry{Schließungsproblem}{207}
-\indexentry{Turbulenzkorrelationstensor}{207}
-\indexentry{Eddy-Stress-Term}{208}
-\indexentry{Parametrisierung}{208}
-\indexentry{Mischungsweg}{208}
-\indexentry{Burgers-Gleichung}{208}
-\indexentry{Eddy-Austauschkoeffizient}{208}
-\indexentry{planetrische Grenzschicht}{208}
-\indexentry{Grenzschicht!planetare}{208}
-\indexentry{Bodenreibung}{208}
-\indexentry{Reibungsgeschwindigkeit}{209}
-\indexentry{von Karman-Konstante}{209}
-\indexentry{Rauhigkeitslänge}{209}
-\indexentry{Prandtl-Schicht}{209}
-\indexentry{laminare Unterschicht}{209}
-\indexentry{Unterschicht!laminare}{209}
-\indexentry{Oberflächenschicht}{209}
-\indexentry{Ekman-Schicht}{209}
-\indexentry{Ekman-Transport}{209}
-\indexentry{Adhäsionsbedingung}{209}
-\indexentry{Eddy-Viskositäts-Koeffizient}{209}
-\indexentry{Prandtl-Schicht}{209}
-\indexentry{Dicke der Grenzschicht}{211}
-\indexentry{Grenzschicht}{211}
-\indexentry{Gradientenwindhöhe}{211}
-\indexentry{Ekman-Zahl}{212}
-\indexentry{Spin-down}{212}
-\indexentry{konkrete Mittelungsoperatoren}{212}
-\indexentry{Mittelungsoperator!konkreter}{212}
-\indexentry{Zeitmittel!gleitendes}{212}
-\indexentry{gleitendes Zeitmittel}{212}
-\indexentry{gleitendes Mittel}{212}
-\indexentry{Mittel!gleitendes}{212}
-\indexentry{gewichtetes Mittel!allgemeines}{213}
-\indexentry{Mittel!gewichtetes!allgemeines}{213}
-\indexentry{Parametrisierung!Herleitung}{213}
-\indexentry{Herleitung!einer Parametrisierung}{213}
-\indexentry{skalare Diffusion!Parametrisierung}{213}
-\indexentry{Diffusion!skalare!Parametrisierung}{213}
-\indexentry{Parametrisierung!skalare Diffusion}{213}
-\indexentry{Parametrisierung!Diffusion!skalare}{213}
-\indexentry{Phasenübergangsrate!Parametrisierung}{213}
-\indexentry{Parametrisierung!Phasenübergangsrate}{213}
-\indexentry{Turbulenzspektrum}{213}
-\indexentry{-3-Spektrum}{213}
-\indexentry{-5/3-Spektrum}{213}
-\indexentry{Energiekaskade}{213}
-\indexentry{Klimatologie!der Atmosphäre}{215}
-\indexentry{Gleichungen!zonal gemittelte}{215}
-\indexentry{zonal gemittelte Gleichungen}{215}
-\indexentry{Frontalzone}{215}
-\indexentry{Jet}{215}
-\indexentry{Ozeanzirkulation}{217}
-\indexentry{Tide}{217}
-\indexentry{windgetriebene Zirkulation}{217}
-\indexentry{Zirkulation!windgetriebene}{217}
-\indexentry{Stommel-Modell}{218}
-\indexentry{Parametrisierung!der Reibung durch Stommel}{218}
-\indexentry{Sverdrup-Balance}{218}
-\indexentry{thermohaline Zirkulation}{218}
-\indexentry{Zirkulation!thermohaline}{218}
-\indexentry{Windsee}{218}
-\indexentry{Zwei-Strom-Methode}{221}
-\indexentry{Streukoeffizient}{221}
-\indexentry{Absorptionskoeffizient}{221}
-\indexentry{atmosphärische Optik}{221}
-\indexentry{Optik!atmosphärische}{221}
-\indexentry{Wolkenmikrophysik}{223}
-\indexentry{Sättigungsdampfdruck}{223}
-\indexentry{Mehr-Stoff-System}{223}
-\indexentry{Kelvin-Formel}{223}
-\indexentry{Köhler-Formel}{223}
-\indexentry{Stokes'sche Reibung}{223}
-\indexentry{Reibung!Stokes'sche}{223}
-\indexentry{Numerik}{227}
-\indexentry{Numerik!Grundlage}{227}
-\indexentry{Grundlage!Numerik}{227}
-\indexentry{Diskretisierung}{227}
-\indexentry{Konsistenz!eines numerischen Verfahrens}{227}
-\indexentry{Selbstkonsistenz!eines numerischen Verfahrens}{227}
-\indexentry{Differenz!finite}{227}
-\indexentry{finite Differenz}{227}
-\indexentry{Zeitschrittverfahren}{228}
-\indexentry{explizites Euler-Verfahren}{229}
-\indexentry{Euler-Verfahren!explizites}{229}
-\indexentry{Euler-Verfahren!explizites}{229}
-\indexentry{explizites Euler-Verfahren}{229}
-\indexentry{Instabilität!lineare}{229}
-\indexentry{lineare Instabilität}{229}
-\indexentry{implizites Euler-Verfahren}{229}
-\indexentry{Euler-Verfahren!implizites}{229}
-\indexentry{Euler-Verfahren!implizites}{229}
-\indexentry{implizites Euler-Verfahren}{229}
-\indexentry{Runge-Kutta-Verfahren}{230}
-\indexentry{Multischrittverfahren}{230}
-\indexentry{Geofluidsimulation}{231}
-\indexentry{Kontinuitätsgleichung}{231}
-\indexentry{Kondensat}{231}
-\indexentry{Erster Hauptsatz!der Thermodynamik}{231}
-\indexentry{Thermodynamik!Erster Hauptsatz}{231}
-\indexentry{spezifische Wärmekapazität}{231}
-\indexentry{Wärmekapazität!sspezifsiche}{231}
-\indexentry{individuelle Gaskonstante}{231}
-\indexentry{Gaskonstante!individuelle}{231}
-\indexentry{thermische Zustandsgleichung}{231}
-\indexentry{Zustandsgleichung!thermische}{231}
-\indexentry{Kontinuitätsgleichung}{231}
-\indexentry{Erster Hauptsatz der Thermodynamik}{231}
-\indexentry{Thermodynmaik!Erster Hauptsatz}{231}
-\indexentry{primitive, nonhydrostatic equations (PNEs)}{231}
-\indexentry{Parallelisierung}{231}
-\indexentry{Skalierbarkeit}{231}
-\indexentry{Quasi-Uniformität!eines Gitters}{231}
-\indexentry{Gitter!Quasi-Uniformität}{231}
-\indexentry{Uniformität!eines Gitters}{231}
-\indexentry{Gitter!Uniformität}{231}
-\indexentry{Orthogonalität!eines Gitters}{231}
-\indexentry{Gitter!Orthogonalität}{231}
-\indexentry{Arakawa-Gitter}{232}
-\indexentry{C-Gitter}{232}
-\indexentry{Gitter!Arakawa}{232}
-\indexentry{Gitter!hexagonales}{233}
-\indexentry{hexagonales Gitter}{233}
-\indexentry{dynamischer Kern}{235}
-\indexentry{Kern!dynamischer}{235}
-\indexentry{Modellgitter}{235}
-\indexentry{Gitter!Modelgitter}{235}
-\indexentry{horizontales Gitter}{236}
-\indexentry{Gitter!horizontales}{236}
-\indexentry{Delaunay-Triangulation}{236}
-\indexentry{Voronoi-Diagramm}{236}
-\indexentry{Modellgitter!Generierung auf der Einheitskugel}{236}
-\indexentry{Modellgitter!Längen}{236}
-\indexentry{Modellgitter!Flächen}{236}
-\indexentry{Längen des Modellgitters}{236}
-\indexentry{Flächen des Modellgitters}{236}
-\indexentry{vertikale Erweiterung des Modellgitters}{236}
-\indexentry{Modellgitter!vertikale Erweiterung}{236}
-\indexentry{Modellgitter!Erweiterung!vertikale}{236}
-\indexentry{Layer}{236}
-\indexentry{Level}{236}
-\indexentry{horizontales Skalarfeld}{236}
-\indexentry{Skalarfeld!horizontales}{236}
-\indexentry{Vertikale Fläche}{237}
-\indexentry{Fläche!vertikale}{237}
-\indexentry{Kugelflächenfunktion}{237}
-\indexentry{Feld!im Modell}{238}
-\indexentry{Skalarfeld!im Modell}{238}
-\indexentry{Modell!Skalarfeld}{238}
-\indexentry{Standardatmosphäre}{238}
-\indexentry{Vektorfelder!im Modell}{238}
-\indexentry{Modell!Vektorfeld}{238}
-\indexentry{SGA (spherical geopotential approximation)}{238}
-\indexentry{spherical geopotential approximation (SGA)}{238}
-\indexentry{duales Vektorfeld}{238}
-\indexentry{Modell!Vektorfeld!duales}{238}
-\indexentry{Modell!duales Vektorfeld}{238}
-\indexentry{Operator}{238}
-\indexentry{konditionelles Framework}{239}
-\indexentry{Framework!konditionelles}{239}
-\indexentry{Skalarprodukt!im Modell}{239}
-\indexentry{Vektorprodukt!im Modell}{239}
-\indexentry{Operator!Vektorprodukt}{240}
-\indexentry{Gradient!im Modell}{240}
-\indexentry{Divergenz!im Modell}{240}
-\indexentry{Rotation!im Modell}{240}
-\indexentry{Rotation!im Modell!duale}{240}
-\indexentry{Stratosphäre}{241}
-\indexentry{Exner-Druck}{242}
-\indexentry{volumenkonformer Radius}{242}
-\indexentry{Radius!volumenkonformer}{242}
-\indexentry{Relaxation der spherical geopotential approximation (SGA)}{242}
-\indexentry{spherical geopotential approximation (SGA)!Relaxation}{242}
-\indexentry{Gitteroptimierung}{242}
-\indexentry{geländefolgende Koordinaten}{242}
-\indexentry{Koordinaten!geländefolgende}{242}
-\indexentry{Orographie}{242}
-\indexentry{Kern!dynamischer!Ankoppplung eines Strahlungsmodells}{243}
-\indexentry{dynamischer Kern!Ankopplung eines Strahlungsmodells}{243}
-\indexentry{Strahlungsmodell!Ankopplung an einen dynamischen Kern}{243}
-\indexentry{Zeitschrittverfahren!im dynamischen Kern}{243}
-\indexentry{dynamischer Kern!Zeitschrittverfahren}{243}
-\indexentry{Kern!dynamischer!Zeitschrittverfahren}{243}
-\indexentry{JW-Test}{243}
-\indexentry{mathematische Grundlage}{247}
-\indexentry{Grundlage!mathematische}{247}
-\indexentry{cgs-System}{247}
-\indexentry{SI-System}{247}
-\indexentry{Summe}{247}
-\indexentry{Reihe}{247}
-\indexentry{Gauß'sche Summenformel}{247}
-\indexentry{Summenformel!Gauß'sche}{247}
-\indexentry{Reihe!geometrische}{248}
-\indexentry{geometrische Reihe}{248}
-\indexentry{Induktion!vollständige}{248}
-\indexentry{vollständige Induktion}{248}
-\indexentry{Komnbinatorik}{248}
-\indexentry{Binomialkoeffizient}{248}
-\indexentry{Fakultät}{248}
-\indexentry{Permutation}{248}
-\indexentry{Bijektion}{248}
-\indexentry{Permutation!Vorzeichen}{248}
-\indexentry{Vorzeichen einer Permutation}{248}
-\indexentry{gerade Permutation}{248}
-\indexentry{Permutation!gerade}{248}
-\indexentry{ungerade Permutation}{248}
-\indexentry{Permutation!ungerade}{248}
-\indexentry{Multinomialkoeffizient}{249}
-\indexentry{binomischer Lehrsatz}{249}
-\indexentry{Lehrsatz!binomischer}{249}
-\indexentry{allgemeine binomische Formel}{249}
-\indexentry{binomische Formel!allgemeine}{249}
-\indexentry{Formel!binomische!allgenmeine}{249}
-\indexentry{Levi-Civita-Symbol}{249}
-\indexentry{Determinante}{250}
-\indexentry{Determinante}{250}
-\indexentry{Grundfunktion}{251}
-\indexentry{Polynom}{251}
-\indexentry{Polynom}{251}
-\indexentry{rationale Funktion}{251}
-\indexentry{Funktion!rationale}{251}
-\indexentry{Polynom}{251}
-\indexentry{Exponentialfunktion}{251}
-\indexentry{natürliche Logarithmusfunktion}{251}
-\indexentry{Logarithmusfunktion!natürliche}{251}
-\indexentry{Hyperbelfunktion}{251}
-\indexentry{Areafunktion}{251}
-\indexentry{trigonometrischen Funktionen}{252}
-\indexentry{Funktion!trigonometrische}{252}
-\indexentry{Arcusfunktion}{252}
-\indexentry{Grundfunktion!Symmetrieeigenschaften}{252}
-\indexentry{Symmetrie!der Grundfunktionen}{252}
-\indexentry{Additionstheorem}{253}
-\indexentry{Grundfunktion!Additionstheoreme}{253}
-\indexentry{Euler-Identität}{253}
+\indexentry{Antizyklogenese}{206}
+\indexentry{differenzielle Temperaturadvektion}{206}
+\indexentry{Temperaturadvektion!differenzielle}{206}
+\indexentry{$\omega-$Gleichung}{206}
+\indexentry{Semigeostrophie}{206}
+\indexentry{Front}{206}
+\indexentry{PV-Denken}{206}
+\indexentry{potentielle Vorticitiy}{206}
+\indexentry{Vorticity!potentielle}{206}
+\indexentry{Dynamik!tropische}{207}
+\indexentry{Skalenanalyse!Tropen}{207}
+\indexentry{Zyklogenese}{207}
+\indexentry{Turbulenz}{209}
+\indexentry{laminare Strömung}{209}
+\indexentry{Strömung!laminare}{209}
+\indexentry{Turbulenz!volle}{209}
+\indexentry{volle Turbulenz}{209}
+\indexentry{Reynolds-Operator}{209}
+\indexentry{Reynolds-Mittelung}{209}
+\indexentry{Korrelationsfluss}{209}
+\indexentry{Schließungsproblem}{209}
+\indexentry{Turbulenzkorrelationstensor}{209}
+\indexentry{Eddy-Stress-Term}{210}
+\indexentry{Parametrisierung}{210}
+\indexentry{Mischungsweg}{210}
+\indexentry{Burgers-Gleichung}{210}
+\indexentry{Eddy-Austauschkoeffizient}{210}
+\indexentry{planetrische Grenzschicht}{210}
+\indexentry{Grenzschicht!planetare}{210}
+\indexentry{Bodenreibung}{210}
+\indexentry{Reibungsgeschwindigkeit}{211}
+\indexentry{von Karman-Konstante}{211}
+\indexentry{Rauhigkeitslänge}{211}
+\indexentry{Prandtl-Schicht}{211}
+\indexentry{laminare Unterschicht}{211}
+\indexentry{Unterschicht!laminare}{211}
+\indexentry{Oberflächenschicht}{211}
+\indexentry{Ekman-Schicht}{211}
+\indexentry{Ekman-Transport}{211}
+\indexentry{Adhäsionsbedingung}{211}
+\indexentry{Eddy-Viskositäts-Koeffizient}{211}
+\indexentry{Prandtl-Schicht}{211}
+\indexentry{Dicke der Grenzschicht}{213}
+\indexentry{Grenzschicht}{213}
+\indexentry{Gradientenwindhöhe}{213}
+\indexentry{Ekman-Zahl}{214}
+\indexentry{Spin-down}{214}
+\indexentry{konkrete Mittelungsoperatoren}{214}
+\indexentry{Mittelungsoperator!konkreter}{214}
+\indexentry{Zeitmittel!gleitendes}{214}
+\indexentry{gleitendes Zeitmittel}{214}
+\indexentry{gleitendes Mittel}{214}
+\indexentry{Mittel!gleitendes}{214}
+\indexentry{gewichtetes Mittel!allgemeines}{215}
+\indexentry{Mittel!gewichtetes!allgemeines}{215}
+\indexentry{Parametrisierung!Herleitung}{215}
+\indexentry{Herleitung!einer Parametrisierung}{215}
+\indexentry{skalare Diffusion!Parametrisierung}{215}
+\indexentry{Diffusion!skalare!Parametrisierung}{215}
+\indexentry{Parametrisierung!skalare Diffusion}{215}
+\indexentry{Parametrisierung!Diffusion!skalare}{215}
+\indexentry{Phasenübergangsrate!Parametrisierung}{215}
+\indexentry{Parametrisierung!Phasenübergangsrate}{215}
+\indexentry{Turbulenzspektrum}{215}
+\indexentry{-3-Spektrum}{215}
+\indexentry{-5/3-Spektrum}{215}
+\indexentry{Energiekaskade}{215}
+\indexentry{Klimatologie!der Atmosphäre}{217}
+\indexentry{Gleichungen!zonal gemittelte}{217}
+\indexentry{zonal gemittelte Gleichungen}{217}
+\indexentry{Frontalzone}{217}
+\indexentry{Jet}{217}
+\indexentry{Ozeanzirkulation}{219}
+\indexentry{Tide}{219}
+\indexentry{windgetriebene Zirkulation}{219}
+\indexentry{Zirkulation!windgetriebene}{219}
+\indexentry{Stommel-Modell}{220}
+\indexentry{Parametrisierung!der Reibung durch Stommel}{220}
+\indexentry{Sverdrup-Balance}{220}
+\indexentry{thermohaline Zirkulation}{220}
+\indexentry{Zirkulation!thermohaline}{220}
+\indexentry{Windsee}{220}
+\indexentry{Zwei-Strom-Methode}{223}
+\indexentry{Streukoeffizient}{223}
+\indexentry{Absorptionskoeffizient}{223}
+\indexentry{atmosphärische Optik}{223}
+\indexentry{Optik!atmosphärische}{223}
+\indexentry{Wolkenmikrophysik}{225}
+\indexentry{Sättigungsdampfdruck}{225}
+\indexentry{Mehr-Stoff-System}{225}
+\indexentry{Kelvin-Formel}{225}
+\indexentry{Köhler-Formel}{225}
+\indexentry{Stokes'sche Reibung}{225}
+\indexentry{Reibung!Stokes'sche}{225}
+\indexentry{Numerik}{229}
+\indexentry{Numerik!Grundlage}{229}
+\indexentry{Grundlage!Numerik}{229}
+\indexentry{Diskretisierung}{229}
+\indexentry{Konsistenz!eines numerischen Verfahrens}{229}
+\indexentry{Selbstkonsistenz!eines numerischen Verfahrens}{229}
+\indexentry{Differenz!finite}{229}
+\indexentry{finite Differenz}{229}
+\indexentry{Zeitschrittverfahren}{230}
+\indexentry{explizites Euler-Verfahren}{231}
+\indexentry{Euler-Verfahren!explizites}{231}
+\indexentry{Euler-Verfahren!explizites}{231}
+\indexentry{explizites Euler-Verfahren}{231}
+\indexentry{Instabilität!lineare}{231}
+\indexentry{lineare Instabilität}{231}
+\indexentry{implizites Euler-Verfahren}{231}
+\indexentry{Euler-Verfahren!implizites}{231}
+\indexentry{Euler-Verfahren!implizites}{231}
+\indexentry{implizites Euler-Verfahren}{231}
+\indexentry{Runge-Kutta-Verfahren}{232}
+\indexentry{Multischrittverfahren}{232}
+\indexentry{Geofluidsimulation}{233}
+\indexentry{Kontinuitätsgleichung}{233}
+\indexentry{Kondensat}{233}
+\indexentry{Erster Hauptsatz!der Thermodynamik}{233}
+\indexentry{Thermodynamik!Erster Hauptsatz}{233}
+\indexentry{spezifische Wärmekapazität}{233}
+\indexentry{Wärmekapazität!sspezifsiche}{233}
+\indexentry{individuelle Gaskonstante}{233}
+\indexentry{Gaskonstante!individuelle}{233}
+\indexentry{thermische Zustandsgleichung}{233}
+\indexentry{Zustandsgleichung!thermische}{233}
+\indexentry{Kontinuitätsgleichung}{233}
+\indexentry{Erster Hauptsatz der Thermodynamik}{233}
+\indexentry{Thermodynmaik!Erster Hauptsatz}{233}
+\indexentry{primitive, nonhydrostatic equations (PNEs)}{233}
+\indexentry{Parallelisierung}{233}
+\indexentry{Skalierbarkeit}{233}
+\indexentry{Quasi-Uniformität!eines Gitters}{233}
+\indexentry{Gitter!Quasi-Uniformität}{233}
+\indexentry{Uniformität!eines Gitters}{233}
+\indexentry{Gitter!Uniformität}{233}
+\indexentry{Orthogonalität!eines Gitters}{233}
+\indexentry{Gitter!Orthogonalität}{233}
+\indexentry{Arakawa-Gitter}{234}
+\indexentry{C-Gitter}{234}
+\indexentry{Gitter!Arakawa}{234}
+\indexentry{Gitter!hexagonales}{235}
+\indexentry{hexagonales Gitter}{235}
+\indexentry{dynamischer Kern}{237}
+\indexentry{Kern!dynamischer}{237}
+\indexentry{Modellgitter}{237}
+\indexentry{Gitter!Modelgitter}{237}
+\indexentry{horizontales Gitter}{238}
+\indexentry{Gitter!horizontales}{238}
+\indexentry{Delaunay-Triangulation}{238}
+\indexentry{Voronoi-Diagramm}{238}
+\indexentry{Modellgitter!Generierung auf der Einheitskugel}{238}
+\indexentry{Modellgitter!Längen}{238}
+\indexentry{Modellgitter!Flächen}{238}
+\indexentry{Längen des Modellgitters}{238}
+\indexentry{Flächen des Modellgitters}{238}
+\indexentry{vertikale Erweiterung des Modellgitters}{238}
+\indexentry{Modellgitter!vertikale Erweiterung}{238}
+\indexentry{Modellgitter!Erweiterung!vertikale}{238}
+\indexentry{Layer}{238}
+\indexentry{Level}{238}
+\indexentry{horizontales Skalarfeld}{238}
+\indexentry{Skalarfeld!horizontales}{238}
+\indexentry{Vertikale Fläche}{239}
+\indexentry{Fläche!vertikale}{239}
+\indexentry{Kugelflächenfunktion}{239}
+\indexentry{Feld!im Modell}{240}
+\indexentry{Skalarfeld!im Modell}{240}
+\indexentry{Modell!Skalarfeld}{240}
+\indexentry{Standardatmosphäre}{240}
+\indexentry{Vektorfelder!im Modell}{240}
+\indexentry{Modell!Vektorfeld}{240}
+\indexentry{SGA (spherical geopotential approximation)}{240}
+\indexentry{spherical geopotential approximation (SGA)}{240}
+\indexentry{duales Vektorfeld}{240}
+\indexentry{Modell!Vektorfeld!duales}{240}
+\indexentry{Modell!duales Vektorfeld}{240}
+\indexentry{Operator}{240}
+\indexentry{konditionelles Framework}{241}
+\indexentry{Framework!konditionelles}{241}
+\indexentry{Skalarprodukt!im Modell}{241}
+\indexentry{Vektorprodukt!im Modell}{241}
+\indexentry{Operator!Vektorprodukt}{242}
+\indexentry{Gradient!im Modell}{242}
+\indexentry{Divergenz!im Modell}{242}
+\indexentry{Rotation!im Modell}{242}
+\indexentry{Rotation!im Modell!duale}{242}
+\indexentry{Stratosphäre}{243}
+\indexentry{Exner-Druck}{243}
+\indexentry{volumenkonformer Radius}{244}
+\indexentry{Radius!volumenkonformer}{244}
+\indexentry{Relaxation der spherical geopotential approximation (SGA)}{244}
+\indexentry{spherical geopotential approximation (SGA)!Relaxation}{244}
+\indexentry{Gitteroptimierung}{244}
+\indexentry{geländefolgende Koordinaten}{244}
+\indexentry{Koordinaten!geländefolgende}{244}
+\indexentry{Orographie}{244}
+\indexentry{Kern!dynamischer!Ankoppplung eines Strahlungsmodells}{244}
+\indexentry{dynamischer Kern!Ankopplung eines Strahlungsmodells}{244}
+\indexentry{Strahlungsmodell!Ankopplung an einen dynamischen Kern}{244}
+\indexentry{Zeitschrittverfahren!im dynamischen Kern}{244}
+\indexentry{dynamischer Kern!Zeitschrittverfahren}{244}
+\indexentry{Kern!dynamischer!Zeitschrittverfahren}{244}
+\indexentry{JW-Test}{244}
+\indexentry{mathematische Grundlage}{249}
+\indexentry{Grundlage!mathematische}{249}
+\indexentry{cgs-System}{249}
+\indexentry{SI-System}{249}
+\indexentry{Summe}{249}
+\indexentry{Reihe}{249}
+\indexentry{Gauß'sche Summenformel}{249}
+\indexentry{Summenformel!Gauß'sche}{249}
+\indexentry{Reihe!geometrische}{250}
+\indexentry{geometrische Reihe}{250}
+\indexentry{Induktion!vollständige}{250}
+\indexentry{vollständige Induktion}{250}
+\indexentry{Komnbinatorik}{250}
+\indexentry{Binomialkoeffizient}{250}
+\indexentry{Fakultät}{250}
+\indexentry{Permutation}{250}
+\indexentry{Bijektion}{250}
+\indexentry{Permutation!Vorzeichen}{250}
+\indexentry{Vorzeichen einer Permutation}{250}
+\indexentry{gerade Permutation}{250}
+\indexentry{Permutation!gerade}{250}
+\indexentry{ungerade Permutation}{250}
+\indexentry{Permutation!ungerade}{250}
+\indexentry{Multinomialkoeffizient}{251}
+\indexentry{binomischer Lehrsatz}{251}
+\indexentry{Lehrsatz!binomischer}{251}
+\indexentry{allgemeine binomische Formel}{251}
+\indexentry{binomische Formel!allgemeine}{251}
+\indexentry{Formel!binomische!allgenmeine}{251}
+\indexentry{Levi-Civita-Symbol}{251}
+\indexentry{Determinante}{252}
+\indexentry{Determinante}{252}
+\indexentry{Grundfunktion}{253}
+\indexentry{Polynom}{253}
+\indexentry{Polynom}{253}
+\indexentry{rationale Funktion}{253}
+\indexentry{Funktion!rationale}{253}
+\indexentry{Polynom}{253}
+\indexentry{Exponentialfunktion}{253}
+\indexentry{natürliche Logarithmusfunktion}{253}
+\indexentry{Logarithmusfunktion!natürliche}{253}
+\indexentry{Hyperbelfunktion}{253}
+\indexentry{Areafunktion}{253}
+\indexentry{trigonometrischen Funktionen}{254}
+\indexentry{Funktion!trigonometrische}{254}
 \indexentry{Arcusfunktion}{254}
-\indexentry{Zahl!komplexe}{254}
-\indexentry{komplexe Zahl}{254}
-\indexentry{Deltadistribution}{255}
-\indexentry{Deltadistribution}{255}
-\indexentry{Integralformel}{255}
-\indexentry{partielle Integration}{255}
-\indexentry{Integration!partielle}{255}
-\indexentry{Substitutionsregel}{255}
-\indexentry{Trennung der Variablen}{255}
-\indexentry{Fehlerfunktion}{256}
-\indexentry{Gammafunktion}{256}
-\indexentry{Stirling-Formel}{256}
-\indexentry{Residuensatz}{257}
-\indexentry{Vektorraum}{257}
-\indexentry{Matrix}{258}
-\indexentry{Matrix!quadratische}{258}
-\indexentry{quadratische Matrix}{258}
-\indexentry{Operator}{258}
-\indexentry{Vektorprodukt}{259}
-\indexentry{Graßmann-Identität}{260}
-\indexentry{BAC-CAB-Regel}{260}
-\indexentry{Konvention!über Koordinatensysteme}{261}
-\indexentry{Koordinatensystem!Konvention}{261}
-\indexentry{ruhende Koordinaten}{261}
-\indexentry{Koordinatensystem!ruhendes}{261}
-\indexentry{globale Koordinaten}{261}
-\indexentry{Koordinatensystem!globales}{261}
-\indexentry{geographische Koordinaten}{261}
-\indexentry{Koordinatensystem!geographisches}{261}
-\indexentry{Ableitung!mehrdimensionale}{261}
-\indexentry{mehrdimensionale Ableitung}{261}
-\indexentry{Jacobi-Matrix}{261}
-\indexentry{materielle Ableitung}{262}
-\indexentry{Ableitung!materielle}{262}
-\indexentry{totale Ableitung}{262}
-\indexentry{Ableitung!totale}{262}
-\indexentry{Divergenz}{262}
-\indexentry{Divergenz!eines Vektorfeldes}{262}
-\indexentry{Vektorfeld!Divergenz}{262}
-\indexentry{Laplace-Operator}{262}
-\indexentry{Nabla-Operator!horizontaler}{263}
-\indexentry{horizontaler Nabla-Operator}{263}
-\indexentry{Laplace-Operator!horizontaler}{263}
-\indexentry{horizontaler Laplace-Operator}{263}
-\indexentry{Advektionsoperator}{263}
-\indexentry{Advektion}{263}
-\indexentry{Krümmungsradius}{263}
-\indexentry{Rechenregel!Differenzialoperator}{265}
-\indexentry{Differenzialoperator!Rechenregel}{265}
-\indexentry{Weber-Transformation}{268}
-\indexentry{Differenzialoperator!unter Koordinatentransformation}{268}
-\indexentry{Koordinatentransformation!Differenzialoperator}{268}
-\indexentry{Orthogonalität!eines Koordinatensystems}{268}
-\indexentry{Koordinaten!orthogonale}{268}
-\indexentry{Koordinatensystem!orthogonales}{268}
-\indexentry{Skalarprodukt!generalisierte Koordinaten}{269}
-\indexentry{generalisierte Koordinaten!Skalarprodukt}{269}
-\indexentry{Vektorprodukt!generalisierte Koordinaten}{269}
-\indexentry{generalisierte Koordinaten!Vektorprodukt}{269}
-\indexentry{Kugelkoordinaten}{269}
-\indexentry{Koordinatensystem!Kugel}{269}
-\indexentry{metrischer Tensor}{270}
-\indexentry{Tensor!metrischer}{270}
-\indexentry{Laplace-Operator!Kugelkoordinaten}{271}
-\indexentry{Kugelkoordinaten!Laplace-Operator}{271}
-\indexentry{Geschwindigkeitsadvektion!Kugelkoordinaten}{272}
-\indexentry{Kugelkoordinaten!Geschwindigkeitsadvektion}{272}
-\indexentry{Weber-Transformation}{272}
-\indexentry{materielle Ableitung!Kugelkoordinaten}{274}
-\indexentry{Ableitung!materielle!Kugelkoordinaten}{274}
-\indexentry{Kugelkoordinaten!materielle Ableitung}{274}
-\indexentry{materielle Ableitung}{275}
-\indexentry{Ableitung!materielle}{275}
-\indexentry{2D-vektorinvariante Form der Geschwindigkeitsadvektion}{275}
-\indexentry{Geschwindigkeitsadvektion!2D-vektorinvariante Form}{275}
-\indexentry{mehrdimensionale Integralrechnung}{275}
-\indexentry{Integralrechnung!mehrdimensionale}{275}
-\indexentry{Funktionaldeterminante}{275}
-\indexentry{Gauß'scher Satz}{276}
-\indexentry{Satz von Gauß}{276}
-\indexentry{Schwerefeld der Erde}{277}
-\indexentry{Erde!Schwerefeld}{277}
-\indexentry{Ellipse}{277}
-\indexentry{Ellipsoid}{277}
-\indexentry{Rotationsellipsoid}{277}
-\indexentry{Ellipse}{277}
-\indexentry{große Halbachse}{277}
-\indexentry{Halbachse!große}{277}
-\indexentry{Ellipse!Halbachse!große}{277}
-\indexentry{kleine Halbachse}{277}
-\indexentry{Halbachse!kleine}{277}
-\indexentry{Ellipse!Halbachse!kleine}{277}
-\indexentry{Exzentrizität}{277}
-\indexentry{Rotationsellipsoid}{277}
-\indexentry{Ellipsoid}{277}
-\indexentry{Schwerefeld der Erde!ellipsoidische Approximation}{278}
-\indexentry{ellipsoidische Approximation!des Schwerefeldes}{278}
-\indexentry{Newton'sches Gravitationsgesetz}{278}
-\indexentry{Gravitationsgesetz!Newton'sches}{278}
-\indexentry{Satz von Clairaut}{294}
-\indexentry{orthogonale Funktionensysteme}{297}
-\indexentry{Funktionensysteme!orthogonale}{297}
-\indexentry{Rodrigues-Formel}{297}
-\indexentry{Legendre-Polynom}{297}
-\indexentry{Legendre'sche Differenzialgleichung}{297}
-\indexentry{Differenzialgleichung!Legendre'sche}{297}
-\indexentry{Legendre-Polynome!Normierung}{300}
-\indexentry{Normierung!Legendre-Polynome}{300}
-\indexentry{Legendre-Polynome!Orthogonalität}{300}
-\indexentry{Orthogonalität!Legendre-Polynome}{300}
-\indexentry{Legendre-Funktion!assoziierte}{303}
-\indexentry{Hermite-Polynom}{305}
-\indexentry{Differenzialgleichung!Hermite'sche}{305}
-\indexentry{Hermite'sche Differenzialgleichung}{305}
-\indexentry{Laguerre-Polynom}{307}
-\indexentry{Kugelflächenfunktion}{310}
-\indexentry{komplexe Exponentialfunktion}{312}
-\indexentry{Exponentialfunktion!komplexe}{312}
-\indexentry{Fourier-Transformation}{312}
-\indexentry{Fourier-Transformation}{312}
-\indexentry{Spektrum}{312}
-\indexentry{inverse Fourier-Transformation}{312}
-\indexentry{Fourier-Transformation!inverse}{312}
-\indexentry{Phasenspektrum}{313}
-\indexentry{Amplitudenspektrum}{313}
-\indexentry{Leistungsspektrum}{313}
-\indexentry{Powerspektrum}{313}
-\indexentry{Erwartungswert}{313}
-\indexentry{Thermodynamik     \subitem Erster Hauptsatz}{317}
+\indexentry{Grundfunktion!Symmetrieeigenschaften}{254}
+\indexentry{Symmetrie!der Grundfunktionen}{254}
+\indexentry{Additionstheorem}{255}
+\indexentry{Grundfunktion!Additionstheoreme}{255}
+\indexentry{Euler-Identität}{255}
+\indexentry{Arcusfunktion}{256}
+\indexentry{Zahl!komplexe}{256}
+\indexentry{komplexe Zahl}{256}
+\indexentry{Deltadistribution}{257}
+\indexentry{Deltadistribution}{257}
+\indexentry{Integralformel}{257}
+\indexentry{partielle Integration}{257}
+\indexentry{Integration!partielle}{257}
+\indexentry{Substitutionsregel}{257}
+\indexentry{Trennung der Variablen}{257}
+\indexentry{Fehlerfunktion}{258}
+\indexentry{Gammafunktion}{258}
+\indexentry{Stirling-Formel}{258}
+\indexentry{Residuensatz}{259}
+\indexentry{Vektorraum}{259}
+\indexentry{Matrix}{260}
+\indexentry{Matrix!quadratische}{260}
+\indexentry{quadratische Matrix}{260}
+\indexentry{Operator}{260}
+\indexentry{Vektorprodukt}{261}
+\indexentry{Graßmann-Identität}{262}
+\indexentry{BAC-CAB-Regel}{262}
+\indexentry{Konvention!über Koordinatensysteme}{263}
+\indexentry{Koordinatensystem!Konvention}{263}
+\indexentry{ruhende Koordinaten}{263}
+\indexentry{Koordinatensystem!ruhendes}{263}
+\indexentry{globale Koordinaten}{263}
+\indexentry{Koordinatensystem!globales}{263}
+\indexentry{geographische Koordinaten}{263}
+\indexentry{Koordinatensystem!geographisches}{263}
+\indexentry{Ableitung!mehrdimensionale}{263}
+\indexentry{mehrdimensionale Ableitung}{263}
+\indexentry{Jacobi-Matrix}{263}
+\indexentry{materielle Ableitung}{264}
+\indexentry{Ableitung!materielle}{264}
+\indexentry{totale Ableitung}{264}
+\indexentry{Ableitung!totale}{264}
+\indexentry{Divergenz}{264}
+\indexentry{Divergenz!eines Vektorfeldes}{264}
+\indexentry{Vektorfeld!Divergenz}{264}
+\indexentry{Laplace-Operator}{264}
+\indexentry{Nabla-Operator!horizontaler}{265}
+\indexentry{horizontaler Nabla-Operator}{265}
+\indexentry{Laplace-Operator!horizontaler}{265}
+\indexentry{horizontaler Laplace-Operator}{265}
+\indexentry{Advektionsoperator}{265}
+\indexentry{Advektion}{265}
+\indexentry{Krümmungsradius}{265}
+\indexentry{Rechenregel!Differenzialoperator}{267}
+\indexentry{Differenzialoperator!Rechenregel}{267}
+\indexentry{Weber-Transformation}{270}
+\indexentry{Differenzialoperator!unter Koordinatentransformation}{270}
+\indexentry{Koordinatentransformation!Differenzialoperator}{270}
+\indexentry{Orthogonalität!eines Koordinatensystems}{270}
+\indexentry{Koordinaten!orthogonale}{270}
+\indexentry{Koordinatensystem!orthogonales}{270}
+\indexentry{Skalarprodukt!generalisierte Koordinaten}{271}
+\indexentry{generalisierte Koordinaten!Skalarprodukt}{271}
+\indexentry{Vektorprodukt!generalisierte Koordinaten}{271}
+\indexentry{generalisierte Koordinaten!Vektorprodukt}{271}
+\indexentry{Kugelkoordinaten}{271}
+\indexentry{Koordinatensystem!Kugel}{271}
+\indexentry{metrischer Tensor}{272}
+\indexentry{Tensor!metrischer}{272}
+\indexentry{Laplace-Operator!Kugelkoordinaten}{273}
+\indexentry{Kugelkoordinaten!Laplace-Operator}{273}
+\indexentry{Geschwindigkeitsadvektion!Kugelkoordinaten}{274}
+\indexentry{Kugelkoordinaten!Geschwindigkeitsadvektion}{274}
+\indexentry{Weber-Transformation}{274}
+\indexentry{materielle Ableitung!Kugelkoordinaten}{276}
+\indexentry{Ableitung!materielle!Kugelkoordinaten}{276}
+\indexentry{Kugelkoordinaten!materielle Ableitung}{276}
+\indexentry{materielle Ableitung}{277}
+\indexentry{Ableitung!materielle}{277}
+\indexentry{2D-vektorinvariante Form der Geschwindigkeitsadvektion}{277}
+\indexentry{Geschwindigkeitsadvektion!2D-vektorinvariante Form}{277}
+\indexentry{mehrdimensionale Integralrechnung}{277}
+\indexentry{Integralrechnung!mehrdimensionale}{277}
+\indexentry{Funktionaldeterminante}{277}
+\indexentry{Gauß'scher Satz}{278}
+\indexentry{Satz von Gauß}{278}
+\indexentry{Schwerefeld der Erde}{279}
+\indexentry{Erde!Schwerefeld}{279}
+\indexentry{Ellipse}{279}
+\indexentry{Ellipsoid}{279}
+\indexentry{Rotationsellipsoid}{279}
+\indexentry{Ellipse}{279}
+\indexentry{große Halbachse}{279}
+\indexentry{Halbachse!große}{279}
+\indexentry{Ellipse!Halbachse!große}{279}
+\indexentry{kleine Halbachse}{279}
+\indexentry{Halbachse!kleine}{279}
+\indexentry{Ellipse!Halbachse!kleine}{279}
+\indexentry{Exzentrizität}{279}
+\indexentry{Rotationsellipsoid}{279}
+\indexentry{Ellipsoid}{279}
+\indexentry{Schwerefeld der Erde!ellipsoidische Approximation}{280}
+\indexentry{ellipsoidische Approximation!des Schwerefeldes}{280}
+\indexentry{Newton'sches Gravitationsgesetz}{280}
+\indexentry{Gravitationsgesetz!Newton'sches}{280}
+\indexentry{Satz von Clairaut}{296}
+\indexentry{orthogonale Funktionensysteme}{299}
+\indexentry{Funktionensysteme!orthogonale}{299}
+\indexentry{Rodrigues-Formel}{299}
+\indexentry{Legendre-Polynom}{299}
+\indexentry{Legendre'sche Differenzialgleichung}{299}
+\indexentry{Differenzialgleichung!Legendre'sche}{299}
+\indexentry{Legendre-Polynome!Normierung}{302}
+\indexentry{Normierung!Legendre-Polynome}{302}
+\indexentry{Legendre-Polynome!Orthogonalität}{302}
+\indexentry{Orthogonalität!Legendre-Polynome}{302}
+\indexentry{Legendre-Funktion!assoziierte}{305}
+\indexentry{Hermite-Polynom}{307}
+\indexentry{Differenzialgleichung!Hermite'sche}{307}
+\indexentry{Hermite'sche Differenzialgleichung}{307}
+\indexentry{Laguerre-Polynom}{309}
+\indexentry{Kugelflächenfunktion}{312}
+\indexentry{komplexe Exponentialfunktion}{314}
+\indexentry{Exponentialfunktion!komplexe}{314}
+\indexentry{Fourier-Transformation}{314}
+\indexentry{Fourier-Transformation}{314}
+\indexentry{Spektrum}{314}
+\indexentry{inverse Fourier-Transformation}{314}
+\indexentry{Fourier-Transformation!inverse}{314}
+\indexentry{Phasenspektrum}{315}
+\indexentry{Amplitudenspektrum}{315}
+\indexentry{Leistungsspektrum}{315}
+\indexentry{Powerspektrum}{315}
+\indexentry{Erwartungswert}{315}
+\indexentry{Thermodynamik     \subitem Erster Hauptsatz}{319}

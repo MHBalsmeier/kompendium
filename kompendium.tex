@@ -5030,7 +5030,7 @@ Ein \textit{thermodynamisches Potential} ist eine Zustandsgröße, aus der man d
 \begin{eqnarray}
 F \coloneqq E - ST&&\text{(freie Energie)}\index{freie Energie}\index{Energie!freie}\\
 H \coloneqq E + pV&&\text{(Enthalpie)}\index{Enthalpie}\label{eq:def_enthalpie}\\
-G \coloneqq E - ST + pV&&\text{(Gibbspotential, freie Enthalpie)}\index{Gibbspotential}\index{freie Enthalpie}\index{Enthalpie!freie}\\
+G \coloneqq E - ST + pV&&\text{(Gibbs-Potential, freie Enthalpie)}\index{Gibbs-Potential}\index{freie Enthalpie}\index{Enthalpie!freie}\label{eq:def_gibbs-potential}\\
 J \coloneqq E - ST - \mu N&&\text{(großkanonisches Potential)}\label{eq:groskan_pot}\index{großkanonisches Potential}\index{Potential!großkanonisches}
 \end{eqnarray}
 \end{center}
@@ -5066,7 +5066,7 @@ Hieraus lassen sich folgende Aussagen ablesen:
 \end{eqnarray}
 \begin{eqnarray}
 \left(\frac{\partial G}{\partial p}\right)_{T, N} & = & V\\
-\left(\frac{\partial G}{\partial N}\right)_{T, p} & = & \mu
+\left(\frac{\partial G}{\partial N}\right)_{T, p} & = & \mu\label{eq:chemisches_potential_prop_2}
 \end{eqnarray}
 \begin{eqnarray}
 \left(\frac{\partial J}{\partial T}\right)_{V, \mu} & = & -S\\
@@ -5284,7 +5284,7 @@ Für die Entropie folgt
 mit
 %
 \begin{eqnarray}
-c \coloneqq \frac{2me^{5/3}}{3\pi\hbar^2}.
+c \coloneqq \frac{2me^{5/3}}{3\pi\hbar^2}.\label{eq:def_id_gas_entropy_constant}
 \end{eqnarray}
 %
 Man erhält die \textit{kalorische Zustandsgleichung idealer Gase}\index{Zustandsgleichung!kalorische!idealer Gase}\index{kalorische Zustandsgleichung idealer Gase}
@@ -5296,7 +5296,7 @@ Man erhält die \textit{kalorische Zustandsgleichung idealer Gase}\index{Zustand
 Weiterhin gilt
 %
 \begin{eqnarray}
-\frac{p}{T} = k_B\frac{\partial S\left(E, V, N\right)}{\partial V} = k_BN\frac{1}{v}_h.
+\frac{p}{T} = \frac{\partial S\left(E, V, N\right)}{\partial V} = k_BN\frac{1}{V}.
 \end{eqnarray}
 %
 Dies ergibt die \textit{thermische Zustandsgleichung idealer Gase}
@@ -5341,13 +5341,13 @@ Weiterhin gilt
 c^{(p)} - c^{(v)} = \frac{N}{m}k_B = \frac{N}{m N_A}R = R_s\label{eq:diff_spez_heat_id_gase}.
 \end{eqnarray}
 %
-Für das chemische Potential\index{chemisches Potential!ideales Gas}\index{ideales Gas!chemisches Potential}\index{Gas!ideales!chemisches Potential} gilt mit Glg. \eqref{eq:chemisches_potential_prop_1}
+Für das chemische Potential\index{chemisches Potential!ideales Gas}\index{ideales Gas!chemisches Potential}\index{Gas!ideales!chemisches Potential} gilt mit den Glg.en \eqref{eq:def_gibbs-potential} und \eqref{eq:chemisches_potential_prop_2}
 %
 \begin{eqnarray}
-\mu = \left(\frac{\partial E}{\partial N}\right)_{S, p} = \frac{3}{2}k_BT = \frac{E}{N} = \frac{C^{(V)}T}{N}.\label{eq:chemical_potential_id_gas}
+\mu = \frac{E - TS + pV}{N} = \frac{C^{(v)}T}{N} - \frac{ST}{N} + k_BT = T\left(\frac{C^{(v)}}{N} - \frac{S}{N} + k_B\right),\label{eq:chemical_potential_id_gas}
 \end{eqnarray}
 %
-Eine äquivalente Formulierung von Glg. \eqref{eq:zustand_ideal} ist
+wobei verwendet wurde, dass das Gibbs-Potential\index{Gibbs-Potential} eine extensive Größe ist\index{extensive Größe}\index{Größe!extensive}. Eine äquivalente Formulierung von Glg. \eqref{eq:zustand_ideal} ist
 %
 \begin{eqnarray}
 p = \frac{Nk_BT}{V} = \frac{nN_Ak_BT}{V} = \frac{nRT}{V} = \frac{mRT}{VM} = \rho R_sT\label{eq:zustand_ideal_alt}
@@ -6117,7 +6117,7 @@ Die herrschenden Gleichungen bilden das die zeitliche Entwicklung der Atmosphär
 \section{Zustand der Atmosphäre}
 \label{sec:zustand_der_atmosphaere}\index{Zustand!der Atmosphäre}\index{Atmosphäre!Zustand}
 
-Ein Teilchen ist ein kleines Luftvolumen $\Delta V$, was so groß ist, dass im langzeitlichen Mittel eine so große Anzahl Gasmoleküle darin enthalten ist, dass die Mittelung, die in der Herleitung der Navier-Stokes-Gleichungen gemacht wird, als gut genug anzusehen ist. Die Atmosphäre $A\subseteq\mathbb{R}^3$ offen ist die Gashülle der Erde. Die Offenheit ist sinnvoll, damit in jedem Punkt eine Richtungsableitung in jede Richtung möglich ist. Die Definition der Obergrenze hängt vom zu behandelnden Problem ab. An der Untergrenze wird die Atmosphäre durch die Erdoberfläche begrenzt, inklusive der dort stattfindenden Bewegungen, somit ist die Menge $A$ zeitabhängig, $A = A\left(t\right)$. Alle meteorologischen Felder werden als so oft differenzierbar vorausgesetzt, wie es für die Rechnungen benötigt wird. \textit{Luft}\index{Luft} besteht aus \textit{trockener Luft}\index{Luft!trockene}\index{trockene Luft} und \textit{Tracern}\index{Tracer}. Zu diesen zählen:
+Ein Teilchen ist ein kleines Luftvolumen $\Delta V$, was so groß ist, dass im langzeitlichen Mittel eine so große Anzahl Gasmoleküle darin enthalten ist, dass von einem kontinuierlichen Materiebild ausgegangen werden kann. Die Atmosphäre $A\subseteq\mathbb{R}^3$ offen ist die Gashülle der Erde. Die Offenheit ist sinnvoll, damit in jedem Punkt eine Richtungsableitung in jede Richtung möglich ist. Die Definition der Obergrenze hängt vom zu behandelnden Problem ab. An der Untergrenze wird die Atmosphäre durch die Erdoberfläche begrenzt, inklusive der dort stattfindenden Bewegungen, somit ist die Menge $A$ zeitabhängig, $A = A\left(t\right)$. Alle meteorologischen Felder werden als so oft differenzierbar vorausgesetzt, wie es für die Rechnungen benötigt wird. \textit{Luft}\index{Luft} besteht aus \textit{trockener Luft}\index{Luft!trockene}\index{trockene Luft} und \textit{Tracern}\index{Tracer}. Zu diesen zählen:
 %
 \begin{itemize}
 \item Wasserdampf
@@ -6126,7 +6126,7 @@ Ein Teilchen ist ein kleines Luftvolumen $\Delta V$, was so groß ist, dass im l
 \item in variabler Konzentration vorhandene gasförmige Komponenten
 \end{itemize}
 %
-\textit{Feuchte Luft}\index{Luft!feuchte}\index{feuchte Luft} ist eine Mischung aus trockener Luft und Wasserdampf. Die Anzahl der berücksichtigen \textit{Tracerklassen}\index{Tracerklasse}, insbesondere der \textit{Kondensatklassen}\index{Kondensatklasse} wird dann als genügend angesehen, wenn falsche Vorhersagen nicht mehr auf Grobheiten im für die Vorhersage verwendeten Gleichungssystem, sondern auf Fehler in den Anfangs- und/oder Randbedingungen zurückzuführen sind. Folgende Zustandsgrößen werden definiert:
+\textit{Feuchte Luft}\index{Luft!feuchte}\index{feuchte Luft} ist eine Mischung aus trockener Luft und Wasserdampf. Die Anzahl der berücksichtigen \textit{Tracerklassen}\index{Tracerklasse}, insbesondere der \textit{Kondensatklassen}\index{Kondensatklasse}, wird dann als genügend angesehen, wenn falsche Vorhersagen nicht mehr auf Grobheiten im für die Vorhersage verwendeten Gleichungssystem, sondern auf Fehler in den Anfangs- und/oder Randbedingungen zurückzuführen sind. Folgende Zustandsgrößen werden definiert:
 %
 \begin{itemize}
 \item Die Dichte trockener Luft\index{Dichte!trockener Luft} $\rho_d:A\to\mathbb{R}$ wird definiert durch
@@ -7310,52 +7310,55 @@ Der Ausgangspunkt ist Glg. \eqref{eq:td_1_id_gas}. Durch Differentiation nach de
 Mit den Glg.en \eqref{eq:kalorisch_id_gase_mod} und \eqref{eq:chemical_potential_id_gas} folgt
 %
 \begin{eqnarray}
-C^{(v)}\frac{dT}{dt} + p\frac{dV}{dt} = c^{(v)}Q_T + \frac{C^{(v)}T}{N}\frac{dN}{dt}.
+c^{(v)}m\frac{dT}{dt} + c^{(v)}T\frac{dm}{dt} + p\frac{dV}{dt} & = & c^{(v)}Q_T + T\left(\frac{C^{(v)}}{N} - \frac{S}{N} + k_B\right)\frac{dN}{dt}\nonumber\\
+& = & c^{(v)}Q_T + T\left(\frac{C^{(v)}}{N} - \frac{S}{N} + \frac{pV}{NT}\right)\frac{dN}{dt}.
 \end{eqnarray}
 %
-Division durch die Masse $m$ des betrachteten Teilchens liefert
+Division durch die Masse $m$ des betrachteten Teilchens liefert mit
 %
 \begin{eqnarray}
-c^{(v)}\frac{dT}{dt} - \frac{p}{\rho^2}\frac{d\rho}{dt} = c^{(v)}q_T + \frac{c^{(v)}T}{N}\frac{dN}{dt}.
+\frac{1}{m}p\frac{dV}{dt} = p\frac{d}{dt}\left(\frac{V}{m}\right) + \frac{pV}{m^2}\frac{dm}{dt} = -\frac{p}{\rho^2}\frac{d\rho}{dt} + \frac{p}{m\rho}\frac{dm}{dt}
 \end{eqnarray}
 %
-Dabei ist zu berückstichtigen, dass es sich bei den Zeitableitungen um materielle Ableitungen handelt:
+die Gleichung
 %
 \begin{eqnarray}
-c^{(v)}\md{T} - \frac{p}{\rho^2}\md{\rho} = c^{(v)}q_T + \frac{c^{(v)}T}{N}\frac{dN}{dt}
+c^{(v)}\frac{dT}{dt} - \frac{p}{\rho^2}\frac{d\rho}{dt} & = & c^{(v)}q_T - \frac{p}{m\rho}\frac{dm}{dt} + T\left(c^{(v)} - s + \frac{p}{\rho T}\right)\frac{1}{N}\frac{dN}{dt}\nonumber\\
+& = & c^{(v)}q_T - \frac{p}{m\rho}\frac{dm}{dt} + T\left(c^{(v)} - s + R_d\right)\frac{1}{N}\frac{dN}{dt}\nonumber\\
+& = & c^{(v)}q_T - \frac{p}{m\rho}\frac{dm}{dt} + R_dT\frac{1}{N}\frac{dN}{dt} + T\left(c^{(v)} - s\right)\frac{1}{N}\frac{dN}{dt},
 \end{eqnarray}
 %
-Die Teilchenzahl lässt sich mit der molaren Masse $M$ über
+wobei $s \coloneqq \frac{S}{m}$ für die spezifische Entropie\index{spezifische Entropie}\index{Entropie!spezifische} steht. Durch Erweiterung mit der Teilchenmasse erhält man
 %
 \begin{eqnarray}
-M = \frac{m}{N} \Rightarrow N = \frac{m}{M}
+c^{(v)}\frac{dT}{dt} - \frac{p}{\rho^2}\frac{d\rho}{dt} & = & c^{(v)}q_T - \frac{p}{m\rho}\frac{dm}{dt} + R_dT\frac{1}{m}\frac{dm}{dt} + T\left(c^{(v)} - s\right)\frac{1}{m}\frac{dm}{dt},
 \end{eqnarray}
 %
-durch die Masse ausdrücken:
+Aufgrund der Zustandsgleichung idealer Gase\index{Zustandsgleichung idealer Gase}\index{ideales Gas!Zustandsgleichung} gilt
 %
 \begin{eqnarray}
-c^{(v)}\md{T} - \frac{p}{\rho^2}\md{\rho} = c^{(v)}q_T + \frac{c^{(v)}T}{m}\frac{dm}{dt}
+-\frac{p}{\rho}\frac{1}{m}\frac{dm}{dt} + R_dT\frac{1}{m}\frac{dm}{dt} = 0.
 \end{eqnarray}
 %
-Die Größe
+$\frac{1}{m}\frac{dm}{dt}$ ist die Quellstärke der Masse pro Masse, rechnet man dies auf das Volumen um, erhält man
 %
 \begin{eqnarray}
-\frac{1}{m}\frac{dm}{dt}
+\frac{1}{m}\frac{dm}{dt} = \frac{1}{\rho V}\frac{dm}{dt} = \frac{1}{\rho}q_\rho.
 \end{eqnarray}
 %
-ist die Quellstärke der Masse pro Masse, üblicherweise werden jedoch Quelldichten, also auf das Volumen bezogene Größen verwendet. Mit
+Damit folgt
 %
 \begin{eqnarray}
-\frac{1}{m}\frac{dm}{dt} = \frac{V}{Vm}\frac{dm}{dt} = \frac{1}{\rho V}\frac{dm}{dt} = \frac{1}{\rho}q_\rho
+c^{(v)}\frac{dT}{dt} - \frac{p}{\rho^2}\frac{d\rho}{dt} = c^{(v)}q_T + \frac{\left(c^{(v)} - s\right)T}{\rho}q_\rho
 \end{eqnarray}
 %
-erhält man
+Dabei ist zu berückstichtigen, dass es sich bei den Zeitableitungen um materielle Ableitungen handelt
 %
 \begin{center}
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{eqnarray}
-c^{(v)}\md{T} - \frac{p}{\rho^2}\md{\rho} = c^{(v)}q_T + \frac{c^{(v)}T}{\rho}q_\rho.\label{eq:td1_ideal_gas}
+c^{(v)}\md{T} - \frac{p}{\rho^2}\md{\rho} = c^{(v)}q_T + \frac{\left(c^{(v)} - s\right)T}{\rho}q_\rho.\label{eq:td1_ideal_gas}
 \end{eqnarray}
 \end{center}
 }}
@@ -7364,20 +7367,20 @@ c^{(v)}\md{T} - \frac{p}{\rho^2}\md{\rho} = c^{(v)}q_T + \frac{c^{(v)}T}{\rho}q_
 Leitet man die Zustandsgleichung zeitlich ab, folgt
 %
 \begin{eqnarray}
-\omega\alpha + p \md{\alpha} = R_s\md{T}.
+\omega\alpha + p \md{\alpha} = R_d\md{T}.
 \end{eqnarray}
 %
 Mit den Glg.en \eqref{eq:td1_ideal_gas} und \eqref{eq:diff_spez_heat_id_gase} folgt
 %
 \begin{eqnarray}
-\omega\alpha + \alpha q - c^{(v)}\md{T} = R_s\md{T}\Leftrightarrow - \omega\alpha + \left(R_s + c^{(v)}\right)\md{T} & = & c^{(p)}\md{T} - \alpha\omega = \alpha q\nonumber\\
+\omega\alpha + \alpha q - c^{(v)}\md{T} = R_d\md{T}\Leftrightarrow - \omega\alpha + \left(R_d + c^{(v)}\right)\md{T} & = & c^{(p)}\md{T} - \alpha\omega = \alpha q\nonumber\\
 \frac{d_HT}{dt} - \omega\left(\frac{\alpha}{c^{(p)}} - \frac{\partial T}{\partial p}\right) & = & \frac{\alpha}{c^{(p)}}q.
 \end{eqnarray}
 %
 Mit der Zustandsgleichung folgt
 %
 \begin{eqnarray}
-\frac{\alpha}{c^{(p)}} - \frac{\partial T}{\partial p} & = & \frac{R_sT}{c^{(p)}p} - \frac{\partial T}{\partial p}\eqqcolon S_p, \label{eq:def_stabilitaetsparameter}
+\frac{\alpha}{c^{(p)}} - \frac{\partial T}{\partial p} & = & \frac{R_dT}{c^{(p)}p} - \frac{\partial T}{\partial p}\eqqcolon S_p, \label{eq:def_stabilitaetsparameter}
 \end{eqnarray}
 %
 dies definiert den \text{Stabilitätsparameter}\index{Stabilitätsparameter} $S_p$. Man erhält
@@ -7395,7 +7398,7 @@ dies definiert den \text{Stabilitätsparameter}\index{Stabilitätsparameter} $S_
 Ein Prozess ist adiabatisch, wenn keine Wärme übertragen wird, $q = 0$. Der Erste Hauptsatz lautet dann mit den Zustandsgrößen des idealen Gases
 %
 \begin{eqnarray}
-c^{(v)}m\md{T} = -p\md{v}_h.
+c^{(v)}m\md{T} = -p\md{v}.
 \end{eqnarray}
 %
 Eine Prozesskoordinate ist eine Größe, als deren Funktion man alle anderen Zustandsgrößen schreiben kann. Die Zeit ist immer eine mögliche Prozesskoordinate, hier sei jedoch das Volumen verwendet. Mit der Kettenregel ergibt sich
@@ -7413,40 +7416,40 @@ Aus der Zustandsgleichung $pV = nRT$ folgt $T = \frac{pV}{nR}$, also lautet die 
 Setzt man dies in Glg. \eqref{eq:ad_proz} ein, erhält man
 %
 \begin{eqnarray}
-c^{(v)}m\frac{dp}{dV}\left(\frac{V}{nR} + \frac{p}{nR}\frac{dV}{dp}\right) & = & -p\Leftrightarrow \frac{c^{(v)}}{R_s}V\frac{dp}{dV} + \frac{c^{(v)}}{R_s}p = -p\nonumber\\
-\Leftrightarrow V\frac{dp}{dV} & = & -p\left(1 + \frac{R_s}{c^{(v)}}\right).
+c^{(v)}m\frac{dp}{dV}\left(\frac{V}{nR} + \frac{p}{nR}\frac{dV}{dp}\right) & = & -p\Leftrightarrow \frac{c^{(v)}}{R_d}V\frac{dp}{dV} + \frac{c^{(v)}}{R_d}p = -p\nonumber\\
+\Leftrightarrow V\frac{dp}{dV} & = & -p\left(1 + \frac{R_d}{c^{(v)}}\right).
 \end{eqnarray}
 %
-Macht man mit einem $\kappa>0$ den Ansatz
+Macht man mit einem $\kappa > 0$ den Ansatz
 %
 \begin{eqnarray}
-p\left(V\right) = p_0\left(\frac{V_0}{v}_h\right)^\kappa, \label{eq:adiabate}
+p\left(V\right) = p_0\left(\frac{V_0}{V}\right)^\kappa, \label{eq:adiabate}
 \end{eqnarray}
 %
 folgt
 %
 \begin{eqnarray}
-\frac{dp}{dV} = -\kappa p_0V_0^\kappa V^{-\kappa - 1} = -\kappa p_0\left(\frac{V_0}{v}_h\right)^\kappa \frac{1}{v}_h = -\kappa \frac{p}{v}_h
+\frac{dp}{dV} = -\kappa p_0V_0^\kappa V^{-\kappa - 1} = -\kappa p_0\left(\frac{V_0}{V}\right)^\kappa \frac{1}{V} = -\kappa \frac{p}{V}
 \end{eqnarray}
 %
 und durch Koeffizientenvergleich erhält man
 %
 \begin{eqnarray}
-- \kappa p & = & -p\left(1 + \frac{R_s}{c^{(v)}}\right)\Leftrightarrow\kappa = 1 + \frac{R_s}{c^{(v)}} = \frac{c^{(p)}}{c^{(v)}}.
+-\kappa p & = & -p\left(1 + \frac{R_d}{c^{(v)}}\right)\Leftrightarrow\kappa = 1 + \frac{R_d}{c^{(v)}} = \frac{c^{(p)}}{c^{(v)}}.
 \end{eqnarray}
 %
-$\kappa> 1$ bezeichnet man als den Adiabaten- oder Isentropenexponenten.
+$\kappa > 1$ bezeichnet man als den Adiabaten- oder Isentropenexponenten.
 
 Die \textit{potentielle Temperatur}\index{Temperatur!potentielle}\index{potentielle Temperatur} $\theta$ ist die Temperatur, die ein Gaspaket hätte, brächte man es adiabatisch auf einen willkürlichen Referenzdruck $p_0$. Ersetzt man mittels der Zustandsgleichung in der Adiabaten Glg. \eqref{eq:adiabate} das Volumen durch die Temperatur, erhält man
 %
 \begin{eqnarray}
-p_0 = p\left(\frac{V}{V_0}\right)^\kappa = p\left(\frac{Tp_0}{p\theta}\right)^\kappa\Leftrightarrow T_0^\kappa = T^\kappa\left(\frac{p_0}{p}\right)^{\kappa - 1}\Leftrightarrow \theta = T\left(\frac{p_0}{p}\right)^\frac{R_s}{c^{(p)}}\label{eq:pot_temp}
+p_0 = p\left(\frac{V}{V_0}\right)^\kappa = p\left(\frac{Tp_0}{p\theta}\right)^\kappa\Leftrightarrow T_0^\kappa = T^\kappa\left(\frac{p_0}{p}\right)^{\kappa - 1}\Leftrightarrow \theta = T\left(\frac{p_0}{p}\right)^\frac{R_d}{c^{(p)}}\label{eq:pot_temp}
 \end{eqnarray}
 %
 Dies kann man nutzen, um die Definition des Stabilitätsparameters $S_p$ Glg. \eqref{eq:def_stabilitaetsparameter} zu vereinfachen:
 %
 \begin{eqnarray}
-- \frac{T}{\theta}\frac{\partial \theta}{\partial p} & = & -\frac{T}{\theta}\left(\frac{\partial T}{\partial p} - T\frac{1}{p}\frac{R_s}{c^{(p)}}\right)\left(\frac{p_0}{p}\right)^{\frac{R_s}{c^{(p)}}} = \frac{R_sT}{c^{(p)}p} - \frac{\partial T}{\partial p} = S_p\label{eq:stabilitaetspara_vereinfacht}
+- \frac{T}{\theta}\frac{\partial \theta}{\partial p} & = & -\frac{T}{\theta}\left(\frac{\partial T}{\partial p} - T\frac{1}{p}\frac{R_d}{c^{(p)}}\right)\left(\frac{p_0}{p}\right)^{\frac{R_d}{c^{(p)}}} = \frac{R_dT}{c^{(p)}p} - \frac{\partial T}{\partial p} = S_p\label{eq:stabilitaetspara_vereinfacht}
 \end{eqnarray}
 %
 Man erhält für die potentielle Dichte $\rho_0$ den Ausdruck
@@ -7458,13 +7461,13 @@ Man erhält für die potentielle Dichte $\rho_0$ den Ausdruck
 In der Meteorologie ist $p_0 \coloneqq 1000\:\text{hPa}$. Der \textit{trockenadiabatische Temperaturgradient}\index{trockenadiabatischer Temperaturgradient}\index{Temperaturgradient!trockenadiabatischer} bezeichnet die Abnahme der Temperatur mit der Höhe bei adiabatischem Aufstieg eines trockenen Luftteilchens. Mithilfe der potentiellen Temperatur kann man sich den Wert leicht herleiten. Es gilt ja
 %
 \begin{eqnarray}
-\frac{dT}{dz} = \theta\frac{dp}{dz}\frac{R_s}{c^{(p)}}\frac{1}{p_0}\left(\frac{p}{p_0}\right)^{\frac{R_s}{c^{(p)}} - 1}, 
+\frac{dT}{dz} = \theta\frac{dp}{dz}\frac{R_d}{c^{(p)}}\frac{1}{p_0}\left(\frac{p}{p_0}\right)^{\frac{R_d}{c^{(p)}} - 1}, 
 \end{eqnarray}
 %
 da man von einem adiabatischen Prozess ausgeht und sich die potentielle Temperatur dabei nicht ändert. $p_0$ ist dabei der Referenzdruck, dies soll hier gleichzeitig das Niveau bezeichnen, in dem abgeleitet wird. Setzt man die hydrostatische Approximation und die Zustandsgleichung idealer Gase ein, folgt
 %
 \begin{eqnarray}
-\frac{dT}{dz} = -\theta g\rho _0\frac{R_s}{c^{(p)}}\frac{1}{p_0} = -\frac{g}{c^{(p)}} \approx - 0, 98\:\frac{\text{K}}{100\:\text{m}}, 
+\frac{dT}{dz} = -\theta g\rho _0\frac{R_d}{c^{(p)}}\frac{1}{p_0} = -\frac{g}{c^{(p)}} \approx - 0, 98\:\frac{\text{K}}{100\:\text{m}}, 
 \end{eqnarray}
 %
 man definiert den trockenadiabatischen Gradienten $\Gamma_d$ als den Betrag der Abnahme
@@ -7484,8 +7487,8 @@ man definiert den trockenadiabatischen Gradienten $\Gamma_d$ als den Betrag der 
 Der trockenadiabatische Temperaturgradient ist kein Temperaturgradient im eigentlichen Sinne, er ist die Ableitung der Funktion $T = T(z)$, die die adiabatische Hebung eines Teilchens beschreibt. Diese Funktion nennt man auch Trockenadiabate\index{Trockenadiabate}. Er ist nicht die Vertikalkomponente des atmosphärischen Temperaturgradienten $\nabla T$. Diese muss überhaupt nicht, auch nicht näherungsweise, mit der Trockenadiabaten übereinstimmen. Es gilt nämlich
 %
 \begin{eqnarray}
-\frac{\partial T}{\partial z} & = & \theta\frac{\partial p}{\partial z}\frac{R_s}{c^{(p)}}\frac{1}{p_0}\left(\frac{p}{p_0}\right)^{\frac{R_s}{c^{(p)}} - 1} + \frac{\partial\theta}{\partial z}\left(\frac{p}{p_0}\right)^{\frac{R_s}{c^{(p)}}} = -\frac{g}{c^{(p)}} - g\frac{p}{R_sT}\frac{\partial\theta}{\partial p}\left(\frac{p}{p_0}\right)^{\frac{R_s}{c^{(p)}}}\nonumber\\
-\Rightarrow g\frac{p}{R_s\theta}\frac{\partial\theta}{\partial p} & = & -\left(\Gamma_d - \Gamma\right), \label{eq:vert_temp_gradient}
+\frac{\partial T}{\partial z} & = & \theta\frac{\partial p}{\partial z}\frac{R_d}{c^{(p)}}\frac{1}{p_0}\left(\frac{p}{p_0}\right)^{\frac{R_d}{c^{(p)}} - 1} + \frac{\partial\theta}{\partial z}\left(\frac{p}{p_0}\right)^{\frac{R_d}{c^{(p)}}} = -\frac{g}{c^{(p)}} - g\frac{p}{R_dT}\frac{\partial\theta}{\partial p}\left(\frac{p}{p_0}\right)^{\frac{R_d}{c^{(p)}}}\nonumber\\
+\Rightarrow g\frac{p}{R_d\theta}\frac{\partial\theta}{\partial p} & = & -\left(\Gamma_d - \Gamma\right), \label{eq:vert_temp_gradient}
 \end{eqnarray}
 %
 mit
@@ -7494,29 +7497,29 @@ mit
 \Gamma \coloneqq -\frac{\partial T}{\partial z}.
 \end{eqnarray}
 
-Die Zeitableitung von Glg. \eqref{eq:pot_temp} ist
+Die materielle Ableitung von Glg. \eqref{eq:pot_temp} ist
 %
 \begin{eqnarray}
-\md{T} & = & \md{\theta}\left(\frac{p}{p_0}\right)^{R_s/c^{(p)}} + \theta\frac{dp}{dt}\frac{1}{p_0}\frac{R_s}{c^{(p)}}\left(\frac{p}{p_0}\right)^{R_s/c^{(p)} - 1} = \left(\frac{p}{p_0}\right)^{R_s/c^{(p)}}\md{\theta} + \frac{T}{p}\omega\frac{R_s}{c^{(p)}}.
+\md{T} & = & \md{\theta}\left(\frac{p}{p_0}\right)^{R_d/c^{(p)}} + \theta\frac{dp}{dt}\frac{1}{p_0}\frac{R_d}{c^{(p)}}\left(\frac{p}{p_0}\right)^{R_d/c^{(p)} - 1} = \frac{T}{\theta}\md{\theta} + \frac{T}{p}\omega\frac{R_d}{c^{(p)}} = \frac{T}{\theta}\md{\theta} + \frac{\omega}{\rho c^{(p)}}.
 \end{eqnarray}
 %
 Hieraus folgt
 %
 \begin{eqnarray}
-c^{(v)}\left(\frac{p}{p_0}\right)^{R_s/c^{(p)}}\md{\theta} + \frac{T}{p}\omega\frac{R_s}{c^{(p)}}c^{(v)} + p\md{}\frac{R_sT}{p} & = & c^{(v)}q_T + \frac{c^{(v)}T}{\rho}q_\rho\nonumber\\
-\Leftrightarrow \md{\theta}\left(\frac{p}{p_0}\right)^{R_s/c^{(p)}} + \frac{\omega T}{p}\frac{R_s}{c^{(p)}} - \frac{RT}{pc^{(v)}}\omega + \frac{R_s}{c^{(v)}}\md{T} & = & q_T + \frac{T}{\rho}q_\rho\nonumber\\
-\Leftrightarrow \left(\frac{p}{p_0}\right)^{R_s/c^{(p)}}\md{\theta} + \frac{\omega R_sT}{p}\left(\frac{1}{c^{(p)}} - \frac{1}{c^{(v)}}\right)\nonumber\\
-+ \frac{R_s}{c^{(v)}}\left(\left(\frac{p}{p_0}\right)^{R_s/c^{(p)}}\md{\theta} + \frac{T}{p}\omega\frac{R_s}{c^{(p)}}\right) & = & q_T + \frac{T}{\rho}q_\rho\nonumber\\
-\Leftrightarrow \left(\frac{p}{p_0}\right)^{R_s/c^{(p)}}\md{\theta}\frac{c^{(p)}}{c^{(v)}} + \frac{\omega R_sT}{p}\frac{c^{(v)} - c^{(p)} + R_s}{c^{(v)}c^{(p)}} & = & q_T + \frac{T}{\rho}q_\rho.
+c^{(v)}\frac{T}{\theta}\md{\theta} + \frac{T}{p}\omega\frac{R_d}{c^{(p)}}c^{(v)} + p\md{}\frac{R_dT}{p} & = & c^{(v)}q_T + \frac{\left(c^{(v)} - s\right)T}{\rho}q_\rho\nonumber\\
+\Leftrightarrow \md{\theta}\frac{T}{\theta} + \frac{\omega T}{p}\frac{R_s}{c^{(p)}} - \frac{R_dT}{pc^{(v)}}\omega + \frac{R_d}{c^{(v)}}\md{T} & = & q_T + \frac{\left(c^{(v)} - s\right)T}{c^{(v)}\rho}q_\rho\nonumber\\
+\Leftrightarrow \frac{T}{\theta}\md{\theta} + \frac{\omega R_dT}{p}\left(\frac{1}{c^{(p)}} - \frac{1}{c^{(v)}}\right)\nonumber\\
++ \frac{R_d}{c^{(v)}}\left(\frac{T}{\theta}\md{\theta} + \frac{T}{p}\omega\frac{R_d}{c^{(p)}}\right) & = & q_T + \frac{\left(c^{(v)} - s\right)T}{c^{(v)}\rho}q_\rho\nonumber\\
+\Leftrightarrow \frac{T}{\theta}\md{\theta}\frac{c^{(p)}}{c^{(v)}} + \frac{\omega R_dT}{p}\frac{c^{(v)} - c^{(p)} + R_d}{c^{(v)}c^{(p)}} & = & q_T + \frac{\left(c^{(v)} - s\right)T}{c^{(v)}\rho}q_\rho.
 \end{eqnarray}
 %
-Damit wird der Erste Hauptsatz der Thermodynamik für ein Gas zu
+Damit lautet Erste Hauptsatz für Thermodynamik für ein Gas in Termen der potentiellen Temperatur
 %
 \begin{center}
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{eqnarray}
-\md{\theta} = \left(\frac{p_0}{p}\right)^{R_s/c^{(p)}}\frac{c^{(v)}}{c^{(p)}}\left(q_T + \frac{T}{\rho}q_\rho\right) = \frac{\theta c^{(v)}}{\rho Tc^{(p)}}\left(\rho q_T + Tq_\rho\right).\label{eq:td1_humid_pot}
+\md{\theta} = \frac{\theta c^{(v)}}{Tc^{(p)}}q_T + \frac{\left(c^{(v)} - s\right)\theta}{c^{(p)}\rho}q_\rho = \frac{\theta}{c^{(p)}}\left(\frac{c^{(v)}}{T}q_T + \frac{c^{(v)} - s}{\rho}q_\rho\right).\label{eq:td1_dry_pot}
 \end{eqnarray}
 \end{center}
 }}
@@ -7525,20 +7528,26 @@ Damit wird der Erste Hauptsatz der Thermodynamik für ein Gas zu
 Multipliziert man diese Gleichung mit $\rho$, erhält man
 %
 \begin{eqnarray}
-\rho\frac{\partial\theta}{\partial t} + \rho\mathbf{v}\cdot\nabla\theta = \frac{\theta c^{(v)}}{Tc^{(p)}}\left(\rho q_T + Tq_\rho\right).
+\rho\frac{\partial\theta}{\partial t} + \rho\mathbf{v}\cdot\nabla\theta = \frac{\rho\theta}{c^{(p)}}\left(\frac{c^{(v)}}{T}q_T + \frac{c^{(v)} - s}{\rho}q_\rho\right).
 \end{eqnarray}
 %
 Addiert man das Produkt der potentiellen Temperatur\index{potentielle Temperatur}\index{Temperatur!potentielle} mit der Kontinuitätsgleichung\index{Kontinuitätsgleichung}
 %
 \begin{eqnarray}
-\theta\frac{\partial\rho}{\partial t} + \theta\mathbf{v}\cdot\nabla\rho + \theta\rho\nabla\cdot\mathbf{v} = \theta q_\rho = \frac{\theta c^{(v)}}{Tc^{(p)}}\frac{Tc^{(p)}}{c^{(v)}}q_\rho
+\theta\frac{\partial\rho}{\partial t} + \theta\mathbf{v}\cdot\nabla\rho + \theta\rho\nabla\cdot\mathbf{v} = \theta q_\rho = \frac{\theta\rho}{c^{(p)}}\frac{c^{(p)}}{\rho}q_\rho
 \end{eqnarray}
 %
 hinzu, folgt
 %
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 \begin{eqnarray}
-\frac{\partial\left(\rho\theta\right)}{\partial t} + \nabla\cdot\left(\rho\theta\mathbf{v}\right) = \frac{\theta c^{(v)}}{Tc^{(p)}}\left(\rho q_T + \left(1 + \frac{c^{(p)}}{c^{(v)}}\right)Tq_\rho\right).\label{eq:td1_humid_pot_mod}
+\frac{\partial\left(\rho\theta\right)}{\partial t} + \nabla\cdot\left(\rho\theta\mathbf{v}\right) = \frac{\rho\theta}{c^{(p)}}\left(\frac{c^{(v)}}{T}q_T + \frac{c^{(p)} + c^{(v)} - s}{\rho}q_\rho\right).\label{eq:td1_humid_pot_mod}
 \end{eqnarray}
+\end{center}
+}}
+\end{center}
 %
 Nun soll noch die Definition der potentiellen Temperatur\index{potentielle Temperatur}\index{Temperatur!potentielle} in die Zustandsgleichung eingesetzt werden:
 %
@@ -7547,27 +7556,36 @@ p & = & \rho R_d\theta\left(\frac{p}{p_0}\right)^{R_d/c^{(p)}}\Rightarrow p^{1 -
 \Rightarrow p^{1/\kappa} & = & \rho R_d\theta\frac{1}{p_0^{R_s/c^{(p)}}}\Rightarrow p = \left(\rho R_d\theta\right)^\kappa\left(\frac{1}{p_0}\right)^{\kappa - 1}\label{eq:state_theta}
 \end{eqnarray}
 %
-Auch für $p$ kann eine prognostiosche Gleichung\index{prognostische Gleichung!Druck}\index{Druck!prognostische Gleichung}\index{Druck!Gleichung!prognostische}\index{Gleichung!prognostische!Druck} hergeleitet werden. Hierzu geht man zunächst davon aus, dass $R_h$ homogen ist:
+Auch für $p$ kann eine prognostiosche Gleichung\index{prognostische Gleichung!Druck}\index{Druck!prognostische Gleichung}\index{Druck!Gleichung!prognostische}\index{Gleichung!prognostische!Druck} hergeleitet werden:
 %
 \begin{eqnarray}
-p & = & \rho R_hT \Rightarrow \md{p} = R_h\left(T\md{\rho} + \rho\md{T}\right)
+p & = & \rho R_dT \Rightarrow \md{p} = R_d\left(T\md{\rho} + \rho\md{T}\right)
 \end{eqnarray}
 %
 Mit
 %
 \begin{eqnarray}
-\md{\rho} & = & -\rho\nabla\cdot\mathbf{v} + q_m,\\
-\md{T} & = & \frac{T}{\theta}\md{\theta} + \frac{TR_h}{c^{(p)}p}\md{p}
+\md{\rho} & = & -\rho\nabla\cdot\mathbf{v} + q_\rho,\\
+\md{T} & = & \frac{T}{\theta}\md{\theta} + \frac{TR_d}{c^{(p)}p}\md{p}
 \end{eqnarray}
 %
 folgt
 %
 \begin{eqnarray}
-\md{p} & = & R_dT\left(-\rho\nabla\cdot\mathbf{v} + q_{\rho_h}\right) + R_h\rho\left(\frac{T}{\theta}\md{\theta} + \frac{TR_h}{c^{(p)}p}\md{p}\right)\nonumber\\
-& = & -p\nabla\cdot\mathbf{v} + R_hTq_{\rho_h} + \frac{p}{\theta}\md{\theta} + \frac{R_d}{c^{(p)}}\md{p}\nonumber\\
-\Leftrightarrow \frac{c^{(v)}}{c^{(p)}}\md{p} & = & -p\nabla\cdot\mathbf{v} + R_dTq_{\rho_h} + \frac{p}{\theta}\md{\theta}\nonumber\\
-\md{p} & = & -\mathbf{v}\cdot\nabla p + \frac{c^{(p)}}{c^{(v)}}\left[-p\nabla\cdot\mathbf{v} + R_dTq_{\rho_h} + \frac{R_sc^{(v)}}{c^{(p)}}\left(\rho q_T + Tq_\rho\right)\right].
+\md{p} & = & R_dT\left(-\rho\nabla\cdot\mathbf{v} + q_{\rho}\right) + R_d\rho\left(\frac{T}{\theta}\md{\theta} + \frac{TR_d}{c^{(p)}p}\md{p}\right)\nonumber\\
+& = & -p\nabla\cdot\mathbf{v} + R_dTq_{\rho} + \frac{p}{\theta}\md{\theta} + \frac{R_d}{c^{(p)}}\md{p}\nonumber\\
+\Leftrightarrow \frac{c^{(v)}}{c^{(p)}}\md{p} & = & -p\nabla\cdot\mathbf{v} + R_dTq_{\rho_h} + \frac{p}{\theta}\md{\theta}\nonumber
 \end{eqnarray}
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{eqnarray}
+\Leftrightarrow \frac{\partial p}{\partial t} = -\mathbf{v}\cdot\nabla p - \frac{c^{(p)}}{c^{(v)}}p\nabla\cdot\mathbf{v} + \frac{c^{(p)}}{c^{(v)}}R_dTq_{\rho} + \frac{p}{c^{(v)}}\left(\frac{c^{(v)}}{T}q_T + \frac{c^{(v)} - s}{\rho}q_\rho\right).
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
 %
 Definiert man den \textit{Exner-Druck}\index{Exner-Druck} $\Pi$ durch
 %
@@ -7619,37 +7637,101 @@ mit der spezifischen Enthalpie\index{spezifische Enthalpie}\index{Enthalpie!spez
 Setzt man die Zustandsgleichungen Glg.en \eqref{eq:kalorisch_id_gase} und \eqref{eq:zustand_ideal} in Glg. \eqref{eq:entropie_ideal} ein, folgt unter Vernachlässigung des Ungefähr-Zeichens
 %
 \begin{eqnarray}
-\frac{S\left(E, V, N\right)}{k_B} & = & N\ln\left(\frac{k_BT}{p}\right) + \frac{3N}{2}\ln\left(\frac{3}{2}k_BT\right) = \frac{5N}{2}\ln\left(T\right) - N\ln\left(p\right) + N\ln\left(c'\right)\nonumber\\
-\Leftrightarrow S\left(E, V, N\right) & = & C^{(p)}\ln\left(T\right) - Nk_B\ln\left(p\right)
+S\left(E, V, N\right) & = & k_B\frac{3N}{2}\ln\left(c\right) + k_BN\ln\left(\frac{V}{N}\right) + k_B\frac{3N}{2}\ln\left(\frac{E}{N}\right)\nonumber\\
+& = & k_B\frac{3N}{2}\ln\left(c\right) + k_BN\ln\left(\frac{k_BT}{p}\right) + k_B\frac{3N}{2}\ln\left(\frac{3}{2}k_BT\right)\nonumber\\
+& = & k_BN\ln\left(k_BT\right) + k_B\frac{3N}{2}\ln\left(\frac{3}{2}k_BT\right) - Nk_B\ln\left(p\right) + k_B\frac{3N}{2}\ln\left(c\right)\nonumber\\
+& = & k_B\frac{5N}{2}\ln\left(\frac{3}{2}k_BT\right) + k_B\frac{3N}{2}\ln\left(\frac{3}{2}\right) - Nk_B\ln\left(p\right) + k_B\frac{3N}{2}\ln\left(c\right)\nonumber\\
+& = & k_B\frac{5N}{2}\ln\left(T\right) - Nk_B\ln\left(p\right) + k_B\frac{5N}{2}\ln\left(k_B\right) + k_B\frac{3N}{2}\ln\left(\frac{3}{2}\right) + k_B\frac{3N}{2}\ln\left(c\right)\nonumber\\
+& = & k_B\frac{5N}{2}\ln\left(T\right) - Nk_B\ln\left(p\right) + Nk_B\ln\left(k_B^{\frac{5}{2}}\right) + Nk_B\ln\left[\left(\frac{3}{2}\right)^\frac{3}{2}\right] + Nk_B\ln\left(c^\frac{3}{2}\right)\nonumber\\
+& = & k_B\frac{5N}{2}\ln\left(T\right) - Nk_B\ln\left(p\right) + Nk_B\ln\left[k_B^{\frac{5}{2}}\left(\frac{3}{2}\right)^\frac{3}{2}c^\frac{3}{2}\right]\nonumber\\
+& = & k_B\frac{5N}{2}\ln\left(T\right) - Nk_B\ln\left(p\right) + Nk_B\ln\left[\left(\frac{3k_B}{2}c\right)^\frac{3}{2}k_B^{\frac{1}{2}}\right].
 \end{eqnarray}
 %
-mit einer Konstanten $c'$. Somit gilt wiederum bis auf eine Konstante
+Aus Glg. \eqref{eq:def_id_gas_entropy_constant} weiß man
 %
 \begin{eqnarray}
-S\left(E, V, N\right) & = & C^{(p)}\ln\left(\theta\right) + C^{(p)}\frac{c^{(p)} - c^{(v)}}{c^{(p)}}\ln\left(p\right) - Nk_B\ln\left(p\right)\nonumber\\
-& = & C^{(p)}\ln\left(\theta\right) + m\frac{N_Ak_B}{M}\ln\left(p\right) - Nk_B\ln\left(p\right) = C^{(p)}\ln\left(\theta\right).
+c = \frac{2me^{5/3}}{3\pi\hbar^2},
+\end{eqnarray}
+%
+woraus folgt
+%
+\begin{eqnarray}
+S\left(E, V, N\right) & = & k_B\frac{5N}{2}\ln\left(T\right) - Nk_B\ln\left(p\right) + Nk_B\ln\left[\left(\frac{3k_B}{2}\frac{2me^{5/3}}{3\pi\hbar^2}\right)^\frac{3}{2}k_B^{\frac{1}{2}}\right]\nonumber\\
+& = & k_B\frac{5N}{2}\ln\left(T\right) - Nk_B\ln\left(p\right) + Nk_B\ln\left[\left(\frac{me^{5/3}}{\pi\hbar^2}\right)^\frac{3}{2}k_B^2\right].
+\end{eqnarray}
+%
+Mit
+%
+\begin{eqnarray}
+c' \coloneqq k_B\ln\left[\left(\frac{me^{5/3}}{\pi\hbar^2}\right)^\frac{3}{2}k_B^2\right]
+\end{eqnarray}
+%
+kann man abkürzend
+%
+\begin{eqnarray}
+S\left(E, V, N\right) & = & k_B\frac{5N}{2}\ln\left(T\right) - Nk_B\ln\left(p\right) + Nc'
+\end{eqnarray}
+%
+notieren. Somit erhält man
+%
+\begin{eqnarray}
+S\left(E, V, N\right) & = & C^{(p)}\ln\left(T\right) - Nk_B\ln\left(p\right) + Nc'\nonumber\\
+ & = & C^{(p)}\ln\left[\theta\left(\frac{p}{p_0}\right)^{\frac{R_d}{c^{(p)}}}\right] - Nk_B\ln\left(p\right) + Nc'\nonumber\\
+ & = & C^{(p)}\ln\left(\theta\right) + R_dm\ln\left(\frac{p}{p_0}\right) - Nk_B\ln\left(p\right) + Nc'\nonumber\\
+ & = & C^{(p)}\ln\left(\theta\right) + k_BN\ln\left(p\right) - Nk_B\ln\left(p\right) - NkB\ln\left(p_0\right) + Nc'\nonumber\\
+ & = & C^{(p)}\ln\left(\theta\right) - NkB\ln\left(p_0\right) + Nk_B\ln\left[\left(\frac{me^{5/3}}{\pi\hbar^2}\right)^\frac{3}{2}k_B^2\right]\nonumber\\
+ & = & C^{(p)}\ln\left(\theta\right) + Nk_B\ln\left[\frac{1}{p_0}\left(\frac{me^{5/3}}{\pi\hbar^2}\right)^\frac{3}{2}k_B^2\right]\nonumber\\
+ & = & C^{(p)}\ln\left(\theta\right) + Nc''.
+\end{eqnarray}
+%
+Mit
+%
+\begin{eqnarray}
+c'' \coloneqq k_B\ln\left[\frac{1}{p_0}\left(\frac{me^{5/3}}{\pi\hbar^2}\right)^\frac{3}{2}k_B^2\right].
 \end{eqnarray}
 %
 Für die spezifische Entropie $s$ gilt somit
 %
 \begin{eqnarray}
-s = c^{(p)}\ln\left(\theta\right).\label{eq:entropy_spec_id_gas}
+s = c^{(p)}\ln\left(\theta\right) + \frac{c''}{M}\label{eq:entropy_spec_id_gas}
 \end{eqnarray}
 %
-Man kann auch $s$ bzw. $s' \coloneqq \ln\left(\theta\right)$ als Zustandsgröße verwenden. Es gilt nämlich
+mit der molaren Masse $M$.
+%
+Man kann auch $s$ als Zustandsgröße verwenden. Es gilt nämlich
 %
 \begin{eqnarray}
-\md{s'} = \frac{1}{\theta}\md\theta = \frac{c^{(v)}}{\rho Tc^{(p)}}\left(\rho q_T + Tq_\rho\right).
+\rho\md{s} = c^{(p)}\frac{\rho}{\theta}\md\theta = \rho\left(\frac{c^{(v)}}{T}q_T + \frac{c^{(v)} - s}{\rho}q_\rho\right).
 \end{eqnarray}
 %
-Hieraus folgt mit der Kontinuitätsgleichung für $\rho$
+Addiert man das Produkt der Entropie\index{Entropie}\index{Entropie} $s$ mit der Kontinuitätsgleichung\index{Kontinuitätsgleichung}
 %
 \begin{eqnarray}
-\rho\md{s'} & = & \frac{\rho}{\theta}\md\theta\nonumber\\
-\Rightarrow \frac{\partial\left(\rho s'\right)}{\partial t} + \nabla\cdot\left(\rho s'\mathbf{v}\right) & = & \frac{c^{(v)}}{Tc^{(p)}}\left(\rho q_T + Tq_\rho\right) + s'q_\rho = \frac{\rho c^{(v)}}{Tc^{(p)}}q_T + \left(\frac{c^{(v)}}{c^{(p)}} + s'\right)q_\rho.
+s\frac{\partial\rho}{\partial t} + s\mathbf{v}\cdot\nabla\rho + s\rho\nabla\cdot\mathbf{v} = sq_\rho
 \end{eqnarray}
 %
-In der isentropen Atmosphäre (Atmosphäre homogener spezifischer Entropie) ist also nach Glg. \eqref{eq:entropy_spec_id_gas} auch die potentielle Temperatur homogen. Dies führt zu einer anderen Abhängigkeit des Drucks von der Höhe als im Fall der isothermen Atmosphäre. Ist $\Gamma_d > 0$ der trockenadiabatische Temperaturgradient, gilt für die Temperatur $T(z) = T_0 - \Gamma_d z$ mit $T_0 \coloneqq T(z = 0)$. Damit folgt
+hinzu, folgt mit der Definition
+%
+\begin{eqnarray}
+\newtilde{s} \coloneqq \rho s.
+\end{eqnarray}
+%
+die Gleichung
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{eqnarray}
+\Rightarrow \frac{\partial\newtilde{s}}{\partial t} + \nabla\cdot\left(\newtilde{s}\mathbf{v}\right) & = & c^{(v)}\left(\frac{\rho}{T}q_T + q_\rho\right).\label{eq:td_1_id_gas_density_entropy}
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
+
+\subsubsection{Die isentrope Atmosphäre}
+\label{sec:die_isentrope_atmosphaere}
+
+In einer isentropen Atmosphäre (Atmosphäre homogener spezifischer Entropie) ist nach Glg. \eqref{eq:entropy_spec_id_gas} auch die potentielle Temperatur homogen. Dies führt zu einer anderen Abhängigkeit des Drucks von der Höhe als im Fall der isothermen Atmosphäre. Ist $\Gamma_d > 0$ der trockenadiabatische Temperaturgradient, gilt für die Temperatur $T(z) = T_0 - \Gamma_d z$ mit $T_0 \coloneqq T(z = 0)$. Damit folgt
 %
 \begin{eqnarray}
 \frac{\partial p}{\partial z} = -g\rho = -g\frac{p}{R_dT} = -\frac{g}{R_d}\frac{p}{T_0 - \Gamma_d z} = \frac{gp}{R_d(\Gamma_d z - T_0)}
@@ -7722,11 +7804,16 @@ mit $T_T \coloneqq T_0 - kH$ als Temperatur der Tropopause.
 
 In einer stabilen Atmosphäre ist $\theta$ eine mögliche Vertikalkoordinate, man spricht von \index{isentrope Koordinate}\index{isentropes Koordinatensystem}\index{Koordinate!isentrope}\index{Koordinatensystem!isentropes}\textit{isentropen Koordinaten}, da die Flächen gleicher Vertikalkoordinate Flächen gleicher Entropie sind.
 
-\subsection{Feuchte Luft}
-\label{sec:feuchte_luft}\index{feuchte Luft}\index{Luft!feuchte}
+\subsection{Tracer}
+\label{sec:tracer}\index{Tracer}
 
-\subsection{Kondensate}
-\label{sec:kondensate}\index{Kondensat}
+\subsubsection{Ideales Gasgemisch}
+\label{sec:ideales_gasgemisch}\index{ideales Gasgemisch}\index{Gasgemisch!ideales}\index{ideales Gas!Gemisch}\index{Gas!ideales!Gemisch}
+
+Die Erkenntnisse des Absch.s \ref{sec:trockene_luft} werden auf ein Gemisch aus verschiedenen idealen Gasen verallgemeinert. Dies ist insbesondere für feuchte Luft\index{feuchte Luft}\index{Luft!feuchte} relevant.
+
+\subsubsection{Kondensierte Materie}
+\label{sec:kondensierte_materie}\index{kondensierte Materie}\index{Materie!kondensierte}
 
 Es muss der Erste Hauptsatz auch noch für die Kondensatklassen $i$ formuliert werden. Hierzu geht man von Glg. \eqref{eq:td1_without_mass} aus:
 %
@@ -7798,14 +7885,8 @@ Dabei wurde in der Notation explizit berücksichtigt, dass die isochore spezifis
 }}
 \end{center}
 
-\subsection{Virtuelle potentielle Temperatur}
-\label{sec:virtuelle_potentielle_temperatur}\index{virtuelle potentielle Temperatur}\index{potentielle Temperatur!virtuelle}\index{virtuelle Temperatur!potentielle}\index{Temperatur!virtuelle!potentielle}\index{Temperatur!potentielle!virtuelle}
-
-\subsection{Pseudopotentielle Temperatur}
-\label{sec:pseudopotentielle_temperatur}\index{pseudopotentielle Temperatur}\index{Temperatur!pseudopotentielle}
-
-\section{Diabatie}
-\label{sec:diabatie}\index{Diabatie}
+\section{Wärmeflüsse}
+\label{sec:waermefluesse}\index{Wärmefluss}
 
 Diabatisch ist alles, was Adiabatie verletzt, also Wärme- und Massenflüsse über Systemgrenzen hinweg. Die Leistungsdichten der Wärme setzen sich zusammen aus
 %
@@ -8013,7 +8094,7 @@ Dies ist die \index{Strahlungsübertragungsgleichung}\textit{Strahlungsübertrag
 q_j = \int_{0}^\infty\left(\nabla\cdot\mathbf{S}_\lambda\right)_jd\lambda.
 \end{eqnarray}
 %
-\subsection{Randbedingungen}
+\section{Randbedingungen}
 \label{sec:randbedingungen_diabatie}\index{Randbedingung}
 
 An der Erdoberfläche gilt
@@ -8145,43 +8226,50 @@ E & = & \text{const}.
 }}
 \end{center}
 %
-Dreht sich die kondensierte Erde mit fester Winkelgeschwindigkeit und gilt die kinematische Randbedingung, so sind Impuls und Drehimpuls aufgrund fehlender Symmetrieeigenschaften keine Erhaltungsgrößen. Für die spezifische Entropie $s$ gilt nach Glg. \eqref{eq:entropy_spec_id_gas}
+Dreht sich die kondensierte Erde mit fester Winkelgeschwindigkeit und gilt die kinematische Randbedingung, so sind Impuls und Drehimpuls aufgrund fehlender Symmetrieeigenschaften keine Erhaltungsgrößen. Für die Gesamtentropie $S$ einer Atmosphäre gilt bis auf eine Konstante
 %
 \begin{eqnarray}
-s = c^{(p)}\ln\left(\theta\right) + c'
+S = \int_A\newtilde{s}d^3r
 \end{eqnarray}
 %
-mit einer reellen Konstante $c'$. Als prognostische Gleichung für diese Größe erhält man mit Glg. \eqref{eq:td1_humid_pot}
+mit $\newtilde{s}$ wie in Glg. definiert. Die prognostische Gleichung dieser Größe ist Glg. \eqref{eq:td_1_id_gas_density_entropy}:
 %
 \begin{eqnarray}
-\md{s} = \frac{\partial s}{\partial t} + \mathbf{v}\cdot\nabla s = \frac{q}{\rho T}.
+\frac{\partial\newtilde{s}}{\partial t} + \nabla\cdot\left(\newtilde{s}\mathbf{v}\right) & = & c^{(v)}\left(\frac{\rho}{T}q_T + q_\rho\right)
 \end{eqnarray}
 %
-Multipliziert man diese Gleichung mit $\rho$ und addiert das Produkt der Kontinuitätsgleichung mit $s$ dazu, erhält man
+Globale Integration liefert
 %
 \begin{eqnarray}
-\md{\newtilde{S}} = \frac{\partial\newtilde{S}}{\partial t} + \mathbf{v}\cdot\nabla\newtilde{S} = \frac{q}{T} - \newtilde{S}\nabla\cdot\mathbf{v}
+\frac{dS}{dt} = \int_Ac^{(v)}\left(\frac{\rho}{T}q_T + q_\rho\right)d^3r.\label{eq:entropy_balance_global_pre}
 \end{eqnarray}
 %
-als prognostische Gleichung für die Entropiedichte\index{Entropiedichte} $\newtilde{S} = \rho s$. Für die Gesamtentropie $S$ einer Atmosphäre gilt bis auf eine Konstante
+In einer idealen adiabatischen einphasigen Atmosphäre laufen die Prozesse also reversibel\index{reversibel} ab. Die Quellterme $q_i$ entstehen in einer trockenen Atmosühäre ohne Strahlung durch Diffusion, also gilt
 %
 \begin{eqnarray}
-S = \int_A\newtilde{S}d^3r .
+c^{(v)}\rho q_T & = & \nabla\cdot\left(\kappa_T\left(\mathbf{r}, t\right)\nabla T\right),\\
+q_\rho & = & \nabla\cdot\left(\kappa_\rho\left(\mathbf{r}, t\right)\nabla\rho\right).
 \end{eqnarray}
 %
-Unter Berücksichtigung der kinematischen Randbedingung\index{kinematische Randbedingung}\index{Ranbedingung!kinematische} folgt
+Somit fällt der Massenquellterm in Glg. \eqref{eq:entropy_balance_global_pre} weg, da die Atmosphäre an dieser Stelle als geschlossenes System angenommen wird. Das verbleibende Integral
+%
+\begin{eqnarray}
+\int_A\frac{c^{(v)}\rho q_T}{T}d^3
+\end{eqnarray}
+%
+ist nichtnegativ, da der Wärmefluss positiv in kälteren und negativ in wärmeren Gebieten ist. Somit gilt
 %
 \begin{center}
-\doublebox{\parbox{0.9\textwidth}{
+\doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{eqnarray}
-\frac{dS}{dt} = \int_A\frac{q}{T}d^3r.
+\frac{dS}{dt} & \geq & 0.
 \end{eqnarray}
 \end{center}
 }}
 \end{center}
 %
-Alle heizenden Prozesse, insbesondere Reibung, sind also Entropie produzierende Prozesse, während alle kühlenden Prozesse Entropie vernichten. In einer idealen adiabatischen einphasigen Atmosphäre laufen die Prozesse reversibel\index{reversibel} ab. Für die innere Energie\index{innere Energie}\index{Energie!innere} $I$ einer einphasigen Atmosphäre gilt
+Für die innere Energie\index{innere Energie}\index{Energie!innere} $I$ einer einphasigen Atmosphäre gilt
 %
 \begin{eqnarray}
 I = \int_A\newtilde{I}d^3r.
@@ -13573,10 +13661,10 @@ Das Gleichungssystem des dynamischen Kerns ist das der PNE Glg.en \eqref{eq:pne_
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{eqnarray}
-\frac{\partial\mathbf{v}}{\partial t}&\stackrel{\text{Glg.en }\eqref{eq:diff_op_rule_10},\text{ }\eqref{eq:exner_pressure_gradient_acc}}{=}& -c^{(p)}\exp\left(\frac{\newtilde{s}}{\rho}\right)\nabla\Pi + \mathbf{v}\times\etabi - \nabla k + \mathbf{g}\label{eq:pne_mod_1}\\
+\frac{\partial\mathbf{v}}{\partial t}&\stackrel{\text{Glg.en }\eqref{eq:diff_op_rule_10},\text{ }\eqref{eq:exner_pressure_gradient_acc}}{=}& -c^{(p)}\theta\nabla\Pi + \mathbf{v}\times\etabi - \nabla k + \mathbf{g}\label{eq:pne_mod_1}\\
 \frac{\partial\newtilde{s}}{\partial t} & \stackrel{\text{Glg. }\eqref{eq:td1_humid_pot_mod}}{=} & -\nabla\cdot\left(\newtilde{s}\mathbf{v}\right)\label{eq:pne_mod_2}\\
 \frac{\partial\rho}{\partial t} & \stackrel{\text{Glg. }\eqref{eq:diff_op_rule_3}}{=} & -\nabla\cdot\left(\rho\mathbf{v}\right)\label{eq:pne_mod_3}\\
-\Pi & \stackrel{\text{Glg. }\eqref{eq:exner_pressure_diag}}{=}& \left(\frac{\rho R_d\exp\left(\frac{\newtilde{s}}{\rho}\right)}{p_0}\right)^{R_d/c^{(v)}}.\label{eq:pne_mod_4}
+\Pi & \stackrel{\text{Glg. }\eqref{eq:exner_pressure_diag}}{=}& \left(\frac{\rho R_d\theta}{p_0}\right)^{R_d/c^{(v)}}.\label{eq:pne_mod_4}
 \end{eqnarray}
 \end{center}
 }}
