@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/Debian) (preloaded format=xelatex 2020.5.21)  30 MAY 2020 11:55
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/Debian) (preloaded format=xelatex 2020.5.21)  1 JUN 2020 00:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -760,6 +760,32 @@ Package: array 2019/08/31 v2.4l Tabular extension package (FMi)
 \backup@length=\skip96
 \ar@cellbox=\box58
 )
+(/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2020/02/14 3.40 The Babel package
+
+(/usr/share/texlive/texmf-dist/tex/generic/babel/switch.def
+File: switch.def 2020/02/14 3.40 Babel switching mechanism
+)
+(/usr/share/texlive/texmf-dist/tex/generic/babel-german/ngerman.ldf
+Language: ngerman 2018/12/08 v2.11 German support for babel (post-1996 orthogra
+phy)
+
+(/usr/share/texlive/texmf-dist/tex/generic/babel-german/ngermanb.ldf
+Language: ngermanb 2018/12/08 v2.11 German support for babel (post-1996 orthogr
+aphy)
+
+(/usr/share/texlive/texmf-dist/tex/generic/babel/babel.def
+File: babel.def 2020/02/14 3.40 Babel common definitions
+\babel@savecnt=\count428
+\U@D=\dimen186
+
+(/usr/share/texlive/texmf-dist/tex/generic/babel/xebabel.def
+(/usr/share/texlive/texmf-dist/tex/generic/babel/txtbabel.def))
+\bbl@readstream=\read4
+\bbl@dirlevel=\count429
+)
+Package babel Info: Making " an active character on input line 121.
+)))
 
 Package fontspec Info: Font family 'OldStandard(0)' created for font
 (fontspec)             'OldStandard' with options [Ligatures=TeX,Extension =
@@ -838,27 +864,27 @@ apping=tex-text;"
 e/public/oldstandard/OldStandard-BoldItalic.otf]/OT:script=latn;language=dflt;+
 smcp;mapping=tex-text;"
 
-LaTeX Font Info:    Redeclaring math alphabet \mathrm on input line 9.
+LaTeX Font Info:    Redeclaring math alphabet \mathrm on input line 10.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
 (Font)                  TU/OldStandard-BoldItalic(0)/m/n --> TU/OldStandard-Bol
-dItalic(0)/bx/n on input line 9.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 9.
+dItalic(0)/bx/n on input line 10.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 10.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
 (Font)                  OT1/cmr/m/it --> TU/OldStandard-BoldItalic(0)/m/it on i
-nput line 9.
+nput line 10.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 (Font)                  OT1/cmr/bx/it --> TU/OldStandard-BoldItalic(0)/m/it on 
-input line 9.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 9.
+input line 10.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 10.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
 (Font)                  OT1/cmr/bx/n --> TU/OldStandard-BoldItalic(0)/bx/n on i
-nput line 9.
+nput line 10.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
 (Font)                  OT1/cmr/bx/n --> TU/OldStandard-BoldItalic(0)/bx/n on i
-nput line 9.
+nput line 10.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 (Font)                  TU/OldStandard-BoldItalic(0)/m/it --> TU/OldStandard-Bo
-ldItalic(0)/bx/it on input line 9.
+ldItalic(0)/bx/it on input line 10.
 \symOperators:m:n=\mathgroup8
 
 
@@ -992,31 +1018,38 @@ smcp;"
 
 Writing index file kompendium.idx
 Package csquotes Info: Checking for multilingual support...
-Package csquotes Info: ... none found.
-(./kompendium.aux)
+Package csquotes Info: ... found 'babel' package.
+Package csquotes Info: Adjusting default style.
+Package csquotes Info: Redefining alias 'default' -> 'ngerman'.
+(./kompendium.aux
+
+LaTeX Warning: Label `sec:temperatur_als_prognostische_variable_einatomig' mult
+iply defined.
+
+)
 \openout1 = `kompendium.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 160.
-LaTeX Font Info:    ... okay on input line 160.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 160.
-LaTeX Font Info:    ... okay on input line 160.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 160.
-LaTeX Font Info:    ... okay on input line 160.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 160.
-LaTeX Font Info:    ... okay on input line 160.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 160.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 161.
+LaTeX Font Info:    ... okay on input line 161.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 161.
+LaTeX Font Info:    ... okay on input line 161.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 161.
+LaTeX Font Info:    ... okay on input line 161.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 161.
+LaTeX Font Info:    ... okay on input line 161.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 161.
 LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 1
-60.
+61.
  (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 160.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 160.
-LaTeX Font Info:    ... okay on input line 160.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 160.
-LaTeX Font Info:    ... okay on input line 160.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 160.
-LaTeX Font Info:    ... okay on input line 160.
+LaTeX Font Info:    ... okay on input line 161.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 161.
+LaTeX Font Info:    ... okay on input line 161.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 161.
+LaTeX Font Info:    ... okay on input line 161.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 161.
+LaTeX Font Info:    ... okay on input line 161.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -1052,11 +1085,22 @@ LaTeX Font Info:    ... okay on input line 160.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package biblatex Info: Trying to load language 'english'...
-Package biblatex Info: ... file 'english.lbx' found.
-(/usr/share/texlive/texmf-dist/tex/latex/biblatex/lbx/english.lbx
-File: english.lbx 2019/12/01 v3.14 biblatex localization (PK/MW)
+Package biblatex Info: Trying to load language 'ngerman'...
+Package biblatex Info: ... file 'ngerman.lbx' found.
+(/usr/share/texlive/texmf-dist/tex/latex/biblatex/lbx/ngerman.lbx
+File: ngerman.lbx 2019/12/01 v3.14 biblatex localization (PK/MW)
+Package biblatex Info: Trying to load language 'german'...
+Package biblatex Info: ... file 'german.lbx' found.
+
+(/usr/share/texlive/texmf-dist/tex/latex/biblatex/lbx/german.lbx
+File: german.lbx 2019/12/01 v3.14 biblatex localization (PK/MW)
 )
+Package biblatex Info: Trying to load language 'german'...
+Package biblatex Info: ... file 'german.lbx' found.
+
+(/usr/share/texlive/texmf-dist/tex/latex/biblatex/lbx/german.lbx
+File: german.lbx 2019/12/01 v3.14 biblatex localization (PK/MW)
+))
 Package biblatex Info: XeTeX detected.
 (biblatex)             Assuming input encoding 'utf8'.
 Package biblatex Info: Automatic encoding selection.
@@ -1067,9 +1111,9 @@ Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'kompendium.bbl' found.
 
 (./kompendium.bbl)
-Package biblatex Info: Reference section=0 on input line 160.
-Package biblatex Info: Reference segment=0 on input line 160.
-LaTeX Info: Redefining \microtypecontext on input line 160.
+Package biblatex Info: Reference section=0 on input line 161.
+Package biblatex Info: Reference segment=0 on input line 161.
+LaTeX Info: Redefining \microtypecontext on input line 161.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: No adjustment of tracking.
@@ -1082,7 +1126,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
-\c@lstlisting=\count428
+\c@lstlisting=\count430
  [1
 
 
@@ -1091,7 +1135,7 @@ Package caption Info: End \AtBeginDocument code.
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 5.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 6.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -1099,7 +1143,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 5.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 6.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -1115,7 +1159,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 
 LaTeX Font Warning: Font shape `TU/OldStandard-Italic(0)/m/it' undefined
 (Font)              using `TU/OldStandard-Italic(0)/m/n' instead on input line 
-5.
+6.
 
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `OldStandard-BoldItalic' (encoding: TU).
@@ -1581,7 +1625,7 @@ Package microtype Info: Character `\textquestiondown ' is missing
 (microtype)             Ignoring protrusion settings for this character.
 
 LaTeX Font Warning: Font shape `TU/GFSSolomos(0)/m/it' undefined
-(Font)              using `TU/GFSSolomos(0)/m/n' instead on input line 5.
+(Font)              using `TU/GFSSolomos(0)/m/n' instead on input line 6.
 
 Package microtype Info: Character `A' is missing
 (microtype)             in font `\TU/GFSSolomos(0)/m/it/7'.
@@ -1734,1000 +1778,1040 @@ Package microtype Info: Character `\textquestiondown ' is missing
 (microtype)             in font `\TU/GFSSolomos(0)/m/it/5'.
 (microtype)             Ignoring protrusion settings for this character.
 
-Overfull \hbox (1.89996pt too wide) detected at line 103
+Overfull \hbox (1.89996pt too wide) detected at line 104
  []\TU/OldStandard(0)/m/n/10 101
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 105
+Overfull \hbox (1.89996pt too wide) detected at line 106
  []\TU/OldStandard(0)/m/n/10 103
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 107
+Overfull \hbox (1.89996pt too wide) detected at line 108
  []\TU/OldStandard(0)/m/n/10 104
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 109
+Overfull \hbox (1.89996pt too wide) detected at line 110
  []\TU/OldStandard(0)/m/n/10 107
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 111
+Overfull \hbox (1.89996pt too wide) detected at line 112
  []\TU/OldStandard(0)/m/n/10 109
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 113
+Overfull \hbox (1.89996pt too wide) detected at line 114
  []\TU/OldStandard(0)/m/n/10 109
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 115
+Overfull \hbox (1.89996pt too wide) detected at line 116
  []\TU/OldStandard(0)/m/n/10 111
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 117
+Overfull \hbox (1.89996pt too wide) detected at line 118
  []\TU/OldStandard(0)/m/n/10 112
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 119
+Overfull \hbox (1.89996pt too wide) detected at line 120
  []\TU/OldStandard(0)/m/n/10 112
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 121
+Overfull \hbox (1.89996pt too wide) detected at line 122
  []\TU/OldStandard(0)/m/n/10 112
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 123
+Overfull \hbox (1.89996pt too wide) detected at line 124
  []\TU/OldStandard(0)/m/n/10 113
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 125
+Overfull \hbox (1.89996pt too wide) detected at line 126
  []\TU/OldStandard(0)/m/n/10 113
  []
 
 [3
 
 ]
-Overfull \hbox (1.89996pt too wide) detected at line 127
+Overfull \hbox (1.89996pt too wide) detected at line 128
  []\TU/OldStandard(0)/m/n/10 113
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 129
+Overfull \hbox (1.89996pt too wide) detected at line 130
  []\TU/OldStandard(0)/m/n/10 114
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 131
+Overfull \hbox (1.89996pt too wide) detected at line 132
  []\TU/OldStandard(0)/m/n/10 115
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 133
+Overfull \hbox (1.89996pt too wide) detected at line 134
  []\TU/OldStandard(0)/m/n/10 116
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 135
+Overfull \hbox (1.89996pt too wide) detected at line 136
  []\TU/OldStandard(0)/m/n/10 116
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 137
+Overfull \hbox (1.89996pt too wide) detected at line 138
  []\TU/OldStandard(0)/m/n/10 117
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 139
+Overfull \hbox (1.89996pt too wide) detected at line 140
  []\TU/OldStandard(0)/m/n/10 118
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 141
+Overfull \hbox (1.89996pt too wide) detected at line 142
  []\TU/OldStandard(0)/m/n/10 119
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 143
+Overfull \hbox (1.89996pt too wide) detected at line 144
  []\TU/OldStandard(0)/m/n/10 120
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 145
+Overfull \hbox (1.89996pt too wide) detected at line 146
  []\TU/OldStandard(0)/m/n/10 120
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 147
+Overfull \hbox (1.89996pt too wide) detected at line 148
  []\TU/OldStandard(0)/m/n/10 120
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 149
- []\TU/OldStandard(0)/m/n/10 127
+Overfull \hbox (1.89996pt too wide) detected at line 150
+ []\TU/OldStandard(0)/m/n/10 120
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 151
+Overfull \hbox (1.89996pt too wide) detected at line 152
+ []\TU/OldStandard(0)/m/n/10 122
+ []
+
+
+Overfull \hbox (1.89996pt too wide) detected at line 154
+ []\TU/OldStandard(0)/m/n/10 124
+ []
+
+
+Overfull \hbox (1.89996pt too wide) detected at line 156
+ []\TU/OldStandard(0)/m/n/10 125
+ []
+
+
+Overfull \hbox (1.89996pt too wide) detected at line 158
+ []\TU/OldStandard(0)/m/n/10 126
+ []
+
+
+Overfull \hbox (1.89996pt too wide) detected at line 160
+ []\TU/OldStandard(0)/m/n/10 128
+ []
+
+
+Overfull \hbox (1.89996pt too wide) detected at line 162
+ []\TU/OldStandard(0)/m/n/10 128
+ []
+
+
+Overfull \hbox (1.89996pt too wide) detected at line 164
  []\TU/OldStandard(0)/m/n/10 129
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 153
- []\TU/OldStandard(0)/m/n/10 129
- []
-
-
-Overfull \hbox (1.89996pt too wide) detected at line 155
- []\TU/OldStandard(0)/m/n/10 129
- []
-
-
-Overfull \hbox (1.89996pt too wide) detected at line 157
+Overfull \hbox (1.89996pt too wide) detected at line 166
  []\TU/OldStandard(0)/m/n/10 130
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 159
+Overfull \hbox (1.89996pt too wide) detected at line 168
  []\TU/OldStandard(0)/m/n/10 130
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 161
- []\TU/OldStandard(0)/m/n/10 130
- []
-
-
-Overfull \hbox (1.89996pt too wide) detected at line 163
+Overfull \hbox (1.89996pt too wide) detected at line 170
  []\TU/OldStandard(0)/m/n/10 131
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 165
- []\TU/OldStandard(0)/m/n/10 131
- []
-
-
-Overfull \hbox (1.89996pt too wide) detected at line 167
+Overfull \hbox (1.89996pt too wide) detected at line 172
  []\TU/OldStandard(0)/m/n/10 132
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 169
+Overfull \hbox (1.89996pt too wide) detected at line 174
  []\TU/OldStandard(0)/m/n/10 133
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 171
+Overfull \hbox (1.89996pt too wide) detected at line 176
  []\TU/OldStandard(0)/m/n/10 133
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 173
+Overfull \hbox (1.89996pt too wide) detected at line 178
+ []\TU/OldStandard(0)/m/n/10 133
+ []
+
+
+Overfull \hbox (1.89996pt too wide) detected at line 180
+ []\TU/OldStandard(0)/m/n/10 134
+ []
+
+
+Overfull \hbox (1.89996pt too wide) detected at line 182
+ []\TU/OldStandard(0)/m/n/10 134
+ []
+
+
+Overfull \hbox (1.89996pt too wide) detected at line 184
+ []\TU/OldStandard(0)/m/n/10 135
+ []
+
+
+Overfull \hbox (1.89996pt too wide) detected at line 186
  []\TU/OldStandard(0)/m/n/10 136
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 175
- []\TU/OldStandard(0)/m/n/10 140
+Overfull \hbox (1.89996pt too wide) detected at line 188
+ []\TU/OldStandard(0)/m/n/10 138
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 181
- []\TU/OldStandard(0)/m/n/10 143
+Overfull \hbox (1.89996pt too wide) detected at line 190
+ []\TU/OldStandard(0)/m/n/10 142
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 183
- []\TU/OldStandard(0)/m/n/10 144
- []
-
-
-Overfull \hbox (1.89996pt too wide) detected at line 185
+Overfull \hbox (1.89996pt too wide) detected at line 196
  []\TU/OldStandard(0)/m/n/10 145
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 187
+Overfull \hbox (1.89996pt too wide) detected at line 198
  []\TU/OldStandard(0)/m/n/10 146
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 189
+Overfull \hbox (1.89996pt too wide) detected at line 200
  []\TU/OldStandard(0)/m/n/10 147
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 191
- []\TU/OldStandard(0)/m/n/10 147
- []
-
-
-Overfull \hbox (1.89996pt too wide) detected at line 193
+Overfull \hbox (1.89996pt too wide) detected at line 202
  []\TU/OldStandard(0)/m/n/10 148
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 195
- []\TU/OldStandard(0)/m/n/10 148
- []
-
-
-Overfull \hbox (1.89996pt too wide) detected at line 197
+Overfull \hbox (1.89996pt too wide) detected at line 204
  []\TU/OldStandard(0)/m/n/10 149
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 199
+Overfull \hbox (1.89996pt too wide) detected at line 206
  []\TU/OldStandard(0)/m/n/10 149
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 201
- []\TU/OldStandard(0)/m/n/10 149
+Overfull \hbox (1.89996pt too wide) detected at line 208
+ []\TU/OldStandard(0)/m/n/10 150
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 205
- []\TU/OldStandard(0)/m/n/10 152
+Overfull \hbox (1.89996pt too wide) detected at line 210
+ []\TU/OldStandard(0)/m/n/10 150
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 207
- []\TU/OldStandard(0)/m/n/10 153
+Overfull \hbox (1.89996pt too wide) detected at line 212
+ []\TU/OldStandard(0)/m/n/10 151
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 209
+Overfull \hbox (1.89996pt too wide) detected at line 214
+ []\TU/OldStandard(0)/m/n/10 151
+ []
+
+
+Overfull \hbox (1.89996pt too wide) detected at line 216
+ []\TU/OldStandard(0)/m/n/10 151
+ []
+
+
+Overfull \hbox (1.89996pt too wide) detected at line 220
  []\TU/OldStandard(0)/m/n/10 154
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 211
+Overfull \hbox (1.89996pt too wide) detected at line 222
  []\TU/OldStandard(0)/m/n/10 155
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 213
+Overfull \hbox (1.89996pt too wide) detected at line 224
+ []\TU/OldStandard(0)/m/n/10 156
+ []
+
+
+Overfull \hbox (1.89996pt too wide) detected at line 226
  []\TU/OldStandard(0)/m/n/10 157
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 215
- []\TU/OldStandard(0)/m/n/10 158
- []
-
-
-Overfull \hbox (1.89996pt too wide) detected at line 217
+Overfull \hbox (1.89996pt too wide) detected at line 228
  []\TU/OldStandard(0)/m/n/10 159
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 219
- []\TU/OldStandard(0)/m/n/10 159
- []
-
-
-Overfull \hbox (1.89996pt too wide) detected at line 221
- []\TU/OldStandard(0)/m/n/10 159
- []
-
-
-Overfull \hbox (1.89996pt too wide) detected at line 223
+Overfull \hbox (1.89996pt too wide) detected at line 230
  []\TU/OldStandard(0)/m/n/10 160
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 225
+Overfull \hbox (1.89996pt too wide) detected at line 232
+ []\TU/OldStandard(0)/m/n/10 161
+ []
+
+
+Overfull \hbox (1.89996pt too wide) detected at line 234
+ []\TU/OldStandard(0)/m/n/10 161
+ []
+
+
+Overfull \hbox (1.89996pt too wide) detected at line 236
  []\TU/OldStandard(0)/m/n/10 162
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 227
+Overfull \hbox (1.89996pt too wide) detected at line 238
  []\TU/OldStandard(0)/m/n/10 162
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 229
- []\TU/OldStandard(0)/m/n/10 163
+Overfull \hbox (1.89996pt too wide) detected at line 240
+ []\TU/OldStandard(0)/m/n/10 164
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 233
+Overfull \hbox (1.89996pt too wide) detected at line 242
+ []\TU/OldStandard(0)/m/n/10 164
+ []
+
+
+Overfull \hbox (1.89996pt too wide) detected at line 244
  []\TU/OldStandard(0)/m/n/10 165
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 235
+Overfull \hbox (1.89996pt too wide) detected at line 248
  []\TU/OldStandard(0)/m/n/10 167
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 237
- []\TU/OldStandard(0)/m/n/10 168
- []
-
-
-Overfull \hbox (1.89996pt too wide) detected at line 239
+Overfull \hbox (1.89996pt too wide) detected at line 250
  []\TU/OldStandard(0)/m/n/10 169
  []
 
-
-Overfull \hbox (1.89996pt too wide) detected at line 241
- []\TU/OldStandard(0)/m/n/10 169
- []
-
-
-Overfull \hbox (1.89996pt too wide) detected at line 243
+[4]
+Overfull \hbox (1.89996pt too wide) detected at line 252
  []\TU/OldStandard(0)/m/n/10 170
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 245
+Overfull \hbox (1.89996pt too wide) detected at line 254
  []\TU/OldStandard(0)/m/n/10 171
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 247
+Overfull \hbox (1.89996pt too wide) detected at line 256
+ []\TU/OldStandard(0)/m/n/10 171
+ []
+
+
+Overfull \hbox (1.89996pt too wide) detected at line 258
  []\TU/OldStandard(0)/m/n/10 172
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 249
+Overfull \hbox (1.89996pt too wide) detected at line 260
+ []\TU/OldStandard(0)/m/n/10 173
+ []
+
+
+Overfull \hbox (1.89996pt too wide) detected at line 262
  []\TU/OldStandard(0)/m/n/10 174
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 251
- []\TU/OldStandard(0)/m/n/10 174
- []
-
-
-Overfull \hbox (1.89996pt too wide) detected at line 253
+Overfull \hbox (1.89996pt too wide) detected at line 264
  []\TU/OldStandard(0)/m/n/10 176
  []
 
-[4]
-Overfull \hbox (1.89996pt too wide) detected at line 255
+
+Overfull \hbox (1.89996pt too wide) detected at line 266
+ []\TU/OldStandard(0)/m/n/10 176
+ []
+
+
+Overfull \hbox (1.89996pt too wide) detected at line 268
  []\TU/OldStandard(0)/m/n/10 178
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 257
- []\TU/OldStandard(0)/m/n/10 178
- []
-
-
-Overfull \hbox (1.89996pt too wide) detected at line 259
- []\TU/OldStandard(0)/m/n/10 179
- []
-
-
-Overfull \hbox (1.89996pt too wide) detected at line 261
+Overfull \hbox (1.89996pt too wide) detected at line 270
  []\TU/OldStandard(0)/m/n/10 180
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 263
+Overfull \hbox (1.89996pt too wide) detected at line 272
  []\TU/OldStandard(0)/m/n/10 180
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 265
+Overfull \hbox (1.89996pt too wide) detected at line 274
+ []\TU/OldStandard(0)/m/n/10 181
+ []
+
+
+Overfull \hbox (1.89996pt too wide) detected at line 276
  []\TU/OldStandard(0)/m/n/10 182
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 267
- []\TU/OldStandard(0)/m/n/10 183
+Overfull \hbox (1.89996pt too wide) detected at line 278
+ []\TU/OldStandard(0)/m/n/10 182
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 269
- []\TU/OldStandard(0)/m/n/10 189
+Overfull \hbox (1.89996pt too wide) detected at line 280
+ []\TU/OldStandard(0)/m/n/10 184
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 271
- []\TU/OldStandard(0)/m/n/10 189
+Overfull \hbox (1.89996pt too wide) detected at line 282
+ []\TU/OldStandard(0)/m/n/10 185
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 273
- []\TU/OldStandard(0)/m/n/10 189
- []
-
-
-Overfull \hbox (1.89996pt too wide) detected at line 275
+Overfull \hbox (1.89996pt too wide) detected at line 284
  []\TU/OldStandard(0)/m/n/10 191
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 277
- []\TU/OldStandard(0)/m/n/10 192
+Overfull \hbox (1.89996pt too wide) detected at line 286
+ []\TU/OldStandard(0)/m/n/10 191
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 279
- []\TU/OldStandard(0)/m/n/10 192
+Overfull \hbox (1.89996pt too wide) detected at line 288
+ []\TU/OldStandard(0)/m/n/10 191
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 281
- []\TU/OldStandard(0)/m/n/10 195
+Overfull \hbox (1.89996pt too wide) detected at line 290
+ []\TU/OldStandard(0)/m/n/10 193
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 283
- []\TU/OldStandard(0)/m/n/10 198
+Overfull \hbox (1.89996pt too wide) detected at line 292
+ []\TU/OldStandard(0)/m/n/10 194
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 285
- []\TU/OldStandard(0)/m/n/10 202
+Overfull \hbox (1.89996pt too wide) detected at line 294
+ []\TU/OldStandard(0)/m/n/10 194
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 287
- []\TU/OldStandard(0)/m/n/10 202
+Overfull \hbox (1.89996pt too wide) detected at line 296
+ []\TU/OldStandard(0)/m/n/10 197
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 289
- []\TU/OldStandard(0)/m/n/10 202
+Overfull \hbox (1.89996pt too wide) detected at line 298
+ []\TU/OldStandard(0)/m/n/10 200
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 293
- []\TU/OldStandard(0)/m/n/10 205
+Overfull \hbox (1.89996pt too wide) detected at line 300
+ []\TU/OldStandard(0)/m/n/10 204
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 295
- []\TU/OldStandard(0)/m/n/10 205
+Overfull \hbox (1.89996pt too wide) detected at line 302
+ []\TU/OldStandard(0)/m/n/10 204
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 297
- []\TU/OldStandard(0)/m/n/10 206
+Overfull \hbox (1.89996pt too wide) detected at line 304
+ []\TU/OldStandard(0)/m/n/10 204
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 299
- []\TU/OldStandard(0)/m/n/10 206
- []
-
-
-Overfull \hbox (1.89996pt too wide) detected at line 301
- []\TU/OldStandard(0)/m/n/10 206
- []
-
-
-Overfull \hbox (1.89996pt too wide) detected at line 305
+Overfull \hbox (1.89996pt too wide) detected at line 308
  []\TU/OldStandard(0)/m/n/10 207
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 307
+Overfull \hbox (1.89996pt too wide) detected at line 310
  []\TU/OldStandard(0)/m/n/10 207
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 311
- []\TU/OldStandard(0)/m/n/10 211
+Overfull \hbox (1.89996pt too wide) detected at line 312
+ []\TU/OldStandard(0)/m/n/10 208
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 313
- []\TU/OldStandard(0)/m/n/10 214
+Overfull \hbox (1.89996pt too wide) detected at line 314
+ []\TU/OldStandard(0)/m/n/10 208
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 315
- []\TU/OldStandard(0)/m/n/10 214
+Overfull \hbox (1.89996pt too wide) detected at line 316
+ []\TU/OldStandard(0)/m/n/10 208
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 317
- []\TU/OldStandard(0)/m/n/10 214
+Overfull \hbox (1.89996pt too wide) detected at line 320
+ []\TU/OldStandard(0)/m/n/10 209
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 319
- []\TU/OldStandard(0)/m/n/10 215
+Overfull \hbox (1.89996pt too wide) detected at line 322
+ []\TU/OldStandard(0)/m/n/10 209
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 321
- []\TU/OldStandard(0)/m/n/10 215
+Overfull \hbox (1.89996pt too wide) detected at line 326
+ []\TU/OldStandard(0)/m/n/10 213
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 323
- []\TU/OldStandard(0)/m/n/10 215
+Overfull \hbox (1.89996pt too wide) detected at line 328
+ []\TU/OldStandard(0)/m/n/10 216
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 325
- []\TU/OldStandard(0)/m/n/10 215
+Overfull \hbox (1.89996pt too wide) detected at line 330
+ []\TU/OldStandard(0)/m/n/10 216
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 327
- []\TU/OldStandard(0)/m/n/10 215
+Overfull \hbox (1.89996pt too wide) detected at line 332
+ []\TU/OldStandard(0)/m/n/10 216
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 329
- []\TU/OldStandard(0)/m/n/10 215
- []
-
-
-Overfull \hbox (1.89996pt too wide) detected at line 331
- []\TU/OldStandard(0)/m/n/10 215
- []
-
-
-Overfull \hbox (1.89996pt too wide) detected at line 333
- []\TU/OldStandard(0)/m/n/10 215
- []
-
-
-Overfull \hbox (1.89996pt too wide) detected at line 337
+Overfull \hbox (1.89996pt too wide) detected at line 334
  []\TU/OldStandard(0)/m/n/10 217
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 339
+Overfull \hbox (1.89996pt too wide) detected at line 336
  []\TU/OldStandard(0)/m/n/10 217
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 343
+Overfull \hbox (1.89996pt too wide) detected at line 338
+ []\TU/OldStandard(0)/m/n/10 217
+ []
+
+
+Overfull \hbox (1.89996pt too wide) detected at line 340
+ []\TU/OldStandard(0)/m/n/10 217
+ []
+
+
+Overfull \hbox (1.89996pt too wide) detected at line 342
+ []\TU/OldStandard(0)/m/n/10 217
+ []
+
+
+Overfull \hbox (1.89996pt too wide) detected at line 344
+ []\TU/OldStandard(0)/m/n/10 217
+ []
+
+
+Overfull \hbox (1.89996pt too wide) detected at line 346
+ []\TU/OldStandard(0)/m/n/10 217
+ []
+
+
+Overfull \hbox (1.89996pt too wide) detected at line 348
+ []\TU/OldStandard(0)/m/n/10 217
+ []
+
+
+Overfull \hbox (1.89996pt too wide) detected at line 352
  []\TU/OldStandard(0)/m/n/10 219
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 345
+Overfull \hbox (1.89996pt too wide) detected at line 354
  []\TU/OldStandard(0)/m/n/10 219
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 347
- []\TU/OldStandard(0)/m/n/10 220
+Overfull \hbox (1.89996pt too wide) detected at line 358
+ []\TU/OldStandard(0)/m/n/10 221
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 349
- []\TU/OldStandard(0)/m/n/10 220
+Overfull \hbox (1.89996pt too wide) detected at line 360
+ []\TU/OldStandard(0)/m/n/10 221
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 355
- []\TU/OldStandard(0)/m/n/10 223
+Overfull \hbox (1.89996pt too wide) detected at line 362
+ []\TU/OldStandard(0)/m/n/10 222
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 357
- []\TU/OldStandard(0)/m/n/10 223
+Overfull \hbox (1.89996pt too wide) detected at line 364
+ []\TU/OldStandard(0)/m/n/10 222
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 359
- []\TU/OldStandard(0)/m/n/10 223
- []
-
-
-Overfull \hbox (1.89996pt too wide) detected at line 363
+Overfull \hbox (1.89996pt too wide) detected at line 370
  []\TU/OldStandard(0)/m/n/10 225
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 365
+Overfull \hbox (1.89996pt too wide) detected at line 372
  []\TU/OldStandard(0)/m/n/10 225
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 367
- []\TU/OldStandard(0)/m/n/10 225
- []
-
-
-Overfull \hbox (1.89996pt too wide) detected at line 369
- []\TU/OldStandard(0)/m/n/10 225
- []
-
-
-Overfull \hbox (1.89996pt too wide) detected at line 371
- []\TU/OldStandard(0)/m/n/10 225
- []
-
-
-Overfull \hbox (1.89996pt too wide) detected at line 373
- []\TU/OldStandard(0)/m/n/10 225
- []
-
-
-Overfull \hbox (1.89996pt too wide) detected at line 375
+Overfull \hbox (1.89996pt too wide) detected at line 374
  []\TU/OldStandard(0)/m/n/10 225
  []
 
 [5]
-Overfull \hbox (1.89996pt too wide) detected at line 381
- []\TU/OldStandard(0)/m/n/10 229
+Overfull \hbox (1.89996pt too wide) detected at line 378
+ []\TU/OldStandard(0)/m/n/10 227
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 383
- []\TU/OldStandard(0)/m/n/10 229
+Overfull \hbox (1.89996pt too wide) detected at line 380
+ []\TU/OldStandard(0)/m/n/10 227
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 385
- []\TU/OldStandard(0)/m/n/10 230
+Overfull \hbox (1.89996pt too wide) detected at line 382
+ []\TU/OldStandard(0)/m/n/10 227
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 387
+Overfull \hbox (1.89996pt too wide) detected at line 384
+ []\TU/OldStandard(0)/m/n/10 227
+ []
+
+
+Overfull \hbox (1.89996pt too wide) detected at line 386
+ []\TU/OldStandard(0)/m/n/10 227
+ []
+
+
+Overfull \hbox (1.89996pt too wide) detected at line 388
+ []\TU/OldStandard(0)/m/n/10 227
+ []
+
+
+Overfull \hbox (1.89996pt too wide) detected at line 390
+ []\TU/OldStandard(0)/m/n/10 227
+ []
+
+
+Overfull \hbox (1.89996pt too wide) detected at line 396
  []\TU/OldStandard(0)/m/n/10 231
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 389
+Overfull \hbox (1.89996pt too wide) detected at line 398
  []\TU/OldStandard(0)/m/n/10 231
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 391
+Overfull \hbox (1.89996pt too wide) detected at line 400
  []\TU/OldStandard(0)/m/n/10 232
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 393
- []\TU/OldStandard(0)/m/n/10 232
- []
-
-
-Overfull \hbox (1.89996pt too wide) detected at line 395
+Overfull \hbox (1.89996pt too wide) detected at line 402
  []\TU/OldStandard(0)/m/n/10 233
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 397
+Overfull \hbox (1.89996pt too wide) detected at line 404
+ []\TU/OldStandard(0)/m/n/10 233
+ []
+
+
+Overfull \hbox (1.89996pt too wide) detected at line 406
  []\TU/OldStandard(0)/m/n/10 234
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 399
+Overfull \hbox (1.89996pt too wide) detected at line 408
  []\TU/OldStandard(0)/m/n/10 234
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 401
+Overfull \hbox (1.89996pt too wide) detected at line 410
  []\TU/OldStandard(0)/m/n/10 235
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 405
+Overfull \hbox (1.89996pt too wide) detected at line 412
+ []\TU/OldStandard(0)/m/n/10 236
+ []
+
+
+Overfull \hbox (1.89996pt too wide) detected at line 414
+ []\TU/OldStandard(0)/m/n/10 236
+ []
+
+
+Overfull \hbox (1.89996pt too wide) detected at line 416
  []\TU/OldStandard(0)/m/n/10 237
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 407
- []\TU/OldStandard(0)/m/n/10 237
- []
-
-
-Overfull \hbox (1.89996pt too wide) detected at line 409
- []\TU/OldStandard(0)/m/n/10 238
- []
-
-
-Overfull \hbox (1.89996pt too wide) detected at line 411
- []\TU/OldStandard(0)/m/n/10 238
- []
-
-
-Overfull \hbox (1.89996pt too wide) detected at line 413
- []\TU/OldStandard(0)/m/n/10 238
- []
-
-
-Overfull \hbox (1.89996pt too wide) detected at line 415
- []\TU/OldStandard(0)/m/n/10 238
- []
-
-
-Overfull \hbox (1.89996pt too wide) detected at line 417
- []\TU/OldStandard(0)/m/n/10 238
- []
-
-
-Overfull \hbox (1.89996pt too wide) detected at line 419
- []\TU/OldStandard(0)/m/n/10 238
- []
-
-
-Overfull \hbox (1.89996pt too wide) detected at line 421
+Overfull \hbox (1.89996pt too wide) detected at line 420
  []\TU/OldStandard(0)/m/n/10 239
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 423
+Overfull \hbox (1.89996pt too wide) detected at line 422
+ []\TU/OldStandard(0)/m/n/10 239
+ []
+
+
+Overfull \hbox (1.89996pt too wide) detected at line 424
  []\TU/OldStandard(0)/m/n/10 240
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 425
+Overfull \hbox (1.89996pt too wide) detected at line 426
  []\TU/OldStandard(0)/m/n/10 240
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 427
+Overfull \hbox (1.89996pt too wide) detected at line 428
  []\TU/OldStandard(0)/m/n/10 240
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 429
+Overfull \hbox (1.89996pt too wide) detected at line 430
  []\TU/OldStandard(0)/m/n/10 240
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 431
+Overfull \hbox (1.89996pt too wide) detected at line 432
  []\TU/OldStandard(0)/m/n/10 240
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 433
+Overfull \hbox (1.89996pt too wide) detected at line 434
  []\TU/OldStandard(0)/m/n/10 240
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 435
+Overfull \hbox (1.89996pt too wide) detected at line 436
  []\TU/OldStandard(0)/m/n/10 241
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 437
- []\TU/OldStandard(0)/m/n/10 241
- []
-
-
-Overfull \hbox (1.89996pt too wide) detected at line 439
- []\TU/OldStandard(0)/m/n/10 241
- []
-
-
-Overfull \hbox (1.89996pt too wide) detected at line 441
+Overfull \hbox (1.89996pt too wide) detected at line 438
  []\TU/OldStandard(0)/m/n/10 242
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 443
+Overfull \hbox (1.89996pt too wide) detected at line 440
  []\TU/OldStandard(0)/m/n/10 242
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 445
+Overfull \hbox (1.89996pt too wide) detected at line 442
  []\TU/OldStandard(0)/m/n/10 242
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 447
+Overfull \hbox (1.89996pt too wide) detected at line 444
  []\TU/OldStandard(0)/m/n/10 242
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 449
+Overfull \hbox (1.89996pt too wide) detected at line 446
  []\TU/OldStandard(0)/m/n/10 242
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 451
+Overfull \hbox (1.89996pt too wide) detected at line 448
  []\TU/OldStandard(0)/m/n/10 242
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 453
+Overfull \hbox (1.89996pt too wide) detected at line 450
+ []\TU/OldStandard(0)/m/n/10 243
+ []
+
+
+Overfull \hbox (1.89996pt too wide) detected at line 452
+ []\TU/OldStandard(0)/m/n/10 243
+ []
+
+
+Overfull \hbox (1.89996pt too wide) detected at line 454
+ []\TU/OldStandard(0)/m/n/10 243
+ []
+
+
+Overfull \hbox (1.89996pt too wide) detected at line 456
+ []\TU/OldStandard(0)/m/n/10 243
+ []
+
+
+Overfull \hbox (1.89996pt too wide) detected at line 458
  []\TU/OldStandard(0)/m/n/10 244
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 455
+Overfull \hbox (1.89996pt too wide) detected at line 460
  []\TU/OldStandard(0)/m/n/10 244
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 457
+Overfull \hbox (1.89996pt too wide) detected at line 462
  []\TU/OldStandard(0)/m/n/10 244
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 459
+Overfull \hbox (1.89996pt too wide) detected at line 464
  []\TU/OldStandard(0)/m/n/10 244
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 461
+Overfull \hbox (1.89996pt too wide) detected at line 466
  []\TU/OldStandard(0)/m/n/10 244
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 463
+Overfull \hbox (1.89996pt too wide) detected at line 468
  []\TU/OldStandard(0)/m/n/10 244
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 465
- []\TU/OldStandard(0)/m/n/10 244
+Overfull \hbox (1.89996pt too wide) detected at line 470
+ []\TU/OldStandard(0)/m/n/10 246
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 467
- []\TU/OldStandard(0)/m/n/10 245
+Overfull \hbox (1.89996pt too wide) detected at line 472
+ []\TU/OldStandard(0)/m/n/10 246
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 469
- []\TU/OldStandard(0)/m/n/10 245
+Overfull \hbox (1.89996pt too wide) detected at line 474
+ []\TU/OldStandard(0)/m/n/10 246
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 475
- []\TU/OldStandard(0)/m/n/10 249
+Overfull \hbox (1.89996pt too wide) detected at line 476
+ []\TU/OldStandard(0)/m/n/10 247
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 477
- []\TU/OldStandard(0)/m/n/10 249
+Overfull \hbox (1.89996pt too wide) detected at line 478
+ []\TU/OldStandard(0)/m/n/10 247
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 479
- []\TU/OldStandard(0)/m/n/10 250
+Overfull \hbox (1.89996pt too wide) detected at line 480
+ []\TU/OldStandard(0)/m/n/10 247
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 481
+Overfull \hbox (1.89996pt too wide) detected at line 482
+ []\TU/OldStandard(0)/m/n/10 247
+ []
+
+
+Overfull \hbox (1.89996pt too wide) detected at line 484
+ []\TU/OldStandard(0)/m/n/10 247
+ []
+
+
+Overfull \hbox (1.89996pt too wide) detected at line 486
+ []\TU/OldStandard(0)/m/n/10 247
+ []
+
+
+Overfull \hbox (1.89996pt too wide) detected at line 492
+ []\TU/OldStandard(0)/m/n/10 251
+ []
+
+
+Overfull \hbox (1.89996pt too wide) detected at line 494
+ []\TU/OldStandard(0)/m/n/10 251
+ []
+
+
+Overfull \hbox (1.89996pt too wide) detected at line 496
  []\TU/OldStandard(0)/m/n/10 252
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 483
- []\TU/OldStandard(0)/m/n/10 253
+Overfull \hbox (1.89996pt too wide) detected at line 498
+ []\TU/OldStandard(0)/m/n/10 254
+ []
+
+[6]
+Overfull \hbox (1.89996pt too wide) detected at line 500
+ []\TU/OldStandard(0)/m/n/10 255
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 485
- []\TU/OldStandard(0)/m/n/10 257
+Overfull \hbox (1.89996pt too wide) detected at line 502
+ []\TU/OldStandard(0)/m/n/10 258
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 487
- []\TU/OldStandard(0)/m/n/10 257
- []
-
-
-Overfull \hbox (1.89996pt too wide) detected at line 489
+Overfull \hbox (1.89996pt too wide) detected at line 504
  []\TU/OldStandard(0)/m/n/10 259
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 491
- []\TU/OldStandard(0)/m/n/10 259
- []
-
-
-Overfull \hbox (1.89996pt too wide) detected at line 493
+Overfull \hbox (1.89996pt too wide) detected at line 506
  []\TU/OldStandard(0)/m/n/10 261
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 495
+Overfull \hbox (1.89996pt too wide) detected at line 508
+ []\TU/OldStandard(0)/m/n/10 261
+ []
+
+
+Overfull \hbox (1.89996pt too wide) detected at line 510
  []\TU/OldStandard(0)/m/n/10 263
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 497
- []\TU/OldStandard(0)/m/n/10 263
+Overfull \hbox (1.89996pt too wide) detected at line 512
+ []\TU/OldStandard(0)/m/n/10 264
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 499
- []\TU/OldStandard(0)/m/n/10 263
+Overfull \hbox (1.89996pt too wide) detected at line 514
+ []\TU/OldStandard(0)/m/n/10 264
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 501
- []\TU/OldStandard(0)/m/n/10 263
- []
-
-
-Overfull \hbox (1.89996pt too wide) detected at line 503
- []\TU/OldStandard(0)/m/n/10 263
- []
-
-[6]
-Overfull \hbox (1.89996pt too wide) detected at line 505
+Overfull \hbox (1.89996pt too wide) detected at line 516
  []\TU/OldStandard(0)/m/n/10 265
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 507
+Overfull \hbox (1.89996pt too wide) detected at line 518
+ []\TU/OldStandard(0)/m/n/10 265
+ []
+
+
+Overfull \hbox (1.89996pt too wide) detected at line 520
+ []\TU/OldStandard(0)/m/n/10 265
+ []
+
+
+Overfull \hbox (1.89996pt too wide) detected at line 522
  []\TU/OldStandard(0)/m/n/10 267
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 509
- []\TU/OldStandard(0)/m/n/10 270
+Overfull \hbox (1.89996pt too wide) detected at line 524
+ []\TU/OldStandard(0)/m/n/10 269
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 511
- []\TU/OldStandard(0)/m/n/10 271
+Overfull \hbox (1.89996pt too wide) detected at line 526
+ []\TU/OldStandard(0)/m/n/10 272
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 513
- []\TU/OldStandard(0)/m/n/10 276
+Overfull \hbox (1.89996pt too wide) detected at line 528
+ []\TU/OldStandard(0)/m/n/10 273
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 515
- []\TU/OldStandard(0)/m/n/10 277
+Overfull \hbox (1.89996pt too wide) detected at line 530
+ []\TU/OldStandard(0)/m/n/10 278
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 517
+Overfull \hbox (1.89996pt too wide) detected at line 532
  []\TU/OldStandard(0)/m/n/10 279
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 519
- []\TU/OldStandard(0)/m/n/10 279
+Overfull \hbox (1.89996pt too wide) detected at line 534
+ []\TU/OldStandard(0)/m/n/10 281
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 521
- []\TU/OldStandard(0)/m/n/10 280
+Overfull \hbox (1.89996pt too wide) detected at line 536
+ []\TU/OldStandard(0)/m/n/10 281
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 523
- []\TU/OldStandard(0)/m/n/10 299
+Overfull \hbox (1.89996pt too wide) detected at line 538
+ []\TU/OldStandard(0)/m/n/10 282
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 525
- []\TU/OldStandard(0)/m/n/10 299
+Overfull \hbox (1.89996pt too wide) detected at line 540
+ []\TU/OldStandard(0)/m/n/10 301
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 527
- []\TU/OldStandard(0)/m/n/10 307
+Overfull \hbox (1.89996pt too wide) detected at line 542
+ []\TU/OldStandard(0)/m/n/10 301
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 529
+Overfull \hbox (1.89996pt too wide) detected at line 544
  []\TU/OldStandard(0)/m/n/10 309
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 531
- []\TU/OldStandard(0)/m/n/10 312
+Overfull \hbox (1.89996pt too wide) detected at line 546
+ []\TU/OldStandard(0)/m/n/10 311
  []
 
 
-Overfull \hbox (1.89996pt too wide) detected at line 533
+Overfull \hbox (1.89996pt too wide) detected at line 548
  []\TU/OldStandard(0)/m/n/10 314
+ []
+
+
+Overfull \hbox (1.89996pt too wide) detected at line 550
+ []\TU/OldStandard(0)/m/n/10 316
  []
 
 )
@@ -2737,22 +2821,15 @@ Overfull \hbox (1.89996pt too wide) detected at line 533
  [7] [8
 
 ]
-Chapter 1.
+Kapitel 1.
 [9] [10] [11] [12
 
 ] [13] [14]
-Chapter 2.
+Kapitel 2.
 
 LaTeX Font Warning: Font shape `TU/OldStandard-BoldItalic(0)/bx/n' undefined
 (Font)              using `TU/OldStandard-BoldItalic(0)/m/n' instead on input l
-ine 350.
-
-
-Overfull \hbox (3.22543pt too wide) in paragraph at lines 370--372
-\TU/OldStandard(0)/m/n/10 Um die Theorie zu vervollständigen, führt man weiterh
-in zwei \TU/OldStandard(0)/m/it/10 Zusätze \TU/OldStandard(0)/m/n/10 zu den New
-ton’schen Axiomen[][][] ein. Zunächst
- []
+ine 351.
 
 Package microtype Info: Character `A' is missing
 (microtype)             in font `\TU/GFSBaskerville(1)/m/n/10'.
@@ -2850,7 +2927,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [21]
-Overfull \hbox (9.99988pt too wide) in paragraph at lines 827--828
+Overfull \hbox (9.99988pt too wide) in paragraph at lines 828--829
  [][] 
  []
 
@@ -2872,15 +2949,9 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [31]
 [32]
-Overfull \hbox (6.17876pt too wide) in paragraph at lines 1696--1697
+Overfull \hbox (4.25731pt too wide) in paragraph at lines 1697--1698
 []\TU/OldStandard(0)/m/n/10 Es wird häufig gesagt, die Quantenmechanik sei nich
 t deterministisch. Dies ist falsch, die Schrödinger-Gleichung
- []
-
-
-Overfull \hbox (23.85208pt too wide) in paragraph at lines 1730--1733
-\TU/OldStandard(0)/m/n/10 Materiewellen sind anders als elektromagnetische Well
-en im Vakuum nicht dispersionsfrei. Die Gruppengeschwindigkeit
  []
 
 
@@ -2894,7 +2965,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [37]
-Overfull \hbox (9.99988pt too wide) in paragraph at lines 2124--2125
+Overfull \hbox (9.99988pt too wide) in paragraph at lines 2125--2126
  [][] 
  []
 
@@ -2902,7 +2973,9 @@ Overfull \hbox (9.99988pt too wide) in paragraph at lines 2124--2125
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [38]
-[39]
+Underfull \vbox (badness 1028) has occurred while \output is active []
+
+ [39]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [40]
@@ -2946,7 +3019,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [53]
 [54]
-Overfull \hbox (9.99988pt too wide) in paragraph at lines 3183--3184
+Overfull \hbox (9.99988pt too wide) in paragraph at lines 3184--3185
  [][] 
  []
 
@@ -2961,16 +3034,17 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [59]
+Overfull \hbox (8.0753pt too wide) in paragraph at lines 3522--3526
+\TU/OldStandard(0)/m/n/10 Glg. [] wird als \TU/OldStandard(0)/m/it/10 Spin-up-Z
+ustand[][] \TU/OldStandard(0)/m/n/10 und Glg. [] wird als \TU/OldStandard(0)/m/
+it/10 Spin-down-Zustand[][] \TU/OldStandard(0)/m/n/10 bezeichnet. Es gilt $[][]
+ [] \OT1/cmr/m/n/10 =
+ []
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [60]
-Overfull \hbox (0.39725pt too wide) in paragraph at lines 3647--3651
-\TU/OldStandard(0)/m/n/10 Bei Teilchen mit Spin $[]\OML/cmm/m/it/10 =[]$ \TU/Ol
-dStandard(0)/m/n/10 kann man dies mit den durch die Pauli-Matrizen definierten 
-Operatoren $[][]\OML/cmm/m/it/10 ; [][]; [][]$ \TU/OldStandard(0)/m/n/10 schrei
-ben
- []
-
 [61] [62]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -3535,32 +3609,10 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 3460) has occurred while \output is active []
 
  [76]
-[77]
-Overfull \hbox (3.57768pt too wide) in paragraph at lines 4792--4794
-\TU/OldStandard(0)/m/n/10 Sind zwei Systeme $[]\OML/cmm/m/it/10 ; []$ \TU/OldSt
-andard(0)/m/n/10 mit den mikrokanonischen Zustandssummen $\OT1/cmr/m/n/10 
-[] []$ \TU/OldStandard(0)/m/n/10 und $\OT1/cmr/m/n/10 
-[] []$ \TU/OldStandard(0)/m/n/10 im Gleichgewicht,
- []
-
-[78]
+[77] [78]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [79]
-Overfull \hbox (2.69588pt too wide) in paragraph at lines 4898--4902
-\TU/OldStandard(0)/m/n/10 wobei $\OT1/cmr/m/n/10 
-[]$ \TU/OldStandard(0)/m/n/10 die mikrokanonische Zustandssumme des Systems $[]
-$ ist und $\OT1/cmr/m/n/10 
-[]$ \TU/OldStandard(0)/m/n/10 diejenige des Systems $[]$. Die Wahrschein-
- []
-
-
-Overfull \hbox (0.12585pt too wide) in paragraph at lines 4904--4908
-\TU/OldStandard(0)/m/n/10 das System $[]$ bei einer Energie $[][]$ vorzufinden,
- dividiert durch die Anzahl dieser gleich wahrscheinlichen Zustände: 
- []
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [80]
@@ -3596,20 +3648,6 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [92]
-Overfull \hbox (2.1164pt too wide) in paragraph at lines 5718--5722
-\TU/OldStandard(0)/m/n/10 Setzt man $[] \OT1/cmr/m/n/10 = [][]$ \TU/OldStandard
-(0)/m/n/10 ein mit $[]$ als Strömungsgeschwindigkeit in x-Richtung, so untersuc
-ht man die Impulsstromdichte.
- []
-
-
-Overfull \hbox (10.19875pt too wide) in paragraph at lines 5731--5735
-\TU/OldStandard(0)/m/n/10 aufgewendet werden, um das Strömungsfeld aufrechtzuer
-halten. Diese Gleichung definiert die \TU/OldStandard-Italic(0)/m/it/10 dynamis
-che Viskosität[][]
- []
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [93]
@@ -3623,19 +3661,13 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 3803) has occurred while \output is active []
 
  [97]
-Overfull \hbox (2.12912pt too wide) in paragraph at lines 6046--6050
-\TU/OldStandard(0)/m/n/10 hierbei wurde der Absorptionskoeffizient $[] []$ eing
-eführt. Da von einem thermodynamischen Gleichgewicht
- []
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [98]
 [99] [100
 
 ]
-Chapter 3.
+Kapitel 3.
 [101]
 Underfull \vbox (badness 6078) has occurred while \output is active []
 
@@ -3647,7 +3679,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [105]
-Overfull \hbox (9.99988pt too wide) in paragraph at lines 6420--6421
+Overfull \hbox (9.99988pt too wide) in paragraph at lines 6421--6422
  [][] 
  []
 
@@ -3659,18 +3691,6 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [108]
-Overfull \hbox (1.37292pt too wide) in paragraph at lines 6633--6637
-\TU/OldStandard(0)/m/n/10 dabei wurde für die im gestrichenen System gemessene 
-Geschwindigkeit verkürzend $[][] \OT1/cmr/m/n/10 = [][][] + [][][] + [][][]$ \T
-U/OldStandard(0)/m/n/10 geschrieben
- []
-
-
-Overfull \hbox (4.7054pt too wide) in paragraph at lines 6654--6656
-\TU/OldStandard(0)/m/n/10 zen, die sich nach dem Zweiten Newton’schen Axiom aus
- den Kräften ergeben. Insbesondere sei darauf hingewiesen,
- []
-
 [109]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -3684,19 +3704,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 [113]
 File: figs/f_mod.png Graphic file (type bmp)
 <figs/f_mod.png>
-
-Overfull \hbox (1.75317pt too wide) in paragraph at lines 6990--6991
-\TU/OldStandard(0)/m/n/10 Anschaulich bedeutet die Vernachlässigbarkeit der Krü
-mmungsterme, dass die Dynamik der Erdatmosphäre (außer
- []
-
-[114]
-Overfull \hbox (7.46208pt too wide) in paragraph at lines 7017--7021
-\TU/OldStandard(0)/m/n/10 möglicht hat, gibt den Flachwassergleichungen ihren N
-amen. Bei großen Tiefen kann hiervon nämlich anschaulicher-
- []
-
-
+ [114]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [115]
@@ -3930,12 +3938,12 @@ Package microtype Info: Character `\textquestiondown ' is missing
 
 LaTeX Font Warning: Font shape `TU/OldStandard-BoldItalic(1)/b/n' undefined
 (Font)              using `TU/OldStandard-BoldItalic(1)/m/n' instead on input l
-ine 7218.
+ine 7219.
 
 
 LaTeX Font Warning: Font shape `TU/OldStandard-BoldItalic(1)/m/it' undefined
 (Font)              using `TU/OldStandard-BoldItalic(1)/m/n' instead on input l
-ine 7221.
+ine 7222.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -3944,133 +3952,100 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [119]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 2932) has occurred while \output is active []
 
  [120]
-Underfull \vbox (badness 4036) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [121]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [122]
 File: figs/lifting_dry.png Graphic file (type bmp)
 <figs/lifting_dry.png>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [122]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
  [123]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [124]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [125]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+[124] [125]
+Underfull \vbox (badness 3209) has occurred while \output is active []
 
  [126]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+[127] [128] [129]
+Underfull \vbox (badness 2205) has occurred while \output is active []
 
- [127]
+ [130]
 File: figs/standard_atmosphere_pressure.png Graphic file (type bmp)
 <figs/standard_atmosphere_pressure.png>
 File: figs/standard_atmosphere_density.png Graphic file (type bmp)
 <figs/standard_atmosphere_density.png>
 
-Underfull \vbox (badness 3312) has occurred while \output is active []
 
- [128]
-Overfull \hbox (0.80666pt too wide) in paragraph at lines 7822--7826
-\TU/OldStandard(0)/m/n/10 Bei den Kondensaten nimmt man Inkompressibilität an, 
-also $\OT1/cmr/m/n/10 ^^A[][] = []$\TU/OldStandard(0)/m/n/10 . Als Wärmequellen
- spielen neben Strahlung,
- []
+LaTeX Warning: Reference `sec:diabatie' on page 131 undefined on input line 800
+9.
 
-
-LaTeX Warning: Reference `sec:diabatie' on page 129 undefined on input line 783
-1.
-
-[129] [130]
-Overfull \hbox (1.62663pt too wide) in paragraph at lines 7967--7971
-\TU/OldStandard(0)/m/n/10 Hierbei sind $[][]$ die Teilchendichte der Kondensate
- $[]$, $[][]$ deren Oberfläche und $[][]$ die Wärmedurchgangszahl bezüglich
- []
-
-
-Underfull \vbox (badness 1831) has occurred while \output is active []
-
- [131]
-[132] [133]
-Missing character: There is no ² in font cmr10!
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [134]
-[135]
-Overfull \hbox (10.05803pt too wide) in alignment at lines 8332--8334
- [][][] []
- []
-
-
+[131] [132] [133] [134] [135]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [136]
+Missing character: There is no ² in font cmr10!
+
+[137]
+Overfull \hbox (10.05803pt too wide) in alignment at lines 8510--8512
+ [][][] []
+ []
+
+[138]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [137]
+ [139]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [138]
-[139]
-Overfull \hbox (9.99988pt too wide) in paragraph at lines 8488--8489
+ [140]
+[141]
+Overfull \hbox (9.99988pt too wide) in paragraph at lines 8666--8667
  [][] 
  []
 
-[140] [141
+[142] [143
 
-] [142]
-Chapter 4.
+] [144]
+Kapitel 4.
 Missing character: There is no ´ in font cmr10!
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [143
+ [145
 
 ]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [144]
-[145]
-Overfull \hbox (4.80653pt too wide) in paragraph at lines 8702--8704
-[]\TU/OldStandard(0)/m/n/10 Der \TU/OldStandard-Italic(0)/m/it/10 thermische Wi
-nd[][] \TU/OldStandard(0)/m/n/10 bezeichnet die Änderung des geostrophischen Wi
-ndes mit der Höhe aufgrund von Baroklin-
- []
-
-[146]
+ [146]
+[147] [148]
 Underfull \vbox (badness 3333) has occurred while \output is active []
 
- [147]
-[148] [149] [150
+ [149]
+[150] [151] [152
 
 ]
-Chapter 5.
+Kapitel 5.
 
-LaTeX Warning: Reference `eq:er_rot' on page 151 undefined on input line 9008.
+LaTeX Warning: Reference `eq:er_rot' on page 153 undefined on input line 9186.
 
 
-LaTeX Warning: Reference `eq:er_rot' on page 151 undefined on input line 9017.
+LaTeX Warning: Reference `eq:er_rot' on page 153 undefined on input line 9195.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [151]
+ [153]
 File: figs/vector_field_non_rot.png Graphic file (type bmp)
 <figs/vector_field_non_rot.png>
 
-[152]
+[154]
 Underfull \vbox (badness 1292) has occurred while \output is active []
 
- [153]
+ [155]
 File: figs/shear_vorticity.png Graphic file (type bmp)
 <figs/shear_vorticity.png>
 File: figs/curvature_vorticity.png Graphic file (type bmp)
@@ -4078,189 +4053,168 @@ File: figs/curvature_vorticity.png Graphic file (type bmp)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [154]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [155]
-Overfull \hbox (9.99988pt too wide) in paragraph at lines 9288--9289
- [][] 
- []
-
-
-Overfull \hbox (9.99988pt too wide) in paragraph at lines 9306--9307
- [][] 
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
  [156]
-Overfull \hbox (9.99988pt too wide) in paragraph at lines 9405--9406
- [][] 
- []
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [157]
-[158]
+Overfull \hbox (9.99988pt too wide) in paragraph at lines 9466--9467
+ [][] 
+ []
+
+
+Overfull \hbox (9.99988pt too wide) in paragraph at lines 9484--9485
+ [][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [158]
+Overfull \hbox (9.99988pt too wide) in paragraph at lines 9583--9584
+ [][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [159]
+[160]
 File: figs/velocity_divergence.png Graphic file (type bmp)
 <figs/velocity_divergence.png>
 File: figs/direction_divergence.png Graphic file (type bmp)
 <figs/direction_divergence.png>
- [159]
-Overfull \hbox (9.99988pt too wide) in paragraph at lines 9571--9572
- [][] 
- []
-
-
-Overfull \hbox (9.99988pt too wide) in paragraph at lines 9590--9591
- [][] 
- []
-
-
-LaTeX Warning: Reference `eq:er_rot' on page 160 undefined on input line 9608.
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [160]
-Overfull \hbox (9.99988pt too wide) in paragraph at lines 9621--9622
- [][] 
- []
-
-
-Overfull \hbox (6.58366pt too wide) in alignment at lines 9626--9629
- [][][] []
- []
-
-
-Overfull \hbox (9.99988pt too wide) in paragraph at lines 9640--9641
- [][] 
- []
-
-
-Overfull \hbox (1.23985pt too wide) in paragraph at lines 9665--9666
-[]\TU/OldStandard(0)/m/n/10 Es gibt also bei einem globalen Horizontalwindfeld 
-immer einen Kompromiss aus Divergenzfreiheit und Geostro-
- []
-
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [161]
-Underfull \vbox (badness 3601) has occurred while \output is active []
+Overfull \hbox (9.99988pt too wide) in paragraph at lines 9749--9750
+ [][] 
+ []
 
- [162]
-[163] [164]
-Chapter 6.
+
+Overfull \hbox (9.99988pt too wide) in paragraph at lines 9768--9769
+ [][] 
+ []
+
+[162]
+
+LaTeX Warning: Reference `eq:er_rot' on page 163 undefined on input line 9786.
+
+
+Overfull \hbox (9.99988pt too wide) in paragraph at lines 9799--9800
+ [][] 
+ []
+
+
+Overfull \hbox (5.277pt too wide) in alignment at lines 9804--9807
+ [][][] []
+ []
+
+
+Overfull \hbox (9.99988pt too wide) in paragraph at lines 9818--9819
+ [][] 
+ []
+
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [165
+ [163]
+Underfull \vbox (badness 3601) has occurred while \output is active []
+
+ [164]
+[165] [166]
+Kapitel 6.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [167
 
 ]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [166]
-[167]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
  [168]
-Underfull \vbox (badness 1701) has occurred while \output is active []
-
- [169]
+[169]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [170]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 1701) has occurred while \output is active []
 
  [171]
-File: figs/inertio_gravity_dispersion.png Graphic file (type bmp)
-<figs/inertio_gravity_dispersion.png>
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[172]
+ [172]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [173]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+File: figs/inertio_gravity_dispersion.png Graphic file (type bmp)
+<figs/inertio_gravity_dispersion.png>
 
- [174]
+[174]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [175]
-File: figs/kelvin_pen.png Graphic file (type bmp)
-<figs/kelvin_pen.png>
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [176]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [177]
-[178]
+File: figs/kelvin_pen.png Graphic file (type bmp)
+<figs/kelvin_pen.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [178]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [179]
+[180]
 File: figs/rossby_waves_vorticity.png Graphic file (type bmp)
 <figs/rossby_waves_vorticity.png>
- [179]
-Overfull \hbox (0.28987pt too wide) in paragraph at lines 10833--10835
-\TU/OldStandard(0)/m/n/10 Diese Wellen entstehen im kontinuierlichen, hydrostat
-ischen, thermisch stabilen Medium bei vertikaler Auslenkung
- []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [180]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 1852) has occurred while \output is active []
 
  [181]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [182]
-Overfull \hbox (7.62204pt too wide) in paragraph at lines 11006--11010
-\TU/OldStandard(0)/m/n/10 Nun müssen zunächst einige Vereinfachungen vorgenomme
-n werden. Ziel ist das \TU/OldStandard-Italic(0)/m/it/10 quasigeostrophische Gl
-eichungssys-
- []
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [183]
-[184] [185]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [186]
+ [184]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [187]
+ [185]
+[186] [187]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [188]
-[189]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [189]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [190]
+[191]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [192]
 Underfull \vbox (badness 6477) has occurred while \output is active []
 
- [191]
+ [193]
 File: figs/baro_inst.png Graphic file (type bmp)
 <figs/baro_inst.png>
 
-[192]
+[194]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [193]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [194]
-[195]
+ [195]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [196]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [197]
+[197]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [198]
@@ -4270,16 +4224,22 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [200]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [201]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [202]
 File: figs/beta_malr.png Graphic file (type bmp)
 <figs/beta_malr.png>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [201]
-[202] [203] [204
+ [203]
+[204] [205] [206
 
 ]
-Chapter 7.
+Kapitel 7.
 Package microtype Info: Character `A' is missing
 (microtype)             in font `\TU/GFSBaskerville(0)/m/n/17.28'.
 (microtype)             Ignoring protrusion settings for this character.
@@ -4505,187 +4465,151 @@ Package microtype Info: Character `\textexclamdown ' is missing
 Package microtype Info: Character `\textquestiondown ' is missing
 (microtype)             in font `\TU/GFSSolomos(0)/m/it/17.28'.
 (microtype)             Ignoring protrusion settings for this character.
-[205]
-Overfull \hbox (6.84874pt too wide) in paragraph at lines 12315--12316
-\TU/OldStandard(0)/m/n/10 Die semigeostrophische Annahme ist eine Relaxation de
-r quasigeostrophischen Annahme. Als Teil des Lösungsspek-
- []
+[207] [208]
+Kapitel 8.
+[209
 
-[206]
-Chapter 8.
-[207
-
-] [208
+] [210
 
 ]
-Chapter 9.
+Kapitel 9.
 
-Overfull \hbox (1.38875pt too wide) in paragraph at lines 12370--12372
-\TU/OldStandard-Italic(0)/m/it/10 lem[] \TU/OldStandard(0)/m/n/10 bezeichnet. U
-m die Korrelationsterme in der Impulsgleichung näher zu spezifizieren, wendet m
-an den Reynolds-
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [209]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [210]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [211]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [212]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [213]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [214]
 File: figs/ekman_spiral.png Graphic file (type bmp)
 <figs/ekman_spiral.png>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [213]
-Underfull \vbox (badness 2486) has occurred while \output is active []
-
- [214]
-Overfull \hbox (35.25983pt too wide) in paragraph at lines 12695--12696
-\TU/OldStandard(0)/m/n/10 Die Abschätzung der Auswirkungen subskaliger Variabil
-ität auf die gemittelten Größen bezeichnet man als \TU/OldStandard-Italic(0)/m/
-it/10 Parmetrisierun-
+ [215]
+Overfull \hbox (3.28325pt too wide) in paragraph at lines 12845--12849
+\TU/OldStandard(0)/m/n/10 Glg. [] ist also erfüllt. Die Überprüfung der Erfüllu
+ng von Glg. [] erfolgt mittels des Haupsatz der Differenzial-
  []
 
-[215] [216
 
-]
-Chapter 10.
+Underfull \vbox (badness 2503) has occurred while \output is active []
+
+ [216]
 [217] [218
 
 ]
-Chapter 11.
-[219]
-Overfull \hbox (2.7421pt too wide) in paragraph at lines 12865--12868
-\TU/OldStandard(0)/m/n/10 ausgehen, was man als \TU/OldStandard-Italic(0)/m/it/
-10 Sverdrup-Balance[] \TU/OldStandard(0)/m/n/10 bezeichnet. Hieraus lässt sich 
-die Ozeanströmung bei gegebener Windein-
- []
-
-[220] [221
-
-] [222]
-Chapter 12.
-[223
-
-] [224
+Kapitel 10.
+[219] [220
 
 ]
-Chapter 13.
-[225] [226
+Kapitel 11.
+[221] [222] [223
 
-] [227] [228]
-Chapter 14.
-[229
+] [224]
+Kapitel 12.
+[225
 
-] [230]
+] [226
+
+]
+Kapitel 13.
+[227] [228
+
+] [229] [230]
+Kapitel 14.
+[231
+
+] [232]
 File: figs/dispersion_1d.png Graphic file (type bmp)
 <figs/dispersion_1d.png>
- [231]
+ [233]
 Underfull \vbox (badness 1742) has occurred while \output is active []
 
- [232]
-[233] [234]
+ [234]
+[235] [236]
 File: figs/arakawa.png Graphic file (type bmp)
 <figs/arakawa.png>
- [235] [236
+ [237] [238
 
 ]
-Chapter 15.
+Kapitel 15.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [237]
-Underfull \vbox (badness 1043) has occurred while \output is active []
+ [239]
+Underfull \vbox (badness 1077) has occurred while \output is active []
 
- [238]
-[239] [240] [241] [242]
+ [240]
+[241] [242] [243] [244]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [243]
-[244] [245] [246
+ [245]
+Underfull \vbox (badness 1087) has occurred while \output is active []
 
-] [247] [248]
-Appendix A.
-[249
+ [246]
+[247] [248
+
+] [249] [250]
+Anhang A.
+[251
 
 ]
 Underfull \vbox (badness 5217) has occurred while \output is active []
 
- [250]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [251]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
  [252]
-Underfull \vbox (badness 1142) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [253]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [254]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Overfull \hbox (17.04968pt too wide) in paragraph at lines 14275--14279
+\TU/OldStandard(0)/m/n/10 Eine Funktion heißt analytisch, falls sie in jedem Pu
+nkt lokal analytisch ist. Es existieren einige Standard-Potenzreihen,
+ []
+
+
+Underfull \vbox (badness 1142) has occurred while \output is active []
 
  [255]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [256]
-Underfull \vbox (badness 4108) has occurred while \output is active []
-
- [257]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [258]
+ [257]
+[258]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [259]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [260]
-Overfull \hbox (13.87878pt too wide) in paragraph at lines 14620--14624
-\TU/OldStandard(0)/m/n/10 Linearkombinationen linearer Operatoren sind also lin
-ear. Da für partielle Ableitungen die normalen Ableitungsregeln
- []
-
-
-Overfull \hbox (1.67007pt too wide) in paragraph at lines 14627--14630
-\TU/OldStandard(0)/m/n/10 wobei die Zeit durch eine der $[][]$ abgedeckt sei. P
-artielle Ableitungen sowie Linearkombinationen partieller Ableitun-
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [261]
+[261]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [262]
-[263]
-Overfull \hbox (5.22159pt too wide) in paragraph at lines 14785--14789
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [263]
+[264]
+Overfull \hbox (5.03586pt too wide) in paragraph at lines 14966--14970
 [] []$ \TU/OldStandard(0)/m/n/10 das Temperaturfeld und $[] [] \OT1/cmr/m/n/10 
 = [][]$ \TU/OldStandard(0)/m/n/10 eine 4-Teilchentrajektorie ist, so ist $[]\OT
 1/cmr/m/n/10 ([]) = [] [] =
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [264]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [265]
+[265]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [266]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 1292) has occurred while \output is active []
 
  [267]
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -4694,7 +4618,9 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [269]
-[270]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [270]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [271]
@@ -4710,35 +4636,30 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [275]
-
-LaTeX Warning: Reference `eq:div_kugel' on page 276 undefined on input line 154
-57.
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [276]
-[277]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [277]
+
+LaTeX Warning: Reference `eq:div_kugel' on page 278 undefined on input line 156
+38.
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [278]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [279]
-Overfull \hbox (1.80428pt too wide) in paragraph at lines 15736--15740
-\TU/OldStandard(0)/m/n/10 mit $[]$ als Massenverteilung, denn hieraus ergibt si
-ch im Falle einer Punktmasse $[]$ am Ursprung mit dem Gauß’schen
- []
-
-
+[279]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [280]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [281]
-Overfull \hbox (2.67535pt too wide) in alignment at lines 15911--15916
- [][][] []
+Overfull \hbox (1.61855pt too wide) in paragraph at lines 15917--15921
+\TU/OldStandard(0)/m/n/10 mit $[]$ als Massenverteilung, denn hieraus ergibt si
+ch im Falle einer Punktmasse $[]$ am Ursprung mit dem Gauß’schen
  []
 
 
@@ -4748,20 +4669,25 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [283]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [284]
-Overfull \hbox (3.02802pt too wide) in alignment at lines 16035--16037
+Overfull \hbox (2.67535pt too wide) in alignment at lines 16092--16097
  [][][] []
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
+ [284]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
  [285]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [286]
+Overfull \hbox (3.02802pt too wide) in alignment at lines 16216--16218
+ [][][] []
+ []
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [287]
@@ -4798,13 +4724,13 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [298]
-[299]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [299]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [300]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [301]
+[301]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [302]
@@ -4820,31 +4746,34 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [306]
-Underfull \vbox (badness 4168) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [307]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [308]
-Underfull \vbox (badness 3128) has occurred while \output is active []
+Underfull \vbox (badness 4168) has occurred while \output is active []
 
  [309]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [310]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 3128) has occurred while \output is active []
 
  [311]
-Overfull \hbox (6.85907pt too wide) in paragraph at lines 17530--17534
-\TU/OldStandard(0)/m/n/10 mit den assoziierten Legendre-Funktionen $[][] []$, G
-lg. []. Die Vorfaktoren ergeben sich aus der Normierung 
- []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[312]
+ [312]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [313]
-Overfull \hbox (7.98982pt too wide) in paragraph at lines 17659--17661
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [314]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [315]
+Overfull \hbox (7.98982pt too wide) in paragraph at lines 17840--17842
 \TU/OldStandard(0)/m/n/10 Die Entwicklung einer Funktion nach komplexen Exponen
 tialfunktionen bezeichnet man als \TU/OldStandard-Italic(0)/m/it/10 Fourier-Tra
 nsformation[]
@@ -4853,8 +4782,8 @@ nsformation[]
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [314]
-Overfull \hbox (3.41829pt too wide) in paragraph at lines 17744--17748
+ [316]
+Overfull \hbox (1.68257pt too wide) in paragraph at lines 17925--17929
 \TU/OldStandard(0)/m/n/10 Wendet man hierauf die inverse FT an, erhält man wied
 er $[][] [] \OT1/cmr/m/n/10 = [] []$\TU/OldStandard(0)/m/n/10 . Definiere nun d
 ie Fourier-Transformierte
@@ -4863,23 +4792,23 @@ ie Fourier-Transformierte
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [315]
-[316]
+ [317]
+[318]
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmtt' (encoding: TU).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- (./kompendium.ind [317
+ (./kompendium.ind [319
 
-] [318
+] [320
 
-] [319] [320] [321] [322] [323]
-Overfull \hbox (14.28493pt too wide) in paragraph at lines 896--897
+] [321] [322] [323] [324] [325]
+Overfull \hbox (14.28493pt too wide) in paragraph at lines 903--904
 []\TU/OldStandard(0)/m/n/10 Relaxation der spherical geopotential approximation
  (SGA),
  []
 
-[324] [325] [326] [327
+[326] [327] [328] [329
 
 ]) (./kompendium.aux)
 
@@ -4888,17 +4817,20 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package logreq Info: Writing requests to 'kompendium.run.xml'.
 \openout1 = `kompendium.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 20230 strings out of 479819
- 414937 string characters out of 5895846
- 1170503 words of memory out of 5000000
- 36976 multiletter control sequences out of 15000+600000
+ 20931 strings out of 479819
+ 425477 string characters out of 5895846
+ 1210802 words of memory out of 5000000
+ 37650 multiletter control sequences out of 15000+600000
  541363 words of font info for 148 fonts, out of 8000000 for 9000
- 1360 hyphenation exceptions out of 8191
- 63i,22n,111p,1553b,4664s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 1362 hyphenation exceptions out of 8191
+ 63i,22n,111p,1553b,5518s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on kompendium.pdf (327 pages).
+Output written on kompendium.pdf (329 pages).
