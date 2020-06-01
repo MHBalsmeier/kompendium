@@ -7305,7 +7305,7 @@ daraus folgen
 In diesem Abschnitt soll es um die Thermodynamik einer Atmosphäre gehen, die aus einem idealen, einatomigen Gas\index{ideales Gas!einatomiges}\index{Gas!ideales!einatomiges} mit der individuellen Gaskonstante\index{Gaskonstante!individuelle}\index{individuelle Gaskonstante} $R_s$ besteht.
 
 \subsubsection{Temperatur als prognostische Variable}
-\label{sec:temperatur_als_prognostische_variable_einatomig}
+\label{sec:temperatur_als_prognostische_variable}
 
 Der Ausgangspunkt ist Glg. \eqref{eq:td_1_id_gas}. Durch Differentiation nach der Zeit ergibt sich
 %
@@ -7447,7 +7447,7 @@ und durch Koeffizientenvergleich erhält man
 $\kappa > 1$ bezeichnet man als den Adiabaten- oder Isentropenexponenten.
 
 \subsubsection{Potentielle Temperatur als prognostische Variable}
-\label{sec:potentielle_temperatur_als_prognostische_variable_einatomig}
+\label{sec:potentielle_temperatur_als_prognostische_variable}
 
 Die \textit{potentielle Temperatur}\index{Temperatur!potentielle}\index{potentielle Temperatur} $\theta$ ist die Temperatur, die ein Gaspaket hätte, brächte man es adiabatisch auf einen willkürlichen Referenzdruck $p_0$. Ersetzt man mittels der Zustandsgleichung in der Adiabaten Glg. \eqref{eq:adiabate} das Volumen durch die Temperatur, erhält man
 %
@@ -7559,7 +7559,7 @@ hinzu, folgt
 \end{center}
 
 \subsubsection{Druck als prognostische Variable}
-\label{sec:temperatur_als_prognostische_variable_einatomig}
+\label{sec:druck_als_prognostische_variable}
 
 Nun soll noch die Definition der potentiellen Temperatur\index{potentielle Temperatur}\index{Temperatur!potentielle} in die Zustandsgleichung eingesetzt werden:
 %
@@ -7600,7 +7600,7 @@ folgt
 \end{center}
 
 \subsubsection{Exner-Druck als prognostische Variable}
-\label{sec:exner-druck_als_prognostische_variable_einatomig}
+\label{sec:exner-druck_als_prognostische_variable}
 
 Definiert man den \textit{Exner-Druck}\index{Exner-Druck} $\Pi$ durch
 %
@@ -7642,7 +7642,7 @@ Mit Glg. \eqref{eq:diff_op_rule_3} folgt
 \Leftrightarrow -\rho\mathbf{v}\cdot c^{(p)}\theta\nabla\Pi & = & -\nabla\cdot\left(\rho h\mathbf{v}\right) + c^{(p)}\Pi\nabla\cdot\left(\rho\theta\mathbf{v}\right)\
 \end{eqnarray}
 %
-mit der spezifischen Enthalpie\index{spezifische Enthalpie}\index{Enthalpie!spezifische} $h$. Hieruas kann man ablsesen:
+mit der spezifischen Enthalpie\index{spezifische Enthalpie}\index{Enthalpie!spezifische} $h$. Hieraus kann man ablsesen:
 %
 \begin{itemize}
 \item Wirkt der Druckgradient beschleunigend, so divergiert der Fluss der potentiellen Temperatur stärker als der Fluss der Enthalpie.
@@ -7687,7 +7687,7 @@ Mit Glg. \eqref{eq:td1_id_gas_pot_mod} folgt
 \end{center}
 
 \subsubsection{Entropie als prognostische Variable}
-\label{sec:entropie_als_prognostische_variable_einatomig}
+\label{sec:entropie_als_prognostische_variable}
 
 Setzt man die Zustandsgleichungen Glg.en \eqref{eq:kalorisch_id_gase} und \eqref{eq:zustand_ideal} in Glg. \eqref{eq:entropie_ideal} ein, folgt unter Vernachlässigung des Ungefähr-Zeichens
 %
@@ -7774,7 +7774,7 @@ s\frac{\partial\rho}{\partial t} + s\mathbf{v}\cdot\nabla\rho + s\rho\nabla\cdot
 hinzu, folgt mit der Definition
 %
 \begin{eqnarray}
-\newtilde{s} \coloneqq \rho s.
+\newtilde{s} \coloneqq \rho s.\label{eq:def_entropy_density}
 \end{eqnarray}
 %
 die Gleichung
@@ -7889,14 +7889,23 @@ Hieraus soll ein Ausdruck für $\theta$ als Funktion von $s$ und der Massendicht
 \begin{eqnarray}
 f_1' = f_1'\left(\rho_d, \rho_v\right) & \coloneqq & \rho_dc_d^{(p)} + \rho_vc_v^{(p)},\\
 f_2 = f_1\left(\rho_d, \rho_v\right) & \coloneqq & \frac{\rho_d}{\newtilde{M}_d}\newtilde{c}_d'' + \frac{\rho_v}{\newtilde{M}_v}\newtilde{c}_v'',\\
-f_3' = f_3'\left(\rho_d, \rho_v, \theta\right) & \coloneqq & \rho_v\frac{\newtilde{M}_d}{\newtilde{M}_v}\Delta c_v^{(p)}\ln\left(\Pi\right) = \rho_v\frac{\newtilde{M}_d}{\newtilde{M}_v}\Delta c_v^{(p)}\frac{R_s}{c^{(v)}}\ln\left(\frac{\rho_hR_h\theta}{p_0}\right)
+f_3' = f_3'\left(\rho_d, \rho_v, \theta\right) & \coloneqq & \rho_v\frac{\newtilde{M}_d}{\newtilde{M}_v}\Delta c_v^{(p)}\ln\left(\Pi\right) = \rho_v\frac{\newtilde{M}_d}{\newtilde{M}_v}\Delta c_v^{(p)}\frac{R_d}{c_d^{(v)}}\ln\left(\frac{\rho_h'R_h\theta}{p_0}\right)
 \end{eqnarray}
 %
-definiert, wobei bei $f_3$ Glg. \eqref{eq:exner_pressure_diag} eingestzt wurde. $R_h$ ist eine Funktion von $\rho_d$ und $\rho_v$, für die Dichte der feuchten Luft gilt $\rho_h = \rho_d + \rho_v$. Weiter definiert man
+definiert, wobei bei $f_3$ Glg. \eqref{eq:exner_pressure_diag} eingestzt wurde. Dabei wurden die Ersetzungen
 %
 \begin{eqnarray}
-f_1 = f_1\left(\rho_d, \rho_v\right) & \coloneqq & f_1'\left(\rho_d, \rho_v\right) + \rho_v\frac{\newtilde{M}_d}{\newtilde{M}_v}\Delta c_v^{(p)}\frac{R_s}{c^{(v)}},\\
-f_3 = f_3\left(\rho_d, \rho_v\right) & \coloneqq & \rho_v\frac{\newtilde{M}_d}{\newtilde{M}_v}\Delta c_v^{(p)}\frac{R_s}{c^{(v)}}\ln\left(\frac{\rho_hR_h}{p_0}\right).
+\rho & \to & \rho_h',\\
+R_s & \to & R_h\text{ in der Basis},\\
+R_s & \to & R_d\text{ im Exponenten},\\
+c^{(v)} & \to & c_d^{(v)}\text{ im Exponenten}
+\end{eqnarray}
+%
+vorgenommen. $R_h$ ist eine Funktion von $\rho_d'$ und $\rho_v'$, für die Dichte der feuchten Luft gilt $\rho_h' = \rho_d' + \rho_v'$. Weiter definiert man
+%
+\begin{eqnarray}
+f_1 = f_1\left(\rho_d, \rho_v\right) & \coloneqq & f_1'\left(\rho_d, \rho_v\right) + \rho_v\frac{\newtilde{M}_d}{\newtilde{M}_v}\Delta c_v^{(p)}\frac{R_d}{c_d^{(v)}},\\
+f_3 = f_3\left(\rho_d, \rho_v\right) & \coloneqq & \rho_v\frac{\newtilde{M}_d}{\newtilde{M}_v}\Delta c_v^{(p)}\frac{R_d}{c_d^{(v)}}\ln\left(\frac{\rho_h'R_h}{p_0}\right).
 \end{eqnarray}
 %
 Man kann nun notieren
@@ -7910,6 +7919,63 @@ Somit gilt
 \begin{eqnarray}
 \theta = \exp\left(\frac{s - f_2 - f_3}{f_1}\right).
 \end{eqnarray}
+%
+Hieraus kann mit Glg. \eqref{eq:exner_pressure_diag} den Exner-Druck\index{Exner-Druck} diagnostizieren und anschließend die Temperatur der Gasphase über
+%
+\begin{eqnarray}
+T = \theta\Pi.
+\end{eqnarray}
+%
+Für die Druckgradientbeschleunigung erhält man in einer Übertragung der Herleitung von Glg. \eqref{eq:exner_pressure_gradient_acc}
+%
+\begin{eqnarray}
+\nabla p & = & \nabla\left(\rho_h'R_h\theta\Pi\right) = R_h\rho_h'\theta\nabla\Pi + R_h\Pi\nabla\left(\rho_h'\theta\right)
+\end{eqnarray}
+%
+Die Ortsabhängigkeit der individuellen Gaskonstante der feuchten Luft\index{feuchte Luft!indivduelle Gaskonstante}\index{Luft!feuchte!individuelle Gaskonstante}\index{Gaskonstante!individuelle!feuchter Luft} $R_h$ wurde dabei in einer Näherung vernachlässigt. Man rechnet weiter
+%
+\begin{eqnarray}
+-c_h^{(v)}\theta\rho_h'\nabla\Pi + R_h\Pi\nabla\left(\rho_h'\theta\right) & = & -\left(\frac{R_h}{p_0}\right)^{R_d/c_d^{(v)}}c_h^{(v)}\theta\rho_h'\nabla\left(\rho_h'\theta\right)^{R_d/c_d^{(v)}} + R_h\Pi\nabla\left(\rho_h'\theta\right)\nonumber\\
+ & = & R_h\left(\Pi - \left(\frac{R_h}{p_0}\right)^{R_d/c_d^{(v)}}\frac{R_dc_h^{(v)}}{R_hc_d^{(v)}}\left(\rho_h'\theta\right)^{R_d/c_d^{(v)}}\right)\nabla\left(\rho_h'\theta\right) = 0.
+\end{eqnarray}
+%
+Definiere nun
+%
+\begin{eqnarray}
+\xi_1 \coloneqq \frac{R_dc_h^{(v)}}{R_hc_d^{(v)}} - 1,
+\end{eqnarray}
+%
+dann folgt
+%
+\begin{eqnarray}
+-c_h^{(v)}\theta\rho_h'\nabla\Pi + R_h\Pi\nabla\left(\rho_h'\theta\right) & = & -R_h\left(\frac{R_h}{p_0}\right)^{R_d/c_d^{(v)}}\xi_1\left(\rho_h'\theta\right)^{R_d/c_d^{(v)}}\nabla\left(\rho_h'\theta\right).
+\end{eqnarray}
+%
+Somit kann man für die Druckgradientbeschleunigung\index{Druckgradientbeschleunigung} in einer feuchten Atmosphäre
+%
+\begin{eqnarray}
+-\frac{1}{\rho}\nabla p & = & -\frac{\rho_h'}{\rho}c_h^{(p)}\theta\nabla\Pi - \frac{R_h}{\rho}\left(\frac{R_h}{p_0}\right)^{R_d/c_d^{(v)}}\xi_1\left(\rho_h'\theta\right)^{R_d/c_d^{(v)}}\nabla\left(\rho_h'\theta\right)\nonumber\\
+& = & -\frac{\rho_h'}{\rho}c_h^{(p)}\theta\nabla\Pi - \frac{R_h}{\rho}\xi_1\Pi\nabla\left(\rho_h'\theta\right)\nonumber\\
+& = & -\frac{\rho_h'}{\rho}c_h^{(p)}\theta\nabla\Pi - \frac{R_h}{\rho}\xi_1\Pi\nabla\left(\frac{p_0}{R_h}\Pi^{c_d^{(v)}/R_d}\right)\nonumber\\
+& = & -\frac{\rho_h'}{\rho}c_h^{(p)}\theta\nabla\Pi - \frac{p_0}{\rho}\xi_1\Pi^{c_d^{(v)}/R_d - 1}\nabla\Pi\nonumber\\
+& = & -\frac{1}{\rho}\left[\rho_h'c_h^{(p)}\theta + p_0\xi_1\Pi^{c_d^{(v)}/R_d - 1}\right]\nabla\Pi
+\end{eqnarray}
+%
+schreiben. Definiere weiter
+%
+\begin{eqnarray}
+\xi_2 \coloneqq \frac{\rho_h'c_h^{(p)}}{c_d^{(p)}\rho} - 1,
+\end{eqnarray}
+%
+dann erhält man
+%
+\begin{eqnarray}
+-\frac{1}{\rho}\nabla p & = & -\left(\xi_2 + 1\right)c_d^{(p)}\theta\nabla\Pi - \frac{p_0}{\rho}\xi_1\Pi^{c_d^{(v)}/R_d - 1}\nabla\Pi\nonumber\\
+& = & -c_d^{(p)}\theta\nabla\Pi - \xi_2c_d^{(p)}\theta\nabla\Pi - \frac{p_0}{\rho}\xi_1\Pi^{c_d^{(v)}/R_d - 1}\nabla\Pi\nonumber\\
+& = & -c_d^{(p)}\theta\nabla\Pi - \left(\xi_2c_d^{(p)}\theta + \frac{p_0}{\rho}\xi_1\Pi^{c_d^{(v)}/R_d - 1}\right)\nabla\Pi.
+\end{eqnarray}
+%
+$\xi_1$ und $\xi_2$ stehen für den Unterschied gegenüber der trockenen Atmosphäre. 
 
 \subsection{Anwendungen}
 \label{sec:anwendungen}
@@ -8006,7 +8072,7 @@ Bei den Kondensaten nimmt man Inkompressibilität an, also $\Delta W_i = 0$. Als
 \item Sie ändern die Zusammensetzung der Bestandteile der Luft und ändern die Temperatur über Durchmischung.
 \end{itemize}
 %
-Der erste Punkt wird in Absch. \ref{sec:diabatie} näher beschrieben. Alle Wärmeflüsse, die pro Volumen auf die Phase $i$ wirken, werden zu einer Quellstärke $q_i$ zusammengefasst. Hier soll es um den zweiten Punkt gehen, das heißt es soll die Einwirkung von Massenflüssen auf die Temperatur $T_i$ untersucht werden. Glg. \eqref{eq:quelle_kondensat_masse} umfasst fünf Arten von Massenflüssen, nämlich
+Der erste Punkt wird in Absch. \ref{sec:konkretisierung_der_waermefluesse} näher beschrieben. Alle Wärmeflüsse, die pro Volumen auf die Phase $i$ wirken, werden zu einer Quellstärke $q_i$ zusammengefasst. Hier soll es um den zweiten Punkt gehen, das heißt es soll die Einwirkung von Massenflüssen auf die Temperatur $T_i$ untersucht werden. Glg. \eqref{eq:quelle_kondensat_masse} umfasst fünf Arten von Massenflüssen, nämlich
 %
 \begin{itemize}
 \item Phasenübergänge, bei denen neue Kondensatteilchen entstehen,
@@ -8410,32 +8476,19 @@ Dreht sich die kondensierte Erde mit fester Winkelgeschwindigkeit und gilt die k
 S = \int_A\newtilde{s}d^3r
 \end{eqnarray}
 %
-mit $\newtilde{s}$ wie in Glg. definiert. Die prognostische Gleichung dieser Größe ist Glg. \eqref{eq:td_1_id_gas_density_entropy}:
+mit $\newtilde{s}$ wie in Glg. \eqref{eq:def_entropy_density} definiert. Die prognostische Gleichung dieser Größe ist Glg. \eqref{eq:td_1_id_gas_density_entropy}:
 %
 \begin{eqnarray}
-\frac{\partial\newtilde{s}}{\partial t} + \nabla\cdot\left(\newtilde{s}\mathbf{v}\right) & = & c^{(v)}\left(\frac{\rho}{T}q_T + q_\rho\right)
+\frac{\partial\newtilde{s}}{\partial t} + \nabla\cdot\left(\newtilde{s}\mathbf{v}\right) & = & c^{(v)}\frac{\rho}{T}q_T
 \end{eqnarray}
 %
 Globale Integration liefert
 %
 \begin{eqnarray}
-\frac{dS}{dt} = \int_Ac^{(v)}\left(\frac{\rho}{T}q_T + q_\rho\right)d^3r.\label{eq:entropy_balance_global_pre}
+\frac{dS}{dt} = \int_Ac^{(v)}\frac{\rho}{T}q_Td^3r.\label{eq:entropy_balance_global_pre}
 \end{eqnarray}
 %
-In einer idealen adiabatischen einphasigen Atmosphäre laufen die Prozesse also reversibel\index{reversibel} ab. Die Quellterme $q_i$ entstehen in einer trockenen Atmosühäre ohne Strahlung durch Diffusion, also gilt
-%
-\begin{eqnarray}
-c^{(v)}\rho q_T & = & \nabla\cdot\left(\kappa_T\left(\mathbf{r}, t\right)\nabla T\right),\\
-q_\rho & = & \nabla\cdot\left(\kappa_\rho\left(\mathbf{r}, t\right)\nabla\rho\right).
-\end{eqnarray}
-%
-Somit fällt der Massenquellterm in Glg. \eqref{eq:entropy_balance_global_pre} weg, da die Atmosphäre an dieser Stelle als geschlossenes System angenommen wird. Das verbleibende Integral
-%
-\begin{eqnarray}
-\int_A\frac{c^{(v)}\rho q_T}{T}d^3
-\end{eqnarray}
-%
-ist nichtnegativ, da der Wärmefluss positiv in kälteren und negativ in wärmeren Gebieten ist. Somit gilt
+Dieses Integral nichtnegativ, da der Wärmefluss positiv in kälteren und negativ in wärmeren Gebieten ist. Somit gilt
 %
 \begin{center}
 \doublebox{\parbox{0.8\textwidth}{
@@ -8447,7 +8500,7 @@ ist nichtnegativ, da der Wärmefluss positiv in kälteren und negativ in wärmer
 }}
 \end{center}
 %
-Für die innere Energie\index{innere Energie}\index{Energie!innere} $I$ einer einphasigen Atmosphäre gilt
+In einer idealen adiabatischen einphasigen Atmosphäre laufen die Prozesse reversibel\index{reversibel} ab. Für die innere Energie\index{innere Energie}\index{Energie!innere} $I$ einer einphasigen Atmosphäre gilt
 %
 \begin{eqnarray}
 I = \int_A\newtilde{I}d^3r.
@@ -9183,7 +9236,7 @@ so gilt dies natürlich auch. An das Vektorpotential stellt man nun statt der Be
 \mathbf{A}\hastobe\left(\mathbf{k}\cdot {\mathbf{A}}\right)\mathbf{k}
 \end{eqnarray}
 %
-und definiert eine \textit{Stromfunktion}\index{Stromfunktion} $\psi = \psi\left(\varphi, \lambda\right) \coloneqq - \mathbf{k}\cdot\mathbf{A}$. Dann gilt mit Glg. \eqref{eq:er_rot}
+und definiert eine \textit{Stromfunktion}\index{Stromfunktion} $\psi = \psi\left(\varphi, \lambda\right) \coloneqq - \mathbf{k}\cdot\mathbf{A}$. Dann gilt
 %
 \begin{eqnarray}
 \mathbf{v}_{h,{\text{nondiv}}} & = & \nabla\times\left[-\mathbf{k}\psi\right]\stackrel{\eqref{eq:diff_op_rule_5}}{=}\mathbf{k}\times\nabla\psi.
@@ -9192,7 +9245,7 @@ und definiert eine \textit{Stromfunktion}\index{Stromfunktion} $\psi = \psi\left
 Zur Überprüfung rechnet man
 %
 \begin{eqnarray}
-\nabla\cdot\left(\mathbf{k}\times\nabla\psi\right)&\stackrel{\text{Glg. }\eqref{eq:diff_op_rule_9}}{=}&\nabla\psi\cdot\left(\nabla\times\mathbf{k}\right) - \mathbf{k}\cdot\left(\nabla\times\nabla\psi\right)\stackrel{\text{Glg. }\eqref{eq:er_rot}}{=}\mathbf{0}.
+\nabla\cdot\left(\mathbf{k}\times\nabla\psi\right)&\stackrel{\text{Glg. }\eqref{eq:diff_op_rule_9}}{=}&\nabla\psi\cdot\left(\nabla\times\mathbf{k}\right) - \mathbf{k}\cdot\left(\nabla\times\nabla\psi\right) = \mathbf{0}.
 \end{eqnarray}
 %
 Man definiert
@@ -9783,7 +9836,7 @@ Es ist für die Hereitung sinnvoll, hier ein $\mathbf{g}$ zu addieren und $-\nab
 \nabla\cdot\frac{\partial\mathbf{v}_{h, g}}{\partial t}&\stackrel{\eqref{eq:diff_op_rule_4}}{=}&\frac{\partial\delta}{\partial t}, \nonumber\\
 - \nabla\cdot\nabla\phi & = & -\Delta\phi, \nonumber\\
 - \nabla\cdot\left(f\mathbf{k}\times\mathbf{v}_{h, g}\right)&\stackrel{\eqref{eq:diff_op_rule_9}}{=}& -\mathbf{v}_{h, g}\cdot\left[\nabla\times\left(f\mathbf{k}\right)\right] + f\mathbf{k}\cdot\left(\nabla\times\mathbf{v}_{h, g}\right)\stackrel{\eqref{eq:diff_op_rule_5}}{=} - \mathbf{v}_{h, g}\cdot\left[-\mathbf{k}\times\nabla f + f\nabla\times\mathbf{k}\right] + f\zeta\nonumber\\
-&\stackrel{\eqref{eq:er_rot}}{=}&\mathbf{v}_{h, g}\cdot\left(\mathbf{k}\times\beta\mathbf{j}\right) + f\zeta = -u\beta + f\zeta, \nonumber\\
+& = &\mathbf{v}_{h, g}\cdot\left(\mathbf{k}\times\beta\mathbf{j}\right) + f\zeta = -u\beta + f\zeta, \nonumber\\
 \nabla\cdot\left(-\omega\frac{\partial\mathbf{v}_{h, g}}{\partial p}\right)&\stackrel{\eqref{eq:diff_op_rule_3}}{=}& -\omega\frac{\partial\delta}{\partial p} - \frac{\partial\mathbf{v}_{h, g}}{\partial p}\cdot\nabla\omega.
 \end{eqnarray}
 %
@@ -15541,7 +15594,7 @@ Mit der Umskalierung auf normierte Basiselemente erhält man
 \nabla\times\mathbf{v} & = & \frac{1}{r^2\sin\left(\theta\right)}\Bigg[\mathbf{e}_r\left(\frac{\partial\left(r\sin\left(\theta\right)\newtilde{v}_\phi\right)}{\partial\theta} - \frac{\partial\left(r\newtilde{v}_\theta\right)}{\partial\phi}\right) + r\mathbf{e}_\theta\left(\frac{\partial\newtilde{v}_r}{\partial\phi} - \frac{\partial\left(r\sin\left(\theta\right)\newtilde{v}_\phi\right)}{\partial r}\right)\nonumber\\
 && + r\sin\left(\theta\right)\mathbf{e}_\phi\left(\frac{\partial\left(r\newtilde{v}_\theta\right)}{\partial r} - \frac{\partial\newtilde{v}_r}{\partial\theta}\right)\Bigg]\nonumber\\
 & = & \frac{\newtilde{v}_\theta}{r}\mathbf{e}_\phi + \frac{\newtilde{v}_\phi}{r\tan\left(\theta\right)}\mathbf{e}_r - \frac{\newtilde{v}_\phi}{r}\mathbf{e}_\theta + \mathbf{e}_r\left(\frac{1}{r}\frac{\partial\newtilde{v}_\phi}{\partial\theta} - \frac{1}{r\sin\left(\theta\right)}\frac{\partial\newtilde{v}_\theta}{\partial\phi}\right)\nonumber\\
-&& + \mathbf{e}_\theta\left(\frac{1}{r\sin\left(\theta\right)}\frac{\partial\newtilde{v}_r}{\partial\phi} - \frac{\partial\newtilde{v}_\phi}{\partial r}\right) + \mathbf{e}_\phi\left(\frac{\partial \newtilde{v}_\theta}{\partial r} - \frac{1}{r}\frac{\partial\newtilde{v}_r}{\partial\theta}\right)\label{eq:rot_kugel}
+&& + \mathbf{e}_\theta\left(\frac{1}{r\sin\left(\theta\right)}\frac{\partial\newtilde{v}_r}{\partial\phi} - \frac{\partial\newtilde{v}_\phi}{\partial r}\right) + \mathbf{e}_\phi\left(\frac{\partial \newtilde{v}_\theta}{\partial r} - \frac{1}{r}\frac{\partial\newtilde{v}_r}{\partial\theta}\right)\label{eq:rot_sphere}
 \end{eqnarray}
 %
 Für die Geschwindigkeitsadvektion\index{Geschwindigkeitsadvektion!Kugelkoordinaten}\index{Kugelkoordinaten!Geschwindigkeitsadvektion} verwendet man die Weber-Transformation\index{Weber-Transformation} Glg. \eqref{eq:diff_op_rule_10}
@@ -15635,7 +15688,7 @@ Die letzte Identität transformiert in die gewöhnlichen Kugelkoordinaten. Analo
 & = & \frac{\partial^2}{\partial z^2} + \frac{\partial ^2}{\partial x^2} + \frac{\partial ^2}{\partial y^2} + \frac{2}{r}\frac{\partial}{\partial z} - \frac{\tan\left(\varphi\right)}{r}\frac{\partial}{\partial y}.\label{eq:laplace_geographische}
 \end{eqnarray}
 %
-Glg. \eqref{eq:div_kugel} wird zu
+Glg. \eqref{eq:div_sphere} wird zu
 %
 \begin{eqnarray}
 \nabla\cdot\mathbf{v} & = & \frac{\partial v_z}{\partial r} + \frac{1}{r}\frac{\partial v_y}{\partial\varphi} + \frac{1}{r\cos\left(\varphi\right)}\frac{\partial v_x}{\partial\lambda} + \frac{2v_z}{r} - \frac{v_y\tan\left(\varphi\right)}{r} = \nabla\cdot\mathbf{v}\nonumber\\
@@ -15648,7 +15701,7 @@ Ist $\mathbf{v} = \left(u, v, w\right)^T$ der Windvektor, folgt
 \nabla\cdot\mathbf{v} & = & \frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} + \frac{\partial w}{\partial z} - \frac{v\tan\left(\varphi\right)}{r} + \frac{2w}{r}.
 \end{eqnarray}
 %
-Glg. \eqref{eq:rot_kugel} wird zu
+Glg. \eqref{eq:rot_sphere} wird zu
 %
 \begin{eqnarray}
 \nabla\times\mathbf{v} & = & -\frac{v_y}{r}\mathbf{i} + \frac{v_x\tan\left(\varphi\right)}{r}\mathbf{k} + \frac{v_x}{r}\mathbf{j} + \mathbf{k}\left(-\frac{1}{r}\frac{\partial v_x}{\partial\varphi} + \frac{1}{r\cos\left(\varphi\right)}\frac{\partial v_y}{\partial\lambda}\right)\nonumber\\
