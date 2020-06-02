@@ -7557,6 +7557,8 @@ hinzu, folgt
 \end{center}
 }}
 \end{center}
+%
+Diese Form bezeichnet man auch als \textit{Flussform}\index{Flussform}, wohingegen Glg. \eqref{eq:td1_dry_pot} \textit{Advektionsform}\index{Advektionsform} hat. Die Flussform lässt sich als eine formale Kontinuitätsgleichung verstehen.
 
 \subsubsection{Druck als prognostische Variable}
 \label{sec:druck_als_prognostische_variable}
@@ -8380,9 +8382,15 @@ Die prognostische Gleichung der spezifischen kinetischen Energie\index{spezifisc
 %
 Multipliziert man diese Gleichung mit $\rho$ und addiert das Produkt der Kontinuitätsgleichung mit $k$ dazu, erhält man
 %
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 \begin{eqnarray}
-\md{K} = \frac{\partial K}{\partial t} + \mathbf{v}\cdot\nabla K = -\mathbf{v}\cdot\nabla p - \rho wg - K\nabla\cdot\mathbf{v} + \rho\mathbf{v}\cdot\mathbf{F}_R
+\md{K} = \frac{\partial K}{\partial t} + \mathbf{v}\cdot\nabla K = -\mathbf{v}\cdot\nabla p - \rho wg - K\nabla\cdot\mathbf{v} + \rho\mathbf{v}\cdot\mathbf{F}_R\label{eq:kin_energy_density_flux_form}
 \end{eqnarray}
+\end{center}
+}}
+\end{center}
 %
 als prognostische Gleichung für die \index{kinetische Energiedichte}\index{Energiedichte!kinetische}kinetische Energiedichte $K = \frac{1}{2}\rho\mathbf{v}^2$. Als prognostische Gleichung für die spezifische geopotentielle Energie\index{Geopotential} $\phi$ erhält man
 %
@@ -8392,9 +8400,15 @@ als prognostische Gleichung für die \index{kinetische Energiedichte}\index{Ener
 %
 Multipliziert man diese Gleichung mit $\rho$ und addiert das Produkt der Kontinuitätsgleichung mit $\phi$ dazu, erhält man
 %
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 \begin{eqnarray}
-\md{P} = \frac{\partial P}{\partial t} + \mathbf{v}\cdot\nabla P = \rho wg - P\nabla\cdot\mathbf{v}
+\md{P} = \frac{\partial P}{\partial t} + \mathbf{v}\cdot\nabla P = \rho wg - P\nabla\cdot\mathbf{v}\label{eq:pot_energy_density_flux_form}
 \end{eqnarray}
+\end{center}
+}}
+\end{center}
 %
 als prognostische Gleichung für die geopotentielle Energiedichte $P = \rho\phi$. Als prognostische Gleichung für die spezifische innere Energie\index{innere Energie}\index{Energie!innere} $i = c^{(v)}T$ erhält man
 %
@@ -8404,9 +8418,15 @@ als prognostische Gleichung für die geopotentielle Energiedichte $P = \rho\phi$
 %
 Multipliziert man diese Gleichung mit $\rho$ und addiert das Produkt der Kontinuitätsgleichung mit $i$ dazu, erhält man
 %
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 \begin{eqnarray}
 \md{\newtilde{I}} = \frac{\partial\newtilde{I}}{\partial t} + \mathbf{v}\cdot\nabla\newtilde{I} = -\left(p + \newtilde{I}\right)\nabla\cdot\mathbf{v} - \rho\mathbf{v}\cdot\mathbf{F}_R\label{eq:internal_energy_prognostic}
 \end{eqnarray}
+\end{center}
+}}
+\end{center}
 %
 als prognostische Gleichung für die kinetische Energiedichte $\newtilde{I} \coloneqq \rho i$. Die Energiedichte\index{Energiedichte} $e$ ist die Summe aus kinetischer, potentieller und innerer Energie pro Volumen, 
 %
@@ -8422,9 +8442,15 @@ Die totale Ableitung hiervon ergibt sich unter Verwendung der gerade hergeleitet
 %
 Damit folgt
 %
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 \begin{eqnarray}
 \frac{\partial e}{\partial t} & = & -\nabla\cdot\left(p\mathbf{v}\right) - \nabla\cdot\left(e\mathbf{v}\right) \Leftrightarrow\frac{\partial e}{\partial t} + \nabla\cdot\left(e\mathbf{v}\right) = -\nabla\cdot\left(p\mathbf{v}\right).\label{eq:poynting_met}
 \end{eqnarray}
+\end{center}
+}}
+\end{center}
 %
 Dies bezeichnet man auch als das \textit{Poynting-Theorem der Meteorologie}\index{Poynting-Theorem!Meteorologie} in Analogie zum Poynting-Theorem der ED Glg. \eqref{eq:poynting_theorem}. Als Spezialfall von Glg. \eqref{eq:bernoulli_pre} erhält man für stationäre Strömungen inkompressibler Medien wegen
 %
@@ -8435,9 +8461,15 @@ Dies bezeichnet man auch als das \textit{Poynting-Theorem der Meteorologie}\inde
 %
 die Gleichung
 %
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 \begin{eqnarray}
 \md{}\left(K + P + p\right) = 0,
 \end{eqnarray}
+\end{center}
+}}
+\end{center}
 %
 was man als \textit{Bernoulli-Gleichung}\index{Bernoulli-Gleichung} bezeichnet. Weitere Formen dieser Aussage sind
 %
@@ -8500,19 +8532,57 @@ Dieses Integral nichtnegativ, da der Wärmefluss positiv in kälteren und negati
 }}
 \end{center}
 %
-In einer idealen adiabatischen einphasigen Atmosphäre laufen die Prozesse reversibel\index{reversibel} ab. Für die innere Energie\index{innere Energie}\index{Energie!innere} $I$ einer einphasigen Atmosphäre gilt
+In einer idealen adiabatischen einphasigen Atmosphäre laufen die Prozesse reversibel\index{reversibel} ab. Für die Zeitableitung der inneren Energie\index{innere Energie}\index{Energie!innere} einer einphasigen Atmosphäre gilt mit Glg. \eqref{eq:internal_energy_prognostic}
 %
 \begin{eqnarray}
-I = \int_A\newtilde{I}d^3r.
+\frac{d}{dt}\int_A\newtilde{I}d^3r = \frac{d}{dt}\int_A-p\nabla\cdot\mathbf{v} - \rho\mathbf{v}\cdot\mathbf{F}_Rd^3r = \int_A\mathbf{v}\cdot\nabla p - \rho\mathbf{v}\cdot\mathbf{F}_Rd^3r.
 \end{eqnarray}
 %
-Für die Zeitableitung dieser Größe erhält man mit Glg. \eqref{eq:internal_energy_prognostic}
+Die Bilanz der Enthalpie\index{Enthalpie} erhält man durch Multiplikation dieser Gleichung mit dem Adiabatenexponenten $\kappa = \frac{c^{(p)}}{c^{(v)}}$. Analog erhält man für die kinetische bzw. potentielle Energie
 %
 \begin{eqnarray}
-\frac{dI}{dt} & = & \int_A-p\nabla\cdot\mathbf{v} - \rho\mathbf{v}\cdot\mathbf{F}_Rd^3r = \int_A\mathbf{v}\cdot\nabla p - \rho\mathbf{v}\cdot\mathbf{F}_Rd^3r.
+\frac{d}{dt}\int_AKd^3r & \stackrel{\text{Glg. \eqref{eq:kin_energy_density_flux_form}}}{=} & \int_A-\mathbf{v}\cdot\nabla p - \rho wg + \rho\mathbf{v}\cdot\mathbf{F}_Rd^3r,\\
+\frac{d}{dt}\int_APd^3r & \stackrel{\text{Glg. \eqref{eq:pot_energy_density_flux_form}}}{=} & \int_A\rho wgd^3r.
 \end{eqnarray}
 %
-Die Bilanz der Enthalpie\index{Enthalpie} erhält man durch Multiplikation dieser Gleichung mit dem Adiabatenexponenten $\kappa = \frac{c^{(p)}}{c^{(v)}}$.
+Somit folgt
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{eqnarray}
+\frac{d}{dt}\int_A\newtilde{I} + Pd^3r & = & D - C,\\
+\frac{d}{dt}\int_A K d^3r & = & C - D
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
+%
+mit der \textit{adiabatischen Konversion}\index{adiabatische Konversion}\index{Konversion!adiabatische}
+%
+\begin{eqnarray}
+C & \coloneqq & \int_A-\mathbf{v}\cdot\nabla p - \rho wgd^3r
+\end{eqnarray}
+%
+und der Dissipation\index{Dissipation}
+%
+\begin{eqnarray}
+D & \coloneqq & \int_A - \rho\mathbf{v}\cdot\mathbf{F}_Rd^3r.
+\end{eqnarray}
+%
+Die adiabatische Konversion steht für die Umwandlung von potentieller und innerer Energie in kinetische Energie. Dies geschieht, indem der Druckgradient und die Schwere Arbeit leisten. In der Impulsgleichung kann man daher die Zuordnung
+%
+\begin{eqnarray}
+\underbrace{\overbrace{\frac{\partial\mathbf{v}}{\partial t}}^{\text{lokalzeitl. Änderung}} = \overbrace{-\left(\mathbf{v}\cdot\nabla\right)\mathbf{v} - \mathbf{f}\times\mathbf{v}}^{\text{Advektion}} \overbrace{- \frac{1}{\rho}\nabla p + \mathbf{g}}^{\text{adiabatische Konversion}}}_{\text{reversibel}} + \underbrace{\overbrace{\mathbf{F}_R}^{\text{Dissipation}}}_{\text{irreversibel}} 
+\end{eqnarray}
+%
+bzw.
+%
+\begin{eqnarray}
+\underbrace{\overbrace{\frac{\partial\mathbf{v}}{\partial t}}^{\text{lokalzeitl. Änderung}} = \overbrace{\mathbf{v}\times\etabi}^{\text{Advektion}} \overbrace{- \frac{1}{\rho}\nabla p + \mathbf{g}}^{\text{adiabatische Konversion}}}_{\text{reversibel}} + \underbrace{\overbrace{\mathbf{F}_R}^{\text{Dissipation}}}_{\text{irreversibel}} 
+\end{eqnarray}
+%
+vornehmen.
 
 Für den Gesamtimpuls $\mathbf{P}$ der Atmosphäre\index{Gesamtimpuls der Atmosphäre}\index{Atmosphäre!Gesamtimpuls}\index{Impuls!der Atmosphäre} gilt
 %
