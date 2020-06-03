@@ -796,7 +796,7 @@ Dies sind für $1\leq k\leq f$ die \textit{Lagrange-Gleichungen 2. Art}.\index{L
 \subsection{Hamilton-Formalismus}
 \label{sec:hamiltonformalismus}\index{Hamilton-Formalismus}
 
-Der Hamilton-Formalismus bringt keine praktischen Vorteile gegenüber der Lagrange'schen Formulierung, jedoch ist er wichtig für den Übergang zur Quantenmechanik. Deshalb sei auch er hier kurz vorgestellt. Man definiert zunächst die \index{Impuls!kanonischer}\index{kanonischer Impuls}\textit{kanonischen Impulse} durch
+Man definiert zunächst die \index{Impuls!kanonischer}\index{kanonischer Impuls}\textit{kanonischen Impulse} durch
 %
 \begin{eqnarray}
 p_i \coloneqq\frac{\partial L}{\partial\newdot{q}_i}
@@ -814,21 +814,92 @@ Die \index{Hamilton-Funktion}\textit{Hamilton-Funktion} $H$ wird definiert durch
 H\left(q, p, t\right) \coloneqq \sum_{i = 1}^{f}\newdot{q}_i\left(q, p, t\right)p_i - L\left(q, \newdot{q}\left(q, p, t\right), t\right).
 \end{eqnarray}
 %
-Die \textit{Hamilton'schen Gleichungen}\index{Bewegungsgleichung!Hamilton-Formalismus}\index{Hamilton'sche Bewegungsgleichung} folgen durch partielles Differenzieren:
+Die \textit{Hamilton'schen Gleichungen}\index{Bewegungsgleichung!Hamilton-Formalismus}\index{Hamilton'sche Bewegungsgleichung} oder auch \textit{kanonische Gleichungen}\index{kanonische Gleichung}\index{Gleichung!kanonische} folgen durch partielles Differenzieren:
 %
 \begin{center}
 \doublebox{\parbox{\textwidth}{
 \begin{center}
 \begin{eqnarray}
-\frac{\partial H}{\partial q_k} & = & \sum_{i = 1}^{f}\frac{\partial\newdot{q}_i}{\partial q_k}p_i - \frac{\partial L}{\partial q_k} - \sum_{i = 1}^{f}\frac{\partial L}{\partial\newdot{q}_i}\frac{\partial\newdot{q}_i}{\partial q_k} = -\frac{\partial L}{\partial q_k} = -\frac{d}{dt}\left(\frac{\partial L}{\partial\newdot{q}_k}\right) = -\newdot{p}_k\\
-\frac{\partial H}{\partial p_k} & = & \sum_{i = 1}^{f}\frac{\partial\newdot{q}_i}{\partial p_k}p_i + \newdot{q}_k - \sum_{i = 1}^{f}\frac{\partial L}{\partial\newdot{q}_i}\frac{\partial\newdot{q}_i}{\partial p_k} = \newdot{q}_k\\
-\frac{\partial H}{\partial t} & = & \sum_{i = 1}^{f}\frac{\partial\newdot{q}_i}{\partial t}p_i - \sum_{i = 1}^{f}\frac{\partial L}{\partial\newdot{q}_i}\frac{\partial\newdot{q}_i}{\partial t} - \frac{\partial L}{\partial t} = -\frac{\partial L}{\partial t}
+\frac{\partial H}{\partial q_k} & = & \sum_{i = 1}^{f}\frac{\partial\newdot{q}_i}{\partial q_k}p_i - \frac{\partial L}{\partial q_k} - \sum_{i = 1}^{f}\frac{\partial L}{\partial\newdot{q}_i}\frac{\partial\newdot{q}_i}{\partial q_k} = -\frac{\partial L}{\partial q_k} = -\frac{d}{dt}\left(\frac{\partial L}{\partial\newdot{q}_k}\right) = -\newdot{p}_k\label{eq:hamilton_0}\\
+\frac{\partial H}{\partial p_k} & = & \sum_{i = 1}^{f}\frac{\partial\newdot{q}_i}{\partial p_k}p_i + \newdot{q}_k - \sum_{i = 1}^{f}\frac{\partial L}{\partial\newdot{q}_i}\frac{\partial\newdot{q}_i}{\partial p_k} = \newdot{q}_k\label{eq:hamilton_1}\\
+\frac{\partial H}{\partial t} & = & \sum_{i = 1}^{f}\frac{\partial\newdot{q}_i}{\partial t}p_i - \sum_{i = 1}^{f}\frac{\partial L}{\partial\newdot{q}_i}\frac{\partial\newdot{q}_i}{\partial t} - \frac{\partial L}{\partial t} = -\frac{\partial L}{\partial t}\label{eq:hamilton_2}
 \end{eqnarray}
 \end{center}
 }}
 \end{center}
 %
 Den Raum der $\left(q, p\right)$ nennt man \textit{Phasenraum}.\index{Phasenraum}
+
+\subsubsection{Poisson-Klammer}
+\label{sec:poisson-klammer}\index{Poisson-Klammer}
+
+Zwei beliebige Größen $F$, $K$ können nur von $\left(q, p, t\right)$ abhängen. Man definiert die \textit{Poisson-Klammer} $\lbrace F, K\rbrace$ von $F$ und $K$ durch
+%
+\begin{eqnarray}
+\lbrace F, K\rbrace \coloneqq \sum_{i = 1}^f\left(\frac{\partial F}{\partial q_i}\frac{\partial K}{\partial p_i} - \frac{\partial F}{\partial p_i}\frac{\partial K}{\partial q_i}\right).
+\end{eqnarray}
+%
+Hieraus folgen unmittelbar
+%
+\begin{eqnarray}
+\lbrace F, K\rbrace & = & -\lbrace K, F\rbrace,\\
+\lbrace F, F\rbrace & = & 0.
+\end{eqnarray}
+%
+Im Hamilton-Formalismus gelten
+%
+\begin{eqnarray}
+\frac{\partial q_i}{\partial q_j} & = & \delta_{i, j},\\
+\frac{\partial q_i}{\partial p_j} & = & 0,\\
+\frac{\partial q_i}{\partial t} & = & 0,\\
+\frac{\partial p_i}{\partial q_j} & = & 0,\\
+\frac{\partial p_i}{\partial p_j} & = & \delta_{i, j},\\
+\frac{\partial p_i}{\partial t} & = & 0.
+\end{eqnarray}
+%
+Weiterhin sind
+%
+\begin{eqnarray}
+\lbrace F, q_j\rbrace & = & -\frac{\partial F}{\partial p_j},\\
+\lbrace F, p_j\rbrace & = & \frac{\partial F}{\partial q_j}.
+\end{eqnarray}
+%
+Hieraus folgen weiter
+%
+\begin{eqnarray}
+\lbrace q_i, q_j\rbrace & = & 0,\\
+\lbrace p_i, p_j\rbrace & = & 0,\\
+\lbrace p_i, q_j\rbrace & = & -\delta_{i, j}.
+\end{eqnarray}
+%
+Für die totale Zeitableitung\index{totale Zeitableitung}\index{Zeitableitung!totale} von $F$ erhält man nun
+%
+\begin{eqnarray}
+\frac{dF}{dt} = \sum_{i = 1}^f\frac{\partial F}{\partial q_i}\newdot{q}_i + \sum_{i = 1}^f\frac{\partial F}{\partial p_i}\newdot{p}_i + \frac{\partial F}{\partial t} = \sum_{i = 1}^f\frac{\partial F}{\partial q_i}\frac{\partial H}{\partial p_i} - \sum_{i = 1}^f\frac{\partial F}{\partial p_i}\frac{\partial H}{\partial q_i} + \frac{\partial F}{\partial t}
+\end{eqnarray}
+%
+\begin{center}
+\doublebox{\parbox{\textwidth}{
+\begin{center}
+\begin{eqnarray}
+\Leftrightarrow \frac{dF}{dt} = \lbrace F, H\rbrace + \frac{\partial F}{\partial t}.\label{eq:poisson_bracket_prop_0}
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
+%
+Dies impliziert
+%
+\begin{eqnarray}
+\frac{dH}{dt} = \frac{\partial H}{\partial t}.
+\end{eqnarray}
+%
+Die Hamilton-Funktion\index{Hamilton-Funktion} ist also genau dann konstant, wenn sie nicht explizit von der Zeit abhängt. Aus Glg. \eqref{eq:poisson_bracket_prop_0} folgen die Glg.en \eqref{eq:hamilton_0} - \eqref{eq:hamilton_1} in der Form
+%
+\begin{eqnarray}
+\newdot{p}_i & = & \lbrace p_i, H\rbrace,\\
+\newdot{q}_i & = & \lbrace q_i, H\rbrace.
+\end{eqnarray}
 
 \section{Elektrodynamik}
 \label{sec:elektrodynamik}\index{Elektrodynamik}
