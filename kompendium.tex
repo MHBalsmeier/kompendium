@@ -7066,7 +7066,7 @@ Nimmt man einen homogenen Untergrund $b$ an, sowie eine mittlere Tiefe $D$, der 
 \frac{\partial\mathbf{v}}{\partial t} & = & -g\nabla d - f\mathbf{k}\times\mathbf{v}, \label{eq:flach_lin_1}\\
 \frac{\partial d}{\partial t} + D\nabla\cdot\mathbf{v} & = & 0.\label{eq:flach_lin_2}
 \end{eqnarray}
-%
+
 \section{Generalisierte Vertikalkoordinaten}
 \label{sec:generalisierte_vertikalkoordinaten}\index{generalisierte Vertikalkoordinate}\index{Vertikalkoordinate!generalisierte}
 
@@ -7805,6 +7805,18 @@ mit einer beliebigen Konstante $\newtilde{c}$, dann wird aus Glg. \eqref{eq:td_1
 %
 Möchte man $c''$ also loswerden, möchte man also $c^{(p)}\ln\left(\theta\right)$ direkt als Ausdruck für die Entropie verwenden, so geht dies nur unter Vernachlässigung von Massenquelltermen. Diese tragen nicht zur Evolution der Entropiedichte bei.
 
+Mit der Bezeichnungsänderung
+%
+\begin{eqnarray}
+c \to \frac{c''}{M}
+\end{eqnarray}
+%
+ergibt sich als Diagnostik\index{Diagnostik} für die potentielle Temperatur
+%
+\begin{eqnarray}
+\theta = \exp\left(\frac{s - c}{c^{(p)}}\right) = \exp\left(\frac{\frac{\newtilde{s}}{\rho} - c}{c^{(p)}}\right) = \exp\left(-\frac{c}{c^{(p)}}\right)\exp\left(\frac{\newtilde{s}}{c^{(p)}\rho}\right).\label{eq:pot_temp_entropy_diagnostics}
+\end{eqnarray}
+
 \subsection{Ideales Gasgemisch mit homogener Zusammensetzung}
 \label{sec:ideales_gasgemisch_mit_homogener_zusammensetzung}
 
@@ -7922,7 +7934,7 @@ Somit gilt
 \theta = \exp\left(\frac{s - f_2 - f_3}{f_1}\right).
 \end{eqnarray}
 %
-Hieraus kann mit Glg. \eqref{eq:exner_pressure_diag} den Exner-Druck\index{Exner-Druck} diagnostizieren und anschließend die Temperatur der Gasphase über
+Im Falle $\rho_v = 0$ ergibt sich der korrekte Grenzfall Glg. \eqref{eq:pot_temp_entropy_diagnostics}. Hieraus kann mit Glg. \eqref{eq:exner_pressure_diag} den Exner-Druck\index{Exner-Druck} diagnostizieren und anschließend die Temperatur der Gasphase über
 %
 \begin{eqnarray}
 T = \theta\Pi.
@@ -8131,17 +8143,102 @@ Dabei wurde in der Notation explizit berücksichtigt, dass die isochore spezifis
 }}
 \end{center}
 
+\section{Anwendung des Hamilton-Formalismus auf die Atmosphäre}
+\label{sec:anwendung_des_hamilton-formalismus_auf_die_atmosphaere}\index{Hamilton-Formalismus!Atmosphäre}\index{Atmosphäre!Hamiltonä-Formalismus}
+
+\subsection{Trockene Atmosphäre}
+\label{sec:trockene_atmosphaere}
+
+Die Hamilton-Funktion\index{Hamilton-Funktion!Atmosphäre}\index{Atmosphäre!Hamilton-Funktion} $H$ einer trockenen Atmosphäre $A \subseteq \mathbb{R}^3$ lautet mit den generalisierten Zustandskoordianten $\mathbf{v}, \rho, \newtilde{T} \coloneqq \rho T$
+%
+\begin{eqnarray}
+H = H\left(\mathbf{v}, \rho, \newtilde{T}\right) = \int_A\frac{1}{2}\rho\mathbf{v}^2 + \rho\phi + c_d^{(v)}\newtilde{T}d^3r.
+\end{eqnarray}
+%
+Die Funktionalableitungen hiervon sind
+%
+\begin{eqnarray}
+\frac{\delta H}{\delta\mathbf{v}} & = & \rho\mathbf{v},\\
+\frac{\delta H}{\delta\rho} & = & \frac{1}{2}\mathbf{v}^2 + \phi,\\
+\frac{\delta H}{\delta\newtilde{T}} & = & c_d^{(v)}.
+\end{eqnarray}
+%
+Verwendet man anstatt der Temperatur die potentielle Temperatur\index{potentielle Temperatur}\index{Temperatur!potentielle} und definiert
+%
+\begin{eqnarray}
+\newtilde{\theta} \coloneqq \rho\theta,
+\end{eqnarray}
+%
+folgt mit Glg. \eqref{eq:state_theta}
+%
+\begin{eqnarray}
+H & = & H\left(\mathbf{v}, \rho, \newtilde{\theta}\right) = \int_A\frac{1}{2}\rho\mathbf{v}^2 + \rho\phi + c_d^{(v)}\frac{p\left(\rho, \newtilde{\theta}\right)}{R_d}d^3r\nonumber\\
+& = & \int_A\frac{1}{2}\rho\mathbf{v}^2 + \rho\phi + c_d^{(v)}\frac{p_0}{R_d}\left(\frac{R_d\newtilde{\theta}}{p_0}\right)^\kappa d^3r.
+\end{eqnarray}
+%
+Die Funktionalableitungen hiervon sind
+%
+\begin{eqnarray}
+\frac{\delta H}{\delta\mathbf{v}} & = & \rho\mathbf{v},\\
+\frac{\delta H}{\delta\rho} & = & \frac{1}{2}\mathbf{v}^2 + \phi,\\
+\frac{\delta H}{\delta\newtilde{\theta}} & = & c_d^{(v)}\frac{p_0}{R_d}\frac{R_d}{p_0}\kappa\left(\frac{R_d\newtilde{\theta}}{p_0}\right)^{\kappa - 1} = c_d^{(p)}\left(\frac{R_d\newtilde{\theta}}{p_0}\right)^{\kappa - 1} = c_d^{(p)}\left(\frac{R_d\newtilde{\theta}}{p_0}\right)^{\frac{R_d}{c_d^{(v)}}} \stackrel{\text{Glg. \eqref{eq:exner_pressure_diag}}}{=} c_d^{(p)}\Pi.
+\end{eqnarray}
+%
+Dies motiviert die Definition des Exner-Drucks\index{Exner-Druck} Glg. \eqref{eq:def_exner-druck}.
+
+Verwendet man anstatt der potentiellen Temperatur die Entropie\index{Entropie} und definiert
+%
+\begin{eqnarray}
+\newtilde{s} \coloneqq \rho s,
+\end{eqnarray}
+%
+folgt mit Glg. \eqref{eq:state_theta}
+%
+\begin{eqnarray}
+H & = & H\left(\mathbf{v}, \rho, \newtilde{\theta}\right) = \int_A\frac{1}{2}\rho\mathbf{v}^2 + \rho\phi + c_d^{(v)}\frac{s\left(\rho, \newtilde{\theta}\right)}{R_d}d^3r\nonumber\\
+& = & \int_A\frac{1}{2}\rho\mathbf{v}^2 + \rho\phi + c_d^{(v)}\frac{p_0}{R_d}\left(\frac{R_d\rho\theta}{p_0}\right)^\kappa d^3r\nonumber\\
+& \stackrel{\text{Glg. \eqref{eq:pot_temp_entropy_diagnostics}}}{=} & \int_A\frac{1}{2}\rho\mathbf{v}^2 + \rho\phi + c_d^{(v)}\frac{p_0}{R_d}\left(\frac{R_d\rho\exp\left(-\frac{c}{c_d^{(p)}}\right)\exp\left(\frac{\newtilde{s}}{c_d^{(p)}\rho}\right)}{p_0}\right)^\kappa d^3r\nonumber\\
+& = & \int_A\frac{1}{2}\rho\mathbf{v}^2 + \rho\phi + c_d^{(v)}\left(\frac{R_d}{p_0}\right)^{\frac{R_d}{c^{(v)}}}\exp\left(-\frac{c}{c_d^{(v)}}\right)\left(\rho\exp\left(\frac{\newtilde{s}}{c_d^{(p)}\rho}\right)\right)^\kappa d^3r\nonumber\\
+& = & \int_A\frac{1}{2}\rho\mathbf{v}^2 + \rho\phi + c_d^{(v)}\left(\frac{R_d}{p_0}\right)^{\frac{R_d}{c^{(v)}}}\exp\left(-\frac{c}{c_d^{(v)}}\right)\rho^\kappa\exp\left(\frac{\newtilde{s}}{c_d^{(v)}\rho}\right)d^3r.
+\end{eqnarray}
+%
+Mit der Bezeichnungsänderung
+%
+\begin{eqnarray}
+c \to c_d^{(v)}\left(\frac{R_d}{p_0}\right)^{\frac{R_d}{c_d^{(v)}}}\exp\left(-\frac{c}{c_d^{(v)}}\right)
+\end{eqnarray}
+%
+lässt sich dies als
+%
+\begin{eqnarray}
+H & = & \int_A\frac{1}{2}\rho\mathbf{v}^2 + \rho\phi + c\rho^\kappa\exp\left(\frac{\newtilde{s}}{c_d^{(v)}\rho}\right)d^3r
+\end{eqnarray}
+%
+notieren. Die Funktionalableitungen hiervon sind
+%
+\begin{eqnarray}
+\frac{\delta H}{\delta\mathbf{v}} & = & \rho\mathbf{v},\\
+\frac{\delta H}{\delta\rho} & = & \frac{1}{2}\mathbf{v}^2 + \phi + c_d^{(p)}\left(\frac{\rho R_d}{p_0}\right)^{\frac{R_d}{c_d^{(v)}}}\exp\left(-\frac{c}{c_d^{(v)}}\right)\exp\left(\frac{\newtilde{s}}{c_d^{(v)}\rho}\right)\nonumber\\
+&& -\frac{\newtilde{s}}{\rho}\left(\frac{\rho R_d}{p_0}\right)^{\frac{R_d}{c_d^{(v)}}}\exp\left(-\frac{c}{c_d^{(v)}}\right)\exp\left(\frac{\newtilde{s}}{c_d^{(v)}\rho}\right),\nonumber\\
+& = & \frac{1}{2}\mathbf{v}^2 + \phi + \left(c_d^{(p)} - \frac{s}{\rho}\right)\left(\frac{\rho R_d}{p_0}\right)^{\frac{R_d}{c_d^{(v)}}}\exp\left(-\frac{c}{c_d^{(v)}}\right)\exp\left(\frac{\newtilde{s}}{c_d^{(v)}\rho}\right),\nonumber\\
+& \stackrel{\text{Glg. \eqref{eq:pot_temp_entropy_diagnostics}}}{=} & \frac{1}{2}\mathbf{v}^2 + \phi + \left(c_d^{(p)} - \frac{s}{\rho}\right)\left(\frac{\rho R_d\theta}{p_0}\right)^{\frac{R_d}{c_d^{(v)}}}\theta,\nonumber\\
+& \stackrel{\text{Glg. \eqref{eq:exner_pressure_diag}}}{=} & \frac{1}{2}\mathbf{v}^2 + \phi + \left(c_d^{(p)} - \frac{s}{\rho}\right)\Pi\theta,\\
+\frac{\delta H}{\delta\newtilde{s}} & = & \left(\frac{\rho R_d}{p_0}\right)^{\frac{R_d}{c_d^{(v)}}}\exp\left(-\frac{c}{c_d^{(v)}}\right)\exp\left(\frac{\newtilde{s}}{c_d^{(v)}\rho}\right) = \left[\left(\frac{\rho R_d}{p_0}\right)^{\frac{R_d}{c_d^{(p)}}}\exp\left(-\frac{c}{c_d^{(p)}}\right)\exp\left(\frac{\newtilde{s}}{c_d^{(p)}\rho}\right)\right]^\kappa\nonumber\\
+& = & \left[\left(\frac{\rho R_d}{p_0}\right)^{\frac{R_d}{c_d^{(p)}}}\exp\left(\frac{\newtilde{s}}{c_d^{(p)}\rho} - \frac{c}{c_d^{(p)}}\right)\right]^\kappa \stackrel{\text{Glg. \eqref{eq:pot_temp_entropy_diagnostics}}}{=} \left(\frac{\rho\theta R_d}{p_0}\right)^{\frac{R_d}{c_d^{(v)}}}\theta\nonumber\\
+& \stackrel{\text{Glg. \eqref{eq:exner_pressure_diag}}}{=} & \Pi\theta \stackrel{\text{Glg. \eqref{eq:def_exner-druck}}}{=} T.
+\end{eqnarray}
+
 \section{Konkretisierung der Wärmeflüsse}
 \label{sec:konkretisierung_der_waermefluesse}\index{Wärmefluss}
 
 Diabatisch ist alles, was Adiabatie verletzt, also Wärme- und Massenflüsse über Systemgrenzen hinweg. Die Leistungsdichten der Wärme setzen sich zusammen aus
 %
 \begin{itemize}
-\item Wärmeleitung, \index{Wärmeleitung}
-\item Wärmeübergang, \index{Wärmeübergang}
-\item latenter Wärme, \index{latente Wärme}\index{Wärme!latente}
-\item Strahlung und\index{Strahlung}
-\item Dissipation.\index{Dissipation}
+\item Wärmeleitung\index{Wärmeleitung},
+\item Wärmeübergang\index{Wärmeübergang},
+\item latenter Wärme\index{latente Wärme}\index{Wärme!latente},
+\item Strahlung\index{Strahlung} und
+\item Dissipation\index{Dissipation}.
 \end{itemize}
 %
 Die Quellstärken der Masse entstehen durch
