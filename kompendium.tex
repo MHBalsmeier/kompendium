@@ -5275,7 +5275,7 @@ Ein \textit{ideales Gas} ist ein Gas, in dem die Teilchen nicht miteinander wech
 \newhat{H} = \sum_{i = 1}^{N} - \frac{\hbar^2}{2m}\Delta_i + V\left(\mathbf{r}_i\right) = \sum_{i = 1}^{N}\newhat{H}_i, 
 \end{eqnarray}
 %
-es handelt sich um eine Überlagerung von Einteilchen-Hamilton-Operatoren
+es handelt sich um eine Überlagerung von Ein-Teilchen-Hamilton-Operatoren
 %
 \begin{eqnarray}
 \newhat{H}_i = -\frac{\hbar^2}{2m}\Delta_i + V\left(\mathbf{r}_i\right).
@@ -5290,7 +5290,7 @@ V\left(\mathbf{r}_i\right) = \begin{cases}
 \end{cases}
 \end{eqnarray}
 %
-wobei $V$ das Volumen ist, auf das die Teilchen beschränkt sind. Hier sei $V = L^3$ ein Würfel der Kantenlänge $L$. Dies entspricht einem 3D-Potentialtopf, s. Absch. \ref{sec:potentialtopf}. Die Einteilchen - Lösung lautet
+wobei $V$ das Volumen ist, auf das die Teilchen beschränkt sind. Hier sei $V = L^3$ ein Würfel der Kantenlänge $L$. Dies entspricht einem 3D-Potentialtopf, s. Absch. \ref{sec:potentialtopf}. Die Ein-Teilchen-Lösung lautet
 %
 \begin{eqnarray}
 \psi\left(\mathbf{r}_i\right)\propto\sin\left(k_{3i - 2}x\right)\sin\left(k_{3i - 1}y\right)\sin\left(k_{3i}z\right).
@@ -5299,7 +5299,7 @@ wobei $V$ das Volumen ist, auf das die Teilchen beschränkt sind. Hier sei $V = 
 Hierbei gilt für $k_{3i - 2}, k_{3i - 1}, k_{3i}$ die Randbedingung
 %
 \begin{eqnarray}
-\frac{Lp_i}{\hbar} = k_iL = n_i\pi.
+\frac{Lp_i}{\hbar} = k_iL = n_i\pi
 \end{eqnarray}
 %
 mit $n_i\in\mathbb{N}$ mit $n\geq 1$. $p_i = \hbar k_i$ ist der Impuls. Die Teilchen dringen nicht in die Wand ein, haben also keine potentielle Energie. Somit gilt für die Gesamtenergie des Systems
@@ -5329,8 +5329,8 @@ Das verbleibende $3N-$dimensionale Integral ist das Volumen einer $3N-$dimension
 Mit der Stirling-Formel Glg. \eqref{eq:stirling} erhält man
 %
 \begin{eqnarray}
-\Omega\left(E, V, N\right)&\approx&\sqrt{\frac{2}{\pi}}\left[\frac{4\pi m}{\left(2\pi\hbar\right)^2}\right]^{3N/2}e^{3N/2}\left(\frac{2}{3N}\right)^{\frac{3N}{2} + \frac{1}{2}}E^{3N/2}V^N\nonumber\\
-& = & \frac{2}{\sqrt{3\pi N}}\left[\frac{8\pi me}{3\left(2\pi\hbar\right)^2}\right]^{3N/2}V^N\left(\frac{E}{N}\right)^{3N/2}.
+\Omega\left(E, V, N\right)&\approx&\sqrt{\frac{2}{\pi}}\left[\frac{2\pi m}{\left(2\pi\hbar\right)^2}\right]^{3N/2}e^{3N/2}\left(\frac{2}{3N}\right)^{\frac{3N}{2} + \frac{1}{2}}E^{3N/2}V^N\nonumber\\
+& = & \frac{2}{\sqrt{3\pi N}}\left[\frac{4\pi me}{3\left(2\pi\hbar\right)^2}\right]^{3N/2}V^N\left(\frac{E}{N}\right)^{3N/2}.
 \end{eqnarray}
 %
 Dieses Ergebnis ist noch nicht korrekt, es ist noch eine wichtige Modifikation anzubringen. Die $N$ Teilchen sind quantenmechanisch nicht unterscheidbar, was bedeutet, dass sich beim Vertauschen zweier Teilchen nichts ändert. Es sind also jeweils $N!$ Zustände gleich, weshalb man
@@ -5342,7 +5342,8 @@ Dieses Ergebnis ist noch nicht korrekt, es ist noch eine wichtige Modifikation a
 ersetzen muss. Es gilt damit
 %
 \begin{eqnarray}
-\Omega\left(E, V, N\right) & = & \sqrt{\frac{2}{3\pi^2}}\frac{1}{N}\left[\frac{8\pi me^{5/3}}{3\left(2\pi\hbar\right)^2}\right]^{3N/2}\left(\frac{V}{N}\right)^N\left(\frac{E}{N}\right)^{3N/2}.
+\Omega\left(E, V, N\right) & = & \sqrt{\frac{2}{3\pi^2}}\frac{1}{N}\left[\frac{4\pi me^{5/3}}{3\left(2\pi\hbar\right)^2}\right]^{3N/2}\left(\frac{V}{N}\right)^N\left(\frac{E}{N}\right)^{3N/2}\nonumber\\
+& = & \sqrt{\frac{2}{3\pi^2}}\frac{1}{N}\left[\frac{me^{5/3}}{3\pi\hbar^2}\right]^{3N/2}\left(\frac{V}{N}\right)^N\left(\frac{E}{N}\right)^{3N/2}.
 \end{eqnarray}
 %
 Für die Entropie folgt
@@ -5350,16 +5351,17 @@ Für die Entropie folgt
 \begin{eqnarray}
 \frac{S\left(E, V, N\right)}{k_B} & = & \frac{1}{2}\ln\left(\frac{2}{3\pi^2}\right) - \ln\left(N\right) + \frac{3N}{2}\ln\left(c\right) + N\ln\left(\frac{V}{N}\right) + \frac{3N}{2}\ln\left(\frac{E}{N}\right)\nonumber\\
 &\approx&\frac{3N}{2}\ln\left(c\right) + N\ln\left(\frac{V}{N}\right) + \frac{3N}{2}\ln\left(\frac{E}{N}\right) - \ln\left(N\right)\nonumber\\
-&\approx&\frac{3N}{2}\ln\left(c\right) + N\ln\left(\frac{V}{N}\right) + \frac{3N}{2}\ln\left(\frac{E}{N}\right)\label{eq:entropie_ideal}
+&\approx&\frac{3N}{2}\ln\left(c\right) + N\ln\left(\frac{V}{N}\right) + \frac{3N}{2}\ln\left(\frac{E}{N}\right)\nonumber\\
+& = & N\left[\frac{3}{2}\ln\left(c\right) + \ln\left(\frac{V}{N}\right) + \frac{3}{2}\ln\left(\frac{E}{N}\right)\right]\label{eq:entropie_ideal}
 \end{eqnarray}
 %
 mit
 %
 \begin{eqnarray}
-c \coloneqq \frac{2me^{5/3}}{3\pi\hbar^2}.\label{eq:def_id_gas_entropy_constant}
+c \coloneqq \frac{me^{5/3}}{3\pi\hbar^2}.\label{eq:def_id_gas_entropy_constant}
 \end{eqnarray}
 %
-Man erhält die \textit{kalorische Zustandsgleichung idealer Gase}\index{Zustandsgleichung!kalorische!idealer Gase}\index{kalorische Zustandsgleichung idealer Gase}
+Glg. \eqref{eq:entropie_ideal} bezeichnet man auch als \textit{Sackur-Tetrode-Gleichung}\index{Sackur-Tetrode-Gleichung}. Man erhält die \textit{kalorische Zustandsgleichung idealer Gase}\index{Zustandsgleichung!kalorische!idealer Gase}\index{kalorische Zustandsgleichung idealer Gase}
 %
 \begin{eqnarray}
 \frac{1}{k_BT} = \frac{\partial\ln\left(\Omega\left(E, V, N\right)\right)}{\partial E} = \frac{3}{2}\frac{N}{E}\Rightarrow E = \frac{3}{2}Nk_BT.\label{eq:kalorisch_id_gase}
@@ -5531,7 +5533,7 @@ r&\approx&\epsilon'\frac{p_v}{p}.\label{eq:mischungsverhaeltnis_vereinfacht}
 
 Klassische Phasenraumkoordinaten sind kontinuierlich und daher statistisch schwer zu fassen. Leichter sind halbklassische Herleitungen, bei denen man von der QM ausgeht und anschließend den klassischen Übergang $\hbar\to0$ durchführt.
 
-$N$ Teilchen seien in einem kubischen Volumen $V = L^3$ eingeschlossen. Für jede Wellenvektor-Komponente der Einteilchen-Wellenfunktionen gilt
+$N$ Teilchen seien in einem kubischen Volumen $V = L^3$ eingeschlossen. Für jede Wellenvektor-Komponente der Ein-Teilchen-Wellenfunktionen gilt
 %
 \begin{eqnarray}
 k_nL = n\pi\Leftrightarrow k_n = \frac{n\pi}{L}
@@ -7230,7 +7232,7 @@ Setzt man die hydrostatische Grundgleichung $\rho = -\frac{1}{g}\frac{\partial p
 \begin{eqnarray}
 \frac{\partial^2p}{\partial z\partial t} + \nabla\cdot\left(\frac{\partial p}{\partial z}\mathbf{v}\right) & = & 0\nonumber\\
 \Leftrightarrow\frac{\partial^2p}{\partial z\partial t} + \mathbf{v}\cdot\nabla\left(\frac{\partial p}{\partial z}\right) + \frac{\partial p}{\partial z}\nabla\cdot\mathbf{v} & = & \frac{\partial^2p}{\partial z\partial t} + \frac{\partial}{\partial z}\left(\mathbf{v}\cdot\nabla p\right) - \nabla p\cdot\frac{\partial\mathbf{v}}{\partial z} + \frac{\partial p}{\partial z}\nabla\cdot\mathbf{v}\nonumber\\
-= \frac{\partial\omega}{\partial z} - \nabla_Hp\cdot\frac{\partial\mathbf{v}_{h, g}}{\partial z} + \frac{\partial p}{\partial z}\nabla\cdot\mathbf{v}_{h, g} & = & 0.
+= \frac{\partial\omega}{\partial z} - \nabla_hp\cdot\frac{\partial\mathbf{v}_{h, g}}{\partial z} + \frac{\partial p}{\partial z}\nabla\cdot\mathbf{v}_{h, g} & = & 0.
 \end{eqnarray}
 %
 Hierbei wurde ein kleiner Transformationsterm vernachlässigt, s. Glg. \eqref{eq:div_geo}. Nach der Kettenregel ist $\frac{\partial}{\partial z} = \frac{\partial p}{\partial z}\frac{\partial }{\partial p}$. Damit folgt
@@ -7782,30 +7784,30 @@ Setzt man die Zustandsgleichungen Glg.en \eqref{eq:kalorisch_id_gase} und \eqref
 S\left(E, V, N\right) & = & k_B\frac{3N}{2}\ln\left(c\right) + k_BN\ln\left(\frac{V}{N}\right) + k_B\frac{3N}{2}\ln\left(\frac{E}{N}\right)\nonumber\\
 & = & k_B\frac{3N}{2}\ln\left(c\right) + k_BN\ln\left(\frac{k_BT}{p}\right) + k_B\frac{3N}{2}\ln\left(\frac{3}{2}k_BT\right)\nonumber\\
 & = & k_BN\ln\left(k_BT\right) + k_B\frac{3N}{2}\ln\left(\frac{3}{2}k_BT\right) - Nk_B\ln\left(p\right) + k_B\frac{3N}{2}\ln\left(c\right)\nonumber\\
-& = & k_B\frac{5N}{2}\ln\left(\frac{3}{2}k_BT\right) + k_B\frac{3N}{2}\ln\left(\frac{3}{2}\right) - Nk_B\ln\left(p\right) + k_B\frac{3N}{2}\ln\left(c\right)\nonumber\\
+& = & k_B\frac{5N}{2}\ln\left(k_BT\right) + k_B\frac{3N}{2}\ln\left(\frac{3}{2}\right) - Nk_B\ln\left(p\right) + k_B\frac{3N}{2}\ln\left(c\right)\nonumber\\
 & = & k_B\frac{5N}{2}\ln\left(T\right) - Nk_B\ln\left(p\right) + k_B\frac{5N}{2}\ln\left(k_B\right) + k_B\frac{3N}{2}\ln\left(\frac{3}{2}\right) + k_B\frac{3N}{2}\ln\left(c\right)\nonumber\\
 & = & k_B\frac{5N}{2}\ln\left(T\right) - Nk_B\ln\left(p\right) + Nk_B\ln\left(k_B^{\frac{5}{2}}\right) + Nk_B\ln\left[\left(\frac{3}{2}\right)^\frac{3}{2}\right] + Nk_B\ln\left(c^\frac{3}{2}\right)\nonumber\\
 & = & k_B\frac{5N}{2}\ln\left(T\right) - Nk_B\ln\left(p\right) + Nk_B\ln\left[k_B^{\frac{5}{2}}\left(\frac{3}{2}\right)^\frac{3}{2}c^\frac{3}{2}\right]\nonumber\\
-& = & k_B\frac{5N}{2}\ln\left(T\right) - Nk_B\ln\left(p\right) + Nk_B\ln\left[\left(\frac{3k_B}{2}c\right)^\frac{3}{2}k_B^{\frac{1}{2}}\right].\label{eq:entropy_id_gas_deriv_0}
+& = & k_B\frac{5N}{2}\ln\left(T\right) - Nk_B\ln\left(p\right) + Nk_B\ln\left[\left(\frac{3k_B}{2}c\right)^\frac{3}{2}k_B\right].\label{eq:entropy_id_gas_deriv_0}
 \end{eqnarray}
 %
 Aus Glg. \eqref{eq:def_id_gas_entropy_constant} weiß man
 %
 \begin{eqnarray}
-c = \frac{2Me^{5/3}}{3\pi\hbar^2},
+c = \frac{Me^{5/3}}{3\pi\hbar^2},
 \end{eqnarray}
 %
 wobei $M$ die Masse der Teilchen bezeichnet. Hieraus folgt
 %
 \begin{eqnarray}
-S\left(E, V, N\right) & = & k_B\frac{5N}{2}\ln\left(T\right) - Nk_B\ln\left(p\right) + Nk_B\ln\left[\left(\frac{3k_B}{2}\frac{2Me^{5/3}}{3\pi\hbar^2}\right)^\frac{3}{2}k_B^{\frac{1}{2}}\right]\nonumber\\
-& = & k_B\frac{5N}{2}\ln\left(T\right) - Nk_B\ln\left(p\right) + Nk_B\ln\left[\left(\frac{Me^{5/3}}{\pi\hbar^2}\right)^\frac{3}{2}k_B^2\right].
+S\left(E, V, N\right) & = & k_B\frac{5N}{2}\ln\left(T\right) - Nk_B\ln\left(p\right) + Nk_B\ln\left[\left(\frac{3k_B}{2}\frac{Me^{5/3}}{3\pi\hbar^2}\right)^\frac{3}{2}k_B\right]\nonumber\\
+& = & k_B\frac{5N}{2}\ln\left(T\right) - Nk_B\ln\left(p\right) + Nk_B\ln\left[\left(\frac{Me^{5/3}k_B}{2\pi\hbar^2}\right)^\frac{3}{2}k_B\right].
 \end{eqnarray}
 %
 Mit
 %
 \begin{eqnarray}
-c' \coloneqq k_B\ln\left[\left(\frac{Me^{5/3}}{\pi\hbar^2}\right)^\frac{3}{2}k_B^2\right]
+c' \coloneqq k_B\ln\left[\left(\frac{Me^{5/3}k_B}{2\pi\hbar^2}\right)^\frac{3}{2}k_B\right]
 \end{eqnarray}
 %
 kann man abkürzend
@@ -7820,22 +7822,23 @@ notieren. Somit erhält man
 S\left(E, V, N\right) & = & C^{(p)}\ln\left(T\right) - Nk_B\ln\left(p\right) + Nc'\nonumber\\
 & = & C^{(p)}\ln\left[\theta\left(\frac{p}{p_0}\right)^{\frac{R_s}{c^{(p)}}}\right] - Nk_B\ln\left(p\right) + Nc'\nonumber\\
 & = & C^{(p)}\ln\left(\theta\right) + R_sm\ln\left(\frac{p}{p_0}\right) - Nk_B\ln\left(p\right) + Nc'\nonumber\\
-& = & C^{(p)}\ln\left(\theta\right) + k_BN\ln\left(p\right) - Nk_B\ln\left(p\right) - NkB\ln\left(p_0\right) + Nc'\nonumber\\
-& = & C^{(p)}\ln\left(\theta\right) - NkB\ln\left(p_0\right) + Nk_B\ln\left[\left(\frac{Me^{5/3}}{\pi\hbar^2}\right)^\frac{3}{2}k_B^2\right]\nonumber\\
-& = & C^{(p)}\ln\left(\theta\right) + Nk_B\ln\left[\frac{1}{p_0}\left(\frac{Me^{5/3}}{\pi\hbar^2}\right)^\frac{3}{2}k_B^2\right]\nonumber\\
-& = & C^{(p)}\ln\left(\theta\right) + Nc''.
+& = & C^{(p)}\ln\left(\theta\right) + k_BN\ln\left(p\right) - Nk_B\ln\left(p\right) - Nk_B\ln\left(p_0\right) + Nc'\nonumber\\
+& = & C^{(p)}\ln\left(\theta\right) - Nk_B\ln\left(p_0\right) + Nk_B\ln\left[\left(\frac{k_BMe^{5/3}}{2\pi\hbar^2}\right)^\frac{3}{2}k_B\right]\nonumber\\
+& = & C^{(p)}\ln\left(\theta\right) + Nk_B\ln\left[\frac{k_B}{p_0}\left(\frac{k_BMe^{5/3}}{2\pi\hbar^2}\right)^\frac{3}{2}\right]\nonumber\\
+& = & C^{(p)}\ln\left(\theta\right) + \frac{2C^{(p)}}{5}\ln\left[\frac{k_B}{p_0}\left(\frac{k_BMe^{5/3}}{2\pi\hbar^2}\right)^\frac{3}{2}\right]\nonumber\\
+& = & C^{(p)}\ln\left(\theta\right) + mc''.
 \end{eqnarray}
 %
 Mit
 %
 \begin{eqnarray}
-c'' \coloneqq k_B\ln\left[\frac{1}{p_0}\left(\frac{Me^{5/3}}{\pi\hbar^2}\right)^\frac{3}{2}k_B^2\right].
+c'' \coloneqq \frac{2c^{(p)}}{5}\ln\left[\frac{k_B}{p_0}\left(\frac{k_BMe^{5/3}}{2\pi\hbar^2}\right)^\frac{3}{2}\right].
 \end{eqnarray}
 %
 Für die spezifische Entropie $s$ gilt somit
 %
 \begin{eqnarray}
-s = c^{(p)}\ln\left(\theta\right) + \frac{c''}{M}\label{eq:entropy_spec_id_gas}
+s = c^{(p)}\ln\left(\theta\right) + c''\label{eq:entropy_spec_id_gas}
 \end{eqnarray}
 %
 mit der molaren Masse $M$.
@@ -8663,6 +8666,28 @@ notieren. Hängt $F$ nicht explizit von der Zeit ab, was im Regelfall so ist, fo
 }}
 \end{center}
 
+In einer trockenen Atmosphäre gilt also für jede beliebige Größe $F$ die Evolutionsgleichung
+%
+\begin{eqnarray}
+\frac{dF}{dt} = \lbrace F, H\rbrace + \left(F, \mathbf{f}_r\right) + \left(F, Q\right)
+\end{eqnarray}
+%
+mit
+%
+\begin{eqnarray}
+\lbrace F, H\rbrace & = & -\int_A\frac{\delta F}{\delta\mathbf{v}}\cdot\left(\frac{\etabi}{\rho}\times\frac{\delta H}{\delta\mathbf{v}}\right)d^3r\\
+&& -\int_A\frac{\delta F}{\delta\rho}\nabla\cdot\frac{\delta H}{\delta\mathbf{v}} - \frac{\delta H}{\delta\rho}\nabla\cdot\frac{\delta F}{\delta\mathbf{v}}d^3r\\
+&& -\int_A\frac{\partial F}{\partial\newtilde{q}}\nabla\cdot\left(q\frac{\partial H}{\partial\mathbf{v}}\right) - \frac{\partial H}{\partial\newtilde{q}}\nabla\cdot\left(q\frac{\delta F}{\delta\mathbf{v}}\right)d^3r
+\end{eqnarray}
+%
+und
+%
+\begin{eqnarray}
+\left(F, \mathbf{f}_r\right) & = & -\int_A\frac{\delta F}{\delta\mathbf{v}}\cdot\frac{1}{\rho}\nabla\cdot\newoverline{\rho\mathbf{v}'\mathbf{v}'}d^3r,\\
+\left(F, Q\right) & = & \int_A\frac{\partial F}{\partial\newtilde{q}}\frac{q_T^{(\text{diss})}q}{Tc_d^{(p)}}d^3r,\\
+q_T^{(\text{diss})} & = & -\mathbf{v}\cdot\nabla\cdot\newoverline{\rho\mathbf{v}'\mathbf{v}'}.
+\end{eqnarray}
+%
 
 \subsubsection{Potentielle Temperatur als prognostische Variable}
 \label{sec:potentielle_temperatur_als_prognostische_variable_hamilton}
@@ -8670,7 +8695,7 @@ notieren. Hängt $F$ nicht explizit von der Zeit ab, was im Regelfall so ist, fo
 Verwendet man anstatt der Temperatur die potentielle Temperatur\index{potentielle Temperatur}\index{Temperatur!potentielle} und definiert
 %
 \begin{eqnarray}
-\newtilde{\theta} \coloneqq \rho\theta,
+\newtilde{q} \coloneqq \rho\theta,
 \end{eqnarray}
 %
 folgt mit Glg. \eqref{eq:state_theta}
@@ -8686,30 +8711,6 @@ Die Funktionalableitungen hiervon sind
 \frac{\delta H}{\delta\mathbf{v}} & = & \rho\mathbf{v},\\
 \frac{\delta H}{\delta\rho} & = & \frac{1}{2}\mathbf{v}^2 + \phi,\\
 \frac{\delta H}{\delta\newtilde{\theta}} & = & c_d^{(v)}\frac{p_0}{R_d}\frac{R_d}{p_0}\kappa\left(\frac{R_d\newtilde{\theta}}{p_0}\right)^{\kappa - 1} = c_d^{(p)}\left(\frac{R_d\newtilde{\theta}}{p_0}\right)^{\kappa - 1} = c_d^{(p)}\left(\frac{R_d\newtilde{\theta}}{p_0}\right)^{\frac{R_d}{c_d^{(v)}}} \stackrel{\text{Glg. \eqref{eq:exner_pressure_diag}}}{=} c_d^{(p)}\Pi.
-\end{eqnarray}
-%
-Dies motiviert die Definition des Exner-Drucks\index{Exner-Druck} Glg. \eqref{eq:def_exner-druck}.
-
-In einer trockenen Atmosphäre gilt also für jede beliebige Größe $F$ die Evolutionsgleichung
-%
-\begin{eqnarray}
-\frac{df}{dt} = \lbrace F, H\rbrace + \left(F, \mathbf{f}_r\right) + \left(F, Q\right)
-\end{eqnarray}
-%
-mit
-%
-\begin{eqnarray}
-\lbrace F, H\rbrace & = & -\int_A\frac{\delta F}{\delta\mathbf{v}}\cdot\left(\frac{\etabi}{\rho}\times\frac{\delta H}{\delta\mathbf{v}}\right)d^3r\\
-&& -\int_A\frac{\delta F}{\delta\rho}\nabla\cdot\frac{\delta H}{\delta\mathbf{v}} - \frac{\delta H}{\delta\rho}\nabla\cdot\frac{\delta F}{\delta\mathbf{v}}d^3r\\
-&& -\int_A\frac{\partial F}{\partial\newtilde{\theta}}\nabla\cdot\left(\theta\frac{\partial H}{\partial\mathbf{v}}\right) - \frac{\partial H}{\partial\newtilde{\theta}}\nabla\cdot\left(\theta\frac{\delta F}{\delta\mathbf{v}}\right)d^3r
-\end{eqnarray}
-%
-und
-%
-\begin{eqnarray}
-\left(F, \mathbf{f}_r\right) & = & -\int_A\frac{\delta F}{\delta\mathbf{v}}\cdot\frac{1}{\rho}\nabla\cdot\newoverline{\rho\mathbf{v}'\mathbf{v}'}d^3r,\\
-\left(F, Q\right) & = & \int_A\frac{\partial F}{\partial\newtilde{\theta}}\frac{q_T^{(\text{diss})}}{c_d^{(p)}\Pi}d^3r,\\
-q_T^{(\text{diss})} & = & -\mathbf{v}\cdot\nabla\cdot\newoverline{\rho\mathbf{v}'\mathbf{v}'}.
 \end{eqnarray}
 %
 Nun sollen die Zeitentwicklungen der Größen
@@ -8738,8 +8739,14 @@ in Termen der Poisson-Klammer mit der Hamilton-Funktion $H$ notiert werden. Dazu
 und erhält somit
 %
 \begin{eqnarray}
-\left\lbrace B, H\right\rbrace & = & -\int_A\phi\nabla\cdot\left(\rho\mathbf{v}\right) + c_d^{(p)}\Pi\nabla\cdot\left(\newtilde{\theta}\mathbf{v}\right)d^3r,\\
-\left\lbrace C, H\right\rbrace & = & -\int_A-\phi\nabla\cdot\left(\rho\mathbf{v}\right) - c_d^{(p)}\Pi\nabla\cdot\left(\newtilde{\theta}\mathbf{v}\right)d^3r = -\int_A\rho\mathbf{c}\cdot\nabla\phi + c_d^{(p)}\newtilde{\theta}\mathbf{v}\cdot\nabla\Pi d^3r.
+\lbrace B, H\rbrace & = & -\int_A\frac{\delta B}{\delta\mathbf{v}}\cdot\left(\frac{\etabi}{\rho}\times\frac{\delta H}{\delta\mathbf{v}}\right)d^3r\\
+&& -\int_A\frac{\delta B}{\delta\rho}\nabla\cdot\frac{\delta H}{\delta\mathbf{v}} - \frac{\delta H}{\delta\rho}\nabla\cdot\frac{\delta B}{\delta\mathbf{v}}d^3r\\
+&& -\int_A\frac{\partial B}{\partial\newtilde{q}}\nabla\cdot\left(q\frac{\partial H}{\partial\mathbf{v}}\right) - \frac{\partial H}{\partial\newtilde{q}}\nabla\cdot\left(q\frac{\delta B}{\delta\mathbf{v}}\right)d^3r\nonumber\\
+& = & -\int_A\phi\nabla\cdot\left(\rho\mathbf{v}\right) + c_d^{(p)}\Pi\nabla\cdot\left(\newtilde{\theta}\mathbf{v}\right)d^3r,\\
+\lbrace C, H\rbrace & = & -\int_A\frac{\delta C}{\delta\mathbf{v}}\cdot\left(\frac{\etabi}{\rho}\times\frac{\delta H}{\delta\mathbf{v}}\right)d^3r\\
+&& -\int_A\frac{\delta C}{\delta\rho}\nabla\cdot\frac{\delta H}{\delta\mathbf{v}} - \frac{\delta H}{\delta\rho}\nabla\cdot\frac{\delta C}{\delta\mathbf{v}}d^3r\\
+&& -\int_A\frac{\partial C}{\partial\newtilde{q}}\nabla\cdot\left(q\frac{\partial H}{\partial\mathbf{v}}\right) - \frac{\partial H}{\partial\newtilde{q}}\nabla\cdot\left(q\frac{\delta C}{\delta\mathbf{v}}\right)d^3r\nonumber\\
+& = & -\int_A-\phi\nabla\cdot\left(\rho\mathbf{v}\right) - c_d^{(p)}\Pi\nabla\cdot\left(\newtilde{\theta}\mathbf{v}\right)d^3r = -\int_A\rho\mathbf{v}\cdot\nabla\phi + c_d^{(p)}\newtilde{\theta}\mathbf{v}\cdot\nabla\Pi d^3r.
 \end{eqnarray}
 
 \subsubsection{Entropdiedichte als prognostische Variable}
@@ -8748,7 +8755,7 @@ und erhält somit
 Verwendet man anstatt der potentiellen Temperatur die Entropie\index{Entropie} und definiert
 %
 \begin{eqnarray}
-\newtilde{s} \coloneqq \rho s,
+\newtilde{q} \coloneqq \rho s,
 \end{eqnarray}
 %
 folgt mit Glg. \eqref{eq:state_theta}
@@ -8779,12 +8786,55 @@ notieren. Die Funktionalableitungen hiervon sind
 \frac{\delta H}{\delta\mathbf{v}} & = & \rho\mathbf{v},\\
 \frac{\delta H}{\delta\rho} & = & \frac{1}{2}\mathbf{v}^2 + \phi + c_d^{(p)}\left(\frac{\rho R_d}{p_0}\right)^{\frac{R_d}{c_d^{(v)}}}\exp\left(-\frac{c}{c_d^{(v)}}\right)\exp\left(\frac{\newtilde{s}}{c_d^{(v)}\rho}\right)\nonumber\\
 && -\frac{\newtilde{s}}{\rho}\left(\frac{\rho R_d}{p_0}\right)^{\frac{R_d}{c_d^{(v)}}}\exp\left(-\frac{c}{c_d^{(v)}}\right)\exp\left(\frac{\newtilde{s}}{c_d^{(v)}\rho}\right),\nonumber\\
-& = & \frac{1}{2}\mathbf{v}^2 + \phi + \left(c_d^{(p)} - \frac{s}{\rho}\right)\left(\frac{\rho R_d}{p_0}\right)^{\frac{R_d}{c_d^{(v)}}}\exp\left(-\frac{c}{c_d^{(v)}}\right)\exp\left(\frac{\newtilde{s}}{c_d^{(v)}\rho}\right),\nonumber\\
-& \stackrel{\text{Glg. \eqref{eq:pot_temp_entropy_diagnostics}}}{=} & \frac{1}{2}\mathbf{v}^2 + \phi + \left(c_d^{(p)} - \frac{s}{\rho}\right)\left(\frac{\rho R_d\theta}{p_0}\right)^{\frac{R_d}{c_d^{(v)}}}\theta,\nonumber\\
-& \stackrel{\text{Glg. \eqref{eq:exner_pressure_diag}}}{=} & \frac{1}{2}\mathbf{v}^2 + \phi + \left(c_d^{(p)} - \frac{s}{\rho}\right)\Pi\theta \stackrel{\text{Glg. \eqref{eq:def_exner-druck}}}{=} \frac{1}{2}\mathbf{v}^2 + \phi + \left(c_d^{(p)} - \frac{s}{\rho}\right)T,\\
+& = & \frac{1}{2}\mathbf{v}^2 + \phi + \left(c_d^{(p)} - s\right)\left(\frac{\rho R_d}{p_0}\right)^{\frac{R_d}{c_d^{(v)}}}\exp\left(-\frac{c}{c_d^{(v)}}\right)\exp\left(\frac{\newtilde{s}}{c_d^{(v)}\rho}\right),\nonumber\\
+& \stackrel{\text{Glg. \eqref{eq:pot_temp_entropy_diagnostics}}}{=} & \frac{1}{2}\mathbf{v}^2 + \phi + \left(c_d^{(p)} - s\right)\left(\frac{\rho R_d\theta}{p_0}\right)^{\frac{R_d}{c_d^{(v)}}}\theta,\nonumber\\
+& \stackrel{\text{Glg. \eqref{eq:exner_pressure_diag}}}{=} & \frac{1}{2}\mathbf{v}^2 + \phi + \left(c_d^{(p)} - s\right)\Pi\theta \stackrel{\text{Glg. \eqref{eq:def_exner-druck}}}{=} \frac{1}{2}\mathbf{v}^2 + \phi + \left(c_d^{(p)} - s\right)T,\\
 \frac{\delta H}{\delta\newtilde{s}} & = & \left(\frac{\rho R_d}{p_0}\right)^{\frac{R_d}{c_d^{(v)}}}\exp\left(-\frac{c}{c_d^{(v)}}\right)\exp\left(\frac{\newtilde{s}}{c_d^{(v)}\rho}\right) = \left[\left(\frac{\rho R_d}{p_0}\right)^{\frac{R_d}{c_d^{(p)}}}\exp\left(-\frac{c}{c_d^{(p)}}\right)\exp\left(\frac{\newtilde{s}}{c_d^{(p)}\rho}\right)\right]^\kappa\nonumber\\
 & = & \left[\left(\frac{\rho R_d}{p_0}\right)^{\frac{R_d}{c_d^{(p)}}}\exp\left(\frac{\newtilde{s}}{c_d^{(p)}\rho} - \frac{c}{c_d^{(p)}}\right)\right]^\kappa \stackrel{\text{Glg. \eqref{eq:pot_temp_entropy_diagnostics}}}{=} \left(\frac{\rho\theta R_d}{p_0}\right)^{\frac{R_d}{c_d^{(v)}}}\theta\nonumber\\
 & \stackrel{\text{Glg. \eqref{eq:exner_pressure_diag}}}{=} & \Pi\theta \stackrel{\text{Glg. \eqref{eq:def_exner-druck}}}{=} T.
+\end{eqnarray}
+%
+Nun sollen die Zeitentwicklungen der Größen
+%
+\begin{eqnarray}
+B \coloneqq \int_A\newtilde{I} + \rho\phi d^3r = \int_A\rho\phi + c_d^{(v)}\rho Td^3r = \int_A\rho\phi + c\rho^\kappa\exp\left(\frac{\newtilde{s}}{c_d^{(v)}\rho}\right)d^3r
+\end{eqnarray}
+%
+und
+%
+\begin{eqnarray}
+C \coloneqq \int_A\frac{1}{2}\rho\mathbf{v}^2d^3r
+\end{eqnarray}
+%
+in Termen der Poisson-Klammer mit der Hamilton-Funktion $H$ notiert werden. Dazu rechnet man vorbereitend
+%
+\begin{eqnarray}
+\frac{\delta B}{\delta\mathbf{v}} & = & 0,\\
+\frac{\delta B}{\delta\rho} & = & \phi + \left(c_d^{(p)} - s\right)T,\\
+\frac{\delta B}{\delta\newtilde{s}} & = & T,\\
+\frac{\delta C}{\delta\mathbf{v}} & = & \rho\mathbf{v},\\
+\frac{\delta C}{\delta\rho} & = & \frac{1}{2}\mathbf{v}^2,\\
+\frac{\delta C}{\delta\newtilde{s}} & = & 0
+\end{eqnarray}
+%
+und erhält somit
+%
+\begin{eqnarray}
+\lbrace B, H\rbrace & = & -\int_A\frac{\delta B}{\delta\mathbf{v}}\cdot\left(\frac{\etabi}{\rho}\times\frac{\delta H}{\delta\mathbf{v}}\right)d^3r\\
+&& -\int_A\frac{\delta B}{\delta\rho}\nabla\cdot\frac{\delta H}{\delta\mathbf{v}} - \frac{\delta H}{\delta\rho}\nabla\cdot\frac{\delta B}{\delta\mathbf{v}}d^3r\\
+&& -\int_A\frac{\partial B}{\partial\newtilde{s}}\nabla\cdot\left(s\frac{\partial H}{\partial\mathbf{v}}\right) - \frac{\partial H}{\partial\newtilde{s}}\nabla\cdot\left(q\frac{\delta B}{\delta\mathbf{v}}\right)d^3r\nonumber\\
+& = & -\int_A\frac{\delta B}{\delta\rho}\nabla\cdot\left(\rho\mathbf{v}\right) + \frac{\partial B}{\partial\newtilde{s}}\nabla\cdot\left(s\rho\mathbf{v}\right)d^3r = -\int_A\left(\phi + c_d^{(p)}T - sT\right)\nabla\cdot\left(\rho\mathbf{v}\right) + T\nabla\cdot\left(s\rho\mathbf{v}\right)d^3r\nonumber\\
+& = & -\int_A\left(\phi + c_d^{(p)}T\right)\nabla\cdot\left(\rho\mathbf{v}\right) + T\rho\mathbf{v}\cdot\nabla sd^3r,
+\end{eqnarray}
+%
+\begin{eqnarray}
+\lbrace C, H\rbrace & = & -\int_A\frac{\delta C}{\delta\mathbf{v}}\cdot\left(\frac{\etabi}{\rho}\times\frac{\delta H}{\delta\mathbf{v}}\right)d^3r\\
+&& -\int_A\frac{\delta C}{\delta\rho}\nabla\cdot\frac{\delta H}{\delta\mathbf{v}} - \frac{\delta H}{\delta\rho}\nabla\cdot\frac{\delta C}{\delta\mathbf{v}}d^3r\\
+&& -\int_A\frac{\partial C}{\partial\newtilde{s}}\nabla\cdot\left(s\frac{\partial H}{\partial\mathbf{v}}\right) - \frac{\partial H}{\partial\newtilde{s}}\nabla\cdot\left(s\frac{\delta C}{\delta\mathbf{v}}\right)d^3r\nonumber\\
+& = & -\int_A\frac{\delta C}{\delta\rho}\nabla\cdot\frac{\delta H}{\delta\mathbf{v}} - \frac{\delta H}{\delta\rho}\nabla\cdot\frac{\delta C}{\delta\mathbf{v}} - \frac{\partial H}{\partial\newtilde{s}}\nabla\cdot\left(s\frac{\delta C}{\delta\mathbf{v}}\right)d^3r\nonumber\\
+& = & -\int_A\frac{\delta C}{\delta\rho}\nabla\cdot\left(\rho\mathbf{v}\right) - \frac{\delta H}{\delta\rho}\nabla\cdot\left(\rho\mathbf{v}\right) - T\nabla\cdot\left(s\rho\mathbf{v}\right)d^3r\nonumber\\
+& = & -\int_A -\left(\phi + c_d^{(p)}T - sT\right)\nabla\cdot\left(\rho\mathbf{v}\right) - T\nabla\cdot\left(s\rho\mathbf{v}\right)d^3r\nonumber\\
+& = & \int_A\left(c_d^{(p)}T + \phi\right)\nabla\cdot\left(\rho\mathbf{v}\right) + T\rho\mathbf{v}\cdot\nabla sd^3r.
 \end{eqnarray}
 
 \section{Konkretisierung der Wärmeflüsse}
@@ -13981,11 +14031,11 @@ Um leichter kommunizieren zu können, werden folgende Festlegungen getroffen:
 \item Ein \textit{Layer}\index{Layer} ist eine Schicht von Gitterzellen.
 \item Ein \textit{Level}\index{Level} ist der Rand eines Layers.
 \item Die Nummerierung beginnt am Oberrand der Atmosphäre bei Null. Gibt es $n$ Layer, so gibt es $n + 1$ Level.
-\item Alle Variablen werden in der Mitte der Layer angeordnet (der Begriff \textit{Mitte} bezieht sich auf die oben definierte $\sigma-$Koordinate), Vertikalkomponenten von Vektorfeldern in den Levels.
+\item Alle Variablen werden in der Mitte der Layer angeordnet, Vertikalkomponenten von Vektorfeldern in den Levels.
 \item Die Radialkomponente eines Vektorfeldes zeigt positiv nach oben.
 \end{itemize}
 %
-Sei ein Gitter mit $n$ Layern gegeben. $\sigma_i$ sei die $\sigma-$Koordinate des $i-$ten Levels. Nach Abschnitt \ref{sec:finite_differenzen} sind zentrale Differenzenquotienten zweiter Ordnung, während andere Arten von Differnzenquotienten nur erster Ordnung sind. Deshalb legt man für die z-Koordinaten der Level fest, dass sie sich in der Mitte der skalaren Gitterpunkte der benachbarten Layer befinden sollen, also
+Sei ein Gitter mit $n$ Layern gegeben. Nach Abschnitt \ref{sec:finite_differenzen} sind zentrale Differenzenquotienten zweiter Ordnung, während andere Arten von Differenzenquotienten nur erster Ordnung sind. Deshalb legt man für die z-Koordinaten der Level fest, dass sie sich in der Mitte der skalaren Gitterpunkte der benachbarten Layer befinden sollen, also
 %
 \begin{eqnarray}
 z_\text{Level} = \frac{z_\text{Layer darüber} + z_\text{Layer darunter}}{2}.\label{eq:pos_level}
@@ -13997,11 +14047,11 @@ Es sind also zunächst die z-Koordinaten der skalaren Gitterpunkte ($z_\text{Lay
 \newtilde{z}\left(\phi, \lambda\right) = h\left(\phi, \lambda\right) + \frac{N_{L, O}}{N_L}\left(H - h\left(\phi, \lambda\right)\right)
 \end{eqnarray}
 %
-in Termen der Orographie $h = h\left(\phi, \lambda\right)$ festgelegt ist.\footnote{Die Vorstellung, dass $h$ eine Funktion der horizontalen Koordinaten ist, ist falsch, wenn man an Gebäude, Pflanzen und Schluchten denkt. Diese Strukturen sind jedoch kleinräumig. Erst, wenn die horizontale Modellauflösung die Größenordnung von zehn Metern erreicht, muss man sie berücksichtigen.} Hieraus berechnet man wie folgt vorläufige Positionen $z_{w, pre, i}$ vertikaler Vektoren, wobei $i$ der Layerindex ist:
+in Termen der Orographie $h = h\left(\phi, \lambda\right)$ festgelegt ist.\footnote{Die Vorstellung, dass $h$ eine Funktion der horizontalen Koordinaten ist, ist falsch, wenn man an Gebäude, Pflanzen und Schluchten denkt. Diese Strukturen sind jedoch kleinräumig. Erst, wenn die horizontale Modellauflösung die Größenordnung von zehn Metern erreicht, muss man sie berücksichtigen.} Hieraus berechnet man wie folgt vorläufige Positionen $z_{w, \text{pre}, i}$ vertikaler Vektoren, wobei $i$ der Layerindex ist:
 %
 \begin{eqnarray}
-z_{w, pre, i} = \begin{cases}
-H - i\frac{H - \newtilde{z}}{N_L - N_{L, O}}, \text{ falls } i < N_{L, o},\\
+z_{w, \text{pre}, i} = \begin{cases}
+H - i\frac{H - \newtilde{z}}{N_L - N_{L, O}}, \text{ falls } i < N_{L, O},\\
 h + \left(N_L - i\right)\frac{\newtilde{z} - h}{N_{L, O}}, \text{ sonst.}
 \end{cases}
 \end{eqnarray}
@@ -14012,10 +14062,10 @@ Die skalaren Gitterpunkte werden anschließend in die Mitte zweier angrenzender 
 z_\text{Vektor, h} = \frac{z_{\text{Skalar, Herkunft}} + z_{\text{Skalar, Ziel}}}{2}.
 \end{eqnarray}
 %
-Analog geht man für duale Skalarfelder vor, hier ist die bestimmende Größe die Position $z_{j, i}$ der dualen skalaren Gitterpunkte, wobei $j$ der horizontale Index und $i$ wieder das Layer. Für diese Größe legt man
+Analog geht man für duale Skalarfelder vor, hier ist die bestimmende Größe die Position $z_{j, i}$ der dualen skalaren Gitterpunkte, wobei $j$ der horizontale Index ist und $i$ wieder das Layer. Für diese Größe legt man
 %
 \begin{eqnarray}
-z_{j, i} = \frac{1}{3}\sum_{j* \in \text{APC}(j)}z_{j', w, i}
+z_{j, i} = \frac{1}{3}\sum_{j' \in \text{APC}(j)}z_{j', w, i}
 \end{eqnarray}
 % 
 fest, sie ist also der Mittelwert der z-Positionen der vertikalen Vektoren der drei umliegenden Zellen.
@@ -14023,20 +14073,14 @@ fest, sie ist also der Mittelwert der z-Positionen der vertikalen Vektoren der d
 \subsubsection{Berechnung Flächen und Volumina}
 \label{sec:berechnung_von_flächen_und_volumina}
 
-Durch die Vorgaben im vorherigen Abschnitt sind die vertikalen Positionen aller Gitterpunkte festgelegt. Um Volumina und Flächen zu berechnen benötigt man jedoch kontinuierliche Formeln für die z-Koordinate eines Levels innerhalb einer Zelle. Hierfür denkt man sich ein Koordinatensystem $\left(\eta, \phi, \lambda\right)$ mit einer generalisierten Vertikalkoordinaten $\eta$, deren analytische Form hier nicht weiter interessiert, $\phi$ und $\lambda$ seien wie üblich die geographische Breite und Länge.
+Durch die Vorgaben im vorherigen Abschnitt sind die vertikalen Positionen aller Gitterpunkte festgelegt. Um Volumina und Flächen zu berechnen benötigt man jedoch kontinuierliche Formeln für die z-Koordinate eines Levels innerhalb einer Zelle. Hierfür denkt man sich ein Koordinatensystem $\left(\eta, \phi, \lambda\right)$ mit einer generalisierten Vertikalkoordinaten $\eta$, der geographischen Breie $\phi$ und der geographischen Länge $\lambda$. $\eta$ sei der linear interpolierte Levelindex.
 
 Die horizontalen Begrenzungen der Gitterboxen\footnote{Der Begriff \textit{Box} wird verwendet, auch wenn die gemeinten Mengen nicht quaderförmig sind.} sind sogenannte \textit{vertikale Flächen}\index{Vertikale Fläche}\index{Fläche!vertikale}. Entlang ihnen ist nach einer Rotation des Kugelkoordinatensystems um den Erdmittelpunkt entweder $\phi$ oder $\lambda$ konstant.
 
-Die vertikalen Begrenzungen der Flächen legen auch gleichzeitig die Unter- und Obergenzen der vetikalen Flächen fest. Dies ist nur möglich, wenn ein globaler analytischer Ausdruck für die Position $z = z\left(\phi, \lambda\right)$ einer vertikalen Begrenzungsfläche vorliegt. Hierzu stellt man die Orographie $h$ spektral da, also als Überlagerung von Kugelflächenfunktionen\index{Kugelflächenfunktion}
+Die vertikalen Begrenzungen der Flächen legen auch gleichzeitig die Unter- und Obergenzen der vetikalen Flächen fest. Um vertikale Flächen $A_v$ zu berechnen, verwendet man das Integral
 %
 \begin{eqnarray}
-h\left(\phi, \lambda\right) = \sum_{l = 0}^L\sum_{m = -l}^lY_{l, m}\left(\mu, \lambda\right)
-\end{eqnarray}
-%
-mit $\mu \coloneqq \cos\left(\phi\right)$. Um vertikale Flächen $A_v$ zu berechnen, verwendet man das Integral
-%
-\begin{eqnarray}
-A_v = \int_L\int_{z_{\text{upper}}}^{z_{\text{lower}}}dzrdx,
+A_v = \int_L\int_{z_{\text{lower}}}^{z_{\text{upper}}}dzrd\varphi,
 \end{eqnarray}
 %
 welches numerisch ausgewertet werden muss. Hierbei sind $L$ die Projektion der Fläche auf die Einheitskugel und $r$ der Abstand vom Erdmittelpunkt.
@@ -14044,7 +14088,7 @@ welches numerisch ausgewertet werden muss. Hierbei sind $L$ die Projektion der F
 Für die Volumina $V$ findet man
 %
 \begin{eqnarray}
-V = \int_{A}\int_{z_{\text{upper}}}^{z_{\text{lower}}}r^2\cos\left(\phi\right)dzd\phi d\lambda
+V = \int_{A}\int_{z_{\text{lower}}}^{z_{\text{upper}}}r^2\cos\left(\phi\right)dzd\phi d\lambda
 \end{eqnarray}
 %
 Hierbei ist $A$ die Projektion der Grundfläche der Gitterbox auf die EInheitskugel. Für die horizontalen Flächen $A_h$ findet man
