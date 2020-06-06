@@ -833,17 +833,17 @@ Den Raum der $\left(q, p\right)$ nennt man \textit{Phasenraum}.\index{Phasenraum
 \subsubsection{Poisson-Klammer}
 \label{sec:poisson-klammer}\index{Poisson-Klammer}
 
-Zwei beliebige Größen $F$, $K$ können nur von $\left(q, p, t\right)$ abhängen. Man definiert die \textit{Poisson-Klammer} $\lbrace F, K\rbrace$ von $F$ und $K$ durch
+Zwei beliebige Größen $F$, $K$ können nur von $\left(q, p, t\right)$ abhängen. Man definiert die \textit{Poisson-Klammer} $\left\lbrace F, K\right\rbrace$ von $F$ und $K$ durch
 %
 \begin{eqnarray}
-\lbrace F, K\rbrace \coloneqq \sum_{i = 1}^f\left(\frac{\partial F}{\partial q_i}\frac{\partial K}{\partial p_i} - \frac{\partial F}{\partial p_i}\frac{\partial K}{\partial q_i}\right).
+\left\lbrace F, K\right\rbrace \coloneqq \sum_{i = 1}^f\left(\frac{\partial F}{\partial q_i}\frac{\partial K}{\partial p_i} - \frac{\partial F}{\partial p_i}\frac{\partial K}{\partial q_i}\right).
 \end{eqnarray}
 %
 Hieraus folgen unmittelbar
 %
 \begin{eqnarray}
-\lbrace F, K\rbrace & = & -\lbrace K, F\rbrace,\\
-\lbrace F, F\rbrace & = & 0.
+\left\lbrace F, K\right\rbrace & = & -\left\lbrace K, F\right\rbrace,\\
+\left\lbrace F, F\right\rbrace & = & 0.
 \end{eqnarray}
 %
 Im Hamilton-Formalismus gelten
@@ -860,16 +860,16 @@ Im Hamilton-Formalismus gelten
 Weiterhin sind
 %
 \begin{eqnarray}
-\lbrace F, q_j\rbrace & = & -\frac{\partial F}{\partial p_j},\\
-\lbrace F, p_j\rbrace & = & \frac{\partial F}{\partial q_j}.
+\left\lbrace F, q_j\right\rbrace & = & -\frac{\partial F}{\partial p_j},\\
+\left\lbrace F, p_j\right\rbrace & = & \frac{\partial F}{\partial q_j}.
 \end{eqnarray}
 %
 Hieraus folgen weiter
 %
 \begin{eqnarray}
-\lbrace q_i, q_j\rbrace & = & 0,\\
-\lbrace p_i, p_j\rbrace & = & 0,\\
-\lbrace p_i, q_j\rbrace & = & -\delta_{i, j}.
+\left\lbrace q_i, q_j\right\rbrace & = & 0,\\
+\left\lbrace p_i, p_j\right\rbrace & = & 0,\\
+\left\lbrace p_i, q_j\right\rbrace & = & -\delta_{i, j}.
 \end{eqnarray}
 %
 Für die totale Zeitableitung\index{totale Zeitableitung}\index{Zeitableitung!totale} von $F$ erhält man nun
@@ -882,7 +882,7 @@ Für die totale Zeitableitung\index{totale Zeitableitung}\index{Zeitableitung!to
 \doublebox{\parbox{\textwidth}{
 \begin{center}
 \begin{eqnarray}
-\Leftrightarrow \frac{dF}{dt} = \lbrace F, H\rbrace + \frac{\partial F}{\partial t}.\label{eq:poisson_bracket_prop_0}
+\Leftrightarrow \frac{dF}{dt} = \left\lbrace F, H\right\rbrace + \frac{\partial F}{\partial t}.\label{eq:poisson_bracket_prop_0}
 \end{eqnarray}
 \end{center}
 }}
@@ -897,8 +897,8 @@ Dies impliziert
 Die Hamilton-Funktion\index{Hamilton-Funktion} ist also genau dann konstant, wenn sie nicht explizit von der Zeit abhängt. Aus Glg. \eqref{eq:poisson_bracket_prop_0} folgen die Glg.en \eqref{eq:hamilton_0} - \eqref{eq:hamilton_1} in der Form
 %
 \begin{eqnarray}
-\newdot{p}_i & = & \lbrace p_i, H\rbrace,\\
-\newdot{q}_i & = & \lbrace q_i, H\rbrace.
+\newdot{p}_i & = & \left\lbrace p_i, H\right\rbrace,\\
+\newdot{q}_i & = & \left\lbrace q_i, H\right\rbrace.
 \end{eqnarray}
 
 \section{Elektrodynamik}
@@ -7381,14 +7381,14 @@ In diesem Abschnitt soll es um die Thermodynamik einer Atmosphäre gehen, die au
 Der Ausgangspunkt ist Glg. \eqref{eq:td_1_id_gas}. Durch Differentiation nach der Zeit ergibt sich
 %
 \begin{eqnarray}
-\frac{dE}{dt} + p\frac{dV}{dt} = c^{(v)}Q_T + \mu\frac{dN}{dt}.
+\frac{dE}{dt} + p\frac{dV}{dt} = \frac{dQ_T}{dt} + \mu\frac{dN}{dt}.
 \end{eqnarray}
 %
 Mit den Glg.en \eqref{eq:kalorisch_id_gase_mod} und \eqref{eq:chemical_potential_id_gas} folgt
 %
 \begin{eqnarray}
-c^{(v)}m\frac{dT}{dt} + c^{(v)}T\frac{dm}{dt} + p\frac{dV}{dt} & = & c^{(v)}Q_T + T\left(\frac{C^{(v)}}{N} - \frac{S}{N} + k_B\right)\frac{dN}{dt}\nonumber\\
-& = & c^{(v)}Q_T + T\left(\frac{C^{(v)}}{N} - \frac{S}{N} + \frac{pV}{NT}\right)\frac{dN}{dt}.
+c^{(v)}m\frac{dT}{dt} + c^{(v)}T\frac{dm}{dt} + p\frac{dV}{dt} & = & \frac{dQ_T}{dt} + T\left(\frac{C^{(v)}}{N} - \frac{S}{N} + k_B\right)\frac{dN}{dt}\nonumber\\
+& = & \frac{dQ_T}{dt} + T\left(\frac{C^{(v)}}{N} - \frac{S}{N} + \frac{pV}{NT}\right)\frac{dN}{dt}.
 \end{eqnarray}
 %
 Division durch die Masse $m$ des betrachteten Teilchens liefert mit
@@ -7400,15 +7400,15 @@ Division durch die Masse $m$ des betrachteten Teilchens liefert mit
 die Gleichung
 %
 \begin{eqnarray}
-c^{(v)}\frac{dT}{dt} - \frac{p}{\rho^2}\frac{d\rho}{dt} & = & c^{(v)}q_T - \frac{p}{m\rho}\frac{dm}{dt} + T\left(c^{(v)} - c^{(v)} - s + \frac{p}{\rho T}\right)\frac{1}{N}\frac{dN}{dt}\nonumber\\
-& = & c^{(v)}q_T - \frac{p}{m\rho}\frac{dm}{dt} + T\left(R_s - s\right)\frac{1}{N}\frac{dN}{dt}\nonumber\\
-& = & c^{(v)}q_T - \frac{p}{m\rho}\frac{dm}{dt} + R_sT\frac{1}{N}\frac{dN}{dt} - Ts\frac{1}{N}\frac{dN}{dt},
+c^{(v)}\frac{dT}{dt} - \frac{p}{\rho^2}\frac{d\rho}{dt} & = & \frac{dq_T}{dt} - \frac{p}{m\rho}\frac{dm}{dt} + T\left(c^{(v)} - c^{(v)} - s + \frac{p}{\rho T}\right)\frac{1}{N}\frac{dN}{dt}\nonumber\\
+& = & \frac{dq_T}{dt} - \frac{p}{m\rho}\frac{dm}{dt} + T\left(R_s - s\right)\frac{1}{N}\frac{dN}{dt}\nonumber\\
+& = & \frac{dq_T}{dt} - \frac{p}{m\rho}\frac{dm}{dt} + R_sT\frac{1}{N}\frac{dN}{dt} - Ts\frac{1}{N}\frac{dN}{dt},
 \end{eqnarray}
 %
-wobei $s \coloneqq \frac{S}{m}$ für die spezifische Entropie\index{spezifische Entropie}\index{Entropie!spezifische} steht. Durch Erweiterung mit der Teilchenmasse erhält man
+wobei $s \coloneqq \frac{S}{m}$ für die spezifische Entropie\index{spezifische Entropie}\index{Entropie!spezifische} steht und $q_T \coloneqq \frac{Q_T}{m}$ für die spezifische Wärme. Durch Erweiterung mit der Teilchenmasse erhält man
 %
 \begin{eqnarray}
-c^{(v)}\frac{dT}{dt} - \frac{p}{\rho^2}\frac{d\rho}{dt} & = & c^{(v)}q_T - \frac{p}{m\rho}\frac{dm}{dt} + R_sT\frac{1}{m}\frac{dm}{dt}  - sT\frac{1}{m}\frac{dm}{dt},
+c^{(v)}\frac{dT}{dt} - \frac{p}{\rho^2}\frac{d\rho}{dt} & = & \frac{dq_T}{dt} - \frac{p}{m\rho}\frac{dm}{dt} + R_sT\frac{1}{m}\frac{dm}{dt}  - sT\frac{1}{m}\frac{dm}{dt},
 \end{eqnarray}
 %
 Aufgrund der Zustandsgleichung idealer Gase\index{Zustandsgleichung idealer Gase}\index{ideales Gas!Zustandsgleichung} gilt
@@ -7417,16 +7417,23 @@ Aufgrund der Zustandsgleichung idealer Gase\index{Zustandsgleichung idealer Gase
 -\frac{p}{\rho}\frac{1}{m}\frac{dm}{dt} + R_sT\frac{1}{m}\frac{dm}{dt} = 0.
 \end{eqnarray}
 %
-$\frac{1}{m}\frac{dm}{dt}$ ist die Quellstärke der Masse pro Masse, rechnet man dies auf das Volumen um, erhält man
+Man definiert
 %
 \begin{eqnarray}
-\frac{1}{m}\frac{dm}{dt} = \frac{1}{\rho V}\frac{dm}{dt} = \frac{1}{\rho}q_\rho.
+\frac{dq_\rho}{dt} \coloneqq \frac{1}{m}\frac{dm}{dt}.
 \end{eqnarray}
 %
-Damit folgt
+Üblicherweise werden die Wärme- und Massenflüsse jedoch auf das Volumen bezogen, es wird
 %
 \begin{eqnarray}
-c^{(v)}\frac{dT}{dt} - \frac{p}{\rho^2}\frac{d\rho}{dt} = c^{(v)}q_T - \frac{sT}{\rho}q_\rho
+q_\rho^{(V)} \coloneqq \rho\frac{dq_\rho}{dt},\\
+q_T^{(V)} \coloneqq \rho\frac{dq_T}{dt}
+\end{eqnarray}
+%
+definiert. Damit folgt
+%
+\begin{eqnarray}
+c^{(v)}\frac{dT}{dt} - \frac{p}{\rho^2}\frac{d\rho}{dt} = \frac{q_T^{(V)}}{\rho} - \frac{sT}{\rho}q_\rho^{(V)}
 \end{eqnarray}
 %
 Dabei ist zu berückstichtigen, dass es sich bei den Zeitableitungen um materielle Ableitungen handelt
@@ -7435,23 +7442,26 @@ Dabei ist zu berückstichtigen, dass es sich bei den Zeitableitungen um materiel
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{eqnarray}
-c^{(v)}\md{T} - \frac{p}{\rho^2}\md{\rho} = c^{(v)}q_T - \frac{sT}{\rho}q_\rho.\label{eq:td1_ideal_gas}
+c^{(v)}\md{T} - \frac{p}{\rho^2}\md{\rho} = \frac{q_T^{(V)}}{\rho} - \frac{sT}{\rho}q_\rho^{(V)}.\label{eq:td1_ideal_gas}
 \end{eqnarray}
 \end{center}
 }}
 \end{center}
-%
+
+\subsubsection{Hydrostatische Grenzfälle}
+\label{sec:hydrostatische_grenzfaelle}
+
 Leitet man die Zustandsgleichung zeitlich ab, folgt
 %
 \begin{eqnarray}
 \omega\alpha + p \md{\alpha} = R_s\md{T}.
 \end{eqnarray}
 %
-Mit den Glg.en \eqref{eq:td1_ideal_gas} und \eqref{eq:diff_spez_heat_id_gase} folgt
+Mit den Glg.en \eqref{eq:td1_ideal_gas} und \eqref{eq:diff_spez_heat_id_gase} erhält man unter Vernachlässigung der Massenquelldichte
 %
 \begin{eqnarray}
-\omega\alpha + \alpha q - c^{(v)}\md{T} = R_s\md{T}\Leftrightarrow - \omega\alpha + \left(R_s + c^{(v)}\right)\md{T} & = & c^{(p)}\md{T} - \alpha\omega = \alpha q\nonumber\\
-\frac{d_HT}{dt} - \omega\left(\frac{\alpha}{c^{(p)}} - \frac{\partial T}{\partial p}\right) & = & \frac{\alpha}{c^{(p)}}q.
+\omega\alpha + \alpha q_T^{(V)} - c^{(v)}\md{T} = R_s\md{T}\Leftrightarrow - \omega\alpha + \left(R_s + c^{(v)}\right)\md{T} & = & c^{(p)}\md{T} - \alpha\omega = \alpha q_T^{(V)}\nonumber\\
+\md{_hT} - \omega\left(\frac{\alpha}{c^{(p)}} - \frac{\partial T}{\partial p}\right) & = & \frac{\alpha}{c^{(p)}}q_T^{(V)}.
 \end{eqnarray}
 %
 Mit der Zustandsgleichung folgt
@@ -7466,13 +7476,16 @@ dies definiert den \text{Stabilitätsparameter}\index{Stabilitätsparameter} $S_
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{eqnarray}
-\md{_hT} - S_p\omega & = & \frac{\alpha}{c^{(p)}}q.\label{eq:td1_ideal_gas_p}
+\md{_hT} - S_p\omega & = & \frac{\alpha}{c^{(p)}}q_T^{(V)}.\label{eq:td1_ideal_gas_p}
 \end{eqnarray}
 \end{center}
 }}
 \end{center}
-%
-Ein Prozess ist adiabatisch, wenn keine Wärme übertragen wird, $q = 0$. Der Erste Hauptsatz lautet dann mit den Zustandsgrößen des idealen Gases
+
+\subsubsection{Adiabatische Grenzfälle}
+\label{sec:adiabatische_grenzfaelle}
+
+Ein Prozess ist adiabatisch, wenn keine Wärme übertragen wird, $dQ = 0$. Der Erste Hauptsatz lautet dann mit den Zustandsgrößen des idealen Gases
 %
 \begin{eqnarray}
 c^{(v)}m\md{T} = -p\md{v}.
@@ -7586,11 +7599,11 @@ Die materielle Ableitung von Glg. \eqref{eq:pot_temp} ist
 Hieraus folgt
 %
 \begin{eqnarray}
-c^{(v)}\frac{T}{\theta}\md{\theta} + \frac{T}{p}\omega\frac{R_s}{c^{(p)}}c^{(v)} + p\md{}\frac{R_sT}{p} & = & c^{(v)}q_T - \frac{sT}{\rho}q_\rho\nonumber\\
-\Leftrightarrow \md{\theta}\frac{T}{\theta} + \frac{\omega T}{p}\frac{R_s}{c^{(p)}} - \frac{R_sT}{pc^{(v)}}\omega + \frac{R_s}{c^{(v)}}\md{T} & = & q_T - \frac{sT}{c^{(v)}\rho}q_\rho\nonumber\\
+c^{(v)}\frac{T}{\theta}\md{\theta} + \frac{T}{p}\omega\frac{R_s}{c^{(p)}}c^{(v)} + p\md{}\frac{R_sT}{p} & = & \frac{q_T^{(V)}}{\rho} - \frac{sT}{\rho}q_\rho^{(V)}\nonumber\\
+\Leftrightarrow \md{\theta}\frac{T}{\theta} + \frac{\omega T}{p}\frac{R_s}{c^{(p)}} - \frac{R_sT}{pc^{(v)}}\omega + \frac{R_s}{c^{(v)}}\md{T} & = & \frac{q_T^{(V)}}{c^{(v)}\rho} - \frac{sT}{c^{(v)}\rho}q_\rho^{(V)}\nonumber\\
 \Leftrightarrow \frac{T}{\theta}\md{\theta} + \frac{\omega R_sT}{p}\left(\frac{1}{c^{(p)}} - \frac{1}{c^{(v)}}\right)\nonumber\\
-+ \frac{R_s}{c^{(v)}}\left(\frac{T}{\theta}\md{\theta} + \frac{T}{p}\omega\frac{R_s}{c^{(p)}}\right) & = & q_T - \frac{sT}{c^{(v)}\rho}q_\rho\nonumber\\
-\Leftrightarrow \frac{T}{\theta}\md{\theta}\frac{c^{(p)}}{c^{(v)}} + \frac{\omega R_sT}{p}\frac{c^{(v)} - c^{(p)} + R_s}{c^{(v)}c^{(p)}} & = & q_T - \frac{sT}{c^{(v)}\rho}q_\rho.
++ \frac{R_s}{c^{(v)}}\left(\frac{T}{\theta}\md{\theta} + \frac{T}{p}\omega\frac{R_s}{c^{(p)}}\right) & = & \frac{q_T^{(V)}}{c^{(v)}\rho} - \frac{sT}{c^{(v)}\rho}q_\rho^{(V)}\nonumber\\
+\Leftrightarrow \frac{T}{\theta}\md{\theta}\frac{c^{(p)}}{c^{(v)}} + \frac{\omega R_sT}{p}\frac{c^{(v)} - c^{(p)} + R_s}{c^{(v)}c^{(p)}} & = & \frac{q_T^{(V)}}{c^{(v)}\rho} - \frac{sT}{c^{(v)}\rho}q_\rho^{(V)}.
 \end{eqnarray}
 %
 Damit lautet Erste Hauptsatz für Thermodynamik für ein Gas in Termen der potentiellen Temperatur
@@ -7599,7 +7612,7 @@ Damit lautet Erste Hauptsatz für Thermodynamik für ein Gas in Termen der poten
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{eqnarray}
-\md{\theta} = \frac{\theta c^{(v)}}{Tc^{(p)}}q_T + \frac{\left(c^{(v)} - s\right)\theta}{c^{(p)}\rho}q_\rho = \frac{\theta}{c^{(p)}}\left(\frac{c^{(v)}}{T}q_T - \frac{s}{\rho}q_\rho\right).\label{eq:td1_dry_pot}
+\md{\theta} = \frac{\theta}{T\rho c^{(p)}}\left(q_T^{(V)} - sTq_\rho^{(V)}\right).\label{eq:td1_dry_pot}
 \end{eqnarray}
 \end{center}
 }}
@@ -7608,13 +7621,13 @@ Damit lautet Erste Hauptsatz für Thermodynamik für ein Gas in Termen der poten
 Multipliziert man diese Gleichung mit $\rho$, erhält man
 %
 \begin{eqnarray}
-\rho\frac{\partial\theta}{\partial t} + \rho\mathbf{v}\cdot\nabla\theta = \frac{\rho\theta}{c^{(p)}}\left(\frac{c^{(v)}}{T}q_T - \frac{s}{\rho}q_\rho\right).
+\rho\frac{\partial\theta}{\partial t} + \rho\mathbf{v}\cdot\nabla\theta = \frac{\theta}{Tc^{(p)}}\left(q_T^{(V)} - sTq_\rho^{(V)}\right).
 \end{eqnarray}
 %
 Addiert man das Produkt der potentiellen Temperatur\index{potentielle Temperatur}\index{Temperatur!potentielle} mit der Kontinuitätsgleichung\index{Kontinuitätsgleichung}
 %
 \begin{eqnarray}
-\theta\frac{\partial\rho}{\partial t} + \theta\mathbf{v}\cdot\nabla\rho + \theta\rho\nabla\cdot\mathbf{v} = \theta q_\rho = \frac{\theta\rho}{c^{(p)}}\frac{c^{(p)}}{\rho}q_\rho
+\theta\frac{\partial\rho}{\partial t} + \theta\mathbf{v}\cdot\nabla\rho + \theta\rho\nabla\cdot\mathbf{v} = \theta q_\rho^{(V)} = \frac{\theta}{Tc^{(p)}}Tc^{(p)}q_\rho^{(V)}
 \end{eqnarray}
 %
 hinzu, folgt
@@ -7623,7 +7636,7 @@ hinzu, folgt
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{eqnarray}
-\frac{\partial\left(\rho\theta\right)}{\partial t} + \nabla\cdot\left(\rho\theta\mathbf{v}\right) = \frac{\rho\theta}{c^{(p)}}\left(\frac{c^{(v)}}{T}q_T + \frac{c^{(p)} - s}{\rho}q_\rho\right).\label{eq:td1_id_gas_pot_mod}
+\frac{\partial\left(\rho\theta\right)}{\partial t} + \nabla\cdot\left(\rho\theta\mathbf{v}\right) = \frac{\theta}{Tc^{(p)}}\left(q_T^{(V)} + T\left(c^{(p)} - s\right)q_\rho^{(V)}\right).\label{eq:td1_id_gas_pot_mod}
 \end{eqnarray}
 \end{center}
 }}
@@ -7650,7 +7663,7 @@ p & = & \rho R_sT \Rightarrow \md{p} = R_s\left(T\md{\rho} + \rho\md{T}\right)
 Mit
 %
 \begin{eqnarray}
-\md{\rho} & = & -\rho\nabla\cdot\mathbf{v} + q_\rho,\\
+\md{\rho} & = & -\rho\nabla\cdot\mathbf{v} + q_\rho^{(V)},\\
 \md{T} & = & \frac{T}{\theta}\md{\theta} + \frac{TR_s}{c^{(p)}p}\md{p}
 \end{eqnarray}
 %
@@ -7658,15 +7671,16 @@ folgt
 %
 \begin{eqnarray}
 \md{p} & = & R_sT\left(-\rho\nabla\cdot\mathbf{v} + q_{\rho}\right) + R_s\rho\left(\frac{T}{\theta}\md{\theta} + \frac{TR_s}{c^{(p)}p}\md{p}\right)\nonumber\\
-& = & -p\nabla\cdot\mathbf{v} + R_sTq_{\rho} + \frac{p}{\theta}\md{\theta} + \frac{R_s}{c^{(p)}}\md{p}\nonumber\\
-\Leftrightarrow \frac{c^{(v)}}{c^{(p)}}\md{p} & = & -p\nabla\cdot\mathbf{v} + R_sTq_{\rho_h} + \frac{p}{\theta}\md{\theta}\nonumber
+& = & -p\nabla\cdot\mathbf{v} + R_sTq_\rho^{(V)} + \frac{p}{\theta}\md{\theta} + \frac{R_s}{c^{(p)}}\md{p}\nonumber\\
+\Leftrightarrow \frac{c^{(v)}}{c^{(p)}}\md{p} & = & -p\nabla\cdot\mathbf{v} + R_sTq_\rho^{(V)} + \frac{p}{\theta}\md{\theta}\nonumber\\
+\Leftrightarrow \frac{\partial p}{\partial t} & = & -\mathbf{v}\cdot\nabla p - \frac{c^{(p)}}{c^{(v)}}p\nabla\cdot\mathbf{v} + \frac{c^{(p)}}{c^{(v)}}R_sTq_\rho^{(V)} + \frac{p}{T\rho c^{(v)}}\left(q_T^{(V)} - sTq_\rho^{(V)}\right)
 \end{eqnarray}
 %
 \begin{center}
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{eqnarray}
-\Leftrightarrow \frac{\partial p}{\partial t} = -\mathbf{v}\cdot\nabla p - \frac{c^{(p)}}{c^{(v)}}p\nabla\cdot\mathbf{v} + \frac{c^{(p)}}{c^{(v)}}R_sTq_{\rho} + \frac{p}{c^{(v)}}\left(\frac{c^{(v)}}{T}q_T - \frac{s}{\rho}q_\rho\right).
+\Leftrightarrow \frac{\partial p}{\partial t} = -\mathbf{v}\cdot\nabla p - \frac{c^{(p)}}{c^{(v)}}p\nabla\cdot\mathbf{v} + \frac{c^{(p)}}{c^{(v)}}R_sTq_\rho^{(V)} + \frac{R_s}{c^{(v)}}\left(q_T^{(V)} - sTq_\rho^{(V)}\right).
 \end{eqnarray}
 \end{center}
 }}
@@ -7735,7 +7749,7 @@ Fügt man die diabatischen Terme hinzu, folgt
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{eqnarray}
-\frac{\partial\Pi}{\partial t} & = & -\frac{R_s\Pi}{c^{(v)}\theta\rho}\left[\nabla\cdot\left(\rho\theta\mathbf{v}\right) - \frac{\rho\theta}{c^{(p)}}\left(\frac{c^{(v)}}{T}q_T + \frac{c^{(p)} - s}{\rho}q_\rho\right)\right].\label{eq:def_exner-pressure_local_derivative}
+\frac{\partial\Pi}{\partial t} & = & -\frac{R_s\Pi}{c^{(v)}\theta\rho}\left[\nabla\cdot\left(\rho\theta\mathbf{v}\right) - \frac{\theta}{Tc^{(p)}}\left(q_T^{(V)} + T\left(c^{(p)} - s\right)q_\rho^{(V)}\right)\right].\label{eq:def_exner-pressure_local_derivative}
 \end{eqnarray}
 \end{center}
 }}
@@ -7753,7 +7767,7 @@ Mit Glg. \eqref{eq:td1_id_gas_pot_mod} folgt
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{eqnarray}
-\md{\Pi} = \frac{R_s\Pi}{c^{(v)}}\left[-\nabla\cdot\mathbf{v} + \frac{1}{c^{(p)}}\left(\frac{c^{(v)}}{T}q_T + \frac{c^{(p)} - s}{\rho}q_\rho\right)\right].\label{eq:exner-pressure_material_derivative}
+\md{\Pi} = \frac{R_s\Pi}{c^{(v)}}\left[-\nabla\cdot\mathbf{v} + \frac{1}{\rho Tc^{(p)}}\left(q_T^{(V)} + T\left(c^{(p)} - s\right)q_\rho^{(V)}\right)\right].\label{eq:exner-pressure_material_derivative}
 \end{eqnarray}
 \end{center}
 }}
@@ -7832,7 +7846,7 @@ Man kann auch $s$ als Zustandsgröße verwenden. Es gilt nämlich
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{eqnarray}
-\rho\md{s} = c^{(p)}\frac{\rho}{\theta}\md\theta = \rho\left(\frac{c^{(v)}}{T}q_T - \frac{s}{\rho}q_\rho\right).
+\rho\md{s} = c^{(p)}\frac{\rho}{\theta}\md\theta = \frac{1}{T}\left(q_T^{(V)} - sTq_\rho^{(V)}\right).
 \end{eqnarray}
 \end{center}
 }}
@@ -7841,7 +7855,7 @@ Man kann auch $s$ als Zustandsgröße verwenden. Es gilt nämlich
 Addiert man das Produkt der Entropie\index{Entropie}\index{Entropie} $s$ mit der Kontinuitätsgleichung\index{Kontinuitätsgleichung}
 %
 \begin{eqnarray}
-s\frac{\partial\rho}{\partial t} + s\mathbf{v}\cdot\nabla\rho + s\rho\nabla\cdot\mathbf{v} = sq_\rho
+s\frac{\partial\rho}{\partial t} + s\mathbf{v}\cdot\nabla\rho + s\rho\nabla\cdot\mathbf{v} = sq_\rho^{(V)}
 \end{eqnarray}
 %
 hinzu, folgt mit der Definition
@@ -7856,7 +7870,7 @@ die Gleichung
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{eqnarray}
-\Rightarrow \frac{\partial\newtilde{s}}{\partial t} + \nabla\cdot\left(\newtilde{s}\mathbf{v}\right) & = & c^{(v)}\frac{\rho}{T}q_T.\label{eq:td_1_id_gas_density_entropy}
+\Rightarrow \frac{\partial\newtilde{s}}{\partial t} + \nabla\cdot\left(\newtilde{s}\mathbf{v}\right) & = & \frac{q_T^{(V)}}{T}.\label{eq:td_1_id_gas_density_entropy}
 \end{eqnarray}
 \end{center}
 }}
@@ -7871,7 +7885,7 @@ s \to s - \newtilde{c}
 mit einer beliebigen Konstante $\newtilde{c}$, dann wird aus Glg. \eqref{eq:td_1_id_gas_density_entropy}
 %
 \begin{eqnarray}
-\frac{\partial\newtilde{s}}{\partial t} + \nabla\cdot\left(\newtilde{s}\mathbf{v}\right) & = & c^{(v)}\frac{\rho}{T}q_T + \newtilde{c}q_\rho.
+\frac{\partial\newtilde{s}}{\partial t} + \nabla\cdot\left(\newtilde{s}\mathbf{v}\right) & = & \frac{q_T^{(V)}}{T} + \newtilde{c}q_\rho^{(V)}.
 \end{eqnarray}
 %
 Möchte man $c''$ also loswerden, möchte man also $c^{(p)}\ln\left(\theta\right)$ direkt als Ausdruck für die Entropie verwenden, so geht dies nur unter Vernachlässigung von Massenquelltermen. Diese tragen nicht zur Evolution der Entropiedichte bei.
@@ -7911,7 +7925,7 @@ s = \sum_{i = 1}^N\newtilde{s}_i.
 Prinzipiell bekommt jede Gassorte ihren eigenen Temperatur-Quellterm $q_{T, i}$. Man nimmt jedoch vereinfachend an, dass der anschließende Austausch der Energie zwischen den Gassorten so schnell ist, dass man sie als instantan annehmen kann. In diesem Fall kann man
 %
 \begin{eqnarray}
-q_{T, i} = \frac{\rho_i}{\rho}q_T
+q_{T, i}^{(V)} = \frac{\rho_i}{\rho}q_T^{(V)}
 \end{eqnarray}
 %
 Somit gilt Glg. \eqref{eq:td_1_id_gas_density_entropy}
@@ -7920,7 +7934,7 @@ Somit gilt Glg. \eqref{eq:td_1_id_gas_density_entropy}
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{eqnarray}
-\Rightarrow \frac{\partial\newtilde{s}}{\partial t} + \nabla\cdot\left(\newtilde{s}\mathbf{v}\right) & = & c^{(v)}\frac{\rho}{T}q_T
+\Rightarrow \frac{\partial\newtilde{s}}{\partial t} + \nabla\cdot\left(\newtilde{s}\mathbf{v}\right) & = & q_T^{(V)}
 \end{eqnarray}
 \end{center}
 }}
@@ -8214,6 +8228,397 @@ Dabei wurde in der Notation explizit berücksichtigt, dass die isochore spezifis
 }}
 \end{center}
 
+\section{Integralrelationen einer einphasigen Atmosphäre}
+\label{sec:integralrelationen_einer_einphasigen_atmosphäre}\index{Integralrelation!einer einphasigen Atmosphäre}\index{Atmosphäre!einphasige!Integralrelation}
+
+Die prognostische Gleichung der spezifischen kinetischen Energie\index{spezifische kinetische Energie}\index{kinetische Energie!spezifische}\index{Energie!kinetische!spezifische} $k = \frac{1}{2}\mathbf{v}^2$ erhält man durch Multiplikation der Impulsgleichung in der Form Glg. \eqref{eq:momentum_mod} von links mit $\mathbf{v}\cdot $:
+%
+\begin{eqnarray}
+\md{k} = \frac{\partial k}{\partial t} + \mathbf{v}\cdot\nabla k = -\frac{1}{\rho}\mathbf{v}\cdot\nabla p - wg + \mathbf{v}\cdot\mathbf{F}_R.
+\end{eqnarray}
+%
+Multipliziert man diese Gleichung mit $\rho$ und addiert das Produkt der Kontinuitätsgleichung mit $k$ dazu, erhält man
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{eqnarray}
+\md{K} = \frac{\partial K}{\partial t} + \mathbf{v}\cdot\nabla K = -\mathbf{v}\cdot\nabla p - \rho wg - K\nabla\cdot\mathbf{v} + \rho\mathbf{v}\cdot\mathbf{F}_R\label{eq:kin_energy_density_flux_form}
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
+%
+als prognostische Gleichung für die \index{kinetische Energiedichte}\index{Energiedichte!kinetische}kinetische Energiedichte $K = \frac{1}{2}\rho\mathbf{v}^2$. Als prognostische Gleichung für die spezifische geopotentielle Energie\index{Geopotential} $\phi$ erhält man
+%
+\begin{eqnarray}
+\md{\phi} = \mathbf{v}\cdot\nabla\phi = wg.
+\end{eqnarray}
+%
+Multipliziert man diese Gleichung mit $\rho$ und addiert das Produkt der Kontinuitätsgleichung mit $\phi$ dazu, erhält man
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{eqnarray}
+\md{P} = \frac{\partial P}{\partial t} + \mathbf{v}\cdot\nabla P = \rho wg - P\nabla\cdot\mathbf{v}\label{eq:pot_energy_density_flux_form}
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
+%
+als prognostische Gleichung für die geopotentielle Energiedichte $P = \rho\phi$. Als prognostische Gleichung für die spezifische innere Energie\index{innere Energie}\index{Energie!innere} $i = c^{(v)}T$ erhält man
+%
+\begin{eqnarray}
+\md{i} = \frac{\partial i}{\partial t} + \mathbf{v}\cdot\nabla i = -p\md{\alpha} - \mathbf{v}\cdot\mathbf{F}_R = -p\alpha\nabla\cdot\mathbf{v} - \mathbf{v}\cdot\mathbf{F}_R.
+\end{eqnarray}
+%
+Multipliziert man diese Gleichung mit $\rho$ und addiert das Produkt der Kontinuitätsgleichung mit $i$ dazu, erhält man
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{eqnarray}
+\md{\newtilde{I}} = \frac{\partial\newtilde{I}}{\partial t} + \mathbf{v}\cdot\nabla\newtilde{I} = -\left(p + \newtilde{I}\right)\nabla\cdot\mathbf{v} - \rho\mathbf{v}\cdot\mathbf{F}_R\label{eq:internal_energy_prognostic}
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
+%
+als prognostische Gleichung für die kinetische Energiedichte $\newtilde{I} \coloneqq \rho i$. Die Energiedichte\index{Energiedichte} $e$ ist die Summe aus kinetischer, potentieller und innerer Energie pro Volumen, 
+%
+\begin{eqnarray}
+e = K + P + \newtilde{I}.
+\end{eqnarray}
+%
+Die totale Ableitung hiervon ergibt sich unter Verwendung der gerade hergeleiteten Gleichungen zu
+
+%
+\begin{eqnarray}
+\md{e} & = & -e\nabla\cdot\mathbf{v} - \nabla\cdot\left(p\mathbf{v}\right).\label{eq:bernoulli_pre}
+\end{eqnarray}
+%
+Damit folgt
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{eqnarray}
+\frac{\partial e}{\partial t} & = & -\nabla\cdot\left(p\mathbf{v}\right) - \nabla\cdot\left(e\mathbf{v}\right) \Leftrightarrow\frac{\partial e}{\partial t} + \nabla\cdot\left(e\mathbf{v}\right) = -\nabla\cdot\left(p\mathbf{v}\right).\label{eq:poynting_met}
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
+%
+Dies bezeichnet man auch als das \textit{Poynting-Theorem der Meteorologie}\index{Poynting-Theorem!Meteorologie} in Analogie zum Poynting-Theorem der ED Glg. \eqref{eq:poynting_theorem}. Als Spezialfall von Glg. \eqref{eq:bernoulli_pre} erhält man für stationäre Strömungen inkompressibler Medien wegen
+%
+\begin{eqnarray}
+\nabla\cdot\mathbf{v} & = & 0,\\
+\md{p} & = & \mathbf{v}\cdot\nabla p
+\end{eqnarray}
+%
+die Gleichung
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{eqnarray}
+\md{}\left(K + P + p\right) = 0,
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
+%
+was man als \textit{Bernoulli-Gleichung}\index{Bernoulli-Gleichung} bezeichnet. Weitere Formen dieser Aussage sind
+%
+\begin{eqnarray}
+\frac{1}{2}\rho\mathbf{v}^2 + \rho gz + p & = & \text{const. entlang Stromlinien},\\
+\frac{1}{2}\mathbf{v}² + gz + \frac{p}{\rho} & = & \text{const. entlang Stromlinien}.
+\end{eqnarray}
+%
+Die Gesamtenergie $E$ der Atmosphäre $A$ ist
+%
+\begin{eqnarray}
+E = \int_{A}^{}ed^3r.
+\end{eqnarray}
+%
+Nimmt man $A$ als konstant an, gilt mit dem Gauß'schen Satz
+%
+\begin{eqnarray}
+\frac{dE}{dt} = \int_{A}^{}\frac{\partial e}{\partial t}d^3r = \int_{A}^{} - \nabla\cdot\left[\left(e + p\right)\mathbf{v}\right]d^3r = -\int_{O}^{}\left(e + p\right)\mathbf{v}\cdot d\mathbf{n} - \int_{v}^{}\left(e + p\right)\mathbf{v}\cdot d\mathbf{n}, 
+\end{eqnarray}
+%
+hierbei sind $O$ der Oberrand der Atmosphäre und $U$ die Erdoberfläche. Unter der Voraussetzung von Massenerhaltung (hier: kinematische Randbedingung\index{kinematische Randbedingung}\index{Randbedingung!kinematische}) gilt also
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{eqnarray}
+E & = & \text{const}.
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
+
+%
+Dreht sich die kondensierte Erde mit fester Winkelgeschwindigkeit und gilt die kinematische Randbedingung, so sind Impuls und Drehimpuls aufgrund fehlender Symmetrieeigenschaften keine Erhaltungsgrößen. Für die Gesamtentropie $S$ einer Atmosphäre gilt bis auf eine Konstante
+%
+\begin{eqnarray}
+S = \int_A\newtilde{s}d^3r
+\end{eqnarray}
+%
+mit $\newtilde{s}$ wie in Glg. \eqref{eq:def_entropy_density} definiert. Die prognostische Gleichung dieser Größe ist Glg. \eqref{eq:td_1_id_gas_density_entropy}:
+%
+\begin{eqnarray}
+\frac{\partial\newtilde{s}}{\partial t} + \nabla\cdot\left(\newtilde{s}\mathbf{v}\right) & = & c^{(v)}\frac{\rho}{T}q_T
+\end{eqnarray}
+%
+Globale Integration liefert
+%
+\begin{eqnarray}
+\frac{dS}{dt} = \int_Ac^{(v)}\frac{\rho}{T}q_Td^3r.\label{eq:entropy_balance_global_pre}
+\end{eqnarray}
+%
+Dieses Integral nichtnegativ, da der Wärmefluss positiv in kälteren und negativ in wärmeren Gebieten ist. Somit gilt
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{eqnarray}
+\frac{dS}{dt} & \geq & 0.
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
+%
+In einer idealen adiabatischen einphasigen Atmosphäre laufen die Prozesse reversibel\index{reversibel} ab. Für die Zeitableitung der inneren Energie\index{innere Energie}\index{Energie!innere} einer einphasigen Atmosphäre gilt mit Glg. \eqref{eq:internal_energy_prognostic}
+%
+\begin{eqnarray}
+\frac{d}{dt}\int_A\newtilde{I}d^3r = \frac{d}{dt}\int_A-p\nabla\cdot\mathbf{v} - \rho\mathbf{v}\cdot\mathbf{F}_Rd^3r = \int_A\mathbf{v}\cdot\nabla p - \rho\mathbf{v}\cdot\mathbf{F}_Rd^3r.
+\end{eqnarray}
+%
+Die Bilanz der Enthalpie\index{Enthalpie} erhält man durch Multiplikation dieser Gleichung mit dem Adiabatenexponenten $\kappa = \frac{c^{(p)}}{c^{(v)}}$. Analog erhält man für die kinetische bzw. potentielle Energie
+%
+\begin{eqnarray}
+\frac{d}{dt}\int_AKd^3r & \stackrel{\text{Glg. \eqref{eq:kin_energy_density_flux_form}}}{=} & \int_A-\mathbf{v}\cdot\nabla p - \rho wg + \rho\mathbf{v}\cdot\mathbf{F}_Rd^3r,\\
+\frac{d}{dt}\int_APd^3r & \stackrel{\text{Glg. \eqref{eq:pot_energy_density_flux_form}}}{=} & \int_A\rho wgd^3r.
+\end{eqnarray}
+%
+Somit folgt
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{eqnarray}
+\frac{d}{dt}\int_A\newtilde{I} + Pd^3r & = & D - C,\\
+\frac{d}{dt}\int_A K d^3r & = & C - D
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
+%
+mit der \textit{adiabatischen Konversion}\index{adiabatische Konversion}\index{Konversion!adiabatische}
+%
+\begin{eqnarray}
+C & \coloneqq & \int_A-\mathbf{v}\cdot\nabla p - \rho wgd^3r
+\end{eqnarray}
+%
+
+und der Dissipation\index{Dissipation}
+%
+\begin{eqnarray}
+D & \coloneqq & \int_A - \rho\mathbf{v}\cdot\mathbf{F}_Rd^3r.
+\end{eqnarray}
+%
+Die adiabatische Konversion steht für die Umwandlung von potentieller und innerer Energie in kinetische Energie. Dies geschieht, indem der Druckgradient und die Schwere Arbeit leisten. In der Impulsgleichung kann man daher die Zuordnung
+%
+\begin{eqnarray}
+\underbrace{\overbrace{\frac{\partial\mathbf{v}}{\partial t}}^{\text{lokalzeitl. Änderung}} = \overbrace{-\left(\mathbf{v}\cdot\nabla\right)\mathbf{v} - \mathbf{f}\times\mathbf{v}}^{\text{Advektion}} \overbrace{- \frac{1}{\rho}\nabla p + \mathbf{g}}^{\text{adiabatische Konversion}}}_{\text{reversibel}} + \underbrace{\overbrace{\mathbf{F}_R}^{\text{Dissipation}}}_{\text{irreversibel}} 
+\end{eqnarray}
+%
+bzw.
+%
+\begin{eqnarray}
+\underbrace{\overbrace{\frac{\partial\mathbf{v}}{\partial t}}^{\text{lokalzeitl. Änderung}} = \overbrace{\mathbf{v}\times\etabi}^{\text{Advektion}} \overbrace{- \frac{1}{\rho}\nabla p + \mathbf{g}}^{\text{adiabatische Konversion}}}_{\text{reversibel}} + \underbrace{\overbrace{\mathbf{F}_R}^{\text{Dissipation}}}_{\text{irreversibel}} 
+\end{eqnarray}
+%
+vornehmen.
+
+Für den Gesamtimpuls $\mathbf{P}$ der Atmosphäre\index{Gesamtimpuls der Atmosphäre}\index{Atmosphäre!Gesamtimpuls}\index{Impuls!der Atmosphäre} gilt
+%
+\begin{eqnarray}
+\mathbf{P} = \int_A\rho\mathbf{v}d^3r.
+\end{eqnarray}
+%
+Für die Zeitableitung dieser Größe sind laut dem Zweiten Newton'schen Axiom\index{Zweites Newton'sches Axiom}\index{Newton'sches Axiom!Zweites}\index{Axiom!Zweites!Newton'sches} nur die externen Kräfte zu berücksichtigen:
+%
+\begin{eqnarray}
+\frac{d\mathbf{P}}{dt} = \int_A\rho\mathbf{f}_{\text{ext}}d^3r.
+\end{eqnarray}
+%
+$\mathbf{P}$ ist also nie erhalten, da mindestens durch die Oberfläche immer externe Kräfte\index{externe Kraft}\index{Kraft!externe} wirken.
+
+Für den Gesamtdrehimpuls $\mathbf{L}$ der Atmosphäre\index{Gesamtdrehimpuls der Atmosphäre}\index{Atmosphäre!Gesamtdrehimpuls}\index{Drehimpuls!der Atmosphäre} gilt
+%
+\begin{eqnarray}
+\mathbf{L} & = & \int_A\mathbf{r} \times \rho\mathbf{v}d^3r\nonumber\\
+\frac{d\mathbf{L}}{dt} & = & \int_A\mathbf{r} \times \rho\mathbf{f}_{\text{ext}}d^3r.
+\end{eqnarray}
+%
+Der Drehimpuls ist also genau dann erhalten, wenn alle externen Kräfte auf der radialen Achse wirken, also nur in ruhenden Koordinaten\index{Koordinaten!ruhende}\index{ruhende Koordinaten} über einem Planten mit radialsymmetrischer Massenverteilung im Inneren.
+
+\subsection{APE}
+\label{sec:ape}\index{available potential Energy (APE)}\index{APE}\index{Energie!potentielle!verfügbare}\index{potentielle Energie!verfügbare}\index{verfügbare potentielle Energie}
+
+Die kinetische Energie $\KE$\index{kinetische Energie}\index{Energie!kinetische} einer Luftsäule in einer hydrostatischen Atmosphäre ist durch
+%
+\begin{eqnarray}
+\KE = \int_0^{\infty}\frac{1}{2}\rho\mathbf{v}_{h, g}^2dz = -\frac{1}{g}\int_{p_S}^0\frac{1}{2}\mathbf{v}_{h, g}^2dp = \frac{1}{g}\int_0^{p_S}\frac{1}{2}\mathbf{v}_{h, g}^2dp
+\end{eqnarray}
+%
+gegeben, hierbei ist $p_S$ der Druck an der Erdoberfläche. Analog gilt für die innere Energie\index{innere Energie}\index{Energie!innere}
+%
+\begin{eqnarray}
+\IE = \int_0^\infty\rho c^{(v)}Tdz = \frac{1}{g}\int_{0}^{p_S}c^{(v)}Tdp.
+\end{eqnarray}
+%
+Für die potentielle Energie\index{potentielle Energie}\index{Energie!potentielle} $\PE$ erhält man mit partieller Integration
+%
+\begin{eqnarray}
+\PE = \int_0^\infty\rho gzdz = \int_0^{p_S}z\left(p\right)dp = p_Sz_S + \frac{1}{g}\int_0^{p_S}R_dTdp
+\end{eqnarray}
+%
+mit $z_S$ als Orographie\index{Orographie}. Man definiert die \textit{totale potentielle Energie}\index{Energie!potentielle!totale}\index{totale potentielle Energie} oder auch kurz potentielle Energie $\TPE$ durch
+
+%
+\begin{eqnarray}
+\TPE \coloneqq = \PE + \IE = p_Sz_S + g^{-1}\int_0^{p_S}\left(c^{(v)} + R_d\right)dp = p_Sz_S + g^{-1}\int_0^{p_S}hdp = p_Sz_S + \frac{c^{(p)}}{g}\int_0^{p_S}\theta\left(\frac{p}{p_0}\right)^{R_d/c^{(p)}}dp\label{eq:tpe_id_1}
+\end{eqnarray}
+%
+mit $h = c^{(p)}T$ als Enthalpie\index{Enthalpie}.Man schätzt ab
+%
+\begin{eqnarray}
+\frac{\KE}{\IE} \sim \frac{\newoverline{v}_h^2}{2c^{(v)}\newoverline{T}} \sim 0, 03\text{ \%}.
+\end{eqnarray}
+%
+Es ist also viel mehr innere als kinetische Energie in der Atmosphäre vorhanden.
+
+Da man das Schwerepotential auch um eine beliebige Konstante verschieben könnte, führt man das Konzept der \textit{verfügbaren potentiellen Energie}\index{Energie!potentielle!verfügbare}\index{verfügbare potentielle Energie} $\APE$ ein. Hierfür transformiert man zunächst Glg. \eqref{eq:tpe_id_1} ins $\theta-$System\index{$\theta-$System}:
+%
+\begin{eqnarray}
+\TPE = p_Sz_S + \frac{c^{(p)}}{gp_0^{R_d/c^{(p)}}}\int_\infty^{\theta_S}\theta p\left(\theta\right)^{R_d/c^{(p)}}\frac{\partial p}{\partial\theta}d\theta
+\end{eqnarray}
+%
+Mittels partieller Integration\index{partielle Integration}\index{Integration!partielle} erhält man
+%
+\begin{eqnarray}
+\int_\infty^{\theta_S}\theta p\left(\theta\right)^{R_d/c^{(p)}}\frac{\partial p}{\partial\theta}d\theta & = & \theta_Sp_S^{1 + \frac{R_d}{c^{(p)}}} - \int_\infty^{\theta_S}p\left(\theta\right)^{1 + \frac{R_d}{c^{(p)}}} + \frac{R_d}{c^{(p)}}\theta p\left(\theta\right)^{R_d/c^{(p)}}\frac{\partial p}{\partial\theta}d\theta\nonumber\\
+\Rightarrow\int_\infty^{\theta_S}\theta p\left(\theta\right)^{R_d/c^{(p)}}\frac{\partial p}{\partial\theta}d\theta & = & 
+\frac{c^{(p)}}{c^{(p)} + R_d}\theta_Sp_S^{1 + \frac{R_d}{c^{(p)}}} + \frac{c^{(p)}}{c^{(p)} + R_d}\int_{\theta_S}^\infty p\left(\theta\right)^{1 + \frac{R_d}{c^{(p)}}}d\theta\nonumber\\
+\Rightarrow\TPE & = & p_Sz_S + \frac{c^{(p)2}\theta_Sp_S^{1 + \frac{R_d}{c^{(p)}}}}{gp_0^{R_d/c^{(p)}}\left(c^{(p)} + R_d\right)}\nonumber\\
+&& + \frac{c^{(p)2}}{gp_0^{R_d/c^{(p)}}\left(c^{(p)} + R_d\right)}\int_{\theta_S}^\infty p\left(\theta\right)^{1 + \frac{R_d}{c^{(p)}}}d\theta.
+\end{eqnarray}
+%
+Um die potentielle Energie zu erhalten, die in einer Atmosphäre über einer Fläche $A$ enthalten ist, rechnet man
+%
+\begin{eqnarray}
+\int_A\TPE dA & = & \int_Ap_Sz_SdA + \frac{c^{(p)2}}{gp_0^{R_d/c^{(p)}}\left(c^{(p)} + R_d\right)}\int_A\theta_Sp_S^{1 + \frac{R_d}{c^{(p)}}}dA + \frac{c^{(p)2}}{gp_0^{R_d/c^{(p)}}\left(c^{(p)} + R_d\right)}\int_A\int_{\theta_S}^\infty p\left(\theta\right)^{1 + \frac{R_d}{c^{(p)}}}d\theta dA\nonumber\\
+& \approx & A\newoverline{p_Sz_S} + \frac{Ac^{(p)2}}{gp_0^{R_d/c^{(p)}}\left(c^{(p)} + R_d\right)}\newoverline{\theta_Sp_S^{1 + \frac{R_d}{c^{(p)}}}} + \frac{Ac^{(p)2}}{gp_0^{R_d/c^{(p)}}\left(c^{(p)} + R_d\right)}\int_{\newoverline{\theta_S}}^\infty\newoverline{p\left(\theta\right)^{1 + \frac{R_d}{c^{(p)}}}}d\theta.\label{eq:ape_deriv_1}
+\end{eqnarray}
+%
+Nach Ggl. \eqref{eq:tpe_id_1} ist
+%
+\begin{eqnarray}
+\int_A\TPE + KEdA
+\end{eqnarray}
+%
+konservativ, wenn kein Massenfluss über die lateralen Ränder von $A$ erfolgt. Die $\APE$ ist der Anteil der $\TPE$, die in kinetische Energie umgewandelt werden könnte, also
+%
+\begin{eqnarray}
+\APE \coloneqq \int_A\TPE - \TPE_{\text{min}}dA, 
+\end{eqnarray}
+%
+wobei das Minimum der potentiellen Energie aller hydrostatischer Zustände gemeint ist, die aus dem Anfangszustand durch adiabatische Umsortierung erreicht werden können, ohne überadiabatische Gradienten zu produzieren. Hierbei bewegen sich die Teilchen entlang der Isentropen und nach einer solchen Umordnung sind alle Zustandsgrößen nur noch von der Vertikalkoordinate abhängig, da sonst Druckgradienten existieren würden, die genau darauf hinarbeiten würden (die Coriolis-Kraft leistet keine Arbeit, hat somit keine energetische Relevanz und muss daher für diese Betrachtung nicht berücksichtigt werden). Bezeichnet man die Felder des Zustands minimaler potentieller Energie durch gestrichene Größen, kann man notieren
+%
+\begin{eqnarray}
+\int_A\TPE dA & = & \int_Ap'\left(z_S\right)z_SdA + \frac{c^{(p)2}}{gp_0^{R_d/c^{(p)}}\left(c^{(p)} + R_d\right)}\int_A\theta'\left(z_S\right)p'\left(z_S\right)^{1 + \frac{R_d}{c^{(p)}}}dA \nonumber\\
+&&+\frac{c^{(p)2}}{gp_0^{R_d/c^{(p)}}\left(c^{(p)} + R_d\right)}\int_A\int_{\theta_S}^\infty p'\left(\theta\right)^{1 + \frac{R_d}{c^{(p)}}}d\theta dA\nonumber\\
+& \approx & A\newoverline{p'\left(z_S\right)z_S} + \frac{Ac^{(p)2}}{gp_0^{R_d/c^{(p)}}\left(c^{(p)} + R_d\right)}\newoverline{\theta'\left(z_S\right)p'\left(z_S\right)^{1 + \frac{R_d}{c^{(p)}}}} \nonumber\\
+&&+ \frac{Ac^{(p)2}}{gp_0^{R_d/c^{(p)}}\left(c^{(p)} + R_d\right)}\int_{\newoverline{\theta_S}}^\infty\newoverline{p'\left(\theta\right)^{1 + \frac{R_d}{c^{(p)}}}}d\theta.\label{eq:ape_deriv_2}
+\end{eqnarray}
+%
+Die ersten beiden Terme auf den rechten Seiten der Glg.en \eqref{eq:ape_deriv_1} und \eqref{eq:ape_deriv_2} sind analytisch wenig ergiebig, ihre Differenz wird mit $C$ abgekürzt, damit erhält man
+%
+\begin{eqnarray}
+\APE \approx C + \frac{Ac^{(p)2}}{gp_0^{R_d/c^{(p)}}\left(c^{(p)} + R_d\right)}\int_{\newoverline{\theta_S}}^\infty\newoverline{p\left(\theta\right)^{1 + \frac{R_d}{c^{(p)}}}} - \newoverline{p'\left(\theta\right)^{1 + \frac{R_d}{c^{(p)}}}}d\theta.
+\end{eqnarray}
+%
+Die Masse $M$ über der Isentrope $\theta$ ist konservativ, daher gilt
+
+%
+\begin{eqnarray}
+p'\left(\theta\right) = \newoverline{p\left(\theta\right)} \Rightarrow \newoverline{p'\left(\theta\right)^{1 + \frac{R_d}{c^{(p)}}}} = \newoverline{p\left(\theta\right)}^{1 + \frac{R_d}{c^{(p)}}}
+\end{eqnarray}
+%
+woraus folgt
+%
+\begin{eqnarray}
+\APE & \approx & C + \frac{Ac^{(p)2}}{gp_0^{R_d/c^{(p)}}\left(c^{(p)} + R_d\right)}\int_{\newoverline{\theta_S}}^\infty\newoverline{p\left(\theta\right)^{1 + \frac{R_d}{c^{(p)}}}} - \newoverline{p\left(\theta\right)}^{1 + \frac{R_d}{c^{(p)}}}d\theta\nonumber\\
+& = & \approx C + \frac{A}{\Gamma_dp_0^{\chi}\left(1 + \chi\right)}\int_{\newoverline{\theta_S}}^\infty\newoverline{p\left(\theta\right)^{1 + \chi}} - \newoverline{p\left(\theta\right)}^{1 + \chi}d\theta
+\end{eqnarray}
+%
+mit dem trockenadiabatischen Temperaturgradienten $\Gamma_d = g/c^{(p)}$ und der Abkürzung $\chi \coloneqq \frac{R_d}{c^{(p)}}$. Man notiert $p = \newoverline{p} + p'$, damit gilt die Taylor-Entwicklung
+%
+\begin{eqnarray}
+p^{1 + \chi} = \newoverline{p}^{1 + \chi} + \left(1 + \chi\right)\newoverline{p}^{\chi}p' + \frac{1}{2}\chi\left(1 + \chi\right)\newoverline{p}^{\chi-1}p'^2 + \dotsc
+\end{eqnarray}
+%
+Man erhält somit
+%
+\begin{eqnarray}
+\APE & \approx & C + \frac{A\chi}{2\Gamma_dp_0^{\chi}}\int_{\newoverline{\theta_S}}^\infty\newoverline{p}^{1 + \chi}\newoverline{\left(\frac{p'}{\newoverline{p}}\right)^2}d\theta.
+\end{eqnarray}
+%
+Nun wird dies wieder ins p-System rücktransformiert\index{p-System}. Hierzu verwendet man
+%
+\begin{eqnarray}
+p & \approx & \newoverline{p}\left(\theta\left(p\right)\right) \Rightarrow p' \approx \theta'\frac{\partial\newoverline{p}}{\partial\theta}.
+\end{eqnarray}
+%
+Somit erhält man
+%
+\begin{eqnarray}
+\APE & \approx & C + \frac{A\chi}{2\Gamma_dp_0^{\chi}}\int_{\newoverline{\theta_S}}^\infty\newoverline{p}^{\chi - 1}\newoverline{\left(\theta'\frac{\partial\newoverline{p}}{\partial\theta}\right)^2}d\theta = C + \frac{A\chi}{2\Gamma_dp_0^{\chi}}\int_{\newoverline{\theta_S}}^\infty\newoverline{p}^{\chi - 1}\newoverline{\theta'^2}\left(\frac{\partial\newoverline{p}}{\partial\theta}\right)^2d\theta\nonumber\\
+& \approx & C - \frac{A\chi}{2\Gamma_dp_0^{\chi}}\int_{\newoverline{p_S}}^0\newoverline{p}^{\chi - 1}\newoverline{\theta}^2\newoverline{\left(\frac{\theta'}{\newoverline{\theta}}\right)^2}\left(\frac{\partial\newoverline{\theta}}{\partial p}\right)^{-1}dp = C - \frac{A\chi}{2\Gamma_d}\int_{\newoverline{p_S}}^0\frac{1}{\newoverline{p}}\newoverline{\theta}\newoverline{T}\newoverline{\left(\frac{T'}{\newoverline{T}}\right)^2}\left(\frac{\partial\newoverline{\theta}}{\partial p}\right)^{-1}dp\nonumber\\
+& = & C - \frac{A}{2}\int_{\newoverline{p_S}}^0\frac{\chi\newoverline{\theta}}{\Gamma_d\newoverline{p}}\left(\frac{\partial\newoverline{\theta}}{\partial p}\right)^{-1}\newoverline{T}\newoverline{\left(\frac{T'}{\newoverline{T}}\right)^2}dp.
+\end{eqnarray}
+%
+Nach Glg. \eqref{eq:vert_temp_gradient} gilt
+%
+\begin{eqnarray}
+\frac{\Gamma_d\newoverline{p}}{\chi\newoverline{\theta}}\frac{\partial\newoverline{\theta}}{\partial p} \approx \newoverline{\frac{\Gamma_dp}{\chi\theta}\frac{\partial\theta}{\partial p}} = -\left(\Gamma_d - \newoverline{\Gamma}\right), 
+\end{eqnarray}
+%
+also
+%
+\begin{eqnarray}
+\APE \approx C + \frac{A}{2}\int_{\newoverline{p_S}}^0\frac{\newoverline{T}}{\Gamma_d - \newoverline{\Gamma}}\newoverline{\left(\frac{T'}{\newoverline{T}}\right)^2}dp.
+\end{eqnarray}
+%
+Nimmt man einen klimatologischen Wert $\newoverline{\Gamma} \approx \frac{2}{3}\Gamma_d$ und vernachlässigt $C$, um eine Abschätzung vorzunehmen, folgt
+%
+\begin{eqnarray}
+\APE \approx \frac{3Ac^{(p)}}{2g}\int_{\newoverline{p_S}}^0\newoverline{T}\newoverline{\left(\frac{T'}{\newoverline{T}}\right)^2}dp.
+\end{eqnarray}
+%
+Für $A$ wählt man die gesamte Erdoberfläche und setzt $T' \sim 15$ K, $\newoverline{T} \sim 270$ K an, dann folgen
+%
+\begin{eqnarray}
+\frac{\APE/A}{\KE} & \sim & \frac{3\newoverline{T'^2}c^{(p)}}{\newoverline{T}\mathbf{v}_{h, g}^2} \sim 25.
+\end{eqnarray}
+%
+Es bleibt in diesem Abschnitt eine offene Frage, warum der größte Anteil der verfügbaren potentiellen Energie nicht in kinetische Energie umgewandelt wird.
+
 \section{Anwendung des Hamilton-Formalismus auf die Atmosphäre}
 \label{sec:anwendung_des_hamilton-formalismus_auf_die_atmosphaere}\index{Hamilton-Formalismus!Atmosphäre}\index{Atmosphäre!Hamiltonä-Formalismus}
 
@@ -8222,9 +8627,15 @@ Dabei wurde in der Notation explizit berücksichtigt, dass die isochore spezifis
 
 Die Hamilton-Funktion\index{Hamilton-Funktion!Atmosphäre}\index{Atmosphäre!Hamilton-Funktion} $H$ einer trockenen Atmosphäre $A \subseteq \mathbb{R}^3$ lautet mit den generalisierten Zustandskoordianten $\mathbf{v}, \rho, \newtilde{T} \coloneqq \rho T$
 %
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 \begin{eqnarray}
 H = H\left(\mathbf{v}, \rho, \newtilde{T}\right) = \int_A\frac{1}{2}\rho\mathbf{v}^2 + \rho\phi + c_d^{(v)}\newtilde{T}d^3r.
 \end{eqnarray}
+\end{center}
+}}
+\end{center}
 %
 Die Funktionalableitungen hiervon sind
 %
@@ -8234,6 +8645,28 @@ Die Funktionalableitungen hiervon sind
 \frac{\delta H}{\delta\newtilde{T}} & = & c_d^{(v)}.
 \end{eqnarray}
 %
+Sei $F$ ein beliebiges Funktional\index{Funktional} der atmosphärischen Zustandsvariablen. Die Zeitentwicklung von $F$ lässt sich laut Glg. \eqref{eq:poisson_bracket_prop_0} mittels der Poisson-Klammer\index{Poisson-Klammer} als
+%
+\begin{eqnarray}
+\frac{dF}{dt} = \left\lbrace F, H\right\rbrace + \frac{\partial F}{\partial t}.
+\end{eqnarray}
+%
+notieren. Hängt $F$ nicht explizit von der Zeit ab, was im Regelfall so ist, folgt
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{eqnarray}
+\frac{dF}{dt} = \left\lbrace F, H\right\rbrace.
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
+
+
+\subsubsection{Potentielle Temperatur als prognostische Variable}
+\label{sec:potentielle_temperatur_als_prognostische_variable_hamilton}
+
 Verwendet man anstatt der Temperatur die potentielle Temperatur\index{potentielle Temperatur}\index{Temperatur!potentielle} und definiert
 %
 \begin{eqnarray}
@@ -8256,6 +8689,61 @@ Die Funktionalableitungen hiervon sind
 \end{eqnarray}
 %
 Dies motiviert die Definition des Exner-Drucks\index{Exner-Druck} Glg. \eqref{eq:def_exner-druck}.
+
+In einer trockenen Atmosphäre gilt also für jede beliebige Größe $F$ die Evolutionsgleichung
+%
+\begin{eqnarray}
+\frac{df}{dt} = \lbrace F, H\rbrace + \left(F, \mathbf{f}_r\right) + \left(F, Q\right)
+\end{eqnarray}
+%
+mit
+%
+\begin{eqnarray}
+\lbrace F, H\rbrace & = & -\int_A\frac{\delta F}{\delta\mathbf{v}}\cdot\left(\frac{\etabi}{\rho}\times\frac{\delta H}{\delta\mathbf{v}}\right)d^3r\\
+&& -\int_A\frac{\delta F}{\delta\rho}\nabla\cdot\frac{\delta H}{\delta\mathbf{v}} - \frac{\delta H}{\delta\rho}\nabla\cdot\frac{\delta F}{\delta\mathbf{v}}d^3r\\
+&& -\int_A\frac{\partial F}{\partial\newtilde{\theta}}\nabla\cdot\left(\theta\frac{\partial H}{\partial\mathbf{v}}\right) - \frac{\partial H}{\partial\newtilde{\theta}}\nabla\cdot\left(\theta\frac{\delta F}{\delta\mathbf{v}}\right)d^3r
+\end{eqnarray}
+%
+und
+%
+\begin{eqnarray}
+\left(F, \mathbf{f}_r\right) & = & -\int_A\frac{\delta F}{\delta\mathbf{v}}\cdot\frac{1}{\rho}\nabla\cdot\newoverline{\rho\mathbf{v}'\mathbf{v}'}d^3r,\\
+\left(F, Q\right) & = & \int_A\frac{\partial F}{\partial\newtilde{\theta}}\frac{q_T^{(\text{diss})}}{c_d^{(p)}\Pi}d^3r,\\
+q_T^{(\text{diss})} & = & -\mathbf{v}\cdot\nabla\cdot\newoverline{\rho\mathbf{v}'\mathbf{v}'}.
+\end{eqnarray}
+%
+Nun sollen die Zeitentwicklungen der Größen
+%
+\begin{eqnarray}
+B \coloneqq \int_A\newtilde{I} + \rho\phi d^3r = \int_A\rho\phi + c_d^{(v)}\rho Td^3r = \int_A\rho\phi + c_d^{(v)}\frac{p_0}{R_d}\left(\frac{R_d\newtilde{\theta}}{p_0}\right)^\kappa d^3r
+\end{eqnarray}
+%
+und
+%
+\begin{eqnarray}
+C \coloneqq \int_A\frac{1}{2}\rho\mathbf{v}^2d^3r
+\end{eqnarray}
+%
+in Termen der Poisson-Klammer mit der Hamilton-Funktion $H$ notiert werden. Dazu rechnet man vorbereitend
+%
+\begin{eqnarray}
+\frac{\delta B}{\delta\mathbf{v}} & = & 0,\\
+\frac{\delta B}{\delta\rho} & = & \phi,\\
+\frac{\delta B}{\delta\newtilde{\theta}} & = & c_d^{(v)}\Pi,\\
+\frac{\delta C}{\delta\mathbf{v}} & = & \rho\mathbf{v},\\
+\frac{\delta C}{\delta\rho} & = & \frac{1}{2}\mathbf{v}^2,\\
+\frac{\delta C}{\delta\newtilde{\theta}} & = & 0
+\end{eqnarray}
+%
+und erhält somit
+%
+\begin{eqnarray}
+\left\lbrace B, H\right\rbrace & = & -\int_A\phi\nabla\cdot\left(\rho\mathbf{v}\right) + c_d^{(p)}\Pi\nabla\cdot\left(\newtilde{\theta}\mathbf{v}\right)d^3r,\\
+\left\lbrace C, H\right\rbrace & = & -\int_A-\phi\nabla\cdot\left(\rho\mathbf{v}\right) - c_d^{(p)}\Pi\nabla\cdot\left(\newtilde{\theta}\mathbf{v}\right)d^3r = -\int_A\rho\mathbf{c}\cdot\nabla\phi + c_d^{(p)}\newtilde{\theta}\mathbf{v}\cdot\nabla\Pi d^3r.
+\end{eqnarray}
+
+\subsubsection{Entropdiedichte als prognostische Variable}
+\label{sec:entropiedichte_temperatur_als_prognostische_variable_hamilton}
 
 Verwendet man anstatt der potentiellen Temperatur die Entropie\index{Entropie} und definiert
 %
@@ -8293,7 +8781,7 @@ notieren. Die Funktionalableitungen hiervon sind
 && -\frac{\newtilde{s}}{\rho}\left(\frac{\rho R_d}{p_0}\right)^{\frac{R_d}{c_d^{(v)}}}\exp\left(-\frac{c}{c_d^{(v)}}\right)\exp\left(\frac{\newtilde{s}}{c_d^{(v)}\rho}\right),\nonumber\\
 & = & \frac{1}{2}\mathbf{v}^2 + \phi + \left(c_d^{(p)} - \frac{s}{\rho}\right)\left(\frac{\rho R_d}{p_0}\right)^{\frac{R_d}{c_d^{(v)}}}\exp\left(-\frac{c}{c_d^{(v)}}\right)\exp\left(\frac{\newtilde{s}}{c_d^{(v)}\rho}\right),\nonumber\\
 & \stackrel{\text{Glg. \eqref{eq:pot_temp_entropy_diagnostics}}}{=} & \frac{1}{2}\mathbf{v}^2 + \phi + \left(c_d^{(p)} - \frac{s}{\rho}\right)\left(\frac{\rho R_d\theta}{p_0}\right)^{\frac{R_d}{c_d^{(v)}}}\theta,\nonumber\\
-& \stackrel{\text{Glg. \eqref{eq:exner_pressure_diag}}}{=} & \frac{1}{2}\mathbf{v}^2 + \phi + \left(c_d^{(p)} - \frac{s}{\rho}\right)\Pi\theta,\\
+& \stackrel{\text{Glg. \eqref{eq:exner_pressure_diag}}}{=} & \frac{1}{2}\mathbf{v}^2 + \phi + \left(c_d^{(p)} - \frac{s}{\rho}\right)\Pi\theta \stackrel{\text{Glg. \eqref{eq:def_exner-druck}}}{=} \frac{1}{2}\mathbf{v}^2 + \phi + \left(c_d^{(p)} - \frac{s}{\rho}\right)T,\\
 \frac{\delta H}{\delta\newtilde{s}} & = & \left(\frac{\rho R_d}{p_0}\right)^{\frac{R_d}{c_d^{(v)}}}\exp\left(-\frac{c}{c_d^{(v)}}\right)\exp\left(\frac{\newtilde{s}}{c_d^{(v)}\rho}\right) = \left[\left(\frac{\rho R_d}{p_0}\right)^{\frac{R_d}{c_d^{(p)}}}\exp\left(-\frac{c}{c_d^{(p)}}\right)\exp\left(\frac{\newtilde{s}}{c_d^{(p)}\rho}\right)\right]^\kappa\nonumber\\
 & = & \left[\left(\frac{\rho R_d}{p_0}\right)^{\frac{R_d}{c_d^{(p)}}}\exp\left(\frac{\newtilde{s}}{c_d^{(p)}\rho} - \frac{c}{c_d^{(p)}}\right)\right]^\kappa \stackrel{\text{Glg. \eqref{eq:pot_temp_entropy_diagnostics}}}{=} \left(\frac{\rho\theta R_d}{p_0}\right)^{\frac{R_d}{c_d^{(v)}}}\theta\nonumber\\
 & \stackrel{\text{Glg. \eqref{eq:exner_pressure_diag}}}{=} & \Pi\theta \stackrel{\text{Glg. \eqref{eq:def_exner-druck}}}{=} T.
@@ -8508,7 +8996,7 @@ Dies ist die \index{Strahlungsübertragungsgleichung}\textit{Strahlungsübertrag
 q_j = \int_{0}^\infty\left(\nabla\cdot\mathbf{S}_\lambda\right)_jd\lambda.
 \end{eqnarray}
 %
-\section{Randbedingungen}
+\subsection{Randbedingungen}
 \label{sec:randbedingungen_diabatie}\index{Randbedingung}
 
 An der Erdoberfläche gilt
@@ -8538,392 +9026,6 @@ Weiterhin ist
 \end{eqnarray}
 %
 die Wärmeflussdichte, die als Randbedingung an der Oberfläche im Ersten Hauptsatz für feuchte Luft auftritt.
-
-\section{Integralrelationen einer einphasigen Atmosphäre}
-\label{sec:integralrelationen_einer_einphasigen_atmosphäre}\index{Integralrelation!einer einphasigen Atmosphäre}\index{Atmosphäre!einphasige!Integralrelation}
-
-Die prognostische Gleichung der spezifischen kinetischen Energie\index{spezifische kinetische Energie}\index{kinetische Energie!spezifische}\index{Energie!kinetische!spezifische} $k = \frac{1}{2}\mathbf{v}^2$ erhält man durch Multiplikation der Impulsgleichung in der Form Glg. \eqref{eq:momentum_mod} von links mit $\mathbf{v}\cdot $:
-%
-\begin{eqnarray}
-\md{k} = \frac{\partial k}{\partial t} + \mathbf{v}\cdot\nabla k = -\frac{1}{\rho}\mathbf{v}\cdot\nabla p - wg + \mathbf{v}\cdot\mathbf{F}_R.
-\end{eqnarray}
-%
-Multipliziert man diese Gleichung mit $\rho$ und addiert das Produkt der Kontinuitätsgleichung mit $k$ dazu, erhält man
-%
-\begin{center}
-\doublebox{\parbox{0.8\textwidth}{
-\begin{center}
-\begin{eqnarray}
-\md{K} = \frac{\partial K}{\partial t} + \mathbf{v}\cdot\nabla K = -\mathbf{v}\cdot\nabla p - \rho wg - K\nabla\cdot\mathbf{v} + \rho\mathbf{v}\cdot\mathbf{F}_R\label{eq:kin_energy_density_flux_form}
-\end{eqnarray}
-\end{center}
-}}
-\end{center}
-%
-als prognostische Gleichung für die \index{kinetische Energiedichte}\index{Energiedichte!kinetische}kinetische Energiedichte $K = \frac{1}{2}\rho\mathbf{v}^2$. Als prognostische Gleichung für die spezifische geopotentielle Energie\index{Geopotential} $\phi$ erhält man
-%
-\begin{eqnarray}
-\md{\phi} = \mathbf{v}\cdot\nabla\phi = wg.
-\end{eqnarray}
-%
-Multipliziert man diese Gleichung mit $\rho$ und addiert das Produkt der Kontinuitätsgleichung mit $\phi$ dazu, erhält man
-%
-\begin{center}
-\doublebox{\parbox{0.8\textwidth}{
-\begin{center}
-\begin{eqnarray}
-\md{P} = \frac{\partial P}{\partial t} + \mathbf{v}\cdot\nabla P = \rho wg - P\nabla\cdot\mathbf{v}\label{eq:pot_energy_density_flux_form}
-\end{eqnarray}
-\end{center}
-}}
-\end{center}
-%
-als prognostische Gleichung für die geopotentielle Energiedichte $P = \rho\phi$. Als prognostische Gleichung für die spezifische innere Energie\index{innere Energie}\index{Energie!innere} $i = c^{(v)}T$ erhält man
-%
-\begin{eqnarray}
-\md{i} = \frac{\partial i}{\partial t} + \mathbf{v}\cdot\nabla i = -p\md{\alpha} - \mathbf{v}\cdot\mathbf{F}_R = -p\alpha\nabla\cdot\mathbf{v} - \mathbf{v}\cdot\mathbf{F}_R.
-\end{eqnarray}
-%
-Multipliziert man diese Gleichung mit $\rho$ und addiert das Produkt der Kontinuitätsgleichung mit $i$ dazu, erhält man
-%
-\begin{center}
-\doublebox{\parbox{0.8\textwidth}{
-\begin{center}
-\begin{eqnarray}
-\md{\newtilde{I}} = \frac{\partial\newtilde{I}}{\partial t} + \mathbf{v}\cdot\nabla\newtilde{I} = -\left(p + \newtilde{I}\right)\nabla\cdot\mathbf{v} - \rho\mathbf{v}\cdot\mathbf{F}_R\label{eq:internal_energy_prognostic}
-\end{eqnarray}
-\end{center}
-}}
-\end{center}
-%
-als prognostische Gleichung für die kinetische Energiedichte $\newtilde{I} \coloneqq \rho i$. Die Energiedichte\index{Energiedichte} $e$ ist die Summe aus kinetischer, potentieller und innerer Energie pro Volumen, 
-%
-\begin{eqnarray}
-e = K + P + \newtilde{I}.
-\end{eqnarray}
-%
-Die totale Ableitung hiervon ergibt sich unter Verwendung der gerade hergeleiteten Gleichungen zu
-%
-\begin{eqnarray}
-\md{e} & = & -e\nabla\cdot\mathbf{v} - \nabla\cdot\left(p\mathbf{v}\right).\label{eq:bernoulli_pre}
-\end{eqnarray}
-%
-Damit folgt
-%
-\begin{center}
-\doublebox{\parbox{0.8\textwidth}{
-\begin{center}
-\begin{eqnarray}
-\frac{\partial e}{\partial t} & = & -\nabla\cdot\left(p\mathbf{v}\right) - \nabla\cdot\left(e\mathbf{v}\right) \Leftrightarrow\frac{\partial e}{\partial t} + \nabla\cdot\left(e\mathbf{v}\right) = -\nabla\cdot\left(p\mathbf{v}\right).\label{eq:poynting_met}
-\end{eqnarray}
-\end{center}
-}}
-\end{center}
-%
-Dies bezeichnet man auch als das \textit{Poynting-Theorem der Meteorologie}\index{Poynting-Theorem!Meteorologie} in Analogie zum Poynting-Theorem der ED Glg. \eqref{eq:poynting_theorem}. Als Spezialfall von Glg. \eqref{eq:bernoulli_pre} erhält man für stationäre Strömungen inkompressibler Medien wegen
-%
-\begin{eqnarray}
-\nabla\cdot\mathbf{v} & = & 0,\\
-\md{p} & = & \mathbf{v}\cdot\nabla p
-\end{eqnarray}
-%
-die Gleichung
-%
-\begin{center}
-\doublebox{\parbox{0.8\textwidth}{
-\begin{center}
-\begin{eqnarray}
-\md{}\left(K + P + p\right) = 0,
-\end{eqnarray}
-\end{center}
-}}
-\end{center}
-%
-was man als \textit{Bernoulli-Gleichung}\index{Bernoulli-Gleichung} bezeichnet. Weitere Formen dieser Aussage sind
-%
-\begin{eqnarray}
-\frac{1}{2}\rho\mathbf{v}^2 + \rho gz + p & = & \text{const. entlang Stromlinien},\\
-\frac{1}{2}\mathbf{v}² + gz + \frac{p}{\rho} & = & \text{const. entlang Stromlinien}.
-\end{eqnarray}
-%
-Die Gesamtenergie $E$ der Atmosphäre $A$ ist
-%
-\begin{eqnarray}
-E = \int_{A}^{}ed^3r.
-\end{eqnarray}
-%
-Nimmt man $A$ als konstant an, gilt mit dem Gauß'schen Satz
-%
-\begin{eqnarray}
-\frac{dE}{dt} = \int_{A}^{}\frac{\partial e}{\partial t}d^3r = \int_{A}^{} - \nabla\cdot\left[\left(e + p\right)\mathbf{v}\right]d^3r = -\int_{O}^{}\left(e + p\right)\mathbf{v}\cdot d\mathbf{n} - \int_{v}^{}\left(e + p\right)\mathbf{v}\cdot d\mathbf{n}, 
-\end{eqnarray}
-%
-hierbei sind $O$ der Oberrand der Atmosphäre und $U$ die Erdoberfläche. Unter der Voraussetzung von Massenerhaltung (hier: kinematische Randbedingung\index{kinematische Randbedingung}\index{Randbedingung!kinematische}) gilt also
-%
-\begin{center}
-\doublebox{\parbox{0.8\textwidth}{
-\begin{center}
-\begin{eqnarray}
-E & = & \text{const}.
-\end{eqnarray}
-\end{center}
-}}
-\end{center}
-%
-Dreht sich die kondensierte Erde mit fester Winkelgeschwindigkeit und gilt die kinematische Randbedingung, so sind Impuls und Drehimpuls aufgrund fehlender Symmetrieeigenschaften keine Erhaltungsgrößen. Für die Gesamtentropie $S$ einer Atmosphäre gilt bis auf eine Konstante
-%
-\begin{eqnarray}
-S = \int_A\newtilde{s}d^3r
-\end{eqnarray}
-%
-mit $\newtilde{s}$ wie in Glg. \eqref{eq:def_entropy_density} definiert. Die prognostische Gleichung dieser Größe ist Glg. \eqref{eq:td_1_id_gas_density_entropy}:
-%
-\begin{eqnarray}
-\frac{\partial\newtilde{s}}{\partial t} + \nabla\cdot\left(\newtilde{s}\mathbf{v}\right) & = & c^{(v)}\frac{\rho}{T}q_T
-\end{eqnarray}
-%
-Globale Integration liefert
-%
-\begin{eqnarray}
-\frac{dS}{dt} = \int_Ac^{(v)}\frac{\rho}{T}q_Td^3r.\label{eq:entropy_balance_global_pre}
-\end{eqnarray}
-%
-Dieses Integral nichtnegativ, da der Wärmefluss positiv in kälteren und negativ in wärmeren Gebieten ist. Somit gilt
-%
-\begin{center}
-\doublebox{\parbox{0.8\textwidth}{
-\begin{center}
-\begin{eqnarray}
-\frac{dS}{dt} & \geq & 0.
-\end{eqnarray}
-\end{center}
-}}
-\end{center}
-%
-In einer idealen adiabatischen einphasigen Atmosphäre laufen die Prozesse reversibel\index{reversibel} ab. Für die Zeitableitung der inneren Energie\index{innere Energie}\index{Energie!innere} einer einphasigen Atmosphäre gilt mit Glg. \eqref{eq:internal_energy_prognostic}
-%
-\begin{eqnarray}
-\frac{d}{dt}\int_A\newtilde{I}d^3r = \frac{d}{dt}\int_A-p\nabla\cdot\mathbf{v} - \rho\mathbf{v}\cdot\mathbf{F}_Rd^3r = \int_A\mathbf{v}\cdot\nabla p - \rho\mathbf{v}\cdot\mathbf{F}_Rd^3r.
-\end{eqnarray}
-%
-Die Bilanz der Enthalpie\index{Enthalpie} erhält man durch Multiplikation dieser Gleichung mit dem Adiabatenexponenten $\kappa = \frac{c^{(p)}}{c^{(v)}}$. Analog erhält man für die kinetische bzw. potentielle Energie
-%
-\begin{eqnarray}
-\frac{d}{dt}\int_AKd^3r & \stackrel{\text{Glg. \eqref{eq:kin_energy_density_flux_form}}}{=} & \int_A-\mathbf{v}\cdot\nabla p - \rho wg + \rho\mathbf{v}\cdot\mathbf{F}_Rd^3r,\\
-\frac{d}{dt}\int_APd^3r & \stackrel{\text{Glg. \eqref{eq:pot_energy_density_flux_form}}}{=} & \int_A\rho wgd^3r.
-\end{eqnarray}
-%
-Somit folgt
-%
-\begin{center}
-\doublebox{\parbox{0.8\textwidth}{
-\begin{center}
-\begin{eqnarray}
-\frac{d}{dt}\int_A\newtilde{I} + Pd^3r & = & D - C,\\
-\frac{d}{dt}\int_A K d^3r & = & C - D
-\end{eqnarray}
-\end{center}
-}}
-\end{center}
-%
-mit der \textit{adiabatischen Konversion}\index{adiabatische Konversion}\index{Konversion!adiabatische}
-%
-\begin{eqnarray}
-C & \coloneqq & \int_A-\mathbf{v}\cdot\nabla p - \rho wgd^3r
-\end{eqnarray}
-%
-und der Dissipation\index{Dissipation}
-%
-\begin{eqnarray}
-D & \coloneqq & \int_A - \rho\mathbf{v}\cdot\mathbf{F}_Rd^3r.
-\end{eqnarray}
-%
-Die adiabatische Konversion steht für die Umwandlung von potentieller und innerer Energie in kinetische Energie. Dies geschieht, indem der Druckgradient und die Schwere Arbeit leisten. In der Impulsgleichung kann man daher die Zuordnung
-%
-\begin{eqnarray}
-\underbrace{\overbrace{\frac{\partial\mathbf{v}}{\partial t}}^{\text{lokalzeitl. Änderung}} = \overbrace{-\left(\mathbf{v}\cdot\nabla\right)\mathbf{v} - \mathbf{f}\times\mathbf{v}}^{\text{Advektion}} \overbrace{- \frac{1}{\rho}\nabla p + \mathbf{g}}^{\text{adiabatische Konversion}}}_{\text{reversibel}} + \underbrace{\overbrace{\mathbf{F}_R}^{\text{Dissipation}}}_{\text{irreversibel}} 
-\end{eqnarray}
-%
-bzw.
-%
-\begin{eqnarray}
-\underbrace{\overbrace{\frac{\partial\mathbf{v}}{\partial t}}^{\text{lokalzeitl. Änderung}} = \overbrace{\mathbf{v}\times\etabi}^{\text{Advektion}} \overbrace{- \frac{1}{\rho}\nabla p + \mathbf{g}}^{\text{adiabatische Konversion}}}_{\text{reversibel}} + \underbrace{\overbrace{\mathbf{F}_R}^{\text{Dissipation}}}_{\text{irreversibel}} 
-\end{eqnarray}
-%
-vornehmen.
-
-Für den Gesamtimpuls $\mathbf{P}$ der Atmosphäre\index{Gesamtimpuls der Atmosphäre}\index{Atmosphäre!Gesamtimpuls}\index{Impuls!der Atmosphäre} gilt
-%
-\begin{eqnarray}
-\mathbf{P} = \int_A\rho\mathbf{v}d^3r.
-\end{eqnarray}
-%
-Für die Zeitableitung dieser Größe sind laut dem Zweiten Newton'schen Axiom\index{Zweites Newton'sches Axiom}\index{Newton'sches Axiom!Zweites}\index{Axiom!Zweites!Newton'sches} nur die externen Kräfte zu berücksichtigen:
-%
-\begin{eqnarray}
-\frac{d\mathbf{P}}{dt} = \int_A\rho\mathbf{f}_{\text{ext}}d^3r.
-\end{eqnarray}
-%
-$\mathbf{P}$ ist also nie erhalten, da mindestens durch die Oberfläche immer externe Kräfte\index{externe Kraft}\index{Kraft!externe} wirken.
-
-Für den Gesamtdrehimpuls $\mathbf{L}$ der Atmosphäre\index{Gesamtdrehimpuls der Atmosphäre}\index{Atmosphäre!Gesamtdrehimpuls}\index{Drehimpuls!der Atmosphäre} gilt
-%
-\begin{eqnarray}
-\mathbf{L} & = & \int_A\mathbf{r} \times \rho\mathbf{v}d^3r\nonumber\\
-\frac{d\mathbf{L}}{dt} & = & \int_A\mathbf{r} \times \rho\mathbf{f}_{\text{ext}}d^3r.
-\end{eqnarray}
-%
-Der Drehimpuls ist also genau dann erhalten, wenn alle externen Kräfte auf der radialen Achse wirken, also nur in ruhenden Koordinaten\index{Koordinaten!ruhende}\index{ruhende Koordinaten} über einem Planten mit radialsymmetrischer Massenverteilung im Inneren.
-
-\subsection{APE}
-\label{sec:ape}\index{available potential Energy (APE)}\index{APE}\index{Energie!potentielle!verfügbare}\index{potentielle Energie!verfügbare}\index{verfügbare potentielle Energie}
-
-Die kinetische Energie $\KE$\index{kinetische Energie}\index{Energie!kinetische} einer Luftsäule in einer hydrostatischen Atmosphäre ist durch
-%
-\begin{eqnarray}
-\KE = \int_0^{\infty}\frac{1}{2}\rho\mathbf{v}_{h, g}^2dz = -\frac{1}{g}\int_{p_S}^0\frac{1}{2}\mathbf{v}_{h, g}^2dp = \frac{1}{g}\int_0^{p_S}\frac{1}{2}\mathbf{v}_{h, g}^2dp
-\end{eqnarray}
-%
-gegeben, hierbei ist $p_S$ der Druck an der Erdoberfläche. Analog gilt für die innere Energie\index{innere Energie}\index{Energie!innere}
-%
-\begin{eqnarray}
-\IE = \int_0^\infty\rho c^{(v)}Tdz = \frac{1}{g}\int_{0}^{p_S}c^{(v)}Tdp.
-\end{eqnarray}
-%
-Für die potentielle Energie\index{potentielle Energie}\index{Energie!potentielle} $\PE$ erhält man mit partieller Integration
-%
-\begin{eqnarray}
-\PE = \int_0^\infty\rho gzdz = \int_0^{p_S}z\left(p\right)dp = p_Sz_S + \frac{1}{g}\int_0^{p_S}R_dTdp
-\end{eqnarray}
-%
-mit $z_S$ als Orographie\index{Orographie}. Man definiert die \textit{totale potentielle Energie}\index{Energie!potentielle!totale}\index{totale potentielle Energie} oder auch kurz potentielle Energie $\TPE$ durch
-%
-\begin{eqnarray}
-\TPE \coloneqq = \PE + \IE = p_Sz_S + g^{-1}\int_0^{p_S}\left(c^{(v)} + R_d\right)dp = p_Sz_S + g^{-1}\int_0^{p_S}hdp = p_Sz_S + \frac{c^{(p)}}{g}\int_0^{p_S}\theta\left(\frac{p}{p_0}\right)^{R_d/c^{(p)}}dp\label{eq:tpe_id_1}
-\end{eqnarray}
-%
-mit $h = c^{(p)}T$ als Enthalpie\index{Enthalpie}.Man schätzt ab
-%
-\begin{eqnarray}
-\frac{\KE}{\IE} \sim \frac{\newoverline{v}_h^2}{2c^{(v)}\newoverline{T}} \sim 0, 03\text{ \%}.
-\end{eqnarray}
-%
-Es ist also viel mehr innere als kinetische Energie in der Atmosphäre vorhanden.
-
-Da man das Schwerepotential auch um eine beliebige Konstante verschieben könnte, führt man das Konzept der \textit{verfügbaren potentiellen Energie}\index{Energie!potentielle!verfügbare}\index{verfügbare potentielle Energie} $\APE$ ein. Hierfür transformiert man zunächst Glg. \eqref{eq:tpe_id_1} ins $\theta-$System\index{$\theta-$System}:
-%
-\begin{eqnarray}
-\TPE = p_Sz_S + \frac{c^{(p)}}{gp_0^{R_d/c^{(p)}}}\int_\infty^{\theta_S}\theta p\left(\theta\right)^{R_d/c^{(p)}}\frac{\partial p}{\partial\theta}d\theta
-\end{eqnarray}
-%
-Mittels partieller Integration\index{partielle Integration}\index{Integration!partielle} erhält man
-%
-\begin{eqnarray}
-\int_\infty^{\theta_S}\theta p\left(\theta\right)^{R_d/c^{(p)}}\frac{\partial p}{\partial\theta}d\theta & = & \theta_Sp_S^{1 + \frac{R_d}{c^{(p)}}} - \int_\infty^{\theta_S}p\left(\theta\right)^{1 + \frac{R_d}{c^{(p)}}} + \frac{R_d}{c^{(p)}}\theta p\left(\theta\right)^{R_d/c^{(p)}}\frac{\partial p}{\partial\theta}d\theta\nonumber\\
-\Rightarrow\int_\infty^{\theta_S}\theta p\left(\theta\right)^{R_d/c^{(p)}}\frac{\partial p}{\partial\theta}d\theta & = & 
-\frac{c^{(p)}}{c^{(p)} + R_d}\theta_Sp_S^{1 + \frac{R_d}{c^{(p)}}} + \frac{c^{(p)}}{c^{(p)} + R_d}\int_{\theta_S}^\infty p\left(\theta\right)^{1 + \frac{R_d}{c^{(p)}}}d\theta\nonumber\\
-\Rightarrow\TPE & = & p_Sz_S + \frac{c^{(p)2}\theta_Sp_S^{1 + \frac{R_d}{c^{(p)}}}}{gp_0^{R_d/c^{(p)}}\left(c^{(p)} + R_d\right)}\nonumber\\
-&& + \frac{c^{(p)2}}{gp_0^{R_d/c^{(p)}}\left(c^{(p)} + R_d\right)}\int_{\theta_S}^\infty p\left(\theta\right)^{1 + \frac{R_d}{c^{(p)}}}d\theta.
-\end{eqnarray}
-%
-Um die potentielle Energie zu erhalten, die in einer Atmosphäre über einer Fläche $A$ enthalten ist, rechnet man
-%
-\begin{eqnarray}
-\int_A\TPE dA & = & \int_Ap_Sz_SdA + \frac{c^{(p)2}}{gp_0^{R_d/c^{(p)}}\left(c^{(p)} + R_d\right)}\int_A\theta_Sp_S^{1 + \frac{R_d}{c^{(p)}}}dA + \frac{c^{(p)2}}{gp_0^{R_d/c^{(p)}}\left(c^{(p)} + R_d\right)}\int_A\int_{\theta_S}^\infty p\left(\theta\right)^{1 + \frac{R_d}{c^{(p)}}}d\theta dA\nonumber\\
-& \approx & A\newoverline{p_Sz_S} + \frac{Ac^{(p)2}}{gp_0^{R_d/c^{(p)}}\left(c^{(p)} + R_d\right)}\newoverline{\theta_Sp_S^{1 + \frac{R_d}{c^{(p)}}}} + \frac{Ac^{(p)2}}{gp_0^{R_d/c^{(p)}}\left(c^{(p)} + R_d\right)}\int_{\newoverline{\theta_S}}^\infty\newoverline{p\left(\theta\right)^{1 + \frac{R_d}{c^{(p)}}}}d\theta.\label{eq:ape_deriv_1}
-\end{eqnarray}
-%
-Nach Ggl. \eqref{eq:tpe_id_1} ist
-%
-\begin{eqnarray}
-\int_A\TPE + KEdA
-\end{eqnarray}
-%
-konservativ, wenn kein Massenfluss über die lateralen Ränder von $A$ erfolgt. Die $\APE$ ist der Anteil der $\TPE$, die in kinetische Energie umgewandelt werden könnte, also
-%
-\begin{eqnarray}
-\APE \coloneqq \int_A\TPE - \TPE_{\text{min}}dA, 
-\end{eqnarray}
-%
-wobei das Minimum der potentiellen Energie aller hydrostatischer Zustände gemeint ist, die aus dem Anfangszustand durch adiabatische Umsortierung erreicht werden können, ohne überadiabatische Gradienten zu produzieren. Hierbei bewegen sich die Teilchen entlang der Isentropen und nach einer solchen Umordnung sind alle Zustandsgrößen nur noch von der Vertikalkoordinate abhängig, da sonst Druckgradienten existieren würden, die genau darauf hinarbeiten würden (die Coriolis-Kraft leistet keine Arbeit, hat somit keine energetische Relevanz und muss daher für diese Betrachtung nicht berücksichtigt werden). Bezeichnet man die Felder des Zustands minimaler potentieller Energie durch gestrichene Größen, kann man notieren
-%
-\begin{eqnarray}
-\int_A\TPE dA & = & \int_Ap'\left(z_S\right)z_SdA + \frac{c^{(p)2}}{gp_0^{R_d/c^{(p)}}\left(c^{(p)} + R_d\right)}\int_A\theta'\left(z_S\right)p'\left(z_S\right)^{1 + \frac{R_d}{c^{(p)}}}dA \nonumber\\
-&&+\frac{c^{(p)2}}{gp_0^{R_d/c^{(p)}}\left(c^{(p)} + R_d\right)}\int_A\int_{\theta_S}^\infty p'\left(\theta\right)^{1 + \frac{R_d}{c^{(p)}}}d\theta dA\nonumber\\
-& \approx & A\newoverline{p'\left(z_S\right)z_S} + \frac{Ac^{(p)2}}{gp_0^{R_d/c^{(p)}}\left(c^{(p)} + R_d\right)}\newoverline{\theta'\left(z_S\right)p'\left(z_S\right)^{1 + \frac{R_d}{c^{(p)}}}} \nonumber\\
-&&+ \frac{Ac^{(p)2}}{gp_0^{R_d/c^{(p)}}\left(c^{(p)} + R_d\right)}\int_{\newoverline{\theta_S}}^\infty\newoverline{p'\left(\theta\right)^{1 + \frac{R_d}{c^{(p)}}}}d\theta.\label{eq:ape_deriv_2}
-\end{eqnarray}
-%
-Die ersten beiden Terme auf den rechten Seiten der Glg.en \eqref{eq:ape_deriv_1} und \eqref{eq:ape_deriv_2} sind analytisch wenig ergiebig, ihre Differenz wird mit $C$ abgekürzt, damit erhält man
-%
-\begin{eqnarray}
-\APE \approx C + \frac{Ac^{(p)2}}{gp_0^{R_d/c^{(p)}}\left(c^{(p)} + R_d\right)}\int_{\newoverline{\theta_S}}^\infty\newoverline{p\left(\theta\right)^{1 + \frac{R_d}{c^{(p)}}}} - \newoverline{p'\left(\theta\right)^{1 + \frac{R_d}{c^{(p)}}}}d\theta.
-\end{eqnarray}
-%
-Die Masse $M$ über der Isentrope $\theta$ ist konservativ, daher gilt
-%
-\begin{eqnarray}
-p'\left(\theta\right) = \newoverline{p\left(\theta\right)} \Rightarrow \newoverline{p'\left(\theta\right)^{1 + \frac{R_d}{c^{(p)}}}} = \newoverline{p\left(\theta\right)}^{1 + \frac{R_d}{c^{(p)}}}
-\end{eqnarray}
-%
-woraus folgt
-%
-\begin{eqnarray}
-\APE & \approx & C + \frac{Ac^{(p)2}}{gp_0^{R_d/c^{(p)}}\left(c^{(p)} + R_d\right)}\int_{\newoverline{\theta_S}}^\infty\newoverline{p\left(\theta\right)^{1 + \frac{R_d}{c^{(p)}}}} - \newoverline{p\left(\theta\right)}^{1 + \frac{R_d}{c^{(p)}}}d\theta\nonumber\\
-& = & \approx C + \frac{A}{\Gamma_dp_0^{\chi}\left(1 + \chi\right)}\int_{\newoverline{\theta_S}}^\infty\newoverline{p\left(\theta\right)^{1 + \chi}} - \newoverline{p\left(\theta\right)}^{1 + \chi}d\theta
-\end{eqnarray}
-%
-mit dem trockenadiabatischen Temperaturgradienten $\Gamma_d = g/c^{(p)}$ und der Abkürzung $\chi \coloneqq \frac{R_d}{c^{(p)}}$. Man notiert $p = \newoverline{p} + p'$, damit gilt die Taylor-Entwicklung
-%
-\begin{eqnarray}
-p^{1 + \chi} = \newoverline{p}^{1 + \chi} + \left(1 + \chi\right)\newoverline{p}^{\chi}p' + \frac{1}{2}\chi\left(1 + \chi\right)\newoverline{p}^{\chi-1}p'^2 + \dotsc
-\end{eqnarray}
-%
-Man erhält somit
-%
-\begin{eqnarray}
-\APE & \approx & C + \frac{A\chi}{2\Gamma_dp_0^{\chi}}\int_{\newoverline{\theta_S}}^\infty\newoverline{p}^{1 + \chi}\newoverline{\left(\frac{p'}{\newoverline{p}}\right)^2}d\theta.
-\end{eqnarray}
-%
-Nun wird dies wieder ins p-System rücktransformiert\index{p-System}. Hierzu verwendet man
-%
-\begin{eqnarray}
-p & \approx & \newoverline{p}\left(\theta\left(p\right)\right) \Rightarrow p' \approx \theta'\frac{\partial\newoverline{p}}{\partial\theta}.
-\end{eqnarray}
-%
-Somit erhält man
-%
-\begin{eqnarray}
-\APE & \approx & C + \frac{A\chi}{2\Gamma_dp_0^{\chi}}\int_{\newoverline{\theta_S}}^\infty\newoverline{p}^{\chi - 1}\newoverline{\left(\theta'\frac{\partial\newoverline{p}}{\partial\theta}\right)^2}d\theta = C + \frac{A\chi}{2\Gamma_dp_0^{\chi}}\int_{\newoverline{\theta_S}}^\infty\newoverline{p}^{\chi - 1}\newoverline{\theta'^2}\left(\frac{\partial\newoverline{p}}{\partial\theta}\right)^2d\theta\nonumber\\
-& \approx & C - \frac{A\chi}{2\Gamma_dp_0^{\chi}}\int_{\newoverline{p_S}}^0\newoverline{p}^{\chi - 1}\newoverline{\theta}^2\newoverline{\left(\frac{\theta'}{\newoverline{\theta}}\right)^2}\left(\frac{\partial\newoverline{\theta}}{\partial p}\right)^{-1}dp = C - \frac{A\chi}{2\Gamma_d}\int_{\newoverline{p_S}}^0\frac{1}{\newoverline{p}}\newoverline{\theta}\newoverline{T}\newoverline{\left(\frac{T'}{\newoverline{T}}\right)^2}\left(\frac{\partial\newoverline{\theta}}{\partial p}\right)^{-1}dp\nonumber\\
-& = & C - \frac{A}{2}\int_{\newoverline{p_S}}^0\frac{\chi\newoverline{\theta}}{\Gamma_d\newoverline{p}}\left(\frac{\partial\newoverline{\theta}}{\partial p}\right)^{-1}\newoverline{T}\newoverline{\left(\frac{T'}{\newoverline{T}}\right)^2}dp.
-\end{eqnarray}
-%
-Nach Glg. \eqref{eq:vert_temp_gradient} gilt
-%
-\begin{eqnarray}
-\frac{\Gamma_d\newoverline{p}}{\chi\newoverline{\theta}}\frac{\partial\newoverline{\theta}}{\partial p} \approx \newoverline{\frac{\Gamma_dp}{\chi\theta}\frac{\partial\theta}{\partial p}} = -\left(\Gamma_d - \newoverline{\Gamma}\right), 
-\end{eqnarray}
-%
-also
-%
-\begin{eqnarray}
-\APE \approx C + \frac{A}{2}\int_{\newoverline{p_S}}^0\frac{\newoverline{T}}{\Gamma_d - \newoverline{\Gamma}}\newoverline{\left(\frac{T'}{\newoverline{T}}\right)^2}dp.
-\end{eqnarray}
-%
-Nimmt man einen klimatologischen Wert $\newoverline{\Gamma} \approx \frac{2}{3}\Gamma_d$ und vernachlässigt $C$, um eine Abschätzung vorzunehmen, folgt
-%
-\begin{eqnarray}
-\APE \approx \frac{3Ac^{(p)}}{2g}\int_{\newoverline{p_S}}^0\newoverline{T}\newoverline{\left(\frac{T'}{\newoverline{T}}\right)^2}dp.
-\end{eqnarray}
-%
-Für $A$ wählt man die gesamte Erdoberfläche und setzt $T' \sim 15$ K, $\newoverline{T} \sim 270$ K an, dann folgen
-%
-\begin{eqnarray}
-\frac{\APE/A}{\KE} & \sim & \frac{3\newoverline{T'^2}c^{(p)}}{\newoverline{T}\mathbf{v}_{h, g}^2} \sim 25.
-\end{eqnarray}
-%
-Es bleibt in diesem Abschnitt eine offene Frage, warum der größte Anteil der verfügbaren potentiellen Energie nicht in kinetische Energie umgewandelt wird.
 
 \newpage
 
@@ -9712,7 +9814,8 @@ Somit gilt
 Durch Projektion auf die lokale Senkrechte erhält man
 %
 \begin{eqnarray}
-\frac{\partial\zeta}{\partial t} & = & \frac{1}{\rho^2}\mathbf{k}\cdot\left(\nabla\rho\times\nabla p\right) - \eta\nabla\cdot\mathbf{v} + \mathbf{k}\cdot\left[\left(\etabi\cdot\nabla\right)\mathbf{v}\right] - \mathbf{k}\cdot\left[\left(\mathbf{v}\cdot\nabla\right)\etabi\right] + \mathbf{k}\cdot\nabla\times\mathbf{F}_R.
+\frac{\partial\zeta}{\partial t} & = & \frac{1}{\rho^2}\mathbf{k}\cdot\left(\nabla\rho\times\nabla p\right) - \eta\nabla\cdot\mathbf{v}\nonumber\\
+&& + \mathbf{k}\cdot\left[\left(\etabi\cdot\nabla\right)\mathbf{v}\right] - \mathbf{k}\cdot\left[\left(\mathbf{v}\cdot\nabla\right)\etabi\right] + \mathbf{k}\cdot\nabla\times\mathbf{F}_R.
 \end{eqnarray}
 %
 Man rechnet zunächst mit Glg. \eqref{eq:diff_op_rule_11}
@@ -9769,7 +9872,7 @@ Im barotropen Fall fällt hier der sogenannte \textit{Solenoidterm}, \index{Sole
 \doublebox{\parbox{\textwidth}{
 \begin{center}
 \begin{eqnarray}
-\frac{\partial\zeta}{\partial t} = -\mathbf{v}_{h, g}\cdot\nabla\eta - \eta\nabla\cdot\mathbf{v} + \etabi\cdot\nabla w.\label{eq:vorticit_z_baro}
+\frac{\partial\zeta}{\partial t} = -\mathbf{v}_h\cdot\nabla\eta - \eta\nabla\cdot\mathbf{v} + \etabi\cdot\nabla w.\label{eq:vorticit_z_baro}
 \end{eqnarray}
 \end{center}
 }}
@@ -9778,7 +9881,7 @@ Im barotropen Fall fällt hier der sogenannte \textit{Solenoidterm}, \index{Sole
 Dies ist die sogenannte \index{barotrope Vorticitygleichung}\index{Vorticitygleichung!barotrope}\textit{barotrope Vorticitygleichung}. Im Fall von Inkompressibilität, insbesondere im Fall der SWEs, ist $\nabla\cdot\mathbf{v} = 0$, woraus folgt
 %
 \begin{eqnarray}
-\frac{\partial\zeta}{\partial t} = -\mathbf{v}_{h, g}\cdot\nabla\eta + \etabi\cdot\nabla w\Rightarrow\frac{d\eta}{dt} = \etabi\cdot\nabla w.
+\frac{\partial\zeta}{\partial t} = -\mathbf{v}_h\cdot\nabla\eta + \etabi\cdot\nabla w\Rightarrow\frac{d\eta}{dt} = \etabi\cdot\nabla w.
 \end{eqnarray}
 %
 Vernachlässigt man die horizontalen Gradienten von $w$, folgt
@@ -9790,13 +9893,13 @@ Vernachlässigt man die horizontalen Gradienten von $w$, folgt
 Setzt man
 %
 \begin{eqnarray}
-\nabla\cdot\mathbf{v} & = & \nabla\cdot\mathbf{v}_{h, g} + \frac{\partial w}{\partial z} = 0
+\nabla\cdot\mathbf{v} & = & \nabla\cdot\mathbf{v}_h + \frac{\partial w}{\partial z} = 0
 \end{eqnarray}
 %
 ein, wobei ein breitenunabhängiger Krümmungsterm $\propto\frac{w}{r}$ vernachlässigt wurde, folgt
 %
 \begin{eqnarray}
-\frac{d\eta}{dt} = -\eta\nabla\cdot\mathbf{v}_{h, g}.\label{eq:vorticit_z_baro_swes}
+\frac{d\eta}{dt} = -\eta\nabla\cdot\mathbf{v}_h.\label{eq:vorticit_z_baro_swes}
 \end{eqnarray}
 %
 Im inkompressiblen, horizontaldivergenzfreien, barotropen Fall (außerdem wurde die vertikale Scherung des Horizontalwindes unterschlagen) ist die absolute Vorticity also eine Erhaltungsgröße.
@@ -9807,19 +9910,19 @@ Im inkompressiblen, horizontaldivergenzfreien, barotropen Fall (außerdem wurde 
 Nun soll dasselbe im p-System durchgeführt werden. Die Impulsgleichungen Glg.en \eqref{eq:x_momentum_simplified_simplified_p} - \eqref{eq:y_momentum_simplified_simplified_p} im p-System lauten vektoriell
 %
 \begin{eqnarray}
-\frac{\partial\mathbf{v}_{h, g}}{\partial t} & = & -\nabla\phi - \frac{1}{2}\nabla\left(\mathbf{v}_{h, g}\cdot\mathbf{v}_{h, g}\right) + \mathbf{v}_{h, g}\times\etabi' - \omega\frac{\partial\mathbf{v}_{h, g}}{\partial p} + \nabla\times\mathbf{F}_R^{(H)}.
+\frac{\partial\mathbf{v}_h}{\partial t} & = & -\nabla\phi - \frac{1}{2}\nabla\left(\mathbf{v}_h\cdot\mathbf{v}_h\right) + \mathbf{v}_h\times\etabi' - \omega\frac{\partial\mathbf{v}_h}{\partial p} + \nabla\times\mathbf{F}_R^{(H)}.
 \end{eqnarray}
 %
 Dabei wurde die modifizierte absolute Vorticity $\etabi'$ durch
 %
 \begin{eqnarray}
-\etabi' \coloneqq f\mathbf{k} + \nabla\times\mathbf{v}_{h, g}
+\etabi' \coloneqq f\mathbf{k} + \nabla\times\mathbf{v}_h
 \end{eqnarray}
 %
 definiert. Nun wendet man auf die einzelnen Terme den Operator $\nabla\times $ an:
 %
 \begin{eqnarray}
-\nabla\times\frac{\partial\mathbf{v}_{h, g}}{\partial t}&\stackrel{\eqref{eq:diff_op_rule_4}}{=}&\frac{\partial}{\partial t}\nabla\times\mathbf{v}_{h, g}\\
+\nabla\times\frac{\partial\mathbf{v}_h}{\partial t}&\stackrel{\eqref{eq:diff_op_rule_4}}{=}&\frac{\partial}{\partial t}\nabla\times\mathbf{v}_h\\
 \nabla\times\nabla\phi&\stackrel{\eqref{eq:diff_op_rule_1}}{=}&\mathbf{0}\\
 \nabla\times\mathbf{g}&\stackrel{\eqref{eq:diff_op_rule_1}}{=}&\mathbf{0}\\
 \nabla\times\nabla\left(\mathbf{v}_{h, g}\cdot\mathbf{v}_{h, g}\right)&\stackrel{\eqref{eq:diff_op_rule_1}}{=}&\mathbf{0}\\
@@ -9836,16 +9939,17 @@ Somit gilt
 Durch Projektion auf die lokale Senkrechte $\mathbf{k}$ erhält man
 %
 \begin{eqnarray}
-\frac{\partial\zeta}{\partial t} & = & -\mathbf{k}\cdot\left[\left(\mathbf{v}_{h, g}\cdot\nabla\right)\etabi'\right] - \left(f + \zeta\right)\nabla\cdot\mathbf{v}_{h, g} + \mathbf{k}\cdot\left[\left(\etabi'\cdot\nabla\right)\mathbf{v}_{h, g}\right] - \omega\frac{\partial\zeta}{\partial p} + \mathbf{k}\cdot\left[\frac{\partial\mathbf{v}_{h, g}}{\partial p}\times\nabla\omega\right] + \mathbf{k}\cdot\nabla\times\mathbf{F}_R^{(H)}.
+\frac{\partial\zeta}{\partial t} & = & -\mathbf{k}\cdot\left[\left(\mathbf{v}_h\cdot\nabla\right)\etabi'\right] - \left(f + \zeta\right)\nabla\cdot\mathbf{v}_h + \mathbf{k}\cdot\left[\left(\etabi'\cdot\nabla\right)\mathbf{v}_h\right]\nonumber\\
+&& - \omega\frac{\partial\zeta}{\partial p} + \mathbf{k}\cdot\left[\frac{\partial\mathbf{v}_h}{\partial p}\times\nabla\omega\right] + \mathbf{k}\cdot\nabla\times\mathbf{F}_R^{(H)}.
 \end{eqnarray}
 %
 Man rechnet zunächst mit Glg. \eqref{eq:diff_op_rule_11}
 %
 \begin{eqnarray}
-0 = \left(\etabi'\cdot\nabla\right)\left(\mathbf{v}_{h, g}\cdot\mathbf{k}\right) & = & \mathbf{k}\cdot\left[\left(\etabi'\cdot\nabla\right)\mathbf{v}_{h, g}\right] + \mathbf{v}_{h, g}\cdot\left[\left(\etabi'\cdot\nabla\right)\mathbf{k}\right]\nonumber\\
-\Rightarrow\mathbf{k}\cdot\left[\left(\etabi'\cdot\nabla\right)\mathbf{v}_{h, g}\right] & = & -\mathbf{v}_{h, g}\cdot\left[\left(\etabi'\cdot\nabla\right)\mathbf{k}\right],\\
-\mathbf{v}_{h, g}\cdot\nabla\eta = \left(\mathbf{v}_{h, g}\cdot\nabla\right)\left(\etabi'\cdot\mathbf{k}\right) & = & \etabi'\cdot\left[\left(\mathbf{v}_{h, g}\cdot\nabla\right)\mathbf{k}\right] + \mathbf{k}\cdot\left[\left(\mathbf{v}_{h, g}\cdot\nabla\right)\etabi'\right]\nonumber\\
-\Rightarrow\mathbf{k}\cdot\left[\left(\mathbf{v}_{h, g}\cdot\nabla\right)\etabi'\right] & = & \mathbf{v}_{h, g}\cdot\nabla\eta - \etabi'\cdot\left[\left(\mathbf{v}_{h, g}\cdot\nabla\right)\mathbf{k}\right].
+0 = \left(\etabi'\cdot\nabla\right)\left(\mathbf{v}_h\cdot\mathbf{k}\right) & = & \mathbf{k}\cdot\left[\left(\etabi'\cdot\nabla\right)\mathbf{v}_h\right] + \mathbf{v}_h\cdot\left[\left(\etabi'\cdot\nabla\right)\mathbf{k}\right]\nonumber\\
+\Rightarrow\mathbf{k}\cdot\left[\left(\etabi'\cdot\nabla\right)\mathbf{v}_h\right] & = & -\mathbf{v}_h\cdot\left[\left(\etabi'\cdot\nabla\right)\mathbf{k}\right],\\
+\mathbf{v}_h\cdot\nabla\eta = \left(\mathbf{v}_h\cdot\nabla\right)\left(\etabi'\cdot\mathbf{k}\right) & = & \etabi'\cdot\left[\left(\mathbf{v}_h\cdot\nabla\right)\mathbf{k}\right] + \mathbf{k}\cdot\left[\left(\mathbf{v}_h\cdot\nabla\right)\etabi'\right]\nonumber\\
+\Rightarrow\mathbf{k}\cdot\left[\left(\mathbf{v}_h\cdot\nabla\right)\etabi'\right] & = & \mathbf{v}_h\cdot\nabla\eta - \etabi'\cdot\left[\left(\mathbf{v}_h\cdot\nabla\right)\mathbf{k}\right].
 \end{eqnarray}
 %
 Es gelten mit den Feststellungen in Absch. \ref{sec:kugelkoordinaten}
@@ -9859,7 +9963,7 @@ Es gelten mit den Feststellungen in Absch. \ref{sec:kugelkoordinaten}
 Somit folgt
 %
 \begin{eqnarray}
-\mathbf{v}_{h, g}\cdot\left[\left(\etabi'\cdot\nabla\right)\mathbf{k}\right] & = & \etabi'\cdot\left[\left(\mathbf{v}_{h, g}\cdot\nabla\right)\mathbf{k}\right].
+\mathbf{v}_h\cdot\left[\left(\etabi'\cdot\nabla\right)\mathbf{k}\right] & = & \etabi'\cdot\left[\left(\mathbf{v}_h\cdot\nabla\right)\mathbf{k}\right].
 \end{eqnarray}
 %
 Die Vorticitygleichung im p-System lautet somit
@@ -9868,7 +9972,7 @@ Die Vorticitygleichung im p-System lautet somit
 \doublebox{\parbox{\textwidth}{
 \begin{center}
 \begin{eqnarray}
-\frac{\partial\zeta}{\partial t} & = & -v\beta - \left(f + \zeta\right)\nabla\cdot\mathbf{v}_{h, g} - \mathbf{v}_{h, g}\cdot\nabla\zeta - \omega\frac{\partial\zeta}{\partial p} + \mathbf{k}\cdot\left[\frac{\partial\mathbf{v}_{h, g}}{\partial p}\times\nabla\omega\right] + \mathbf{k}\cdot\nabla\times\mathbf{F}_R^{(H)}.\label{eq:vorticity_p}
+\frac{\partial\zeta}{\partial t} & = & -v\beta - \left(f + \zeta\right)\nabla\cdot\mathbf{v}_h - \mathbf{v}_h\cdot\nabla\zeta - \omega\frac{\partial\zeta}{\partial p} + \mathbf{k}\cdot\left[\frac{\partial\mathbf{v}_h}{\partial p}\times\nabla\omega\right] + \mathbf{k}\cdot\nabla\times\mathbf{F}_R^{(H)}.\label{eq:vorticity_p}
 \end{eqnarray}
 \end{center}
 }}
@@ -9894,34 +9998,34 @@ Der Term des $\beta-$Effekts hat in mittleren Breiten eine Größenordnung von $
 In der Dynamik der SWEs ist die \textit{barotrope potentielle Vorticity} (barotrope PV) $q$ definiert durch
 %
 \begin{eqnarray}
-q \coloneqq\frac{\eta}{h} = \frac{\zeta + f}{h} = \frac{\mathbf{k}\cdot\nabla\times\mathbf{v}_{h, g} + f}{h}, 
+q \coloneqq\frac{\eta}{h} = \frac{\zeta + f}{h} = \frac{\mathbf{k}\cdot\nabla\times\mathbf{v}_h + f}{h}, 
 \end{eqnarray}
 %
 hierbei ist $h$ die Tiefe. Nach Glg. \eqref{eq:diff_op_rule_10} gilt
 %
 \begin{eqnarray}
-\left(\mathbf{v}_{h, g}\cdot\nabla\right)\mathbf{v}_{h, g} & = & \nabla k - \mathbf{v}_{h, g}\times\left(\nabla\times\mathbf{v}_{h, g}\right)
+\left(\mathbf{v}_h\cdot\nabla\right)\mathbf{v}_h & = & \nabla k - \mathbf{v}_h\times\left(\nabla\times\mathbf{v}_h\right)
 \end{eqnarray}
 %
-mit der spezifischen kinetischen Energie $k = \frac{1}{2}\mathbf{v}_{h, g}^2$. Für den zweiten Term gilt mit Glg. \eqref{eq:rot_geo}
+mit der spezifischen kinetischen Energie $k = \frac{1}{2}\mathbf{v}_h^2$. Für den zweiten Term gilt mit Glg. \eqref{eq:rot_geo}
 %
 \begin{eqnarray}
-\mathbf{v}_{h, g}\times\left(\nabla\times\mathbf{v}_{h, g}\right) & = & \mathbf{v}_{h, g}\times\left[-\frac{v}{r}\mathbf{i} + \frac{u\tan\left(\varphi\right)}{r}\mathbf{k} + \frac{u}{r}\mathbf{j} + \mathbf{k}\left(\frac{\partial v}{\partial x} - \frac{\partial u}{\partial y}\right) + \mathbf{j}\frac{\partial u}{\partial z} - \mathbf{i}\frac{\partial v}{\partial z}\right].
+\mathbf{v}_h\times\left(\nabla\times\mathbf{v}_h\right) & = & \mathbf{v}_h\times\left[-\frac{v}{r}\mathbf{i} + \frac{u\tan\left(\varphi\right)}{r}\mathbf{k} + \frac{u}{r}\mathbf{j} + \mathbf{k}\left(\frac{\partial v}{\partial x} - \frac{\partial u}{\partial y}\right) + \mathbf{j}\frac{\partial u}{\partial z} - \mathbf{i}\frac{\partial v}{\partial z}\right].
 \end{eqnarray}
 %
 Aufgrund des Verschwindens vertikaler Scherung im barotropen Fall gilt
 %
 \begin{eqnarray}
-\mathbf{v}_{h, g}\times\left(\nabla\times\mathbf{v}_{h, g}\right) & = & \mathbf{v}_{h, g}\times\left[-\frac{v}{r}\mathbf{i} + \frac{u\tan\left(\varphi\right)}{r}\mathbf{k} + \frac{u}{r}\mathbf{j} + \mathbf{k}\left(\frac{\partial v}{\partial x} - \frac{\partial u}{\partial y}\right)\right]\nonumber\\
-& = & \mathbf{v}_{h, g}\times\mathbf{k}\zeta + \frac{u^2}{r}\mathbf{i}\times\mathbf{j} + \frac{v^2}{r}\mathbf{i}\times\mathbf{j} = \mathbf{v}_{h, g}\times\mathbf{k}\zeta + \frac{u^2}{r}\mathbf{k} - + \frac{v^2}{r}\mathbf{k}\nonumber\\
-& = & -\mathbf{k}\times\zeta\mathbf{v}_{h, g} + \frac{\mathbf{k}}{r}\left(u^2 + v^2\right).
+\mathbf{v}_h\times\left(\nabla\times\mathbf{v}_h\right) & = & \mathbf{v}_h\times\left[-\frac{v}{r}\mathbf{i} + \frac{u\tan\left(\varphi\right)}{r}\mathbf{k} + \frac{u}{r}\mathbf{j} + \mathbf{k}\left(\frac{\partial v}{\partial x} - \frac{\partial u}{\partial y}\right)\right]\nonumber\\
+& = & \mathbf{v}_h\times\mathbf{k}\zeta + \frac{u^2}{r}\mathbf{i}\times\mathbf{j} + \frac{v^2}{r}\mathbf{i}\times\mathbf{j} = \mathbf{v}_h\times\mathbf{k}\zeta + \frac{u^2}{r}\mathbf{k} - + \frac{v^2}{r}\mathbf{k}\nonumber\\
+& = & -\mathbf{k}\times\zeta\mathbf{v}_h + \frac{\mathbf{k}}{r}\left(u^2 + v^2\right).
 \end{eqnarray}
 %
 Die Vertikalkomponente interessiert hier nicht weiter. Nun kann man für die Impulsgleichung der Flachwassergleichungen Glg. \eqref{eq:flach_1} unter Vernachlässigung der Reibung schreiben
 %
 \begin{eqnarray}
-\frac{\partial\mathbf{v}_{h, g}}{\partial t} + \mathbf{k}\times\zeta\mathbf{v}_{h, g} & = & -g\nabla\left(h + b\right) - \nabla k - f\mathbf{k}\times\mathbf{v}_{h, g}\nonumber\\
-\Leftrightarrow\frac{\partial\mathbf{v}_{h, g}}{\partial t} + qh\mathbf{k}\times\mathbf{v}_{h, g} & = & -g\nabla\left(h + b\right) - \nabla k.
+\frac{\partial\mathbf{v}_h}{\partial t} + \mathbf{k}\times\zeta\mathbf{v}_h & = & -g\nabla\left(h + b\right) - \nabla k - f\mathbf{k}\times\mathbf{v}_h\nonumber\\
+\Leftrightarrow\frac{\partial\mathbf{v}_h}{\partial t} + qh\mathbf{k}\times\mathbf{v}_h & = & -g\nabla\left(h + b\right) - \nabla k.
 \end{eqnarray}
 %
 Es gilt
@@ -9930,7 +10034,7 @@ Es gilt
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{eqnarray}
-\md{q} & = & \frac{1}{h}\md{\eta} - \frac{\eta}{h^2}\md{h}\stackrel{\eqref{eq:flach_2}}{=} - \frac{\eta}{h}\nabla_H\cdot\mathbf{v}_{h, g} - \frac{\eta}{h^2}\left(-h\nabla_H\cdot\mathbf{v}_{h, g}\right) = 0.
+\md{q} & = & \frac{1}{h}\md{\eta} - \frac{\eta}{h^2}\md{h}\stackrel{\eqref{eq:flach_2}}{=} - \frac{\eta}{h}\nabla_H\cdot\mathbf{v}_h - \frac{\eta}{h^2}\left(-h\nabla_H\cdot\mathbf{v}_h\right) = 0.
 \end{eqnarray}
 \end{center}
 }}
@@ -9950,7 +10054,7 @@ wobei von einem postiven Vorzeichen von $f$ und somit auch von $\eta$ ausgegange
 Die Divergenz des Horizontalwindes bezeichnet man mit
 %
 \begin{eqnarray}
-\delta \coloneqq \nabla\cdot\mathbf{v}_{h, g}.\label{eq:divergenz_horiz_def}
+\delta \coloneqq \nabla\cdot\mathbf{v}_h.\label{eq:divergenz_horiz_def}
 \end{eqnarray}
 %
 Nach Glg. \eqref{eq:div_geo} gilt
@@ -10053,7 +10157,8 @@ Dies führt auf eine weitere Form der Divergenzgleichung:
 \doublebox{\parbox{\textwidth}{
 \begin{center}
 \begin{eqnarray}
-\frac{\partial\xi}{\partial t} & = & \frac{1}{\rho^2}\nabla\rho\cdot\nabla p -\frac{1}{\rho}\Delta p + \mathbf{f}\cdot\zetabi - \Delta k + \zetabi^2 + \mathbf{v}\cdot\left(\Delta\mathbf{v}\right) - \mathbf{v}\cdot\nabla\xi + \nabla\cdot\mathbf{F}_R\label{eq:divergence_equation_2}
+\frac{\partial\xi}{\partial t} & = & \frac{1}{\rho^2}\nabla\rho\cdot\nabla p -\frac{1}{\rho}\Delta p + \mathbf{f}\cdot\zetabi - \Delta k + \zetabi^2\nonumber\\
+&& +\mathbf{v}\cdot\left(\Delta\mathbf{v}\right) - \mathbf{v}\cdot\nabla\xi + \nabla\cdot\mathbf{F}_R\label{eq:divergence_equation_2}
 \end{eqnarray}
 \end{center}
 }}
@@ -10103,7 +10208,8 @@ Dies führt auf eine weitere Form der Divergenzgleichung:
 \doublebox{\parbox{\textwidth}{
 \begin{center}
 \begin{eqnarray}
-\frac{\partial\delta}{\partial t} & = & -\Delta\phi - u\beta + f\zeta - \Delta k + \left(\nabla\times\mathbf{v}_{h, g}\right)^2 + \mathbf{v}_{h, g}\cdot\left(\Delta\mathbf{v}_{h, g}\right) - \mathbf{v}_{h, g}\cdot\nabla\delta - \omega\frac{\partial\delta}{\partial p} - \frac{\partial\mathbf{v}_{h, g}}{\partial p}\cdot\nabla\omega + \nabla\cdot\mathbf{F}_R^{(H)}\label{eq:divergence_equation_p_2}
+\frac{\partial\delta}{\partial t} & = & -\Delta\phi - u\beta + f\zeta - \Delta k + \left(\nabla\times\mathbf{v}_{h, g}\right)^2 + \mathbf{v}_{h, g}\cdot\left(\Delta\mathbf{v}_{h, g}\right) - \mathbf{v}_{h, g}\cdot\nabla\delta\nonumber\\
+&&- \omega\frac{\partial\delta}{\partial p} - \frac{\partial\mathbf{v}_{h, g}}{\partial p}\cdot\nabla\omega + \nabla\cdot\mathbf{F}_R^{(H)}\label{eq:divergence_equation_p_2}
 \end{eqnarray}
 \end{center}
 }}
@@ -13888,7 +13994,7 @@ z_\text{Level} = \frac{z_\text{Layer darüber} + z_\text{Layer darunter}}{2}.\la
 Es sind also zunächst die z-Koordinaten der skalaren Gitterpunkte ($z_\text{Layer}$) festzulegen. Es ist sinnvoll, die Layer alle möglichst gleich dick zu wählen, sodass die Auflösung möglichst homogen ist. In der Nähe der Erdoberfläche müssen die Gitterboxen der Orographie folgen. Da dies zu numerischem Mehraufwand führt, ist es nützlich, dies oberhalb einer gewissen Höhe $\newtilde{z}$ nicht mehr zu tun. Diese Größe ist ein Kompromiss aus Genauigkeit und Rechenzeit. Die Höhe $\newtilde{z}$ wird vom Benutzer indirekt festgelegt. Dieser legt die Höhe $H$ der Modellatmosphäre fest sowie die Anzahl $N_L$ der Layer. Zusätzlich legt er eine Zahl $1 \leq N_{L, O} \leq N_L$ an Layern fest, die der Orographie folgen sollen. $\newtilde{z}$ ist dann ein horizontales Skalarfeld\index{horizontales Skalarfeld}\index{Skalarfeld!horizontales}, welches durch
 %
 \begin{eqnarray}
-\newtilde{z}\left(\phi, \lambda\right) = h\left(\phi, \lambda\right) + frac{N_{L, O}}{N_L}\left(H - h\left(\phi, \lambda\right)\right)
+\newtilde{z}\left(\phi, \lambda\right) = h\left(\phi, \lambda\right) + \frac{N_{L, O}}{N_L}\left(H - h\left(\phi, \lambda\right)\right)
 \end{eqnarray}
 %
 in Termen der Orographie $h = h\left(\phi, \lambda\right)$ festgelegt ist.\footnote{Die Vorstellung, dass $h$ eine Funktion der horizontalen Koordinaten ist, ist falsch, wenn man an Gebäude, Pflanzen und Schluchten denkt. Diese Strukturen sind jedoch kleinräumig. Erst, wenn die horizontale Modellauflösung die Größenordnung von zehn Metern erreicht, muss man sie berücksichtigen.} Hieraus berechnet man wie folgt vorläufige Positionen $z_{w, pre, i}$ vertikaler Vektoren, wobei $i$ der Layerindex ist:
@@ -13896,7 +14002,7 @@ in Termen der Orographie $h = h\left(\phi, \lambda\right)$ festgelegt ist.\footn
 \begin{eqnarray}
 z_{w, pre, i} = \begin{cases}
 H - i\frac{H - \newtilde{z}}{N_L - N_{L, O}}, \text{ falls } i < N_{L, o},\\
-h + \left(N_L - i\right)\frac{\newtilde{z} - h}{N_{L, O}}, \text{ sonst.}.
+h + \left(N_L - i\right)\frac{\newtilde{z} - h}{N_{L, O}}, \text{ sonst.}
 \end{cases}
 \end{eqnarray}
 %
@@ -14115,8 +14221,20 @@ Man definiert somit
 \nabla\cdot\mathbf{v} \coloneqq \frac{1}{V\left(B\right)}\sum_{A\in B_A}^{}s\left(B, A\right)V_2\left(A\right)u_A.\label{eq:div_diskret_3d}
 \end{eqnarray}
 %
-\subsubsection{Diagnostik der vertikalen kontravarianten Komponente}
-\label{sec:diagnostik_der_vertikalen_kontravarianten_komponente}
+\subsubsection{Diagnostik der vertikalen kontravarianten Maßzahl}
+\label{sec:diagnostik_der_vertikalen_kontravarianten_masszahl}
+
+In der Horizontalen sind die kontravarianten Maßzahlen prognostische Variablen und müssen daher nicht rekonstruiert werden. In der Vertikalen benötigt man jedoch
+%
+\begin{eqnarray}
+\mathbf{v}\cdot\mathbf{q}^{(v)} = v^{(v)}.
+\end{eqnarray}
+%
+Es gilt also
+%
+\begin{eqnarray}
+v^{(v)}_{c, k + \frac{1}{2}} = w_{c, k + \frac{1}{2}} - \newoverline{\newoverline{u^{(h)}_{e, k}J_{n, e, k}}^{(c)}}^{k + \frac{1}{2}}.
+\end{eqnarray}
 
 \subsection{Rotation}
 \label{sec:rotation}\index{Rotation!im Modell}
