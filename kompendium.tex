@@ -5351,9 +5351,18 @@ Für die Entropie folgt
 \begin{eqnarray}
 \frac{S\left(E, V, N\right)}{k_B} & = & \frac{1}{2}\ln\left(\frac{2}{3\pi^2}\right) - \ln\left(N\right) + \frac{3N}{2}\ln\left(c\right) + N\ln\left(\frac{V}{N}\right) + \frac{3N}{2}\ln\left(\frac{E}{N}\right)\nonumber\\
 &\approx&\frac{3N}{2}\ln\left(c\right) + N\ln\left(\frac{V}{N}\right) + \frac{3N}{2}\ln\left(\frac{E}{N}\right) - \ln\left(N\right)\nonumber\\
-&\approx&\frac{3N}{2}\ln\left(c\right) + N\ln\left(\frac{V}{N}\right) + \frac{3N}{2}\ln\left(\frac{E}{N}\right)\nonumber\\
-& = & N\left[\frac{3}{2}\ln\left(c\right) + \ln\left(\frac{V}{N}\right) + \frac{3}{2}\ln\left(\frac{E}{N}\right)\right]\label{eq:entropie_ideal}
+&\approx&\frac{3N}{2}\ln\left(c\right) + N\ln\left(\frac{V}{N}\right) + \frac{3N}{2}\ln\left(\frac{E}{N}\right)\nonumber
 \end{eqnarray}
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{eqnarray}
+\Leftrightarrow S\left(E, V, N\right) & = & k_BN\left[\frac{3}{2}\ln\left(c\right) + \ln\left(\frac{V}{N}\right) + \frac{3}{2}\ln\left(\frac{E}{N}\right)\right]\label{eq:sacker-tetrode-equation}
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
 %
 mit
 %
@@ -5361,7 +5370,7 @@ mit
 c \coloneqq \frac{me^{5/3}}{3\pi\hbar^2}.\label{eq:def_id_gas_entropy_constant}
 \end{eqnarray}
 %
-Glg. \eqref{eq:entropie_ideal} bezeichnet man auch als \textit{Sackur-Tetrode-Gleichung}\index{Sackur-Tetrode-Gleichung}. Man erhält die \textit{kalorische Zustandsgleichung idealer Gase}\index{Zustandsgleichung!kalorische!idealer Gase}\index{kalorische Zustandsgleichung idealer Gase}
+Glg. \eqref{eq:sacker-tetrode-equation} bezeichnet man auch als \textit{Sackur-Tetrode-Gleichung}\index{Sackur-Tetrode-Gleichung}. Man erhält die \textit{kalorische Zustandsgleichung idealer Gase}\index{Zustandsgleichung!kalorische!idealer Gase}\index{kalorische Zustandsgleichung idealer Gase}
 %
 \begin{eqnarray}
 \frac{1}{k_BT} = \frac{\partial\ln\left(\Omega\left(E, V, N\right)\right)}{\partial E} = \frac{3}{2}\frac{N}{E}\Rightarrow E = \frac{3}{2}Nk_BT.\label{eq:kalorisch_id_gase}
@@ -7778,7 +7787,7 @@ Mit Glg. \eqref{eq:td1_id_gas_pot_mod} folgt
 \subsubsection{Entropie als prognostische Variable}
 \label{sec:entropie_als_prognostische_variable}
 
-Setzt man die Zustandsgleichungen Glg.en \eqref{eq:kalorisch_id_gase} und \eqref{eq:zustand_ideal} in Glg. \eqref{eq:entropie_ideal} ein, folgt unter Vernachlässigung des Ungefähr-Zeichens
+Setzt man die Zustandsgleichungen Glg.en \eqref{eq:kalorisch_id_gase} und \eqref{eq:zustand_ideal} in Glg. \eqref{eq:sacker-tetrode-equation} ein, folgt unter Vernachlässigung des Ungefähr-Zeichens
 %
 \begin{eqnarray}
 S\left(E, V, N\right) & = & k_B\frac{3N}{2}\ln\left(c\right) + k_BN\ln\left(\frac{V}{N}\right) + k_B\frac{3N}{2}\ln\left(\frac{E}{N}\right)\nonumber\\
@@ -8074,10 +8083,20 @@ dann erhält man
 \begin{eqnarray}
 -\frac{1}{\rho}\nabla p & = & -\left(\xi_2 + 1\right)c_d^{(p)}\theta\nabla\Pi - \frac{p_0}{\rho}\xi_1\Pi^{c_d^{(v)}/R_d - 1}\nabla\Pi\nonumber\\
 & = & -c_d^{(p)}\theta\nabla\Pi - \xi_2c_d^{(p)}\theta\nabla\Pi - \frac{p_0}{\rho}\xi_1\Pi^{c_d^{(v)}/R_d - 1}\nabla\Pi\nonumber\\
-& = & -c_d^{(p)}\theta\nabla\Pi - \left(\xi_2c_d^{(p)}\theta + \frac{p_0}{\rho}\xi_1\Pi^{c_d^{(v)}/R_d - 1}\right)\nabla\Pi.
+& = & -c_d^{(p)}\theta\nabla\Pi - \left(\xi_2c_d^{(p)}\theta + \frac{p_0}{\rho}\xi_1\Pi^{c_d^{(v)}/R_d - 1}\right)\nabla\Pi\nonumber\\
+& = & -c_d^{(p)}\theta\nabla\Pi - \left(\xi_2 + \frac{p_0}{T\rho c_d^{(p)}}\xi_1\Pi^{c_d^{(v)}/R_d}\right)c_d^{(p)}\theta\nabla\Pi\nonumber\\
+& = & -c_d^{(p)}\theta\nabla\Pi - \left(\xi_2 + \frac{p_0}{p}\frac{R_h}{c_h^{(p)}}\xi_1\Pi^{c_d^{(v)}/R_d}\right)c_d^{(p)}\theta\nabla\Pi\nonumber\\
+& = & -c_d^{(p)}\theta\nabla\Pi - \left(\xi_2 + \frac{R_h}{c_h^{(p)}}\xi_1\Pi^{c_d^{(v)}/R_d - 1}\right)c_d^{(p)}\theta\nabla\Pi\nonumber\\
+& = & -c_d^{(p)}\theta\nabla\Pi - \left(\xi_2 + \xi_1'\Pi^{c_d^{(v)}/R_d - 1}\right)c_d^{(p)}\theta\nabla\Pi
 \end{eqnarray}
 %
-$\xi_1$ und $\xi_2$ stehen für den Unterschied gegenüber der trockenen Atmosphäre. 
+mit
+%
+\begin{eqnarray}
+\xi_1' \coloneqq \frac{R_h}{c_h^{(p)}}\xi_1.
+\end{eqnarray}
+%
+$\xi_1'$ und $\xi_2$ stehen für den Unterschied gegenüber der trockenen Atmosphäre. 
 
 \subsection{Anwendungen}
 \label{sec:anwendungen}
@@ -8097,7 +8116,7 @@ als zu lösende Differenzialgleichung für $p = p(z)$. Macht man den Ansatz
 p(z) = C\exp\left[f(z)\right]
 \end{eqnarray}
 %
-mit einer stetig-differenzierbaren Funktion $f = f(z)$ und einer Konstanten $C>0$, so folgt
+mit einer stetig-differenzierbaren Funktion $f = f(z)$ und einer Konstanten $C > 0$, so folgt
 %
 \begin{eqnarray}
 \frac{\partial p}{\partial z} = \frac{\partial f}{\partial z}p, 
@@ -8824,7 +8843,8 @@ und erhält somit
 && -\int_A\frac{\delta B}{\delta\rho}\nabla\cdot\frac{\delta H}{\delta\mathbf{v}} - \frac{\delta H}{\delta\rho}\nabla\cdot\frac{\delta B}{\delta\mathbf{v}}d^3r\\
 && -\int_A\frac{\partial B}{\partial\newtilde{s}}\nabla\cdot\left(s\frac{\partial H}{\partial\mathbf{v}}\right) - \frac{\partial H}{\partial\newtilde{s}}\nabla\cdot\left(q\frac{\delta B}{\delta\mathbf{v}}\right)d^3r\nonumber\\
 & = & -\int_A\frac{\delta B}{\delta\rho}\nabla\cdot\left(\rho\mathbf{v}\right) + \frac{\partial B}{\partial\newtilde{s}}\nabla\cdot\left(s\rho\mathbf{v}\right)d^3r = -\int_A\left(\phi + c_d^{(p)}T - sT\right)\nabla\cdot\left(\rho\mathbf{v}\right) + T\nabla\cdot\left(s\rho\mathbf{v}\right)d^3r\nonumber\\
-& = & -\int_A\left(\phi + c_d^{(p)}T\right)\nabla\cdot\left(\rho\mathbf{v}\right) + T\rho\mathbf{v}\cdot\nabla sd^3r,
+& = & -\int_A\left(\phi + c_d^{(p)}T\right)\nabla\cdot\left(\rho\mathbf{v}\right) + T\rho\mathbf{v}\cdot\nabla sd^3r\nonumber\\
+& = & \int_A\rho\mathbf{v}\cdot\left(\nabla\phi + c_d^{(p)}\nabla T\right) - T\rho\mathbf{v}\cdot\nabla s\phi d^3r,
 \end{eqnarray}
 %
 \begin{eqnarray}
@@ -8834,7 +8854,14 @@ und erhält somit
 & = & -\int_A\frac{\delta C}{\delta\rho}\nabla\cdot\frac{\delta H}{\delta\mathbf{v}} - \frac{\delta H}{\delta\rho}\nabla\cdot\frac{\delta C}{\delta\mathbf{v}} - \frac{\partial H}{\partial\newtilde{s}}\nabla\cdot\left(s\frac{\delta C}{\delta\mathbf{v}}\right)d^3r\nonumber\\
 & = & -\int_A\frac{\delta C}{\delta\rho}\nabla\cdot\left(\rho\mathbf{v}\right) - \frac{\delta H}{\delta\rho}\nabla\cdot\left(\rho\mathbf{v}\right) - T\nabla\cdot\left(s\rho\mathbf{v}\right)d^3r\nonumber\\
 & = & -\int_A -\left(\phi + c_d^{(p)}T - sT\right)\nabla\cdot\left(\rho\mathbf{v}\right) - T\nabla\cdot\left(s\rho\mathbf{v}\right)d^3r\nonumber\\
-& = & \int_A\left(c_d^{(p)}T + \phi\right)\nabla\cdot\left(\rho\mathbf{v}\right) + T\rho\mathbf{v}\cdot\nabla sd^3r.
+& = & \int_A\left(c_d^{(p)}T + \phi\right)\nabla\cdot\left(\rho\mathbf{v}\right) + T\rho\mathbf{v}\cdot\nabla sd^3r\nonumber\\
+& = & \int_A-\rho\mathbf{v}\cdot\left(\nabla\phi + c_d^{(p)}\nabla T\right) + T\rho\mathbf{v}\cdot\nabla sd^3r.
+\end{eqnarray}
+%
+Hieraus erhält man als Ausdruck für die Druckgradientbeschleunigung\index{Druckgradient}\index{Druckgradientbeschleunigung}
+%
+\begin{eqnarray}
+-\frac{1}{\rho}\nabla p = -c_d^{(p)}\nabla T + T\nabla s.
 \end{eqnarray}
 
 \section{Konkretisierung der Wärmeflüsse}
