@@ -6935,6 +6935,23 @@ wobei die zwei Grenzwerte für die unterschiedlichen Seiten der Phasengrenzfläc
 \subsection{Näherungen}
 \label{sec:naeherungen}
 
+\subsubsection{Advektive Anteile}
+\label{sec:flachgeofluide}\index{Flachgeofluid}
+
+Die Nichtlinearität der hergeleiteten Impulsgleichung steckt zu einem großen Anteil in der Advektion $\left(\mathbf{v}\cdot\nabla\right)\mathbf{v}$. Diese Terme tragen also entscheidend zur Interaktion verschiedener atmosphärischer Phänomene und zur Entstehung von Instabilitäten\index{Instabilität} bei. Hingegen ist die Reibung ein stabilisiernder Einfluss. Man definiert daher die sogenannte \textit{Reynolds-Zahl}\index{Reynolds-Zahl} $N_\text{Re}$ als das Verhältnis dieser beiden Terme:
+%
+\begin{eqnarray}
+N_\text{Re} \coloneqq \frac{U^2}{L}\frac{L^2}{\nu U} = \frac{UL}{\nu}
+\end{eqnarray}
+%
+Desto größer die Reynolds-Zahl\index{Reynolds-Zahl} ist, desto instabiler und turbulenter\index{Turbulenz} ist die Strömung. Auf der synoptischen\index{Synotpik} Skala gilt
+%
+\begin{eqnarray}
+N_\text{Re} \sim \frac{10^110^6}{10^{-5}} = 10^{12}.
+\end{eqnarray}
+%
+Synotische\index{Synoptik} Strömungen sind also sehr instabil.
+
 \subsubsection{Flachgeofluide}
 \label{sec:flachgeofluide}\index{Flachgeofluid}
 
@@ -8087,8 +8104,18 @@ dann erhält man
 & = & -c_d^{(p)}\theta\nabla\Pi - \left(\xi_2 + \frac{p_0}{T\rho c_d^{(p)}}\xi_1\Pi^{c_d^{(v)}/R_d}\right)c_d^{(p)}\theta\nabla\Pi\nonumber\\
 & = & -c_d^{(p)}\theta\nabla\Pi - \left(\xi_2 + \frac{p_0}{p}\frac{R_h}{c_h^{(p)}}\xi_1\Pi^{c_d^{(v)}/R_d}\right)c_d^{(p)}\theta\nabla\Pi\nonumber\\
 & = & -c_d^{(p)}\theta\nabla\Pi - \left(\xi_2 + \frac{R_h}{c_h^{(p)}}\xi_1\Pi^{c_d^{(v)}/R_d - 1}\right)c_d^{(p)}\theta\nabla\Pi\nonumber\\
-& = & -c_d^{(p)}\theta\nabla\Pi - \left(\xi_2 + \xi_1'\Pi^{c_d^{(v)}/R_d - 1}\right)c_d^{(p)}\theta\nabla\Pi
+& = & -c_d^{(p)}\theta\nabla\Pi - \left(\xi_2 + \xi_1'\Pi^{c_d^{(v)}/R_d - 1}\right)c_d^{(p)}\theta\nabla\Pi\nonumber
 \end{eqnarray}
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{eqnarray}
+\Leftrightarrow -\frac{1}{\rho}\nabla p & = & -c_d^{(p)}\theta\left(1 + \xi_2 + \xi_1'\Pi^{c_d^{(v)}/R_d - 1}\right)\nabla\Pi
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
 %
 mit
 %
@@ -8461,7 +8488,7 @@ Die adiabatische Konversion steht für die Umwandlung von potentieller und inner
 bzw.
 %
 \begin{eqnarray}
-\underbrace{\overbrace{\frac{\partial\mathbf{v}}{\partial t}}^{\text{lokalzeitl. Änderung}} = \overbrace{\mathbf{v}\times\etabi}^{\text{Advektion}} \overbrace{- \frac{1}{\rho}\nabla p + \mathbf{g}}^{\text{adiabatische Konversion}}}_{\text{reversibel}} + \underbrace{\overbrace{\mathbf{F}_R}^{\text{Dissipation}}}_{\text{irreversibel}} 
+\underbrace{\overbrace{\frac{\partial\mathbf{v}}{\partial t}}^{\text{lokalzeitl. Änderung}} = \overbrace{\mathbf{v}\times\etabi - \nabla k}^{\text{Advektion}} \overbrace{- \frac{1}{\rho}\nabla p - \nabla\phi}^{\text{adiabatische Konversion}}}_{\text{reversibel}} + \underbrace{\overbrace{\mathbf{F}_R}^{\text{Dissipation}}}_{\text{irreversibel}} 
 \end{eqnarray}
 %
 vornehmen.
@@ -8514,7 +8541,8 @@ mit $z_S$ als Orographie\index{Orographie}. Man definiert die \textit{totale pot
 
 %
 \begin{eqnarray}
-\TPE \coloneqq = \PE + \IE = p_Sz_S + g^{-1}\int_0^{p_S}\left(c^{(v)} + R_d\right)dp = p_Sz_S + g^{-1}\int_0^{p_S}hdp = p_Sz_S + \frac{c^{(p)}}{g}\int_0^{p_S}\theta\left(\frac{p}{p_0}\right)^{R_d/c^{(p)}}dp\label{eq:tpe_id_1}
+\TPE & \coloneqq & \PE + \IE = p_Sz_S + g^{-1}\int_0^{p_S}\left(c^{(v)} + R_d\right)dp = p_Sz_S + g^{-1}\int_0^{p_S}hdp\nonumber\\
+& = & p_Sz_S + \frac{c^{(p)}}{g}\int_0^{p_S}\theta\left(\frac{p}{p_0}\right)^{R_d/c^{(p)}}dp\label{eq:tpe_id_1}
 \end{eqnarray}
 %
 mit $h = c^{(p)}T$ als Enthalpie\index{Enthalpie}.Man schätzt ab
@@ -8860,9 +8888,24 @@ und erhält somit
 %
 Hieraus erhält man als Ausdruck für die Druckgradientbeschleunigung\index{Druckgradient}\index{Druckgradientbeschleunigung}
 %
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 \begin{eqnarray}
 -\frac{1}{\rho}\nabla p = -c_d^{(p)}\nabla T + T\nabla s.
 \end{eqnarray}
+\end{center}
+}}
+\end{center}
+%
+Dies wird auch durch
+%
+\begin{eqnarray}
+-c_d^{(p)}\nabla T + T\nabla s & = & -c_d^{(p)}\nabla T + Tc_d^{(p)}\nabla\ln\left(\theta\right)\nonumber\\
+& = & -c_d^{(p)}\nabla T + \frac{T}{\theta}c_d^{(p)}\nabla\theta = -c_d^{(p)}\theta\nabla\frac{T}{\theta} = -c_d^{(p)}\theta\nabla\Pi
+\end{eqnarray}
+%
+bestätigt.
 
 \section{Konkretisierung der Wärmeflüsse}
 \label{sec:konkretisierung_der_waermefluesse}\index{Wärmefluss}
@@ -9574,7 +9617,7 @@ Der \textit{zyklostrophische Wind} ist gegeben, wenn ein Druckgradient eine Zent
 \left|\frac{\partial p}{\partial r}\right| = \frac{\rho V^2}{\left|R\right|}
 \end{eqnarray}
 %
-Er gilt in \index{Tornado}\textit{Tornados}.
+Er gilt in \textit{Tornados}\index{Tornado} und \textit{Staubteufeln}\index{Staubteufel}.
 
 \chapter{\normalfont\textsc{Vorticity und Divergenz}}
 \label{chap:vorticity_und_divergenz}\index{Vorticity}\index{Divergenz}
@@ -17755,7 +17798,7 @@ Für $m = 0$ sind die Lösungen die bekannten Legendre-Polynome $P_l\left(\mu\ri
 T_{l, m + 1}\left(\mu\right) = \frac{d}{d\mu}T_{l, m}\left(\mu\right).
 \end{eqnarray}
 %
-Dies ist leicht gezeigt. Leite zunächst Glg. \eqref{eq:dgl_ass_leg_herl} ab:
+Um dies zu zeigen leitet man zunächst Glg. \eqref{eq:dgl_ass_leg_herl} ab:
 %
 \begin{eqnarray}
 && -2T_{l, m}'\left(\mu\right) - 4\mu T_{l, m}''\left(\mu\right) + \left(1 - \mu^2\right)T_{l, m}'''\left(\mu\right) = 2mT_{l, m}'\left(\mu\right) + 2\mu mT_{l, m}''\left(\mu\right) + \left(m\left(m + 1\right) - \lambda\right)T_{l, m}'\left(\mu\right)\nonumber\\
@@ -17763,12 +17806,12 @@ Dies ist leicht gezeigt. Leite zunächst Glg. \eqref{eq:dgl_ass_leg_herl} ab:
 & = & 2\left(1 + m\right)T_{l, m}'\left(\mu\right) + \left(m\left(m + 1\right) - \lambda\right)T_{l, m}'\left(\mu\right) + 2\mu\left(1 + m\right)T_{l, m}''\left(\mu\right)
 \end{eqnarray}
 %
-Setze nun für $T_{l, m + 1} = T_{l, m}'$ ein. Es folgt:
+Indem man $T_{l, m + 1} = T_{l, m}'$ einsetzt, folgt
 %
 \begin{eqnarray}
 &&\frac{d}{d\mu}\left(1 - \mu^2\right)T_{l, m + 1}'\left(\mu\right) = \frac{d}{d\mu}\left(1 - \mu^2\right)\frac{d}{d\mu}T_{l, m}'\left(\mu\right)\nonumber\\
 & = & -2\mu T_{l, m}''\left(\mu\right) + \left(1 - \mu^2\right)T_{l, m}'''\left(\mu\right) = 2\left(1 + m\right)T_{l, m}'\left(\mu\right) + \left(m\left(m + 1\right) - \lambda\right)T_{l, m}'\left(\mu\right) + 2\mu\left(1 + m\right)T_{l, m}''\left(\mu\right)\nonumber\\
-& = & 2\mu\left(m + 1\right)T_{l, m + 1}'\left(\mu\right) + \left(\left(m + 1\right)\left(m + 2\right) - \lambda\right)T_{l, m + 1}\left(\mu\right)
+& = & 2\mu\left(m + 1\right)T_{l, m + 1}'\left(\mu\right) + \left(\left(m + 1\right)\left(m + 2\right) - \lambda\right)T_{l, m + 1}\left(\mu\right).
 \end{eqnarray}
 %
 Die Lösung $T_{l, m}\left(\mu\right)$ ist also die $m-$te Ableitung des $n-$ten Legendre-Polynoms
