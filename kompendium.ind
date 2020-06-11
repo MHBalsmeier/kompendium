@@ -5,7 +5,7 @@
   \item $\beta-$Effekt
     \subitem orographischer, 169
   \item $\omega-$Gleichung, 196, 216
-  \item $\sigma_p-$System, 120
+  \item $\sigma_p-$System, 119
   \item $\sigma_z-$System, 119
   \item $\theta-$System, 118, 138
     \subitem hydrostatische Stabilität, 174
@@ -20,7 +20,7 @@
     \subitem materielle, 274, 287
       \subsubitem Kugelkoordinaten, 286
     \subitem mehrdimensionale, 273
-    \subitem totale, 117, 274
+    \subitem totale, 116, 274
   \item absolute Feuchte, 89
   \item Absorptionskoeffizient, 148, 233
   \item Abstand
@@ -29,9 +29,9 @@
   \item Additionstheorem, 265
   \item Adhäsionsbedingung, 112, 221
   \item Adiabatenexponent, 179
-  \item adiabatische Konversion, 137
+  \item adiabatische Konversion, 136
   \item adjungierte Matrix, 42
-  \item Advektion, 275
+  \item Advektion, 112, 275
   \item Advektionsform, 124
   \item Advektionsoperator, 275
   \item Algebra
@@ -43,29 +43,31 @@
   \item Antisymmetrie
     \subitem der Wellenfunktion, 73
   \item Antizyklogenese, 216
-  \item APE, 138
+  \item APE, 137
+  \item Approximation
+    \subitem traditionelle, 113
   \item Arakawa-Gitter, 244
   \item Arbeit, 17, 78
   \item Arcusfunktion, 264, 266
   \item Areafunktion, 263
   \item Atmosphäre
     \subitem einphasige
-      \subsubitem Integralrelation, 135
-    \subitem Gesamtdrehimpuls, 138
-    \subitem Gesamtimpuls, 138
-    \subitem Hamilton-Funktion, 141
-    \subitem Hamiltonä-Formalismus, 141
+      \subsubitem Integralrelation, 134
+    \subitem Gesamtdrehimpuls, 137
+    \subitem Gesamtimpuls, 137
+    \subitem Hamilton-Funktion, 140
+    \subitem Hamiltonä-Formalismus, 140
     \subitem Zustand, 101
   \item atmosphärische Optik, 233
   \item atmosphärischer Zustand, 102
   \item Aufsteigeoperator, 60
   \item Auslösetemperatur, 213
-  \item available potential Energy (APE), 138
+  \item available potential Energy (APE), 137
   \item Axiom
     \subitem Newton'sches
       \subsubitem Zusatz, 15
     \subitem Zweites
-      \subsubitem Newton'sches, 138
+      \subsubitem Newton'sches, 137
 
   \indexspace
 
@@ -82,7 +84,9 @@
   \item barotrope Vorticitygleichung, 166, 200
   \item barotrope Welle, 179
   \item Barotropie, 154
-  \item Bernoulli-Gleichung, 136
+  \item Basiselemente
+    \subitem kovariante, 250
+  \item Bernoulli-Gleichung, 135
     \subitem zeitabhängige, 169, 203
   \item Bewegungsgleichung
     \subitem Hamilton-Formalismus, 22
@@ -126,8 +130,8 @@
   \item d'Alembert-Operator, 31
   \item Delaunay-Triangulation, 248
   \item Deltadistribution, 266
-  \item Determinante, 262
-  \item Diagnostik, 129
+  \item Determinante, 250, 262
+  \item Diagnostik, 128
   \item Dichte
     \subitem mikroskopische, 102
     \subitem trockener Luft, 101
@@ -143,7 +147,7 @@
     \subitem Rechenregel, 277
     \subitem unter Koordinatentransformation, 280
   \item differenzielle Temperaturadvektion, 216
-  \item Diffusion, 94, 146
+  \item Diffusion, 94, 145
     \subitem skalare
       \subsubitem Parametrisierung, 225
   \item Diffusionsgleichung, 94
@@ -158,14 +162,14 @@
   \item Dispersionsrelation, 176, 180
     \subitem Quantenmechanik
       \subsubitem freies Teilchen, 34
-  \item Dissipation, 137, 146, 147
+  \item Dissipation, 136, 145, 147
   \item Divergenz, 161, 169, 274
     \subitem eines Vektorfeldes, 274
-    \subitem im Modell, 252
+    \subitem im Modell, 253
   \item Divergenzgleichung, 170
     \subitem p-System, 170
   \item Drehimpuls, 17
-    \subitem der Atmosphäre, 138
+    \subitem der Atmosphäre, 137
     \subitem quantenmechanischer, 56
     \subitem Wasserstoffatom, 58
   \item Drehimpulserhaltungssatz, 17
@@ -174,20 +178,20 @@
   \item Drehmoment, 17
   \item Druck, 102
     \subitem Gleichung
-      \subsubitem prognostische, 125
-    \subitem prognostische Gleichung, 125
+      \subsubitem prognostische, 124
+    \subitem prognostische Gleichung, 124
   \item Druckgradient, 145
-  \item Druckgradientbeschleunigung, 132, 145
-    \subitem Exner-Druck, 126
+  \item Druckgradientbeschleunigung, 131, 145
+    \subitem Exner-Druck, 125
   \item Druckgradientkraft, 107
-  \item duales Vektorfeld, 250
+  \item duales Vektorfeld, 251
   \item Dynamik, 9, 153
     \subitem tropische, 217
   \item dynamische Randbedingung, 112, 203
   \item dynamische Viskosität, 94, 110
   \item dynamischer Kern, 9, 247
-    \subitem Ankopplung eines Strahlungsmodells, 255
-    \subitem Zeitschrittverfahren, 255
+    \subitem Ankopplung eines Strahlungsmodells, 256
+    \subitem Zeitschrittverfahren, 256
 
   \indexspace
 
@@ -218,33 +222,33 @@
   \item Energie, 17
     \subitem des elektromagnetischen Feldes, 26
     \subitem freie, 83
-    \subitem innere, 135, 137, 138
-    \subitem kinetische, 18, 111, 138
-      \subsubitem spezifische, 135
-    \subitem potentielle, 138
+    \subitem innere, 134, 136, 137
+    \subitem kinetische, 18, 111, 137
+      \subsubitem spezifische, 134
+    \subitem potentielle, 137
       \subsubitem konvektiv verfügbare, 212
-      \subsubitem totale, 138
-      \subsubitem verfügbare, 138
+      \subsubitem totale, 137
+      \subsubitem verfügbare, 137, 138
   \item Energiedichte, 28, 135
-    \subitem kinetische, 135
+    \subitem kinetische, 134
   \item Energiekaskade, 225
   \item Ensemble, 75
     \subitem großkanonisches, 81
     \subitem kanonisches, 81
     \subitem mikrokanonisches, 77
   \item Entartung, 56
-  \item Enthalpie, 83, 137, 138
+  \item Enthalpie, 83, 136, 138
     \subitem freie, 83
-    \subitem spezifische, 126
-  \item Entropie, 128, 143
-    \subitem spezifische, 121
+    \subitem spezifische, 125
+  \item Entropie, 127, 142
+    \subitem spezifische, 120
   \item Erde
     \subitem Schwerefeld, 289
   \item Ereignis, 28
   \item Erster Hauptsatz
     \subitem der Thermodynamik, 243
   \item Erster Hauptsatz der Thermodynamik, 243
-    \subitem in der Atmosphäre, 120
+    \subitem in der Atmosphäre, 119
   \item Erster Hauptsatz der Thermodynamik\index{Thermodynamik
     \subitem Erster Hauptsatz}, 78
   \item Ertel'scher Wirbelsatz, 172
@@ -257,13 +261,13 @@
     \subitem implizites, 241
   \item Euler-Wind, 159
   \item evaneszente Welle, 175
-  \item Exner-Druck, 125, 131, 254
-    \subitem Druckgradientbeschleunigung, 126
+  \item Exner-Druck, 124, 130, 255
+    \subitem Druckgradientbeschleunigung, 125
   \item explizites Euler-Verfahren, 241
   \item Exponentialfunktion, 263
     \subitem komplexe, 324
   \item extensive Größe, 88
-  \item externe Kraft, 138
+  \item externe Kraft, 137
   \item Extratropen, 215
   \item Exzentrizität, 289
 
@@ -277,7 +281,7 @@
   \item Feinstrukturkonstante, 67
   \item Feld
     \subitem elektrisches, 102
-    \subitem im Modell, 249
+    \subitem im Modell, 251
   \item Feldstärketensor, 31
   \item Fermion, 61
   \item Feuchtadiabate
@@ -291,15 +295,14 @@
     \subitem spezfische, 106
     \subitem spezifische, 89
   \item feuchte Luft, 101
-    \subitem indivduelle Gaskonstante, 131
+    \subitem indivduelle Gaskonstante, 130
   \item Feuchtemaß, 89
-  \item fiktive molare Masse, 129
+  \item fiktive molare Masse, 128
   \item Filterung, 153
   \item finite Differenz, 239
-  \item Flachgeofluid, 112
-  \item Flachwassergleichung, 115
+  \item Flachwassergleichung, 114
   \item Flachwassergleichungen
-    \subitem Linearisierung, 116
+    \subitem Linearisierung, 115
   \item Flachwasserwelle, 180
   \item Fluid
     \subitem ideales, 110
@@ -316,7 +319,7 @@
   \item Fourier-Transformation, 324
     \subitem inverse, 324
   \item Framework
-    \subitem konditionelles, 251
+    \subitem konditionelles, 252
   \item freie Energie, 83
   \item freie Enthalpie, 83
   \item freie Konvektion, 213
@@ -327,8 +330,9 @@
   \item Funktion
     \subitem rationale, 263
     \subitem trigonometrische, 264
-  \item Funktional, 141
-  \item Funktionaldeterminante, 287
+  \item Funktional, 140
+  \item Funktionaldeterminante, 113, 250, 287
+    \subitem generalisierte Vertikalkoordinate, 250
   \item Funktionensysteme
     \subitem orthogonale, 309
 
@@ -338,31 +342,33 @@
   \item Gas
     \subitem ideales, 86
       \subsubitem chemisches Potential, 88
-      \subsubitem einatomiges, 120
+      \subsubitem einatomiges, 119
   \item Gaskonstante
-    \subitem individuelle, 120, 243
-      \subsubitem feuchter Luft, 131
+    \subitem individuelle, 119, 243
+      \subsubitem feuchter Luft, 130
   \item Gasmodell
     \subitem kinetisches, 93
   \item Gauß'sche Summenformel, 259
   \item Gauß'scher Satz, 23, 154, 288
-  \item geländefolgende Koordinaten, 254
+  \item geländefolgende Koordinaten, 256
   \item gemischter Zustand, 76
   \item generalisierte Geschwindigkeit, 20
   \item generalisierte Koordinaten, 19
     \subitem Skalarprodukt, 280
     \subitem Vektorprodukt, 280
-  \item generalisierte Vertikalkoordinate, 116, 154
+  \item generalisierte Vertikalkoordinate, 115, 154, 250
+    \subitem Funktionaldeterminante, 250
   \item Geofluidsimulation, 243
   \item geographische Koordinaten, 273
+  \item geographischen Koordinaten, 113
   \item geometrische Reihe, 260
-  \item Geopotential, 135
+  \item Geopotential, 134
   \item Geopotentialtendenz, 215
   \item geopotentielle Höhe, 154
   \item Geostrophie, 155
   \item gerade Permutation, 260
-  \item Gesamtdrehimpuls der Atmosphäre, 138
-  \item Gesamtimpuls der Atmosphäre, 138
+  \item Gesamtdrehimpuls der Atmosphäre, 137
+  \item Gesamtimpuls der Atmosphäre, 137
   \item Geschwindigkeit
     \subitem generalisierte, 20
   \item Geschwindigkeitsadvektion
@@ -383,22 +389,22 @@
     \subitem Orthogonalität, 243
     \subitem Quasi-Uniformität, 243
     \subitem Uniformität, 243
-  \item Gitteroptimierung, 254
+  \item Gitteroptimierung, 256
   \item Gleichgewichtsniveau, 213
   \item Gleichung
     \subitem herrschende, 150
     \subitem kanonische, 22
     \subitem prognostische
-      \subsubitem Druck, 125
+      \subsubitem Druck, 124
   \item Gleichungen
     \subitem herrschende, 101
     \subitem zonal gemittelte, 227
   \item gleitendes Mittel, 224
   \item gleitendes Zeitmittel, 224
-  \item globale Koordinaten, 273
+  \item globale Koordinaten, 250, 273
   \item globale Mode, 188
   \item Gradient
-    \subitem im Modell, 252
+    \subitem im Modell, 253
   \item Gradientenwind, 158
   \item Gradientenwindhöhe, 223
   \item Gravitationsgesetz
@@ -436,9 +442,9 @@
     \subitem kleine, 289
   \item Hamilton'sche Bewegungsgleichung, 22
   \item Hamilton-Formalismus, 18, 21
-    \subitem Atmosphäre, 141
+    \subitem Atmosphäre, 140
   \item Hamilton-Funktion, 21, 23
-    \subitem Atmosphäre, 141
+    \subitem Atmosphäre, 140
   \item Hamilton-Operator, 33
   \item harmonischer Oszillator, 38
   \item Hauptquantenzahl, 55
@@ -475,25 +481,25 @@
   \item ideales Fluid, 110
   \item ideales Gas, 86
     \subitem chemisches Potential, 88
-    \subitem einatomiges, 120
-    \subitem Zustandsgleichung, 121
+    \subitem einatomiges, 119
+    \subitem Zustandsgleichung, 120
   \item implizites Euler-Verfahren, 241
   \item Impuls
-    \subitem der Atmosphäre, 138
+    \subitem der Atmosphäre, 137
     \subitem kanonischer, 21
   \item Impulserhaltungssatz, 17
   \item Impulsflussdichtetensor, 108, 110
   \item Impulsgleichung, 107, 111
   \item Impulsoperator, 34
     \subitem Hermitezität, 44, 45
-  \item individuelle Gaskonstante, 120, 243
+  \item individuelle Gaskonstante, 119, 243
   \item Induktion
     \subitem vollständige, 260
   \item Induktionsgesetz
     \subitem Faraday'sches, 24
   \item Inertialwelle, 184
   \item Inertialwellen, 184
-  \item innere Energie, 135, 137, 138
+  \item innere Energie, 134, 136, 137
   \item Instabilität, 112, 175, 199
     \subitem barokline, 201
     \subitem barotrope, 199
@@ -503,9 +509,9 @@
   \item Integralrechnung
     \subitem mehrdimensionale, 287
   \item Integralrelation
-    \subitem einer einphasigen Atmosphäre, 135
+    \subitem einer einphasigen Atmosphäre, 134
   \item Integration
-    \subitem partielle, 139, 267
+    \subitem partielle, 138, 267
   \item inverse Fourier-Transformation, 324
   \item inverse Matrix, 42
   \item Inversion, 209
@@ -514,16 +520,16 @@
   \item Ionosphäre, 102
   \item irreversible Feuchtadiabate, 209, 212
   \item iseentrope Koordinate, 174
-  \item isentrope Koordinate, 118, 133
+  \item isentrope Koordinate, 118, 132
   \item Isentropenexponent, 179
-  \item isentropes Koordinatensystem, 133
+  \item isentropes Koordinatensystem, 132
   \item Isotop, 49
 
   \indexspace
 
   \item Jacobi-Matrix, 273
   \item Jet, 200, 227
-  \item JW-Test, 255
+  \item JW-Test, 256
 
   \indexspace
 
@@ -543,16 +549,16 @@
   \item Kelvon-Helmholtz-Instabilität, 202
   \item Kern
     \subitem dynamischer, 9, 247
-      \subsubitem Ankoppplung eines Strahlungsmodells, 255
-      \subsubitem Zeitschrittverfahren, 255
+      \subsubitem Ankoppplung eines Strahlungsmodells, 256
+      \subsubitem Zeitschrittverfahren, 256
   \item Ketzustand, 41
   \item Kinematik
     \subitem Welle, 175
-  \item kinematische Randbedingung, 112, 136, 203
+  \item kinematische Randbedingung, 112, 135, 203
   \item kinematische Viskosität, 110
-  \item kinetische Energie, 18, 138
-    \subitem spezifische, 111, 135
-  \item kinetische Energiedichte, 135
+  \item kinetische Energie, 18, 137
+    \subitem spezifische, 111, 134
+  \item kinetische Energiedichte, 134
   \item kinetisches Gasmodell, 93
   \item Kirchhoff'sches Strahlungsgesetz, 100
   \item KKN, 213
@@ -560,7 +566,7 @@
   \item kleine Halbachse, 289
   \item Klimatologie
     \subitem der Atmosphäre, 227
-  \item Kollision, 146
+  \item Kollision, 145
   \item Kommutator, 46
   \item kommutierende Operatoren, 46
   \item Komnbinatorik, 260
@@ -568,14 +574,14 @@
   \item komplexe Zahl, 266
   \item Kondensat, 133, 243
   \item Kondensatklasse, 101
-  \item konditionelles Framework, 251
+  \item konditionelles Framework, 252
   \item konkrete Mittelungsoperatoren, 224
   \item konservatives Kraftfeld, 18
   \item Konsistenz
     \subitem eines numerischen Verfahrens, 239
   \item kontinuierliche Schichtung
     \subitem Kelvin-Helmholtz-Instabilität, 205
-  \item Kontinuitätsgleichung, 104, 124, 128, 243
+  \item Kontinuitätsgleichung, 104, 123, 127, 243
   \item Konvektion
     \subitem freie, 213
   \item Konvektionskondensationsniveau (KKN), 213
@@ -584,19 +590,21 @@
   \item Konvention
     \subitem über Koordinatensysteme, 272
   \item Konversion
-    \subitem adiabatische, 137
+    \subitem adiabatische, 136
   \item Koordinate
     \subitem generalisierte, 19
-    \subitem isentrope, 133, 174
-    \subitem orographische, 119, 120
+    \subitem isentrope, 132, 174
+    \subitem orographische, 119
   \item Koordinaten
-    \subitem geländefolgende, 254
+    \subitem geländefolgende, 256
+    \subitem geographische, 113
+    \subitem globale, 250
     \subitem orthogonale, 280
-    \subitem ruhende, 138
-  \item Koordinatensystem
+    \subitem ruhende, 137
+  \item Koordinatensystem, 250
     \subitem geographisches, 273
     \subitem globales, 273
-    \subitem isentropes, 133
+    \subitem isentropes, 132
     \subitem Konvention, 272
     \subitem Kugel, 281
     \subitem orthogonales, 280
@@ -606,15 +614,16 @@
   \item Koordinte
     \subitem isentrope, 118
   \item Korrelationsfluss, 219
+  \item kovariante Basiselemente, 250
   \item Kraft
-    \subitem externe, 138
+    \subitem externe, 137
     \subitem verallgemeinerte, 21, 78
   \item Kraftfeld
     \subitem konservatives, 18
   \item Krümmungsradius, 275
   \item Krümmungsvorticity, 163
   \item Kugelflächenfunktion, 322
-  \item Kugelkoordinaten, 281
+  \item Kugelkoordinaten, 250, 281
     \subitem Geschwindigkeitsadvektion, 284
     \subitem Laplace-Operator, 283
     \subitem materielle Ableitung, 286
@@ -633,6 +642,7 @@
     \subitem 2. Art, 21
   \item Laguerre'sche Differenzialgleichung, 54
   \item Laguerre-Polynom, 54, 319
+  \item Lamb-Transformation, 279, 284
   \item laminare Strömung, 219
   \item laminare Unterschicht, 221
   \item Landéfaktor, 63
@@ -641,7 +651,7 @@
   \item Laplace-Operator, 274
     \subitem horizontaler, 274
     \subitem Kugelkoordinaten, 283
-  \item latente Wärme, 146
+  \item latente Wärme, 145
   \item Layer, 248
   \item LCL, 209, 212
   \item Legendre'sche Differenzialgleichung, 309
@@ -663,7 +673,7 @@
   \item lineare Balancegleichung, 171
   \item lineare Instabilität, 241
   \item Linearisierung
-    \subitem der Flachwassergleichungen, 116
+    \subitem der Flachwassergleichungen, 115
     \subitem Wellengleichung, 177
   \item Literatur, 9
   \item Logarithmusfunktion
@@ -674,7 +684,7 @@
   \item Lorenz-Eichung, 24
   \item Luft, 101
     \subitem feuchte, 101
-      \subsubitem individuelle Gaskonstante, 131
+      \subsubitem individuelle Gaskonstante, 130
     \subitem trockene, 101
   \item Längen des Modellgitters, 248
 
@@ -685,7 +695,7 @@
   \item Makrozustand, 75
   \item Masse
     \subitem molare
-      \subsubitem fiktive, 129
+      \subsubitem fiktive, 128
   \item Massenstromdichte, 101
   \item Massenzahl, 49
   \item Mastergleichung, 76
@@ -715,7 +725,8 @@
   \item Meso$-\beta-$Skala, 9
   \item Meso$-\gamma-$Skala, 9
   \item Mesoskala, 9, 215
-  \item metrischer Tensor, 282
+  \item metrische terme, 113
+  \item metrischer Tensor, 250, 282
   \item mikrokanonische Zustandssumme, 77
   \item mikrokanonisches Ensemble, 77
   \item Mikroskala, 9
@@ -736,10 +747,10 @@
     \subitem globale, 188
     \subitem vertikale, 192
   \item Modell
-    \subitem duales Vektorfeld, 250
-    \subitem Skalarfeld, 250
-    \subitem Vektorfeld, 250
-      \subsubitem duales, 250
+    \subitem duales Vektorfeld, 251
+    \subitem Skalarfeld, 251
+    \subitem Vektorfeld, 251
+      \subsubitem duales, 251
   \item Modellgitter, 247
     \subitem Erweiterung
       \subsubitem vertikale, 248
@@ -748,7 +759,7 @@
     \subitem Längen, 248
     \subitem vertikale Erweiterung, 248
   \item molare Masse
-    \subitem fiktive, 129
+    \subitem fiktive, 128
   \item molekulare Skala, 9
   \item Molekülspektrum, 74
   \item Montgomery-Potential, 119
@@ -763,7 +774,7 @@
   \item Newton'sche Gravitationskonstante, 154
   \item Newton'sches Axiom
     \subitem Zusatz, 15
-    \subitem Zweites, 15, 138
+    \subitem Zweites, 15, 137
       \subsubitem der Rotation, 17
   \item Newton'sches Gravitationsgesetz, 290
   \item Normierung
@@ -779,18 +790,18 @@
   \item Obliquität, 10
   \item Observable
     \subitem vollständige, 49
-  \item Operator, 250, 270
+  \item Operator, 251, 270
     \subitem Hermite'scher, 43
     \subitem statistischer, 75
-    \subitem Vektorprodukt, 252
+    \subitem Vektorprodukt, 253
   \item Operatoren
     \subitem kommutierende, 46
   \item Optik
     \subitem atmosphärische, 233
   \item Orbital, 56
-  \item Orographie, 138, 254
+  \item Orographie, 137, 256
   \item orographie, 119
-  \item orographische Koordinate, 119, 120
+  \item orographische Koordinate, 119
   \item orographischer $\beta-$Effekt, 169
   \item orthogonale Funktionensysteme, 309
   \item Orthogonalität
@@ -804,7 +815,7 @@
 
   \indexspace
 
-  \item p-System, 117, 140, 173, 174
+  \item p-System, 116, 139, 173, 174
   \item Parallelisierung, 243
   \item Parametrisierung, 220
     \subitem der Reibung durch Stommel, 230
@@ -813,7 +824,7 @@
     \subitem Herleitung, 225
     \subitem Phasenübergangsrate, 225
     \subitem skalare Diffusion, 225
-  \item partielle Integration, 139, 267
+  \item partielle Integration, 138, 267
   \item Pauli-Gleichung, 63
   \item Pauli-Matrix, 62
   \item Pauli-Prinzip, 74
@@ -824,7 +835,7 @@
   \item Permutationsoperator, 73
   \item Phasenraum, 22
   \item Phasenspektrum, 325
-  \item Phasenübergang, 95, 146
+  \item Phasenübergang, 95, 145
   \item Phasenübergangsrate
     \subitem Parametrisierung, 225
   \item Phasenübergangswärme, 146
@@ -837,7 +848,7 @@
   \item planetrische Grenzschicht, 220
   \item Poincaré-Welle, 181
   \item Poisson-Gleichung, 161
-  \item Poisson-Klammer, 22, 141
+  \item Poisson-Klammer, 22, 140
   \item Polarkreis, 215
   \item Polynom, 263
   \item Potential, 18
@@ -847,21 +858,21 @@
     \subitem thermodynamisches, 82
   \item Potentialstufe, 36
   \item Potentialtopf, 35
-  \item potentielle Energie, 138
+  \item potentielle Energie, 137
     \subitem konvektiv verfügbare, 212
-    \subitem verfügbare, 138
-  \item potentielle Temperatur, 122, 124, 125, 142
+    \subitem verfügbare, 137
+  \item potentielle Temperatur, 122--124, 141
   \item potentielle Vorticitiy, 216
   \item potentielle Vorticity, 172, 173
   \item Powerspektrum, 325
   \item Poynting-Theorem, 27
-    \subitem Meteorologie, 136
+    \subitem Meteorologie, 135
   \item Prandtl-Frequenz, 208
   \item Prandtl-Schicht, 221
   \item primitive, nonhydrostatic equations (PNEs), 243
   \item Produktwellenfunktion, 37
   \item prognostische Gleichung
-    \subitem Druck, 125
+    \subitem Druck, 124
   \item Prozess
     \subitem quasistatischer, 78
   \item pseudopotentielle Temperatur, 212
@@ -885,10 +896,10 @@
 
   \item radiale Schrödinger-Gleichung, 52
   \item Radius
-    \subitem volumenkonformer, 254
-  \item Randbedingung, 112, 149
+    \subitem volumenkonformer, 255
+  \item Randbedingung, 112, 148
     \subitem dynamische, 112, 203
-    \subitem kinematische, 112, 136, 203
+    \subitem kinematische, 112, 135, 203
   \item Rapidität, 30
   \item rationale Funktion, 263
   \item Rauhigkeitslänge, 221
@@ -911,9 +922,9 @@
     \subitem H-Atom, 73
   \item Relativitätstheorie
     \subitem Spezielle, 28
-  \item Relaxation der spherical geopotential approximation (SGA), 254
+  \item Relaxation der spherical geopotential approximation (SGA), 256
   \item Residuensatz, 269
-  \item reversibel, 137
+  \item reversibel, 136
   \item reversibel-pseudopotentielle Temperatur, 212
   \item reversible Feuchtadiabate, 209
   \item Reynolds-Mittelung, 219
@@ -929,10 +940,10 @@
     \subitem barotrope, 188
   \item Rossby-Zahl, 155
   \item Rotation
-    \subitem im Modell, 252
-      \subsubitem duale, 252
+    \subitem im Modell, 254
+      \subsubitem duale, 254
   \item Rotationsellipsoid, 289
-  \item ruhende Koordinaten, 138, 272
+  \item ruhende Koordinaten, 137, 272
   \item Runge-Kutta-Verfahren, 242
 
   \indexspace
@@ -970,7 +981,8 @@
   \item Selbstkonsistenz
     \subitem eines numerischen Verfahrens, 239
   \item Semigeostrophie, 216
-  \item SGA (spherical geopotential approximation), 250
+  \item SGA (spherical geopotential approximation), 251
+  \item shallow atmosphere, 112, 113, 251
   \item SI-System, 9, 259
   \item Skala
     \subitem große, 9
@@ -986,10 +998,10 @@
   \item skalares Potential, 24
   \item Skalarfeld
     \subitem horizontales, 248
-    \subitem im Modell, 250
+    \subitem im Modell, 251
   \item Skalarprodukt
     \subitem generalisierte Koordinaten, 280
-    \subitem im Modell, 251
+    \subitem im Modell, 253
   \item Skalenanalyse, 9
     \subitem Tropen, 217
   \item Skalierbarkeit, 243
@@ -998,13 +1010,13 @@
   \item spektrale Strahldichte, 102
   \item Spektrum, 324
   \item Spezielle Relativitätstheorie, 28
-  \item spezifische Enthalpie, 126
-  \item spezifische Entropie, 121
+  \item spezifische Enthalpie, 125
+  \item spezifische Entropie, 120
   \item spezifische Feuchte, 89, 106
-  \item spezifische kinetische Energie, 111, 135
+  \item spezifische kinetische Energie, 111, 134
   \item spezifische Wärmekapazität, 80, 243
-  \item spherical geopotential approximation (SGA), 250
-    \subitem Relaxation, 254
+  \item spherical geopotential approximation (SGA), 251
+    \subitem Relaxation, 256
   \item Spin, 61, 62
   \item Spin-Bahn-Kopplung, 66
   \item Spin-down, 224
@@ -1014,10 +1026,10 @@
   \item Spinoperator, 62
   \item Spinor, 62
   \item Spinzustand, 61
-  \item Stabilitätsparameter, 122
+  \item Stabilitätsparameter, 121
     \subitem statischer, 193
   \item Stabilitätswellenzahl, 196
-  \item Standardatmosphäre, 133, 250
+  \item Standardatmosphäre, 132, 251
   \item stationäre Schrödinger-Gleichung, 34, 38
   \item statischer Stabilitätsparameter, 193
   \item statistische Physik, 74
@@ -1035,7 +1047,7 @@
     \subitem mittlere, 93
   \item Strahldichte, 28
     \subitem spektrale, 102
-  \item Strahlung, 27, 146
+  \item Strahlung, 27, 145
   \item Strahlungsenergie, 28
   \item Strahlungsfluss, 28
   \item Strahlungsflussdichte, 28
@@ -1044,10 +1056,10 @@
     \subitem Planck'sches, 98
   \item Strahlungsgröße, 27
   \item Strahlungsmodell
-    \subitem Ankopplung an einen dynamischen Kern, 255
+    \subitem Ankopplung an einen dynamischen Kern, 256
   \item Strahlungstransport, 147
-  \item Strahlungsübertragungsgleichung, 147, 149
-  \item Stratosphäre, 253
+  \item Strahlungsübertragungsgleichung, 147, 148
+  \item Stratosphäre, 254
   \item Streukoeffizient, 233
   \item Streuquerschnitt, 100, 148
   \item Stromdichte, 23
@@ -1085,7 +1097,7 @@
     \subitem freies, 34
   \item Teilchenzahloperator, 45, 47
   \item Temperatur, 78, 101
-    \subitem potentielle, 122, 124, 125, 142
+    \subitem potentielle, 122--124, 141
     \subitem pseudopotentielle, 212
     \subitem reversibelpseudopotentielle, 212
     \subitem virtuelle, 89
@@ -1093,7 +1105,7 @@
     \subitem differenzielle, 216
   \item Temperaturgradient
     \subitem feuchtadiabatischer, 211
-    \subitem trockenadiabatischer, 123, 209
+    \subitem trockenadiabatischer, 122, 209
   \item Temperaturleitfähigkeit, 95
   \item Temperaturzuschlag
     \subitem virtueller, 89
@@ -1101,13 +1113,15 @@
     \subitem des Geopotentials, 215
   \item Tendenzgleichung, 195, 215
   \item Tensor
-    \subitem metrischer, 282
+    \subitem metrischer, 250, 282
+  \item Terme
+    \subitem metrische, 113
   \item thermische Instabilität, 208
   \item thermische Zustandsgleichung, 80, 243
   \item thermischer Wind, 156
   \item Thermodynamik
     \subitem Erster Hauptsatz, 243
-      \subsubitem in der Atmosphäre, 120
+      \subsubitem in der Atmosphäre, 119
   \item Thermodynamik     \subitem Erster Hauptsatz, 329
   \item thermodynamisches Potential, 82
   \item Thermodynmaik
@@ -1116,16 +1130,17 @@
   \item Tide, 229
   \item Tiefwasserwelle, 180
   \item Tornado, 159
-  \item totale Ableitung, 117, 274
-  \item totale potentielle Energie, 138
+  \item totale Ableitung, 116, 274
+  \item totale potentielle Energie, 137
   \item totale Zeitableitung, 23
   \item Tracer, 101
   \item Tracerklasse, 101
+  \item traditionelle Approximation, 113
   \item Transversalwelle, 177
   \item Trennung der Variablen, 267
   \item trigonometrischen Funktionen, 264
-  \item Trockenadiabate, 123
-  \item trockenadiabatischer Temperaturgradient, 123, 209
+  \item Trockenadiabate, 122
+  \item trockenadiabatischer Temperaturgradient, 122, 209
   \item trockene Luft, 101
   \item Tropen, 215
   \item Tropopausenhöhe, 212
@@ -1150,22 +1165,23 @@
   \item Vektorfeld
     \subitem Divergenz, 274
   \item Vektorfelder
-    \subitem im Modell, 250
+    \subitem im Modell, 251
   \item Vektorpotential, 24
   \item Vektorprodukt, 271
     \subitem generalisierte Koordinaten, 280
-    \subitem im Modell, 251
+    \subitem im Modell, 253
   \item Vektorraum, 269
   \item verallgemeinerte Kraft, 21, 78
   \item verbotener Übergang, 43
-  \item verfügbare potentielle Energie, 138
+  \item verfügbare potentielle Energie, 137, 138
   \item Vernichtungsoperator, 45, 47
   \item Verschiebungsstrom, 24
   \item vertikale Erweiterung des Modellgitters, 248
   \item Vertikale Fläche, 249
   \item vertikale Mode, 192
   \item Vertikalkoordinate
-    \subitem generalisierte, 116, 154
+    \subitem generalisierte, 115, 154, 250
+      \subsubitem Funktionaldeterminante, 250
   \item virtuelle Temperatur, 89
   \item virtueller Temperaturzuschlag, 89
   \item Viskosität
@@ -1174,7 +1190,7 @@
   \item volle Turbulenz, 219
   \item vollständige Induktion, 260
   \item vollständige Observable, 49
-  \item volumenkonformer Radius, 254
+  \item volumenkonformer Radius, 255
   \item von Karman-Konstante, 221
   \item von Neumann-Gleichung, 76
   \item Voronoi-Diagramm, 248
@@ -1196,7 +1212,6 @@
   \item Wasserstoff, 49
   \item Wassserstoff
     \subitem Drehimpuls, 58
-  \item Weber-Transformation, 279, 284
   \item Welle, 175
     \subitem barokline, 190
     \subitem barotrope, 179
@@ -1234,15 +1249,15 @@
   \item Wolkenobergrenze
     \subitem maximale, 213
   \item Wärme, 78
-    \subitem latente, 146
-  \item Wärmedurchgangszahl, 147
+    \subitem latente, 145
+  \item Wärmedurchgangszahl, 146
   \item Wärmefluss, 145
-  \item Wärmekapazität, 80, 129
+  \item Wärmekapazität, 80, 128
     \subitem spezifische, 80
     \subitem sspezifsiche, 243
   \item Wärmeleitung, 145, 146
   \item Wärmeleitungsgleichung, 95
-  \item Wärmeübergang, 145, 147
+  \item Wärmeübergang, 145, 146
 
   \indexspace
 
@@ -1255,9 +1270,9 @@
   \item Zeitmittel
     \subitem gleitendes, 224
   \item Zeitschrittverfahren, 240
-    \subitem im dynamischen Kern, 255
+    \subitem im dynamischen Kern, 256
   \item zeitunabhängige Störungstheorie, 63
-  \item Zerfall, 146
+  \item Zerfall, 145
   \item Zirkulation
     \subitem thermohaline, 230
     \subitem windgetriebene, 229
@@ -1275,7 +1290,7 @@
     \subitem kalorische, 80
       \subsubitem idealer Gase, 87
     \subitem thermische, 80, 243
-  \item Zustandsgleichung idealer Gase, 121
+  \item Zustandsgleichung idealer Gase, 120
   \item Zustandssumme
     \subitem mikrokanonische, 77
   \item Zwangsbedingung, 18
@@ -1285,7 +1300,7 @@
   \item Zwei-Strom-Methode, 233
   \item Zweischichtmodell
     \subitem quasigeostrophisches, 196
-  \item Zweites Newton'sches Axiom, 15, 138
+  \item Zweites Newton'sches Axiom, 15, 137
     \subitem der Rotation, 17
   \item Zyklogenese, 153, 196, 215, 217
   \item Zyklostrophischer Wind, 159
