@@ -1,0 +1,97 @@
+In Glg. \eqref{eq:pne_mod_1} bietete sich das in Absch. \ref{sec:hydrostatik} hergeleitete Verfahren an, die Schwere $\mathbf{g}$ durch einen hydrostatisch balancierten Grundzustand $\{\newoverline{\theta}, \newoverline{\Pi}\}$ auszudrücken, also
+%
+\begin{eqnarray}
+-c^{(p)}\theta\nabla\Pi + \mathbf{g} & = & -c^{(p)}\theta'\nabla\Pi' - c^{(p)}\newoverline{\theta}\nabla\Pi' - c^{(p)}\theta'\nabla\newoverline{\Pi} = -c^{(p)}\theta\nabla\Pi' - c^{(p)}\theta'\nabla\newoverline{\Pi}.\label{eq:p_profil_deriv_3}
+\end{eqnarray}
+%
+Den Grundzustand berechnet man über die hydrostatische Grundgleichung Glg. \eqref{eq:hydrostatic}
+%
+\begin{eqnarray}
+\frac{\partial\newoverline{p}}{\partial z} = -g\newoverline{\rho} = -g\frac{\newoverline{p}}{R_d\newoverline{T}\left(z\right)}.\label{eq:p_profil_deriv_0}
+\end{eqnarray}
+%
+Zunächst geht man von einem homogenen Betrag der Schwere $g$ aus. Als Temperaturprofil verwendet man
+%
+\begin{eqnarray}
+\newoverline{T}\left(z\right) = T_{\text{str}} + \left(T_{\text{sl}} - T_{\text{str}}\right)\exp\left(-\frac{z}{H}\right)\label{eq:p_profil_deriv_2}
+\end{eqnarray}
+%
+mit einer Skalenhöhe $H > 0$, $T_{\text{sl}}$ als mittlerer Temperatur auf Meereshöhe und $T_{\text{str}} < T_{\text{sl}}$ als einer geringeren Temperatur, die ungefähr der Temperatur der Stratosphäre\index{Stratosphäre} entspricht. Setzt man dies in Glg. \eqref{eq:p_profil_deriv_0} ein, erhält man
+%
+\begin{eqnarray}
+\frac{\partial\newoverline{p}}{\partial z} = -\frac{g}{R_d}\frac{\newoverline{p}}{T_{\text{str}} + \left(T_{\text{sl}} - T_{\text{str}}\right)\exp\left(-\frac{z}{H}\right)} = -\frac{g}{R_dT_{\text{str}}}\frac{\newoverline{p}}{1 + \left(\frac{T_{\text{sl}}}{T_{\text{str}}} - 1\right)\exp\left(-\frac{z}{H}\right)}.
+\end{eqnarray}
+%
+Für den Druck macht man den Ansatz $\newoverline{p} = p_\text{sl}e^{f\left(z\right)}$ mit $p_{\text{sl}}$ als mittlerem Druck auf Meereshöhe und einer Funktion $f\left(z\right)$ mit $f\left(0\right) = 0$. Setzt man dies ein, folgt
+%
+\begin{eqnarray}
+f'\left(z\right) = -\frac{g}{R_dT_{\text{str}}}\frac{1}{1 + \left(\frac{T_{\text{sl}}}{T_{\text{str}}} - 1\right)\exp\left(-\frac{z}{H}\right)}.\label{eq:p_profil_deriv_1}
+\end{eqnarray}
+%
+Die Funktionenschar
+%
+\begin{eqnarray}
+g_\alpha\left(z\right) = \beta H\ln\left(\alpha + e^{\frac{z}{H}}\right)
+\end{eqnarray}
+%
+erfüllt
+%
+\begin{eqnarray}
+g'_\alpha\left(z\right) = \beta\frac{e^{\frac{z}{H}}}{\alpha + e^{\frac{z}{H}}} = \beta\frac{1}{1 + \alpha e^{-\frac{z}{H}}}.
+\end{eqnarray}
+%
+Wählt man also
+%
+\begin{eqnarray}
+\alpha & = & \frac{T_{\text{sl}}}{T_{\text{str}}} - 1,\\
+\beta & = & -\frac{g}{R_dT_{\text{str}}},\\
+\end{eqnarray}
+%
+so ist Glg. \eqref{eq:p_profil_deriv_1} erfüllt. Es ist also
+%
+\begin{eqnarray}
+\newoverline{p}\left(z\right) & = & p_{\text{sl}}\exp\left(-\frac{gH}{R_dT_{\text{str}}}\ln\left(\frac{T_{\text{sl}}}{T_{\text{str}}} - 1 + e^{\frac{z}{H}}\right) + \frac{gH}{R_dT_{\text{str}}}\ln\left(\frac{T_{\text{sl}}}{T_{\text{str}}}\right)\right)\nonumber\\
+& = & p_{\text{sl}}\exp\left(\frac{gH}{R_dT_{\text{str}}}\ln\left(\frac{T_{\text{sl}}}{T_{\text{sl}} - T_{\text{str}} + T_{\text{str}}e^{\frac{z}{H}}}\right)\right)\nonumber\\
+& = & p_{\text{sl}}\left(\frac{T_{\text{sl}}}{T_{\text{sl}} - T_{\text{str}} + T_{\text{str}}e^{\frac{z}{H}}}\right)^{\frac{gH}{R_dT_{\text{str}}}}.
+\end{eqnarray}
+%
+Hieraus folgt für den Exner-Druck\index{Exner-Druck} des Hintergrundzustandes
+%
+\begin{eqnarray}
+\newoverline{\Pi} = \left(\frac{\newoverline{p}}{p_0}\right)^\frac{R_d}{c^{(p)}} = \left(\frac{p_\text{sl}}{p_0}\right)^\frac{R_d}{c^{(p)}}\left(\frac{T_{\text{sl}}}{T_{\text{sl}} - T_{\text{str}} + T_{\text{str}}e^{\frac{z}{H}}}\right)^{\frac{gH}{c^{(p)}T_{\text{str}}}}.
+\end{eqnarray}
+%
+Für die potentielle Temperatur $\newoverline{\theta}$ folgt mit Glg. \eqref{eq:p_profil_deriv_2}
+%
+\begin{eqnarray}
+\newoverline{\theta} = \frac{\newoverline{T}}{\newoverline{\Pi}}.
+\end{eqnarray}
+%
+Für den Gradienten $\nabla\newoverline{\Pi}$ folgt
+%
+\begin{eqnarray}
+c^{(p)}\newoverline{\theta}\nabla\newoverline{\Pi} & = & \mathbf{g}\nonumber\\
+c^{(p)}\theta'\nabla\newoverline{\Pi} & = & \frac{\theta'}{\newoverline{\theta}}\mathbf{g}.
+\end{eqnarray}
+%
+Somit wurden alle Terme in Glg. \eqref{eq:p_profil_deriv_3} berechnet. Bei höhenabhängiger Schwere ist die Ersetzung
+%
+\begin{eqnarray}
+z & \to & z_g,\\
+g & \to & g\left(z = 0\right)
+\end{eqnarray}
+%
+ist nach Absch. \ref{sec:hydrostatik} möglich. Das Volumen $V$ eines Rotationsellipsoids mit großer bzw. kleiner Halbachse $a$ bzw. $c$ berechnet sich nach Glg.  \eqref{eq:vol_rot_ellipsoid} zu
+%
+\begin{eqnarray}
+V = \frac{4}{3}\pi a^2c.
+\end{eqnarray}
+%
+Den sogenannten \textit{volumenkonformen Radius}\index{volumenkonformer Radius}\index{Radius!volumenkonformer} $r$ berechnet man daraus zu
+%
+\begin{eqnarray}
+\frac{4}{3}\pi a^2c \stackrel{!}{=} \frac{4}{3}\pi r^3 \Rightarrow r = \left(a^2c\right)^{1/3}.
+\end{eqnarray}
+%
+Setzt man für $a$ ($c$) die große (kleine) Halbachse der Erde ein, erhält man einen sinnvollen Wert für den Erdradius im Modell.
+

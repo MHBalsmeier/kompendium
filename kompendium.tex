@@ -13806,6 +13806,9 @@ Daraus folgt
 %
 also die gleiche Dispersionsrelation wie beim expliziten Euler-Verfahren.
 
+\subsubsection{Crank-Nicolson-Verfahren}
+\label{sec:crank-nicolson-Verfahren}\index{Crank-Nicolson-Verfahren}
+
 \subsubsection{Runge-Kutta-Verfahren}
 \label{sec:runge-kutta-verfahren}\index{Runge-Kutta-Verfahren}
 
@@ -13883,13 +13886,13 @@ Ein Gitter heißt orthogonal\index{Orthogonalität!eines Gitters}\index{Gitter!O
 Es gibt nur fünf platonische Körper. Dementsprechend existieren nur fünf uniforme Gitter auf der Kugel. Diese entstehen aus den platonischen Körpern, indem man ihre Ecken vom Mittelpunkt auf die Kugeloberfläche projiziert. All diese Gitter sind zu grob für ein Atmosphärenmodell. Daher haben alle verwendbaren Gitter irgendwo Punkte, Linien oder Flächen, an denen die lokale Gitterstruktur von der allgemeinen Struktur abweicht. An diesen Stellen sind die Fehler der Diskretisierung ebenfalls anders, was zu einer Sichtbarkeit des Gitters in der Lösung führen kann oder Wellen erzeugen kann, die als Lärm durch die Lösung propagieren. 
 
 
-\section{Festlegung auf das C-Gitter}
-\label{sec:festlegung_auf_das_cgitter}\index{Arakawa-Gitter}\index{C-Gitter}\index{Gitter!Arakawa}
+\section{Arakawa-Gitter}
+\label{sec:arakawa-gitter}\index{Arakawa-Gitter}\index{Gitter!Arakawa}
 
 Diskretisiert man ein zweidimensionales Vektorfeld auf ein ebenes Gitter, so müssen keineswegs alle Variablen an den gleichen Punkten ausgewertet werden. Die unterschiedlichen Größen können an unterschiedlichen Stellen der Polygone definiert werden. Fünf Arten, dies zu tun, sind die Arakawa-Gitter \cite{arakawa}, die in Abb. \ref{fig:arakawa} dargestellt sind.
 
-\subsection{Skalare Erhaltungseigenschaft}
-\label{sec:skalare_erhaltungseigenschaft}
+\section{Skalare Erhaltungseigenschaft auf dem C-Gitter}
+\label{sec:skalare_erhaltungseigenschaft_auf_dem_c-gitter}
 
 Ist $q$ eine Erhaltungsgröße, also eine Größe, für die $\md{q} = 0$ gilt, so kann man für $\newtilde{q} \coloneqq \rho q$ eine Kontinuitätsgleichung herleiten:
 %
@@ -13957,8 +13960,11 @@ Es werden alle als notwendig identifizierten Punkte zusammengefasst:
 \item ellipsoidisches Gitter
 \end{itemize}
 
-\section{Festlegung auf das hexagonale Gitter}
-\label{sec:festlegung_auf_das_hexagonale_gitter}\index{Gitter!hexagonales}\index{hexagonales Gitter}
+\section{Geostrophie auf dem C-Gitter}
+\label{sec:geostrophie_auf_dem_c-gitter}
+
+\section{Probleme eines dreielementigen Erzeugendensystems}
+\label{sec:probleme_eines_dreielementigen_erzeugendensystems}\index{dreielementiges Erzeugendensystem}\index{Erzeugendensystem!dreielementiges}
 
 \cite{weller} vergleicht fünf quasi-uniforme, sphärische C-Gitter anhand verschiedener numerischer Tests, wobei die SWEs verwendet werden. Den Ergebnissen ist zu entnehmen, dass das hexagonale Gitter den anderen überlegen ist.
 
@@ -14072,6 +14078,9 @@ Auf dem dualen Gitter (dem Dreiecksgitter) gelten
 
 \subsubsection{Berechnung von Längen und horizontalen Flächen auf der Einheitskugel}
 \label{sec:berechung_von_längen_und_horizontalen_flächen_auf_der_einheitskugel}\index{Modellgitter!Längen}\index{Modellgitter!Flächen}\index{Längen des Modellgitters}\index{Flächen des Modellgitters}
+
+\subsubsection{Gitteroptimierung}
+\label{sec:gitteroptimierung}\index{Gitteroptimierung}
 
 \subsection{Vertikale Positionierung der Gitterpunkte}
 \label{sec:vertikale_positionierung_der_gitterpunkte}\index{vertikale Erweiterung des Modellgitters}\index{Modellgitter!vertikale Erweiterung}\index{Modellgitter!Erweiterung!vertikale}
@@ -14417,144 +14426,41 @@ v^{(v)}_{c, k + \frac{1}{2}} = w_{c, k + \frac{1}{2}} - \newoverline{\newoverlin
 \subsection{Duale Rotation}
 \label{sec:duale_rotation}\index{Rotation!im Modell!duale}
 
-\section{Zusammensetzung der prognostischen Gleichungen}
-\label{sec:zusammensetzung_der_prognostischen_gleichungen}
 
-Das Gleichungssystem des dynamischen Kerns ist das der PNE Glg.en \eqref{eq:pne_1} - \eqref{eq:pne_4}. Die Striche an den Feldern und Operatoren werden nun der Übersichtlichkeit halber weggelassen.
-%
-\begin{center}
-\doublebox{\parbox{0.8\textwidth}{
-\begin{center}
-\begin{eqnarray}
-\frac{\partial\mathbf{v}}{\partial t}&\stackrel{\text{Glg.en }\eqref{eq:diff_op_rule_10},\text{ }\eqref{eq:exner_pressure_gradient_acc}}{=}& -c^{(p)}\theta\nabla\Pi + \mathbf{v}\times\etabi - \nabla k + \mathbf{g}\label{eq:pne_mod_1}\\
-\frac{\partial\newtilde{s}}{\partial t} & \stackrel{\text{Glg. }\eqref{eq:td1_id_gas_pot_mod}}{=} & -\nabla\cdot\left(\newtilde{s}\mathbf{v}\right)\label{eq:pne_mod_2}\\
-\frac{\partial\rho}{\partial t} & \stackrel{\text{Glg. }\eqref{eq:diff_op_rule_3}}{=} & -\nabla\cdot\left(\rho\mathbf{v}\right)\label{eq:pne_mod_3}\\
-\Pi & \stackrel{\text{Glg. }\eqref{eq:exner_pressure_diag}}{=}& \left(\frac{\rho R_d\theta}{p_0}\right)^{R_d/c^{(v)}}.\label{eq:pne_mod_4}
-\end{eqnarray}
-\end{center}
-}}
-\end{center}
-%
-In Glg. \eqref{eq:pne_mod_1} bietete sich das in Absch. \ref{sec:hydrostatik} hergeleitete Verfahren an, die Schwere $\mathbf{g}$ durch einen hydrostatisch balancierten Grundzustand $\{\newoverline{\theta}, \newoverline{\Pi}\}$ auszudrücken, also
-%
-\begin{eqnarray}
--c^{(p)}\theta\nabla\Pi + \mathbf{g} & = & -c^{(p)}\theta'\nabla\Pi' - c^{(p)}\newoverline{\theta}\nabla\Pi' - c^{(p)}\theta'\nabla\newoverline{\Pi} = -c^{(p)}\theta\nabla\Pi' - c^{(p)}\theta'\nabla\newoverline{\Pi}.\label{eq:p_profil_deriv_3}
-\end{eqnarray}
-%
-Den Grundzustand berechnet man über die hydrostatische Grundgleichung Glg. \eqref{eq:hydrostatic}
-%
-\begin{eqnarray}
-\frac{\partial\newoverline{p}}{\partial z} = -g\newoverline{\rho} = -g\frac{\newoverline{p}}{R_d\newoverline{T}\left(z\right)}.\label{eq:p_profil_deriv_0}
-\end{eqnarray}
-%
-Zunächst geht man von einem homogenen Betrag der Schwere $g$ aus. Als Temperaturprofil verwendet man
-%
-\begin{eqnarray}
-\newoverline{T}\left(z\right) = T_{\text{str}} + \left(T_{\text{sl}} - T_{\text{str}}\right)\exp\left(-\frac{z}{H}\right)\label{eq:p_profil_deriv_2}
-\end{eqnarray}
-%
-mit einer Skalenhöhe $H > 0$, $T_{\text{sl}}$ als mittlerer Temperatur auf Meereshöhe und $T_{\text{str}} < T_{\text{sl}}$ als einer geringeren Temperatur, die ungefähr der Temperatur der Stratosphäre\index{Stratosphäre} entspricht. Setzt man dies in Glg. \eqref{eq:p_profil_deriv_0} ein, erhält man
-%
-\begin{eqnarray}
-\frac{\partial\newoverline{p}}{\partial z} = -\frac{g}{R_d}\frac{\newoverline{p}}{T_{\text{str}} + \left(T_{\text{sl}} - T_{\text{str}}\right)\exp\left(-\frac{z}{H}\right)} = -\frac{g}{R_dT_{\text{str}}}\frac{\newoverline{p}}{1 + \left(\frac{T_{\text{sl}}}{T_{\text{str}}} - 1\right)\exp\left(-\frac{z}{H}\right)}.
-\end{eqnarray}
-%
-Für den Druck macht man den Ansatz $\newoverline{p} = p_\text{sl}e^{f\left(z\right)}$ mit $p_{\text{sl}}$ als mittlerem Druck auf Meereshöhe und einer Funktion $f\left(z\right)$ mit $f\left(0\right) = 0$. Setzt man dies ein, folgt
-%
-\begin{eqnarray}
-f'\left(z\right) = -\frac{g}{R_dT_{\text{str}}}\frac{1}{1 + \left(\frac{T_{\text{sl}}}{T_{\text{str}}} - 1\right)\exp\left(-\frac{z}{H}\right)}.\label{eq:p_profil_deriv_1}
-\end{eqnarray}
-%
-Die Funktionenschar
-%
-\begin{eqnarray}
-g_\alpha\left(z\right) = \beta H\ln\left(\alpha + e^{\frac{z}{H}}\right)
-\end{eqnarray}
-%
-erfüllt
-%
-\begin{eqnarray}
-g'_\alpha\left(z\right) = \beta\frac{e^{\frac{z}{H}}}{\alpha + e^{\frac{z}{H}}} = \beta\frac{1}{1 + \alpha e^{-\frac{z}{H}}}.
-\end{eqnarray}
-%
-Wählt man also
-%
-\begin{eqnarray}
-\alpha & = & \frac{T_{\text{sl}}}{T_{\text{str}}} - 1,\\
-\beta & = & -\frac{g}{R_dT_{\text{str}}},\\
-\end{eqnarray}
-%
-so ist Glg. \eqref{eq:p_profil_deriv_1} erfüllt. Es ist also
-%
-\begin{eqnarray}
-\newoverline{p}\left(z\right) & = & p_{\text{sl}}\exp\left(-\frac{gH}{R_dT_{\text{str}}}\ln\left(\frac{T_{\text{sl}}}{T_{\text{str}}} - 1 + e^{\frac{z}{H}}\right) + \frac{gH}{R_dT_{\text{str}}}\ln\left(\frac{T_{\text{sl}}}{T_{\text{str}}}\right)\right)\nonumber\\
-& = & p_{\text{sl}}\exp\left(\frac{gH}{R_dT_{\text{str}}}\ln\left(\frac{T_{\text{sl}}}{T_{\text{sl}} - T_{\text{str}} + T_{\text{str}}e^{\frac{z}{H}}}\right)\right)\nonumber\\
-& = & p_{\text{sl}}\left(\frac{T_{\text{sl}}}{T_{\text{sl}} - T_{\text{str}} + T_{\text{str}}e^{\frac{z}{H}}}\right)^{\frac{gH}{R_dT_{\text{str}}}}.
-\end{eqnarray}
-%
-Hieraus folgt für den Exner-Druck\index{Exner-Druck} des Hintergrundzustandes
-%
-\begin{eqnarray}
-\newoverline{\Pi} = \left(\frac{\newoverline{p}}{p_0}\right)^\frac{R_d}{c^{(p)}} = \left(\frac{p_\text{sl}}{p_0}\right)^\frac{R_d}{c^{(p)}}\left(\frac{T_{\text{sl}}}{T_{\text{sl}} - T_{\text{str}} + T_{\text{str}}e^{\frac{z}{H}}}\right)^{\frac{gH}{c^{(p)}T_{\text{str}}}}.
-\end{eqnarray}
-%
-Für die potentielle Temperatur $\newoverline{\theta}$ folgt mit Glg. \eqref{eq:p_profil_deriv_2}
-%
-\begin{eqnarray}
-\newoverline{\theta} = \frac{\newoverline{T}}{\newoverline{\Pi}}.
-\end{eqnarray}
-%
-Für den Gradienten $\nabla\newoverline{\Pi}$ folgt
-%
-\begin{eqnarray}
-c^{(p)}\newoverline{\theta}\nabla\newoverline{\Pi} & = & \mathbf{g}\nonumber\\
-c^{(p)}\theta'\nabla\newoverline{\Pi} & = & \frac{\theta'}{\newoverline{\theta}}\mathbf{g}.
-\end{eqnarray}
-%
-Somit wurden alle Terme in Glg. \eqref{eq:p_profil_deriv_3} berechnet. Bei höhenabhängiger Schwere ist die Ersetzung
-%
-\begin{eqnarray}
-z & \to & z_g,\\
-g & \to & g\left(z = 0\right)
-\end{eqnarray}
-%
-ist nach Absch. \ref{sec:hydrostatik} möglich. Das Volumen $V$ eines Rotationsellipsoids mit großer bzw. kleiner Halbachse $a$ bzw. $c$ berechnet sich nach Glg.  \eqref{eq:vol_rot_ellipsoid} zu
-%
-\begin{eqnarray}
-V = \frac{4}{3}\pi a^2c.
-\end{eqnarray}
-%
-Den sogenannten \textit{volumenkonformen Radius}\index{volumenkonformer Radius}\index{Radius!volumenkonformer} $r$ berechnet man daraus zu
-%
-\begin{eqnarray}
-\frac{4}{3}\pi a^2c \stackrel{!}{=} \frac{4}{3}\pi r^3 \Rightarrow r = \left(a^2c\right)^{1/3}.
-\end{eqnarray}
-%
-Setzt man für $a$ ($c$) die große (kleine) Halbachse der Erde ein, erhält man einen sinnvollen Wert für den Erdradius im Modell.
+\section{Zeitschrittverfahren}
+\label{sec:zeitschrittverfahren!zusammensetzung_der_prognostischen_gleichungen}\index{Zeitschrittverfahren!im dynamischen Kern}\index{dynamischer Kern!Zeitschrittverfahren}\index{Kern!dynamischer!Zeitschrittverfahren}
 
-\subsection{Relaxation der SGA}
-\label{sec:relaxation_der_sga}\index{Relaxation der spherical geopotential approximation (SGA)}\index{spherical geopotential approximation (SGA)!Relaxation}
+\section{Spezielle Probleme}
+\label{sec:spezielle_probleme}
 
-Die SGA zu relaxieren bedeutet in Kugelkoordinaten, horizontale Schwerekomponenten zuzulassen. Dies erfordert einen hydrostatisch balancierten Grundzustand $\{\newoverline{\theta}, \newoverline{\Pi}\}$, der numerisch berechnet werden muss und der nicht-verschwindende horizontale Gradienten hat. Dies wird iterativ nach jeder Bisektion vorgenommen, der dabei berechnete Zustand wird bei der jeweils nächsten Verfeinerung des Gitters auf das neue Gitter interpoliert.
+\subsection{Folgerungen aus der Abhängigkeitsbedingung}
+\label{sec:folgerungen_aus_der_abhaengigkeitsbedingung}
 
-\subsubsection{Gitteroptimierung}
-\label{sec:gitteroptimierung}\index{Gitteroptimierung}
+\subsubsection{Geschwindigkeitsrekonstruktion}
+\label{sec:geschwindigkeitsrekonstruktion}
 
-\subsection{Geländefolgende Koordinaten}
-\label{sec:geländefolgende_koordinaten}\index{geländefolgende Koordinaten}\index{Koordinaten!geländefolgende}
+\subsubsection{Kinetische Energie}
+\label{sec:kinetische_energie}
 
-Die Orographie\index{Orographie} ist eine Abbildung $h\left(\varphi,\lambda\right)$, die nur von den horizontalen Koordinaten abhängt und die Erdoberfläche um die Höhe $h$ vom Kugelrand auslenkt. Wichtige Forderung an die nun zu formulierende Einbeziehung einer solchen Abbildung in die Diskretisierung ist, dass keine der zu Beginn von Absch. \ref{sec:operatoren} aufgeführten Forderungen ihre Gültigkeit verlieren.
+\subsection{Hollingsworth-Instabilität}
+\label{sec:hollingsworth-Instabilitaet}
+
+\subsection{Beweis der Energieerhaltung}
+\label{sec:beweis_der_energieerhaltung}
+
+\subsection{Untere Randbedingung}
+\label{sec:untere_randbedingung}
+
+\subsection{Obere Randbedingung}
+\label{sec:obere_randbedingung}
 
 \subsection{Ankopplung eines Strahlungsmodells}
-\label{sec:ankopplung_an_ein_strahliungsmodells}\index{Kern!dynamischer!Ankoppplung eines Strahlungsmodells}\index{dynamischer Kern!Ankopplung eines Strahlungsmodells}\index{Strahlungsmodell!Ankopplung an einen dynamischen Kern}
+\label{sec:ankopplung_an_ein_strahlungsmodells}\index{Kern!dynamischer!Ankoppplung eines Strahlungsmodells}\index{dynamischer Kern!Ankopplung eines Strahlungsmodells}\index{Strahlungsmodell!Ankopplung an einen dynamischen Kern}
 
-\subsection{Berücksichtigung von Zusatzkomponenten}
-\label{sec:berücksichtigung_von_zusatzkomponenten}
+\subsection{Berücksichtigung von Tracern}
+\label{sec:berücksichtigung_von_tracern}
 
-Führt man $N \geq 1$ Zusatzkomponenten ein (also Anteile der Luft, die nicht zur trockenen Luft gehören), von denen $1 \leq N_C \leq N$ kondensiert sind, so benötigt man $N$ zusätzliche Kontinuitätsgleichungen und $N_C$ zusätzliche Erste Hauptsätze der Thermodynamik. Für die gasförmigen Komponenten sind keine zusätzlichen Ersten Hauptsätze notwendig, anstattdessen muss man den Hauptsatz für die Gasphase modifizieren. Der Druckgradientterm in der Impulsgleichung ist mit $\frac{\rho_h}{\rho}$ zu multiplizieren, um die Massenträgheit der Kondensate zu berücksichtigen.
-
-\subsection{Zeitschrittverfahren}
-\label{sec:zeitschrittverfahren!zusammensetzung_der_prognostischen_gleichungen}\index{Zeitschrittverfahren!im dynamischen Kern}\index{dynamischer Kern!Zeitschrittverfahren}\index{Kern!dynamischer!Zeitschrittverfahren}
+Führt man $N \geq 1$ Tracer ein (also Anteile der Luft, die nicht zur trockenen Luft gehören), von denen $1 \leq N_C \leq N$ kondensiert sind, so benötigt man $N$ zusätzliche Kontinuitätsgleichungen und $N_C$ zusätzliche Erste Hauptsätze der Thermodynamik. Für die gasförmigen Komponenten sind keine zusätzlichen Ersten Hauptsätze notwendig, anstattdessen muss man den Hauptsatz für die Gasphase modifizieren. Der Druckgradientterm in der Impulsgleichung ist mit $\frac{\rho_h}{\rho}$ zu multiplizieren, um die Massenträgheit der Kondensate zu berücksichtigen.
 
 \section{JW-Test}
 \label{sec:jw-test}\index{JW-Test}

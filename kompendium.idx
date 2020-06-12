@@ -975,6 +975,7 @@
 \indexentry{Euler-Verfahren!implizites}{241}
 \indexentry{Euler-Verfahren!implizites}{241}
 \indexentry{implizites Euler-Verfahren}{241}
+\indexentry{Crank-Nicolson-Verfahren}{242}
 \indexentry{Runge-Kutta-Verfahren}{242}
 \indexentry{Multischrittverfahren}{242}
 \indexentry{Geofluidsimulation}{243}
@@ -1001,10 +1002,9 @@
 \indexentry{Orthogonalität!eines Gitters}{243}
 \indexentry{Gitter!Orthogonalität}{243}
 \indexentry{Arakawa-Gitter}{244}
-\indexentry{C-Gitter}{244}
 \indexentry{Gitter!Arakawa}{244}
-\indexentry{Gitter!hexagonales}{245}
-\indexentry{hexagonales Gitter}{245}
+\indexentry{dreielementiges Erzeugendensystem}{245}
+\indexentry{Erzeugendensystem!dreielementiges}{245}
 \indexentry{dynamischer Kern}{247}
 \indexentry{Kern!dynamischer}{247}
 \indexentry{Modellgitter}{247}
@@ -1018,6 +1018,7 @@
 \indexentry{Modellgitter!Flächen}{248}
 \indexentry{Längen des Modellgitters}{248}
 \indexentry{Flächen des Modellgitters}{248}
+\indexentry{Gitteroptimierung}{248}
 \indexentry{vertikale Erweiterung des Modellgitters}{248}
 \indexentry{Modellgitter!vertikale Erweiterung}{248}
 \indexentry{Modellgitter!Erweiterung!vertikale}{248}
@@ -1064,201 +1065,191 @@
 \indexentry{Divergenz!im Modell}{253}
 \indexentry{Rotation!im Modell}{254}
 \indexentry{Rotation!im Modell!duale}{254}
-\indexentry{Stratosphäre}{254}
-\indexentry{Exner-Druck}{255}
-\indexentry{volumenkonformer Radius}{255}
-\indexentry{Radius!volumenkonformer}{255}
-\indexentry{Relaxation der spherical geopotential approximation (SGA)}{256}
-\indexentry{spherical geopotential approximation (SGA)!Relaxation}{256}
-\indexentry{Gitteroptimierung}{256}
-\indexentry{geländefolgende Koordinaten}{256}
-\indexentry{Koordinaten!geländefolgende}{256}
-\indexentry{Orographie}{256}
-\indexentry{Kern!dynamischer!Ankoppplung eines Strahlungsmodells}{256}
-\indexentry{dynamischer Kern!Ankopplung eines Strahlungsmodells}{256}
-\indexentry{Strahlungsmodell!Ankopplung an einen dynamischen Kern}{256}
-\indexentry{Zeitschrittverfahren!im dynamischen Kern}{256}
-\indexentry{dynamischer Kern!Zeitschrittverfahren}{256}
-\indexentry{Kern!dynamischer!Zeitschrittverfahren}{256}
-\indexentry{JW-Test}{256}
-\indexentry{mathematische Grundlage}{259}
-\indexentry{Grundlage!mathematische}{259}
-\indexentry{cgs-System}{259}
-\indexentry{SI-System}{259}
-\indexentry{Summe}{259}
-\indexentry{Reihe}{259}
-\indexentry{Gauß'sche Summenformel}{259}
-\indexentry{Summenformel!Gauß'sche}{259}
-\indexentry{Reihe!geometrische}{260}
-\indexentry{geometrische Reihe}{260}
-\indexentry{Induktion!vollständige}{260}
-\indexentry{vollständige Induktion}{260}
-\indexentry{Komnbinatorik}{260}
-\indexentry{Binomialkoeffizient}{260}
-\indexentry{Fakultät}{260}
-\indexentry{Permutation}{260}
-\indexentry{Bijektion}{260}
-\indexentry{Permutation!Vorzeichen}{260}
-\indexentry{Vorzeichen einer Permutation}{260}
-\indexentry{gerade Permutation}{260}
-\indexentry{Permutation!gerade}{260}
-\indexentry{ungerade Permutation}{260}
-\indexentry{Permutation!ungerade}{260}
-\indexentry{Multinomialkoeffizient}{261}
-\indexentry{binomischer Lehrsatz}{261}
-\indexentry{Lehrsatz!binomischer}{261}
-\indexentry{allgemeine binomische Formel}{261}
-\indexentry{binomische Formel!allgemeine}{261}
-\indexentry{Formel!binomische!allgenmeine}{261}
-\indexentry{Levi-Civita-Symbol}{261}
-\indexentry{Determinante}{262}
-\indexentry{Determinante}{262}
-\indexentry{Grundfunktion}{263}
-\indexentry{Polynom}{263}
-\indexentry{Polynom}{263}
-\indexentry{rationale Funktion}{263}
-\indexentry{Funktion!rationale}{263}
-\indexentry{Polynom}{263}
-\indexentry{Exponentialfunktion}{263}
-\indexentry{natürliche Logarithmusfunktion}{263}
-\indexentry{Logarithmusfunktion!natürliche}{263}
-\indexentry{Hyperbelfunktion}{263}
-\indexentry{Areafunktion}{263}
-\indexentry{trigonometrischen Funktionen}{264}
-\indexentry{Funktion!trigonometrische}{264}
+\indexentry{Zeitschrittverfahren!im dynamischen Kern}{254}
+\indexentry{dynamischer Kern!Zeitschrittverfahren}{254}
+\indexentry{Kern!dynamischer!Zeitschrittverfahren}{254}
+\indexentry{Kern!dynamischer!Ankoppplung eines Strahlungsmodells}{254}
+\indexentry{dynamischer Kern!Ankopplung eines Strahlungsmodells}{254}
+\indexentry{Strahlungsmodell!Ankopplung an einen dynamischen Kern}{254}
+\indexentry{JW-Test}{254}
+\indexentry{mathematische Grundlage}{257}
+\indexentry{Grundlage!mathematische}{257}
+\indexentry{cgs-System}{257}
+\indexentry{SI-System}{257}
+\indexentry{Summe}{257}
+\indexentry{Reihe}{257}
+\indexentry{Gauß'sche Summenformel}{257}
+\indexentry{Summenformel!Gauß'sche}{257}
+\indexentry{Reihe!geometrische}{258}
+\indexentry{geometrische Reihe}{258}
+\indexentry{Induktion!vollständige}{258}
+\indexentry{vollständige Induktion}{258}
+\indexentry{Komnbinatorik}{258}
+\indexentry{Binomialkoeffizient}{258}
+\indexentry{Fakultät}{258}
+\indexentry{Permutation}{258}
+\indexentry{Bijektion}{258}
+\indexentry{Permutation!Vorzeichen}{258}
+\indexentry{Vorzeichen einer Permutation}{258}
+\indexentry{gerade Permutation}{258}
+\indexentry{Permutation!gerade}{258}
+\indexentry{ungerade Permutation}{258}
+\indexentry{Permutation!ungerade}{258}
+\indexentry{Multinomialkoeffizient}{259}
+\indexentry{binomischer Lehrsatz}{259}
+\indexentry{Lehrsatz!binomischer}{259}
+\indexentry{allgemeine binomische Formel}{259}
+\indexentry{binomische Formel!allgemeine}{259}
+\indexentry{Formel!binomische!allgenmeine}{259}
+\indexentry{Levi-Civita-Symbol}{259}
+\indexentry{Determinante}{260}
+\indexentry{Determinante}{260}
+\indexentry{Grundfunktion}{261}
+\indexentry{Polynom}{261}
+\indexentry{Polynom}{261}
+\indexentry{rationale Funktion}{261}
+\indexentry{Funktion!rationale}{261}
+\indexentry{Polynom}{261}
+\indexentry{Exponentialfunktion}{261}
+\indexentry{natürliche Logarithmusfunktion}{261}
+\indexentry{Logarithmusfunktion!natürliche}{261}
+\indexentry{Hyperbelfunktion}{261}
+\indexentry{Areafunktion}{261}
+\indexentry{trigonometrischen Funktionen}{262}
+\indexentry{Funktion!trigonometrische}{262}
+\indexentry{Arcusfunktion}{262}
+\indexentry{Grundfunktion!Symmetrieeigenschaften}{262}
+\indexentry{Symmetrie!der Grundfunktionen}{262}
+\indexentry{Additionstheorem}{263}
+\indexentry{Grundfunktion!Additionstheoreme}{263}
+\indexentry{Euler-Identität}{263}
 \indexentry{Arcusfunktion}{264}
-\indexentry{Grundfunktion!Symmetrieeigenschaften}{264}
-\indexentry{Symmetrie!der Grundfunktionen}{264}
-\indexentry{Additionstheorem}{265}
-\indexentry{Grundfunktion!Additionstheoreme}{265}
-\indexentry{Euler-Identität}{265}
-\indexentry{Arcusfunktion}{266}
-\indexentry{Zahl!komplexe}{266}
-\indexentry{komplexe Zahl}{266}
-\indexentry{Deltadistribution}{266}
-\indexentry{Deltadistribution}{266}
-\indexentry{Integralformel}{267}
-\indexentry{partielle Integration}{267}
-\indexentry{Integration!partielle}{267}
-\indexentry{Substitutionsregel}{267}
-\indexentry{Trennung der Variablen}{267}
-\indexentry{Fehlerfunktion}{268}
-\indexentry{Gammafunktion}{268}
-\indexentry{Stirling-Formel}{268}
-\indexentry{Residuensatz}{269}
-\indexentry{Vektorraum}{269}
-\indexentry{Matrix}{269}
-\indexentry{Matrix!quadratische}{270}
-\indexentry{quadratische Matrix}{270}
-\indexentry{Operator}{270}
-\indexentry{Vektorprodukt}{271}
-\indexentry{Graßmann-Identität}{272}
-\indexentry{BAC-CAB-Regel}{272}
-\indexentry{Konvention!über Koordinatensysteme}{272}
-\indexentry{Koordinatensystem!Konvention}{272}
-\indexentry{ruhende Koordinaten}{272}
-\indexentry{Koordinatensystem!ruhendes}{272}
-\indexentry{globale Koordinaten}{273}
-\indexentry{Koordinatensystem!globales}{273}
-\indexentry{geographische Koordinaten}{273}
-\indexentry{Koordinatensystem!geographisches}{273}
-\indexentry{Ableitung!mehrdimensionale}{273}
-\indexentry{mehrdimensionale Ableitung}{273}
-\indexentry{Jacobi-Matrix}{273}
-\indexentry{materielle Ableitung}{274}
-\indexentry{Ableitung!materielle}{274}
-\indexentry{totale Ableitung}{274}
-\indexentry{Ableitung!totale}{274}
-\indexentry{Divergenz}{274}
-\indexentry{Divergenz!eines Vektorfeldes}{274}
-\indexentry{Vektorfeld!Divergenz}{274}
-\indexentry{Laplace-Operator}{274}
-\indexentry{Nabla-Operator!horizontaler}{274}
-\indexentry{horizontaler Nabla-Operator}{274}
-\indexentry{Laplace-Operator!horizontaler}{274}
-\indexentry{horizontaler Laplace-Operator}{274}
-\indexentry{Advektionsoperator}{275}
-\indexentry{Advektion}{275}
-\indexentry{Krümmungsradius}{275}
-\indexentry{Rechenregel!Differenzialoperator}{277}
-\indexentry{Differenzialoperator!Rechenregel}{277}
-\indexentry{Lamb-Transformation}{279}
-\indexentry{Differenzialoperator!unter Koordinatentransformation}{280}
-\indexentry{Koordinatentransformation!Differenzialoperator}{280}
-\indexentry{Orthogonalität!eines Koordinatensystems}{280}
-\indexentry{Koordinaten!orthogonale}{280}
-\indexentry{Koordinatensystem!orthogonales}{280}
-\indexentry{Skalarprodukt!generalisierte Koordinaten}{280}
-\indexentry{generalisierte Koordinaten!Skalarprodukt}{280}
-\indexentry{Vektorprodukt!generalisierte Koordinaten}{280}
-\indexentry{generalisierte Koordinaten!Vektorprodukt}{280}
-\indexentry{Kugelkoordinaten}{281}
-\indexentry{Koordinatensystem!Kugel}{281}
-\indexentry{metrischer Tensor}{282}
-\indexentry{Tensor!metrischer}{282}
-\indexentry{Laplace-Operator!Kugelkoordinaten}{283}
-\indexentry{Kugelkoordinaten!Laplace-Operator}{283}
-\indexentry{Geschwindigkeitsadvektion!Kugelkoordinaten}{284}
-\indexentry{Kugelkoordinaten!Geschwindigkeitsadvektion}{284}
-\indexentry{Lamb-Transformation}{284}
-\indexentry{materielle Ableitung!Kugelkoordinaten}{286}
-\indexentry{Ableitung!materielle!Kugelkoordinaten}{286}
-\indexentry{Kugelkoordinaten!materielle Ableitung}{286}
-\indexentry{materielle Ableitung}{287}
-\indexentry{Ableitung!materielle}{287}
-\indexentry{2D-vektorinvariante Form der Geschwindigkeitsadvektion}{287}
-\indexentry{Geschwindigkeitsadvektion!2D-vektorinvariante Form}{287}
-\indexentry{mehrdimensionale Integralrechnung}{287}
-\indexentry{Integralrechnung!mehrdimensionale}{287}
-\indexentry{Funktionaldeterminante}{287}
-\indexentry{Gauß'scher Satz}{288}
-\indexentry{Satz von Gauß}{288}
-\indexentry{Schwerefeld der Erde}{289}
-\indexentry{Erde!Schwerefeld}{289}
-\indexentry{Ellipse}{289}
-\indexentry{Ellipsoid}{289}
-\indexentry{Rotationsellipsoid}{289}
-\indexentry{Ellipse}{289}
-\indexentry{große Halbachse}{289}
-\indexentry{Halbachse!große}{289}
-\indexentry{Ellipse!Halbachse!große}{289}
-\indexentry{kleine Halbachse}{289}
-\indexentry{Halbachse!kleine}{289}
-\indexentry{Ellipse!Halbachse!kleine}{289}
-\indexentry{Exzentrizität}{289}
-\indexentry{Rotationsellipsoid}{289}
-\indexentry{Ellipsoid}{289}
-\indexentry{Schwerefeld der Erde!ellipsoidische Approximation}{290}
-\indexentry{ellipsoidische Approximation!des Schwerefeldes}{290}
-\indexentry{Newton'sches Gravitationsgesetz}{290}
-\indexentry{Gravitationsgesetz!Newton'sches}{290}
-\indexentry{Satz von Clairaut}{306}
-\indexentry{orthogonale Funktionensysteme}{309}
-\indexentry{Funktionensysteme!orthogonale}{309}
-\indexentry{Rodrigues-Formel}{309}
-\indexentry{Legendre-Polynom}{309}
-\indexentry{Legendre'sche Differenzialgleichung}{309}
-\indexentry{Differenzialgleichung!Legendre'sche}{309}
-\indexentry{Legendre-Polynome!Normierung}{312}
-\indexentry{Normierung!Legendre-Polynome}{312}
-\indexentry{Legendre-Polynome!Orthogonalität}{312}
-\indexentry{Orthogonalität!Legendre-Polynome}{312}
-\indexentry{Legendre-Funktion!assoziierte}{315}
-\indexentry{Hermite-Polynom}{317}
-\indexentry{Differenzialgleichung!Hermite'sche}{317}
-\indexentry{Hermite'sche Differenzialgleichung}{317}
-\indexentry{Laguerre-Polynom}{319}
-\indexentry{Kugelflächenfunktion}{322}
-\indexentry{komplexe Exponentialfunktion}{324}
-\indexentry{Exponentialfunktion!komplexe}{324}
-\indexentry{Fourier-Transformation}{324}
-\indexentry{Fourier-Transformation}{324}
-\indexentry{Spektrum}{324}
-\indexentry{inverse Fourier-Transformation}{324}
-\indexentry{Fourier-Transformation!inverse}{324}
-\indexentry{Phasenspektrum}{325}
-\indexentry{Amplitudenspektrum}{325}
-\indexentry{Leistungsspektrum}{325}
-\indexentry{Powerspektrum}{325}
-\indexentry{Erwartungswert}{325}
-\indexentry{Thermodynamik     \subitem Erster Hauptsatz}{329}
+\indexentry{Zahl!komplexe}{264}
+\indexentry{komplexe Zahl}{264}
+\indexentry{Deltadistribution}{264}
+\indexentry{Deltadistribution}{264}
+\indexentry{Integralformel}{265}
+\indexentry{partielle Integration}{265}
+\indexentry{Integration!partielle}{265}
+\indexentry{Substitutionsregel}{265}
+\indexentry{Trennung der Variablen}{265}
+\indexentry{Fehlerfunktion}{266}
+\indexentry{Gammafunktion}{266}
+\indexentry{Stirling-Formel}{266}
+\indexentry{Residuensatz}{267}
+\indexentry{Vektorraum}{267}
+\indexentry{Matrix}{267}
+\indexentry{Matrix!quadratische}{268}
+\indexentry{quadratische Matrix}{268}
+\indexentry{Operator}{268}
+\indexentry{Vektorprodukt}{269}
+\indexentry{Graßmann-Identität}{270}
+\indexentry{BAC-CAB-Regel}{270}
+\indexentry{Konvention!über Koordinatensysteme}{270}
+\indexentry{Koordinatensystem!Konvention}{270}
+\indexentry{ruhende Koordinaten}{270}
+\indexentry{Koordinatensystem!ruhendes}{270}
+\indexentry{globale Koordinaten}{271}
+\indexentry{Koordinatensystem!globales}{271}
+\indexentry{geographische Koordinaten}{271}
+\indexentry{Koordinatensystem!geographisches}{271}
+\indexentry{Ableitung!mehrdimensionale}{271}
+\indexentry{mehrdimensionale Ableitung}{271}
+\indexentry{Jacobi-Matrix}{271}
+\indexentry{materielle Ableitung}{272}
+\indexentry{Ableitung!materielle}{272}
+\indexentry{totale Ableitung}{272}
+\indexentry{Ableitung!totale}{272}
+\indexentry{Divergenz}{272}
+\indexentry{Divergenz!eines Vektorfeldes}{272}
+\indexentry{Vektorfeld!Divergenz}{272}
+\indexentry{Laplace-Operator}{272}
+\indexentry{Nabla-Operator!horizontaler}{272}
+\indexentry{horizontaler Nabla-Operator}{272}
+\indexentry{Laplace-Operator!horizontaler}{272}
+\indexentry{horizontaler Laplace-Operator}{272}
+\indexentry{Advektionsoperator}{273}
+\indexentry{Advektion}{273}
+\indexentry{Krümmungsradius}{273}
+\indexentry{Rechenregel!Differenzialoperator}{275}
+\indexentry{Differenzialoperator!Rechenregel}{275}
+\indexentry{Lamb-Transformation}{277}
+\indexentry{Differenzialoperator!unter Koordinatentransformation}{278}
+\indexentry{Koordinatentransformation!Differenzialoperator}{278}
+\indexentry{Orthogonalität!eines Koordinatensystems}{278}
+\indexentry{Koordinaten!orthogonale}{278}
+\indexentry{Koordinatensystem!orthogonales}{278}
+\indexentry{Skalarprodukt!generalisierte Koordinaten}{278}
+\indexentry{generalisierte Koordinaten!Skalarprodukt}{278}
+\indexentry{Vektorprodukt!generalisierte Koordinaten}{278}
+\indexentry{generalisierte Koordinaten!Vektorprodukt}{278}
+\indexentry{Kugelkoordinaten}{279}
+\indexentry{Koordinatensystem!Kugel}{279}
+\indexentry{metrischer Tensor}{280}
+\indexentry{Tensor!metrischer}{280}
+\indexentry{Laplace-Operator!Kugelkoordinaten}{281}
+\indexentry{Kugelkoordinaten!Laplace-Operator}{281}
+\indexentry{Geschwindigkeitsadvektion!Kugelkoordinaten}{282}
+\indexentry{Kugelkoordinaten!Geschwindigkeitsadvektion}{282}
+\indexentry{Lamb-Transformation}{282}
+\indexentry{materielle Ableitung!Kugelkoordinaten}{284}
+\indexentry{Ableitung!materielle!Kugelkoordinaten}{284}
+\indexentry{Kugelkoordinaten!materielle Ableitung}{284}
+\indexentry{materielle Ableitung}{285}
+\indexentry{Ableitung!materielle}{285}
+\indexentry{2D-vektorinvariante Form der Geschwindigkeitsadvektion}{285}
+\indexentry{Geschwindigkeitsadvektion!2D-vektorinvariante Form}{285}
+\indexentry{mehrdimensionale Integralrechnung}{285}
+\indexentry{Integralrechnung!mehrdimensionale}{285}
+\indexentry{Funktionaldeterminante}{285}
+\indexentry{Gauß'scher Satz}{286}
+\indexentry{Satz von Gauß}{286}
+\indexentry{Schwerefeld der Erde}{287}
+\indexentry{Erde!Schwerefeld}{287}
+\indexentry{Ellipse}{287}
+\indexentry{Ellipsoid}{287}
+\indexentry{Rotationsellipsoid}{287}
+\indexentry{Ellipse}{287}
+\indexentry{große Halbachse}{287}
+\indexentry{Halbachse!große}{287}
+\indexentry{Ellipse!Halbachse!große}{287}
+\indexentry{kleine Halbachse}{287}
+\indexentry{Halbachse!kleine}{287}
+\indexentry{Ellipse!Halbachse!kleine}{287}
+\indexentry{Exzentrizität}{287}
+\indexentry{Rotationsellipsoid}{287}
+\indexentry{Ellipsoid}{287}
+\indexentry{Schwerefeld der Erde!ellipsoidische Approximation}{288}
+\indexentry{ellipsoidische Approximation!des Schwerefeldes}{288}
+\indexentry{Newton'sches Gravitationsgesetz}{288}
+\indexentry{Gravitationsgesetz!Newton'sches}{288}
+\indexentry{Satz von Clairaut}{304}
+\indexentry{orthogonale Funktionensysteme}{307}
+\indexentry{Funktionensysteme!orthogonale}{307}
+\indexentry{Rodrigues-Formel}{307}
+\indexentry{Legendre-Polynom}{307}
+\indexentry{Legendre'sche Differenzialgleichung}{307}
+\indexentry{Differenzialgleichung!Legendre'sche}{307}
+\indexentry{Legendre-Polynome!Normierung}{310}
+\indexentry{Normierung!Legendre-Polynome}{310}
+\indexentry{Legendre-Polynome!Orthogonalität}{310}
+\indexentry{Orthogonalität!Legendre-Polynome}{310}
+\indexentry{Legendre-Funktion!assoziierte}{313}
+\indexentry{Hermite-Polynom}{315}
+\indexentry{Differenzialgleichung!Hermite'sche}{315}
+\indexentry{Hermite'sche Differenzialgleichung}{315}
+\indexentry{Laguerre-Polynom}{317}
+\indexentry{Kugelflächenfunktion}{320}
+\indexentry{komplexe Exponentialfunktion}{322}
+\indexentry{Exponentialfunktion!komplexe}{322}
+\indexentry{Fourier-Transformation}{322}
+\indexentry{Fourier-Transformation}{322}
+\indexentry{Spektrum}{322}
+\indexentry{inverse Fourier-Transformation}{322}
+\indexentry{Fourier-Transformation!inverse}{322}
+\indexentry{Phasenspektrum}{323}
+\indexentry{Amplitudenspektrum}{323}
+\indexentry{Leistungsspektrum}{323}
+\indexentry{Powerspektrum}{323}
+\indexentry{Erwartungswert}{323}
+\indexentry{Thermodynamik     \subitem Erster Hauptsatz}{327}
