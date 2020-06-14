@@ -166,14 +166,14 @@
 {\huge Kompendium Theoretische Meteorologie\par}
 \vspace{3 cm}
 \vfill
-\Large Max Henrik Balsmeier
+\Large Max H. Balsmeier
 \end{center}
 \end{titlepage}
 \newpage
 \thispagestyle{empty}
 \vspace*{15 cm}
 \begin{center}
-\textcopyright\ Max Henrik Balsmeier 2020\\
+\textcopyright\ Max H. Balsmeier 2020\\
 Entwurf - Weitergabe und Vervielfältigung jeglicher Art untersagt.
 \end{center}
 \pagestyle{toc}
@@ -14067,6 +14067,30 @@ Auf dem dualen Gitter (dem Dreiecksgitter) gelten
 \subsection{Horizontales Gitter}
 \label{sec:horizontales_gitter}\index{horizontales Gitter}\index{Gitter!horizontales}
 
+\renewcommand{\arraystretch}{1.2}
+\begin{table}
+\centering
+\begin{tabular}{|c|c|c|}
+\hline \textbf{Index} & \textbf{geographische Breite} & \textbf{geographische Länge}\\
+\hline\hline $0$ & $\frac{\pi}{2}$ & $0$ \\
+\hline $1$ & $\frac{\pi}{6}$ & $0$ \\
+\hline $2$ & $\frac{\pi}{6}$ & $\frac{2\pi}{5}$ \\
+\hline $3$ & $\frac{\pi}{6}$ & $2\frac{2\pi}{5}$ \\
+\hline $4$ & $\frac{\pi}{6}$ & $3\frac{2\pi}{5}$ \\
+\hline $5$ & $\frac{\pi}{6}$ & $4\frac{2\pi}{5}$ \\
+\hline $6$ & $-\frac{\pi}{6}$ & $\frac{2\pi}{10}$ \\
+\hline $7$ & $-\frac{\pi}{6}$ & $\frac{2\pi}{10} + \frac{2\pi}{5}$ \\
+\hline $8$ & $-\frac{\pi}{6}$ & $\frac{2\pi}{10} + 2\frac{2\pi}{5}$ \\
+\hline $9$ & $-\frac{\pi}{6}$ & $\frac{2\pi}{10} + 3\frac{2\pi}{5}$ \\
+\hline $10$ & $-\frac{\pi}{6}$ & $\frac{2\pi}{10} + 4\frac{2\pi}{5}$ \\
+\hline $11$ & $-\frac{\pi}{2}$ & $0$ \\
+\hline 
+\end{tabular}
+\caption{Ecken des in die Einheitskugel\index{Einheitskugel} eingeschriebenen Ikosaeders\index{Ikosaeder}.}
+\label{tab:ico_vertices}
+\end{table}
+\renewcommand{\arraystretch}{1}
+
 \subsubsection{Delaunay-Triangulation}
 \label{sec:delaunay-trangulation}\index{Delaunay-Triangulation}
 
@@ -14130,8 +14154,8 @@ z_{j, i} = \frac{1}{3}\sum_{j' \in \text{APC}(j)}z_{j', w, i}
 % 
 fest, sie ist also der Mittelwert der z-Positionen der vertikalen Vektoren der drei umliegenden Zellen.
 
-\subsubsection{Berechnung Flächen und Volumina}
-\label{sec:berechnung_von_flächen_und_volumina}
+\subsubsection{Berechnung vertikaler Flächen und Volumina}
+\label{sec:berechnung_vertikaler_flaechen_und_volumina}
 
 Durch die Vorgaben im vorherigen Abschnitt sind die vertikalen Positionen aller Gitterpunkte festgelegt. Um Volumina und Flächen zu berechnen benötigt man jedoch kontinuierliche Formeln für die z-Koordinate eines Levels innerhalb einer Zelle. Hierfür denkt man sich ein Koordinatensystem $\left(\eta, \phi, \lambda\right)$ mit einer generalisierten Vertikalkoordinaten $\eta$, der geographischen Breie $\phi$ und der geographischen Länge $\lambda$. $\eta$ sei der linear interpolierte Levelindex.
 
@@ -14320,11 +14344,6 @@ Dabei schränkt man sich noch wie folgt ein:
 %
 Die \textcolor{green}{grün} markierten Felder und Operatoren benötigt man nur für die Überprüfung der Gültigkeit der obigen Forderungen, jedoch nicht für den dynamsichen Kern selbst. Dieses Verfahren wird als \textit{konditionelles Framework}\index{konditionelles Framework}\index{Framework!konditionelles} bezeichnet und es erlaubt, zwischen \textit{richtigen} und \textit{falschen} Diskretisierungen zu unterscheiden.
 
-\subsection{Linearkombinationen von atmosphärischen Zuständen}
-\label{sec:linearkombinationen_von_atmosphaerischen_zustaenden}
-
-Durch die Definitionen in den Abschnitten \ref{sec:skalarfelder} - \ref{sec:duale_vektorfelder} sind auch Linearkombinationen der jeweiligen Felder und somit auch der atmosphärischen Zustände festgelegt.
-
 \subsection{Multiplikation eines Skalarfeldes mit einem Vektorfeld}
 \label{sec:multiplikation_eines_skalarfeldes_mit_einem_vektorfeld}
 
@@ -14404,7 +14423,34 @@ Man definiert somit
 \begin{eqnarray}
 \nabla\cdot\mathbf{v} \coloneqq \frac{1}{V\left(B\right)}\sum_{A\in B_A}^{}s\left(B, A\right)V_2\left(A\right)u_A.\label{eq:div_diskret_3d}
 \end{eqnarray}
-%
+
+\subsection{Rotation}
+\label{sec:rotation}\index{Rotation!im Modell}
+
+\section{Zeitschrittverfahren}
+\label{sec:zeitschrittverfahren!zusammensetzung_der_prognostischen_gleichungen}\index{Zeitschrittverfahren!im dynamischen Kern}\index{dynamischer Kern!Zeitschrittverfahren}\index{Kern!dynamischer!Zeitschrittverfahren}
+
+\section{Spezielle Probleme}
+\label{sec:spezielle_probleme}
+
+\subsection{Folgerungen aus der Abhängigkeitsbedingung}
+\label{sec:folgerungen_aus_der_abhaengigkeitsbedingung}
+
+\subsubsection{Neuformulierung der Rotation}
+\label{sec:neuformulierung_der_rotation}
+
+\subsubsection{Neuformulierung des Vektorproduktes}
+\label{sec:neuformulierung_des_vektorproduktes}
+
+\subsection{Hollingsworth-Instabilität}
+\label{sec:hollingsworth-Instabilitaet}
+
+\subsubsection{Neuformulierung des Skalarproduktes}
+\label{sec:neuformulierung_des_skalarproduktes}
+
+\subsection{Geländefolgende Koordinaten}
+\label{sec:gelaendefolgende_koordinaten}
+
 \subsubsection{Diagnostik der vertikalen kontravarianten Maßzahl}
 \label{sec:diagnostik_der_vertikalen_kontravarianten_masszahl}
 
@@ -14420,36 +14466,20 @@ Es gilt also
 v^{(v)}_{c, k + \frac{1}{2}} = w_{c, k + \frac{1}{2}} - \newoverline{\newoverline{u^{(h)}_{e, k}J_{n, e, k}}^{(c)}}^{k + \frac{1}{2}}.
 \end{eqnarray}
 
-\subsection{Rotation}
-\label{sec:rotation}\index{Rotation!im Modell}
-
-\subsection{Duale Rotation}
-\label{sec:duale_rotation}\index{Rotation!im Modell!duale}
-
-
-\section{Zeitschrittverfahren}
-\label{sec:zeitschrittverfahren!zusammensetzung_der_prognostischen_gleichungen}\index{Zeitschrittverfahren!im dynamischen Kern}\index{dynamischer Kern!Zeitschrittverfahren}\index{Kern!dynamischer!Zeitschrittverfahren}
-
-\section{Spezielle Probleme}
-\label{sec:spezielle_probleme}
-
-\subsection{Folgerungen aus der Abhängigkeitsbedingung}
-\label{sec:folgerungen_aus_der_abhaengigkeitsbedingung}
-
-\subsubsection{Geschwindigkeitsrekonstruktion}
-\label{sec:geschwindigkeitsrekonstruktion}
-
-\subsubsection{Kinetische Energie}
-\label{sec:kinetische_energie}
-
-\subsection{Hollingsworth-Instabilität}
-\label{sec:hollingsworth-Instabilitaet}
-
 \subsection{Beweis der Energieerhaltung}
 \label{sec:beweis_der_energieerhaltung}
 
 \subsection{Untere Randbedingung}
 \label{sec:untere_randbedingung}
+
+\subsection{Turbulenzparametrisierungen}
+\label{sec:turbulenzparametrisierungen}
+
+\subsubsection{Diffusion}
+\label{sec:diffusion}
+
+\subsubsection{Dissipation}
+\label{sec:dissipation}
 
 \subsection{Obere Randbedingung}
 \label{sec:obere_randbedingung}
