@@ -19,6 +19,7 @@
 \newcommand\shiftdot[2]{\stackengine{\Sstackgap}{$#2$}{\(\hspace{#1}\dot{}\)}{O}{l}{F}{T}{S}}
 \newcommand\shiftoverline[2]{\stackengine{\Sstackgap}{$#2$}{\(\hspace{#1}\overline{}\)}{O}{l}{F}{T}{S}}
 \newcommand{\md}[1]{\frac{D#1}{Dt}}
+\newcommand{\mdtilde}[1]{\frac{\newtilde{D}#1}{Dt}}
 \newcommand{\hastobe}{\stackrel{!}{=}}
 \newcommand\newhat[1]{%
 \if A#1\shifthat{5.2 pt}{#1}\else
@@ -1764,8 +1765,6 @@ Die Schrödinger-Gleichung wird dann zur \textit{stationären Schrödinger-Gleic
 \end{eqnarray}
 %
 Dies ist ein Eigenwertproblem, wobei $E$ der Eigenwert ist und $\psi\left(\mathbf{r}, t\right)$ der Eigenvektor.
-
-Es wird häufig gesagt, die Quantenmechanik sei nicht deterministisch. Dies ist falsch, die Schrödinger-Gleichung ist eine lineare Differenzialgleichung erster Ordnung in der Zeit. Ist der Zustand eines Systems zur Zeit $t_0$ bekannt, so liegt die Zustandstrajektorie mit der Schrödinger-Gleichung fest. Nicht deterministisch ist jedoch beispielsweise das Ergebnis einer Messung des Ortes eines Teilchens. 
 
 \subsection{Freies Teilchen}
 \label{sec:freies_teilchen}\index{Schrödinger-Gleichung!freies Teilchen}\index{freies Teilchen}\index{Teilchen!freies}
@@ -6968,33 +6967,32 @@ für die Funktionaldeterminante\index{Funktionaldeterminante} der \textit{geogra
 \item Solche, die $\tan\left(\phi\right)$ nicht enthalten. Sie entstehen durch die Abhängigkeit von $\sqrt{g}$ von $r$.
 \end{itemize}
 %
-Die zweite Gruppe fällt unter der shallow-water-Approximation weg. Das Gleichugnssystem für Flachgeofluide lautet also
-%
-\begin{center}
-\doublebox{\parbox{0.9\textwidth}{
-\begin{center}
+Die zweite Gruppe fällt unter der shallow-water-Approximation weg. Führt man die gleiche Näherung in der Herleitung von Glg. \eqref{eq:rot_geo} ein, erhält man
+
 \begin{eqnarray}
-\frac{\partial u}{\partial t} + u\frac{\partial u}{\partial x} + v\frac{\partial u}{\partial y} - \frac{uv\tan\left(\varphi\right)}{a} & = & -\frac{1}{\rho}\frac{\partial p}{\partial x} - f'w + fv + F_{R,x}
-\label{eq:x_momentum_shallow},\\
-\frac{\partial v}{\partial t} + u\frac{\partial v}{\partial x} + v\frac{\partial v}{\partial y} + \frac{u^2\tan\left(\varphi\right)}{a} & = & -\frac{1}{\rho}\frac{\partial p}{\partial y} - fu + F_{R,y}
-\label{eq:y_momentum_shallow},\\
-\frac{\partial w}{\partial t} + u\frac{\partial w}{\partial x} + v\frac{\partial w}{\partial y} + w\frac{\partial w}{\partial z} & = & -\frac{1}{\rho}\frac{\partial p}{\partial z} - g + f'u + F_{R,z}
-\label{eq:z_momentum_shallow}.
+\nabla\times\mathbf{v} & = & \mathbf{k}\left(-\frac{\partial v_x}{\partial y} + \frac{\partial v_y}{\partial x}\right) - \mathbf{j}\left(\frac{\partial v_z}{\partial x} - \frac{\partial v_x}{\partial z}\right) + \mathbf{i}\left(-\frac{\partial v_y}{\partial z} + \frac{\partial v_z}{\partial y}\right) + \frac{v_x\tan\left(\varphi\right)}{a}\mathbf{k}.\label{eq:curl_shallow}
 \end{eqnarray}
-\end{center}
-}}
-\end{center}
-
-\subsubsection{Traditionelle Approximation}
-\label{sec:traditionelle_approximation}
-
-Die sogenannte \textit{traditionelle Approximation}\index{traditionelle Approximation}\index{Approximation!traditionelle} lautet
+%
+In der shallow atmosphere gilt für die aus der Erdrotation\index{Erdrotation} folgende Geschwindigkeit
+%
+\begin{eqnarray}
+\mathbf{v}_i = \boldsymbol{\Omega}\times\mathbf{r} = \Omega a\cos\left(\phi\right)\mathbf{i}.
+\end{eqnarray}
+%
+Mit Glg. \eqref{eq:curl_shallow} erhält man
+%
+\begin{eqnarray}
+\nabla\times\mathbf{v}_i & = & \left(-\frac{\partial\left(\Omega a\cos\left(\phi\right)\right)}{\partial y} + \Omega a\cos\left(\phi\right)\frac{\tan\left(\phi\right)}{a}\right)\mathbf{k}\nonumber\\
+& = & \left(-\frac{\partial\left(\Omega \cos\left(\phi\right)\right)}{\partial\phi} + \Omega \sin\left(\phi\right)\right)\mathbf{k} = 2\Omega\sin\left(\phi\right)\mathbf{k}
+\end{eqnarray}
+%
+Daher muss man mit der shallow-atmosphere-Approximation auch die sogenannte \textit{traditionelle Approximation}\index{traditionelle Approximation}\index{Approximation!traditionelle}
 %
 \begin{eqnarray}
 f' = 0.
 \end{eqnarray}
 %
-Das entstehende Gleichungssystem lautet zusamman mit der shallow-atmosphere-Approximation\index{shallow atmosphere}
+einführen. Das Gleichungssystem der shallow atmosphere\index{shallow atmosphere} lautet also
 
 \begin{center}
 \doublebox{\parbox{0.9\textwidth}{
@@ -7643,7 +7641,7 @@ Diese Form bezeichnet man auch als \textit{Flussform}\index{Flussform}, wohingeg
 Nun soll noch die Definition der potentiellen Temperatur\index{potentielle Temperatur}\index{Temperatur!potentielle} in die Zustandsgleichung eingesetzt werden:
 %
 \begin{eqnarray}
-p & = & \rho R_s\theta\left(\frac{p}{p_0}\right)^{R_s/c^{(p)}}\Rightarrow p^{1 - R_s/c^{(p)}} = \rho R_s\theta\frac{1}{p_0^{R_s/c^{(p)}}}\nonumber\\
+p & = & \rho R_s\theta\left(\frac{p}{p_0}\right)^{R_s/c^{(p)}}\Rightarrow p^{1 - R_s/c^{(p)}} = \rho R_s\theta\frac{1}{p_0^{R_s/c^{(p)}}}\label{eq:state_theta_deriv_0}\\
 \Rightarrow p^{1/\kappa} & = & \rho R_s\theta\frac{1}{p_0^{R_s/c^{(p)}}}\Rightarrow p = \left(\rho R_s\theta\right)^\kappa\left(\frac{1}{p_0}\right)^{\kappa - 1}\label{eq:state_theta}
 \end{eqnarray}
 %
@@ -7673,7 +7671,7 @@ folgt
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{eqnarray}
-\Leftrightarrow \frac{\partial p}{\partial t} = -\mathbf{v}\cdot\nabla p - \frac{c^{(p)}}{c^{(v)}}p\nabla\cdot\mathbf{v} + \frac{c^{(p)}}{c^{(v)}}R_sTq_\rho^{(V)} + \frac{R_s}{c^{(v)}}\left(q_T^{(V)} - sTq_\rho^{(V)}\right).
+\Leftrightarrow \frac{\partial p}{\partial t} = -\mathbf{v}\cdot\nabla p - \frac{c^{(p)}}{c^{(v)}}p\nabla\cdot\mathbf{v} + \frac{c^{(p)}}{c^{(v)}}R_sTq_\rho^{(V)} + \frac{R_s}{c^{(v)}}\left(q_T^{(V)} - sTq_\rho^{(V)}\right).\label{eq:pressure_prognostic_equation}
 \end{eqnarray}
 \end{center}
 }}
@@ -9207,7 +9205,7 @@ p & = & \newoverline{p} + p'.
 Dann gilt
 %
 \begin{eqnarray}
--\alpha\nabla p + \mathbf{g} = -\alpha'\nabla\newoverline{p} - \newoverline{\alpha}\nabla p' - \alpha'\nabla p' = -\alpha'\nabla p - \newoverline{\alpha}\nabla p' = -\alpha\nabla p' - ´\alpha'\nabla\newoverline{p}.
+-\alpha\nabla p + \mathbf{g} = -\alpha'\nabla\newoverline{p} - \newoverline{\alpha}\nabla p' - \alpha'\nabla p' = -\alpha'\nabla p - \newoverline{\alpha}\nabla p' = -\alpha\nabla p' - ´\alpha'\nabla\newoverline{p}.\label{eq:background_state_prop_0}
 \end{eqnarray}
 %
 Das Schwerefeld der Erde hat eine komplizierte Form, der man sich in verschiedenen Stufen annähert. Zunächst geht man davon aus, dass das Schwerefeld radialsymmetrisch ist mit homogenem Betrag des Schwerevektors. Verwendet man anstatt der geometrischen Höhe $z$ die geopotentielle Höhe $\phi = gz$ (dies ist die Energie pro Masse, die nötig ist, um ein Teilchen vom Meeresspiegel auf die Höhe $z$ zu bringen), lautet die hydrostatische Grundgleichung mit der Kettenregel
@@ -10768,7 +10766,7 @@ Nichttriviale Lösungen existieren für
 Für die Phasengeschwindigkeit $c$ folgt also
 %
 \begin{eqnarray}
-c = U\pm \sqrt{R_dT\kappa}.
+c = U\pm \sqrt{R_dT\kappa}.\label{eq:velocity_sound}
 \end{eqnarray}
 %
 Hierbei wurde die Zustandsgleichung eingesetzt, $T$ ist die Gleichgewichtstemperatur und $\kappa = c_p/c_v>1$ der Adiabatenexponent\index{Adiabatenexponent}\index{Isentropenexponent}. Der Wert von $c$ ist jedoch auch von der Feuchte abhängig. Man könnte also über eine Messung der Schallgeschwindigkeit durch Kombination mit einer Temperaturmessung die Feuchte bestimmen. Anzumerken ist, dass Schallwellen dispersionsfrei sind, die Phasengeschwindigkeit jedoch orts- und zeitabhängig ist, da sie von der Temperatur und der Feuchte abhängt.
@@ -11558,9 +11556,15 @@ Hierbei sind $p \coloneqq p\left(z\right)$ und $p_0 \coloneqq p\left(0\right)$. 
 %
 Für die Brunt-Väisälä-Frequenz folgt
 %
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 \begin{eqnarray}
-N^2 = -\frac{g}{\rho_\theta}\frac{\partial\rho_\theta}{\partial z}.
+N^2 = -\frac{g}{\rho_\theta}\frac{\partial\rho_\theta}{\partial z}.\label{eq:brunt_v_frequency_prop_0}
 \end{eqnarray}
+\end{center}
+}}
+\end{center}
 %
 Dies ist der allgemeine Ausdruck für die Brunt-Väisälä-Frequenz in einem kompressiblen Medium. $N^2$ ist ein Feld, was von allen drei Koordinaten und der Zeit abhängen kann. Die potentielle Dichte muss dabei immer auf das Niveau bezogen werden, auf dem man sich befindet. In einer trockenen Atmosphäre kann man $N^2$ auch über die potentielle Temperatur $\theta$ ausdrücken:
 %
@@ -12086,7 +12090,7 @@ Nullsetzen der Determinante ergibt
 &\Rightarrow&\omega_{1, 2} = -\frac{\beta}{k}\frac{k^2 + K^2/2}{k^2 + K^2}\pm\frac{1}{k^2 + K^2}\sqrt{\frac{\beta^2K^4}{4k^2} + \newoverline{u}_T^2k^2\left(k^4 - K^4\right)}.\label{eq:disp_rel_baroklin}
 \end{eqnarray}
 %
-Unter der Annahme $k<K$ maximiert man den Ausdruck unter der Wurzel, indem man $\newoverline{u}_T = 0$ setzt, hieraus folgt
+Unter der Annahme $k < K$ maximiert man den Ausdruck unter der Wurzel, indem man $\newoverline{u}_T = 0$ setzt, hieraus folgt
 %
 \begin{eqnarray}
 c = \frac{\omega}{k}\leq - \frac{\beta}{k^2 + K^2}, 
@@ -12094,8 +12098,255 @@ c = \frac{\omega}{k}\leq - \frac{\beta}{k^2 + K^2},
 %
 barokline Rossby-Wellen pflanzen sich also immer nach Westen fort.
 
-\subsection{Schwerewellen}
-\label{sec:Schwerewellen}\index{Schwerewelle}
+\subsection{Barokline Schwerewellen}
+\label{sec:barokline_schwerewellen}\index{Schwerewelle!barokline}\index{barokline Schwerewelle}
+
+\textit{Barokline Schwerewellen}\index{Welle!Schwerewelle!barokline}\index{barokline Schwerewelle}\index{Schwerewelle!barokline} sind das barokline Analogon zu Poincaré-Wellen\index{Poincaré-Welle}. Man macht zunächst einen Störungsansatz der Form
+%
+\begin{eqnarray}
+u & = & U + u',\label{eq:gw_disp_deriv_0}\\
+v & = & v',\\
+w & = & w',\\
+p & = & p_0\left(z\right) + p',\\
+\theta & = & \theta_0\left(z\right) + \theta',\\
+f & = & f_0.\label{eq:gw_disp_deriv_1}
+\end{eqnarray}
+%
+Wegen Glg. \eqref{eq:gw_disp_deriv_1} ist Glg. \eqref{eq:gw_disp_deriv_0} keine Beschränkung des Hintergrundstroms auf die x-Richtung, durch eine Rotation des Koordinatensystems um die vertikale Achse kann der Hintergrundwind jede Richtung annehmen. Insbesondere werden alle Krümmungsterme vernachlässigt und man kann kartesische Koordinaten $\left(x, y, z\right)$ verwenden. Der Hintergrundzustand soll hydrostatisch sein, also
+%
+\begin{eqnarray}
+\frac{\partial p_0}{\partial z} = -g\rho_0\left(z\right)
+\end{eqnarray}
+%
+erfüllen. Es wird von einem trockenadiabatischen System ausgegangen, in einem solchen wird der Erste Hauptsatz der Thermodynamik\index{Erster Hauptsatz der Thermodynamik}\index{Thermodynamik!Erster Hauptsatz} zu
+%
+\begin{eqnarray}
+\md{\theta} & = & 0\\
+\Leftrightarrow \md{\theta'} + w'\frac{d\theta_0}{dz} & = & 0.
+\end{eqnarray}
+%
+Man führt nun eine genäherte materielle Ableitung $\mdtilde{}$ ein, bei der Störprodukte vernachlässigt werden. Im folgenden werden hierfür Gleichheitszeichen notiert. Damit erhält man
+%
+\begin{eqnarray}
+\mdtilde{\theta'} + w'\frac{d\theta_0}{dz} & = & 0.
+\end{eqnarray}
+%
+Multipliziert man diese Gleichung mit $\frac{g}{\theta_0}$, folgt
+%
+\begin{eqnarray}
+\mdtilde{b'} + w'\frac{g}{\theta_0}\frac{d\theta_0}{dz} = 0,
+\end{eqnarray}
+%
+wobei die Definition der sogenannten \textit{buoyancy}\index{buoyancy}
+%
+\begin{eqnarray}
+b' \coloneqq g\frac{\theta'}{\theta_0}
+\end{eqnarray}
+%
+eingesetzt wurde. Aus Glg. \eqref{eq:brunt_v_frequency_prop_0} entnimmt man
+%
+\begin{eqnarray}
+\frac{g}{\theta_0}\frac{d\theta_0}{dz} = N^2,
+\end{eqnarray}
+%
+was auf
+%
+\begin{eqnarray}
+\mdtilde{b'} + w'N^2 = 0
+\end{eqnarray}
+%
+führt. Mit Glg. \eqref{eq:pressure_prognostic_equation} erhält man
+%
+\begin{eqnarray}
+\md{p} + \frac{c^{(p)}}{c^{(v)}}p\nabla\cdot\mathbf{v} & = & 0\nonumber\\
+\Leftrightarrow \frac{1}{\kappa p}\md{p} + \nabla\cdot\mathbf{v} & = & 0\nonumber\\
+\Leftrightarrow \frac{1}{\kappa\rho R_dT}\md{p} + \nabla\cdot\mathbf{v} & = & 0.
+\end{eqnarray}
+%
+Mit Glg. \eqref{eq:velocity_sound} kann man dies in Termen der Schallgeschwindigkeit\index{Schallgeschwindigkeit} ausdrücken:
+%
+\begin{eqnarray}
+\frac{1}{c_s^2\rho}\md{p} + \nabla\cdot\mathbf{v} & = & 0
+\end{eqnarray}
+%
+Linearisiert man diese Gleichung, erhält man
+%
+\begin{eqnarray}
+\frac{1}{c_s^2\rho}\mdtilde{p} + \nabla\cdot\mathbf{v}' & = & 0\nonumber\\
+\Leftrightarrow \frac{1}{c_s^2\rho_0}\mdtilde{p}' + \frac{1}{c_s^2\rho_0}w'\frac{dp_0}{dz} + \nabla\cdot\mathbf{v}' & = & 0\nonumber\\
+\Leftrightarrow \frac{1}{c_s^2\rho_0}\mdtilde{p}' - \frac{g}{c_s^2}w' + \nabla\cdot\mathbf{v}' & = & 0.
+\end{eqnarray}
+%
+Für die vertikale Bewegungsgleichung erhält man mit Glg. \eqref{eq:background_state_prop_0}
+%
+\begin{eqnarray}
+\mdtilde{w'} = -g - \frac{1}{\rho}\frac{\partial p}{\partial z} = -\frac{1}{\rho}\frac{\partial p'}{\partial z} - \left(\frac{1}{\rho}\right)'\frac{\partial p_0}{\partial z} \approx - \frac{1}{\rho_0}\frac{\partial p'}{\partial z} + \frac{\rho'}{\rho_0^2}\frac{\partial p_0}{\partial z} = -\frac{1}{\rho_0}\frac{\partial p'}{\partial z} - \frac{g\rho'}{\rho_0}.
+\end{eqnarray}
+%
+Um die Störung in der Dichte durch Störungen in der potentiellen Temperatur und im Druck auszudrücken, notiert man Glg. \eqref{eq:state_theta} in der Form
+%
+\begin{eqnarray}
+\rho = \frac{p_\text{ref}^{R_d/c^{(p)}}}{R_d}\frac{p^{1/\kappa}}{\theta}.
+\end{eqnarray}
+%
+In erster Ordnung gilt somit
+%
+\begin{eqnarray}
+\rho' & = & \frac{1}{\kappa}\frac{\rho_0}{p_0}p' - \frac{\rho_0}{\theta}\theta' \approx \frac{p'}{c_s^2} - \frac{\rho_0}{\theta_0}\theta'
+\end{eqnarray}
+%
+Hieraus folgt
+%
+\begin{eqnarray}
+\mdtilde{w'} = -\frac{1}{\rho_0}\frac{\partial p'}{\partial z} - \frac{gp'}{\rho_0c_s^2} + \frac{g}{\theta_0}\theta' = -\frac{1}{\rho_0}\frac{\partial p'}{\partial z} - \frac{gp'}{\rho_0c_s^2} + b'.
+\end{eqnarray}
+%
+Zusammenfassend lautet das linearisierte Gleichungssystem
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{eqnarray}
+\mdtilde{u'} & = & fv' - \frac{1}{\rho_0}\frac{\partial p'}{\partial x},\\
+\mdtilde{v'} & = & -fu' - \frac{1}{\rho_0}\frac{\partial p'}{\partial y},\\
+\textcolor{blue}{\mdtilde{w'}} & = & b' - \frac{1}{\rho_0}\frac{\partial p'}{\partial z} \textcolor{red}{- \frac{g}{c_s^2}\frac{p'}{\rho_0}},\\
+\mdtilde{b'} & = & -w'N^2,\\
+\textcolor{red}{\frac{1}{c_s^2\rho_0}\mdtilde{p'}} & = & \textcolor{red}{\frac{g}{c_s^2}w'} - \nabla\cdot\mathbf{v}'.
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
+%
+Dabei wurden Terme, die mit der hydrostatischen Approximation\index{Hydrostatik}\index{hydrostatische Arpproximation}\index{Approximation!hydrostatische} wegfallen würden, \textcolor{blue}{blau} markiert, und alle Terme, die unter Vernachlässigung von Schallwellen\index{Schallwelle} verschwinden würden, \textcolor{red}{rot}. Störend ist die vertikale Abhängigkeit von $\rho_0$. Daher definiert man
+%
+\begin{eqnarray}
+u'' & = & \sqrt{\frac{\rho_0}{\rho_\text{SFC}}}u',\\
+v'' & = & \sqrt{\frac{\rho_0}{\rho_\text{SFC}}}v',\\
+w'' & = & \sqrt{\frac{\rho_0}{\rho_\text{SFC}}}w',\\
+b'' & = & \sqrt{\frac{\rho_0}{\rho_\text{SFC}}}b',\\
+p'' & = & \sqrt{\frac{\rho_\text{SFC}}{\rho_0}}p'.
+\end{eqnarray}
+%
+was man als \textit{Bretherton-Transformation}\index{Bretherton-Transformation} bezeichnet. Dabei bezeichnet der Index SFC die Werte an der Erdoberfläche. Die Transformation erfolgt im wesentlichen durch Multiplikation des Gleichungssystem mit $\sqrt{\frac{\rho_0}{\rho_\text{SFC}}}$. Besondere Aufmerksamkeit benötigen dabei die vertikalen Ableitungen:
+%
+\begin{eqnarray}
+\frac{dw'}{dz} & = & \sqrt{\frac{\rho_\text{SFC}}{\rho_0}}\frac{dw''}{dz} - \frac{1}{2}\sqrt{\frac{\rho_\text{SFC}}{\rho_0}}w''\frac{1}{\rho_0}\frac{d\rho_0}{dz} = \sqrt{\frac{\rho_\text{SFC}}{\rho_0}}\frac{dw''}{dz} + \frac{H}{2}w'\\
+\frac{dp'}{dz} & = & \sqrt{\frac{\rho_0}{\rho_\text{SFC}}}\frac{dp''}{dz} + \frac{1}{2}\sqrt{\frac{\rho_0}{\rho_\text{SFC}}}p''\frac{1}{\rho_0}\frac{d\rho_0}{dz} = \sqrt{\frac{\rho_0}{\rho_\text{SFC}}}\frac{dp''}{dz} + \frac{1}{2}p'\frac{1}{\rho_0}\frac{d\rho_0}{dz} = \sqrt{\frac{\rho_0}{\rho_\text{SFC}}}\frac{dp''}{dz} - \frac{H}{2}p'
+\end{eqnarray}
+%
+Dabei wurde
+%
+\begin{eqnarray}
+\frac{1}{\rho_0}\frac{d\rho_0}{dz} = -\frac{1}{H}
+\end{eqnarray}
+%
+mit der Skalenhöhe $H$ eingesetzt. Hieraus folgt
+%
+\begin{eqnarray}
+-\frac{1}{\rho_0}\frac{\partial p'}{\partial z} & = & -\sqrt{\frac{1}{\rho_0\rho_\text{SFC}}}\frac{dp''}{dz} + \frac{H}{2\rho_0}p' = -\sqrt{\frac{1}{\rho_0\rho_\text{SFC}}}\frac{dp''}{dz} + \frac{H}{2\sqrt{\rho_0\rho_\text{SFC}}}p'',\\
+-\frac{\partial w'}{\partial z} & = & -\sqrt{\frac{\rho_\text{SFC}}{\rho_0}}\frac{dw''}{dz} - \frac{H}{2}w' = -\sqrt{\frac{\rho_\text{SFC}}{\rho_0}}\frac{dw''}{dz} - \frac{H}{2}\sqrt{\frac{\rho_\text{SFC}}{\rho_0}}w''.
+\end{eqnarray}
+%
+Dies führt zusammenfassend auf folgendes Gleichungssystem:
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{eqnarray}
+\mdtilde{u''} & = & fv'' - \frac{1}{\rho_\text{SFC}}\frac{\partial p''}{\partial x}\\
+\mdtilde{v''} & = & -fu'' - \frac{1}{\rho_\text{SFC}}\frac{\partial p''}{\partial y}\\
+\textcolor{blue}{\mdtilde{w''}} & = & b'' - \frac{1}{\rho_\text{SFC}}\frac{\partial p''}{\partial z} + \left(\frac{1}{2H}\textcolor{red}{-\frac{g}{c_s^2}}\right)\frac{p''}{\rho_\text{SFC}},\\
+\mdtilde{b''} & = & -w''N^2\\
+\textcolor{red}{\frac{1}{c_s^2\rho_\text{SFC}}\mdtilde{p''}} & = & \left(\textcolor{red}{\frac{g}{c_s^2}} - \frac{1}{2H}\right)w'' - \nabla_h\cdot\mathbf{v}_h'' - \frac{\partial w''}{\partial z}
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
+%
+Für jede der fünf auftretenden Variablen macht man nun einen Ansatz
+%
+\begin{eqnarray}
+\psi'' = A_\psi\exp\left[i\left(kx + ly + mz - \omega t\right)\right],
+\end{eqnarray}
+%
+wobei $A_\psi$ komplex sein kann. Es gilt
+%
+\begin{eqnarray}
+\mdtilde{A_\psi} = i\left(Uk - \omega\right)A_\psi = -i\omega_IA_\psi,
+\end{eqnarray}
+%
+wobei die Definition der sogenannten \textit{intrinsischen Frequenz}\index{intrinsische Frequenz}\index{Frequenz!intrinsiche}
+%
+\begin{eqnarray}
+\omega_I \coloneqq \omega - kU 
+\end{eqnarray}
+%
+eingesetzt wurde. Dies ist die Frequenz, die im mit der Geschwindigkeit $U$ mitbewegten Koordinatensystem\index{Koordinatensystem} gemessen werden würde. Notiert man das hergeleitete Gleichungssystem als Matrix $\overleftrightarrow{A}$ und vernachlässigt dabei die Schallwellenterme (rote Terme), erhält man
+%
+\begin{eqnarray}
+\overleftrightarrow{A}\cdot\left(\begin{array}{c}
+A_u\\
+A_v\\
+A_w\\
+A_b\\
+A_{p/\rho_\text{SFC}}
+\end{array}\right) = \left(\begin{array}{ccccc}
+-i\omega_I & -f & 0 & 0 & ik \\
+f & -i\omega_I & 0 & 0 & il \\
+0 & 0 & \textcolor{blue}{-i\omega_I} & -1 & im - \frac{1}{2H}\\
+0 & 0 & N^2 & -i\omega_I & 0\\
+ik & il & im + \frac{1}{2H} & 0 & 0\\
+\end{array}\right)\cdot\left(\begin{array}{c}
+A_u\\
+A_v\\
+A_w\\
+A_b\\
+A_{p/\rho_\text{SFC}}
+\end{array}\right) = 0.
+\end{eqnarray}
+%
+Nichttriviale Lösungen existieren, falls die Determinante $A$ von $\overleftrightarrow{A}$ verschwindet:
+%
+\begin{eqnarray}
+A & \stackrel{!}{=} & 0\nonumber\\
+\Leftrightarrow 0 & = & -i\omega_I\left\{-i\omega_I\left[i\omega_I\left(-m^2 - \frac{1}{4H^2}\right)\right] - il\left[\textcolor{blue}{-i\omega_I^2l} + N^2il\right]\right\}\nonumber\\
+&& +f\left\{f\left[i\omega_I\left(-m^2 - \frac{1}{4H^2}\right)\right] \textcolor{magenta}{- il\left[-\omega_I^2ik + ikN^2\right]}\right\}\nonumber\\
+&& +ik\left[\textcolor{magenta}{f\left(-\omega_I^2il + ilN^2\right)} - ik\left(\textcolor{blue}{i\omega_I^3} - N^2i\omega_I\right)\right]\nonumber\\
+\Leftrightarrow 0 & = & \left(f^2 - \omega_I^2\right)i\omega_I\left(-m^2 - \frac{1}{4H^2}\right) - \omega_Il\left[\textcolor{blue}{-i\omega_I^2l} + N^2il\right] + k^2\left(\textcolor{blue}{i\omega_I^3} - N^2i\omega_I\right)\nonumber\\
+\end{eqnarray}
+%
+Hierbei heben sich die \textcolor{magenta}{magenta} eingefärbten Terme gegenseitig auf. Die geostrophische Mode\index{geostrophische Mode}\index{Mode!geostrophische} $\omega_I = 0$ interssiert hier nicht weiter, weshalb Division durch $i\omega_I$ erfolgen kann:
+%
+\begin{eqnarray}
+0 & = & \left(f^2 - \omega_I^2\right)\left(-m^2 - \frac{1}{4H^2}\right) + \textcolor{blue}{\omega_I^2l^2} - N^2l^2 + k^2\left(\textcolor{blue}{\omega_I^2} - N^2\right)\nonumber\\
+\Leftrightarrow \omega_I^2\left(\textcolor{blue}{k^2 + l^2} + m^2 + \frac{1}{4H^2}\right) & = & f^2\left(m^2 + \frac{1}{4H^2}\right) + N^2\left(l^2 + k^2\right)\nonumber\\
+\Leftrightarrow \omega_I^2 & = & \frac{f^2\left(m^2 + \frac{1}{4H^2}\right) + N^2\left(l^2 + k^2\right)}{\textcolor{blue}{k^2 + l^2} + m^2 + \frac{1}{4H^2}}\nonumber\\
+\end{eqnarray}
+%
+Dies kan mann auch in der Form
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{eqnarray}
+\omega^2 & = & \omega_I^2 + 2kU - U^2k^2\nonumber\\
+& = & 2kU - U^2k^2 + \left(f^2 + \frac{N^2\left(k^2 + l^2\right)}{m^2 + \frac{1}{4H^2}}\right)\frac{m^2 + \frac{1}{4H^2}}{\textcolor{blue}{k^2 + l^2} + m^2 + \frac{1}{4H^2}}
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
+%
+notieren. Dies ist die \textit{Dispersionsrelation von Schwerewellen.}\index{Dispersionsrelation!einer Schwerewelle}\index{Schwerewelle!Dispersionsrelation} Hieraus erhibt sich, dass der rechte Bruch nichthydrostatische Effekte beschreibt. Vernachlässigung der \textcolor{blue}{blauen} Terme liefert die \textit{Dispersionsrelation von hydrostatischen Schwerewellen:}\index{Dispersionsrelation!einer hydrostatischen Schwerewelle}\index{Schwerewelle!hydrostatische!Dispersionsrelation}
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{eqnarray}
+\omega^2 & = & 2kU - U^2k^2 + \left(f^2 + \frac{N^2\left(k^2 + l^2\right)}{m^2 + \frac{1}{4H^2}}\right)
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
 
 \section{Instabilitäten}
 \label{sec:instabilitaeten}\index{Instabilität}\index{Welle!Instabilität}
@@ -14894,7 +15145,7 @@ Die \textit{Hamilton-Funktion}\index{Hamilton-Funktion} einer trockenen Atmosph�
 H = H\left(\mathbf{v}, \rho, T\right) = \int_A\frac{1}{2}\rho\mathbf{v}^2 + \rho\phi + c_d^{(v)}\rho Td^3r.
 \end{eqnarray}
 %
-Im Modell entsprich ddies einer Summe über alle $N_b$ Gitterboxen:
+Im Modell entspricht dies einer Summe über alle $N_b$ Gitterboxen:
 %
 \begin{eqnarray}
 H = \sum_{i = 1}^{N_b}\rho_i\left(k_i + \phi_i + c_d^{(v)}T_i\right)V_b
@@ -14914,6 +15165,13 @@ H = \sum_{i = 1}^{N_b}\rho_i\left(k_i + \phi_i + c_d^{(v)}T_i\right)V_b
 
 \subsubsection{Schwammschicht}
 \label{sec:schwammschicht}\index{Schwammschicht}
+
+Innerhalb der oberen $N_{L, \text{sponge}}$ Schichten werden die Diffusions- und Dissipationskoeffizienten linear von unten nach oben auf das $C_\text{sponge}$-fache ihres sonstwo gültigen Wertes erhöht. Typischerweise wählt man
+%
+\begin{eqnarray}
+C_\text{sponge} & \approx & 2,\\
+N_{L, \text{sponge}} & \approx & \frac{N_L}{10}.
+\end{eqnarray}
 
 \subsection{Ankopplung eines Strahlungsmodells}
 \label{sec:ankopplung_an_ein_strahlungsmodells}\index{Kern!dynamischer!Ankoppplung eines Strahlungsmodells}\index{dynamischer Kern!Ankopplung eines Strahlungsmodells}\index{Strahlungsmodell!Ankopplung an einen dynamischen Kern}
@@ -18129,7 +18387,7 @@ Bei der unteren Grenze muss man eine Fallunterscheidung machen. Ist $l$ gerade, 
 \left(l + 1\right)\frac{l}{l - \frac{l - 1}{2}} - 2l & = & 0.
 \end{eqnarray}
 %
-Für $l = 0$ gilt die Aussage ebenfalls. Damit ist Glg. \eqref{eq:legendre_poly_prop_1} gezeigt. Aus dieser Glg. folgt weiter
+Für $l = 0$ gilt die Aussage ebenfalls. Damit ist Glg. \eqref{eq:legendre_poly_prop_1} gezeigt. Aus dieser Gleichung folgt weiter
 %
 \begin{eqnarray}
 \cos\left(\theta\right)P_l\left(\cos\left(\theta\right)\right) & = & \frac{l + 1}{2l + 1}P_{l + 1}\left(\cos\left(\theta\right)\right) + \frac{l}{2l + 1}P_{l - 1}\left(\cos\left(\theta\right)\right).\label{eq:legendre_poly_prop_2}
