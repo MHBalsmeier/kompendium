@@ -581,6 +581,7 @@ so ist diese Größe erhalten:
 \frac{dE}{dt} & = & \frac{dE_{\text{kin}}}{dt} + \frac{dU}{dt} = \frac{1}{2}m2\frac{d\mathbf{r}}{dt}\cdot\frac{d^2\mathbf{r}}{dt^2} + \nabla U\cdot\frac{d\mathbf{r}}{dt}\nonumber\\
 & = & \left(m\frac{d^2\mathbf{r}}{dt^2} + \nabla U\right)\cdot\frac{d\mathbf{r}}{dt} = \left(\mathbf{F} + \nabla U\right)\cdot\frac{d\mathbf{r}}{dt} = \left(-\nabla U + \nabla U\right)\cdot\frac{d\mathbf{r}}{dt} = 0
 \end{eqnarray}
+
 \begin{center}
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
@@ -7091,19 +7092,19 @@ gelten, was für die Tide (außer in Randmeeren) sowie die Dünung auf offener S
 In der Tiefe $b$ gilt die kinematische Randbedingung:
 %
 \begin{eqnarray}
-w\left(b\right) & = & \frac{dz}{dt}\left(b\right) = \frac{db}{dt} = \mathbf{v}\cdot\nabla_Hb
+w\left(b\right) & = & \frac{dz}{dt}\left(b\right) = \frac{db}{dt} = \mathbf{v}\cdot\nabla_hb
 \end{eqnarray}
 %
 An der Oberfläche gilt
 %
 \begin{eqnarray}
-w\left(b + h\right) = \md{}\left(b + h\right) = \frac{\partial h}{\partial t} + \mathbf{v}_{h, g}\cdot\nabla_H\left(b + h\right).
+w\left(b + h\right) = \md{}\left(b + h\right) = \frac{\partial h}{\partial t} + \mathbf{v}_h\cdot\nabla_h\left(b + h\right).
 \end{eqnarray}
 %
 Setzt man dies in Glg. \eqref{eq:swe_deriv_1} ein, erhält man
 %
 \begin{eqnarray}
-h\nabla_h\cdot\mathbf{v} & = & -\frac{\partial h}{\partial t} - \mathbf{v}\cdot\nabla_H h.
+h\nabla_h\cdot\mathbf{v} & = & -\frac{\partial h}{\partial t} - \mathbf{v}\cdot\nabla_h h.
 \end{eqnarray}
 %
 Somit erhält man folgendes Gleichungssystem:
@@ -7113,7 +7114,7 @@ Somit erhält man folgendes Gleichungssystem:
 \begin{center}
 \begin{eqnarray}
 \frac{\partial\mathbf{v}}{\partial t} + \left(\mathbf{v}\cdot\nabla\right)\mathbf{v} & = & -g\nabla_h\left(h + b\right) - f\left(y\right)\mathbf{k}\times\mathbf{v}\label{eq:flach_1}\\
-\frac{\partial h}{\partial t} + \nabla_H\cdot\left(h\mathbf{v}\right) & = & 0\label{eq:flach_2}
+\frac{\partial h}{\partial t} + \nabla_h\cdot\left(h\mathbf{v}\right) & = & 0\label{eq:flach_2}
 \end{eqnarray}
 \end{center}
 }}
@@ -7221,13 +7222,13 @@ Setzt man die hydrostatische Grundgleichung $\rho = -\frac{1}{g}\frac{\partial p
 \begin{eqnarray}
 \frac{\partial^2p}{\partial z\partial t} + \nabla\cdot\left(\frac{\partial p}{\partial z}\mathbf{v}\right) & = & 0\nonumber\\
 \Leftrightarrow\frac{\partial^2p}{\partial z\partial t} + \mathbf{v}\cdot\nabla\left(\frac{\partial p}{\partial z}\right) + \frac{\partial p}{\partial z}\nabla\cdot\mathbf{v} & = & \frac{\partial^2p}{\partial z\partial t} + \frac{\partial}{\partial z}\left(\mathbf{v}\cdot\nabla p\right) - \nabla p\cdot\frac{\partial\mathbf{v}}{\partial z} + \frac{\partial p}{\partial z}\nabla\cdot\mathbf{v}\nonumber\\
-= \frac{\partial\omega}{\partial z} - \nabla_hp\cdot\frac{\partial\mathbf{v}_{h, g}}{\partial z} + \frac{\partial p}{\partial z}\nabla\cdot\mathbf{v}_{h, g} & = & 0.
+= \frac{\partial\omega}{\partial z} - \nabla_hp\cdot\frac{\partial\mathbf{v}_h}{\partial z} + \frac{\partial p}{\partial z}\nabla\cdot\mathbf{v}_h & = & 0.
 \end{eqnarray}
 %
 Hierbei wurde ein kleiner Transformationsterm vernachlässigt, s. Glg. \eqref{eq:div_geo}. Nach der Kettenregel ist $\frac{\partial}{\partial z} = \frac{\partial p}{\partial z}\frac{\partial }{\partial p}$. Damit folgt
 %
 \begin{eqnarray}
-\frac{\partial\omega}{\partial p} + \nabla\cdot\mathbf{v}_{h, g} - \nabla_hp\cdot\frac{\partial\mathbf{v}_{h, g}}{\partial p} = 0.
+\frac{\partial\omega}{\partial p} + \nabla\cdot\mathbf{v}_h - \nabla_hp\cdot\frac{\partial\mathbf{v}_h}{\partial p} = 0.
 \end{eqnarray}
 %
 Verwendet man Glg. \eqref{eq:trans_gen_2}, erhält man
@@ -7239,13 +7240,13 @@ Verwendet man Glg. \eqref{eq:trans_gen_2}, erhält man
 und analog für $v$. Nicht näher bezeichnete partielle Ableitungen sind bisher Ableitungen im z-System. Nun werden Ableitungen im p-System verwendet:
 %
 \begin{eqnarray}
-\frac{\partial\omega}{\partial p} + \nabla\cdot\mathbf{v}_{h, g} = 0.\label{eq:kont_p}
+\frac{\partial\omega}{\partial p} + \nabla\cdot\mathbf{v}_h = 0.\label{eq:kont_p}
 \end{eqnarray}
 %
 Im p-System reduziert sich die Kontinuitätsgleichung also auf eine rein diagnostische Gleichung, die formal der Kontinuitätsgleichung für ein inkompressibles Fluid im z-System entspricht. Skaliert man diese Gleichung mit den Werten aus Tab. \ref{tab:scales}, folgt in SI-Einheiten
 %
 \begin{itemize}
-\item $\nabla\cdot\mathbf{v}_{h, g}\sim10^{-5}$
+\item $\nabla\cdot\mathbf{v}_h\sim10^{-5}$
 \item $\frac{\partial\omega}{\partial p}\sim10^{-6}$.
 \end{itemize}
 %
@@ -8503,7 +8504,7 @@ Der Drehimpuls ist also genau dann erhalten, wenn alle externen Kräfte auf der 
 Die kinetische Energie $\KE$\index{kinetische Energie}\index{Energie!kinetische} einer Luftsäule in einer hydrostatischen Atmosphäre ist durch
 %
 \begin{eqnarray}
-\KE = \int_0^{\infty}\frac{1}{2}\rho\mathbf{v}_{h, g}^2dz = -\frac{1}{g}\int_{p_S}^0\frac{1}{2}\mathbf{v}_{h, g}^2dp = \frac{1}{g}\int_0^{p_S}\frac{1}{2}\mathbf{v}_{h, g}^2dp
+\KE = \int_0^{\infty}\frac{1}{2}\rho\mathbf{v}_h^2dz = -\frac{1}{g}\int_{p_S}^0\frac{1}{2}\mathbf{v}_h^2dp = \frac{1}{g}\int_0^{p_S}\frac{1}{2}\mathbf{v}_h^2dp
 \end{eqnarray}
 %
 gegeben, hierbei ist $p_S$ der Druck an der Erdoberfläche. Analog gilt für die innere Energie\index{innere Energie}\index{Energie!innere}
@@ -8645,7 +8646,7 @@ Nimmt man einen klimatologischen Wert $\newoverline{\Gamma} \approx \frac{2}{3}\
 Für $A$ wählt man die gesamte Erdoberfläche und setzt $T' \sim 15$ K, $\newoverline{T} \sim 270$ K an, dann folgen
 %
 \begin{eqnarray}
-\frac{\APE/A}{\KE} & \sim & \frac{3\newoverline{T'^2}c^{(p)}}{\newoverline{T}\mathbf{v}_{h, g}^2} \sim 25.
+\frac{\APE/A}{\KE} & \sim & \frac{3\newoverline{T'^2}c^{(p)}}{\newoverline{T}\mathbf{v}_h^2} \sim 25.
 \end{eqnarray}
 %
 Es bleibt in diesem Abschnitt eine offene Frage, warum der größte Anteil der verfügbaren potentiellen Energie nicht in kinetische Energie umgewandelt wird.
@@ -9316,7 +9317,7 @@ Die \textit{Rossby-Zahl}\index{Rossby-Zahl} $N_\text{Ro}$ definiert man als Verh
 N_\text{Ro} \coloneqq\frac{U^2}{LfU} = \frac{v}{Lf}\sim10^{-1}
 \end{eqnarray}
 %
-auf der synoptischen Skala. In erster Ordnung liegt also ein Kräftegleichgewicht aus Coriolis-Kraft und Druckgradientkraft vor. Dies ist die geostrophische Approximation. Das entsprechende Windfeld $\mathbf{v}_{h, g} = \left(u_g, v_g\right)^T$ erhält man, indem man in den horizontalen Bewegungsgleichungen Glg.en \eqref{eq:x_momentum_simplified_simplified_p} - \eqref{eq:y_momentum_simplified_simplified_p} die Beschleunigung gleich Null setzt.
+auf der synoptischen Skala. In erster Ordnung liegt also ein Kräftegleichgewicht aus Coriolis-Kraft und Druckgradientkraft vor. Dies ist die geostrophische Approximation. Das entsprechende Windfeld $\mathbf{v}_h = \left(u_g, v_g\right)^T$ erhält man, indem man in den horizontalen Bewegungsgleichungen Glg.en \eqref{eq:x_momentum_simplified_simplified_p} - \eqref{eq:y_momentum_simplified_simplified_p} die Beschleunigung gleich Null setzt.
 %
 \begin{eqnarray}
 0 = -\frac{\partial\phi}{\partial x} + fv_g\\
@@ -9521,31 +9522,31 @@ gelten.
 Beim \textit{Gradientenwind} geht man davon aus, dass Coriolis-Kraft und Druckgradient zusammen die Zentripetalkraft aufbringen, die nötig ist, um ein Fluidteilchen auf einer Trajekorie mit Radius $R > 0$ zu bewegen, also
 %
 \begin{eqnarray}
-\frac{V^2}{R} = \left|\left|f\right|V - \frac{1}{\rho}\left|\nabla_Hp\right|\right|.
+\frac{V^2}{R} = \left|\left|f\right|V - \frac{1}{\rho}\left|\nabla_hp\right|\right|.
 \end{eqnarray}
 %
 Im zyklonalen Fall ist der Ausdruck zwischen den äußeren Betragszeichen negativ, also
 %
 \begin{eqnarray}
-\frac{V^2}{R} & = & \frac{1}{\rho}\left|\nabla_Hp\right| - \left|f\right|V\nonumber\\
-\Leftrightarrow V^2 + \left|f\right|VR - R\frac{1}{\rho}\left|\nabla_Hp\right| & = & 0 \nonumber\\
-\frac{V^2}{R} & = & -\frac{1}{\rho}\left|\nabla_Hp\right| + \left|f\right|V\nonumber\\
-\Leftrightarrow V & = & -\frac{\left|f\right|R}{2} \pm \sqrt{\frac{f^2R^2}{4} + R\frac{1}{\rho}\left|\nabla_Hp\right|}.
+\frac{V^2}{R} & = & \frac{1}{\rho}\left|\nabla_hp\right| - \left|f\right|V\nonumber\\
+\Leftrightarrow V^2 + \left|f\right|VR - R\frac{1}{\rho}\left|\nabla_hp\right| & = & 0 \nonumber\\
+\frac{V^2}{R} & = & -\frac{1}{\rho}\left|\nabla_hp\right| + \left|f\right|V\nonumber\\
+\Leftrightarrow V & = & -\frac{\left|f\right|R}{2} \pm \sqrt{\frac{f^2R^2}{4} + R\frac{1}{\rho}\left|\nabla_hp\right|}.
 \end{eqnarray}
 %
-Wegen $V = \left|\mathbf{v}_{h, g}\right| > 0$ kommt nur das positive Vorzeichen in Frage. In diesem Fall ist die Windgeschwindigkeit geringer als die geostrophische Windgeschwindigkeit, man spricht von \textit{subgeostrophischem Wind}\index{Wind!subgeostrophischer}\index{subgeostrophischer Wind}\index{Subgeostrohpie}. Im antizyklonalen Fall gilt analog
+Wegen $V = \left|\mathbf{v}_h\right| > 0$ kommt nur das positive Vorzeichen in Frage. In diesem Fall ist die Windgeschwindigkeit geringer als die geostrophische Windgeschwindigkeit, man spricht von \textit{subgeostrophischem Wind}\index{Wind!subgeostrophischer}\index{subgeostrophischer Wind}\index{Subgeostrohpie}. Im antizyklonalen Fall gilt analog
 %
 \begin{eqnarray}
-\frac{V^2}{R} & = & -\frac{1}{\rho}\left|\nabla_Hp\right| + \left|f\right|V\nonumber\\
-\Leftrightarrow V^2 - \left|f\right|VR + R\frac{1}{\rho}\left|\nabla_Hp\right| & = & 0 \nonumber\\
-\frac{V^2}{R} & = & -\frac{1}{\rho}\left|\nabla_Hp\right| + \left|f\right|V\nonumber\\
-\Leftrightarrow V & = & \frac{\left|f\right|R}{2} \pm \sqrt{\frac{f^2R^2}{4} - R\frac{1}{\rho}\left|\nabla_Hp\right|}.
+\frac{V^2}{R} & = & -\frac{1}{\rho}\left|\nabla_hp\right| + \left|f\right|V\nonumber\\
+\Leftrightarrow V^2 - \left|f\right|VR + R\frac{1}{\rho}\left|\nabla_hp\right| & = & 0 \nonumber\\
+\frac{V^2}{R} & = & -\frac{1}{\rho}\left|\nabla_hp\right| + \left|f\right|V\nonumber\\
+\Leftrightarrow V & = & \frac{\left|f\right|R}{2} \pm \sqrt{\frac{f^2R^2}{4} - R\frac{1}{\rho}\left|\nabla_hp\right|}.
 \end{eqnarray}
 %
-In diesem Fall ist der Wind \textit{supergeostrophisch}\index{Wind!supergeostrophischer}\index{supergeostrophischer Wind}\index{Supergeostrohpie}. Hier kommt nur das negative Vorzeichen in Fall, da im Grenzfall $\left|\nabla_Hp\right| = 0$ kein Wind $V = R\left|f\right|$ wehen sollte. Der Audruck unter der Wurzel ist positiv, also
+In diesem Fall ist der Wind \textit{supergeostrophisch}\index{Wind!supergeostrophischer}\index{supergeostrophischer Wind}\index{Supergeostrohpie}. Hier kommt nur das negative Vorzeichen in Fall, da im Grenzfall $\left|\nabla_hp\right| = 0$ kein Wind $V = R\left|f\right|$ wehen sollte. Der Audruck unter der Wurzel ist positiv, also
 %
 \begin{eqnarray}
-\left|\nabla_Hp\right| \leq \frac{\rho f^2R}{4}.
+\left|\nabla_hp\right| \leq \frac{\rho f^2R}{4}.
 \end{eqnarray}
 %
 Antizyklonen werden sind also in Kernnähe gradientenschwächer, solch eine Beschränkung gibt es für Zyklonen nicht. Dies ist wegen
@@ -9565,7 +9566,7 @@ Nimmt man eine Druckgradientbeschleunigung
 P \coloneqq \frac{1}{\rho}\left|\nabla p\right|
 \end{eqnarray}
 %
-an, die in y-Richtung zeigt und zusätzlich eine Reibungskraft $-\mu\mathbf{v}_{h, g}$ und setzt die Beschleunigung gleich Null, erhält man
+an, die in y-Richtung zeigt und zusätzlich eine Reibungskraft $-\mu\mathbf{v}_h$ und setzt die Beschleunigung gleich Null, erhält man
 %
 \begin{eqnarray}
 0 & = & fV\sin\left(\psi\right) - \mu V\cos\left(\psi\right) \stackrel{\psi\in\left[0, \pi/2\right]}{\Rightarrow} \psi=\arctan\left(\frac{\mu}{f}\right),\\
@@ -9586,7 +9587,7 @@ wobei die Grenzschichthöhe mit $H = 500$ m abgeschätzt wurde. Der Reibungswind
 Als \textit{Euler-Wind} bezeichnet man die Zunahme des Windes unter Wirkung eines Druckgradienten und Abwesenheit der Coriolis-Beschleunigung, also
 %
 \begin{eqnarray}
-\mathbf{v}_{h, g} = -t\frac{1}{\rho}\nabla p.
+\mathbf{v}_h = -t\frac{1}{\rho}\nabla p.
 \end{eqnarray}
 
 \section{Zyklostrophischer Wind}
@@ -9668,7 +9669,7 @@ gewählt, daraus folgt
 Betrachtet man nur das horizontale Windfeld
 %
 \begin{eqnarray}
-\mathbf{v}_{h, g} \coloneqq\mathbf{v} - w\mathbf{k}, 
+\mathbf{v}_h \coloneqq\mathbf{v} - w\mathbf{k}, 
 \end{eqnarray}
 %
 so gilt dies natürlich auch. An das Vektorpotential stellt man nun statt der Bedingung $\nabla\cdot\mathbf{A}\hastobe0$ die algebraische Bedingung
@@ -9698,13 +9699,13 @@ Man definiert
 Es gilt
 %
 \begin{eqnarray}
-\zeta & \coloneqq & \mathbf{k}\cdot\left(\nabla\times\mathbf{v}_{h, g}\right) = \mathbf{k}\cdot\left[\nabla\times\left(\mathbf{k}\times\nabla\psi\right)\right]\stackrel{\text{Glg. }\eqref{eq:diff_op_rule_7}}{=}\Delta\psi.
+\zeta & \coloneqq & \mathbf{k}\cdot\left(\nabla\times\mathbf{v}_h\right) = \mathbf{k}\cdot\left[\nabla\times\left(\mathbf{k}\times\nabla\psi\right)\right]\stackrel{\text{Glg. }\eqref{eq:diff_op_rule_7}}{=}\Delta\psi.
 \end{eqnarray}
 %
 Für die Divergenz gilt weiterhin
 %
 \begin{eqnarray}
-\nabla\cdot\mathbf{v}_{h, g} = \Delta\chi.
+\nabla\cdot\mathbf{v}_h = \Delta\chi.
 \end{eqnarray}
 %
 Man beachte, dass $\zeta$ nicht der Betrag von $\zetabi$ ist, sondern die z-Komponente davon.
@@ -9766,17 +9767,17 @@ Die Vorticity hat auch eine anschauliche Bedeutung, die zunächst nicht so einle
 %
 \end{itemize}
 %
-Um die wahre Bedeutung der Vorticity zu verstehen, stellt man sich am besten ein 2D-Vektorfeld $\mathbf{v}_{h, g} = \left(u, v\right)^T$ vor (in kartesischen Koordinaten). Nehme ein Rechteck $\left[-a, a\right]\times\left[-b, b\right]$. $\mathbf{s}$ sei eine Kurve, die im positiven mathematischen Drehsinn diese Menge umschließt. Dann gilt näherungsweise mit $\left(u, v\right)$ als Vektor am Ursprung
+Um die wahre Bedeutung der Vorticity zu verstehen, stellt man sich am besten ein 2D-Vektorfeld $\mathbf{v}_h = \left(u, v\right)^T$ vor (in kartesischen Koordinaten). Nehme ein Rechteck $\left[-a, a\right]\times\left[-b, b\right]$. $\mathbf{s}$ sei eine Kurve, die im positiven mathematischen Drehsinn diese Menge umschließt. Dann gilt näherungsweise mit $\left(u, v\right)$ als Vektor am Ursprung
 %
 \begin{eqnarray}
-\int_{\mathbf{s}}^{}\mathbf{v}_{h, g}\cdot d\mathbf{s} &\approx& 2a\left(u - b\frac{\partial u}{\partial y}\right) + 2b\left(v + a\frac{\partial v}{\partial x}\right) - 2a\left(u + b\frac{\partial u}{\partial y}\right) - 2b\left(v - a\frac{\partial v}{\partial x}\right)\nonumber\\
+\int_{\mathbf{s}}^{}\mathbf{v}_h\cdot d\mathbf{s} &\approx& 2a\left(u - b\frac{\partial u}{\partial y}\right) + 2b\left(v + a\frac{\partial v}{\partial x}\right) - 2a\left(u + b\frac{\partial u}{\partial y}\right) - 2b\left(v - a\frac{\partial v}{\partial x}\right)\nonumber\\
 & = & -2ba\frac{\partial u}{\partial y} + 2ba\frac{\partial v}{\partial x} - 2ab\frac{\partial u}{\partial y} + 2ba\frac{\partial v}{\partial x} = -4ba\frac{\partial u}{\partial y} + 4ab\frac{\partial v}{\partial x} = 4ab\left(\frac{\partial v}{\partial x} - \frac{\partial u}{\partial y}\right).
 \end{eqnarray}
 %
 Der Flächeninhalt der Fläche ist $4ab$. Betrachtet man die Zirkulation des Vektorfelds um ein Teilchen, bildet also
 %
 \begin{eqnarray}
-\lim\limits_{a, b\to 0}\frac{\int_{\mathbf{s}}^{}{\mathbf{v}_{h, g}\cdot d\mathbf{s}}}{4ab} = \frac{\partial v}{\partial x} - \frac{\partial u}{\partial y}, 
+\lim\limits_{a, b\to 0}\frac{\int_{\mathbf{s}}^{}{\mathbf{v}_h\cdot d\mathbf{s}}}{4ab} = \frac{\partial v}{\partial x} - \frac{\partial u}{\partial y}, 
 \end{eqnarray}
 %
 so ergibt sich die Definition der z-Komponente der Wirbelstärke. Die Komponenten der Rotation geben deshalb an, wie eine kleine Fläche in einer Ebene senkrecht zur jeweiligen Komponente umströmt wird. Es gibt also einen Zusammenhang von Zirkulation und Vorticity. In integraler Form ist dies die Aussage des \textit{Satzes von Stokes:}\index{Stokes'scher Satz}\index{Satz von Stokes}
@@ -9961,10 +9962,10 @@ Die Vorticitygleichung lautet schlussendlich
 }}
 \end{center}
 %
-Geht man von einem Flachgeofluid aus, vernachlässigt die Reibung und führt einen horizontalen Windvektor $\mathbf{v}_{h, g}$ ein, folgt
+Geht man von einem Flachgeofluid aus, vernachlässigt die Reibung und führt einen horizontalen Windvektor $\mathbf{v}_h$ ein, folgt
 %
 \begin{eqnarray}
-\frac{\partial\zeta}{\partial t} = -\mathbf{v}_{h, g}\cdot\nabla\eta - w\frac{\partial\zeta}{\partial z} - \eta\nabla\cdot\mathbf{v} + \etabi\cdot\nabla w + \frac{1}{\rho ^2}\mathbf{k}\cdot\left(\nabla\rho\times\nabla p\right).
+\frac{\partial\zeta}{\partial t} = -\mathbf{v}_h\cdot\nabla\eta - w\frac{\partial\zeta}{\partial z} - \eta\nabla\cdot\mathbf{v} + \etabi\cdot\nabla w + \frac{1}{\rho ^2}\mathbf{k}\cdot\left(\nabla\rho\times\nabla p\right).
 \end{eqnarray}
 %
 Im barotropen Fall fällt hier der sogenannte \textit{Solenoidterm}, \index{Solenoidterm} der $\nabla\rho\times\nabla p$ enthält, weg, vernachlässigt man außerdem die vertikale Scherung des Horizontalwindes (s. Absch. \ref{sec:barotropie}), folgt
@@ -10026,15 +10027,15 @@ definiert. Nun wendet man auf die einzelnen Terme den Operator $\nabla\times $ a
 \nabla\times\frac{\partial\mathbf{v}_h}{\partial t}&\stackrel{\eqref{eq:diff_op_rule_4}}{=}&\frac{\partial}{\partial t}\nabla\times\mathbf{v}_h\\
 \nabla\times\nabla\phi&\stackrel{\eqref{eq:diff_op_rule_1}}{=}&\mathbf{0}\\
 \nabla\times\mathbf{g}&\stackrel{\eqref{eq:diff_op_rule_1}}{=}&\mathbf{0}\\
-\nabla\times\nabla\left(\mathbf{v}_{h, g}\cdot\mathbf{v}_{h, g}\right)&\stackrel{\eqref{eq:diff_op_rule_1}}{=}&\mathbf{0}\\
-\nabla\times\left(\mathbf{v}_{h, g}\times\etabi'\right)&\stackrel{\eqref{eq:diff_op_rule_7}}{=}& -\left(\mathbf{v}_{h, g}\cdot\nabla\right)\etabi' - \etabi'\nabla\cdot\mathbf{v}_{h, g} + \left(\etabi'\cdot\nabla\right)\mathbf{v}_{h, g}\\
-\nabla\times\left(\omega\frac{\partial\mathbf{v}_{h, g}}{\partial p}\right)&\stackrel{\eqref{eq:diff_op_rule_5}}{=}&\omega\nabla\times\frac{\partial\mathbf{v}_{h, g}}{\partial p} - \frac{\partial\mathbf{v}_{h, g}}{\partial p}\times\nabla\omega
+\nabla\times\nabla\left(\mathbf{v}_h\cdot\mathbf{v}_h\right)&\stackrel{\eqref{eq:diff_op_rule_1}}{=}&\mathbf{0}\\
+\nabla\times\left(\mathbf{v}_h\times\etabi'\right)&\stackrel{\eqref{eq:diff_op_rule_7}}{=}& -\left(\mathbf{v}_h\cdot\nabla\right)\etabi' - \etabi'\nabla\cdot\mathbf{v}_h + \left(\etabi'\cdot\nabla\right)\mathbf{v}_h\\
+\nabla\times\left(\omega\frac{\partial\mathbf{v}_h}{\partial p}\right)&\stackrel{\eqref{eq:diff_op_rule_5}}{=}&\omega\nabla\times\frac{\partial\mathbf{v}_h}{\partial p} - \frac{\partial\mathbf{v}_h}{\partial p}\times\nabla\omega
 \end{eqnarray}
 %
 Somit gilt
 %
 \begin{eqnarray}
-\frac{\partial}{\partial t}\nabla\times\mathbf{v}_{h, g} & = & -\left(\mathbf{v}_{h, g}\cdot\nabla\right)\etabi' - \etabi'\nabla\cdot\mathbf{v}_{h, g} + \left(\etabi'\cdot\nabla\right)\mathbf{v}_{h, g} + \omega\nabla\times\frac{\partial\mathbf{v}_{h, g}}{\partial p} - \frac{\partial\mathbf{v}_{h, g}}{\partial p}\times\nabla\omega + \nabla\times\mathbf{F}_R^{(H)}.
+\frac{\partial}{\partial t}\nabla\times\mathbf{v}_h & = & -\left(\mathbf{v}_h\cdot\nabla\right)\etabi' - \etabi'\nabla\cdot\mathbf{v}_h + \left(\etabi'\cdot\nabla\right)\mathbf{v}_h + \omega\nabla\times\frac{\partial\mathbf{v}_h}{\partial p} - \frac{\partial\mathbf{v}_h}{\partial p}\times\nabla\omega + \nabla\times\mathbf{F}_R^{(H)}.
 \end{eqnarray}
 %
 Durch Projektion auf die lokale Senkrechte $\mathbf{k}$ erhält man
@@ -10082,7 +10083,7 @@ Die Vorticitygleichung im p-System lautet somit
 Berechnet man die Vorticity des geostrophischen Windfeldes erhält man
 %
 \begin{eqnarray}
-\zeta_g = \frac{1}{f}\frac{\partial^2\phi}{\partial x^2} + \frac{1}{f}\frac{\partial^2\phi}{\partial y^2} - \frac{\beta}{f^2}\frac{\partial\phi}{\partial y} + \frac{\tan\left(\varphi\right)u}{r} = \frac{1}{f}\Delta_H\phi + \frac{\beta}{f}u + \frac{\tan\left(\varphi\right)u}{r}.\label{eq:geostro_vort_skal}
+\zeta_g = \frac{1}{f}\frac{\partial^2\phi}{\partial x^2} + \frac{1}{f}\frac{\partial^2\phi}{\partial y^2} - \frac{\beta}{f^2}\frac{\partial\phi}{\partial y} + \frac{\tan\left(\varphi\right)u}{r} = \frac{1}{f}\Delta_h\phi + \frac{\beta}{f}u + \frac{\tan\left(\varphi\right)u}{r}.\label{eq:geostro_vort_skal}
 \end{eqnarray}
 %
 Für den ersten Term gilt
@@ -10135,7 +10136,7 @@ Es gilt
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{eqnarray}
-\md{q} & = & \frac{1}{h}\md{\eta} - \frac{\eta}{h^2}\md{h}\stackrel{\eqref{eq:flach_2}}{=} - \frac{\eta}{h}\nabla_H\cdot\mathbf{v}_h - \frac{\eta}{h^2}\left(-h\nabla_H\cdot\mathbf{v}_h\right) = 0.
+\md{q} & = & \frac{1}{h}\md{\eta} - \frac{\eta}{h^2}\md{h}\stackrel{\eqref{eq:flach_2}}{=} - \frac{\eta}{h}\nabla_h\cdot\mathbf{v}_h - \frac{\eta}{h^2}\left(-h\nabla_h\cdot\mathbf{v}_h\right) = 0.
 \end{eqnarray}
 \end{center}
 }}
@@ -10271,17 +10272,17 @@ Dies führt auf eine weitere Form der Divergenzgleichung:
 Die Impulsgleichungen Glg.en \eqref{eq:x_momentum_simplified_simplified_p} - \eqref{eq:y_momentum_simplified_simplified_p} im p-System lauten vektoriell
 %
 \begin{eqnarray}
-\frac{\partial\mathbf{v}_{h, g}}{\partial t} & = & -\nabla\phi - f\mathbf{k}\times\mathbf{v}_{h, g} - \left(\mathbf{v}_{h, g}\cdot\nabla\right)\mathbf{v}_{h, g} - \omega\frac{\partial\mathbf{v}_{h, g}}{\partial p} + \nabla\cdot\mathbf{F}_R^{(H)}.
+\frac{\partial\mathbf{v}_h}{\partial t} & = & -\nabla\phi - f\mathbf{k}\times\mathbf{v}_h - \left(\mathbf{v}_h\cdot\nabla\right)\mathbf{v}_h - \omega\frac{\partial\mathbf{v}_h}{\partial p} + \nabla\cdot\mathbf{F}_R^{(H)}.
 \end{eqnarray}
 %
-Es ist für die Hereitung sinnvoll, hier ein $\mathbf{g}$ zu addieren und $-\nabla\phi$ als dreidimensionalen Vektor zu interpretieren mit $-g$ in der z-Komponente. Somit ergibt eine Anwendung von $\nabla\cdot $ auf $-\nabla\phi + \mathbf{g} = -\Delta_H\phi$, wofür aber in der weiteren Herleitung einfach $\Delta\phi$ notiert wird. Durch Applizieren des Operators $\nabla\cdot $ auf die einzelnen Terme erhält man somit
+Es ist für die Hereitung sinnvoll, hier ein $\mathbf{g}$ zu addieren und $-\nabla\phi$ als dreidimensionalen Vektor zu interpretieren mit $-g$ in der z-Komponente. Somit ergibt eine Anwendung von $\nabla\cdot $ auf $-\nabla\phi + \mathbf{g} = -\Delta_h\phi$, wofür aber in der weiteren Herleitung einfach $\Delta\phi$ notiert wird. Durch Applizieren des Operators $\nabla\cdot $ auf die einzelnen Terme erhält man somit
 %
 \begin{eqnarray}
-\nabla\cdot\frac{\partial\mathbf{v}_{h, g}}{\partial t}&\stackrel{\eqref{eq:diff_op_rule_4}}{=}&\frac{\partial\delta}{\partial t}, \nonumber\\
+\nabla\cdot\frac{\partial\mathbf{v}_h}{\partial t}&\stackrel{\eqref{eq:diff_op_rule_4}}{=}&\frac{\partial\delta}{\partial t}, \nonumber\\
 - \nabla\cdot\nabla\phi & = & -\Delta\phi, \nonumber\\
-- \nabla\cdot\left(f\mathbf{k}\times\mathbf{v}_{h, g}\right)&\stackrel{\eqref{eq:diff_op_rule_9}}{=}& -\mathbf{v}_{h, g}\cdot\left[\nabla\times\left(f\mathbf{k}\right)\right] + f\mathbf{k}\cdot\left(\nabla\times\mathbf{v}_{h, g}\right)\stackrel{\eqref{eq:diff_op_rule_5}}{=} - \mathbf{v}_{h, g}\cdot\left[-\mathbf{k}\times\nabla f + f\nabla\times\mathbf{k}\right] + f\zeta\nonumber\\
-& = &\mathbf{v}_{h, g}\cdot\left(\mathbf{k}\times\beta\mathbf{j}\right) + f\zeta = -u\beta + f\zeta, \nonumber\\
-\nabla\cdot\left(-\omega\frac{\partial\mathbf{v}_{h, g}}{\partial p}\right)&\stackrel{\eqref{eq:diff_op_rule_3}}{=}& -\omega\frac{\partial\delta}{\partial p} - \frac{\partial\mathbf{v}_{h, g}}{\partial p}\cdot\nabla\omega.
+- \nabla\cdot\left(f\mathbf{k}\times\mathbf{v}_h\right)&\stackrel{\eqref{eq:diff_op_rule_9}}{=}& -\mathbf{v}_h\cdot\left[\nabla\times\left(f\mathbf{k}\right)\right] + f\mathbf{k}\cdot\left(\nabla\times\mathbf{v}_h\right)\stackrel{\eqref{eq:diff_op_rule_5}}{=} - \mathbf{v}_h\cdot\left[-\mathbf{k}\times\nabla f + f\nabla\times\mathbf{k}\right] + f\zeta\nonumber\\
+& = &\mathbf{v}_h\cdot\left(\mathbf{k}\times\beta\mathbf{j}\right) + f\zeta = -u\beta + f\zeta, \nonumber\\
+\nabla\cdot\left(-\omega\frac{\partial\mathbf{v}_h}{\partial p}\right)&\stackrel{\eqref{eq:diff_op_rule_3}}{=}& -\omega\frac{\partial\delta}{\partial p} - \frac{\partial\mathbf{v}_h}{\partial p}\cdot\nabla\omega.
 \end{eqnarray}
 %
 Somit folgt
@@ -10290,7 +10291,7 @@ Somit folgt
 \doublebox{\parbox{\textwidth}{
 \begin{center}
 \begin{eqnarray}
-\frac{\partial\delta}{\partial t} & = & -\Delta\phi - u\beta + f\zeta - \nabla\cdot\left[\left(\mathbf{v}_{h, g}\cdot\nabla\right)\mathbf{v}_{h, g}\right] - \omega\frac{\partial\delta}{\partial p} - \frac{\partial\mathbf{v}_{h, g}}{\partial p}\cdot\nabla\omega + \nabla\cdot\mathbf{F}_R^{(H)}.\label{eq:divergence_equation_p_1}
+\frac{\partial\delta}{\partial t} & = & -\Delta\phi - u\beta + f\zeta - \nabla\cdot\left[\left(\mathbf{v}_h\cdot\nabla\right)\mathbf{v}_h\right] - \omega\frac{\partial\delta}{\partial p} - \frac{\partial\mathbf{v}_h}{\partial p}\cdot\nabla\omega + \nabla\cdot\mathbf{F}_R^{(H)}.\label{eq:divergence_equation_p_1}
 \end{eqnarray}
 \end{center}
 }}
@@ -10299,8 +10300,8 @@ Somit folgt
 Dies ist die Divergenzgleichung im p-System. Mit der Lamb-Transformation erhält man
 %
 \begin{eqnarray}
-\nabla\cdot\left[\left(\mathbf{v}_{h, g}\cdot\nabla\right)\mathbf{v}_{h, g}\right] & = & \Delta k - \nabla\cdot\left[\mathbf{v}_{h, g}\times\left(\nabla\times\mathbf{v}_{h, g}\right)\right] \stackrel{\text{Glg. \eqref{eq:diff_op_rule_9}}}{=} \Delta k - \left(\nabla\times\mathbf{v}_{h, g}\right)^2 + \mathbf{v}_{h, g}\cdot\left(\nabla\times\left(\nabla\times\mathbf{v}_{h, g}\right)\right)\nonumber\\
-&\stackrel{\text{Glg. \eqref{eq:diff_op_rule_8}}}{=}& \Delta k - \left(\nabla\times\mathbf{v}_{h, g}\right)^2 - \mathbf{v}_{h, g}\cdot\left(\Delta\mathbf{v}_{h, g}\right) + \mathbf{v}_{h, g}\cdot\nabla\delta.
+\nabla\cdot\left[\left(\mathbf{v}_h\cdot\nabla\right)\mathbf{v}_h\right] & = & \Delta k - \nabla\cdot\left[\mathbf{v}_h\times\left(\nabla\times\mathbf{v}_h\right)\right] \stackrel{\text{Glg. \eqref{eq:diff_op_rule_9}}}{=} \Delta k - \left(\nabla\times\mathbf{v}_h\right)^2 + \mathbf{v}_h\cdot\left(\nabla\times\left(\nabla\times\mathbf{v}_h\right)\right)\nonumber\\
+&\stackrel{\text{Glg. \eqref{eq:diff_op_rule_8}}}{=}& \Delta k - \left(\nabla\times\mathbf{v}_h\right)^2 - \mathbf{v}_h\cdot\left(\Delta\mathbf{v}_h\right) + \mathbf{v}_h\cdot\nabla\delta.
 \end{eqnarray}
 %
 Dies führt auf eine weitere Form der Divergenzgleichung:
@@ -10309,8 +10310,8 @@ Dies führt auf eine weitere Form der Divergenzgleichung:
 \doublebox{\parbox{\textwidth}{
 \begin{center}
 \begin{eqnarray}
-\frac{\partial\delta}{\partial t} & = & -\Delta\phi - u\beta + f\zeta - \Delta k + \left(\nabla\times\mathbf{v}_{h, g}\right)^2 + \mathbf{v}_{h, g}\cdot\left(\Delta\mathbf{v}_{h, g}\right) - \mathbf{v}_{h, g}\cdot\nabla\delta\nonumber\\
-&&- \omega\frac{\partial\delta}{\partial p} - \frac{\partial\mathbf{v}_{h, g}}{\partial p}\cdot\nabla\omega + \nabla\cdot\mathbf{F}_R^{(H)}\label{eq:divergence_equation_p_2}
+\frac{\partial\delta}{\partial t} & = & -\Delta\phi - u\beta + f\zeta - \Delta k + \left(\nabla\times\mathbf{v}_h\right)^2 + \mathbf{v}_h\cdot\left(\Delta\mathbf{v}_h\right) - \mathbf{v}_h\cdot\nabla\delta\nonumber\\
+&&- \omega\frac{\partial\delta}{\partial p} - \frac{\partial\mathbf{v}_h}{\partial p}\cdot\nabla\omega + \nabla\cdot\mathbf{F}_R^{(H)}\label{eq:divergence_equation_p_2}
 \end{eqnarray}
 \end{center}
 }}
@@ -10319,7 +10320,7 @@ Dies führt auf eine weitere Form der Divergenzgleichung:
 Setzt man hier $\delta = \omega = 0$ ein, folgt die \index{Balancegleichung}\textit{Balancegleichung}
 %
 \begin{eqnarray}
-\Delta\phi & = & - u\beta + f\zeta - \Delta k + \left(\nabla\times\mathbf{v}_{h, g}\right)^2 + \mathbf{v}_{h, g}\cdot\left(\Delta\mathbf{v}_{h, g}\right).\label{eq:balance_equation}
+\Delta\phi & = & - u\beta + f\zeta - \Delta k + \left(\nabla\times\mathbf{v}_h\right)^2 + \mathbf{v}_h\cdot\left(\Delta\mathbf{v}_h\right).\label{eq:balance_equation}
 \end{eqnarray}
 %
 Vernachlässigt man den letzten Term, erhält man die \textit{lineare Balancegleichung}\index{Balancegleichung!lineare}\index{lineare Balancegleichung}
@@ -11147,7 +11148,7 @@ T = \frac{2\pi}{f_0} \approx \frac{1\:\text{d}}{2\sin\left(\varphi\right)},
 %
 d = $24$ h ist die Dauer eines Tages. Typische Inertialperioden liegen also im Größenordnungsbereich von einem Tag.
 
-Da die totalen Ableitungen $\md{}$ verwendet wurden, wurde implizit eine Trajektorie ausgerechnet. Diese Trajektorie ist eine Kreisbahn, jedoch nur unter Annahme eines ortsunabhängigen Coriolis-Parameters. Im Allgemeinen sind die Teilchentrajektorien jedoch aufgrund des $\beta-$Effektes keine geschlossenen Kreisbahnen. Ebenso wurde \underline{kein} Windfeld $\mathbf{v}_{h, g}\left(\mathbf{r}, t\right)$ bestimmt.
+Da die totalen Ableitungen $\md{}$ verwendet wurden, wurde implizit eine Trajektorie ausgerechnet. Diese Trajektorie ist eine Kreisbahn, jedoch nur unter Annahme eines ortsunabhängigen Coriolis-Parameters. Im Allgemeinen sind die Teilchentrajektorien jedoch aufgrund des $\beta-$Effektes keine geschlossenen Kreisbahnen. Ebenso wurde \underline{kein} Windfeld $\mathbf{v}_h\left(\mathbf{r}, t\right)$ bestimmt.
 
 \subsection{Kelvin-Wellen}
 \label{sec:kelvin-wellen}\index{Kelvin-Welle}\index{Welle!Kelvin-Welle}
@@ -11336,13 +11337,13 @@ mit $R$ als Äquatorradius und $H = 1$ km.
 Nimmt man eine \text{f-Kugel}\index{f-Kugel} an, also eine Kugel mit homogenem Coriolis-Parameter $f$ (dies ist ein rein mathematisches Konzept), haben die linearisierten SWEs Glg.en \eqref{eq:flach_lin_1} - \eqref{eq:flach_lin_2} globale analytische Lösungen. Zunächst rechnet man
 %
 \begin{eqnarray}
-\frac{\partial^2d}{\partial t^2} & = & -D\nabla\cdot\frac{\partial\mathbf{v}_{h, g}}{\partial t}.
+\frac{\partial^2d}{\partial t^2} & = & -D\nabla\cdot\frac{\partial\mathbf{v}_h}{\partial t}.
 \end{eqnarray}
 %
 Bildet man die Divergenz von Glg. \eqref{eq:flach_lin_1}, folgt mit Glg. \eqref{eq:diff_op_rule_9}
 %
 \begin{eqnarray}
-\nabla\cdot\frac{\partial\mathbf{v}_{h, g}}{\partial t} & = & f\zeta - g\Delta d\Rightarrow\frac{\partial^2d}{\partial t^2} = -D\left(f\zeta - g\Delta d\right)\nonumber\\
+\nabla\cdot\frac{\partial\mathbf{v}_h}{\partial t} & = & f\zeta - g\Delta d\Rightarrow\frac{\partial^2d}{\partial t^2} = -D\left(f\zeta - g\Delta d\right)\nonumber\\
 \Rightarrow\frac{\partial^3d}{\partial t^3}& = & -D\left[f\frac{\partial\zeta}{\partial t} - g\Delta\frac{\partial d}{\partial t}\right].
 \end{eqnarray}
 %
@@ -11678,10 +11679,10 @@ Vertikale Moden führen also an der Oberfläche zu alternierenden Streifen von D
 Hier geht man aus vom hydrostatischen adiabatischen Gleichungssystem.
 %
 \begin{eqnarray}
-\md{_H\mathbf{v}_{h, g}} + \omega\frac{\partial\mathbf{v}_{h, g}}{\partial p}&\stackrel{\text{Glg.en }\eqref{eq:x_momentum_simplified_simplified_p}\text {, }\eqref{eq:y_momentum_simplified_simplified_p}}{=}& -f\mathbf{k}\times\mathbf{v}_{h, g} - \nabla\phi, \label{eq:hydrostat_1}\\
+\md{_h\mathbf{v}_h} + \omega\frac{\partial\mathbf{v}_h}{\partial p}&\stackrel{\text{Glg.en }\eqref{eq:x_momentum_simplified_simplified_p}\text {, }\eqref{eq:y_momentum_simplified_simplified_p}}{=}& -f\mathbf{k}\times\mathbf{v}_h - \nabla\phi, \label{eq:hydrostat_1}\\
 \frac{\partial\phi}{\partial p}&\stackrel{\text{Glg. }\eqref{eq:hydrostatic_p}}{=}& -\alpha, \label{eq:hydrostat_2}\\
-\md{_HT} - S_p\omega&\stackrel{\text{Glg. }\eqref{eq:td1_ideal_gas_p}}{=}&0, \label{eq:hydrostat_3}\\
-\nabla\cdot\mathbf{v}_{h, g} + \frac{\partial\omega}{\partial p}&\stackrel{\text{Glg. }\eqref{eq:kont_p}}{=}&0, \label{eq:hydrostat_4}\\
+\md{_hT} - S_p\omega&\stackrel{\text{Glg. }\eqref{eq:td1_ideal_gas_p}}{=}&0, \label{eq:hydrostat_3}\\
+\nabla\cdot\mathbf{v}_h + \frac{\partial\omega}{\partial p}&\stackrel{\text{Glg. }\eqref{eq:kont_p}}{=}&0, \label{eq:hydrostat_4}\\
 p\alpha&\stackrel{\text{Glg. }\eqref{eq:zustand_ideal_alt}}{=}&R_dT.\label{eq:hydrostat_5}
 \end{eqnarray}
 %
@@ -11694,7 +11695,7 @@ Nun müssen zunächst einige Vereinfachungen vorgenommen werden. Ziel ist das \t
 Dies setzt man nun in Glg. \eqref{eq:hydrostat_3} ein, es folgt
 %
 \begin{eqnarray}
-\md{_H}\left(\frac{\partial\phi}{\partial p}\right) + \frac{R_dS_p}{p}\omega = 0.
+\md{_h}\left(\frac{\partial\phi}{\partial p}\right) + \frac{R_dS_p}{p}\omega = 0.
 \end{eqnarray}
 %
 Man definiert nun den \textit{statischen Stabilitätsparameter}\index{Stabilitätsparameter!statischer}\index{statischer Stabilitätsparameter} $\sigma$ durch
@@ -11742,26 +11743,26 @@ gegeben ist. Für die absolute Vorticity nähert man hieraus folgernd
 Mit Glg. \eqref{eq:geostr_wind_vereinfacht} vereinfacht man nun die materielle Ableitung zu
 %
 \begin{eqnarray}
-\md{} & = & \md{_H} + \omega\frac{\partial}{\partial p} = \frac{\partial}{\partial t} + \mathbf{v}_{h, g}\cdot\nabla_H + \omega\frac{\partial}{\partial p}\nonumber\\
-&\to&\md{^{(g)}} \coloneqq\md{_H^{(g)}} + \omega\frac{\partial}{\partial p} = \frac{\partial}{\partial t} + \mathbf{v}_{h, g}\cdot\nabla_H + \omega\frac{\partial}{\partial p}.
+\md{} & = & \md{_h} + \omega\frac{\partial}{\partial p} = \frac{\partial}{\partial t} + \mathbf{v}_h\cdot\nabla_h + \omega\frac{\partial}{\partial p}\nonumber\\
+&\to&\md{^{(g)}} \coloneqq\md{_h^{(g)}} + \omega\frac{\partial}{\partial p} = \frac{\partial}{\partial t} + \mathbf{v}_{h, g}\cdot\nabla_h + \omega\frac{\partial}{\partial p}.
 \end{eqnarray}
 %
 Hiermit folgt für den Ersten Hauptsatz
 %
 \begin{eqnarray}
-\frac{\partial}{\partial t}\left(\frac{\partial\phi}{\partial p}\right) = -\mathbf{v}_{h, g}\cdot\nabla_H\left(\frac{\partial\phi}{\partial p}\right) - \sigma\omega.\label{eq:first_theorem_qg}
+\frac{\partial}{\partial t}\left(\frac{\partial\phi}{\partial p}\right) = -\mathbf{v}_{h, g}\cdot\nabla_h\left(\frac{\partial\phi}{\partial p}\right) - \sigma\omega.\label{eq:first_theorem_qg}
 \end{eqnarray}
 %
 Die Vorticitygleichung Glg. \eqref{eq:vorticity_p} wird hier noch einmal wiederholt:
 %
 \begin{eqnarray}
-\frac{\partial\zeta}{\partial t} & = & -v\beta - \left(f + \zeta\right)\nabla\cdot\mathbf{v}_{h, g} - \mathbf{v}_{h, g}\cdot\nabla\zeta - \omega\frac{\partial\zeta}{\partial p} + \mathbf{k}\cdot\left[\frac{\partial\mathbf{v}_{h, g}}{\partial p}\times\nabla\omega\right]
+\frac{\partial\zeta}{\partial t} & = & -v\beta - \left(f + \zeta\right)\nabla\cdot\mathbf{v}_h - \mathbf{v}_h\cdot\nabla\zeta - \omega\frac{\partial\zeta}{\partial p} + \mathbf{k}\cdot\left[\frac{\partial\mathbf{v}_h}{\partial p}\times\nabla\omega\right]
 \end{eqnarray}
 %
 Der geostrophische Wind ist nach Absch. \ref{sec:geostrophie} eine Größenordnung größer als die ageostrophische Komponente, daher kann man die horizontale Advektion mit $\mathbf{v}_{h, g}$ berechnen und $\zeta$ durch $\zeta_g$ ersetzen:
 %
 \begin{eqnarray}
-\frac{\partial\zeta_g}{\partial t} & = & -v_g\beta - \left(f + \zeta_g\right)\nabla\cdot\mathbf{v}_{h, g} - \mathbf{v}_{h, g}\cdot\nabla\zeta_g - \omega\frac{\partial\zeta_g}{\partial p} + \mathbf{k}\cdot\left[\frac{\partial\mathbf{v}_{h, g}}{\partial p}\times\nabla\omega\right]
+\frac{\partial\zeta_g}{\partial t} & = & -v_g\beta - \left(f + \zeta_g\right)\nabla\cdot\mathbf{v}_h - \mathbf{v}_{h, g}\cdot\nabla\zeta_g - \omega\frac{\partial\zeta_g}{\partial p} + \mathbf{k}\cdot\left[\frac{\partial\mathbf{v}_{h}}{\partial p}\times\nabla\omega\right]
 \end{eqnarray}
 %
 Die Werte in Tab. \ref{tab:syn_scale} ergeben außerdem in SI-Einheiten
@@ -11769,13 +11770,13 @@ Die Werte in Tab. \ref{tab:syn_scale} ergeben außerdem in SI-Einheiten
 \begin{itemize}
 \item $\frac{\partial\zeta_g}{\partial t}\sim10^{-10}$, 
 \item $\omega\frac{\partial\zeta_g}{\partial p}\sim10^{-11}$, 
-\item $\mathbf{k}\cdot\left[\frac{\partial\mathbf{v}_{h, g}}{\partial p}\times\nabla\omega\right]\sim10^{-11}$.
+\item $\mathbf{k}\cdot\left[\frac{\partial\mathbf{v}_h}{\partial p}\times\nabla\omega\right]\sim10^{-11}$.
 \end{itemize}
 %
 Folglich können auch der Drehterm und die vertikale Advektion vernachlässigt werden und außerdem die relative gegenüber der absoluten Vorticity im Drehterm, dies führt mit $f\approx f_0$ auf die sogenannte \textit{quasigeostrophische Vorticitygleichung}\index{Vorticitygleichung!quasigeostrophische}\index{quasigeostrophische Vorticitygleichung}
 %
 \begin{eqnarray}
-\frac{\partial\zeta_g}{\partial t} & = & -\mathbf{v}_{h, g}\cdot\nabla\left(\zeta_g + f\right) - f_0\nabla\cdot\mathbf{v}_{h, g} = -\mathbf{v}_{h, g}\cdot\nabla\left(\zeta_g + f\right) + f_0\frac{\partial\omega}{\partial p}.\label{eq:vorticity_p_qg}
+\frac{\partial\zeta_g}{\partial t} & = & -\mathbf{v}_{h, g}\cdot\nabla\left(\zeta_g + f\right) - f_0\nabla\cdot\mathbf{v}_h = -\mathbf{v}_{h, g}\cdot\nabla\left(\zeta_g + f\right) + f_0\frac{\partial\omega}{\partial p}.\label{eq:vorticity_p_qg}
 \end{eqnarray}
 %
 An dieser Stelle führt man zur Vereinfachung eine Stromfunktion
@@ -11788,7 +11789,7 @@ ein, damit folgen
 %
 \begin{eqnarray}
 \mathbf{v}_{h, g} & = & \mathbf{k}\times\nabla\psi, \label{eq:geostr_wind_stream}\\
-\zeta_g & = & \Delta_H\psi.
+\zeta_g & = & \Delta_h\psi.
 \end{eqnarray}
 %
 Hieraus folgt für die Vorticitygleichung Glg. \eqref{eq:vorticity_p_qg} und den Ersten Hauptsatz Glg. \eqref{eq:e_vom_pot}
@@ -11796,7 +11797,7 @@ Hieraus folgt für die Vorticitygleichung Glg. \eqref{eq:vorticity_p_qg} und den
 \begin{eqnarray}
 \Delta\frac{\partial\psi}{\partial t} & = & -\mathbf{v}_{h, g}\cdot\nabla\left(\Delta\psi + f\right) + f_0\frac{\partial\omega}{\partial p}, \label{eq:vorticity_p_qg_mod}\\
 \frac{\partial}{\partial t}\left(\frac{\partial\psi}{\partial p}\right) & = & -\mathbf{v}_{h, g}\cdot\nabla\left(\frac{\partial\psi}{\partial p}\right) - \frac{\sigma}{f_0}\omega\nonumber\\
-\Rightarrow\frac{f_0^2}{\sigma}\frac{\partial^2}{\partial p^2}\left(\frac{\partial\psi}{\partial t}\right) & = & -\frac{f_0^2}{\sigma}\mathbf{v}_{h, g}\cdot\nabla\left(\frac{\partial^2\psi}{\partial p^2}\right) - f_0\frac{\partial\omega}{\partial p}
+\Rightarrow\frac{f_0^2}{\sigma}\frac{\partial^2}{\partial p^2}\left(\frac{\partial\psi}{\partial t}\right) & = & -\frac{f_0^2}{\sigma}\mathbf{v}_h\cdot\nabla\left(\frac{\partial^2\psi}{\partial p^2}\right) - f_0\frac{\partial\omega}{\partial p}
 \end{eqnarray}
 %
 Bei der letzten Implikation wurde die $p-$Abhängigkeit von $\sigma$ vernachlässigt und dies wird auch weiterhin getan werden. Da $\sigma$ mit der Schichtung zusammenhängt, ist dies eine schlechte Annahme, da die Schichtung natürlich in der Realität innerhalb der Troposphäre stark ortsabhängig ist. Nichtsdestotrotz kann man diese Annahme hier machen, da die relevanten Phänomene durch diese Annahme nicht gefiltert werden. Außerdem wurde
@@ -11823,16 +11824,16 @@ bezeichnet man als \textit{quasigeostrophische potentielle Vorticity}, \index{Vo
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{eqnarray}
-\md{_H^{(g)}}q_g = 0\label{eq:tendency_eq}
+\md{_h^{(g)}}q_g = 0\label{eq:tendency_eq}
 \end{eqnarray}
 \end{center}
 }}
 \end{center}
 %
-notieren. Dies ist die sogenannte \index{Tendenzgleichung}\textit{Tendenzgleichung}. $\omega$ kann hieraus diagnostiziert werden, hierzu wendet man zunächst den horizontalen Laplace-Operator $\Delta_H$ auf Glg. \eqref{eq:first_theorem_qg} an:
+notieren. Dies ist die sogenannte \index{Tendenzgleichung}\textit{Tendenzgleichung}. $\omega$ kann hieraus diagnostiziert werden, hierzu wendet man zunächst den horizontalen Laplace-Operator $\Delta_h$ auf Glg. \eqref{eq:first_theorem_qg} an:
 %
 \begin{eqnarray}
-\Delta\frac{\partial}{\partial p}\frac{\partial\psi}{\partial t} = -\Delta_H\left[\mathbf{v}_{h, g}\cdot\nabla\left(\frac{\partial\psi}{\partial p}\right)\right] - \frac{\sigma}{f_0}\Delta\omega.\label{eq:omega_eq_deriv_1}
+\Delta\frac{\partial}{\partial p}\frac{\partial\psi}{\partial t} = -\Delta_h\left[\mathbf{v}_{h, g}\cdot\nabla\left(\frac{\partial\psi}{\partial p}\right)\right] - \frac{\sigma}{f_0}\Delta\omega.\label{eq:omega_eq_deriv_1}
 \end{eqnarray}
 %
 Nun wird Glg. \eqref{eq:vorticity_p_qg} nach $p$ differenziert:
@@ -11948,14 +11949,14 @@ Hieraus folgt
 \newoverline{\psi}_T & = & -\newoverline{u}_Ty.
 \end{eqnarray}
 %
-Für den Grundzustand $\newoverline{\mathbf{v}_{h, g}}$ kann man somit notieren
+Für den Grundzustand $\newoverline{\mathbf{v}_h}$ kann man somit notieren
 %
 \begin{eqnarray}
-\newoverline{\mathbf{v}_{h, g}}_1 & = & \left(\begin{array}{c}
+\newoverline{\mathbf{v}_h}_1 & = & \left(\begin{array}{c}
 \newoverline{u}_T\\
 0
 \end{array}\right),\\
-\newoverline{\mathbf{v}_{h, g}}_3 & = & \left(\begin{array}{c}
+\newoverline{\mathbf{v}_h}_3 & = & \left(\begin{array}{c}
 - \newoverline{u}_T\\
 0
 \end{array}\right).
@@ -11977,14 +11978,14 @@ Für die potentiellen Vorticities gilt
 Dieses Feld ist stationär:
 %
 \begin{eqnarray}
-\left(\frac{\partial}{\partial t} + \newoverline{\mathbf{v}_{h, g}}_1\cdot\nabla\right)\newoverline{q}_1 & = & 0\\
-\left(\frac{\partial}{\partial t} + \newoverline{\mathbf{v}_{h, g}}_3\cdot\nabla\right)\newoverline{q}_3 & = & 0
+\left(\frac{\partial}{\partial t} + \newoverline{\mathbf{v}_h}_1\cdot\nabla\right)\newoverline{q}_1 & = & 0\\
+\left(\frac{\partial}{\partial t} + \newoverline{\mathbf{v}_h}_3\cdot\nabla\right)\newoverline{q}_3 & = & 0
 \end{eqnarray}
 %
 Wendet man den Störungsansatz auch auf die hier verwendete Form der materiellen Ableitung sowie auf die potentielle Vorticity an, folgt
 %
 \begin{eqnarray}
-\md{_H^{(g)}} & = & \frac{\partial}{\partial t} + \newoverline{\mathbf{v}_{h, g}}\cdot\nabla + \mathbf{v}_{h, g}'\cdot\nabla,\\
+\md{_h^{(g)}} & = & \frac{\partial}{\partial t} + \newoverline{\mathbf{v}_h}\cdot\nabla + \mathbf{v}_h'\cdot\nabla,\\
 q & = & \newoverline{q} + q'.
 \end{eqnarray}
 %
@@ -12018,7 +12019,7 @@ q_3' & = & \frac{\partial^2\psi_3'}{\partial x^2} + K^2\psi_T'.
 Um die Tendenzgleichungen zu untersuchen, notiert man
 %
 \begin{eqnarray}
-\frac{\partial\newoverline{q}}{\partial t} + \newoverline{\mathbf{v}_{h, g}}\cdot\nabla\newoverline{q} + \frac{\partial q'}{\partial t} + \newoverline{\mathbf{v}_{h, g}}\cdot\nabla q' + \mathbf{v}_{h, g}'\cdot\nabla\newoverline{q} + \mathbf{v}_{h, g}'\cdot\nabla q' = 0.
+\frac{\partial\newoverline{q}}{\partial t} + \newoverline{\mathbf{v}_h}\cdot\nabla\newoverline{q} + \frac{\partial q'}{\partial t} + \newoverline{\mathbf{v}_h}\cdot\nabla q' + \mathbf{v}_h'\cdot\nabla\newoverline{q} + \mathbf{v}_h'\cdot\nabla q' = 0.
 \end{eqnarray}
 %
 Die ersten beiden Terme ergeben Null, wie bereits festgehalten. Das letzte Skalarprodukt verschwindet aufgrund der Orthogonalität der beteiligten Vektoren ebenfalls. Somit gelten
@@ -12365,7 +12366,7 @@ U = U\left(y\right)
 und eine Störung
 %
 \begin{eqnarray}
-\mathbf{v}_{h, g}' = \left(u, v\right)^T = \mathbf{k}\times\nabla\psi
+\mathbf{v}_h' = \left(u, v\right)^T = \mathbf{k}\times\nabla\psi
 \end{eqnarray}
 %
 mit einer Stromfunktion $\psi$. Man betrachte einen zonalen Kanal der Ausdehnung $2b$ mit $b>0$, die Gerade $y = 0$ liege in der Mitte dieses Kanals. Die Randbedingungen seien $\omega = 0$ bei $p = 0$ und $p = p_0$ und $v = 0$ bei $y = \pm b$. Dann ist der Horizontalwind divergenzfrei und es kann die \textit{barotrope Vorticitygleichung}\index{Vorticitygleichung!barotrope}\index{barotrope Vorticitygleichung} angewandt werden, 
@@ -12380,7 +12381,7 @@ Hierbei sei $\beta$ homogen, s. Absch. \ref{sec:betaebene}. Macht man hier einen
 \frac{\partial\zeta'}{\partial t} + \beta v + U\frac{\partial\zeta'}{\partial x} + v\frac{\partial\newoverline{\zeta}}{\partial y} = 0.
 \end{eqnarray}
 %
-Hierbei wurde für die Vorticity geschrieben $\zeta = \newoverline{\zeta} + \zeta'$ mit $\newoverline{\zeta}$ als Vorticity von $U$ und $\zeta'$ als Vorticity von $\mathbf{v}_{h, g}'$. Setze für die Störung $\psi$
+Hierbei wurde für die Vorticity geschrieben $\zeta = \newoverline{\zeta} + \zeta'$ mit $\newoverline{\zeta}$ als Vorticity von $U$ und $\zeta'$ als Vorticity von $\mathbf{v}_h'$. Setze für die Störung $\psi$
 %
 \begin{eqnarray}
 \psi\left(x, y, t\right) = Y\left(y\right)\psi_0e^{i\left(kx - \omega t\right)}
@@ -13183,7 +13184,7 @@ Die Geostrophie gilt in nullter Ordnung auf der synoptischen Skala in den Extrat
 Mit Glg. \eqref{sec:tendency_def} kann man Glg. \eqref{eq:tendency_eq_pre} wie folgt umschreiben:
 %
 \begin{eqnarray}
-\underbrace{\vphantom{\left[\Delta + \frac{f_0^2}{\sigma}\frac{\partial^2}{\partial p^2}\right]\chi = -f_0v_g\beta - \mathbf{v}_{h, g}\cdot\nabla\left(\Delta\phi\right) - \frac{f_0^2}{\sigma}\frac{\partial}{\partial p}\left[\mathbf{v}_{h, g}\cdot\nabla\frac{\partial\phi}{\partial p}\right]}\left[\Delta + \frac{f_0^2}{\sigma}\frac{\partial^2}{\partial p^2}\right]\chi}_{=:A} = \underbrace{\vphantom{\left[\Delta + \frac{f_0^2}{\sigma}\frac{\partial^2}{\partial p^2}\right]\chi = -f_0v_g\beta - \mathbf{v}_{h, g}\cdot\nabla\left(\Delta\phi\right) - \frac{f_0^2}{\sigma}\frac{\partial}{\partial p}\left[\mathbf{v}_{h, g}\cdot\nabla\frac{\partial\phi}{\partial p}\right]} -f_0v_g\beta}_{=:B}\underbrace{\vphantom{\left[\Delta + \frac{f_0^2}{\sigma}\frac{\partial^2}{\partial p^2}\right]\chi = -f_0v_g\beta - \mathbf{v}_{h, g}\cdot\nabla\left(\Delta\phi\right) - \frac{f_0^2}{\sigma}\frac{\partial}{\partial p}\left[\mathbf{v}_{h, g}\cdot\nabla\frac{\partial\phi}{\partial p}\right]} -\mathbf{v}_{h, g}\cdot\nabla\left(\Delta\phi\right)}_{=:C} \underbrace{\vphantom{\left[\Delta + \frac{f_0^2}{\sigma}\frac{\partial^2}{\partial p^2}\right]\chi = -f_0v_g\beta - \mathbf{v}_{h, g}\cdot\nabla\left(\Delta\phi\right) - \frac{f_0^2}{\sigma}\frac{\partial}{\partial p}\left[\mathbf{v}_{h, g}\cdot\nabla\frac{\partial\phi}{\partial p}\right]} -\frac{f_0^2}{\sigma}\frac{\partial}{\partial p}\left[\mathbf{v}_{h, g}\cdot\nabla\frac{\partial\phi}{\partial p}\right]}_{=:D}\label{eq:tendency_eq_cyclogen}
+\underbrace{\vphantom{\left[\Delta + \frac{f_0^2}{\sigma}\frac{\partial^2}{\partial p^2}\right]\chi = -f_0v_g\beta - \mathbf{v}_{h, g}\cdot\nabla\left(\Delta\phi\right) - \frac{f_0^2}{\sigma}\frac{\partial}{\partial p}\left[\mathbf{v}_{h, g}\cdot\nabla\frac{\partial\phi}{\partial p}\right]}\left[\Delta + \frac{f_0^2}{\sigma}\frac{\partial^2}{\partial p^2}\right]\chi}_{=:A} = \underbrace{\vphantom{\left[\Delta + \frac{f_0^2}{\sigma}\frac{\partial^2}{\partial p^2}\right]\chi = -f_0v_g\beta - \mathbf{v}_{h, g}\cdot\nabla\left(\Delta\phi\right) - \frac{f_0^2}{\sigma}\frac{\partial}{\partial p}\left[\mathbf{v}_{h, g}\cdot\nabla\frac{\partial\phi}{\partial p}\right]} -f_0v_g\beta}_{=:B}\underbrace{\vphantom{\left[\Delta + \frac{f_0^2}{\sigma}\frac{\partial^2}{\partial p^2}\right]\chi = -f_0v_g\beta - \mathbf{v}_{h, g}\cdot\nabla\left(\Delta\phi\right) - \frac{f_0^2}{\sigma}\frac{\partial}{\partial p}\left[\mathbf{v}_{h, g}\cdot\nabla\frac{\partial\phi}{\partial p}\right]} -\mathbf{v}_{h, g}\cdot\nabla\left(\Delta\phi\right)}_{=:C} \underbrace{\vphantom{\left[\Delta + \frac{f_0^2}{\sigma}\frac{\partial^2}{\partial p^2}\right]\chi = -f_0v_g\beta - \mathbf{v}_{h, g}\cdot\nabla\left(\Delta\phi\right) - \frac{f_0^2}{\sigma}\frac{\partial}{\partial p}\left[\mathbf{v}_{h, g}\cdot\nabla\frac{\partial\phi}{\partial p}\right]} -\frac{f_0^2}{\sigma}\frac{\partial}{\partial p}\left[\mathbf{v}_h\cdot\nabla\frac{\partial\phi}{\partial p}\right]}_{=:D}\label{eq:tendency_eq_cyclogen}
 \end{eqnarray}
 %
 Dabei wurde im Term D eine Ableitung nach $p$ herausgezogen, wobei Glg. \eqref{eq:therm_wind} ausgenutzt wurde, da dies den Term anschaulicher macht. Diese Gleichung soll nun konzeptionell untersucht werden. Geht man davon aus, dass $\chi$ aus nur einer einzigen Fourier-Komponente im dreidimensionalen Raum besteht, folgt
@@ -13222,7 +13223,7 @@ Dieser Term führt also stromabwärts des Troges und stromaufwärts des Rückens
 \newtilde{L} = \frac{2\pi U}{\beta}
 \end{eqnarray}
 %
-kompensieren sich $B$ und $C$, die Welle ist stationär. Noch längere Wellen propagieren retrograd. Beide Terme $B$ und $C$ verschwinden an den Achsen der Druckgebilde, also tragen sie ausschließlich zu deren Verlagerung bei, nicht jedoch zu ihrer Vertiefung. Hierfür ist der Term $D$ zuständig. Das Skalarprodukt $\mathbf{v}_{h, g}\cdot\nabla\frac{\partial\phi}{\partial p}$ ist die horizontale Temperaturadvektion, wie sich aus der hydrostatischen Grundgleichung in der Form Glg. \eqref{eq:hydrostatic_p} ergibt. Daher bezeichnet man $D$ auch als negative \textit{differenzielle Temperaturadvektion}\index{differenzielle Temperaturadvektion}\index{Temperaturadvektion!differenzielle}. Es gilt
+kompensieren sich $B$ und $C$, die Welle ist stationär. Noch längere Wellen propagieren retrograd. Beide Terme $B$ und $C$ verschwinden an den Achsen der Druckgebilde, also tragen sie ausschließlich zu deren Verlagerung bei, nicht jedoch zu ihrer Vertiefung. Hierfür ist der Term $D$ zuständig. Das Skalarprodukt $\mathbf{v}_h\cdot\nabla\frac{\partial\phi}{\partial p}$ ist die horizontale Temperaturadvektion, wie sich aus der hydrostatischen Grundgleichung in der Form Glg. \eqref{eq:hydrostatic_p} ergibt. Daher bezeichnet man $D$ auch als negative \textit{differenzielle Temperaturadvektion}\index{differenzielle Temperaturadvektion}\index{Temperaturadvektion!differenzielle}. Es gilt
 %
 \begin{eqnarray}
 D = \begin{cases}
@@ -13326,10 +13327,10 @@ ausgegangen. $-\nabla\cdot\newtilde{\Pi}$ liefert die \index{Eddy-Stress-Term}\t
 \md{\mathbf{v}} = \mathbf{0}\label{eq:burgers_eq}
 \end{eqnarray}
 %
-folgt, was man als \textit{Burgers-Gleichung}\index{Burgers-Gleichung} bezeichnet. Ihr entsprechend bewegt sich jedes Fluidteilchen auf einer geradlinig-gleichförmigen Bahn. Dies ist jedoch kein vollständig sinnvoller Ansatz, es ergibt sich daraus jedoch eine sinnvolle Möglichkeit, die $u', v', w'$ zu parametrisieren. Bewegt sich ein Teilchen von $z$ nach $z + l$ und behält dabei seine Horizontalgeschwindigkeit $\mathbf{v}_{h, g}$ bei, gilt nach Glg. \eqref{eq:burgers_eq}
+folgt, was man als \textit{Burgers-Gleichung}\index{Burgers-Gleichung} bezeichnet. Ihr entsprechend bewegt sich jedes Fluidteilchen auf einer geradlinig-gleichförmigen Bahn. Dies ist jedoch kein vollständig sinnvoller Ansatz, es ergibt sich daraus jedoch eine sinnvolle Möglichkeit, die $u', v', w'$ zu parametrisieren. Bewegt sich ein Teilchen von $z$ nach $z + l$ und behält dabei seine Horizontalgeschwindigkeit $\mathbf{v}_h$ bei, gilt nach Glg. \eqref{eq:burgers_eq}
 %
 \begin{eqnarray}
-\mathbf{v}_{h, g}'\left(z + l\right) = \mathbf{v}_{h, g}\left(z + l\right) - \overline{\mathbf{v}_{h, g}}\left(z + l\right) = \newoverline{\mathbf{v}_{h, g}}\left(z\right) - \overline{\mathbf{v}_{h, g}}\left(z + l\right) = \overline{\mathbf{v}_{h, g}}\left(z + l\right) - l\frac{\partial\newoverline{\mathbf{v}_{h, g}}}{\partial z} - \overline{\mathbf{v}_{h, g}}\left(z + l\right) = -l\frac{\partial\newoverline{\mathbf{v}_{h, g}}}{\partial z}
+\mathbf{v}_h'\left(z + l\right) = \mathbf{v}_h\left(z + l\right) - \overline{\mathbf{v}_h}\left(z + l\right) = \newoverline{\mathbf{v}_h}\left(z\right) - \overline{\mathbf{v}_h}\left(z + l\right) = \overline{\mathbf{v}_h}\left(z + l\right) - l\frac{\partial\newoverline{\mathbf{v}_h}}{\partial z} - \overline{\mathbf{v}_h}\left(z + l\right) = -l\frac{\partial\newoverline{\mathbf{v}_h}}{\partial z}
 \end{eqnarray}
 %
 Man beachte hierbei auch das Vorzeichen von $l$, welches im Fall nach unten gerichteter Bewegung als negativ verstanden werden muss. Somit folgt beispielsweise
@@ -13338,21 +13339,21 @@ Man beachte hierbei auch das Vorzeichen von $l$, welches im Fall nach unten geri
 \tau_{x, z} = -\rho\newoverline{u'w'} = \rho\newoverline{w'l}\frac{\partial\newoverline{u}}{\partial z}.
 \end{eqnarray}
 %
-Im Falle einer indifferent geschichteten Atmosphäre gilt $\left|w'\right| \sim \left|\mathbf{v}_{h, g}'\right|$, was der Tatsache entspricht, dass in diesem Fall die horizontale Skala der Wirbel genauso groß ist wie die vertikale, man setzt daher
+Im Falle einer indifferent geschichteten Atmosphäre gilt $\left|w'\right| \sim \left|\mathbf{v}_h'\right|$, was der Tatsache entspricht, dass in diesem Fall die horizontale Skala der Wirbel genauso groß ist wie die vertikale, man setzt daher
 %
 \begin{eqnarray}
-w' = l\left|\frac{\partial\overline{\mathbf{v}_{h, g}}}{\partial z}\right|.
+w' = l\left|\frac{\partial\overline{\mathbf{v}_h}}{\partial z}\right|.
 \end{eqnarray}
 %
 Daraus folgt
 %
 \begin{eqnarray}
-\tau_{x, z} = -\rho\newoverline{u'w'} = \rho\newoverline{l^2}\left|\frac{\partial\newoverline{\mathbf{v}_{h, g}}}{\partial z}\right|\frac{\partial\newoverline{u}}{\partial z} \equiv A_z\frac{\partial\overline{u}}{\partial z}.\label{eq:eddy_corr_para}
+\tau_{x, z} = -\rho\newoverline{u'w'} = \rho\newoverline{l^2}\left|\frac{\partial\newoverline{\mathbf{v}_h}}{\partial z}\right|\frac{\partial\newoverline{u}}{\partial z} \equiv A_z\frac{\partial\overline{u}}{\partial z}.\label{eq:eddy_corr_para}
 \end{eqnarray}
 %
 Den Koeffizienten
 \begin{eqnarray}
-A_z \coloneqq \rho\newoverline{l^2}\left|\frac{\partial\newoverline{\mathbf{v}_{h, g}}}{\partial z}\right|\label{eq:def_eddy_exchange_coeff}
+A_z \coloneqq \rho\newoverline{l^2}\left|\frac{\partial\newoverline{\mathbf{v}_h}}{\partial z}\right|\label{eq:def_eddy_exchange_coeff}
 \end{eqnarray}
 %
 bezeichnet man als \index{Eddy-Austauschkoeffizient}\textit{Eddy-Austauschkoeffizienten}.
@@ -13533,7 +13534,7 @@ K \approx \frac{\left|f\right|D^2}{2\pi^2} \approx 5\text{ m}^2/\text{s}.
 Dies ist über fünf Größenordnungen über dem Wert der kinematischen Viskosität von $1, 5\cdot 10^{-5}$ m$^2$/s. Mit Glg. \eqref{eq:def_eddy_exchange_coeff} folgt für die Mischungsweglänge
 %
 \begin{eqnarray}
-l = \sqrt{\frac{K}{\left|\frac{\partial\newoverline{\mathbf{v}_{h, g}}}{\partial z}\right|}} \sim \sqrt{\frac{KD}{u_g}} \sim 2\cdot 10^1\text{ m}.
+l = \sqrt{\frac{K}{\left|\frac{\partial\newoverline{\mathbf{v}_h}}{\partial z}\right|}} \sim \sqrt{\frac{KD}{u_g}} \sim 2\cdot 10^1\text{ m}.
 \end{eqnarray}
 %
 Dies entspricht der Erwartung, dass $l \ll D$ sein muss, damit das Mischungswegkonzept in der planetaren Grenzschicht sinnvoll ist. Es ergibt sich mit Glg. \eqref{eq:karman_eq} eine Höhe $D_P$ der Prandtl-Schicht von ca.
@@ -13639,7 +13640,7 @@ $\kappa_{\psi}$ ist zunächst einmal molekularen Ursprungs. Die in nichtlinearen
 wobei der Index $\Delta$ für den in die Diskretisierung einzusetzenden Diffusionskoeffizienten steht und der Index $S$ für die Auswirkung der Subskala. Auf diese Weise ist physikalische Konsistenz gewährleistet. Mit kleiner werdenden $\Delta x, \Delta t$, also mit höherer Ausflösung, konvergiert $\kappa_{\psi, \Delta}$ gegen $\kappa_{\psi}.$ Bei niedriger Ausflösung gilt in guter Näherung $\kappa_{\psi, \Delta} = \kappa_{\psi, S}$. Da der vertikale Gitterpunktabstand üblicherweise deutlich kleiner ist als der horizontale, kann man $\kappa_{\psi, S}$ richtungsabhängig ansetzen, also
 %
 \begin{eqnarray}
-\kappa_{\psi, \Delta}\nabla\psi \to \kappa_{\psi, \Delta, H}\nabla_H\psi + \kappa_{\psi, \Delta, z}\frac{\partial\psi}{\partial z}\mathbf{k}.
+\kappa_{\psi, \Delta}\nabla\psi \to \kappa_{\psi, \Delta, H}\nabla_h\psi + \kappa_{\psi, \Delta, z}\frac{\partial\psi}{\partial z}\mathbf{k}.
 \end{eqnarray}
 %
 Dabei ist der horizontale Diffusionskoeffizient größer als der vertikale.
@@ -13680,32 +13681,32 @@ Dabei ist der horizontale Diffusionskoeffizient größer als der vertikale.
 Die in Absch. \ref{sec:ekman-transport} durchgeführte Herleitung der Ekman-Spirale kann man ohne Modifikationen auf einen ebenen Ozeanboden übertragen. An der Ozeanoberfläche hingegen fehlt die Adhäsionsbedinung $\lim_{\mathbf{r} \to \partial V}\mathbf{v} = \mathbf{0}$, vielmehr wäre die Annahme sinnvoll, dass an der Ozeanoberfläche Windgeschwindigkeit und Strömungsgeschwindigkeit gegen einen gemeinsamen Grenzwert konvergieren. Man müsste dann die Ekman-Spirale simultan in Ozean und Atmosphäre lösen. Es gibt jedoch eine einfachere Möglichkeit, den Einfluss des Windes auf die Zirkulation im Ozean grundlegend zu untersuchen. Hierzu setzt man zunächst das Kräftegleichgewicht der Glg.en \eqref{eq:friction_boundary_equilibrium_x} - \eqref{eq:friction_boundary_equilibrium_y} an:
 %
 \begin{eqnarray}
-f\mathbf{k}\times\mathbf{v}_{h, g} = -\nabla\phi + \frac{1}{\rho_0}\frac{\partial\mathbf{\tau}}{\partial z}
+f\mathbf{k}\times\mathbf{v}_{h} = -\nabla\phi + \frac{1}{\rho_0}\frac{\partial\mathbf{\tau}}{\partial z}
 \end{eqnarray}
 %
 Man geht nun davon aus, dass die vertikalen Dichtegradienten so klein sind, dass man den Term $\frac{1}{\rho_0}$ in die partielle Ableitung hereinziehen kann, also
 %
 \begin{eqnarray}
-f\mathbf{k}\times\mathbf{v}_{h, g} = -\nabla\phi + \frac{\partial}{\partial z}\left(\frac{\mathbf{\tau}}{\rho_0}\right).
+f\mathbf{k}\times\mathbf{v}_{h} = -\nabla\phi + \frac{\partial}{\partial z}\left(\frac{\mathbf{\tau}}{\rho_0}\right).
 \end{eqnarray}
 %
 Hieraus wendet man nun die Rotation an, also
 %
 \begin{eqnarray}
-\nabla\times f\mathbf{k}\times\mathbf{v}_{h, g} = \nabla\times\frac{\partial}{\partial z}\left(\frac{\mathbf{\tau}}{\rho_0}\right).\label{eq:wind-driven_circ_deriv_1}
+\nabla\times f\mathbf{k}\times\mathbf{v}_{h} = \nabla\times\frac{\partial}{\partial z}\left(\frac{\mathbf{\tau}}{\rho_0}\right).\label{eq:wind-driven_circ_deriv_1}
 \end{eqnarray}
 %
 Mit Glg. \eqref{eq:diff_op_rule_7} folgt
 %
 \begin{eqnarray}
-\nabla\times f\mathbf{k}\times\mathbf{v}_{h, g} & = & \left(\mathbf{v}_{h, g}\cdot\nabla\right)f\mathbf{k} - \mathbf{v}_{h, g}\left(\nabla\cdot f\mathbf{k}\right) + f\mathbf{k}\nabla\cdot\mathbf{v}_{h, g} - \left(f\mathbf{k}\cdot\nabla\right)\mathbf{v}_{h, g}
+\nabla\times f\mathbf{k}\times\mathbf{v}_{h} & = & \left(\mathbf{v}_{h}\cdot\nabla\right)f\mathbf{k} - \mathbf{v}_{h}\left(\nabla\cdot f\mathbf{k}\right) + f\mathbf{k}\nabla\cdot\mathbf{v}_{h} - \left(f\mathbf{k}\cdot\nabla\right)\mathbf{v}_{h}
 \end{eqnarray}
 %
 Projektion auf die vertikale Richtung ergibt
 %
 \begin{eqnarray}
-\mathbf{k}\cdot\nabla\times f\mathbf{k}\times\mathbf{v}_{h, g} & = & \mathbf{k}\cdot\left(\mathbf{v}_{h, g}\cdot\nabla\right)f\mathbf{k} + f\nabla\cdot\mathbf{v}_{h, g}\nonumber\\
-\Rightarrow \mathbf{k}\cdot\nabla\times f\mathbf{k}\times\mathbf{v}_{h, g} & = & v\beta - f\frac{\partial w}{\partial z}.
+\mathbf{k}\cdot\nabla\times f\mathbf{k}\times\mathbf{v}_{h} & = & \mathbf{k}\cdot\left(\mathbf{v}_{h}\cdot\nabla\right)f\mathbf{k} + f\nabla\cdot\mathbf{v}_{h}\nonumber\\
+\Rightarrow \mathbf{k}\cdot\nabla\times f\mathbf{k}\times\mathbf{v}_{h} & = & v\beta - f\frac{\partial w}{\partial z}.
 \end{eqnarray}
 %
 Integration über das Höhenintervall $\left[z_B, z_T\right]$ ergibt somit
@@ -13742,10 +13743,10 @@ anwenden. Damit erhält man
 Um den Reibungsterm am Grund zu parametrisieren, verwendet man das \textit{Stommel-Modell}\index{Stommel-Modell}\index{Parametrisierung!der Reibung durch Stommel}, welches lautet
 %
 \begin{eqnarray}
-\mathbf{\tau}_B = r\newoverline{\mathbf{v}_{h, g}}
+\mathbf{\tau}_B = r\newoverline{\mathbf{v}_{h}}
 \end{eqnarray}
 %
-mit einer Konstante $r > 0$. Mit $w = 0$ gilt auch $\nabla\cdot\mathbf{v}_{h, g} = 0$, weshalb man den gemittelten Wind durch eine Stromfunktion $\psi$ ausdrücken kann:
+mit einer Konstante $r > 0$. Mit $w = 0$ gilt auch $\nabla\cdot\mathbf{v}_{h} = 0$, weshalb man den gemittelten Wind durch eine Stromfunktion $\psi$ ausdrücken kann:
 %
 \begin{eqnarray}
 \newoverline{u} & = & -\frac{\partial\psi}{\partial y}\\
@@ -13757,9 +13758,18 @@ Somit kann man notieren
 \begin{eqnarray}
 \beta D\frac{\partial\psi}{\partial x} + \mathbf{k}\cdot\frac{1}{\rho_0}\nabla\times\mathbf{\tau}_B & = & \mathbf{k}\cdot\frac{1}{\rho_0}\nabla\times\mathbf{\tau}_T\nonumber\\
 \Leftrightarrow \beta D\frac{\partial\psi}{\partial x} + \frac{r}{\rho_0}\Delta\psi & = & \mathbf{k}\cdot\frac{1}{\rho_0}\nabla\times\mathbf{\tau}_T\nonumber\\
-\Leftrightarrow \frac{\partial\psi}{\partial x} + \frac{r}{\rho_0\beta D}\Delta\psi & = & \frac{1}{\rho_0\beta D}\mathbf{k}\cdot\nabla\times\mathbf{\tau}_T\nonumber\\
-\Leftrightarrow \frac{\partial\psi}{\partial x} + \epsilon\Delta\psi & = & \frac{\epsilon}{r}\mathbf{k}\cdot\nabla\times\mathbf{\tau}_T\label{eq:stommel_deq}
+\Leftrightarrow \frac{\partial\psi}{\partial x} + \frac{r}{\rho_0\beta D}\Delta\psi & = & \frac{1}{\rho_0\beta D}\mathbf{k}\cdot\nabla\times\mathbf{\tau}_T\nonumber
 \end{eqnarray}
+
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{eqnarray}
+\Leftrightarrow \frac{\partial\psi}{\partial x} + \epsilon\Delta\psi & = & \frac{\epsilon}{r}\mathbf{k}\cdot\nabla\times\mathbf{\tau}_T\label{eq:stommel_dynamics}
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
 %
 mit
 %
@@ -13767,7 +13777,7 @@ mit
 \epsilon \coloneqq \frac{r}{\rho_0\beta D}.
 \end{eqnarray}
 %
-Es gilt
+Glg. \eqref{eq:stommel_dynamics} ist die Bewegungsgleichung des Stommel-Modells\index{Stommel-Modell}. Es gilt
 %
 \begin{eqnarray}
 \frac{\frac{\partial\psi}{\partial x}}{\epsilon\Delta\psi} \sim \frac{L\rho_0\beta D}{r}
@@ -13787,13 +13797,107 @@ Somit folgt
 %
 In grober Näherung kann man für sehr große Skalen also konzeptionell von
 %
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 \begin{eqnarray}
 \frac{\partial\psi}{\partial x} & = & \frac{\epsilon}{r}\mathbf{k}\cdot\nabla\times\mathbf{\tau}_T
 \end{eqnarray}
+\end{center}
+}}
+\end{center}
 %
 ausgehen, was man als \textit{Sverdrup-Balance}\index{Sverdrup-Balance} bezeichnet. Hieraus lässt sich die Ozeanströmung bei gegebener Windeinwirkung diagnostisch ableiten.
 
-Nun wird Glg. \eqref{eq:stommel_deq} auf der Menge $\left[0, a\right] \times \left[0, a\right]$ mit $a > 0$ gelöst, also für ein quadratisches Becken.
+Nun wird Glg. \eqref{eq:stommel_dynamics} auf der Menge $\left[0, L\right] \times \left[0, L\right]$ mit $L > 0$ gelöst, also für ein quadratisches Becken. Dies ist analytisch nur approximativ möglich. Hierzu geht man von einem wind stress der Form
+%
+\begin{eqnarray}
+\tau_T^{(x)} & = & -\rho_0U^2\cos\left(\pi\frac{y}{L}\right),\\
+\tau_T^{(y)} & = & 0
+\end{eqnarray}
+%
+aus. Hieraus folgt
+%
+\begin{eqnarray}
+\frac{\epsilon}{r}\mathbf{k}\cdot\nabla\times\mathbf{\tau}_T = -\frac{\epsilon\pi}{rL}\rho_0U^2\sin\left(\pi\frac{y}{L}\right)
+\end{eqnarray}
+%
+Man macht den Ansatz
+%
+\begin{eqnarray}
+\psi = \psi_I + \phi,
+\end{eqnarray}
+%
+wobei $\psi_I$ die Lösung im Inneren des Beckens approximieren und $\phi$ die Randeffekte hinzufügen soll. Im Inneren des Beckens sind die größeren Skalen relevant, daher setzt man für $\psi_I$ die Sverdrup-Balance\index{Sverdrup-Balance} an:
+%
+\begin{eqnarray}
+\frac{\partial\psi_I}{\partial x} & = & \frac{\epsilon}{r}\mathbf{k}\cdot\nabla\times\mathbf{\tau}_T = -\frac{\epsilon\pi}{rL}\rho_0U^2\sin\left(\pi\frac{y}{L}\right)
+\end{eqnarray}
+%
+an. Die wird gelöst durch
+%
+\begin{eqnarray}
+\psi_I = \left(C - x\right)\frac{\epsilon\pi}{rL}\rho_0U^2\sin\left(\pi\frac{y}{L}\right).
+\end{eqnarray}
+%
+mit einer Konstanten $C$. Der verbleibende Teil der Differentialgleichung soll durch $\phi$ gelöst werden:
+%
+\begin{eqnarray}
+\epsilon\Delta\phi = 0
+\end{eqnarray}
+%
+Dies wird gelöst durch
+%
+\begin{eqnarray}
+\phi = -B\frac{\epsilon\pi}{rL}\rho_0U^2\sin\left(\pi\frac{y}{L}\right)\exp\left(\pm\pi\frac{x}{L}\right)
+\end{eqnarray}
+%
+mit einer Konstanten $B.$ Die Gesamtlösung lautet somit
+%
+\begin{eqnarray}
+\psi = \psi_I + \phi = \left(C - x - B\exp\left(\pm\pi\frac{x}{L}\right)\right)\frac{\epsilon\pi}{rL}\rho_0U^2\sin\left(\pi\frac{y}{L}\right).
+\end{eqnarray}
+%
+Daraus folgt für die vertikal gemittelten Geschwindigkeiten
+%
+\begin{eqnarray}
+\newoverline{u} & = & -\frac{\partial\psi}{\partial y} = -\frac{\pi}{L}\left(C - x - B\exp\left(\pm\pi\frac{x}{L}\right)\right)\frac{\epsilon\pi}{rL}\rho_0U^2\cos\left(\pi\frac{y}{L}\right),\label{eq:stommel_result_u}\\
+\newoverline{v} & = & \frac{\partial\psi}{\partial x} = \left(-1 \mp B\frac{\pi}{L}\exp\left(\pm\pi\frac{x}{L}\right)\right)\frac{\epsilon\pi}{rL}\rho_0U^2\sin\left(\pi\frac{y}{L}\right).\label{eq:stommel_result_v}
+\end{eqnarray}
+%
+$B$ und $C$ werden aus den Randbediungungen\index{Randbedingung} abgeleitet. Diese lauten
+%
+\begin{eqnarray}
+\newoverline{u}\left(x = 0, L\right) & = & 0,\\
+\newoverline{v}\left(y = 0, L\right) & = & 0.
+\end{eqnarray}
+%
+Die Randbedingungen für $\newoverline{v}$ sind automatisch erfüllt. Aus denen für $\newoverline{u}$ folgt
+%
+\begin{eqnarray}
+C & = & B,\\
+B - L - B\exp\left(-\pi\frac{L}{L}\right) & = & 0 \Rightarrow B = \frac{L}{1 - \exp\left(-\pi\right)},
+\end{eqnarray}
+%
+wobei sich willkürlich auf das negative Vorzeichen in der Exponentialfunktion\index{Exponentialfunktion} festgelegt wurde. Damit folgt
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{eqnarray}
+\psi = \left(\frac{L}{1 - \exp\left(-\pi\right)} - x - \frac{L}{1 - \exp\left(-\pi\right)}\exp\left(-\pi\frac{x}{L}\right)\right)\frac{\epsilon\pi}{rL}\rho_0U^2\sin\left(\pi\frac{y}{L}\right).
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
+
+\begin{figure}
+\begin{center}
+\includegraphics[width = 0.6\textwidth]{figs/stommel.png}
+\caption{Visualisierung der Glg.en \eqref{eq:stommel_result_u} - \eqref{eq:stommel_result_v}.}
+\label{fig:stommel}
+\end{center}
+\end{figure}
 
 \section{Thermohaline Zirkulation}
 \label{sec:thermohaline_zirkulation}\index{thermohaline Zirkulation}\index{Zirkulation!thermohaline}
@@ -14923,7 +15027,7 @@ Die \textit{shallow-atmosphere}-Aprroximation\index{shallow atmosphere} geht von
 \section{Felder}
 \label{sec:felder}\index{Feld!im Modell}
 
-Zunächst einige Definitionen. Seien $f$ ein Skalarfeld und $\mathbf{v}, \mathbf{v}_{h, g}$ Vektorfelder, dann bezeichne die diskretisierten Versionen dieser Felder durch $f', \mathbf{v}', \mathbf{v}_{h, g}'$. Seien weiter $B\subseteq\mathbb{R}^3$ eine Gitterbox mit dem Volumen $V\left(B\right), B_A$ die Menge aller Seitenflächen von $B$ und $B_B$ die Menge aller angrenzenden Gitterboxen, bezeichne weiter den Abstand zweier Gitterboxen $B, B'$ mit $B'\in B_B$ durch $L_{B, B'}$. Definiere außerdem für alle $B'\in B_B$ eine Abbildung $A = A\left(B'\right)$ sowie für alle $A\in B_A$ eine Abbildung $B' = B'\left(A\right)$, welche jede angrenzende Fläche $A$ mit der jeweiligen Gitterbox $B'$ verknüpfen. Für den Flächeninhalt einer Fläche $A\subseteq\mathbb{R}^3$ wird der Ausdruck $V_2\left(A\right)\geq 0$ notiert. Die diskretisierten Operatoren werden, genau wie die Felder, mit gestrichenen Symbolen gekennzeichnet, um sie von ihren kontinuierlichen Gegenstücken abzugrenzen. Wichtig ist außerdem, zu berücksichtigen, dass horizontale Verbindungslinien entlang eines Großkreises berechnet werden.
+Zunächst einige Definitionen. Seien $f$ ein Skalarfeld und $\mathbf{v}, \mathbf{w}$ Vektorfelder, dann bezeichne die diskretisierten Versionen dieser Felder durch $f', \mathbf{v}', \mathbf{w}'$. Seien weiter $B\subseteq\mathbb{R}^3$ eine Gitterbox mit dem Volumen $V\left(B\right), B_A$ die Menge aller Seitenflächen von $B$ und $B_B$ die Menge aller angrenzenden Gitterboxen, bezeichne weiter den Abstand zweier Gitterboxen $B, B'$ mit $B'\in B_B$ durch $L_{B, B'}$. Definiere außerdem für alle $B'\in B_B$ eine Abbildung $A = A\left(B'\right)$ sowie für alle $A\in B_A$ eine Abbildung $B' = B'\left(A\right)$, welche jede angrenzende Fläche $A$ mit der jeweiligen Gitterbox $B'$ verknüpfen. Für den Flächeninhalt einer Fläche $A\subseteq\mathbb{R}^3$ wird der Ausdruck $V_2\left(A\right)\geq 0$ notiert. Die diskretisierten Operatoren werden, genau wie die Felder, mit gestrichenen Symbolen gekennzeichnet, um sie von ihren kontinuierlichen Gegenstücken abzugrenzen. Wichtig ist außerdem, zu berücksichtigen, dass horizontale Verbindungslinien entlang eines Großkreises berechnet werden.
 
 Der Strich als Symbol der Diskretisierung wird von nun an vernachlässigt.
 
@@ -15077,19 +15181,49 @@ für alle $1 \leq b \leq N_b$ ableitet.
 Gesucht wird nach einer Diskretisierung $\times$ des Vektorproduktes $\times$ so, dass die Eigenschaften
 %
 \begin{eqnarray}
-\mathbf{v}\times\mathbf{v}_{h, g} = -\mathbf{v}_{h, g}\times\mathbf{v}
+\mathbf{v}\times\mathbf{v}_h = -\mathbf{v}_h\times\mathbf{v}
 \end{eqnarray}
 %
 sowie
 %
 \begin{eqnarray}
-\mathbf{v}\cdot\left(\mathbf{v}\times\mathbf{v}_{h, g}\right) = \mathbf{v}_{h, g}\cdot\left(\mathbf{v}\times\mathbf{v}_{h, g}\right) = 0
+\mathbf{v}\cdot\left(\mathbf{v}\times\mathbf{v}_h\right) = \mathbf{v}_h\cdot\left(\mathbf{v}\times\mathbf{v}_h\right) = 0
 \end{eqnarray}
 %
 erhalten bleiben.
 
 \section{Zeitschrittverfahren}
 \label{sec:zeitschrittverfahren!zusammensetzung_der_prognostischen_gleichungen}\index{Zeitschrittverfahren!im dynamischen Kern}\index{dynamischer Kern!Zeitschrittverfahren}\index{Kern!dynamischer!Zeitschrittverfahren}
+
+Es besteht folgender Konflikt zwischen expliziten\index{explizites Zeitschrittverfahren}\index{Zeitschrittverfahren!explizites} und impliziten Verfahren\index{implizites Zeitschrittverfahren}\index{Zeitschrittverfahren!implizites}:
+%
+\begin{itemize}
+\item Explizite Verfahren sind einfach zu implementieren und schnell. Der aus dem CFL-Kriterium\index{CFL-Kriterium} folgende Zeitschritt ist jedoch meist deutlich kleiner als der physikalisch notwendige. Dies mindert die Performance expliziter Verfahren erheblich. Explizite Multischrittverfahren\index{Multischrittverfahren} machen darüber hinaus Filter\index{Filter!Zeitschrittverfahren}\index{Zeitschrittverfahren!Filter} erforderlich, welche mimetische Eigenschaften\index{mimetische Eigenschaft!einer Diskretisierung}\index{Diskretisierung!mimetische Eigenschaft} zerstören können.
+\item Implizite Verfahren\index{implizites Zeitschrittverfahren}\index{Zeitschrittverfahren!implizites} sind aufwendiger zu implementieren. Ihre Geschwindigkeit hängt von der Komplexität des Problems ab. Sie sind stabiler als explizite Verfahren.
+\end{itemize}
+%
+Hieraus folgt, dass ein schnelles implizites Verfahren ideal für einen dynamischen Kern wäre. Da die zu lösenden Gleichungen jedoch nichtlinear sind, ist ein dreidimensional implizites Verfahren nur über ein iteratives Vorgehen möglich. Bisher ist es nicht gelungen, hier eine zufriedenstellende Konvergenzgeschwindigkeit zu erreichen. Daher wählt man als Kompromiss das \textit{HEVI-Konzept,}\index{HEVI-Konzept} was für \textit{horizontally explicit, vertically implicit}\index{horizontally explicit, vertically implicit (HEVI)} steht. Hier wird es in folgender Form verwendet:
+%
+\begin{itemize}
+\item Das grundlegene Verfahren ist das Runge-Kutta-Verfahren dritter Ordnung\index{Runge-Kutta-Verfahren dritter Ordnung}, s. Absch. \ref{sec:runge-kutta-anteil}.
+\item Um konsistente Konversionen\index{Energiekonversion} zwischen den Energieformen und damit Energieerhaltung\index{Energieerhaltung} zu gewährleisten, wählt man für den Druckgradienten und die Divergenz ein Forward-backward-Verfahren\index{Forward-backward-Verfahren}, s. Absch. \ref{sec:forward-backward-anteil}. Dabei wird die Divergenz rückwärts und der Gradient mit einer speziellen Interplation vorwärts berechnet.
+\item Um in der vertikalen Richtung das CFL-Kriterium\index{CFL-Kriterium} nicht einhalten zu müssen wählt man für alle Terme, die vertikale Ableitungen enthalten, implizite Verfahren, was gegenüber einem expliziten Verfahren einen ungefähr hundertmal größeren Zeitschritt ermöglicht. Dies wird auf jedem slice separat durchgeführt, es müssen lineare Gleichungssysteme gelöst werden, s. Absch. \ref{sec:impliziter-anteil}. Für die skalaren Punkte wird das implizite Euler-Verfahren\index{implizites Euler-Verfahren}\index{Euler-Verfahren!implizites} verwendet, während für die vektoriellen Punkte das Crank-Nicolson-Verfahren\index{Crank-Nicolson-Verfahren} zum Einsatz kommt.
+\end{itemize}
+
+\subsection{Zuordnung der Terme}
+\label{sec:zuordnung_der_terme}
+
+\subsection{Runge-Kutta-Anteil}
+\label{sec:runge-kutta-anteil}
+
+\subsection{Forward-backward-Anteil}
+\label{sec:forward-backward-anteil}
+
+\subsection{Impliziter Anteil}
+\label{sec:impliziter-anteil}
+
+\subsubsection{Untere Randbedingung}
+\label{sec:untere_randbedingung}
 
 \section{Spezielle Probleme}
 \label{sec:spezielle_probleme}
@@ -15126,9 +15260,6 @@ Es gilt also
 \begin{eqnarray}
 v^{(v)}_{b, k + \frac{1}{2}} = w_{b, k + \frac{1}{2}} - \newoverline{\newoverline{u^{(h)}_{e, k}J_{n, e, k}}^{(b)}}^{k + \frac{1}{2}}.
 \end{eqnarray}
-
-\subsubsection{Untere Randbedingung}
-\label{sec:untere_randbedingung}
 
 \subsubsection{Vertikale Interpolationen}
 \label{sec:vertikale_interpolationen}\index{geländefolgende Koordinaten!vertikale Interpolationen}\index{Koordinaten!geländefolgende!vertikale Interpolationen}
@@ -16219,19 +16350,19 @@ Die Rotation $\rot$ eines Vektorfeldes wird durch
 definiert. Man definiert weiterhin den Operator der horizontalen materiellen Ableitung durch
 %
 \begin{eqnarray}
-\md{_H} \coloneqq \frac{\partial}{\partial t} + u\frac{\partial}{\partial x} + v\frac{\partial}{\partial y} = \frac{\partial}{\partial t} + \mathbf{v}_{h, g}\cdot\nabla\label{eq:mat_derivative_op_hor}
+\md{_h} \coloneqq \frac{\partial}{\partial t} + u\frac{\partial}{\partial x} + v\frac{\partial}{\partial y} = \frac{\partial}{\partial t} + \mathbf{v}_h\cdot\nabla\label{eq:mat_derivative_op_hor}
 \end{eqnarray}
 %
 Analog definiert man den \textit{horizontalen $\nabla-$Operator}\index{Nabla-Operator!horizontaler}\index{horizontaler Nabla-Operator} durch
 %
 \begin{eqnarray}
-\nabla_H \coloneqq \nabla - \mathbf{k}\cdot\nabla.
+\nabla_h \coloneqq \nabla - \mathbf{k}\cdot\nabla.
 \end{eqnarray}
 %
-Der horizontale Laplace-Operator\index{Laplace-Operator!horizontaler}\index{horizontaler Laplace-Operator} $\Delta_H$ ist definiert durch
+Der horizontale Laplace-Operator\index{Laplace-Operator!horizontaler}\index{horizontaler Laplace-Operator} $\Delta_h$ ist definiert durch
 %
 \begin{eqnarray}
-\Delta_H \coloneqq \frac{1}{r^2}\Delta_{\theta, \phi} = \left(\nabla_H\right)^2
+\Delta_h \coloneqq \frac{1}{r^2}\Delta_{\theta, \phi} = \left(\nabla_h\right)^2
 \end{eqnarray}
 %
 mit dem Winkelanteil des Laplace-Operators, s. Glg. \eqref{eq:laplace_winkelanteil}, und $r$ als Kugelradius. Da die $i-$Komponente der Rotation die Rotation des betrachteten Vektorfeldes in der $x_{j,k}-$Ebene ist, kann man
@@ -16261,7 +16392,7 @@ Hat man nämlich eine differenzielle Bilanzgleichung der Größe in der Form
 gegeben mit physikalischen Forcings $F_i$, so folgt hieraus für die lokalzeitliche Änderung von $\psi$ die Gleichung
 %
 \begin{eqnarray}
-\frac{\partial\psi}{\partial t} = -\mathbf{v}\cdot\nabla T + \sum_iF_i = -\mathbf{v}_{h, g}\cdot\nabla - w\frac{\partial L}{\partial z} + \sum_iF_i,
+\frac{\partial\psi}{\partial t} = -\mathbf{v}\cdot\nabla T + \sum_iF_i = -\mathbf{v}_h\cdot\nabla - w\frac{\partial L}{\partial z} + \sum_iF_i,
 \end{eqnarray}
 %
 die \textit{Advektion}\index{Advektion} ist also der Anteil der lokalzeitlichen Änderung, der durch Herantransport bewirkt wird.
@@ -16897,7 +17028,7 @@ Eine weitere Form des advektiven Anteils hiervon ist
 \begin{eqnarray}
 \left(\mathbf{v}\cdot\nabla\right)\mathbf{v} & = & \left[\left(\mathbf{v}_h + w\mathbf{k}\right)\cdot\nabla\right]\left(\mathbf{v}_h + w\mathbf{k}\right) = \left(\mathbf{v}_h\cdot\nabla\right)\mathbf{v}_h + w\frac{\partial\mathbf{v}_h}{\partial z} + \left(\mathbf{v}\cdot\nabla\right)\left(w\mathbf{k}\right)\nonumber\\
 & \stackrel{\text{Glg. \eqref{eq:diff_op_rule_10}}}{=} & \left(\nabla\times\mathbf{v}_h\right)\times\mathbf{v}_h + \nabla\frac{\mathbf{v}_h^2}{2} + w\frac{\partial\mathbf{v}_h}{\partial z} + \left(\mathbf{v}\cdot\nabla\right)\left(w\mathbf{k}\right)\nonumber\\
-& = & \left(\nabla_h\times\mathbf{v}_h\right)\times\mathbf{v}_h + \nabla_H\frac{\mathbf{v}_h^2}{2} + w\frac{\partial\mathbf{v}_h}{\partial z} + \left(\mathbf{v}\cdot\nabla\right)\left(w\mathbf{k}\right).\label{eq:2dvector_invariant_u_advection}
+& = & \left(\nabla_h\times\mathbf{v}_h\right)\times\mathbf{v}_h + \nabla_h\frac{\mathbf{v}_h^2}{2} + w\frac{\partial\mathbf{v}_h}{\partial z} + \left(\mathbf{v}\cdot\nabla\right)\left(w\mathbf{k}\right).\label{eq:2dvector_invariant_u_advection}
 \end{eqnarray}
 %
 Im letzten Schritt wurde
