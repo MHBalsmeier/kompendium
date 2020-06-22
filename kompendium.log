@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/Debian) (preloaded format=xelatex 2020.5.21)  22 JUN 2020 22:31
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/Debian) (preloaded format=xelatex 2020.5.21)  22 JUN 2020 22:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2749,7 +2749,7 @@ Overfull \hbox (1.89996pt too wide) detected at line 522
 
 
 Overfull \hbox (1.89996pt too wide) detected at line 524
- []\TU/OldStandard(0)/m/n/10 265
+ []\TU/OldStandard(0)/m/n/10 266
  []
 
 
@@ -4682,6 +4682,11 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 8170) has occurred while \output is active []
 
  [264]
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `lmtt' (encoding: TU).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+
 [265] [266] [267
 
 ] [268]
@@ -4698,7 +4703,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [272]
-Overfull \hbox (17.04968pt too wide) in paragraph at lines 15661--15665
+Overfull \hbox (17.04968pt too wide) in paragraph at lines 15664--15668
 \TU/OldStandard(0)/m/n/10 Eine Funktion heißt analytisch, falls sie in jedem Pu
 nkt lokal analytisch ist. Es existieren einige Standard-Potenzreihen,
  []
@@ -4728,7 +4733,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [281]
 [282]
-Overfull \hbox (5.03586pt too wide) in paragraph at lines 16352--16356
+Overfull \hbox (5.03586pt too wide) in paragraph at lines 16355--16359
 [] []$ \TU/OldStandard(0)/m/n/10 das Temperaturfeld und $[] [] \OT1/cmr/m/n/10 
 = [][]$ \TU/OldStandard(0)/m/n/10 eine 4-Teilchentrajektorie ist, so ist $[]\OT
 1/cmr/m/n/10 ([]) = [] [] =
@@ -4781,7 +4786,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [299]
-Overfull \hbox (1.61855pt too wide) in paragraph at lines 17303--17307
+Overfull \hbox (1.61855pt too wide) in paragraph at lines 17306--17310
 \TU/OldStandard(0)/m/n/10 mit $[]$ als Massenverteilung, denn hieraus ergibt si
 ch im Falle einer Punktmasse $[]$ am Ursprung mit dem Gauß’schen
  []
@@ -4793,7 +4798,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [301]
-Overfull \hbox (2.67535pt too wide) in alignment at lines 17478--17483
+Overfull \hbox (2.67535pt too wide) in alignment at lines 17481--17486
  [][][] []
  []
 
@@ -4807,7 +4812,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [304]
-Overfull \hbox (3.02802pt too wide) in alignment at lines 17602--17604
+Overfull \hbox (3.02802pt too wide) in alignment at lines 17605--17607
  [][][] []
  []
 
@@ -4897,7 +4902,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [333]
-Overfull \hbox (7.98982pt too wide) in paragraph at lines 19226--19228
+Overfull \hbox (7.98982pt too wide) in paragraph at lines 19229--19231
 \TU/OldStandard(0)/m/n/10 Die Entwicklung einer Funktion nach komplexen Exponen
 tialfunktionen bezeichnet man als \TU/OldStandard-Italic(0)/m/it/10 Fourier-Tra
 nsformation[]
@@ -4907,7 +4912,7 @@ nsformation[]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [334]
-Overfull \hbox (1.68257pt too wide) in paragraph at lines 19311--19315
+Overfull \hbox (1.68257pt too wide) in paragraph at lines 19314--19318
 \TU/OldStandard(0)/m/n/10 Wendet man hierauf die inverse FT an, erhält man wied
 er $[][] [] \OT1/cmr/m/n/10 = [] []$\TU/OldStandard(0)/m/n/10 . Definiere nun d
 ie Fourier-Transformierte
@@ -4917,17 +4922,12 @@ ie Fourier-Transformierte
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [335]
-[336]
-Package microtype Info: Loading generic protrusion settings for font family
-(microtype)             `lmtt' (encoding: TU).
-(microtype)             For optimal results, create family-specific settings.
-(microtype)             See the microtype manual for details.
- (./kompendium.ind [337
+[336] [337
 
-] [338
+] (./kompendium.ind [338] [339
 
-] [339] [340] [341] [342] [343] [344]
-[345] [346] [347]) (./kompendium.aux)
+] [340] [341] [342] [343] [344]
+[345] [346] [347] [348]) (./kompendium.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -4936,12 +4936,12 @@ Package logreq Info: Writing requests to 'kompendium.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 20981 strings out of 479819
- 426438 string characters out of 5895846
- 1211149 words of memory out of 5000000
- 37692 multiletter control sequences out of 15000+600000
+ 20986 strings out of 479819
+ 426626 string characters out of 5895846
+ 1211226 words of memory out of 5000000
+ 37697 multiletter control sequences out of 15000+600000
  544104 words of font info for 155 fonts, out of 8000000 for 9000
  1362 hyphenation exceptions out of 8191
- 63i,24n,111p,1553b,5518s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 63i,24n,111p,1830b,5518s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on kompendium.pdf (347 pages).
+Output written on kompendium.pdf (348 pages).
