@@ -12324,7 +12324,7 @@ Hierbei heben sich die \textcolor{magenta}{magenta} eingefärbten Terme gegensei
 \Leftrightarrow \omega_I^2 & = & \frac{f^2\left(m^2 + \frac{1}{4H^2}\right) + N^2\left(l^2 + k^2\right)}{\textcolor{blue}{k^2 + l^2} + m^2 + \frac{1}{4H^2}}\nonumber\\
 \end{eqnarray}
 %
-Dies kan mann auch in der Form
+Dies kan man auch in der Form
 %
 \begin{center}
 \doublebox{\parbox{0.8\textwidth}{
@@ -12348,6 +12348,59 @@ notieren. Dies ist die \textit{Dispersionsrelation von Schwerewellen.}\index{Dis
 \end{center}
 }}
 \end{center}
+%
+Aus dieser Gleichung folgt
+%
+\begin{eqnarray}
+\nabla_\mathbf{k}\omega_I^2 = \left(\begin{array}{c}
+\frac{2N^2k}{m^2 + \frac{1}{4H^2}}\\
+\frac{2N^2l}{m^2 + \frac{1}{4H^2}}\\
+-2m\frac{N^2\left(k^2 + l^2\right)}{\left(m^2 + \frac{1}{4H^2}\right)^2}
+\end{array}\right).
+\end{eqnarray}
+%
+Mit $\omega' = \sqrt{\omega^2}' = \frac{1}{2\omega}\left(\omega^2\right)'$ erhält man für die Gruppengeschwindigkeit hydrostatischer barokliner Schwerewellen\index{Gruppengeschwindigkeit!barokline Schwerewelle}\index{barokline Schwerewelle!Gruppengeschwindigkeit}\index{Schwerewelle!barokline!Gruppengeschwindigkeit}
+%
+\begin{eqnarray}
+\mathbf{c}_\text{gr} = \frac{1}{\omega_I}\left(\begin{array}{c}
+\frac{N^2k}{m^2 + \frac{1}{4H^2}}\\
+\frac{N^2l}{m^2 + \frac{1}{4H^2}}\\
+-m\frac{N^2\left(k^2 + l^2\right)}{\left(m^2 + \frac{1}{4H^2}\right)^2}
+\end{array}\right) = \frac{1}{\omega_I}\frac{N^2}{m^2 + \frac{1}{4H^2}}\left(\begin{array}{c}
+k\\
+l\\
+-m\frac{k^2 + l^2}{m^2 + \frac{1}{4H^2}}
+\end{array}\right).
+\end{eqnarray}
+%
+Horizontal zeigt die Gruppengeschwindigkeit also in die gleiche Richtung wie die Phasengeschwindigkeit\index{Phasengeschwindigkeit!barokline Schwerewelle}\index{barokline Schwerewelle!Phasengeschwindigkeit}\index{Schwerewelle!barokline!Phasengeschwindigkeit}. Vertikal haben die beiden Geschwindigkeiten entgegengesetzte Vorzeichen. Für die vertikale Wellenlänge\index{Wellenlänge} $l_z$ gilt
+%
+\begin{eqnarray}
+m^2 = \frac{4\pi^2}{l_z^2} \Rightarrow \frac{m^2}{\frac{1}{4H^2}} = \frac{16\pi^2H^2}{l_z^2}. 
+\end{eqnarray}
+%
+Häufig gilt
+%
+\begin{eqnarray}
+\frac{m^2}{\frac{1}{4H^2}} \gg 1.
+\end{eqnarray}
+%
+Unter dieser Voraussetzung gilt
+%
+\begin{eqnarray}
+\mathbf{c}_\text{gr} & = & \frac{1}{\sqrt{f^2 + \frac{N^2}{m^2}\left(k^2 + l^2\right)}}\frac{N^2}{m^2}\left(\begin{array}{c}
+k\\
+l\\
+-\frac{k^2 + l^2}{m}
+\end{array}\right) = \frac{1}{\sqrt{f^2m^2 + N^2\left(k^2 + l^2\right)}}\frac{N^2}{m}\left(\begin{array}{c}
+k\\
+l\\
+-\frac{k^2 + l^2}{m}
+\end{array}\right)\\
+\Rightarrow\mathbf{c}_\text{gr}\cdot\mathbf{k} & = & k^2 + l^2 - \left(k^2 + l^2\right) = 0.
+\end{eqnarray}
+%
+Phasengeschwindigkeit\index{Phasengeschwindigkeit!barokline Schwerewelle}\index{barokline Schwerewelle!Phasengeschwindigkeit}\index{Schwerewelle!barokline!Phasengeschwindigkeit} und Gruppengeschwindigkeit\index{Gruppengeschwindigkeit!barokline Schwerewelle}\index{barokline Schwerewelle!Gruppengeschwindigkeit}\index{Schwerewelle!barokline!Gruppengeschwindigkeit} stehen also senkrecht aufeinander.
 
 \section{Instabilitäten}
 \label{sec:instabilitaeten}\index{Instabilität}\index{Welle!Instabilität}
@@ -15072,35 +15125,7 @@ ohne Näherungen mit der Randbedingung
 \mathbf{v}\cdot\mathbf{n} = 0
 \end{eqnarray}
 %
-auf $\partial A$. Man fordert nun, dass alle Gleichungen in Termen von $p, \rho, T, \mathbf{v}$, die durch algebraische Umformung, Differentiation bis zur dritten Ordnung und Integration über $A$ aus diesem Gleichungssystem hervorgehen, auch nach der Diskretisierung noch zu gelten haben. Dies ist eine endliche, aber sehr große und heterogene Menge and Implikationen. Insbesondere sind damit alle Wellenlösungen und ihre Dispersionsrelationen abgedeckt. Voraussetzungen hierfür sind die Gültigkeit der unabhängigen Rechenregeln für den Nabla-Operator aus Absch. \ref{sec:rechenregeln_fuer_differentialoperatoren}, die hier noch einmal aufgezählt werden, sowie die wichtigen Idenditäten, die für Skalarprodukt und Vektorprodukt gelten. $\mathbf{u},\mathbf{v},\mathbf{w}$ seien Vektorfelder und $\psi$ ein Skalarfeld:
-%
-\begin{eqnarray}
-\nabla\times\nabla\psi & = & \mathbf{0}\\
-\nabla\cdot\nabla\times{\mathbf{0}} & = & \mathbf{0}\\
-\nabla\cdot\left(\psi\mathbf{v}\right) & = & \mathbf{v}\cdot\nabla\psi + \psi\nabla\cdot\mathbf{v}\\
-\nabla\times\psi\mathbf{v} & = & -\mathbf{v}\times\nabla\psi + \psi\nabla\times\mathbf{v}\\
-\nabla\left(\mathbf{v}\cdot\mathbf{w}\right) & = & \left(\mathbf{v}\cdot\nabla\right)\mathbf{w} + \left(\mathbf{w}\cdot\nabla\right)\mathbf{v} + \mathbf{v}\times\left(\nabla\times\mathbf{w}\right) + \mathbf{w}\times\left(\nabla\times\mathbf{v}\right)\\
-\nabla\times\left(\mathbf{v}\times\mathbf{w}\right) & = & \left(\mathbf{w}\cdot\nabla\right)\mathbf{v} - \mathbf{w}\left(\nabla\cdot\mathbf{v}\right) + \mathbf{v}\left(\nabla\cdot\mathbf{w}\right) - \left(\mathbf{v}\cdot\nabla\right)\mathbf{w}\\
-\nabla\left(\nabla\cdot\mathbf{v}\right) & = & \Delta\mathbf{v} + \nabla\times\left(\nabla\times\mathbf{v}\right)\\
-\nabla\cdot\left(\mathbf{v}\times\mathbf{v}\right) & = & \mathbf{w}\cdot\left(\nabla\times\mathbf{v}\right) - \mathbf{v}\cdot\left(\nabla\times\mathbf{w}\right)\\
-\mathbf{v}\cdot\left[\left(\mathbf{v}\cdot\nabla\right)\nabla\psi\right] & = & \mathbf{v}\cdot\left[\left(\mathbf{v}\cdot\nabla\right)\nabla\psi\right]\\
-\left(\mathbf{v}\cdot\nabla\right)\left(\mathbf{v}\cdot\mathbf{w}\right) & = & \mathbf{w}\cdot\left[\left(\mathbf{v}\cdot\nabla\right)\mathbf{v}\right] + \mathbf{v}\cdot\left[\left(\mathbf{v}\cdot\nabla\right)\mathbf{w}\right]\\
-\mathbf{v}\times\mathbf{w} & = & -\mathbf{w}\times\mathbf{v}\\
-\mathbf{v}\cdot\left(\mathbf{v}\times\mathbf{w}\right) & = & 0\\
-\mathbf{v}\cdot\mathbf{w} & = & VW\cos\left(\measuredangle\{\mathbf{v}, \mathbf{w}\}\right)
-\end{eqnarray}
-%
-Dabei schränkt man sich noch wie folgt ein:
-%
-\begin{itemize}
-\item Man betrachtet ein dreidimensionales, duales C-Gitter-Paar.
-\item Die Divergenz macht aus einem Vektorfeld ein Skalarfeld.
-\item Die \textcolor{green}{duale Divergenz} macht aus einem dualen Vektorfeld ein \textcolor{green}{duales Skalarfeld}.
-\item Die Rotation macht aus einem Vektorfeld ein duales Vektorfeld.
-\item Die duale Rotation macht aus einem dualen Vektorfeld ein Vektorfeld.
-\end{itemize}
-%
-Die \textcolor{green}{grün} markierten Felder und Operatoren benötigt man nur für die Überprüfung der Gültigkeit der obigen Forderungen, jedoch nicht für den dynamsichen Kern selbst. Dieses Verfahren wird als \textit{konditionelles Framework}\index{konditionelles Framework}\index{Framework!konditionelles} bezeichnet und es erlaubt, zwischen \textit{richtigen} und \textit{falschen} Diskretisierungen zu unterscheiden.
+auf $\partial A$.
 
 \subsection{Multiplikation eines Skalarfeldes mit einem Vektorfeld}
 \label{sec:multiplikation_eines_skalarfeldes_mit_einem_vektorfeld}
@@ -15205,25 +15230,33 @@ Es besteht folgender Konflikt zwischen expliziten\index{explizites Zeitschrittve
 Hieraus folgt, dass ein schnelles implizites Verfahren ideal für einen dynamischen Kern wäre. Da die zu lösenden Gleichungen jedoch nichtlinear sind, ist ein dreidimensional implizites Verfahren nur über ein iteratives Vorgehen möglich. Bisher ist es nicht gelungen, hier eine zufriedenstellende Konvergenzgeschwindigkeit zu erreichen. Daher wählt man als Kompromiss das \textit{HEVI-Konzept,}\index{HEVI-Konzept} was für \textit{horizontally explicit, vertically implicit}\index{horizontally explicit, vertically implicit (HEVI)} steht. Hier wird es in folgender Form verwendet:
 %
 \begin{itemize}
-\item Das grundlegene Verfahren ist das Runge-Kutta-Verfahren dritter Ordnung\index{Runge-Kutta-Verfahren dritter Ordnung}, s. Absch. \ref{sec:runge-kutta-anteil}.
-\item Um konsistente Konversionen\index{Energiekonversion} zwischen den Energieformen und damit Energieerhaltung\index{Energieerhaltung} zu gewährleisten, wählt man für den Druckgradienten und die Divergenz ein Forward-backward-Verfahren\index{Forward-backward-Verfahren}, s. Absch. \ref{sec:forward-backward-anteil}. Dabei wird die Divergenz rückwärts und der Gradient mit einer speziellen Interplation vorwärts berechnet.
-\item Um in der vertikalen Richtung das CFL-Kriterium\index{CFL-Kriterium} nicht einhalten zu müssen wählt man für alle Terme, die vertikale Ableitungen enthalten, implizite Verfahren, was gegenüber einem expliziten Verfahren einen ungefähr hundertmal größeren Zeitschritt ermöglicht. Dies wird auf jedem slice separat durchgeführt, es müssen lineare Gleichungssysteme gelöst werden, s. Absch. \ref{sec:impliziter-anteil}. Für die skalaren Punkte wird das implizite Euler-Verfahren\index{implizites Euler-Verfahren}\index{Euler-Verfahren!implizites} verwendet, während für die vektoriellen Punkte das Crank-Nicolson-Verfahren\index{Crank-Nicolson-Verfahren} zum Einsatz kommt.
+\item Das grundlegene Verfahren ist das Runge-Kutta-Verfahren dritter Ordnung\index{Runge-Kutta-Verfahren!dritter Ordnung}.
+\item Um in der vertikalen Richtung das CFL-Kriterium\index{CFL-Kriterium} nicht einhalten zu müssen, wählt man für die vertikale Massenflussdichte ein Crank-Nicolson-Verfahren\index{Crank-Nicolson-Verfahren}, was gegenüber einem rein expliziten Verfahren einen ungefähr 50-mal größeren Zeitschritt ermöglicht. Damit das Problem auf lineare Gleichungssysteme und nicht auf ein iteratives Verfahren führt, wird dies für jede Säule separat durchgeführt, s. Absch. \ref{sec:modifikation_zur_stabilisierung}.
 \end{itemize}
 
-\subsection{Zuordnung der Terme}
-\label{sec:zuordnung_der_terme}
+\subsection{Modifikation zur Gewährleistung von Energieerhaltung}
+\label{sec:modifikation_zur_gewährleistung_von_energieerhaltung}
 
-\subsection{Runge-Kutta-Anteil}
-\label{sec:runge-kutta-anteil}
+\subsection{Modifikation zur Stabilisierung}
+\label{sec:modifikation_zur_stabilisierung}
 
-\subsection{Forward-backward-Anteil}
-\label{sec:forward-backward-anteil}
+Um in der vertikalen Richtung nicht an das CFL-Kriterium\index{CFL-Kriterium} gebunden zu sein, werden möglichst viele der Terme mit vertikalen Differenzenquotienten implizit behandelt. Alle Terme mit vertikalen Differenzenquotienten implizit zu behandeln würde auf ein globales nichtlineares Problem führen, was zur Zeit noch nicht ausreichend schnell lösbar ist. Daher wird nur die vertikale kontravariante Massenflussdichte in jeder Säule implizit berechnet. Hieraus werden anschließend das Dichtefeld und die Vertikalgeschwindigkeit aktualisiert. Auch die Entropieflussdichte auf die gleiche Art und Weise implizit zu behandeln ist nicht möglich, da hierbei eine andere Vertikalbewegung herauskäme. Man wählt außerdem das Crank-Nicolson-Verfahren\index{Crank-Nicolson-Verfahren}, welches genauer aber weniger stabil als das implizite Euler-Verfahren\index{implizites Euler-Verfahren}\index{Euler-Verfahren!implizites} ist. Die Festlegung auf genau dieses und nicht etwa ein abgewandeltes Verfahren beruht auf Erfahrungswerten.
 
-\subsection{Impliziter Anteil}
-\label{sec:impliziter-anteil}
+Man definiert zunächst
+%
+\begin{eqnarray}
+M_l \coloneqq \frac{1}{2}
+\end{eqnarray}
+%
 
-\subsubsection{Untere Randbedingung}
-\label{sec:untere_randbedingung}
+
+Hieraus wird über
+%
+\begin{eqnarray}
+\prescript{(m + 1)}{}{\rho} = \prescript{(m)}{}{\rho} + \Delta t\frac{\partial\newtilde{\rho}}{\partial t}\vline_\text{ex} + \frac{\partial\left(\prescript{(m + 1)}{}{M^{(v)}}\right)}{\partial z}
+\end{eqnarray}
+%
+die Massendichte neu berechnet. Zuletzt wird die Entropiedichte $\newtilde{s} = \rho s$ mit dem neuen Wert der Massendichte aktualisiert.
 
 \section{Spezielle Probleme}
 \label{sec:spezielle_probleme}
@@ -15252,7 +15285,7 @@ Hieraus folgt, dass ein schnelles implizites Verfahren ideal für einen dynamisc
 In der Horizontalen sind die kontravarianten Maßzahlen prognostische Variablen und müssen daher nicht rekonstruiert werden. In der Vertikalen benötigt man jedoch
 %
 \begin{eqnarray}
-\mathbf{v}\cdot\mathbf{q}^{(v)} = v^{(v)}.
+\mathbf{v}\cdot\mathbf{e}^{(v)} = v^{(v)}.
 \end{eqnarray}
 %
 Es gilt also
@@ -15260,6 +15293,19 @@ Es gilt also
 \begin{eqnarray}
 v^{(v)}_{b, k + \frac{1}{2}} = w_{b, k + \frac{1}{2}} - \newoverline{\newoverline{u^{(h)}_{e, k}J_{n, e, k}}^{(b)}}^{k + \frac{1}{2}}.
 \end{eqnarray}
+
+\subsubsection{Untere Randbedingung}
+\label{sec:untere_randbedingung}\index{untere Randbedingung!im Modell}\index{Randbedingung!untere!im Modell}\index{Modell!untere Randbedingung}
+
+Die unter Randbedingung lautet
+%
+\begin{eqnarray}
+v^{(v)} = \mathbf{v}\cdot\mathbf{e}^{(v)} & = & 0\nonumber\\
+\Leftrightarrow un_x + vn_y + wn_z & = & 0\nonumber\\
+\Leftrightarrow w & = & -\frac{1}{n_z}\left(un_x + vn_y\right)
+\end{eqnarray}
+%
+mit $\mathbf{n} = \left(n_x, n_y, n_z\right)$ als Normalenvektor auf der Erdoberfläche. Hieraus wird am Ende des Zeitschrittverfahrens\index{Zeitschrittverfahren} $w$ an der Erdoberfläche berechnet.
 
 \subsubsection{Vertikale Interpolationen}
 \label{sec:vertikale_interpolationen}\index{geländefolgende Koordinaten!vertikale Interpolationen}\index{Koordinaten!geländefolgende!vertikale Interpolationen}

@@ -1,0 +1,29 @@
+ Man fordert nun, dass alle Gleichungen in Termen von $p, \rho, T, \mathbf{v}$, die durch algebraische Umformung, Differentiation bis zur dritten Ordnung und Integration über $A$ aus diesem Gleichungssystem hervorgehen, auch nach der Diskretisierung noch zu gelten haben. Dies ist eine endliche, aber sehr große und heterogene Menge and Implikationen. Insbesondere sind damit alle Wellenlösungen und ihre Dispersionsrelationen abgedeckt. Voraussetzungen hierfür sind die Gültigkeit der unabhängigen Rechenregeln für den Nabla-Operator aus Absch. \ref{sec:rechenregeln_fuer_differentialoperatoren}, die hier noch einmal aufgezählt werden, sowie die wichtigen Idenditäten, die für Skalarprodukt und Vektorprodukt gelten. $\mathbf{u},\mathbf{v},\mathbf{w}$ seien Vektorfelder und $\psi$ ein Skalarfeld:
+%
+\begin{eqnarray}
+\nabla\times\nabla\psi & = & \mathbf{0}\\
+\nabla\cdot\nabla\times{\mathbf{0}} & = & \mathbf{0}\\
+\nabla\cdot\left(\psi\mathbf{v}\right) & = & \mathbf{v}\cdot\nabla\psi + \psi\nabla\cdot\mathbf{v}\\
+\nabla\times\psi\mathbf{v} & = & -\mathbf{v}\times\nabla\psi + \psi\nabla\times\mathbf{v}\\
+\nabla\left(\mathbf{v}\cdot\mathbf{w}\right) & = & \left(\mathbf{v}\cdot\nabla\right)\mathbf{w} + \left(\mathbf{w}\cdot\nabla\right)\mathbf{v} + \mathbf{v}\times\left(\nabla\times\mathbf{w}\right) + \mathbf{w}\times\left(\nabla\times\mathbf{v}\right)\\
+\nabla\times\left(\mathbf{v}\times\mathbf{w}\right) & = & \left(\mathbf{w}\cdot\nabla\right)\mathbf{v} - \mathbf{w}\left(\nabla\cdot\mathbf{v}\right) + \mathbf{v}\left(\nabla\cdot\mathbf{w}\right) - \left(\mathbf{v}\cdot\nabla\right)\mathbf{w}\\
+\nabla\left(\nabla\cdot\mathbf{v}\right) & = & \Delta\mathbf{v} + \nabla\times\left(\nabla\times\mathbf{v}\right)\\
+\nabla\cdot\left(\mathbf{v}\times\mathbf{v}\right) & = & \mathbf{w}\cdot\left(\nabla\times\mathbf{v}\right) - \mathbf{v}\cdot\left(\nabla\times\mathbf{w}\right)\\
+\mathbf{v}\cdot\left[\left(\mathbf{v}\cdot\nabla\right)\nabla\psi\right] & = & \mathbf{v}\cdot\left[\left(\mathbf{v}\cdot\nabla\right)\nabla\psi\right]\\
+\left(\mathbf{v}\cdot\nabla\right)\left(\mathbf{v}\cdot\mathbf{w}\right) & = & \mathbf{w}\cdot\left[\left(\mathbf{v}\cdot\nabla\right)\mathbf{v}\right] + \mathbf{v}\cdot\left[\left(\mathbf{v}\cdot\nabla\right)\mathbf{w}\right]\\
+\mathbf{v}\times\mathbf{w} & = & -\mathbf{w}\times\mathbf{v}\\
+\mathbf{v}\cdot\left(\mathbf{v}\times\mathbf{w}\right) & = & 0\\
+\mathbf{v}\cdot\mathbf{w} & = & VW\cos\left(\measuredangle\{\mathbf{v}, \mathbf{w}\}\right)
+\end{eqnarray}
+%
+Dabei schränkt man sich noch wie folgt ein:
+%
+\begin{itemize}
+\item Man betrachtet ein dreidimensionales, duales C-Gitter-Paar.
+\item Die Divergenz macht aus einem Vektorfeld ein Skalarfeld.
+\item Die \textcolor{green}{duale Divergenz} macht aus einem dualen Vektorfeld ein \textcolor{green}{duales Skalarfeld}.
+\item Die Rotation macht aus einem Vektorfeld ein duales Vektorfeld.
+\item Die duale Rotation macht aus einem dualen Vektorfeld ein Vektorfeld.
+\end{itemize}
+%
+Die \textcolor{green}{grün} markierten Felder und Operatoren benötigt man nur für die Überprüfung der Gültigkeit der obigen Forderungen, jedoch nicht für den dynamsichen Kern selbst. Dieses Verfahren wird als \textit{konditionelles Framework}\index{konditionelles Framework}\index{Framework!konditionelles} bezeichnet und es erlaubt, zwischen \textit{richtigen} und \textit{falschen} Diskretisierungen zu unterscheiden.
