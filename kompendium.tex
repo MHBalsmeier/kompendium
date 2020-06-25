@@ -2297,7 +2297,7 @@ Hat man die Schrödinger-Gleichung für ein System gelöst und eine Quantelung d
 |\psi\rangle.
 \end{eqnarray}
 %
-Dies können zum Beispiel spektrale Koeffizienten $a_i$ sein $|\psi\rangle = \left(a_i\right)$ oder eine Quantenzahl $n$ wie beim eindimensionalen harmonischen Oszillator, $|\psi\rangle = |n\rangle$. Diese Notation bezeichnet man auch als \textit{Dirac-Notation}.\index{Diracnotation} Benötigt man zwei Quantenzahlen $n, m$ zur Festlegung eines Zustandes, so schreibt man $|\psi\rangle = |n, m\rangle$. Man definiert
+Dies können zum Beispiel spektrale Koeffizienten $a_i$ sein $|\psi\rangle = \left(a_i\right)$ oder eine Quantenzahl $n$ wie beim eindimensionalen harmonischen Oszillator, $|\psi\rangle = |n\rangle$. Diese Notation bezeichnet man auch als \textit{Dirac-Notation}.\index{Dirac-Notation} Benötigt man zwei Quantenzahlen $n, m$ zur Festlegung eines Zustandes, so schreibt man $|\psi\rangle = |n, m\rangle$. Man definiert
 %
 \begin{eqnarray}
 \langle\psi| \coloneqq |\psi\rangle^\star.
@@ -4046,13 +4046,13 @@ Somit erhält man eine Energie
 - \mubi\cdot\mathbf{B'} = \frac{e}{m_ec}\mathbf{s}\cdot\mathbf{B'} = -\frac{e}{m_ec^2}\mathbf{s}\cdot\left(\mathbf{v}\times\mathbf{E}\right).
 \end{eqnarray}
 %
-Für das E - Feld gilt $\mathbf{E} = \frac{Ze\mathbf{r}}{r^3}$, mit der Definition $\mathbf{l} = \mathbf{r}\times\mathbf{p}$ erhält man die Spin-Bahn - Wechselwirkung
+Für das E-Feld gilt $\mathbf{E} = \frac{Ze\mathbf{r}}{r^3}$, mit der Definition $\mathbf{l} = \mathbf{r}\times\mathbf{p}$ erhält man die Spin-Bahn-Wechselwirkung
 %
 \begin{eqnarray}
 V & = & -\mubi\cdot\mathbf{B'} = -\frac{e}{m_ec^2}\mathbf{s}\cdot\left(\mathbf{v}\times\mathbf{E}\right) = \frac{Ze^2}{m_e^2c^2}\frac{\mathbf{l}\cdot\mathbf{s}}{r^3}.
 \end{eqnarray}
 %
-Eine relativistische quantenmechanische Betrachtung des beschleunigten Elektrons mittels der \textit{Diracgleichung}\index{Diracgleichung} ergibt an dieser Stelle einen zusätzlichen Faktor $1/2$. Der gesuchte Störoperator lautet also
+Eine relativistische quantenmechanische Betrachtung des beschleunigten Elektrons mittels der \textit{Dirac-Gleichung}\index{Dirac-Gleichung} ergibt an dieser Stelle einen zusätzlichen Faktor $1/2$. Der gesuchte Störoperator lautet also
 %
 \begin{eqnarray}
 \newhat{v}_h = \frac{Ze^2}{2m_e^2c^2}\frac{\newhat{\mathbf{l}}\cdot\newhat{\mathbf{s}}}{\newhat{r}^3}.
@@ -4147,24 +4147,24 @@ als Zusammenfassung
 \end{cases}
 \end{eqnarray}
 %
-Relativistische Effekte haben also einen Einfluss auf die Eigenenergien im H-Atom und somit auch auf das Spektrum. Somit hat die Spezielle Relativitätstheorie über die Molekülspektren meteorologische Relevanz.
+Relativistische Effekte haben also einen Einfluss auf die Eigenenergien im H-Atom und somit auch auf das Spektrum.
 
 \subsubsection{Zeitabhängiger Fall}
 \label{sec:zeitabhaengiger_fall}\index{Störungstheorie!zeitabhängige}\index{zeitabhängige Störungstheorie}
 
-Bisher wurden nur zeitlich konstante Störungen $\newhat{v}_h$ betrachtet, nun wird eine Zeitabhängigkeit $\newhat{v}_h\left(t\right)$ zugelassen. Die zeitabhängige Schrödinger-Gleichung wird somit zu
+Bisher wurden nur zeitlich konstante Störungen $\newhat{V}$ betrachtet, nun wird eine Zeitabhängigkeit $\newhat{V}\left(t\right)$ zugelassen. In die zeitabhängige Schrödinger-Gleichung
 %
 \begin{eqnarray}
 \newhat{H}\left(t\right)\left|\psi\left(t\right)\right\rangle = i\hbar\frac{\partial}{\partial t}\left|\psi\left(t\right)\right\rangle\label{eq:sg_zeitabh_stoer}
 \end{eqnarray}
 %
-mit dem zeitabhängigen Hamilton-Operator
+ist nun ein Störoperator
 %
 \begin{eqnarray}
-\newhat{H}\left(t\right) = \newhat{H}_0 + \newhat{v}_h\left(t\right).
+\newhat{H}\left(t\right) = \newhat{H}_0 + \newhat{V}\left(t\right)
 \end{eqnarray}
 %
-Die Lösungen $\left(\left|\psi_n^{(0)}\right\rangle, E_n\right)$ des stationären Problems
+einzusetzen. Die Lösungen $\left(\left|\psi_n^{(0)}\right\rangle, E_n\right)$ des stationären Problems
 %
 \begin{eqnarray}
 \newhat{H}_0\left|\psi_n^{(0)}\right\rangle = E_n\left|\psi_n^{(0)}\right\rangle
@@ -5847,8 +5847,8 @@ nennt man \textit{Temperaturleitfähigkeit}, \index{Temperaturleitfähigkeit} di
 %
 Dies ist die \index{Wärmeleitungsgleichung}\textit{Wärmeleitungsgleichung}.
 
-\subsection{Phasenübergänge}
-\label{sec:phasenuebergaenge}\index{Phasenübergang}
+\subsection{Clausius-Clapeyron-Gleichung}
+\label{sec:clausius-clapeyron-gleichung}\index{Clausius-Clapeyron-Gleichung}
 
 Eine Phase ist eine makroskopische Erscheinungsform von Materie, beispielsweise fest, flüssig oder gasförmig. Jedoch auch innerhalb eines Festkörpers kann es unterschiedliche Phasen geben, die sich beispielsweise in ihren magnetischen Eigenschaften oder Gitterstrukturen unterscheiden. Zunächst geht man von einem Zwei-Phasen-Gleichgewicht aus, beispielsweise bestehend aus flüssigem Wasser und Wasserdampf. Die flüssige Phase sei mit 1 bezeichnet, die gasförmige Phase mit 2. Das Gesamtsystem befinde sich im thermodynamischem Gleichgewicht, sodass $\left(p, T\right)$ in beiden Systemen gleich ist. Die Subsysteme sind offen, es findet also Teilchenaustausch statt. Die Gleichgewichtsbedingung nach Glg. \eqref{eq:gg_gen_kraft} lautet dann
 %
@@ -5979,6 +5979,78 @@ e\left(t\right) = 6, 112\exp\left(\frac{22, 46t}{272, 62 + t}\right),
 \end{eqnarray}
 %
 wobei $t$ die Temperatur in $^\circ$C und $e$ den jeweiligen Sättigungsdampfdruck in hPa bezeichnet.
+
+\subsection{Kapillarität}
+\label{sec:kapillaritaet}\index{Kapillarität}
+
+Man stelle sich eine Grenzfläche $A$ vor, die mit dem $\mathbb{R}^2$ zusammenfällt. Dehnt man diese um einen Faktor $d\epsilon$ in x-Richtung aus, kann man dies als Ausführung der Abbildung
+%
+\begin{eqnarray}
+\left(x, y\right)^T \mapsto \left(x\left(1 + d\epsilon\right), y\right)^T
+\end{eqnarray}
+%
+interpretieren. Dabei nimmt die Energie des Systems um
+%
+\begin{eqnarray}
+dU & = & A\sigma d\epsilon
+\end{eqnarray}
+%
+zu, hierbei ist die Proportionalitätskonstante $\sigma$ die \index{mechanische Oberflächenspannung}\index{Oberflächenspannung!mechanische}\textit{mechanische Oberflächenspannung}. Es gilt
+%
+\begin{eqnarray}
+\sigma = \frac{1}{A}\frac{dU}{d\epsilon}.
+\end{eqnarray}
+%
+Man stellt sich nun eine Zylinderscheibe mit einem Radius $r$ und einem Öffnungswinkel $\varphi$ vor, die auf dem $\mathbb{R}^2$ liegt:
+%
+\begin{eqnarray}
+Z \coloneqq \left\{\left(x, y, z\right)^T\in\mathbb{R}^3\newvline\left|x\right|\leq r\sin\left(\varphi\right)\land 0\leq z\leq\sqrt{r^2-x^2} - r\left(1-\cos\left(\varphi\right)\right)\right\}
+\end{eqnarray}
+%
+Auf ein Flächenelement $dA = r2\sin\left(\varphi\right)dy$ wirkt in z-Richtung die Kraft
+%
+\begin{eqnarray}
+F_z = -2dy\sigma\sin\left(\varphi\right).
+\end{eqnarray}
+%
+Das Vorzeichen von \textcolor{red}{$r$} ist in diesem Fall \textcolor{red}{negativ}, der sich durch $F_z$ aufbauende \index{Kapilardruck}\textit{Kapillardruck} $p_r$ ist positiv. Somit gilt
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{eqnarray}
+p_r = -\frac{\sigma}{r}.
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
+%
+Mit Glg. \eqref{eq:curv_approx} folgt im Fall einer Oberflächenauslenkung $\eta$
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{eqnarray}
+p_k \approx -\sigma\frac{\partial^2\eta}{\partial x^2}.
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
+%
+Bisher wurde nur die Krümmung in einer Raumrichtung betrachtet. Berücksichtigt man beide, ergibt sich
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{eqnarray}
+p_r = -\frac{2\sigma}{r}.\label{eq:capillary_pressure}
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
+
+\subsubsection{Kelvin-Formel}
+\label{sec:kelvin-formal}\index{Kelvin-Formel}
 
 \subsection{Photonengas}
 \label{sec:photonengas}\index{Photonengas}
@@ -11000,48 +11072,6 @@ Setzt man typische Werte ein, folgt $R_o \approx2000$ km.
 \subsection{Kapillarwellen}
 \label{sec:kapillarwellen}\index{Kapillarwellen}
 
-Man stelle sich eine Grenzfläche $A$ vor, die mit dem $\mathbb{R}^2$ zusammenfällt. Dehnt man diese um einen Faktor $d\epsilon$ in x-Richtung aus, kann man dies als Ausführung der Abbildung
-%
-\begin{eqnarray}
-\left(x, y\right)^T \mapsto \left(x\left(1 + d\epsilon\right), y\right)^T
-\end{eqnarray}
-%
-interpretieren. Dabei nimmt die Energie des Systems um
-%
-\begin{eqnarray}
-dU & = & A\sigma d\epsilon
-\end{eqnarray}
-%
-zu, hierbei ist die Proportionalitätskonstante $\sigma$ die \index{mechanische Oberflächenspannung}\index{Oberflächenspannung!mechanische}\textit{mechanische Oberflächenspannung}. Es gilt
-%
-\begin{eqnarray}
-\sigma = \frac{1}{A}\frac{dU}{d\epsilon}.
-\end{eqnarray}
-%
-Man stellt sich nun eine Zylinderscheibe mit einem Radius $r$ und einem Öffnungswinkel $\varphi$ vor, die auf dem $\mathbb{R}^2$ liegt:
-%
-\begin{eqnarray}
-Z \coloneqq \left\{\left(x, y, z\right)^T\in\mathbb{R}^3\newvline\left|x\right|\leq r\sin\left(\varphi\right)\land 0\leq z\leq\sqrt{r^2-x^2} - r\left(1-\cos\left(\varphi\right)\right)\right\}
-\end{eqnarray}
-%
-Auf ein Flächenelement $dA = r2\sin\left(\varphi\right)dy$ wirkt in z-Richtung die Kraft
-%
-\begin{eqnarray}
-F_z = -2dy\sigma\sin\left(\varphi\right).
-\end{eqnarray}
-%
-Das Vorzeichen von $r$ ist in diesem Fall negativ, der sich durch $F_z$ aufbauende \index{Kapilardruck}\textit{Kapillardruck} $p_r$ ist positiv. Somit gilt
-%
-\begin{eqnarray}
-p_r = -\frac{\sigma}{r}.
-\end{eqnarray}
-%
-Mit Glg. \eqref{eq:curv_approx} folgt im Fall einer Oberflächenauslenkung $\eta$
-%
-\begin{eqnarray}
-p_k \approx -\sigma\frac{\partial^2\eta}{\partial x^2}.
-\end{eqnarray}
-%
 Im Fall $\eta = \hat{\eta}\exp\left(ikx - i\omega t\right)$ folgt
 %
 \begin{eqnarray}
@@ -13964,26 +13994,31 @@ wobei sich willkürlich auf das negative Vorzeichen in der Exponentialfunktion\i
 \chapter{\normalfont\textsc{Strahlungstransport}}
 \label{chap:strahlungstransport}
 
-\section{Zwei-Strom-Methode}
-\label{sec:zwei-strom-methode}\index{Zwei-Strom-Methode}
+Die zentrale Größe beim Strahlungstransport\index{Strahlungstransport} ist die spektrale Strahldichte\index{spektrale Strahldichte}\index{Strahldichte!spektrale} $L_\kappa\left(\mathbf{r}, \mathbf{n}, t\right)$, hierbei ist $\kappa$ die Wellenzahl und $\mathbf{n}$ ein Richtungsvektor. Aus ihr können u. a. Wärmeleistungsdichten\index{Wärmeleistungsdichte} abgeleitet werden.
 
 \section{Berechnung der Streu- und Absorptionskoeffizienten}
 \label{sec:berechnung_der_streu-_und_absorptionskoeffizienten}\index{Streukoeffizient}\index{Absorptionskoeffizient}
+
+\section{Approximationen}
+\label{sec:approximationen}\index{Approximation}
+
+Die spektrale Strahldichte\index{spektrale Strahldichte}\index{Strahldichte!spektrale} hängt außer von der Zeit von sechs reellen Zahlen ab. Übliche Felder hängen von drei Koordinaten ab. Ein erstes Problem ist dementsprechend die Menge an Speicherplatz, die notwendig ist, um selbst einen sehr grob diskretisierten Strahlungszustand einer Atmosphäre abzuspeichern. Viel problematischer noch ist hingegen die Lösung der Strahlungsübertragungsgleichug. Daher sind rigorose Approximationen notwendig.
+
+\subsection{Plan-parallele Atmosphäre}
+\label{sec:pla-parallele-atmosphaere}\index{plan-parallele Atmosphäre}
+
+Bei dieser Approximation geht man davon aus, dass die Atmosphäre innerhalb eines gewissen Gebietes horizontal homogen ist, die Eigenschaften also nur vertikal variieren. Dies ist durch die Tatsache motiviert, dass in der Atmosphäre auf großen Skalen horizontale Graienten mindestens zwei Größenordnungen kleiner sind als vertikale.
+
+\subsection{Horizontale Entkopplung}
+\label{sec:horizontale_entkopplung}\index{horizontale Entkopplung}
+
+Bei dieser Approximation teilt man die Atmosphäre in unabhängige Säulen auf und schränkt dadurch die horizontale Wechselwirkung stark ein. Eine solche Säule kann jedoch aus verschiedenen Teilsäulen bestehen oder horizontale Wechselwirkungen können auf andere Weise innerhalb der Säulen parametrisiert werden. Bei steigender Rechenkapazität kann man die Bereiche mit horizontaler Wechselwirkung vergrößern, bis man im Grenzfäll die ganze Atmosphäre als eine einzige Säule ansieht.
 
 \section{Atmosphärische Optik}
 \label{sec:atmosphaerische_optik}\index{atmosphärische Optik}\index{Optik!atmosphärische}
 
 \chapter{\normalfont\textsc{Wolkenmikrophysik}}
 \label{chap:wolkenmikrophysik}\index{Wolkenmikrophysik}
-
-\section{Mehr zum Sättigungsdampfdruck}
-\label{sec:mehr_zum_sättigungsdampfdruck}\index{Sättigungsdampfdruck}
-
-\subsection{Mehr-Stoff-Systeme}
-\label{sec:mehr-stoff-systeme}\index{Mehr-Stoff-System}
-
-\subsection{Kelvin-Formel}
-\label{sec:kelvin-formal}\index{Kelvin-Formel}
 
 \subsection{Köhler-Formel}
 \label{sec:köhler-formel}\index{Köhler-Formel}
@@ -14216,6 +14251,23 @@ also die gleiche Dispersionsrelation wie beim expliziten Euler-Verfahren.
 
 \subsubsection{Crank-Nicolson-Verfahren}
 \label{sec:crank-nicolson-Verfahren}\index{Crank-Nicolson-Verfahren}
+
+Man ist nicht darauf beschränkt, eine Differentialgleichung entweder nur explizit oder nur implizit zu lösen. Sei $\newtilde{f}$ das diskretisierte Analogon eines kontinuierlichen Feldes $f$ und seien $\mathbf{r}_i$ die Gitterpunkte. Ein Zwei-Schritt-Verfahren für eine Differentialgleichung erster Ordnung in der Zeit für $f$ lässt sich in der Form
+%
+\begin{eqnarray}
+\newtilde{f}\left(\mathbf{r}_i, \left(n + 1\right)\Delta t\right) = \newtilde{f}\left(\mathbf{r}_i, n\Delta t\right) + \Delta t\sum_{j = 1}^N\newtilde{F}_j\left[\newtilde{f}\left(\left(n + m_j\right)\Delta t\right)\right]
+\end{eqnarray}
+%
+notieren. Hierbei seien $\newtilde{F}_j$ für $j = 1, \dots, N$ die auf $\newtilde{f}$ wirkenden diskretisierten Forcings. Dabei soll gelten
+%
+\begin{eqnarray}
+m_j = \begin{cases}
+0,\text{ Term $j$ wird explizit behandelt,}\\
+1,\text{ Term $j$ wird implizit behandelt.}
+\end{cases}
+\end{eqnarray}
+%
+Es wurde stillschweigend davon ausgegangen, dass $f$ das einzige auftretende Feld ist. Verallgemeinernd kann man $f$ als Tupel von Feldern ansehen, also als Zustandsvektor. Weiterhin kann man $0 \leq m_j \leq 1$ zulassen, hierbei ist $m_j$ der implizite Anteil. Das Crank-Nicolson-Verfahren\index{Crank-Nicolson-Verfahren} bedeutet $m_j = \frac{1}{2}$.
 
 \subsubsection{Runge-Kutta-Verfahren}
 \label{sec:runge-kutta-verfahren}\index{Runge-Kutta-Verfahren}
