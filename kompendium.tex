@@ -5179,7 +5179,7 @@ Dies sind jeweils drei Aussagen für die partiellen Ableitungen von $E$, $F$, $H
 \left(\frac{\partial^2J}{\partial T\partial \mu}\right)_V = \left(\frac{\partial^2J}{\partial \mu\partial T}\right)_V&\Rightarrow&\left(\frac{\partial N}{\partial T}\right)_{\mu, V} = \left(\frac{\partial S}{\partial\mu}\right)_{T, V}
 \end{eqnarray}
 \begin{eqnarray}
-\left(\frac{\partial^2J}{\partial V\partial\mu}\right)_T = \left(\frac{\partial^2J}{\partial\mu\partial V}\right)_T&\Rightarrow&\left(\frac{\partial N}{\partial V}\right)_{\mu, T} = \left(\frac{\partial p}{\partial\mu}\right)_{T, V}
+\left(\frac{\partial^2J}{\partial V\partial\mu}\right)_T = \left(\frac{\partial^2J}{\partial\mu\partial V}\right)_T&\Rightarrow&\left(\frac{\partial N}{\partial V}\right)_{\mu, T} = \left(\frac{\partial p}{\partial\mu}\right)_{T, V}\label{eq:maxwell_rel_0}
 \end{eqnarray}
 %
 Kennt man die mikroskopische Struktur eines Systems, kann man je nach physikalischer Voraussetzung die Entropie, die mikrokanonische Zustandssumme oder die großkanonische Zustandssumme bestimmen. Die Frage ist, wie man aus den Zustandssummen makroskopische Größen, wie Kompressibilitäten oder Wärmekapazitäten ermitteln kann. Hierzu muss man eines der thermodynamischen Potentiale durch die Zustandssumme des System ausdrücken können. Zunächst wird das kanonische Ensemble betrachtet. In diesem Fall sind $\left(T, V, N\right)$ oder alternativ $\left(\beta, V, N\right)$ festgelegt. Es gilt
@@ -5853,7 +5853,7 @@ Dies ist die \index{Wärmeleitungsgleichung}\textit{Wärmeleitungsgleichung}.
 Eine Phase ist eine makroskopische Erscheinungsform von Materie, beispielsweise fest, flüssig oder gasförmig. Jedoch auch innerhalb eines Festkörpers kann es unterschiedliche Phasen geben, die sich beispielsweise in ihren magnetischen Eigenschaften oder Gitterstrukturen unterscheiden. Zunächst geht man von einem Zwei-Phasen-Gleichgewicht aus, beispielsweise bestehend aus flüssigem Wasser und Wasserdampf. Die flüssige Phase sei mit 1 bezeichnet, die gasförmige Phase mit 2. Das Gesamtsystem befinde sich im thermodynamischem Gleichgewicht, sodass $\left(p, T\right)$ in beiden Systemen gleich ist. Die Subsysteme sind offen, es findet also Teilchenaustausch statt. Die Gleichgewichtsbedingung nach Glg. \eqref{eq:gg_gen_kraft} lautet dann
 %
 \begin{eqnarray}
-\mu_1\left(T, p\right) = \mu_2\left(T, p\right), 
+\mu_1\left(T, p\right) = \mu_2\left(T, p\right),\label{eq:cond_chemical_pot_equilibrium}
 \end{eqnarray}
 %
 wobei $\mu$ das chemische Potential bezeichnet. Man interessiert sich nun für denjenigen Druck $p_S\left(T\right)$, bei dem beide Phasen koexistieren. Dies bedeutet
@@ -6049,8 +6049,105 @@ p_r = -\frac{2\sigma}{r}.\label{eq:capillary_pressure}
 }}
 \end{center}
 
-\subsubsection{Kelvin-Formel}
-\label{sec:kelvin-formal}\index{Kelvin-Formel}
+\subsubsection{Kelvin-Gleichung}
+\label{sec:kelvin-formal}\index{Kelvin-Gleichung}
+
+Bisher wurde angenommen, dass die Phasengrenze eben ist bzw. dass die Oberflächenspannung\index{Oberflächenspannung} Null ist. Im allgemeinen ist die Gleichgewichtsbedingung Glg. \eqref{eq:cond_chemical_pot_equilibrium} vom Radius $R$ der Grenzfläche abhängig:
+%
+\begin{eqnarray}
+\mu_1\left(R, T, V\right) = \mu_2\left(R, T, V\right)\label{eq:cond_chemical_pot_equilibrium_r}
+\end{eqnarray}
+%
+Hierbei wurde die Abhängigkeit von $p$ durch eine Abhängigkeit von $V$ ersetzt. Im weiteren Verlauf der Herleitung wird nur $R$ als Argument mitgeführt, da $T$ und $V$ als konstant angesehen werden. Für die Teilchendichte $n = N/V$ gilt nach Glg. \eqref{eq:maxwell_rel_0}
+%
+\begin{eqnarray}
+n = \left(\frac{\partial p}{\partial\mu}\right)_{T, V} \stackrel{T\text{, }V\text{ const.}}{\Rightarrow} d\mu = \frac{dp}{n}.\label{eq:kelvin_eq_deriv_0}
+\end{eqnarray}
+%
+Glg. \eqref{eq:cond_chemical_pot_equilibrium_r} impliziert
+%
+\begin{eqnarray}
+\mu_1\left(R\right) - \mu_1\left(\infty\right) & = & \mu_2\left(R\right) - \mu_2\left(\infty\right)\nonumber\\
+\Leftrightarrow\int_\infty^R\frac{d\mu_1\left(r\right)}{dr}dr & = & \int_\infty^R\frac{d\mu_2\left(r\right)}{dr}dr.
+\end{eqnarray}
+%
+Dies subsituiert man nun auf $p_i = p_i\left(r_i\right)$:
+%
+\begin{eqnarray}
+\int_{p_1\left(\infty\right)}^{p_1\left(R\right)}\frac{d\mu_1\left(r_1\left(p_1\right)\right)}{dr_1}\frac{dr_1}{dp_1}dr_1 & = & \int_{p_2\left(\infty\right)}^{p_2\left(R\right)}\frac{d\mu_2\left(r_2\left(p_2\right)\right)}{dr_2}\frac{dr_2}{dp_2}dr_2\nonumber\\
+\Leftrightarrow\int_{p_1\left(\infty\right)}^{p_1\left(R\right)}\frac{d\mu_1\left(p_1\right)}{dp_1}dp_1 & = & \int_{p_2\left(\infty\right)}^{p_2\left(R\right)}\frac{d\mu_2\left(p_2\right)}{dp_2}dp_2
+\end{eqnarray}
+%
+Es gilt
+%
+\begin{eqnarray}
+p_1\left(\infty\right) = p_2\left(\infty\right) = p_S.
+\end{eqnarray}
+%
+1 bezeichne wieder die flüssige Phase und 2 die Gasphase. Man definiert
+%
+\begin{eqnarray}
+p_R \coloneqq p_2\left(R\right).
+\end{eqnarray}
+%
+Mit Glg. \eqref{eq:capillary_pressure} folgt
+%
+\begin{eqnarray}
+p_1\left(R\right) = p_R + \frac{2\gamma}{R}.
+\end{eqnarray}
+%
+Somit erhält man
+%
+\begin{eqnarray}
+\int_{p_S}^{p_R + \frac{2\gamma}{R}}\frac{d\mu_1\left(p_1\right)}{dp_1}dp_1 & = & \int_{p_S}^{p_R}\frac{d\mu_2\left(p_2\right)}{dp_2}dp_2.
+\end{eqnarray}
+%
+Setzt man hier Glg. \eqref{eq:kelvin_eq_deriv_0} ein, folgt
+%
+\begin{eqnarray}
+\int_{p_S}^{p_R + \frac{2\gamma}{R}}\frac{1}{n_1\left(p_1\right)}dp_1 & = & \int_{p_S}^{p_R}\frac{1}{n_2\left(p_2\right)}dp_2.
+\end{eqnarray}
+%
+Nimmt man die flüssige Phase als inkompressibel an, ist $n_1 = n_l > 0$ konstant unabhängig von $p$. Mit der Zustandsgleichung idealer Gase $p_2 = n_2k_BT$ folgt
+%
+\begin{eqnarray}
+\frac{p_R + \frac{2\gamma}{R} - p_S}{n_l} = k_BT\int_{p_S}^{p_R}\frac{1}{p_2}dp_2 = k_BT\ln\left(\frac{p_R}{p_S}\right)\nonumber\\
+\Leftrightarrow \frac{N_A}{M}k_BT\ln\left(\frac{p_R}{p_S}\right) = \frac{N_A}{M}\frac{p_R + \frac{2\gamma}{R} - p_S}{n_l},
+\end{eqnarray}
+%
+wobei $M$ die molare Masse des betrachteten Stoffes ist. Unter der Annahme
+%
+\begin{eqnarray}
+\frac{2\gamma}{R} \gg p_R - p_S
+\end{eqnarray}
+%
+folgt hieraus die \textit{Kelvin-Gleichung}\index{Kelvin-Gleichung}
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{eqnarray}
+\ln\left(\frac{p_R}{p_S}\right) = \frac{2\gamma}{R_sTR\rho_l}.
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
+%
+Die Größe
+%
+\begin{eqnarray}
+\Delta U \coloneqq \frac{p_R}{p_S} - 1 = \exp\left(\frac{2\gamma}{R_sTR\rho_l}\right) - 1 \geq 0
+\end{eqnarray}
+%
+ist die Sättigungsfeuchte\index{Sättigungsfeuchte} über einer gekrümmten Oberfläche in Relation zur Sättigungsfeuchte\index{Sättigungsfeuchte} über einer ebenen Oberfläche. Abb. \ref{fig:kelvin_equation} veranschaulicht dies am Beispiel von H$_2$0.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width = 0.6\textwidth]{figs/kelvin_equation.png}
+\caption{Differenz zwischen der Sättigungsfeuchte\index{Sättigungsfeuchte} über einer gekrümmten Oberfläche und über einer ebenen Oberfläche am Beispiel von Wasser.}
+\label{fig:kelvin_equation}
+\end{center}
+\end{figure}
 
 \subsection{Photonengas}
 \label{sec:photonengas}\index{Photonengas}
