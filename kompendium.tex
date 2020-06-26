@@ -15376,12 +15376,16 @@ Es besteht folgender Konflikt zwischen expliziten\index{explizites Zeitschrittve
 \item Implizite Verfahren\index{implizites Zeitschrittverfahren}\index{Zeitschrittverfahren!implizites} sind aufwendiger zu implementieren. Ihre Geschwindigkeit hängt von der Komplexität des Problems ab. Sie sind stabiler als explizite Verfahren.
 \end{itemize}
 %
-Hieraus folgt, dass ein schnelles implizites Verfahren ideal für einen dynamischen Kern wäre. Da die zu lösenden Gleichungen jedoch nichtlinear sind, ist ein dreidimensional implizites Verfahren nur über ein iteratives Vorgehen möglich. Bisher ist es nicht gelungen, hier eine zufriedenstellende Konvergenzgeschwindigkeit zu erreichen. Daher wählt man als Kompromiss das \textit{HEVI-Konzept,}\index{HEVI-Konzept} was für \textit{horizontally explicit, vertically implicit}\index{horizontally explicit, vertically implicit (HEVI)} steht. Hier wird es in folgender Form verwendet:
-%
+Hieraus folgt, dass ein schnelles implizites Verfahren ideal für einen dynamischen Kern wäre. Da die zu lösenden Gleichungen jedoch nichtlinear sind, ist ein dreidimensional implizites Verfahren nur über ein iteratives Vorgehen möglich. Bisher ist es nicht gelungen, hier eine zufriedenstellende Konvergenzgeschwindigkeit zu erreichen. Daher wählt man als Kompromiss das \textit{HEVI-Konzept,}\index{HEVI-Konzept} was für \textit{horizontally explicit, vertically implicit}\index{horizontally explicit, vertically implicit (HEVI)} steht. Das grundlegende Zeitschrittverfahren des Modells ist das Runge-Kutta-Verfahren\index{Runge-Kutta-Verfahren!dritter Ordnung} dritter Ordnung. Das prinzipielle Verfahren bei jedem Unterschritt ist folgendes:
+
 \begin{itemize}
-\item Das grundlegene Verfahren ist das Runge-Kutta-Verfahren dritter Ordnung\index{Runge-Kutta-Verfahren!dritter Ordnung}.
-\item Um in der vertikalen Richtung das CFL-Kriterium\index{CFL-Kriterium} nicht einhalten zu müssen, wählt man für die vertikale Massenflussdichte ein Crank-Nicolson-Verfahren\index{Crank-Nicolson-Verfahren}, was gegenüber einem rein expliziten Verfahren einen ungefähr 50-mal größeren Zeitschritt ermöglicht. Damit das Problem auf lineare Gleichungssysteme und nicht auf ein iteratives Verfahren führt, wird dies für jede Säule separat durchgeführt, s. Absch. \ref{sec:modifikation_zur_stabilisierung}.
+\item Zunächst wird die vertikale Advektion von $\mathbf{v}_h$ mittels eines impliziten Verfahrens berechnet, s. Absch. \ref{sec:drei-band-solver}.
+\item Anschließend werden die horizontalen Terme explizit berechnet.
+\item Anschließend wird die vertikale Massenadvektion implizit berechnet, s. Absch. \ref{sec:fuenf-band-solver}, hieraus werden die neuen Werte von $w$ und $\rho$ berechnet.
+\item Aus dem neuen Wert für $w$ werden $\newtilde{s}$ sowie die $\rho_i$ der Tracer\index{Tracer} aktualisiert.
 \end{itemize}
+%
+Aus Energieerhaltungsgründen wird für den kovarianten Druckgradienten in allen drei Unterschritten ein gleicher, spezieller Wert verwendet, s. Absch. \ref{sec:modifikation_zur_gewährleistung_von_energieerhaltung}. Die Festlegung auf genau dieses und nicht etwa ein abgewandeltes Verfahren beruht auch auf Erfahrungswerten.
 
 \subsection{Modifikation zur Gewährleistung von Energieerhaltung}
 \label{sec:modifikation_zur_gewährleistung_von_energieerhaltung}
@@ -15389,7 +15393,50 @@ Hieraus folgt, dass ein schnelles implizites Verfahren ideal für einen dynamisc
 \subsection{Modifikation zur Stabilisierung}
 \label{sec:modifikation_zur_stabilisierung}
 
-Um in der vertikalen Richtung nicht an das CFL-Kriterium\index{CFL-Kriterium} gebunden zu sein, werden möglichst viele der Terme mit vertikalen Differenzenquotienten implizit behandelt. Alle Terme mit vertikalen Differenzenquotienten implizit zu behandeln würde auf ein globales nichtlineares Problem führen, was zur Zeit noch nicht ausreichend schnell lösbar ist. Daher wird nur die vertikale kontravariante Massenflussdichte in jeder Säule implizit berechnet. Hieraus werden anschließend das Dichtefeld und die Vertikalgeschwindigkeit aktualisiert. Auch die Entropieflussdichte auf die gleiche Art und Weise implizit zu behandeln ist nicht möglich, da hierbei eine andere Vertikalbewegung herauskäme. Man wählt außerdem das Crank-Nicolson-Verfahren\index{Crank-Nicolson-Verfahren}, welches genauer aber weniger stabil als das implizite Euler-Verfahren\index{implizites Euler-Verfahren}\index{Euler-Verfahren!implizites} ist. Die Festlegung auf genau dieses und nicht etwa ein abgewandeltes Verfahren beruht auf Erfahrungswerten.
+Um in der vertikalen Richtung nicht an das CFL-Kriterium\index{CFL-Kriterium} gebunden zu sein, werden Terme mit vertikalen Differenzenquotienten implizit behandelt. Damit dies nicht auf ein globales nichtlineares Problem führt, muss man dies für jeden horizontalen und vektoriellen Datenpunkt separat tun.
+
+\subsubsection{Drei-Band-Solver}
+\label{sec:drei-band-solver}\index{Drei-Band-Solver}
+
+Sei $v$ eine horizontale Vektorkomponente, vorbereitend wird das Crank-Nicolson-Verfahren\index{Crank-Nicolson-Verfahren} mit $n$ als gegenwärtigem Zeitschritt notiert:
+%
+\begin{eqnarray}
+v_{n + 1} = v_n + \Delta t\frac{\partial v_n}{\partial t} = v_n + \frac{\Delta t}{2}\left(\frac{\partial v_n}{\partial t} + \frac{\partial v_{n + 1}}{\partial t}\right)
+\end{eqnarray}
+%
+An dieser Stelle geht es dabei um vertikale Advektion\index{Advektion!vertikale}:
+%
+\begin{eqnarray}
+v_{n + 1} = v_n - \frac{w_n\Delta t}{2}\left(\frac{\partial v_n}{\partial z} + \frac{\partial v_{n + 1}}{\partial z}\right)
+\end{eqnarray}
+%
+Die vertikale Diskretisierung erfordert einen Layerindex $1 \leq i \leq N_L - 1$:
+%
+\begin{eqnarray}
+v_{n + 1}^{(i)} = v_n^{(i)} - \frac{\newoverline{w_n}^{(i)}\Delta t}{2}\left(\frac{v_n^{(i - 1)} - v_n^{(i + 1)}}{z_{i - 1} - z_{i + 1}} + \frac{v_{n + 1}^{(i - 1)} - v_{n + 1}^{(i + 1)}}{z_{i - 1} - z_{i + 1}}\right)
+\end{eqnarray}
+%
+Man definiert den Vektor $\mathbf{V}$ der Unbekannten durch
+%
+\begin{eqnarray}
+\mathbf{V} = \left(\begin{array}{c}
+v_{n + 1}^{(0)}\\
+v_{n + 1}^{(1)}\\
+\vdots\\
+v_{n + 1}^{(N_L - 1)}
+\end{array}\right),
+\end{eqnarray}
+%
+für diesen gilt ein lineares Gleichungssystem\index{lineares Gleichungssystem}\index{Gleichungssystem!lineares}
+%
+\begin{eqnarray}
+\overleftrightarrow{A}\cdot\mathbf{V} = \mathbf{b}
+\end{eqnarray}
+%
+mit einer Matrix $\overleftrightarrow{A}$ und einer rechten Seite $\mathbf{b}$.
+
+\subsubsection{Fünf-Band-Solver}
+\label{sec:fuenf-band-solver}\index{Fünf-Band-Solver}
 
 Man definiert zunächst
 %
@@ -17225,9 +17272,17 @@ Eine weitere Form des advektiven Anteils hiervon ist
 %
 \begin{eqnarray}
 \left(\mathbf{v}\cdot\nabla\right)\mathbf{v} & = & \left[\left(\mathbf{v}_h + w\mathbf{k}\right)\cdot\nabla\right]\left(\mathbf{v}_h + w\mathbf{k}\right) = \left(\mathbf{v}_h\cdot\nabla\right)\mathbf{v}_h + w\frac{\partial\mathbf{v}_h}{\partial z} + \left(\mathbf{v}\cdot\nabla\right)\left(w\mathbf{k}\right)\nonumber\\
-& \stackrel{\text{Glg. \eqref{eq:diff_op_rule_10}}}{=} & \left(\nabla\times\mathbf{v}_h\right)\times\mathbf{v}_h + \nabla\frac{\mathbf{v}_h^2}{2} + w\frac{\partial\mathbf{v}_h}{\partial z} + \left(\mathbf{v}\cdot\nabla\right)\left(w\mathbf{k}\right)\nonumber\\
-& = & \left(\nabla_h\times\mathbf{v}_h\right)\times\mathbf{v}_h + \nabla_h\frac{\mathbf{v}_h^2}{2} + w\frac{\partial\mathbf{v}_h}{\partial z} + \left(\mathbf{v}\cdot\nabla\right)\left(w\mathbf{k}\right).\label{eq:2dvector_invariant_u_advection}
+& \stackrel{\text{Glg. \eqref{eq:diff_op_rule_10}}}{=} & \left(\nabla\times\mathbf{v}_h\right)\times\mathbf{v}_h + \nabla\frac{\mathbf{v}_h^2}{2} + w\frac{\partial\mathbf{v}_h}{\partial z} + \left(\mathbf{v}\cdot\nabla\right)\left(w\mathbf{k}\right)\nonumber
 \end{eqnarray}
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{eqnarray}
+\Leftrightarrow \left(\mathbf{v}\cdot\nabla\right)\mathbf{v} & = & \left(\nabla_h\times\mathbf{v}_h\right)\times\mathbf{v}_h + \nabla_h\frac{\mathbf{v}_h^2}{2} + w\frac{\partial\mathbf{v}_h}{\partial z} + \left(\mathbf{v}\cdot\nabla\right)\left(w\mathbf{k}\right).\label{eq:2dvector_invariant_u_advection}
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
 %
 Im letzten Schritt wurde
 %
@@ -17245,7 +17300,40 @@ v\\0
 \end{array}\right) = -\left(u\frac{\partial u}{\partial z} + v\frac{\partial v}{\partial z}\right)\mathbf{k}  = -\frac{1}{2}\mathbf{k}\frac{\partial\mathbf{v}_h^2}{\partial z}
 \end{eqnarray}
 %
-verwendet. Glg. \eqref{eq:2dvector_invariant_u_advection} bezeichnet man als \textit{2D-vektorinvariante Form der Geschwindigkeitsadvektion}\index{2D-vektorinvariante Form der Geschwindigkeitsadvektion}\index{Geschwindigkeitsadvektion!2D-vektorinvariante Form}.
+verwendet. Glg. \eqref{eq:2dvector_invariant_u_advection} bezeichnet man als \textit{2D-vektorinvariante Form der Geschwindigkeitsadvektion}\index{2D-vektorinvariante Form der Geschwindigkeitsadvektion}\index{Geschwindigkeitsadvektion!2D-vektorinvariante Form}. Eine weitere nützliche Form hiervon  ist
+%
+\begin{eqnarray}
+\left(\mathbf{v}\cdot\nabla\right)\mathbf{v} & = & \left(\nabla\times\mathbf{v}_h\right)\times\mathbf{v}_h + \nabla\frac{\mathbf{v}_h^2}{2} + w\frac{\partial\mathbf{v}_h}{\partial z} + \left(\mathbf{v}\cdot\nabla\right)\left(w\mathbf{k}\right)\nonumber\\
+& = & \left(\nabla\times\mathbf{v}_h\right)\times\mathbf{v}_h + \nabla\frac{\mathbf{v}_h^2}{2} + w\frac{\partial\mathbf{v}}{\partial z} + \left(\mathbf{v}_h\cdot\nabla\right)\left(w\mathbf{k}\right).
+\end{eqnarray}
+%
+Wegen
+%
+\begin{eqnarray}
+\left(\nabla\times\mathbf{v}\right)\times\mathbf{v}_h & = & \left[\nabla\times\left(\mathbf{v}_h + w\mathbf{k}\right)\right]\times\mathbf{v}_h = \left(\nabla\times\mathbf{v}_h\right)\times\mathbf{v}_h + \left(\nabla\times w\mathbf{k}\right)\times\mathbf{v}_h\nonumber\\
+& \stackrel{\text{Glg. }\eqref{eq:rot_local}}{=} & \left(\nabla\times\mathbf{v}_h\right)\times\mathbf{v}_h + \left(\frac{\partial w}{\partial y}\mathbf{i} - \frac{\partial w}{\partial x}\mathbf{j}\right)\times\mathbf{v}_h = \left(\nabla\times\mathbf{v}_h\right)\times\mathbf{v}_h + \mathbf{k}\left(\mathbf{v}_h\cdot\nabla w\right)
+\end{eqnarray}
+%
+und
+%
+\begin{eqnarray}
+\left(\mathbf{v}_h\cdot\nabla\right)\left(w\mathbf{k}\right) & = & \mathbf{k}\left(\mathbf{v}_h\cdot\nabla w\right) + w\left(u\frac{\partial\mathbf{k}}{\partial x} + v\frac{\partial\mathbf{k}}{\partial y}\right) = \mathbf{k}\left(\mathbf{v}_h\cdot\nabla w\right) + w\left(\frac{u}{r\cos\left(\phi\right)}\frac{\partial\mathbf{k}}{\partial\lambda} + \frac{v}{r}\frac{\partial\mathbf{k}}{\partial\phi}\right)\nonumber\\
+& = & \mathbf{k}\left(\mathbf{v}_h\cdot\nabla w\right) + w\left(\frac{u}{r}\mathbf{i} + \frac{v}{r}\mathbf{j}\right) =  \mathbf{k}\left(\mathbf{v}_h\cdot\nabla w\right) + \frac{w}{r}\mathbf{v}_h
+\end{eqnarray}
+%
+gilt
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{eqnarray}
+\left(\mathbf{v}\cdot\nabla\right)\mathbf{v} & = & \left(\nabla\times\mathbf{v}\right)\times\mathbf{v}_h + \nabla\frac{\mathbf{v}_h^2}{2} + w\frac{\partial\mathbf{v}}{\partial z} + \frac{w}{r}\mathbf{v}_h.
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
+%
+Durch Vergleich mit Absch. \ref{sec:shallow_atmosphere} stellt man fest, dass der Term $\frac{w}{r}\mathbf{v}_h$ unter der shallow-atmosphere-Approximation\index{shallow-atmosphere-Approximation} nicht auftritt.
 
 \section{Mehrdimensionale Integralrechnung}
 \label{sec:mehrdimensionale_integralrechnung}\index{mehrdimensionale Integralrechnung}\index{Integralrechnung!mehrdimensionale}
