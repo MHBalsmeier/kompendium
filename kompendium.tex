@@ -14659,7 +14659,7 @@ verwendet wurde. Dies gilt analog für die $v_k$. Hieraus folgt
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{eqnarray}
-0 = \mathbf{v}\cdot\mathbf{0} = \mathbf{v}\cdot\left(\mathbf{i}_1 + \mathbf{i}_2 + \mathbf{i}_3\right) = u_1 + u_2 + u_3
+0 = \mathbf{v}\cdot\mathbf{0} = \mathbf{v}\cdot\left(\mathbf{i}_1 + \mathbf{i}_2 + \mathbf{i}_3\right) = u_1 + u_2 + u_3\label{eq:linear_condition_trivariate}
 \end{eqnarray}
 \end{center}
 }}
@@ -14897,17 +14897,17 @@ notieren. Dabei gelten
 Hieraus folgen
 %
 \begin{eqnarray}
-u_1 & = & \frac{1}{\sqrt{3}}\left(\frac{\partial\psi}{\partial x_3} - \frac{\partial\psi}{\partial x_2}\right) + \frac{\partial\chi}{\partial x_1} = -\frac{1}{\sqrt{3}}\left(\frac{\partial\psi}{\partial x_2} - \frac{\partial\psi}{\partial x_3}\right) + \frac{\partial\chi}{\partial x_1},\\
-u_2 & = & -\frac{1}{\sqrt{3}}\left(\frac{\partial\psi}{\partial x_3} - \frac{\partial\psi}{\partial x_1}\right) + \frac{\partial\chi}{\partial x_2},\\
-u_3 & = & -\frac{1}{\sqrt{3}}\left(\frac{\partial\psi}{\partial x_1} - \frac{\partial\psi}{\partial x_2}\right) + \frac{\partial\chi}{\partial x_3}.
+u_1 & = & \frac{1}{\sqrt{3}}\left(\frac{\partial\psi}{\partial x_3} - \frac{\partial\psi}{\partial x_2}\right) + \frac{\partial\chi}{\partial x_1} = -\frac{1}{\sqrt{3}}\left(\frac{\partial\psi}{\partial x_2} - \frac{\partial\psi}{\partial x_3}\right) + \frac{\partial\chi}{\partial x_1}\label{eq:trivariate_helmholtz_eq_0},\\
+u_2 & = & -\frac{1}{\sqrt{3}}\left(\frac{\partial\psi}{\partial x_3} - \frac{\partial\psi}{\partial x_1}\right) + \frac{\partial\chi}{\partial x_2}\label{eq:trivariate_helmholtz_eq_1},\\
+u_3 & = & -\frac{1}{\sqrt{3}}\left(\frac{\partial\psi}{\partial x_1} - \frac{\partial\psi}{\partial x_2}\right) + \frac{\partial\chi}{\partial x_3}\label{eq:trivariate_helmholtz_eq_2}.
 \end{eqnarray}
 %
 und
 %
 \begin{eqnarray}
-v_1 & = & \frac{\partial\psi}{\partial x_1} + \frac{1}{\sqrt{3}}\left(\frac{\partial\chi}{\partial x_2} - \frac{\partial\chi}{\partial x_3}\right),\\
-v_2 & = & \frac{\partial\psi}{\partial x_2} + \frac{1}{\sqrt{3}}\left(\frac{\partial\chi}{\partial x_3} - \frac{\partial\chi}{\partial x_1}\right),\\
-v_3 & = & \frac{\partial\psi}{\partial x_3} + \frac{1}{\sqrt{3}}\left(\frac{\partial\chi}{\partial x_1} - \frac{\partial\chi}{\partial x_2}\right).
+v_1 & = & \frac{\partial\psi}{\partial x_1} + \frac{1}{\sqrt{3}}\left(\frac{\partial\chi}{\partial x_2} - \frac{\partial\chi}{\partial x_3}\right)\label{eq:trivariate_helmholtz_eq_3},\\
+v_2 & = & \frac{\partial\psi}{\partial x_2} + \frac{1}{\sqrt{3}}\left(\frac{\partial\chi}{\partial x_3} - \frac{\partial\chi}{\partial x_1}\right)\label{eq:trivariate_helmholtz_eq_4},\\
+v_3 & = & \frac{\partial\psi}{\partial x_3} + \frac{1}{\sqrt{3}}\left(\frac{\partial\chi}{\partial x_1} - \frac{\partial\chi}{\partial x_2}\right)\label{eq:trivariate_helmholtz_eq_5}.
 \end{eqnarray}
 %
 Wegen
@@ -14926,6 +14926,47 @@ gelten weiter
 \Delta v_1 & = & \frac{\partial\zeta}{\partial x_1} + \frac{1}{\sqrt{3}}\left(\frac{\partial D}{\partial x_2} - \frac{\partial D}{\partial x_3}\right),\\
 \Delta v_2 & = & \frac{\partial\zeta}{\partial x_2} + \frac{1}{\sqrt{3}}\left(\frac{\partial D}{\partial x_3} - \frac{\partial D}{\partial x_1}\right),\\
 \Delta v_3 & = & \frac{\partial\zeta}{\partial x_3} + \frac{1}{\sqrt{3}}\left(\frac{\partial D}{\partial x_1} - \frac{\partial D}{\partial x_2}\right).
+\end{eqnarray}
+%
+Bei einer ebenen dreieckigen oder hexagonalen C-Gitter-Diskretisierung sind die Geschwindigkeitskomponenten um 120 bzw. 60$^\circ$ gegenüber einander rotiert, jedoch sind die Komponenten nicht am selben Ort definiert. Daher gilt die Bedingung Glg. \eqref{eq:linear_condition_trivariate} nicht ohne weiteres für die Vektorkomponenten, sondern erst nach einer Interpolation an Referenzorte, wofür hier die Zentren der Zellen verwendet werden. Diese Interpolation erfolgt mittels Operatoren
+%
+\begin{eqnarray}
+\newtilde{x}^{(i)}
+\end{eqnarray}
+%
+mit $1 \leq i \leq 3$, wobei $x$ eine beliebige Vektorkomponente ist. Für jede Raumrichtung $i$ braucht man einen separaten Mittelungsoperator. Die Bedingungen Glg. \eqref{eq:linear_condition_trivariate} lassen sich also hier in der Form
+%
+\begin{eqnarray}
+\newtilde{u}_1^{(1)} + \newtilde{u}_2^{(2)} + \newtilde{u}_3^{(3)} & = & 0\label{eq:linear_condition_trivariate_discrete_0},\\
+\newtilde{v}_1^{(1)} + \newtilde{v}_2^{(2)} + \newtilde{v}_3^{(3)} & = & 0\label{eq:linear_condition_trivariate_discrete_1}
+\end{eqnarray}
+%
+notieren. Für jedes Skalarfeld $\alpha$ gilt weiter
+%
+\begin{eqnarray}
+\newtilde{\delta_1\alpha}^{(1)} + \newtilde{\delta_2\alpha}^{(2)} + \newtilde{\delta_3\alpha}^{(3)} = 0,
+\end{eqnarray}
+%
+wobei mit $\delta_i\alpha$ für $1 \leq i \leq 3$ zentrale Differenzenquotienten des Skalarfeldes $\alpha$ in i-Richtung bezeichnet werden. Für die Helmholtz-Aufteilung Glg.en \eqref{eq:trivariate_helmholtz_eq_0} - \eqref{eq:trivariate_helmholtz_eq_5} folgt durch Mittelung in den jeweils relevanten Raumrichtungen
+%
+\begin{eqnarray}
+\newtilde{u}_1^{(1)} & = & \frac{1}{\sqrt{3}}\left(\newtilde{\delta_3\psi}^{(1)} - \newtilde{\delta_2\psi}^{(1)}\right) + \newtilde{\delta_1\chi}^{(1)},\\
+\newtilde{u}_2^{(2)} & = & \frac{1}{\sqrt{3}}\left(\newtilde{\delta_1\psi}^{(2)} - \newtilde{\delta_3\psi}^{(2)}\right) + \newtilde{\delta_2\chi}^{(2)},\\
+\newtilde{u}_3^{(3)} & = & \frac{1}{\sqrt{3}}\left(\newtilde{\delta_2\psi}^{(3)} - \newtilde{\delta_1\psi}^{(3)}\right) + \newtilde{\delta_3\chi}^{(3)},\\
+\newtilde{v}_1^{(1)} & = & \frac{1}{\sqrt{3}}\left(\newtilde{\delta_2\chi}^{(1)} - \newtilde{\delta_3\chi}^{(1)}\right) + \newtilde{\delta_1\psi}^{(1)},\\
+\newtilde{v}_2^{(2)} & = & \frac{1}{\sqrt{3}}\left(\newtilde{\delta_3\chi}^{(2)} - \newtilde{\delta_1\chi}^{(2)}\right) + \newtilde{\delta_2\psi}^{(2)},\\
+\newtilde{v}_3^{(3)} & = & \frac{1}{\sqrt{3}}\left(\newtilde{\delta_1\chi}^{(3)} - \newtilde{\delta_2\chi}^{(3)}\right) + \newtilde{\delta_3\psi}^{(3)}.
+\end{eqnarray}
+%
+Hiermit sind die Glg.en \eqref{eq:linear_condition_trivariate_discrete_0} - \eqref{eq:linear_condition_trivariate_discrete_1} noch nicht erfüllt, vielmehr ist eine vorbereitende Mitttelung der Skalarfelder erforderlich:
+%
+\begin{eqnarray}
+\newtilde{u}_1^{(1)} & = & \frac{1}{\sqrt{3}}\left(\newtilde{\delta_3\newtilde{\psi}^{(2)}}^{(1)} - \newtilde{\delta_2\newtilde{\psi}^{(3)}}^{(1)}\right) + \newtilde{\delta_1\chi}^{(1)}\\
+\newtilde{u}_2^{(2)} & = & \frac{1}{\sqrt{3}}\left(\newtilde{\delta_1\newtilde{\psi}^{(3)}}^{(2)} - \newtilde{\delta_3\newtilde{\psi}^{(1)}}^{(2)}\right) + \newtilde{\delta_2\chi}^{(2)}\\
+\newtilde{u}_3^{(3)} & = & \frac{1}{\sqrt{3}}\left(\newtilde{\delta_2\newtilde{\psi}^{(1)}}^{(3)} - \newtilde{\delta_1\newtilde{\psi}^{(2)}}^{(3)}\right) + \newtilde{\delta_3\chi}^{(3)}\\
+\newtilde{v}_1^{(1)} & = & \frac{1}{\sqrt{3}}\left(\newtilde{\delta_2\newtilde{\chi}^{(3)}}^{(1)} - \newtilde{\delta_3\newtilde{\chi}^{(2)}}^{(1)}\right) + \newtilde{\delta_1\psi}^{(1)}\\
+\newtilde{v}_2^{(2)} & = & \frac{1}{\sqrt{3}}\left(\newtilde{\delta_3\newtilde{\chi}^{(1)}}^{(2)} - \newtilde{\delta_1\newtilde{\chi}^{(3)}}^{(2)}\right) + \newtilde{\delta_2\psi}^{(2)}\\
+\newtilde{v}_3^{(3)} & = & \frac{1}{\sqrt{3}}\left(\newtilde{\delta_1\newtilde{\chi}^{(2)}}^{(3)} - \newtilde{\delta_2\newtilde{\chi}^{(1)}}^{(3)}\right) + \newtilde{\delta_3\psi}^{(3)}
 \end{eqnarray}
 
 \chapter{\normalfont\textsc{Entwicklung eines globalen dynamischen Kerns}}
@@ -15379,8 +15420,8 @@ Es besteht folgender Konflikt zwischen expliziten\index{explizites Zeitschrittve
 Hieraus folgt, dass ein schnelles implizites Verfahren ideal für einen dynamischen Kern wäre. Da die zu lösenden Gleichungen jedoch nichtlinear sind, ist ein dreidimensional implizites Verfahren nur über ein iteratives Vorgehen möglich. Bisher ist es nicht gelungen, hier eine zufriedenstellende Konvergenzgeschwindigkeit zu erreichen. Daher wählt man als Kompromiss das \textit{HEVI-Konzept,}\index{HEVI-Konzept} was für \textit{horizontally explicit, vertically implicit}\index{horizontally explicit, vertically implicit (HEVI)} steht. Das grundlegende Zeitschrittverfahren des Modells ist das Runge-Kutta-Verfahren\index{Runge-Kutta-Verfahren!dritter Ordnung} dritter Ordnung. Das prinzipielle Verfahren bei jedem Unterschritt ist folgendes:
 
 \begin{itemize}
-\item Zunächst wird die vertikale Advektion von $\mathbf{v}_h$ mittels eines impliziten Verfahrens berechnet, s. Absch. \ref{sec:drei-band-solver}.
-\item Anschließend werden die horizontalen Terme explizit berechnet.
+\item Zunächst werden die horizontalen Terme explizit berechnet.
+\item Anschließend wird die vertikale Advektion von $\mathbf{v}_h$ mittels eines impliziten Verfahrens berechnet, s. Absch. \ref{sec:drei-band-solver}.
 \item Anschließend wird die vertikale Massenadvektion implizit berechnet, s. Absch. \ref{sec:fuenf-band-solver}, hieraus werden die neuen Werte von $w$ und $\rho$ berechnet.
 \item Aus dem neuen Wert für $w$ werden $\newtilde{s}$ sowie die $\rho_i$ der Tracer\index{Tracer} aktualisiert.
 \end{itemize}
