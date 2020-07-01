@@ -15420,10 +15420,12 @@ Es besteht folgender Konflikt zwischen expliziten\index{explizites Zeitschrittve
 Hieraus folgt, dass ein schnelles implizites Verfahren ideal für einen dynamischen Kern wäre. Da die zu lösenden Gleichungen jedoch nichtlinear sind, ist ein dreidimensional implizites Verfahren nur über ein iteratives Vorgehen möglich. Bisher ist es nicht gelungen, hier eine zufriedenstellende Konvergenzgeschwindigkeit zu erreichen. Daher wählt man als Kompromiss das \textit{HEVI-Konzept,}\index{HEVI-Konzept} was für \textit{horizontally explicit, vertically implicit}\index{horizontally explicit, vertically implicit (HEVI)} steht. Das grundlegende Zeitschrittverfahren des Modells ist das Runge-Kutta-Verfahren\index{Runge-Kutta-Verfahren!dritter Ordnung} dritter Ordnung. Das prinzipielle Verfahren bei jedem Unterschritt ist folgendes:
 
 \begin{itemize}
-\item Zunächst werden die horizontalen Terme explizit berechnet.
-\item Anschließend wird die vertikale Advektion von $\mathbf{v}_h$ mittels eines impliziten Verfahrens berechnet, s. Absch. \ref{sec:drei-band-solver}.
-\item Anschließend wird die vertikale Massenadvektion implizit berechnet, s. Absch. \ref{sec:fuenf-band-solver}, hieraus werden die neuen Werte von $w$ und $\rho$ berechnet.
-\item Aus dem neuen Wert für $w$ werden $\newtilde{s}$ sowie die $\rho_i$ der Tracer\index{Tracer} aktualisiert.
+\item Zunächst werden die Geschwindigkeitstendenzen des expliziten Anteils berechnet.
+\item Anschließend wird die vertikale Advektion von $\mathbf{v}_h$ mittels eines impliziten Verfahrens berechnet, s. Absch. \ref{sec:vertikale_advektion_des_horizontalwindes}.
+\item Anschleißend wird mittels der neuen Werte von $\mathbf{v}_h$ die Vertikalgeschwindigkeit an der Erdoberfläche aus der Bedingung $\mathbf{v}\cdot\mathbf{n} = 0$ am neuen Zeitschritt berechnet.
+\item Anschließend wird die vertikale Advektion von $w$ mittels eines impliziten Verfahrens berechnet, s. Absch. \ref{sec:vertikale_advektion_des_vertikalwindes}.
+\item Nun werden die Divergenzen mittels der alten Werte der skalaren Variablen und der neuen Werte der Geschwindigkeitskomponenten berechnet.
+\item Aus den Divergenzen werden die skalaren Variablen am neuen Zeitschritt berechnet.
 \end{itemize}
 %
 Aus Energieerhaltungsgründen wird für den kovarianten Druckgradienten in allen drei Unterschritten ein gleicher, spezieller Wert verwendet, s. Absch. \ref{sec:modifikation_zur_gewährleistung_von_energieerhaltung}. Die Festlegung auf genau dieses und nicht etwa ein abgewandeltes Verfahren beruht auch auf Erfahrungswerten.
@@ -15434,27 +15436,58 @@ Aus Energieerhaltungsgründen wird für den kovarianten Druckgradienten in allen
 \subsection{Modifikation zur Stabilisierung}
 \label{sec:modifikation_zur_stabilisierung}
 
-Um in der vertikalen Richtung nicht an das CFL-Kriterium\index{CFL-Kriterium} gebunden zu sein, werden Terme mit vertikalen Differenzenquotienten implizit behandelt. Damit dies nicht auf ein globales nichtlineares Problem führt, muss man dies für jeden horizontalen und vektoriellen Datenpunkt separat tun.
+Um in der vertikalen Richtung nicht all zu sehr an das CFL-Kriterium\index{CFL-Kriterium} gebunden zu sein, wird die vertikale Impulsadvektion implizit behandelt. Damit dies nicht auf ein globales nichtlineares Problem führt, muss man dies für jeden horizontalen skalaren und vektoriellen Datenpunkt separat tun.
 
-\subsubsection{Drei-Band-Solver}
-\label{sec:drei-band-solver}\index{Drei-Band-Solver}
+\subsubsection{Vertikale Advektion des Horizontalwindes}
+\label{sec:vertikale_advektion_des_horizontalwindes}
 
-Sei $v$ eine horizontale Vektorkomponente, vorbereitend wird das Crank-Nicolson-Verfahren\index{Crank-Nicolson-Verfahren} mit $n$ als gegenwärtigem Zeitschritt notiert:
+Sei $v$ eine horizontale Vektorkomponente. Vorbereitend wird das Crank-Nicolson-Verfahren\index{Crank-Nicolson-Verfahren} mit $n$ als gegenwärtigem Zeitschritt notiert:
 %
 \begin{eqnarray}
-v_{n + 1} = v_n + \Delta t\frac{\partial v_n}{\partial t} = v_n + \frac{\Delta t}{2}\left(\frac{\partial v_n}{\partial t} + \frac{\partial v_{n + 1}}{\partial t}\right)
+v_{n + 1} = v_n + \frac{\Delta t}{2}\left(\frac{\partial v_n}{\partial t} + \frac{\partial v_{n + 1}}{\partial t}\right)
 \end{eqnarray}
 %
-An dieser Stelle geht es dabei um vertikale Advektion\index{Advektion!vertikale}:
+An dieser Stelle geht es dabei nur um vertikale Advektion\index{Advektion!vertikale}, die anderen Terme werden explizit berechnet:
 %
 \begin{eqnarray}
-v_{n + 1} = v_n - \frac{w_n\Delta t}{2}\left(\frac{\partial v_n}{\partial z} + \frac{\partial v_{n + 1}}{\partial z}\right)
+v_{n + 1} = v_n + \Delta t\newdot{v}_n^{(\text{expl})} - \frac{w_n\Delta t}{2}\left(\frac{\partial v_n}{\partial z} + \frac{\partial v_{n + 1}}{\partial z}\right)
 \end{eqnarray}
 %
-Die vertikale Diskretisierung erfordert einen Layerindex $1 \leq i \leq N_L - 1$:
+Die vertikale Diskretisierung erfordert einen Layerindex $0 \leq i \leq N_L - 1$:
 %
 \begin{eqnarray}
-v_{n + 1}^{(i)} = v_n^{(i)} - \frac{\newoverline{w_n}^{(i)}\Delta t}{2}\left(\frac{v_n^{(i - 1)} - v_n^{(i + 1)}}{z_{i - 1} - z_{i + 1}} + \frac{v_{n + 1}^{(i - 1)} - v_{n + 1}^{(i + 1)}}{z_{i - 1} - z_{i + 1}}\right)
+v_{n + 1}^{(i)} = v_n^{(i)} + \Delta t\newdot{v}_n^{(\text{expl})} - \frac{\newoverline{w_n}^{(i)}\Delta t}{2}\left(\frac{v_n^{(i - 1)} - v_n^{(i + 1)}}{z^{(i - 1)} - z^{(i + 1)}} + \frac{v_{n + 1}^{(i - 1)} - v_{n + 1}^{(i + 1)}}{z^{(i - 1)} - z^{(i + 1)}}\right)
+\end{eqnarray}
+%
+Diese Gleichung wird noch einmal notiert, dabei werden die Unbekannten \textcolor{red}{rot} notiert, die Bekannten \textcolor{blue}{blau} und die Vorfaktoren der Unbekannten schwarz:
+%
+\begin{eqnarray}
+\textcolor{red}{v_{n + 1}^{(i)}} = \textcolor{blue}{v_n^{(i)} + \Delta t\newdot{v}_n^{(\text{expl})} - \frac{\newoverline{w_n}^{(i)}\Delta t}{2}\frac{v_n^{(i - 1)} - v_n^{(i + 1)}}{z^{(i - 1)} - z^{(i + 1)}}} - \frac{\newoverline{w_n}^{(i)}\Delta t}{2\left(z^{(i - 1)} - z^{(i + 1)}\right)}\textcolor{red}{v_{n + 1}^{(i - 1)}} + \frac{\newoverline{w_n}^{(i)}\Delta t}{2\left(z^{(i - 1)} - z^{(i + 1)}\right)}\textcolor{red}{v_{n + 1}^{(i + 1)}}
+\end{eqnarray}
+%
+Im nullten (obersten) Layer gilt
+%
+\begin{eqnarray}
+\textcolor{red}{v_{n + 1}^{(i)}} = \textcolor{blue}{v_n^{(i)} + \Delta t\newdot{v}_n^{(\text{expl})} - \frac{\newoverline{w_n}^{(i)}\Delta t}{2}\frac{v_n^{(i)} - v_n^{(i + 1)}}{z^{(i)} - z^{(i + 1)}}} - \frac{\newoverline{w_n}^{(i)}\Delta t}{2\left(z^{(i)} - z^{(i + 1)}\right)}\textcolor{red}{v_{n + 1}^{(i)}} + \frac{\newoverline{w_n}^{(i)}\Delta t}{2\left(z^{(i)} - z^{(i + 1)}\right)}\textcolor{red}{v_{n + 1}^{(i + 1)}}.
+\end{eqnarray}
+%
+Hier ist $i = 0$:
+%
+\begin{eqnarray}
+\textcolor{red}{v_{n + 1}^{(0)}} = \textcolor{blue}{v_n^{(0)} + \Delta t\newdot{v}_n^{(\text{expl})} - \frac{\newoverline{w_n}^{(0)}\Delta t}{2}\frac{v_n^{(0)} - v_n^{(1)}}{z^{(0)} - z^{(1)}}} - \frac{\newoverline{w_n}^{(0)}\Delta t}{2\left(z^{(0)} - z^{(1)}\right)}\textcolor{red}{v_{n + 1}^{(0)}} + \frac{\newoverline{w_n}^{(0)}\Delta t}{2\left(z^{(0)} - z^{(1)}\right)}\textcolor{red}{v_{n + 1}^{(1)}}
+\end{eqnarray}
+%
+Im $N_L - 1-$ten (untersten) Layer gilt
+%
+\begin{eqnarray}
+\textcolor{red}{v_{n + 1}^{(i)}} = \textcolor{blue}{v_n^{(i)} + \Delta t\newdot{v}_n^{(\text{expl})} - \frac{\newoverline{w_n}^{(i)}\Delta t}{2}\frac{v_n^{(i - 1)} - v_n^{(i)}}{z^{(i - 1)} - z^{(i)}}} - \frac{\newoverline{w_n}^{(i)}\Delta t}{2\left(z^{(i - 1)} - z^{(i)}\right)}\textcolor{red}{v_{n + 1}^{(i - 1)}} + \frac{\newoverline{w_n}^{(i)}\Delta t}{2\left(z^{(i - 1)} - z^{(i)}\right)}\textcolor{red}{v_{n + 1}^{(i)}}.
+\end{eqnarray}
+%
+Hier ist $i = N_L - 1$:
+%
+\begin{eqnarray}
+\textcolor{red}{v_{n + 1}^{(N_L - 1)}} & = & \textcolor{blue}{v_n^{(N_L - 1)} + \Delta t\newdot{v}_n^{(\text{expl})} - \frac{\newoverline{w_n}^{(N_L - 1)}\Delta t}{2}\frac{v_n^{(N_L - 2)} - v_n^{(N_L - 1)}}{z^{(N_L - 2)} - z^{(N_L - 1)}}} - \frac{\newoverline{w_n}^{(N_L - 1)}\Delta t}{2\left(z^{(N_L - 2)} - z^{(N_L - 1)}\right)}\textcolor{red}{v_{n + 1}^{(N_L - 2)}}\nonumber\\
+&& +\frac{\newoverline{w_n}^{(N_L - 1)}\Delta t}{2\left(z^{(N_L - 2)} - z^{(N_L - 1)}\right)}\textcolor{red}{v_{n + 1}^{(N_L - 1)}}
 \end{eqnarray}
 %
 Man definiert den Vektor $\mathbf{V}$ der Unbekannten durch
@@ -15474,26 +15507,169 @@ für diesen gilt ein lineares Gleichungssystem\index{lineares Gleichungssystem}\
 \overleftrightarrow{A}\cdot\mathbf{V} = \mathbf{b}
 \end{eqnarray}
 %
-mit einer Matrix $\overleftrightarrow{A}$ und einer rechten Seite $\mathbf{b}$.
-
-\subsubsection{Fünf-Band-Solver}
-\label{sec:fuenf-band-solver}\index{Fünf-Band-Solver}
-
-Man definiert zunächst
+mit einer Matrix $\overleftrightarrow{A}$ und einer rechten Seite $\mathbf{b}$. Für diese rechte Seite gilt
 %
 \begin{eqnarray}
-M_l \coloneqq \frac{1}{2}
+\mathbf{b} = \left(\begin{array}{c}
+v_n^{(0)} + \Delta t\newdot{v}_n^{(\text{expl})} - \frac{\newoverline{w_n}^{(0)}\Delta t}{2}\frac{v_n^{(0)} - v_n^{(1)}}{z^{(0)} - z^{(1)}}\\
+v_n^{(1)} + \Delta t\newdot{v}_n^{(\text{expl})} - \frac{\newoverline{w_n}^{(1)}\Delta t}{2}\frac{v_n^{(0)} - v_n^{(2)}}{z^{(0)} - z^{(2)}}\\
+v_n^{(2)} + \Delta t\newdot{v}_n^{(\text{expl})} - \frac{\newoverline{w_n}^{(2)}\Delta t}{2}\frac{v_n^{(1)} - v_n^{(3)}}{z^{(1)} - z^{(3)}}\\
+\vdots\\
+v_n^{(N_L - 2)} + \Delta t\newdot{v}_n^{(\text{expl})} - \frac{\newoverline{w_n}^{(N_L - 2)}\Delta t}{2}\frac{v_n^{(N_L - 3)} - v_n^{(N_L - 1)}}{z^{(N_L - 3)} - z^{(N_L - 1)}}\\
+v_n^{(N_L - 1)} + \Delta t\newdot{v}_n^{(\text{expl})} - \frac{\newoverline{w_n}^{(N_L - 1)}\Delta t}{2}\frac{v_n^{(N_L - 2)} - v_n^{(N_L - 1)}}{z^{(N_L - 2)} - z^{(N_L - 1)}}
+\end{array}\right).
 \end{eqnarray}
 %
-
-
-Hieraus wird über
+Für die Matrix $\overleftrightarrow{A}$ erhält man
 %
 \begin{eqnarray}
-\prescript{(m + 1)}{}{\rho} = \prescript{(m)}{}{\rho} + \Delta t\frac{\partial\newtilde{\rho}}{\partial t}\vline_\text{ex} + \frac{\partial\left(\prescript{(m + 1)}{}{M^{(v)}}\right)}{\partial z}
+\overleftrightarrow{A} & = & \left(\begin{array}{cccc}
+\left(1 + \frac{\newoverline{w_n}^{(0)}\Delta t}{2\left(z^{(0)} - z^{(1)}\right)}\right) & -\left(\frac{\newoverline{w_n}^{(0)}\Delta t}{2\left(z^{(0)} - z^{(1)}\right)}\right)  & \dots & 0 \\
+\left(\frac{\newoverline{w_n}^{(1)}\Delta t}{2\left(z^{(0)} - z^{(2)}\right)}\right) & 1 & -\left(\frac{\newoverline{w_n}^{(1)}\Delta t}{2\left(z^{(0)} - z^{(2)}\right)}\right)\hspace{2 cm}\dots &  0 \\
+\vdots & \hspace{2 cm}\ddots & \ddots & \vdots \\
+0 & \dots & \left(\frac{\newoverline{w_n}^{(N_L - 1)}\Delta t}{2\left(z^{(N_L - 2)} - z^{(N_L - 1)}\right)}\right) & \left(1 - \frac{\newoverline{w_n}^{(N_L - 1)}\Delta t}{2\left(z^{(N_L - 2)} - z^{(N_L - 1)}\right)}\right)
+\end{array}\right).\nonumber\\
+&&
+\end{eqnarray}
+
+\subsubsection{Vertikale Advektion des Vertikalwindes}
+\label{sec:vertikale_advektion_des_vertikalwindes}
+
+Sei $w$ eine vertikale Vektorkomponente. Vorbereitend wird das implizite Euler-Verfahren\index{implizites Euler-Verfahren}\index{Euler-Verfahren!implizites} mit $n$ als gegenwärtigem Zeitschritt notiert:
+%
+\begin{eqnarray}
+w_{n + 1} = w_n + \Delta t\frac{\partial w_{n + 1}}{\partial t}
 \end{eqnarray}
 %
-die Massendichte neu berechnet. Zuletzt wird die Entropiedichte $\newtilde{s} = \rho s$ mit dem neuen Wert der Massendichte aktualisiert.
+An dieser Stelle geht es dabei nur um vertikale Advektion\index{Advektion!vertikale}, die anderen Terme werden explizit berechnet:
+%
+\begin{eqnarray}
+w_{n + 1} = w_n + \Delta t\newdot{w}_n^{(\text{expl})} - w_n\Delta t\frac{\partial w_{n + 1}}{\partial z}
+\end{eqnarray}
+%
+Die vertikale Diskretisierung erfordert einen Layerindex $1 \leq i \leq N_L - 1$, wobei darauf zu achten ist, dass $w$ im nullten und $N_L-$ten Layer aus den Randbedingungen heraus bekannt ist:
+%
+\begin{eqnarray}
+w_{n + 1}^{(i)} = w_n^{(i)} + \Delta t\newdot{w}_n^{(\text{expl})} - w_n^{(i)}\Delta t\frac{w_{n + 1}^{(i - 1)} - w_{n + 1}^{(i + 1)}}{z^{(i - 1)} - z^{(i + 1)}}
+\end{eqnarray}
+%
+Diese Gleichung wird noch einmal notiert, dabei werden die Unbekannten \textcolor{red}{rot} notiert, die Bekannten \textcolor{blue}{blau} und die Vorfaktoren der Unbekannten schwarz:
+%
+\begin{eqnarray}
+\textcolor{red}{w_{n + 1}^{(i)}} = \textcolor{blue}{w_n^{(i)} + \Delta t\newdot{w}_n^{(\text{expl})}} - \frac{w_n^{(i)}\Delta t}{z^{(i - 1)} - z^{(i + 1)}}\textcolor{red}{w_{n + 1}^{(i - 1)}} + \frac{w_n^{(i)}\Delta t}{z^{(i - 1)} - z^{(i + 1)}}\textcolor{red}{w_{n + 1}^{(i + 1)}}
+\end{eqnarray}
+%
+Im ersten und $N_L - 1-$ten Layer sind dabei keine besonderen Maßnahmen erforderlich, außer dass dort für den jeweils äußeren Wert von $w$ der aus den Randbedingungen diagnostizierte verwendet werden muss. Man definiert den Vektor $\mathbf{W}$ der Unbekannten durch
+%
+\begin{eqnarray}
+\mathbf{W} = \left(\begin{array}{c}
+w_{n + 1}^{(1)}\\
+w_{n + 1}^{(2)}\\
+\vdots\\
+w_{n + 1}^{(N_L - 1)}
+\end{array}\right),
+\end{eqnarray}
+%
+für diesen gilt ein lineares Gleichungssystem\index{lineares Gleichungssystem}\index{Gleichungssystem!lineares}
+%
+\begin{eqnarray}
+\overleftrightarrow{A}\cdot\mathbf{W} = \mathbf{b}
+\end{eqnarray}
+%
+mit einer Matrix $\overleftrightarrow{A}$ und einer rechten Seite $\mathbf{b}$. Für diese rechte Seite gilt
+%
+\begin{eqnarray}
+\mathbf{b} = \left(\begin{array}{c}
+w_n^{(1)} + \Delta t\newdot{w}_n^{(\text{expl})}\\
+w_n^{(2)} + \Delta t\newdot{w}_n^{(\text{expl})}\\
+w_n^{(3)} + \Delta t\newdot{w}_n^{(\text{expl})}\\
+\vdots\\
+w_n^{(N_L - 2)} + \Delta t\newdot{w}_n^{(\text{expl})}\\
+w_n^{(N_L - 1)} + \Delta t\newdot{w}_n^{(\text{expl})} + w_n^{(N_L - 1)}\Delta t\frac{w_{n + 1}^{(N_L)}}{z^{(N_L - 2)} - z^{(N_L)}}
+\end{array}\right).
+\end{eqnarray}
+%
+Für die Matrix $\overleftrightarrow{A}$ erhält man
+%
+\begin{eqnarray}
+\overleftrightarrow{A} & = & \left(\begin{array}{cccc}
+1 & -\left(\frac{w_n^{(1)}\Delta t}{z^{(0)} - z^{(2)}}\right)  & \dots & 0 \\
+\left(\frac{w_n^{(2)}\Delta t}{z^{(1)} - z^{(3)}}\right) & 1 & -\left(\frac{w_n^{(2)}\Delta t}{z^{(1)} - z^{(3)}}\right)\hspace{2 cm}\dots &  0 \\
+\vdots & \hspace{2 cm}\ddots & \ddots & \vdots \\
+0 & \dots & \left(\frac{w_n^{(N_L - 1)}\Delta t}{z^{(N_L - 2)} - z^{(N_L)}}\right) & 1
+\end{array}\right).\nonumber\\
+&&
+\end{eqnarray}
+
+\subsubsection{Vertikale Advektion der Dichte}
+\label{sec:vertikale_advektion_der_dichte}
+
+Sei $\rho$ eine generalsierte Dichte, also etwa eine Massendichte oder eine Energiedichte. Vorbereitend wird das implizite Euler-Verfahren\index{implizites Euler-Verfahren}\index{Euler-Verfahren!implizites} mit $n$ als gegenwärtigem Zeitschritt notiert:
+%
+\begin{eqnarray}
+\rho_{n + 1} = \rho_n + \Delta t\frac{\partial \rho_{n + 1}}{\partial t}
+\end{eqnarray}
+%
+An dieser Stelle geht es dabei nur um vertikale Advektion\index{Advektion!vertikale}, die anderen Terme werden explizit berechnet:
+%
+\begin{eqnarray}
+\rho_{n + 1} = \rho_n + \Delta t\newdot{\rho}_n^{(\text{expl})} - \Delta t\frac{\partial\left(\rho w\right)_{n + 1}}{\partial z}
+\end{eqnarray}
+%
+Die vertikale Diskretisierung erfordert einen Layerindex $0 \leq i \leq N_L - 1$. Weiter sei $j_{i}$ das Produkt der kontravarianten Windgeschwindigkeit zwischen den Layern $i$ und $i + 1$ mit der entsprechenden Fläche, aufgrund der Randbedingungen gilt $j^{(-1)} = j^{(N_L - 1)} = 0$. Damit folgt
+%
+\begin{eqnarray}
+\rho_{n + 1}^{(i)} & = & \rho_n^{(i)} + \Delta t\newdot{\rho}_n^{(\text{expl})} - \frac{\Delta t}{2V_i}\left(\rho_{n + 1}^{(i)}j_{n + 1}^{(i - 1)} + \rho_{n + 1}^{(i - 1)}j_{n + 1}^{(i - 1)} - \rho_{n + 1}^{(i)}j_{n + 1}^{(i)} - \rho_{n + 1}^{(i + 1)}j_{n + 1}^{(i)}\right)\nonumber\\
+& = & \rho_n^{(i)} + \Delta t\newdot{\rho}_n^{(\text{expl})} + \frac{\Delta t}{2V_i}\left(\rho_{n + 1}^{(i)}j_{n + 1}^{(i)} + \rho_{n + 1}^{(i + 1)}j_{n + 1}^{(i)} - \rho_{n + 1}^{(i)}j_{n + 1}^{(i - 1)} - \rho_{n + 1}^{(i - 1)}j_{n + 1}^{(i - 1)}\right)\nonumber\\
+\end{eqnarray}
+%
+Diese Gleichung wird noch einmal notiert, dabei werden die Unbekannten \textcolor{red}{rot} notiert, die Bekannten \textcolor{blue}{blau} und die Vorfaktoren der Unbekannten schwarz:
+%
+\begin{eqnarray}
+\textcolor{red}{\rho_{n + 1}^{(i)}} & = & \textcolor{blue}{\rho_n^{(i)} + \Delta t\newdot{\rho}_n^{(\text{expl})}} + \frac{\Delta t}{2V_i}\left(\textcolor{red}{\rho_{n + 1}^{(i)}}j_{n + 1}^{(i)} + \textcolor{red}{\rho_{n + 1}^{(i + 1)}}j_{n + 1}^{(i)} - \textcolor{red}{\rho_{n + 1}^{(i)}}j_{n + 1}^{(i - 1)} - \textcolor{red}{\rho_{n + 1}^{(i - 1)}}j_{n + 1}^{(i - 1)}\right)
+\end{eqnarray}
+%
+Die $j_{n + 1}$ sind dabei vorher undabhängig berechnet worden und daher bekannt. Im nullten und $N_L - 1-$ten Layer sind dabei keine besonderen Maßnahmen erforderlich, außer dass dort für den jeweils äußeren Wert von $j$ Null eingesetzt werden muss. Man definiert den Vektor $\mathbf{W}$ der Unbekannten durch
+%
+\begin{eqnarray}
+\mathbf{W} = \left(\begin{array}{c}
+\rho_{n + 1}^{(0)}\\
+\rho_{n + 1}^{(2)}\\
+\vdots\\
+\rho_{n + 1}^{(N_L - 1)}
+\end{array}\right),
+\end{eqnarray}
+%
+für diesen gilt ein lineares Gleichungssystem\index{lineares Gleichungssystem}\index{Gleichungssystem!lineares}
+%
+\begin{eqnarray}
+\overleftrightarrow{A}\cdot\mathbf{W} = \mathbf{b}
+\end{eqnarray}
+%
+mit einer Matrix $\overleftrightarrow{A}$ und einer rechten Seite $\mathbf{b}$. Für diese rechte Seite gilt
+%
+\begin{eqnarray}
+\mathbf{b} = \left(\begin{array}{c}
+\rho_n^{(0)} + \Delta t\newdot{\rho}_n^{(\text{expl})}\\
+\rho_n^{(1)} + \Delta t\newdot{\rho}_n^{(\text{expl})}\\
+\rho_n^{(2)} + \Delta t\newdot{\rho}_n^{(\text{expl})}\\
+\vdots\\
+\rho_n^{(N_L - 2)} + \Delta t\newdot{\rho}_n^{(\text{expl})}\\
+\rho_n^{(N_L - 1)} + \Delta t\newdot{\rho}_n^{(\text{expl})}
+\end{array}\right).
+\end{eqnarray}
+%
+Für die Matrix $\overleftrightarrow{A}$ erhält man
+%
+\begin{eqnarray}
+\overleftrightarrow{A} & = & \left(\begin{array}{cccc}
+1 + \frac{\Delta t}{2V_0}\left(j_{n + 1}^{(-1)} - j_{n + 1}^{(0)}\right) & -\frac{\Delta tj_{n + 1}^{(0)}}{2V_0} & \dots & 0 \\
+\frac{\Delta tj_{n + 1}^{(0)}}{2V_0} & 1 + \frac{\Delta t}{2V_1}\left(j_{n + 1}^{(0)} - j_{n + 1}^{(1)}\right) & -\frac{\Delta tj_{n + 1}^{(1)}}{2V_0}\dots &  0 \\
+\vdots & \hspace{2 cm}\ddots & \ddots & \vdots \\
+0 & \dots & \frac{\Delta tj_{n + 1}^{(N_L - 2)}}{2V_0} & 1 + \frac{\Delta t}{2V_{N_L - 1}}\left(j_{n + 1}^{(N_L - 2)} - j_{n + 1}^{(N_L - 1)}\right)
+\end{array}\right).\nonumber\\
+&&
+\end{eqnarray}
 
 \section{Spezielle Probleme}
 \label{sec:spezielle_probleme}
