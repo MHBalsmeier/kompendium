@@ -15433,6 +15433,17 @@ Aus Energieerhaltungsgründen wird für den kovarianten Druckgradienten in allen
 \subsection{Modifikation zur Gewährleistung von Energieerhaltung}
 \label{sec:modifikation_zur_gewährleistung_von_energieerhaltung}
 
+Die innere Energiedichte $c^{(v)}\rho T$ kann man wie folgt zeitlich diskretisieren:
+%
+\begin{eqnarray}
+c^{(v)}\frac{\rho_{n + 1}T_{n + 1} - \rho_{n}T_{n}}{\Delta t} & = & c^{(v)}\frac{\rho_{n + 1}\Pi_{n + 1}\theta_{n + 1} - \rho_n\Pi_{n}\theta_{n}}{\Delta t} = c^{(v)}\frac{\rho_{n + 1}\Pi_{n + 1}\exp\left(\frac{\newtilde{s}_{n + 1} - c\rho_{n + 1}}{\rho_{n + 1}c^{(p)}}\right) - \rho_n\Pi_{n}\exp\left(\frac{\newtilde{s}_{n} - \rho_{n}c\rho_{n}}{\rho_{n}c^{(p)}}\right)}{\Delta t}\nonumber\\
+& = & c^{(v)}\frac{\rho_{n + 1}\Pi_{n + 1}\exp\left(\frac{\newtilde{s}_{n + 1} - c\rho_{n + 1}}{\rho_{n + 1}c^{(p)}}\right) - \rho_{n}\Pi_{n}\exp\left(\frac{\newtilde{s}_{n} - c\rho_{n}}{\rho_{n}c^{(p)}}\right)}{\Delta t}\nonumber
+\end{eqnarray}
+%
+\begin{eqnarray}
+& = & \frac{c^{(v)}}{P_0^{R_d/c^{(v)}}}\frac{\rho_{n + 1}\left(R_d\rho_{n + 1}\exp\left(\frac{\newtilde{s}_{n + 1} - c\rho_{n + 1}}{\rho_{n + 1}c^{(p)}}\right)\right)^{\frac{R_d}{c^{(v)}}}\exp\left(\frac{\newtilde{s}_{n + 1} - c\rho_{n + 1}}{\rho_{n + 1}c^{(p)}}\right) - \rho_{n}\left(R_d\rho_{n}\exp\left(\frac{\newtilde{s}_{n} - c\rho_{n}}{\rho_{n}c^{(p)}}\right)\right)^{\frac{R_d}{c^{(v)}}}\exp\left(\frac{\newtilde{s}_{n} - c\rho_{n}}{\rho_{n}c^{(p)}}\right)}{\Delta t}\nonumber
+\end{eqnarray}
+
 \subsection{Modifikation zur Stabilisierung}
 \label{sec:modifikation_zur_stabilisierung}
 
@@ -15629,7 +15640,7 @@ Diese Gleichung wird noch einmal notiert, dabei werden die Unbekannten \textcolo
 \textcolor{red}{\rho_{n + 1}^{(i)}} & = & \textcolor{blue}{\rho_n^{(i)} + \Delta t\newdot{\rho}_n^{(\text{expl})}} + \frac{\Delta t}{2V_i}\left(\textcolor{red}{\rho_{n + 1}^{(i)}}j_{n + 1}^{(i)} + \textcolor{red}{\rho_{n + 1}^{(i + 1)}}j_{n + 1}^{(i)} - \textcolor{red}{\rho_{n + 1}^{(i)}}j_{n + 1}^{(i - 1)} - \textcolor{red}{\rho_{n + 1}^{(i - 1)}}j_{n + 1}^{(i - 1)}\right)
 \end{eqnarray}
 %
-Die $j_{n + 1}$ sind dabei vorher undabhängig berechnet worden und daher bekannt. Im nullten und $N_L - 1-$ten Layer sind dabei keine besonderen Maßnahmen erforderlich, außer dass dort für den jeweils äußeren Wert von $j$ Null eingesetzt werden muss. Man definiert den Vektor $\mathbf{W}$ der Unbekannten durch
+Die $j_{n + 1}$ sind dabei vorher unabhängig berechnet worden und daher bekannt. Im nullten und $N_L - 1-$ten Layer sind dabei keine besonderen Maßnahmen erforderlich, außer dass dort für den jeweils äußeren Wert von $j$ Null eingesetzt werden muss. Man definiert den Vektor $\mathbf{W}$ der Unbekannten durch
 %
 \begin{eqnarray}
 \mathbf{W} = \left(\begin{array}{c}
@@ -15661,15 +15672,17 @@ mit einer Matrix $\overleftrightarrow{A}$ und einer rechten Seite $\mathbf{b}$. 
 %
 Für die Matrix $\overleftrightarrow{A}$ erhält man
 %
+\small
 \begin{eqnarray}
 \overleftrightarrow{A} & = & \left(\begin{array}{cccc}
 1 + \frac{\Delta t}{2V_0}\left(j_{n + 1}^{(-1)} - j_{n + 1}^{(0)}\right) & -\frac{\Delta tj_{n + 1}^{(0)}}{2V_0} & \dots & 0 \\
-\frac{\Delta tj_{n + 1}^{(0)}}{2V_0} & 1 + \frac{\Delta t}{2V_1}\left(j_{n + 1}^{(0)} - j_{n + 1}^{(1)}\right) & -\frac{\Delta tj_{n + 1}^{(1)}}{2V_0}\dots &  0 \\
+\frac{\Delta tj_{n + 1}^{(0)}}{2V_1} & 1 + \frac{\Delta t}{2V_1}\left(j_{n + 1}^{(0)} - j_{n + 1}^{(1)}\right) & -\frac{\Delta tj_{n + 1}^{(1)}}{2V_1}\dots &  0 \\
 \vdots & \hspace{2 cm}\ddots & \ddots & \vdots \\
-0 & \dots & \frac{\Delta tj_{n + 1}^{(N_L - 2)}}{2V_0} & 1 + \frac{\Delta t}{2V_{N_L - 1}}\left(j_{n + 1}^{(N_L - 2)} - j_{n + 1}^{(N_L - 1)}\right)
+0 & \dots & \frac{\Delta tj_{n + 1}^{(N_L - 2)}}{2V_{N_L - 1}} & 1 + \frac{\Delta t}{2V_{N_L - 1}}\left(j_{n + 1}^{(N_L - 2)} - j_{n + 1}^{(N_L - 1)}\right)
 \end{array}\right).\nonumber\\
 &&
 \end{eqnarray}
+\normalsize
 
 \section{Spezielle Probleme}
 \label{sec:spezielle_probleme}
