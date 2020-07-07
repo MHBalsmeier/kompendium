@@ -15417,16 +15417,17 @@ Es besteht folgender Konflikt zwischen expliziten\index{explizites Zeitschrittve
 \item Implizite Verfahren\index{implizites Zeitschrittverfahren}\index{Zeitschrittverfahren!implizites} sind aufwendiger zu implementieren. Ihre Geschwindigkeit hängt von der Komplexität des Problems ab. Sie sind stabiler als explizite Verfahren.
 \end{itemize}
 %
-Hieraus folgt, dass ein schnelles implizites Verfahren ideal für einen dynamischen Kern wäre. Da die zu lösenden Gleichungen jedoch nichtlinear sind, ist ein dreidimensional implizites Verfahren nur über ein iteratives Vorgehen möglich. Bisher ist es nicht gelungen, hier eine zufriedenstellende Konvergenzgeschwindigkeit zu erreichen. Daher wählt man als Kompromiss das \textit{HEVI-Konzept,}\index{HEVI-Konzept} was für \textit{horizontally explicit, vertically implicit}\index{horizontally explicit, vertically implicit (HEVI)} steht. Das grundlegende Zeitschrittverfahren des Modells ist das Runge-Kutta-Verfahren\index{Runge-Kutta-Verfahren!dritter Ordnung} dritter Ordnung. Das prinzipielle Verfahren bei jedem Unterschritt ist folgendes:
+Hieraus folgt, dass ein schnelles implizites Verfahren ideal für einen dynamischen Kern wäre. Da die zu lösenden Gleichungen jedoch nichtlinear sind, ist ein dreidimensional implizites Verfahren nur über ein iteratives Vorgehen möglich. Bisher ist es nicht gelungen, hier eine zufriedenstellende Konvergenzgeschwindigkeit zu erreichen. Daher wählt man als Kompromiss das \textit{HEVI-Konzept,}\index{HEVI-Konzept} was für \textit{horizontally explicit, vertically implicit}\index{horizontally explicit, vertically implicit (HEVI)} steht. Das grundlegende Zeitschrittverfahren des Modells ist ein Predictor-corrector-Verfahren mit zwei Zeitschritten. Das prinzipielle Verfahren bei jedem der beiden Unterschritte ist folgendes:
 
-\begin{itemize}
+\begin{enumerate}
 \item Zunächst werden die Geschwindigkeitstendenzen des expliziten Anteils berechnet.
 \item Anschließend wird die vertikale Advektion von $\mathbf{v}_h$ mittels eines impliziten Verfahrens berechnet, s. Absch. \ref{sec:vertikale_advektion_des_horizontalwindes}.
-\item Anschleißend wird mittels der neuen Werte von $\mathbf{v}_h$ die Vertikalgeschwindigkeit an der Erdoberfläche aus der Bedingung $\mathbf{v}\cdot\mathbf{n} = 0$ am neuen Zeitschritt berechnet.
+\item Anschließend wird mittels der neuen Werte von $\mathbf{v}_h$ die Vertikalgeschwindigkeit an der Erdoberfläche aus der Bedingung $\mathbf{v}\cdot\mathbf{n} = 0$ am neuen Zeitschritt berechnet.
 \item Anschließend wird die vertikale Advektion von $w$ mittels eines impliziten Verfahrens berechnet, s. Absch. \ref{sec:vertikale_advektion_des_vertikalwindes}.
-\item Nun werden die Divergenzen mittels der alten Werte der skalaren Variablen und der neuen Werte der Geschwindigkeitskomponenten berechnet.
-\item Aus den Divergenzen werden die skalaren Variablen am neuen Zeitschritt berechnet.
-\end{itemize}
+\item Nun werden die horizontalen Divergenzen mittels der alten Werte der skalaren Variablen und der neuen Werte der horizontalen Geschwindigkeitskomponenten berechnet.
+\item Mittels des in Absch. \label{sec:vertikaler_sound_Wave_solver} beschriebenen Sound wave solvers werden die kontravarianten Vertikalgeschwindigkeiten ermittelt.
+\item Zuletzt werden mittels der generalisierten Kontinuitätsgleichungen die neuen Werte der Entropie- und Massendichte berechnet, wobei für die Horizontaldivergenz die in Schritt 5 und die Vertikaldivergenz die in Schritt 6 berechneten Windkomponenten verwendet werden.
+\end{enumerate}
 %
 Aus Energieerhaltungsgründen wird für den kovarianten Druckgradienten in allen drei Unterschritten ein gleicher, spezieller Wert verwendet, s. Absch. \ref{sec:modifikation_zur_gewährleistung_von_energieerhaltung}. Die Festlegung auf genau dieses und nicht etwa ein abgewandeltes Verfahren beruht auch auf Erfahrungswerten.
 
@@ -15612,8 +15613,11 @@ Für die Matrix $\overleftrightarrow{A}$ erhält man
 &&
 \end{eqnarray}
 
-\subsubsection{Vertikale Advektion der Dichte}
-\label{sec:vertikale_advektion_der_dichte}
+\subsubsection{Vertikaler Sound wave solver}
+\label{sec:vertikaler_sound_Wave_solver}
+
+\subsubsection{Vertikale Advektion einer generalisierten Dichte}
+\label{sec:vertikale_advektion_einer_generalisierten_dichte}
 
 Sei $\rho$ eine generalsierte Dichte, also etwa eine Massendichte oder eine Energiedichte. Vorbereitend wird das implizite Euler-Verfahren\index{implizites Euler-Verfahren}\index{Euler-Verfahren!implizites} mit $n$ als gegenwärtigem Zeitschritt notiert:
 %
