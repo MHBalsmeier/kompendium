@@ -15410,6 +15410,30 @@ erhalten bleiben.
 \section{Zeitschrittverfahren}
 \label{sec:zeitschrittverfahren!zusammensetzung_der_prognostischen_gleichungen}\index{Zeitschrittverfahren!im dynamischen Kern}\index{dynamischer Kern!Zeitschrittverfahren}\index{Kern!dynamischer!Zeitschrittverfahren}
 
+Sei $\psi: A \subseteq \mathbb{R}^3 \times \mathbb{R} \to \mathbb{R}^n$ der atmosphärische Zustandsvektor. Alle fundamentalen physikalischen Gesetze sind erster Ordnung in der Zeit, daher kann man schreiben
+%
+\begin{eqnarray}
+\frac{d\psi}{dt} = F\left(\psi\right),
+\end{eqnarray}
+%
+wobei $F$ die Physik enthält. Diskretisiert man dies auf ein zeitliches Gitter $n\Delta t$ mit $n \in \mathbb{Z}$ und interpoliert zwischen zwei Zeitschritten $n$, $n + l$, erhält man
+%
+\begin{eqnarray}
+\psi_{n + l} - \psi_{n} = \int_{n\Delta t}^{\left(n + l\right)\Delta t}F\left(\psi\right)dt.
+\end{eqnarray}
+%
+Die Anzahl der dabei involvierten Zeitschritte ist $l + 1$. Man kann nun das Integral auf der rechten Seite auf vielfälitge Art und Weise diskretisieren. Das explizite Euler-Verfahren\index{explizites Eueler-Verfahren}\index{Euler-Verfahren!explizites} ergibt sich mit $l = 1$ über die Näherung
+%
+\begin{eqnarray}
+\int_{n\Delta t}^{\left(n + 1\right)\Delta t}F\left(\psi\right)dt \approx F\left(\psi_{n}\right)\Delta t
+\end{eqnarray}
+%
+mit $\psi_{n} \coloneqq \psi\left(n\Delta t\right)$. Das implizite Euler-Verfahren\index{implizites Eueler-Verfahren}\index{Euler-Verfahren!implizites} hingegen erhält man über
+%
+\begin{eqnarray}
+\int_{n\Delta t}^{\left(n + 1\right)\Delta t}F\left(\psi\right)dt \approx F\left(\psi_{n + 1}\right)\Delta t
+\end{eqnarray}
+%
 Es besteht folgender Konflikt zwischen expliziten\index{explizites Zeitschrittverfahren}\index{Zeitschrittverfahren!explizites} und impliziten Verfahren\index{implizites Zeitschrittverfahren}\index{Zeitschrittverfahren!implizites}:
 %
 \begin{itemize}
@@ -15425,7 +15449,7 @@ Hieraus folgt, dass ein schnelles implizites Verfahren ideal für einen dynamisc
 \item Anschließend wird mittels der neuen Werte von $\mathbf{v}_h$ die Vertikalgeschwindigkeit an der Erdoberfläche aus der Bedingung $\mathbf{v}\cdot\mathbf{n} = 0$ am neuen Zeitschritt berechnet.
 \item Anschließend wird die vertikale Advektion von $w$ mittels eines impliziten Verfahrens berechnet, s. Absch. \ref{sec:vertikale_advektion_des_vertikalwindes}.
 \item Nun werden die horizontalen Divergenzen mittels der alten Werte der skalaren Variablen und der neuen Werte der horizontalen Geschwindigkeitskomponenten berechnet.
-\item Mittels des in Absch. \label{sec:vertikaler_sound_Wave_solver} beschriebenen Sound wave solvers werden die kontravarianten Vertikalgeschwindigkeiten ermittelt.
+\item Mittels des in Absch. \ref{sec:vertikaler_sound_wave_solver} beschriebenen Sound wave solvers werden die kontravarianten Vertikalgeschwindigkeiten ermittelt.
 \item Zuletzt werden mittels der generalisierten Kontinuitätsgleichungen die neuen Werte der Entropie- und Massendichte berechnet, wobei für die Horizontaldivergenz die in Schritt 5 und die Vertikaldivergenz die in Schritt 6 berechneten Windkomponenten verwendet werden.
 \end{enumerate}
 %
@@ -15614,7 +15638,7 @@ Für die Matrix $\overleftrightarrow{A}$ erhält man
 \end{eqnarray}
 
 \subsubsection{Vertikaler Sound wave solver}
-\label{sec:vertikaler_sound_Wave_solver}
+\label{sec:vertikaler_sound_wave_solver}
 
 \subsubsection{Vertikale Advektion einer generalisierten Dichte}
 \label{sec:vertikale_advektion_einer_generalisierten_dichte}
