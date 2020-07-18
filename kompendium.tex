@@ -15,7 +15,7 @@
 \setmathsfont(Greek)[Uppercase = Plain, Lowercase = Regular]{GFS Solomos}
 \def\stacktype{S}\Sstackgap = -4.3 pt
 \newcommand\shifthat[2]{\stackengine{\Sstackgap}{$#2$}{\(\hspace{#1}\hat{}\)}{O}{l}{F}{T}{S}}
-\newcommand\shifttilde[2]{\stackengine{\Sstackgap}{$#2$}{\(\hspace{#1}\tilde{}\)}{O}{l}{F}{T}{S}}
+\newcommand\shifttilde[2]{\stackengine{\Sstackgap}{$#2$}{\(\hspace{#1}\widetilde{}\)}{O}{l}{F}{T}{S}}
 \newcommand\shiftdot[2]{\stackengine{\Sstackgap}{$#2$}{\(\hspace{#1}\dot{}\)}{O}{l}{F}{T}{S}}
 \newcommand\shiftoverline[2]{\stackengine{\Sstackgap}{$#2$}{\(\hspace{#1}\overline{}\)}{O}{l}{F}{T}{S}}
 \newcommand{\md}[1]{\frac{D#1}{Dt}}
@@ -15297,6 +15297,9 @@ Im Falle von Kugelkoordinaten, also oberhalb des Layers oberhalb von $\newtilde{
 
 \textit{Duale Vektorfelder} werden analog zu Vektorfeldern definiert, da das duale Gitter auch als C-Gitter verstanden wird.
 
+\subsection{Rotationsfelder}
+\label{sec:rotationsfelder}\index{Rotationsfeld}\index{Modell!Rotationsfeld}
+
 \section{Operatoren}
 \label{sec:operatoren}\index{Operator}
 
@@ -15441,7 +15444,7 @@ Es besteht folgender Konflikt zwischen expliziten\index{explizites Zeitschrittve
 \item Implizite Verfahren\index{implizites Zeitschrittverfahren}\index{Zeitschrittverfahren!implizites} sind aufwendiger zu implementieren. Ihre Geschwindigkeit hängt von der Komplexität des Problems ab. Sie sind stabiler als explizite Verfahren.
 \end{itemize}
 %
-Hieraus folgt, dass ein schnelles implizites Verfahren ideal für einen dynamischen Kern wäre. Da die zu lösenden Gleichungen jedoch nichtlinear sind, ist ein dreidimensional implizites Verfahren nur über ein iteratives Vorgehen möglich. Bisher ist es nicht gelungen, hier eine zufriedenstellende Konvergenzgeschwindigkeit zu erreichen. Daher wählt man als Kompromiss das \textit{HEVI-Konzept,}\index{HEVI-Konzept} was für \textit{horizontally explicit, vertically implicit}\index{horizontally explicit, vertically implicit (HEVI)} steht. Das grundlegende Zeitschrittverfahren des Modells ist ein Predictor-corrector-Verfahren mit zwei Zeitschritten. Das prinzipielle Verfahren bei jedem der beiden Unterschritte ist folgendes:
+Hieraus folgt, dass ein schnelles implizites Verfahren ideal für einen dynamischen Kern wäre. Da die zu lösenden Gleichungen jedoch nichtlinear sind, ist ein dreidimensional implizites Verfahren nur über ein iteratives Vorgehen möglich. Bisher ist es nicht gelungen, hier eine zufriedenstellende Konvergenzgeschwindigkeit zu erreichen. Daher wählt man als Kompromiss das \textit{HEVI-Konzept,}\index{HEVI-Konzept} was für \textit{horizontally explicit, vertically implicit}\index{horizontally explicit, vertically implicit (HEVI)} steht. Das grundlegende Zeitschrittverfahren des Modells ist das Runge-Kutta-Verfahren dritter Ordnung\index{Runge-Kutta-Verfahren!dritter Ordnung}. Das prinzipielle Verfahren bei jedem der drei Unterschritte ist folgendes:
 
 \begin{enumerate}
 \item Zunächst werden die Geschwindigkeitstendenzen des expliziten Anteils berechnet.
@@ -15457,17 +15460,6 @@ Aus Energieerhaltungsgründen wird für den kovarianten Druckgradienten in allen
 
 \subsection{Modifikation zur Gewährleistung von Energieerhaltung}
 \label{sec:modifikation_zur_gewährleistung_von_energieerhaltung}
-
-Die innere Energiedichte $c^{(v)}\rho T$ kann man wie folgt zeitlich diskretisieren:
-%
-\begin{eqnarray}
-c^{(v)}\frac{\rho_{n + 1}T_{n + 1} - \rho_{n}T_{n}}{\Delta t} & = & c^{(v)}\frac{\rho_{n + 1}\Pi_{n + 1}\theta_{n + 1} - \rho_n\Pi_{n}\theta_{n}}{\Delta t} = c^{(v)}\frac{\rho_{n + 1}\Pi_{n + 1}\exp\left(\frac{\newtilde{s}_{n + 1} - c\rho_{n + 1}}{\rho_{n + 1}c^{(p)}}\right) - \rho_n\Pi_{n}\exp\left(\frac{\newtilde{s}_{n} - \rho_{n}c\rho_{n}}{\rho_{n}c^{(p)}}\right)}{\Delta t}\nonumber\\
-& = & c^{(v)}\frac{\rho_{n + 1}\Pi_{n + 1}\exp\left(\frac{\newtilde{s}_{n + 1} - c\rho_{n + 1}}{\rho_{n + 1}c^{(p)}}\right) - \rho_{n}\Pi_{n}\exp\left(\frac{\newtilde{s}_{n} - c\rho_{n}}{\rho_{n}c^{(p)}}\right)}{\Delta t}\nonumber
-\end{eqnarray}
-%
-\begin{eqnarray}
-& = & \frac{c^{(v)}}{P_0^{R_d/c^{(v)}}}\frac{\rho_{n + 1}\left(R_d\rho_{n + 1}\exp\left(\frac{\newtilde{s}_{n + 1} - c\rho_{n + 1}}{\rho_{n + 1}c^{(p)}}\right)\right)^{\frac{R_d}{c^{(v)}}}\exp\left(\frac{\newtilde{s}_{n + 1} - c\rho_{n + 1}}{\rho_{n + 1}c^{(p)}}\right) - \rho_{n}\left(R_d\rho_{n}\exp\left(\frac{\newtilde{s}_{n} - c\rho_{n}}{\rho_{n}c^{(p)}}\right)\right)^{\frac{R_d}{c^{(v)}}}\exp\left(\frac{\newtilde{s}_{n} - c\rho_{n}}{\rho_{n}c^{(p)}}\right)}{\Delta t}\nonumber
-\end{eqnarray}
 
 \subsection{Modifikation zur Stabilisierung}
 \label{sec:modifikation_zur_stabilisierung}
@@ -15571,38 +15563,52 @@ Für die Matrix $\overleftrightarrow{A}$ erhält man
 \subsubsection{Vertikale Advektion des Vertikalwindes}
 \label{sec:vertikale_advektion_des_vertikalwindes}
 
-Sei $w$ eine vertikale Vektorkomponente. Vorbereitend wird das implizite Euler-Verfahren\index{implizites Euler-Verfahren}\index{Euler-Verfahren!implizites} mit $n$ als gegenwärtigem Zeitschritt notiert:
+Sei $w$ eine vertikale Vektorkomponente. Vorbereitend wird das Crank-Nicolson-Verfahren\index{Crank-Nicolson-Verfahren} mit $n$ als gegenwärtigem Zeitschritt notiert:
 %
 \begin{eqnarray}
-w_{n + 1} = w_n + \Delta t\frac{\partial w_{n + 1}}{\partial t}
+w_{n + 1} = w_n + \frac{\Delta t}{2}\left(\frac{\partial w_n}{\partial t} + \frac{\partial w_{n + 1}}{\partial t}\right)
 \end{eqnarray}
 %
 An dieser Stelle geht es dabei nur um vertikale Advektion\index{Advektion!vertikale}, die anderen Terme werden explizit berechnet:
 %
 \begin{eqnarray}
-w_{n + 1} = w_n + \Delta t\newdot{w}_n^{(\text{expl})} - w_n\Delta t\frac{\partial w_{n + 1}}{\partial z}
+w_{n + 1} = w_n + \Delta t\newdot{w}_n^{(\text{expl})} - \frac{w_n\Delta t}{2}\left(\frac{\partial w_n}{\partial z} + \frac{\partial w_{n + 1}}{\partial z}\right)
 \end{eqnarray}
 %
-Die vertikale Diskretisierung erfordert einen Layerindex $1 \leq i \leq N_L - 1$, wobei darauf zu achten ist, dass $w$ im nullten und $N_L-$ten Layer aus den Randbedingungen heraus bekannt ist:
+Die vertikale Diskretisierung erfordert einen Levelindex $0 \leq i \leq N_L - 2$. Hierbei ist $i = 1$ das erste Level (nicht das nullte), da im nullten Level $w$ aus der oberen Randbedingung bekannt ist.
 %
 \begin{eqnarray}
-w_{n + 1}^{(i)} = w_n^{(i)} + \Delta t\newdot{w}_n^{(\text{expl})} - w_n^{(i)}\Delta t\frac{w_{n + 1}^{(i - 1)} - w_{n + 1}^{(i + 1)}}{z^{(i - 1)} - z^{(i + 1)}}
+w_{n + 1}^{(i)} = w_n^{(i)} + \Delta t\newdot{w}_n^{(\text{expl})} - \frac{w_n^{(i)}\Delta t}{2}\left(\frac{w_n^{(i - 1)} - w_n^{(i + 1)}}{z^{(i - 1)} - z^{(i + 1)}} + \frac{w_{n + 1}^{(i - 1)} - w_{n + 1}^{(i + 1)}}{z^{(i - 1)} - z^{(i + 1)}}\right)
 \end{eqnarray}
 %
 Diese Gleichung wird noch einmal notiert, dabei werden die Unbekannten \textcolor{red}{rot} notiert, die Bekannten \textcolor{blue}{blau} und die Vorfaktoren der Unbekannten schwarz:
 %
 \begin{eqnarray}
-\textcolor{red}{w_{n + 1}^{(i)}} = \textcolor{blue}{w_n^{(i)} + \Delta t\newdot{w}_n^{(\text{expl})}} - \frac{w_n^{(i)}\Delta t}{z^{(i - 1)} - z^{(i + 1)}}\textcolor{red}{w_{n + 1}^{(i - 1)}} + \frac{w_n^{(i)}\Delta t}{z^{(i - 1)} - z^{(i + 1)}}\textcolor{red}{w_{n + 1}^{(i + 1)}}
+\textcolor{red}{w_{n + 1}^{(i)}} = \textcolor{blue}{w_n^{(i)} + \Delta t\newdot{w}_n^{(\text{expl})} - \frac{w_n^{(i)}\Delta t}{2}\frac{w_n^{(i - 1)} - w_n^{(i + 1)}}{z^{(i - 1)} - z^{(i + 1)}}} - \frac{w_n^{(i)}\Delta t}{2\left(z^{(i - 1)} - z^{(i + 1)}\right)}\textcolor{red}{w_{n + 1}^{(i - 1)}} + \frac{w_n^{(i)}\Delta t}{2\left(z^{(i - 1)} - z^{(i + 1)}\right)}\textcolor{red}{w_{n + 1}^{(i + 1)}}\nonumber\\
+&&
 \end{eqnarray}
 %
-Im ersten und $N_L - 1-$ten Layer sind dabei keine besonderen Maßnahmen erforderlich, außer dass dort für den jeweils äußeren Wert von $w$ der aus den Randbedingungen diagnostizierte verwendet werden muss. Man definiert den Vektor $\mathbf{W}$ der Unbekannten durch
+Im nullten Level gilt
+%
+\begin{eqnarray}
+\textcolor{red}{w_{n + 1}^{(0)}} = \textcolor{blue}{w_n^{(0)} + \Delta t\newdot{w}_n^{(\text{expl})} - \frac{w_n^{(0)}\Delta t}{2}\frac{w_n^{(-1)} - w_n^{(1)}}{z^{(-1)} - z^{(1)}}} - \frac{w_n^{(0)}\Delta t}{2\left(z^{(-1)} - z^{(1)}\right)}w_{n + 1}^{(-1)} + \frac{w_n^{(0)}\Delta t}{2\left(z^{(-1)} - z^{(1)}\right)}\textcolor{red}{w_{n + 1}^{(1)}}
+\end{eqnarray}
+%
+Hierbei ist $w^{(-1)} = 0$ aus der oberen Randbedingung bekannt. Im untersten Level gilt mit $i = N_L - 2$ die Gleichung
+%
+\begin{eqnarray}
+\textcolor{red}{w_{n + 1}^{(N_L - 2)}} & = & \textcolor{blue}{w_n^{(N_L - 2)} + \Delta t\newdot{w}_n^{(\text{expl})} - \frac{w_n^{(N_L - 2)}\Delta t}{2}\frac{w_n^{(N_L - 3)} - w_n^{(N_L - 1)}}{z^{(N_L - 3)} - z^{(N_L - 1)}}} - \frac{w_n^{(N_L - 2)}\Delta t}{2\left(z^{(N_L - 3)} - z^{(N_L - 1)}\right)}\textcolor{red}{w_{n + 1}^{(N_L - 3)}}\nonumber\\
+&& +\frac{w_n^{(N_L - 2)}\Delta t}{2\left(z^{(N_L - 3)} - z^{(N_L - 1)}\right)}w_{n + 1}^{(N_L - 1)}
+\end{eqnarray}
+%
+$w_{n + 1}^{(N_L - 1)}$ ist aus der unteren Randbedingung bekannt. Man definiert den Vektor $\mathbf{W}$ der Unbekannten durch
 %
 \begin{eqnarray}
 \mathbf{W} = \left(\begin{array}{c}
+w_{n + 1}^{(0)}\\
 w_{n + 1}^{(1)}\\
-w_{n + 1}^{(2)}\\
 \vdots\\
-w_{n + 1}^{(N_L - 1)}
+w_{n + 1}^{(N_L - 2)}
 \end{array}\right),
 \end{eqnarray}
 %
@@ -15616,12 +15622,12 @@ mit einer Matrix $\overleftrightarrow{A}$ und einer rechten Seite $\mathbf{b}$. 
 %
 \begin{eqnarray}
 \mathbf{b} = \left(\begin{array}{c}
-w_n^{(1)} + \Delta t\newdot{w}_n^{(\text{expl})}\\
-w_n^{(2)} + \Delta t\newdot{w}_n^{(\text{expl})}\\
-w_n^{(3)} + \Delta t\newdot{w}_n^{(\text{expl})}\\
+w_n^{(0)} + \Delta t\newdot{w}_n^{(\text{expl})} - \frac{w_n^{(0)}\Delta t}{2}\frac{w_n^{(-1)} - w_n^{(1)}}{z^{(-1)} - z^{(1)}}\\
+w_n^{(1)} + \Delta t\newdot{w}_n^{(\text{expl})} - \frac{w_n^{(1)}\Delta t}{2}\frac{w_n^{(0)} - w_n^{(2)}}{z^{(0)} - z^{(2)}}\\
+w_n^{(2)} + \Delta t\newdot{w}_n^{(\text{expl})} - \frac{w_n^{(2)}\Delta t}{2}\frac{w_n^{(1)} - w_n^{(3)}}{z^{(1)} - z^{(3)}}\\
 \vdots\\
-w_n^{(N_L - 2)} + \Delta t\newdot{w}_n^{(\text{expl})}\\
-w_n^{(N_L - 1)} + \Delta t\newdot{w}_n^{(\text{expl})} + w_n^{(N_L - 1)}\Delta t\frac{w_{n + 1}^{(N_L)}}{z^{(N_L - 2)} - z^{(N_L)}}
+w_n^{(N_L - 3)} + \Delta t\newdot{w}_n^{(\text{expl})} - \frac{w_n^{(N_L - 3)}\Delta t}{2}\frac{w_n^{(N_L - 4)} - w_n^{(N_L - 2)}}{z^{(N_L - 4)} - z^{(N_L - 2)}}\\
+w_n^{(N_L - 2)} + \Delta t\newdot{w}_n^{(\text{expl})} - \frac{w_n^{(N_L - 2)}\Delta t}{2}\frac{w_n^{(N_L - 3)} - w_n^{(N_L - 1)}}{z^{(N_L - 3)} - z^{(N_L - 1)}}
 \end{array}\right).
 \end{eqnarray}
 %
@@ -15629,88 +15635,16 @@ Für die Matrix $\overleftrightarrow{A}$ erhält man
 %
 \begin{eqnarray}
 \overleftrightarrow{A} & = & \left(\begin{array}{cccc}
-1 & -\left(\frac{w_n^{(1)}\Delta t}{z^{(0)} - z^{(2)}}\right)  & \dots & 0 \\
-\left(\frac{w_n^{(2)}\Delta t}{z^{(1)} - z^{(3)}}\right) & 1 & -\left(\frac{w_n^{(2)}\Delta t}{z^{(1)} - z^{(3)}}\right)\hspace{2 cm}\dots &  0 \\
+\left(1 + \frac{w_n^{(0)}\Delta t}{2\left(z^{(-1)} - z^{(1)}\right)}\right) & -\left(\frac{w_n^{(0)}\Delta t}{2\left(z^{(-1)} - z^{(1)}\right)}\right)  & \dots & 0 \\
+\left(\frac{w_n^{(1)}\Delta t}{2\left(z^{(0)} - z^{(2)}\right)}\right) & 1 & -\left(\frac{w_n^{(1)}\Delta t}{2\left(z^{(0)} - z^{(2)}\right)}\right)\hspace{2 cm}\dots &  0 \\
 \vdots & \hspace{2 cm}\ddots & \ddots & \vdots \\
-0 & \dots & \left(\frac{w_n^{(N_L - 1)}\Delta t}{z^{(N_L - 2)} - z^{(N_L)}}\right) & 1
+0 & \dots & \left(\frac{w_n^{(N_L - 2)}\Delta t}{2\left(z^{(N_L - 3)} - z^{(N_L - 1)}\right)}\right) & \left(1 - \frac{w_n^{(N_L - 2)}\Delta t}{2\left(z^{(N_L - 3)} - z^{(N_L - 1)}\right)}\right)
 \end{array}\right).\nonumber\\
 &&
 \end{eqnarray}
 
 \subsubsection{Vertikaler Sound wave solver}
 \label{sec:vertikaler_sound_wave_solver}
-
-\subsubsection{Vertikale Advektion einer generalisierten Dichte}
-\label{sec:vertikale_advektion_einer_generalisierten_dichte}
-
-Sei $\rho$ eine generalsierte Dichte, also etwa eine Massendichte oder eine Energiedichte. Vorbereitend wird das implizite Euler-Verfahren\index{implizites Euler-Verfahren}\index{Euler-Verfahren!implizites} mit $n$ als gegenwärtigem Zeitschritt notiert:
-%
-\begin{eqnarray}
-\rho_{n + 1} = \rho_n + \Delta t\frac{\partial \rho_{n + 1}}{\partial t}
-\end{eqnarray}
-%
-An dieser Stelle geht es dabei nur um vertikale Advektion\index{Advektion!vertikale}, die anderen Terme werden explizit berechnet:
-%
-\begin{eqnarray}
-\rho_{n + 1} = \rho_n + \Delta t\newdot{\rho}_n^{(\text{expl})} - \Delta t\frac{\partial\left(\rho w\right)_{n + 1}}{\partial z}
-\end{eqnarray}
-%
-Die vertikale Diskretisierung erfordert einen Layerindex $0 \leq i \leq N_L - 1$. Weiter sei $j_{i}$ das Produkt der kontravarianten Windgeschwindigkeit zwischen den Layern $i$ und $i + 1$ mit der entsprechenden Fläche, aufgrund der Randbedingungen gilt $j^{(-1)} = j^{(N_L - 1)} = 0$. Damit folgt
-%
-\begin{eqnarray}
-\rho_{n + 1}^{(i)} & = & \rho_n^{(i)} + \Delta t\newdot{\rho}_n^{(\text{expl})} - \frac{\Delta t}{2V_i}\left(\rho_{n + 1}^{(i)}j_{n + 1}^{(i - 1)} + \rho_{n + 1}^{(i - 1)}j_{n + 1}^{(i - 1)} - \rho_{n + 1}^{(i)}j_{n + 1}^{(i)} - \rho_{n + 1}^{(i + 1)}j_{n + 1}^{(i)}\right)\nonumber\\
-& = & \rho_n^{(i)} + \Delta t\newdot{\rho}_n^{(\text{expl})} + \frac{\Delta t}{2V_i}\left(\rho_{n + 1}^{(i)}j_{n + 1}^{(i)} + \rho_{n + 1}^{(i + 1)}j_{n + 1}^{(i)} - \rho_{n + 1}^{(i)}j_{n + 1}^{(i - 1)} - \rho_{n + 1}^{(i - 1)}j_{n + 1}^{(i - 1)}\right)\nonumber\\
-\end{eqnarray}
-%
-Diese Gleichung wird noch einmal notiert, dabei werden die Unbekannten \textcolor{red}{rot} notiert, die Bekannten \textcolor{blue}{blau} und die Vorfaktoren der Unbekannten schwarz:
-%
-\begin{eqnarray}
-\textcolor{red}{\rho_{n + 1}^{(i)}} & = & \textcolor{blue}{\rho_n^{(i)} + \Delta t\newdot{\rho}_n^{(\text{expl})}} + \frac{\Delta t}{2V_i}\left(\textcolor{red}{\rho_{n + 1}^{(i)}}j_{n + 1}^{(i)} + \textcolor{red}{\rho_{n + 1}^{(i + 1)}}j_{n + 1}^{(i)} - \textcolor{red}{\rho_{n + 1}^{(i)}}j_{n + 1}^{(i - 1)} - \textcolor{red}{\rho_{n + 1}^{(i - 1)}}j_{n + 1}^{(i - 1)}\right)
-\end{eqnarray}
-%
-Die $j_{n + 1}$ sind dabei vorher unabhängig berechnet worden und daher bekannt. Im nullten und $N_L - 1-$ten Layer sind dabei keine besonderen Maßnahmen erforderlich, außer dass dort für den jeweils äußeren Wert von $j$ Null eingesetzt werden muss. Man definiert den Vektor $\mathbf{W}$ der Unbekannten durch
-%
-\begin{eqnarray}
-\mathbf{W} = \left(\begin{array}{c}
-\rho_{n + 1}^{(0)}\\
-\rho_{n + 1}^{(2)}\\
-\vdots\\
-\rho_{n + 1}^{(N_L - 1)}
-\end{array}\right),
-\end{eqnarray}
-%
-für diesen gilt ein lineares Gleichungssystem\index{lineares Gleichungssystem}\index{Gleichungssystem!lineares}
-%
-\begin{eqnarray}
-\overleftrightarrow{A}\cdot\mathbf{W} = \mathbf{b}
-\end{eqnarray}
-%
-mit einer Matrix $\overleftrightarrow{A}$ und einer rechten Seite $\mathbf{b}$. Für diese rechte Seite gilt
-%
-\begin{eqnarray}
-\mathbf{b} = \left(\begin{array}{c}
-\rho_n^{(0)} + \Delta t\newdot{\rho}_n^{(\text{expl})}\\
-\rho_n^{(1)} + \Delta t\newdot{\rho}_n^{(\text{expl})}\\
-\rho_n^{(2)} + \Delta t\newdot{\rho}_n^{(\text{expl})}\\
-\vdots\\
-\rho_n^{(N_L - 2)} + \Delta t\newdot{\rho}_n^{(\text{expl})}\\
-\rho_n^{(N_L - 1)} + \Delta t\newdot{\rho}_n^{(\text{expl})}
-\end{array}\right).
-\end{eqnarray}
-%
-Für die Matrix $\overleftrightarrow{A}$ erhält man
-%
-\small
-\begin{eqnarray}
-\overleftrightarrow{A} & = & \left(\begin{array}{cccc}
-1 + \frac{\Delta t}{2V_0}\left(j_{n + 1}^{(-1)} - j_{n + 1}^{(0)}\right) & -\frac{\Delta tj_{n + 1}^{(0)}}{2V_0} & \dots & 0 \\
-\frac{\Delta tj_{n + 1}^{(0)}}{2V_1} & 1 + \frac{\Delta t}{2V_1}\left(j_{n + 1}^{(0)} - j_{n + 1}^{(1)}\right) & -\frac{\Delta tj_{n + 1}^{(1)}}{2V_1}\dots &  0 \\
-\vdots & \hspace{2 cm}\ddots & \ddots & \vdots \\
-0 & \dots & \frac{\Delta tj_{n + 1}^{(N_L - 2)}}{2V_{N_L - 1}} & 1 + \frac{\Delta t}{2V_{N_L - 1}}\left(j_{n + 1}^{(N_L - 2)} - j_{n + 1}^{(N_L - 1)}\right)
-\end{array}\right).\nonumber\\
-&&
-\end{eqnarray}
-\normalsize
 
 \section{Spezielle Probleme}
 \label{sec:spezielle_probleme}
@@ -15724,16 +15658,13 @@ Für die Matrix $\overleftrightarrow{A}$ erhält man
 \subsubsection{Neuformulierung der Coriolisterme}
 \label{sec:neuformulierung_der_coriolisterme}
 
-\subsection{Hollingsworth-Instabilität}
-\label{sec:hollingsworth-Instabilitaet}
+\subsection{Obere Randbedingung}
+\label{sec:obere_randbedingung}\index{obere Randbedingung!im Modell}\index{Randbedingung!obere!im Modell}\index{Modell!obere Randbedingung}
 
-\subsubsection{Neuformulierung der kinetischen Energie}
-\label{sec:neuformulierung_der_kinetischen_energie}
-
-\subsection{Geländefolgende Koordinaten}
+\section{Geländefolgende Koordinaten}
 \label{sec:gelaendefolgende_koordinaten}\index{geländefolgende Koordinaten}\index{Koordinaten!geländefolgende}
 
-\subsubsection{Diagnostik der vertikalen kontravarianten Maßzahl}
+\subsection{Diagnostik der vertikalen kontravarianten Maßzahl}
 \label{sec:diagnostik_der_vertikalen_kontravarianten_masszahl}
 
 In der Horizontalen sind die kontravarianten Maßzahlen prognostische Variablen und müssen daher nicht rekonstruiert werden. In der Vertikalen benötigt man jedoch
@@ -15748,26 +15679,19 @@ Es gilt also
 v^{(v)}_{b, k + \frac{1}{2}} = w_{b, k + \frac{1}{2}} - \newoverline{\newoverline{u^{(h)}_{e, k}J_{n, e, k}}^{(b)}}^{k + \frac{1}{2}}.
 \end{eqnarray}
 
-\subsubsection{Untere Randbedingung}
+\subsection{Diagnostik der horizontalen kovarianten Maßzahl}
+\label{sec:diagnostik_der_horizontalen_kovarianten_masszahl}
+
+\subsection{Untere Randbedingung}
 \label{sec:untere_randbedingung}\index{untere Randbedingung!im Modell}\index{Randbedingung!untere!im Modell}\index{Modell!untere Randbedingung}
 
-Die unter Randbedingung lautet
-%
-\begin{eqnarray}
-v^{(v)} = \mathbf{v}\cdot\mathbf{e}^{(v)} & = & 0\nonumber\\
-\Leftrightarrow un_x + vn_y + wn_z & = & 0\nonumber\\
-\Leftrightarrow w & = & -\frac{1}{n_z}\left(un_x + vn_y\right)
-\end{eqnarray}
-%
-mit $\mathbf{n} = \left(n_x, n_y, n_z\right)$ als Normalenvektor auf der Erdoberfläche. Hieraus wird am Ende des Zeitschrittverfahrens\index{Zeitschrittverfahren} $w$ an der Erdoberfläche berechnet.
-
-\subsubsection{Vertikale Interpolationen}
+\subsection{Vertikale Interpolationen}
 \label{sec:vertikale_interpolationen}\index{geländefolgende Koordinaten!vertikale Interpolationen}\index{Koordinaten!geländefolgende!vertikale Interpolationen}
 
-\subsection{Beweis der Energieerhaltung}
-\label{sec:beweis_der_energieerhaltung}
+\section{Spezifizierung von Rekostruktionsoperatoren}
+\label{sec:spezifizierung_von_rekostruktionsoperatoren}
 
-\subsubsection{Trockene Atmosphäre}
+\subsection{Trockene Atmosphäre}
 \label{sec:trockene_atmosphaere_beweis_der_energieerhaltung}
 
 Die \textit{Hamilton-Funktion}\index{Hamilton-Funktion} einer trockenen Atmosphäre lautet nach Glg. \eqref{eq:hamilton_function_atmosphere}
@@ -15782,40 +15706,28 @@ Im Modell entspricht dies einer Summe über alle $N_b$ Gitterboxen:
 H = \sum_{i = 1}^{N_b}\rho_i\left(k_i + \phi_i + c_d^{(v)}T_i\right)V_b
 \end{eqnarray}
 
-\subsubsection{Feuchte Atmosphäre}
+\subsection{Feuchte Atmosphäre}
 \label{sec:feuchte_atmosphaere_beweis_der_energieerhaltung}
 
-\subsection{Turbulenzparametrisierungen}
+\section{Turbulenzparametrisierungen}
 \label{sec:turbulenzparametrisierungen}
 
-\subsubsection{Diffusion}
+\subsection{Diffusion}
 \label{sec:diffusion}
 
-\subsubsection{Dissipation}
+\subsection{Dissipation}
 \label{sec:dissipation_turbulenzparametrisierungen}
 
-\subsubsection{Schwammschicht}
-\label{sec:schwammschicht}\index{Schwammschicht}
-
-Innerhalb der oberen $N_{L, \text{sponge}}$ Schichten werden die Diffusions- und Dissipationskoeffizienten linear von unten nach oben auf das $C_\text{sponge}$-fache ihres sonstwo gültigen Wertes erhöht. Typischerweise wählt man
-%
-\begin{eqnarray}
-C_\text{sponge} & \approx & 2,\\
-N_{L, \text{sponge}} & \approx & \frac{N_L}{10}.
-\end{eqnarray}
-
-\subsection{Ankopplung eines Strahlungsmodells}
-\label{sec:ankopplung_an_ein_strahlungsmodells}\index{Kern!dynamischer!Ankoppplung eines Strahlungsmodells}\index{dynamischer Kern!Ankopplung eines Strahlungsmodells}\index{Strahlungsmodell!Ankopplung an einen dynamischen Kern}
-
-Die grundlegende Physik des Strahlungstransportes in der Atmosphäre wurde Kap. \ref{chap:strahlungstransport} in Teilen ausgebreitet. Auf einer funamentalen Ebene sind diese Vorgänge gut vorstanden. Auch die Entwicklung numerischer Implementierungen ist recht saturiert und grundlegende Neuerungen sind selten. Ein Beispiel für ein flexibles und zukunftsfähiges Modell ist das sogenannte \texttt{RTE+RRTMGP (Radiative Transfer for Energetics + Rapid and Accurate Radiative Transfer Model for General Circulation Model Applications—Parallel)} \cite{doi:10.1029/2019MS001621}.
-
-
-\subsection{Berücksichtigung von Tracern}
-\label{sec:berücksichtigung_von_tracern}
+\section{Infrastruktur für die Berücksichtigung von Tracern}
+\label{sec:infrastruktur_fuer_die_beruecksichtigung_von_tracern}
 
 Führt man $N \geq 1$ Tracer ein (also Anteile der Luft, die nicht zur trockenen Luft gehören), von denen $1 \leq N_C \leq N$ kondensiert sind, so benötigt man $N$ zusätzliche Kontinuitätsgleichungen und $N_C$ zusätzliche Erste Hauptsätze der Thermodynamik. Für die gasförmigen Komponenten sind keine zusätzlichen Ersten Hauptsätze notwendig, anstattdessen muss man den Hauptsatz für die Gasphase modifizieren. Der Druckgradientterm in der Impulsgleichung ist mit $\frac{\rho_h}{\rho}$ zu multiplizieren, um die Massenträgheit der Kondensate zu berücksichtigen.
 
-\section{JW-Test}
+
+\section{Tests}
+\label{sec:tests}
+
+\subsection{JW-Test}
 \label{sec:jw-test}\index{JW-Test}
 
 Der Jablonowski-Williamson-Test \cite{jablonowski} (im Folgenden JW-Test genannt) ist ein Standardtest für dynamische Kerne. Er geht von einem durch analytische Ausdrücke definierten, baroklinen, realistischen Grundzustand aus, der eine stationäre Lösung der trockenen adiabatischen herrschenden Gleichungen ist. Anschließend wird eine kleine Störung überlagert, die sich in Form barokliner Wellen über mehrere Tage fortpflanzt. Der Test soll zwei Fragen beantworten:
@@ -15825,11 +15737,29 @@ Der Jablonowski-Williamson-Test \cite{jablonowski} (im Folgenden JW-Test genannt
 \item Wie gut wird die Störung simuliert?
 \end{enumerate}
 %
-\subsection{Stationärer Grundzustand}
+\subsubsection{Stationärer Grundzustand}
 \label{sec:stationaerer_grundzustand}
 
-\subsection{Störung}
+\subsubsection{Störung}
 \label{sec:stoerung}
+
+\subsection{Held-Suarez-Test}
+\label{sec:held-suarez-test}\index{Held-Suarez-Test}
+
+\subsection{Superzellen-Test}
+\label{sec:superzellen-test}\index{Superzellen-Test}
+
+\subsection{Steile Orographie}
+\label{sec:steile_orographie}
+
+\subsubsection{Ruhende Atmosphäre}
+\label{sec:ruhende_atmosphaere}
+
+\subsubsection{Bewegte Atmosphäre}
+\label{sec:bewegte_atmosphaere}
+
+\section{Weiterführende Aspekte}
+\label{sec:weiterfuehrende_aspekte}
 
 \part{Anhang}
 \label{part:anhang}
