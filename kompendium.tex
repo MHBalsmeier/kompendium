@@ -5418,6 +5418,12 @@ Für die Enthalpie $H$ des idealen Gases folgt
 H = E + pV = \frac{5}{2}Nk_BT = C^{(p)}T.
 \end{eqnarray}
 %
+Für das Gibbs-Potential\index{Gibbs-Potential!ideales Gas} $G$ des idealen Gases erhält man
+%
+\begin{eqnarray}
+G = E - ST + pV = H - ST = C^{(p)}T - ST\label{eq:gibbs_ideal}.
+\end{eqnarray}
+%
 Weiterhin gilt
 %
 \begin{eqnarray}
@@ -8063,6 +8069,38 @@ ergibt sich als Diagnostik\index{Diagnostik} für die potentielle Temperatur
 \begin{eqnarray}
 \theta = \exp\left(\frac{s - c}{c^{(p)}}\right) = \exp\left(\frac{\frac{\newtilde{s}}{\rho} - c}{c^{(p)}}\right) = \exp\left(-\frac{c}{c^{(p)}}\right)\exp\left(\frac{\newtilde{s}}{c^{(p)}\rho}\right).\label{eq:pot_temp_entropy_diagnostics}
 \end{eqnarray}
+%
+Mit
+%
+\begin{eqnarray}
+\theta = T\left(\frac{p_0}{p}\right)^{R_s/c^{(p)}} = T\left(\frac{p_0}{\rho R_sT}\right)^{R_s/c^{(p)}} = \left(\frac{p_0}{R_s}\right)^{R_s/c^{(p)}}T^{c^{(v)}/c^{(p)}}\rho^{-R_s/c^{(p)}}
+\end{eqnarray}
+%
+erhält man weiter
+%
+\begin{eqnarray}
+T = \left(\frac{R_s}{p_0}\right)^{R_s/c^{(v)}}\exp\left(-\frac{c}{c^{(v)}}\right)\rho^{R_s/c^{(v)}}\exp\left(\frac{\newtilde{s}}{c^{(v)}\rho}\right).
+\end{eqnarray}
+%
+Mit
+%
+\begin{eqnarray}
+\beta \coloneqq \left(\frac{R_s}{p_0}\right)^{R_s/c^{(v)}}\exp\left(-\frac{c}{c^{(v)}}\right)
+\end{eqnarray}
+%
+kann man dies kürzer als
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{eqnarray}
+T = \beta\rho^{R_d/c^{(v)}}\exp\left(\frac{\newtilde{s}}{c^{(v)}\rho}\right)
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
+%
+notieren. Dies ist die Zustandsgleichung idealer Gase in Entropieformulierung\index{Zustandsgleichung idealer Gase!Entropieformulierung}.
 
 \subsection{Ideales Gasgemisch mit homogener Zusammensetzung}
 \label{sec:ideales_gasgemisch_mit_homogener_zusammensetzung}
@@ -8492,7 +8530,6 @@ e = K + P + \newtilde{I}.
 \end{eqnarray}
 %
 Die totale Ableitung hiervon ergibt sich unter Verwendung der gerade hergeleiteten Gleichungen zu
-
 %
 \begin{eqnarray}
 \md{e} & = & -e\nabla\cdot\mathbf{v} - \nabla\cdot\left(p\mathbf{v}\right).\label{eq:bernoulli_pre}
@@ -8986,13 +9023,13 @@ notieren. Die Funktionalableitungen hiervon sind
 && -\frac{\newtilde{s}}{\rho}\left(\frac{\rho R_d}{p_0}\right)^{\frac{R_d}{c_d^{(v)}}}\exp\left(-\frac{c}{c_d^{(v)}}\right)\exp\left(\frac{\newtilde{s}}{c_d^{(v)}\rho}\right),\nonumber\\
 & = & \frac{1}{2}\mathbf{v}^2 + \phi + \left(c_d^{(p)} - s\right)\left(\frac{\rho R_d}{p_0}\right)^{\frac{R_d}{c_d^{(v)}}}\exp\left(-\frac{c}{c_d^{(v)}}\right)\exp\left(\frac{\newtilde{s}}{c_d^{(v)}\rho}\right),\nonumber\\
 & \stackrel{\text{Glg. \eqref{eq:pot_temp_entropy_diagnostics}}}{=} & \frac{1}{2}\mathbf{v}^2 + \phi + \left(c_d^{(p)} - s\right)\left(\frac{\rho R_d\theta}{p_0}\right)^{\frac{R_d}{c_d^{(v)}}}\theta,\nonumber\\
-& \stackrel{\text{Glg. \eqref{eq:exner_pressure_diag}}}{=} & \frac{1}{2}\mathbf{v}^2 + \phi + \left(c_d^{(p)} - s\right)\Pi\theta \stackrel{\text{Glg. \eqref{eq:def_exner-druck}}}{=} \frac{1}{2}\mathbf{v}^2 + \phi + \left(c_d^{(p)} - s\right)T,\\
+& \stackrel{\text{Glg. \eqref{eq:exner_pressure_diag}}}{=} & \frac{1}{2}\mathbf{v}^2 + \phi + \left(c_d^{(p)} - s\right)\Pi\theta \stackrel{\text{Glg. \eqref{eq:def_exner-druck}}}{=} \frac{1}{2}\mathbf{v}^2 + \phi + \left(c_d^{(p)} - s\right)T \stackrel{\text{Glg. \eqref{eq:gibbs_ideal}}}{=} \frac{1}{2}\mathbf{v}^2 + \phi + G,\\
 \frac{\delta H}{\delta\newtilde{s}} & = & \left(\frac{\rho R_d}{p_0}\right)^{\frac{R_d}{c_d^{(v)}}}\exp\left(-\frac{c}{c_d^{(v)}}\right)\exp\left(\frac{\newtilde{s}}{c_d^{(v)}\rho}\right) = \left[\left(\frac{\rho R_d}{p_0}\right)^{\frac{R_d}{c_d^{(p)}}}\exp\left(-\frac{c}{c_d^{(p)}}\right)\exp\left(\frac{\newtilde{s}}{c_d^{(p)}\rho}\right)\right]^\kappa\nonumber\\
 & = & \left[\left(\frac{\rho R_d}{p_0}\right)^{\frac{R_d}{c_d^{(p)}}}\exp\left(\frac{\newtilde{s}}{c_d^{(p)}\rho} - \frac{c}{c_d^{(p)}}\right)\right]^\kappa \stackrel{\text{Glg. \eqref{eq:pot_temp_entropy_diagnostics}}}{=} \left(\frac{\rho\theta R_d}{p_0}\right)^{\frac{R_d}{c_d^{(v)}}}\theta\nonumber\\
 & \stackrel{\text{Glg. \eqref{eq:exner_pressure_diag}}}{=} & \Pi\theta \stackrel{\text{Glg. \eqref{eq:def_exner-druck}}}{=} T.
 \end{eqnarray}
 %
-Nun sollen die Zeitentwicklungen der Größen
+$G$ bezeichnet hierbei das spezifische Gibbs-Potential. Nun sollen die Zeitentwicklungen der Größen
 %
 \begin{eqnarray}
 B \coloneqq \int_A\newtilde{I} + \rho\phi d^3r = \int_A\rho\phi + c_d^{(v)}\rho Td^3r = \int_A\rho\phi + c\rho^\kappa\exp\left(\frac{\newtilde{s}}{c_d^{(v)}\rho}\right)d^3r
@@ -9008,7 +9045,7 @@ in Termen der Poisson-Klammer mit der Hamilton-Funktion $H$ notiert werden. Dazu
 %
 \begin{eqnarray}
 \frac{\delta B}{\delta\mathbf{v}} & = & 0,\\
-\frac{\delta B}{\delta\rho} & = & \phi + \left(c_d^{(p)} - s\right)T,\\
+\frac{\delta B}{\delta\rho} & = & \phi + G,\\
 \frac{\delta B}{\delta\newtilde{s}} & = & T,\\
 \frac{\delta C}{\delta\mathbf{v}} & = & \rho\mathbf{v},\\
 \frac{\delta C}{\delta\rho} & = & \frac{1}{2}\mathbf{v}^2,\\
@@ -9022,8 +9059,7 @@ und erhält somit
 && -\int_A\frac{\delta B}{\delta\rho}\nabla\cdot\frac{\delta H}{\delta\mathbf{v}} - \frac{\delta H}{\delta\rho}\nabla\cdot\frac{\delta B}{\delta\mathbf{v}}d^3r\\
 && -\int_A\frac{\partial B}{\partial\newtilde{s}}\nabla\cdot\left(s\frac{\partial H}{\partial\mathbf{v}}\right) - \frac{\partial H}{\partial\newtilde{s}}\nabla\cdot\left(q\frac{\delta B}{\delta\mathbf{v}}\right)d^3r\nonumber\\
 & = & -\int_A\frac{\delta B}{\delta\rho}\nabla\cdot\left(\rho\mathbf{v}\right) + \frac{\partial B}{\partial\newtilde{s}}\nabla\cdot\left(s\rho\mathbf{v}\right)d^3r = -\int_A\left(\phi + c_d^{(p)}T - sT\right)\nabla\cdot\left(\rho\mathbf{v}\right) + T\nabla\cdot\left(s\rho\mathbf{v}\right)d^3r\nonumber\\
-& = & -\int_A\left(\phi + c_d^{(p)}T\right)\nabla\cdot\left(\rho\mathbf{v}\right) + T\rho\mathbf{v}\cdot\nabla sd^3r\nonumber\\
-& = & \int_A\rho\mathbf{v}\cdot\left(\nabla\phi + c_d^{(p)}\nabla T\right) - T\rho\mathbf{v}\cdot\nabla sd^3r,
+& = & -\int_A\left(\phi + G\right)\nabla\cdot\left(\rho\mathbf{v}\right) + T\nabla\cdot\left(\newtilde{s}\mathbf{v}\right)d^3r,
 \end{eqnarray}
 %
 \begin{eqnarray}
@@ -9032,9 +9068,9 @@ und erhält somit
 && -\int_A\frac{\partial C}{\partial\newtilde{s}}\nabla\cdot\left(s\frac{\partial H}{\partial\mathbf{v}}\right) - \frac{\partial H}{\partial\newtilde{s}}\nabla\cdot\left(s\frac{\delta C}{\delta\mathbf{v}}\right)d^3r\nonumber\\
 & = & -\int_A\frac{\delta C}{\delta\rho}\nabla\cdot\frac{\delta H}{\delta\mathbf{v}} - \frac{\delta H}{\delta\rho}\nabla\cdot\frac{\delta C}{\delta\mathbf{v}} - \frac{\partial H}{\partial\newtilde{s}}\nabla\cdot\left(s\frac{\delta C}{\delta\mathbf{v}}\right)d^3r\nonumber\\
 & = & -\int_A\frac{\delta C}{\delta\rho}\nabla\cdot\left(\rho\mathbf{v}\right) - \frac{\delta H}{\delta\rho}\nabla\cdot\left(\rho\mathbf{v}\right) - T\nabla\cdot\left(s\rho\mathbf{v}\right)d^3r\nonumber\\
-& = & -\int_A -\left(\phi + c_d^{(p)}T - sT\right)\nabla\cdot\left(\rho\mathbf{v}\right) - T\nabla\cdot\left(s\rho\mathbf{v}\right)d^3r\nonumber\\
-& = & \int_A\left(c_d^{(p)}T + \phi\right)\nabla\cdot\left(\rho\mathbf{v}\right) + T\rho\mathbf{v}\cdot\nabla sd^3r\nonumber\\
-& = & \int_A-\rho\mathbf{v}\cdot\left(\nabla\phi + c_d^{(p)}\nabla T\right) + T\rho\mathbf{v}\cdot\nabla sd^3r.
+& = & -\int_A -\left(\phi + G\right)\nabla\cdot\left(\rho\mathbf{v}\right) - T\nabla\cdot\left(\newtilde{s}\mathbf{v}\right)d^3r\nonumber\\
+& = & \int_A\left(\phi + G\right)\nabla\cdot\left(\rho\mathbf{v}\right) - \newtilde{s}\mathbf{v}\cdot\nabla Td^3r\nonumber\\
+& = & \int_A-\rho\mathbf{v}\cdot\nabla\left(\phi + G\right) - \rho\mathbf{v}\cdot\left(s\nabla T\right)d^3r.
 \end{eqnarray}
 %
 Hieraus erhält man als Ausdruck für die Druckgradientbeschleunigung\index{Druckgradient}\index{Druckgradientbeschleunigung}
@@ -9043,7 +9079,7 @@ Hieraus erhält man als Ausdruck für die Druckgradientbeschleunigung\index{Druc
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{eqnarray}
--\frac{1}{\rho}\nabla p = -c_d^{(p)}\nabla T + T\nabla s.
+-\frac{1}{\rho}\nabla p = -\nabla G - s\nabla T.
 \end{eqnarray}
 \end{center}
 }}
@@ -9052,7 +9088,7 @@ Hieraus erhält man als Ausdruck für die Druckgradientbeschleunigung\index{Druc
 Dies wird auch durch
 %
 \begin{eqnarray}
--c_d^{(p)}\nabla T + T\nabla s & = & -c_d^{(p)}\nabla T + Tc_d^{(p)}\nabla\ln\left(\theta\right)\nonumber\\
+-\nabla G - s\nabla T & = & -c_d^{(p)}\nabla T + T\nabla s  = -c_d^{(p)}\nabla T + Tc_d^{(p)}\nabla\ln\left(\theta\right)\nonumber\\
 & = & -c_d^{(p)}\nabla T + \frac{T}{\theta}c_d^{(p)}\nabla\theta = -c_d^{(p)}\theta\nabla\frac{T}{\theta} = -c_d^{(p)}\theta\nabla\Pi
 \end{eqnarray}
 %
@@ -15300,6 +15336,17 @@ Im Falle von Kugelkoordinaten, also oberhalb des Layers oberhalb von $\newtilde{
 \subsection{Rotationsfelder}
 \label{sec:rotationsfelder}\index{Rotationsfeld}\index{Modell!Rotationsfeld}
 
+\section{Prognostische Variablen}
+\label{sec:prognostische_variablen}
+
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+Eine Variable ist eine \textit{prognostische Variable}\index{prognostische Variable}\index{Variable!prognostische}, wenn für sie eine Evolutionsgleichung gelöst wird, anonsten handelt es sich um eine \textit{diagnostische Variable}\index{diagnostische Variable}\index{Variable!diagnostische}.
+\end{center}
+}}
+\end{center}
+
 \section{Operatoren}
 \label{sec:operatoren}\index{Operator}
 
@@ -15645,6 +15692,57 @@ Für die Matrix $\overleftrightarrow{A}$ erhält man
 
 \subsubsection{Vertikaler Sound wave solver}
 \label{sec:vertikaler_sound_wave_solver}
+
+Zunächst muss festgestellt werden, welche der Terme in Entropieformulierung Schallwellen beschreiben, da diese impliizit behandelt werden müssen. Da Schallwellen adiabatisch sind ist nicht zu erwarten, dass der Anteil des Druckgradienten, der mit dem Gradienten der Entropie zusammenhängt, nicht zu Schallwellen beiträgt. Anders ist es mit dem Gradienten der Enthalpie. Um ein geschlossenes Gleichungssystem zu erhalten, muss daher eine prognostische Gleichung für die Temperatur gefunden werden. Man notiert dazu Glg. \eqref{eq:internal_energy_prognostic} in der Form
+%
+\begin{eqnarray}
+\frac{\partial\newtilde{T}}{\partial t} = -\nabla\cdot\left(\newtilde{T}\mathbf{v}\right) - \frac{R_d}{c^{(v)}}\newtilde{T}\nabla\cdot\mathbf{v}
+\end{eqnarray}
+%
+als Gleichung für $\newtilde{T} \coloneqq \rho T$. Der erste Term beschreibt die Advektion, diese ist für Schallwellen üblicherweise nicht relevant. Man notiert daher als eindimensionales Gleichungssystem
+%
+\begin{eqnarray}
+\frac{\partial w}{\partial t} & = & -c^{(p)}\frac{\partial}{\partial z}\left(\frac{\newtilde{T}}{\rho}\right),\label{eq:sound_entropy_0}\\
+\frac{\partial\newtilde{T}}{\partial t} & = & -\frac{R_d}{c^{(v)}}\newtilde{T}\frac{\partial w}{\partial z}.\label{eq:sound_entropy_1}
+\end{eqnarray}
+%
+Um zu verifizieren, dass dieses tatsächlich Schallwellen beschreibt, macht man den Ansatz
+%
+\begin{eqnarray}
+w & = & w_1\exp\left(ikz - i\omega t\right),\\
+\newtilde{T} & = & \newtilde{T}_0 + \newtilde{T}_1\exp\left(ikz - i\omega t\right).
+\end{eqnarray}
+%
+Die Dichte wird als homogen angenommen. Setzt man dies in Glg.en \eqref{eq:sound_entropy_0} - \eqref{eq:sound_entropy_1} ein, folgt
+%
+\begin{eqnarray}
+-i\omega w_1 & = & -c^{(p)}ik\frac{\newtilde{T}_1}{\rho},\\
+-i\omega\newtilde{T}_1 & = & -\frac{R_d}{c^{(v)}}\newtilde{T}_0ikw_1.
+\end{eqnarray}
+%
+In Matrixschreibweise erhält man
+%
+\begin{eqnarray}
+\left(
+\begin{array}{cc}
+-i\omega & c^{(p)}ik\frac{1}{\rho} \\
+\frac{R_d}{c^{(v)}}\newtilde{T}_0ik & -i\omega \end{array}\right)
+\left(\begin{array}{c}
+w_1 \\
+\newtilde{T}_1
+\end{array}\right) = \left(\begin{array}{c}
+0 \\
+0
+\end{array}\right).
+\end{eqnarray}
+%
+Durch Nullsetzen der Determinante erhält man
+%
+\begin{eqnarray}
+\omega^2 = \kappa R_dTk^2.
+\end{eqnarray}
+%
+Es ergibt sich also die gleiche Dispersionsrelation wie Glg. \eqref{eq:velocity_sound}. Hiermit ist verifiziert, dass die in den Glg.en \eqref{eq:sound_entropy_0} - \eqref{eq:sound_entropy_1} aufgeführten Terme in der Tat Schallwellen beschreiben.
 
 \section{Spezielle Probleme}
 \label{sec:spezielle_probleme}
