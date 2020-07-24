@@ -7614,6 +7614,32 @@ c^{(v)}\md{T} - \frac{p}{\rho^2}\md{\rho} = \frac{q_T^{(V)}}{\rho} - \frac{sT}{\
 \end{center}
 }}
 \end{center}
+%
+Mittels der Kontinuitätsgleichung in der Form
+%
+\begin{eqnarray}
+\md{\rho} = -\rho\nabla\cdot\mathbf{v}
+\end{eqnarray}
+%
+kann man dies zu
+%
+\begin{eqnarray}
+c^{(v)}\frac{\partial T}{\partial t} + c^{(v)}\mathbf{v}\cdot\nabla T + \frac{p}{\rho}\nabla\cdot\mathbf{v} = \frac{q_T^{(V)}}{\rho} - \frac{sT}{\rho}q_\rho^{(V)}
+\end{eqnarray}
+%
+umformen. Mit $p = \rho R_sT$ folgt
+%
+\begin{eqnarray}
+\frac{\partial T}{\partial t} + \mathbf{v}\cdot\nabla T + \frac{R_sT}{c^{(v)}}\nabla\cdot\mathbf{v} = \frac{\partial T}{\partial t} + \nabla\cdot\left(T\mathbf{v}\right) + \left(\frac{R_s}{c^{(v)}} - 1\right)\nabla\cdot\mathbf{v} = \frac{q_T^{(V)}}{c^{(v)}\rho} - \frac{sT}{c^{(v)}\rho}q_\rho^{(V)}.
+\end{eqnarray}
+%
+Mit $R_s = c^{(p)} - c^{(v)}$ kann man dies zu
+%
+\begin{eqnarray}
+\frac{\partial T}{\partial t} = - \nabla\cdot\left(T\mathbf{v}\right) + \left(2 - \kappa\right)\nabla\cdot\mathbf{v} + \frac{q_T^{(V)}}{c^{(v)}\rho} - \frac{sT}{c^{(v)}\rho}q_\rho^{(V)}
+\end{eqnarray}
+%
+umschreiben.
 
 \subsubsection{Hydrostatische Grenzfälle}
 \label{sec:hydrostatische_grenzfaelle}
