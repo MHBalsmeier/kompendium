@@ -7636,7 +7636,7 @@ umformen. Mit $p = \rho R_sT$ folgt
 Mit $R_s = c^{(p)} - c^{(v)}$ kann man dies zu
 %
 \begin{eqnarray}
-\frac{\partial T}{\partial t} = - \nabla\cdot\left(T\mathbf{v}\right) + \left(2 - \kappa\right)\nabla\cdot\mathbf{v} + \frac{q_T^{(V)}}{c^{(v)}\rho} - \frac{sT}{c^{(v)}\rho}q_\rho^{(V)}
+\frac{\partial T}{\partial t} = - \nabla\cdot\left(T\mathbf{v}\right) + \left(2 - \kappa\right)\nabla\cdot\mathbf{v} + \frac{q_T^{(V)}}{c^{(v)}\rho} - \frac{sT}{c^{(v)}\rho}q_\rho^{(V)}\label{eq:td_1_ideal_gas_for_c_grid}
 \end{eqnarray}
 %
 umschreiben.
@@ -15246,8 +15246,20 @@ A_h = \int_{A}r^2\cos\left(\phi\right)\sqrt{1 + \left(\nabla_hz\right)^2}d\phi d
 %
 wobei $z$ die Position der betrachteten Fläche bezeichnet.
 
-\subsubsection{Analytische Grenzfälle}
-\label{sec:analytische_grenzfaelle}
+\subsubsection{Sphärische Grenzfälle}
+\label{sec:sphaerische_grenzfaelle}
+
+Spielt Orographie keine Rolle mehr, vereinfachen sich die oben aufgeführten Formeln. Volumina $V$ mit der Grundfläche $A$, dem inneren Radius $r_0$ und dem äußeren Radius $r_1$ berechnen sich über
+%
+\begin{eqnarray}
+V = \int_{r_0}^{r_1}A\frac{r^2}{r_0^2}dr = \frac{A}{r_0^2}\frac{1}{3}\left(r_1^3 - r_0^3\right).
+\end{eqnarray}
+%
+Für vertikale Flächen $A_v$ mit der Grundlänge $L$ und derselben Bezeichung für die Radien gilt
+%
+\begin{eqnarray}
+A_v = \int_{r_0}^{r_1}L\frac{r}{r_0}dr = \frac{L}{2r_0}\left(r_1^2 - r_0^2\right).
+\end{eqnarray}
 
 \subsection{Funktionaldeterminante einer generalisierten Vertikalkoordinate}
 \label{sec:funktionaldeterminante_einer_generalisierten_vertikalkoordinate}\index{Funktionaldeterminante!generalisierte Vertikalkoordinate}\index{Vertikalkoordinate!generalisierte!Funktionaldeterminante}\index{generalisierte Vertikalkoordinate!Funktionaldeterminante}
