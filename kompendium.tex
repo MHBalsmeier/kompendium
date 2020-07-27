@@ -15220,11 +15220,11 @@ fest, sie ist also der Mittelwert der z-Positionen der vertikalen Vektoren der d
 \subsubsection{Berechnung vertikaler Flächen und Volumina}
 \label{sec:berechnung_vertikaler_flaechen_und_volumina}
 
-Durch die Vorgaben im vorherigen Abschnitt sind die vertikalen Positionen aller Gitterpunkte festgelegt. Um Volumina und Flächen zu berechnen benötigt man jedoch kontinuierliche Formeln für die z-Koordinate eines Levels innerhalb einer Zelle. Hierfür denkt man sich ein Koordinatensystem $\left(\eta, \phi, \lambda\right)$ mit einer generalisierten Vertikalkoordinaten $\eta$, der geographischen Breie $\phi$ und der geographischen Länge $\lambda$. $\eta$ sei der linear interpolierte Levelindex.
+Durch die Vorgaben im vorherigen Abschnitt sind die vertikalen Positionen aller Gitterpunkte festgelegt. Um Volumina und Flächen zu berechnen, benötigt man jedoch kontinuierliche Formeln für die z-Koordinate eines Levels innerhalb einer Zelle. Hierfür denkt man sich ein Koordinatensystem $\left(\eta, \phi, \lambda\right)$ mit einer generalisierten Vertikalkoordinaten $\eta$, der geographischen Breie $\phi$ und der geographischen Länge $\lambda$. $\eta$ sei der linear interpolierte Levelindex.
 
 Die horizontalen Begrenzungen der Gitterboxen\footnote{Der Begriff \textit{Box} wird verwendet, auch wenn die gemeinten Mengen nicht quaderförmig sind.} sind sogenannte \textit{vertikale Flächen}\index{Vertikale Fläche}\index{Fläche!vertikale}. Entlang ihnen ist nach einer Rotation des Kugelkoordinatensystems um den Erdmittelpunkt entweder $\phi$ oder $\lambda$ konstant.
 
-Die vertikalen Begrenzungen der Flächen legen auch gleichzeitig die Unter- und Obergenzen der vetikalen Flächen fest. Um vertikale Flächen $A_v$ zu berechnen, verwendet man das Integral
+Die vertikalen Begrenzungen der Boxen legen auch gleichzeitig die Unter- und Obergenzen der vetikalen Flächen $A_v$ fest. Um diese zu berechnen, verwendet man das Integral
 %
 \begin{eqnarray}
 A_v = \int_L\int_{z_{\text{lower}}}^{z_{\text{upper}}}dzrd\varphi,
@@ -15238,7 +15238,7 @@ Für die Volumina $V$ findet man
 V = \int_{A}\int_{z_{\text{lower}}}^{z_{\text{upper}}}r^2\cos\left(\phi\right)dzd\phi d\lambda
 \end{eqnarray}
 %
-Hierbei ist $A$ die Projektion der Grundfläche der Gitterbox auf die EInheitskugel. Für die horizontalen Flächen $A_h$ findet man
+Hierbei ist $A$ die Projektion der Grundfläche der Gitterbox auf die Einheitskugel. Für die horizontalen Flächen $A_h$ findet man
 %
 \begin{eqnarray}
 A_h = \int_{A}r^2\cos\left(\phi\right)\sqrt{1 + \left(\nabla_hz\right)^2}d\phi d\lambda,
@@ -15545,6 +15545,123 @@ Aus Energieerhaltungsgründen wird für den kovarianten Druckgradienten in allen
 
 \subsection{Modifikation zur Gewährleistung von Energieerhaltung}
 \label{sec:modifikation_zur_gewährleistung_von_energieerhaltung}
+
+\subsubsection{Advektion kinetischer Energie}
+\label{sec:advektion_kinetischer_energie}
+
+Da $\mathbf{v}\cdot\left[\left(\nabla\times\mathbf{v}\right)\times\mathbf{v}\right] = 0$ gilt, ist der verallgemeinerte Coriolis-Term energetisch unerheblich. Für eine konsistente zeitliche Diskretisierung der Advektion von kinetischer Energie verwendet man daher das Gleichungssystem
+
+\begin{eqnarray}
+\frac{\partial\mathbf{v}}{\partial t} & = & -\nabla\frac{\mathbf{v}^2}{2},\\
+\frac{\partial\rho}{\partial t} & = & -\nabla\cdot\left(\rho\mathbf{v}\right).
+\end{eqnarray}
+%
+Im kontinuierlichen Fall gilt
+%
+\begin{eqnarray}
+\rho\mathbf{v}\cdot\frac{\partial\mathbf{v}}{\partial t} & = & -\rho\mathbf{v}\cdot\nabla\frac{\mathbf{v}^2}{2}  = -\nabla\cdot\left(\rho\mathbf{v}\frac{\mathbf{v}^2}{2}\right) + \frac{\mathbf{v}^2}{2}\nabla\cdot\left(\rho\mathbf{v}\right) = -\nabla\cdot\left(\rho\mathbf{v}\frac{\mathbf{v}^2}{2}\right) - \frac{\mathbf{v}^2}{2}\frac{\partial\rho}{\partial t}\nonumber\\
+\Rightarrow \rho\mathbf{v}\cdot\frac{\partial\mathbf{v}}{\partial t} + \frac{\mathbf{v}^2}{2}\frac{\partial\rho}{\partial t} & = & \frac{\partial\left(\rho\mathbf{v}^2/2\right)}{\partial t} = -\nabla\cdot\left(\rho\mathbf{v}\frac{\mathbf{v}^2}{2}\right)
+\end{eqnarray}
+%
+für die Auswirkung der Flussdichte von kinetischer Energie auf die lokale kinetische Energiedichte. Diese Umformungsschritte müssen sich auf die Diskretisierung übertragen lassen. Man definiert nun $\delta_0, \delta_1, \delta_2, \delta_3, \delta_4, \delta_5 \in \left\{0, 1\right\}$, um die zeitliche Diskretisierung der kinetischen Energie und der Massenflussdichte in der Form
+%
+\begin{eqnarray}
+\frac{\mathbf{v}^2}{2} & = & \frac{\mathbf{v}_{\delta_0}\cdot\mathbf{v}_{\delta_1}}{2},\\
+\rho\mathbf{v} & = & \frac{\rho_{\delta_2}\mathbf{v}_{\delta_3} + \rho_{\delta_4}\mathbf{v}_{\delta_5}}{2}
+\end{eqnarray}
+%
+zu notieren. Damit erhält man zunächst als Gleichungssystem
+%
+\begin{eqnarray}
+\frac{\mathbf{v}_1 - \mathbf{v}_0}{\Delta t} & = & -\nabla\frac{\mathbf{v}^2}{2},\\
+\frac{\rho_1 - \rho_0}{\Delta t} & = & -\nabla\cdot\left(\rho\mathbf{v}\right).
+\end{eqnarray}
+%
+Hieraus folgt
+%
+\begin{eqnarray}
+\frac{\rho_{\delta_2}\mathbf{v}_{\delta_3} + \rho_{\delta_4}\mathbf{v}_{\delta_5}}{2}\cdot\frac{\mathbf{v}_1 - \mathbf{v}_0}{\Delta t} = -\frac{\rho_{\delta_2}\mathbf{v}_{\delta_3} + \rho_{\delta_4}\mathbf{v}_{\delta_5}}{2}\cdot\nabla\frac{\mathbf{v}^2}{2} & = & -\frac{\rho_{\delta_2}\mathbf{v}_{\delta_3} + \rho_{\delta_4}\mathbf{v}_{\delta_5}}{2}\cdot\nabla \frac{\mathbf{v}_{\delta_0}\cdot\mathbf{v}_{\delta_1}}{2}\nonumber\\
+= -\nabla\cdot\left(\frac{\rho_{\delta_2}\mathbf{v}_{\delta_3} + \rho_{\delta_4}\mathbf{v}_{\delta_5}}{2}\frac{\mathbf{v}_{\delta_0}\cdot\mathbf{v}_{\delta_1}}{2}\right) & + & \frac{\mathbf{v}_{\delta_0}\cdot\mathbf{v}_{\delta_1}}{2}\nabla\cdot\frac{\rho_{\delta_2}\mathbf{v}_{\delta_3} + \rho_{\delta_4}\mathbf{v}_{\delta_5}}{2}\nonumber\\
+ = -\nabla\cdot\left(\frac{\rho_{\delta_2}\mathbf{v}_{\delta_3} + \rho_{\delta_4}\mathbf{v}_{\delta_5}}{2}\frac{\mathbf{v}_{\delta_0}\cdot\mathbf{v}_{\delta_1}}{2}\right) & - & \frac{\mathbf{v}_{\delta_0}\cdot\mathbf{v}_{\delta_1}}{2}\frac{\rho_1 - \rho_0}{\Delta t}\nonumber\\
+\Leftrightarrow\frac{\rho_{\delta_2}\mathbf{v}_{\delta_3} + \rho_{\delta_4}\mathbf{v}_{\delta_5}}{2}\cdot\frac{\mathbf{v}_1 - \mathbf{v}_0}{\Delta t} + \frac{\mathbf{v}_{\delta_0}\cdot\mathbf{v}_{\delta_1}}{2}\frac{\rho_1 - \rho_0}{\Delta t} & = & -\nabla\cdot\left(\frac{\rho_{\delta_2}\mathbf{v}_{\delta_3} + \rho_{\delta_4}\mathbf{v}_{\delta_5}}{2}\frac{\mathbf{v}_{\delta_0}\cdot\mathbf{v}_{\delta_1}}{2}\right)\nonumber\\
+\Leftrightarrow \frac{\rho_{\delta_2}\mathbf{v}_{\delta_3}\cdot\mathbf{v}_1 + \rho_{\delta_4}\mathbf{v}_{\delta_5}\cdot\mathbf{v}_1 - \rho_{\delta_2}\mathbf{v}_{\delta_3}\cdot\mathbf{v}_0 - \rho_{\delta_4}\mathbf{v}_{\delta_5}\cdot\mathbf{v}_0 + \rho_1\mathbf{v}_{\delta_0}\cdot\mathbf{v}_{\delta_1} - \rho_0\mathbf{v}_{\delta_0}\cdot\mathbf{v}_{\delta_1}}{2\Delta t} & = & -\nabla\cdot\left(\frac{\rho_{\delta_2}\mathbf{v}_{\delta_3} + \rho_{\delta_4}\mathbf{v}_{\delta_5}}{2}\frac{\mathbf{v}_{\delta_0}\cdot\mathbf{v}_{\delta_1}}{2}\right)\nonumber\\
+\Leftrightarrow \frac{\rho_{\delta_2}\mathbf{v}_{\delta_3}\cdot\mathbf{v}_1 + \rho_{\delta_4}\mathbf{v}_{\delta_5}\cdot\mathbf{v}_1 + \rho_1\mathbf{v}_{\delta_0}\cdot\mathbf{v}_{\delta_1} - \rho_{\delta_2}\mathbf{v}_{\delta_3}\cdot\mathbf{v}_0 - \rho_{\delta_4}\mathbf{v}_{\delta_5}\cdot\mathbf{v}_0 - \rho_0\mathbf{v}_{\delta_0}\cdot\mathbf{v}_{\delta_1}}{2\Delta t} & = & -\nabla\cdot\left(\frac{\rho_{\delta_2}\mathbf{v}_{\delta_3} + \rho_{\delta_4}\mathbf{v}_{\delta_5}}{2}\frac{\mathbf{v}_{\delta_0}\cdot\mathbf{v}_{\delta_1}}{2}\right)\nonumber\\
+\end{eqnarray}
+%
+Es muss gelten
+%
+\begin{eqnarray}
+\rho_{\delta_2}\mathbf{v}_{\delta_3}\cdot\mathbf{v}_1 + \rho_{\delta_4}\mathbf{v}_{\delta_5}\cdot\mathbf{v}_1 + \rho_1\mathbf{v}_{\delta_0}\cdot\mathbf{v}_{\delta_1} - \rho_{\delta_2}\mathbf{v}_{\delta_3}\cdot\mathbf{v}_0 - \rho_{\delta_4}\mathbf{v}_{\delta_5}\cdot\mathbf{v}_0 - \rho_0\mathbf{v}_{\delta_0}\cdot\mathbf{v}_{\delta_1} = \rho_{1}\mathbf{v}_{1}\cdot\mathbf{v}_1 - \rho_0\mathbf{v}_{0}\cdot\mathbf{v}_{0}.
+\end{eqnarray}
+%
+Setzt man $\delta_0 = \delta_1 = 0$ ein, folgt
+%
+\begin{eqnarray}
+\rho_{\delta_2}\mathbf{v}_{\delta_3}\cdot\mathbf{v}_1 + \rho_{\delta_4}\mathbf{v}_{\delta_5}\cdot\mathbf{v}_1 + \rho_1\mathbf{v}_{0}\cdot\mathbf{v}_{0} - \rho_{\delta_2}\mathbf{v}_{\delta_3}\cdot\mathbf{v}_0 - \rho_{\delta_4}\mathbf{v}_{\delta_5}\cdot\mathbf{v}_0 - \rho_0\mathbf{v}_{0}\cdot\mathbf{v}_{0} = \rho_{1}\mathbf{v}_{1}\cdot\mathbf{v}_1 - \rho_0\mathbf{v}_{0}\cdot\mathbf{v}_{0}.
+\end{eqnarray}
+%
+Mit $\delta_2 = \delta_3 = 1$ folgt
+%
+\begin{eqnarray}
+\rho_{1}\mathbf{v}_{1}\cdot\mathbf{v}_1 + \rho_{\delta_4}\mathbf{v}_{\delta_5}\cdot\mathbf{v}_1 + \rho_1\mathbf{v}_{0}\cdot\mathbf{v}_{0} - \rho_{1}\mathbf{v}_{1}\cdot\mathbf{v}_0 - \rho_{\delta_4}\mathbf{v}_{\delta_5}\cdot\mathbf{v}_0 - \rho_0\mathbf{v}_{0}\cdot\mathbf{v}_{0} = \rho_{1}\mathbf{v}_{1}\cdot\mathbf{v}_1 - \rho_0\mathbf{v}_{0}\cdot\mathbf{v}_{0}.
+\end{eqnarray}
+%
+Hieraus wiederum folgt $\delta_4 = 1$, $\delta_5 = 0$. Die Paare $\left(\delta_2, \delta_3\right)$, $\left(\delta_4, \delta_5\right)$ sind vertauschbar, was aber keine neue Möglichkeit darstellt, da die Massenflussdichte sich dabei nicht ändert.
+
+Setzt man $\delta_0 = \delta_1 = 1$ ein, folgt
+%
+\begin{eqnarray}
+\rho_{\delta_2}\mathbf{v}_{\delta_3}\cdot\mathbf{v}_1 + \rho_{\delta_4}\mathbf{v}_{\delta_5}\cdot\mathbf{v}_1 + \rho_1\mathbf{v}_{1}\cdot\mathbf{v}_{1} - \rho_{\delta_2}\mathbf{v}_{\delta_3}\cdot\mathbf{v}_0 - \rho_{\delta_4}\mathbf{v}_{\delta_5}\cdot\mathbf{v}_0 - \rho_0\mathbf{v}_{1}\cdot\mathbf{v}_{1} = \rho_{1}\mathbf{v}_{1}\cdot\mathbf{v}_1 - \rho_0\mathbf{v}_{0}\cdot\mathbf{v}_{0}.
+\end{eqnarray}
+%
+Mit $\delta_2 = 0$, $\delta_3 = 1$ folgt
+%
+\begin{eqnarray}
+\rho_{0}\mathbf{v}_{1}\cdot\mathbf{v}_1 + \rho_{\delta_4}\mathbf{v}_{\delta_5}\cdot\mathbf{v}_1 + \rho_1\mathbf{v}_{1}\cdot\mathbf{v}_{1} - \rho_{0}\mathbf{v}_{1}\cdot\mathbf{v}_0 - \rho_{\delta_4}\mathbf{v}_{\delta_5}\cdot\mathbf{v}_0 - \rho_0\mathbf{v}_{1}\cdot\mathbf{v}_{1} = \rho_{1}\mathbf{v}_{1}\cdot\mathbf{v}_1 - \rho_0\mathbf{v}_{0}\cdot\mathbf{v}_{0}.
+\end{eqnarray}
+%
+Hieraus wiederum folgt $\delta_4 = 0$, $\delta_5 = 0$.
+
+Setzt man $\delta_0 = 0$, $\delta_1 = 1$ ein, folgt
+%
+\begin{eqnarray}
+\rho_{\delta_2}\mathbf{v}_{\delta_3}\cdot\mathbf{v}_1 + \rho_{\delta_4}\mathbf{v}_{\delta_5}\cdot\mathbf{v}_1 + \rho_1\mathbf{v}_{0}\cdot\mathbf{v}_{1} - \rho_{\delta_2}\mathbf{v}_{\delta_3}\cdot\mathbf{v}_0 - \rho_{\delta_4}\mathbf{v}_{\delta_5}\cdot\mathbf{v}_0 - \rho_0\mathbf{v}_{0}\cdot\mathbf{v}_{1} = \rho_{1}\mathbf{v}_{1}\cdot\mathbf{v}_1 - \rho_0\mathbf{v}_{0}\cdot\mathbf{v}_{0}.
+\end{eqnarray}
+%
+Mit $\delta_2 = \delta_3 = 0$ folgt
+%
+\begin{eqnarray}
+\rho_{0}\mathbf{v}_{0}\cdot\mathbf{v}_1 + \rho_{\delta_4}\mathbf{v}_{\delta_5}\cdot\mathbf{v}_1 + \rho_1\mathbf{v}_{0}\cdot\mathbf{v}_{1} - \rho_{0}\mathbf{v}_{0}\cdot\mathbf{v}_0 - \rho_{\delta_4}\mathbf{v}_{\delta_5}\cdot\mathbf{v}_0 - \rho_0\mathbf{v}_{0}\cdot\mathbf{v}_{1} = \rho_{1}\mathbf{v}_{1}\cdot\mathbf{v}_1 - \rho_0\mathbf{v}_{0}\cdot\mathbf{v}_{0}.
+\end{eqnarray}
+%
+Hieraus wiederum folgt $\delta_4 = 1$, $\delta_5 = 1$. 
+
+Zusammenfassend ergeben sich folgende drei Möglichkeiten:
+%
+\begin{eqnarray}
+\frac{\mathbf{v}^2}{2} = \frac{\mathbf{v}_0\cdot\mathbf{v}_0}{2}, && \rho\mathbf{v} = \frac{\rho_1\mathbf{v}_0 + \rho_1\mathbf{v}_1}{2}\\
+\frac{\mathbf{v}^2}{2} = \frac{\mathbf{v}_1\cdot\mathbf{v}_1}{2}, && \rho\mathbf{v} = \frac{\rho_0\mathbf{v}_0 + \rho_0\mathbf{v}_1}{2}\\
+\frac{\mathbf{v}^2}{2} = \frac{\mathbf{v}_0\cdot\mathbf{v}_1}{2}, && \rho\mathbf{v} = \frac{\rho_0\mathbf{v}_0 + \rho_1\mathbf{v}_1}{2}
+\end{eqnarray}
+%
+\subsubsection{Generalisierte Coriolisterme}
+\label{sec:generalisierte_coriolisterme}
+
+Für die Zeitentwicklung der kinetischen Energie gilt
+%
+\begin{eqnarray}
+\frac{\mathbf{v}_1^2 - \mathbf{v}_0^2}{2\Delta t} & = & \frac{\left(\mathbf{v}_1 + \mathbf{v}_0\right)\cdot\left(\mathbf{v}_1 - \mathbf{v}_0\right)}{2\Delta t} = \mathbf{v}_{1/2}\cdot\frac{\mathbf{v}_1 - \mathbf{v}_0}{\Delta t}
+\end{eqnarray}
+%
+mit der Näherung
+%
+\begin{eqnarray}
+\mathbf{v}_{1/2} \approx \frac{\mathbf{v}_1 + \mathbf{v}_2}{2}.
+\end{eqnarray}
+%
+Soll der verallgemeinerte Coriolisterm nicht zur Evolution der kinetischen Energie beitragen, muss dieser am gleichen Zeitlevel ausgwertet werden wie $\mathbf{v}_{1/2}$, also in der Mitte zwischen den beiden beteiligten Zeitschritten.
+
+
 
 \subsection{Modifikation zur Stabilisierung}
 \label{sec:modifikation_zur_stabilisierung}
@@ -17331,7 +17448,7 @@ g = \left|\begin{array}{ccc}
 \end{array}\right| = r^4\sin^2\left(\theta\right).
 \end{eqnarray}
 %
-Da diese Matrix diagonal ist, sind Kugelkoordinaten orthogonal.  Somit gilt für die kovarianten Basisvektoren
+Da diese Matrix diagonal ist, sind Kugelkoordinaten orthogonal.  Somit gilt für die kontravarianten Basisvektoren
 %
 \begin{eqnarray}
 \mathbf{q}^{(r)} & = & \left(\begin{array}{c}
