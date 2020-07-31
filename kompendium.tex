@@ -13499,13 +13499,19 @@ Die semigeostrophische Annahme ist eine Relaxation der quasigeostrophischen Anna
 \chapter{\normalfont\textsc{Turbulenz}}
 \label{chap:turbulenz}\index{Turbulenz}
 
-Es gibt keine mathematisch exakte Definition dafür, ob ein Strömungsfeld turbulent ist oder nicht. Es kann davon ausgegangen werden, dass jedes Strömungsfeld, wenn man es nur aus genügend großer Entfernung betrachtet, tubulent aussieht. Zoomt man jedoch weit genug hinein, wird man meistens eine Skala finden, auf der des Feld einen \textit{laminaren}\index{laminare Strömung}\index{Strömung!laminare} Eindruck macht, was man als das Gegenteil von Turbulenz versteht. Ist diese Skala die molekulare Skala, liegt \textit{volle Turbulenz}\index{Turbulenz!volle}\index{volle Turbulenz} vor. Seien $\newoverline{f}$ ein Mittelungsoperator und $f$ eine Funktion von Ort und Zeit, die man in der Form
+Es gibt keine mathematisch exakte Definition dafür, ob ein Strömungsfeld turbulent ist oder nicht. Es kann davon ausgegangen werden, dass jedes Strömungsfeld, wenn man es nur aus genügend großer Entfernung betrachtet, tubulent aussieht. Zoomt man jedoch weit genug hinein, wird man meistens eine Skala finden, auf der des Feld einen \textit{laminaren}\index{laminare Strömung}\index{Strömung!laminare} Eindruck macht, was man als das Gegenteil von Turbulenz versteht. Ist diese Skala die molekulare Skala, liegt \textit{volle Turbulenz}\index{Turbulenz!volle}\index{volle Turbulenz} vor. Definiere einen Mittelungsoperator durch
+%
+\begin{eqnarray}
+\newoverline{f} \coloneqq \frac{1}{\mu\left(\Omega\right)}\int_\Omega fd\omega,\label{eq:simple_average}
+\end{eqnarray}
+%
+wobei $\Omega$ eine beliebeige räumliche und/oder zeitliche Menge sein soll, $\mu\left(\Omega\right)$ deren Maß, $f$ eine beliebige Funktion von Ort und Zeit und $d\omega$ ein geeignetes Differntial. Nun kann man $f$ in der Form
 %
 \begin{eqnarray}
 f & \equiv & \newoverline{f} + f'
 \end{eqnarray}
 %
-zerlegt; hierzu definiert man die Fluktuation oder Turbulenz durch
+zerlegen; hierzu definiert man die Fluktuation oder Turbulenz durch
 %
 \begin{eqnarray}
 f' & \coloneqq & f - \newoverline{f}.
@@ -13526,13 +13532,25 @@ mit einem beliebigen Feld $g$ gelten, bezeichnet man $\newoverline{f}$ als \inde
 \newoverline{\newoverline{f}} & = & \newoverline{f}
 \end{eqnarray}
 %
-folgen. Man kümmert sich an dieser Stelle nicht darum, wie ein solcher Operator konkret aussehen könnte, in Absch. \ref{sec:konkrete_mittelungsoperatoren} wird festgestellt werden, dass die üblichen Mittelungsoperatoren keine Reynolds-Operatoren sind. Wendet man dies auf das trockenadiabatische Gleichungssystem an, folgt
+folgen. Man kümmert sich an dieser Stelle nicht darum, wie ein solcher Operator konkret aussehen könnte, in Absch. \ref{sec:konkrete_mittelungsoperatoren} wird festgestellt werden, dass die üblichen Mittelungsoperatoren keine Reynolds-Operatoren sind. Von nun an wird jedoch nicht mehr Glg. \eqref{eq:simple_average} verwendet, anstattdessen wird das \textit{Hesselberg-Mittel}\index{Hesselberg-Mittel}
 %
 \begin{eqnarray}
-\frac{\partial\newoverline{\mathbf{v}}}{\partial t} & = & -\left(\newoverline{\mathbf{v}}\cdot\nabla\right)\newoverline{\mathbf{v}} - \newoverline{\left(\mathbf{v}'\cdot\nabla\right)\mathbf{v}'} - \newoverline{\alpha}\frac{\partial\newoverline{p}}{\partial x} - \newoverline{\alpha'\frac{\partial p'}{\partial x}} - \mathbf{f}\times\newoverline{\mathbf{v}} + \mathbf{g},\\
-\frac{\partial\newoverline{\theta}}{\partial t}& = & -\newoverline{\mathbf{v}}\cdot\nabla\newoverline{\theta} - \newoverline{\mathbf{v}'\cdot\nabla\theta} ,\\
-\frac{\partial\newoverline{\rho}}{\partial t} & = & -\newoverline{\rho}\nabla\cdot\newoverline{\mathbf{v}} - \newoverline{\mathbf{v}}\cdot\nabla\newoverline{\rho} - \newoverline{\rho'\nabla\cdot\mathbf{v}'} - \newoverline{\mathbf{v}'\cdot\nabla\rho'},\\
-\newoverline{p}\newoverline{\alpha}& = & R_d\newoverline{T} - \newoverline{p'\alpha'}.
+\left\langle f\right\rangle \coloneqq \frac{1}{\int_\Omega\rho d\omega}\int_\Omega\rho fd\omega\label{eq:hesselberg-average}
+\end{eqnarray}
+%
+genutzt, wobei $\rho$ die Dichte ist. Für die Fluktuation schreibt man nun
+%
+\begin{eqnarray}
+f'' \coloneqq f - \left\langle f\right\rangle.
+\end{eqnarray}
+%
+Man nimmt nun an, dass das Hesselberg-Mittel\index{Hesselberg-Mittel} ein Reynolds-Operator\index{Reynolds-Operator} ist. Wendet man dies auf das trockenadiabatische Gleichungssystem an, folgt
+%
+\begin{eqnarray}
+\frac{\partial\newoverline{\mathbf{v}}}{\partial t} & = & -\left(\newoverline{\mathbf{v}}\cdot\nabla\right)\newoverline{\mathbf{v}} - \newoverline{\left(\mathbf{v}''\cdot\nabla\right)\mathbf{v}''} - \newoverline{\alpha}\frac{\partial\newoverline{p}}{\partial x} - \newoverline{\alpha''\frac{\partial p'}{\partial x}} - \mathbf{f}\times\newoverline{\mathbf{v}} + \mathbf{g},\\
+\frac{\partial\newoverline{\theta}}{\partial t}& = & -\newoverline{\mathbf{v}}\cdot\nabla\newoverline{\theta} - \newoverline{\mathbf{v}''\cdot\nabla\theta} ,\\
+\frac{\partial\newoverline{\rho}}{\partial t} & = & -\newoverline{\rho}\nabla\cdot\newoverline{\mathbf{v}} - \newoverline{\mathbf{v}}\cdot\nabla\newoverline{\rho} - \newoverline{\rho'\nabla\cdot\mathbf{v}''} - \newoverline{\mathbf{v}''\cdot\nabla\rho''},\\
+\newoverline{p}\newoverline{\alpha}& = & R_d\newoverline{T} - \newoverline{p'\alpha''}.
 \end{eqnarray}
 %
 Die prognostischen Gleichungen der gemittelten Felder sind also gegenüber denen der ungemittelten Felder um Terme der Form $\newoverline{f'g'}$ korrigiert, wobei $f, g$ linear in den Feldern und ihren Ableitungen sind. Diese Terme bezeichnet man als die Konvergenzen der \textit{turbulenten Korrelationsflüsse}\index{Korrelationsfluss}. Diese sind natürlich von der Größe der Menge abhängig, über die gemittelt wird, d. h. im Falle eines numerischen Modells auflösungsabhängig. Im Falle einer immer kleiner werdenden Mittelungsmege verlieren die Kovarianzterme an Bedeutung, bis sie schließlich ganz verschwinden. 
