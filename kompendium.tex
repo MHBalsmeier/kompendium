@@ -7641,8 +7641,8 @@ Mit $R_s = c^{(p)} - c^{(v)}$ kann man dies zu
 %
 umschreiben.
 
-\subsubsection{Hydrostatische Grenzfälle}
-\label{sec:hydrostatische_grenzfaelle}
+\subsubsection{Hydrostatischer Grenzfall}
+\label{sec:hydrostatischer_grenzfall}
 
 Leitet man die Zustandsgleichung zeitlich ab, folgt
 %
@@ -8952,7 +8952,7 @@ und erhält somit
 && -\int_A\frac{\delta B}{\delta\rho}\nabla\cdot\frac{\delta H}{\delta\mathbf{v}} - \frac{\delta H}{\delta\rho}\nabla\cdot\frac{\delta B}{\delta\mathbf{v}}d^3r\\
 && -\int_A\frac{\partial B}{\partial\newtilde{s}}\nabla\cdot\left(s\frac{\partial H}{\partial\mathbf{v}}\right) - \frac{\partial H}{\partial\newtilde{s}}\nabla\cdot\left(q\frac{\delta B}{\delta\mathbf{v}}\right)d^3r\nonumber\\
 & = & -\int_A\frac{\delta B}{\delta\rho}\nabla\cdot\left(\rho\mathbf{v}\right) + \frac{\partial B}{\partial\newtilde{s}}\nabla\cdot\left(s\rho\mathbf{v}\right)d^3r = -\int_A\left(\phi + c_d^{(p)}T - sT\right)\nabla\cdot\left(\rho\mathbf{v}\right) + T\nabla\cdot\left(s\rho\mathbf{v}\right)d^3r\nonumber\\
-& = & -\int_A\left(\phi + G\right)\nabla\cdot\left(\rho\mathbf{v}\right) + T\nabla\cdot\left(\newtilde{s}\mathbf{v}\right)d^3r,
+& = & -\int_A\left(\phi + G\right)\nabla\cdot\left(\rho\mathbf{v}\right) + T\nabla\cdot\left(\newtilde{s}\mathbf{v}\right)d^3r,\label{eq:poisson_entropy_internal}
 \end{eqnarray}
 %
 \begin{eqnarray}
@@ -15555,7 +15555,7 @@ Die zeitliche Evolution der inneren Energiedichte $\newtilde{I}$ lautet
 \frac{\newtilde{I}_1 - \newtilde{I}_0}{\Delta t} = c^{(v)}\frac{\left(\rho T\right)_1 - \left(\rho T\right)_0}{\Delta t} = c^{(v)}\rho_0\frac{T_1 - T_0}{\Delta t} + c^{(v)}T_1\frac{\rho_1 - \rho_0}{\Delta t}.\label{eq:deriv_temp_evol_model_1}
 \end{eqnarray}
 %
-Nach Glg. gilt außerdem
+Nach Glg. \eqref{eq:poisson_entropy_internal} gilt außerdem
 %
 \begin{eqnarray}
 \frac{\newtilde{I}_1 - \newtilde{I}_0}{\Delta t} = G^\star\frac{\rho_1 - \rho_0}{\Delta t} + T^\star\frac{\newtilde{s}_1 - \newtilde{s}_0}{\Delta t} = G^\star\frac{\rho_1 - \rho_0}{\Delta t} + T^\star\frac{\rho_1s_1 - \rho_0s_0}{\Delta t},\label{eq:deriv_temp_evol_model_0}
