@@ -7636,7 +7636,7 @@ umformen. Mit $p = \rho R_sT$ folgt
 Mit $R_s = c^{(p)} - c^{(v)}$ kann man dies zu
 %
 \begin{eqnarray}
-\frac{\partial T}{\partial t} = - \nabla\cdot\left(T\mathbf{v}\right) + \left(2 - \kappa\right)T\nabla\cdot\mathbf{v} + \frac{q_T^{(V)}}{c^{(v)}\rho} - \frac{sT}{c^{(v)}\rho}q_\rho^{(V)}\label{eq:td_1_ideal_gas_for_c_grid}
+\frac{\partial T}{\partial t} = - \nabla\cdot\left(T\mathbf{v}\right) + \left(2 - \kappa\right)T\nabla\cdot\mathbf{v} + \frac{q_T^{(V)}}{c^{(v)}\rho} - \frac{sT}{c^{(v)}\rho}q_\rho^{(V)}\label{eq:td_1_ideal_gas_partial}
 \end{eqnarray}
 %
 umschreiben.
@@ -14079,8 +14079,8 @@ Bei dieser Approximation teilt man die Atmosphäre in unabhängige Säulen auf u
 \part{Numerik}
 \label{part:numerik}\index{Numerik}
 
-\chapter{\normalfont\textsc{Numerische Grundlagen}}
-\label{chap:numerische_grundlagen}\index{Numerik!Grundlage}\index{Grundlage!Numerik}
+\chapter{\normalfont\textsc{Grundkonzepte der Numerik}}
+\label{chap:grundkonzepte_der_numerik}\index{Numerik!Grundkonzepte}\index{Grundkonzepte!Numerik}
 
 Ein Wettermodell ist eine Kopie der Atmosphäre. In ihm sind alle Felder und Differenzialoperatoren durch diskretisierte Versionen ersetzt, da man nur endlich viel Information abspeichern kann. Man schreibt für einen Differenzialoperator $D$ eine Ersetzung
 %
@@ -14126,12 +14126,12 @@ Dabei entstehen aus folgenden Gründen Fehler:
 \item Der Rechner macht Fehler.
 \end{enumerate}
 %
-\section{Allgemeines über Diskretisierungen}
-\label{sec:allgemeines_ueber_diskretisierungen}\index{Diskretisierung}
+\section{Grundbegriffe von Diskretisierungen}
+\label{sec:grundbegiffe_von_diskretisierunge}\index{Diskretisierung}
 
 Die Lösung einer Differenzialgleichung sei mit $F$ bezeichnet und die Lösung einer diskretisierten Version der Gleichung mit $F_d$. Ein numerisches Verfahren heißt genau dann \textit{konsistent}\index{Konsistenz!eines numerischen Verfahrens}, wenn die Lösung des Schemas bei kleiner werdenden $\Delta x$ und $\Delta t$ gegen die Lösung der Differenzialgleichung konvergiert, also $\lim\limits_{\Delta\to 0}F_d = F$ in obigen Begriffen. Eine Diskretisierung heißt genau dann \textit{selbstkonsistent}\index{Selbstkonsistenz!eines numerischen Verfahrens}, wenn alle Erhaltungsgrößen des kontinuierlichen Systems auch Erhaltungsgrößen des diskretisierten Systems sind. Dies lässt sich auch auf Näherungen übertragen. Ein Schema heißt genau dann \textit{stabil}, wenn die berechnete Lösung für alle Zeiten beschränkt ist, wenn also ein $C>0$ existiert mit $|F_d|<C$ für alle $t\geq t_0$ mit $t_0$ als Startzeitpunkt. \textit{Lineare Instabilität} entsteht bereits bei linearen Differenzialgleichungen, wohingegen \textit{nichtlineare Instabilität} nur bei nichtlinearen Differenzialgleichungen entstehen kann.
 
-\subsection{Finite Differenzen}
+\section{Finite Differenzen}
 \label{sec:finite_differenzen}\index{Differenz!finite}\index{finite Differenz}
 
 Sei eine unendlich oft differenzierbare Funktion $f:\mathbb{R}\to\mathbb{R}$ gegeben. Mittels einer Taylorreihe kann man schreiben
@@ -14179,10 +14179,53 @@ f' &\approx& \frac{A}{2\Delta x}\left(\sin\left(kx + k\Delta x\right) - \sin\lef
 %
 Hieran sieht man, dass die Approximation, wie erwartet, gegen den richtigen Wert der Ableitung konvergiert, falls $\Delta x$ gegen Null geht (es gilt $\lim\limits_{\alpha\to 0}\frac{\sin\left(\alpha\right)}{\alpha} = 1$ nach der Regel von L'Hospital). Schreibt man für $k = \frac{2\pi}{\lambda}$ mit $\lambda$ als Wellenlänge und setzt $\Delta x = \lambda/2$ ein, so ergibt der zentrale Differenzenquotient immer $f' = 0$. Hinreichend lange Wellen ($\lambda\gg 2\Delta x$) werden jedoch gut aufgelöst.
 
-\subsection{Zeitschrittverfahren}
-\label{sec:zeitschrittverfahren}\index{Zeitschrittverfahren}
+\section{Die ebene Spektralmethode}
+\label{sec:die_ebene_spektralmethode}
 
-In diesem Abschnitt soll verständlich gemacht werden, wie sich die zeitliche Disktretisierung einer linearen Differenzialgleichung auf die Dispersionsrelation und die Stabilität einer Wellenlösung auswirken kann. Es wird die lineare Advektionsgleichung 
+\section{Die sphärische Spektralmethode}
+\label{sec:die_sphaerische_spektralmethode}
+
+\section{Spezifika der Geofluidsimulation}
+\label{sec:spezifika_der_geofluidsimulation}\index{Geofluidsimulation}
+
+Es gibt kaum theoretisches Handwerkszeug, um nichtlineare partielle Differenzialgleichungen (Abk. PDEs für engl. \textit{partial differential equations)} untersuchen zu können. Im inkompressiblen, viskosen Fall eines Fluids mit der Dynamik
+%
+\begin{eqnarray}
+\md{\mathbf{v}} & = & -\frac{1}{\rho}\nabla p + \nu\Delta\mathbf{v} + \mathbf{f}\left(\mathbf{r}, t\right),\\
+\nabla\cdot\mathbf{v} & = & 0
+\end{eqnarray}
+%
+mit gegebenen Kräften $\mathbf{f}\left(\mathbf{r}, t\right)$, welches den gesamten $\mathbb{R}^3$ ausfüllt, ist es eine ungeklärte Fragestellung, ob für physikalisch realistische Anfangsbedingungen eine eindeutige Lösung für alle nachfolgenden Zeiten existiert. Daher ist die Frage nach der optimalen Methode einer Wettervorhersage derzeit nicht zu beantworten und es ist anzunehmen, dass diese Frage in mathematischer Rigorosität auch nie zu beantworten sein wird. Praktische hydrodynamische Probleme (wie z. B. Wettervorhersage) werden also meistens mit numerischen Problemen bearbeitet.
+
+Zunächst einmal macht man sich noch einmal klar, was durch Tracer gegenüber einer trockenen Atmosphäre an zusätzlichen Komplikationen hinzukommt:
+%
+\begin{enumerate}
+\item bei $N$ Tracern kommen $N$ Kontinuitätsgleichungen\index{Kontinuitätsgleichung} mit verknüpften Quelltermen hinzu
+\item bei $M$ kondensierten Tracern\index{Kondensat} kommen $M$ Erste Hauptätze\index{Erster Hauptsatz!der Thermodynamik}\index{Thermodynamik!Erster Hauptsatz} hinzu
+\item die spezifischen Wärmekapazitäten\index{spezifische Wärmekapazität}\index{Wärmekapazität!sspezifsiche}, die individuelle Gaskonstante\index{individuelle Gaskonstante}\index{Gaskonstante!individuelle} sowie die thermische Zustandsgleichung\index{thermische Zustandsgleichung}\index{Zustandsgleichung!thermische} ändern sich
+\end{enumerate}
+%
+Die ersten beiden Punkte sind formal bereits im trockenen Gleichungssystem vorhanden, da bereits in diesem eine Kontinuitätsgleichung\index{Kontinuitätsgleichung} und ein Erster Hauptsatz\index{Erster Hauptsatz der Thermodynamik}\index{Thermodynmaik!Erster Hauptsatz} vorhanden sind. Wenn man also bei einer Diskretisierung der Gleichungen einer trockenen Atmosphäre darauf achtet, eine Ankopplung an Tracer zu ermöglichen (s. Punkt 3.), ist es möglich, die numerische Leistungsfähigkeit einer Diskretisierung nur mittels des trockenen Gleichungssystems zu untersuchen:
+%
+\begin{eqnarray}
+\md{\mathbf{v}} & = & -\frac{1}{\rho}\nabla p + \mathbf{v}\times\mathbf{f} + \mathbf{g}, \label{eq:pne_1}\\
+p & = & TR_d\rho, \label{eq:pne_2}\\
+\md{\theta} & = & 0, \label{eq:pne_3}\\
+\frac{\partial\rho}{\partial t} + \nabla\cdot\left(\rho\mathbf{v}\right) & = & 0\label{eq:pne_4}.
+\end{eqnarray}
+%
+Dieses System bezeichnet man auch als das der \textit{primitiven, nichthydrostatischen Gleichungen} (Abk. PNEs von engl. \textit{primitive, nonhydrostatic equations})\index{primitive, nonhydrostatic equations (PNEs)}.
+
+Weiterhin hängt die optimale Vorhersagemethode nicht nur von rein mathematischen Fragestellungen ab, sondern auch von der verwendeten Rechnerarchitektur. Die Entwicklung der Großrechner geht in die Richtung von Systemen aus sehr vielen Prozessoren \cite{staniforth_grids}. Die Kapazitäten eines solchen Rechners nutzt man dann optimal aus, wenn jeder Prozessor fortwährend beschäftigt ist. Dies bezeichnet man als \textit{Parallelisierung}.\index{Parallelisierung} Hierbei fließen Daten zwischen den Prozessoren hin und her, was zeitkritisch ist. Daher ist eine notwendige Bedingung an eine zukunftsträchtige Diskretisierung der herrschenden Gleichungen deren \textit{Skalierbarkeit}\index{Skalierbarkeit} auf parallelen Rechnerarchitekturen. Mit \textit{Skalierung} ist dabei das Anwachsen der Rechenzeit mit der Auflösung gemeint. Das Länge-Breite-Gitter sowie die spektrale Formulierung stellen sich bezüglich dieses Punktes als unvorteilhaft heraus. Hierzu sind viel mehr \textit{quasi-uniforme}\index{Quasi-Uniformität!eines Gitters}\index{Gitter!Quasi-Uniformität} Gitter geeignet. Von \textit{Uniformität}\index{Uniformität!eines Gitters}\index{Gitter!Uniformität} spricht man, wenn alle Ecken, Kanten und Flächen des Gitters kongruent sind. Quasi-Uniformität liegt vor, wenn das Verhältnis von maximalem zu minimalem Gitterpunktabstand mit wachsender Auflösung gleich bleibt und nicht viel größer als Eins ist. Dies ist notwendig für die Skalierbarkeit auf Parallelrechnern.
+
+Ein Gitter heißt orthogonal\index{Orthogonalität!eines Gitters}\index{Gitter!Orthogonalität}, wenn ein zweites existiert, dessen Verbinungslinien diejenigen des ersten senkrecht schneiden, und die Schnittpunkte der Verbindungslinien des einen Gitters in den geometrischen Zentren der Boxen des jeweils anderen liegen. Diese beiden Gitter nennt man dual. Orthogonalität ist bei der Formulierung der Differenzialoperatoren hilfreich.
+
+Es gibt nur fünf platonische Körper. Dementsprechend existieren nur fünf uniforme Gitter auf der Kugel. Diese entstehen aus den platonischen Körpern, indem man ihre Ecken vom Mittelpunkt auf die Kugeloberfläche projiziert. All diese Gitter sind zu grob für ein Atmosphärenmodell. Daher haben alle verwendbaren Gitter irgendwo Punkte, Linien oder Flächen, an denen die lokale Gitterstruktur von der allgemeinen Struktur abweicht. An diesen Stellen sind die Fehler der Diskretisierung ebenfalls anders, was zu einer Sichtbarkeit des Gitters in der Lösung führen kann oder Wellen erzeugen kann, die als Lärm durch die Lösung propagieren. 
+
+\chapter{Zeitschrittverfahren}
+\label{chap:zeitschrittverfahren}\index{Zeitschrittverfahren}
+
+In diesem Kapitel soll verständlich gemacht werden, wie sich die zeitliche Disktretisierung einer linearen Differenzialgleichung auf die Dispersionsrelation und die Stabilität einer Wellenlösung auswirken kann. Es wird die lineare Advektionsgleichung 
 %
 \begin{eqnarray}
 \frac{\partial f}{\partial t} + U\frac{\partial f}{\partial x} = 0\label{eq:test_lineare_instab}
@@ -14208,7 +14251,10 @@ f_{l}^{(m)} = e^{Cm\Delta t}e^{i\left(kl\Delta x - \omega m\Delta t\right)}
 %
 mit $f_{l}^{(0)} = e^{ikl\Delta x}$ als Anfangszustand. Es sollen $C$ und die Dispersion $\omega\left(k\right)$ bestimmt werden.
 
-\subsubsection{Explizites Euler-Verfahren}
+\section{Rein explizite Verfahren}
+\label{sec:rein_explizite_verfahren}
+
+\subsection{Explizites Euler-Verfahren}
 \label{sec:explizites_euler-verfahren}\index{explizites Euler-Verfahren}\index{Euler-Verfahren!explizites}
 
 Zunächst wird folgende Diskretisierung untersucht:
@@ -14257,7 +14303,49 @@ $\lambda$ sei die Wellenlänge, also $k = \frac{2\pi}{\lambda}$. Für $\lambda\g
 \end{center}
 \end{figure}
 
-\subsubsection{Implizites Euler-Verfahren}
+\subsection{Leapfrog-Verfahren}
+\label{sec:leapfrog-verfahren}\index{Leapfrog-Verfahren}
+
+Verwendet man einen zentralen zeitlichen Differenzenquotienten, schreibt also
+%
+\begin{eqnarray}
+\frac{f_l^{(m + 2)} - f_l^{(m)}}{2\Delta t} + U\frac{f_{l + 1}^{(m + 1)} - f_{l - 1}^{(m + 1)}}{2\Delta x} = 0, 
+\end{eqnarray}
+%
+so ergibt dies eingesetzt
+%
+\begin{eqnarray}
+\frac{e^{2C\Delta t}e^{-2i\omega\Delta t} - 1}{2\Delta t} + U \frac{e^{ik\Delta x}e^{C\Delta t}e^{-i\omega\Delta t} - e^{-ik\Delta x}e^{C\Delta t}e^{-i\omega\Delta t}}{2\Delta x} & = & 0 \nonumber\\
+\Leftrightarrow \frac{e^{C\Delta t}e^{-i\omega\Delta t} - e^{-C\Delta t}e^{i\omega\Delta t}}{2\Delta t} + U \frac{e^{ik\Delta x} - e^{-ik\Delta x}}{2\Delta x} & = & 0.
+\end{eqnarray}
+%
+Der Realteil ergibt
+%
+\begin{eqnarray}
+e^{C\Delta t}\cos\left(\omega\Delta t\right) = e^{-C\Delta t}\cos\left(\omega\Delta t\right).
+\end{eqnarray}
+%
+Das bedeutet $C = 0$, die Lösung ist also stabil. Der Imaginärteil wird zu
+%
+\begin{eqnarray}
+\frac{\sin\left(\omega\Delta t\right)}{2\Delta t}\left(e^{-C\Delta t} + e^{C\Delta t}\right) = \frac{\sin\left(\omega\Delta t\right)}{\Delta t} = U\frac{\sin\left(k\Delta x\right)}{\Delta x}.
+\end{eqnarray}
+%
+Daraus folgt
+%
+\begin{eqnarray}
+\sin\left(\omega\Delta t\right) = U\frac{\Delta t}{\Delta x}\sin\left(k\Delta x\right)\Rightarrow\omega = \frac{1}{\Delta t}\arcsin\left[\frac{U\Delta t}{\Delta x}\sin\left(k\Delta x\right)\right], 
+\end{eqnarray}
+%
+also eine andere Dispersionsrelation als im expliziten Fall. Allgemein scheint die Stabilität der Lösung aus dem Realteil ersichtlich zu sein, während die Dispersion aus dem Imaginärteil zu folgen scheint. Schemata sind weiterhin entweder stabil ($C \leq 0$), labil ($C > 0$) oder bedingt stabil (stabil für hinreichend kleine $\Delta t$). Dies wird vom Zeitschrittverfahren beeinflusst. Der Optimalfall ist $C = 0$, er ergibt sich für das Leapfrogverfahren, daher ist dieses Verfahren das geeignetste.
+
+\subsection{Runge-Kutta-Verfahren}
+\label{sec:runge-kutta-verfahren}\index{Runge-Kutta-Verfahren}
+
+\section{Verfahren mit impliziten Anteilen}
+\label{sec:verfahren_mit_impliziten_anteilen}
+
+\subsection{Implizites Euler-Verfahren}
 \label{sec:implizites_euler-verfahren}\index{implizites Euler-Verfahren}\index{Euler-Verfahren!implizites}
 
 Verwendet man einen linksseitigen Differenzenquotienten für die Zeitableitung (dies bezeichnet man als \textit{implizites Euler-Verfahren}\index{Euler-Verfahren!implizites}\index{implizites Euler-Verfahren}),  schreibt also
@@ -14293,7 +14381,7 @@ Daraus folgt
 %
 also die gleiche Dispersionsrelation wie beim expliziten Euler-Verfahren.
 
-\subsubsection{Crank-Nicolson-Verfahren}
+\subsection{Crank-Nicolson-Verfahren}
 \label{sec:crank-nicolson-Verfahren}\index{Crank-Nicolson-Verfahren}
 
 Man ist nicht darauf beschränkt, eine Differentialgleichung entweder nur explizit oder nur implizit zu lösen. Sei $\newtilde{f}$ das diskretisierte Analogon eines kontinuierlichen Feldes $f$ und seien $\mathbf{r}_i$ die Gitterpunkte. Ein Zwei-Schritt-Verfahren für eine Differentialgleichung erster Ordnung in der Zeit für $f$ lässt sich in der Form
@@ -14313,90 +14401,250 @@ m_j = \begin{cases}
 %
 Es wurde stillschweigend davon ausgegangen, dass $f$ das einzige auftretende Feld ist. Verallgemeinernd kann man $f$ als Tupel von Feldern ansehen, also als Zustandsvektor. Weiterhin kann man $0 \leq m_j \leq 1$ zulassen, hierbei ist $m_j$ der implizite Anteil. Das Crank-Nicolson-Verfahren\index{Crank-Nicolson-Verfahren} bedeutet $m_j = \frac{1}{2}$.
 
-\subsubsection{Runge-Kutta-Verfahren}
-\label{sec:runge-kutta-verfahren}\index{Runge-Kutta-Verfahren}
+\section{Aspekte partieller Differentialgleichungen}
 
-\subsubsection{Multischrittverfahren}
-\label{sec:multischritverfahren}\index{Multischrittverfahren}
+\subsection{Das Forward-backward-Verfahren}
 
-Verwendet man einen zentralen zeitlichen Differenzenquotienten, schreibt also
-%
+\subsection{Mischung von Zeitschrittverfahren}
+
+\section{Energetische Konsistenz im idealen Gas}
+
+\subsection{Advektion kinetischer Energie}
+\label{sec:advektion_kinetischer_energie}
+
+Da $\mathbf{v}\cdot\left[\left(\nabla\times\mathbf{v}\right)\times\mathbf{v}\right] = 0$ gilt, ist der verallgemeinerte Coriolis-Term energetisch unerheblich. Für eine konsistente zeitliche Diskretisierung der Advektion von kinetischer Energie verwendet man daher das Gleichungssystem
+
 \begin{eqnarray}
-\frac{f_l^{(m + 2)} - f_l^{(m)}}{2\Delta t} + U\frac{f_{l + 1}^{(m + 1)} - f_{l - 1}^{(m + 1)}}{2\Delta x} = 0, 
+\frac{\partial\mathbf{v}}{\partial t} & = & -\nabla\frac{\mathbf{v}^2}{2},\\
+\frac{\partial\rho}{\partial t} & = & -\nabla\cdot\left(\rho\mathbf{v}\right).
 \end{eqnarray}
 %
-so ergibt dies eingesetzt
+Im kontinuierlichen Fall gilt
 %
 \begin{eqnarray}
-\frac{e^{2C\Delta t}e^{-2i\omega\Delta t} - 1}{2\Delta t} + U \frac{e^{ik\Delta x}e^{C\Delta t}e^{-i\omega\Delta t} - e^{-ik\Delta x}e^{C\Delta t}e^{-i\omega\Delta t}}{2\Delta x} & = & 0 \nonumber\\
-\Leftrightarrow \frac{e^{C\Delta t}e^{-i\omega\Delta t} - e^{-C\Delta t}e^{i\omega\Delta t}}{2\Delta t} + U \frac{e^{ik\Delta x} - e^{-ik\Delta x}}{2\Delta x} & = & 0.
+\rho\mathbf{v}\cdot\frac{\partial\mathbf{v}}{\partial t} & = & -\rho\mathbf{v}\cdot\nabla\frac{\mathbf{v}^2}{2}  = -\nabla\cdot\left(\rho\mathbf{v}\frac{\mathbf{v}^2}{2}\right) + \frac{\mathbf{v}^2}{2}\nabla\cdot\left(\rho\mathbf{v}\right) = -\nabla\cdot\left(\rho\mathbf{v}\frac{\mathbf{v}^2}{2}\right) - \frac{\mathbf{v}^2}{2}\frac{\partial\rho}{\partial t}\nonumber\\
+\Rightarrow \rho\mathbf{v}\cdot\frac{\partial\mathbf{v}}{\partial t} + \frac{\mathbf{v}^2}{2}\frac{\partial\rho}{\partial t} & = & \frac{\partial\left(\rho\mathbf{v}^2/2\right)}{\partial t} = -\nabla\cdot\left(\rho\mathbf{v}\frac{\mathbf{v}^2}{2}\right)
 \end{eqnarray}
 %
-Der Realteil ergibt
+für die Auswirkung der Flussdichte von kinetischer Energie auf die lokale kinetische Energiedichte. Diese Umformungsschritte müssen sich auf die Diskretisierung übertragen lassen. Man definiert nun $\delta_0, \delta_1, \delta_2, \delta_3, \delta_4, \delta_5 \in \left\{0, 1\right\}$, um die zeitliche Diskretisierung der kinetischen Energie und der Massenflussdichte in der Form
 %
 \begin{eqnarray}
-e^{C\Delta t}\cos\left(\omega\Delta t\right) = e^{-C\Delta t}\cos\left(\omega\Delta t\right).
+\frac{\mathbf{v}^2}{2} & = & \frac{\mathbf{v}_{\delta_0}\cdot\mathbf{v}_{\delta_1}}{2},\\
+\rho\mathbf{v} & = & \frac{\rho_{\delta_2}\mathbf{v}_{\delta_3} + \rho_{\delta_4}\mathbf{v}_{\delta_5}}{2}
 \end{eqnarray}
 %
-Das bedeutet $C = 0$, die Lösung ist also stabil. Der Imaginärteil wird zu
+zu notieren. Damit erhält man zunächst als Gleichungssystem
 %
 \begin{eqnarray}
-\frac{\sin\left(\omega\Delta t\right)}{2\Delta t}\left(e^{-C\Delta t} + e^{C\Delta t}\right) = \frac{\sin\left(\omega\Delta t\right)}{\Delta t} = U\frac{\sin\left(k\Delta x\right)}{\Delta x}.
+\frac{\mathbf{v}_1 - \mathbf{v}_0}{\Delta t} & = & -\nabla\frac{\mathbf{v}^2}{2},\\
+\frac{\rho_1 - \rho_0}{\Delta t} & = & -\nabla\cdot\left(\rho\mathbf{v}\right).
 \end{eqnarray}
 %
-Daraus folgt
+Hieraus folgt
 %
 \begin{eqnarray}
-\sin\left(\omega\Delta t\right) = U\frac{\Delta t}{\Delta x}\sin\left(k\Delta x\right)\Rightarrow\omega = \frac{1}{\Delta t}\arcsin\left[\frac{U\Delta t}{\Delta x}\sin\left(k\Delta x\right)\right], 
+\frac{\rho_{\delta_2}\mathbf{v}_{\delta_3} + \rho_{\delta_4}\mathbf{v}_{\delta_5}}{2}\cdot\frac{\mathbf{v}_1 - \mathbf{v}_0}{\Delta t} = -\frac{\rho_{\delta_2}\mathbf{v}_{\delta_3} + \rho_{\delta_4}\mathbf{v}_{\delta_5}}{2}\cdot\nabla\frac{\mathbf{v}^2}{2} & = & -\frac{\rho_{\delta_2}\mathbf{v}_{\delta_3} + \rho_{\delta_4}\mathbf{v}_{\delta_5}}{2}\cdot\nabla \frac{\mathbf{v}_{\delta_0}\cdot\mathbf{v}_{\delta_1}}{2}\nonumber\\
+= -\nabla\cdot\left(\frac{\rho_{\delta_2}\mathbf{v}_{\delta_3} + \rho_{\delta_4}\mathbf{v}_{\delta_5}}{2}\frac{\mathbf{v}_{\delta_0}\cdot\mathbf{v}_{\delta_1}}{2}\right) & + & \frac{\mathbf{v}_{\delta_0}\cdot\mathbf{v}_{\delta_1}}{2}\nabla\cdot\frac{\rho_{\delta_2}\mathbf{v}_{\delta_3} + \rho_{\delta_4}\mathbf{v}_{\delta_5}}{2}\nonumber\\
+ = -\nabla\cdot\left(\frac{\rho_{\delta_2}\mathbf{v}_{\delta_3} + \rho_{\delta_4}\mathbf{v}_{\delta_5}}{2}\frac{\mathbf{v}_{\delta_0}\cdot\mathbf{v}_{\delta_1}}{2}\right) & - & \frac{\mathbf{v}_{\delta_0}\cdot\mathbf{v}_{\delta_1}}{2}\frac{\rho_1 - \rho_0}{\Delta t}\nonumber\\
+\Leftrightarrow\frac{\rho_{\delta_2}\mathbf{v}_{\delta_3} + \rho_{\delta_4}\mathbf{v}_{\delta_5}}{2}\cdot\frac{\mathbf{v}_1 - \mathbf{v}_0}{\Delta t} + \frac{\mathbf{v}_{\delta_0}\cdot\mathbf{v}_{\delta_1}}{2}\frac{\rho_1 - \rho_0}{\Delta t} & = & -\nabla\cdot\left(\frac{\rho_{\delta_2}\mathbf{v}_{\delta_3} + \rho_{\delta_4}\mathbf{v}_{\delta_5}}{2}\frac{\mathbf{v}_{\delta_0}\cdot\mathbf{v}_{\delta_1}}{2}\right)\nonumber\\
+\Leftrightarrow \frac{\rho_{\delta_2}\mathbf{v}_{\delta_3}\cdot\mathbf{v}_1 + \rho_{\delta_4}\mathbf{v}_{\delta_5}\cdot\mathbf{v}_1 - \rho_{\delta_2}\mathbf{v}_{\delta_3}\cdot\mathbf{v}_0 - \rho_{\delta_4}\mathbf{v}_{\delta_5}\cdot\mathbf{v}_0 + \rho_1\mathbf{v}_{\delta_0}\cdot\mathbf{v}_{\delta_1} - \rho_0\mathbf{v}_{\delta_0}\cdot\mathbf{v}_{\delta_1}}{2\Delta t} & = & -\nabla\cdot\left(\frac{\rho_{\delta_2}\mathbf{v}_{\delta_3} + \rho_{\delta_4}\mathbf{v}_{\delta_5}}{2}\frac{\mathbf{v}_{\delta_0}\cdot\mathbf{v}_{\delta_1}}{2}\right)\nonumber\\
+\Leftrightarrow \frac{\rho_{\delta_2}\mathbf{v}_{\delta_3}\cdot\mathbf{v}_1 + \rho_{\delta_4}\mathbf{v}_{\delta_5}\cdot\mathbf{v}_1 + \rho_1\mathbf{v}_{\delta_0}\cdot\mathbf{v}_{\delta_1} - \rho_{\delta_2}\mathbf{v}_{\delta_3}\cdot\mathbf{v}_0 - \rho_{\delta_4}\mathbf{v}_{\delta_5}\cdot\mathbf{v}_0 - \rho_0\mathbf{v}_{\delta_0}\cdot\mathbf{v}_{\delta_1}}{2\Delta t} & = & -\nabla\cdot\left(\frac{\rho_{\delta_2}\mathbf{v}_{\delta_3} + \rho_{\delta_4}\mathbf{v}_{\delta_5}}{2}\frac{\mathbf{v}_{\delta_0}\cdot\mathbf{v}_{\delta_1}}{2}\right)\nonumber\\
 \end{eqnarray}
 %
-also eine andere Dispersionsrelation als im expliziten Fall. Allgemein scheint die Stabilität der Lösung aus dem Realteil ersichtlich zu sein, während die Dispersion aus dem Imaginärteil zu folgen scheint. Schemata sind weiterhin entweder stabil ($C \leq 0$), labil ($C > 0$) oder bedingt stabil (stabil für hinreichend kleine $\Delta t$). Dies wird vom Zeitschrittverfahren beeinflusst. Der Optimalfall ist $C = 0$, er ergibt sich für das Leapfrogverfahren, daher ist dieses Verfahren das geeignetste.
-
-\section{Probleme und Methoden der Geofluidsimulation}
-\label{sec:probleme_und_methoden_der_geofluidsimulation}\index{Geofluidsimulation}
-
-Es gibt kaum theoretisches Handwerkszeug, um nichtlineare partielle Differenzialgleichungen (Abk. PDEs für engl. \textit{partial differential equations)} untersuchen zu können. Im inkompressiblen, viskosen Fall eines Fluids mit der Dynamik
+Es muss gelten
 %
 \begin{eqnarray}
-\md{\mathbf{v}} & = & -\frac{1}{\rho}\nabla p + \nu\Delta\mathbf{v} + \mathbf{f}\left(\mathbf{r}, t\right),\\
-\nabla\cdot\mathbf{v} & = & 0
+\rho_{\delta_2}\mathbf{v}_{\delta_3}\cdot\mathbf{v}_1 + \rho_{\delta_4}\mathbf{v}_{\delta_5}\cdot\mathbf{v}_1 + \rho_1\mathbf{v}_{\delta_0}\cdot\mathbf{v}_{\delta_1} - \rho_{\delta_2}\mathbf{v}_{\delta_3}\cdot\mathbf{v}_0 - \rho_{\delta_4}\mathbf{v}_{\delta_5}\cdot\mathbf{v}_0 - \rho_0\mathbf{v}_{\delta_0}\cdot\mathbf{v}_{\delta_1} = \rho_{1}\mathbf{v}_{1}\cdot\mathbf{v}_1 - \rho_0\mathbf{v}_{0}\cdot\mathbf{v}_{0}.
 \end{eqnarray}
 %
-mit gegebenen Kräften $\mathbf{f}\left(\mathbf{r}, t\right)$, welches den gesamten $\mathbb{R}^3$ ausfüllt, ist es eine ungeklärte Fragestellung, ob für physikalisch realistische Anfangsbedingungen eine eindeutige Lösung für alle nachfolgenden Zeiten existiert. Daher ist die Frage nach der optimalen Methode einer Wettervorhersage derzeit nicht zu beantworten und es ist anzunehmen, dass diese Frage in mathematischer Rigorosität auch nie zu beantworten sein wird. Praktische hydrodynamische Probleme (wie z. B. Wettervorhersage) werden also meistens mit numerischen Problemen bearbeitet.
-
-Zunächst einmal macht man sich noch einmal klar, was durch Tracer gegenüber einer trockenen Atmosphäre an zusätzlichen Komplikationen hinzukommt:
-%
-\begin{enumerate}
-\item bei $N$ Tracern kommen $N$ Kontinuitätsgleichungen\index{Kontinuitätsgleichung} mit verknüpften Quelltermen hinzu
-\item bei $M$ kondensierten Tracern\index{Kondensat} kommen $M$ Erste Hauptätze\index{Erster Hauptsatz!der Thermodynamik}\index{Thermodynamik!Erster Hauptsatz} hinzu
-\item die spezifischen Wärmekapazitäten\index{spezifische Wärmekapazität}\index{Wärmekapazität!sspezifsiche}, die individuelle Gaskonstante\index{individuelle Gaskonstante}\index{Gaskonstante!individuelle} sowie die thermische Zustandsgleichung\index{thermische Zustandsgleichung}\index{Zustandsgleichung!thermische} ändern sich
-\end{enumerate}
-%
-Die ersten beiden Punkte sind formal bereits im trockenen Gleichungssystem vorhanden, da bereits in diesem eine Kontinuitätsgleichung\index{Kontinuitätsgleichung} und ein Erster Hauptsatz\index{Erster Hauptsatz der Thermodynamik}\index{Thermodynmaik!Erster Hauptsatz} vorhanden sind. Wenn man also bei einer Diskretisierung der Gleichungen einer trockenen Atmosphäre darauf achtet, eine Ankopplung an Tracer zu ermöglichen (s. Punkt 3.), ist es möglich, die numerische Leistungsfähigkeit einer Diskretisierung nur mittels des trockenen Gleichungssystems zu untersuchen:
+Setzt man $\delta_0 = \delta_1 = 0$ ein, folgt
 %
 \begin{eqnarray}
-\md{\mathbf{v}} & = & -\frac{1}{\rho}\nabla p + \mathbf{v}\times\mathbf{f} + \mathbf{g}, \label{eq:pne_1}\\
-p & = & TR_d\rho, \label{eq:pne_2}\\
-\md{\theta} & = & 0, \label{eq:pne_3}\\
-\frac{\partial\rho}{\partial t} + \nabla\cdot\left(\rho\mathbf{v}\right) & = & 0\label{eq:pne_4}.
+\rho_{\delta_2}\mathbf{v}_{\delta_3}\cdot\mathbf{v}_1 + \rho_{\delta_4}\mathbf{v}_{\delta_5}\cdot\mathbf{v}_1 + \rho_1\mathbf{v}_{0}\cdot\mathbf{v}_{0} - \rho_{\delta_2}\mathbf{v}_{\delta_3}\cdot\mathbf{v}_0 - \rho_{\delta_4}\mathbf{v}_{\delta_5}\cdot\mathbf{v}_0 - \rho_0\mathbf{v}_{0}\cdot\mathbf{v}_{0} = \rho_{1}\mathbf{v}_{1}\cdot\mathbf{v}_1 - \rho_0\mathbf{v}_{0}\cdot\mathbf{v}_{0}.
 \end{eqnarray}
 %
-Dieses System bezeichnet man auch als das der \textit{primitiven, nichthydrostatischen Gleichungen} (Abk. PNEs von engl. \textit{primitive, nonhydrostatic equations})\index{primitive, nonhydrostatic equations (PNEs)}.
+Mit $\delta_2 = \delta_3 = 1$ folgt
+%
+\begin{eqnarray}
+\rho_{1}\mathbf{v}_{1}\cdot\mathbf{v}_1 + \rho_{\delta_4}\mathbf{v}_{\delta_5}\cdot\mathbf{v}_1 + \rho_1\mathbf{v}_{0}\cdot\mathbf{v}_{0} - \rho_{1}\mathbf{v}_{1}\cdot\mathbf{v}_0 - \rho_{\delta_4}\mathbf{v}_{\delta_5}\cdot\mathbf{v}_0 - \rho_0\mathbf{v}_{0}\cdot\mathbf{v}_{0} = \rho_{1}\mathbf{v}_{1}\cdot\mathbf{v}_1 - \rho_0\mathbf{v}_{0}\cdot\mathbf{v}_{0}.
+\end{eqnarray}
+%
+Hieraus wiederum folgt $\delta_4 = 1$, $\delta_5 = 0$. Die Paare $\left(\delta_2, \delta_3\right)$, $\left(\delta_4, \delta_5\right)$ sind vertauschbar, was aber keine neue Möglichkeit darstellt, da die Massenflussdichte sich dabei nicht ändert.
 
-Weiterhin hängt die optimale Vorhersagemethode nicht nur von rein mathematischen Fragestellungen ab, sondern auch von der verwendeten Rechnerarchitektur. Die Entwicklung der Großrechner geht in die Richtung von Systemen aus sehr vielen Prozessoren \cite{staniforth_grids}. Die Kapazitäten eines solchen Rechners nutzt man dann optimal aus, wenn jeder Prozessor fortwährend beschäftigt ist. Dies bezeichnet man als \textit{Parallelisierung}.\index{Parallelisierung} Hierbei fließen Daten zwischen den Prozessoren hin und her, was zeitkritisch ist. Daher ist eine notwendige Bedingung an eine zukunftsträchtige Diskretisierung der herrschenden Gleichungen deren \textit{Skalierbarkeit}\index{Skalierbarkeit} auf parallelen Rechnerarchitekturen. Mit \textit{Skalierung} ist dabei das Anwachsen der Rechenzeit mit der Auflösung gemeint. Das Länge-Breite-Gitter sowie die spektrale Formulierung stellen sich bezüglich dieses Punktes als unvorteilhaft heraus. Hierzu sind viel mehr \textit{quasi-uniforme}\index{Quasi-Uniformität!eines Gitters}\index{Gitter!Quasi-Uniformität} Gitter geeignet. Von \textit{Uniformität}\index{Uniformität!eines Gitters}\index{Gitter!Uniformität} spricht man, wenn alle Ecken, Kanten und Flächen des Gitters kongruent sind. Quasi-Uniformität liegt vor, wenn das Verhältnis von maximalem zu minimalem Gitterpunktabstand mit wachsender Auflösung gleich bleibt und nicht viel größer als Eins ist. Dies ist notwendig für die Skalierbarkeit auf Parallelrechnern.
+Setzt man $\delta_0 = \delta_1 = 1$ ein, folgt
+%
+\begin{eqnarray}
+\rho_{\delta_2}\mathbf{v}_{\delta_3}\cdot\mathbf{v}_1 + \rho_{\delta_4}\mathbf{v}_{\delta_5}\cdot\mathbf{v}_1 + \rho_1\mathbf{v}_{1}\cdot\mathbf{v}_{1} - \rho_{\delta_2}\mathbf{v}_{\delta_3}\cdot\mathbf{v}_0 - \rho_{\delta_4}\mathbf{v}_{\delta_5}\cdot\mathbf{v}_0 - \rho_0\mathbf{v}_{1}\cdot\mathbf{v}_{1} = \rho_{1}\mathbf{v}_{1}\cdot\mathbf{v}_1 - \rho_0\mathbf{v}_{0}\cdot\mathbf{v}_{0}.
+\end{eqnarray}
+%
+Mit $\delta_2 = 0$, $\delta_3 = 1$ folgt
+%
+\begin{eqnarray}
+\rho_{0}\mathbf{v}_{1}\cdot\mathbf{v}_1 + \rho_{\delta_4}\mathbf{v}_{\delta_5}\cdot\mathbf{v}_1 + \rho_1\mathbf{v}_{1}\cdot\mathbf{v}_{1} - \rho_{0}\mathbf{v}_{1}\cdot\mathbf{v}_0 - \rho_{\delta_4}\mathbf{v}_{\delta_5}\cdot\mathbf{v}_0 - \rho_0\mathbf{v}_{1}\cdot\mathbf{v}_{1} = \rho_{1}\mathbf{v}_{1}\cdot\mathbf{v}_1 - \rho_0\mathbf{v}_{0}\cdot\mathbf{v}_{0}.
+\end{eqnarray}
+%
+Hieraus wiederum folgt $\delta_4 = 0$, $\delta_5 = 0$.
 
-Ein Gitter heißt orthogonal\index{Orthogonalität!eines Gitters}\index{Gitter!Orthogonalität}, wenn ein zweites existiert, dessen Verbinungslinien diejenigen des ersten senkrecht schneiden, und die Schnittpunkte der Verbindungslinien des einen Gitters in den geometrischen Zentren der Boxen des jeweils anderen liegen. Diese beiden Gitter nennt man dual. Orthogonalität ist bei der Formulierung der Differenzialoperatoren hilfreich.
+Setzt man $\delta_0 = 0$, $\delta_1 = 1$ ein, folgt
+%
+\begin{eqnarray}
+\rho_{\delta_2}\mathbf{v}_{\delta_3}\cdot\mathbf{v}_1 + \rho_{\delta_4}\mathbf{v}_{\delta_5}\cdot\mathbf{v}_1 + \rho_1\mathbf{v}_{0}\cdot\mathbf{v}_{1} - \rho_{\delta_2}\mathbf{v}_{\delta_3}\cdot\mathbf{v}_0 - \rho_{\delta_4}\mathbf{v}_{\delta_5}\cdot\mathbf{v}_0 - \rho_0\mathbf{v}_{0}\cdot\mathbf{v}_{1} = \rho_{1}\mathbf{v}_{1}\cdot\mathbf{v}_1 - \rho_0\mathbf{v}_{0}\cdot\mathbf{v}_{0}.
+\end{eqnarray}
+%
+Mit $\delta_2 = \delta_3 = 0$ folgt
+%
+\begin{eqnarray}
+\rho_{0}\mathbf{v}_{0}\cdot\mathbf{v}_1 + \rho_{\delta_4}\mathbf{v}_{\delta_5}\cdot\mathbf{v}_1 + \rho_1\mathbf{v}_{0}\cdot\mathbf{v}_{1} - \rho_{0}\mathbf{v}_{0}\cdot\mathbf{v}_0 - \rho_{\delta_4}\mathbf{v}_{\delta_5}\cdot\mathbf{v}_0 - \rho_0\mathbf{v}_{0}\cdot\mathbf{v}_{1} = \rho_{1}\mathbf{v}_{1}\cdot\mathbf{v}_1 - \rho_0\mathbf{v}_{0}\cdot\mathbf{v}_{0}.
+\end{eqnarray}
+%
+Hieraus wiederum folgt $\delta_4 = 1$, $\delta_5 = 1$. 
 
-Es gibt nur fünf platonische Körper. Dementsprechend existieren nur fünf uniforme Gitter auf der Kugel. Diese entstehen aus den platonischen Körpern, indem man ihre Ecken vom Mittelpunkt auf die Kugeloberfläche projiziert. All diese Gitter sind zu grob für ein Atmosphärenmodell. Daher haben alle verwendbaren Gitter irgendwo Punkte, Linien oder Flächen, an denen die lokale Gitterstruktur von der allgemeinen Struktur abweicht. An diesen Stellen sind die Fehler der Diskretisierung ebenfalls anders, was zu einer Sichtbarkeit des Gitters in der Lösung führen kann oder Wellen erzeugen kann, die als Lärm durch die Lösung propagieren. 
+Zusammenfassend ergeben sich folgende drei Möglichkeiten:
+%
+\begin{eqnarray}
+\frac{\mathbf{v}^2}{2} = \frac{\mathbf{v}_0\cdot\mathbf{v}_0}{2}, && \rho\mathbf{v} = \frac{\rho_1\mathbf{v}_0 + \rho_1\mathbf{v}_1}{2}\\
+\frac{\mathbf{v}^2}{2} = \frac{\mathbf{v}_1\cdot\mathbf{v}_1}{2}, && \rho\mathbf{v} = \frac{\rho_0\mathbf{v}_0 + \rho_0\mathbf{v}_1}{2}\\
+\frac{\mathbf{v}^2}{2} = \frac{\mathbf{v}_0\cdot\mathbf{v}_1}{2}, && \rho\mathbf{v} = \frac{\rho_0\mathbf{v}_0 + \rho_1\mathbf{v}_1}{2}
+\end{eqnarray}
+%
+\subsection{Generalisierte Coriolisterme}
+\label{sec:generalisierte_coriolisterme}
 
+Für die Zeitentwicklung der kinetischen Energie gilt
+%
+\begin{eqnarray}
+\frac{\mathbf{v}_1^2 - \mathbf{v}_0^2}{2\Delta t} & = & \frac{\left(\mathbf{v}_1 + \mathbf{v}_0\right)\cdot\left(\mathbf{v}_1 - \mathbf{v}_0\right)}{2\Delta t} = \mathbf{v}_{1/2}\cdot\frac{\mathbf{v}_1 - \mathbf{v}_0}{\Delta t}
+\end{eqnarray}
+%
+mit der Näherung
+%
+\begin{eqnarray}
+\mathbf{v}_{1/2} \approx \frac{\mathbf{v}_1 + \mathbf{v}_2}{2}.
+\end{eqnarray}
+%
+Soll der verallgemeinerte Coriolisterm nicht zur Evolution der kinetischen Energie beitragen, muss dieser am gleichen Zeitlevel ausgwertet werden wie $\mathbf{v}_{1/2}$, also in der Mitte zwischen den beiden beteiligten Zeitschritten.
+
+\subsection{Evolution der Temperatur}
+\label{sec:evolution_der_temperatur}
+
+\subsubsection{Zeitentwicklung der inneren Energie}
+\label{sec:Zeitentwicklung_der_inneren_energie}
+
+Für die Zeitentwicklung der inneren Energiedichte $\newtilde{I}$ kann man notieren
+%
+\begin{eqnarray}
+\frac{\Delta\newtilde{I}}{\Delta t} = \frac{\newtilde{I}_1 - \newtilde{I}_0}{\Delta t} = c^{(v)}\rho_0\frac{T_1 - T_0}{\Delta t} + c^{(v)}T_1\frac{\rho_1 - \rho_0}{\Delta t}.\label{eq:deriv_temp_evol_model_1}
+\end{eqnarray}
+%
+Mittels der Kontinuitätsgleichung erhält man
+%
+\begin{eqnarray}
+\md{\rho} = -\rho_0\nabla\cdot\mathbf{v}.
+\end{eqnarray}
+%
+Aus Glg. \eqref{eq:td_1_ideal_gas_partial} folgt
+%
+\begin{eqnarray}
+\frac{T_1 - T_0}{\Delta t} = -\frac{R_d}{c^{(v)}}T_0\nabla\cdot\mathbf{v}.
+\end{eqnarray}
+%
+Beide Male wurde dabei davon ausgegangen, dass die skalaren Variablen vom alten Zeitschritt verwendet werden, wie es z. B. bei einem Forward-backward-Verfahren\index{Forward-backward-Verfahren} der Fall ist. Setzt man diese beiden Feststellungen in Glg. \eqref{eq:deriv_temp_evol_model_1} ein, erhält man
+%
+\begin{eqnarray}
+\frac{\newtilde{I}_1 - \newtilde{I}_0}{\Delta t} & = & -c^{(v)}\rho_0\frac{R_d}{c^{(v)}}T_0\nabla\cdot\mathbf{v} - c^{(v)}T_1\rho_0\nabla\cdot\mathbf{v}\nonumber\\
+& = & -c^{(v)}\rho_0\nabla\cdot\mathbf{v}\left(\frac{R_d}{c^{(v)}}T_0 + T_1\right)\nonumber\\
+& = & -c^{(p)}\rho_0\nabla\cdot\mathbf{v}\left(\frac{R_d}{c^{(v)}}T_0 + \frac{c^{(v)}}{c^{(p)}}T_1\right)
+\end{eqnarray}
+%
+Hieraus folgert man, dass die Temperatur in der Gewichtung
+%
+\begin{eqnarray}
+T^\star \coloneqq \frac{R_d}{c^{(p)}}T_0 + \frac{c^{(v)}}{c^{(p)}}T_1 
+\end{eqnarray}
+%
+in die diskretisierte Evolution der inneren Energiedichte eingeht.
+
+\subsubsection{Energetisch konsistente Zeitentwicklung der Temperatur}
+\label{sec:energetisch_konsistente_zeitentwicklung_der_temperatur}
+
+Nach Glg. \eqref{eq:poisson_entropy_internal} gilt
+%
+\begin{eqnarray}
+\frac{\newtilde{I}_1 - \newtilde{I}_0}{\Delta t} = G^\star\frac{\rho_1 - \rho_0}{\Delta t} + T^\star\frac{\newtilde{s}_1 - \newtilde{s}_0}{\Delta t} = G^\star\frac{\rho_1 - \rho_0}{\Delta t} + T^\star\frac{\rho_1s_1 - \rho_0s_0}{\Delta t},\label{eq:deriv_temp_evol_model_0}
+\end{eqnarray}
+%
+wobei aufgrund der Feststellungen im vorigen Abschnitt
+%
+\begin{eqnarray}
+T^\star & \coloneqq & \frac{R_d}{c^{(p)}}T_0 + \frac{c^{(v)}}{c^{(p)}}T_1,\\
+G^\star & \coloneqq & \frac{R_d}{c^{(p)}}G_0 + \frac{c^{(v)}}{c^{(p)}}G_1 = R_dT_0 + c^{(v)}T_1 - \frac{R_d}{c^{(p)}}s_0T_0 - \frac{c^{(v)}}{c^{(p)}}s_1T_1
+\end{eqnarray}
+%
+definiert wurde. Setzt man dies in Glg. \eqref{eq:deriv_temp_evol_model_0} ein, erhält man
+%
+\begin{eqnarray}
+&& \frac{\newtilde{I}_1 - \newtilde{I}_0}{\Delta t} = G^\star\frac{\rho_1 - \rho_0}{\Delta t} + T^\star\frac{\newtilde{s}_1 - \newtilde{s}_0}{\Delta t}\nonumber\\
+& = & \left( R_dT_0 + c^{(v)}T_1 - \frac{R_d}{c^{(p)}}s_0T_0 - \frac{c^{(v)}}{c^{(p)}}s_1T_1\right)\frac{\rho_1 - \rho_0}{\Delta t} + \left(\frac{R_d}{c^{(p)}}T_0 + \frac{c^{(v)}}{c^{(p)}}T_1\right)\frac{\rho_1s_1 - \rho_0s_0}{\Delta t}.
+\end{eqnarray}
+%
+Dies kann man nun mit Glg. \eqref{eq:deriv_temp_evol_model_1} gleichsetzen:
+%
+\begin{eqnarray}
+&&c^{(v)}\rho_0\frac{T_1 - T_0}{\Delta t} + \textcolor{red}{c^{(v)}T_1\frac{\rho_1 - \rho_0}{\Delta t}}\nonumber\\
+& = & \left( R_dT_0 + \textcolor{red}{c^{(v)}T_1} - \frac{R_d}{c^{(p)}}s_0T_0 - \frac{c^{(v)}}{c^{(p)}}s_1T_1\right)\frac{\rho_1 - \rho_0}{\Delta t} + \left(\frac{R_d}{c^{(p)}}T_0 + \frac{c^{(v)}}{c^{(p)}}T_1\right)\frac{\rho_1s_1 - \rho_0s_0}{\Delta t}
+\end{eqnarray}
+%
+Die rot markierten Terme heben sich auf, somit erhält man
+%
+\begin{eqnarray}
+c^{(v)}\rho_0\frac{T_1 - T_0}{\Delta t} = \left(R_dT_0 - \frac{R_d}{c^{(p)}}s_0T_0 - \frac{c^{(v)}}{c^{(p)}}s_1T_1\right)\frac{\rho_1 - \rho_0}{\Delta t} + \left(\frac{R_d}{c^{(p)}}T_0 + \frac{c^{(v)}}{c^{(p)}}T_1\right)\frac{\rho_1s_1 - \rho_0s_0}{\Delta t}.
+\end{eqnarray}
+%
+Alle Terme, die die Temperatur am neuen Zeitschritt $T_1$ enthalten, schreibt man nun auf die linke Seite:
+%
+\begin{eqnarray}
+&& c^{(v)}\rho_0\frac{T_1}{\Delta t} + \frac{c^{(v)}}{c^{(p)}}s_1T_1\frac{\rho_1 - \rho_0}{\Delta t} - \frac{c^{(v)}}{c^{(p)}}T_1\frac{\rho_1s_1 - \rho_0s_0}{\Delta t}\nonumber\\
+& = & c^{(v)}\rho_0\frac{T_0}{\Delta t} + \left(R_dT_0 - \frac{R_d}{c^{(p)}}s_0T_0\right)\frac{\rho_1 - \rho_0}{\Delta t} + \frac{R_d}{c^{(p)}}T_0\frac{\rho_1s_1 - \rho_0s_0}{\Delta t}.
+\end{eqnarray}
+%
+Die Zeitdifferenz lässt sich herauskürzen:
+%
+\begin{eqnarray}
+&& c^{(v)}\rho_0T_1 + \frac{c^{(v)}}{c^{(p)}}s_1T_1\left(\rho_1 - \rho_0\right) - \frac{c^{(v)}}{c^{(p)}}T_1\left(\rho_1s_1 - \rho_0s_0\right)\nonumber\\
+& = & c^{(v)}\rho_0T_0 + \left(R_dT_0 - \frac{R_d}{c^{(p)}}s_0T_0\right)\left(\rho_1 - \rho_0\right) + \frac{R_d}{c^{(p)}}T_0\left(\rho_1s_1 - \rho_0s_0\right).
+\end{eqnarray}
+%
+Ausklammern von $T_1$ und Einsetzen von $\Delta\psi\ \coloneqq \psi_1 - \psi_0$ ergibt
+%
+\begin{eqnarray}
+T_1\left(c^{(v)}\rho_0 + \frac{c^{(v)}}{c^{(p)}}s_1\Delta\rho - \frac{c^{(v)}}{c^{(p)}}\Delta\newtilde{s}\right) = c^{(v)}\rho_0T_0 + \left(R_dT_0 - \frac{R_d}{c^{(p)}}s_0T_0\right)\Delta\rho + \frac{R_d}{c^{(p)}}T_0\Delta\newtilde{s}
+\end{eqnarray}
+%
+Umstellen ergibt die energetisch konsistente Evolutionsgleichung für die Temperatur:
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{eqnarray}
+T_1 & = & \frac{c^{(v)}\rho_0T_0 + \left(R_dT_0 - \frac{R_d}{c^{(p)}}s_0T_0\right)\Delta\rho + \frac{R_d}{c^{(p)}}T_0\Delta\newtilde{s}}{c^{(v)}\rho_0 + \frac{c^{(v)}}{c^{(p)}}s_1\Delta\rho - \frac{c^{(v)}}{c^{(p)}}\Delta\newtilde{s}}
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
+
+\chapter{Auswahl einer zukunftsfähigen horizontalen Diskretisierung}
+\label{sec:auswahl_einer_zukunftsfaehigen_horizontalen_diskretisierung}
+
+\section{Aus Rechnerarchitektur folgende Beschränkungen}
+\label{sec:aus:rechnerarchitektur_folgende_beschraenkungen}
 
 \section{Arakawa-Gitter}
 \label{sec:arakawa-gitter}\index{Arakawa-Gitter}\index{Gitter!Arakawa}
 
 Diskretisiert man ein zweidimensionales Vektorfeld auf ein ebenes Gitter, so müssen keineswegs alle Variablen an den gleichen Punkten ausgewertet werden. Die unterschiedlichen Größen können an unterschiedlichen Stellen der Polygone definiert werden. Fünf Arten, dies zu tun, sind die Arakawa-Gitter \cite{arakawa}, die in Abb. \ref{fig:arakawa} dargestellt sind.
 
-\section{Skalare Erhaltungseigenschaft auf dem C-Gitter}
-\label{sec:skalare_erhaltungseigenschaft_auf_dem_c-gitter}
+\section{Skalare Erhaltungseigenschaften auf dem C-Gitter}
+\label{sec:skalare_erhaltungseigenschaften_auf_dem_c-gitter}
 
 Ist $q$ eine Erhaltungsgröße, also eine Größe, für die $\md{q} = 0$ gilt, so kann man für $\newtilde{q} \coloneqq \rho q$ eine Kontinuitätsgleichung herleiten:
 %
@@ -14466,6 +14714,12 @@ Es werden alle als notwendig identifizierten Punkte zusammengefasst:
 
 \section{Geostrophie auf dem C-Gitter}
 \label{sec:geostrophie_auf_dem_c-gitter}
+
+\subsection{Lineare SWEs}
+\label{sec:lineare_swes}
+
+\subsection{Nichtlineare SWEs}
+\label{sec:nichtlineare_swes}
 
 \section{Probleme eines dreielementigen Erzeugendensystems}
 \label{sec:probleme_eines_dreielementigen_erzeugendensystems}\index{dreielementiges Erzeugendensystem}\index{Erzeugendensystem!dreielementiges}
@@ -14916,11 +15170,23 @@ Hiermit sind die Glg.en \eqref{eq:linear_condition_trivariate_discrete_0} - \eqr
 \newtilde{v}_3^{(3)} & = & \frac{1}{\sqrt{3}}\left(\newtilde{\delta_1\newtilde{\chi}^{(2)}}^{(3)} - \newtilde{\delta_2\newtilde{\chi}^{(1)}}^{(3)}\right) + \newtilde{\delta_3\psi}^{(3)}
 \end{eqnarray}
 
+\subsection{Folgerungen}
+\label{sec:folgerungen}
+
+\subsubsection{Neuformulierung der Rotation}
+\label{sec:neuformulierung_der_rotation}
+
+\subsubsection{Vorzug dex hexagonalen vorm dreieckigen Gitter}
+\label{sec:vorzug_des_hexagonalen_vorm_dreieckigen_gitter}
+
+\section{Vergleich quasi-uniformer sphärischer C-Gitter}
+\label{sec:vergleich_quasi-uniformer_sphaerischer_c-gitter}
+
 \chapter{\normalfont\textsc{Entwicklung eines globalen dynamischen Kerns}}
 \label{chap:entwicklung_eines_globalen_dynamischen_kerns}\index{dynamischer Kern}\index{Kern!dynamischer}
 
-\section{Gitter}
-\label{sec:gitter}\index{Modellgitter}\index{Gitter!Modelgitter}
+\section{Horizontales Gitter}
+\label{sec:horizontales_gitter}\index{horizontales Gitter}\index{Gitter!horizontales}
 
 \subsection{Konstanten des hexagonalen Gitters}
 \label{sec:konstanten_des_hexagonalen_gitters}
@@ -15012,9 +15278,6 @@ Auf dem dualen Gitter (dem Dreiecksgitter) gelten
 \prescript{{(D)}}{}{N_V} & = & 30\cdot 4^n\left(N_L + 1\right) + 20\cdot 4^n\cdot N_L.
 \end{eqnarray}
 
-\subsection{Horizontales Gitter}
-\label{sec:horizontales_gitter}\index{horizontales Gitter}\index{Gitter!horizontales}
-
 \renewcommand{\arraystretch}{1.2}
 \begin{table}
 \centering
@@ -15039,23 +15302,14 @@ Auf dem dualen Gitter (dem Dreiecksgitter) gelten
 \end{table}
 \renewcommand{\arraystretch}{1}
 
-\subsubsection{Delaunay-Triangulation}
-\label{sec:delaunay-trangulation}\index{Delaunay-Triangulation}
-
-\subsubsection{Voronoi-Diagramme}
-\label{sec:voronoi-diagramme}\index{Voronoi-Diagramm}
-
-\subsubsection{Gittergenerierung auf der Einheitskugel}
+\subsection{Gittergenerierung auf der Einheitskugel}
 \label{sec:gittergenerierung_auf_der_einheitskugel}\index{Modellgitter!Generierung auf der Einheitskugel}
 
-\subsubsection{Berechnung von Längen und horizontalen Flächen auf der Einheitskugel}
-\label{sec:berechung_von_längen_und_horizontalen_flächen_auf_der_einheitskugel}\index{Modellgitter!Längen}\index{Modellgitter!Flächen}\index{Längen des Modellgitters}\index{Flächen des Modellgitters}
-
-\subsubsection{Gitteroptimierung}
+\subsection{Gitteroptimierung}
 \label{sec:gitteroptimierung}\index{Gitteroptimierung}
 
-\subsection{Vertikale Positionierung der Gitterpunkte}
-\label{sec:vertikale_positionierung_der_gitterpunkte}\index{vertikale Erweiterung des Modellgitters}\index{Modellgitter!vertikale Erweiterung}\index{Modellgitter!Erweiterung!vertikale}
+\section{Vertikales Gitter}
+\label{sec:vertikales_gitter}\index{vertikale Erweiterung des Modellgitters}\index{Modellgitter!vertikale Erweiterung}\index{Modellgitter!Erweiterung!vertikale}
 
 Um leichter kommunizieren zu können, werden folgende Festlegungen getroffen:
 %
@@ -15102,39 +15356,10 @@ z_{j, i} = \frac{1}{3}\sum_{j' \in \text{APC}(j)}z_{j', w, i}
 % 
 fest, sie ist also der Mittelwert der z-Positionen der vertikalen Vektoren der drei umliegenden Zellen.
 
-\subsubsection{Berechnung vertikaler Flächen und Volumina}
+\subsection{Berechnung vertikaler Flächen und Volumina}
 \label{sec:berechnung_vertikaler_flaechen_und_volumina}
 
-Durch die Vorgaben im vorherigen Abschnitt sind die vertikalen Positionen aller Gitterpunkte festgelegt. Um Volumina und Flächen zu berechnen, benötigt man jedoch kontinuierliche Formeln für die z-Koordinate eines Levels innerhalb einer Zelle. Hierfür denkt man sich ein Koordinatensystem $\left(\eta, \phi, \lambda\right)$ mit einer generalisierten Vertikalkoordinaten $\eta$, der geographischen Breie $\phi$ und der geographischen Länge $\lambda$. $\eta$ sei der linear interpolierte Levelindex.
-
-Die horizontalen Begrenzungen der Gitterboxen\footnote{Der Begriff \textit{Box} wird verwendet, auch wenn die gemeinten Mengen nicht quaderförmig sind.} sind sogenannte \textit{vertikale Flächen}\index{Vertikale Fläche}\index{Fläche!vertikale}. Entlang ihnen ist nach einer Rotation des Kugelkoordinatensystems um den Erdmittelpunkt entweder $\phi$ oder $\lambda$ konstant.
-
-Die vertikalen Begrenzungen der Boxen legen auch gleichzeitig die Unter- und Obergenzen der vetikalen Flächen $A_v$ fest. Um diese zu berechnen, verwendet man das Integral
-%
-\begin{eqnarray}
-A_v = \int_L\int_{z_{\text{lower}}}^{z_{\text{upper}}}dzrd\varphi,
-\end{eqnarray}
-%
-welches numerisch ausgewertet werden muss. Hierbei sind $L$ die Projektion der Fläche auf die Einheitskugel und $r$ der Abstand vom Erdmittelpunkt.
-
-Für die Volumina $V$ findet man
-%
-\begin{eqnarray}
-V = \int_{A}\int_{z_{\text{lower}}}^{z_{\text{upper}}}r^2\cos\left(\phi\right)dzd\phi d\lambda
-\end{eqnarray}
-%
-Hierbei ist $A$ die Projektion der Grundfläche der Gitterbox auf die Einheitskugel. Für die horizontalen Flächen $A_h$ findet man
-%
-\begin{eqnarray}
-A_h = \int_{A}r^2\cos\left(\phi\right)\sqrt{1 + \left(\nabla_hz\right)^2}d\phi d\lambda,
-\end{eqnarray}
-%
-wobei $z$ die Position der betrachteten Fläche bezeichnet.
-
-\subsubsection{Sphärische Grenzfälle}
-\label{sec:sphaerische_grenzfaelle}
-
-Spielt Orographie keine Rolle mehr, vereinfachen sich die oben aufgeführten Formeln. Volumina $V$ mit der Grundfläche $A$, dem inneren Radius $r_0$ und dem äußeren Radius $r_1$ berechnen sich über
+Volumina $V$ mit der Grundfläche $A$, dem inneren Radius $r_0$ und dem äußeren Radius $r_1$ berechnen sich über
 %
 \begin{eqnarray}
 V = \int_{r_0}^{r_1}A\frac{r^2}{r_0^2}dr = \frac{A}{r_0^2}\frac{1}{3}\left(r_1^3 - r_0^3\right).
@@ -15251,11 +15476,6 @@ Für Vektorfelder verwendet man in der Horizontalen kovariante Komponenten, wäh
 
 Im Falle von Kugelkoordinaten, also oberhalb des Layers oberhalb von $\newtilde{z}$, tritt eine richtungsmäßige Unterscheidung von ko- und kontravarianten Basisvektoren nicht mehr auf, die Kugelkkordinaten nach Absch. \ref{sec:kugelkoordinaten} orthogonal sind.
 
-\subsection{Duale Vektorfelder}
-\label{sec:duale_vektorfelder}\index{duales Vektorfeld}\index{Modell!Vektorfeld!duales}\index{Modell!duales Vektorfeld}
-
-\textit{Duale Vektorfelder} werden analog zu Vektorfeldern definiert, da das duale Gitter auch als C-Gitter verstanden wird.
-
 \subsection{Rotationsfelder}
 \label{sec:rotationsfelder}\index{Rotationsfeld}\index{Modell!Rotationsfeld}
 
@@ -15270,8 +15490,24 @@ Eine Variable ist eine \textit{prognostische Variable}\index{prognostische Varia
 }}
 \end{center}
 
-\section{Operatoren}
-\label{sec:operatoren}\index{Operator}
+\section{Diskretisierung der Poisson-Klammern}
+
+\subsection{Volumengewichtete Mittelungsoperatoren}
+
+
+In der Horizontalen sind die kontravarianten Maßzahlen prognostische Variablen und müssen daher nicht rekonstruiert werden. In der Vertikalen benötigt man jedoch
+%
+\begin{eqnarray}
+\mathbf{v}\cdot\mathbf{e}^{(v)} = v^{(v)}.
+\end{eqnarray}
+%
+Es gilt also
+%
+\begin{eqnarray}
+v^{(v)}_{b, k + \frac{1}{2}} = w_{b, k + \frac{1}{2}} - \newoverline{\newoverline{u^{(h)}_{e, k}J_{n, e, k}}^{(b)}}^{k + \frac{1}{2}}.
+\end{eqnarray}
+
+\subsection{Die innere-Energie-Klammer}
 
 Ziel dieses Abschnittes ist es, herzuleiten, wie Skalarfelder, Vektorfelder, differentielle und algebraische Operatoren und Randbedingungen zu diskretisieren sind. Hierzu betrachtet man die Atmosphäre $A \subseteq \mathbb{R}^3$ zunächst als offene Kugelschale und verwendet als Gleichungssystem die reversiblen Gleichungen
 %
@@ -15290,9 +15526,6 @@ ohne Näherungen mit der Randbedingung
 %
 auf $\partial A$.
 
-\subsection{Multiplikation eines Skalarfeldes mit einem Vektorfeld}
-\label{sec:multiplikation_eines_skalarfeldes_mit_einem_vektorfeld}
-
 Das Produkt eines Skalarfeldes $\psi$ mit einem Vektorfeld $\mathbf{v}$ ist ein Vektorfeld $\mathbf{w}$, man notiert
 %
 \begin{eqnarray}
@@ -15306,9 +15539,6 @@ w_i = \frac{\psi_{\text{Skalar, Herkunft}} + \psi_{\text{Skalar, Ziel}}}{2}v_i
 \end{eqnarray}
 %
 Diese Approximation ist zweiter Ordnung, da die vektoriellen Punkte in allen drei Dimensionen in der Mitte der beiden benachbarten skalaren Punkte liegen.
-
-\subsection{Divergenz}
-\label{sec:divergenz_dynamischer_kern}\index{Divergenz!im Modell}
 
 Für das Mittel
 %
@@ -15328,20 +15558,12 @@ Man definiert somit
 \nabla\cdot\mathbf{v} \coloneqq \frac{1}{V\left(B\right)}\sum_{A\in B_A}^{}s\left(B, A\right)V_2\left(A\right)u_A.\label{eq:div_diskret_3d}
 \end{eqnarray}
 
-\subsection{Gradient}
-\label{sec:gradient}\index{Gradient!im Modell}
-
 Das Gradientenfeld $\nabla f$ ist ein Vektorfeld. Sei $\left(\nabla f\right)_{A}$ mit $A\in B_A$ eine Komponente dieses Feldes, dann definiert man diese durch
 %
 \begin{eqnarray}
 \left(\nabla f\right)_{A} \coloneqq s\left(B, A\right)\frac{f_{B'\left(A\right)} - f_{B}}{L_{B, B'}}.
 \end{eqnarray}
 
-\subsection{Rotation}
-\label{sec:rotation}\index{Rotation!im Modell}
-
-\subsection{Kinetische Energie}
-\label{sec:kinetische_energie}\index{kinetische Energie!im Modell}\index{Energie!kinetische!im Modell}
 
 Die spezifische kinetische Energie\index{kinetische Energie!spezifische}\index{Energie!kinetische!spezifische} $k_b$ in der Zelle mit dem Index $1 \leq b \leq N_b$ schreibt man als eine Summe von $n_k$ Quadraten benachbarter Geschwindigketiskomponenten:
 %
@@ -15363,9 +15585,6 @@ woraus man die Bedingung
 %
 für alle $1 \leq b \leq N_b$ ableitet.
 
-\subsection{Verallgemeinerte Coriolisbeschleunigung}
-\label{sec:verallgemeinerte_coriolisbeschleunigung}\index{verallgemeinerte Coriolisbeschleunigung!im Modell}\index{Coriolisbeschleunigung!verallgemeinerte!im Modell}
-
 Gesucht wird nach einer Diskretisierung $\times$ des Vektorproduktes $\times$ so, dass die Eigenschaften
 %
 \begin{eqnarray}
@@ -15380,8 +15599,13 @@ sowie
 %
 erhalten bleiben.
 
+\subsection{Die kinetische-Energie-Klammer}
+
+\section{Neuformulierung des PV-Flusses}
+\label{sec:neuformulierung_des_pvflusses}
+
 \section{Zeitschrittverfahren}
-\label{sec:zeitschrittverfahren!zusammensetzung_der_prognostischen_gleichungen}\index{Zeitschrittverfahren!im dynamischen Kern}\index{dynamischer Kern!Zeitschrittverfahren}\index{Kern!dynamischer!Zeitschrittverfahren}
+\label{chap:zeitschrittverfahren!zusammensetzung_der_prognostischen_gleichungen}\index{Zeitschrittverfahren!im dynamischen Kern}\index{dynamischer Kern!Zeitschrittverfahren}\index{Kern!dynamischer!Zeitschrittverfahren}
 
 Sei $\psi: A \subseteq \mathbb{R}^3 \times \mathbb{R} \to \mathbb{R}^n$ der atmosphärische Zustandsvektor. Alle fundamentalen physikalischen Gesetze sind erster Ordnung in der Zeit, daher kann man schreiben
 %
@@ -15426,199 +15650,7 @@ Hieraus folgt, dass ein schnelles implizites Verfahren ideal für einen dynamisc
 \item Zuletzt werden mittels der generalisierten Kontinuitätsgleichungen die neuen Werte der Entropie- und Massendichte berechnet, wobei für die Horizontaldivergenz die in Schritt 5 und die Vertikaldivergenz die in Schritt 6 berechneten Windkomponenten verwendet werden.
 \end{enumerate}
 %
-Aus Energieerhaltungsgründen wird für den kovarianten Druckgradienten in allen drei Unterschritten ein gleicher, spezieller Wert verwendet, s. Absch. \ref{sec:modifikationen_zur_gewährleistung_von_energieerhaltung}. Die Festlegung auf genau dieses und nicht etwa ein abgewandeltes Verfahren beruht auch auf Erfahrungswerten.
-
-\subsection{Modifikationen zur Gewährleistung von Energieerhaltung}
-\label{sec:modifikationen_zur_gewährleistung_von_energieerhaltung}
-
-\subsubsection{Advektion kinetischer Energie}
-\label{sec:advektion_kinetischer_energie}
-
-Da $\mathbf{v}\cdot\left[\left(\nabla\times\mathbf{v}\right)\times\mathbf{v}\right] = 0$ gilt, ist der verallgemeinerte Coriolis-Term energetisch unerheblich. Für eine konsistente zeitliche Diskretisierung der Advektion von kinetischer Energie verwendet man daher das Gleichungssystem
-
-\begin{eqnarray}
-\frac{\partial\mathbf{v}}{\partial t} & = & -\nabla\frac{\mathbf{v}^2}{2},\\
-\frac{\partial\rho}{\partial t} & = & -\nabla\cdot\left(\rho\mathbf{v}\right).
-\end{eqnarray}
-%
-Im kontinuierlichen Fall gilt
-%
-\begin{eqnarray}
-\rho\mathbf{v}\cdot\frac{\partial\mathbf{v}}{\partial t} & = & -\rho\mathbf{v}\cdot\nabla\frac{\mathbf{v}^2}{2}  = -\nabla\cdot\left(\rho\mathbf{v}\frac{\mathbf{v}^2}{2}\right) + \frac{\mathbf{v}^2}{2}\nabla\cdot\left(\rho\mathbf{v}\right) = -\nabla\cdot\left(\rho\mathbf{v}\frac{\mathbf{v}^2}{2}\right) - \frac{\mathbf{v}^2}{2}\frac{\partial\rho}{\partial t}\nonumber\\
-\Rightarrow \rho\mathbf{v}\cdot\frac{\partial\mathbf{v}}{\partial t} + \frac{\mathbf{v}^2}{2}\frac{\partial\rho}{\partial t} & = & \frac{\partial\left(\rho\mathbf{v}^2/2\right)}{\partial t} = -\nabla\cdot\left(\rho\mathbf{v}\frac{\mathbf{v}^2}{2}\right)
-\end{eqnarray}
-%
-für die Auswirkung der Flussdichte von kinetischer Energie auf die lokale kinetische Energiedichte. Diese Umformungsschritte müssen sich auf die Diskretisierung übertragen lassen. Man definiert nun $\delta_0, \delta_1, \delta_2, \delta_3, \delta_4, \delta_5 \in \left\{0, 1\right\}$, um die zeitliche Diskretisierung der kinetischen Energie und der Massenflussdichte in der Form
-%
-\begin{eqnarray}
-\frac{\mathbf{v}^2}{2} & = & \frac{\mathbf{v}_{\delta_0}\cdot\mathbf{v}_{\delta_1}}{2},\\
-\rho\mathbf{v} & = & \frac{\rho_{\delta_2}\mathbf{v}_{\delta_3} + \rho_{\delta_4}\mathbf{v}_{\delta_5}}{2}
-\end{eqnarray}
-%
-zu notieren. Damit erhält man zunächst als Gleichungssystem
-%
-\begin{eqnarray}
-\frac{\mathbf{v}_1 - \mathbf{v}_0}{\Delta t} & = & -\nabla\frac{\mathbf{v}^2}{2},\\
-\frac{\rho_1 - \rho_0}{\Delta t} & = & -\nabla\cdot\left(\rho\mathbf{v}\right).
-\end{eqnarray}
-%
-Hieraus folgt
-%
-\begin{eqnarray}
-\frac{\rho_{\delta_2}\mathbf{v}_{\delta_3} + \rho_{\delta_4}\mathbf{v}_{\delta_5}}{2}\cdot\frac{\mathbf{v}_1 - \mathbf{v}_0}{\Delta t} = -\frac{\rho_{\delta_2}\mathbf{v}_{\delta_3} + \rho_{\delta_4}\mathbf{v}_{\delta_5}}{2}\cdot\nabla\frac{\mathbf{v}^2}{2} & = & -\frac{\rho_{\delta_2}\mathbf{v}_{\delta_3} + \rho_{\delta_4}\mathbf{v}_{\delta_5}}{2}\cdot\nabla \frac{\mathbf{v}_{\delta_0}\cdot\mathbf{v}_{\delta_1}}{2}\nonumber\\
-= -\nabla\cdot\left(\frac{\rho_{\delta_2}\mathbf{v}_{\delta_3} + \rho_{\delta_4}\mathbf{v}_{\delta_5}}{2}\frac{\mathbf{v}_{\delta_0}\cdot\mathbf{v}_{\delta_1}}{2}\right) & + & \frac{\mathbf{v}_{\delta_0}\cdot\mathbf{v}_{\delta_1}}{2}\nabla\cdot\frac{\rho_{\delta_2}\mathbf{v}_{\delta_3} + \rho_{\delta_4}\mathbf{v}_{\delta_5}}{2}\nonumber\\
- = -\nabla\cdot\left(\frac{\rho_{\delta_2}\mathbf{v}_{\delta_3} + \rho_{\delta_4}\mathbf{v}_{\delta_5}}{2}\frac{\mathbf{v}_{\delta_0}\cdot\mathbf{v}_{\delta_1}}{2}\right) & - & \frac{\mathbf{v}_{\delta_0}\cdot\mathbf{v}_{\delta_1}}{2}\frac{\rho_1 - \rho_0}{\Delta t}\nonumber\\
-\Leftrightarrow\frac{\rho_{\delta_2}\mathbf{v}_{\delta_3} + \rho_{\delta_4}\mathbf{v}_{\delta_5}}{2}\cdot\frac{\mathbf{v}_1 - \mathbf{v}_0}{\Delta t} + \frac{\mathbf{v}_{\delta_0}\cdot\mathbf{v}_{\delta_1}}{2}\frac{\rho_1 - \rho_0}{\Delta t} & = & -\nabla\cdot\left(\frac{\rho_{\delta_2}\mathbf{v}_{\delta_3} + \rho_{\delta_4}\mathbf{v}_{\delta_5}}{2}\frac{\mathbf{v}_{\delta_0}\cdot\mathbf{v}_{\delta_1}}{2}\right)\nonumber\\
-\Leftrightarrow \frac{\rho_{\delta_2}\mathbf{v}_{\delta_3}\cdot\mathbf{v}_1 + \rho_{\delta_4}\mathbf{v}_{\delta_5}\cdot\mathbf{v}_1 - \rho_{\delta_2}\mathbf{v}_{\delta_3}\cdot\mathbf{v}_0 - \rho_{\delta_4}\mathbf{v}_{\delta_5}\cdot\mathbf{v}_0 + \rho_1\mathbf{v}_{\delta_0}\cdot\mathbf{v}_{\delta_1} - \rho_0\mathbf{v}_{\delta_0}\cdot\mathbf{v}_{\delta_1}}{2\Delta t} & = & -\nabla\cdot\left(\frac{\rho_{\delta_2}\mathbf{v}_{\delta_3} + \rho_{\delta_4}\mathbf{v}_{\delta_5}}{2}\frac{\mathbf{v}_{\delta_0}\cdot\mathbf{v}_{\delta_1}}{2}\right)\nonumber\\
-\Leftrightarrow \frac{\rho_{\delta_2}\mathbf{v}_{\delta_3}\cdot\mathbf{v}_1 + \rho_{\delta_4}\mathbf{v}_{\delta_5}\cdot\mathbf{v}_1 + \rho_1\mathbf{v}_{\delta_0}\cdot\mathbf{v}_{\delta_1} - \rho_{\delta_2}\mathbf{v}_{\delta_3}\cdot\mathbf{v}_0 - \rho_{\delta_4}\mathbf{v}_{\delta_5}\cdot\mathbf{v}_0 - \rho_0\mathbf{v}_{\delta_0}\cdot\mathbf{v}_{\delta_1}}{2\Delta t} & = & -\nabla\cdot\left(\frac{\rho_{\delta_2}\mathbf{v}_{\delta_3} + \rho_{\delta_4}\mathbf{v}_{\delta_5}}{2}\frac{\mathbf{v}_{\delta_0}\cdot\mathbf{v}_{\delta_1}}{2}\right)\nonumber\\
-\end{eqnarray}
-%
-Es muss gelten
-%
-\begin{eqnarray}
-\rho_{\delta_2}\mathbf{v}_{\delta_3}\cdot\mathbf{v}_1 + \rho_{\delta_4}\mathbf{v}_{\delta_5}\cdot\mathbf{v}_1 + \rho_1\mathbf{v}_{\delta_0}\cdot\mathbf{v}_{\delta_1} - \rho_{\delta_2}\mathbf{v}_{\delta_3}\cdot\mathbf{v}_0 - \rho_{\delta_4}\mathbf{v}_{\delta_5}\cdot\mathbf{v}_0 - \rho_0\mathbf{v}_{\delta_0}\cdot\mathbf{v}_{\delta_1} = \rho_{1}\mathbf{v}_{1}\cdot\mathbf{v}_1 - \rho_0\mathbf{v}_{0}\cdot\mathbf{v}_{0}.
-\end{eqnarray}
-%
-Setzt man $\delta_0 = \delta_1 = 0$ ein, folgt
-%
-\begin{eqnarray}
-\rho_{\delta_2}\mathbf{v}_{\delta_3}\cdot\mathbf{v}_1 + \rho_{\delta_4}\mathbf{v}_{\delta_5}\cdot\mathbf{v}_1 + \rho_1\mathbf{v}_{0}\cdot\mathbf{v}_{0} - \rho_{\delta_2}\mathbf{v}_{\delta_3}\cdot\mathbf{v}_0 - \rho_{\delta_4}\mathbf{v}_{\delta_5}\cdot\mathbf{v}_0 - \rho_0\mathbf{v}_{0}\cdot\mathbf{v}_{0} = \rho_{1}\mathbf{v}_{1}\cdot\mathbf{v}_1 - \rho_0\mathbf{v}_{0}\cdot\mathbf{v}_{0}.
-\end{eqnarray}
-%
-Mit $\delta_2 = \delta_3 = 1$ folgt
-%
-\begin{eqnarray}
-\rho_{1}\mathbf{v}_{1}\cdot\mathbf{v}_1 + \rho_{\delta_4}\mathbf{v}_{\delta_5}\cdot\mathbf{v}_1 + \rho_1\mathbf{v}_{0}\cdot\mathbf{v}_{0} - \rho_{1}\mathbf{v}_{1}\cdot\mathbf{v}_0 - \rho_{\delta_4}\mathbf{v}_{\delta_5}\cdot\mathbf{v}_0 - \rho_0\mathbf{v}_{0}\cdot\mathbf{v}_{0} = \rho_{1}\mathbf{v}_{1}\cdot\mathbf{v}_1 - \rho_0\mathbf{v}_{0}\cdot\mathbf{v}_{0}.
-\end{eqnarray}
-%
-Hieraus wiederum folgt $\delta_4 = 1$, $\delta_5 = 0$. Die Paare $\left(\delta_2, \delta_3\right)$, $\left(\delta_4, \delta_5\right)$ sind vertauschbar, was aber keine neue Möglichkeit darstellt, da die Massenflussdichte sich dabei nicht ändert.
-
-Setzt man $\delta_0 = \delta_1 = 1$ ein, folgt
-%
-\begin{eqnarray}
-\rho_{\delta_2}\mathbf{v}_{\delta_3}\cdot\mathbf{v}_1 + \rho_{\delta_4}\mathbf{v}_{\delta_5}\cdot\mathbf{v}_1 + \rho_1\mathbf{v}_{1}\cdot\mathbf{v}_{1} - \rho_{\delta_2}\mathbf{v}_{\delta_3}\cdot\mathbf{v}_0 - \rho_{\delta_4}\mathbf{v}_{\delta_5}\cdot\mathbf{v}_0 - \rho_0\mathbf{v}_{1}\cdot\mathbf{v}_{1} = \rho_{1}\mathbf{v}_{1}\cdot\mathbf{v}_1 - \rho_0\mathbf{v}_{0}\cdot\mathbf{v}_{0}.
-\end{eqnarray}
-%
-Mit $\delta_2 = 0$, $\delta_3 = 1$ folgt
-%
-\begin{eqnarray}
-\rho_{0}\mathbf{v}_{1}\cdot\mathbf{v}_1 + \rho_{\delta_4}\mathbf{v}_{\delta_5}\cdot\mathbf{v}_1 + \rho_1\mathbf{v}_{1}\cdot\mathbf{v}_{1} - \rho_{0}\mathbf{v}_{1}\cdot\mathbf{v}_0 - \rho_{\delta_4}\mathbf{v}_{\delta_5}\cdot\mathbf{v}_0 - \rho_0\mathbf{v}_{1}\cdot\mathbf{v}_{1} = \rho_{1}\mathbf{v}_{1}\cdot\mathbf{v}_1 - \rho_0\mathbf{v}_{0}\cdot\mathbf{v}_{0}.
-\end{eqnarray}
-%
-Hieraus wiederum folgt $\delta_4 = 0$, $\delta_5 = 0$.
-
-Setzt man $\delta_0 = 0$, $\delta_1 = 1$ ein, folgt
-%
-\begin{eqnarray}
-\rho_{\delta_2}\mathbf{v}_{\delta_3}\cdot\mathbf{v}_1 + \rho_{\delta_4}\mathbf{v}_{\delta_5}\cdot\mathbf{v}_1 + \rho_1\mathbf{v}_{0}\cdot\mathbf{v}_{1} - \rho_{\delta_2}\mathbf{v}_{\delta_3}\cdot\mathbf{v}_0 - \rho_{\delta_4}\mathbf{v}_{\delta_5}\cdot\mathbf{v}_0 - \rho_0\mathbf{v}_{0}\cdot\mathbf{v}_{1} = \rho_{1}\mathbf{v}_{1}\cdot\mathbf{v}_1 - \rho_0\mathbf{v}_{0}\cdot\mathbf{v}_{0}.
-\end{eqnarray}
-%
-Mit $\delta_2 = \delta_3 = 0$ folgt
-%
-\begin{eqnarray}
-\rho_{0}\mathbf{v}_{0}\cdot\mathbf{v}_1 + \rho_{\delta_4}\mathbf{v}_{\delta_5}\cdot\mathbf{v}_1 + \rho_1\mathbf{v}_{0}\cdot\mathbf{v}_{1} - \rho_{0}\mathbf{v}_{0}\cdot\mathbf{v}_0 - \rho_{\delta_4}\mathbf{v}_{\delta_5}\cdot\mathbf{v}_0 - \rho_0\mathbf{v}_{0}\cdot\mathbf{v}_{1} = \rho_{1}\mathbf{v}_{1}\cdot\mathbf{v}_1 - \rho_0\mathbf{v}_{0}\cdot\mathbf{v}_{0}.
-\end{eqnarray}
-%
-Hieraus wiederum folgt $\delta_4 = 1$, $\delta_5 = 1$. 
-
-Zusammenfassend ergeben sich folgende drei Möglichkeiten:
-%
-\begin{eqnarray}
-\frac{\mathbf{v}^2}{2} = \frac{\mathbf{v}_0\cdot\mathbf{v}_0}{2}, && \rho\mathbf{v} = \frac{\rho_1\mathbf{v}_0 + \rho_1\mathbf{v}_1}{2}\\
-\frac{\mathbf{v}^2}{2} = \frac{\mathbf{v}_1\cdot\mathbf{v}_1}{2}, && \rho\mathbf{v} = \frac{\rho_0\mathbf{v}_0 + \rho_0\mathbf{v}_1}{2}\\
-\frac{\mathbf{v}^2}{2} = \frac{\mathbf{v}_0\cdot\mathbf{v}_1}{2}, && \rho\mathbf{v} = \frac{\rho_0\mathbf{v}_0 + \rho_1\mathbf{v}_1}{2}
-\end{eqnarray}
-%
-\subsubsection{Generalisierte Coriolisterme}
-\label{sec:generalisierte_coriolisterme}
-
-Für die Zeitentwicklung der kinetischen Energie gilt
-%
-\begin{eqnarray}
-\frac{\mathbf{v}_1^2 - \mathbf{v}_0^2}{2\Delta t} & = & \frac{\left(\mathbf{v}_1 + \mathbf{v}_0\right)\cdot\left(\mathbf{v}_1 - \mathbf{v}_0\right)}{2\Delta t} = \mathbf{v}_{1/2}\cdot\frac{\mathbf{v}_1 - \mathbf{v}_0}{\Delta t}
-\end{eqnarray}
-%
-mit der Näherung
-%
-\begin{eqnarray}
-\mathbf{v}_{1/2} \approx \frac{\mathbf{v}_1 + \mathbf{v}_2}{2}.
-\end{eqnarray}
-%
-Soll der verallgemeinerte Coriolisterm nicht zur Evolution der kinetischen Energie beitragen, muss dieser am gleichen Zeitlevel ausgwertet werden wie $\mathbf{v}_{1/2}$, also in der Mitte zwischen den beiden beteiligten Zeitschritten.
-
-\subsubsection{Evolution der Temperatur}
-\label{sec:evolution_der_temperatur}
-
-Die zeitliche Evolution der inneren Energiedichte $\newtilde{I}$ lautet
-%
-\begin{eqnarray}
-\frac{\newtilde{I}_1 - \newtilde{I}_0}{\Delta t} = c^{(v)}\frac{\left(\rho T\right)_1 - \left(\rho T\right)_0}{\Delta t} = c^{(v)}\rho_0\frac{T_1 - T_0}{\Delta t} + c^{(v)}T_1\frac{\rho_1 - \rho_0}{\Delta t}.\label{eq:deriv_temp_evol_model_1}
-\end{eqnarray}
-%
-Nach Glg. \eqref{eq:poisson_entropy_internal} gilt außerdem
-%
-\begin{eqnarray}
-\frac{\newtilde{I}_1 - \newtilde{I}_0}{\Delta t} = G^\star\frac{\rho_1 - \rho_0}{\Delta t} + T^\star\frac{\newtilde{s}_1 - \newtilde{s}_0}{\Delta t} = G^\star\frac{\rho_1 - \rho_0}{\Delta t} + T^\star\frac{\rho_1s_1 - \rho_0s_0}{\Delta t},\label{eq:deriv_temp_evol_model_0}
-\end{eqnarray}
-%
-wobei
-%
-\begin{eqnarray}
-T^\star & \coloneqq & \frac{R_d}{c^{(p)}}T_0 + \frac{c^{(v)}}{c^{(p)}}T_1,\\
-G^\star & \coloneqq & \frac{R_d}{c^{(p)}}G_0 + \frac{c^{(v)}}{c^{(p)}}G_1 = R_dT_0 + c^{(v)}T_1 - \frac{R_d}{c^{(p)}}s_0T_0 - \frac{c^{(v)}}{c^{(p)}}s_1T_1
-\end{eqnarray}
-%
-definiert wurde. Setzt man dies in Glg. \eqref{eq:deriv_temp_evol_model_0} ein, erhält man
-%
-\begin{eqnarray}
-&& \frac{\newtilde{I}_1 - \newtilde{I}_0}{\Delta t} = G^\star\frac{\rho_1 - \rho_0}{\Delta t} + T^\star\frac{\newtilde{s}_1 - \newtilde{s}_0}{\Delta t}\nonumber\\
-& = & \left( R_dT_0 + c^{(v)}T_1 - \frac{R_d}{c^{(p)}}s_0T_0 - \frac{c^{(v)}}{c^{(p)}}s_1T_1\right)\frac{\rho_1 - \rho_0}{\Delta t} + \left(\frac{R_d}{c^{(p)}}T_0 + \frac{c^{(v)}}{c^{(p)}}T_1\right)\frac{\rho_1s_1 - \rho_0s_0}{\Delta t}.
-\end{eqnarray}
-%
-Dies kann man nun mit Glg. \eqref{eq:deriv_temp_evol_model_1} gleichsetzen:
-%
-\begin{eqnarray}
-&&c^{(v)}\rho_0\frac{T_1 - T_0}{\Delta t} + \textcolor{red}{c^{(v)}T_1\frac{\rho_1 - \rho_0}{\Delta t}}\nonumber\\
-& = & \left( R_dT_0 + \textcolor{red}{c^{(v)}T_1} - \frac{R_d}{c^{(p)}}s_0T_0 - \frac{c^{(v)}}{c^{(p)}}s_1T_1\right)\frac{\rho_1 - \rho_0}{\Delta t} + \left(\frac{R_d}{c^{(p)}}T_0 + \frac{c^{(v)}}{c^{(p)}}T_1\right)\frac{\rho_1s_1 - \rho_0s_0}{\Delta t}
-\end{eqnarray}
-%
-Die rot markierten Terme heben sich auf, somit erhält man
-%
-\begin{eqnarray}
-c^{(v)}\rho_0\frac{T_1 - T_0}{\Delta t} = \left(R_dT_0 - \frac{R_d}{c^{(p)}}s_0T_0 - \frac{c^{(v)}}{c^{(p)}}s_1T_1\right)\frac{\rho_1 - \rho_0}{\Delta t} + \left(\frac{R_d}{c^{(p)}}T_0 + \frac{c^{(v)}}{c^{(p)}}T_1\right)\frac{\rho_1s_1 - \rho_0s_0}{\Delta t}.
-\end{eqnarray}
-%
-Alle Terme, die die Temperatur am neuen Zeitschritt $T_1$ enthalten, schreibt man nun auf die linke Seite:
-%
-\begin{eqnarray}
-&& c^{(v)}\rho_0\frac{T_1}{\Delta t} + \frac{c^{(v)}}{c^{(p)}}s_1T_1\frac{\rho_1 - \rho_0}{\Delta t} - \frac{c^{(v)}}{c^{(p)}}T_1\frac{\rho_1s_1 - \rho_0s_0}{\Delta t}\nonumber\\
-& = & c^{(v)}\rho_0\frac{T_0}{\Delta t} + \left(R_dT_0 - \frac{R_d}{c^{(p)}}s_0T_0\right)\frac{\rho_1 - \rho_0}{\Delta t} + \frac{R_d}{c^{(p)}}T_0\frac{\rho_1s_1 - \rho_0s_0}{\Delta t}.
-\end{eqnarray}
-%
-Die Zeitdifferenz lässt sich herauskürzen:
-%
-\begin{eqnarray}
-&& c^{(v)}\rho_0T_1 + \frac{c^{(v)}}{c^{(p)}}s_1T_1\left(\rho_1 - \rho_0\right) - \frac{c^{(v)}}{c^{(p)}}T_1\left(\rho_1s_1 - \rho_0s_0\right)\nonumber\\
-& = & c^{(v)}\rho_0T_0 + \left(R_dT_0 - \frac{R_d}{c^{(p)}}s_0T_0\right)\left(\rho_1 - \rho_0\right) + \frac{R_d}{c^{(p)}}T_0\left(\rho_1s_1 - \rho_0s_0\right).
-\end{eqnarray}
-%
-Ausklammern von $T_1$ und Einsetzen von $\Delta\psi\ \coloneqq \psi_1 - \psi_0$ ergibt
-%
-\begin{eqnarray}
-T_1\left(c^{(v)}\rho_0 + \frac{c^{(v)}}{c^{(p)}}s_1\Delta\rho - \frac{c^{(v)}}{c^{(p)}}\Delta\newtilde{s}\right) = c^{(v)}\rho_0T_0 + \left(R_dT_0 - \frac{R_d}{c^{(p)}}s_0T_0\right)\Delta\rho + \frac{R_d}{c^{(p)}}T_0\Delta\newtilde{s}
-\end{eqnarray}
-%
-Umstellen ergibt die energetisch konsistente Evolutionsgleichung für die Temperatur:
-%
-\begin{center}
-\doublebox{\parbox{0.8\textwidth}{
-\begin{center}
-\begin{eqnarray}
-T_1 & = & \frac{c^{(v)}\rho_0T_0 + \left(R_dT_0 - \frac{R_d}{c^{(p)}}s_0T_0\right)\Delta\rho + \frac{R_d}{c^{(p)}}T_0\Delta\newtilde{s}}{c^{(v)}\rho_0 + \frac{c^{(v)}}{c^{(p)}}s_1\Delta\rho - \frac{c^{(v)}}{c^{(p)}}\Delta\newtilde{s}}
-\end{eqnarray}
-\end{center}
-}}
-\end{center}
+Aus Energieerhaltungsgründen wird für den kovarianten Druckgradienten in allen drei Unterschritten ein gleicher, spezieller Wert verwendet. Die Festlegung auf genau dieses und nicht etwa ein abgewandeltes Verfahren beruht auch auf Erfahrungswerten.
 
 \subsection{Modifikation zur Stabilisierung}
 \label{sec:modifikation_zur_stabilisierung}
@@ -15856,83 +15888,14 @@ Durch Nullsetzen der Determinante erhält man
 %
 Es ergibt sich also die gleiche Dispersionsrelation wie Glg. \eqref{eq:velocity_sound}. Hiermit ist verifiziert, dass die in den Glg.en \eqref{eq:sound_entropy_0} - \eqref{eq:sound_entropy_1} aufgeführten Terme in der Tat Schallwellen beschreiben.
 
-\section{Spezielle Probleme}
-\label{sec:spezielle_probleme}
-
-\subsection{Folgerungen aus der Abhängigkeitsbedingung}
-\label{sec:folgerungen_aus_der_abhaengigkeitsbedingung}
-
-\subsubsection{Neuformulierung der Rotation}
-\label{sec:neuformulierung_der_rotation}
-
-\subsubsection{Neuformulierung der Coriolisterme}
-\label{sec:neuformulierung_der_coriolisterme}
+\section{Randbedingungen}
+\label{sec:randbedingungen}
 
 \subsection{Obere Randbedingung}
 \label{sec:obere_randbedingung}\index{obere Randbedingung!im Modell}\index{Randbedingung!obere!im Modell}\index{Modell!obere Randbedingung}
 
-\section{Geländefolgende Koordinaten}
-\label{sec:gelaendefolgende_koordinaten}\index{geländefolgende Koordinaten}\index{Koordinaten!geländefolgende}
-
-\subsection{Diagnostik der vertikalen kontravarianten Maßzahl}
-\label{sec:diagnostik_der_vertikalen_kontravarianten_masszahl}
-
-In der Horizontalen sind die kontravarianten Maßzahlen prognostische Variablen und müssen daher nicht rekonstruiert werden. In der Vertikalen benötigt man jedoch
-%
-\begin{eqnarray}
-\mathbf{v}\cdot\mathbf{e}^{(v)} = v^{(v)}.
-\end{eqnarray}
-%
-Es gilt also
-%
-\begin{eqnarray}
-v^{(v)}_{b, k + \frac{1}{2}} = w_{b, k + \frac{1}{2}} - \newoverline{\newoverline{u^{(h)}_{e, k}J_{n, e, k}}^{(b)}}^{k + \frac{1}{2}}.
-\end{eqnarray}
-
-\subsection{Diagnostik der horizontalen kovarianten Maßzahl}
-\label{sec:diagnostik_der_horizontalen_kovarianten_masszahl}
-
 \subsection{Untere Randbedingung}
 \label{sec:untere_randbedingung}\index{untere Randbedingung!im Modell}\index{Randbedingung!untere!im Modell}\index{Modell!untere Randbedingung}
-
-\subsection{Vertikale Interpolationen}
-\label{sec:vertikale_interpolationen}\index{geländefolgende Koordinaten!vertikale Interpolationen}\index{Koordinaten!geländefolgende!vertikale Interpolationen}
-
-\section{Spezifizierung von Rekostruktionsoperatoren}
-\label{sec:spezifizierung_von_rekostruktionsoperatoren}
-
-\subsection{Trockene Atmosphäre}
-\label{sec:trockene_atmosphaere_beweis_der_energieerhaltung}
-
-Die \textit{Hamilton-Funktion}\index{Hamilton-Funktion} einer trockenen Atmosphäre lautet nach Glg. \eqref{eq:hamilton_function_atmosphere}
-%
-\begin{eqnarray}
-H = H\left(\mathbf{v}, \rho, T\right) = \int_A\frac{1}{2}\rho\mathbf{v}^2 + \rho\phi + c_d^{(v)}\rho Td^3r.
-\end{eqnarray}
-%
-Im Modell entspricht dies einer Summe über alle $N_b$ Gitterboxen:
-%
-\begin{eqnarray}
-H = \sum_{i = 1}^{N_b}\rho_i\left(k_i + \phi_i + c_d^{(v)}T_i\right)V_b
-\end{eqnarray}
-
-\subsection{Feuchte Atmosphäre}
-\label{sec:feuchte_atmosphaere_beweis_der_energieerhaltung}
-
-\section{Turbulenzparametrisierungen}
-\label{sec:turbulenzparametrisierungen}
-
-\subsection{Diffusion}
-\label{sec:diffusion}
-
-\subsection{Dissipation}
-\label{sec:dissipation_turbulenzparametrisierungen}
-
-\section{Infrastruktur für die Berücksichtigung von Tracern}
-\label{sec:infrastruktur_fuer_die_beruecksichtigung_von_tracern}
-
-Führt man $N \geq 1$ Tracer ein (also Anteile der Luft, die nicht zur trockenen Luft gehören), von denen $1 \leq N_C \leq N$ kondensiert sind, so benötigt man $N$ zusätzliche Kontinuitätsgleichungen und $N_C$ zusätzliche Erste Hauptsätze der Thermodynamik. Für die gasförmigen Komponenten sind keine zusätzlichen Ersten Hauptsätze notwendig, anstattdessen muss man den Hauptsatz für die Gasphase modifizieren. Der Druckgradientterm in der Impulsgleichung ist mit $\frac{\rho_h}{\rho}$ zu multiplizieren, um die Massenträgheit der Kondensate zu berücksichtigen.
-
 
 \section{Tests}
 \label{sec:tests}
@@ -15953,12 +15916,6 @@ Der Jablonowski-Williamson-Test \cite{jablonowski} (im Folgenden JW-Test genannt
 \subsubsection{Störung}
 \label{sec:stoerung}
 
-\subsection{Held-Suarez-Test}
-\label{sec:held-suarez-test}\index{Held-Suarez-Test}
-
-\subsection{Superzellen-Test}
-\label{sec:superzellen-test}\index{Superzellen-Test}
-
 \subsection{Steile Orographie}
 \label{sec:steile_orographie}
 
@@ -15967,6 +15924,23 @@ Der Jablonowski-Williamson-Test \cite{jablonowski} (im Folgenden JW-Test genannt
 
 \subsubsection{Bewegte Atmosphäre}
 \label{sec:bewegte_atmosphaere}
+
+\section{Turbulenzparametrisierungen}
+\label{sec:turbulenzparametrisierungen}
+
+\subsection{Diffusion}
+\label{sec:diffusion}
+
+\subsection{Dissipation}
+\label{sec:dissipation_turbulenzparametrisierungen}
+
+\subsection{Held-Suarez-Test}
+\label{sec:held-suarez-test}\index{Held-Suarez-Test}
+
+\section{Rahmen für die Berücksichtigung von Tracern}
+\label{sec:rahmen_fuer_die_beruecksichtigung_von_tracern}
+
+Führt man $N \geq 1$ Tracer ein (also Anteile der Luft, die nicht zur trockenen Luft gehören), von denen $1 \leq N_C \leq N$ kondensiert sind, so benötigt man $N$ zusätzliche Kontinuitätsgleichungen und $N_C$ zusätzliche Erste Hauptsätze der Thermodynamik. Für die gasförmigen Komponenten sind keine zusätzlichen Ersten Hauptsätze notwendig, anstattdessen muss man den Hauptsatz für die Gasphase modifizieren. Der Druckgradientterm in der Impulsgleichung ist mit $\frac{\rho_h}{\rho}$ zu multiplizieren, um die Massenträgheit der Kondensate zu berücksichtigen.
 
 \section{Weiterführende Aspekte}
 \label{sec:weiterfuehrende_aspekte}
@@ -18954,6 +18928,12 @@ Damit folgt
 \end{eqnarray}
 %
 also ist mit Glg. \eqref{eq:schwere_approx} auch der Satz von Clairaut erfüllt. Als Anmerkung sei gesagt: Glg. \eqref{eq:schwere_approx} ist erster Ordnung genau in $\epsilon$ und $m$ und daher nicht besser oder schlechter als Glg. \eqref{eq:schwerepotential}.
+
+\section{Sphärische Dreiecke}
+\label{sec:sphaerische_dreiecke}
+
+\section{Sphärische Voronoi-Gitter}
+\label{sec:sphaerische_voronoi-gitter}\index{Voronoi-Gitter!sphärisches}\index{sphärisches Voronoi-Gitter}
 
 \section{Orthogonale Funktionensysteme}
 \label{sec:orthogonale_funktionensysteme}\index{orthogonale Funktionensysteme}\index{Funktionensysteme!orthogonale}

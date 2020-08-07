@@ -403,157 +403,153 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {part}{IV\hspace {1em}Numerik}{243}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {14}\normalfont \textsc {Numerische Grundlagen}}{245}%
+\contentsline {chapter}{\numberline {14}\normalfont \textsc {Grundkonzepte der Numerik}}{245}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {14.1}Allgemeines über Diskretisierungen}{245}%
+\contentsline {section}{\numberline {14.1}Grundbegriffe von Diskretisierungen}{245}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {14.1.1}Finite Differenzen}{245}%
+\contentsline {section}{\numberline {14.2}Finite Differenzen}{245}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {14.1.2}Zeitschrittverfahren}{246}%
+\contentsline {section}{\numberline {14.3}Die ebene Spektralmethode}{246}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {14.1.2.1}Explizites Euler-Verfahren}{247}%
+\contentsline {section}{\numberline {14.4}Die sphärische Spektralmethode}{246}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {14.1.2.2}Implizites Euler-Verfahren}{247}%
+\contentsline {section}{\numberline {14.5}Spezifika der Geofluidsimulation}{246}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {14.1.2.3}Crank-Nicolson-Verfahren}{248}%
+\contentsline {chapter}{\numberline {15}Zeitschrittverfahren}{249}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {14.1.2.4}Runge-Kutta-Verfahren}{248}%
+\contentsline {section}{\numberline {15.1}Rein explizite Verfahren}{249}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {14.1.2.5}Multischrittverfahren}{248}%
+\contentsline {subsection}{\numberline {15.1.1}Explizites Euler-Verfahren}{249}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {14.2}Probleme und Methoden der Geofluidsimulation}{249}%
+\contentsline {subsection}{\numberline {15.1.2}Leapfrog-Verfahren}{250}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {14.3}Arakawa-Gitter}{250}%
+\contentsline {subsection}{\numberline {15.1.3}Runge-Kutta-Verfahren}{251}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {14.4}Skalare Erhaltungseigenschaft auf dem C-Gitter}{250}%
+\contentsline {section}{\numberline {15.2}Verfahren mit impliziten Anteilen}{251}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {14.5}Geostrophie auf dem C-Gitter}{252}%
+\contentsline {subsection}{\numberline {15.2.1}Implizites Euler-Verfahren}{251}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {14.6}Probleme eines dreielementigen Erzeugendensystems}{252}%
+\contentsline {subsection}{\numberline {15.2.2}Crank-Nicolson-Verfahren}{251}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {15}\normalfont \textsc {Entwicklung eines globalen dynamischen Kerns}}{259}%
+\contentsline {section}{\numberline {15.3}Aspekte partieller Differentialgleichungen}{252}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {15.1}Gitter}{259}%
+\contentsline {subsection}{\numberline {15.3.1}Das Forward-backward-Verfahren}{252}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {15.1.1}Konstanten des hexagonalen Gitters}{259}%
+\contentsline {subsection}{\numberline {15.3.2}Mischung von Zeitschrittverfahren}{252}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {15.1.2}Horizontales Gitter}{260}%
+\contentsline {section}{\numberline {15.4}Energetische Konsistenz im idealen Gas}{252}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {15.1.2.1}Delaunay-Triangulation}{260}%
+\contentsline {subsection}{\numberline {15.4.1}Advektion kinetischer Energie}{252}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {15.1.2.2}Voronoi-Diagramme}{260}%
+\contentsline {subsection}{\numberline {15.4.2}Generalisierte Coriolisterme}{253}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {15.1.2.3}Gittergenerierung auf der Einheitskugel}{260}%
+\contentsline {subsection}{\numberline {15.4.3}Evolution der Temperatur}{254}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {15.1.2.4}Berechnung von Längen und horizontalen Flächen auf der Einheitskugel}{260}%
+\contentsline {subsubsection}{\numberline {15.4.3.1}Zeitentwicklung der inneren Energie}{254}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {15.1.2.5}Gitteroptimierung}{260}%
+\contentsline {subsubsection}{\numberline {15.4.3.2}Energetisch konsistente Zeitentwicklung der Temperatur}{254}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {15.1.3}Vertikale Positionierung der Gitterpunkte}{260}%
+\contentsline {chapter}{\numberline {16}Auswahl einer zukunftsfähigen horizontalen Diskretisierung}{257}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {15.1.3.1}Berechnung vertikaler Flächen und Volumina}{261}%
+\contentsline {section}{\numberline {16.1}Aus Rechnerarchitektur folgende Beschränkungen}{257}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {15.1.3.2}Sphärische Grenzfälle}{262}%
+\contentsline {section}{\numberline {16.2}Arakawa-Gitter}{257}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {15.1.4}Funktionaldeterminante einer generalisierten Vertikalkoordinate}{262}%
+\contentsline {section}{\numberline {16.3}Skalare Erhaltungseigenschaften auf dem C-Gitter}{257}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {15.2}Felder}{263}%
+\contentsline {section}{\numberline {16.4}Geostrophie auf dem C-Gitter}{258}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {15.2.1}Skalarfelder}{264}%
+\contentsline {subsection}{\numberline {16.4.1}Lineare SWEs}{258}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {15.2.2}Vektorfelder}{264}%
+\contentsline {subsection}{\numberline {16.4.2}Nichtlineare SWEs}{258}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {15.2.3}Duale Vektorfelder}{264}%
+\contentsline {section}{\numberline {16.5}Probleme eines dreielementigen Erzeugendensystems}{258}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {15.2.4}Rotationsfelder}{264}%
+\contentsline {subsection}{\numberline {16.5.1}Folgerungen}{264}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {15.3}Prognostische Variablen}{264}%
+\contentsline {subsubsection}{\numberline {16.5.1.1}Neuformulierung der Rotation}{264}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {15.4}Operatoren}{264}%
+\contentsline {subsubsection}{\numberline {16.5.1.2}Vorzug dex hexagonalen vorm dreieckigen Gitter}{264}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {15.4.1}Multiplikation eines Skalarfeldes mit einem Vektorfeld}{265}%
+\contentsline {section}{\numberline {16.6}Vergleich quasi-uniformer sphärischer C-Gitter}{264}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {15.4.2}Divergenz}{265}%
+\contentsline {chapter}{\numberline {17}\normalfont \textsc {Entwicklung eines globalen dynamischen Kerns}}{265}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {15.4.3}Gradient}{265}%
+\contentsline {section}{\numberline {17.1}Horizontales Gitter}{265}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {15.4.4}Rotation}{265}%
+\contentsline {subsection}{\numberline {17.1.1}Konstanten des hexagonalen Gitters}{265}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {15.4.5}Kinetische Energie}{265}%
+\contentsline {subsection}{\numberline {17.1.2}Gittergenerierung auf der Einheitskugel}{266}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {15.4.6}Verallgemeinerte Coriolisbeschleunigung}{266}%
+\contentsline {subsection}{\numberline {17.1.3}Gitteroptimierung}{266}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {15.5}Zeitschrittverfahren}{266}%
+\contentsline {section}{\numberline {17.2}Vertikales Gitter}{266}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {15.5.1}Modifikationen zur Gewährleistung von Energieerhaltung}{267}%
+\contentsline {subsection}{\numberline {17.2.1}Berechnung vertikaler Flächen und Volumina}{267}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {15.5.1.1}Advektion kinetischer Energie}{267}%
+\contentsline {subsection}{\numberline {17.2.2}Funktionaldeterminante einer generalisierten Vertikalkoordinate}{267}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {15.5.1.2}Generalisierte Coriolisterme}{269}%
+\contentsline {section}{\numberline {17.3}Felder}{269}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {15.5.1.3}Evolution der Temperatur}{269}%
+\contentsline {subsection}{\numberline {17.3.1}Skalarfelder}{269}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {15.5.2}Modifikation zur Stabilisierung}{270}%
+\contentsline {subsection}{\numberline {17.3.2}Vektorfelder}{269}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {15.5.2.1}Vertikale Advektion des Horizontalwindes}{270}%
+\contentsline {subsection}{\numberline {17.3.3}Rotationsfelder}{269}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {15.5.2.2}Vertikale Advektion des Vertikalwindes}{271}%
+\contentsline {section}{\numberline {17.4}Prognostische Variablen}{269}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {15.5.2.3}Vertikaler Sound wave solver}{273}%
+\contentsline {section}{\numberline {17.5}Diskretisierung der Poisson-Klammern}{269}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {15.6}Spezielle Probleme}{274}%
+\contentsline {subsection}{\numberline {17.5.1}Volumengewichtete Mittelungsoperatoren}{269}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {15.6.1}Folgerungen aus der Abhängigkeitsbedingung}{274}%
+\contentsline {subsection}{\numberline {17.5.2}Die innere-Energie-Klammer}{270}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {15.6.1.1}Neuformulierung der Rotation}{274}%
+\contentsline {subsection}{\numberline {17.5.3}Die kinetische-Energie-Klammer}{271}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {15.6.1.2}Neuformulierung der Coriolisterme}{274}%
+\contentsline {section}{\numberline {17.6}Neuformulierung des PV-Flusses}{271}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {15.6.2}Obere Randbedingung}{274}%
+\contentsline {section}{\numberline {17.7}Zeitschrittverfahren}{271}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {15.7}Geländefolgende Koordinaten}{274}%
+\contentsline {subsection}{\numberline {17.7.1}Modifikation zur Stabilisierung}{272}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {15.7.1}Diagnostik der vertikalen kontravarianten Maßzahl}{274}%
+\contentsline {subsubsection}{\numberline {17.7.1.1}Vertikale Advektion des Horizontalwindes}{272}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {15.7.2}Diagnostik der horizontalen kovarianten Maßzahl}{274}%
+\contentsline {subsubsection}{\numberline {17.7.1.2}Vertikale Advektion des Vertikalwindes}{273}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {15.7.3}Untere Randbedingung}{274}%
+\contentsline {subsubsection}{\numberline {17.7.1.3}Vertikaler Sound wave solver}{275}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {15.7.4}Vertikale Interpolationen}{274}%
+\contentsline {section}{\numberline {17.8}Randbedingungen}{276}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {15.8}Spezifizierung von Rekostruktionsoperatoren}{274}%
+\contentsline {subsection}{\numberline {17.8.1}Obere Randbedingung}{276}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {15.8.1}Trockene Atmosphäre}{274}%
+\contentsline {subsection}{\numberline {17.8.2}Untere Randbedingung}{276}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {15.8.2}Feuchte Atmosphäre}{274}%
+\contentsline {section}{\numberline {17.9}Tests}{276}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {15.9}Turbulenzparametrisierungen}{274}%
+\contentsline {subsection}{\numberline {17.9.1}JW-Test}{276}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {15.9.1}Diffusion}{274}%
+\contentsline {subsubsection}{\numberline {17.9.1.1}Stationärer Grundzustand}{276}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {15.9.2}Dissipation}{274}%
+\contentsline {subsubsection}{\numberline {17.9.1.2}Störung}{276}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {15.10}Infrastruktur für die Berücksichtigung von Tracern}{274}%
+\contentsline {subsection}{\numberline {17.9.2}Steile Orographie}{276}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {15.11}Tests}{275}%
+\contentsline {subsubsection}{\numberline {17.9.2.1}Ruhende Atmosphäre}{276}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {15.11.1}JW-Test}{275}%
+\contentsline {subsubsection}{\numberline {17.9.2.2}Bewegte Atmosphäre}{276}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {15.11.1.1}Stationärer Grundzustand}{275}%
+\contentsline {section}{\numberline {17.10}Turbulenzparametrisierungen}{276}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {15.11.1.2}Störung}{275}%
+\contentsline {subsection}{\numberline {17.10.1}Diffusion}{276}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {15.11.2}Held-Suarez-Test}{275}%
+\contentsline {subsection}{\numberline {17.10.2}Dissipation}{276}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {15.11.3}Superzellen-Test}{275}%
+\contentsline {subsection}{\numberline {17.10.3}Held-Suarez-Test}{276}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {15.11.4}Steile Orographie}{275}%
+\contentsline {section}{\numberline {17.11}Rahmen für die Berücksichtigung von Tracern}{276}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {15.11.4.1}Ruhende Atmosphäre}{275}%
-\defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {15.11.4.2}Bewegte Atmosphäre}{275}%
-\defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {15.12}Weiterführende Aspekte}{275}%
+\contentsline {section}{\numberline {17.12}Weiterführende Aspekte}{276}%
 \defcounter {refsection}{0}\relax 
 \contentsline {part}{V\hspace {1em}Anhang}{277}%
 \defcounter {refsection}{0}\relax 
@@ -607,14 +603,18 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {A.13.2}Ellipsoidische Approximation des Schwerefeldes}{310}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {A.14}Orthogonale Funktionensysteme}{330}%
+\contentsline {section}{\numberline {A.14}Sphärische Dreiecke}{330}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {A.14.1}Legendre-Polynome}{330}%
+\contentsline {section}{\numberline {A.15}Sphärische Voronoi-Gitter}{330}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {A.14.2}Hermite-Polynome}{338}%
+\contentsline {section}{\numberline {A.16}Orthogonale Funktionensysteme}{330}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {A.14.3}Laguerre-Polynome}{340}%
+\contentsline {subsection}{\numberline {A.16.1}Legendre-Polynome}{330}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {A.14.4}Kugelflächenfunktionen}{343}%
+\contentsline {subsection}{\numberline {A.16.2}Hermite-Polynome}{338}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {A.14.5}Komplexe Exponentialfunktionen}{345}%
+\contentsline {subsection}{\numberline {A.16.3}Laguerre-Polynome}{340}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {A.16.4}Kugelflächenfunktionen}{343}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {A.16.5}Komplexe Exponentialfunktionen}{345}%

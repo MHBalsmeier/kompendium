@@ -426,7 +426,7 @@
 \@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.6.1.1}Temperatur als prognostische Variable}{121}\protected@file@percent }
 \newlabel{sec:temperatur_als_prognostische_variable}{{3.6.1.1}{121}}
 \newlabel{eq:td1_ideal_gas}{{3.172}{122}}
-\newlabel{eq:td_1_ideal_gas_for_c_grid}{{3.176}{123}}
+\newlabel{eq:td_1_ideal_gas_partial}{{3.176}{123}}
 \@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.6.1.2}Hydrostatischer Grenzfall}{123}\protected@file@percent }
 \newlabel{sec:hydrostatischer_grenzfall}{{3.6.1.2}{123}}
 \newlabel{eq:def_stabilitaetsparameter}{{3.179}{123}}
@@ -903,203 +903,195 @@
 \newlabel{sec:zirkulation_in_kondensaten}{{13.2}{241}}
 \@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {part}{IV\hspace  {1em}Numerik}{243}\protected@file@percent }
 \newlabel{part:numerik}{{IV}{245}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {chapter}{\numberline {14}\normalfont  \textsc  {Numerische Grundlagen}}{245}\protected@file@percent }
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {chapter}{\numberline {14}\normalfont  \textsc  {Grundkonzepte der Numerik}}{245}\protected@file@percent }
 \@writefile{lof}{\defcounter {refsection}{0}\relax }\@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\defcounter {refsection}{0}\relax }\@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{chap:numerische_grundlagen}{{14}{245}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {section}{\numberline {14.1}Allgemeines über Diskretisierungen}{245}\protected@file@percent }
-\newlabel{sec:allgemeines_ueber_diskretisierungen}{{14.1}{245}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {14.1.1}Finite Differenzen}{245}\protected@file@percent }
-\newlabel{sec:finite_differenzen}{{14.1.1}{245}}
+\newlabel{chap:grundkonzepte_der_numerik}{{14}{245}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {section}{\numberline {14.1}Grundbegriffe von Diskretisierungen}{245}\protected@file@percent }
+\newlabel{sec:grundbegiffe_von_diskretisierunge}{{14.1}{245}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {section}{\numberline {14.2}Finite Differenzen}{245}\protected@file@percent }
+\newlabel{sec:finite_differenzen}{{14.2}{245}}
 \newlabel{eq:taylor_links}{{14.5}{245}}
 \newlabel{eq:taylor_rechts}{{14.6}{246}}
 \newlabel{eq:approx_derivative_zentral}{{14.8}{246}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {14.1.2}Zeitschrittverfahren}{246}\protected@file@percent }
-\newlabel{sec:zeitschrittverfahren}{{14.1.2}{246}}
-\newlabel{eq:test_lineare_instab}{{14.12}{246}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsubsection}{\numberline {14.1.2.1}Explizites Euler-Verfahren}{247}\protected@file@percent }
-\newlabel{sec:explizites_euler-verfahren}{{14.1.2.1}{247}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsubsection}{\numberline {14.1.2.2}Implizites Euler-Verfahren}{247}\protected@file@percent }
-\newlabel{sec:implizites_euler-verfahren}{{14.1.2.2}{247}}
-\@writefile{lof}{\defcounter {refsection}{0}\relax }\@writefile{lof}{\contentsline {figure}{\numberline {14.1}{\ignorespaces Numerische und tatsächliche Dispersion in der 1D-Advektionsgleichung. Es wurde mit $U = 10$ m/s gerechnet, für $\Delta t$ wurde ein sehr geringer Wert eingesetzt. Man beachte den Vorzeichenwechsel der Gruppengeschwindigkeit. Wellen mit der geringsten aufgelösten Wellenlänge $2\Delta x$ sind stationär. Wellen mit einer Wellenlänge $\geq 6\Delta x$ werden gut simuliert.\relax }}{248}\protected@file@percent }
-\newlabel{fig:disp_1d}{{14.1}{248}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsubsection}{\numberline {14.1.2.3}Crank-Nicolson-Verfahren}{248}\protected@file@percent }
-\newlabel{sec:crank-nicolson-Verfahren}{{14.1.2.3}{248}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsubsection}{\numberline {14.1.2.4}Runge-Kutta-Verfahren}{248}\protected@file@percent }
-\newlabel{sec:runge-kutta-verfahren}{{14.1.2.4}{248}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsubsection}{\numberline {14.1.2.5}Multischrittverfahren}{248}\protected@file@percent }
-\newlabel{sec:multischritverfahren}{{14.1.2.5}{248}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {section}{\numberline {14.2}Probleme und Methoden der Geofluidsimulation}{249}\protected@file@percent }
-\newlabel{sec:probleme_und_methoden_der_geofluidsimulation}{{14.2}{249}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {section}{\numberline {14.3}Die ebene Spektralmethode}{246}\protected@file@percent }
+\newlabel{sec:die_ebene_spektralmethode}{{14.3}{246}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {section}{\numberline {14.4}Die sphärische Spektralmethode}{246}\protected@file@percent }
+\newlabel{sec:die_sphaerische_spektralmethode}{{14.4}{246}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {section}{\numberline {14.5}Spezifika der Geofluidsimulation}{246}\protected@file@percent }
+\newlabel{sec:spezifika_der_geofluidsimulation}{{14.5}{246}}
 \abx@aux@cite{staniforth_grids}
 \abx@aux@segm{0}{0}{staniforth_grids}
-\abx@aux@cite{arakawa}
-\abx@aux@segm{0}{0}{arakawa}
-\newlabel{eq:pne_1}{{14.36}{250}}
-\newlabel{eq:pne_2}{{14.37}{250}}
-\newlabel{eq:pne_3}{{14.38}{250}}
-\newlabel{eq:pne_4}{{14.39}{250}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {section}{\numberline {14.3}Arakawa-Gitter}{250}\protected@file@percent }
-\newlabel{sec:arakawa-gitter}{{14.3}{250}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {section}{\numberline {14.4}Skalare Erhaltungseigenschaft auf dem C-Gitter}{250}\protected@file@percent }
-\newlabel{sec:skalare_erhaltungseigenschaft_auf_dem_c-gitter}{{14.4}{250}}
-\abx@aux@cite{arakawa_grids_figure}
-\abx@aux@segm{0}{0}{arakawa_grids_figure}
-\abx@aux@cite{arakawa_grids_figure}
-\abx@aux@segm{0}{0}{arakawa_grids_figure}
-\@writefile{lof}{\defcounter {refsection}{0}\relax }\@writefile{lof}{\contentsline {figure}{\numberline {14.2}{\ignorespaces Die fünf Gitterstrukturen nach Arakawa. Die Massenvariable wurde mit $q$ bezeichnet \cite {arakawa_grids_figure}.\relax }}{251}\protected@file@percent }
-\newlabel{fig:arakawa}{{14.2}{251}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {section}{\numberline {14.5}Geostrophie auf dem C-Gitter}{252}\protected@file@percent }
-\newlabel{sec:geostrophie_auf_dem_c-gitter}{{14.5}{252}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {section}{\numberline {14.6}Probleme eines dreielementigen Erzeugendensystems}{252}\protected@file@percent }
-\newlabel{sec:probleme_eines_dreielementigen_erzeugendensystems}{{14.6}{252}}
-\newlabel{eq:linear_condition_trivariate}{{14.71}{253}}
-\newlabel{eq:grad_three_elements}{{14.74}{253}}
-\newlabel{eq:gradient_linear_condition}{{14.75}{253}}
-\newlabel{eq:trivariate_helmholtz_eq_0}{{14.104}{256}}
-\newlabel{eq:trivariate_helmholtz_eq_1}{{14.105}{256}}
-\newlabel{eq:trivariate_helmholtz_eq_2}{{14.106}{256}}
-\newlabel{eq:trivariate_helmholtz_eq_3}{{14.107}{256}}
-\newlabel{eq:trivariate_helmholtz_eq_4}{{14.108}{256}}
-\newlabel{eq:trivariate_helmholtz_eq_5}{{14.109}{256}}
-\newlabel{eq:linear_condition_trivariate_discrete_0}{{14.119}{257}}
-\newlabel{eq:linear_condition_trivariate_discrete_1}{{14.120}{257}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {chapter}{\numberline {15}\normalfont  \textsc  {Entwicklung eines globalen dynamischen Kerns}}{259}\protected@file@percent }
+\newlabel{eq:pne_1}{{14.14}{247}}
+\newlabel{eq:pne_2}{{14.15}{247}}
+\newlabel{eq:pne_3}{{14.16}{247}}
+\newlabel{eq:pne_4}{{14.17}{247}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {chapter}{\numberline {15}Zeitschrittverfahren}{249}\protected@file@percent }
 \@writefile{lof}{\defcounter {refsection}{0}\relax }\@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\defcounter {refsection}{0}\relax }\@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{chap:entwicklung_eines_globalen_dynamischen_kerns}{{15}{259}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {section}{\numberline {15.1}Gitter}{259}\protected@file@percent }
-\newlabel{sec:gitter}{{15.1}{259}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {15.1.1}Konstanten des hexagonalen Gitters}{259}\protected@file@percent }
-\newlabel{sec:konstanten_des_hexagonalen_gitters}{{15.1.1}{259}}
-\@writefile{lot}{\defcounter {refsection}{0}\relax }\@writefile{lot}{\contentsline {table}{\numberline {15.1}{\ignorespaces Ecken des in die Einheitskugel eingeschriebenen Ikosaeders.\relax }}{260}\protected@file@percent }
-\newlabel{tab:ico_vertices}{{15.1}{260}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {15.1.2}Horizontales Gitter}{260}\protected@file@percent }
-\newlabel{sec:horizontales_gitter}{{15.1.2}{260}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsubsection}{\numberline {15.1.2.1}Delaunay-Triangulation}{260}\protected@file@percent }
-\newlabel{sec:delaunay-trangulation}{{15.1.2.1}{260}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsubsection}{\numberline {15.1.2.2}Voronoi-Diagramme}{260}\protected@file@percent }
-\newlabel{sec:voronoi-diagramme}{{15.1.2.2}{260}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsubsection}{\numberline {15.1.2.3}Gittergenerierung auf der Einheitskugel}{260}\protected@file@percent }
-\newlabel{sec:gittergenerierung_auf_der_einheitskugel}{{15.1.2.3}{260}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsubsection}{\numberline {15.1.2.4}Berechnung von Längen und horizontalen Flächen auf der Einheitskugel}{260}\protected@file@percent }
-\newlabel{sec:berechung_von_längen_und_horizontalen_flächen_auf_der_einheitskugel}{{15.1.2.4}{260}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsubsection}{\numberline {15.1.2.5}Gitteroptimierung}{260}\protected@file@percent }
-\newlabel{sec:gitteroptimierung}{{15.1.2.5}{260}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {15.1.3}Vertikale Positionierung der Gitterpunkte}{260}\protected@file@percent }
-\newlabel{sec:vertikale_positionierung_der_gitterpunkte}{{15.1.3}{260}}
-\newlabel{eq:pos_level}{{15.18}{261}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsubsection}{\numberline {15.1.3.1}Berechnung vertikaler Flächen und Volumina}{261}\protected@file@percent }
-\newlabel{sec:berechnung_vertikaler_flaechen_und_volumina}{{15.1.3.1}{261}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsubsection}{\numberline {15.1.3.2}Sphärische Grenzfälle}{262}\protected@file@percent }
-\newlabel{sec:sphaerische_grenzfaelle}{{15.1.3.2}{262}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {15.1.4}Funktionaldeterminante einer generalisierten Vertikalkoordinate}{262}\protected@file@percent }
-\newlabel{sec:funktionaldeterminante_einer_generalisierten_vertikalkoordinate}{{15.1.4}{262}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {section}{\numberline {15.2}Felder}{263}\protected@file@percent }
-\newlabel{sec:felder}{{15.2}{263}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {15.2.1}Skalarfelder}{264}\protected@file@percent }
-\newlabel{sec:skalarfelder}{{15.2.1}{264}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {15.2.2}Vektorfelder}{264}\protected@file@percent }
-\newlabel{sec:vektorfelder}{{15.2.2}{264}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {15.2.3}Duale Vektorfelder}{264}\protected@file@percent }
-\newlabel{sec:duale_vektorfelder}{{15.2.3}{264}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {15.2.4}Rotationsfelder}{264}\protected@file@percent }
-\newlabel{sec:rotationsfelder}{{15.2.4}{264}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {section}{\numberline {15.3}Prognostische Variablen}{264}\protected@file@percent }
-\newlabel{sec:prognostische_variablen}{{15.3}{264}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {section}{\numberline {15.4}Operatoren}{264}\protected@file@percent }
-\newlabel{sec:operatoren}{{15.4}{264}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {15.4.1}Multiplikation eines Skalarfeldes mit einem Vektorfeld}{265}\protected@file@percent }
-\newlabel{sec:multiplikation_eines_skalarfeldes_mit_einem_vektorfeld}{{15.4.1}{265}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {15.4.2}Divergenz}{265}\protected@file@percent }
-\newlabel{sec:divergenz_dynamischer_kern}{{15.4.2}{265}}
-\newlabel{eq:div_diskret_3d}{{15.55}{265}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {15.4.3}Gradient}{265}\protected@file@percent }
-\newlabel{sec:gradient}{{15.4.3}{265}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {15.4.4}Rotation}{265}\protected@file@percent }
-\newlabel{sec:rotation}{{15.4.4}{265}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {15.4.5}Kinetische Energie}{265}\protected@file@percent }
-\newlabel{sec:kinetische_energie}{{15.4.5}{265}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {15.4.6}Verallgemeinerte Coriolisbeschleunigung}{266}\protected@file@percent }
-\newlabel{sec:verallgemeinerte_coriolisbeschleunigung}{{15.4.6}{266}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {section}{\numberline {15.5}Zeitschrittverfahren}{266}\protected@file@percent }
-\newlabel{sec:zeitschrittverfahren!zusammensetzung_der_prognostischen_gleichungen}{{15.5}{266}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {15.5.1}Modifikationen zur Gewährleistung von Energieerhaltung}{267}\protected@file@percent }
-\newlabel{sec:modifikationen_zur_gewährleistung_von_energieerhaltung}{{15.5.1}{267}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsubsection}{\numberline {15.5.1.1}Advektion kinetischer Energie}{267}\protected@file@percent }
-\newlabel{sec:advektion_kinetischer_energie}{{15.5.1.1}{267}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsubsection}{\numberline {15.5.1.2}Generalisierte Coriolisterme}{269}\protected@file@percent }
-\newlabel{sec:generalisierte_coriolisterme}{{15.5.1.2}{269}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsubsection}{\numberline {15.5.1.3}Evolution der Temperatur}{269}\protected@file@percent }
-\newlabel{sec:evolution_der_temperatur}{{15.5.1.3}{269}}
-\newlabel{eq:deriv_temp_evol_model_1}{{15.86}{269}}
-\newlabel{eq:deriv_temp_evol_model_0}{{15.87}{269}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {15.5.2}Modifikation zur Stabilisierung}{270}\protected@file@percent }
-\newlabel{sec:modifikation_zur_stabilisierung}{{15.5.2}{270}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsubsection}{\numberline {15.5.2.1}Vertikale Advektion des Horizontalwindes}{270}\protected@file@percent }
-\newlabel{sec:vertikale_advektion_des_horizontalwindes}{{15.5.2.1}{270}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsubsection}{\numberline {15.5.2.2}Vertikale Advektion des Vertikalwindes}{271}\protected@file@percent }
-\newlabel{sec:vertikale_advektion_des_vertikalwindes}{{15.5.2.2}{271}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsubsection}{\numberline {15.5.2.3}Vertikaler Sound wave solver}{273}\protected@file@percent }
-\newlabel{sec:vertikaler_sound_wave_solver}{{15.5.2.3}{273}}
-\newlabel{eq:sound_entropy_0}{{15.120}{273}}
-\newlabel{eq:sound_entropy_1}{{15.121}{273}}
+\newlabel{chap:zeitschrittverfahren}{{15}{249}}
+\newlabel{eq:test_lineare_instab}{{15.1}{249}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {section}{\numberline {15.1}Rein explizite Verfahren}{249}\protected@file@percent }
+\newlabel{sec:rein_explizite_verfahren}{{15.1}{249}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {15.1.1}Explizites Euler-Verfahren}{249}\protected@file@percent }
+\newlabel{sec:explizites_euler-verfahren}{{15.1.1}{249}}
+\@writefile{lof}{\defcounter {refsection}{0}\relax }\@writefile{lof}{\contentsline {figure}{\numberline {15.1}{\ignorespaces Numerische und tatsächliche Dispersion in der 1D-Advektionsgleichung. Es wurde mit $U = 10$ m/s gerechnet, für $\Delta t$ wurde ein sehr geringer Wert eingesetzt. Man beachte den Vorzeichenwechsel der Gruppengeschwindigkeit. Wellen mit der geringsten aufgelösten Wellenlänge $2\Delta x$ sind stationär. Wellen mit einer Wellenlänge $\geq 6\Delta x$ werden gut simuliert.\relax }}{250}\protected@file@percent }
+\newlabel{fig:disp_1d}{{15.1}{250}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {15.1.2}Leapfrog-Verfahren}{250}\protected@file@percent }
+\newlabel{sec:leapfrog-verfahren}{{15.1.2}{250}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {15.1.3}Runge-Kutta-Verfahren}{251}\protected@file@percent }
+\newlabel{sec:runge-kutta-verfahren}{{15.1.3}{251}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {section}{\numberline {15.2}Verfahren mit impliziten Anteilen}{251}\protected@file@percent }
+\newlabel{sec:verfahren_mit_impliziten_anteilen}{{15.2}{251}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {15.2.1}Implizites Euler-Verfahren}{251}\protected@file@percent }
+\newlabel{sec:implizites_euler-verfahren}{{15.2.1}{251}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {15.2.2}Crank-Nicolson-Verfahren}{251}\protected@file@percent }
+\newlabel{sec:crank-nicolson-Verfahren}{{15.2.2}{251}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {section}{\numberline {15.3}Aspekte partieller Differentialgleichungen}{252}\protected@file@percent }
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {15.3.1}Das Forward-backward-Verfahren}{252}\protected@file@percent }
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {15.3.2}Mischung von Zeitschrittverfahren}{252}\protected@file@percent }
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {section}{\numberline {15.4}Energetische Konsistenz im idealen Gas}{252}\protected@file@percent }
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {15.4.1}Advektion kinetischer Energie}{252}\protected@file@percent }
+\newlabel{sec:advektion_kinetischer_energie}{{15.4.1}{252}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {15.4.2}Generalisierte Coriolisterme}{253}\protected@file@percent }
+\newlabel{sec:generalisierte_coriolisterme}{{15.4.2}{253}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {15.4.3}Evolution der Temperatur}{254}\protected@file@percent }
+\newlabel{sec:evolution_der_temperatur}{{15.4.3}{254}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsubsection}{\numberline {15.4.3.1}Zeitentwicklung der inneren Energie}{254}\protected@file@percent }
+\newlabel{sec:Zeitentwicklung_der_inneren_energie}{{15.4.3.1}{254}}
+\newlabel{eq:deriv_temp_evol_model_1}{{15.43}{254}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsubsection}{\numberline {15.4.3.2}Energetisch konsistente Zeitentwicklung der Temperatur}{254}\protected@file@percent }
+\newlabel{sec:energetisch_konsistente_zeitentwicklung_der_temperatur}{{15.4.3.2}{254}}
+\newlabel{eq:deriv_temp_evol_model_0}{{15.48}{254}}
+\abx@aux@cite{arakawa}
+\abx@aux@segm{0}{0}{arakawa}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {chapter}{\numberline {16}Auswahl einer zukunftsfähigen horizontalen Diskretisierung}{257}\protected@file@percent }
+\@writefile{lof}{\defcounter {refsection}{0}\relax }\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\defcounter {refsection}{0}\relax }\@writefile{lot}{\addvspace {10\p@ }}
+\newlabel{sec:auswahl_einer_zukunftsfaehigen_horizontalen_diskretisierung}{{16}{257}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {section}{\numberline {16.1}Aus Rechnerarchitektur folgende Beschränkungen}{257}\protected@file@percent }
+\newlabel{sec:aus:rechnerarchitektur_folgende_beschraenkungen}{{16.1}{257}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {section}{\numberline {16.2}Arakawa-Gitter}{257}\protected@file@percent }
+\newlabel{sec:arakawa-gitter}{{16.2}{257}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {section}{\numberline {16.3}Skalare Erhaltungseigenschaften auf dem C-Gitter}{257}\protected@file@percent }
+\newlabel{sec:skalare_erhaltungseigenschaften_auf_dem_c-gitter}{{16.3}{257}}
+\abx@aux@cite{arakawa_grids_figure}
+\abx@aux@segm{0}{0}{arakawa_grids_figure}
+\abx@aux@cite{arakawa_grids_figure}
+\abx@aux@segm{0}{0}{arakawa_grids_figure}
+\@writefile{lof}{\defcounter {refsection}{0}\relax }\@writefile{lof}{\contentsline {figure}{\numberline {16.1}{\ignorespaces Die fünf Gitterstrukturen nach Arakawa. Die Massenvariable wurde mit $q$ bezeichnet \cite {arakawa_grids_figure}.\relax }}{258}\protected@file@percent }
+\newlabel{fig:arakawa}{{16.1}{258}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {section}{\numberline {16.4}Geostrophie auf dem C-Gitter}{258}\protected@file@percent }
+\newlabel{sec:geostrophie_auf_dem_c-gitter}{{16.4}{258}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {16.4.1}Lineare SWEs}{258}\protected@file@percent }
+\newlabel{sec:lineare_swes}{{16.4.1}{258}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {16.4.2}Nichtlineare SWEs}{258}\protected@file@percent }
+\newlabel{sec:nichtlineare_swes}{{16.4.2}{258}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {section}{\numberline {16.5}Probleme eines dreielementigen Erzeugendensystems}{258}\protected@file@percent }
+\newlabel{sec:probleme_eines_dreielementigen_erzeugendensystems}{{16.5}{258}}
+\newlabel{eq:linear_condition_trivariate}{{16.32}{260}}
+\newlabel{eq:grad_three_elements}{{16.35}{260}}
+\newlabel{eq:gradient_linear_condition}{{16.36}{260}}
+\newlabel{eq:trivariate_helmholtz_eq_0}{{16.65}{263}}
+\newlabel{eq:trivariate_helmholtz_eq_1}{{16.66}{263}}
+\newlabel{eq:trivariate_helmholtz_eq_2}{{16.67}{263}}
+\newlabel{eq:trivariate_helmholtz_eq_3}{{16.68}{263}}
+\newlabel{eq:trivariate_helmholtz_eq_4}{{16.69}{263}}
+\newlabel{eq:trivariate_helmholtz_eq_5}{{16.70}{263}}
+\newlabel{eq:linear_condition_trivariate_discrete_0}{{16.80}{264}}
+\newlabel{eq:linear_condition_trivariate_discrete_1}{{16.81}{264}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {16.5.1}Folgerungen}{264}\protected@file@percent }
+\newlabel{sec:folgerungen}{{16.5.1}{264}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsubsection}{\numberline {16.5.1.1}Neuformulierung der Rotation}{264}\protected@file@percent }
+\newlabel{sec:neuformulierung_der_rotation}{{16.5.1.1}{264}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsubsection}{\numberline {16.5.1.2}Vorzug dex hexagonalen vorm dreieckigen Gitter}{264}\protected@file@percent }
+\newlabel{sec:vorzug_des_hexagonalen_vorm_dreieckigen_gitter}{{16.5.1.2}{264}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {section}{\numberline {16.6}Vergleich quasi-uniformer sphärischer C-Gitter}{264}\protected@file@percent }
+\newlabel{sec:vergleich_quasi-uniformer_sphaerischer_c-gitter}{{16.6}{264}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {chapter}{\numberline {17}\normalfont  \textsc  {Entwicklung eines globalen dynamischen Kerns}}{265}\protected@file@percent }
+\@writefile{lof}{\defcounter {refsection}{0}\relax }\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\defcounter {refsection}{0}\relax }\@writefile{lot}{\addvspace {10\p@ }}
+\newlabel{chap:entwicklung_eines_globalen_dynamischen_kerns}{{17}{265}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {section}{\numberline {17.1}Horizontales Gitter}{265}\protected@file@percent }
+\newlabel{sec:horizontales_gitter}{{17.1}{265}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {17.1.1}Konstanten des hexagonalen Gitters}{265}\protected@file@percent }
+\newlabel{sec:konstanten_des_hexagonalen_gitters}{{17.1.1}{265}}
+\@writefile{lot}{\defcounter {refsection}{0}\relax }\@writefile{lot}{\contentsline {table}{\numberline {17.1}{\ignorespaces Ecken des in die Einheitskugel eingeschriebenen Ikosaeders.\relax }}{266}\protected@file@percent }
+\newlabel{tab:ico_vertices}{{17.1}{266}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {17.1.2}Gittergenerierung auf der Einheitskugel}{266}\protected@file@percent }
+\newlabel{sec:gittergenerierung_auf_der_einheitskugel}{{17.1.2}{266}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {17.1.3}Gitteroptimierung}{266}\protected@file@percent }
+\newlabel{sec:gitteroptimierung}{{17.1.3}{266}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {section}{\numberline {17.2}Vertikales Gitter}{266}\protected@file@percent }
+\newlabel{sec:vertikales_gitter}{{17.2}{266}}
+\newlabel{eq:pos_level}{{17.18}{267}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {17.2.1}Berechnung vertikaler Flächen und Volumina}{267}\protected@file@percent }
+\newlabel{sec:berechnung_vertikaler_flaechen_und_volumina}{{17.2.1}{267}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {17.2.2}Funktionaldeterminante einer generalisierten Vertikalkoordinate}{267}\protected@file@percent }
+\newlabel{sec:funktionaldeterminante_einer_generalisierten_vertikalkoordinate}{{17.2.2}{267}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {section}{\numberline {17.3}Felder}{269}\protected@file@percent }
+\newlabel{sec:felder}{{17.3}{269}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {17.3.1}Skalarfelder}{269}\protected@file@percent }
+\newlabel{sec:skalarfelder}{{17.3.1}{269}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {17.3.2}Vektorfelder}{269}\protected@file@percent }
+\newlabel{sec:vektorfelder}{{17.3.2}{269}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {17.3.3}Rotationsfelder}{269}\protected@file@percent }
+\newlabel{sec:rotationsfelder}{{17.3.3}{269}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {section}{\numberline {17.4}Prognostische Variablen}{269}\protected@file@percent }
+\newlabel{sec:prognostische_variablen}{{17.4}{269}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {section}{\numberline {17.5}Diskretisierung der Poisson-Klammern}{269}\protected@file@percent }
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {17.5.1}Volumengewichtete Mittelungsoperatoren}{269}\protected@file@percent }
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {17.5.2}Die innere-Energie-Klammer}{270}\protected@file@percent }
+\newlabel{eq:div_diskret_3d}{{17.54}{270}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {17.5.3}Die kinetische-Energie-Klammer}{271}\protected@file@percent }
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {section}{\numberline {17.6}Neuformulierung des PV-Flusses}{271}\protected@file@percent }
+\newlabel{sec:neuformulierung_des_pvflusses}{{17.6}{271}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {section}{\numberline {17.7}Zeitschrittverfahren}{271}\protected@file@percent }
+\newlabel{chap:zeitschrittverfahren!zusammensetzung_der_prognostischen_gleichungen}{{17.7}{271}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {17.7.1}Modifikation zur Stabilisierung}{272}\protected@file@percent }
+\newlabel{sec:modifikation_zur_stabilisierung}{{17.7.1}{272}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsubsection}{\numberline {17.7.1.1}Vertikale Advektion des Horizontalwindes}{272}\protected@file@percent }
+\newlabel{sec:vertikale_advektion_des_horizontalwindes}{{17.7.1.1}{272}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsubsection}{\numberline {17.7.1.2}Vertikale Advektion des Vertikalwindes}{273}\protected@file@percent }
+\newlabel{sec:vertikale_advektion_des_vertikalwindes}{{17.7.1.2}{273}}
 \abx@aux@cite{jablonowski}
 \abx@aux@segm{0}{0}{jablonowski}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {section}{\numberline {15.6}Spezielle Probleme}{274}\protected@file@percent }
-\newlabel{sec:spezielle_probleme}{{15.6}{274}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {15.6.1}Folgerungen aus der Abhängigkeitsbedingung}{274}\protected@file@percent }
-\newlabel{sec:folgerungen_aus_der_abhaengigkeitsbedingung}{{15.6.1}{274}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsubsection}{\numberline {15.6.1.1}Neuformulierung der Rotation}{274}\protected@file@percent }
-\newlabel{sec:neuformulierung_der_rotation}{{15.6.1.1}{274}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsubsection}{\numberline {15.6.1.2}Neuformulierung der Coriolisterme}{274}\protected@file@percent }
-\newlabel{sec:neuformulierung_der_coriolisterme}{{15.6.1.2}{274}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {15.6.2}Obere Randbedingung}{274}\protected@file@percent }
-\newlabel{sec:obere_randbedingung}{{15.6.2}{274}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {section}{\numberline {15.7}Geländefolgende Koordinaten}{274}\protected@file@percent }
-\newlabel{sec:gelaendefolgende_koordinaten}{{15.7}{274}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {15.7.1}Diagnostik der vertikalen kontravarianten Maßzahl}{274}\protected@file@percent }
-\newlabel{sec:diagnostik_der_vertikalen_kontravarianten_masszahl}{{15.7.1}{274}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {15.7.2}Diagnostik der horizontalen kovarianten Maßzahl}{274}\protected@file@percent }
-\newlabel{sec:diagnostik_der_horizontalen_kovarianten_masszahl}{{15.7.2}{274}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {15.7.3}Untere Randbedingung}{274}\protected@file@percent }
-\newlabel{sec:untere_randbedingung}{{15.7.3}{274}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {15.7.4}Vertikale Interpolationen}{274}\protected@file@percent }
-\newlabel{sec:vertikale_interpolationen}{{15.7.4}{274}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {section}{\numberline {15.8}Spezifizierung von Rekostruktionsoperatoren}{274}\protected@file@percent }
-\newlabel{sec:spezifizierung_von_rekostruktionsoperatoren}{{15.8}{274}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {15.8.1}Trockene Atmosphäre}{274}\protected@file@percent }
-\newlabel{sec:trockene_atmosphaere_beweis_der_energieerhaltung}{{15.8.1}{274}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {15.8.2}Feuchte Atmosphäre}{274}\protected@file@percent }
-\newlabel{sec:feuchte_atmosphaere_beweis_der_energieerhaltung}{{15.8.2}{274}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {section}{\numberline {15.9}Turbulenzparametrisierungen}{274}\protected@file@percent }
-\newlabel{sec:turbulenzparametrisierungen}{{15.9}{274}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {15.9.1}Diffusion}{274}\protected@file@percent }
-\newlabel{sec:diffusion}{{15.9.1}{274}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {15.9.2}Dissipation}{274}\protected@file@percent }
-\newlabel{sec:dissipation_turbulenzparametrisierungen}{{15.9.2}{274}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {section}{\numberline {15.10}Infrastruktur für die Berücksichtigung von Tracern}{274}\protected@file@percent }
-\newlabel{sec:infrastruktur_fuer_die_beruecksichtigung_von_tracern}{{15.10}{274}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {section}{\numberline {15.11}Tests}{275}\protected@file@percent }
-\newlabel{sec:tests}{{15.11}{275}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {15.11.1}JW-Test}{275}\protected@file@percent }
-\newlabel{sec:jw-test}{{15.11.1}{275}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsubsection}{\numberline {15.11.1.1}Stationärer Grundzustand}{275}\protected@file@percent }
-\newlabel{sec:stationaerer_grundzustand}{{15.11.1.1}{275}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsubsection}{\numberline {15.11.1.2}Störung}{275}\protected@file@percent }
-\newlabel{sec:stoerung}{{15.11.1.2}{275}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {15.11.2}Held-Suarez-Test}{275}\protected@file@percent }
-\newlabel{sec:held-suarez-test}{{15.11.2}{275}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {15.11.3}Superzellen-Test}{275}\protected@file@percent }
-\newlabel{sec:superzellen-test}{{15.11.3}{275}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {15.11.4}Steile Orographie}{275}\protected@file@percent }
-\newlabel{sec:steile_orographie}{{15.11.4}{275}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsubsection}{\numberline {15.11.4.1}Ruhende Atmosphäre}{275}\protected@file@percent }
-\newlabel{sec:ruhende_atmosphaere}{{15.11.4.1}{275}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsubsection}{\numberline {15.11.4.2}Bewegte Atmosphäre}{275}\protected@file@percent }
-\newlabel{sec:bewegte_atmosphaere}{{15.11.4.2}{275}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {section}{\numberline {15.12}Weiterführende Aspekte}{275}\protected@file@percent }
-\newlabel{sec:weiterfuehrende_aspekte}{{15.12}{275}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsubsection}{\numberline {17.7.1.3}Vertikaler Sound wave solver}{275}\protected@file@percent }
+\newlabel{sec:vertikaler_sound_wave_solver}{{17.7.1.3}{275}}
+\newlabel{eq:sound_entropy_0}{{17.88}{275}}
+\newlabel{eq:sound_entropy_1}{{17.89}{275}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {section}{\numberline {17.8}Randbedingungen}{276}\protected@file@percent }
+\newlabel{sec:randbedingungen}{{17.8}{276}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {17.8.1}Obere Randbedingung}{276}\protected@file@percent }
+\newlabel{sec:obere_randbedingung}{{17.8.1}{276}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {17.8.2}Untere Randbedingung}{276}\protected@file@percent }
+\newlabel{sec:untere_randbedingung}{{17.8.2}{276}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {section}{\numberline {17.9}Tests}{276}\protected@file@percent }
+\newlabel{sec:tests}{{17.9}{276}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {17.9.1}JW-Test}{276}\protected@file@percent }
+\newlabel{sec:jw-test}{{17.9.1}{276}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsubsection}{\numberline {17.9.1.1}Stationärer Grundzustand}{276}\protected@file@percent }
+\newlabel{sec:stationaerer_grundzustand}{{17.9.1.1}{276}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsubsection}{\numberline {17.9.1.2}Störung}{276}\protected@file@percent }
+\newlabel{sec:stoerung}{{17.9.1.2}{276}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {17.9.2}Steile Orographie}{276}\protected@file@percent }
+\newlabel{sec:steile_orographie}{{17.9.2}{276}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsubsection}{\numberline {17.9.2.1}Ruhende Atmosphäre}{276}\protected@file@percent }
+\newlabel{sec:ruhende_atmosphaere}{{17.9.2.1}{276}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsubsection}{\numberline {17.9.2.2}Bewegte Atmosphäre}{276}\protected@file@percent }
+\newlabel{sec:bewegte_atmosphaere}{{17.9.2.2}{276}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {section}{\numberline {17.10}Turbulenzparametrisierungen}{276}\protected@file@percent }
+\newlabel{sec:turbulenzparametrisierungen}{{17.10}{276}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {17.10.1}Diffusion}{276}\protected@file@percent }
+\newlabel{sec:diffusion}{{17.10.1}{276}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {17.10.2}Dissipation}{276}\protected@file@percent }
+\newlabel{sec:dissipation_turbulenzparametrisierungen}{{17.10.2}{276}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {17.10.3}Held-Suarez-Test}{276}\protected@file@percent }
+\newlabel{sec:held-suarez-test}{{17.10.3}{276}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {section}{\numberline {17.11}Rahmen für die Berücksichtigung von Tracern}{276}\protected@file@percent }
+\newlabel{sec:rahmen_fuer_die_beruecksichtigung_von_tracern}{{17.11}{276}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {section}{\numberline {17.12}Weiterführende Aspekte}{276}\protected@file@percent }
+\newlabel{sec:weiterfuehrende_aspekte}{{17.12}{276}}
 \@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {part}{V\hspace  {1em}Anhang}{277}\protected@file@percent }
 \newlabel{part:anhang}{{V}{279}}
 \@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {chapter}{\numberline {A}\normalfont  \textsc  {Mathematische Grundlagen}}{279}\protected@file@percent }
@@ -1274,10 +1266,14 @@
 \newlabel{eq:schwere_approx_r}{{A.475}{327}}
 \newlabel{eq:clairaut_deriv_1}{{A.490}{328}}
 \newlabel{eq:clairaut}{{A.491}{328}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {section}{\numberline {A.14}Orthogonale Funktionensysteme}{330}\protected@file@percent }
-\newlabel{sec:orthogonale_funktionensysteme}{{A.14}{330}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {A.14.1}Legendre-Polynome}{330}\protected@file@percent }
-\newlabel{sec:legendrepolynome}{{A.14.1}{330}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {section}{\numberline {A.14}Sphärische Dreiecke}{330}\protected@file@percent }
+\newlabel{sec:sphaerische_dreiecke}{{A.14}{330}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {section}{\numberline {A.15}Sphärische Voronoi-Gitter}{330}\protected@file@percent }
+\newlabel{sec:sphaerische_voronoi-gitter}{{A.15}{330}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {section}{\numberline {A.16}Orthogonale Funktionensysteme}{330}\protected@file@percent }
+\newlabel{sec:orthogonale_funktionensysteme}{{A.16}{330}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {A.16.1}Legendre-Polynome}{330}\protected@file@percent }
+\newlabel{sec:legendrepolynome}{{A.16.1}{330}}
 \newlabel{eq:legendre_iterativ}{{A.513}{330}}
 \newlabel{eq:legendre_poly_formel}{{A.514}{330}}
 \newlabel{eq:gen_bin_formula_legendre}{{A.516}{331}}
@@ -1293,29 +1289,29 @@
 \newlabel{eq:legendre_ass_prop_1}{{A.577}{337}}
 \newlabel{eq:legendre_ass_prop_3}{{A.578}{338}}
 \newlabel{eq:ortho_ass_lgen}{{A.581}{338}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {A.14.2}Hermite-Polynome}{338}\protected@file@percent }
-\newlabel{sec:hermitepolynome}{{A.14.2}{338}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {A.16.2}Hermite-Polynome}{338}\protected@file@percent }
+\newlabel{sec:hermitepolynome}{{A.16.2}{338}}
 \newlabel{eq:hermite_poly_geschlossen}{{A.583}{338}}
 \newlabel{eq:hermite_dgl}{{A.584}{338}}
 \newlabel{eq:produktregel_n}{{A.588}{339}}
 \newlabel{eq:herm_pol_prop_1}{{A.592}{339}}
 \newlabel{eq:herm_pol_prop_2}{{A.593}{339}}
 \newlabel{eq:hermite_polynome_normierung}{{A.594}{339}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {A.14.3}Laguerre-Polynome}{340}\protected@file@percent }
-\newlabel{sec:laguerrepolynome}{{A.14.3}{340}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {A.16.3}Laguerre-Polynome}{340}\protected@file@percent }
+\newlabel{sec:laguerrepolynome}{{A.16.3}{340}}
 \newlabel{eq:laguerre_dgl}{{A.599}{340}}
 \newlabel{eq:rek_laguerre}{{A.603}{340}}
 \newlabel{eq:laguerre_polynome_explizit}{{A.604}{340}}
 \newlabel{eq:laguerre_integral}{{A.614}{341}}
 \newlabel{eq:laguerre_int_prop_2}{{A.618}{342}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {A.14.4}Kugelflächenfunktionen}{343}\protected@file@percent }
-\newlabel{sec:spherical_harmionen}{{A.14.4}{343}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {A.16.4}Kugelflächenfunktionen}{343}\protected@file@percent }
+\newlabel{sec:spherical_harmionen}{{A.16.4}{343}}
 \newlabel{eq:spherical_harmionen}{{A.627}{343}}
 \newlabel{eq:spherical_harm_prop_1}{{A.638}{344}}
 \newlabel{eq:spherical_harm_prop_2}{{A.643}{344}}
 \newlabel{eq:spherical_harm_prop_3}{{A.644}{345}}
-\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {A.14.5}Komplexe Exponentialfunktionen}{345}\protected@file@percent }
-\newlabel{sec:komplexe_exponentialfunktionen}{{A.14.5}{345}}
+\@writefile{toc}{\defcounter {refsection}{0}\relax }\@writefile{toc}{\contentsline {subsection}{\numberline {A.16.5}Komplexe Exponentialfunktionen}{345}\protected@file@percent }
+\newlabel{sec:komplexe_exponentialfunktionen}{{A.16.5}{345}}
 \newlabel{eq:def_ft_1d}{{A.645}{345}}
 \newlabel{eq:def_ft_1d_inv}{{A.646}{345}}
 \abx@aux@refcontextdefaultsdone
