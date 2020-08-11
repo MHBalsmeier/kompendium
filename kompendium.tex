@@ -6912,72 +6912,55 @@ dabei ist $\left(\md{\mathbf{v}'}\right)'$ die im rotierenden System gemessene B
 Der ortsabhängige Term $-\omegabi\times\left(\omegabi\times 
 \mathbf{r}\right)$ ist die Zentrifugalbeschleunigung, der geschwindigkeitsabhängige Term $-2\omegabi\times\mathbf{v'}$ ist die Coriolis-Beschleunigung. Für die IS-Beschleunigung $\md{\mathbf{v}}$ sind dabei die Beschleunigungen einzusetzen, die sich nach dem Zweiten Newton'schen Axiom aus den Kräften ergeben. Insbesondere sei darauf hingewiesen, dass die Coriolis-Kraft keine Arbeit leistet, da sie senkrecht auf dem Geschwindigkeitsvektor steht.
 
-\subsection{Reibung}
-\label{sec:reibung}\index{Reibung}
+\subsection{Stress-Tensor}
+\label{sec:reibung}\index{Stress-Tensor}
 
-Die Reibungskraft entsteht durch die Bewegung der Teilchen relativ zueinander, während die Durckgradientkraft schon im ruhenden Fall vorhanden ist. Sei ein Geschwindigkeitsfeld $\mathbf{v} = \left(v_1, v_2, v_3\right)^T$ gegeben. Man betrachte ein Teilchen der Ausdehnung $\left(\Delta x, \Delta y, \Delta z\right)$ mit Mittelpunkt am Ursprung. Die Reibungskraft $f$, die in x-Richtung auf das Teilchens wirkt, kann als Summe von drei Kräften
+Der Stress-Tensor\index{Stress-Tensor} lautet also
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{eqnarray}
+T_{i, j} = p\delta_{i, j} - \tau_{i, j} = p\delta_{i, j} - 2\mu\left(S_{i, j} - \frac{1}{3}S_{m, m}\delta_{i, j}\right) + \mu_vS_{m, m}\delta_{i, j}.
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
+
+In kartesischen Koordinaten mit $\mathbf{v} = \left(u, v, w\right)^T$ wird dies zu
 %
 \begin{eqnarray}
-f = f_x + f_y + f_z
+\overleftrightarrow{T} = \left(\begin{array}{ccc}
+p - 2\mu\frac{\partial u}{\partial x} - \left(\mu_v - \frac{2}{3}\mu\right)\nabla\cdot\mathbf{v} & -\mu\left(\frac{\partial u}{\partial y} + \frac{\partial v}{\partial x}\right) & -\mu\left(\frac{\partial u}{\partial z} + \frac{\partial x}{\partial x}\right) \\
+-\mu\left(\frac{\partial v}{\partial x} + \frac{\partial u}{\partial y}\right) & p - 2\mu\frac{\partial v}{\partial y} - \left(\mu_v - \frac{2}{3}\mu\right)\nabla\cdot\mathbf{v} & -\mu\left(\frac{\partial v}{\partial z} + \frac{\partial w}{\partial y}\right) \\
+-\mu\left(\frac{\partial w}{\partial x} + \frac{\partial u}{\partial z}\right) & -\mu\left(\frac{\partial w}{\partial y} + \frac{\partial v}{\partial z}\right) & p - 2\mu\frac{\partial w}{\partial z} - \left(\mu_v - \frac{2}{3}\mu\right)\nabla\cdot\mathbf{v}
+\end{array}\right).
 \end{eqnarray}
-%
-aufgefasst werden. Hierbei ist $f_x$ die Komponente, die an den beiden Flächen des Teilchens $\perp \mathbf{e}_x$ auftritt usw. Für $f_x$ kann man mit der in Absch. \ref{sec:kinetisches_gasmodell} definierten \index{dynamische Viskosität}\index{Viskosität!dynamische}\textit{dynamischen Viskosität} $\eta$ schreiben
+
+
+\subsubsection{Inkompressibler Grenzfall}
+\label{sec:reibung}\index{Stress-Tensor!Grenzfall!inkompressibler}\index{Stress-Tensor!inkompressibler Grenzfall}
+
+Im Falle von Inkompressibilität\index{Inkompressibilität} gilt wegen $S_{m, m} = \nabla\cdot\mathbf{v} = 0$ die Gleichung
 %
 \begin{eqnarray}
-f_x & = & -\eta\frac{\partial v_1}{\partial x}\left(-\frac{\Delta x}{2}\right)\Delta y\Delta z + \eta\frac{\partial v_1}{\partial x}\left(\frac{\Delta x}{2}\right)\Delta y\Delta z = \eta V\frac{\frac{\partial v_1}{\partial x}\left(\frac{\Delta x}{2}\right) - \frac{\partial v_1}{\partial x}\left(-\frac{\Delta x}{2}\right)}{\Delta x}\nonumber\\
-&\stackrel{\Delta\text{ sehr klein}}{=}&\eta V\frac{\partial^2v_1}{\partial x^2}, 
+T_{i, j} = p\delta_{i, j} - 2\mu S_{i, j}.
 \end{eqnarray}
 %
-hierbei ist und $V \coloneqq \Delta x\Delta y\Delta z$ das Volumen. Für $f_y$ gilt
+Hiieraus folgt
 %
 \begin{eqnarray}
-f_y & = & -\eta\frac{\partial v_1}{\partial y}\left(-\frac{\Delta y}{2}\right)\Delta x\Delta z + \eta\frac{\partial v_1}{\partial y}\left(\frac{\Delta y}{2}\right)\Delta x\Delta z = \eta V\frac{\frac{\partial v_1}{\partial y}\left(\frac{\Delta y}{2}\right) - \frac{\partial v_1}{\partial y}\left(-\frac{\Delta y}{2}\right)}{\Delta y}\nonumber\\
-&\stackrel{\Delta\text{ sehr klein}}{=}&\eta V\frac{\partial^2v_1}{\partial y^2}, 
+-\frac{1}{\rho}\nabla\cdot\overleftrightarrow{T} & = & -\frac{1}{\rho}\nabla p + \frac{2\mu}{\rho}\sum_{i, j = 1}^3\mathbf{e}_i\frac{\partial S_{i, j}}{\partial x_j} = -\frac{1}{\rho}\nabla p + \frac{\mu}{\rho}\sum_{i, j = 1}^3\mathbf{e}_i\frac{\partial\left(\frac{\partial v_i}{\partial x_j} + \frac{\partial v_j}{\partial x_i}\right)}{\partial x_j} = -\frac{1}{\rho}\nabla p + \nu\sum_{i, j = 1}^3\mathbf{e}_i\left(\frac{\partial^2v_i}{\partial x_j^2} + \frac{\partial}{\partial x_i}\frac{\partial v_j}{\partial x_j}\right)\nonumber\\
+& = & -\frac{1}{\rho}\nabla p + \nu\Delta\mathbf{v} + \nu\sum_{i = 1}^3\mathbf{e}_i\frac{\partial}{\partial x_i}\nabla\cdot\mathbf{v} = \nu\Delta\mathbf{v},\label{eq:friction_acceleration}
 \end{eqnarray}
 %
-analog für $f_z$. Daher ist
+wobei die \textit{kinematische Viskosität}\index{kinematische Viskosität}\index{Viskosität!kinematische}
 %
 \begin{eqnarray}
-f = \eta V\Delta v_1, 
+\nu \coloneqq \frac{\mu}{\rho}
 \end{eqnarray}
 %
-für die Gesamt-Reibungskraft $\mathbf{F}$ gilt
-%
-\begin{eqnarray}
-\mathbf{F} = \eta V\Delta\mathbf{v}.
-\end{eqnarray}
-%
-Der Reibungstensor $\newtilde{\Pi}\in\mathbb{R}^{3\times 3}$ ist definiert durch
-%
-\begin{eqnarray}
-\newtilde{\Pi}_{i, j} \coloneqq  -\eta\frac{\partial v_i}{\partial x_j}
-\end{eqnarray}
-%
-für $1 \leq i, j \leq 3$ in Abgrenzung zum Impulsflussdichtetensor\index{Impulsflussdichtetensor} in Absch. \ref{sec:impulsgleichung}. Die Kraft $\mathbf{F}$ ergibt sich als negative Divergenz dieses Tensors:
-%
-\begin{eqnarray}
-\mathbf{F} = -V\nabla\cdot\newtilde{\Pi}
-\end{eqnarray}
-%
-Daher folgt für die Reibungsbeschleunigung
-%
-\begin{eqnarray}
-\mathbf{a} = -\frac{1}{\rho}\nabla\cdot\newtilde{\Pi}.
-\end{eqnarray}
-%
-Die Größe 
-%
-\begin{eqnarray}
-\nu \coloneqq \frac{\eta}{\rho}
-\end{eqnarray}
-%
-bezeichnet man als \textit{kinematische Viskosität}, \index{Viskosität!kinematische}\index{kinematische Viskosität} ihr Wert ist nur von der Zusammensetzung des Fluids abhängig. Der Wert für trockene Luft beträgt $0, 15\cdot 10^{-4}$ m$^2$/s \cite{hantel}. Die Reibungsbeschleunigung im Windfeld ist damit gleich
-%
-\begin{eqnarray}
-\mathbf{a} = \nu\Delta\mathbf{v}.\label{eq:friction_acceleration}
-\end{eqnarray}
-%
-Eine Skalenanalyse der Reibungsbeschleunigung für die synoptische Skala ergibt $10^{-5}10^{-11} = 10^{-16}$ m/s$^2$, die typische Beschleunigung ist $10^{-4}$ m/s$^2$, die Reibung ist also auf der synoptischen Skala zwölf Größenordnungen kleiner als die Beschleunigung und damit komplett vernachlässigbar. Sie hat nichtsdestotrotz eine wichtige thermodynamische Bedeutung, da sie für die Dissipation kinetischer Energie verantwortlich ist. Die dissipierte kinetische Energie wird in thermische Energie umgewandelt. Fluide ohne Reibung bezeichnet man als \textit{ideale Fluide}\index{ideales Fluid}\index{Fluid!ideales}.
+eingeführt wurde. Eine Skalenanalyse der Reibungsbeschleunigung für die synoptische Skala ergibt $10^{-5}10^{-11} = 10^{-16}$ m/s$^2$, die typische Beschleunigung ist $10^{-4}$ m/s$^2$, die Reibung ist also auf der synoptischen Skala zwölf Größenordnungen kleiner als die Beschleunigung und damit komplett vernachlässigbar. Sie hat nichtsdestotrotz eine wichtige thermodynamische Bedeutung, da sie für die Dissipation kinetischer Energie verantwortlich ist. Die dissipierte kinetische Energie wird in thermische Energie umgewandelt. Fluide ohne Reibung bezeichnet man als \textit{ideale Fluide}\index{ideales Fluid}\index{Fluid!ideales}.
 
 Für die Reibung werden häufig andere als der mit Glg. \eqref{eq:friction_acceleration} erhaltene Ausdruck verwendet. Daher wird in den Herleitungen von nun an meist ein allgemeiner Ausdruck
 %
@@ -14636,7 +14619,7 @@ T_1 & = & \frac{c^{(v)}\rho_0T_0 + \left(R_dT_0 - \frac{R_d}{c^{(p)}}s_0T_0\righ
 }}
 \end{center}
 
-\chapter{Auswahl einer zukunftsfähigen horizontalen Diskretisierung}
+\chapter{\normalfont\textsc{Auswahl einer zukunftsfähigen horizontalen Diskretisierung}}
 \label{sec:auswahl_einer_zukunftsfaehigen_horizontalen_diskretisierung}
 
 \section{Aus Rechnerarchitektur folgende Beschränkungen}
@@ -15188,6 +15171,14 @@ Hiermit sind die Glg.en \eqref{eq:linear_condition_trivariate_discrete_0} - \eqr
 
 \chapter{\normalfont\textsc{Entwicklung eines globalen dynamischen Kerns}}
 \label{chap:entwicklung_eines_globalen_dynamischen_kerns}\index{dynamischer Kern}\index{Kern!dynamischer}
+
+Der Begriff \textit{dynamischer Kern}\index{dynamischer Kern}\index{Kern!dynamischer} wird häufig nicht präzise definiert, was hier jedoch getan werden soll. Dazu werden verschiedene Unterkomponenten definiert:
+%
+\begin{itemize}
+\item Der \textit{reversible Teil des dynamischen Kerns}\index{dynamischer Kern!reversibler Teil}\index{Kern!dynamischer!reversibler Teil} löst die Gleichungen einer trockenadiabatischen Atmosphäre ohne molekulare und numerische Diffusionsterme. Bei Modellen, bei denen dieser Teil des dynamischen Kerns den Zweiten Hauptsatz nicht exakt einhält, sollte man diesen Teil besser als \textit{primären Teil des dynamischen Kerns}\index{dynamischer Kern!primärer Teil}\index{Kern!dynamischer!primärer Teil} bezeichnen.
+\item Der \textit{irreversible Teil des dynamischen Kerns}\index{dynamischer Kern!irreversibler Teil}\index{Kern!dynamischer!irreversibler Teil} behandelt molekulare und numerische diffusive Flüsse\index{diffusiver Fluss}\index{Fluss!diffusiver}. Dabei kann es sich um Wärme-, Massen- oder Impulsflüsse handeln. Die Parametrisierung\index{Parametrisierung} der numerischen diffusiven Flüsse bezeichnet man auch als Turbulenzparametrisierungen\index{Turbulenzparametrisierungen}. Bei Modellen, bei denen der zuvor definierte Teil des dynamischen Kerns den Zweiten Hauptsatz nicht exakt einhält, sollte man diesen Teil besser als \textit{sekundären Teil des dynamischen Kerns}\index{dynamischer Kern!sekundärer Teil}\index{Kern!dynamischer!sekundären Teil} bezeichnen. Zusammen mit dem zuvor definierten Teil bildet dieser Teil den \textit{trockenen dynamischen Kern}\index{dynamischer Kern!trockener}\index{Kern!dynamischer!trockener}.
+\item Der \textit{erweiterte dynamische Kern}\index{dynamischer Kern!erweiterter}\index{Kern!dynamischer!erweiterter} behandelt die Advektion von Tracern und stellt sicher, dass keine negativen Tracerdichten auftreten. Dabei kann es sich um Wasserkomponenten, Aerosole oder Gase handeln.
+\end{itemize}
 
 \section{Horizontales Gitter}
 \label{sec:horizontales_gitter}\index{horizontales Gitter}\index{Gitter!horizontales}
@@ -15935,14 +15926,38 @@ Der Jablonowski-Williamson-Test \cite{jablonowski} (im Folgenden JW-Test genannt
 \subsubsection{Bewegte Atmosphäre}
 \label{sec:bewegte_atmosphaere}
 
+\section{Horizontale Diffusion}
+\label{sec:horizontale_diffusion}\index{horizontale Diffusion}\index{Diffusion!horizontale}
+
+\subsection{Temperaturdiffuson}
+\label{sec:temperaturdiffusion_h}\index{Temperaturdiffusion!horizontale}\index{Temperaturdiffusion!horizontale}
+
+\subsection{Massendiffuson}
+\label{sec:massendiffusion_h}\index{Massendiffusion!horizontale}\index{Massendiffusion!horizontale}
+
+\subsection{Impulsdiffusion}
+\label{sec:impulsdiffusion_h}\index{Impulsdiffusion!horizontale}\index{Impulsdiffusion!horizontale}
+
+\subsubsection{Dissipation}
+\label{sec:dissipation_h}
+
+\section{Vertikale Diffusion}
+\label{sec:vertikale_diffusion}\index{vertikale Diffusion}\index{Diffusion!vertikale}
+
+\subsection{Temperaturdiffuson}
+\label{sec:temperaturdiffusion_v}\index{Temperaturdiffusion!vertikale}\index{Temperaturdiffusion!vertikale}
+
+\subsection{Massendiffuson}
+\label{sec:massendiffusion_v}\index{Massendiffusion!vertikale}\index{Massendiffusion!vertikale}
+
+\subsection{Impulsdiffusion}
+\label{sec:impulsdiffusion_v}\index{Impulsdiffusion!vertikale}\index{Impulsdiffusion!vertikale}
+
+\subsubsection{Dissipation}
+\label{sec:dissipation_v}
+
 \section{Turbulenzparametrisierungen}
-\label{sec:turbulenzparametrisierungen}
-
-\subsection{Diffusion}
-\label{sec:diffusion}
-
-\subsection{Dissipation}
-\label{sec:dissipation_turbulenzparametrisierungen}
+\label{sec:turbulenzparametrisierungen}\index{Turbulenzparametrisierung}
 
 \subsection{Held-Suarez-Test}
 \label{sec:held-suarez-test}\index{Held-Suarez-Test}
@@ -15950,10 +15965,29 @@ Der Jablonowski-Williamson-Test \cite{jablonowski} (im Folgenden JW-Test genannt
 \section{Rahmen für die Berücksichtigung von Tracern}
 \label{sec:rahmen_fuer_die_beruecksichtigung_von_tracern}
 
-Führt man $N \geq 1$ Tracer ein (also Anteile der Luft, die nicht zur trockenen Luft gehören), von denen $1 \leq N_C \leq N$ kondensiert sind, so benötigt man $N$ zusätzliche Kontinuitätsgleichungen und $N_C$ zusätzliche Erste Hauptsätze der Thermodynamik. Für die gasförmigen Komponenten sind keine zusätzlichen Ersten Hauptsätze notwendig, anstattdessen muss man den Hauptsatz für die Gasphase modifizieren. Der Druckgradientterm in der Impulsgleichung ist mit $\frac{\rho_h}{\rho}$ zu multiplizieren, um die Massenträgheit der Kondensate zu berücksichtigen.
+Führt man $N \geq 1$ Tracer ein (also Anteile der Luft, die nicht zur trockenen Luft gehören), von denen $1 \leq N_C \leq N$ kondensiert sind, so benötigt man $N$ zusätzliche Kontinuitätsgleichungen und $N_C$ zusätzliche Erste Hauptsätze der Thermodynamik. Für die gasförmigen Komponenten sind keine zusätzlichen Ersten Hauptsätze notwendig, anstattdessen muss man den Hauptsatz für trockene Luft modifizieren. Der Druckgradientterm in der Impulsgleichung ist mit $\frac{\rho_h}{\rho}$ zu multiplizieren, um die Massenträgheit der Kondensate zu berücksichtigen.
 
 \section{Weiterführende Aspekte}
 \label{sec:weiterfuehrende_aspekte}
+
+\subsection{Strahlung}
+\label{sec:strahlung}\index{Strahlung!in Modellen}
+
+Strahlung wird in Modellen durch separate Simulationen, sogenannte \textit{Strahlungstransportmodelle}\index{Strahlungstransportmodell} behandelt. Dies läuft in folgenden Schritten ab, gegebenenfalls ist das Vorgehen in der konkreten Implementierung leicht modifiziert:
+%
+\begin{itemize}
+\item Zunächst werden die Dichten der Komponenten der Luft an das Strahlungsmodell übermittelt.
+\item Anschließend werden mittels dieser Dichten und tabellierter Spektren der Stoffe Strahlungseigenschaften der Materie berechnet.
+\item Nun wird durch Lösen der Strahlungsübertragungsgleichung die spektrale Strahldichte berechnet.
+\item Durch spektrale Integration der Konvergenz der Strahlungsflussdichte\index{Strahlungsflussdichte} werden Wärmeleistungsdichten\index{Wärmeleistungsdichten} ermittelt, die an den dynamischen Kern\index{dynamischer Kern}\index{Kern!dynamischer} zurückübermittelt werden. Hieraus gehen Heizraten hervor.
+\end{itemize}
+%
+Da das Lösen der Strahlungsübertragungsgleichung\index{Strahlungsübertragungsgleichung} zu einem globalen linearen Gleichungssystem führen würde, unterteilt man die Atmosphäre hierzu in nicht wechselwirkende Säulen ein, die mindestens so eine horizontale Ausdehnung haben, wie eine Gitterzelle.
+
+\subsection{Model output statistics (MOS)}
+\label{sec:model_output_statistics_mos}\index{model output statistics}
+
+
 
 \part{Anhang}
 \label{part:anhang}
