@@ -6384,6 +6384,9 @@ Ein Teilchen ist ein kleines Luftvolumen $\Delta V$, was so groß ist, dass im l
 \item in variabler Konzentration vorhandene gasförmige Komponenten
 \end{itemize}
 %
+\subsection{Gasphase}
+\label{sec:gasphase}\index{Gasphase}
+
 \textit{Feuchte Luft}\index{Luft!feuchte}\index{feuchte Luft} ist eine Mischung aus trockener Luft und Wasserdampf. Die Anzahl der berücksichtigen \textit{Tracerklassen}\index{Tracerklasse}, insbesondere der \textit{Kondensatklassen}\index{Kondensatklasse}, wird dann als genügend angesehen, wenn falsche Vorhersagen nicht mehr auf Grobheiten im für die Vorhersage verwendeten Gleichungssystem, sondern auf Fehler in den Anfangs- und/oder Randbedingungen zurückzuführen sind. Folgende Zustandsgrößen werden definiert:
 %
 \begin{itemize}
@@ -6401,6 +6404,21 @@ Hierbei ist $N_d$ die Anzahl der Gasatome außer H$_2$O und anderen gesondert be
 \end{eqnarray}
 
 wobei $\mathbf{v}_i^{(g)}$ die Geschwindigkeit des $i-$ten Moleküls des gasförmigen Anteils der Luft in $\Delta V$ ist.
+\item Die Temperatur\index{Temperatur} $T:A\to\mathbb{R}$ der feuchten Luft.
+\item $p:A\to\mathbb{R}$\index{Druck} sei der Druck.
+
+\end{itemize}
+
+\subsection{Zweiter Kontinuumsübergang}
+\label{sec:zweiter_kontinuumsuebergang}\index{Zweiter Kontinuumsübergang}\index{Kontinuumsübergang!Zweiter}
+
+Die Herleitung der Navier-Stokes-Gleichungen\index{Navier-Stokes-Gleichung} beruht auf einer kontinuierlichen Vorstellung von Materie, welche durch einen Kontinuumsübergang\index{Kontinuumsübergang} motiviert wurde. Der Kontinuumsübergang ist eine heuristische Idee, die auf der Annahme beruht, dass Materie irgendwann kontinuierlich wird, wenn man nur so weit herauszoomt, dass die Grobkörnigkeit der Materie in Form von Atomen und Molekülen verschwimmt. Mathematisch bedeutet dies, anstatt eine Anzahl von Bahnkurven stetig differenzierbare Felder zur Beschreibung des Systems zu verwenden.
+
+Mit einem ähnlichen Problem ist man konfrontiert, wenn man Phasenübergänge und Kondensate in die Beschreibung mit aufnimmt. Man könnte nun die Kondensate durch Bahnkurven beschreiben, während man die Gasphase weiterhin als Fluid auffasst. Dies hat jedoch die zwei Nachteile: Zunächst muss man für so eine Formulierung die technische Frage beantworten, ab welcher Größe etwas also Kondensat aufgefasst wird; außerdem ist der Rechenaufwand hierfür enorm. Stattdessen macht man den sogenannten \textit{Zweiten Phasenübergang}\index{Zweiter Phasenübergang}\index{Phasenübergang!Zweiter}, welcher auch die Massendichten und sonstigen Eigenschaften der Kondensate als stetig differenzierbare Funktionen auffasst. Dies ist natürlich nicht exakt in einem Sinne in dem die Maxwell-Gleichungen\index{Maxwell-Gleichung} exakt sind, das prinzipielle Problem ist jedoch schon in den Navier-Stokes-Gleichungen\index{Navier-Stokes-Gleichung} selbst angelegt.
+
+Folgende Zustandsgrößen werden für die Kondensate, die von nun an auch als \textit{Tracer}\index{Tracer} bezeichnet werden, zusätzlich eingeführt:
+
+\begin{itemize}
 \item Die Dichten der Tracerklassen $\rho_i:A\to\mathbb{R}$ werden analog zu $\rho_d$ definiert.
 \item Die $Q_i:A \to \mathbb{R}$ seien die Ladungsdichten der Tracer\index{Ladungsdichte!der Tracer}.
 \item Die Massenstromdichte\index{Massenstromdichte} $\mathbf{j}_i:A\to\mathbb{R}^3$ der $i-$ten Tracerklasse wird definiert durch
@@ -6410,9 +6428,7 @@ wobei $\mathbf{v}_i^{(g)}$ die Geschwindigkeit des $i-$ten Moleküls des gasför
 \end{eqnarray}
 
 wobei $\mathbf{v}_k^{(i)}$ die Geschwindigkeit des $k-$ten Teilchens der entsprechenden Tracerklasse in $\Delta V$ ist.
-\item Die Temperatur\index{Temperatur} $T:A\to\mathbb{R}$ sei diejenige der feuchten Luft.
 \item Die Temperatur $T_i:A\to\mathbb{R}$ sei diejenige der $i-$ten Tracerklasse, alle Teilchen einer Klasse sollen die gleiche Temperatur haben. DIe gasförmigen Tracer haben die Temperatur der feucten Luft.
-\item $p:A\to\mathbb{R}$\index{Druck} sei der Druck.
 \item Weiterhin betrachtet man das Feld der spektralen Strahldichte\index{spektrale Strahldichte}\index{Strahldichte!spektrale} $L_\lambda:A\times\left[0, \infty\right)\times\left[0, \pi\right]\times\left[0, 2\pi\right)\to\mathbb{R}$.
 \item Das \textit{elektrische Feld}\index{elektrisches Feld}\index{Feld!elektrisches} $\mathbf{E}$ sowie die \textit{magnetische Flussdichte}\index{magnetische Flussdichte}\index{Flussdichte!magnetische} $\mathbf{B}$ müssen benefalls berücksichtigt werden (z. B. für Gewitter und die \textit{Ionosphäre}\index{Ionosphäre}).
 \end{itemize}
@@ -6467,7 +6483,12 @@ p = T_gR_g\rho_g'.
 \end{center}
 }}
 \end{center}
-%
+
+\subsubsection{Deskriptiver Informationsverlust}
+\label{sec:deskriptiver_informationsverlust}\index{Wolkenmikrophysik!Informationsverlust!deskriptiver}\index{Informationsverlust!deskriptiver!Wolkenmikrophysik}
+
+In der statistischen Physik\index{statistische Physik}\index{Physik!statistische} geht man bei der Beschreibung vom Mikrozustand\index{Mikrozustand} zum Makrozustand\index{Makrozustand} über und sieht diese Beschreibung als statistisch vollständig an. In ähnlicher Weise kann man sich fragen, ob die in den vorangegangenen beiden Abschnitten entwickelte Beschreibung vollständig ist. Sie wäre dies (unter Annahme des Zweiten Kontinuumsübergangs) nur dann, wenn man unendlich viele Tracerklassen einführt und in jeder Teilchenklase wiederum eine kontinuierliche Temperaturverteilung annimmt. Bis auf die einschränkende Annahme, dass alle Teilchen einer Tracerklasse\index{Tracerklasse} die gleiche Temperatur haben, hat die obige Beschreibung also das Potential eine unter gewissen Annahmen vollständige Beschreibung zu sein.
+
 \section{Forcings und Zeitableitungen}
 \label{sec:forcings_und_zeitableitungen}\index{Forcing}
 
@@ -6486,9 +6507,9 @@ q' = \frac{m'\left(t\right)}{tV'\left(t\right)}.
 Im Fall $t\to 0$ geht $V'\to V$. Daher gilt
 %
 \begin{eqnarray}
-\lim\limits_{t \to 0}\left(q - q'\right) & = & \lim\limits_{t \to 0}\left[\frac{m\left(t\right)}{Vt} - \frac{m'\left(t\right)}{V'\left(t\right)t}\right] = \lim_{t \to 0}\frac{m\left(t\right)}{Vt} - \lim\limits_{t\to0}\frac{m'\left(t\right)}{V'\left(t\right)t}\nonumber\\
-& = & \frac{1}{v}_h\lim\limits_{t \to 0}\frac{m\left(t\right)} - \lim\limits_{t\to0}\frac{1}{V'\left(t\right)}\lim\limits_{t \to 0}\frac{m'\left(t\right)}{t}\nonumber\\
-& = & \frac{1}{v}_h\lim\limits_{t \to 0}\frac{m\left(t\right)}{t} - \frac{1}{v}_h\lim\limits_{t \to 0}\frac{m'\left(t\right)}{t} = \frac{1}{v}_h\lim\limits_{t \to 0}\frac{m\left(t\right) - m'\left(t\right)}{t}
+\lim\limits_{t \to 0}\left(q - q'\right) & = & \lim\limits_{t \to 0}\left[\frac{m\left(t\right)}{Vt} - \frac{m'\left(t\right)}{V'\left(t\right)t}\right] = \lim_{t \to 0}\frac{m\left(t\right)}{Vt} - \lim\limits_{t\to 0}\frac{m'\left(t\right)}{V'\left(t\right)t}\nonumber\\
+& = & \frac{1}{V}\lim\limits_{t \to 0}\frac{m\left(t\right)}{t} - \lim\limits_{t\to0}\frac{1}{V'\left(t\right)}\lim\limits_{t \to 0}\frac{m'\left(t\right)}{t}\nonumber\\
+& = & \frac{1}{V}\lim\limits_{t \to 0}\frac{m\left(t\right)}{t} - \frac{1}{v}_h\lim\limits_{t \to 0}\frac{m'\left(t\right)}{t} = \frac{1}{v}_h\lim\limits_{t \to 0}\frac{m\left(t\right) - m'\left(t\right)}{t}
 \end{eqnarray}
 %
 nach den Rechenregeln für Funktionsgrenzwerte. Mit der wahren orts- und zeitabhängigen Kondensationsrate $q_r\left(\mathbf{r}, t\right)$ kann man
@@ -6913,7 +6934,7 @@ Der ortsabhängige Term $-\omegabi\times\left(\omegabi\times
 \mathbf{r}\right)$ ist die Zentrifugalbeschleunigung, der geschwindigkeitsabhängige Term $-2\omegabi\times\mathbf{v'}$ ist die Coriolis-Beschleunigung. Für die IS-Beschleunigung $\md{\mathbf{v}}$ sind dabei die Beschleunigungen einzusetzen, die sich nach dem Zweiten Newton'schen Axiom aus den Kräften ergeben. Insbesondere sei darauf hingewiesen, dass die Coriolis-Kraft keine Arbeit leistet, da sie senkrecht auf dem Geschwindigkeitsvektor steht.
 
 \subsection{Stress-Tensor}
-\label{sec:reibung}\index{Stress-Tensor}
+\label{sec:stress-tensor}\index{Stress-Tensor}
 
 Der Stress-Tensor\index{Stress-Tensor} lautet also
 %
@@ -6937,9 +6958,8 @@ p - 2\mu\frac{\partial u}{\partial x} - \left(\mu_v - \frac{2}{3}\mu\right)\nabl
 \end{array}\right).
 \end{eqnarray}
 
-
 \subsubsection{Inkompressibler Grenzfall}
-\label{sec:reibung}\index{Stress-Tensor!Grenzfall!inkompressibler}\index{Stress-Tensor!inkompressibler Grenzfall}
+\label{sec:inkompressibler_grenzfall}\index{Stress-Tensor!Grenzfall!inkompressibler}\index{Stress-Tensor!inkompressibler Grenzfall}
 
 Im Falle von Inkompressibilität\index{Inkompressibilität} gilt wegen $S_{m, m} = \nabla\cdot\mathbf{v} = 0$ die Gleichung
 %
@@ -14047,7 +14067,7 @@ Bei dieser Approximation teilt man die Atmosphäre in unabhängige Säulen auf u
 \chapter{\normalfont\textsc{Wolkenmikrophysik}}
 \label{chap:wolkenmikrophysik}\index{Wolkenmikrophysik}
 
-\subsection{Köhler-Formel}
+\section{Köhler-Formel}
 \label{sec:köhler-formel}\index{Köhler-Formel}
 
 \section{Zirkulation um Kondensate}
