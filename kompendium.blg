@@ -1,34 +1,29 @@
 [0] Config.pm:304> INFO - This is Biber 2.14 (beta)
 [0] Config.pm:307> INFO - Logfile is 'kompendium.blg'
-[54] biber:322> INFO - === Mo Jun 22, 2020, 22:50:45
-[65] Biber.pm:415> INFO - Reading 'kompendium.bcf'
-[114] Biber.pm:943> INFO - Found 28 citekeys in bib section 0
-[123] Biber.pm:4256> INFO - Processing section 0
+[54] biber:322> INFO - === Do Aug 20, 2020, 23:48:54
+[66] Biber.pm:415> INFO - Reading 'kompendium.bcf'
+[114] Biber.pm:943> INFO - Found 23 citekeys in bib section 0
+[124] Biber.pm:4256> INFO - Processing section 0
 [124] Utils.pm:75> INFO - Globbing data source '../references.bib'
 [124] Utils.pm:91> INFO - Globbed data source '../references.bib' to ../references.bib
 [131] Biber.pm:4455> INFO - Looking for bibtex format file '../references.bib' for section 0
-[136] bibtex.pm:1653> INFO - LaTeX decoding ...
-[213] bibtex.pm:1471> INFO - Found BibTeX data source '../references.bib'
-[309] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
-[309] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
-[309] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
-[309] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
-[309] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
-[309] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
-[310] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
-[310] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
-[310] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
-[310] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
-[310] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
-[310] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
-[310] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
-[310] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
-[310] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
-[310] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
-[336] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[336] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
-[336] Biber.pm:4084> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'de-DE'
-[336] Biber.pm:4090> INFO - No sort tailoring available for locale 'de-DE'
-[357] bbl.pm:652> INFO - Writing 'kompendium.bbl' with encoding 'UTF-8'
-[367] bbl.pm:755> INFO - Output to kompendium.bbl
-[368] Biber.pm:128> INFO - WARNINGS: 16
+[141] bibtex.pm:1653> INFO - LaTeX decoding ...
+[244] bibtex.pm:1471> INFO - Found BibTeX data source '../references.bib'
+[344] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
+[345] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
+[345] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
+[345] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
+[345] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
+[345] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
+[345] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
+[345] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
+[345] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
+[345] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
+[345] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
+[367] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
+[367] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[367] Biber.pm:4084> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'de-DE'
+[367] Biber.pm:4090> INFO - No sort tailoring available for locale 'de-DE'
+[385] bbl.pm:652> INFO - Writing 'kompendium.bbl' with encoding 'UTF-8'
+[392] bbl.pm:755> INFO - Output to kompendium.bbl
+[393] Biber.pm:128> INFO - WARNINGS: 11

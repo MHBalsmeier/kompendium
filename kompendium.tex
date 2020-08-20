@@ -175,7 +175,7 @@
 \vspace*{15 cm}
 \begin{center}
 \textcopyright\ Max H. Balsmeier 2020\\
-Entwurf - Weitergabe und Vervielfältigung jeglicher Art untersagt.
+Das Skript enthält mit großer Wahrscheinlichkeit Fehler und Ungenauigkeiten. Es befindet sich unter permanenter Überarbeitung. Teile sind unvollständig oder es sind nur die Überschriften vorhanden. Kommerzielle Nutzung wird untersagt, alle Rechte vorbehalten.
 \end{center}
 \pagestyle{toc}
 \tableofcontents
@@ -242,12 +242,10 @@ Folgende Bücher sind maßgeblich in den unterschiedlichen Bereichen:
 \begin{itemize}
 \item mathematische Formelsammlung: \textit{Abramowitz et al.} \cite{abramowitz}
 \item Kanon der Theoretischen Physik: z. B. \textit{Fließbach} \cite{fliessbach_theo_1}, \cite{fliessbach_theo_2}, \cite{fliessbach_theo_3}, \cite{fliessbach_theo_4}
-\item Kanon der Theoretischen Meteorologie: \textit{Bott et al.} \cite{bott_dynamics}, \cite{bott_thermodynamics}, \cite{bott_radiation}
+\item Strömungsmechanik: \textit{Kundu} \cite{KUNDU2016}
 \item Strahlungstransport: \textit{Chandrasekhar} \cite{chandrasekhar}
 \item Wolkenmikrophysik: \textit{Pruppacher und Klett} \cite{pruppacher_klett}
-\item mesoskalige Meteorologie: \textit{Ray (ed.)} \cite{mesoscale}
 \item Wasseroberflächenwellen: \textit{Massel} \cite{surface_waves}
-\item generelle Einführung in Begrifflichkeiten, auch des Ozeans (für Herleitungen allerdings nicht zu empfehlen): \textit{Cushman-Roisin et al.} \cite{cushman}
 \end{itemize}
 
 \section{Skalen}
@@ -6980,7 +6978,29 @@ wobei die \textit{kinematische Viskosität}\index{kinematische Viskosität}\inde
 \nu \coloneqq \frac{\mu}{\rho}
 \end{eqnarray}
 %
-eingeführt wurde. Eine Skalenanalyse der Reibungsbeschleunigung für die synoptische Skala ergibt $10^{-5}10^{-11} = 10^{-16}$ m/s$^2$, die typische Beschleunigung ist $10^{-4}$ m/s$^2$, die Reibung ist also auf der synoptischen Skala zwölf Größenordnungen kleiner als die Beschleunigung und damit komplett vernachlässigbar. Sie hat nichtsdestotrotz eine wichtige thermodynamische Bedeutung, da sie für die Dissipation kinetischer Energie verantwortlich ist. Die dissipierte kinetische Energie wird in thermische Energie umgewandelt. Fluide ohne Reibung bezeichnet man als \textit{ideale Fluide}\index{ideales Fluid}\index{Fluid!ideales}.
+eingeführt wurde.
+
+Üblicherweise stellt man sich die Reibung\index{Reibung} als eine bremsende Kraft vor. Dies ist in Fluiden nicht immer der Fall. Um dies einzusehen, wird von dem eindimensionalen Strömungsfeld
+%
+\begin{eqnarray}
+u = 2 + \sin\left(x\right) > 0
+\end{eqnarray}
+%
+ausgegangen, wobei Einheiten für den Moment ignoriert werden. Ist das Medium inkompressibel, lautet die Reibungsbeschleunigung $a_R$ bis auf eine Konstante
+%
+\begin{eqnarray}
+a_R = \frac{\partial^2u}{\partial x^2} = -\sin\left(x\right).
+\end{eqnarray}
+%
+Somit kann die durch die Reibung geleistete Arbeit
+%
+\begin{eqnarray}
+ua_R = -u\sin\left(x\right)
+\end{eqnarray}
+%
+beide Vorzeichen haben. Es ist in Fluiden also möglich, dass die Reibung kinetische Energie\index{Reibung!kinetische Energie}\index{kinetische Energie!Reibung}\index{Energie!kinetische!Reibung} produziert.
+
+Eine Skalenanalyse der Reibungsbeschleunigung für die synoptische Skala ergibt $10^{-5}10^{-11} = 10^{-16}$ m/s$^2$, die typische Beschleunigung ist $10^{-4}$ m/s$^2$, die Reibung ist also auf der synoptischen Skala zwölf Größenordnungen kleiner als die Beschleunigung und damit komplett vernachlässigbar. Sie hat nichtsdestotrotz eine wichtige thermodynamische Bedeutung, da sie für die Dissipation kinetischer Energie verantwortlich ist. Die dissipierte kinetische Energie wird in thermische Energie umgewandelt. Fluide ohne Reibung bezeichnet man als \textit{ideale Fluide}\index{ideales Fluid}\index{Fluid!ideales}.
 
 Für die Reibung werden häufig andere als der mit Glg. \eqref{eq:friction_acceleration} erhaltene Ausdruck verwendet. Daher wird in den Herleitungen von nun an meist ein allgemeiner Ausdruck
 %
@@ -15371,21 +15391,6 @@ z_{j, i} = \frac{1}{3}\sum_{j' \in \text{APC}(j)}z_{j', w, i}
 % 
 fest, sie ist also der Mittelwert der z-Positionen der vertikalen Vektoren der drei umliegenden Zellen.
 
-\subsection{Berechnung vertikaler Flächen und Volumina}
-\label{sec:berechnung_vertikaler_flaechen_und_volumina}
-
-Volumina $V$ mit der Grundfläche $A$, dem inneren Radius $r_0$ und dem äußeren Radius $r_1$ berechnen sich über
-%
-\begin{eqnarray}
-V = \int_{r_0}^{r_1}A\frac{r^2}{r_0^2}dr = \frac{A}{r_0^2}\frac{1}{3}\left(r_1^3 - r_0^3\right).
-\end{eqnarray}
-%
-Für vertikale Flächen $A_v$ mit der Grundlänge $L$ und derselben Bezeichung für die Radien gilt
-%
-\begin{eqnarray}
-A_v = \int_{r_0}^{r_1}L\frac{r}{r_0}dr = \frac{L}{2r_0}\left(r_1^2 - r_0^2\right).
-\end{eqnarray}
-
 \subsection{Funktionaldeterminante einer generalisierten Vertikalkoordinate}
 \label{sec:funktionaldeterminante_einer_generalisierten_vertikalkoordinate}\index{Funktionaldeterminante!generalisierte Vertikalkoordinate}\index{Vertikalkoordinate!generalisierte!Funktionaldeterminante}\index{generalisierte Vertikalkoordinate!Funktionaldeterminante}
 
@@ -15509,7 +15514,6 @@ Eine Variable ist eine \textit{prognostische Variable}\index{prognostische Varia
 
 \subsection{Volumengewichtete Mittelungsoperatoren}
 
-
 In der Horizontalen sind die kontravarianten Maßzahlen prognostische Variablen und müssen daher nicht rekonstruiert werden. In der Vertikalen benötigt man jedoch
 %
 \begin{eqnarray}
@@ -15619,8 +15623,8 @@ erhalten bleiben.
 \section{Neuformulierung des PV-Flusses}
 \label{sec:neuformulierung_des_pvflusses}
 
-\section{Zeitschrittverfahren}
-\label{chap:zeitschrittverfahren!zusammensetzung_der_prognostischen_gleichungen}\index{Zeitschrittverfahren!im dynamischen Kern}\index{dynamischer Kern!Zeitschrittverfahren}\index{Kern!dynamischer!Zeitschrittverfahren}
+\section{Zeitschrittverfahren: Variante I}
+\label{sec:zeitschrittverfahren_variante_i}\index{Zeitschrittverfahren!im dynamischen Kern}\index{dynamischer Kern!Zeitschrittverfahren}\index{Kern!dynamischer!Zeitschrittverfahren}
 
 Sei $\psi: A \subseteq \mathbb{R}^3 \times \mathbb{R} \to \mathbb{R}^n$ der atmosphärische Zustandsvektor. Alle fundamentalen physikalischen Gesetze sind erster Ordnung in der Zeit, daher kann man schreiben
 %
@@ -15904,7 +15908,10 @@ Durch Nullsetzen der Determinante erhält man
 Es ergibt sich also die gleiche Dispersionsrelation wie Glg. \eqref{eq:velocity_sound}. Hiermit ist verifiziert, dass die in den Glg.en \eqref{eq:sound_entropy_0} - \eqref{eq:sound_entropy_1} aufgeführten Terme in der Tat Schallwellen beschreiben.
 
 \subsubsection{Vertikale Advektion einer generalisierten Dichte}
-\label{sec:vertikale_advektion_einer_generalisierten_dchte}
+\label{sec:vertikale_advektion_einer_generalisierten_dichte}
+
+\section{Zeitschrittverfahren: Variante II}
+\label{sec:zeitschrittverfahren_variante_ii}\index{Zeitschrittverfahren!im dynamischen Kern}\index{dynamischer Kern!Zeitschrittverfahren}\index{Kern!dynamischer!Zeitschrittverfahren}
 
 \section{Randbedingungen}
 \label{sec:randbedingungen}
@@ -15915,8 +15922,8 @@ Es ergibt sich also die gleiche Dispersionsrelation wie Glg. \eqref{eq:velocity_
 \subsection{Untere Randbedingung}
 \label{sec:untere_randbedingung}\index{untere Randbedingung!im Modell}\index{Randbedingung!untere!im Modell}\index{Modell!untere Randbedingung}
 
-\section{Skalare Advektion höherer Ordnung}
-\label{sec:skalare_advektion_höherer_ordnung}\index{skalare Advektion!im Modell}\index{Advektion!skalare!im Modell}
+\section{Betrachtung der EPV-Advektion}
+\label{sec:betrachtung_der_epv-advektion}\index{EPV-Advektion!im Modell}\index{Modell!EPV-Advektion}
 
 \section{Tests}
 \label{sec:tests}
@@ -17867,7 +17874,127 @@ Es folgt mit Glg. \eqref{eq:gamma_prop_1}
 \begin{eqnarray}
 V_N = C_NR^{N} = \frac{\pi^{N/2}}{\frac{N}{2}\Gamma\left(\frac{N}{2}\right)}R^N = \frac{\pi^{N/2}}{\Gamma\left(\frac{N}{2} + 1\right)}R^N.\label{eq:volumen_n_dim_kugel}
 \end{eqnarray}
+
+\section{Sphärische Geometrie}
+\label{sec:sphaerische_geometrie}\index{sphärische Geometrie}\index{Geometrie!sphärische}
+
+\subsection{Geodäten}
+\label{sec:geodaeten}\index{Geodäte}
+
+Hier soll die kürzeste Verbindungslinie zwischen zwei Punkten $\left(\varphi_i, \lambda_i\right)$ auf einer Kugel mit $i = 1, 2$ entlang der Kugeloberfläche bestimmt werden. Die Länge $L$ einer beliebigen Verbindungslinie berechnet sich zu
 %
+\begin{eqnarray}
+L = \int ds = \int_{0}^{1}\left|\frac{d\mathbf{r}}{d\tau}\right|d\tau, 
+\end{eqnarray}
+%
+wobei $\tau\in\left[0, 1\right]$ ein Parameter ist, mit dem man sich entlang der Verbindungslinie bewegen kann und $\mathbf{r}\left(\tau\right)$ die Trajektorie festlegt. Dabei gelten insbesondere $\mathbf{r}\left(0\right) = \mathbf{r}\left(\varphi_1, \lambda_1\right)$ sowie $\mathbf{r}\left(1\right) = \mathbf{r}\left(\varphi_2, \lambda_2\right)$.
+
+Gehe zunächst von der Kugel aus, hier kann man für die Bestimmung der Funktionen $\varphi\left(\tau\right), \lambda\left(\tau\right)$ zunächst von der Einheitskugel ausgehen und den Radius ignorieren. Dann gelten
+%
+\begin{eqnarray}
+\mathbf{r}\left(0\right) & = & \left(\begin{array}{c}
+\cos\left(\varphi_1\right)\cos\left(\lambda_1\right)\\
+\cos\left(\varphi_1\right)\sin\left(\lambda_1\right)\\
+\sin\left(\varphi_1\right)
+\end{array}\right),\\
+\mathbf{r}\left(1\right) & = & \left(\begin{array}{c}
+\cos\left(\varphi_2\right)\cos\left(\lambda_2\right)\\
+\cos\left(\varphi_2\right)\sin\left(\lambda_2\right)\\
+\sin\left(\varphi_2\right)
+\end{array}\right).
+\end{eqnarray}
+%
+Definiere eine Funktion
+%
+\begin{eqnarray}
+\mathbf{r}'\left(\tau'\right)& \coloneqq&\tau'\mathbf{r}\left(1\right) + \left(1 - \tau'\right)\mathbf{r}\left(0\right).
+\end{eqnarray}
+%
+Dann gilt
+%
+\begin{eqnarray}
+\varphi\left(\tau'\right) = \arcsin\left(\tau'\sin\left(\varphi_2\right) + \left(1 - \tau'\right)\sin\left(\varphi_1\right)\right).
+\end{eqnarray}
+%
+Ferner gilt
+%
+\begin{eqnarray}
+\lambda\left(\tau'\right) & = & \arctan2\big[\tau'\cos\left(\varphi_2\right)\sin\left(\lambda_2\right) + \left(1 - \tau'\right)\cos\left(\varphi_1\right)\sin\left(\lambda_1\right), \nonumber\\
+&&\tau'\cos\left(\varphi_2\right)\cos\left(\lambda_2\right) + \left(1 - \tau'\right)\cos\left(\varphi_1\right)\cos\left(\lambda_1\right)\big]\left( + 2\pi\text{ im Fall }\arctan2<0\right).
+\end{eqnarray}
+%
+Für den Abstand $d$ zwischen zwei Punkten $\left(r_a, \varphi_a, \lambda_a\right)$ und $\left(r_b, \varphi_b, \lambda_b\right)$ gilt
+%
+\begin{eqnarray}
+d & = & \sqrt{\left(x_b - x_a\right)^2 + \left(y_b - y_a\right)^2 + \left(z_b - z_a\right)^2}\nonumber\\
+& = & \sqrt{\left(r_b\cos\left(\varphi_b\right)\cos\left(\lambda_b\right) - r_a\cos\left(\varphi_a\right)\cos\left(\lambda_a\right)\right)^2 + \left(r_b\cos\left(\varphi_b\right)\sin\left(\lambda_b\right) - r_a\cos\left(\varphi_a\right)\sin\left(\lambda_a\right)\right)^2}\nonumber\\
+&&\newoverline{ + \left(r_b\sin\left(\varphi_b\right) - r_a\sin\left(\varphi_a\right)\right)^2}\nonumber\\
+& = & \sqrt{r_b^2\cos^2\left(\varphi_b\right) + r_a^2\cos^2\left(\varphi_a\right) + r_b^2\sin^2\left(\varphi_b\right) + r_a^2\sin^2\left(\varphi_a\right) - 2r_ar_b\cos\left(\varphi_b\right)\cos\left(\lambda_b\right)\cos\left(\varphi_a\right)\cos\left(\lambda_a\right)}\nonumber\\
+&&\newoverline{ - 2r_ar_b\cos\left(\varphi_b\right)\sin\left(\lambda_b\right)\cos\left(\varphi_a\right)\sin\left(\lambda_a\right) - 2r_br_a\sin\left(\varphi_b\right)\sin\left(\varphi_a\right)}\nonumber\\
+& = & \sqrt{r_a^2 + r_b^2 - 2r_ar_b\cos\left(\varphi_b\right)\cos\left(\varphi_a\right)\left(\cos\left(\lambda_b\right)\cos\left(\lambda_a\right) + \sin\left(\lambda_b\right)\sin\left(\lambda_a\right)\right) - 2r_br_a\sin\left(\varphi_b\right)\sin\left(\varphi_a\right)}\nonumber\\
+& = & \sqrt{r_a^2 + r_b^2 - 2r_ar_b\left(\cos\left(\varphi_a\right)\cos\left(\varphi_b\right)\cos\left(\lambda_a - \lambda_b\right) + \sin\left(\varphi_a\right)\sin\left(\varphi_b\right)\right)}
+\end{eqnarray}
+%
+Im Fall $r_a = r_b = r$ gilt
+%
+\begin{eqnarray}
+d = r\sqrt{2 - 2\left(\cos\left(\varphi_a\right)\cos\left(\varphi_b\right)\cos(\lambda_a - \lambda_b) + \sin\left(\varphi_a\right)\sin\left(\varphi_b\right)\right)}.
+\end{eqnarray}
+%
+Der Abstand zwischen zwei Punkten auf einer Kugel lässt sich hieraus leicht errechnen. Sei eine Kugel mit Radius $r$ gegeben. Dann ist der Abstand $\Delta$ zwischen zwei Punkten auf der Oberfläche, gemessen entlang der Oberfläche, gegeben durch
+%
+\begin{eqnarray}
+\Delta = r\theta, 
+\end{eqnarray}
+%
+wobei $\theta$ der Winkel zwischen den beiden Punkten ist, für diesen Winkel gilt
+%
+\begin{eqnarray}
+\sin\left(\frac{\theta}{2}\right) = \frac{d}{2r}.
+\end{eqnarray}
+%
+Es gilt also wegen $\frac{\theta}{2}\in\left[0, \frac{\pi}{2}\right]$ für den Abstand $\Delta$ die Gleichung
+%
+\begin{eqnarray}
+\Delta = 2r\arcsin\left(\sqrt{\frac{1}{2} - \frac{1}{2}\left(\cos\left(\varphi_a\right)\cos\left(\varphi_b\right)\cos(\lambda_a - \lambda_b) + \sin\left(\varphi_a\right)\sin\left(\varphi_b\right)\right)}\right).\label{eq:dist_kugel_h}
+\end{eqnarray}
+%
+Nun muss noch $\tau$ in $\tau'$ umgerechnet werden. Es gilt
+%
+\begin{eqnarray}
+\tau & = & \frac{1}{2} + \frac{1}{\theta}\arctan\left(\frac{\tau' - \frac{1}{2}}{\sqrt{r^2 - \frac{d^2}{4}}}d\right) = \frac{1}{2} + \frac{1}{\theta}\arctan\left(\frac{\tau' - \frac{1}{2}}{\sqrt{\frac{r^2}{d^2} - \frac{1}{4}}}\right).
+\end{eqnarray}
+%
+Hieraus folgt
+%
+\begin{eqnarray}
+\tau' & = & \frac{1}{2} + \sqrt{\frac{r^2}{d^2} - \frac{1}{4}}\tan\left[\theta\left(\tau - \frac{1}{2}\right)\right].\\
+\end{eqnarray}
+
+\subsection{Vertikale Flächen}
+\label{sec:vertikale_flaechen}
+
+Für vertikale Flächen $A_v$ mit der Grundlänge $L$ und derselben Bezeichung für die Radien gilt
+%
+\begin{eqnarray}
+A_v = \int_{r_0}^{r_1}L\frac{r}{r_0}dr = \frac{L}{2r_0}\left(r_1^2 - r_0^2\right).
+\end{eqnarray}
+
+\subsection{Volumina}
+\label{sec:volumina}\index{Volumen!einer Gitterboxen}\index{Gitterbox!Volumen}
+
+Volumina $V$ mit der Grundfläche $A$, dem inneren Radius $r_0$ und dem äußeren Radius $r_1$ berechnen sich über
+%
+\begin{eqnarray}
+V = \int_{r_0}^{r_1}A\frac{r^2}{r_0^2}dr = \frac{A}{r_0^2}\frac{1}{3}\left(r_1^3 - r_0^3\right).
+\end{eqnarray}
+
+\subsection{Sphärische Dreiecke}
+\label{sec:sphaerische_dreiecke}
+
+\subsection{Sphärische Voronoi-Gitter}
+\label{sec:sphaerische_voronoi-gitter}\index{Voronoi-Gitter!sphärisches}\index{sphärisches Voronoi-Gitter}
+
 \section{Schwerefeld der Erde}
 \label{secschwerefeld_der_erde}\index{Schwerefeld der Erde}\index{Erde!Schwerefeld}
 
@@ -18993,11 +19120,541 @@ Damit folgt
 %
 also ist mit Glg. \eqref{eq:schwere_approx} auch der Satz von Clairaut erfüllt. Als Anmerkung sei gesagt: Glg. \eqref{eq:schwere_approx} ist erster Ordnung genau in $\epsilon$ und $m$ und daher nicht besser oder schlechter als Glg. \eqref{eq:schwerepotential}.
 
-\section{Sphärische Dreiecke}
-\label{sec:sphaerische_dreiecke}
+\subsection{Senkrechte Trajektorien}
+\label{sec:senkrechte_trajektorien}\index{senkrechte Trajektorie}\index{Trajektorie!senkrechte}
 
-\section{Sphärische Voronoi-Gitter}
-\label{sec:sphaerische_voronoi-gitter}\index{Voronoi-Gitter!sphärisches}\index{sphärisches Voronoi-Gitter}
+Da sich horizontale Ableitungen in einem geeigneten geophysikalischen Koordinatensystem auf Äquipotentialflächen im Schwerefeld beziehen, sind vertikale Ableitungen (bei Orthogonalität des KS) senkrecht hierzu und daher in Richtung des Schwerefeldes ausgerichtet. Es ist also wichtig, diese Richtung zu kennen. Hierzu werden in diesem Abschnitt die zu den Äquipotentialflächen senkrechten Trajektorien ermittelt.
+
+Glg. \eqref{eq:schwere_approx_r} beschreibt die Äquipotentialflächen im Schwerefeld, genauer ihren Abstand $r$ vom Erdmittelpunkt bei gegebenem Äquatorradius $R$ und geozentrischer Breite $\chi$. Diese Gleichung lautet:
+%
+\begin{eqnarray}
+r\left(\chi, R\right) = R\left[1 + \sin^2\left(\chi\right)\left\{\mu + \nu \frac{R^2}{a^2}\right\}\right]^{-1/2}
+\end{eqnarray}
+%
+Hierbei wurde
+%
+\begin{eqnarray}
+\mu& \coloneqq &\frac{8\newtilde{\epsilon} - 5m}{2},\\
+\nu& \coloneqq &\frac{5m - 4\newtilde{\epsilon}}{2}
+\end{eqnarray}
+%
+definiert. Dies kann man umformen zu
+%
+\begin{eqnarray}
+r\left(\chi, R\right) = \frac{RC\left(R\right)}{\sqrt{R^2\sin^2\left(\chi\right) + C^2\left(R\right)\cos^2\left(\chi\right)}}\label{eq:deriv_senkr_darst_pot_flaechen}
+\end{eqnarray}
+%
+mit
+%
+\begin{eqnarray}
+C\left(R\right) \coloneqq R\frac{1}{\sqrt{1 + \mu + \nu \frac{R^2}{a^2}}}.
+\end{eqnarray}
+%
+Ellipsoide erfüllen
+%
+\begin{eqnarray}
+\frac{r^2\cos^2\left(\chi\right)}{R^2} + \frac{r^2\sin^2\left(\chi\right)}{c^2} = 1
+\end{eqnarray}
+%
+mit großer Halbachse $R$ und kleiner Halbachse $c$. Setzt man hier Glg. \eqref{eq:deriv_senkr_darst_pot_flaechen} ein, erhält man
+%
+\begin{eqnarray}
+\frac{1}{R^2}\frac{R^2C^2\cos^2\left(\chi\right)}{R^2\sin^2\left(\chi\right) + C^2\cos^2\left(\chi\right)} + \frac{1}{c^2}\frac{R^2C^2\sin^2\left(\chi\right)}{R^2\sin^2\left(\chi\right) + C^2\cos^2\left(\chi\right)}\hastobe1.
+\end{eqnarray}
+%
+Man sieht, dass dies für $c = C$ erfüllt ist. $C$ ist also die kleine Halbachse der Äquipotentialflächen.
+
+Da ein Ellipsoid rotationssymmetrisch ist, reicht es zunächst, die senkrechten Trajektorien in der Meridianebene $\lambda = 0$ zu ermitteln. Hier kann man einfach Ellipsen betrachten, diese erfüllen
+%
+\begin{eqnarray}
+\frac{x^2}{R^2} + \frac{z^2}{C^2} = 1.\label{eq:deriv_senkr_ellipse_2d}
+\end{eqnarray}
+%
+Setzt man hier die Definition von $C$ ein, folgt
+%
+\begin{eqnarray}
+x^2 + \left(1 + \mu + \nu \frac{R^2}{a^2}\right)z^2 = R^2.\label{eq:great_senkr_traj_deriv_1}
+\end{eqnarray}
+%
+Stellt man dies nach $R^2$ um, erhält man
+%
+\begin{eqnarray}
+R^2 = \frac{x^2 + \left(1 + \mu\right)z^2}{1 - \nu\frac{z^2}{a^2}}.\label{eq:great_senkr_traj_deriv_5}
+\end{eqnarray}
+%
+Weiterhin folgt hieraus
+%
+\begin{eqnarray}
+1 + \mu + \nu\frac{x^2}{a^2} & = & 1 + \mu + \frac{x^2}{z^2} - \frac{x^2}{z^2} + \nu\frac{x^2}{a^2} = R^2\frac{1}{z^2}\left(1 - \nu\frac{z^2}{a^2}\right) - \frac{x^2}{z^2}\left(1 - \nu\frac{z^2}{a^2}\right)\nonumber\\
+& = & \left(1 - \nu\frac{z^2}{a^2}\right)\frac{R^2 - x^2}{z^2} = \left(1 - \nu\frac{z^2}{a^2}\right)\left(1 + \mu + \nu\frac{R^2}{a^2}\right).\label{eq:great_senkr_traj_deriv_4}
+\end{eqnarray}
+%
+Bei festem $R$ kann in einem Halbraum die Koordinate $z$ einer Ellipse als Funktion von $x$ aufgefasst werden. Diese Funktion $z\left(x\right)$ erfüllt Glg. \eqref{eq:deriv_senkr_ellipse_2d}. Differenzieren dieser Gleichung nach $x$ ergibt
+%
+\begin{eqnarray}
+\frac{dz}{dx} = -\frac{C^2}{R^2}\frac{x}{z}.
+\end{eqnarray}
+%
+Dies ist eine Richtungsableitung entlang der Potentialfläche. Geometrisch ist klar, dass für die lokale Senkrechte zur Potentialfläche gilt
+%
+\begin{eqnarray}
+\frac{dz}{dx} = \frac{R^2}{C^2}\frac{z}{x}.
+\end{eqnarray}
+%
+Mit der Definition von $C$ folgt
+%
+\begin{eqnarray}
+\frac{R^2}{C^2} = 1 + \mu + \nu\frac{R^2}{a^2}, 
+\end{eqnarray}
+%
+somit gilt
+%
+\begin{eqnarray}
+\frac{dz}{dx} = \left(1 + \mu + \nu\frac{R^2}{a^2}\right)\frac{z}{x} = \frac{1 + \mu + \nu\frac{x^2}{a^2}}{1 - \nu\frac{z^2}{a^2}}\frac{z}{x}.
+\end{eqnarray}
+%
+Dies kann man über das in Absch. \ref{sec:integralformeln} vorgestellte Verfahren der Trennung der Variablen lösen. $z\left(x\right)$ ist bijektiv, somit sind die Voraussetzungen erfüllt. Zunächst rechnet man
+%
+\begin{eqnarray}
+\left(1 - \nu\frac{z^2}{a^2}\right)\frac{dz}{dx} & = & \frac{z}{x}\left(1 + \mu + \nu \frac{x^2}{a^2}\right)\Leftrightarrow\left(\frac{1}{z} - \nu\frac{z}{a^2}\right)\frac{dz}{dx} = \frac{1 + \mu}{x} + \nu \frac{x}{a^2}.
+\end{eqnarray}
+%
+Also folgt
+%
+\begin{eqnarray}
+\int_{}^{}\frac{1}{z} - \nu\frac{z}{a^2}dz & = & \int_{}^{}\frac{1 + \mu}{x} + \nu \frac{x}{a^2}dx\nonumber\\
+\Leftrightarrow\frac{1}{a}\int_{}^{}\frac{a}{z} - \nu\frac{z}{a}d\left(\frac{z}{a}\right) & = & \frac{1}{a}\int_{}^{}\left(1 + \mu\right)\frac{a}{x} + \nu \frac{x}{a}d\left(\frac{x}{a}\right)\nonumber\\
+\Leftrightarrow \ln\frac{z}{a} - \frac{\nu}{2}\frac{z^2}{a^2} & = & D' + \left(1 + \mu\right)\ln\left(\frac{x}{a}\right) + \frac{\nu}{2a^2}x^2\nonumber\\
+\Leftrightarrow \frac{z}{a} & = & \exp\left( D' + \left(1 + \mu\right)\ln\left(\frac{x}{a}\right) + \frac{\nu}{2a^2}x^2 + \frac{\nu}{2}\frac{z^2}{a^2}\right)\nonumber\\
+\Leftrightarrow z & = & aD\left(\frac{x}{a}\right)^{1 + \mu}\exp\left[\frac{\nu}{2a^2}\left(x^2 + z^2\right)\right]\label{eq:great_senkr_traj_deriv_2}
+\end{eqnarray}
+%
+mit einer Integrationskonstanten $D \coloneqq \exp\left(D'\right)>0$ mit $D'\in\mathbb{R}$. Für ein gegebenes $x$ kann man durch Lösen dieser Gleichung dasjenige $z$ finden, welches auf der gesuchten orthogonalen Trajektorie liegt. Um welche Trajektorie es sich dabei handelt, wird durch die Zahl $D$ festgelegt, $D$ ist also eine Funktion einer Breite $\varphi$, es ist $D = D\left(\varphi\right)$. Die genaue Form dieser Funktion $D = D\left(\varphi\right)$ ist Konvention. Hier wird sie festgelegt durch den Schnittpunkt der Trajektorie mit dem WGS 84. Sei $\left(x_S, z_S\right)^T$ dieser Schnittpunkt. Dann gilt
+%
+\begin{eqnarray}
+\left|z_S\right| & = & aD\left(\frac{x_S}{a}\right)^{1 + \mu}\exp\left[\frac{\nu}{2a^2}\left(x_S^2 + z_S^2\right)\right]\nonumber\\
+\Rightarrow D & = & \frac{\left|z_S\right|}{a}\left(\frac{a}{x_S}\right)^{1 + \mu}\exp\left[-\frac{\nu}{2a^2}\left(x_S^2 + z_S^2\right)\right].\label{eq:great_senkr_traj_deriv_3}
+\end{eqnarray}
+%
+Somit legt folgende Gleichung die gesuchten senkrechten Trajektorien fest:
+%
+\begin{eqnarray}
+\frac{z}{z_S} = \left(\frac{x}{x_S}\right)^{1 + \mu}\exp\left[\frac{\nu}{2a^2}\left(x^2 + z^2\right) - \frac{\nu}{2a^2}\left(x_S^2 + z_S^2\right)\right]\label{eq:great_senkr_traj}
+\end{eqnarray}
+%
+
+
+\section{GREAT-Koordinaten}
+\label{sec:greatkoordinaten}\index{GREAT-Koordinaten}\index{Koordinatensystem!GREAT}
+
+Die GREAT-Koordinaten werden in \cite{staniforth} beschrieben. Sie eignen sich, um Differenzialoperatoren in ellipsoidischen Geometrien auszudrücken. Außerdem sind sie orthogonal.
+
+Zunächst werden alle Längen auf die große Halbachse der Erde $a$ skaliert:
+%
+\begin{eqnarray}
+\frac{x}{a}&\to&x, \label{eq:great_skal_1}\\
+\frac{y}{a}&\to&y, \label{eq:great_skal_2}\\
+\frac{z}{a}&\to&z, \label{eq:great_skal_3}\\
+\frac{R}{a}&\to&R\label{eq:great_skal_4}
+\end{eqnarray}
+%
+Glg. \eqref{eq:great_senkr_traj} lautet dann
+%
+\begin{eqnarray}
+\frac{z}{z_S} = \left(\frac{x}{x_S}\right)^{1 + \mu}\exp\left[\frac{\nu}{2}\left(x^2 + z^2\right) - \frac{\nu}{2}\left(x_S^2 + z_S^2\right)\right]\label{eq:great_senkr_traj_skaliert}
+\end{eqnarray}
+%
+\subsection{Vertikalkoordinate}
+\label{sec:vertikalkoordinate}\index{GREAT-Koordinaten!Vertikalkoordinate}
+
+In Kugelkoordinaten bezeichnet die radiale Koordinate $r$ eine Kugeloberfläche. In GREAT-Koordinaten bezeichnet die Radialkoordinate $R$ ein bestimmtes Ellipsoid, $R$ wurde bereits als Äquatorradius des entsprechenden Ellipsoids eingeführt. Dies ist die Vertikalkoordinate im GREAT-System.
+
+\subsection{Zonale Koordinate}
+\label{sec:zonale_koordinate}\index{GREAT-Koordinaten!zonale Koordinate}
+
+Die zonale Koordinate $\lambda$ eines Ortes $\mathbf{r}$ ist der Winkel, um den man die xz-Ebene um die z-Achse drehen muss, bis $\mathbf{r}$ in dieser Ebene liegt. Dies ist analog zum Azimuthwinkel in gewöhnlichen Kugelkoordinaten.
+
+\subsection{Meridionale Koordinate}
+\label{sec:meridionale_koordinate}\index{GREAT-Koordinaten!meridionale Koordinate}
+
+Um die Konsistenz mit Messdaten zu gewährleisten, wird als meridionale Koordinate die geographische Breite $\varphi$ gewählt. Die geographische Breite eines Punktes $\mathbf{r}$ außerhalb der Erde findet man wie folgt:
+%
+\begin{itemize}
+\item Finde die senkrechte Trajektorie, auf der $\mathbf{r}$ liegt.
+\item Verfolge diese senkrechte Trajektorie bis zu ihrem Schnittpunkt $\mathbf{r}_s$ mit dem WGS 84.
+\item Finde die Lotrichtung $\mathbf{s}$ auf das WGS 84 am Punkt $\mathbf{r}_s$ und bilde die Gerade $\mathbf{g} = \mathbf{r}_s + \gamma\mathbf{s}$ mit $\gamma\in\mathbb{R}$.
+\item Verfolge die Gerade $\mathbf{g}$ bis zu ihrem Schnittpunkt $\mathbf{r}_0$ mit der xy-Ebene der globalen Koordinaten. Der Winkel, den $\mathbf{r}_0$ mit der xy-Ebene einschließt, ist die geographische Breite $\varphi$.
+\end{itemize}
+%
+\subsection{Metrische Faktoren}
+\label{sec:metrische_faktoren}\index{GREAT-Koordinaten!metrische Faktoren}
+
+Um die herrschenden Gleichungen in GREAT-Koordinaten ausdrücken zu können, müssen die Differenzialoperatoren durch partielle Ableitungen nach $\varphi, \lambda, R$ ausgedrückt werden. Hierzu muss zunächst einige Vorarbeit geleistet werden. Sei also ein Punkt $\mathbf{r} = \left(x, y, z\right)^T$ in globalen Koordinaten gegeben, $\mathbf{r}$ habe die GREAT-Koordinaten $\left(R, \varphi, \lambda\right)$. Die Transformation sämtlicher Differenzialoperatoren beruht auf den metrischen Faktoren $h_\lambda, h_\varphi, h_R>0$, definiert durch
+%
+\begin{eqnarray}
+h_\lambda^2 & = & \left(\frac{\partial x}{\partial\lambda}\right)^2 + \left(\frac{\partial y}{\partial\lambda}\right)^2 + \left(\frac{\partial z}{\partial\lambda}\right)^2,\\
+h_\varphi^2 & = & \left(\frac{\partial x}{\partial\varphi}\right)^2 + \left(\frac{\partial y}{\partial\varphi}\right)^2 + \left(\frac{\partial z}{\partial\varphi}\right)^2,\\
+h_R^2 & = & \left(\frac{\partial x}{\partial R}\right)^2 + \left(\frac{\partial y}{\partial R}\right)^2 + \left(\frac{\partial z}{\partial R}\right)^2.
+\end{eqnarray}
+%
+Um $h_R$ und $h_\varphi$ zu bestimmen, genügt eine Betrachtung in der Meridionalebene $\lambda = 0$. Wendet man die Umskalierungen Glg.en \eqref{eq:great_skal_1} - \eqref{eq:great_skal_4} auf die Gleichungen \eqref{eq:great_senkr_traj_deriv_1} und \eqref{eq:great_senkr_traj_deriv_2} an, erhält man
+%
+\begin{eqnarray}
+x^2 + \left(1 + \mu + \nu R^2\right)z^2 & = & R^2, \label{eq:great_deriv_1}\\
+z & = & D\left(\varphi\right)x^{1 + \mu}\exp\left[\frac{\nu}{2}\left(x^2 + z^2\right)\right].\label{eq:great_deriv_2}
+\end{eqnarray}
+%
+Logarithmiert man dies, erhält man
+%
+\begin{eqnarray}
+\ln\left(z^2\right) & = & \ln\left(R^2 - x^2\right) - \ln\left(1 + \mu + \nu R^2\right), \label{eq:great_deriv_3}\\
+\ln\left(z\right) & = & \ln\left[D\left(\varphi\right)\right] + \left(1 + \mu\right)\ln\left(x\right) + \frac{\nu}{2}\left(x^2 + z^2\right)\label{eq:great_deriv_4}.
+\end{eqnarray}
+%
+$D\left(\varphi\right)$ ergibt sich aus Glg. \eqref{eq:great_senkr_traj_deriv_3}, die umskaliert lautet
+%
+\begin{eqnarray}
+D\left(\varphi\right) = \frac{\left|z_S\left(\varphi\right)\right|}{x_S\left(\varphi\right)^{1 + \mu}}\exp\left[-\frac{\nu}{2}\left(x_S\left(\varphi\right)^2 + z_S\left(\varphi\right)^2\right)\right].\label{eq:great_deriv_5}
+\end{eqnarray}
+%
+Nun differenziert man Glg \eqref{eq:great_deriv_5} partiell nach $R$:
+%
+\begin{eqnarray}
+\frac{2}{z}\frac{\partial z}{\partial R} & = & -\frac{\partial x}{\partial R}2x\frac{1}{R^2 - x^2} + 2R\frac{1}{R^2 - x^2} - 2\nu R\frac{1}{1 + \mu + \nu R^2}\nonumber\\
+\Leftrightarrow \left(1 + \mu + \nu R^2\right)z\frac{\partial z}{\partial R} & = & -\frac{\partial x}{\partial R}\left(1 + \mu + \nu R^2\right)\frac{xz^2}{R^2 - x^2} + \left(1 + \mu + \nu R^2\right)\frac{Rz^2}{R^2 - x^2} - \nu Rz^2.
+\end{eqnarray}
+%
+Setzt man hier Glg. \eqref{eq:great_deriv_1} ein, erhält man
+%
+\begin{eqnarray}
+\left(1 + \mu + \nu R^2\right)z\frac{\partial z}{\partial R} + x\frac{\partial x}{\partial R} & = & R\left(1 - \nu z^2\right).\label{eq:great_deriv_6}
+\end{eqnarray}
+%
+Differenziert man Glg. \eqref{eq:great_deriv_4} partiell nach $R$, erhält man:
+%
+\begin{eqnarray}
+\frac{1}{z}\frac{\partial z}{\partial R} & = & \left(1 + \mu\right)\frac{1}{x}\frac{\partial x}{\partial R} + \nu\left(x\frac{\partial x}{\partial R} + z\frac{\partial z}{\partial R}\right)\nonumber\\
+\Leftrightarrow \left(1 + \mu\right)\frac{1}{x}\frac{\partial x}{\partial R} - \frac{1}{z}\frac{\partial z}{\partial R} & = & -\nu\left(x\frac{\partial x}{\partial R} + z\frac{\partial z}{\partial R}\right)\nonumber\\
+\Leftrightarrow\left(1 + \mu + \nu R^2\right)\frac{1}{x}\frac{\partial x}{\partial R} - \frac{1}{z}\frac{\partial z}{\partial R} & = & -\nu\left(x\frac{\partial x}{\partial R} + z\frac{\partial z}{\partial R}\right) + \nu R^2\frac{1}{x}\frac{\partial x}{\partial R}\nonumber\\
+\Leftrightarrow\left(1 + \mu + \nu R^2\right)\frac{1}{x}\frac{\partial x}{\partial R} - \frac{1}{z}\frac{\partial z}{\partial R} & = & \frac{\nu}{x}\frac{\partial x}{\partial R}\left(R^2 - x^2\right) - \nu z\frac{\partial z}{\partial R}.
+\end{eqnarray}
+%
+Setzt man hier Glg. \eqref{eq:great_deriv_1} ein, erhält man
+%
+\begin{eqnarray}
+\Leftrightarrow\left(1 + \mu + \nu R^2\right)\frac{1}{x}\frac{\partial x}{\partial R} - \frac{1}{z}\frac{\partial z}{\partial R} & = & \frac{\nu}{x}\frac{\partial x}{\partial R}\left(1 + \mu + \nu R^2\right)z^2 - \nu z\frac{\partial z}{\partial R}\nonumber\\
+\Leftrightarrow\left(1 + \mu + \nu R^2\right)\frac{1}{x}\frac{\partial x}{\partial R} - \frac{1}{z}\frac{\partial z}{\partial R} & = & \nu z^2\left[\frac{1}{x}\frac{\partial x}{\partial R}\left(1 + \mu + \nu R^2\right)z^2 - \frac{1}{z}\frac{\partial z}{\partial R}\right]\nonumber\\
+\Leftrightarrow\left(1 + \mu + \nu R^2\right)\frac{1}{x}\frac{\partial x}{\partial R} - \frac{1}{z}\frac{\partial z}{\partial R} & = & 0.
+\end{eqnarray}
+%
+Stellt man dies nach $\frac{\partial z}{\partial R}$ um, erhält man
+%
+\begin{eqnarray}
+\frac{\partial z}{\partial R} = \frac{z}{x}\left(1 + \mu + \nu R^2\right)\frac{\partial x}{\partial R}.\label{eq:great_deriv_7}
+\end{eqnarray}
+%
+Setzt man dies in Glg. \eqref{eq:great_deriv_6} ein, erhält man
+%
+\begin{eqnarray}
+&&\left(1 + \mu + \nu R^2\right)^2\frac{z^2}{x}\frac{\partial x}{\partial R} + x\frac{\partial x}{\partial R} = R\left(1 - \nu z^2\right)\nonumber\\
+&\Leftrightarrow&x\frac{\partial x}{\partial R}\left[1 + \frac{z^2}{x^2}\left(1 + \mu + \nu R^2\right)^2\right] = R\left(1 - \nu z^2\right)\nonumber\\
+&\Leftrightarrow&\frac{\partial x}{\partial R} = \frac{R\left(1 - \nu z^2\right)x^2}{x\left[x^2 + z^2\left(1 + \mu + \nu R^2\right)^2\right]}\nonumber\\
+&\Leftrightarrow&\frac{\partial x}{\partial R} = \frac{R\left(1 - \nu z^2\right)\left(R^2 - \left(1 + \mu + \nu R^2\right)z^2\right)}{x\left[R^2 - \left(1 + \mu + \nu R^2\right)z^2 + z^2\left(1 + \mu + \nu R^2\right)^2\right]}\nonumber\\
+&\Leftrightarrow&\frac{\partial x}{\partial R} = \frac{R\left(1 - \nu z^2\right)\left(R^2 - \left(1 + \mu + \nu R^2\right)z^2\right)}{x\left[R^2 + z^2\left(1 + \mu + \nu R^2\right)\left(\mu + \nu R^2\right)\right]}.\label{eq:great_deriv_8}
+\end{eqnarray}
+%
+Dabei wurde wieder Glg. \eqref{eq:great_deriv_1} verwendet. Setzt man Glg. \eqref{eq:great_deriv_8} in Glg. \eqref{eq:great_deriv_7} ein und verwendet wieder Glg. \eqref{eq:great_deriv_3}, folgt
+%
+\begin{eqnarray}
+\frac{\partial z}{\partial R} & = & \frac{zR\left(1 - \nu z^2\right)\left(1 + \mu + \nu R^2\right)}{R^2 + z^2\left(1 + \mu + \nu R^2\right)\left(\mu + \nu R^2\right)}.\label{eq:great_deriv_9}
+\end{eqnarray}
+%
+Man erhält also mit Glg. \eqref{eq:great_deriv_1}
+%
+\begin{eqnarray}
+h_R & = & \sqrt{\left(\frac{\partial x}{\partial R}\right)^2 + \left(\frac{\partial z}{\partial R}\right)^2} = \frac{R\left(1 - \nu z^2\right)\sqrt{z^2\left(1 + \mu + \nu R^2\right)^2 + x^2}}{R^2 + z^2\left(1 + \mu + \nu R^2\right)\left(\mu + \nu R^2\right)}\nonumber\\
+& = & \frac{R\left(1 - \nu z^2\right)}{\left[R^2 + z^2\left(1 + \mu + \nu R^2\right)\left(\mu + \nu R^2\right)\right]^{1/2}}.
+\end{eqnarray}
+%
+Nun differenziert man Glg. \eqref{eq:great_deriv_3} partiell nach $\varphi$:
+%
+\begin{eqnarray}
+\frac{2}{z}\frac{\partial z}{\partial\varphi} & = & -2x\frac{\frac{\partial x}{\partial\varphi}}{R^2 - x^2}\Leftrightarrow\frac{R^2 - x^2}{z}\frac{\partial z}{\partial\varphi} = -x\frac{\partial x}{\partial\varphi}.
+\end{eqnarray}
+%
+Setzt man hier wiederum Glg. \eqref{eq:great_deriv_1} ein, erhält man
+%
+\begin{eqnarray}
+\left(1 + \mu + \nu R^2\right)z\frac{\partial z}{\partial\varphi} + x\frac{\partial x}{\partial\varphi} & = & 0.\label{eq:great_deriv_10}
+\end{eqnarray}
+%
+Verfährt man analog mit Glg. \eqref{eq:great_deriv_4}, erhält man
+%
+\begin{eqnarray}
+&&\frac{1}{z}\frac{\partial z}{\partial\varphi} = \frac{d\ln\left[D\left(\varphi\right)\right]}{d\varphi} + \frac{1 + \mu}{x}\frac{\partial x}{\partial\varphi} + \nu x\frac{\partial x}{\partial\varphi} + \nu z\frac{\partial z}{\partial\varphi}\nonumber\\
+&\Leftrightarrow&\left[1 + \mu + \nu x^2\right]\frac{1}{x}\frac{\partial x}{\partial\varphi} - \left[1 - \nu z^2\right]\frac{1}{z}\frac{\partial z}{\partial\varphi} = -\frac{d\ln\left[D\left(\varphi\right)\right]}{d\varphi}\nonumber\\
+&\Leftrightarrow&\frac{1 + \mu + \nu x^2}{1 - \nu z^2}\frac{1}{x}\frac{\partial x}{\partial\varphi} - \frac{1}{z}\frac{\partial z}{\partial\varphi} = -\frac{1}{1 - \nu z^2}\frac{d\ln\left[D\left(\varphi\right)\right]}{d\varphi}\nonumber\\
+&\Leftrightarrow&\left(1 + \mu + \nu R^2\right)\frac{1}{x}\frac{\partial x}{\partial\varphi} - \frac{1}{z}\frac{\partial z}{\partial\varphi} = -\frac{1}{1 - \nu z^2}\frac{d\ln\left[D\left(\varphi\right)\right]}{d\varphi}.
+\end{eqnarray}
+%
+Dabei wurde im letzten Schritt die mit den Glg.en \eqref{eq:great_skal_1} - \eqref{eq:great_skal_4} umskalierte Version von Glg. \eqref{eq:great_senkr_traj_deriv_3} eingesetzt. Stellt man dies nach $\frac{\partial z}{\partial\varphi}$ um, erhält man
+%
+\begin{eqnarray}
+\frac{\partial z}{\partial\varphi} & = & z\left(1 + \mu + \nu R^2\right)\frac{1}{x}\frac{\partial x}{\partial\varphi} + \frac{z}{1 - \nu z^2}\frac{d\ln\left[D\left(\varphi\right)\right]}{d\varphi}.\label{eq:great_deriv_11}
+\end{eqnarray}
+%
+Setzt man dies in Glg. \eqref{eq:great_deriv_10} ein, folgt
+%
+\begin{eqnarray}
+&&\left(1 + \mu + \nu R^2\right)^2z^2\frac{1}{x}\frac{\partial x}{\partial\varphi} + z^2\frac{1 + \mu + \nu R^2}{1 - \nu z^2}\frac{d\ln\left[D\left(\varphi\right)\right]}{d\varphi} + x\frac{\partial x}{\partial\varphi} = 0\nonumber\\
+&\Leftrightarrow&\frac{\partial x}{\partial\varphi}\left(x + \frac{z^2}{x}\left(1 + \mu + \nu R^2\right)^2\right) = -\frac{z^2\left(1 + \mu + \nu R^2\right)}{1 - \nu z^2}\frac{d\ln\left[D\left(\varphi\right)\right]}{d\varphi}\nonumber\\
+&\Leftrightarrow&\frac{\partial x}{\partial\varphi}\left(x^2 + z^2\left(1 + \mu + \nu R^2\right)^2\right) = -\frac{xz^2\left(1 + \mu + \nu R^2\right)}{1 - \nu z^2}\frac{d\ln\left[D\left(\varphi\right)\right]}{d\varphi}\nonumber\\
+&\Leftrightarrow&\frac{\partial x}{\partial\varphi}\left(x^2 + z^2\left(1 + \mu + \nu R^2\right)\left(\mu + \nu R^2\right) + z^2\left(1 + \mu + \nu R^2\right)\right)\nonumber\\
+& = & -\frac{xz^2\left(1 + \mu + \nu R^2\right)}{1 - \nu z^2}\frac{d\ln\left[D\left(\varphi\right)\right]}{d\varphi}.
+\end{eqnarray}
+%
+Setzt man hier wiederum Glg. \eqref{eq:great_deriv_1} ein, erhält man
+%
+\begin{eqnarray}
+\frac{\partial x}{\partial\varphi} = -\frac{xz^2\left(1 + \mu + \nu R^2\right)}{\left(1 - \nu z^2\right)\left(R^2 + \left(\mu + \nu R^2\right)\left(1 + \mu + \nu R^2\right)z^2\right)}\frac{d\ln\left[D\left(\varphi\right)\right]}{d\varphi}.
+\end{eqnarray}
+%
+Setzt man dies in Glg. \eqref{eq:great_deriv_11} ein und verwendet wieder Glg. \eqref{eq:great_deriv_1}, so folgt
+%
+\begin{eqnarray}
+\frac{\partial z}{\partial\varphi} & = & - \frac{z^3\left(1 + \mu + \nu R^2\right)^2}{\left(1 - \nu z^2\right)\left(R^2 + \left(\mu + \nu R^2\right)\left(1 + \mu + \nu R^2\right)z^2\right)}\frac{d\ln\left[D\left(\varphi\right)\right]}{d\varphi} + \frac{z}{1 - \nu z^2}\frac{d\ln\left[D\left(\varphi\right)\right]}{d\varphi}\nonumber\\
+& = & \frac{zR^2 + z^3\left(1 + \mu + \nu R^2\right)\left(\mu + \nu R^2\right) - z^3\left(1 + \mu + \nu R^2\right)^2}{\left(1 - \nu z^2\right)\left(R^2 + \left(\mu + \nu R^2\right)\left(1 + \mu + \nu R^2\right)z^2\right)}\frac{d\ln\left[D\left(\varphi\right)\right]}{d\varphi}\nonumber\\
+\Leftrightarrow\frac{\partial z}{\partial\varphi} & = & \frac{zR^2 - z^3\left(1 + \mu + \nu R^2\right)}{\left(1 - \nu z^2\right)\left(R^2 + \left(\mu + \nu R^2\right)\left(1 + \mu + \nu R^2\right)z^2\right)}\frac{d\ln\left[D\left(\varphi\right)\right]}{d\varphi}\nonumber\\
+\Leftrightarrow\frac{\partial z}{\partial\varphi} & = & \frac{zx^2}{\left(1 - \nu z^2\right)\left(R^2 + \left(\mu + \nu R^2\right)\left(1 + \mu + \nu R^2\right)z^2\right)}\frac{d\ln\left[D\left(\varphi\right)\right]}{d\varphi}.
+\end{eqnarray}
+%
+Somit folgt wiederum mit Glg. \eqref{eq:great_deriv_1}
+%
+\begin{eqnarray}
+&&h_\varphi = \sqrt{\left(\frac{\partial x}{\partial\varphi}\right)^2 + \left(\frac{\partial\varphi}{\partial z\varphi}\right)^2} = \frac{xz\sqrt{x^2 + z^2\left(1 + \mu + \nu R^2\right)^2}}{\left(1 - \nu z^2\right)\left(R^2 + \left(\mu + \nu R^2\right)\left(1 + \mu + \nu R^2\right)z^2\right)}\left|\frac{d\ln\left[D\left(\varphi\right)\right]}{d\varphi}\right|\nonumber\\
+&\Leftrightarrow&h_\varphi = \frac{xz\sqrt{R^2 + z^2\left(\mu + \nu R^2\right)\left(1 + \mu + \nu R^2\right)}}{\left(1 - \nu z^2\right)\left(R^2 + \left(\mu + \nu R^2\right)\left(1 + \mu + \nu R^2\right)z^2\right)}\left|\frac{d\ln\left[D\left(\varphi\right)\right]}{d\varphi}\right|\nonumber\\
+&\Leftrightarrow&h_\varphi = \frac{xz}{\left(1 - \nu z^2\right)\left(R^2 + \left(\mu + \nu R^2\right)\left(1 + \mu + \nu R^2\right)z^2\right)^{1/2}}\left|\frac{d\ln\left[D\left(\varphi\right)\right]}{d\varphi}\right.
+\end{eqnarray}
+%
+Logarithmiert man beide Seiten von Glg. \eqref{eq:great_deriv_3}, erhält man
+%
+\begin{eqnarray}
+\ln\left(D\right) = \ln\left(\left|z_S\right|\right) - \left(1 + \mu\right)\ln\left(x_S\right) - \frac{\nu}{2}\left(x_S^2 + z_S^2\right).
+\end{eqnarray}
+%
+Differenziert man dies, folgt
+%
+\begin{eqnarray}
+&&\frac{d\ln\left(D\right)}{d\varphi} = \frac{d\ln\left(\left|z_S\right|\right)}{d\varphi} - \left(1 + \mu\right)\frac{d\ln\left(x_S\right)}{d\varphi} - \nu x_S\frac{dx_S}{d\varphi} - \nu z_S\frac{d z_S}{d\varphi}\nonumber\\
+& = & \frac{d\ln\left(\left|z_S\right|\right)}{d\varphi}\left(1 - \nu z_S^2\right) - \frac{d\ln\left(x_S\right)}{d\varphi}\left(1 + \mu + \nu x_S^2\right).\label{eq:great_deriv_12}
+\end{eqnarray}
+%
+Diese Gleichung kann genutzt werden, um $\frac{d\ln\left(D\right)}{d\varphi}$ durch $\frac{d x_S}{d\varphi}$ und $\frac{d z_S}{d\varphi}$ auszudrücken.
+
+Es gelten
+%
+\begin{eqnarray}
+x & = & \sqrt{x^2 + y^2}\cos\lambda,\\
+y & = & \sqrt{x^2 + y^2}\sin\lambda.
+\end{eqnarray}
+%
+Somit folgt
+%
+\begin{eqnarray}
+h_\lambda = \sqrt{\left(\frac{\partial x}{\partial \lambda}\right)^2 + \left(\frac{\partial y}{\partial \lambda}\right)^2} = \sqrt{x^2 + y^2}.
+\end{eqnarray}
+%
+\subsection{Transformation von GREAT-Koordinaten in globale Koordinaten}
+\label{sec:transformation_von_greatKoordinaten_in_globale_koordinaten}\index{GREAT-Koordinaten!Transformation}
+
+Sei ein Punkt $\mathbf{r}$ mit den GREAT-Koordinaten $\left(R, \varphi, \lambda\right)$ gegeben. Man möchte die globalen Koordinaten $\left(x, y, z\right)^T$ dieses Punktes bestimmen. Nehme zunächst $\lambda = 0$ an. Quadriert man Glg. \eqref{eq:great_deriv_2}, erhält man
+%
+\begin{eqnarray}
+z^2 = D\left(\varphi\right)^2\left(x^2\right)^{1 + \mu}\exp\left[\nu\left(x^2 + z^2\right)\right].
+\end{eqnarray}
+%
+Setzt man hier Glg. \eqref{eq:great_deriv_4} ein, folgt
+%
+\begin{eqnarray}
+z^2 = D\left(\varphi\right)^2\left[R^2 - z^2\left(1 + \mu + \nu R^2\right)\right]^{1 + \mu}\exp\left[\nu\left(R^2 - z^2\left(\mu + \nu R^2\right)\right)\right].\label{eq:trafo_great_zu_glo_deriv_1}
+\end{eqnarray}
+%
+Diese Gleichung ist implizit und daher iterativ zu lösen. $D\left(\varphi\right)$ und $R$ sind hierbei Konstanten, $z^2$ ist die einzige verbleibende, zu bestimmende Größe. Über Glg. \eqref{eq:great_deriv_4} lässt sich dann $x^2$ bestimmen. Das Vorzeichen von $z$ ist das Vorzeichen von $\varphi$. Im Fall $\lambda\not = 0$ ist
+%
+\begin{eqnarray}
+x^2\to r_\perp^2
+\end{eqnarray}
+%
+zu ersetzen, sodass man erhält
+%
+\begin{eqnarray}
+x & = & r_\perp\cos\left(\lambda\right),\\
+y & = & r_\perp\sin\left(\lambda\right).
+\end{eqnarray}
+%
+\subsection{Transformation von globalen Koordinaten in GREAT-Koordinaten}
+\label{sec:transformation_von_globalen_Koordinaten_in_greatkoordinaten}\index{GREAT-Koordinaten!Transformation}
+
+Sei ein Punkt $\mathbf{r}$ mit den globalen Koordinaten $\left(x, y, z\right)^T$ gegeben, und man möchte die GREAT-Koordinaten $\left(R, \varphi, \lambda\right)$ von $\mathbf{r}$ bestimmen. Notiert man Glg. \eqref{eq:great_senkr_traj_deriv_5} mit den Ersetzungen Glg.en \eqref{eq:great_skal_1} - \eqref{eq:great_skal_4}, erhält man
+%
+\begin{eqnarray}
+R^2 = \frac{x^2 + y^2 + \left(1 + \mu\right)z^2}{1 - \nu z^2}.
+\end{eqnarray}
+%
+Dabei wurde $x^2\to x^2 + y^2$ ersetzt, da man vom allgemeinen Fall $\lambda\not = 0$ ausgeht. $\lambda$ erhält man über
+%
+\begin{eqnarray}
+\lambda = \sign\left(y\right)\arccos\left(\frac{x}{\sqrt{x^2 + y^2}}\right).
+\end{eqnarray}
+%
+Um $\varphi$ zu bestimmen, stellt man zunächst Glg. \eqref{eq:great_deriv_2} nach $D$ um und ersetzt wieder $x^2\to x^2 + y^2$:
+%
+\begin{eqnarray}
+D = \frac{z}{\sqrt{x^2 + y^2}^{1 + \mu}}\exp\left(-\frac{\nu}{2}\left(x^2 + y^2 + z^2\right)\right)\label{eq:trafo_glo_zu_great_deriv_5}
+\end{eqnarray}
+%
+Nun setzt man in Glg. \eqref{eq:trafo_great_zu_glo_deriv_1} $R = 1$ ein, was der Oberfläche des WGS 84 entspricht, und löst numerisch für $z_S^2$, das Vorzeichen von $z_S$ ist identisch mit dem Vorzeichen von $z$. Nun kann man Glg. \eqref{eq:great_deriv_1} mit $R = 1$, $z = z_S$ und $x^2\to x_S^2 + y_S^2$ verwenden, um $x_S^2 + y_S^2$ zu bestimmen. Über die Gleichung
+%
+\begin{eqnarray}
+\varphi_S = \arctan\left[\frac{a^2}{c^2}\frac{z_S}{\sqrt{x^2 + y^2}}\right]\label{eq:eq:trafo_glo_zu_great_deriv_1}
+\end{eqnarray}
+%
+kann man $\varphi_S$ schließlich bestimmen. Glg. \eqref{eq:eq:trafo_glo_zu_great_deriv_1} soll nun noch hergeleitet werden. Betrachte hierzu o. B. d. A. die Ebene $\lambda = 0$, also $y = 0$. Der Schnitt des WGS 84 mit dieser Ebene ist gegeben durch (man beachte die Skalierung)
+%
+\begin{eqnarray}
+x^2 + \frac{z^2}{c^2} = 1.\label{eq:def_ell_skal}
+\end{eqnarray}
+%
+Definiere
+%
+\begin{eqnarray}
+f\left(x, z\right) \coloneqq x^2 + \frac{z^2}{c^2}, 
+\end{eqnarray}
+%
+dann gilt
+%
+\begin{eqnarray}
+\nabla f = \left(\begin{array}{c}
+2x\\
+\frac{2z}{c^2}
+\end{array}\right).
+\end{eqnarray}
+%
+Das WGS 84 ist gegeben durch die Konturmenge $f = 1$. Definiere die Gerade $\mathbf{g}$ in der xz-Ebene der globalen Koordinaten durch
+%
+\begin{eqnarray}
+\mathbf{g} = \left(\begin{array}{c}
+x_S\\
+z_S
+\end{array}\right) + \gamma\left(\begin{array}{c}
+x_S\\
+\frac{z_S}{c^2}
+\end{array}\right)
+\end{eqnarray}
+%
+mit $\gamma\in\mathbb{R}$. Der Schnittpunkt von $\mathbf{g}$ mit der x-Achse ist im Fall $z_S\not = 0$ gegeben durch
+%
+\begin{eqnarray}
+0 = z_S + \gamma \frac{z_S}{c^2} \Rightarrow \gamma = -c^2.
+\end{eqnarray}
+%
+Für die x-Koordinate dieses Punktes erhält man
+%
+\begin{eqnarray}
+x = x_S\left(1 - c^2\right).
+\end{eqnarray}
+%
+Es gilt also
+%
+\begin{eqnarray}
+\tan\left(\varphi_S\right) = \frac{z_S}{x_Sc^2}.\label{eq:trafo_glo_zu_great_deriv_2}
+\end{eqnarray}
+%
+Mit Glg. \eqref{eq:def_ell_skal} folgt
+%
+\begin{eqnarray}
+z_S^2 = c^2\left(1 - x_S^2\right)
+\end{eqnarray}
+%
+und damit gilt
+%
+\begin{eqnarray}
+\tan\left(\varphi_S\right) & = & \frac{c\sqrt{1 - x_S^2}}{x_Sc^2} = \frac{\sqrt{1 - x_S^2}}{x_Sc}\Leftrightarrow \tan^2\left(\varphi_S\right) = \frac{1 - x_S^2}{x_S^2c^2}\Leftrightarrow x_S^2\left(c^2\tan^2\left(\varphi_S\right) + 1\right) = 1\nonumber\\
+\Leftrightarrow x_S^2 & = & \frac{\cos^2\left(\varphi_S\right)}{c^2\sin^2\left(\varphi_S\right) + \cos^2\left(\varphi_S\right)}.
+\end{eqnarray}
+%
+Mit $x_S>0$ folgt
+%
+\begin{eqnarray}
+x_S = \frac{\cos\left(\varphi_S\right)}{\sqrt{c^2\sin^2\left(\varphi_S\right) + \cos^2\left(\varphi_S\right)}}.\label{eq:trafo_glo_zu_great_deriv_3}
+\end{eqnarray}
+%
+Stellt man Glg. \eqref{eq:def_ell_skal} nach $x_S$ um, erhält man
+%
+\begin{eqnarray}
+x_S = \sqrt{1 - \frac{z^2}{c^2}}.
+\end{eqnarray}
+%
+Setzt man dies in Glg. \eqref{eq:trafo_glo_zu_great_deriv_2} ein, erhält man
+%
+\begin{eqnarray}
+\tan\left(\varphi_S\right) & = & \frac{z_S}{c^2\sqrt{1 - \frac{z_S^2}{c^2}}}\Leftrightarrow c^4\tan^2\left(\varphi_S\right)\left(1 - \frac{z_S^2}{c^2}\right) = z_S^2\nonumber\\
+\Leftrightarrow z_S^2\left(1 + c^2\tan^2\left(\varphi_S\right)\right) & = & c^4\tan^2\left(\varphi_S\right)\Leftrightarrow z_S^2 = \frac{c^4\sin^2\left(\varphi_S\right)}{\cos^2\left(\varphi_S\right) + c^2\sin^2\left(\varphi_S\right)}\nonumber\\
+\Leftrightarrow z_S & = & \sign\left(\varphi_S\right)\frac{c^2\sin\left(\varphi_S\right)}{\sqrt{\cos^2\left(\varphi_S\right) + c^2\sin^2\left(\varphi_S\right)}}.\label{eq:trafo_glo_zu_great_deriv_4}
+\end{eqnarray}
+%
+Es gilt somit
+%
+\begin{eqnarray}
+\frac{z_S}{x_S} = \frac{c^2}{a^2}\tan\left(\varphi\right), 
+\end{eqnarray}
+%
+mit der Verallgemeinerung $x_S\to\sqrt{x_S^2 + y_S^2}$ folgt Glg. \eqref{eq:eq:trafo_glo_zu_great_deriv_1}. 
+
+Nun soll noch ein expliziter Ausdruck für $D\left(\varphi\right)$ gefunden werden. Hierzu setzt man die Glg.en \eqref{eq:trafo_glo_zu_great_deriv_3} und \eqref{eq:trafo_glo_zu_great_deriv_4} mit $y = 0$ in Glg. \eqref{eq:trafo_glo_zu_great_deriv_5} ein:
+%
+\begin{eqnarray}
+&&D\left(\varphi_S\right) = \frac{\left|z_S\right|}{x_S^{1 + \mu}}\exp\left(-\frac{\nu}{2}\left(x_S^2 + z_S^2\right)\right)\nonumber\\
+&& = \frac{c^2\sin\left(\varphi_S\right)\left(\cos^2\left(\varphi_S\right) + c^2\sin^2\left(\varphi_S\right)\right)^{\mu/2}}{\left(\cos\left(\varphi_S\right)\right)^{1 + \mu}}\exp\left[-\frac{\nu}{2}\left(\frac{\cos^2\left(\varphi_S\right) + c^4\sin^2\left(\varphi_S\right)}{\cos^2\left(\varphi_S\right) + c^2\sin^2\left(\varphi_S\right)}\right)\right].
+\end{eqnarray}
+%
+Logarithmiert man dies, folgt
+%
+\begin{eqnarray}
+\ln\left[D\left(\varphi_S\right)\right] & = & 2\ln\left(c\right) + \ln\left(\sin\left(\varphi_S\right)\right) + \frac{\mu}{2}\ln\left(\cos^2\left(\varphi_S\right) + c^2\sin^2\left(\varphi_S\right)\right) - \left(1 + \mu\right)\ln\left(\cos\left(\varphi_S\right)\right)\nonumber\\
+&&- \frac{\nu}{2}\left(\frac{\cos^2\left(\varphi_S\right) + c^4\sin^2\left(\varphi_S\right)}{\cos^2\left(\varphi_S\right) + c^2\sin^2\left(\varphi_S\right)}\right).
+\end{eqnarray}
+%
+Somit erhält man
+%
+\begin{eqnarray}
+&&\frac{d\ln\left[D\left(\varphi\right)\right]}{d\varphi} = \frac{\cos\left(\varphi_S\right)}{\sin\left(\varphi_S\right)} + \frac{\mu}{2}\frac{ - 2\sin\left(\varphi_S\right)\cos\left(\varphi_S\right) + c^22\cos\left(\varphi_S\right)\sin\left(\varphi_S\right)}{\cos^2\left(\varphi_S\right) + c^2\sin^2\left(\varphi_S\right)} + \left(1 + \mu\right)\frac{\sin\left(\varphi_S\right)}{\cos\left(\varphi_S\right)}\nonumber\\
+&&- \frac{\nu}{2}\frac{\left(-2\cos\left(\varphi_S\right)\sin\left(\varphi_S\right) + 2c^4\cos\left(\varphi_S\right)\sin\left(\varphi_S\right)\right)\left(\cos^2\left(\varphi_S\right) + c^2\sin^2\left(\varphi_S\right)\right)}{\left(\cos^2\left(\varphi_S\right) + c^2\sin^2\left(\varphi_S\right)\right)^2}\nonumber\\
+&&+ \frac{\nu}{2}\frac{\left(\cos^2\left(\varphi_S\right) + c^4\sin^2\left(\varphi_S\right)\right)\left(-2\sin\left(\varphi_S\right)\cos\left(\varphi_S\right) + c^22\cos\left(\varphi_S\right)\sin\left(\varphi_S\right)\right)}{\left(\cos^2\left(\varphi_S\right) + c^2\sin^2\left(\varphi_S\right)\right)^2}\nonumber\\
+& = & \frac{1}{\sin\left(\varphi_S\right)}\left(\cos\left(\varphi_S\right) + \frac{\sin^2\left(\varphi_S\right)}{\cos\left(\varphi_S\right)}\right) + \mu\sin\left(\varphi_S\right)\cos\left(\varphi_S\right)\frac{c^2 - 1 + 1 + c^2\tan^2\left(\varphi_S\right)}{\cos^2\left(\varphi_S\right) + c^2\sin^2\left(\varphi_S\right)}\nonumber\\
+&&+ \nu\frac{\left(\cos\left(\varphi_S\right)\sin\left(\varphi_S\right) - c^4\cos\left(\varphi_S\right)\sin\left(\varphi_S\right)\right)\left(\cos^2\left(\varphi_S\right) + c^2\sin^2\left(\varphi_S\right)\right)}{\left(\cos^2\left(\varphi_S\right) + c^2\sin^2\left(\varphi_S\right)\right)^2}\nonumber\\
+&&+ \nu\frac{\left(\cos^2\left(\varphi_S\right) + c^4\sin^2\left(\varphi_S\right)\right)\left(-\sin\left(\varphi_S\right)\cos\left(\varphi_S\right) + c^2\cos\left(\varphi_S\right)\sin\left(\varphi_S\right)\right)}{\left(\cos^2\left(\varphi_S\right) + c^2\sin^2\left(\varphi_S\right)\right)^2}\nonumber\\
+& = & \frac{1}{\sin\left(\varphi_S\right)\cos\left(\varphi_S\right)} + \mu\tan\left(\varphi_S\right)\frac{c^2}{\cos^2\left(\varphi_S\right) + c^2\sin^2\left(\varphi_S\right)}\nonumber\\
+&&+ \nu\frac{\sin\left(\varphi_S\right)\cos\left(\varphi_S\right)\left(c^2\left(\sin^2\left(\varphi_S\right) + \cos^2\left(\varphi_S\right)\right) + c^4\left(-\sin^2\left(\varphi_S\right) - \cos^2\left(\varphi_S\right)\right)\right)}{\left(\cos^2\left(\varphi_S\right) + c^2\sin^2\left(\varphi_S\right)\right)^2}\nonumber\\
+& = & \frac{1}{\sin\left(\varphi_S\right)\cos\left(\varphi_S\right)} + \mu\tan\left(\varphi_S\right)\frac{c^2}{\cos^2\left(\varphi_S\right) + c^2\sin^2\left(\varphi_S\right)} + \nu\frac{\sin\left(\varphi_S\right)\cos\left(\varphi_S\right)c^2\left(1 - c^2\right)}{\left(\cos^2\left(\varphi_S\right) + c^2\sin^2\left(\varphi_S\right)\right)^2}.
+\end{eqnarray}
+%
+Die Transformation der Differenzialoperatoren kann nun durchgeführt werden. Dies wird hier jedoch nicht mehr gemacht, da analytische Rechnungen in Kugelkoordinaten vorgenommen werden und es für die Transformation der Differenzialoperatoren auf das Modellgitter auch nicht in Gänze benötigt wird.
+
+\subsection{Lamb-Transformation in GREAT-Koordinaten}
+\label{sec:lamb-transformation_in_great-koordinaten}\index{Lamb-Transformation!GREAT-Koordinaten}\index{GREAT-Koordinaten!Lamb-Transformation}
+
+\section{Ellipsoidische Geometrie}
+\label{sec:ellipsoidische_geometrie}\index{ellipsoidische Geometrie}\index{Geometrie!ellipsoidische}
+
+\subsection{Ellipsoidische Geodäten}
+\label{sec:ellipsoidische_geodaeten}
+
+\subsection{Ellipsoidische Dreiecke}
+\label{sec:ellipsoidische_dreiecke}
+
+\subsection{Ellipsoidische Voronoi-Gitter}
+\label{sec:ellipsoidische_voronoi-gitter}\index{Voronoi-Gitter!ellipsoidisches}\index{ellipsoidisches Voronoi-Gitter}
 
 \section{Orthogonale Funktionensysteme}
 \label{sec:orthogonale_funktionensysteme}\index{orthogonale Funktionensysteme}\index{Funktionensysteme!orthogonale}
