@@ -14245,7 +14245,8 @@ Ein Gitter heißt orthogonal\index{Orthogonalität!eines Gitters}\index{Gitter!O
 
 Es gibt nur fünf platonische Körper. Dementsprechend existieren nur fünf uniforme Gitter auf der Kugel. Diese entstehen aus den platonischen Körpern, indem man ihre Ecken vom Mittelpunkt auf die Kugeloberfläche projiziert. All diese Gitter sind zu grob für ein Atmosphärenmodell. Daher haben alle verwendbaren Gitter irgendwo Punkte, Linien oder Flächen, an denen die lokale Gitterstruktur von der allgemeinen Struktur abweicht. An diesen Stellen sind die Fehler der Diskretisierung ebenfalls anders, was zu einer Sichtbarkeit des Gitters in der Lösung führen kann oder Wellen erzeugen kann, die als Lärm durch die Lösung propagieren. 
 
-\chapter{Zeitschrittverfahren}
+
+\chapter{\normalfont\textsc{Zeitschrittverfahren}}
 \label{chap:zeitschrittverfahren}\index{Zeitschrittverfahren}
 
 In diesem Kapitel soll verständlich gemacht werden, wie sich die zeitliche Disktretisierung einer linearen Differenzialgleichung auf die Dispersionsrelation und die Stabilität einer Wellenlösung auswirken kann. Es wird die lineare Advektionsgleichung 
@@ -15209,8 +15210,17 @@ Hiermit sind die Glg.en \eqref{eq:linear_condition_trivariate_discrete_0} - \eqr
 \section{Vergleich quasi-uniformer sphärischer C-Gitter}
 \label{sec:vergleich_quasi-uniformer_sphaerischer_c-gitter}
 
-\chapter{\normalfont\textsc{Entwicklung eines globalen dynamischen Kerns}}
-\label{chap:entwicklung_eines_globalen_dynamischen_kerns}\index{dynamischer Kern}\index{Kern!dynamischer}
+\chapter{\normalfont\textsc{Datenassimilation}}
+\label{chap:datenassimilation}\index{Datenassimilation}
+
+\section{3D-Var}
+\label{sec:3d-var}\index{3D-Var}
+
+\section{4D-Var}
+\label{sec:4d-var}\index{4D-Var}
+
+\chapter{\normalfont\textsc{Entwicklung eines dynamischen Kerns}}
+\label{chap:entwicklung_eines_dynamischen_kerns}\index{dynamischer Kern}\index{Kern!dynamischer}
 
 Der Begriff \textit{dynamischer Kern}\index{dynamischer Kern}\index{Kern!dynamischer} wird häufig nicht präzise definiert, was hier jedoch getan werden soll. Dazu werden verschiedene Unterkomponenten definiert:
 %
@@ -15925,6 +15935,9 @@ Es ergibt sich also die gleiche Dispersionsrelation wie Glg. \eqref{eq:velocity_
 \section{Betrachtung der EPV-Advektion}
 \label{sec:betrachtung_der_epv-advektion}\index{EPV-Advektion!im Modell}\index{Modell!EPV-Advektion}
 
+\section{Regionaler Modus}
+\label{sec:regionaler_modus}
+
 \section{Tests}
 \label{sec:tests}
 
@@ -15952,6 +15965,9 @@ Der Jablonowski-Williamson-Test \cite{jablonowski} (im Folgenden JW-Test genannt
 
 \subsubsection{Bewegte Atmosphäre}
 \label{sec:bewegte_atmosphaere}
+
+\subsection{Superzelle}
+\label{sec:superzelle}
 
 \section{Horizontale Diffusion}
 \label{sec:horizontale_diffusion}\index{horizontale Diffusion}\index{Diffusion!horizontale}
@@ -15994,11 +16010,14 @@ Der Jablonowski-Williamson-Test \cite{jablonowski} (im Folgenden JW-Test genannt
 
 Führt man $N \geq 1$ Tracer ein (also Anteile der Luft, die nicht zur trockenen Luft gehören), von denen $1 \leq N_C \leq N$ kondensiert sind, so benötigt man $N$ zusätzliche Kontinuitätsgleichungen und $N_C$ zusätzliche Erste Hauptsätze der Thermodynamik. Für die gasförmigen Komponenten sind keine zusätzlichen Ersten Hauptsätze notwendig, anstattdessen muss man den Hauptsatz für trockene Luft modifizieren. Der Druckgradientterm in der Impulsgleichung ist mit $\frac{\rho_h}{\rho}$ zu multiplizieren, um die Massenträgheit der Kondensate zu berücksichtigen.
 
-\section{Weiterführende Aspekte}
-\label{sec:weiterfuehrende_aspekte}
+\subsection{Limiter}
+\label{sec:limiter}\index{Limiter}
 
-\subsection{Strahlung}
-\label{sec:strahlung}\index{Strahlung!in Modellen}
+\section{Model output statistics (MOS)}
+\label{sec:model_output_statistics_mos}\index{model output statistics}
+
+\chapter{\normalfont\textsc{Strahlungstransportalgorithmen}}
+\label{chap:strahlungstransportalgorithmen}\index{Strahlung!in Modellen}
 
 Strahlung wird in Modellen durch separate Simulationen, sogenannte \textit{Strahlungstransportmodelle}\index{Strahlungstransportmodell} behandelt. Dies läuft in folgenden Schritten ab, gegebenenfalls ist das Vorgehen in der konkreten Implementierung leicht modifiziert:
 %
@@ -16010,11 +16029,6 @@ Strahlung wird in Modellen durch separate Simulationen, sogenannte \textit{Strah
 \end{itemize}
 %
 Da das Lösen der Strahlungsübertragungsgleichung\index{Strahlungsübertragungsgleichung} zu einem globalen linearen Gleichungssystem führen würde, unterteilt man die Atmosphäre hierzu in nicht wechselwirkende Säulen ein, die mindestens so eine horizontale Ausdehnung haben, wie eine Gitterzelle.
-
-\subsection{Model output statistics (MOS)}
-\label{sec:model_output_statistics_mos}\index{model output statistics}
-
-
 
 \part{Anhang}
 \label{part:anhang}
@@ -20427,7 +20441,7 @@ Mit Glg. \eqref{eq:int_prop_1} folgt
 \end{eqnarray}
 %
 \subsection{Kugelflächenfunktionen}
-\label{sec:spherical_harmionen}\index{Kugelflächenfunktion}
+\label{sec:kugelflaechenfunktionen}\index{Kugelflächenfunktion}
 
 Die Abhängigkeiten der Lösung Glg. \eqref{eq:ansatz_poisson} von $\cos\left(\theta\right)$ und $\phi$ fasst man zu $P_{l, m}\left(\cos\left(\theta\right)\right)\exp\left(im\phi\right)$ zusammen. Die \textit{Kugelflächenfunktionen} (engl. \textit{spherical harmonics}) werden definiert durch
 %
@@ -20558,6 +20572,9 @@ Aus Glg. \eqref{eq:legendre_ass_prop_3} folgt
 & = & \sqrt{\frac{1}{4l^2 - 1}\left(l - m - 1\right)\left(l - m\right)}e^{-i\phi}Y_{l - 1, m + 1}\nonumber\\
 && -\sqrt{\frac{1}{4l^2 + 8l + 3}\left(l + m + 1\right)\left(l + m + 2\right)}e^{-i\phi}Y_{l + 1, m + 1}.\label{eq:spherical_harm_prop_3}
 \end{eqnarray}
+
+\subsubsection{Produkte}
+\label{sec:proukte}\index{Kugelflächenfunktion!Produkte}\index{Produkt!von Kugelflächenfunktionen}
 
 \subsection{Komplexe Exponentialfunktionen}
 \label{sec:komplexe_exponentialfunktionen}\index{komplexe Exponentialfunktion}\index{Exponentialfunktion!komplexe}
