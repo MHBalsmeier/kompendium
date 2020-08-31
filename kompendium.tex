@@ -6929,6 +6929,18 @@ Der ortsabhängige Term $-\omegabi\times\left(\omegabi\times
 \subsection{Stress-Tensor}
 \label{sec:stress-tensor}\index{Stress-Tensor}
 
+Als \textit{stress}\index{Stress} bezeichnet man alle Kräfte, die ein Fluid auf sich selber ausübt. O. B. d. A. stelle man sich einen Würfel vor, dessen Seiten parallel zu den Koordinatenflächen\index{Koordinatenfläche} eines kartesichen Koordinatensystems\index{kartesisches Koordinatensystem}\index{Koordinatensystem!kartesisches} seien. Der Stress wird duch den \textit{Stress-Tensor}\index{Stress-Tensor}
+%
+\begin{eqnarray}
+\overleftrightarrow{T} = \left(\begin{array}{ccc}
+T_{x, x} & T_{x, y} & T_{x, z} \\
+T_{y, x} & T_{y, y} & T_{y, z} \\
+T_{z, x} & T_{z, y} & T_{z, z} \\
+\end{array}\right)
+\end{eqnarray}
+%
+beschrieben. Die Elemente dieses Tensors haben die Dimension eine Drucks (Kraft pro Fläche). Die $i-$te Zeile von $\overleftrightarrow{T}$ beschreibt Kräfte, die auf die Flächen des Würfels (anti)parallel zur $i-$Achse wirken. Die Eintrag in $j-$ten Spalte bezeichnet die in $j-$Richtung auf diese Fläche wirkende Kraft, falls die Normale der betrachteten Fläche parallel zur $i-$Achse ist, ansonsten sind die Vorzeichen vertauscht. Dies bewirkt, dass komprimierende Kräfte immer positiv sind.
+
 Der Stress-Tensor\index{Stress-Tensor} lautet also
 %
 \begin{center}
@@ -6950,6 +6962,21 @@ p - 2\mu\frac{\partial u}{\partial x} - \left(\mu_v - \frac{2}{3}\mu\right)\nabl
 -\mu\left(\frac{\partial w}{\partial x} + \frac{\partial u}{\partial z}\right) & -\mu\left(\frac{\partial w}{\partial y} + \frac{\partial v}{\partial z}\right) & p - 2\mu\frac{\partial w}{\partial z} - \left(\mu_v - \frac{2}{3}\mu\right)\nabla\cdot\mathbf{v}
 \end{array}\right).
 \end{eqnarray}
+%
+Für die Reibung werden häufig andere als der mit Glg. \eqref{eq:friction_acceleration} erhaltene Ausdruck verwendet. Daher wird in den Herleitungen von nun an meist ein allgemeiner Ausdruck
+%
+\begin{eqnarray}
+\mathbf{F}_R = \left(\begin{array}{c}
+F_{R,x}\\
+F_{R,y}\\
+F_{R,z}
+\end{array}\right) \equiv \left(\begin{array}{c}
+\mathbf{F}_R^{(H)}\\
+F_{R,z}
+\end{array}\right)
+\end{eqnarray}
+%
+für die Reibungsbeschleunigung mitgeführt. Dies ist trotz der relativen Kleinheit der Reibung in der Atmosphäre aufgrund der ihrer Bedeutung für die Energiekaskade sinnvoll.
 
 \subsubsection{Inkompressibler Grenzfall}
 \label{sec:inkompressibler_grenzfall}\index{Stress-Tensor!Grenzfall!inkompressibler}\index{Stress-Tensor!inkompressibler Grenzfall}
@@ -6997,21 +7024,6 @@ beide Vorzeichen haben. Es ist in Fluiden also möglich, dass die Reibung kineti
 
 Eine Skalenanalyse der Reibungsbeschleunigung für die synoptische Skala ergibt $10^{-5}10^{-11} = 10^{-16}$ m/s$^2$, die typische Beschleunigung ist $10^{-4}$ m/s$^2$, die Reibung ist also auf der synoptischen Skala zwölf Größenordnungen kleiner als die Beschleunigung und damit komplett vernachlässigbar. Sie hat nichtsdestotrotz eine wichtige thermodynamische Bedeutung, da sie für die Dissipation kinetischer Energie verantwortlich ist. Die dissipierte kinetische Energie wird in thermische Energie umgewandelt. Fluide ohne Reibung bezeichnet man als \textit{ideale Fluide}\index{ideales Fluid}\index{Fluid!ideales}.
 
-Für die Reibung werden häufig andere als der mit Glg. \eqref{eq:friction_acceleration} erhaltene Ausdruck verwendet. Daher wird in den Herleitungen von nun an meist ein allgemeiner Ausdruck
-%
-\begin{eqnarray}
-\mathbf{F}_R = \left(\begin{array}{c}
-F_{R,x}\\
-F_{R,y}\\
-F_{R,z}
-\end{array}\right) \equiv \left(\begin{array}{c}
-\mathbf{F}_R^{(H)}\\
-F_{R,z}
-\end{array}\right)
-\end{eqnarray}
-%
-für die Reibungsbeschleunigung mitgeführt. Dies ist trotz der relativen Kleinheit der Reibung in der Atmosphäre aufgrund der ihrer Bedeutung für die Energiekaskade sionnvoll.
-
 \subsection{Addition der Kräfte}
 \label{sec:addition_der_kraefte}\index{Impulsgleichung}
 
@@ -7021,7 +7033,7 @@ Setzt man Glg. \eqref{eq:transformkraft} und Glg. \eqref{eq:friction_acceleratio
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{eqnarray}
-\md{\mathbf{v}} = -\frac{1}{\rho}\nabla p + \mathbf{v}\times\mathbf{f} + \mathbf{g} + \nu\Delta\mathbf{v}.\label{eq:momentum}
+\md{\mathbf{v}} = -\frac{1}{\rho}\nabla p + \mathbf{v}\times\mathbf{f} + \mathbf{g} + \mathbf{F}_R.\label{eq:momentum}
 \end{eqnarray}
 \end{center}
 }}
