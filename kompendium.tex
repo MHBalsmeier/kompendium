@@ -6968,25 +6968,135 @@ T_{1, 2} = T_{2, 1}.
 %
 Diese Annahme ist vergleichbar mit dem Konzept der quasistatischen Zunstandsänderung\index{quasistatische Zunstandsänderung}\index{Zunstandsänderung!quasistatische} in der statistischen Physik\index{statistische Physik}\index{Physik!statistische}. Durch Änderung der Ausrichtung des Koordinatensystems gilt dies auch für alle anderen nichtdiagonalen Indizes, $\overleftrightarrow{T}$ ist also symmetrisch. Somit muss auch der Tensor $\overleftrightarrow{\tau}$ symmetrisch sein.
 
-Der Stress-Tensor\index{Stress-Tensor} lautet also
+Die Größe $\frac{\partial v_i}{\partial x_j}$ bezeichnet man als \textit{Geschwindigkeitsgradiententensor}\index{Geschwindigkeitsgradiententensor}. Für diesen kann man notieren
+%
+\begin{eqnarray}
+\frac{\partial v_i}{\partial x_j} = S_{i, j} + \frac{1}{2}R_{i, j}
+\end{eqnarray}
+%
+mit
+\begin{eqnarray}
+S_{i, j} & \coloneqq & \frac{1}{2}\left(\frac{\partial v_i}{\partial x_j} + \frac{\partial v_j}{\partial x_i}\right),\label{eq:def_strain_tensor}\\
+R_{i, j} & \coloneqq & \frac{\partial v_i}{\partial x_j} - \frac{\partial v_j}{\partial x_i}.
+\end{eqnarray}
+%
+$S_{i, j}$ bezeichnet man als \textit{Spannungstensor}\index{Spannungstensor}, dieser ist symmetrisch, und $R_{i, j}$ als \textit{Rotationstensor}\index{Rotationstensor}, dieser ist antisymmetrisch. Die Elemente des Rotationstensors\index{Rotationstensor} entsprechen der Rotation von Fluidteilchen, aber keiner Verformung oder Beschleunigung. Nur die Elemente des Spannungstensors\index{Spannungstensor} sind also relevant für den Stress\index{stress}. Daher kann man notieren
+%
+\begin{eqnarray}
+\tau_{i, j} = \sum_{n, m}K_{i, j, m, n}S_{m, n}\label{eq:strain_to_stress}
+\end{eqnarray}
+%
+mit einem komplexen Tensor\index{Tensor} vierter Stufe $\overleftrightarrow{K}$, dessen Elemente beschreiben wie das Fluid auf Verformungen reagiert. Die Summen laufen von eins bis drei. Durch diese Formulierung kann man paarweise alle Elemente von $\overleftrightarrow{\tau}$ mit allen Elementen von $\overleftrightarrow{S}$ linear verknüpfen.
+
+Geht man von einem Medium aus, dessen Materialeigenschaften richtungsunabhängig sind, was für ideale Gase der Fall ist, muss $\overleftrightarrow{K}$ von der Orientierung des Koordinantensystems unabhängig sein. Dies impliziert, dass $\overleftrightarrow{K}$ isotrop\index{Isotropie} ist. Ein isotroper Tensor\index{isotroper Tensor}\index{Tensor!isotroper} vierter Stufe hat die Form
+%
+\begin{eqnarray}
+K_{i, j, m, n} = \lambda\delta_{i, j}\delta_{m, n} + \mu\delta_{i, m}\delta_{j, n} + \gamma\delta_{i, n}\delta_{j, m},
+\end{eqnarray}
+%
+wobei $\lambda, \mu, \gamma \in \mathbb{C}$ skalare sind. Da sowohl $\overleftrightarrow{\tau}$ als auch $\overleftrightarrow{S}$ symmetrisch sind, ändern sie sich bei Vertauschung von $i$ und $j$ nicht. Gleiches muss also auch für $\overleftrightarrow{K}$ gelten. Dies impliziert
+%
+\begin{eqnarray}
+\gamma = \mu.
+\end{eqnarray}
+%
+Dies führt auf
+%
+\begin{eqnarray}
+K_{i, j, m, n} = \lambda\delta_{i, j}\delta_{m, n} + 2\mu\delta_{i, m}\delta_{j, n}.
+\end{eqnarray}
+%
+$\mu$ bezeichnet man als \textit{dynamische Viskosität}\index{dynamische Viskosität}\index{Viskosität!dynamische}. Setzt man dies in Glg. \eqref{eq:strain_to_stress} ein, erhält man
+%
+\begin{eqnarray}
+\tau_{i, j} = \sum_{n, m}\left(\lambda\delta_{i, j}\delta_{m, n} + 2\mu\delta_{i, m}\delta_{j, n}\right)S_{m, n} = \lambda\delta_{i, j}\sum_{m}S_{m, m} + 2\mu S_{i, j}.
+\end{eqnarray}
+%
+Aus Glg. \eqref{eq:def_strain_tensor} folgt
+%
+\begin{eqnarray}
+\sum_{m}S_{m, m} = \nabla\cdot\mathbf{v}.
+\end{eqnarray}
+%
+Somit gilt
+%
+\begin{eqnarray}
+T_{i, j} = -p\delta_{i, j} + \lambda\delta_{i, j}\nabla\cdot\mathbf{v} + 2\mu S_{i, j}\label{eq:stress_tensor_deriv_0}
+\end{eqnarray}
+%
+Für $i = j$ erhält man hieraus
+%
+\begin{eqnarray}
+T_{i, i} = -p + \lambda\nabla\cdot\mathbf{v} + 2\mu S_{i, i}.
+\end{eqnarray}
+%
+Summiert man dies über $i = 1, 3$, folgt
+%
+\begin{eqnarray}
+\sum_{i}T_{i, i} & = & -3p + \left(2\mu + 3\lambda\right)\nabla\cdot\mathbf{v}\nonumber\\
+\Rightarrow p = -\frac{1}{3}T_{i, i} + \sum_{i}T_{i, i} + \left(\frac{2}{3}\mu + \lambda\right)\nabla\cdot\mathbf{v}.
+\end{eqnarray}
+%
+Hieraus lässt sich in Abgrenzung zum thermodynamischen Druck ein \textit{mittlerer Druck}\index{mittlerer Druck}\index{Druck mittlerer}
+%
+\begin{eqnarray}
+\newoverline{p} \coloneqq -\frac{1}{3}T_{i, i}
+\end{eqnarray}
+%
+ableiten. Für diesen gilt
+%
+\begin{eqnarray}
+p - \newoverline{p} = \sum_{i}T_{i, i} + \left(\frac{2}{3}\mu + \lambda\right)\nabla\cdot\mathbf{v}.
+\end{eqnarray}
+%
+Man definiert nun die \textit{Bulk-Viskosität}\index{Bulk-Viskosität} $\mu_v$ durch
+%
+\begin{eqnarray}
+\mu_v & \coloneqq & \frac{2}{3}\mu + \lambda\\
+\Rightarrow p - \newoverline{p} = \sum_{i}T_{i, i} + \mu_v\nabla\cdot\mathbf{v}.
+\end{eqnarray}
+%
+Die \index{Stokes-Annahme}\textit{Stokes-Annahme}
+%
+\begin{eqnarray}
+\mu_v = 0
+\end{eqnarray}
+%
+ist oft gerechtfertigt.
+
+F+r die Materialkonstante $\lambda$ erhält man in Termen der Bulk-Viskosität\index{Bulk-Viskosität}
+%
+\begin{eqnarray}
+\lambda = \mu_v - \frac{2}{3}\mu
+\end{eqnarray}
+%
+Setzt man dies in Glg. \eqref{eq:stress_tensor_deriv_0} ein, erhält man
+%
+\begin{eqnarray}
+T_{i, j} = -p\delta_{i, j} + \left(\mu_v - \frac{2}{3}\mu\right)\delta_{i, j}\nabla\cdot\mathbf{v} + 2\mu S_{i, j}.
+\end{eqnarray}
+%
+Eine weitere Schreibweise lautet
 %
 \begin{center}
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{eqnarray}
-T_{i, j} = p\delta_{i, j} - \tau_{i, j} = p\delta_{i, j} - 2\mu\left(S_{i, j} - \frac{1}{3}S_{m, m}\delta_{i, j}\right) + \mu_vS_{m, m}\delta_{i, j}.
+T_{i, j} = -p\delta_{i, j} + \tau_{i, j} = -p\delta_{i, j} + 2\mu\left(S_{i, j} - \frac{1}{3}\nabla\cdot\mathbf{v}\delta_{i, j}\right) + \mu_v\nabla\cdot\mathbf{v}\delta_{i, j}.\label{eq:stress-tensor}
 \end{eqnarray}
 \end{center}
 }}
 \end{center}
+%
+Die Annahme, dass $\overleftrightarrow{T}$ linear von $\overleftrightarrow{S}$ abhängt, ist eine Approximation, die für die meisten Fluide stimmt. Solche Fluide bezeichnet man als \textit{Newton'sche Fluide}\index{Newton'sches Fluid}\index{Fluid!Newton'sches}.
 
-In kartesischen Koordinaten mit $\mathbf{v} = \left(u, v, w\right)^T$ wird dies zu
+In kartesischen Koordinaten mit $\mathbf{v} = \left(u, v, w\right)^T$ wird Glg. \eqref{eq:stress-tensor} zu
 %
 \begin{eqnarray}
 \overleftrightarrow{T} = \left(\begin{array}{ccc}
-p - 2\mu\frac{\partial u}{\partial x} - \left(\mu_v - \frac{2}{3}\mu\right)\nabla\cdot\mathbf{v} & -\mu\left(\frac{\partial u}{\partial y} + \frac{\partial v}{\partial x}\right) & -\mu\left(\frac{\partial u}{\partial z} + \frac{\partial x}{\partial x}\right) \\
--\mu\left(\frac{\partial v}{\partial x} + \frac{\partial u}{\partial y}\right) & p - 2\mu\frac{\partial v}{\partial y} - \left(\mu_v - \frac{2}{3}\mu\right)\nabla\cdot\mathbf{v} & -\mu\left(\frac{\partial v}{\partial z} + \frac{\partial w}{\partial y}\right) \\
--\mu\left(\frac{\partial w}{\partial x} + \frac{\partial u}{\partial z}\right) & -\mu\left(\frac{\partial w}{\partial y} + \frac{\partial v}{\partial z}\right) & p - 2\mu\frac{\partial w}{\partial z} - \left(\mu_v - \frac{2}{3}\mu\right)\nabla\cdot\mathbf{v}
+-p + 2\mu\frac{\partial u}{\partial x} + \left(\mu_v - \frac{2}{3}\mu\right)\nabla\cdot\mathbf{v} & \mu\left(\frac{\partial u}{\partial y} + \frac{\partial v}{\partial x}\right) & \mu\left(\frac{\partial u}{\partial z} + \frac{\partial x}{\partial x}\right)\\
+\mu\left(\frac{\partial v}{\partial x} + \frac{\partial u}{\partial y}\right) & -p + 2\mu\frac{\partial v}{\partial y} + \left(\mu_v - \frac{2}{3}\mu\right)\nabla\cdot\mathbf{v} & \mu\left(\frac{\partial v}{\partial z} + \frac{\partial w}{\partial y}\right)\\
+\mu\left(\frac{\partial w}{\partial x} + \frac{\partial u}{\partial z}\right) & \mu\left(\frac{\partial w}{\partial y} + \frac{\partial v}{\partial z}\right) & -p + 2\mu\frac{\partial w}{\partial z} + \left(\mu_v - \frac{2}{3}\mu\right)\nabla\cdot\mathbf{v}
 \end{array}\right).
 \end{eqnarray}
 %
