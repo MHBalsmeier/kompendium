@@ -6939,7 +6939,34 @@ T_{z, x} & T_{z, y} & T_{z, z} \\
 \end{array}\right)
 \end{eqnarray}
 %
-beschrieben. Die Elemente dieses Tensors haben die Dimension eine Drucks (Kraft pro Fläche). Die $i-$te Zeile von $\overleftrightarrow{T}$ beschreibt Kräfte, die auf die Flächen des Würfels (anti)parallel zur $i-$Achse wirken. Die Eintrag in $j-$ten Spalte bezeichnet die in $j-$Richtung auf diese Fläche wirkende Kraft, falls die Normale der betrachteten Fläche parallel zur $i-$Achse ist, ansonsten sind die Vorzeichen vertauscht. Dies bewirkt, dass komprimierende Kräfte immer positiv sind.
+beschrieben. Die Elemente dieses Tensors haben die Dimension eine Drucks (Kraft pro Fläche). Die $i-$te Zeile von $\overleftrightarrow{T}$ beschreibt Kräfte, die auf die Flächen des Würfels (anti)parallel zur $i-$Achse wirken. Die Eintrag in $j-$ten Spalte bezeichnet die in $j-$Richtung auf diese Fläche wirkende Kraft, falls die Normale der betrachteten Fläche parallel zur $i-$Achse ist, ansonsten sind die Vorzeichen vertauscht. Dies bewirkt, dass komprimierende Kräfte immer negativ sind.
+
+Zunächst wird der Fall eines ruhenden Fluides betrachtet. In diesem Fall muss der Stress isotrop sein. Er entspricht dem Druck $p$, für den Stress-Tensor gilt in diesem Fall also
+%
+\begin{eqnarray}
+T_{i, j} = -p\delta_{i, j}.
+\end{eqnarray}
+%
+Das Vorzeichen ergibt sich aus der Konvention, dass komprimierende Kräfte immer negativ sind. Man notiert nun die Zerlegung
+%
+\begin{eqnarray}
+\overleftrightarrow{T} = -p + \overleftrightarrow{\tau}.
+\end{eqnarray}
+%
+Man stelle sich ein Fluidteilchen $\left[-\frac{\Delta}{2}, \frac{\Delta}{2}\right]^3$ mit $\Delta > 0$ vor. Die z-Komponente $D_z$ des auf dieses Teilchen wirkenden Drehmomentes $\mathbf{D}$ ist proportional zu
+%
+\begin{eqnarray}
+D_z & \propto & T_{1, 2} + \frac{\Delta}{2}\frac{\partial T_{1, 2}}{\partial x} + T_{1, 2} - \frac{\Delta}{2}\frac{\partial T_{1, 2}}{\partial x} - \left(T_{2, 1} + \frac{\Delta}{2}\frac{\partial T_{2, 1}}{\partial y} + T_{2, 1} - \frac{\Delta}{2}\frac{\partial T_{2, 1}}{\partial y}\right)\nonumber\\
+& = & 2T_{1, 2} - 2T_{2, 1},
+\end{eqnarray}
+%
+wobei die Werte von $\overleftrightarrow{T}$ im Mittelpunkt des Koordinatensystems ausgewertet werden. Unter der Annahme eines verschwindenden Drehmomentes gilt
+%
+\begin{eqnarray}
+T_{1, 2} = T_{2, 1}.
+\end{eqnarray}
+%
+Diese Annahme ist vergleichbar mit dem Konzept der quasistatischen Zunstandsänderung\index{quasistatische Zunstandsänderung}\index{Zunstandsänderung!quasistatische} in der statistischen Physik\index{statistische Physik}\index{Physik!statistische}. Durch Änderung der Ausrichtung des Koordinatensystems gilt dies auch für alle anderen nichtdiagonalen Indizes, $\overleftrightarrow{T}$ ist also symmetrisch. Somit muss auch der Tensor $\overleftrightarrow{\tau}$ symmetrisch sein.
 
 Der Stress-Tensor\index{Stress-Tensor} lautet also
 %
