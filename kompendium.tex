@@ -13944,11 +13944,11 @@ Dabei ist der horizontale Diffusionskoeffizient größer als der vertikale.
 \section{Turbulenzspektren}
 \label{sec:turbulenzspektren}\index{Turbulenzspektrum}
 
-\subsection{Das -3-Spektrum}
-\label{sec:das_-3-spektrum}\index{-3-Spektrum}
-
 \subsection{Das -5/3-Spektrum}
 \label{sec:das_-5/3-spektrum}\index{-5/3-Spektrum}
+
+\subsection{Das -3-Spektrum}
+\label{sec:das_-3-spektrum}\index{-3-Spektrum}
 
 \section{Energiekaskade}
 \label{sec:energiekaskade}\index{Energiekaskade}
@@ -16184,8 +16184,8 @@ Da das Lösen der Strahlungsübertragungsgleichung\index{Strahlungsübertragungs
 
 \appendix
 
-\chapter{\normalfont\textsc{Mathematische Grundlagen}}
-\label{chap:mathematische_grundlagen}\index{mathematische Grundlage}\index{Grundlage!mathematische}
+\chapter{\normalfont\textsc{Grundlagen}}
+\label{chap:grundlagen}
 
 \section{cgs-System}
 \label{sec:cgssystem}\index{cgs-System}
@@ -17081,52 +17081,9 @@ also steht $\mathbf{B}_\perp$ in der Tat senkrecht auf $\mathbf{A}$. Mit Glg. \e
 \Rightarrow \mathbf{B}_\perp & = & \frac{1}{A^2}\mathbf{A}\times\left(\mathbf{B}\times\mathbf{A}\right).
 \end{eqnarray}
 
-\section{Konvention über Koordinatensysteme}
-\label{sec:konvention_ueber_koordinatensysteme}\index{Konvention!über Koordinatensysteme}\index{Koordinatensystem!Konvention}
+\chapter{\normalfont\textsc{Vektoranalysis}}
+\label{chap:vektoranalysis}\index{Vektoranalysis}
 
-\subsection{Ruhende Koordinaten}
-\label{sec:ruhende_koordinaten}\index{ruhende Koordinaten}\index{Koordinatensystem!ruhendes}
-
-Hier wählt man eine Basis $\mathbf{e}_1, \mathbf{e}_2, \mathbf{e}_3$, die am Erdmittelpunkt steht und nicht mit der Erde mitrotiert. $\mathbf{e}_1$ und $\mathbf{e}_2$ liegen dabei in der Äquatorebene, $\mathbf{e}_3$ zeigt in Richtung Nordpol. Das Windfeld $\mathbf{v}$ wird als
-%
-\begin{eqnarray}
-\mathbf{v} = u_1\mathbf{e}_1 + u_2\mathbf{e}_2 + u_3\mathbf{e}_3
-\end{eqnarray}
-%
-geschrieben. Das Windfeld ist dabei nicht gleich der in diesem System gemessenen Teilchenbewegung, da noch die Rotation der Erde überlagert ist.
-%
-\begin{center}
-Teilchenbewegung in ruhenden Koordinaten = Windfeld + Erdrotation
-\end{center}
-%
-\subsection{Globale Koordinaten}
-\label{sec:globale_koordinaten}\index{globale Koordinaten}\index{Koordinatensystem!globales}
-
-Hier wählt man eine Basis $\mathbf{e}_x, \mathbf{e}_y, \mathbf{e}_z$, die genau wie die Basis der ruhenden Koordinaten am Erdmittelpunkt steht, jedoch mitrotiert. $\mathbf{e}_x$ zeigt in Richtung des Schnittpunkts zwischen Nullmeridian und Äquator, $\mathbf{e}_y$ zeigt in Richtung des Schnittpunkts zwischen neunzigstem Längengrad und Äquator und $\mathbf{e}_z$ zeigt in Richtung Nordpol. Das Windfeld schreibt man als
-%
-\begin{eqnarray}
-\mathbf{v} = u_x\mathbf{e}_x + u_y\mathbf{e}_y + u_z\mathbf{e}_z.
-\end{eqnarray}
-%
-\subsection{Geographische Koordinaten}
-\label{sec:geographische_koordinaten}\index{geographische Koordinaten}\index{Koordinatensystem!geographisches}
-
-Alternativ kann man auch \textit{geographische Koordinaten} $\left(r, \varphi, \lambda\right)$ verwenden, hierbei ist $r\geq 0$ der Abstand vom Mittelpunkt der Erde, $-\pi/2\leq \varphi\leq\pi/2$ der Winkel, den ein Punkt mit der Äquatorebene einschließt (die geographische Breite unter Annahme einer kugelförmigen Erde) und $0\leq\lambda<2\pi$ der Winkel, den ein Punkt mit der xz-Ebene einschließt (die geographische Länge). Dies lässt sich in gewöhnliche Kugelkoordinaten $\left(r, \theta, \phi\right)$ transformieren, es gilt mit $\theta + \varphi = \pi/2$
-%
-\begin{eqnarray}
-\sin\left(\varphi\right) & = & \sin\left(\pi/2 - \theta\right) = \cos\left(\theta\right), \label{eq:kugel_zu_kugel_met_1}\\
-\cos\left(\varphi\right) & = & \cos\left(\pi/2 - \theta\right) = \sin\left(\theta\right), \label{eq:kugel_zu_kugel_met_2}\\
-\tan\left(\theta\right) & = & \frac{\sin\left(\theta\right)}{\cos\left(\theta\right)} = \frac{\cos\left(\varphi\right)}{\sin\left(\varphi\right)} = \frac{1}{\tan\left(\varphi\right)}, \label{eq:kugel_zu_kugel_met_3}\\
-v_\theta & = & -v_y, \label{eq:kugel_zu_kugel_met_4}\\
-\frac{\partial}{\partial\theta} & = & -\frac{\partial}{\partial\varphi}\label{eq:kugel_zu_kugel_met_5}.
-\end{eqnarray}
-%
-Lokal ist die Verwendung des Kugelkoordinatensystems sehr unanschaulich, wenn man Vektoren notieren will. Deshalb verwendet man lokal ein kartesisches, rechtshändiges Koordinatensystem, welches auf der Kugel steht und dessen x-Achse nach Osten, y-Achse nach Norden und z-Achse nach oben zeigt. Die jeweiligen Basisvektoren nennt man $\mathbf{i}, \mathbf{j}, \mathbf{k}$. Das Windfeld $\mathbf{v}$ schreibt man als
-%
-\begin{eqnarray}
-\mathbf{v} = u\mathbf{i} + v\mathbf{j} + w\mathbf{k}.
-\end{eqnarray}
-%
 \section{Mehrdimensionale Ableitungen}
 \label{sec:mehrdimensionale_ableitungen}\index{Ableitung!mehrdimensionale}\index{mehrdimensionale Ableitung}
 
@@ -18036,6 +17993,1082 @@ Es folgt mit Glg. \eqref{eq:gamma_prop_1}
 %
 \begin{eqnarray}
 V_N = C_NR^{N} = \frac{\pi^{N/2}}{\frac{N}{2}\Gamma\left(\frac{N}{2}\right)}R^N = \frac{\pi^{N/2}}{\Gamma\left(\frac{N}{2} + 1\right)}R^N.\label{eq:volumen_n_dim_kugel}
+\end{eqnarray}
+
+\chapter{\normalfont\textsc{Orthogonale Funktionensysteme}}
+\label{chap:orthogonale_funktionensysteme}\index{orthogonale Funktionensysteme}\index{Funktionensysteme!orthogonale}
+
+Wenn sie vollständig sind, eignen sich orthogonale Funktionensysteme zur Entwicklung von Funktionen. Eine System aus Polynomen $f_n\left(x\right)$ mit $n\in\mathbb{N}$ und $\mathcal{O}\left(f_n\right) = n$ heißt orthogonal auf dem Intervall $\left[a, b\right]$ bezüglich der Funktion $w$, wenn für $n, m\in\mathbb{N}$ mit $n\not = m$ gilt
+%
+\begin{eqnarray}
+\int_{a}^{b}w\left(x\right)f_n\left(x\right)f_m\left(x\right)dx = 0.
+\end{eqnarray}
+%
+Alle orthogonalen Polynomensysteme erfüllen eine \index{Rodrigues-Formel}\textit{Rodrigues-Formel}
+%
+\begin{eqnarray}
+f_n\left(x\right) = \frac{1}{e_nw\left(x\right)}\frac{d^n}{dx^n}\left[w\left(x\right)g\left(x\right)^n\right]
+\end{eqnarray}
+%
+mit einem Polynom $g\left(x\right)$, welches nicht von $n$ abhängt.
+
+\section{Komplexe Exponentialfunktionen}
+\label{sec:komplexe_exponentialfunktionen}\index{komplexe Exponentialfunktion}\index{Exponentialfunktion!komplexe}
+
+Die Entwicklung einer Funktion nach komplexen Exponentialfunktionen bezeichnet man als \textit{Fourier-Transformation}\index{Fourier-Transformation} (FT). Sei $f\left(x\right)$ eine komplexe Funktion einer reellen Variablen, dann definiert man die \textit{Fourier-Transformierte}\index{Fourier-Transformation} $\newtilde{F}_1\{f\} = \newtilde{f}\left(k\right)$ oder auch das \textit{Spektrum}\index{Spektrum} von $f$ durch
+%
+\begin{eqnarray}
+\newtilde{F}_1\{f\} = \newtilde{f}\left(k\right) \coloneqq C_1\int_{-\infty}^{\infty}\exp\left(-ikx\right)f\left(x\right)dx\label{eq:def_ft_1d}
+\end{eqnarray}
+%
+mit einer reellen Konstante $C_1 > 0$. $\newtilde{F}_1$ bezeichnet den Operator der eindimensionalen Fourier-Transformation. Glg. \eqref{eq:def_ft_1d} ist bis auf einen eventuellen Faktor die Kovarianz der Funktion $f$ mit der \textit{Fourier-Komponente} $e^{ikx}$. Die \textit{inverse Fourier-Transformation}\index{inverse Fourier-Transformation}\index{Fourier-Transformation!inverse} wird definiert durch 
+%
+\begin{eqnarray}
+\newtilde{F}^{-1}_1\{f\} \coloneqq \newtilde{C}_1\int_{-\infty}^{\infty}\newtilde{f}\left(k\right)\exp\left(ikx\right)dk\label{eq:def_ft_1d_inv}
+\end{eqnarray}
+%
+mit einer zweiten Konstanten $\newtilde{C}_1 > 0$. Es handelt sich um eine Linearkombination der $\newtilde{f}\left(k\right)$ mit den entsprechenden Wellen. Dass dies tatsächlich das Inverse von Glg. \eqref{eq:def_ft_1d} ist, soll nun eingesehen werden:
+%
+\begin{eqnarray}
+\newtilde{C}_1\int_{-\infty}^{\infty}\newtilde{f}\left(k\right)\exp\left(ikx\right)dk & = & \newtilde{C}_1C_1\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}\exp\left(-ikx'\right)f\left(x'\right)dx'\exp\left(ikx\right)dk\nonumber\\
+& = & \newtilde{C}_1C_1\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}\exp\left(ik\left(x - x'\right)\right)dkf\left(x'\right)dx'\nonumber\\
+& \stackrel{\text{Glg. \eqref{eq:delta_distribution_prop_1}}}{=} & \newtilde{C}_1C_1\int_{-\infty}^{\infty}2\pi\delta\left(x - x'\right)'f\left(x'\right)dx' = \newtilde{C}_1C_12\pi f\left(x\right)\\
+& \stackrel{\Leftrightarrow\newtilde{C}_1C_1 = 1/2\pi}{=} & f\left(x\right)
+\end{eqnarray}
+%
+Man muss also auf die Bedingung
+%
+\begin{eqnarray}
+\newtilde{C}_1 = \frac{1}{2\pi C_1}
+\end{eqnarray}
+%
+achten. Hieraus kann man unmittelbar
+%
+\begin{eqnarray}
+\left[\newtilde{F}_1\{\delta\left(x - x_0\right)\}\right]\left(k\right) & = & C_1e^{-ikx_0},\\
+\left[\newtilde{F}_1\{e^{ik'x}\}\right]\left(k\right) & = & 2\pi C_1\delta\left(k' - k\right),\\
+\left[\newtilde{F}^{-1}_1\{\delta\left(k - k_0\right)\}\right]\left(x\right) & = & \newtilde{C}_1e^{ik_0x},\\
+\left[\newtilde{F}^{-1}_1\{e^{ikx'}\}\right]\left(x\right) & = & 2\pi\newtilde{C}_1\delta\left(x' + x\right)
+\end{eqnarray}
+%
+ableiten. Die Funktion
+%
+\begin{eqnarray}
+\arg\left(\newtilde{f}\left(k\right)\right)
+\end{eqnarray}
+%
+bezeichnet man als das \index{Phasenspektrum}\textit{Phasenspektrum} von $f$, während man
+%
+\begin{eqnarray}
+\left|\newtilde{f}\left(k\right)\right|
+\end{eqnarray}
+%
+als \index{Amplitudenspektrum}\textit{Amplitudenspektrum} bezeichnet. Das Quadrat von $\left|\newtilde{f}\left(k\right)\right|$ nennt man \index{Leistungsspektrum}\textit{Leistungsspektrum} oder \index{Powerspektrum}\textit{Powerspektrum}. Die FT ist linear, da sie in Termen eines Integrals definiert ist und die Integration linear ist. Für Funktionen $f, g$ und Konstanten $a, b$ gilt also
+%
+\begin{eqnarray}
+\newtilde{F}\{af + bg\} = a\newtilde{F}\{f\} + b\newtilde{F}\{g\}.
+\end{eqnarray}
+%
+Sei $N\left(\mu, \sigma\right)$ die Normalverteilung mit Erwartungswert\index{Erwartungswert} $\mu$ und Standardabweichung $\sigma.$ Dann gilt
+%
+\begin{eqnarray}
+\newtilde{F}\{N\left(\mu, \sigma\right)\} & = & \frac{C_1}{\sqrt{2\pi}\sigma}\int_{-\infty}^{\infty}\exp\left[-ikx - \frac{\left(x - \mu\right)^2}{2\sigma^2}\right]dx = \frac{C_1}{\sqrt{2\pi}\sigma}\int_{-\infty}^{\infty}\exp\left[-\frac{1}{2\sigma^2}\left(x^2 + \mu^2 - 2x\left(\mu - ik\sigma^2\right)\right)\right]dx\nonumber\\
+& = & \frac{C_1}{\sqrt{2\pi}\sigma}\int_{-\infty}^{\infty}\exp\left[-\frac{1}{2\sigma^2}\left(x - \left(\mu - ik\sigma^2\right)\right)^2 - \frac{1}{2\sigma^2}\left(k^2\sigma^4 + 2\mu i\sigma^2k\right)\right]dx\nonumber\\
+& = & \exp\left[-\frac{1}{2\sigma^2}\left(k^2\sigma^4 + 2\mu i\sigma^2k\right)\right]\frac{C_1}{\sqrt{2\pi}\sigma}\int_{-\infty}^{\infty}\exp\left[-\frac{1}{2\sigma^2}x^2\right]dx\nonumber\\
+& = & C_1\exp\left(-\frac{k^2}{2/\sigma^2}\right)\exp\left(-\mu ik\right).
+\end{eqnarray}
+%
+Die FT einer Normalverteilung ist also eine unnormierte (man betrachte den Fall $C_1 = 1/\sqrt{2\pi}$) und um einen komplexen Phasenfaktor modifizierte Normalverteilung mit Mittelwert
+%
+\begin{eqnarray}
+\mu_k = 0
+\end{eqnarray}
+%
+und Standardabweichung
+%
+\begin{eqnarray}
+\sigma_k = \frac{1}{\sigma}
+\end{eqnarray}
+%
+Die FT macht also aus einer schmalen Normalverteilung eine breite. Im Fall einer komplexwertigen Funktion $f\left(x, y\right)$ zweier reeller Variablen betrachtet man zunächst die Hilfsfunktion
+%
+\begin{eqnarray}
+f_y\left(x\right) \coloneqq f\left(x, y\right).
+\end{eqnarray}
+%
+Die FT hiervon ist
+%
+\begin{eqnarray}
+\newtilde{f}_y\left(k_x\right) = C_1\int_{-\infty}^{\infty}e^{-ik_xx}f_y\left(x\right)dx.
+\end{eqnarray}
+%
+Wendet man hierauf die inverse FT an, erhält man wieder $f_y\left(x\right) = f\left(x, y\right)$. Definiere nun die Fourier-Transformierte $\newtilde{f}\left(k_x, k_y\right)$ der Funktion $f\left(x, y\right)$ durch die in y-Richtung Fourier-Transformierte von $\newtilde{f}_y\left(k_x\right)$, also
+%
+\begin{eqnarray}
+\newtilde{f}\left(k_x, k_y\right) & \coloneqq & C_1\int_{-\infty}^{\infty}e^{-ik_yy}\newtilde{f}_y\left(k_x\right)dy = C_1^2\int_{-\infty}^{\infty}e^{-ik_yy}\int_{-\infty}^{\infty}e^{-ik_xx}f\left(x, y\right)dxdy\nonumber\\
+& = & C_1^2\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}e^{-i\left(k_xx + k_yy\right)}f\left(x, y\right)dxdy.
+\end{eqnarray}
+%
+Zweimaliges Anwenden der inversen FT liefert die Funktion $f\left(x, y\right).$ $x$ ist in der Herleitung nicht vor $y$ ausgezeichnet, weshalb die Reihenfolge der Anwendung der FT keine Rolle spielt. Man notiert
+%
+\begin{eqnarray}
+\newtilde{F}_2\{f\} & = & \newtilde{f}\left(k_x, k_y\right) \coloneqq C_2\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}e^{-i\left(k_xx + k_yy\right)}f\left(x, y\right)dxdy,\\
+\newtilde{F}^{-1}_2\{f\} & \coloneqq & \newtilde{C}_2\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}\newtilde{f}\left(k_x, k_y\right)e^{i\left(k_xx + k_yy\right)}dk_xdk_y, 
+\end{eqnarray}
+%
+wobei
+%
+\begin{eqnarray}
+C_2\newtilde{C}_2 = \left(C_1\newtilde{C}_1\right)^2 = \frac{1}{\left(2\pi\right)^2}
+\end{eqnarray}
+%
+gelten muss. Führt man dies induktiv fort, erhält man analog die $n-$dimensionale FT, wobei auf
+%
+\begin{eqnarray}
+C_n\newtilde{C}_n = \left(C_1\newtilde{C}_1\right)^n = \frac{1}{\left(2\pi\right)^n}
+\end{eqnarray}
+%
+zu achten ist.
+
+\section{Legendre-Polynome}
+\label{sec:legendrepolynome}\index{Legendre-Polynom}
+
+Glg. \eqref{eq:legendre_dgl} heißt \textit{Legendre'sche Differenzialgleichung}.\index{Legendre'sche Differenzialgleichung}\index{Differenzialgleichung!Legendre'sche} Diese lautet:
+%
+\begin{eqnarray}
+\frac{d}{d\mu}\left(1 - \mu^2\right)P'\left(\mu\right) = -\lambda P
+\end{eqnarray}
+%
+Man setzt für $P\left(\mu\right)$ an
+%
+\begin{eqnarray}
+P\left(\mu\right) = \sum_{i = 0}^{\infty}U_i\mu^i, 
+\end{eqnarray}
+%
+damit gilt
+%
+\begin{eqnarray}
+P'\left(\mu\right) & = & \sum_{i = 0}^{\infty}iU_i\mu^{i - 1} = \sum_{i = 0}^{\infty}\left(i + 1\right)U_{i + 1}\mu^i,\\
+P''\left(\mu\right) & = & \sum_{i = 0}^{\infty}i\left(i - 1\right)U_i\mu^{i - 2} = \sum_{i = 0}^{\infty}\left(i + 2\right)\left(i + 1\right)U_{i + 2}\mu^i.
+\end{eqnarray}
+%
+Setzt man dies in
+%
+\begin{eqnarray}
+- 2\mu P'\left(\mu\right) + \left(1 - \mu^2\right)P''\left(\mu\right) = -\lambda P\left(\mu\right)
+\end{eqnarray}
+%
+ein, erhält man
+%
+\begin{eqnarray}
+- 2\sum_{i = 0}^{\infty}iU_i\mu^i + \sum_{i = 0}^{\infty}\left(i + 2\right)\left(i + 1\right)U_{i + 2}\mu^i - \sum_{i = 0}^{\infty}i\left(i - 1\right)U_i\mu^i & = & - \lambda\sum_{i = 0}^{\infty}U_i\mu^i\nonumber\\
+\Leftrightarrow - 2iU_i+ \left(i + 2\right)\left(i + 1\right)U_{i + 2} - i\left(i - 1\right) & = & -\lambda U_i\nonumber\\
+\Leftrightarrow U_{i + 2} & = & U_i\frac{i\left(i + 1\right) - \lambda}{\left(i + 2\right)\left(i + 1\right)}.\label{eq:legendre_iterativ}
+\end{eqnarray}
+%
+Im Allgemeinen geht dies für $i\to\infty$ nicht gegen Null, sodass $P$ divergieren würde. Es muss also ein $n\in\mathbb{N}$ geben mit $\lambda = n\left(n + 1\right)$, dies ist eine Bedingung an $\lambda$. Zusätzlich muss man $U_{n + 1} = 0$ setzen. $P\left(\mu\right)$ ist also ein Polynom $n-$ter Ordnung in $\mu$, wobei $n$ beliebig ist, man schreibt für dieses Legendre-Polynom $P_n\left(\mu\right)$. Über Glg. \eqref{eq:legendre_iterativ} und eine Normierung ist $P_n\left(\mu\right)$ festgelegt. Alternativ kann man die Legendre-Polynome schreiben als
+%
+\begin{eqnarray}
+P_n\left(x\right) = \frac{1}{2^nn!}\frac{d^n}{dx^n}\left(x^2 - 1\right)^n, \label{eq:legendre_poly_formel}
+\end{eqnarray}
+%
+dies ist nun zu zeigen. Definiere
+%
+\begin{eqnarray}
+\delta_k \coloneqq \begin{cases}
+0, k\:\text{ungerade},\\
+1, k\:\text{gerade}.
+\end{cases}
+\end{eqnarray}
+%
+Nun kann man den binomischen Lehrsatz Glg. \eqref{eq:gen_bin_formula} verwenden, um
+%
+\begin{eqnarray}
+\left(x^2 - 1\right)^n = \sum_{k = 0}^{n}\left(\begin{array}{c}
+n\\
+k
+\end{array}\right)x^{2k}\left(-1\right)^{n - k} = \sum_{k = 0}^{2n}\delta_k\left(\begin{array}{c}
+n\\
+k/2
+\end{array}\right)x^k\left(-1\right)^{n - k/2}\label{eq:gen_bin_formula_legendre}
+\end{eqnarray}
+%
+zu notieren, damit folgt für die obige Schreibweise der Legendre-Polynome Glg. \eqref{eq:legendre_poly_formel} mit Glg. \eqref{eq:nth_derivative_series}
+%
+\begin{eqnarray}
+P_n\left(x\right) & = & \frac{1}{2^nn!}\sum_{k = 0}^{n}\frac{\left(k + n\right)!}{k!}\left(\begin{array}{c}
+n\\
+\frac{k + n}{2}
+\end{array}\right)\left(-1\right)^{n - \frac{k + n}{2}}\delta_{k + n}x^k\nonumber\\
+& = & \frac{1}{2^nn!}\sum_{k = 0}^{n}\frac{\left(n + k\right)!}{k!}\frac{n!}{\left(\frac{n + k}{2}\right)!\left(n - \frac{n + k}{2}\right)!}\left(-1\right)^{n - \frac{k + n}{2}}\delta_{n + k}x^k\nonumber\\
+& = & \frac{1}{2^n}\sum_{k = 0}^{n}\frac{\left(n + k\right)!}{k!}\frac{1}{\left(\frac{n + k}{2}\right)!\left(\frac{n - k}{2}\right)!}\left(-1\right)^{\frac{n - k}{2}}\delta_{n + k}x^k.
+\end{eqnarray}
+%
+Für die ersten beiden Ableitungen der Legendre-Polynome folgt
+%
+\begin{eqnarray}
+P_n'\left(x\right) & = & \frac{1}{2^n}\sum_{k = 0}^{n - 1}\left(k + 1\right)\frac{\left(n + k + 1\right)!}{\left(k + 1\right)!}\frac{1}{\left(\frac{n + k + 1}{2}\right)!}\frac{1}{\left(\frac{n - k - 1}{2}\right)!}\left(-1\right)^{\frac{n - k - 1}{2}}\delta_{n + k + 1}x^k\nonumber\\
+& = & \frac{1}{2^n}\sum_{k = 0}^{n - 1}\frac{\left(n + k + 1\right)!}{k!}\frac{1}{\left(\frac{n + k + 1}{2}\right)!}\frac{1}{\left(\frac{n - k - 1}{2}\right)!}\left(-1\right)^{\frac{n - k - 1}{2}}\delta_{n + k + 1}x^k,\\
+P_n''\left(x\right) & = & \frac{1}{2^n}\sum_{k = 0}^{n - 2}\left(k + 1\right)\frac{\left(n + k + 2\right)!}{\left(k + 1\right)!}\frac{1}{\left(\frac{n + k + 2}{2}\right)!}\frac{1}{\left(\frac{n - k - 2}{2}\right)!}\left(-1\right)^{\frac{n - k - 2}{2}}\delta_{n + k + 2}x^k\nonumber\\
+& = & \frac{1}{2^n}\sum_{k = 0}^{n - 2}\frac{\left(n + k + 2\right)!}{k!}\frac{1}{\left(\frac{n + k + 2}{2}\right)!}\frac{1}{\left(\frac{n - k - 2}{2}\right)!}\left(-1\right)^{\frac{n - k - 2}{2}}\delta_{n + k}x^k\nonumber\\
+& = & \frac{1}{2^n}\sum_{k = 0}^{n - 2}\frac{\left(n + k + 2\right)!}{k!}\frac{1}{\left(\frac{n + k}{2}\right)!}\frac{1}{\left(\frac{n + k}{2} + 1\right)}\frac{\left(\frac{n - k}{2}\right)}{\left(\frac{n - k}{2}\right)!}\left(-1\right)^{\frac{n - k - 2}{2}}\delta_{n + k}x^k\nonumber\\
+& = & \frac{1}{2^n}\sum_{k = 0}^{n - 2}\frac{1}{\left(\frac{n + k}{2}\right)!}\frac{1}{\left(\frac{n - k}{2}\right)!}\frac{\left(n + k + 1\right)!}{k!}\left(n - k\right)\left(-1\right)^{\frac{n - k - 2}{2}}\delta_{n + k}x^k.
+\end{eqnarray}
+%
+Nun wird gezeigt, dass die Legendre-Polynome nach Glg. \eqref{eq:legendre_poly_formel} in der Tat die Legendredifferenzialgleichung \eqref{eq:legendre_dgl} lösen:
+%
+\begin{eqnarray}
+&&- 2xP_n'\left(x\right) + \left(1 - x^2\right)P_n''\left(x\right)\hastobe - n\left(n + 1\right)P_n\left(x\right)\nonumber\\
+&\Leftrightarrow&
+- 2x\frac{1}{2^n}\sum_{k = 0}^{n - 1}\frac{\left(n + k + 1\right)!}{k!}\frac{1}{\left(\frac{n + k + 1}{2}\right)!}\frac{1}{\left(\frac{n - k - 1}{2}\right)!}\left(-1\right)^{\frac{n - k - 1}{2}}\delta_{n + k + 1}x^k\nonumber\\
+&&+ \frac{1}{2^n}\sum_{k = 0}^{n - 2}\frac{1}{\left(\frac{n + k}{2}\right)!}\frac{1}{\left(\frac{n - k}{2}\right)!}\frac{\left(n + k + 1\right)!}{k!}\left(n - k\right)\left(-1\right)^{\frac{n - k - 2}{2}}\delta_{n + k}x^k\nonumber\\
+&&- \frac{1}{2^n}\sum_{k = 0}^{n - 2}\frac{\left(n + k + 2\right)!}{k!}\frac{1}{\left(\frac{n + k + 2}{2}\right)!}\frac{1}{\left(\frac{n - k - 2}{2}\right)!}\left(-1\right)^{\frac{n - k - 2}{2}}\delta_{n + k}x^{k + 2}\nonumber\\
+& = & -n\left(n + 1\right)\frac{1}{2^n}\sum_{k = 0}^{n}\frac{\left(n + k\right)!}{k!}\frac{1}{\left(\frac{n + k}{2}\right)!}\frac{1}{\left(\frac{n - k}{2}\right)!}\left(-1\right)^{\frac{n - k}{2}}\delta_{n + k}x^k\nonumber\\
+&\Leftrightarrow& -2\sum_{k = 0}^{n}k\frac{\left(n + k\right)!}{k!}\frac{1}{\left(\frac{n + k}{2}\right)!}\frac{1}{\left(\frac{n - k}{2}\right)!}\left(-1\right)^{\frac{n - k}{2}}\delta_{n + k}x^k\nonumber\\
+&&+ \sum_{k = 0}^{n - 2}\frac{1}{\left(\frac{n + k}{2}\right)!}\frac{1}{\left(\frac{n - k}{2}\right)!}\frac{\left(n + k + 1\right)!}{k!}\left(n - k\right)\left(-1\right)^{\frac{n - k - 2}{2}}\delta_{n + k}x^k\nonumber\\
+&&- \sum_{k = 0}^{n}k\left(k - 1\right)\frac{\left(n + k\right)!}{k!}\frac{1}{\left(\frac{n + k}{2}\right)!}\frac{1}{\left(\frac{n - k}{2}\right)!}\left(-1\right)^{\frac{n - k}{2}}\delta_{n + k}x^k\nonumber
+\end{eqnarray}
+\begin{eqnarray}
+& = & -n\left(n + 1\right)\sum_{k = 0}^{n}\frac{\left(n + k\right)!}{k!}\frac{1}{\left(\frac{n + k}{2}\right)!}\frac{1}{\left(\frac{n - k}{2}\right)!}\left(-1\right)^{\frac{n - k}{2}}\delta_{n + k}x^k\nonumber\\
+&\Leftrightarrow& -2\sum_{k = 0}^{n}k\frac{\left(n + k\right)!}{k!}\frac{1}{\left(\frac{n + k}{2}\right)!}\frac{1}{\left(\frac{n - k}{2}\right)!}\left(-1\right)^{\frac{n - k}{2}}\delta_{n + k}x^k\nonumber\\
+&&- \sum_{k = 0}^{n - 2}\frac{1}{\left(\frac{n + k}{2}\right)!\left(\frac{n - k}{2}\right)!}\frac{\left(n + k\right)!}{k!}\left(n + k + 1\right)\left(n - k\right)\left(-1\right)^{\frac{n - k}{2}}\delta_{n + k}x^k\nonumber\\
+&&- \sum_{k = 0}^{n}k\left(k - 1\right)\frac{\left(n + k\right)!}{k!}\frac{1}{\left(\frac{n + k}{2}\right)!}\frac{1}{\left(\frac{n - k}{2}\right)!}\left(-1\right)^{\frac{n - k}{2}}\delta_{n + k}x^k\nonumber\\
+& = & -n\left(n + 1\right)\sum_{k = 0}^{n}\frac{\left(n + k\right)!}{k!}\frac{1}{\left(\frac{n + k}{2}\right)!}\frac{1}{\left(\frac{n - k}{2}\right)!}\left(-1\right)^{\frac{n - k}{2}}\delta_{n + k}x^k
+\end{eqnarray}
+%
+Man zeigt die Gleichheit der Koeffizienten der drei Polynome. Von $k = 0$ bis $k = n - 2$ bedeutet dies
+%
+\begin{eqnarray}
+2k + n^2 - nk + kn - k^2 + n - k + k^2 - k&\hastobe&n^2 + n, 
+\end{eqnarray}
+%
+was stimmt. Für $k = n - 1$ gilt
+%
+\begin{eqnarray}
+\delta_{n + k} = 0, 
+\end{eqnarray}
+%
+und für $k = n$ gilt
+%
+\begin{eqnarray}
+-2n - n\left(n - 1\right)\hastobe - n\left(n + 1\right), 
+\end{eqnarray}
+%
+was ebenfalls stimmt. Nun wird die Normierung der Legendre-Polynome\index{Legendre-Polynome!Normierung}\index{Normierung!Legendre-Polynome} auf der für dieses Problem relevanten Menge $\left[-1, 1\right]$ bestimmt.
+%
+\begin{eqnarray}
+\int_{-1}^{1}P_n^2\left(x\right)dx & = & \frac{1}{2^{2n}n!^2}\int_{-1}^{1}\frac{d^n}{dx^n}\left(x^2 - 1\right)^n\frac{d^n}{dx^n}\left(x^2 - 1\right)^ndx\nonumber\\
+&\stackrel{n-\text{fache p.I.}}{=}&\frac{1}{2^{2n}n!^2}\left(-1\right)^n\int_{-1}^{1}\left(x^2 - 1\right)^n\frac{d^{2n}}{dx^{2n}}\left(x^2 - 1\right)^ndx\nonumber\\
+& = & \frac{1}{2^{2n}n!^2}\left(-1\right)^n\left(2n\right)!\int_{-1}^{1}\left(x^2 - 1\right)^ndx
+\end{eqnarray}
+%
+Es gilt weiter
+%
+\begin{eqnarray}
+\int_{}^{}\left(x^2 - 1\right)^ndx & = & \int\left(x + 1\right)^n\left(x - 1\right)^ndx\stackrel{n\text{ - fache}\:\text{p.I}.}{=}\left(-1\right)^n\int\frac{n!\left(x + 1\right)^{2n}}{\left(2n\right)!}n!dx\nonumber\\
+& = & \left(-1\right)^n\frac{n!^2}{\left(2n\right)!}\int\left(x + 1\right)^{2n}dx = \left(-1\right)^n\frac{n!^2}{\left(2n\right)!}\left[\frac{\left(x + 1\right)^{2n + 1}}{2n + 1}\right], 
+\end{eqnarray}
+%
+damit folgt
+%
+\begin{eqnarray}
+\int_{-1}^{1}P_n^2\left(x\right)dx = \frac{1}{2^{2n}n!^2}\left(-1\right)^{n}\left(2n\right)!\frac{1}{\left(2n\right)!}\left(-1\right)^nn!^2\frac{2^{2n + 1}}{2n + 1} = \frac{2}{2n + 1}.
+\end{eqnarray}
+%
+Nun wird die Orthogonalität der Legendre-Polynome\index{Legendre-Polynome!Orthogonalität}\index{Orthogonalität!Legendre-Polynome} gezeigt, seien $n, m\in\mathbb{N}$ mit $n \not = m$, dann gilt
+%
+\begin{eqnarray}
+\frac{d}{dx}\left[\left(1 - x^2\right)\frac{d}{dx}\right]P_n\left(x\right) = -n\left(n + 1\right)P_n\left(x\right)
+\end{eqnarray}
+%
+und analog für $m$. Man rechnet
+%
+\begin{eqnarray}
+\int_{-1}^{1}P_m\left(x\right)\frac{d}{dx}\left[\left(1 - x^2\right)\frac{d}{dx}\right]P_n\left(x\right)dx = -\int_{-1}^{\left(1\right)}P_m'\left(x\right)\left(1 - x^2\right)P_n'\left(x\right)dx
+\end{eqnarray}
+%
+sowie
+%
+\begin{eqnarray}
+\int_{-1}^{1}P_n\left(x\right)\frac{d}{dx}\left[\left(1 - x^2\right)\frac{d}{dx}\right]P_m\left(x\right)dx = -\int_{-1}^{1}P_n'\left(x\right)\left(1 - x^2\right)P_m'\left(x\right)dx, 
+\end{eqnarray}
+%
+außerdem gelten
+%
+\begin{eqnarray}
+\int_{-1}^{1}P_m\left(x\right)\frac{d}{dx}\left[\left(1 - x^2\right)\frac{d}{dx}\right]P_n\left(x\right)dx & = & -n\left(n + 1\right)\int_{-1}^{1}P_m\left(x\right)P_n\left(x\right)dx,\\
+\int_{-1}^{\left(1\right)}P_n\left(x\right)\frac{d}{dx}\left[\left(1 - x^2\right)\frac{d}{dx}\right]P_m\left(x\right)\left(x\right)dx & = & -m\left(m + 1\right)\int_{-1}^{1}P_n\left(x\right)P_m\left(x\right)dx.
+\end{eqnarray}
+%
+Damit ist
+%
+\begin{eqnarray}
+-n\left(n + 1\right)\int_{-1}^{1}P_m\left(x\right)P_n\left(x\right)dx = -m\left(m + 1\right)\int_{-1}^{\left(1\right)}P_n\left(x\right)P_m\left(x\right)dx
+\end{eqnarray}
+%
+und wegen $n\not = m$ ist
+%
+\begin{eqnarray}
+\int_{-1}^{1}P_n\left(x\right)P_m\left(x\right)dx = 0.
+\end{eqnarray}
+%
+Damit ist zusammengefasst
+%
+\begin{eqnarray}
+\int_{-1}^{1}P_n\left(x\right)P_m\left(x\right)dx = \frac{2}{2n + 1}\delta_{mn}.
+\end{eqnarray}
+%
+Nun soll
+%
+\begin{eqnarray}
+\left(2l + 1\right)xP_l\left(x\right) = \left(l + 1\right)P_{l + 1}\left(x\right) + lP_{l - 1}\left(x\right)\label{eq:legendre_poly_prop_1}
+\end{eqnarray}
+%
+gezeigt werden. Zunächst macht man sich klar, dass auf der linken wie auf der rechten Seite des Gleichheitszeichens Polynome vom Grad $l + 1$ stehen mit jeweils nur geraden oder ungeraden Potenzen. Man schreibt
+%
+\begin{eqnarray}
+P_l\left(x\right) = \frac{1}{2^l}\frac{d^l}{dx^l}\sum_{k = 0}^{l}\frac{1}{k!\left(l - k\right)!}x^{2k}\left(-1\right)^{l - k} = \frac{1}{2^l}\sum_{k = \left(\frac{l}{2}\right)_ + }^{l}\frac{1}{k!\left(l - k\right)!}\frac{\left(2k\right)!}{\left(2k - l\right)!}x^{2k - l}\left(-1\right)^{l - k}, 
+\end{eqnarray}
+%
+dabei ist $\left(\frac{l}{2}\right)_ + $ die kleinste natürliche Zahl $\geq\frac{l}{2}$. Daraus folgen
+%
+\begin{eqnarray}
+\left(2l + 1\right)xP_l\left(x\right) & = & \frac{2l + 1}{2^l}\sum_{k = \left(\frac{l}{2}\right)_ + }^{l}\frac{1}{k!\left(l - k\right)!}\frac{\left(2k\right)!}{\left(2k - l\right)!}x^{2k - l + 1}\left(-1\right)^{l - k},\\
+\left(l + 1\right)P_{l + 1}\left(x\right) & = & -\frac{1}{2^l2}\sum_{k = \left(\frac{l + 1}{2}\right)_ + }^{l + 1}\frac{l + 1}{k!\left(l + 1 - k\right)!}\frac{\left(2k\right)!}{\left(2k - l - 1\right)!}x^{2k - l - 1}\left(-1\right)^{l - k}\\
+& = & \frac{l + 1}{2^l}\sum_{k = \left(\frac{l - 1}{2}\right)_ + }^{l}\frac{\left(2k + 1\right)}{k!\left(l - k\right)!}\frac{\left(2k\right)!}{\left(2k - l + 1\right)!}x^{2k - l + 1}\left(-1\right)^{l - k}\\
+P_{l - 1}\left(x\right) & = & -\frac{2l}{2^l}\sum_{k = \left(\frac{l - 1}{2}\right)_ + }^{l - 1}\frac{1}{k!\left(l - 1 - k\right)!}\frac{\left(2k\right)!}{\left(2k - l + 1\right)!}x^{2k - l + 1}\left(-1\right)^{l - k}.
+\end{eqnarray}
+%
+Zwei Polynome sind genau dann gleich, wenn all ihre Koeffizienten gleich sind.
+%
+\begin{eqnarray}
+4kl - 2l^2 + l + 2k + 1 & = & 4kl + l + 2k + 1 - 2l^2\nonumber\\
+\Leftrightarrow\left(2l + 1\right)\left(2k - l + 1\right) & = & \left(l + 1\right)\left(2k + 1\right) - \left(l - k\right)2l\\
+\Leftrightarrow\frac{2l + 1}{l - k}\frac{2k - l + 1}{2k - l + 1} & = & \frac{l + 1}{l - k}\frac{2k + 1}{2k - l + 1} - \frac{l - k}{l - k}\frac{2l}{2k - l + 1}\nonumber\\
+\Leftrightarrow\frac{2l + 1}{l - k} & = & \frac{l + 1}{l - k}\frac{2k + 1}{2k - l + 1} - \frac{2l}{2k - l + 1}
+\end{eqnarray}
+%
+Nun müssen noch die unteren und die oberen Grenzen der Summen untersucht werden. Für $k = l$ erhält man
+%
+\begin{eqnarray}
+2l + 1 = \left(l + 1\right)\frac{2l + 1}{2l - l + 1}.
+\end{eqnarray}
+%
+Bei der unteren Grenze muss man eine Fallunterscheidung machen. Ist $l$ gerade, ist alles gezeigt. Für $l$ ungerade rechnet man
+%
+\begin{eqnarray}
+\left(l + 1\right)\frac{l}{l - \frac{l - 1}{2}} - 2l & = & 0.
+\end{eqnarray}
+%
+Für $l = 0$ gilt die Aussage ebenfalls. Damit ist Glg. \eqref{eq:legendre_poly_prop_1} gezeigt. Aus dieser Gleichung folgt weiter
+%
+\begin{eqnarray}
+\cos\left(\theta\right)P_l\left(\cos\left(\theta\right)\right) & = & \frac{l + 1}{2l + 1}P_{l + 1}\left(\cos\left(\theta\right)\right) + \frac{l}{2l + 1}P_{l - 1}\left(\cos\left(\theta\right)\right).\label{eq:legendre_poly_prop_2}
+\end{eqnarray}
+%
+Nun soll noch die Lösung von Glg. \eqref{eq:legendre_vorform} für $m\not = 0$ besprochen werden. Diese DGL lautete
+%
+\begin{eqnarray}
+\frac{d}{d\mu}\left(1 - \mu^2\right)P'\left(\mu\right) = P\left(-\lambda + \frac{m^2}{1 - \mu^2}\right).\label{eq:legendre_vorform_2}
+\end{eqnarray}
+%
+Mit dem Ansatz
+%
+\begin{eqnarray}
+P\left(\mu\right) = \left(1 - \mu^2\right)^{m/2}T\left(\mu\right)\label{eq:ansatz_legendre_2}
+\end{eqnarray}
+%
+erhält man
+%
+\begin{eqnarray}
+P'\left(\mu\right) & = & -\mu m\left(1 - \mu^2\right)^{m/2 - 1}T\left(\mu\right) + \left(1 - \mu^2\right)^{m/2}T'\left(\mu\right),\\
+\left(1 - \mu^2\right)P'\left(\mu\right) & = & -\mu m\left(1 - \mu^2\right)^{m/2}T\left(\mu\right) + \left(1 - \mu^2\right)^{m/2 + 1}T'\left(\mu\right).
+\end{eqnarray}
+%
+Setzt man dies in Glg. \eqref{eq:legendre_vorform_2} ein, erhält man
+%
+\begin{eqnarray}
+- m\left(1 - \mu^2\right)^{m/2}T\left(\mu\right) + \mu^2m^2\left(1 - \mu^2\right)^{m/2 - 1}T\left(\mu\right) & - & 2\mu\left(m + 1\right)\left(1 - \mu^2\right)^{m/2}T'\left(\mu\right)\nonumber\\
++ \left(1 - \mu^2\right)^{m/2 + 1}T''\left(\mu\right) = -\lambda\left(1 - \mu^2\right)^{m/2}T\left(\mu\right) & + & m^2\left(1 - \mu^2\right)^{m/2 - 1}T\left(\mu\right)\nonumber\\
+\Leftrightarrow -mT\left(\mu\right) + \mu^2m^2\left(1 - \mu^2\right)^{-1}T\left(\mu\right) & - & 2\mu\left(m + 1\right)T'\left(\mu\right) + \left(1 - \mu^2\right)T''\left(\mu\right)\nonumber\\
+& = & -\lambda T\left(\mu\right) + m^2\left(1 - \mu^2\right)^{-1}T\left(\mu\right)\nonumber\\
+\Leftrightarrow\left(1 - \mu^2\right)T''\left(\mu\right) - 2\mu\left(m + 1\right)T'\left(\mu\right) & = & \left(-\lambda + m + m^2\frac{1 - \mu^2}{1 - \mu^2}\right)T\left(\mu\right)\nonumber\\
+\Leftrightarrow\left(1 - \mu^2\right)T''\left(\mu\right) - 2\mu\left(m + 1\right)T'\left(\mu\right) & = & \left(-\lambda + m\left(m + 1\right)\right)T\left(\mu\right).\label{eq:legendre_umgeformt}
+\end{eqnarray}
+%
+Es wird wieder ein Potenzreihenansatz
+%
+\begin{eqnarray}
+T\left(\mu\right) = \sum_{i = 0}^{\infty}a_i\mu^i
+\end{eqnarray}
+%
+gemacht. Man benötigt folgende Schreibweisen für die ersten beiden Ableitungen:
+%
+\begin{eqnarray}
+T'\left(\mu\right) & = & \sum_{i = 1}^{\infty}ia_{i}\mu^{i - 1}\\
+T''\left(\mu\right) & = & \sum_{i = 0}^{\infty}\left(i + 2\right)\left(i + 1\right)a_{i + 2}\mu^i\\
+T''\left(\mu\right) & = & \sum_{i = 2}^{\infty}i\left(i - 1\right)a_i\mu^{i - 2}
+\end{eqnarray}
+%
+Setzt man dies in Glg. \eqref{eq:legendre_umgeformt} ein, erhält man wieder eine Rekursionsformel:
+%
+\begin{eqnarray}
+\left(i + 2\right)\left(i + 1\right)a_{i + 2} - i\left(i - 1\right)a_i - 2\left(m + 1\right)ia_i & = & \left(-\lambda + m\left(m + 1\right)\right)a_i\nonumber\\
+\Leftrightarrow a_{i + 2} = a_i\frac{ - \lambda + \left(m + 2i\right)\left(m + 1\right) + i\left(i - 1\right)}{\left(i + 2\right)\left(i + 1\right)} & = & a_i\frac{ - \lambda + \left(i + m + 1\right)\left(i + m\right)}{\left(i + 2\right)\left(i + 1\right)}
+\end{eqnarray}
+%
+Da dies für hohe $i$ nicht gegen Null geht, muss dies irgendwo abbrechen. Es muss also ein $I\in\mathbb{N}$ geben mit
+%
+\begin{eqnarray}
+\lambda = \left(I + m + 1\right)\left(I + m\right).
+\end{eqnarray}
+%
+$\lambda$ ist als Produkt zweier ganzer Zahlen ebenfalls eine ganze Zahl, außerdem ist $\lambda$ nicht negativ, da die beiden Faktoren keine unterschiedlichen Vorzeichen haben können. Es gibt also ein $l\in\mathbb{N}$ mit
+%
+\begin{eqnarray}
+\lambda = l\left(l + 1\right).
+\end{eqnarray}
+%
+Damit ist
+%
+\begin{eqnarray}
+l = I + m.
+\end{eqnarray}
+%
+Da gilt $l, I\geq 0$, ist $m\leq l$. Da $m< - l$ auf die gleiche DGL führt wie $-m > l$ und hierfür keine Lösungen existieren, existieren auch keine Lösungen für $m< - l$. Man hat also
+%
+\begin{eqnarray}
+\lambda & = & l\left(l + 1\right),\\
+l & = & 0, 1, 2, 3, \dotsc,\\
+m & = & 0, \pm 1, \pm 2, \pm 3, \dotsc, \pm l.
+\end{eqnarray}
+%
+Durch Vergleich mit Glg. \eqref{eq:ansatz_legendre_2} sieht man, dass $m + I = l$ auch der Grad von $P\left(\mu\right)$ ist. Die Lösungen $T = T_{l, m}$ sind also festgelegt durch zwei natürliche Zahlen $l, m$. 
+
+Nun soll noch eine geschlossene Form für die $T_{l, m}$ hergeleitet werden. Die $T_{l, m}$ erfüllen die DGL
+%
+\begin{eqnarray}
+\frac{d}{d\mu}\left(1 - \mu^2\right)T_{l, m}'\left(\mu\right) & = & 2\mu mT_{l, m}'\left(\mu\right) + \left(m\left(m + 1\right) - \lambda\right)T_{l, m}\left(\mu\right).\label{eq:dgl_ass_leg_herl}
+\end{eqnarray}
+%
+Für $m = 0$ sind die Lösungen die bekannten Legendre-Polynome $P_l\left(\mu\right)$ Glg. \eqref{eq:legendre_poly_formel}. Ist die Lösung $T_{l, m}\left(\mu\right)$ bekannt und ist $m<l$, so folgt die Lösung $T_{l, m + 1}\left(\mu\right)$ durch
+%
+\begin{eqnarray}
+T_{l, m + 1}\left(\mu\right) = \frac{d}{d\mu}T_{l, m}\left(\mu\right).
+\end{eqnarray}
+%
+Um dies zu zeigen leitet man zunächst Glg. \eqref{eq:dgl_ass_leg_herl} ab:
+%
+\begin{eqnarray}
+&& -2T_{l, m}'\left(\mu\right) - 4\mu T_{l, m}''\left(\mu\right) + \left(1 - \mu^2\right)T_{l, m}'''\left(\mu\right) = 2mT_{l, m}'\left(\mu\right) + 2\mu mT_{l, m}''\left(\mu\right) + \left(m\left(m + 1\right) - \lambda\right)T_{l, m}'\left(\mu\right)\nonumber\\
+&\Leftrightarrow& -2\mu T_{l, m}''\left(\mu\right) + \left(1 - \mu^2\right)T_{l, m}'''\left(\mu\right)\nonumber\\
+& = & 2\left(1 + m\right)T_{l, m}'\left(\mu\right) + \left(m\left(m + 1\right) - \lambda\right)T_{l, m}'\left(\mu\right) + 2\mu\left(1 + m\right)T_{l, m}''\left(\mu\right)
+\end{eqnarray}
+%
+Indem man $T_{l, m + 1} = T_{l, m}'$ einsetzt, folgt
+%
+\begin{eqnarray}
+&&\frac{d}{d\mu}\left(1 - \mu^2\right)T_{l, m + 1}'\left(\mu\right) = \frac{d}{d\mu}\left(1 - \mu^2\right)\frac{d}{d\mu}T_{l, m}'\left(\mu\right)\nonumber\\
+& = & -2\mu T_{l, m}''\left(\mu\right) + \left(1 - \mu^2\right)T_{l, m}'''\left(\mu\right) = 2\left(1 + m\right)T_{l, m}'\left(\mu\right) + \left(m\left(m + 1\right) - \lambda\right)T_{l, m}'\left(\mu\right) + 2\mu\left(1 + m\right)T_{l, m}''\left(\mu\right)\nonumber\\
+& = & 2\mu\left(m + 1\right)T_{l, m + 1}'\left(\mu\right) + \left(\left(m + 1\right)\left(m + 2\right) - \lambda\right)T_{l, m + 1}\left(\mu\right).
+\end{eqnarray}
+%
+Die Lösung $T_{l, m}\left(\mu\right)$ ist also die $m-$te Ableitung des $n-$ten Legendre-Polynoms
+%
+\begin{eqnarray}
+T_{l, m}\left(\mu\right) = \frac{d^m}{d\mu^m}P_l\left(\mu\right).
+\end{eqnarray}
+%
+Die vollständigen Lösungen $P_{l, m}$ von Glg. \eqref{eq:legendre_vorform_2} werden als \textit{assoziierte Legendre-Funktion}\index{Legendre-Funktion!assoziierte} bezeichnet:
+%
+\begin{eqnarray}
+P_{l, m}\left(x\right) = \left(-1\right)^m\left(1 - x^2\right)^{m/2}\frac{d^{m}}{dx^{m}}P_l\left(x\right) = \frac{\left(-\right)^m}{2^ll!}\left(1 - x^2\right)^{m/2}\frac{d^{l + m}}{dx^{l + m}}\left(x^2 - 1\right)^l.\label{eq:assoziierte_legendre_funktionen}
+\end{eqnarray}
+%
+Diese sind für ungerade $m$ keine Polynome mehr und reduzieren sich für $m = 0$ auf die Legendre-Polynome Glg. \eqref{eq:legendre_poly_formel}. Es gilt
+%
+\begin{eqnarray}
+\frac{d}{dx}P_{l, m}\left(x\right) & = & -mx\left(-1\right)^m\left(1 - x^2\right)^\frac{m - 2}{2}\frac{d^{m}}{dx^{m}}P_l\left(x\right) + \left(-1\right)^m\left(1 - x^2\right)^{m/2}\frac{d^{m + 1}}{dx^{m + 1}}P_l\left(x\right)\nonumber\\
+& = & -\frac{mx}{1 - x^2}P_{l, m}\left(x\right) - \frac{1}{\sqrt{1 - x^2}}P_{l, m + 1}\left(x\right).\label{eq:legendre_ass_prop_2}
+\end{eqnarray}
+%
+Aus Glg. \eqref{eq:produktregel_n} folgt
+%
+\begin{eqnarray}
+\frac{d^n}{dx^n}\left(xf\left(x\right)\right) & = & xf^{(n)} + nf^{(n - 1)}\nonumber\\
+\Leftrightarrow xf^{(n)} & = & \frac{d^n}{dx^n}\left(xf\left(x\right)\right) - nf^{(n - 1)}.
+\end{eqnarray}
+%
+Außerdem gilt mit Glg. \eqref{eq:legendre_poly_prop_2}
+%
+\begin{eqnarray}
+P_l & = & \frac{2l + 3}{l + 1}xP_{l + 1} - \frac{l + 2}{l + 1}P_{l + 2}.
+\end{eqnarray}
+%
+Somit erhält man
+%
+\begin{eqnarray}
+P_{l, m}\left(x\right) & = & \left(-1\right)^m\left(1 - x^2\right)^{m/2}\frac{d^{m}}{dx^{m}}P_l\left(x\right) = \frac{\left(-1\right)^m}{l + 1}\left(1 - x^2\right)^{m/2}\frac{d^{m}}{dx^{m}}\left[\left(2l + 3\right)xP_{l + 1}\left(x\right) - \left(l + 2\right)P_{l + 2}\left(x\right)\right], \nonumber\\
+& = & x\frac{\left(-1\right)^m\left(2l + 3\right)}{l + 1}\left(1 - x^2\right)^{m/2}\frac{d^{m}}{dx^{m}}P_{l + 1}\left(x\right) + m\frac{\left(-1\right)^m\left(2l + 3\right)}{l + 1}\left(1 - x^2\right)^{m/2}\frac{d^{m - 1}}{dx^{m - 1}}P_{l + 1}\left(x\right)\nonumber\\
+&&- \frac{\left(-1\right)^m\left(l + 2\right)}{l + 1}\left(1 - x^2\right)^{m/2}\frac{d^{m}}{dx^{m}}P_{l + 2}\left(x\right)\nonumber\\
+& = & \frac{2l + 3}{l + 1}xP_{l + 1, m} - m\frac{2l + 3}{l + 1}\sqrt{1 - x^2}P_{l + 1, m - 1} - \frac{l + 2}{l + 1}P_{l + 2, m}\nonumber\\
+\Rightarrow xP_{l + 1, m} & = & \frac{l + 1}{2l + 3}P_{l, m} + m\sqrt{1 - x^2}P_{l + 1, m - 1} + \frac{l + 2}{2l + 3}P_{l + 2, m}\nonumber\\
+\Rightarrow xP_{l, m} & = & \frac{l}{2l + 1}P_{l - 1, m} + m\sqrt{1 - x^2}P_{l, m - 1} + \frac{l + 1}{2l + 1}P_{l + 1, m}.\label{eq:legendre_ass_prop_1_vorform}
+\end{eqnarray}
+%
+Es gilt
+%
+\begin{eqnarray}
+P_{l, m - 1}\left(x\right) & = & \left(-\right)^{m - 1}\frac{1}{2^ll!}\left(1 - x^2\right)^{\frac{m - 1}{2}}\frac{d^{l + m - 1}}{dx^{l + m - 1}}\left(x^2 - 1\right)^l.
+\end{eqnarray}
+%
+Weiterhin ist
+%
+\begin{eqnarray}
+\frac{d^{l + m + 1}}{dx^{l + m + 1}}\left(x^2 - 1\right)^{l + 1} & = & \frac{d^{l + m}}{dx^{l + m}}2\left(l + 1\right)x\left(x^2 - 1\right)^{l}\nonumber\\
+& = & \frac{d^{l + m - 1}}{dx^{l + m - 1}}\left[2\left(l + 1\right)\left(x^2 - 1\right)^{l} + 4x^2l\left(l + 1\right)\left(x^2 - 1\right)^{l - 1}\right]\nonumber\\
+& = & \frac{d^{l + m - 1}}{dx^{l + m - 1}}\left[2\left(l + 1\right)\left(x^2 - 1\right)^{l} + 4l\left(l + 1\right)\left(x^2 - 1\right)^{l} + 4l\left(l + 1\right)\left(x^2 - 1\right)^{l - 1}\right]\nonumber\\
+& = & 2\left(1 + 2l\right)\left(l + 1\right)\frac{d^{l + m - 1}}{dx^{l + m - 1}}\left[\left(x^2 - 1\right)^{l} + 4l\left(l + 1\right)\left(x^2 - 1\right)^{l - 1}\right].
+\end{eqnarray}
+%
+Es gilt also
+%
+\begin{eqnarray}
+\frac{d^{l + m - 1}}{dx^{l + m - 1}}\left(x^2 - 1\right)^l & = & \frac{1}{2\left(1 + 2l\right)\left(l + 1\right)}\frac{d^{l + m + 1}}{dx^{l + m + 1}}\left(x^2 - 1\right)^{l + 1} - \frac{2l}{\left(2l + 1\right)}\frac{d^{l + m - 1}}{dx^{l + m - 1}}\left(x^2 - 1\right)^{l - 1}.
+\end{eqnarray}
+%
+Damit folgt
+%
+\begin{eqnarray}
+&&\left(-\right)^{m - 1}\frac{1}{2^ll!}\left(1 - x^2\right)^{\frac{m - 1}{2}}\frac{d^{l + m - 1}}{dx^{l + m - 1}}\left(x^2 - 1\right)^l = \left(-\right)^{m - 1}\frac{1}{2^{l + 1}\left(l + 1\right)!}\left(1 - x^2\right)^{\frac{m - 1}{2}}\frac{1}{\left(1 + 2l\right)}\frac{d^{l + m + 1}}{dx^{l + m + 1}}\left(x^2 - 1\right)^{l + 1}\nonumber\\
+&&- \frac{1}{2l + 1}\left(-\right)^{m - 1}\frac{1}{2^{l - 1}\left(l - 1\right)!}\left(1 - x^2\right)^{\frac{m - 1}{2}}\frac{d^{l + m - 1}}{dx^{l + m - 1}}\left(x^2 - 1\right)^{l - 1}.
+\end{eqnarray}
+%
+Somit erhält man
+%
+\begin{eqnarray}
+\sqrt{1 - x^2}P_{l, m - 1} & = & -\frac{1}{2l + 1}P_{l + 1, m} + \frac{1}{2l + 1}P_{l - 1, m}.
+\end{eqnarray}
+%
+Es folgt
+%
+\begin{eqnarray}
+xP_{l, m} & = & \frac{l + m}{2l + 1}P_{l - 1, m} + \frac{l + 1 - m}{2l + 1}P_{l + 1, m}.\label{eq:legendre_ass_prop_1}
+\end{eqnarray}
+%
+Hiermit und mit Glg. \eqref{eq:legendre_ass_prop_1_vorform} folgt
+%
+\begin{eqnarray}
+\frac{l + m}{2l + 1}P_{l - 1, m} + \frac{l + 1 - m}{2l + 1}P_{l + 1, m} & = & \frac{l}{2l + 1}P_{l - 1, m} + m\sqrt{1 - x^2}P_{l, m - 1} + \frac{l + 1}{2l + 1}P_{l + 1, m}\nonumber\\
+\Rightarrow\sqrt{1 - x^2}P_{l, m - 1} & = & \frac{1}{2l + 1}P_{l - 1, m} - \frac{1}{2l + 1}P_{l + 1, m}\nonumber\\
+\Rightarrow\sqrt{1 - x^2}P_{l, m} & = & \frac{1}{2l + 1}P_{l - 1, m + 1} - \frac{1}{2l + 1}P_{l + 1, m + 1}.\label{eq:legendre_ass_prop_3}
+\end{eqnarray}
+%
+Die Normierung der Legendre-Funktionen ergibt sich zu
+%
+\begin{eqnarray}
+\int_{-1}^{1}P_{l, m}\left(x\right)^2dx & = & \frac{1}{2^{2l}l!^2}\int_{-1}^{\left(1\right)}\left(1 - x^2\right)^m\frac{d^{l + m}}{dx^{l + m}}\left(1 - x^2\right)^l\frac{d^{l + m}}{dx^{l + m}}\left(1 - x^2\right)^ldx\nonumber\\
+&\stackrel{m+l-\text{fache p.I}.}{=}&\frac{1}{2^{2l}l!^2}\left(-1\right)^{m + l}\left(-1\right)^{m + l}\left(m + l\right)!\frac{\left(2l\right)!}{\left(l - m\right)!}\int_{-1}^{1}\left(1 - x^2\right)^ldx\nonumber\\
+& = & \frac{1}{2^{2l}l!^2}\frac{\left(m + l\right)!}{\left(l - m\right)!}\left(2l\right)!\int_{-1}^{1}\left(1 + x\right)^l\left(1 - x\right)^ldx\nonumber\\
+&\stackrel{l-\text{fache p.I}.}{=}&\frac{1}{2^{2l}l!^2}\frac{\left(m + l\right)!}{\left(l - m\right)!}\left(2l\right)!\frac{l!}{\left(2l\right)!}l!\int_{-1}^{1}\left(1 + x\right)^{2l}dx\nonumber\\
+& = & \frac{1}{2^{2l}}\frac{\left(m + l\right)!}{\left(l - m\right)!}\frac{2^{2l + 1}}{2l + 1} = \frac{2}{2l + 1}\frac{\left(l + m\right)!}{\left(l - m\right)!}.
+\end{eqnarray}
+%
+Des Weiteren gilt für $l\not = l'$ (o. B. d. A. kann man $l<l'$ annehmen):
+%
+\begin{eqnarray}
+\int_{-1}^{1}P_{l, m}\left(x\right)P_{l', m}\left(x\right)dx&\propto&\int_{-1}^{1}\left(1 - x^2\right)^m\frac{d^{l + m}}{dx^{l + m}}\left(1 - x^2\right)^l\frac{d^{l' + m}}{dx^{l' + m}}\left(1 - x^2\right)^{l'}dx.
+\end{eqnarray}
+%
+Dies erhält man durch $m + l-$fache partielle Integration, bei der $\left(1 - x^2\right)^m\frac{d^{l + m}}{dx^{l + m}}$ abgeleitet und $\frac{d^{l' + m}}{dx^{l' + m}}\left(1 - x^2\right)^{l'}$ integriert wird
+%
+\begin{eqnarray}
+\int_{-1}^{1}P_{l, m}\left(x\right)P_{l', m}\left(x\right)dx&\propto&\int_{-1}^{1}\frac{d^{l' - l}}{dx^{l' - l}}\left(1 - x^2\right)^{l'}dx = 0.\label{eq:ortho_ass_lgen}
+\end{eqnarray}
+%
+Dabei entfällt bei jedem Integrationsschritt der Term ohne Integral, da dieser an den Rändern $\pm 1$ ausgewertet wird und dort immer Terme $\propto\left(1 - x^2\right)$ als Faktoren auftreten. Es gilt also
+%
+\begin{eqnarray}
+\int_{-1}^{1}P_{l, m}\left(x\right)P_{l', m}\left(x\right)dx = \frac{2}{2l + 1}\frac{\left(l + m\right)!}{\left(l - m\right)!}\delta_{l, l'}.
+\end{eqnarray}
+%
+\section{Hermite-Polynome}
+\label{sec:hermitepolynome}\index{Hermite-Polynom}
+
+Die \textit{Hermite-Polynome} werden definiert durch ihre Rodrigues-Formel
+%
+\begin{eqnarray}
+H_n\left(x\right) \coloneqq \left(-\right)^ne^{x^2}\frac{d^n}{dx^n}e^{-x^2}.\label{eq:hermite_poly_geschlossen}
+\end{eqnarray}
+%
+Setzt man in Glg. \eqref{eq:dgl_p} $\newtilde{E} - 1 = 2n$ ein, erhält man die \textit{Hermite'sche Differenzialgleichung}\index{Differenzialgleichung!Hermite'sche}\index{Hermite'sche Differenzialgleichung}
+%
+\begin{eqnarray}
+P_n'' - 2xP' + 2nP = 0.\label{eq:hermite_dgl}
+\end{eqnarray}
+%
+Nun soll gezeigt werden, dass die Hermite-Polynome nach Glg. \eqref{eq:hermite_poly_geschlossen} diese DGL lösen und somit auch die Rekursionsformel Glg. \eqref{eq:hermite_poly_rek} erfüllen. Es gelten ja
+%
+\begin{eqnarray}
+\frac{dH_n}{dx}\left(x\right) & = & \left(-\right)^ne^{x^2}\left[2x\frac{d^n}{dx^n}e^{-x^2} + \frac{d^{n + 1}}{dx^{n + 1}}e^{-x^2}\right],\\
+\frac{d^2H_n}{dx^2}\left(x\right) & = & \left(-\right)^ne^{x^2}\left[4x^2\frac{d^n}{dx^n}e^{-x^2} + 4x\frac{d^{n + 1}}{dx^{n + 1}}e^{-x^2} + \frac{d^{n + 2}}{dx^{n + 2}}e^{-x^2} + 2\frac{d^n}{dx^{n}}e^{-x^2}\right].
+\end{eqnarray}
+%
+Setzt man all dies in die linke Seite der Hermite'schen DGL ein, erhält man
+%
+\begin{eqnarray}
+\left(\frac{d^n}{dx^n}e^{-x^2}\right)\left[2 + 2n\right] + \left(\frac{d^{n + 1}}{dx^{n + 1}}e^{-x^2}\right)\left[-2x + 4x\right] + \left(\frac{d^{n + 2}}{dx^{n + 2}}e^{-x^2}\right) & = & 0\nonumber\\
+\Leftrightarrow \left[2\left(1 + n\right)\frac{d^{n}}{dx^n} + 2x\frac{d^{n + 1}}{dx^{n + 1}} + \frac{d^{n + 2}}{dx^{n + 2}}\right]\exp\left(-x^2\right) & = & 0.
+\end{eqnarray}
+%
+Dies ist für $n = 0$ wahr. Durch Differenzieren der Gleichung nach $x$ erhält man die gleiche Aussage für $n + 1$. Die Hermite-Polynome lösen somit die Hermite'sche Differenzialgleichung, man kann $P_n\left(x\right) = H_n\left(x\right)$ setzen. Weiterhin macht man sich klar, dass gilt
+%
+\begin{eqnarray}
+\frac{d^n}{dx^n}\left(f\left(x\right)g\left(x\right)\right) & = & \frac{d^{n - 1}}{dx^{n - 1}}\left[f'g + fg'\right] = \frac{d^{n - 2}}{dx^{n - 2}}\left[f''g + 2f'g' + fg''\right]\nonumber\\
+& = & \sum_{k = 0}^{n}\left(\begin{array}{c}
+n\\
+k
+\end{array}\right)f^{(k)}g^{(n - k)} \label{eq:produktregel_n}
+\end{eqnarray}
+%
+für $n\in\mathbb{N}$ und $f, g:\mathbb{R}\to\mathbb{R}$, $n-$fach differenzierbar. Formal kann man dies über eine vollständige Induktion zeigen. Für $n = 0$ ist die Aussage richtig. Die Aussage gelte für ein $n\in\mathbb{N}$. Dann gilt
+%
+\begin{eqnarray}
+\frac{d^{n + 1}}{dx^{n + 1}}\left(fg\right) & = & \frac{d}{dx}\left(\frac{d^n}{dx^n}\left(fg\right)\right) = \frac{d}{dx}\sum_{k = 0}^{n}\left(\begin{array}{c}
+n\\
+k
+\end{array}\right)f^{(k)}g^{(n - k)}\nonumber\\
+& = & \sum_{k = 0}^{n}\left(\begin{array}{c}
+n\\
+k
+\end{array}\right)\left[f^{(k + 1)}g^{(n - k)} + f^{(k)}g^{(n + 1 - k)}\right], 
+\end{eqnarray}
+%
+der Rest folgt analog zum Beweis des binomischen Lehrsatzes Glg. \eqref{eq:gen_bin_formula}. Dies kann man verwenden, um
+%
+\begin{eqnarray}
+H_n'\left(x\right) & = & 2x\left(-\right)^ne^{x^2}\frac{d^n}{dx^n}e^{-x^2} + \left(-\right)^ne^{x^2}\frac{d^{n + 1}}{dx^{n + 1}}e^{-x^2}\nonumber\\
+& = & 2x\left(-\right)^ne^{x^2}\frac{d^n}{dx^n}e^{-x^2} + \left(-\right)^ne^{x^2}\frac{d^n}{dx^n}\left(-2xe^{-x^2}\right)
+\end{eqnarray}
+%
+zu vereinfachen. Im zweiten Summanden setze in Termen von Glg. \eqref{eq:produktregel_n} $f = -2x$ und $g = e^{-x^2}$, dann spielen in der Summe nur die Terme mit $k = 0$ und $k = 1$ eine Rolle, also
+%
+\begin{eqnarray}
+\frac{d^n}{dx^n}\left(-2xe^{-x^2}\right) = -2x\frac{d^n}{dx^n}e^{-x^2} - 2n\frac{d^{n - 1}}{dx^{n - 1}}e^{-x^2}.
+\end{eqnarray}
+%
+Es gilt somit
+%
+\begin{eqnarray}
+H_n'\left(x\right) = 2nH_{n - 1}\left(x\right).\label{eq:herm_pol_prop_1}
+\end{eqnarray}
+%
+Damit ist unmittelbar klar, dass gilt
+%
+\begin{eqnarray}
+H_n' & = & 2xH_n - H_{n + 1}\Leftrightarrow nH_{n - 1} + \frac{H_{n + 1}}{2} = xH_n.\label{eq:herm_pol_prop_2}
+\end{eqnarray}
+%
+Der Koeffizient $C_n$ vor der höchsten Potenz ist $C_n = 2^n$, wie man leicht einsehen kann. Für die Normierung der Hermite-Polynome gilt
+%
+\begin{eqnarray}
+\int_{ - \infty}^{\infty}H_n^2\left(x\right)e^{-x^2}dx & = & \sqrt{\pi}2^nn!.\label{eq:hermite_polynome_normierung}
+\end{eqnarray}
+%
+Um dies zu zeigen, mache man sich zunächst klar, dass gilt
+%
+\begin{eqnarray}
+\int_{-\infty}^{\infty}H_n\left(x\right)H_m\left(x\right)e^{-x^2}dx = 0, 
+\end{eqnarray}
+%
+für $n\not = m$, da in diesem Fall $H_n\left(x\right)\exp\left(-\frac{x^2}{2}\right)$ und $H_m\left(x\right)\exp\left(-\frac{x^2}{2}\right)$ zwei Eigenfunktionen eines Hermite'schen Operators zu unterschiedlichen Eigenwerten sind, und daher orthogonal.
+
+Nun kann man die Aussage über vollständige Induktion zeigen. Für $n = 0$ ist $H_n = 1$, also gilt
+%
+\begin{eqnarray}
+\int_{ - \infty}^{\infty}H_0^2\left(x\right)e^{-x^2}dx & = & \sqrt{\pi}.
+\end{eqnarray}
+%
+Für $n = 1$ ist $H_1\left(x\right) = -2x$, also gilt
+%
+\begin{eqnarray}
+\int_{ - \infty}^{\infty}H_1^2e^{-x^2}dx & = & 4\int_{ - \infty}^{\infty}x^2e^{-x^2}dx = 2\int_{ - \infty}^{\infty}e^{-x^2}dx = 2\sqrt{\pi}.
+\end{eqnarray}
+%
+Für $n = 0$ und $n = 1$ stimmt die Aussage also. Nun gelte die Aussage für ein $n$ bereits und auch für $n - 1$. Dann folgt mit den Glg.en \eqref{eq:herm_pol_prop_1} und \eqref{eq:herm_pol_prop_2} auch
+%
+\begin{eqnarray}
+&&\int_{ - \infty}^{\infty}H_{n + 1}^2e^{-x^2}dx = 4\int_{ - \infty}^{\infty}\left[x^2H_n^2 + n^2H_{n - 1}^2 - 2xnH_{n - 1}H_n\right]e^{-x^2}dx\nonumber\\
+& = & 4n^2\sqrt{\pi}2^{n - 1}\left(n - 1\right)! + 4\int_{ - \infty}^{\infty}x^2H_n^2e^{-x^2}dx - 4n\int_{ - \infty}^{\infty}\left[H_{n - 1}'H_{n} + H_{n - 1}H_n'\right]e^{-x^2}dx\nonumber\\
+& = & 2n\sqrt{\pi}2^nn! + 2\int_{ - \infty}^{\infty}\left[2xH_n'H_n + H_n^2\right]e^{-x^2}dx - 8n^2\sqrt{\pi}2^{n - 1}\left(n - 1\right)!\nonumber\\
+& = & \left(2n - 4n\right)\sqrt{\pi}2^nn! + 2\int_{ - \infty}^{\infty}H_n'^2e^{-x^2}dx + 2\sqrt{\pi}2^nn!\nonumber\\
+& = & \sqrt{\pi}2^nn!\left(2n\right) + 2\sqrt{\pi}2^nn! = \sqrt{\pi}2^{n + 1}\left(n + 1\right)!.
+\end{eqnarray}
+%
+Also gilt die Aussage auch für $n + 1$ und somit für alle $n\in\mathbb{N}$.
+
+\section{Laguerre-Polynome}
+\label{sec:laguerrepolynome}\index{Laguerre-Polynom}
+
+Die Laguerre'sche Differenzialgleichung lautet
+%
+\begin{eqnarray}
+xP'' + \left(k + 1 - x\right)P' + nP = 0\label{eq:laguerre_dgl}
+\end{eqnarray}
+%
+für $k\in\mathbb{N}$. Es wird für $P\left(x\right)$ ein Potenzreihenansatz gemacht, 
+%
+\begin{eqnarray}
+P\left(x\right) = \sum_{i = 0}^{\infty}a_ix^i.
+\end{eqnarray}
+%
+Damit folgen
+%
+\begin{eqnarray}
+P'\left(x\right) & = & \sum_{i = 0}^{\infty}ia_ix^{i - 1} = \sum_{i = 0}^{\infty}\left(i + 1\right)a_{i + 1}x^i,\\
+P''\left(x\right) & = & \sum_{i = 0}^{\infty}i\left(i + 1\right)a_{i + 1}x^{i - 1}.
+\end{eqnarray}
+%
+Setzt man dies ein, erhält man
+%
+\begin{eqnarray}
+i\left(i + 1\right)a_{i + 1} + \left(k + 1\right)\left(i + 1\right)a_{i + 1} - ia_i + na_i & = &0
+\Leftrightarrow a_{i + 1} = a_i\frac{i - n}{\left(i + 1\right)\left(i + k + 1\right)}.\label{eq:rek_laguerre}
+\end{eqnarray}
+%
+Der Faktor $\frac{i - n}{\left(i + 1\right)\left(i + k + 1\right)}$ geht für hohe $i$ wie $1/i$ gegen Null, die Rekursion muss folglich abbrechen. Also muss $n\in\mathbb{N}$ sein. $n$ ist der Grad des Polynoms $P$. Die Polynome
+%
+\begin{eqnarray}
+L_{n, k}\left(x\right) \coloneqq \sum_{i = 0}^{n}\left(\begin{array}{c}
+n + k\\
+n - i
+\end{array}\right)\frac{\left(-\right)^{(i)}}{i!}x^{(i)}.\label{eq:laguerre_polynome_explizit}
+\end{eqnarray}
+%
+lösen Glg. \eqref{eq:laguerre_dgl} ebenfalls, um dies zu zeigen, überprüft man ihre Rekursionsbeziehung. Zunächst sind sie Polynome vom Grad $n$. Der Koeffizient vor der höchsten Potenz von $x$ ist $\frac{\left(-\right)^n}{n!}$, dies impliziert eine Normierung. Es gilt
+%
+\begin{eqnarray}
+a_i & = & \frac{\left(n + k\right)!}{\left(n - i\right)!\left(k + i\right)!i!}\left(-\right)^{(i)}\nonumber\\
+\Leftrightarrow \frac{a_{i + 1}}{a_i} & = & -\frac{\left(n - i\right)!\left(k + i\right)!i!}{\left(n - i - 1\right)!\left(k + i + 1\right)!\left(i + 1\right)!} = \frac{i - n}{\left(k + 1 + i\right)\left(i + 1\right)}.
+\end{eqnarray}
+%
+Daher kann man Glg. \eqref{eq:laguerre_polynome_explizit} als Definition der Laguerre-Polynome ansehen. All dies kann man mit
+%
+\begin{eqnarray}
+n&\to&n_r,\\
+k&\to&2l + 1
+\end{eqnarray}
+%
+umschreiben zu
+%
+\begin{eqnarray}
+L_{n_r, 2l + 1}^{}\left(x\right) \coloneqq \sum_{i = 0}^{n_r}\left(\begin{array}{c}
+n_r + 2l + 1\\
+n_r - i
+\end{array}\right)\frac{\left(-\right)^{(i)}}{i!}x^{(i)}
+\end{eqnarray}
+%
+und
+%
+\begin{eqnarray}
+xL_{n_r, 2l + 1}'' + \left(2l + 2 - x\right)L_{n_r, 2l + 1}' + n_rL_{n_r, 2l + 1} = 0.
+\end{eqnarray}
+%
+Dies ist die in Absch. \ref{sec:hatom} verwandte Formulierung. Die Rodrigues-Formel der Laguerre-Polynome lautet
+%
+\begin{eqnarray}
+P_{n, k}\left(x\right) = \frac{e^x}{n!x^k}\frac{d^n}{dx^n}\left[e^{-x}x^{n + k}\right].
+\end{eqnarray}
+%
+Dass dies Polynome vom Grad $n$ sind, sieht man sofort. Der Koeffizient vor $x^n$ ist $\frac{\left(-\right)^n}{n!}$. Für $l\in\mathbb{N}$ mit $l\leq n$ gilt
+%
+\begin{eqnarray}
+\frac{d^l}{dx^l}x^{n + k} = \frac{\left(n + k\right)!}{\left(n + k - l\right)!}x^{n + k - l}
+\end{eqnarray}
+%
+Daraus folgt
+%
+\begin{eqnarray}
+\frac{d^n}{dx^n}\left[e^{-x}x^{n + k}\right] & = & \sum_{i = 0}^{n}\left(-\right)^{i}e^{-x}\left(\begin{array}{c}
+n\\
+i
+\end{array}\right)\frac{\left(n + k\right)!}{\left(k + i\right)!}x^{k + i} = \sum_{i = 0}^{n}\left(-\right)^{i}e^{-x}\frac{n!}{i!\left(n - i\right)!}\frac{\left(n + k\right)!}{\left(k + i\right)!}x^{k + i}.
+\end{eqnarray}
+%
+Damit erhält man
+%
+\begin{eqnarray}
+P_{n, k}\left(x\right) & = & \sum_{i = 0}^{n}\left(-\right)^{i}\frac{1}{i!\left(n - i\right)!}\frac{\left(n + k\right)!}{\left(k + i\right)!}x^{i} = \sum_{i = 0}^{n}\left(\begin{array}{c}
+n + k\\
+n - i
+\end{array}\right)\frac{\left(-\right)^{(i)}}{i!}x^{(i)}.
+\end{eqnarray}
+%
+Die Rodrigues-Formel entspricht also der expliziten Darstellung Glg. \eqref{eq:laguerre_polynome_explizit}. Die Laguerre-Polynome erfüllen die Integraleigenschaft
+%
+\begin{eqnarray}
+\int_{0}^{\infty}x^{k + 1}e^{-x}L_{n, k}\left(x\right)^2dx & = & \frac{\left(n + k\right)!}{n!}\left(2n + k + 1\right)\label{eq:laguerre_integral}.
+\end{eqnarray}
+%
+Hierzu rechnet man
+%
+\begin{eqnarray}
+&&\int_{0}^{\infty}x^{k + 1}e^{-x}L_{n, k}\left(x\right)^2dx = \int_{0}^{\infty}x^{k + 1}e^{-x}L_{n, k}\left(x\right)\frac{e^x}{n!x^k}\frac{d^n}{dx^n}\left[e^{-x}x^{n + k}\right]dx\nonumber\\
+& = & \frac{1}{n!}\int_{0}^{\infty}xL_{n, k}\left(x\right)\frac{d^n}{dx^n}\left[e^{-x}x^{n + k}\right]dx = \frac{1}{n!}\left(-1\right)^n\int_{0}^{\infty}e^{-x}x^{n + k}\frac{d^n}{dx^n}xL_{n, k}\left(x\right)dx.
+\end{eqnarray}
+%
+Nach der expliziten Darstellung Glg. \eqref{eq:laguerre_polynome_explizit} gilt
+%
+\begin{eqnarray}
+\frac{d^n}{dx^n}xL_{n, k}\left(x\right) & = & \left(-\right)^n\left(n + 1\right)x + n!\frac{\left(-\right)^{n - 1}}{\left(n - 1\right)!}\frac{\left(n + k\right)!}{\left(n + k - 1\right)!}\nonumber\\
+& = & \left(-\right)^n\left(n + 1\right)x + n\left(-\right)^{n - 1}\left(n + k\right).
+\end{eqnarray}
+%
+Mit Glg. \eqref{eq:int_prop_1} folgt
+%
+\begin{eqnarray}
+\int_0^\infty\dotsc dx & = & \frac{\left(-\right)^n}{n!}\left[\left(-\right)^n\left(n + 1\right)\left(n + k + 1\right)! - n\left(-\right)^n\left(n + k\right)\left(n + k\right)!\right]\nonumber\\
+& = & \frac{\left(n + k\right)!}{n!}\left[\left(n + 1\right)\left(n + k + 1\right) - n\left(n + k\right)\right] = \frac{\left(n + k\right)!}{n!}\left(2n + k + 1\right).
+\end{eqnarray}
+%
+Weiter gilt für $k\geq2$
+%
+\begin{eqnarray}
+\int_{0}^{\infty}x^{k - 2}\left[L_{n, k}\left(x\right)\right]^2\exp\left(-x\right)dx = \frac{\left(n + k\right)!}{n!}\frac{2n + k + 1}{\left(k - 1\right)k\left(k + 1\right)}\label{eq:laguerre_int_prop_2}.
+\end{eqnarray}
+%
+Hierzu rechnet man mit
+%
+\begin{eqnarray}
+&&\int_{0}^{\infty}x^{k - 2}e^{-x}L_{n, k}\left(x\right)^2dx = \int_{0}^{\infty}x^{k - 2}e^{-x}L_{n, k}\left(x\right)\frac{e^x}{n!x^k}\frac{d^n}{dx^n}\left[e^{-x}x^{n + k}\right]dx\nonumber\\
+& = & \frac{1}{n!}\int_{0}^{\infty}\frac{1}{x^2}L_{n, k}\left(x\right)\frac{d^n}{dx^n}\left[e^{-x}x^{n + k}\right]dx = \frac{1}{n!}\left(-1\right)^n\int_{0}^{\infty}e^{-x}x^{n + k}\frac{d^n}{dx^n}\left[\frac{1}{x^2}L_{n, k}\left(x\right)\right]dx.
+\end{eqnarray}
+%
+$L_{n, k}$ ist ein Polynom vom Grad $n$, also ist $L_{n, k}/x^2$ vom Grad $n - 2$. Schreibe
+%
+\begin{eqnarray}
+L_{n, k} = a + bx + \mathcal{O}\left(x^2\right), 
+\end{eqnarray}
+%
+dementsprechend gilt
+%
+\begin{eqnarray}
+\frac{d}{dx^n}\frac{L_{n, k}}{x^2} & = & \frac{d}{dx^n}\left(\frac{a}{x^2} + \frac{b}{x}\right) = \left(-\right)^n\left(a\left(n + 1\right)!x^{-2 - n} + n!bx^{-n - 1}\right).
+\end{eqnarray}
+%
+Nach der expliziten Darstellung Glg. \eqref{eq:laguerre_polynome_explizit} gelten
+%
+\begin{eqnarray}
+a & = & \frac{\left(n + k\right)!}{n!k!},\\
+b & = & -\frac{\left(n + k!\right)}{\left(n - 1\right)!\left(k + 1\right)!}.
+\end{eqnarray}
+%
+Somit folgt
+%
+\begin{eqnarray}
+\frac{d}{dx^n}\frac{L_{n, k}}{x^2} & = & \left(-\right)^n\left(\frac{\left(n + k\right)!}{n!k!}\left(n + 1\right)!x^{-2 - n} - \frac{\left(n + k\right)!}{\left(n - 1\right)!\left(k + 1\right)!}n!x^{-n - 1}\right)\nonumber\\
+& = & \left(-\right)^n\left(n + k\right)!\left[\frac{\left(n + 1\right)}{k!}x^{-2 - n} - \frac{n}{\left(k + 1\right)!}x^{-n - 1}\right].
+\end{eqnarray}
+%
+Hiermit erhält man
+%
+\begin{eqnarray}
+e^{-x}x^{n + k}\frac{d}{dx^n}\frac{L_{n, k}}{x^2} & = & e^{-x}\left(-\right)^n\left(n + k\right)!\left[\frac{\left(n + 1\right)}{k!}x^{k - 2} - \frac{n}{\left(k + 1\right)!}x^{k - 1}\right].
+\end{eqnarray}
+%
+Mit Glg. \eqref{eq:int_prop_1} folgt
+%
+\begin{eqnarray}
+\int_0^\infty\dotsc dx & = & \frac{\left(n + k\right)!}{n!}\left[\frac{\left(n + 1\right)}{k\left(k - 1\right)} - \frac{n}{k\left(k + 1\right)}\right]\nonumber\\
+& = & \frac{\left(n + k\right)!}{n!}\left[\frac{\left(n + 1\right)\left(k + 1\right)}{k\left(k - 1\right)\left(k + 1\right)} - \frac{n\left(k - 1\right)}{k\left(k + 1\right)\left(k - 1\right)}\right]\nonumber\\
+& = & \frac{\left(n + k\right)!}{n!}\frac{2n + k + 1}{k\left(k + 1\right)\left(k - 1\right)}.
+\end{eqnarray}
+%
+\section{Kugelflächenfunktionen}
+\label{sec:kugelflaechenfunktionen}\index{Kugelflächenfunktion}
+
+Die Abhängigkeiten der Lösung Glg. \eqref{eq:ansatz_poisson} von $\cos\left(\theta\right)$ und $\phi$ fasst man zu $P_{l, m}\left(\cos\left(\theta\right)\right)\exp\left(im\phi\right)$ zusammen. Die \textit{Kugelflächenfunktionen} (engl. \textit{spherical harmonics}) werden definiert durch
+%
+\begin{eqnarray}
+Y_{l, m}\left(\theta, \phi\right) = \sqrt{\frac{2l + 1}{4\pi}\frac{\left(l - m\right)!}{\left(l + m\right)!}}P_{l, m}\left(\cos\left(\theta\right)\right)\exp\left(im\phi\right).\label{eq:spherical_harmionen}
+\end{eqnarray}
+%
+mit den assoziierten Legendre-Funktionen $P_{l, m}\left(x\right)$, Glg. \eqref{eq:assoziierte_legendre_funktionen}. Die Vorfaktoren ergeben sich aus der Normierung
+%
+\begin{eqnarray}
+\int_{\theta = 0}^\pi\int_{\phi = 0}^{2\pi}\left|Y_{l, m}\left(\theta, \phi\right)\right|^2\sin\left(\theta\right) d\phi d\theta\hastobe1, 
+\end{eqnarray}
+%
+die nun verifiziert wird:
+%
+\begin{eqnarray}
+&&\frac{2l + 1}{4\pi}\frac{\left(l - m\right)!}{\left(l + m\right)!}\int_{\theta = 0}^\pi\int_{\phi = 0}^{2\pi}\left(P_{l, m}\left(\cos\left(\theta\right)\right)\right)^2\sin\left(\theta\right) d\phi d\theta\nonumber\\
+& = & \frac{2l + 1}{2}\frac{\left(l - m\right)!}{\left(l + m\right)!}\int_{-1}^{1}P_{l, m}\left(z\right)^2dz = 1
+\end{eqnarray}
+%
+Weiterhin sind die Kugelflächenfunktionen orthogonal. Für $m\not = m'$ gilt nämlich
+%
+\begin{eqnarray}
+&&\int_{\theta = 0}^{\pi}\int_{\phi = 0}^{2\pi}Y_{l, m}\left(\theta, \phi\right)^\star Y_{l', m'}\left(\theta, \phi\right)\sin\left(\theta\right) d\phi d\theta\nonumber\\
+&\propto&\int_{\theta = 0}^{\pi}\int_{\phi = 0}^{2\pi}\exp\left(i\left(m - m'\right)\phi\right)d\phi P_{l, m}^{\star}\left(\cos\left(\theta\right)\right)P_{l', m'}\left(\cos\left(\theta\right)\right)\sin\left(\theta\right) d\theta = 0.
+\end{eqnarray}
+%
+Für $l\not = l'$ erhält man
+%
+\begin{eqnarray}
+&&\int_{\theta = 0}^{\pi}\int_{\phi = 0}^{2\pi}Y_{l, m}\left(\theta, \phi\right)^\star Y_{l', m}\left(\theta, \phi\right)\sin\left(\theta\right) d\phi d\theta = 2\pi\int_{-1}^{1}P_{l, m}\left(z\right)P_{l', m}\left(z\right)dz\stackrel{\eqref{eq:ortho_ass_lgen}}{=}0.
+\end{eqnarray}
+%
+Zusammenfassend erhält man
+%
+\begin{eqnarray}
+\int_{\theta = 0}^{\pi}\int_{\phi = 0}^{2\pi}Y_{l, m}\left(\theta, \phi\right)^\star Y_{l', m'}\left(\theta, \phi\right)\sin\left(\theta\right) d\phi d\theta = \delta_{l, l'}\delta_{m, m'}.
+\end{eqnarray}
+%
+Weiterhin gilt
+%
+\begin{eqnarray}
+\Delta_{\theta, \phi} Y_{l, m}\left(\theta, \phi\right) & = & -l\left(l + 1\right)Y_{l, m}\left(\theta, \phi\right)
+\end{eqnarray}
+%
+mit
+%
+\begin{eqnarray}
+\Delta_{\theta, \phi} = \Delta_{\mu, \phi} = \frac{\partial}{\partial\mu}\left(1 - \mu^2\right)\frac{\partial}{\partial\mu} + \frac{1}{1 - \mu^2}\frac{\partial^2}{\partial\phi^2}, 
+\end{eqnarray}
+%
+als Winkelanteil des Laplace-Operators und $\mu = \cos\left(\theta\right)$. Es gilt
+%
+\begin{eqnarray}
+\frac{\partial^2}{\partial\phi^2}Y_{l, m} & = & -m^2Y_{l, m}\left(\theta, \phi\right), 
+\end{eqnarray}
+%
+somit ist hier
+%
+\begin{eqnarray}
+\Delta_{\mu, \phi} = \frac{\partial}{\partial\mu}\left(1 - \mu^2\right)\frac{\partial}{\partial\mu} - \frac{m^2}{1 - \mu^2}.
+\end{eqnarray}
+%
+Für die assoziierten Legendre-Polynome $P_{l, m}\left(\mu\right)$ gilt die DGL \eqref{eq:legendre_vorform_2}
+%
+\begin{eqnarray}
+\frac{d}{d\mu}\left(1 - \mu^2\right)P_{l, m}'\left(\mu\right) - \frac{m^2}{1 - \mu^2}P_{l, m}\left(\mu\right) = -l\left(l + 1\right)P_{l, m}\left(\mu\right).
+\end{eqnarray}
+%
+Somit folgt
+%
+\begin{eqnarray}
+\Delta_{\theta, \phi} Y_{l, m}\left(\theta, \phi\right) & = & -l\left(l + 1\right)Y_{l, m}\left(\theta, \phi\right).\label{eq:spherical_harm_prop_1}
+\end{eqnarray}
+%
+Aus Glg. \eqref{eq:legendre_ass_prop_2} folgt
+%
+\begin{eqnarray}
+\frac{\partial}{\partial\theta}Y_{l, m}\left(\theta, \phi\right) & = & m\cot\left(\theta\right) Y_{l, m}\left(\cos\left(\theta\right)\right) + \sqrt{l^2 - m^2 + l - m}Y_{l, m + 1}\left(\cos\left(\theta\right)\right)\exp\left(-i\phi\right).
+\end{eqnarray}
+%
+Weiterhin gilt
+%
+\begin{eqnarray}
+\frac{\partial}{\partial\phi}Y_{l, m}\left(\theta, \phi\right) & = & imY_{l, m}\left(\theta, \phi\right).
+\end{eqnarray}
+%
+Damit folgt
+%
+\begin{eqnarray}
+&&\exp\left(\pm i\phi\right)\left(i\cot\left(\theta\right)\frac{\partial}{\partial\phi}\pm\frac{\partial}{\partial\theta}\right)Y_{l, m}\left(\theta, \phi\right) = -m\cot\left(\theta\right)\exp\left(\pm i\phi\right)Y_{l, m}\left(\theta, \phi\right)\nonumber\\
+&\pm&\exp\left(\pm i\phi\right)m\cot\left(\theta\right) Y_{l, m}\left(\cos\left(\theta\right)\right)\pm\sqrt{l^2 - m^2 + l - m}\exp\left(\pm i\phi\right)Y_{l, m + 1}\left(\theta, \phi\right)\exp\left(-i\phi\right)\nonumber
+\end{eqnarray}
+%
+Es gilt also
+%
+\begin{eqnarray}
+\newhat{L}_ + Y_{l, m}\left(\theta, \phi\right) & = & \sqrt{l^2 - m^2 + l - m}Y_{l, m + 1}\left(\theta, \phi\right).
+\end{eqnarray}
+%
+Somit folgt für die Eigenzustände $|n, l, m\rangle$ im Wasserstoffatom
+%
+\begin{eqnarray}
+\newhat{L}_ + |n, l, m\rangle = \sqrt{l^2 - m^2 + l - m}|n, l, m\rangle.
+\end{eqnarray}
+%
+Aus Glg. \eqref{eq:legendre_ass_prop_1} folgt
+%
+\begin{eqnarray}
+\cos\left(\theta\right)Y_{l, m} & = & \sqrt{\frac{2l + 1}{4\pi}\frac{\left(l - m\right)!}{\left(l + m\right)!}}\cos\left(\theta\right)P_{l, m}\left(\cos\left(\theta\right)\right)\exp\left(im\phi\right)\nonumber\\
+& = & \sqrt{\frac{2l + 1}{4\pi}\frac{\left(l - m\right)!}{\left(l + m\right)!}}\left[\frac{l + m}{2l + 1}P_{l - 1, m} + \frac{l - m + 1}{2l + 1}P_{l + 1, m}\right]\exp\left(im\phi\right)\nonumber\\
+& = & \sqrt{\frac{2l + 1}{4\pi}\frac{\left(l - m\right)!}{\left(l + m\right)!}}\frac{l + m}{2l + 1}P_{l - 1, m}\exp\left(im\phi\right) + \sqrt{\frac{2l + 1}{4\pi}\frac{\left(l - m\right)!}{\left(l + m\right)!}}\frac{l - m + 1}{2l + 1}P_{l + 1, m}\exp\left(im\phi\right)\nonumber\\
+& = & \frac{l + m}{2l + 1}\sqrt{\frac{2l + 1}{2l - 1}\frac{l - m}{l + m}}\sqrt{\frac{2l - 1}{4\pi}\frac{\left(l - 1 - m\right)!}{\left(l - 1 + m\right)!}}P_{l - 1, m}\exp\left(im\phi\right)\nonumber\\
+&& + \frac{l - m + 1}{2l + 1}\sqrt{\frac{2l + 1}{2l + 3}\frac{l + 1 + m}{l + 1 - m}}\sqrt{\frac{2l + 3}{4\pi}\frac{\left(l + 1 - m\right)!}{\left(l + 1 + m\right)!}}P_{l + 1, m}\exp\left(im\phi\right)\nonumber\\
+& = & \frac{l + m}{2l + 1}\sqrt{\frac{2l + 1}{2l - 1}\frac{l - m}{l + m}}Y_{l - 1, m} + \frac{l - m + 1}{2l + 1}\sqrt{\frac{2l + 1}{2l + 3}\frac{l + 1 + m}{l + 1 - m}}Y_{l + 1, m}\nonumber\\
+& = & \sqrt{\frac{l^2 - m^2}{4l^2 - 1}}Y_{l - 1, m} + \sqrt{\frac{\left(l + 1\right)^2 - m^2}{4\left(l + 1\right)^2 - 1}}Y_{l + 1, m}.\label{eq:spherical_harm_prop_2}
+\end{eqnarray}
+%
+Aus Glg. \eqref{eq:legendre_ass_prop_3} folgt
+%
+\begin{eqnarray}
+\sin\left(\theta\right)Y_{l, m} & = & \sqrt{\frac{2l + 1}{4\pi}\frac{\left(l - m\right)!}{\left(l + m\right)!}}\sin\left(\theta\right)P_{l, m}\left(\cos\left(\theta\right)\right)\exp\left(im\phi\right)\nonumber\\
+& = & \frac{1}{2l + 1}\sqrt{\frac{2l + 1}{4\pi}\frac{\left(l - m\right)!}{\left(l + m\right)!}}\left[P_{l - 1, m + 1}\left(\cos\left(\theta\right)\right) - P_{l + 1, m + 1}\left(\cos\left(\theta\right)\right)\right]\exp\left(im\phi\right)\nonumber\\
+& = & \frac{1}{2l + 1}\sqrt{\frac{2l + 1}{4\pi}\frac{\left(l - m\right)!}{\left(l + m\right)!}}P_{l - 1, m + 1}\left(\cos\left(\theta\right)\right)\exp\left(im\phi\right)\nonumber\\
+&& -\frac{1}{2l + 1}\sqrt{\frac{2l + 1}{4\pi}\frac{\left(l - m\right)!}{\left(l + m\right)!}}P_{l + 1, m + 1}\left(\cos\left(\theta\right)\right)\exp\left(im\phi\right)\nonumber\\
+& = & \frac{1}{2l + 1}\sqrt{\frac{2l + 1}{2l - 1}\left(l - m - 1\right)\left(l - m\right)}\sqrt{\frac{2l - 1}{4\pi}\frac{\left(l - m - 2\right)!}{\left(l + m\right)!}}P_{l - 1, m + 1}\left(\cos\left(\theta\right)\right)\exp\left(im\phi\right)\nonumber\\
+&& -\frac{1}{2l + 1}\sqrt{\frac{2l + 1}{2l + 3}\left(l + m + 1\right)\left(l + m + 2\right)}\sqrt{\frac{2l + 3}{4\pi}\frac{\left(l - m\right)!}{\left(l + m + 2\right)!}}P_{l + 1, m + 1}\left(\cos\left(\theta\right)\right)\exp\left(im\phi\right)\nonumber\\
+& = & \sqrt{\frac{1}{4l^2 - 1}\left(l - m - 1\right)\left(l - m\right)}e^{-i\phi}Y_{l - 1, m + 1}\nonumber\\
+&& -\sqrt{\frac{1}{4l^2 + 8l + 3}\left(l + m + 1\right)\left(l + m + 2\right)}e^{-i\phi}Y_{l + 1, m + 1}.\label{eq:spherical_harm_prop_3}
+\end{eqnarray}
+
+\subsection{Produkte}
+\label{sec:proukte}\index{Kugelflächenfunktion!Produkte}\index{Produkt!von Kugelflächenfunktionen}
+
+
+
+\chapter{\normalfont\textsc{Geodäsie}}
+\label{chap:geodaesie}\index{Geodäsie}
+
+\section{Konvention über Koordinatensysteme}
+\label{sec:konvention_ueber_koordinatensysteme}\index{Konvention!über Koordinatensysteme}\index{Koordinatensystem!Konvention}
+
+\subsection{Ruhende Koordinaten}
+\label{sec:ruhende_koordinaten}\index{ruhende Koordinaten}\index{Koordinatensystem!ruhendes}
+
+Hier wählt man eine Basis $\mathbf{e}_1, \mathbf{e}_2, \mathbf{e}_3$, die am Erdmittelpunkt steht und nicht mit der Erde mitrotiert. $\mathbf{e}_1$ und $\mathbf{e}_2$ liegen dabei in der Äquatorebene, $\mathbf{e}_3$ zeigt in Richtung Nordpol. Das Windfeld $\mathbf{v}$ wird als
+%
+\begin{eqnarray}
+\mathbf{v} = u_1\mathbf{e}_1 + u_2\mathbf{e}_2 + u_3\mathbf{e}_3
+\end{eqnarray}
+%
+geschrieben. Das Windfeld ist dabei nicht gleich der in diesem System gemessenen Teilchenbewegung, da noch die Rotation der Erde überlagert ist.
+%
+\begin{center}
+Teilchenbewegung in ruhenden Koordinaten = Windfeld + Erdrotation
+\end{center}
+%
+\subsection{Globale Koordinaten}
+\label{sec:globale_koordinaten}\index{globale Koordinaten}\index{Koordinatensystem!globales}
+
+Hier wählt man eine Basis $\mathbf{e}_x, \mathbf{e}_y, \mathbf{e}_z$, die genau wie die Basis der ruhenden Koordinaten am Erdmittelpunkt steht, jedoch mitrotiert. $\mathbf{e}_x$ zeigt in Richtung des Schnittpunkts zwischen Nullmeridian und Äquator, $\mathbf{e}_y$ zeigt in Richtung des Schnittpunkts zwischen neunzigstem Längengrad und Äquator und $\mathbf{e}_z$ zeigt in Richtung Nordpol. Das Windfeld schreibt man als
+%
+\begin{eqnarray}
+\mathbf{v} = u_x\mathbf{e}_x + u_y\mathbf{e}_y + u_z\mathbf{e}_z.
+\end{eqnarray}
+%
+\subsection{Geographische Koordinaten}
+\label{sec:geographische_koordinaten}\index{geographische Koordinaten}\index{Koordinatensystem!geographisches}
+
+Alternativ kann man auch \textit{geographische Koordinaten} $\left(r, \varphi, \lambda\right)$ verwenden, hierbei ist $r\geq 0$ der Abstand vom Mittelpunkt der Erde, $-\pi/2\leq \varphi\leq\pi/2$ der Winkel, den ein Punkt mit der Äquatorebene einschließt (die geographische Breite unter Annahme einer kugelförmigen Erde) und $0\leq\lambda<2\pi$ der Winkel, den ein Punkt mit der xz-Ebene einschließt (die geographische Länge). Dies lässt sich in gewöhnliche Kugelkoordinaten $\left(r, \theta, \phi\right)$ transformieren, es gilt mit $\theta + \varphi = \pi/2$
+%
+\begin{eqnarray}
+\sin\left(\varphi\right) & = & \sin\left(\pi/2 - \theta\right) = \cos\left(\theta\right), \label{eq:kugel_zu_kugel_met_1}\\
+\cos\left(\varphi\right) & = & \cos\left(\pi/2 - \theta\right) = \sin\left(\theta\right), \label{eq:kugel_zu_kugel_met_2}\\
+\tan\left(\theta\right) & = & \frac{\sin\left(\theta\right)}{\cos\left(\theta\right)} = \frac{\cos\left(\varphi\right)}{\sin\left(\varphi\right)} = \frac{1}{\tan\left(\varphi\right)}, \label{eq:kugel_zu_kugel_met_3}\\
+v_\theta & = & -v_y, \label{eq:kugel_zu_kugel_met_4}\\
+\frac{\partial}{\partial\theta} & = & -\frac{\partial}{\partial\varphi}\label{eq:kugel_zu_kugel_met_5}.
+\end{eqnarray}
+%
+Lokal ist die Verwendung des Kugelkoordinatensystems sehr unanschaulich, wenn man Vektoren notieren will. Deshalb verwendet man lokal ein kartesisches, rechtshändiges Koordinatensystem, welches auf der Kugel steht und dessen x-Achse nach Osten, y-Achse nach Norden und z-Achse nach oben zeigt. Die jeweiligen Basisvektoren nennt man $\mathbf{i}, \mathbf{j}, \mathbf{k}$. Das Windfeld $\mathbf{v}$ schreibt man als
+%
+\begin{eqnarray}
+\mathbf{v} = u\mathbf{i} + v\mathbf{j} + w\mathbf{k}.
 \end{eqnarray}
 
 \section{Sphärische Geometrie}
@@ -19818,1030 +20851,6 @@ Die Transformation der Differenzialoperatoren kann nun durchgeführt werden. Die
 
 \subsection{Ellipsoidische Voronoi-Gitter}
 \label{sec:ellipsoidische_voronoi-gitter}\index{Voronoi-Gitter!ellipsoidisches}\index{ellipsoidisches Voronoi-Gitter}
-
-\section{Orthogonale Funktionensysteme}
-\label{sec:orthogonale_funktionensysteme}\index{orthogonale Funktionensysteme}\index{Funktionensysteme!orthogonale}
-
-Wenn sie vollständig sind, eignen sich orthogonale Funktionensysteme zur Entwicklung von Funktionen. Eine System aus Polynomen $f_n\left(x\right)$ mit $n\in\mathbb{N}$ und $\mathcal{O}\left(f_n\right) = n$ heißt orthogonal auf dem Intervall $\left[a, b\right]$ bezüglich der Funktion $w$, wenn für $n, m\in\mathbb{N}$ mit $n\not = m$ gilt
-%
-\begin{eqnarray}
-\int_{a}^{b}w\left(x\right)f_n\left(x\right)f_m\left(x\right)dx = 0.
-\end{eqnarray}
-%
-Alle orthogonalen Polynomensysteme erfüllen eine \index{Rodrigues-Formel}\textit{Rodrigues-Formel}
-%
-\begin{eqnarray}
-f_n\left(x\right) = \frac{1}{e_nw\left(x\right)}\frac{d^n}{dx^n}\left[w\left(x\right)g\left(x\right)^n\right]
-\end{eqnarray}
-%
-mit einem Polynom $g\left(x\right)$, welches nicht von $n$ abhängt.
-
-\subsection{Legendre-Polynome}
-\label{sec:legendrepolynome}\index{Legendre-Polynom}
-
-Glg. \eqref{eq:legendre_dgl} heißt \textit{Legendre'sche Differenzialgleichung}.\index{Legendre'sche Differenzialgleichung}\index{Differenzialgleichung!Legendre'sche} Diese lautet:
-%
-\begin{eqnarray}
-\frac{d}{d\mu}\left(1 - \mu^2\right)P'\left(\mu\right) = -\lambda P
-\end{eqnarray}
-%
-Man setzt für $P\left(\mu\right)$ an
-%
-\begin{eqnarray}
-P\left(\mu\right) = \sum_{i = 0}^{\infty}U_i\mu^i, 
-\end{eqnarray}
-%
-damit gilt
-%
-\begin{eqnarray}
-P'\left(\mu\right) & = & \sum_{i = 0}^{\infty}iU_i\mu^{i - 1} = \sum_{i = 0}^{\infty}\left(i + 1\right)U_{i + 1}\mu^i,\\
-P''\left(\mu\right) & = & \sum_{i = 0}^{\infty}i\left(i - 1\right)U_i\mu^{i - 2} = \sum_{i = 0}^{\infty}\left(i + 2\right)\left(i + 1\right)U_{i + 2}\mu^i.
-\end{eqnarray}
-%
-Setzt man dies in
-%
-\begin{eqnarray}
-- 2\mu P'\left(\mu\right) + \left(1 - \mu^2\right)P''\left(\mu\right) = -\lambda P\left(\mu\right)
-\end{eqnarray}
-%
-ein, erhält man
-%
-\begin{eqnarray}
-- 2\sum_{i = 0}^{\infty}iU_i\mu^i + \sum_{i = 0}^{\infty}\left(i + 2\right)\left(i + 1\right)U_{i + 2}\mu^i - \sum_{i = 0}^{\infty}i\left(i - 1\right)U_i\mu^i & = & - \lambda\sum_{i = 0}^{\infty}U_i\mu^i\nonumber\\
-\Leftrightarrow - 2iU_i+ \left(i + 2\right)\left(i + 1\right)U_{i + 2} - i\left(i - 1\right) & = & -\lambda U_i\nonumber\\
-\Leftrightarrow U_{i + 2} & = & U_i\frac{i\left(i + 1\right) - \lambda}{\left(i + 2\right)\left(i + 1\right)}.\label{eq:legendre_iterativ}
-\end{eqnarray}
-%
-Im Allgemeinen geht dies für $i\to\infty$ nicht gegen Null, sodass $P$ divergieren würde. Es muss also ein $n\in\mathbb{N}$ geben mit $\lambda = n\left(n + 1\right)$, dies ist eine Bedingung an $\lambda$. Zusätzlich muss man $U_{n + 1} = 0$ setzen. $P\left(\mu\right)$ ist also ein Polynom $n-$ter Ordnung in $\mu$, wobei $n$ beliebig ist, man schreibt für dieses Legendre-Polynom $P_n\left(\mu\right)$. Über Glg. \eqref{eq:legendre_iterativ} und eine Normierung ist $P_n\left(\mu\right)$ festgelegt. Alternativ kann man die Legendre-Polynome schreiben als
-%
-\begin{eqnarray}
-P_n\left(x\right) = \frac{1}{2^nn!}\frac{d^n}{dx^n}\left(x^2 - 1\right)^n, \label{eq:legendre_poly_formel}
-\end{eqnarray}
-%
-dies ist nun zu zeigen. Definiere
-%
-\begin{eqnarray}
-\delta_k \coloneqq \begin{cases}
-0, k\:\text{ungerade},\\
-1, k\:\text{gerade}.
-\end{cases}
-\end{eqnarray}
-%
-Nun kann man den binomischen Lehrsatz Glg. \eqref{eq:gen_bin_formula} verwenden, um
-%
-\begin{eqnarray}
-\left(x^2 - 1\right)^n = \sum_{k = 0}^{n}\left(\begin{array}{c}
-n\\
-k
-\end{array}\right)x^{2k}\left(-1\right)^{n - k} = \sum_{k = 0}^{2n}\delta_k\left(\begin{array}{c}
-n\\
-k/2
-\end{array}\right)x^k\left(-1\right)^{n - k/2}\label{eq:gen_bin_formula_legendre}
-\end{eqnarray}
-%
-zu notieren, damit folgt für die obige Schreibweise der Legendre-Polynome Glg. \eqref{eq:legendre_poly_formel} mit Glg. \eqref{eq:nth_derivative_series}
-%
-\begin{eqnarray}
-P_n\left(x\right) & = & \frac{1}{2^nn!}\sum_{k = 0}^{n}\frac{\left(k + n\right)!}{k!}\left(\begin{array}{c}
-n\\
-\frac{k + n}{2}
-\end{array}\right)\left(-1\right)^{n - \frac{k + n}{2}}\delta_{k + n}x^k\nonumber\\
-& = & \frac{1}{2^nn!}\sum_{k = 0}^{n}\frac{\left(n + k\right)!}{k!}\frac{n!}{\left(\frac{n + k}{2}\right)!\left(n - \frac{n + k}{2}\right)!}\left(-1\right)^{n - \frac{k + n}{2}}\delta_{n + k}x^k\nonumber\\
-& = & \frac{1}{2^n}\sum_{k = 0}^{n}\frac{\left(n + k\right)!}{k!}\frac{1}{\left(\frac{n + k}{2}\right)!\left(\frac{n - k}{2}\right)!}\left(-1\right)^{\frac{n - k}{2}}\delta_{n + k}x^k.
-\end{eqnarray}
-%
-Für die ersten beiden Ableitungen der Legendre-Polynome folgt
-%
-\begin{eqnarray}
-P_n'\left(x\right) & = & \frac{1}{2^n}\sum_{k = 0}^{n - 1}\left(k + 1\right)\frac{\left(n + k + 1\right)!}{\left(k + 1\right)!}\frac{1}{\left(\frac{n + k + 1}{2}\right)!}\frac{1}{\left(\frac{n - k - 1}{2}\right)!}\left(-1\right)^{\frac{n - k - 1}{2}}\delta_{n + k + 1}x^k\nonumber\\
-& = & \frac{1}{2^n}\sum_{k = 0}^{n - 1}\frac{\left(n + k + 1\right)!}{k!}\frac{1}{\left(\frac{n + k + 1}{2}\right)!}\frac{1}{\left(\frac{n - k - 1}{2}\right)!}\left(-1\right)^{\frac{n - k - 1}{2}}\delta_{n + k + 1}x^k,\\
-P_n''\left(x\right) & = & \frac{1}{2^n}\sum_{k = 0}^{n - 2}\left(k + 1\right)\frac{\left(n + k + 2\right)!}{\left(k + 1\right)!}\frac{1}{\left(\frac{n + k + 2}{2}\right)!}\frac{1}{\left(\frac{n - k - 2}{2}\right)!}\left(-1\right)^{\frac{n - k - 2}{2}}\delta_{n + k + 2}x^k\nonumber\\
-& = & \frac{1}{2^n}\sum_{k = 0}^{n - 2}\frac{\left(n + k + 2\right)!}{k!}\frac{1}{\left(\frac{n + k + 2}{2}\right)!}\frac{1}{\left(\frac{n - k - 2}{2}\right)!}\left(-1\right)^{\frac{n - k - 2}{2}}\delta_{n + k}x^k\nonumber\\
-& = & \frac{1}{2^n}\sum_{k = 0}^{n - 2}\frac{\left(n + k + 2\right)!}{k!}\frac{1}{\left(\frac{n + k}{2}\right)!}\frac{1}{\left(\frac{n + k}{2} + 1\right)}\frac{\left(\frac{n - k}{2}\right)}{\left(\frac{n - k}{2}\right)!}\left(-1\right)^{\frac{n - k - 2}{2}}\delta_{n + k}x^k\nonumber\\
-& = & \frac{1}{2^n}\sum_{k = 0}^{n - 2}\frac{1}{\left(\frac{n + k}{2}\right)!}\frac{1}{\left(\frac{n - k}{2}\right)!}\frac{\left(n + k + 1\right)!}{k!}\left(n - k\right)\left(-1\right)^{\frac{n - k - 2}{2}}\delta_{n + k}x^k.
-\end{eqnarray}
-%
-Nun wird gezeigt, dass die Legendre-Polynome nach Glg. \eqref{eq:legendre_poly_formel} in der Tat die Legendredifferenzialgleichung \eqref{eq:legendre_dgl} lösen:
-%
-\begin{eqnarray}
-&&- 2xP_n'\left(x\right) + \left(1 - x^2\right)P_n''\left(x\right)\hastobe - n\left(n + 1\right)P_n\left(x\right)\nonumber\\
-&\Leftrightarrow&
-- 2x\frac{1}{2^n}\sum_{k = 0}^{n - 1}\frac{\left(n + k + 1\right)!}{k!}\frac{1}{\left(\frac{n + k + 1}{2}\right)!}\frac{1}{\left(\frac{n - k - 1}{2}\right)!}\left(-1\right)^{\frac{n - k - 1}{2}}\delta_{n + k + 1}x^k\nonumber\\
-&&+ \frac{1}{2^n}\sum_{k = 0}^{n - 2}\frac{1}{\left(\frac{n + k}{2}\right)!}\frac{1}{\left(\frac{n - k}{2}\right)!}\frac{\left(n + k + 1\right)!}{k!}\left(n - k\right)\left(-1\right)^{\frac{n - k - 2}{2}}\delta_{n + k}x^k\nonumber\\
-&&- \frac{1}{2^n}\sum_{k = 0}^{n - 2}\frac{\left(n + k + 2\right)!}{k!}\frac{1}{\left(\frac{n + k + 2}{2}\right)!}\frac{1}{\left(\frac{n - k - 2}{2}\right)!}\left(-1\right)^{\frac{n - k - 2}{2}}\delta_{n + k}x^{k + 2}\nonumber\\
-& = & -n\left(n + 1\right)\frac{1}{2^n}\sum_{k = 0}^{n}\frac{\left(n + k\right)!}{k!}\frac{1}{\left(\frac{n + k}{2}\right)!}\frac{1}{\left(\frac{n - k}{2}\right)!}\left(-1\right)^{\frac{n - k}{2}}\delta_{n + k}x^k\nonumber\\
-&\Leftrightarrow& -2\sum_{k = 0}^{n}k\frac{\left(n + k\right)!}{k!}\frac{1}{\left(\frac{n + k}{2}\right)!}\frac{1}{\left(\frac{n - k}{2}\right)!}\left(-1\right)^{\frac{n - k}{2}}\delta_{n + k}x^k\nonumber\\
-&&+ \sum_{k = 0}^{n - 2}\frac{1}{\left(\frac{n + k}{2}\right)!}\frac{1}{\left(\frac{n - k}{2}\right)!}\frac{\left(n + k + 1\right)!}{k!}\left(n - k\right)\left(-1\right)^{\frac{n - k - 2}{2}}\delta_{n + k}x^k\nonumber\\
-&&- \sum_{k = 0}^{n}k\left(k - 1\right)\frac{\left(n + k\right)!}{k!}\frac{1}{\left(\frac{n + k}{2}\right)!}\frac{1}{\left(\frac{n - k}{2}\right)!}\left(-1\right)^{\frac{n - k}{2}}\delta_{n + k}x^k\nonumber
-\end{eqnarray}
-\begin{eqnarray}
-& = & -n\left(n + 1\right)\sum_{k = 0}^{n}\frac{\left(n + k\right)!}{k!}\frac{1}{\left(\frac{n + k}{2}\right)!}\frac{1}{\left(\frac{n - k}{2}\right)!}\left(-1\right)^{\frac{n - k}{2}}\delta_{n + k}x^k\nonumber\\
-&\Leftrightarrow& -2\sum_{k = 0}^{n}k\frac{\left(n + k\right)!}{k!}\frac{1}{\left(\frac{n + k}{2}\right)!}\frac{1}{\left(\frac{n - k}{2}\right)!}\left(-1\right)^{\frac{n - k}{2}}\delta_{n + k}x^k\nonumber\\
-&&- \sum_{k = 0}^{n - 2}\frac{1}{\left(\frac{n + k}{2}\right)!\left(\frac{n - k}{2}\right)!}\frac{\left(n + k\right)!}{k!}\left(n + k + 1\right)\left(n - k\right)\left(-1\right)^{\frac{n - k}{2}}\delta_{n + k}x^k\nonumber\\
-&&- \sum_{k = 0}^{n}k\left(k - 1\right)\frac{\left(n + k\right)!}{k!}\frac{1}{\left(\frac{n + k}{2}\right)!}\frac{1}{\left(\frac{n - k}{2}\right)!}\left(-1\right)^{\frac{n - k}{2}}\delta_{n + k}x^k\nonumber\\
-& = & -n\left(n + 1\right)\sum_{k = 0}^{n}\frac{\left(n + k\right)!}{k!}\frac{1}{\left(\frac{n + k}{2}\right)!}\frac{1}{\left(\frac{n - k}{2}\right)!}\left(-1\right)^{\frac{n - k}{2}}\delta_{n + k}x^k
-\end{eqnarray}
-%
-Man zeigt die Gleichheit der Koeffizienten der drei Polynome. Von $k = 0$ bis $k = n - 2$ bedeutet dies
-%
-\begin{eqnarray}
-2k + n^2 - nk + kn - k^2 + n - k + k^2 - k&\hastobe&n^2 + n, 
-\end{eqnarray}
-%
-was stimmt. Für $k = n - 1$ gilt
-%
-\begin{eqnarray}
-\delta_{n + k} = 0, 
-\end{eqnarray}
-%
-und für $k = n$ gilt
-%
-\begin{eqnarray}
-- 2n - n\left(n - 1\right)\hastobe - n\left(n + 1\right), 
-\end{eqnarray}
-%
-was ebenfalls stimmt. Nun wird die Normierung der Legendre-Polynome\index{Legendre-Polynome!Normierung}\index{Normierung!Legendre-Polynome} auf der für dieses Problem relevanten Menge $\left[-1, 1\right]$ bestimmt.
-%
-\begin{eqnarray}
-\int_{-1}^{1}P_n^2\left(x\right)dx & = & \frac{1}{2^{2n}n!^2}\int_{-1}^{1}\frac{d^n}{dx^n}\left(x^2 - 1\right)^n\frac{d^n}{dx^n}\left(x^2 - 1\right)^ndx\nonumber\\
-&\stackrel{n-\text{fache p.I.}}{=}&\frac{1}{2^{2n}n!^2}\left(-1\right)^n\int_{-1}^{1}\left(x^2 - 1\right)^n\frac{d^{2n}}{dx^{2n}}\left(x^2 - 1\right)^ndx\nonumber\\
-& = & \frac{1}{2^{2n}n!^2}\left(-1\right)^n\left(2n\right)!\int_{-1}^{1}\left(x^2 - 1\right)^ndx
-\end{eqnarray}
-%
-Es gilt weiter
-%
-\begin{eqnarray}
-\int_{}^{}\left(x^2 - 1\right)^ndx & = & \int\left(x + 1\right)^n\left(x - 1\right)^ndx\stackrel{n\text{ - fache}\:\text{p.I}.}{=}\left(-1\right)^n\int\frac{n!\left(x + 1\right)^{2n}}{\left(2n\right)!}n!dx\nonumber\\
-& = & \left(-1\right)^n\frac{n!^2}{\left(2n\right)!}\int\left(x + 1\right)^{2n}dx = \left(-1\right)^n\frac{n!^2}{\left(2n\right)!}\left[\frac{\left(x + 1\right)^{2n + 1}}{2n + 1}\right], 
-\end{eqnarray}
-%
-damit folgt
-%
-\begin{eqnarray}
-\int_{-1}^{1}P_n^2\left(x\right)dx = \frac{1}{2^{2n}n!^2}\left(-1\right)^{n}\left(2n\right)!\frac{1}{\left(2n\right)!}\left(-1\right)^nn!^2\frac{2^{2n + 1}}{2n + 1} = \frac{2}{2n + 1}.
-\end{eqnarray}
-%
-Nun wird die Orthogonalität der Legendre-Polynome\index{Legendre-Polynome!Orthogonalität}\index{Orthogonalität!Legendre-Polynome} gezeigt, seien $n, m\in\mathbb{N}$ mit $n \not = m$, dann gilt
-%
-\begin{eqnarray}
-\frac{d}{dx}\left[\left(1 - x^2\right)\frac{d}{dx}\right]P_n\left(x\right) = -n\left(n + 1\right)P_n\left(x\right)
-\end{eqnarray}
-%
-und analog für $m$. Man rechnet
-%
-\begin{eqnarray}
-\int_{-1}^{1}P_m\left(x\right)\frac{d}{dx}\left[\left(1 - x^2\right)\frac{d}{dx}\right]P_n\left(x\right)dx = -\int_{-1}^{\left(1\right)}P_m'\left(x\right)\left(1 - x^2\right)P_n'\left(x\right)dx
-\end{eqnarray}
-%
-sowie
-%
-\begin{eqnarray}
-\int_{-1}^{1}P_n\left(x\right)\frac{d}{dx}\left[\left(1 - x^2\right)\frac{d}{dx}\right]P_m\left(x\right)dx = -\int_{-1}^{1}P_n'\left(x\right)\left(1 - x^2\right)P_m'\left(x\right)dx, 
-\end{eqnarray}
-%
-außerdem gelten
-%
-\begin{eqnarray}
-\int_{-1}^{1}P_m\left(x\right)\frac{d}{dx}\left[\left(1 - x^2\right)\frac{d}{dx}\right]P_n\left(x\right)dx & = & -n\left(n + 1\right)\int_{-1}^{1}P_m\left(x\right)P_n\left(x\right)dx,\\
-\int_{-1}^{\left(1\right)}P_n\left(x\right)\frac{d}{dx}\left[\left(1 - x^2\right)\frac{d}{dx}\right]P_m\left(x\right)\left(x\right)dx & = & -m\left(m + 1\right)\int_{-1}^{1}P_n\left(x\right)P_m\left(x\right)dx.
-\end{eqnarray}
-%
-Damit ist
-%
-\begin{eqnarray}
-- n\left(n + 1\right)\int_{-1}^{1}P_m\left(x\right)P_n\left(x\right)dx = -m\left(m + 1\right)\int_{-1}^{\left(1\right)}P_n\left(x\right)P_m\left(x\right)dx
-\end{eqnarray}
-%
-und wegen $n\not = m$ ist
-%
-\begin{eqnarray}
-\int_{-1}^{1}P_n\left(x\right)P_m\left(x\right)dx = 0.
-\end{eqnarray}
-%
-Damit ist zusammengefasst
-%
-\begin{eqnarray}
-\int_{-1}^{1}P_n\left(x\right)P_m\left(x\right)dx = \frac{2}{2n + 1}\delta_{mn}.
-\end{eqnarray}
-%
-Nun soll
-%
-\begin{eqnarray}
-\left(2l + 1\right)xP_l\left(x\right) = \left(l + 1\right)P_{l + 1}\left(x\right) + lP_{l - 1}\left(x\right)\label{eq:legendre_poly_prop_1}
-\end{eqnarray}
-%
-gezeigt werden. Zunächst macht man sich klar, dass auf der linken wie auf der rechten Seite des Gleichheitszeichens Polynome vom Grad $l + 1$ stehen mit jeweils nur geraden oder ungeraden Potenzen. Man schreibt
-%
-\begin{eqnarray}
-P_l\left(x\right) = \frac{1}{2^l}\frac{d^l}{dx^l}\sum_{k = 0}^{l}\frac{1}{k!\left(l - k\right)!}x^{2k}\left(-1\right)^{l - k} = \frac{1}{2^l}\sum_{k = \left(\frac{l}{2}\right)_ + }^{l}\frac{1}{k!\left(l - k\right)!}\frac{\left(2k\right)!}{\left(2k - l\right)!}x^{2k - l}\left(-1\right)^{l - k}, 
-\end{eqnarray}
-%
-dabei ist $\left(\frac{l}{2}\right)_ + $ die kleinste natürliche Zahl $\geq\frac{l}{2}$. Daraus folgen
-%
-\begin{eqnarray}
-\left(2l + 1\right)xP_l\left(x\right) & = & \frac{2l + 1}{2^l}\sum_{k = \left(\frac{l}{2}\right)_ + }^{l}\frac{1}{k!\left(l - k\right)!}\frac{\left(2k\right)!}{\left(2k - l\right)!}x^{2k - l + 1}\left(-1\right)^{l - k},\\
-\left(l + 1\right)P_{l + 1}\left(x\right) & = & -\frac{1}{2^l2}\sum_{k = \left(\frac{l + 1}{2}\right)_ + }^{l + 1}\frac{l + 1}{k!\left(l + 1 - k\right)!}\frac{\left(2k\right)!}{\left(2k - l - 1\right)!}x^{2k - l - 1}\left(-1\right)^{l - k}\\
-& = & \frac{l + 1}{2^l}\sum_{k = \left(\frac{l - 1}{2}\right)_ + }^{l}\frac{\left(2k + 1\right)}{k!\left(l - k\right)!}\frac{\left(2k\right)!}{\left(2k - l + 1\right)!}x^{2k - l + 1}\left(-1\right)^{l - k}\\
-P_{l - 1}\left(x\right) & = & -\frac{2l}{2^l}\sum_{k = \left(\frac{l - 1}{2}\right)_ + }^{l - 1}\frac{1}{k!\left(l - 1 - k\right)!}\frac{\left(2k\right)!}{\left(2k - l + 1\right)!}x^{2k - l + 1}\left(-1\right)^{l - k}.
-\end{eqnarray}
-%
-Zwei Polynome sind genau dann gleich, wenn all ihre Koeffizienten gleich sind.
-%
-\begin{eqnarray}
-4kl - 2l^2 + l + 2k + 1 & = & 4kl + l + 2k + 1 - 2l^2\nonumber\\
-\Leftrightarrow\left(2l + 1\right)\left(2k - l + 1\right) & = & \left(l + 1\right)\left(2k + 1\right) - \left(l - k\right)2l\\
-\Leftrightarrow\frac{2l + 1}{l - k}\frac{2k - l + 1}{2k - l + 1} & = & \frac{l + 1}{l - k}\frac{2k + 1}{2k - l + 1} - \frac{l - k}{l - k}\frac{2l}{2k - l + 1}\nonumber\\
-\Leftrightarrow\frac{2l + 1}{l - k} & = & \frac{l + 1}{l - k}\frac{2k + 1}{2k - l + 1} - \frac{2l}{2k - l + 1}
-\end{eqnarray}
-%
-Nun müssen noch die unteren und die oberen Grenzen der Summen untersucht werden. Für $k = l$ erhält man
-%
-\begin{eqnarray}
-2l + 1 = \left(l + 1\right)\frac{2l + 1}{2l - l + 1}.
-\end{eqnarray}
-%
-Bei der unteren Grenze muss man eine Fallunterscheidung machen. Ist $l$ gerade, ist alles gezeigt. Für $l$ ungerade rechnet man
-%
-\begin{eqnarray}
-\left(l + 1\right)\frac{l}{l - \frac{l - 1}{2}} - 2l & = & 0.
-\end{eqnarray}
-%
-Für $l = 0$ gilt die Aussage ebenfalls. Damit ist Glg. \eqref{eq:legendre_poly_prop_1} gezeigt. Aus dieser Gleichung folgt weiter
-%
-\begin{eqnarray}
-\cos\left(\theta\right)P_l\left(\cos\left(\theta\right)\right) & = & \frac{l + 1}{2l + 1}P_{l + 1}\left(\cos\left(\theta\right)\right) + \frac{l}{2l + 1}P_{l - 1}\left(\cos\left(\theta\right)\right).\label{eq:legendre_poly_prop_2}
-\end{eqnarray}
-%
-Nun soll noch die Lösung von Glg. \eqref{eq:legendre_vorform} für $m\not = 0$ besprochen werden. Diese DGL lautete
-%
-\begin{eqnarray}
-\frac{d}{d\mu}\left(1 - \mu^2\right)P'\left(\mu\right) = P\left(-\lambda + \frac{m^2}{1 - \mu^2}\right).\label{eq:legendre_vorform_2}
-\end{eqnarray}
-%
-Mit dem Ansatz
-%
-\begin{eqnarray}
-P\left(\mu\right) = \left(1 - \mu^2\right)^{m/2}T\left(\mu\right)\label{eq:ansatz_legendre_2}
-\end{eqnarray}
-%
-erhält man
-%
-\begin{eqnarray}
-P'\left(\mu\right) & = & -\mu m\left(1 - \mu^2\right)^{m/2 - 1}T\left(\mu\right) + \left(1 - \mu^2\right)^{m/2}T'\left(\mu\right),\\
-\left(1 - \mu^2\right)P'\left(\mu\right) & = & -\mu m\left(1 - \mu^2\right)^{m/2}T\left(\mu\right) + \left(1 - \mu^2\right)^{m/2 + 1}T'\left(\mu\right).
-\end{eqnarray}
-%
-Setzt man dies in Glg. \eqref{eq:legendre_vorform_2} ein, erhält man
-%
-\begin{eqnarray}
-- m\left(1 - \mu^2\right)^{m/2}T\left(\mu\right) + \mu^2m^2\left(1 - \mu^2\right)^{m/2 - 1}T\left(\mu\right) & - & 2\mu\left(m + 1\right)\left(1 - \mu^2\right)^{m/2}T'\left(\mu\right)\nonumber\\
-+ \left(1 - \mu^2\right)^{m/2 + 1}T''\left(\mu\right) = -\lambda\left(1 - \mu^2\right)^{m/2}T\left(\mu\right) & + & m^2\left(1 - \mu^2\right)^{m/2 - 1}T\left(\mu\right)\nonumber\\
-\Leftrightarrow -mT\left(\mu\right) + \mu^2m^2\left(1 - \mu^2\right)^{-1}T\left(\mu\right) & - & 2\mu\left(m + 1\right)T'\left(\mu\right) + \left(1 - \mu^2\right)T''\left(\mu\right)\nonumber\\
-& = & -\lambda T\left(\mu\right) + m^2\left(1 - \mu^2\right)^{-1}T\left(\mu\right)\nonumber\\
-\Leftrightarrow\left(1 - \mu^2\right)T''\left(\mu\right) - 2\mu\left(m + 1\right)T'\left(\mu\right) & = & \left(-\lambda + m + m^2\frac{1 - \mu^2}{1 - \mu^2}\right)T\left(\mu\right)\nonumber\\
-\Leftrightarrow\left(1 - \mu^2\right)T''\left(\mu\right) - 2\mu\left(m + 1\right)T'\left(\mu\right) & = & \left(-\lambda + m\left(m + 1\right)\right)T\left(\mu\right).\label{eq:legendre_umgeformt}
-\end{eqnarray}
-%
-Es wird wieder ein Potenzreihenansatz
-%
-\begin{eqnarray}
-T\left(\mu\right) = \sum_{i = 0}^{\infty}a_i\mu^i
-\end{eqnarray}
-%
-gemacht. Man benötigt folgende Schreibweisen für die ersten beiden Ableitungen:
-%
-\begin{eqnarray}
-T'\left(\mu\right) & = & \sum_{i = 1}^{\infty}ia_{i}\mu^{i - 1}\\
-T''\left(\mu\right) & = & \sum_{i = 0}^{\infty}\left(i + 2\right)\left(i + 1\right)a_{i + 2}\mu^i\\
-T''\left(\mu\right) & = & \sum_{i = 2}^{\infty}i\left(i - 1\right)a_i\mu^{i - 2}
-\end{eqnarray}
-%
-Setzt man dies in Glg. \eqref{eq:legendre_umgeformt} ein, erhält man wieder eine Rekursionsformel:
-%
-\begin{eqnarray}
-\left(i + 2\right)\left(i + 1\right)a_{i + 2} - i\left(i - 1\right)a_i - 2\left(m + 1\right)ia_i & = & \left(-\lambda + m\left(m + 1\right)\right)a_i\nonumber\\
-\Leftrightarrow a_{i + 2} = a_i\frac{ - \lambda + \left(m + 2i\right)\left(m + 1\right) + i\left(i - 1\right)}{\left(i + 2\right)\left(i + 1\right)} & = & a_i\frac{ - \lambda + \left(i + m + 1\right)\left(i + m\right)}{\left(i + 2\right)\left(i + 1\right)}
-\end{eqnarray}
-%
-Da dies für hohe $i$ nicht gegen Null geht, muss dies irgendwo abbrechen. Es muss also ein $I\in\mathbb{N}$ geben mit
-%
-\begin{eqnarray}
-\lambda = \left(I + m + 1\right)\left(I + m\right).
-\end{eqnarray}
-%
-$\lambda$ ist als Produkt zweier ganzer Zahlen ebenfalls eine ganze Zahl, außerdem ist $\lambda$ nicht negativ, da die beiden Faktoren keine unterschiedlichen Vorzeichen haben können. Es gibt also ein $l\in\mathbb{N}$ mit
-%
-\begin{eqnarray}
-\lambda = l\left(l + 1\right).
-\end{eqnarray}
-%
-Damit ist
-%
-\begin{eqnarray}
-l = I + m.
-\end{eqnarray}
-%
-Da gilt $l, I\geq 0$, ist $m\leq l$. Da $m< - l$ auf die gleiche DGL führt wie $-m > l$ und hierfür keine Lösungen existieren, existieren auch keine Lösungen für $m< - l$. Man hat also
-%
-\begin{eqnarray}
-\lambda & = & l\left(l + 1\right),\\
-l & = & 0, 1, 2, 3, \dotsc,\\
-m & = & 0, \pm 1, \pm 2, \pm 3, \dotsc, \pm l.
-\end{eqnarray}
-%
-Durch Vergleich mit Glg. \eqref{eq:ansatz_legendre_2} sieht man, dass $m + I = l$ auch der Grad von $P\left(\mu\right)$ ist. Die Lösungen $T = T_{l, m}$ sind also festgelegt durch zwei natürliche Zahlen $l, m$. 
-
-Nun soll noch eine geschlossene Form für die $T_{l, m}$ hergeleitet werden. Die $T_{l, m}$ erfüllen die DGL
-%
-\begin{eqnarray}
-\frac{d}{d\mu}\left(1 - \mu^2\right)T_{l, m}'\left(\mu\right) & = & 2\mu mT_{l, m}'\left(\mu\right) + \left(m\left(m + 1\right) - \lambda\right)T_{l, m}\left(\mu\right).\label{eq:dgl_ass_leg_herl}
-\end{eqnarray}
-%
-Für $m = 0$ sind die Lösungen die bekannten Legendre-Polynome $P_l\left(\mu\right)$ Glg. \eqref{eq:legendre_poly_formel}. Ist die Lösung $T_{l, m}\left(\mu\right)$ bekannt und ist $m<l$, so folgt die Lösung $T_{l, m + 1}\left(\mu\right)$ durch
-%
-\begin{eqnarray}
-T_{l, m + 1}\left(\mu\right) = \frac{d}{d\mu}T_{l, m}\left(\mu\right).
-\end{eqnarray}
-%
-Um dies zu zeigen leitet man zunächst Glg. \eqref{eq:dgl_ass_leg_herl} ab:
-%
-\begin{eqnarray}
-&& -2T_{l, m}'\left(\mu\right) - 4\mu T_{l, m}''\left(\mu\right) + \left(1 - \mu^2\right)T_{l, m}'''\left(\mu\right) = 2mT_{l, m}'\left(\mu\right) + 2\mu mT_{l, m}''\left(\mu\right) + \left(m\left(m + 1\right) - \lambda\right)T_{l, m}'\left(\mu\right)\nonumber\\
-&\Leftrightarrow& -2\mu T_{l, m}''\left(\mu\right) + \left(1 - \mu^2\right)T_{l, m}'''\left(\mu\right)\nonumber\\
-& = & 2\left(1 + m\right)T_{l, m}'\left(\mu\right) + \left(m\left(m + 1\right) - \lambda\right)T_{l, m}'\left(\mu\right) + 2\mu\left(1 + m\right)T_{l, m}''\left(\mu\right)
-\end{eqnarray}
-%
-Indem man $T_{l, m + 1} = T_{l, m}'$ einsetzt, folgt
-%
-\begin{eqnarray}
-&&\frac{d}{d\mu}\left(1 - \mu^2\right)T_{l, m + 1}'\left(\mu\right) = \frac{d}{d\mu}\left(1 - \mu^2\right)\frac{d}{d\mu}T_{l, m}'\left(\mu\right)\nonumber\\
-& = & -2\mu T_{l, m}''\left(\mu\right) + \left(1 - \mu^2\right)T_{l, m}'''\left(\mu\right) = 2\left(1 + m\right)T_{l, m}'\left(\mu\right) + \left(m\left(m + 1\right) - \lambda\right)T_{l, m}'\left(\mu\right) + 2\mu\left(1 + m\right)T_{l, m}''\left(\mu\right)\nonumber\\
-& = & 2\mu\left(m + 1\right)T_{l, m + 1}'\left(\mu\right) + \left(\left(m + 1\right)\left(m + 2\right) - \lambda\right)T_{l, m + 1}\left(\mu\right).
-\end{eqnarray}
-%
-Die Lösung $T_{l, m}\left(\mu\right)$ ist also die $m-$te Ableitung des $n-$ten Legendre-Polynoms
-%
-\begin{eqnarray}
-T_{l, m}\left(\mu\right) = \frac{d^m}{d\mu^m}P_l\left(\mu\right).
-\end{eqnarray}
-%
-Die vollständigen Lösungen $P_{l, m}$ von Glg. \eqref{eq:legendre_vorform_2} werden als \textit{assoziierte Legendre-Funktion}\index{Legendre-Funktion!assoziierte} bezeichnet:
-%
-\begin{eqnarray}
-P_{l, m}\left(x\right) = \left(-1\right)^m\left(1 - x^2\right)^{m/2}\frac{d^{m}}{dx^{m}}P_l\left(x\right) = \frac{\left(-\right)^m}{2^ll!}\left(1 - x^2\right)^{m/2}\frac{d^{l + m}}{dx^{l + m}}\left(x^2 - 1\right)^l.\label{eq:assoziierte_legendre_funktionen}
-\end{eqnarray}
-%
-Diese sind für ungerade $m$ keine Polynome mehr und reduzieren sich für $m = 0$ auf die Legendre-Polynome Glg. \eqref{eq:legendre_poly_formel}. Es gilt
-%
-\begin{eqnarray}
-\frac{d}{dx}P_{l, m}\left(x\right) & = & -mx\left(-1\right)^m\left(1 - x^2\right)^\frac{m - 2}{2}\frac{d^{m}}{dx^{m}}P_l\left(x\right) + \left(-1\right)^m\left(1 - x^2\right)^{m/2}\frac{d^{m + 1}}{dx^{m + 1}}P_l\left(x\right)\nonumber\\
-& = & -\frac{mx}{1 - x^2}P_{l, m}\left(x\right) - \frac{1}{\sqrt{1 - x^2}}P_{l, m + 1}\left(x\right).\label{eq:legendre_ass_prop_2}
-\end{eqnarray}
-%
-Aus Glg. \eqref{eq:produktregel_n} folgt
-%
-\begin{eqnarray}
-\frac{d^n}{dx^n}\left(xf\left(x\right)\right) & = & xf^{(n)} + nf^{(n - 1)}\nonumber\\
-\Leftrightarrow xf^{(n)} & = & \frac{d^n}{dx^n}\left(xf\left(x\right)\right) - nf^{(n - 1)}.
-\end{eqnarray}
-%
-Außerdem gilt mit Glg. \eqref{eq:legendre_poly_prop_2}
-%
-\begin{eqnarray}
-P_l & = & \frac{2l + 3}{l + 1}xP_{l + 1} - \frac{l + 2}{l + 1}P_{l + 2}.
-\end{eqnarray}
-%
-Somit erhält man
-%
-\begin{eqnarray}
-P_{l, m}\left(x\right) & = & \left(-1\right)^m\left(1 - x^2\right)^{m/2}\frac{d^{m}}{dx^{m}}P_l\left(x\right) = \frac{\left(-1\right)^m}{l + 1}\left(1 - x^2\right)^{m/2}\frac{d^{m}}{dx^{m}}\left[\left(2l + 3\right)xP_{l + 1}\left(x\right) - \left(l + 2\right)P_{l + 2}\left(x\right)\right], \nonumber\\
-& = & x\frac{\left(-1\right)^m\left(2l + 3\right)}{l + 1}\left(1 - x^2\right)^{m/2}\frac{d^{m}}{dx^{m}}P_{l + 1}\left(x\right) + m\frac{\left(-1\right)^m\left(2l + 3\right)}{l + 1}\left(1 - x^2\right)^{m/2}\frac{d^{m - 1}}{dx^{m - 1}}P_{l + 1}\left(x\right)\nonumber\\
-&&- \frac{\left(-1\right)^m\left(l + 2\right)}{l + 1}\left(1 - x^2\right)^{m/2}\frac{d^{m}}{dx^{m}}P_{l + 2}\left(x\right)\nonumber\\
-& = & \frac{2l + 3}{l + 1}xP_{l + 1, m} - m\frac{2l + 3}{l + 1}\sqrt{1 - x^2}P_{l + 1, m - 1} - \frac{l + 2}{l + 1}P_{l + 2, m}\nonumber\\
-\Rightarrow xP_{l + 1, m} & = & \frac{l + 1}{2l + 3}P_{l, m} + m\sqrt{1 - x^2}P_{l + 1, m - 1} + \frac{l + 2}{2l + 3}P_{l + 2, m}\nonumber\\
-\Rightarrow xP_{l, m} & = & \frac{l}{2l + 1}P_{l - 1, m} + m\sqrt{1 - x^2}P_{l, m - 1} + \frac{l + 1}{2l + 1}P_{l + 1, m}.\label{eq:legendre_ass_prop_1_vorform}
-\end{eqnarray}
-%
-Es gilt
-%
-\begin{eqnarray}
-P_{l, m - 1}\left(x\right) & = & \left(-\right)^{m - 1}\frac{1}{2^ll!}\left(1 - x^2\right)^{\frac{m - 1}{2}}\frac{d^{l + m - 1}}{dx^{l + m - 1}}\left(x^2 - 1\right)^l.
-\end{eqnarray}
-%
-Weiterhin ist
-%
-\begin{eqnarray}
-\frac{d^{l + m + 1}}{dx^{l + m + 1}}\left(x^2 - 1\right)^{l + 1} & = & \frac{d^{l + m}}{dx^{l + m}}2\left(l + 1\right)x\left(x^2 - 1\right)^{l}\nonumber\\
-& = & \frac{d^{l + m - 1}}{dx^{l + m - 1}}\left[2\left(l + 1\right)\left(x^2 - 1\right)^{l} + 4x^2l\left(l + 1\right)\left(x^2 - 1\right)^{l - 1}\right]\nonumber\\
-& = & \frac{d^{l + m - 1}}{dx^{l + m - 1}}\left[2\left(l + 1\right)\left(x^2 - 1\right)^{l} + 4l\left(l + 1\right)\left(x^2 - 1\right)^{l} + 4l\left(l + 1\right)\left(x^2 - 1\right)^{l - 1}\right]\nonumber\\
-& = & 2\left(1 + 2l\right)\left(l + 1\right)\frac{d^{l + m - 1}}{dx^{l + m - 1}}\left[\left(x^2 - 1\right)^{l} + 4l\left(l + 1\right)\left(x^2 - 1\right)^{l - 1}\right].
-\end{eqnarray}
-%
-Es gilt also
-%
-\begin{eqnarray}
-\frac{d^{l + m - 1}}{dx^{l + m - 1}}\left(x^2 - 1\right)^l & = & \frac{1}{2\left(1 + 2l\right)\left(l + 1\right)}\frac{d^{l + m + 1}}{dx^{l + m + 1}}\left(x^2 - 1\right)^{l + 1} - \frac{2l}{\left(2l + 1\right)}\frac{d^{l + m - 1}}{dx^{l + m - 1}}\left(x^2 - 1\right)^{l - 1}.
-\end{eqnarray}
-%
-Damit folgt
-%
-\begin{eqnarray}
-&&\left(-\right)^{m - 1}\frac{1}{2^ll!}\left(1 - x^2\right)^{\frac{m - 1}{2}}\frac{d^{l + m - 1}}{dx^{l + m - 1}}\left(x^2 - 1\right)^l = \left(-\right)^{m - 1}\frac{1}{2^{l + 1}\left(l + 1\right)!}\left(1 - x^2\right)^{\frac{m - 1}{2}}\frac{1}{\left(1 + 2l\right)}\frac{d^{l + m + 1}}{dx^{l + m + 1}}\left(x^2 - 1\right)^{l + 1}\nonumber\\
-&&- \frac{1}{2l + 1}\left(-\right)^{m - 1}\frac{1}{2^{l - 1}\left(l - 1\right)!}\left(1 - x^2\right)^{\frac{m - 1}{2}}\frac{d^{l + m - 1}}{dx^{l + m - 1}}\left(x^2 - 1\right)^{l - 1}.
-\end{eqnarray}
-%
-Somit erhält man
-%
-\begin{eqnarray}
-\sqrt{1 - x^2}P_{l, m - 1} & = & -\frac{1}{2l + 1}P_{l + 1, m} + \frac{1}{2l + 1}P_{l - 1, m}.
-\end{eqnarray}
-%
-Es folgt
-%
-\begin{eqnarray}
-xP_{l, m} & = & \frac{l + m}{2l + 1}P_{l - 1, m} + \frac{l + 1 - m}{2l + 1}P_{l + 1, m}.\label{eq:legendre_ass_prop_1}
-\end{eqnarray}
-%
-Hiermit und mit Glg. \eqref{eq:legendre_ass_prop_1_vorform} folgt
-%
-\begin{eqnarray}
-\frac{l + m}{2l + 1}P_{l - 1, m} + \frac{l + 1 - m}{2l + 1}P_{l + 1, m} & = & \frac{l}{2l + 1}P_{l - 1, m} + m\sqrt{1 - x^2}P_{l, m - 1} + \frac{l + 1}{2l + 1}P_{l + 1, m}\nonumber\\
-\Rightarrow\sqrt{1 - x^2}P_{l, m - 1} & = & \frac{1}{2l + 1}P_{l - 1, m} - \frac{1}{2l + 1}P_{l + 1, m}\nonumber\\
-\Rightarrow\sqrt{1 - x^2}P_{l, m} & = & \frac{1}{2l + 1}P_{l - 1, m + 1} - \frac{1}{2l + 1}P_{l + 1, m + 1}.\label{eq:legendre_ass_prop_3}
-\end{eqnarray}
-%
-Die Normierung der Legendre-Funktionen ergibt sich zu
-%
-\begin{eqnarray}
-\int_{-1}^{1}P_{l, m}\left(x\right)^2dx & = & \frac{1}{2^{2l}l!^2}\int_{-1}^{\left(1\right)}\left(1 - x^2\right)^m\frac{d^{l + m}}{dx^{l + m}}\left(1 - x^2\right)^l\frac{d^{l + m}}{dx^{l + m}}\left(1 - x^2\right)^ldx\nonumber\\
-&\stackrel{m+l-\text{fache p.I}.}{=}&\frac{1}{2^{2l}l!^2}\left(-1\right)^{m + l}\left(-1\right)^{m + l}\left(m + l\right)!\frac{\left(2l\right)!}{\left(l - m\right)!}\int_{-1}^{1}\left(1 - x^2\right)^ldx\nonumber\\
-& = & \frac{1}{2^{2l}l!^2}\frac{\left(m + l\right)!}{\left(l - m\right)!}\left(2l\right)!\int_{-1}^{1}\left(1 + x\right)^l\left(1 - x\right)^ldx\nonumber\\
-&\stackrel{l-\text{fache p.I}.}{=}&\frac{1}{2^{2l}l!^2}\frac{\left(m + l\right)!}{\left(l - m\right)!}\left(2l\right)!\frac{l!}{\left(2l\right)!}l!\int_{-1}^{1}\left(1 + x\right)^{2l}dx\nonumber\\
-& = & \frac{1}{2^{2l}}\frac{\left(m + l\right)!}{\left(l - m\right)!}\frac{2^{2l + 1}}{2l + 1} = \frac{2}{2l + 1}\frac{\left(l + m\right)!}{\left(l - m\right)!}.
-\end{eqnarray}
-%
-Des Weiteren gilt für $l\not = l'$ (o. B. d. A. kann man $l<l'$ annehmen):
-%
-\begin{eqnarray}
-\int_{-1}^{1}P_{l, m}\left(x\right)P_{l', m}\left(x\right)dx&\propto&\int_{-1}^{1}\left(1 - x^2\right)^m\frac{d^{l + m}}{dx^{l + m}}\left(1 - x^2\right)^l\frac{d^{l' + m}}{dx^{l' + m}}\left(1 - x^2\right)^{l'}dx.
-\end{eqnarray}
-Dies erhält man durch $m + l-$fache partielle Integration, bei der $\left(1 - x^2\right)^m\frac{d^{l + m}}{dx^{l + m}}$ abgeleitet und $\frac{d^{l' + m}}{dx^{l' + m}}\left(1 - x^2\right)^{l'}$ integriert wird
-%
-\begin{eqnarray}
-\int_{-1}^{1}P_{l, m}\left(x\right)P_{l', m}\left(x\right)dx&\propto&\int_{-1}^{1}\frac{d^{l' - l}}{dx^{l' - l}}\left(1 - x^2\right)^{l'}dx = 0.\label{eq:ortho_ass_lgen}
-\end{eqnarray}
-%
-Dabei entfällt bei jedem Integrationsschritt der Term ohne Integral, da dieser an den Rändern $\pm 1$ ausgewertet wird und dort immer Terme $\propto\left(1 - x^2\right)$ als Faktoren auftreten. Es gilt also
-%
-\begin{eqnarray}
-\int_{-1}^{1}P_{l, m}\left(x\right)P_{l', m}\left(x\right)dx = \frac{2}{2l + 1}\frac{\left(l + m\right)!}{\left(l - m\right)!}\delta_{l, l'}.
-\end{eqnarray}
-%
-\subsection{Hermite-Polynome}
-\label{sec:hermitepolynome}\index{Hermite-Polynom}
-
-Die \textit{Hermite-Polynome} werden definiert durch ihre Rodrigues-Formel
-%
-\begin{eqnarray}
-H_n\left(x\right) \coloneqq \left(-\right)^ne^{x^2}\frac{d^n}{dx^n}e^{-x^2}.\label{eq:hermite_poly_geschlossen}
-\end{eqnarray}
-%
-Setzt man in Glg. \eqref{eq:dgl_p} $\newtilde{E} - 1 = 2n$ ein, erhält man die \textit{Hermite'sche Differenzialgleichung}\index{Differenzialgleichung!Hermite'sche}\index{Hermite'sche Differenzialgleichung}
-%
-\begin{eqnarray}
-P_n'' - 2xP' + 2nP = 0.\label{eq:hermite_dgl}
-\end{eqnarray}
-%
-Nun soll gezeigt werden, dass die Hermite-Polynome nach Glg. \eqref{eq:hermite_poly_geschlossen} diese DGL lösen und somit auch die Rekursionsformel Glg. \eqref{eq:hermite_poly_rek} erfüllen. Es gelten ja
-%
-\begin{eqnarray}
-\frac{dH_n}{dx}\left(x\right) & = & \left(-\right)^ne^{x^2}\left[2x\frac{d^n}{dx^n}e^{-x^2} + \frac{d^{n + 1}}{dx^{n + 1}}e^{-x^2}\right],\\
-\frac{d^2H_n}{dx^2}\left(x\right) & = & \left(-\right)^ne^{x^2}\left[4x^2\frac{d^n}{dx^n}e^{-x^2} + 4x\frac{d^{n + 1}}{dx^{n + 1}}e^{-x^2} + \frac{d^{n + 2}}{dx^{n + 2}}e^{-x^2} + 2\frac{d^n}{dx^{n}}e^{-x^2}\right].
-\end{eqnarray}
-%
-Setzt man all dies in die linke Seite der Hermite'schen DGL ein, erhält man
-%
-\begin{eqnarray}
-\left(\frac{d^n}{dx^n}e^{-x^2}\right)\left[2 + 2n\right] + \left(\frac{d^{n + 1}}{dx^{n + 1}}e^{-x^2}\right)\left[-2x + 4x\right] + \left(\frac{d^{n + 2}}{dx^{n + 2}}e^{-x^2}\right) & = & 0\nonumber\\
-\Leftrightarrow \left[2\left(1 + n\right)\frac{d^{n}}{dx^n} + 2x\frac{d^{n + 1}}{dx^{n + 1}} + \frac{d^{n + 2}}{dx^{n + 2}}\right]\exp\left(-x^2\right) & = & 0.
-\end{eqnarray}
-%
-Dies ist für $n = 0$ wahr. Durch Differenzieren der Gleichung nach $x$ erhält man die gleiche Aussage für $n + 1$. Die Hermite-Polynome lösen somit die Hermite'sche Differenzialgleichung, man kann $P_n\left(x\right) = H_n\left(x\right)$ setzen. Weiterhin macht man sich klar, dass gilt
-%
-\begin{eqnarray}
-\frac{d^n}{dx^n}\left(f\left(x\right)g\left(x\right)\right) & = & \frac{d^{n - 1}}{dx^{n - 1}}\left[f'g + fg'\right] = \frac{d^{n - 2}}{dx^{n - 2}}\left[f''g + 2f'g' + fg''\right]\nonumber\\
-& = & \sum_{k = 0}^{n}\left(\begin{array}{c}
-n\\
-k
-\end{array}\right)f^{(k)}g^{(n - k)} \label{eq:produktregel_n}
-\end{eqnarray}
-%
-für $n\in\mathbb{N}$ und $f, g:\mathbb{R}\to\mathbb{R}$, $n-$fach differenzierbar. Formal kann man dies über eine vollständige Induktion zeigen. Für $n = 0$ ist die Aussage richtig. Die Aussage gelte für ein $n\in\mathbb{N}$. Dann gilt
-%
-\begin{eqnarray}
-\frac{d^{n + 1}}{dx^{n + 1}}\left(fg\right) & = & \frac{d}{dx}\left(\frac{d^n}{dx^n}\left(fg\right)\right) = \frac{d}{dx}\sum_{k = 0}^{n}\left(\begin{array}{c}
-n\\
-k
-\end{array}\right)f^{(k)}g^{(n - k)}\nonumber\\
-& = & \sum_{k = 0}^{n}\left(\begin{array}{c}
-n\\
-k
-\end{array}\right)\left[f^{(k + 1)}g^{(n - k)} + f^{(k)}g^{(n + 1 - k)}\right], 
-\end{eqnarray}
-%
-der Rest folgt analog zum Beweis des binomischen Lehrsatzes Glg. \eqref{eq:gen_bin_formula}. Dies kann man verwenden, um
-%
-\begin{eqnarray}
-H_n'\left(x\right) & = & 2x\left(-\right)^ne^{x^2}\frac{d^n}{dx^n}e^{-x^2} + \left(-\right)^ne^{x^2}\frac{d^{n + 1}}{dx^{n + 1}}e^{-x^2}\nonumber\\
-& = & 2x\left(-\right)^ne^{x^2}\frac{d^n}{dx^n}e^{-x^2} + \left(-\right)^ne^{x^2}\frac{d^n}{dx^n}\left(-2xe^{-x^2}\right)
-\end{eqnarray}
-%
-zu vereinfachen. Im zweiten Summanden setze in Termen von Glg. \eqref{eq:produktregel_n} $f = -2x$ und $g = e^{-x^2}$, dann spielen in der Summe nur die Terme mit $k = 0$ und $k = 1$ eine Rolle, also
-%
-\begin{eqnarray}
-\frac{d^n}{dx^n}\left(-2xe^{-x^2}\right) = -2x\frac{d^n}{dx^n}e^{-x^2} - 2n\frac{d^{n - 1}}{dx^{n - 1}}e^{-x^2}.
-\end{eqnarray}
-%
-Es gilt somit
-%
-\begin{eqnarray}
-H_n'\left(x\right) = 2nH_{n - 1}\left(x\right).\label{eq:herm_pol_prop_1}
-\end{eqnarray}
-%
-Damit ist unmittelbar klar, dass gilt
-%
-\begin{eqnarray}
-H_n' & = & 2xH_n - H_{n + 1}\Leftrightarrow nH_{n - 1} + \frac{H_{n + 1}}{2} = xH_n.\label{eq:herm_pol_prop_2}
-\end{eqnarray}
-%
-Der Koeffizient $C_n$ vor der höchsten Potenz ist $C_n = 2^n$, wie man leicht einsehen kann. Für die Normierung der Hermite-Polynome gilt
-%
-\begin{eqnarray}
-\int_{ - \infty}^{\infty}H_n^2\left(x\right)e^{-x^2}dx & = & \sqrt{\pi}2^nn!.\label{eq:hermite_polynome_normierung}
-\end{eqnarray}
-%
-Um dies zu zeigen, mache man sich zunächst klar, dass gilt
-%
-\begin{eqnarray}
-\int_{ - \infty}^{\infty}H_n\left(x\right)H_m\left(x\right)e^{-x^2}dx = 0, 
-\end{eqnarray}
-%
-für $n\not = m$, da in diesem Fall $H_n\left(x\right)\exp\left(-\frac{x^2}{2}\right)$ und $H_m\left(x\right)\exp\left(-\frac{x^2}{2}\right)$ zwei Eigenfunktionen eines Hermite'schen Operators zu unterschiedlichen Eigenwerten sind, und daher orthogonal.
-
-Nun kann man die Aussage über vollständige Induktion zeigen. Für $n = 0$ ist $H_n = 1$, also gilt
-%
-\begin{eqnarray}
-\int_{ - \infty}^{\infty}H_0^2\left(x\right)e^{-x^2}dx & = & \sqrt{\pi}.
-\end{eqnarray}
-%
-Für $n = 1$ ist $H_1\left(x\right) = -2x$, also gilt
-%
-\begin{eqnarray}
-\int_{ - \infty}^{\infty}H_1^2e^{-x^2}dx & = & 4\int_{ - \infty}^{\infty}x^2e^{-x^2}dx = 2\int_{ - \infty}^{\infty}e^{-x^2}dx = 2\sqrt{\pi}.
-\end{eqnarray}
-%
-Für $n = 0$ und $n = 1$ stimmt die Aussage also. Nun gelte die Aussage für ein $n$ bereits und auch für $n - 1$. Dann folgt mit den Glg.en \eqref{eq:herm_pol_prop_1} und \eqref{eq:herm_pol_prop_2} auch
-%
-\begin{eqnarray}
-&&\int_{ - \infty}^{\infty}H_{n + 1}^2e^{-x^2}dx = 4\int_{ - \infty}^{\infty}\left[x^2H_n^2 + n^2H_{n - 1}^2 - 2xnH_{n - 1}H_n\right]e^{-x^2}dx\nonumber\\
-& = & 4n^2\sqrt{\pi}2^{n - 1}\left(n - 1\right)! + 4\int_{ - \infty}^{\infty}x^2H_n^2e^{-x^2}dx - 4n\int_{ - \infty}^{\infty}\left[H_{n - 1}'H_{n} + H_{n - 1}H_n'\right]e^{-x^2}dx\nonumber\\
-& = & 2n\sqrt{\pi}2^nn! + 2\int_{ - \infty}^{\infty}\left[2xH_n'H_n + H_n^2\right]e^{-x^2}dx - 8n^2\sqrt{\pi}2^{n - 1}\left(n - 1\right)!\nonumber\\
-& = & \left(2n - 4n\right)\sqrt{\pi}2^nn! + 2\int_{ - \infty}^{\infty}H_n'^2e^{-x^2}dx + 2\sqrt{\pi}2^nn!\nonumber\\
-& = & \sqrt{\pi}2^nn!\left(2n\right) + 2\sqrt{\pi}2^nn! = \sqrt{\pi}2^{n + 1}\left(n + 1\right)!.
-\end{eqnarray}
-%
-Also gilt die Aussage auch für $n + 1$ und somit für alle $n\in\mathbb{N}$.
-
-\subsection{Laguerre-Polynome}
-\label{sec:laguerrepolynome}\index{Laguerre-Polynom}
-
-Die Laguerre'sche Differenzialgleichung lautet
-%
-\begin{eqnarray}
-xP'' + \left(k + 1 - x\right)P' + nP = 0\label{eq:laguerre_dgl}
-\end{eqnarray}
-%
-für $k\in\mathbb{N}$. Es wird für $P\left(x\right)$ ein Potenzreihenansatz gemacht, 
-%
-\begin{eqnarray}
-P\left(x\right) = \sum_{i = 0}^{\infty}a_ix^i.
-\end{eqnarray}
-%
-Damit folgen
-%
-\begin{eqnarray}
-P'\left(x\right) & = & \sum_{i = 0}^{\infty}ia_ix^{i - 1} = \sum_{i = 0}^{\infty}\left(i + 1\right)a_{i + 1}x^i,\\
-P''\left(x\right) & = & \sum_{i = 0}^{\infty}i\left(i + 1\right)a_{i + 1}x^{i - 1}.
-\end{eqnarray}
-%
-Setzt man dies ein, erhält man
-%
-\begin{eqnarray}
-i\left(i + 1\right)a_{i + 1} + \left(k + 1\right)\left(i + 1\right)a_{i + 1} - ia_i + na_i & = &0
-\Leftrightarrow a_{i + 1} = a_i\frac{i - n}{\left(i + 1\right)\left(i + k + 1\right)}.\label{eq:rek_laguerre}
-\end{eqnarray}
-%
-Der Faktor $\frac{i - n}{\left(i + 1\right)\left(i + k + 1\right)}$ geht für hohe $i$ wie $1/i$ gegen Null, die Rekursion muss folglich abbrechen. Also muss $n\in\mathbb{N}$ sein. $n$ ist der Grad des Polynoms $P$. Die Polynome
-%
-\begin{eqnarray}
-L_{n, k}\left(x\right) \coloneqq \sum_{i = 0}^{n}\left(\begin{array}{c}
-n + k\\
-n - i
-\end{array}\right)\frac{\left(-\right)^{(i)}}{i!}x^{(i)}.\label{eq:laguerre_polynome_explizit}
-\end{eqnarray}
-%
-lösen Glg. \eqref{eq:laguerre_dgl} ebenfalls, um dies zu zeigen, überprüft man ihre Rekursionsbeziehung. Zunächst sind sie Polynome vom Grad $n$. Der Koeffizient vor der höchsten Potenz von $x$ ist $\frac{\left(-\right)^n}{n!}$, dies impliziert eine Normierung. Es gilt
-%
-\begin{eqnarray}
-a_i & = & \frac{\left(n + k\right)!}{\left(n - i\right)!\left(k + i\right)!i!}\left(-\right)^{(i)}\nonumber\\
-\Leftrightarrow \frac{a_{i + 1}}{a_i} & = & -\frac{\left(n - i\right)!\left(k + i\right)!i!}{\left(n - i - 1\right)!\left(k + i + 1\right)!\left(i + 1\right)!} = \frac{i - n}{\left(k + 1 + i\right)\left(i + 1\right)}.
-\end{eqnarray}
-%
-Daher kann man Glg. \eqref{eq:laguerre_polynome_explizit} als Definition der Laguerre-Polynome ansehen. All dies kann man mit
-%
-\begin{eqnarray}
-n&\to&n_r,\\
-k&\to&2l + 1
-\end{eqnarray}
-%
-umschreiben zu
-%
-\begin{eqnarray}
-L_{n_r, 2l + 1}^{}\left(x\right) \coloneqq \sum_{i = 0}^{n_r}\left(\begin{array}{c}
-n_r + 2l + 1\\
-n_r - i
-\end{array}\right)\frac{\left(-\right)^{(i)}}{i!}x^{(i)}
-\end{eqnarray}
-%
-und
-%
-\begin{eqnarray}
-xL_{n_r, 2l + 1}'' + \left(2l + 2 - x\right)L_{n_r, 2l + 1}' + n_rL_{n_r, 2l + 1} = 0.
-\end{eqnarray}
-%
-Dies ist die in Absch. \ref{sec:hatom} verwandte Formulierung. Die Rodrigues-Formel der Laguerre-Polynome lautet
-%
-\begin{eqnarray}
-P_{n, k}\left(x\right) = \frac{e^x}{n!x^k}\frac{d^n}{dx^n}\left[e^{-x}x^{n + k}\right].
-\end{eqnarray}
-%
-Dass dies Polynome vom Grad $n$ sind, sieht man sofort. Der Koeffizient vor $x^n$ ist $\frac{\left(-\right)^n}{n!}$. Für $l\in\mathbb{N}$ mit $l\leq n$ gilt
-%
-\begin{eqnarray}
-\frac{d^l}{dx^l}x^{n + k} = \frac{\left(n + k\right)!}{\left(n + k - l\right)!}x^{n + k - l}
-\end{eqnarray}
-%
-Daraus folgt
-%
-\begin{eqnarray}
-\frac{d^n}{dx^n}\left[e^{-x}x^{n + k}\right] & = & \sum_{i = 0}^{n}\left(-\right)^{i}e^{-x}\left(\begin{array}{c}
-n\\
-i
-\end{array}\right)\frac{\left(n + k\right)!}{\left(k + i\right)!}x^{k + i} = \sum_{i = 0}^{n}\left(-\right)^{i}e^{-x}\frac{n!}{i!\left(n - i\right)!}\frac{\left(n + k\right)!}{\left(k + i\right)!}x^{k + i}.
-\end{eqnarray}
-%
-Damit erhält man
-%
-\begin{eqnarray}
-P_{n, k}\left(x\right) & = & \sum_{i = 0}^{n}\left(-\right)^{i}\frac{1}{i!\left(n - i\right)!}\frac{\left(n + k\right)!}{\left(k + i\right)!}x^{i} = \sum_{i = 0}^{n}\left(\begin{array}{c}
-n + k\\
-n - i
-\end{array}\right)\frac{\left(-\right)^{(i)}}{i!}x^{(i)}.
-\end{eqnarray}
-%
-Die Rodrigues-Formel entspricht also der expliziten Darstellung Glg. \eqref{eq:laguerre_polynome_explizit}. Die Laguerre-Polynome erfüllen die Integraleigenschaft
-%
-\begin{eqnarray}
-\int_{0}^{\infty}x^{k + 1}e^{-x}L_{n, k}\left(x\right)^2dx & = & \frac{\left(n + k\right)!}{n!}\left(2n + k + 1\right)\label{eq:laguerre_integral}.
-\end{eqnarray}
-%
-Hierzu rechnet man
-%
-\begin{eqnarray}
-&&\int_{0}^{\infty}x^{k + 1}e^{-x}L_{n, k}\left(x\right)^2dx = \int_{0}^{\infty}x^{k + 1}e^{-x}L_{n, k}\left(x\right)\frac{e^x}{n!x^k}\frac{d^n}{dx^n}\left[e^{-x}x^{n + k}\right]dx\nonumber\\
-& = & \frac{1}{n!}\int_{0}^{\infty}xL_{n, k}\left(x\right)\frac{d^n}{dx^n}\left[e^{-x}x^{n + k}\right]dx = \frac{1}{n!}\left(-1\right)^n\int_{0}^{\infty}e^{-x}x^{n + k}\frac{d^n}{dx^n}xL_{n, k}\left(x\right)dx.
-\end{eqnarray}
-%
-Nach der expliziten Darstellung Glg. \eqref{eq:laguerre_polynome_explizit} gilt
-%
-\begin{eqnarray}
-\frac{d^n}{dx^n}xL_{n, k}\left(x\right) & = & \left(-\right)^n\left(n + 1\right)x + n!\frac{\left(-\right)^{n - 1}}{\left(n - 1\right)!}\frac{\left(n + k\right)!}{\left(n + k - 1\right)!}\nonumber\\
-& = & \left(-\right)^n\left(n + 1\right)x + n\left(-\right)^{n - 1}\left(n + k\right).
-\end{eqnarray}
-%
-Mit Glg. \eqref{eq:int_prop_1} folgt
-%
-\begin{eqnarray}
-\int_0^\infty\dotsc dx & = & \frac{\left(-\right)^n}{n!}\left[\left(-\right)^n\left(n + 1\right)\left(n + k + 1\right)! - n\left(-\right)^n\left(n + k\right)\left(n + k\right)!\right]\nonumber\\
-& = & \frac{\left(n + k\right)!}{n!}\left[\left(n + 1\right)\left(n + k + 1\right) - n\left(n + k\right)\right] = \frac{\left(n + k\right)!}{n!}\left(2n + k + 1\right).
-\end{eqnarray}
-%
-Weiter gilt für $k\geq2$
-%
-\begin{eqnarray}
-\int_{0}^{\infty}x^{k - 2}\left[L_{n, k}\left(x\right)\right]^2\exp\left(-x\right)dx = \frac{\left(n + k\right)!}{n!}\frac{2n + k + 1}{\left(k - 1\right)k\left(k + 1\right)}\label{eq:laguerre_int_prop_2}.
-\end{eqnarray}
-%
-Hierzu rechnet man mit
-%
-\begin{eqnarray}
-&&\int_{0}^{\infty}x^{k - 2}e^{-x}L_{n, k}\left(x\right)^2dx = \int_{0}^{\infty}x^{k - 2}e^{-x}L_{n, k}\left(x\right)\frac{e^x}{n!x^k}\frac{d^n}{dx^n}\left[e^{-x}x^{n + k}\right]dx\nonumber\\
-& = & \frac{1}{n!}\int_{0}^{\infty}\frac{1}{x^2}L_{n, k}\left(x\right)\frac{d^n}{dx^n}\left[e^{-x}x^{n + k}\right]dx = \frac{1}{n!}\left(-1\right)^n\int_{0}^{\infty}e^{-x}x^{n + k}\frac{d^n}{dx^n}\left[\frac{1}{x^2}L_{n, k}\left(x\right)\right]dx.
-\end{eqnarray}
-%
-$L_{n, k}$ ist ein Polynom vom Grad $n$, also ist $L_{n, k}/x^2$ vom Grad $n - 2$. Schreibe
-%
-\begin{eqnarray}
-L_{n, k} = a + bx + \mathcal{O}\left(x^2\right), 
-\end{eqnarray}
-%
-dementsprechend gilt
-%
-\begin{eqnarray}
-\frac{d}{dx^n}\frac{L_{n, k}}{x^2} & = & \frac{d}{dx^n}\left(\frac{a}{x^2} + \frac{b}{x}\right) = \left(-\right)^n\left(a\left(n + 1\right)!x^{-2 - n} + n!bx^{-n - 1}\right).
-\end{eqnarray}
-%
-Nach der expliziten Darstellung Glg. \eqref{eq:laguerre_polynome_explizit} gelten
-%
-\begin{eqnarray}
-a & = & \frac{\left(n + k\right)!}{n!k!},\\
-b & = & -\frac{\left(n + k!\right)}{\left(n - 1\right)!\left(k + 1\right)!}.
-\end{eqnarray}
-%
-Somit folgt
-%
-\begin{eqnarray}
-\frac{d}{dx^n}\frac{L_{n, k}}{x^2} & = & \left(-\right)^n\left(\frac{\left(n + k\right)!}{n!k!}\left(n + 1\right)!x^{-2 - n} - \frac{\left(n + k\right)!}{\left(n - 1\right)!\left(k + 1\right)!}n!x^{-n - 1}\right)\nonumber\\
-& = & \left(-\right)^n\left(n + k\right)!\left[\frac{\left(n + 1\right)}{k!}x^{-2 - n} - \frac{n}{\left(k + 1\right)!}x^{-n - 1}\right].
-\end{eqnarray}
-%
-Hiermit erhält man
-%
-\begin{eqnarray}
-e^{-x}x^{n + k}\frac{d}{dx^n}\frac{L_{n, k}}{x^2} & = & e^{-x}\left(-\right)^n\left(n + k\right)!\left[\frac{\left(n + 1\right)}{k!}x^{k - 2} - \frac{n}{\left(k + 1\right)!}x^{k - 1}\right].
-\end{eqnarray}
-%
-Mit Glg. \eqref{eq:int_prop_1} folgt
-%
-\begin{eqnarray}
-\int_0^\infty\dotsc dx & = & \frac{\left(n + k\right)!}{n!}\left[\frac{\left(n + 1\right)}{k\left(k - 1\right)} - \frac{n}{k\left(k + 1\right)}\right]\nonumber\\
-& = & \frac{\left(n + k\right)!}{n!}\left[\frac{\left(n + 1\right)\left(k + 1\right)}{k\left(k - 1\right)\left(k + 1\right)} - \frac{n\left(k - 1\right)}{k\left(k + 1\right)\left(k - 1\right)}\right]\nonumber\\
-& = & \frac{\left(n + k\right)!}{n!}\frac{2n + k + 1}{k\left(k + 1\right)\left(k - 1\right)}.
-\end{eqnarray}
-%
-\subsection{Kugelflächenfunktionen}
-\label{sec:kugelflaechenfunktionen}\index{Kugelflächenfunktion}
-
-Die Abhängigkeiten der Lösung Glg. \eqref{eq:ansatz_poisson} von $\cos\left(\theta\right)$ und $\phi$ fasst man zu $P_{l, m}\left(\cos\left(\theta\right)\right)\exp\left(im\phi\right)$ zusammen. Die \textit{Kugelflächenfunktionen} (engl. \textit{spherical harmonics}) werden definiert durch
-%
-\begin{eqnarray}
-Y_{l, m}\left(\theta, \phi\right) = \sqrt{\frac{2l + 1}{4\pi}\frac{\left(l - m\right)!}{\left(l + m\right)!}}P_{l, m}\left(\cos\left(\theta\right)\right)\exp\left(im\phi\right).\label{eq:spherical_harmionen}
-\end{eqnarray}
-%
-mit den assoziierten Legendre-Funktionen $P_{l, m}\left(x\right)$, Glg. \eqref{eq:assoziierte_legendre_funktionen}. Die Vorfaktoren ergeben sich aus der Normierung
-%
-\begin{eqnarray}
-\int_{\theta = 0}^\pi\int_{\phi = 0}^{2\pi}\left|Y_{l, m}\left(\theta, \phi\right)\right|^2\sin\left(\theta\right) d\phi d\theta\hastobe1, 
-\end{eqnarray}
-%
-die nun verifiziert wird:
-%
-\begin{eqnarray}
-&&\frac{2l + 1}{4\pi}\frac{\left(l - m\right)!}{\left(l + m\right)!}\int_{\theta = 0}^\pi\int_{\phi = 0}^{2\pi}\left(P_{l, m}\left(\cos\left(\theta\right)\right)\right)^2\sin\left(\theta\right) d\phi d\theta\nonumber\\
-& = & \frac{2l + 1}{2}\frac{\left(l - m\right)!}{\left(l + m\right)!}\int_{-1}^{1}P_{l, m}\left(z\right)^2dz = 1
-\end{eqnarray}
-%
-Weiterhin sind die Kugelflächenfunktionen orthogonal. Für $m\not = m'$ gilt nämlich
-%
-\begin{eqnarray}
-&&\int_{\theta = 0}^{\pi}\int_{\phi = 0}^{2\pi}Y_{l, m}\left(\theta, \phi\right)^\star Y_{l', m'}\left(\theta, \phi\right)\sin\left(\theta\right) d\phi d\theta\nonumber\\
-&\propto&\int_{\theta = 0}^{\pi}\int_{\phi = 0}^{2\pi}\exp\left(i\left(m - m'\right)\phi\right)d\phi P_{l, m}^{\star}\left(\cos\left(\theta\right)\right)P_{l', m'}\left(\cos\left(\theta\right)\right)\sin\left(\theta\right) d\theta = 0.
-\end{eqnarray}
-%
-Für $l\not = l'$ erhält man
-%
-\begin{eqnarray}
-&&\int_{\theta = 0}^{\pi}\int_{\phi = 0}^{2\pi}Y_{l, m}\left(\theta, \phi\right)^\star Y_{l', m}\left(\theta, \phi\right)\sin\left(\theta\right) d\phi d\theta = 2\pi\int_{-1}^{1}P_{l, m}\left(z\right)P_{l', m}\left(z\right)dz\stackrel{\eqref{eq:ortho_ass_lgen}}{=}0.
-\end{eqnarray}
-%
-Zusammenfassend erhält man
-%
-\begin{eqnarray}
-\int_{\theta = 0}^{\pi}\int_{\phi = 0}^{2\pi}Y_{l, m}\left(\theta, \phi\right)^\star Y_{l', m'}\left(\theta, \phi\right)\sin\left(\theta\right) d\phi d\theta = \delta_{l, l'}\delta_{m, m'}.
-\end{eqnarray}
-%
-Weiterhin gilt
-%
-\begin{eqnarray}
-\Delta_{\theta, \phi} Y_{l, m}\left(\theta, \phi\right) & = & -l\left(l + 1\right)Y_{l, m}\left(\theta, \phi\right)
-\end{eqnarray}
-%
-mit
-%
-\begin{eqnarray}
-\Delta_{\theta, \phi} = \Delta_{\mu, \phi} = \frac{\partial}{\partial\mu}\left(1 - \mu^2\right)\frac{\partial}{\partial\mu} + \frac{1}{1 - \mu^2}\frac{\partial^2}{\partial\phi^2}, 
-\end{eqnarray}
-%
-als Winkelanteil des Laplace-Operators und $\mu = \cos\left(\theta\right)$. Es gilt
-%
-\begin{eqnarray}
-\frac{\partial^2}{\partial\phi^2}Y_{l, m} & = & -m^2Y_{l, m}\left(\theta, \phi\right), 
-\end{eqnarray}
-%
-somit ist hier
-%
-\begin{eqnarray}
-\Delta_{\mu, \phi} = \frac{\partial}{\partial\mu}\left(1 - \mu^2\right)\frac{\partial}{\partial\mu} - \frac{m^2}{1 - \mu^2}.
-\end{eqnarray}
-%
-Für die assoziierten Legendre-Polynome $P_{l, m}\left(\mu\right)$ gilt die DGL \eqref{eq:legendre_vorform_2}
-%
-\begin{eqnarray}
-\frac{d}{d\mu}\left(1 - \mu^2\right)P_{l, m}'\left(\mu\right) - \frac{m^2}{1 - \mu^2}P_{l, m}\left(\mu\right) = -l\left(l + 1\right)P_{l, m}\left(\mu\right).
-\end{eqnarray}
-%
-Somit folgt
-%
-\begin{eqnarray}
-\Delta_{\theta, \phi} Y_{l, m}\left(\theta, \phi\right) & = & -l\left(l + 1\right)Y_{l, m}\left(\theta, \phi\right).\label{eq:spherical_harm_prop_1}
-\end{eqnarray}
-%
-Aus Glg. \eqref{eq:legendre_ass_prop_2} folgt
-%
-\begin{eqnarray}
-\frac{\partial}{\partial\theta}Y_{l, m}\left(\theta, \phi\right) & = & m\cot\left(\theta\right) Y_{l, m}\left(\cos\left(\theta\right)\right) + \sqrt{l^2 - m^2 + l - m}Y_{l, m + 1}\left(\cos\left(\theta\right)\right)\exp\left(-i\phi\right).
-\end{eqnarray}
-%
-Weiterhin gilt
-%
-\begin{eqnarray}
-\frac{\partial}{\partial\phi}Y_{l, m}\left(\theta, \phi\right) & = & imY_{l, m}\left(\theta, \phi\right).
-\end{eqnarray}
-%
-Damit folgt
-%
-\begin{eqnarray}
-&&\exp\left(\pm i\phi\right)\left(i\cot\left(\theta\right)\frac{\partial}{\partial\phi}\pm\frac{\partial}{\partial\theta}\right)Y_{l, m}\left(\theta, \phi\right) = -m\cot\left(\theta\right)\exp\left(\pm i\phi\right)Y_{l, m}\left(\theta, \phi\right)\nonumber\\
-&\pm&\exp\left(\pm i\phi\right)m\cot\left(\theta\right) Y_{l, m}\left(\cos\left(\theta\right)\right)\pm\sqrt{l^2 - m^2 + l - m}\exp\left(\pm i\phi\right)Y_{l, m + 1}\left(\theta, \phi\right)\exp\left(-i\phi\right)\nonumber
-\end{eqnarray}
-%
-Es gilt also
-%
-\begin{eqnarray}
-\newhat{L}_ + Y_{l, m}\left(\theta, \phi\right) & = & \sqrt{l^2 - m^2 + l - m}Y_{l, m + 1}\left(\theta, \phi\right).
-\end{eqnarray}
-%
-Somit folgt für die Eigenzustände $|n, l, m\rangle$ im Wasserstoffatom
-%
-\begin{eqnarray}
-\newhat{L}_ + |n, l, m\rangle = \sqrt{l^2 - m^2 + l - m}|n, l, m\rangle.
-\end{eqnarray}
-%
-Aus Glg. \eqref{eq:legendre_ass_prop_1} folgt
-%
-\begin{eqnarray}
-\cos\left(\theta\right)Y_{l, m} & = & \sqrt{\frac{2l + 1}{4\pi}\frac{\left(l - m\right)!}{\left(l + m\right)!}}\cos\left(\theta\right)P_{l, m}\left(\cos\left(\theta\right)\right)\exp\left(im\phi\right)\nonumber\\
-& = & \sqrt{\frac{2l + 1}{4\pi}\frac{\left(l - m\right)!}{\left(l + m\right)!}}\left[\frac{l + m}{2l + 1}P_{l - 1, m} + \frac{l - m + 1}{2l + 1}P_{l + 1, m}\right]\exp\left(im\phi\right)\nonumber\\
-& = & \sqrt{\frac{2l + 1}{4\pi}\frac{\left(l - m\right)!}{\left(l + m\right)!}}\frac{l + m}{2l + 1}P_{l - 1, m}\exp\left(im\phi\right) + \sqrt{\frac{2l + 1}{4\pi}\frac{\left(l - m\right)!}{\left(l + m\right)!}}\frac{l - m + 1}{2l + 1}P_{l + 1, m}\exp\left(im\phi\right)\nonumber\\
-& = & \frac{l + m}{2l + 1}\sqrt{\frac{2l + 1}{2l - 1}\frac{l - m}{l + m}}\sqrt{\frac{2l - 1}{4\pi}\frac{\left(l - 1 - m\right)!}{\left(l - 1 + m\right)!}}P_{l - 1, m}\exp\left(im\phi\right)\nonumber\\
-&& + \frac{l - m + 1}{2l + 1}\sqrt{\frac{2l + 1}{2l + 3}\frac{l + 1 + m}{l + 1 - m}}\sqrt{\frac{2l + 3}{4\pi}\frac{\left(l + 1 - m\right)!}{\left(l + 1 + m\right)!}}P_{l + 1, m}\exp\left(im\phi\right)\nonumber\\
-& = & \frac{l + m}{2l + 1}\sqrt{\frac{2l + 1}{2l - 1}\frac{l - m}{l + m}}Y_{l - 1, m} + \frac{l - m + 1}{2l + 1}\sqrt{\frac{2l + 1}{2l + 3}\frac{l + 1 + m}{l + 1 - m}}Y_{l + 1, m}\nonumber\\
-& = & \sqrt{\frac{l^2 - m^2}{4l^2 - 1}}Y_{l - 1, m} + \sqrt{\frac{\left(l + 1\right)^2 - m^2}{4\left(l + 1\right)^2 - 1}}Y_{l + 1, m}.\label{eq:spherical_harm_prop_2}
-\end{eqnarray}
-%
-Aus Glg. \eqref{eq:legendre_ass_prop_3} folgt
-%
-\begin{eqnarray}
-\sin\left(\theta\right)Y_{l, m} & = & \sqrt{\frac{2l + 1}{4\pi}\frac{\left(l - m\right)!}{\left(l + m\right)!}}\sin\left(\theta\right)P_{l, m}\left(\cos\left(\theta\right)\right)\exp\left(im\phi\right)\nonumber\\
-& = & \frac{1}{2l + 1}\sqrt{\frac{2l + 1}{4\pi}\frac{\left(l - m\right)!}{\left(l + m\right)!}}\left[P_{l - 1, m + 1}\left(\cos\left(\theta\right)\right) - P_{l + 1, m + 1}\left(\cos\left(\theta\right)\right)\right]\exp\left(im\phi\right)\nonumber\\
-& = & \frac{1}{2l + 1}\sqrt{\frac{2l + 1}{4\pi}\frac{\left(l - m\right)!}{\left(l + m\right)!}}P_{l - 1, m + 1}\left(\cos\left(\theta\right)\right)\exp\left(im\phi\right)\nonumber\\
-&& -\frac{1}{2l + 1}\sqrt{\frac{2l + 1}{4\pi}\frac{\left(l - m\right)!}{\left(l + m\right)!}}P_{l + 1, m + 1}\left(\cos\left(\theta\right)\right)\exp\left(im\phi\right)\nonumber\\
-& = & \frac{1}{2l + 1}\sqrt{\frac{2l + 1}{2l - 1}\left(l - m - 1\right)\left(l - m\right)}\sqrt{\frac{2l - 1}{4\pi}\frac{\left(l - m - 2\right)!}{\left(l + m\right)!}}P_{l - 1, m + 1}\left(\cos\left(\theta\right)\right)\exp\left(im\phi\right)\nonumber\\
-&& -\frac{1}{2l + 1}\sqrt{\frac{2l + 1}{2l + 3}\left(l + m + 1\right)\left(l + m + 2\right)}\sqrt{\frac{2l + 3}{4\pi}\frac{\left(l - m\right)!}{\left(l + m + 2\right)!}}P_{l + 1, m + 1}\left(\cos\left(\theta\right)\right)\exp\left(im\phi\right)\nonumber\\
-& = & \sqrt{\frac{1}{4l^2 - 1}\left(l - m - 1\right)\left(l - m\right)}e^{-i\phi}Y_{l - 1, m + 1}\nonumber\\
-&& -\sqrt{\frac{1}{4l^2 + 8l + 3}\left(l + m + 1\right)\left(l + m + 2\right)}e^{-i\phi}Y_{l + 1, m + 1}.\label{eq:spherical_harm_prop_3}
-\end{eqnarray}
-
-\subsubsection{Produkte}
-\label{sec:proukte}\index{Kugelflächenfunktion!Produkte}\index{Produkt!von Kugelflächenfunktionen}
-
-\subsection{Komplexe Exponentialfunktionen}
-\label{sec:komplexe_exponentialfunktionen}\index{komplexe Exponentialfunktion}\index{Exponentialfunktion!komplexe}
-
-Die Entwicklung einer Funktion nach komplexen Exponentialfunktionen bezeichnet man als \textit{Fourier-Transformation}\index{Fourier-Transformation} (FT). Sei $f\left(x\right)$ eine komplexe Funktion einer reellen Variablen, dann definiert man die \textit{Fourier-Transformierte}\index{Fourier-Transformation} $\newtilde{F}_1\{f\} = \newtilde{f}\left(k\right)$ oder auch das \textit{Spektrum}\index{Spektrum} von $f$ durch
-%
-\begin{eqnarray}
-\newtilde{F}_1\{f\} = \newtilde{f}\left(k\right) \coloneqq C_1\int_{-\infty}^{\infty}\exp\left(-ikx\right)f\left(x\right)dx\label{eq:def_ft_1d}
-\end{eqnarray}
-%
-mit einer reellen Konstante $C_1 > 0$. $\newtilde{F}_1$ bezeichnet den Operator der eindimensionalen Fourier-Transformation. Glg. \eqref{eq:def_ft_1d} ist bis auf einen eventuellen Faktor die Kovarianz der Funktion $f$ mit der \textit{Fourier-Komponente} $e^{ikx}$. Die \textit{inverse Fourier-Transformation}\index{inverse Fourier-Transformation}\index{Fourier-Transformation!inverse} wird definiert durch 
-%
-\begin{eqnarray}
-\newtilde{F}^{-1}_1\{f\} \coloneqq \newtilde{C}_1\int_{-\infty}^{\infty}\newtilde{f}\left(k\right)\exp\left(ikx\right)dk\label{eq:def_ft_1d_inv}
-\end{eqnarray}
-%
-mit einer zweiten Konstanten $\newtilde{C}_1 > 0$. Es handelt sich um eine Linearkombination der $\newtilde{f}\left(k\right)$ mit den entsprechenden Wellen. Dass dies tatsächlich das Inverse von Glg. \eqref{eq:def_ft_1d} ist, soll nun eingesehen werden:
-%
-\begin{eqnarray}
-\newtilde{C}_1\int_{-\infty}^{\infty}\newtilde{f}\left(k\right)\exp\left(ikx\right)dk & = & \newtilde{C}_1C_1\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}\exp\left(-ikx'\right)f\left(x'\right)dx'\exp\left(ikx\right)dk\nonumber\\
-& = & \newtilde{C}_1C_1\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}\exp\left(ik\left(x - x'\right)\right)dkf\left(x'\right)dx'\nonumber\\
-& \stackrel{\text{Glg. \eqref{eq:delta_distribution_prop_1}}}{=} & \newtilde{C}_1C_1\int_{-\infty}^{\infty}2\pi\delta\left(x - x'\right)'f\left(x'\right)dx' = \newtilde{C}_1C_12\pi f\left(x\right)\\
-& \stackrel{\Leftrightarrow\newtilde{C}_1C_1 = 1/2\pi}{=} & f\left(x\right)
-\end{eqnarray}
-%
-Man muss also auf die Bedingung
-%
-\begin{eqnarray}
-\newtilde{C}_1 = \frac{1}{2\pi C_1}
-\end{eqnarray}
-%
-achten. Hieraus kann man unmittelbar
-%
-\begin{eqnarray}
-\left[\newtilde{F}_1\{\delta\left(x - x_0\right)\}\right]\left(k\right) & = & C_1e^{-ikx_0},\\
-\left[\newtilde{F}_1\{e^{ik'x}\}\right]\left(k\right) & = & 2\pi C_1\delta\left(k' - k\right),\\
-\left[\newtilde{F}^{-1}_1\{\delta\left(k - k_0\right)\}\right]\left(x\right) & = & \newtilde{C}_1e^{ik_0x},\\
-\left[\newtilde{F}^{-1}_1\{e^{ikx'}\}\right]\left(x\right) & = & 2\pi\newtilde{C}_1\delta\left(x' + x\right)
-\end{eqnarray}
-%
-ableiten. Die Funktion
-%
-\begin{eqnarray}
-\arg\left(\newtilde{f}\left(k\right)\right)
-\end{eqnarray}
-%
-bezeichnet man als das \index{Phasenspektrum}\textit{Phasenspektrum} von $f$, während man
-%
-\begin{eqnarray}
-\left|\newtilde{f}\left(k\right)\right|
-\end{eqnarray}
-%
-als \index{Amplitudenspektrum}\textit{Amplitudenspektrum} bezeichnet. Das Quadrat von $\left|\newtilde{f}\left(k\right)\right|$ nennt man \index{Leistungsspektrum}\textit{Leistungsspektrum} oder \index{Powerspektrum}\textit{Powerspektrum}. Die FT ist linear, da sie in Termen eines Integrals definiert ist und die Integration linear ist. Für Funktionen $f, g$ und Konstanten $a, b$ gilt also
-%
-\begin{eqnarray}
-\newtilde{F}\{af + bg\} = a\newtilde{F}\{f\} + b\newtilde{F}\{g\}.
-\end{eqnarray}
-%
-Sei $N\left(\mu, \sigma\right)$ die Normalverteilung mit Erwartungswert\index{Erwartungswert} $\mu$ und Standardabweichung $\sigma.$ Dann gilt
-%
-\begin{eqnarray}
-\newtilde{F}\{N\left(\mu, \sigma\right)\} & = & \frac{C_1}{\sqrt{2\pi}\sigma}\int_{-\infty}^{\infty}\exp\left[-ikx - \frac{\left(x - \mu\right)^2}{2\sigma^2}\right]dx = \frac{C_1}{\sqrt{2\pi}\sigma}\int_{-\infty}^{\infty}\exp\left[-\frac{1}{2\sigma^2}\left(x^2 + \mu^2 - 2x\left(\mu - ik\sigma^2\right)\right)\right]dx\nonumber\\
-& = & \frac{C_1}{\sqrt{2\pi}\sigma}\int_{-\infty}^{\infty}\exp\left[-\frac{1}{2\sigma^2}\left(x - \left(\mu - ik\sigma^2\right)\right)^2 - \frac{1}{2\sigma^2}\left(k^2\sigma^4 + 2\mu i\sigma^2k\right)\right]dx\nonumber\\
-& = & \exp\left[-\frac{1}{2\sigma^2}\left(k^2\sigma^4 + 2\mu i\sigma^2k\right)\right]\frac{C_1}{\sqrt{2\pi}\sigma}\int_{-\infty}^{\infty}\exp\left[-\frac{1}{2\sigma^2}x^2\right]dx\nonumber\\
-& = & C_1\exp\left(-\frac{k^2}{2/\sigma^2}\right)\exp\left(-\mu ik\right).
-\end{eqnarray}
-%
-Die FT einer Normalverteilung ist also eine unnormierte (man betrachte den Fall $C_1 = 1/\sqrt{2\pi}$) und um einen komplexen Phasenfaktor modifizierte Normalverteilung mit Mittelwert
-%
-\begin{eqnarray}
-\mu_k = 0
-\end{eqnarray}
-%
-und Standardabweichung
-%
-\begin{eqnarray}
-\sigma_k = \frac{1}{\sigma}
-\end{eqnarray}
-%
-Die FT macht also aus einer schmalen Normalverteilung eine breite. Im Fall einer komplexwertigen Funktion $f\left(x, y\right)$ zweier reeller Variablen betrachtet man zunächst die Hilfsfunktion
-%
-\begin{eqnarray}
-f_y\left(x\right) \coloneqq f\left(x, y\right).
-\end{eqnarray}
-%
-Die FT hiervon ist
-%
-\begin{eqnarray}
-\newtilde{f}_y\left(k_x\right) = C_1\int_{-\infty}^{\infty}e^{-ik_xx}f_y\left(x\right)dx.
-\end{eqnarray}
-%
-Wendet man hierauf die inverse FT an, erhält man wieder $f_y\left(x\right) = f\left(x, y\right)$. Definiere nun die Fourier-Transformierte $\newtilde{f}\left(k_x, k_y\right)$ der Funktion $f\left(x, y\right)$ durch die in y-Richtung Fourier-Transformierte von $\newtilde{f}_y\left(k_x\right)$, also
-%
-\begin{eqnarray}
-\newtilde{f}\left(k_x, k_y\right) & \coloneqq & C_1\int_{-\infty}^{\infty}e^{-ik_yy}\newtilde{f}_y\left(k_x\right)dy = C_1^2\int_{-\infty}^{\infty}e^{-ik_yy}\int_{-\infty}^{\infty}e^{-ik_xx}f\left(x, y\right)dxdy\nonumber\\
-& = & C_1^2\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}e^{-i\left(k_xx + k_yy\right)}f\left(x, y\right)dxdy.
-\end{eqnarray}
-%
-Zweimaliges Anwenden der inversen FT liefert die Funktion $f\left(x, y\right).$ $x$ ist in der Herleitung nicht vor $y$ ausgezeichnet, weshalb die Reihenfolge der Anwendung der FT keine Rolle spielt. Man notiert
-%
-\begin{eqnarray}
-\newtilde{F}_2\{f\} & = & \newtilde{f}\left(k_x, k_y\right) \coloneqq C_2\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}e^{-i\left(k_xx + k_yy\right)}f\left(x, y\right)dxdy,\\
-\newtilde{F}^{-1}_2\{f\} & \coloneqq & \newtilde{C}_2\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}\newtilde{f}\left(k_x, k_y\right)e^{i\left(k_xx + k_yy\right)}dk_xdk_y, 
-\end{eqnarray}
-%
-wobei
-%
-\begin{eqnarray}
-C_2\newtilde{C}_2 = \left(C_1\newtilde{C}_1\right)^2 = \frac{1}{\left(2\pi\right)^2}
-\end{eqnarray}
-%
-gelten muss. Führt man dies induktiv fort, erhält man analog die $n-$dimensionale FT, wobei auf
-%
-\begin{eqnarray}
-C_n\newtilde{C}_n = \left(C_1\newtilde{C}_1\right)^n = \frac{1}{\left(2\pi\right)^n}
-\end{eqnarray}
-%
-zu achten ist.
 
 \printbibliography[title = Literatur]
 
