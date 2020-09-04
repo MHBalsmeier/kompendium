@@ -13968,7 +13968,7 @@ wobei die Abkürzung
 \pi\coloneqq\frac{p}{\rho}
 \end{eqnarray}
 %
-eingesetzt wurde. Die Fourier-Transformationen\index{Fourier-Transformation} der andeen auftretenden Felder lauten
+eingesetzt wurde. Die Fourier-Transformationen\index{Fourier-Transformation} der anderen auftretenden Felder lauten
 %
 \begin{eqnarray}
 \pi & = & \int\newtilde{\pi}\exp\left(i\mathbf{k}\cdot\mathbf{r}\right)d^3k,\\
@@ -13979,16 +13979,16 @@ Weiterhin gilt für die Anwendung der Differentialoperatoren auf die Felder
 %
 \begin{eqnarray}
 \frac{\partial\mathbf{v}}{\partial t} & = & \int\frac{\partial\newtilde{\mathbf{v}}\left(\mathbf{k}\right)}{\partial t}\exp\left(i\mathbf{k}\cdot\mathbf{r}\right)d^3k,\\
--\nabla\pi & = & -i\int\mathbf{k}\newtilde{\pi}\exp\left(i\mathbf{k}\cdot\mathbf{r}\right)d^3k,\\
--\nabla\varphi & = & -i\int\mathbf{k}\newtilde{\varphi}\exp\left(i\mathbf{k}\cdot\mathbf{r}\right)d^3k,\\
+-\nabla\pi & = & -i\int\mathbf{k}\newtilde{\pi}\left(\mathbf{k}\right)\exp\left(i\mathbf{k}\cdot\mathbf{r}\right)d^3k,\\
+-\nabla\varphi & = & -i\int\mathbf{k}\newtilde{\varphi}\left(\mathbf{k}\right)\exp\left(i\mathbf{k}\cdot\mathbf{r}\right)d^3k,\\
 \Delta\mathbf{v} & = & -\int\mathbf{k}^2\newtilde{\mathbf{v}}\left(\mathbf{k}\right)\exp\left(i\mathbf{k}\cdot\mathbf{r}\right)d^3k.
 \end{eqnarray}
 %
 Für die kinetische Energie\index{kinetische Energie}\index{Energie!kinetische} gilt
 %
 \begin{eqnarray}
-\frac{1}{2}\mathbf{v}^2 & = & \frac{1}{2}\int\newtilde{\mathbf{v}}\left(\mathbf{k}\right)\exp\left(i\mathbf{k}\cdot\mathbf{r}\right)d^3k\int\newtilde{\mathbf{v}}\left(\mathbf{k}'\right)\exp\left(i\mathbf{k}'\cdot\mathbf{r}\right)d^3k'\nonumber\\
-& = & \frac{1}{2}\int\int\newtilde{\mathbf{v}}\left(\mathbf{k}\right)\newtilde{\mathbf{v}}\left(\mathbf{k}'\right)\exp\left[i\left(\mathbf{k} + \mathbf{k}'\right)\cdot\mathbf{r}\right]d^3k'd^3k.
+\frac{1}{2}\mathbf{v}^2 & = & \frac{1}{2}\int\newtilde{\mathbf{v}}\left(\mathbf{k}\right)\exp\left(i\mathbf{k}\cdot\mathbf{r}\right)d^3k\cot\int\newtilde{\mathbf{v}}\left(\mathbf{k}'\right)\exp\left(i\mathbf{k}'\cdot\mathbf{r}\right)d^3k'\nonumber\\
+& = & \frac{1}{2}\int\int\newtilde{\mathbf{v}}\left(\mathbf{k}\right)\cdot\newtilde{\mathbf{v}}\left(\mathbf{k}'\right)\exp\left[i\left(\mathbf{k} + \mathbf{k}'\right)\cdot\mathbf{r}\right]d^3k'd^3k.
 \end{eqnarray}
 %
 Für den Gradienten dieser Größe erhält man
@@ -13996,6 +13996,37 @@ Für den Gradienten dieser Größe erhält man
 \begin{eqnarray}
 -\frac{1}{2}\nabla\mathbf{v}^2 & = & -\frac{i}{2}\int\int\newtilde{\mathbf{v}}\left(\mathbf{k}\right)\newtilde{\mathbf{v}}\left(\mathbf{k}'\right)\left(\mathbf{k} + \mathbf{k}'\right)\exp\left[i\left(\mathbf{k} + \mathbf{k}'\right)\cdot\mathbf{r}\right]d^3k'd^3k.
 \end{eqnarray}
+%
+Für die Rotation gilt
+%
+\begin{eqnarray}
+\nabla\times\mathbf{v} & = & \nabla\times\int\newtilde{\mathbf{v}}\left(\mathbf{k}'\right)\exp\left(i\mathbf{k}'\cdot\mathbf{r}\right)d^3k' = \int\nabla\times\left[\newtilde{\mathbf{v}}\left(\mathbf{k}'\right)\exp\left(i\mathbf{k}'\cdot\mathbf{r}\right)\right]d^3k'\nonumber\\
+& = & i\int\left[\newtilde{\mathbf{v}}\left(\mathbf{k}'\right)\times\mathbf{k}'\right]\exp\left(i\mathbf{k}'\cdot\mathbf{r}\right)d^3k'.
+\end{eqnarray}
+%
+Somit gilt für den Rotationsanteil der Advektion
+%
+\begin{eqnarray}
+\mathbf{v}\times\nabla\times\mathbf{v} & = & \mathbf{v}\times i\int\left[\newtilde{\mathbf{v}}\left(\mathbf{k}'\right)\times\mathbf{k}'\right]\exp\left(i\mathbf{k}'\cdot\mathbf{r}\right)d^3k' = \int\newtilde{\mathbf{v}}\left(\mathbf{k}\right)\exp\left(i\mathbf{k}\cdot\mathbf{r}\right)d^3k\times i\int\left[\newtilde{\mathbf{v}}\left(\mathbf{k}'\right)\times\mathbf{k}'\right]\exp\left(i\mathbf{k}'\cdot\mathbf{r}\right)d^3k'\nonumber\\
+& = & i\int\int\newtilde{\mathbf{v}}\left(\mathbf{k}\right)\times\left[\newtilde{\mathbf{v}}\left(\mathbf{k}'\right)\times\mathbf{k}'\right]\exp\left[i\left(\mathbf{k} + \mathbf{k}'\right)\cdot\mathbf{r}\right]d^3k'd^3k.
+\end{eqnarray}
+%
+Aus den bisherigen Rechnungen kann man die Entwicklung der Impulsgleichung bezüglich ebener Wellen\index{Impulsgleichung!Entwicklung nach ebenen Wellen} zusammensetzen:
+%
+\begin{eqnarray}
+&& \int\left(\frac{\partial}{\partial t} + \nu\mathbf{k}^2\right)\newtilde{\mathbf{v}}\left(\mathbf{k}\right)\exp\left(i\mathbf{k}\cdot\mathbf{r}\right)d^3k = \nonumber\\
+& = & \int\left[-i\mathbf{k}\newtilde{\pi}\left(\mathbf{k}\right) - i\mathbf{k}\newtilde{\varphi}\left(\mathbf{k}\right) - i\int\left(\frac{\newtilde{\mathbf{v}\left(\mathbf{k}'\right)}\cdot\newtilde{\mathbf{v}}\left(\mathbf{k}\right)}{2}\left(\mathbf{k} + \mathbf{k}'\right) + \left[\newtilde{\mathbf{v}}\left(\mathbf{k}'\right)\times\mathbf{k}'\right]\times\newtilde{\mathbf{v}}\left(\mathbf{k}\right)\right)\exp\left(i\mathbf{k}'\cdot\mathbf{r}\right)d^3k'\right]\exp\left(i\mathbf{k}\cdot\mathbf{r}\right)d^3k\nonumber\\
+&&
+\end{eqnarray}
+%
+Damit die Gleichung gilt, muss der Integrand an jedem Punkt im Spektralraum verschwinden. Dies führt auf die Spektralform der inkompressiblen Impulsgleichung:
+%
+\begin{eqnarray}
+&&\left(\frac{\partial}{\partial t} + \nu\mathbf{k}^2\right)\newtilde{\mathbf{v}}\left(\mathbf{k}\right)\nonumber\\
+& = & -i\mathbf{k}\newtilde{\pi}\left(\mathbf{k}\right) - i\mathbf{k}\newtilde{\varphi}\left(\mathbf{k}\right) - i\int\left(\frac{\newtilde{\mathbf{v}\left(\mathbf{k}'\right)}\cdot\newtilde{\mathbf{v}}\left(\mathbf{k}\right)}{2}\left(\mathbf{k} + \mathbf{k}'\right) + \left[\newtilde{\mathbf{v}}\left(\mathbf{k}'\right)\times\mathbf{k}'\right]\times\newtilde{\mathbf{v}}\left(\mathbf{k}\right)\right)\exp\left(i\mathbf{k}'\cdot\mathbf{r}\right)d^3k'
+\end{eqnarray}
+%
+Hieraus wird ersichtlich, dass der einzige Term, der Wechselwirkung zwischen Skalen enthält, die Impulsadvektion ist.
 
 \subsection{Das $k^{-5/3}-$Spektrum}
 \label{sec:das_k-5/3-spektrum}\index{$k^{-5/3}-$Spektrum}
@@ -17465,11 +17496,13 @@ Dies bezeichnet man als \textit{Lamb-Transformation}\index{Lamb-Transformation}.
 & = & \sum_{j = 1}^{3}w_j\sum_{i = 1}^{3}u_i\frac{\partial v_j}{\partial x_i} + \sum_{j = 1}^{3}v_j\sum_{i = 1}^{3}u_i\frac{\partial w_j}{\partial x_i} = \mathbf{w}\cdot\left[\left(\mathbf{u}\cdot\nabla\right)\mathbf{v}\right] + \mathbf{v}\cdot\left[\left(\mathbf{u}\cdot\nabla\right)\mathbf{w}\right].\label{eq:diff_op_rule_11}
 \end{eqnarray}
 %
-Seien $\mathbf{k} = \left(k_1, k_2, k_3\right)^T\in\mathbb{C}^3$ und $\varphi:\mathbb{R}^3\to\mathbb{C};\varphi\left(\mathbf{r}\right) = \exp\left(\mathbf{k}\cdot\mathbf{r}\right)$. Dann gelten
+Seien $\mathbf{k} = \left(k_1, k_2, k_3\right)^T\in\mathbb{C}^3$, $\varphi:\mathbb{R}^3\to\mathbb{C};\varphi\left(\mathbf{r}\right) = \exp\left(\mathbf{k}\cdot\mathbf{r}\right)$ und $\mathbf{A}\in\mathbb{R}^3$. Dann gelten
 %
 \begin{eqnarray}
 \nabla\varphi\left(\mathbf{r}\right) & = & \sum_{i = 1}^{3}\frac{\partial}{\partial x_i}\varphi\left(\mathbf{r}\right)\mathbf{e}_i = \sum_{i = 1}^{3}\frac{\partial}{\partial x_i}\exp\left(\mathbf{k}\cdot\mathbf{r}\right)\mathbf{e}_i = \sum_{i = 1}^{3}\frac{\partial}{\partial x_i}\exp\left(\sum_{j = 1}^{3}k_jx_j\right)\mathbf{e}_i\nonumber\\
 & = & \sum_{i = 1}^{3}k_i\exp\left(\mathbf{k}\cdot\mathbf{r}\right)\mathbf{e}_i = \varphi\left(\mathbf{r}\right)\mathbf{k},\\
+\nabla\times\left[\mathbf{A}\varphi\left(\mathbf{r}\right)\right] & = & \sum_{i, j, k = 1}^3\epsilon_{i, j, k}\frac{\partial\left[A_j\exp\left(i\mathbf{k}\cdot\mathbf{r}\right)\right]}{\partial x_i}\mathbf{e}_k = i\sum_{i, j, k = 1}^3\epsilon_{i, j, k}A_jk_i\exp\left(i\mathbf{k}\cdot\mathbf{r}\right)\mathbf{e}_k\nonumber\\
+& = & i\exp\left(i\mathbf{k}\cdot\mathbf{r}\right)\sum_{i, j, k = 1}^3\epsilon_{i, j, k}A_jk_i\mathbf{e}_k = i\exp\left(i\mathbf{k}\cdot\mathbf{r}\right)\mathbf{A}\times\mathbf{k} = i\left[\mathbf{A}\varphi\left(\mathbf{r}\right)\right]\times\mathbf{k},\\
 \Delta\varphi\left(\mathbf{r}\right) & = & \nabla\cdot\nabla\varphi\left(\mathbf{r}\right) = \nabla\cdot\left(\varphi\left(\mathbf{r}\right)\mathbf{k}\right) = \mathbf{k}\cdot\nabla\varphi = \mathbf{k}^2\varphi\left(\mathbf{r}\right).
 \end{eqnarray}
 
