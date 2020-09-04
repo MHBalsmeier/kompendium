@@ -1823,7 +1823,7 @@ Die Randbedingungen ergeben sich aus der Tatsache
 Man macht den Ansatz
 %
 \begin{eqnarray}
-\psi\left(x\right) = C_1\exp\left(ik_1x\right) + C_2\exp\left(ik_2x\right)
+\psi\left(x\right) = C\exp\left(ik_1x\right) + C_2\exp\left(ik_2x\right)
 \end{eqnarray}
 %
 mit $k_1, k_2>0$. Aus der Randbedingung
@@ -1835,9 +1835,9 @@ mit $k_1, k_2>0$. Aus der Randbedingung
 folgt
 %
 \begin{eqnarray}
-C_1 = -C_2, 
+C = -C_2, 
 \end{eqnarray}
-definiere also $C \coloneqq C_1$, dann gilt für den Ansatz
+definiere also $C \coloneqq C$, dann gilt für den Ansatz
 %
 \begin{eqnarray}
 \psi\left(x\right) = C\left(\exp\left(ik_1x\right) - \exp\left(ik_2x\right)\right).
@@ -1938,10 +1938,10 @@ mit $V_0>0$. In den beiden Bereichen $1$ und $2$ gelten zwei unterschiedliche st
 für die zwei Wellenfunktionen $\psi_1\left(x\right)$, $\psi_2\left(x\right)$, $E<V_0$ sei die Energie des Teilchens. Für $\psi_1\left(x\right)$ macht man einen Ansatz
 %
 \begin{eqnarray}
-\psi_1\left(x\right) = C_1\exp\left(ikx\right) + C_2\exp\left(-ikx\right)
+\psi_1\left(x\right) = C\exp\left(ikx\right) + C_2\exp\left(-ikx\right)
 \end{eqnarray}
 %
-mit $k > 0$. Der erste Term entspricht dem nach rechts einlaufenden Teil der Welle, während der zweite Term der Reflexion entspricht. $C_1, C_2$ sind diesmal keine Normierungskonstanten, da man auf unbeschränkten Mengen nicht normieren kann. Für $\psi_2\left(x\right)$ macht man einen Ansatz
+mit $k > 0$. Der erste Term entspricht dem nach rechts einlaufenden Teil der Welle, während der zweite Term der Reflexion entspricht. $C, C_2$ sind diesmal keine Normierungskonstanten, da man auf unbeschränkten Mengen nicht normieren kann. Für $\psi_2\left(x\right)$ macht man einen Ansatz
 %
 \begin{eqnarray}
 \psi_2\left(x\right) = C_3\exp\left(-\lambda x\right)
@@ -1952,14 +1952,14 @@ mit $C_3, \lambda > 0$.
 Für $\psi$ gilt die stationäre Schrödinger-Gleichung, also hat die zweite Ableitung von $\psi$ die gleichen Stetigkeitseigenschaften wie das Potential $V$. In diesem Fall ist die zweite Ableitung unstetig, jedoch ist $\psi$ immernoch stetig-differenzierbar. Dadurch erhält man folgende zwei Anschlussbedingungen:
 %
 \begin{eqnarray}
-C_1 + C_2 & = & C_3,\\
-ikC_1 - ikC_2 & = & -\lambda C_3
+C + C_2 & = & C_3,\\
+ikC - ikC_2 & = & -\lambda C_3
 \end{eqnarray}
 %
 Setzt man die erste Gleichung in die zweite ein, erhält man
 %
 \begin{eqnarray}
-ikC_1 - ikC_2 & = & -\lambda C_1 - \lambda C_2\Leftrightarrow C_2\left(\lambda - ik\right) = -C_1\left(\lambda + ik\right)\nonumber\\
+ikC - ikC_2 & = & -\lambda C - \lambda C_2\Leftrightarrow C_2\left(\lambda - ik\right) = -C\left(\lambda + ik\right)\nonumber\\
 \Leftrightarrow C_2 & = & -\frac{\lambda + ik}{\lambda - ik} = -\exp\left(2\phi\right)
 \end{eqnarray}
 %
@@ -1972,7 +1972,7 @@ mit
 Damit folgt
 %
 \begin{eqnarray}
-C_3 = C_1 - \exp\left(2\phi\right).
+C_3 = C - \exp\left(2\phi\right).
 \end{eqnarray}
 %
 $k$ erhält man aus der Schrödinger-Gleichung für Bereich 1:
@@ -1993,14 +1993,14 @@ Die Lösungen werden noch einmal zusammengefasst:
 \doublebox{\parbox{0.9\textwidth}{
 \begin{center}
 \begin{eqnarray}
-\psi_1\left(x\right) & = & C_1\exp\left(\frac{i}{\hbar}\sqrt{2mE}x\right) - \exp\left(2\phi - \frac{i}{\hbar}\sqrt{2mE}x\right),\\
-\psi_2\left(x\right) & = & \left(C_1 - \exp\left(2\phi\right)\right)\exp\left(-\frac{1}{\hbar}\sqrt{2m\left(V_0 - E\right)}x\right).
+\psi_1\left(x\right) & = & C\exp\left(\frac{i}{\hbar}\sqrt{2mE}x\right) - \exp\left(2\phi - \frac{i}{\hbar}\sqrt{2mE}x\right),\\
+\psi_2\left(x\right) & = & \left(C - \exp\left(2\phi\right)\right)\exp\left(-\frac{1}{\hbar}\sqrt{2m\left(V_0 - E\right)}x\right).
 \end{eqnarray}
 \end{center}
 }}
 \end{center}
 %
-$C_1$ wird nicht durch die Schrödinger-Gleichung festgelegt, sondern durch eine hier nicht mögliche Normierung. Im Fall $L<\infty$ kann man Transmissions- und Reflexionskoeffizienten der Wahrscheinlichkeitsstromdichte an der Potentialschwelle berechnen.
+$C$ wird nicht durch die Schrödinger-Gleichung festgelegt, sondern durch eine hier nicht mögliche Normierung. Im Fall $L<\infty$ kann man Transmissions- und Reflexionskoeffizienten der Wahrscheinlichkeitsstromdichte an der Potentialschwelle berechnen.
 
 Man kann als Resultat dieses Abschnitts sowie der Absch.e \ref{sec:freies_teilchen} und \ref{sec:potentialtopf} festhalten:
 %
@@ -3932,7 +3932,7 @@ N$ gegeben. Durch Multiplikation der Terme erster Ordnung in Glg. \eqref{eq:sg_g
 \sum_{l = 1}^{N}C_l\left\langle\psi_j^{(0)}\left|\newhat{v}_h\right|\psi_l^{(0)}\right\rangle & = & E^{(1)}C_j.
 \end{eqnarray}
 %
-Die Lösung $\left(C_1, \dotsc, C_N, E^{(1)}\right)$ ergibt die Korrektur nullter Ordnung im Zustand und erster Ordnung in der Energie. Die Gleichung gilt für alle $1\leq l\leq N$, also kann man dies auch als Matrix schreiben
+Die Lösung $\left(C, \dotsc, C_N, E^{(1)}\right)$ ergibt die Korrektur nullter Ordnung im Zustand und erster Ordnung in der Energie. Die Gleichung gilt für alle $1\leq l\leq N$, also kann man dies auch als Matrix schreiben
 %
 \begin{eqnarray}
 \overleftrightarrow{v}_h\mathbf{C} = E^{(1)}\mathbf{C}
@@ -3944,7 +3944,7 @@ mit den Matrixelementen
 V_{j, l} \coloneqq \left\langle\psi_j^{(0)}\left|\newhat{v}_h\right|\psi_l^{(0)}\right\rangle
 \end{eqnarray}
 %
-und dem Vektor $\mathbf{C} \coloneqq \left(C_1, \dotsc, C_N\right)^T$. Da $\newhat{v}_h$ hermitesch ist, ist auch die Matrix $\overleftrightarrow{v}_h$ hermitesch Als Lösung erhält man daher $N$ orthonormale Eigenvektoren $\mathbf{C}^{k}$ zu den Eigenwerten $E_k^{(1)}$. Die zugehörigen $N$ Zustände sind
+und dem Vektor $\mathbf{C} \coloneqq \left(C, \dotsc, C_N\right)^T$. Da $\newhat{v}_h$ hermitesch ist, ist auch die Matrix $\overleftrightarrow{v}_h$ hermitesch Als Lösung erhält man daher $N$ orthonormale Eigenvektoren $\mathbf{C}^{k}$ zu den Eigenwerten $E_k^{(1)}$. Die zugehörigen $N$ Zustände sind
 %
 \begin{eqnarray}
 \left|\psi_k\right\rangle = \sum_{l = 1}^{N}C_l^{(k)}\left|\psi_l^{(0)}\right\rangle
@@ -12885,20 +12885,20 @@ wobei der Wurzelausdruck herausmultipliziert wurde. Um diesen Ausdruck zu linear
 Da das Strömungsfeld rotationsfrei ist und man außerdem von einem idealen Fluid ausgeht, kann man die zeitabhängigen Bernoulli-Gleichungen\index{zeitabhängige Bernoulli-Gleichung}\index{Bernoulli-Gleichung!zeitabhängige} (s. Glg. \eqref{eq:bernoulli_t_dependant}) der beiden Schichten
 %
 \begin{eqnarray}
-\frac{\partial\psi_1}{\partial t} + \frac{1}{2}\left|\nabla\psi_1\right|^2 + \frac{p_1}{\rho_1} + gz & = & C_1,\\
+\frac{\partial\psi_1}{\partial t} + \frac{1}{2}\left|\nabla\psi_1\right|^2 + \frac{p_1}{\rho_1} + gz & = & C,\\
 \frac{\partial\psi_2}{\partial t} + \frac{1}{2}\left|\nabla\psi_2\right|^2 + \frac{p_2}{\rho_2} + gz  & = & C_2
 \end{eqnarray}
 %
-mit reellen Konstanten $C_1, C_2$ aufstellen. Die dynamische Randbedingung\index{dynamische Randbedingung}\index{Randbedingung!dynamische} Glg. \eqref{eq:khi_discrete_dbc} impliziert bei $z = \zeta$ die Identität
+mit reellen Konstanten $C, C_2$ aufstellen. Die dynamische Randbedingung\index{dynamische Randbedingung}\index{Randbedingung!dynamische} Glg. \eqref{eq:khi_discrete_dbc} impliziert bei $z = \zeta$ die Identität
 %
 \begin{eqnarray}
-\rho_1\left(C_1 - \frac{\partial\psi_1}{\partial t} - \frac{1}{2}\left|\nabla\psi_1\right|^2 - gz\right) = \rho_2\left(C_2 - \frac{\partial\psi_2}{\partial t} - \frac{1}{2}\left|\nabla\psi_2\right|^2 - gz\right).\label{eq:khi_discrete_deriv_1}
+\rho_1\left(C - \frac{\partial\psi_1}{\partial t} - \frac{1}{2}\left|\nabla\psi_1\right|^2 - gz\right) = \rho_2\left(C_2 - \frac{\partial\psi_2}{\partial t} - \frac{1}{2}\left|\nabla\psi_2\right|^2 - gz\right).\label{eq:khi_discrete_deriv_1}
 \end{eqnarray}
 %
 Ohne Störung gilt
 %
 \begin{eqnarray}
-\rho_1\left(C_1 - \frac{1}{2}U_1^2\right) = \rho_2\left(C_2 - \frac{1}{2}U_2^2\right).\label{eq:khi_discrete_deriv_2}
+\rho_1\left(C - \frac{1}{2}U_1^2\right) = \rho_2\left(C_2 - \frac{1}{2}U_2^2\right).\label{eq:khi_discrete_deriv_2}
 \end{eqnarray}
 %
 Subtrahieren von Glg. \eqref{eq:khi_discrete_deriv_2} von Glg. \eqref{eq:khi_discrete_deriv_1} führt zu
@@ -13745,13 +13745,13 @@ mit $\mathbf{v}_{h, g} = \left(u_g, v_g\right)^T$ als geostrophischem Wind einge
 Dies wird gelöst durch
 %
 \begin{eqnarray}
-\newtilde{u} + i\newtilde{v} & = & C_1\exp\left(\sqrt{\frac{if}{K}}z\right) + C_2\exp\left(-\sqrt{\frac{if}{K}}z\right)
+\newtilde{u} + i\newtilde{v} & = & C\exp\left(\sqrt{\frac{if}{K}}z\right) + C_2\exp\left(-\sqrt{\frac{if}{K}}z\right)
 \end{eqnarray}
 %
-mit $C_1, C_2\in\mathbb{C}$. Im Falle der unteren Grenze der Atmosphäre gelten in der Nordhemisphäre die Randbedingungen
+mit $C, C_2\in\mathbb{C}$. Im Falle der unteren Grenze der Atmosphäre gelten in der Nordhemisphäre die Randbedingungen
 %
 \begin{eqnarray}
-\lim_{z\to\infty}\newtilde{u} + i\newtilde{v} & = & 0 \Rightarrow C_1 = 0,\\
+\lim_{z\to\infty}\newtilde{u} + i\newtilde{v} & = & 0 \Rightarrow C = 0,\\
 \left(\newtilde{u} + i\newtilde{v}\right)\left(z = 0\right) & = & -u_g - iv_g \Rightarrow C_2 = -u_g - iv_g, 
 \end{eqnarray}
 %
@@ -13759,7 +13759,7 @@ und auf der Südhalbkugel
 %
 \begin{eqnarray}
 \lim_{z\to\infty}\newtilde{u} + i\newtilde{v} & = & 0 \Rightarrow C_2 = 0,\\
-\left(\newtilde{u} + i\newtilde{v}\right)\left(z = 0\right) & = & -u_g - iv_g \Rightarrow C_1 = -u_g - iv_g, 
+\left(\newtilde{u} + i\newtilde{v}\right)\left(z = 0\right) & = & -u_g - iv_g \Rightarrow C = -u_g - iv_g, 
 \end{eqnarray}
 %
 also lautet die Lösung nördlich des Äquators
@@ -13944,11 +13944,64 @@ Dabei ist der horizontale Diffusionskoeffizient größer als der vertikale.
 \section{Turbulenzspektren}
 \label{sec:turbulenzspektren}\index{Turbulenzspektrum}
 
-\subsection{Das -5/3-Spektrum}
-\label{sec:das_-5/3-spektrum}\index{-5/3-Spektrum}
+Für die Fourier-Transformation\index{Fourier-Transformation} $\newtilde{\mathbf{v}}\left(\mathbf{k}\right)$ des eines Geschwindigkeitsfeldes $\mathbf{v} = \mathbf{v}\left(\mathbf{r}\right)$ gilt
+%
+\begin{eqnarray}
+\newtilde{\mathbf{v}}\left(\mathbf{k}\right) = C^3\int_{\mathbb{R}^3}\mathbf{v}\left(\mathbf{r}\right)\exp\left(-i\mathbf{k}\cdot\mathbf{r}\right)d^3r.
+\end{eqnarray}
+%
+Die inverse Fourier-Transformation\index{inverse Fourier-Transformation}\index{Fourier-Transformation!inverse} lautet
+%
+\begin{eqnarray}
+\mathbf{v}\left(\mathbf{r}\right) = \newtilde{C}^3\int_{\mathbb{R}^3}\newtilde{\mathbf{v}}\left(\mathbf{k}\right)\exp\left(i\mathbf{k}\cdot\mathbf{r}\right)d^3k.
+\end{eqnarray}
+%
+Man setzt an dieser Stelle $\newtilde{C} = 1$ an, um die Notation abzukürzen und vernachlässigt das $\mathbb{R}^3$ am Integral. Die inkompressible Impulsgleichung lautet
+%
+\begin{eqnarray}
+\frac{\partial\mathbf{v}}{\partial t} = -\nabla\pi - \nabla\varphi - \frac{1}{2}\nabla\mathbf{v}^2 + \mathbf{v}\times\left(\nabla\times\mathbf{v}\right) + \nu\Delta\mathbf{v},
+\end{eqnarray}
+%
+wobei die Abkürzung
+%
+\begin{eqnarray}
+\pi\coloneqq\frac{p}{\rho}
+\end{eqnarray}
+%
+eingesetzt wurde. Die Fourier-Transformationen\index{Fourier-Transformation} der andeen auftretenden Felder lauten
+%
+\begin{eqnarray}
+\pi & = & \int\newtilde{\pi}\exp\left(i\mathbf{k}\cdot\mathbf{r}\right)d^3k,\\
+\varphi & = & \int\newtilde{\varphi}\exp\left(i\mathbf{k}\cdot\mathbf{r}\right)d^3k.
+\end{eqnarray}
+%
+Weiterhin gilt für die Anwendung der Differentialoperatoren auf die Felder
+%
+\begin{eqnarray}
+\frac{\partial\mathbf{v}}{\partial t} & = & \int\frac{\partial\newtilde{\mathbf{v}}\left(\mathbf{k}\right)}{\partial t}\exp\left(i\mathbf{k}\cdot\mathbf{r}\right)d^3k,\\
+-\nabla\pi & = & -i\int\mathbf{k}\newtilde{\pi}\exp\left(i\mathbf{k}\cdot\mathbf{r}\right)d^3k,\\
+-\nabla\varphi & = & -i\int\mathbf{k}\newtilde{\varphi}\exp\left(i\mathbf{k}\cdot\mathbf{r}\right)d^3k,\\
+\Delta\mathbf{v} & = & -\int\mathbf{k}^2\newtilde{\mathbf{v}}\left(\mathbf{k}\right)\exp\left(i\mathbf{k}\cdot\mathbf{r}\right)d^3k.
+\end{eqnarray}
+%
+Für die kinetische Energie\index{kinetische Energie}\index{Energie!kinetische} gilt
+%
+\begin{eqnarray}
+\frac{1}{2}\mathbf{v}^2 & = & \frac{1}{2}\int\newtilde{\mathbf{v}}\left(\mathbf{k}\right)\exp\left(i\mathbf{k}\cdot\mathbf{r}\right)d^3k\int\newtilde{\mathbf{v}}\left(\mathbf{k}'\right)\exp\left(i\mathbf{k}'\cdot\mathbf{r}\right)d^3k'\nonumber\\
+& = & \frac{1}{2}\int\int\newtilde{\mathbf{v}}\left(\mathbf{k}\right)\newtilde{\mathbf{v}}\left(\mathbf{k}'\right)\exp\left[i\left(\mathbf{k} + \mathbf{k}'\right)\cdot\mathbf{r}\right]d^3k'd^3k.
+\end{eqnarray}
+%
+Für den Gradienten dieser Größe erhält man
+%
+\begin{eqnarray}
+-\frac{1}{2}\nabla\mathbf{v}^2 & = & -\frac{i}{2}\int\int\newtilde{\mathbf{v}}\left(\mathbf{k}\right)\newtilde{\mathbf{v}}\left(\mathbf{k}'\right)\left(\mathbf{k} + \mathbf{k}'\right)\exp\left[i\left(\mathbf{k} + \mathbf{k}'\right)\cdot\mathbf{r}\right]d^3k'd^3k.
+\end{eqnarray}
 
-\subsection{Das -3-Spektrum}
-\label{sec:das_-3-spektrum}\index{-3-Spektrum}
+\subsection{Das $k^{-5/3}-$Spektrum}
+\label{sec:das_k-5/3-spektrum}\index{$k^{-5/3}-$Spektrum}
+
+\subsection{Das $k^{-3}-$Spektrum}
+\label{sec:das_k-3-spektrum}\index{$k^{-3}-$Spektrum}
 
 \section{Energiekaskade}
 \label{sec:energiekaskade}\index{Energiekaskade}
@@ -18018,37 +18071,37 @@ mit einem Polynom $g\left(x\right)$, welches nicht von $n$ abhängt.
 Die Entwicklung einer Funktion nach komplexen Exponentialfunktionen bezeichnet man als \textit{Fourier-Transformation}\index{Fourier-Transformation} (FT). Sei $f\left(x\right)$ eine komplexe Funktion einer reellen Variablen, dann definiert man die \textit{Fourier-Transformierte}\index{Fourier-Transformation} $\newtilde{F}_1\{f\} = \newtilde{f}\left(k\right)$ oder auch das \textit{Spektrum}\index{Spektrum} von $f$ durch
 %
 \begin{eqnarray}
-\newtilde{F}_1\{f\} = \newtilde{f}\left(k\right) \coloneqq C_1\int_{-\infty}^{\infty}\exp\left(-ikx\right)f\left(x\right)dx\label{eq:def_ft_1d}
+\newtilde{F}_1\{f\} = \newtilde{f}\left(k\right) \coloneqq C\int_{-\infty}^{\infty}\exp\left(-ikx\right)f\left(x\right)dx\label{eq:def_ft_1d}
 \end{eqnarray}
 %
-mit einer reellen Konstante $C_1 > 0$. $\newtilde{F}_1$ bezeichnet den Operator der eindimensionalen Fourier-Transformation. Glg. \eqref{eq:def_ft_1d} ist bis auf einen eventuellen Faktor die Kovarianz der Funktion $f$ mit der \textit{Fourier-Komponente} $e^{ikx}$. Die \textit{inverse Fourier-Transformation}\index{inverse Fourier-Transformation}\index{Fourier-Transformation!inverse} wird definiert durch 
+mit einer reellen Konstante $C > 0$. $\newtilde{F}_1$ bezeichnet den Operator der eindimensionalen Fourier-Transformation. Glg. \eqref{eq:def_ft_1d} ist bis auf einen eventuellen Faktor die Kovarianz der Funktion $f$ mit der \textit{Fourier-Komponente} $e^{ikx}$. Die \textit{inverse Fourier-Transformation}\index{inverse Fourier-Transformation}\index{Fourier-Transformation!inverse} wird definiert durch 
 %
 \begin{eqnarray}
-\newtilde{F}^{-1}_1\{f\} \coloneqq \newtilde{C}_1\int_{-\infty}^{\infty}\newtilde{f}\left(k\right)\exp\left(ikx\right)dk\label{eq:def_ft_1d_inv}
+\newtilde{F}^{-1}_1\{f\} \coloneqq \newtilde{C}\int_{-\infty}^{\infty}\newtilde{f}\left(k\right)\exp\left(ikx\right)dk\label{eq:def_ft_1d_inv}
 \end{eqnarray}
 %
-mit einer zweiten Konstanten $\newtilde{C}_1 > 0$. Es handelt sich um eine Linearkombination der $\newtilde{f}\left(k\right)$ mit den entsprechenden Wellen. Dass dies tatsächlich das Inverse von Glg. \eqref{eq:def_ft_1d} ist, soll nun eingesehen werden:
+mit einer zweiten Konstanten $\newtilde{C} > 0$. Es handelt sich um eine Linearkombination der $\newtilde{f}\left(k\right)$ mit den entsprechenden Wellen. Dass dies tatsächlich das Inverse von Glg. \eqref{eq:def_ft_1d} ist, soll nun eingesehen werden:
 %
 \begin{eqnarray}
-\newtilde{C}_1\int_{-\infty}^{\infty}\newtilde{f}\left(k\right)\exp\left(ikx\right)dk & = & \newtilde{C}_1C_1\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}\exp\left(-ikx'\right)f\left(x'\right)dx'\exp\left(ikx\right)dk\nonumber\\
-& = & \newtilde{C}_1C_1\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}\exp\left(ik\left(x - x'\right)\right)dkf\left(x'\right)dx'\nonumber\\
-& \stackrel{\text{Glg. \eqref{eq:delta_distribution_prop_1}}}{=} & \newtilde{C}_1C_1\int_{-\infty}^{\infty}2\pi\delta\left(x - x'\right)'f\left(x'\right)dx' = \newtilde{C}_1C_12\pi f\left(x\right)\\
-& \stackrel{\Leftrightarrow\newtilde{C}_1C_1 = 1/2\pi}{=} & f\left(x\right)
+\newtilde{C}\int_{-\infty}^{\infty}\newtilde{f}\left(k\right)\exp\left(ikx\right)dk & = & \newtilde{C}C\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}\exp\left(-ikx'\right)f\left(x'\right)dx'\exp\left(ikx\right)dk\nonumber\\
+& = & \newtilde{C}C\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}\exp\left(ik\left(x - x'\right)\right)dkf\left(x'\right)dx'\nonumber\\
+& \stackrel{\text{Glg. \eqref{eq:delta_distribution_prop_2}}}{=} & \newtilde{C}C\int_{-\infty}^{\infty}2\pi\delta\left(x - x'\right)'f\left(x'\right)dx' = \newtilde{C}C2\pi f\left(x\right)\\
+& \stackrel{\Leftrightarrow\newtilde{C}C = 1/2\pi}{=} & f\left(x\right)\label{eq:ft_deriv_0}
 \end{eqnarray}
 %
 Man muss also auf die Bedingung
 %
 \begin{eqnarray}
-\newtilde{C}_1 = \frac{1}{2\pi C_1}
+\newtilde{C} = \frac{1}{2\pi C}
 \end{eqnarray}
 %
 achten. Hieraus kann man unmittelbar
 %
 \begin{eqnarray}
-\left[\newtilde{F}_1\{\delta\left(x - x_0\right)\}\right]\left(k\right) & = & C_1e^{-ikx_0},\\
-\left[\newtilde{F}_1\{e^{ik'x}\}\right]\left(k\right) & = & 2\pi C_1\delta\left(k' - k\right),\\
-\left[\newtilde{F}^{-1}_1\{\delta\left(k - k_0\right)\}\right]\left(x\right) & = & \newtilde{C}_1e^{ik_0x},\\
-\left[\newtilde{F}^{-1}_1\{e^{ikx'}\}\right]\left(x\right) & = & 2\pi\newtilde{C}_1\delta\left(x' + x\right)
+\left[\newtilde{F}_1\{\delta\left(x - x_0\right)\}\right]\left(k\right) & = & Ce^{-ikx_0},\\
+\left[\newtilde{F}_1\{e^{ik'x}\}\right]\left(k\right) & = & 2\pi C\delta\left(k' - k\right),\\
+\left[\newtilde{F}^{-1}_1\{\delta\left(k - k_0\right)\}\right]\left(x\right) & = & \newtilde{C}e^{ik_0x},\\
+\left[\newtilde{F}^{-1}_1\{e^{ikx'}\}\right]\left(x\right) & = & 2\pi\newtilde{C}\delta\left(x' + x\right)
 \end{eqnarray}
 %
 ableiten. Die Funktion
@@ -18072,13 +18125,13 @@ als \index{Amplitudenspektrum}\textit{Amplitudenspektrum} bezeichnet. Das Quadra
 Sei $N\left(\mu, \sigma\right)$ die Normalverteilung mit Erwartungswert\index{Erwartungswert} $\mu$ und Standardabweichung $\sigma.$ Dann gilt
 %
 \begin{eqnarray}
-\newtilde{F}\{N\left(\mu, \sigma\right)\} & = & \frac{C_1}{\sqrt{2\pi}\sigma}\int_{-\infty}^{\infty}\exp\left[-ikx - \frac{\left(x - \mu\right)^2}{2\sigma^2}\right]dx = \frac{C_1}{\sqrt{2\pi}\sigma}\int_{-\infty}^{\infty}\exp\left[-\frac{1}{2\sigma^2}\left(x^2 + \mu^2 - 2x\left(\mu - ik\sigma^2\right)\right)\right]dx\nonumber\\
-& = & \frac{C_1}{\sqrt{2\pi}\sigma}\int_{-\infty}^{\infty}\exp\left[-\frac{1}{2\sigma^2}\left(x - \left(\mu - ik\sigma^2\right)\right)^2 - \frac{1}{2\sigma^2}\left(k^2\sigma^4 + 2\mu i\sigma^2k\right)\right]dx\nonumber\\
-& = & \exp\left[-\frac{1}{2\sigma^2}\left(k^2\sigma^4 + 2\mu i\sigma^2k\right)\right]\frac{C_1}{\sqrt{2\pi}\sigma}\int_{-\infty}^{\infty}\exp\left[-\frac{1}{2\sigma^2}x^2\right]dx\nonumber\\
-& = & C_1\exp\left(-\frac{k^2}{2/\sigma^2}\right)\exp\left(-\mu ik\right).
+\newtilde{F}\{N\left(\mu, \sigma\right)\} & = & \frac{C}{\sqrt{2\pi}\sigma}\int_{-\infty}^{\infty}\exp\left[-ikx - \frac{\left(x - \mu\right)^2}{2\sigma^2}\right]dx = \frac{C}{\sqrt{2\pi}\sigma}\int_{-\infty}^{\infty}\exp\left[-\frac{1}{2\sigma^2}\left(x^2 + \mu^2 - 2x\left(\mu - ik\sigma^2\right)\right)\right]dx\nonumber\\
+& = & \frac{C}{\sqrt{2\pi}\sigma}\int_{-\infty}^{\infty}\exp\left[-\frac{1}{2\sigma^2}\left(x - \left(\mu - ik\sigma^2\right)\right)^2 - \frac{1}{2\sigma^2}\left(k^2\sigma^4 + 2\mu i\sigma^2k\right)\right]dx\nonumber\\
+& = & \exp\left[-\frac{1}{2\sigma^2}\left(k^2\sigma^4 + 2\mu i\sigma^2k\right)\right]\frac{C}{\sqrt{2\pi}\sigma}\int_{-\infty}^{\infty}\exp\left[-\frac{1}{2\sigma^2}x^2\right]dx\nonumber\\
+& = & C\exp\left(-\frac{k^2}{2/\sigma^2}\right)\exp\left(-\mu ik\right).
 \end{eqnarray}
 %
-Die FT einer Normalverteilung ist also eine unnormierte (man betrachte den Fall $C_1 = 1/\sqrt{2\pi}$) und um einen komplexen Phasenfaktor modifizierte Normalverteilung mit Mittelwert
+Die FT einer Normalverteilung ist also eine unnormierte (man betrachte den Fall $C = 1/\sqrt{2\pi}$) und um einen komplexen Phasenfaktor modifizierte Normalverteilung mit Mittelwert
 %
 \begin{eqnarray}
 \mu_k = 0
@@ -18099,14 +18152,14 @@ f_y\left(x\right) \coloneqq f\left(x, y\right).
 Die FT hiervon ist
 %
 \begin{eqnarray}
-\newtilde{f}_y\left(k_x\right) = C_1\int_{-\infty}^{\infty}e^{-ik_xx}f_y\left(x\right)dx.
+\newtilde{f}_y\left(k_x\right) = C\int_{-\infty}^{\infty}e^{-ik_xx}f_y\left(x\right)dx.
 \end{eqnarray}
 %
 Wendet man hierauf die inverse FT an, erhält man wieder $f_y\left(x\right) = f\left(x, y\right)$. Definiere nun die Fourier-Transformierte $\newtilde{f}\left(k_x, k_y\right)$ der Funktion $f\left(x, y\right)$ durch die in y-Richtung Fourier-Transformierte von $\newtilde{f}_y\left(k_x\right)$, also
 %
 \begin{eqnarray}
-\newtilde{f}\left(k_x, k_y\right) & \coloneqq & C_1\int_{-\infty}^{\infty}e^{-ik_yy}\newtilde{f}_y\left(k_x\right)dy = C_1^2\int_{-\infty}^{\infty}e^{-ik_yy}\int_{-\infty}^{\infty}e^{-ik_xx}f\left(x, y\right)dxdy\nonumber\\
-& = & C_1^2\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}e^{-i\left(k_xx + k_yy\right)}f\left(x, y\right)dxdy.
+\newtilde{f}\left(k_x, k_y\right) & \coloneqq & C\int_{-\infty}^{\infty}e^{-ik_yy}\newtilde{f}_y\left(k_x\right)dy = C^2\int_{-\infty}^{\infty}e^{-ik_yy}\int_{-\infty}^{\infty}e^{-ik_xx}f\left(x, y\right)dxdy\nonumber\\
+& = & C^2\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}e^{-i\left(k_xx + k_yy\right)}f\left(x, y\right)dxdy.
 \end{eqnarray}
 %
 Zweimaliges Anwenden der inversen FT liefert die Funktion $f\left(x, y\right).$ $x$ ist in der Herleitung nicht vor $y$ ausgezeichnet, weshalb die Reihenfolge der Anwendung der FT keine Rolle spielt. Man notiert
@@ -18119,16 +18172,54 @@ Zweimaliges Anwenden der inversen FT liefert die Funktion $f\left(x, y\right).$ 
 wobei
 %
 \begin{eqnarray}
-C_2\newtilde{C}_2 = \left(C_1\newtilde{C}_1\right)^2 = \frac{1}{\left(2\pi\right)^2}
+C_2\newtilde{C}_2 = \left(C\newtilde{C}\right)^2 = \frac{1}{\left(2\pi\right)^2}
 \end{eqnarray}
 %
 gelten muss. Führt man dies induktiv fort, erhält man analog die $n-$dimensionale FT, wobei auf
 %
 \begin{eqnarray}
-C_n\newtilde{C}_n = \left(C_1\newtilde{C}_1\right)^n = \frac{1}{\left(2\pi\right)^n}
+C_n\newtilde{C}_n = \left(C\newtilde{C}\right)^n = \frac{1}{\left(2\pi\right)^n}
 \end{eqnarray}
 %
 zu achten ist.
+
+Glg. \eqref{eq:ft_deriv_0} lautet
+%
+\begin{eqnarray}
+f\left(x\right) & = & \newtilde{C}\int_{-\infty}^{\infty}\newtilde{f}\left(k\right)\exp\left(ikx\right)dk,
+\end{eqnarray}
+%
+überträgt man dies auf eine analog definierte Funktion $g$, erhält man
+%
+\begin{eqnarray}
+g\left(x\right) & = & \newtilde{C}\int_{-\infty}^{\infty}\newtilde{g}\left(k'\right)\exp\left(ik'x\right)dk'.
+\end{eqnarray}
+%
+Multipliziert man die beiden letzten Gleichungen miteinander, erhält man
+%
+\begin{eqnarray}
+f\left(x\right)g\left(x\right) & = & \newtilde{C}^2\int_{k=-\infty}^{\infty}\int_{k'=-\infty}^{\infty}\newtilde{g}\left(k'\right)\newtilde{f}\left(k\right)\exp\left[i\left(k + k'\right)x\right]dk'dk.
+\end{eqnarray}
+%
+Integriert man dies über $x$, erhält man
+%
+\begin{eqnarray}
+\int_{-\infty}^\infty f\left(x\right)g\left(x\right)dx & = & \newtilde{C}^2\int_{k=-\infty}^{\infty}\int_{k'=-\infty}^{\infty}\newtilde{g}\left(k'\right)\newtilde{f}\left(k\right)\int_{-\infty}^\infty\exp\left[i\left(k + k'\right)x\right]dxdk'dk\nonumber\\
+& \stackrel{\text{Glg. \eqref{eq:delta_distribution_prop_2}}}{=} & \newtilde{C}^2\int_{k=-\infty}^{\infty}\int_{k'=-\infty}^{\infty}\newtilde{g}\left(k'\right)\newtilde{f}\left(k\right)2\pi\delta\left(k + k'\right)dk'dk\nonumber\\
+& = & 2\pi\newtilde{C}^2\int_{-\infty}^{\infty}\newtilde{g}\left(-k\right)\newtilde{f}\left(k\right)dk
+\end{eqnarray}
+%
+Für $g = f$ erhält man die sogenannte \textit{Parseval-Identität}\index{Parseval-Identität}
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{eqnarray}
+\int_{-\infty}^\infty f^2\left(x\right)dx & = & 2\pi\newtilde{C}^2\int_{-\infty}^{\infty}\newtilde{f}\left(-k\right)\newtilde{f}\left(k\right)dk.
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
 
 \section{Legendre-Polynome}
 \label{sec:legendrepolynome}\index{Legendre-Polynom}

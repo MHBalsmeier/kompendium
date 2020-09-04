@@ -9,8 +9,8 @@
   \item $\sigma_z-$System, 123
   \item $\theta-$System, 122, 140
     \subitem hydrostatische Stabilität, 176
-  \item -3-Spektrum, 232
-  \item -5/3-Spektrum, 232
+  \item $k^{-3}-$Spektrum, 232
+  \item $k^{-5/3}-$Spektrum, 232
   \item 2D-vektorinvariante Form der Geschwindigkeitsadvektion, 314
   \item 3D-Var, 267
   \item 4-Vektor, 28
@@ -152,7 +152,7 @@
   \item Differenz
     \subitem finite, 247
   \item Differenzialgleichung
-    \subitem Hermite'sche, 327
+    \subitem Hermite'sche, 328
     \subitem Laguerre'sche, 54
     \subitem Legendre'sche, 319
   \item Differenzialoperator
@@ -252,7 +252,7 @@
     \subitem des elektromagnetischen Feldes, 26
     \subitem freie, 83
     \subitem innere, 137, 139, 140
-    \subitem kinetische, 18, 116, 140
+    \subitem kinetische, 18, 116, 140, 232
       \subsubitem Reibung, 115
       \subsubitem spezifische, 137, 275
     \subitem potentielle, 140
@@ -357,8 +357,8 @@
     \subitem binomische
       \subsubitem allgenmeine, 289
   \item Forward-backward-Verfahren, 256
-  \item Fourier-Transformation, 317
-    \subitem inverse, 317
+  \item Fourier-Transformation, 232, 317
+    \subitem inverse, 232, 317
   \item freie Energie, 83
   \item freie Enthalpie, 83
   \item freie Konvektion, 219
@@ -510,9 +510,9 @@
   \item Held-Suarez-Test, 281
   \item Herleitung
     \subitem einer Parametrisierung, 231
-  \item Hermite'sche Differenzialgleichung, 327
+  \item Hermite'sche Differenzialgleichung, 328
   \item Hermite'scher Operator, 43
-  \item Hermite-Polynom, 40, 327
+  \item Hermite-Polynom, 40, 328
   \item Hermitezität
     \subitem Impulsoperator, 44
   \item herrschende Gleichung, 103, 152
@@ -586,7 +586,7 @@
   \item Integration
     \subitem partielle, 140, 295
   \item intrinsische Frequenz, 204
-  \item inverse Fourier-Transformation, 317
+  \item inverse Fourier-Transformation, 232, 317
   \item inverse Matrix, 42
   \item Inversion, 215
   \item Ion, 49
@@ -640,7 +640,7 @@
     \subitem Welle, 177
   \item kinematische Randbedingung, 117, 138, 209, 210
   \item kinematische Viskosität, 115
-  \item kinetische Energie, 18, 140
+  \item kinetische Energie, 18, 140, 232
     \subitem Reibung, 115
     \subitem spezifische, 116, 137, 275
   \item kinetische Energiedichte, 137
@@ -731,7 +731,7 @@
     \subitem 1. Art, 19
     \subitem 2. Art, 21
   \item Laguerre'sche Differenzialgleichung, 54
-  \item Laguerre-Polynom, 54, 329
+  \item Laguerre-Polynom, 54, 330
   \item Lamb-Transformation, 307, 311
     \subitem GREAT-Koordinaten, 366
   \item laminare Strömung, 225
@@ -748,7 +748,7 @@
   \item Leapfrog-Verfahren, 252
   \item Legendre'sche Differenzialgleichung, 319
   \item Legendre-Funktion
-    \subitem assoziierte, 325
+    \subitem assoziierte, 326
   \item Legendre-Polynom, 319
   \item Legendre-Polynome
     \subitem Normierung, 322
@@ -928,6 +928,7 @@
     \subitem Herleitung, 231
     \subitem Phasenübergangsrate, 232
     \subitem skalare Diffusion, 231
+  \item Parseval-Identität, 319
   \item partielle Integration, 140, 295
   \item Pauli-Gleichung, 63
   \item Pauli-Matrix, 62
