@@ -4838,7 +4838,7 @@ Somit gilt
 Für den Druck folgt
 %
 \begin{eqnarray}
-p = T\frac{\partial S\left(E, x\right)}{\partial V}
+p = T\frac{\partial S\left(E, x\right)}{\partial V}\label{eq:pressure_prop_0}
 \end{eqnarray}
 %
 Für die Änderung der Entropie gilt
@@ -5152,7 +5152,7 @@ Dies sind jeweils drei Aussagen für die partiellen Ableitungen von $E$, $F$, $H
 \left(\frac{\partial^2F}{\partial V\partial T}\right)_N = \left(\frac{\partial^2F}{\partial T\partial V}\right)_N&\Rightarrow&\left(\frac{\partial S}{\partial V}\right)_{T, N} = \left(\frac{\partial p}{\partial T}\right)_{V, N}
 \end{eqnarray}
 \begin{eqnarray}
-\left(\frac{\partial^2F}{\partial N\partial T}\right)_V = \left(\frac{\partial^2F}{\partial T\partial N}\right)_V&\Rightarrow& -\left(\frac{\partial S}{\partial N}\right)_{T, V} = \left(\frac{\partial\mu}{\partial T}\right)_{N, V}\\
+\left(\frac{\partial^2F}{\partial N\partial T}\right)_V = \left(\frac{\partial^2F}{\partial T\partial N}\right)_V&\Rightarrow& -\left(\frac{\partial S}{\partial N}\right)_{T, V} = \left(\frac{\partial\mu}{\partial T}\right)_{N, V}\label{eq:maxwell_rel_4}\\
 \left(\frac{\partial^2F}{\partial N\partial V}\right)_T = \left(\frac{\partial^2F}{\partial V\partial N}\right)_T&\Rightarrow& -\left(\frac{\partial p}{\partial N}\right)_{V, T} = \left(\frac{\partial\mu}{\partial V}\right)_{N, T}
 \end{eqnarray}
 \begin{eqnarray}
@@ -5165,7 +5165,7 @@ Dies sind jeweils drei Aussagen für die partiellen Ableitungen von $E$, $F$, $H
 \end{eqnarray}
 \begin{eqnarray}
 \left(\frac{\partial^2G}{\partial N\partial T}\right)_p = \left(\frac{\partial^2G}{\partial T\partial N}\right)_p&\Rightarrow& -\frac{S}{N} = -\left(\frac{\partial S}{\partial N}\right)_{T, p} = \left(\frac{\partial\mu}{\partial T}\right)_{N, p}\label{eq:maxwell_rel_2}\\
-\left(\frac{\partial^2G}{\partial N\partial p}\right)_T = \left(\frac{\partial^2G}{\partial p\partial N}\right)_T&\Rightarrow&\left(\frac{\partial V}{\partial N}\right)_{p, T} = \left(\frac{\partial\mu}{\partial p}\right)_{N, T}
+\left(\frac{\partial^2G}{\partial N\partial p}\right)_T = \left(\frac{\partial^2G}{\partial p\partial N}\right)_T&\Rightarrow&\left(\frac{\partial V}{\partial N}\right)_{p, T} = \left(\frac{\partial\mu}{\partial p}\right)_{N, T}\label{eq:maxwell_rel_3}
 \end{eqnarray}
 \begin{eqnarray}
 \left(\frac{\partial^2J}{\partial T\partial V}\right)_\mu = \left(\frac{\partial^2J}{\partial V\partial T}\right)_\mu&\Rightarrow&\left(\frac{\partial p}{\partial T}\right)_{\mu, V} = \left(\frac{\partial S}{\partial V}\right)_{\mu, T}\\
@@ -5229,7 +5229,7 @@ Für die partiellen Ableitungen berechnet man mit der Zustandssumme Glg. \eqref{
 \frac{\partial\ln\left(Y\right)}{\partial V} & = & -\frac{\beta}{Y}\sum_r\frac{\partial E_r\left(V, N\right)}{\partial V}\exp\left(-\beta \left(E_r - \mu N_r\right)\right) = -\beta\newoverline{\frac{\partial E_r}{\partial V}} = \beta p, 
 \end{eqnarray}
 \begin{eqnarray}
-\frac{\partial\ln\left(>\right)}{\partial \mu} & = & \frac{\beta}{Y}\sum_r N_r\exp\left(-\beta \left(E_r - \mu N_r\right)\right) = \beta\newoverline{N_r} = \beta N.
+\frac{\partial\ln\left(Y\right)}{\partial \mu} & = & \frac{\beta}{Y}\sum_r N_r\exp\left(-\beta \left(E_r - \mu N_r\right)\right) = \beta\newoverline{N_r} = \beta N.
 \end{eqnarray}
 %
 Es ist somit
@@ -5258,6 +5258,33 @@ J = -k_BT\ln\left(Y\left(T, V, \mu\right)\right).\label{eq:groskan_pot_zustandss
 \end{center}
 %
 Durch die Glg.en \eqref{eq:free_energy_zustandssumme} und \eqref{eq:groskan_pot_zustandssumme} ist eine Verbindung zwischen mikroskopischer Statistik und makroskopischer Thermodynamik gegeben.
+
+Für das vollständige Differential $d\mu$ des chemischen Potentials\index{chemisches Potential}\index{Potential!chemisches} $\mu = \mu\left(T, p\right)$ gilt
+%
+\begin{eqnarray}
+d\mu = \left(\frac{\partial\mu}{\partial T}\right)_pdT + \left(\frac{\partial\mu}{\partial p}\right)_Tdp \stackrel{\text{Glg.en \eqref{eq:maxwell_rel_4}, \eqref{eq:maxwell_rel_3}}}{=} -\left(\frac{\partial S}{\partial N}\right)_{T, V}dT + \left(\frac{\partial V}{\partial N}\right)_{p, T}dp.
+\end{eqnarray}
+%
+Mit
+%
+\begin{eqnarray}
+\left(\frac{\partial S}{\partial N}\right)_{T, V} & = & \frac{S}{N} =: s,\\
+\left(\frac{\partial V}{\partial N}\right)_{p, T} & = & \frac{V}{N} =: v
+\end{eqnarray}
+%
+folgt
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{eqnarray}
+d\mu = -sdT + vdp,\label{eq:gibbs-duhem}
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
+%
+was man als \textit{Gibbs-Duhem-Relation}\index{Gibbs-Duhem-Relation} bezeichnet.
 
 \subsection{Ideales Gas}
 \label{sec:ideales_gas}\index{Gas!ideales}\index{ideales Gas}
@@ -5351,7 +5378,7 @@ Für die Entropie folgt
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{eqnarray}
-\Leftrightarrow S\left(E, V, N\right) & = & k_BN\left[\frac{3}{2}\ln\left(c\right) + \ln\left(\frac{V}{N}\right) + \frac{3}{2}\ln\left(\frac{E}{N}\right)\right]\label{eq:sacker-tetrode-equation}
+\Leftrightarrow S\left(E, V, N\right) & = & k_BN\left[\frac{3}{2}\ln\left(c\right) + \ln\left(\frac{V}{N}\right) + \frac{3}{2}\ln\left(\frac{E}{N}\right)\right]\label{eq:sackur-tetrode-equation}
 \end{eqnarray}
 \end{center}
 }}
@@ -5363,7 +5390,7 @@ mit
 c \coloneqq \frac{me^{5/3}}{3\pi\hbar^2}.\label{eq:def_id_gas_entropy_constant}
 \end{eqnarray}
 %
-Glg. \eqref{eq:sacker-tetrode-equation} bezeichnet man auch als \textit{Sackur-Tetrode-Gleichung}\index{Sackur-Tetrode-Gleichung}. Man erhält die \textit{kalorische Zustandsgleichung idealer Gase}\index{Zustandsgleichung!kalorische!idealer Gase}\index{kalorische Zustandsgleichung idealer Gase}
+Glg. \eqref{eq:sackur-tetrode-equation} bezeichnet man auch als \textit{Sackur-Tetrode-Gleichung}\index{Sackur-Tetrode-Gleichung}. Man erhält die \textit{kalorische Zustandsgleichung idealer Gase}\index{Zustandsgleichung!kalorische!idealer Gase}\index{kalorische Zustandsgleichung idealer Gase}
 %
 \begin{eqnarray}
 \frac{1}{k_BT} = \frac{\partial\ln\left(\Omega\left(E, V, N\right)\right)}{\partial E} = \frac{3}{2}\frac{N}{E}\Rightarrow E = \frac{3}{2}Nk_BT.\label{eq:kalorisch_id_gase}
@@ -5903,7 +5930,7 @@ verwenden:
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{eqnarray}
-\frac{dp_S}{dT} = \frac{c}{T\Delta v}\label{eq:clausius_clapeyron}
+\frac{dp_S}{dT} = \frac{c}{T\Delta v}\label{eq:clausius-clapeyron}
 \end{eqnarray}
 \end{center}
 }}
@@ -5933,7 +5960,7 @@ Somit kann man im Fall einer Flüssigkeit und eines idealen Gases notieren
 \frac{dp_S}{dT} = \frac{cp_SN_A\rho_l}{N_A\rho_lR_sT^2 - p_SMT}.
 \end{eqnarray}
 %
-Eine in der Meteorologie wird häufig die Näherung
+In der Meteorologie wird häufig die Näherung
 %
 \begin{eqnarray}
 T\Delta v\approx\frac{R_sT^2}{p_S}
@@ -5942,7 +5969,7 @@ T\Delta v\approx\frac{R_sT^2}{p_S}
 gemacht, damit folgt
 %
 \begin{eqnarray}
-\frac{1}{p_S}\frac{dp_S}{dT} = \frac{c}{R_sT^2}.\label{eq:clausius_clapeyron_vereinfacht}
+\frac{1}{p_S}\frac{dp_S}{dT} = \frac{c}{R_sT^2}.\label{eq:clausius-clapeyron_vereinfacht}
 \end{eqnarray}
 %
 Im Falle einer temperaturunabhängigen Phasenübergangsenthalpie $c$ kann man dies analytisch lösen, in diesem Fall gilt
@@ -5974,10 +6001,143 @@ e\left(t\right) = 6, 112\exp\left(\frac{17, 62t}{243, 12 + t}\right),
 über Eis gilt für$T\in\left[-65, 0\right]^\circ$ C
 %
 \begin{eqnarray}
-e\left(t\right) = 6, 112\exp\left(\frac{22, 46t}{272, 62 + t}\right), 
+e\left(t\right) = 6,112\exp\left(\frac{22, 46t}{272, 62 + t}\right), 
 \end{eqnarray}
 %
 wobei $t$ die Temperatur in $^\circ$C und $e$ den jeweiligen Sättigungsdampfdruck in hPa bezeichnet.
+
+\subsubsection{Osmotischer Druck}
+\label{sec_osmotischer_druck}\index{osmotischer Druck}\index{Druck!osmotischer}
+
+Wir nehmen eine Lösung\index{Lösung} eines Stoffes $B$ in einem Stoff $A$ an, wobei die Stoffe nicht miteinander wechselwirken. Für die Zustandssumme\index{Zustandssumme} $\Omega$ des Systems gilt dann
+%
+\begin{eqnarray}
+\Omega = \Omega_A\Omega_B.
+\end{eqnarray}
+%
+Für die Entropie $S$ des Systems folgt
+%
+\begin{eqnarray}
+S = k_B\ln\left(\Omega\right) = k_B\ln\left(\Omega_A\Omega_B\right) = k_B\ln\left(\Omega_A\right) + k_B\ln\left(\Omega_B\right).
+\end{eqnarray}
+%
+Aus Glg. \eqref{eq:sackur-tetrode-equation} folgt
+%
+\begin{eqnarray}
+\Omega_B \propto V^{N_B} \Rightarrow S = S_A + k_BN_B\ln\left(V\right) + f\left(E, N_B\right)
+\end{eqnarray}
+%
+mit einer Funktion $f = f\left(E, N_B\right)$, welche nicht vom Volumen abhängt. Für den Druck $p$ des Systems folgt
+%
+\begin{eqnarray}
+p \stackrel{\text{Glg. \eqref{eq:pressure_prop_0}}}{=} T\left(\frac{\partial S}{\partial V}\right)_E = T\left(\frac{\partial S_A}{\partial V}\right)_E + T\frac{k_BN_B}{V} = p_A + T\frac{k_BN_B}{V} =: p_A + p_\text{osm}.
+\end{eqnarray}
+%
+Die Druckdifferenz $p_\text{osm}$ gegenüber der reinen Phase $A$ bezeichnet man als \textit{osmotischen Druck}\index{osmotischer Druck}\index{Druck!osmotischer}, für diesen gilt
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{eqnarray}
+p_\text{osm} = k_BTn_B\label{eq:vant_hoff_law}
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
+%
+mit der Konzentration $n_B\coloneqq\frac{N_B}{V}$ des gelösten Stoffes. Glg. \eqref{eq:vant_hoff_law} bezeichnet man als \textit{van't Hoff'sches Gesetz}\index{van't Hoff'sches Gesetz}\index{Gesetz!van't Hoff'sches}.
+
+\subsubsection{Dampfdruck über einer Salzlösung}
+\label{sec:dampfdruck_ueber_einer_salzloesung}\index{Dampfdruck!über einer Salzlösung}\index{Salzlösung!Dampfdruck}
+
+Bei gegebenem Druck $p$ liegt bei einer Temperatur $T_s$ der Phasenübergang zwischen der Phase $A$, welche flüssig sei (z. B. Wasser), und der Phase $C$, welche gasförmig oder fest sei, vor. Dies wird durch eine Funktion $p_S = p_S\left(T_s\right)$ beschrieben, welche Lösung der Clausius-Clapeyron-Gleichung\index{Clausius-Clapeyron-Gleichung} Glg. \eqref{eq:clausius-clapeyron} ist. Löst man nun einen Stoff $B$ in $A$ (z. B. Salz), der auf $A$ beschrämkt sei, verschiebt sich $T_s$ um $\Delta T_s$. Bezeichne
+%
+\begin{eqnarray}
+c\coloneqq\frac{N_B}{N_A} = \frac{N_B/V}{N_A/V} = \frac{n_B}{n_A}
+\end{eqnarray}
+%
+als das Verhältnis der Konzentrationen von gelöstem Stoff und Lösungsmittel. Für das chemische Potential\index{chemisches Potential}\index{Potential!chemisches} $\mu_A = \mu_A\left(T, p_A\right)$ gilt
+%
+\begin{eqnarray}
+\mu_A\left(T, p_A\right) & = & \mu_A\left(T, p - p_\text{osm}\right) \stackrel{p_\text{osm} \ll p}{\approx} \mu_A\left(T, p\right) - p_\text{osm}\left(\frac{\partial\mu}{\partial p}\right)_T \stackrel{\text{Glg. \eqref{eq:vant_hoff_law}}}{=} \mu_A\left(T, p\right) - k_BTn_B\left(\frac{\partial\mu}{\partial p}\right)_T\nonumber\\
+& \stackrel{\text{Glg. \eqref{eq:maxwell_rel_3}}}{=} & \mu_A\left(T, p\right) - k_BTn_B\frac{V}{N_A} = \mu_A\left(T, p\right) - ck_BT\label{eq:salt_sat_deriv_1}.
+\end{eqnarray}
+%
+Innerhalb der Lösung gilt
+%
+\begin{eqnarray}
+\mu_{A, B}\left(T, p\right) = \mu_A\left(T, p_A\right) \stackrel{\text{Glg. \eqref{eq:salt_sat_deriv_1}}}{=} \approx \mu_A\left(T, p\right) - ck_BT.
+\end{eqnarray}
+%
+Nun wird eine Gleichgewichtsbedingung benötigt. Da es sich um Teilchenaustausch handelt, muss das chemische Potential\index{chemisches Potential}\index{potential!chemisches} der Lösung $A$, $B$ mit dem der anderen Phase $C$ gleichgesetzt werden:
+%
+\begin{eqnarray}
+\mu_{A, B}\left(T, p\right) & = & \mu_C\left(T, p\right)\nonumber\\
+\stackrel{T = T_s + \Delta T_s}{\Leftrightarrow} \mu_{A, B}\left(T_s + \Delta T_s, p\right) & = & \mu_C\left(T_s + \Delta T_s, p\right)\nonumber\\
+\stackrel{\text{Glg. \eqref{eq:salt_sat_deriv_1}}}{\Leftrightarrow} \mu_A\left(T_s + \Delta T_s, p\right) - ck_BT & = & \mu_C\left(T_s + \Delta T_s, p\right)\label{eq:salt_sat_deriv_0}
+\end{eqnarray}
+%
+Aus Glg. \eqref{eq:gibbs-duhem} folgt
+%
+\begin{eqnarray}
+\left(\frac{\partial\mu_A}{\partial T}\right)_p = -s_A,
+\end{eqnarray}
+%
+was
+%
+\begin{eqnarray}
+\mu_A\left(T_s + \Delta T_s, p\right) \approx \mu_A\left(T_s, p\right) - s_A\Delta T_s
+\end{eqnarray}
+%
+impliziert. Analog gilt für die Phase $C$
+%
+\begin{eqnarray}
+\mu_C\left(T_s + \Delta T_s, p\right) = \mu_C\left(T_s, p\right) - s_C\Delta T_s.
+\end{eqnarray}
+%
+Setzt man die letzten beiden Gleichungen in Glg. \eqref{eq:salt_sat_deriv_0} ein, erhält man
+%
+\begin{eqnarray}
+\mu_A\left(T_s, p\right) - s_A\Delta T_s - ck_BT_s = \mu_C\left(T_s, p\right) - s_C\Delta T_s.
+\end{eqnarray}
+%
+Im letzten Schritt wurde ein kleiner Term $ck_B\Delta T_s$ weggelassen. Bei $c = 0$ gilt
+%
+\begin{eqnarray}
+\mu_A\left(T_s, p\right) = \mu_C\left(T_s, p\right),
+\end{eqnarray}
+%
+was der Phasengrenze unter Abwesenheit des gelösten Stoffes entspricht. Somit folgt
+%
+\begin{eqnarray}
+-s_A\Delta T_s - ck_BT_s & = & -s_C\Delta T_s\nonumber\\
+\Leftrightarrow \Delta T_s& = & c\frac{k_BT_s}{s_C - s_A}.
+\end{eqnarray}
+%
+Für die Entropiedifferenz gilt
+%
+\begin{eqnarray}
+s_C - s_A = \frac{L_{A\to C}}{T_s},
+\end{eqnarray}
+%
+hierbei ist $L_{A\to C}$ die Phasenübergangsenthalpie\index{Phasenübergangsenthalpie} beim Übergang von $A$ nach $C$. Somit erhält man
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{eqnarray}
+\Delta T_s & = & c\frac{k_BT_s^2}{L_{A\to C}}.
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
+%
+Hier lassen sich zwei Fälle unterscheiden:
+%
+\begin{itemize}
+\item $C$ ist gasförmig: Dies impliziert $L_{A\to C} > 0$, was wiederum auf $\Delta T_s > 0$ führt, was einer Siedepunkterhöhung\index{Siedepunkterhöhung} entspricht. Dies ist zum Beispiel über der Ozeanoberfläche der Fall.
+\item $C$ ist fest: Dies impliziert $L_{A\to C} < 0$, was wiederum auf $\Delta T_s < 0$ führt, was einer Gefrierpunkterniedrigung\index{Gefrierpunkterniedrigung} entspricht. Dies mindert den Gefrierpunkt von Ozeanwasser auf unter Null Grad Celsius.
+\end{itemize}
 
 \subsection{Kapillarität}
 \label{sec:kapillaritaet}\index{Kapillarität}
@@ -8135,7 +8295,7 @@ Mit Glg. \eqref{eq:td1_id_gas_pot_mod} folgt
 \subsubsection{Entropie als prognostische Variable}
 \label{sec:entropie_als_prognostische_variable}
 
-Setzt man die Zustandsgleichungen Glg.en \eqref{eq:kalorisch_id_gase} und \eqref{eq:zustand_ideal} in Glg. \eqref{eq:sacker-tetrode-equation} ein, folgt unter Vernachlässigung des Ungefähr-Zeichens
+Setzt man die Zustandsgleichungen Glg.en \eqref{eq:kalorisch_id_gase} und \eqref{eq:zustand_ideal} in Glg. \eqref{eq:sackur-tetrode-equation} ein, folgt unter Vernachlässigung des Ungefähr-Zeichens
 %
 \begin{eqnarray}
 S\left(E, V, N\right) & = & k_B\frac{3N}{2}\ln\left(c\right) + k_BN\ln\left(\frac{V}{N}\right) + k_B\frac{3N}{2}\ln\left(\frac{E}{N}\right)\nonumber\\
@@ -13315,7 +13475,7 @@ definiert. Setzt man in Glg. \eqref{eq:beta_malr} $\rho_c = 0, R_h = R_d$ sowie 
 mit einem vereinfachten Faktor
 %
 \begin{eqnarray}
-\beta'&\approx&\beta'\left(p, T\right) \coloneqq\frac{1 + \frac{c_cp_v^{(S)}}{TR_vp}}{1 + \frac{\epsilon'c_c}{pc^{(p)}}\frac{dp_v^{(s)}}{dT}}\stackrel{\eqref{eq:clausius_clapeyron_vereinfacht}}{\approx}\frac{1 + \frac{c_cp_v^{(S)}}{TR_vp}}{1 + \frac{\epsilon'c_c^2p_v^{(s)}}{R_vc^{(p)}T^2p}}\nonumber\\
+\beta'&\approx&\beta'\left(p, T\right) \coloneqq\frac{1 + \frac{c_cp_v^{(S)}}{TR_vp}}{1 + \frac{\epsilon'c_c}{pc^{(p)}}\frac{dp_v^{(s)}}{dT}}\stackrel{\eqref{eq:clausius-clapeyron_vereinfacht}}{\approx}\frac{1 + \frac{c_cp_v^{(S)}}{TR_vp}}{1 + \frac{\epsilon'c_c^2p_v^{(s)}}{R_vc^{(p)}T^2p}}\nonumber\\
 &\stackrel{\eqref{eq:mischungsverhaeltnis_vereinfacht}}{\approx}&\frac{1 + \frac{c_cr^{(S)}}{TR_d}}{1 + \frac{c_c^2r^{(s)}}{R_vc^{(p)}T^2}}, \label{eq:beta_malr_approx}
 \end{eqnarray}
 %
@@ -14416,11 +14576,11 @@ Bei dieser Approximation teilt man die Atmosphäre in unabhängige Säulen auf u
 \section{Zirkulation um Kondensate}
 \label{sec:zirkulation_um_kondensate}
 
-\subsection{Stokes'sche Reibung}
-\label{sec:stokes'sche_reibung}\index{Stokes'sche Reibung}\index{Reibung!Stokes'sche}
+\subsection{Laminare Umströmung}
+\label{sec:laminare_umstroemung}
 
-\section{Zirkulation in Kondensaten}
-\label{sec:zirkulation_in_kondensaten}
+\subsection{Turbulente Umströmung}
+\label{sec:turbulente_umstroemung}
 
 \part{Numerik}
 \label{part:numerik}\index{Numerik}
@@ -15533,15 +15693,6 @@ Hiermit sind die Glg.en \eqref{eq:linear_condition_trivariate_discrete_0} - \eqr
 \section{Vergleich quasi-uniformer sphärischer C-Gitter}
 \label{sec:vergleich_quasi-uniformer_sphaerischer_c-gitter}
 
-\chapter{\normalfont\textsc{Datenassimilation}}
-\label{chap:datenassimilation}\index{Datenassimilation}
-
-\section{3D-Var}
-\label{sec:3d-var}\index{3D-Var}
-
-\section{4D-Var}
-\label{sec:4d-var}\index{4D-Var}
-
 \chapter{\normalfont\textsc{Entwicklung eines dynamischen Kerns}}
 \label{chap:entwicklung_eines_dynamischen_kerns}\index{dynamischer Kern}\index{Kern!dynamischer}
 
@@ -16358,6 +16509,15 @@ Strahlung wird in Modellen durch separate Simulationen, sogenannte \textit{Strah
 \end{itemize}
 %
 Da das Lösen der Strahlungsübertragungsgleichung\index{Strahlungsübertragungsgleichung} zu einem globalen linearen Gleichungssystem führen würde, unterteilt man die Atmosphäre hierzu in nicht wechselwirkende Säulen ein, die mindestens so eine horizontale Ausdehnung haben, wie eine Gitterzelle.
+
+\chapter{\normalfont\textsc{Datenassimilation}}
+\label{chap:datenassimilation}\index{Datenassimilation}
+
+\section{3D-Var}
+\label{sec:3d-var}\index{3D-Var}
+
+\section{4D-Var}
+\label{sec:4d-var}\index{4D-Var}
 
 \part{Anhang}
 \label{part:anhang}
