@@ -7456,46 +7456,119 @@ Synotische\index{Synoptik} Strömungen sind also sehr instabil.
 \subsubsection{Shallow atmosphere}
 \label{sec:shallow_atmosphere}\index{shallow atmosphere}
 
-Die sogenannte \textit{shallow-atmosphere-}Approximation beruht auf der Ersetzung
+Die sogenannte \textit{shallow-atmosphere-}Approximation lautet
+%
+\begin{center}
+\doublebox{\parbox{0.9\textwidth}{
+\begin{center}
+\begin{eqnarray}
+\sqrt{g} = r^2\cos\left(\phi\right) \to a^2\cos\left(\phi\right)\label{eq:shallow_atmosphere}
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
+%
+für die Funktionaldeterminante\index{Funktionaldeterminante} der \textit{geographischen Koordinaten}\index{geographischen Koordinaten}\index{Koordinaten!geographische}, hierbei ist $a$ ein konstanter Wert für den Radius. Setzt man dies in Glg. \eqref{eq:rot_sphere} ein, erhält man
 %
 \begin{eqnarray}
-\sqrt{g} = r^2\cos\left(\phi\right) \to a^2\cos\left(\phi\right)
+\nabla\times\mathbf{v} & = & \frac{1}{a^2\sin\left(\theta\right)}\Bigg[\mathbf{e}_r\left(\frac{\partial\left(a\sin\left(\theta\right)\newtilde{v}_\phi\right)}{\partial\theta} - \frac{\partial\left(a\newtilde{v}_\theta\right)}{\partial\phi}\right) + a\mathbf{e}_\theta\left(\frac{\partial\newtilde{v}_r}{\partial\phi} - \frac{\partial\left(a\sin\left(\theta\right)\newtilde{v}_\phi\right)}{\partial r}\right)\nonumber\\
+&& + a\sin\left(\theta\right)\mathbf{e}_\phi\left(\frac{\partial\left(a\newtilde{v}_\theta\right)}{\partial r} - \frac{\partial\newtilde{v}_r}{\partial\theta}\right)\Bigg]\nonumber\\
+& = & \frac{\newtilde{v}_\phi}{a\tan\left(\theta\right)}\mathbf{e}_r + \mathbf{e}_r\left(\frac{1}{a}\frac{\partial\newtilde{v}_\phi}{\partial\theta} - \frac{1}{a\sin\left(\theta\right)}\frac{\partial\newtilde{v}_\theta}{\partial\phi}\right)\nonumber\\
+&& + \mathbf{e}_\theta\left(\frac{1}{a\sin\left(\theta\right)}\frac{\partial\newtilde{v}_r}{\partial\phi} - \frac{\partial\newtilde{v}_\phi}{\partial r}\right) + \mathbf{e}_\phi\left(\frac{\partial \newtilde{v}_\theta}{\partial r} - \frac{1}{a}\frac{\partial\newtilde{v}_r}{\partial\theta}\right).
 \end{eqnarray}
 %
-für die Funktionaldeterminante\index{Funktionaldeterminante} der \textit{geographischen Koordinaten}\index{geographischen Koordinaten}\index{Koordinaten!geographische}, hierbei ist $a$ ein konstanter Wert für den Radius. Die metrischen Terme\index{metrische terme}\index{Terme!metrische} in den Glg.en \eqref{eq:x_momentum} - \eqref{eq:z_momentum} lassen sich in zwei Gruppen:
-%
-\begin{itemize}
-\item Solche, die $\tan\left(\phi\right)$ enthalten. Sie entstehen durch die Abhängigkeit von $\sqrt{g}$ von $\phi$.
-\item Solche, die $\tan\left(\phi\right)$ nicht enthalten. Sie entstehen durch die Abhängigkeit von $\sqrt{g}$ von $r$.
-\end{itemize}
-%
-Die zweite Gruppe fällt unter der shallow-water-Approximation weg. Führt man die gleiche Näherung in der Herleitung von Glg. \eqref{eq:rot_geo} ein, erhält man
-
-\begin{eqnarray}
-\nabla\times\mathbf{v} & = & \mathbf{k}\left(-\frac{\partial v_x}{\partial y} + \frac{\partial v_y}{\partial x}\right) - \mathbf{j}\left(\frac{\partial v_z}{\partial x} - \frac{\partial v_x}{\partial z}\right) + \mathbf{i}\left(-\frac{\partial v_y}{\partial z} + \frac{\partial v_z}{\partial y}\right) + \frac{v_x\tan\left(\varphi\right)}{a}\mathbf{k}.\label{eq:curl_shallow}
-\end{eqnarray}
-%
-In der shallow atmosphere gilt für die aus der Erdrotation\index{Erdrotation} folgende Geschwindigkeit
+Dies bedeutet, dass Glg. \eqref{eq:rot_local} in der shallow atmosphere die Form
 %
 \begin{eqnarray}
-\mathbf{v}_i = \boldsymbol{\Omega}\times\mathbf{r} = \Omega a\cos\left(\phi\right)\mathbf{i}.
+\nabla\times\mathbf{v} & = & \left(\frac{\partial w}{\partial y} - \frac{\partial v}{\partial z}\right)\mathbf{i} + \left(\frac{\partial u}{\partial z} - \frac{\partial w}{\partial x}\right)\mathbf{j} + \left(\frac{\partial v}{\partial x} - \frac{\partial u}{\partial y}\right)\mathbf{k} + \frac{u\tan\left(\varphi\right)}{a}\mathbf{k}.\label{eq:rot_shallow}
 \end{eqnarray}
 %
-Mit Glg. \eqref{eq:curl_shallow} erhält man
+annimmt. In der shallow atmosphere gilt für die aus der Erdrotation\index{Erdrotation} folgende Geschwindigkeit
+%
+\begin{eqnarray}
+\mathbf{v}_i & = & \boldsymbol{\Omega}\times\mathbf{r} = \left(\begin{array}{c}
+0\\
+0\\
+\Omega
+\end{array}\right)\times a\left(\begin{array}{c}
+\cos\left(\varphi\right)\cos\left(\lambda\right)\\
+\cos\left(\varphi\right)\sin\left(\lambda\right)\\
+\sin\left(\varphi\right)
+\end{array}\right) = \Omega a\left(\begin{array}{c}
+-\cos\left(\varphi\right)\sin\left(\lambda\right)\\
+\cos\left(\varphi\right)\cos\left(\lambda\right)\\
+0
+\end{array}\right) = \Omega a\cos\left(\varphi\right)\left(\begin{array}{c}
+-\sin\left(\lambda\right)\\
+\cos\left(\lambda\right)\\
+0
+\end{array}\right)\nonumber\\
+& = & \Omega a\cos\left(\phi\right)\mathbf{i}.
+\end{eqnarray}
+%
+Mit Glg. \eqref{eq:rot_shallow} erhält man
 %
 \begin{eqnarray}
 \nabla\times\mathbf{v}_i & = & \left(-\frac{\partial\left(\Omega a\cos\left(\phi\right)\right)}{\partial y} + \Omega a\cos\left(\phi\right)\frac{\tan\left(\phi\right)}{a}\right)\mathbf{k}\nonumber\\
-& = & \left(-\frac{\partial\left(\Omega \cos\left(\phi\right)\right)}{\partial\phi} + \Omega \sin\left(\phi\right)\right)\mathbf{k} = 2\Omega\sin\left(\phi\right)\mathbf{k}
+& = & \left(-\frac{\partial\left(\Omega \cos\left(\phi\right)\right)}{\partial\phi} + \Omega\sin\left(\phi\right)\right)\mathbf{k} = 2\Omega\sin\left(\phi\right)\mathbf{k}
 \end{eqnarray}
 %
-Daher muss man mit der shallow-atmosphere-Approximation auch die sogenannte \textit{traditionelle Approximation}\index{traditionelle Approximation}\index{Approximation!traditionelle}
+Daher impliziert die shallow-atmosphere-Approximation die sogenannte \textit{traditionelle Approximation}\index{traditionelle Approximation}\index{Approximation!traditionelle}
+%
+\begin{center}
+\doublebox{\parbox{0.9\textwidth}{
+\begin{center}
+\begin{eqnarray}
+f' = 0.\hspace{2 cm}\text{(traditionelle Approximation)}
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
+%
+Glg. \eqref{eq:rot_shallow} impliziert mit der Lamb-Transformation\index{Lamb-Transformation} Glg. \eqref{eq:diff_op_rule_10}, dass in der Impulsadvektion\index{Impulsadvektion} die Terme $\propto uw/r, vw/r$ vernachlässigt werden müssen.
+
+Setzt man Glg. \eqref{eq:shallow_atmosphere} in Glg. \eqref{eq:div_sphere} ein, erhält man
 %
 \begin{eqnarray}
-f' = 0.
+\nabla\cdot\mathbf{v} & = & \frac{1}{a^2\sin\left(\theta\right)}\left(\frac{\partial\left(v^{(r)}a^2\sin\left(\theta\right)\right)}{\partial r} + \frac{\partial\left(v^{(\theta)}a^2\sin\left(\theta\right)\right)}{\partial\theta} + \frac{\partial\left(v^{(\phi)}a^2\sin\left(\theta\right)\right)}{\partial\phi}\right)\nonumber\\
+& = & \frac{\partial v^{(r)}}{\partial r} + \frac{\partial v^{(\theta)}}{\partial\theta} + \frac{\partial v^{(\phi)}}{\partial\phi} + \cot\left(\theta\right)v^{(\theta)}\nonumber\\
+& = & \frac{\partial\newtilde{v}^{(r)}}{\partial r} + \frac{1}{r}\frac{\partial\newtilde{v}^{(\theta)}}{\partial\theta} + \frac{1}{r\sin\left(\theta\right)}\frac{\partial\newtilde{v}^{(\phi)}}{\partial\phi} + \frac{\cot\left(\theta\right)}{a}\newtilde{v}^{(\theta)}.
 \end{eqnarray}
 %
-einführen. Das Gleichungssystem der shallow atmosphere\index{shallow atmosphere} lautet also
+Dies bedeutet, dass Glg. \eqref{eq:div_geo} in der shallow atmosphere\index{shallow atmosphere} die Form
+%
+\begin{eqnarray}
+\nabla\cdot\mathbf{v} & = & \frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} + \frac{\partial w}{\partial z} - \frac{v\tan\left(\varphi\right)}{a}
+\end{eqnarray}
+%
+annimmt. Da bei der Berechnung von $\mathbf{g}$ die Dichte der Atmosphäre vernachlässigt wird, gilt mit der SGA\index{SGA (spherical geopotential approximation)}\index{spherical geopotential approximation (SGA)}
+%
+\begin{eqnarray}
+\nabla\cdot\mathbf{g} = -\frac{dg}{dz} = 0,
+\end{eqnarray}
+%
+was impliziert, dass $g$ in der shallow atmosphere\index{shallow atmosphere} höhenunabhängig sein muss,
+%
+\begin{center}
+\doublebox{\parbox{0.9\textwidth}{
+\begin{center}
+\begin{eqnarray}
+g = g_0.
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
 
+Die Implikationen von Glg. \eqref{eq:shallow_atmosphere} lauten also zusammengefasst
+%
+\begin{enumerate}
+\item die traditionelle Approximation\index{traditionelle Approximation}\index{Approximation!traditionelle} $f' = 0$ muss gemacht werden,
+\item alle metrischen Terme, die nicht $\tan\left(\varphi\right)$ enhalten, müssen vernachlässigt werden (in der Divergenz\index{Divergenz}, Vorticity\index{Vorticity} und Impulsadvektion\index{Impulsadvektion}),
+\item die Schwere muss höhenunabhängig sein, $g \to g_0 =$ homogen.
+\end{enumerate}
+%
+Das Impulsgleichung der shallow atmosphere\index{shallow atmosphere} lautet somit
+%
 \begin{center}
 \doublebox{\parbox{0.9\textwidth}{
 \begin{center}
@@ -7504,7 +7577,7 @@ einführen. Das Gleichungssystem der shallow atmosphere\index{shallow atmosphere
 \label{eq:x_momentum_simplified},\\
 \frac{\partial v}{\partial t} + u\frac{\partial v}{\partial x} + v\frac{\partial v}{\partial y} + \frac{u^2\tan\left(\varphi\right)}{a + z} & = & -\frac{1}{\rho}\frac{\partial p}{\partial y} - fu + F_{R,y}
 \label{eq:y_momentum_simplified},\\
-\frac{\partial w}{\partial t} + u\frac{\partial w}{\partial x} + v\frac{\partial w}{\partial y} + w\frac{\partial w}{\partial z} & = & -\frac{1}{\rho}\frac{\partial p}{\partial z} - g + F_{R,z}
+\frac{\partial w}{\partial t} + u\frac{\partial w}{\partial x} + v\frac{\partial w}{\partial y} + w\frac{\partial w}{\partial z} & = & -\frac{1}{\rho}\frac{\partial p}{\partial z} - g_0 + F_{R,z}
 \label{eq:z_momentum_simplified}.
 \end{eqnarray}
 \end{center}
