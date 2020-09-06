@@ -9948,7 +9948,7 @@ Man geht an dieser Stelle von einem homogenen System\index{homogenes System}\ind
 \rho = \rho\left(p, T\right)
 \end{eqnarray}
 %
-notieren. Dies kann man in eine Taylor-Reihe\index{Taylor-Reihe} um den Entwicklungspunkt $\left(p, T\right)^T = \left(p_m, T_m\right)^T$ entwickeln:
+notieren. Dies kann man in eine Taylor-Reihe\index{Taylor-Reihe} um den Entwicklungspunkt $\left(p, T\right)^T = \left(p_m, T_m\right)^T$ entwickeln:\footnote{Definiert man $\rho_m, p_m, T_m$ als Mittel der jeweiligen Größen, gilt aufgrund der Nichtlinearität der Zustandsgleichung im Allgemeinen $\rho_m \not= \rho\left(p_m, T_m\right)$. Daher ist es sinnvoll, $\rho_m \coloneqq \rho\left(p_m, T_m\right)$ zu definieren.}
 %
 \begin{eqnarray}
 \rho\left(p, T\right) & = & \rho_m\big[1 - a_m\left(T - T_m\right) + K_m\left(p - p_m\right) + \frac{1}{2}\left(\frac{1}{\rho}\frac{\partial^2\rho}{\partial T^2}\right)_m\left(T - T_m\right)^2\nonumber\\
@@ -9963,30 +9963,36 @@ a_m & \coloneqq & -\left[\frac{1}{\rho}\left(\frac{\partial\rho}{\partial T}\rig
 K_m & \coloneqq & \left[\frac{1}{\rho}\left(\frac{\partial\rho}{\partial p}\right)_T\right]_m\text{(Kompressibilität)}
 \end{eqnarray}
 %
-eingesetzt. Für diese Größen kann man
+eingesetzt. Für diese Größen kann man für Fluide
 %
 \begin{eqnarray}
-a_m & \sim & -\frac{1}{\rho_m}\frac{-\rho_m}{T_m} = \frac{1}{T_m},\\
-K_m & \sim & \frac{1}{\rho_m}\frac{\rho_m}{p_m} = \frac{1}{p_m}
+a_m & \ll & -\frac{1}{\rho_m}\frac{-\rho_m}{T_m} = \frac{1}{T_m},\\
+K_m & \ll & \frac{1}{\rho_m}\frac{\rho_m}{p_m} = \frac{1}{p_m}\label{eq:boussinesq_deriv_3}
 \end{eqnarray}
 %
 abschätzen. Setzt man dies in Glg. \eqref{eq:taylor_eos_boussinesq} auch für die zweiten Ableitungen ein, erhält man unter Vernachlässigung der Terme dritter und höherer Ordnung
 %
 \begin{eqnarray}
-\frac{\rho - \rho_m}{\rho_m} = -\frac{T - T_m}{T_m} + \frac{p - p_m}{p_m} \pm \frac{\left(T - T_m\right)^2}{T_m^2} \pm \frac{\left(p - p_m\right)^2}{p_m^2}.
+\frac{\rho - \rho_m}{\rho_m} \ll -\frac{T - T_m}{T_m} + \frac{p - p_m}{p_m} \pm \frac{\left(T - T_m\right)^2}{T_m^2} \pm \frac{\left(p - p_m\right)^2}{p_m^2}.
 \end{eqnarray}
 %
-Aufgrund von Glg.en \eqref{eq:boussinesq_deriv_0} und \eqref{eq:boussinesq_1} kann man dies durch
+Aufgrund von Glg.en \eqref{eq:boussinesq_deriv_0} und \eqref{eq:boussinesq_1} kann man die rechte Seite durch
 %
 \begin{eqnarray}
-\frac{\rho - \rho_m}{\rho_m} = -\frac{T - T_m}{T_m} + \frac{p - p_m}{p_m} = -a_m\left(T - T_m\right) + K_m\left(p - p_m\right)
+-\frac{T - T_m}{T_m} + \frac{p - p_m}{p_m} \pm \frac{\left(T - T_m\right)^2}{T_m^2} \pm \frac{\left(p - p_m\right)^2}{p_m^2} \approx -\frac{T - T_m}{T_m} + \frac{p - p_m}{p_m}
 \end{eqnarray}
 %
-nähern. Dies impliziert
+nähern. Es gilt also unter Vernachlässigung des Ungefähr-Zeichens (in erster Ordnung in den Störungen $f - f_m$ der thermodynamischen Variablen $f$)
+%
+\begin{eqnarray}
+\frac{\rho - \rho_m}{\rho_m} = -a_m\left(T - T_m\right) + K_m\left(p - p_m\right).
+\end{eqnarray}
+%
+Dies impliziert
 %
 \begin{eqnarray}
 \rho_0 & = & \rho_m\left(-a_mT_0 + K_mp_0\right),\\
-\rho' & = & \rho_m\left(-a_mT' + K_mp'\right).
+\rho' & = & \rho_m\left(-a_mT' + K_mp'\right).\label{eq:boussinesq_deriv_2}
 \end{eqnarray}
 %
 Die hydrostatische Grundgleichung\index{hydrostatische Grundgleichung}\index{Grundgleichung!hydrostatische} \eqref{eq:hydrostatic} lautet
@@ -10021,7 +10027,7 @@ nähern. Dies führt auf
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{eqnarray}
-\left(\frac{\partial}{\partial t} + \mathbf{v}\cdot\nabla\right)\mathbf{v} & = & -\frac{1}{\rho_m}\nabla p' - g\frac{\rho'}{\rho_m}\mathbf{k} - \mathbf{f}\times\mathbf{v} + \mathbf{F}_R.
+\left(\frac{\partial}{\partial t} + \mathbf{v}\cdot\nabla\right)\mathbf{v} & = & -\frac{1}{\rho_m}\nabla p' - g\frac{\rho'}{\rho_m}\mathbf{k} - \mathbf{f}\times\mathbf{v} + \mathbf{F}_R.\label{eq:boussinesq_momentum_0}
 \end{eqnarray}
 \end{center}
 }}
@@ -10052,6 +10058,61 @@ Setzt man hier Glg. \eqref{eq:boussinesq_deriv_0} ein, erhält man
 \end{center}
 %
 Unter der Boussinesq-Approximation\index{Boussinesq-Approximation} vereinfacht sich die Kontinuitätsgleichung\index{Kontinuitätsgleichung!inkompressible}\index{inkompressible!Kontinuitätsgleichung} also auf ihre inkompressible Form. Die Boussinesq-Approximation\index{Boussinesq-Approximation} ist im Ozean gerechtfertigt, in der Atmosphäre jedoch nicht.
+
+Man kann die Impulsgleichung\index{Impulsgleichung!Boussinesq-Approximation}\index{Boussinesq-Approximation!Impulsgleichung} Glg. \eqref{eq:boussinesq_momentum_0} noch etwas vereinfachen. Die vertikale Komponente dieser Gleichung lautet
+%
+\begin{eqnarray}
+\left(\frac{\partial}{\partial t} + \mathbf{v}\cdot\nabla\right)w & = & -\frac{1}{\rho_m}\frac{\partial p'}{\partial z} - g\frac{\rho'}{\rho_m} - \left(\mathbf{f}\times\mathbf{v}\right)\cdot\mathbf{k} + \mathbf{F}_R\cdot\mathbf{k}.
+\end{eqnarray}
+%
+Für Druckgradient und Schwere erhält man mit Glg. \eqref{eq:boussinesq_deriv_2}
+%
+\begin{eqnarray}
+-\frac{1}{\rho_m}\frac{\partial p'}{\partial z} - g\frac{\rho'}{\rho_m} & = & -\frac{1}{\rho_m}\frac{\partial p'}{\partial z} - g\left(-a_mT' + K_mp'\right) = -\frac{1}{\rho_m}\frac{\partial p' }{\partial z} - gK_mp' + ga_mT'\nonumber\\
+& = & -\frac{1}{\rho_m}\left(\frac{\partial p' }{\partial z} + g\rho_mK_mp'\right) + ga_mT' = -\frac{1}{\rho_m}\left(\frac{\partial p' }{\partial z} + \frac{p'}{H}\right) + ga_mT'\label{eq:boussinesq_deriv_4}
+\end{eqnarray}
+%
+mit
+%
+\begin{eqnarray}
+H \coloneqq \frac{1}{g\rho_mK_m}.
+\end{eqnarray}
+%
+Mit Glg. \eqref{eq:boussinesq_deriv_3} kann man
+%
+\begin{eqnarray}
+H = \frac{1}{g\rho_m}\frac{1}{K_m} \gg \frac{1}{g\rho_m}p_m =: H'
+\end{eqnarray}
+%
+abschätzen. $H'$ ist die Dicke eines Fluides der homogenen Dichte $\rho_m$, welches hydrostatisch im Schwerefeld $g$ ruht und in dem der Druck linear von oben nach unten von Null auf $p_m$ zunimmt. Man kann
+%
+\begin{eqnarray}
+H' \sim \frac{h}{2}
+\end{eqnarray} 
+%
+abschätzen, also gilt auch
+%
+\begin{eqnarray}
+H \gg h.
+\end{eqnarray}
+%
+Dies bedeutet, dass man in Glg. \eqref{eq:boussinesq_deriv_4}
+%
+\begin{eqnarray}
+\frac{\partial p' }{\partial z} + \frac{p'}{H} \approx \frac{\partial p'}{\partial z}
+\end{eqnarray}
+%
+nähern kann. Dies führt auf eine vereinfachte Form von Glg. \eqref{eq:boussinesq_momentum_0}:
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{eqnarray}
+\left(\frac{\partial}{\partial t} + \mathbf{v}\cdot\nabla\right)\mathbf{v} & = & -\frac{1}{\rho_m}\nabla p' + ga_mT'\mathbf{k} - \mathbf{f}\times\mathbf{v} + \mathbf{F}_R
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
 
 \section{Entwicklungen des Coriolis-Parameters in ebener Geometrie}
 \label{sec:entwicklungen_des_coriolisparameters_in_ebener_geometrie}
