@@ -9827,46 +9827,158 @@ mit einer gewichteten Schichtmitteltemperatur
 \section{Boussinesq-Approximation}
 \label{sec:boussinesq-approximation}\index{Boussinesq-Approximation}
 
+Sei $f$ eine der thermodynamischen Zustandsgrößen. Notiere für diese
+%
+\begin{eqnarray}
+f = f\left(\varphi, \lambda, z\right) = f_m + f_0\left(z\right) + f'\left(\varphi, \lambda, z\right),
+\end{eqnarray}
+%
+hierbei ist $f_m$ der Mittelwert von $f$, $f_0$ die hydrostatische Schichtung unter Abwesenheit von Bewegung und Beschleunigungen und $f'$ die Variation, die durch Bewegung entsteht. Definiere die zu $f$ gehörende Skalenhöhe\index{Skalenhöhe} $D_f$ durch
+%
+\begin{eqnarray}
+D_f \coloneqq \left|\frac{1}{f_m}\frac{df_0}{dz}\right|^{-1}.
+\end{eqnarray}
+%
+Das Fluid habe die Dicke $h$. Der erste Teil der sogenannten \textit{Boussinesq-Approximation}\index{Boussinesq-Approximation}
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{eqnarray}
+h \ll \left(D_f\right)_\text{min},\label{eq:boussinesq_0}
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
+%
+wobei $\left(D_f\right)_\text{min}$ die minimale Skalenhöhe\index{Skalenhöhe} aller thermodynamischen Zustandsgrößen bezeichnet. Dies impliziert
+%
+\begin{eqnarray}
+\left|\frac{f_0}{f_m}\right| \ll 1\label{eq:boussinesq_deriv_0}
+\end{eqnarray}
+%
+für alle thermodynamischen Variablen. Der zweite Teil der Boussinesq-Approximation\index{Boussinesq-Approximation} lautet
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{eqnarray}
+\left|\rho'\right| \leq O\left(\rho_0\right).\label{eq:boussinesq_1}
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
+%
+Man geht an dieser Stelle von einem homogenen System\index{homogenes System}\index{System!homogenes} aus. In diesem Fall kann man die thermische Zustandsgleichung\index{thermische Zustandsgleichung}\index{Zustandsgleichung!thermische} in der Form
+%
+\begin{eqnarray}
+\rho = \rho\left(p, T\right)
+\end{eqnarray}
+%
+notieren. Dies kann man in eine Taylor-Reihe\index{Taylor-Reihe} um den Entwicklungspunkt $\left(p, T\right)^T = \left(p_m, T_m\right)^T$ entwickeln:
+%
+\begin{eqnarray}
+\rho\left(p, T\right) & = & \rho_m\big[1 - a_m\left(T - T_m\right) + K_m\left(p - p_m\right) + \frac{1}{2}\left(\frac{1}{\rho}\frac{\partial^2\rho}{\partial T^2}\right)_m\left(T - T_m\right)^2\nonumber\\
+&& + \frac{1}{2}\left(\frac{1}{\rho}\frac{\partial^2\rho}{\partial p^2}\right)_m\left(p - p_m\right)^2 + \left(\frac{1}{\rho}\frac{\partial^2\rho}{\partial T\partial p}\right)_m\left(T - T_m\right)\left(p - p_m\right)\nonumber\\
+&& + O\left[\left(T - T_m\right)^3, \left(p - p_m\right)^3\right]\big]\label{eq:taylor_eos_boussinesq}
+\end{eqnarray}
+%
+Dabei wurden die Definitionen \index{thermischer Expansionskoeffizient}\index{Expansionskoeffizient!thermischer}\index{Kompressibilität}
+%
+\begin{eqnarray}
+a_m & \coloneqq & -\left[\frac{1}{\rho}\left(\frac{\partial\rho}{\partial T}\right)_p\right]_m\text{(thermischer Expansionskoeffizient)},\\
+K_m & \coloneqq & \left[\frac{1}{\rho}\left(\frac{\partial\rho}{\partial p}\right)_T\right]_m\text{(Kompressibilität)}
+\end{eqnarray}
+%
+eingesetzt. Für diese Größen kann man
+%
+\begin{eqnarray}
+a_m & \sim & -\frac{1}{\rho_m}\frac{-\rho_m}{T_m} = \frac{1}{T_m},\\
+K_m & \sim & \frac{1}{\rho_m}\frac{\rho_m}{p_m} = \frac{1}{p_m}
+\end{eqnarray}
+%
+abschätzen. Setzt man dies in Glg. \eqref{eq:taylor_eos_boussinesq} auch für die zweiten Ableitungen ein, erhält man unter Vernachlässigung der Terme dritter und höherer Ordnung
+%
+\begin{eqnarray}
+\frac{\rho - \rho_m}{\rho_m} = -\frac{T - T_m}{T_m} + \frac{p - p_m}{p_m} \pm \frac{\left(T - T_m\right)^2}{T_m^2} \pm \frac{\left(p - p_m\right)^2}{p_m^2}.
+\end{eqnarray}
+%
+Aufgrund von Glg.en \eqref{eq:boussinesq_deriv_0} und \eqref{eq:boussinesq_1} kann man dies durch
+%
+\begin{eqnarray}
+\frac{\rho - \rho_m}{\rho_m} = -\frac{T - T_m}{T_m} + \frac{p - p_m}{p_m} = -a_m\left(T - T_m\right) + K_m\left(p - p_m\right)
+\end{eqnarray}
+%
+nähern. Dies impliziert
+%
+\begin{eqnarray}
+\rho_0 & = & \rho_m\left(-a_mT_0 + K_mp_0\right),\\
+\rho' & = & \rho_m\left(-a_mT' + K_mp'\right).
+\end{eqnarray}
+%
+Die hydrostatische Grundgleichung\index{hydrostatische Grundgleichung}\index{Grundgleichung!hydrostatische} \eqref{eq:hydrostatic} lautet
+%
+\begin{eqnarray}
+\frac{dp_0}{dz} = -g\rho_m - g\rho_0.
+\end{eqnarray}
+%
+Setzt man dies in die Impulsgleichung\index{Impulsgleichung} ein, erhält man
+%
+\begin{eqnarray}
+\rho\left(\frac{\partial}{\partial t} + \mathbf{v}\cdot\nabla\right)\mathbf{v} & = & -\nabla p' - \frac{dp_0}{dz}\mathbf{k} - g\rho\mathbf{k} - \rho\mathbf{f}\times\mathbf{v} + \rho\mathbf{F}_R\nonumber\\
+& = & -\nabla p' - \frac{dp_0}{dz}\mathbf{k} - g\rho_m\mathbf{k} - g\rho_0\mathbf{k} - g\rho'\mathbf{k} - \rho\mathbf{f}\times\mathbf{v} + \rho\mathbf{F}_R\nonumber\\
+& = & -\nabla p' - g\rho'\mathbf{k} - \rho\mathbf{f}\times\mathbf{v} + \rho\mathbf{F}_R.
+\end{eqnarray}
+%
+Dividiert man dies durch $\rho_m$, erhält man
+%
+\begin{eqnarray}
+\frac{\rho}{\rho_m}\left(\frac{\partial}{\partial t} + \mathbf{v}\cdot\nabla\right)\mathbf{v} & = & -\frac{1}{\rho_m}\nabla p' - g\frac{\rho'}{\rho_m}\mathbf{k} - \frac{\rho}{\rho_m}\mathbf{f}\times\mathbf{v} + \frac{\rho}{\rho_m}\mathbf{F}_R.
+\end{eqnarray}
+%
+Aufgrund von Glg. \eqref{eq:boussinesq_deriv_0} kann man
+%
+\begin{eqnarray}
+\frac{\rho}{\rho_m} \approx 1\label{eq:boussinesq_deriv_1}
+\end{eqnarray}
+%
+nähern. Dies führt auf
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{eqnarray}
+\left(\frac{\partial}{\partial t} + \mathbf{v}\cdot\nabla\right)\mathbf{v} & = & -\frac{1}{\rho_m}\nabla p' - g\frac{\rho'}{\rho_m}\mathbf{k} - \mathbf{f}\times\mathbf{v} + \mathbf{F}_R.
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
+%
 Die Kontinuitätsgleichung lautet
 %
 \begin{eqnarray}
-\frac{\partial\rho}{\partial t} + \mathbf{v}\cdot\nabla\rho + \rho\nabla\cdot\mathbf{v} = 0.
+\left(\frac{\partial}{\partial t} + \mathbf{v}\cdot\nabla\right)\rho = -\rho\nabla\cdot\mathbf{v}.
 \end{eqnarray}
 %
-Setzt man für die Dichte
+Dividiert man dies durch $\rho_m$, erhält man
 %
 \begin{eqnarray}
-\rho = \rho_0 + \rho'
+\left(\frac{\partial}{\partial t} + \mathbf{v}\cdot\nabla\right)\frac{\rho - \rho_m}{\rho_m} = -\frac{\rho}{\rho_m}\nabla\cdot\mathbf{v}.
 \end{eqnarray}
 %
-mit einer stationären, horizontal homogenen Schichtung $\rho_0\left(z\right)$ und einer Fluktuation $\rho'$ ein, folgt
+Setzt man hier Glg. \eqref{eq:boussinesq_deriv_0} ein, erhält man
 %
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 \begin{eqnarray}
-\frac{\partial\rho'}{\partial t} + \rho_0\nabla\cdot\mathbf{v} + \rho'\nabla\cdot\mathbf{v} + \mathbf{v}\cdot\nabla\rho' + w\frac{\partial\rho_0}{\partial z} = 0.
+\nabla\cdot\mathbf{v} = 0 \Leftrightarrow \md{\rho} = 0.
 \end{eqnarray}
+\end{center}
+}}
+\end{center}
 %
-Nun macht man folgende Annahmen an die Größenordnungen der auftretenden Terme:
-%
-\begin{itemize}
-\item Die Dichtefluktuation ist eine Größenordnung kleiner als die Hintergrunddichte.
-\item Die Änderung der Hintergrunddichte mit der Höhe ist in der Größenordnung der Dichtefluktuation.
-\item Die Längenskala ist zwei Größenordnungen größer als die Tiefenskala.
-\end{itemize}
-%
-Normiert man den zweiten Term auf $1$, haben die anderen Terme die folgenden Größenordnungen:
-%
-\begin{eqnarray}
-\underbrace{\vphantom{\frac{\partial\rho'}{\partial t} + \rho_0\nabla\cdot\mathbf{v} + \rho'\nabla\cdot\mathbf{v} + \mathbf{v}\cdot\nabla\rho' + \frac{\partial\rho_0}{\partial z}} \frac{\partial\rho'}{\partial t}}_{10^{-1}} + \underbrace{\vphantom{\frac{\partial\rho'}{\partial t} + \rho_0\nabla\cdot\mathbf{v} + \rho'\nabla\cdot\mathbf{v} + \mathbf{v}\cdot\nabla\rho' + \frac{\partial\rho_0}{\partial z}} \rho_0\nabla\cdot\mathbf{v}}_{10^{0}} + \underbrace{\vphantom{\frac{\partial\rho'}{\partial t} + \rho_0\nabla\cdot\mathbf{v} + \rho'\nabla\cdot\mathbf{v} + \mathbf{v}\cdot\nabla\rho' + \frac{\partial\rho_0}{\partial z}} \rho'\nabla\cdot\mathbf{v}}_{10^{-1}} + \underbrace{\vphantom{\frac{\partial\rho'}{\partial t} + \rho_0\nabla\cdot\mathbf{v} + \rho'\nabla\cdot\mathbf{v} + \mathbf{v}\cdot\nabla\rho' + \frac{\partial\rho_0}{\partial z}} \mathbf{v}\cdot\nabla\rho'}_{10^{-1}} + \underbrace{\vphantom{\frac{\partial\rho'}{\partial t} + \rho_0\nabla\cdot\mathbf{v} + \rho'\nabla\cdot\mathbf{v} + \mathbf{v}\cdot\nabla\rho' + \frac{\partial\rho_0}{\partial z}} w\frac{\partial\rho_0}{\partial z}}_{10^{-1}} = 0.
-\end{eqnarray}
-%
-Hieraus folgen
-%
-\begin{eqnarray}
-\nabla\cdot\mathbf{v} & = & 0,\\
-\md{\rho} & = & 0.
-\end{eqnarray}
-%
-Dies bezeichnet man als \textit{Boussinesq-Approximation}\index{Boussinesq-Approximation}.
+Unter der Boussinesq-Approximation\index{Boussinesq-Approximation} vereinfacht sich die Kontinuitätsgleichung\index{Kontinuitätsgleichung!inkompressible}\index{inkompressible!Kontinuitätsgleichung} also auf ihre inkompressible Form. Die Boussinesq-Approximation\index{Boussinesq-Approximation} ist im Ozean gerechtfertigt, in der Atmosphäre jedoch nicht.
 
 \section{Entwicklungen des Coriolis-Parameters in ebener Geometrie}
 \label{sec:entwicklungen_des_coriolisparameters_in_ebener_geometrie}
