@@ -2971,7 +2971,7 @@ Beide Seiten sind also gleich einer Separationskonstanten, die mit $-\frac{\hbar
 \Delta_{\theta, \phi}G_l\left(\theta, \phi\right) = -l\left(l + 1\right)G_l\left(\theta, \phi\right).
 \end{eqnarray}
 %
-Dies wird von den Kugelflächenfunktionen $Y_{l, m}\left(\theta, \phi\right)$ Glg. \eqref{eq:spherical_harmionen} erfüllt, s. Glg. \eqref{eq:spherical_harm_prop_1}, hierbei gilt $\left|m\right|\leq l$. Die Normierungsbedingung lautet
+Dies wird von den Kugelflächenfunktionen $Y_{l, m}\left(\theta, \phi\right)$ Glg. \eqref{eq:def_spherical_harmonics} erfüllt, s. Glg. \eqref{eq:spherical_harm_prop_1}, hierbei gilt $\left|m\right|\leq l$. Die Normierungsbedingung lautet
 %
 \begin{eqnarray}
 \int_{\phi = 0}^{2\pi}\int_{\theta = 0}^{\pi}\left|G_l\right|^2\sin\left(\theta\right) d\theta d\phi \hastobe1.
@@ -3427,7 +3427,7 @@ Dies entspricht mit Glg. \eqref{eq:laplace_winkelanteil} der Aussage
 \newhat{\mathbf{J}}^2 = -\Delta_{\theta, \phi}.\label{eq:drehmomentum_op_quadrat}
 \end{eqnarray}
 %
-Sei $|n, l, m\rangle$ der Zustand eines Elektrons im Wasserstoffatom mit den Quantenzahlen $n$, $l$ und $m$. Aufgrund der Ortsdarstellung von $|n, l, m\rangle$ Glg. \eqref{eq:zustand_h_ortsraum}, der Definition der Kugelflächenfunktionen Glg. \eqref{eq:spherical_harmionen}, der Darstellung der z-Komponenten des Drehimpulsoperators Glg. \eqref{eq:eq:drehmomentum_op_z}, der eben hergeleiteten Glg. \eqref{eq:drehmomentum_op_quadrat} sowie der Eigenschaft Glg. \eqref{eq:spherical_harm_prop_1} der Kugelflächenfunktionen gelten folgende zwei Aussagen:
+Sei $|n, l, m\rangle$ der Zustand eines Elektrons im Wasserstoffatom mit den Quantenzahlen $n$, $l$ und $m$. Aufgrund der Ortsdarstellung von $|n, l, m\rangle$ Glg. \eqref{eq:zustand_h_ortsraum}, der Definition der Kugelflächenfunktionen Glg. \eqref{eq:def_spherical_harmonics}, der Darstellung der z-Komponenten des Drehimpulsoperators Glg. \eqref{eq:eq:drehmomentum_op_z}, der eben hergeleiteten Glg. \eqref{eq:drehmomentum_op_quadrat} sowie der Eigenschaft Glg. \eqref{eq:spherical_harm_prop_1} der Kugelflächenfunktionen gelten folgende zwei Aussagen:
 %
 \begin{eqnarray}
 \newhat{\mathbf{L}}^2|n, l, m\rangle & = & \hbar^2l\left(l + 1\right)|n, l, m\rangle,\\
@@ -3570,7 +3570,7 @@ ein. Diese Zustände sind normiert, weiterhin sind sie als Eigenzustände Hermit
 \left\langle j', m'\big|j, m\right\rangle & = & \delta_{j, j'}\delta_{m, m'}.
 \end{eqnarray}
 %
-Ist $j$ ganzzahlig, so ist die Ortsdarstellung der Lösung gegeben durch die Kugelflächenfunktionen Glg. \eqref{eq:spherical_harmionen}. Hierdurch wird zum Beispiel der Bahndrehmomentum von Teilchen im Zentralkraftfeld beschrieben, s. Absch. \ref{sec:hatom}. Der Fall, dass $j$ halbzahlig ist, ist wichtig für Teilchen mit halbzahligem Spin\index{Spin}. Teilchen mit halbzahligem Spin bezeichnet man als \textit{Fermionen}, \index{Fermion} während man Teilchen mit ganzzahligem Spin als \textit{Bosonen}\index{Boson} bezeichnet. Beispiele für Fermionen sind Elektronen, Protonen und Neutronen, Photonen sind Bosonen.
+Ist $j$ ganzzahlig, so ist die Ortsdarstellung der Lösung gegeben durch die Kugelflächenfunktionen Glg. \eqref{eq:def_spherical_harmonics}. Hierdurch wird zum Beispiel der Bahndrehmomentum von Teilchen im Zentralkraftfeld beschrieben, s. Absch. \ref{sec:hatom}. Der Fall, dass $j$ halbzahlig ist, ist wichtig für Teilchen mit halbzahligem Spin\index{Spin}. Teilchen mit halbzahligem Spin bezeichnet man als \textit{Fermionen}, \index{Fermion} während man Teilchen mit ganzzahligem Spin als \textit{Bosonen}\index{Boson} bezeichnet. Beispiele für Fermionen sind Elektronen, Protonen und Neutronen, Photonen sind Bosonen.
 
 Von nun an wird von halbzahligem Spin ausgegangen, nämlich $j = \frac{1}{2}$. In diesem Fall werden die Zustände $\left|j, m\right\rangle$ mit $\left|ss_z\right\rangle = \left|\frac{1}{2}, s_z\right\rangle$ bezeichnet. Man definiert
 %
@@ -9900,16 +9900,16 @@ mit einer gewichteten Schichtmitteltemperatur
 \section{Boussinesq-Approximation}
 \label{sec:boussinesq-approximation}\index{Boussinesq-Approximation}
 
-Sei $f$ eine der thermodynamischen Zustandsgrößen. Notiere für diese
+Sei $\psi$ eine der thermodynamischen Zustandsgrößen. Notiere für diese
 %
 \begin{eqnarray}
-f = f\left(\varphi, \lambda, z\right) = f_m + f_0\left(z\right) + f'\left(\varphi, \lambda, z\right),
+\psi = \psi\left(\varphi, \lambda, z\right) = \psi_m + \psi_0\left(z\right) + \psi'\left(\varphi, \lambda, z\right),
 \end{eqnarray}
 %
-hierbei ist $f_m$ der Mittelwert von $f$, $f_0$ die hydrostatische Schichtung unter Abwesenheit von Bewegung und Beschleunigungen und $f'$ die Variation, die durch Bewegung entsteht. Definiere die zu $f$ gehörende Skalenhöhe\index{Skalenhöhe} $D_f$ durch
+hierbei ist $\psi_m$ der Mittelwert von $\psi$, $\psi_0$ die hydrostatische Schichtung unter Abwesenheit von Bewegung und Beschleunigungen und $\psi'$ die Variation, die durch Bewegung entsteht. Definiere die zu $\psi$ gehörende Skalenhöhe\index{Skalenhöhe} $D_\psi$ durch
 %
 \begin{eqnarray}
-D_f \coloneqq \left|\frac{1}{f_m}\frac{df_0}{dz}\right|^{-1}.
+D_\psi \coloneqq \left|\frac{1}{\psi_m}\frac{d\psi_0}{dz}\right|^{-1}.
 \end{eqnarray}
 %
 Das Fluid habe die Dicke $h$. Der erste Teil der sogenannten \textit{Boussinesq-Approximation}\index{Boussinesq-Approximation}
@@ -9918,16 +9918,16 @@ Das Fluid habe die Dicke $h$. Der erste Teil der sogenannten \textit{Boussinesq-
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{eqnarray}
-h \ll \left(D_f\right)_\text{min},\label{eq:boussinesq_0}
+h \ll \left(D_\psi\right)_\text{min},\label{eq:boussinesq_0}
 \end{eqnarray}
 \end{center}
 }}
 \end{center}
 %
-wobei $\left(D_f\right)_\text{min}$ die minimale Skalenhöhe\index{Skalenhöhe} aller thermodynamischen Zustandsgrößen bezeichnet. Dies impliziert
+wobei $\left(D_\psi\right)_\text{min}$ die minimale Skalenhöhe\index{Skalenhöhe} aller thermodynamischen Zustandsgrößen bezeichnet. Dies impliziert
 %
 \begin{eqnarray}
-\left|\frac{f_0}{f_m}\right| \ll 1\label{eq:boussinesq_deriv_0}
+\left|\frac{\psi_0}{\psi_m}\right| \ll 1\label{eq:boussinesq_deriv_0}
 \end{eqnarray}
 %
 für alle thermodynamischen Variablen. Der zweite Teil der Boussinesq-Approximation\index{Boussinesq-Approximation} lautet
@@ -9982,7 +9982,7 @@ Aufgrund von Glg.en \eqref{eq:boussinesq_deriv_0} und \eqref{eq:boussinesq_1} ka
 -\frac{T - T_m}{T_m} + \frac{p - p_m}{p_m} \pm \frac{\left(T - T_m\right)^2}{T_m^2} \pm \frac{\left(p - p_m\right)^2}{p_m^2} \approx -\frac{T - T_m}{T_m} + \frac{p - p_m}{p_m}
 \end{eqnarray}
 %
-nähern. Es gilt also unter Vernachlässigung des Ungefähr-Zeichens (in erster Ordnung in den Störungen $f - f_m$ der thermodynamischen Variablen $f$)
+nähern. Es gilt also unter Vernachlässigung des Ungefähr-Zeichens (in erster Ordnung in den Störungen $\psi - \psi_m$ der thermodynamischen Variablen $\psi$)
 %
 \begin{eqnarray}
 \frac{\rho - \rho_m}{\rho_m} = -a_m\left(T - T_m\right) + K_m\left(p - p_m\right).
@@ -14931,49 +14931,23 @@ f' &\approx& \frac{A}{2\Delta x}\left(\sin\left(kx + k\Delta x\right) - \sin\lef
 %
 Hieran sieht man, dass die Approximation, wie erwartet, gegen den richtigen Wert der Ableitung konvergiert, falls $\Delta x$ gegen Null geht (es gilt $\lim\limits_{\alpha\to 0}\frac{\sin\left(\alpha\right)}{\alpha} = 1$ nach der Regel von L'Hospital). Schreibt man für $k = \frac{2\pi}{\lambda}$ mit $\lambda$ als Wellenlänge und setzt $\Delta x = \lambda/2$ ein, so ergibt der zentrale Differenzenquotient immer $f' = 0$. Hinreichend lange Wellen ($\lambda\gg 2\Delta x$) werden jedoch gut aufgelöst.
 
-\section{Die ebene Spektralmethode}
-\label{sec:die_ebene_spektralmethode}
+\section{Ebene Spektralmethode}
+\label{sec:ebene_spektralmethode}
 
-\section{Die sphärische Spektralmethode}
-\label{sec:die_sphaerische_spektralmethode}
+\section{Sphärische Spektralmethode}
+\label{sec:sphaerische_spektralmethode}
 
-\section{Spezifika der Geofluidsimulation}
-\label{sec:spezifika_der_geofluidsimulation}\index{Geofluidsimulation}
-
-Es gibt kaum theoretisches Handwerkszeug, um nichtlineare partielle Differenzialgleichungen (Abk. PDEs für engl. \textit{partial differential equations)} untersuchen zu können. Im inkompressiblen, viskosen Fall eines Fluids mit der Dynamik
+Sei $\psi = \psi\left(\varphi, \lambda, z\right)$ ein Skalarfeld. Da die in Absch. \ref{sec:kugelflaechenfunktionen} vorgestellten Kugelflächenfunktionen\index{Kugelflächenfunktion} eine vollständige Orthonormalbasis\index{vollständige Orthonormalbasis}\index{Orthonormalbasis!vollständige} auf Kugelschalen\index{Kugelschale} bilden, ist es möglich, die horizontale Abhängigkeit von $\psi$ durch diesen Satz an Funktionen auszudrücken:
 %
 \begin{eqnarray}
-\md{\mathbf{v}} & = & -\frac{1}{\rho}\nabla p + \nu\Delta\mathbf{v} + \mathbf{f}\left(\mathbf{r}, t\right),\\
-\nabla\cdot\mathbf{v} & = & 0
+\psi\left(\varphi, \lambda, z\right) = \sum_{l = 0}^\infty\sum_{m = -l}^l\newtilde{\psi}_{l, m}\left(z\right)Y_{l, m}\left(\varphi, \lambda\right)
 \end{eqnarray}
 %
-mit gegebenen Kräften $\mathbf{f}\left(\mathbf{r}, t\right)$, welches den gesamten $\mathbb{R}^3$ ausfüllt, ist es eine ungeklärte Fragestellung, ob für physikalisch realistische Anfangsbedingungen eine eindeutige Lösung für alle nachfolgenden Zeiten existiert. Daher ist die Frage nach der optimalen Methode einer Wettervorhersage derzeit nicht zu beantworten und es ist anzunehmen, dass diese Frage in mathematischer Rigorosität auch nie zu beantworten sein wird. Praktische hydrodynamische Probleme (wie z. B. Wettervorhersage) werden also meistens mit numerischen Problemen bearbeitet.
-
-Zunächst einmal macht man sich noch einmal klar, was durch Tracer gegenüber einer trockenen Atmosphäre an zusätzlichen Komplikationen hinzukommt:
-%
-\begin{enumerate}
-\item bei $N$ Tracern kommen $N$ Kontinuitätsgleichungen\index{Kontinuitätsgleichung} mit verknüpften Quelltermen hinzu
-\item bei $M$ kondensierten Tracern\index{Kondensat} kommen $M$ Erste Hauptätze\index{Erster Hauptsatz!der Thermodynamik}\index{Thermodynamik!Erster Hauptsatz} hinzu
-\item die spezifischen Wärmekapazitäten\index{spezifische Wärmekapazität}\index{Wärmekapazität!sspezifsiche}, die individuelle Gaskonstante\index{individuelle Gaskonstante}\index{Gaskonstante!individuelle} sowie die thermische Zustandsgleichung\index{thermische Zustandsgleichung}\index{Zustandsgleichung!thermische} ändern sich
-\end{enumerate}
-%
-Die ersten beiden Punkte sind formal bereits im trockenen Gleichungssystem vorhanden, da bereits in diesem eine Kontinuitätsgleichung\index{Kontinuitätsgleichung} und ein Erster Hauptsatz\index{Erster Hauptsatz der Thermodynamik}\index{Thermodynmaik!Erster Hauptsatz} vorhanden sind. Wenn man also bei einer Diskretisierung der Gleichungen einer trockenen Atmosphäre darauf achtet, eine Ankopplung an Tracer zu ermöglichen (s. Punkt 3.), ist es möglich, die numerische Leistungsfähigkeit einer Diskretisierung nur mittels des trockenen Gleichungssystems zu untersuchen:
+Die Definition der Kugelflächenfunktionen\index{Kugelflächenfunktion} Glg. \eqref{eq:def_spherical_harmonics} wird hier in geographischen Koordinaten\index{geographische Koordinaten}\index{Koordinaten!geographische} formuliert:
 %
 \begin{eqnarray}
-\md{\mathbf{v}} & = & -\frac{1}{\rho}\nabla p + \mathbf{v}\times\mathbf{f} + \mathbf{g}, \label{eq:pne_1}\\
-p & = & TR_d\rho, \label{eq:pne_2}\\
-\md{\theta} & = & 0, \label{eq:pne_3}\\
-\frac{\partial\rho}{\partial t} + \nabla\cdot\left(\rho\mathbf{v}\right) & = & 0\label{eq:pne_4}.
+Y_{l, m}\left(\varphi, \lambda\right) = \sqrt{\frac{2l + 1}{4\pi}\frac{\left(l - m\right)!}{\left(l + m\right)!}}P_{l, m}\left(\sin\left(\varphi\right)\right)\exp\left(im\lambda\right)
 \end{eqnarray}
-%
-Dieses System bezeichnet man auch als das der \textit{primitiven, nichthydrostatischen Gleichungen} (Abk. PNEs von engl. \textit{primitive, nonhydrostatic equations})\index{primitive, nonhydrostatic equations (PNEs)}.
-
-Weiterhin hängt die optimale Vorhersagemethode nicht nur von rein mathematischen Fragestellungen ab, sondern auch von der verwendeten Rechnerarchitektur. Die Entwicklung der Großrechner geht in die Richtung von Systemen aus sehr vielen Prozessoren \cite{staniforth_grids}. Die Kapazitäten eines solchen Rechners nutzt man dann optimal aus, wenn jeder Prozessor fortwährend beschäftigt ist. Dies bezeichnet man als \textit{Parallelisierung}.\index{Parallelisierung} Hierbei fließen Daten zwischen den Prozessoren hin und her, was zeitkritisch ist. Daher ist eine notwendige Bedingung an eine zukunftsträchtige Diskretisierung der herrschenden Gleichungen deren \textit{Skalierbarkeit}\index{Skalierbarkeit} auf parallelen Rechnerarchitekturen. Mit \textit{Skalierung} ist dabei das Anwachsen der Rechenzeit mit der Auflösung gemeint. Das Länge-Breite-Gitter sowie die spektrale Formulierung stellen sich bezüglich dieses Punktes als unvorteilhaft heraus. Hierzu sind viel mehr \textit{quasi-uniforme}\index{Quasi-Uniformität!eines Gitters}\index{Gitter!Quasi-Uniformität} Gitter geeignet. Von \textit{Uniformität}\index{Uniformität!eines Gitters}\index{Gitter!Uniformität} spricht man, wenn alle Ecken, Kanten und Flächen des Gitters kongruent sind. Quasi-Uniformität liegt vor, wenn das Verhältnis von maximalem zu minimalem Gitterpunktabstand mit wachsender Auflösung gleich bleibt und nicht viel größer als Eins ist. Dies ist notwendig für die Skalierbarkeit auf Parallelrechnern.
-
-Ein Gitter heißt orthogonal\index{Orthogonalität!eines Gitters}\index{Gitter!Orthogonalität}, wenn ein zweites existiert, dessen Verbinungslinien diejenigen des ersten senkrecht schneiden, und die Schnittpunkte der Verbindungslinien des einen Gitters in den geometrischen Zentren der Boxen des jeweils anderen liegen. Diese beiden Gitter nennt man dual. Orthogonalität ist bei der Formulierung der Differenzialoperatoren hilfreich.
-
-Es gibt nur fünf platonische Körper. Dementsprechend existieren nur fünf uniforme Gitter auf der Kugel. Diese entstehen aus den platonischen Körpern, indem man ihre Ecken vom Mittelpunkt auf die Kugeloberfläche projiziert. All diese Gitter sind zu grob für ein Atmosphärenmodell. Daher haben alle verwendbaren Gitter irgendwo Punkte, Linien oder Flächen, an denen die lokale Gitterstruktur von der allgemeinen Struktur abweicht. An diesen Stellen sind die Fehler der Diskretisierung ebenfalls anders, was zu einer Sichtbarkeit des Gitters in der Lösung führen kann oder Wellen erzeugen kann, die als Lärm durch die Lösung propagieren. 
-
 
 \chapter{\normalfont\textsc{Zeitschrittverfahren}}
 \label{chap:zeitschrittverfahren}\index{Zeitschrittverfahren}
@@ -15392,8 +15366,19 @@ T_1 & = & \frac{c^{(v)}\rho_0T_0 + \left(R_dT_0 - \frac{R_d}{c^{(p)}}s_0T_0\righ
 \chapter{\normalfont\textsc{Auswahl einer zukunftsfähigen horizontalen Diskretisierung}}
 \label{sec:auswahl_einer_zukunftsfaehigen_horizontalen_diskretisierung}
 
+Die Vielfalt an numerischen Methoden für die Diskretisierung der herrschenden Gleichungen ist groß und der Aufwand, der damit verbunden ist, eine solche Diskretisierung bis hin zur operationellen Anwendbarkeit zu implementieren, ebenfalls. Daher ist es wichtig, eine gute Entscheidung über die Grundstruktur eines zu formulierenden Modells zu treffen, bevor man mit der Programmierung beginnt.
+
+\section{Duales Gitter}
+\label{sec:duales_gitter}
+
+Ein Gitter heißt orthogonal\index{Orthogonalität!eines Gitters}\index{Gitter!Orthogonalität}, wenn ein zweites existiert, dessen Verbinungslinien diejenigen des ersten senkrecht schneiden, und die Schnittpunkte der Verbindungslinien des einen Gitters in den geometrischen Zentren der Boxen des jeweils anderen liegen. Diese beiden Gitter nennt man dual. Orthogonalität ist bei der Formulierung der Differenzialoperatoren hilfreich.
+
 \section{Aus Rechnerarchitektur folgende Beschränkungen}
 \label{sec:aus:rechnerarchitektur_folgende_beschraenkungen}
+
+Die optimale Vorhersagemethode hängt nicht nur von rein mathematischen Fragestellungen ab, sondern auch von der verwendeten Rechnerarchitektur. Die Entwicklung der Großrechner geht in die Richtung von Systemen aus sehr vielen Prozessoren \cite{staniforth_grids}. Die Kapazitäten eines solchen Rechners nutzt man dann optimal aus, wenn jeder Prozessor fortwährend beschäftigt ist. Dies bezeichnet man als \textit{Parallelisierung}.\index{Parallelisierung} Hierbei fließen Daten zwischen den Prozessoren hin und her, was zeitkritisch ist. Daher ist eine notwendige Bedingung an eine zukunftsträchtige Diskretisierung der herrschenden Gleichungen deren \textit{Skalierbarkeit}\index{Skalierbarkeit} auf parallelen Rechnerarchitekturen. Mit \textit{Skalierung} ist dabei das Anwachsen der Rechenzeit mit der Auflösung gemeint. Das Länge-Breite-Gitter sowie die spektrale Formulierung stellen sich bezüglich dieses Punktes als unvorteilhaft heraus. Hierzu sind viel mehr \textit{quasi-uniforme}\index{Quasi-Uniformität!eines Gitters}\index{Gitter!Quasi-Uniformität} Gitter geeignet. Von \textit{Uniformität}\index{Uniformität!eines Gitters}\index{Gitter!Uniformität} spricht man, wenn alle Ecken, Kanten und Flächen des Gitters kongruent sind. Quasi-Uniformität liegt vor, wenn das Verhältnis von maximalem zu minimalem Gitterpunktabstand mit wachsender Auflösung gleich bleibt und nicht viel größer als Eins ist. Dies ist notwendig für die Skalierbarkeit auf Parallelrechnern.
+
+Es gibt nur fünf platonische Körper. Dementsprechend existieren nur fünf uniforme Gitter auf der Kugel. Diese entstehen aus den platonischen Körpern, indem man ihre Ecken vom Mittelpunkt auf die Kugeloberfläche projiziert. All diese Gitter sind zu grob für ein Atmosphärenmodell. Daher haben alle verwendbaren Gitter irgendwo Punkte, Linien oder Flächen, an denen die lokale Gitterstruktur von der allgemeinen Struktur abweicht. An diesen Stellen sind die Fehler der Diskretisierung ebenfalls anders, was zu einer Sichtbarkeit des Gitters in der Lösung führen kann oder Wellen erzeugen kann, die als Lärm durch die Lösung propagieren.
 
 \section{Arakawa-Gitter}
 \label{sec:arakawa-gitter}\index{Arakawa-Gitter}\index{Gitter!Arakawa}
@@ -19528,7 +19513,7 @@ Mit Glg. \eqref{eq:int_prop_1} folgt
 Die Abhängigkeiten der Lösung Glg. \eqref{eq:ansatz_poisson} von $\cos\left(\theta\right)$ und $\phi$ fasst man zu $P_{l, m}\left(\cos\left(\theta\right)\right)\exp\left(im\phi\right)$ zusammen. Die \textit{Kugelflächenfunktionen} (engl. \textit{spherical harmonics}) werden definiert durch
 %
 \begin{eqnarray}
-Y_{l, m}\left(\theta, \phi\right) = \sqrt{\frac{2l + 1}{4\pi}\frac{\left(l - m\right)!}{\left(l + m\right)!}}P_{l, m}\left(\cos\left(\theta\right)\right)\exp\left(im\phi\right).\label{eq:spherical_harmionen}
+Y_{l, m}\left(\theta, \phi\right) = \sqrt{\frac{2l + 1}{4\pi}\frac{\left(l - m\right)!}{\left(l + m\right)!}}P_{l, m}\left(\cos\left(\theta\right)\right)\exp\left(im\phi\right).\label{eq:def_spherical_harmonics}
 \end{eqnarray}
 %
 mit den assoziierten Legendre-Funktionen $P_{l, m}\left(x\right)$, Glg. \eqref{eq:assoziierte_legendre_funktionen}. Die Vorfaktoren ergeben sich aus der Normierung
