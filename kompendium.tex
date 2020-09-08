@@ -18767,8 +18767,8 @@ f\left(x\right)g\left(x\right) & = & \newtilde{C}^2\int_{k=-\infty}^{\infty}\int
 Integriert man dies über $x$, erhält man
 %
 \begin{eqnarray}
-\int_{-\infty}^\infty f\left(x\right)g\left(x\right)dx & = & \newtilde{C}^2\int_{k=-\infty}^{\infty}\int_{k'=-\infty}^{\infty}\newtilde{g}\left(k'\right)\newtilde{f}\left(k\right)\int_{-\infty}^\infty\exp\left[i\left(k + k'\right)x\right]dxdk'dk\nonumber\\
-& \stackrel{\text{Glg. \eqref{eq:delta_distribution_prop_2}}}{=} & \newtilde{C}^2\int_{k=-\infty}^{\infty}\int_{k'=-\infty}^{\infty}\newtilde{g}\left(k'\right)\newtilde{f}\left(k\right)2\pi\delta\left(k + k'\right)dk'dk\nonumber\\
+\int_{-\infty}^\infty f\left(x\right)g\left(x\right)dx & = & \newtilde{C}^2\int_{k = -\infty}^{\infty}\int_{k'=-\infty}^{\infty}\newtilde{g}\left(k'\right)\newtilde{f}\left(k\right)\int_{-\infty}^\infty\exp\left[i\left(k + k'\right)x\right]dxdk'dk\nonumber\\
+& \stackrel{\text{Glg. \eqref{eq:delta_distribution_prop_2}}}{=} & \newtilde{C}^2\int_{k = -\infty}^{\infty}\int_{k'=-\infty}^{\infty}\newtilde{g}\left(k'\right)\newtilde{f}\left(k\right)2\pi\delta\left(k + k'\right)dk'dk\nonumber\\
 & = & 2\pi\newtilde{C}^2\int_{-\infty}^{\infty}\newtilde{g}\left(-k\right)\newtilde{f}\left(k\right)dk
 \end{eqnarray}
 %
@@ -18783,6 +18783,75 @@ Für $g = f$ erhält man die sogenannte \textit{Parseval-Identität}\index{Parse
 \end{center}
 }}
 \end{center}
+
+\subsection{Faltungstheorem}
+\label{sec:faltungstheorem}\index{Faltungstheorem}
+
+Seien $f$, $g$ zwei stetig differenzierbare Funktionen $\mathbb{R} \to \mathbb{R}$. Die Fourier-Transformationen dieser beiden Funktionen lauten
+%
+\begin{eqnarray}
+\newtilde{f}\left(k\right) & = & C\int_{-\infty}^{\infty}\exp\left(-ikx\right)f\left(x\right)dx,\\
+\newtilde{g}\left(k\right) & = & C\int_{-\infty}^{\infty}\exp\left(-ikx\right)g\left(x\right)dx.
+\end{eqnarray}
+%
+Definiere die stetig differenzierbare Funktion $h$ durch
+%
+\begin{eqnarray}
+h\left(x\right) = f\left(x\right)g\left(x\right).
+\end{eqnarray}
+%
+Beim sogenannten \textit{Faltungstheorem}\index{Faltungstheorem} geht es darum, wie die Fourier-Transformierte\index{Fourier-Transformierte} von $h$ mit den Fourier-Transformierten\index{Fourier-Transformierte} von $f$ und $g$ zusammenhängt. Für das Spektrum\index{Spektrum} von $h$ gilt
+%
+\begin{eqnarray}
+\newtilde{h}\left(k\right) & = & C^2\int_{-\infty}^\infty f\left(x\right)g\left(x\right)\exp\left(-ikx\right)dx.\label{eq:faltung_deriv_0}
+\end{eqnarray}
+%
+Drückt man $f$ und $g$ durch ihre Spektren aus, erhält man
+%
+\begin{eqnarray}
+f\left(x\right) & = & \newtilde{C}\int_{-\infty}^{\infty}\exp\left(ikx\right)f\left(k\right)dk,\\
+g\left(x\right) & = & \newtilde{C}\int_{-\infty}^{\infty}\exp\left(ikx\right)g\left(k\right)dk.
+\end{eqnarray}
+%
+Setzt man dies in Glg. \eqref{eq:faltung_deriv_0} ein, erhält man
+%
+\begin{eqnarray}
+\newtilde{h}\left(k\right) & = & C^2\int_{x = -\infty}^\infty\newtilde{C}\int_{k' = -\infty}^{\infty}\exp\left(ik'x\right)f\left(k'\right)dk'\newtilde{C}\int_{k' = -\infty}^{\infty}\exp\left(ik'x\right)g\left(k'\right)dk'\exp\left(-ikx\right)dx\nonumber\\
+& = & \frac{1}{4\pi^2}\int_{x = -\infty}^\infty\int_{k' = -\infty}^{\infty}\exp\left(ik'x\right)\newtilde{f}\left(k'\right)dk'\int_{k' = -\infty}^{\infty}\exp\left(ik'x\right)\newtilde{g}\left(k'\right)dk'\exp\left(-ikx\right)dx\nonumber\\
+& = & \frac{1}{4\pi^2}\int_{x = -\infty}^\infty\int_{k' = -\infty}^{\infty}\exp\left(ik'x\right)\newtilde{f}\left(k'\right)dk'\int_{k'' = -\infty}^{\infty}\exp\left(ik''x\right)\newtilde{g}\left(k''\right)dk''\exp\left(-ikx\right)dx\nonumber
+\end{eqnarray}
+\begin{eqnarray}
+& = & \frac{1}{4\pi^2}\int_{k' = -\infty}^\infty\int_{k'' = -\infty}^{\infty}\newtilde{f}\left(k'\right)\newtilde{g}\left(k''\right)\int_{x = -\infty}^{\infty}\exp\left(ik'x\right)\exp\left(ik''x\right)\exp\left(-ikx\right)dk''dk'dx\nonumber\\
+& = & \frac{1}{4\pi^2}\int_{k' = -\infty}^\infty\int_{k'' = -\infty}^{\infty}\newtilde{f}\left(k'\right)\newtilde{g}\left(k''\right)\int_{x = -\infty}^{\infty}\exp\left[i\left(k' + k'' - k\right)x\right]dk''dk'dx\nonumber\\
+& \stackrel{\text{Glg. \eqref{eq:delta_distribution_prop_2}}}{=} & \frac{1}{4\pi^2}\int_{k' = -\infty}^\infty\int_{k'' = -\infty}^{\infty}\newtilde{f}\left(k'\right)\newtilde{g}\left(k''\right)\int_{x = -\infty}^{\infty}2\pi\delta\left(k' + k'' - k\right)dk''dk'\nonumber\\
+& \stackrel{k'' = k - k'}{=} & \frac{1}{2\pi}\int_{-\infty}^\infty\newtilde{f}\left(k'\right)\newtilde{g}\left(k - k'\right)dk'.
+\end{eqnarray}
+%
+Die Aussage
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{eqnarray}
+\newtilde{h}\left(k\right) = \frac{1}{2\pi}\int_{-\infty}^\infty\newtilde{f}\left(k'\right)\newtilde{g}\left(k - k'\right)dk'
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
+%
+bezeichnet man als Faltungstheorem\index{Faltungstheorem}. Der Spezialfall
+%
+\begin{eqnarray}
+g = \frac{f}{2}
+\end{eqnarray}
+%
+entspricht der kinetischen Energie\index{kinetische Energie}\index{Energie!kinetische}. In diesem Fall erhält man
+%
+\begin{eqnarray}
+\newtilde{h}\left(k\right) = \frac{1}{4\pi}\int_{-\infty}^\infty\newtilde{f}\left(k'\right)\newtilde{f}\left(k - k'\right)dk' \not= \pi\newtilde{C}^2\newtilde{f}\left(-k\right)\newtilde{f}\left(k\right).
+\end{eqnarray}
+%
+Nun ist die Frage, ob man $\newtilde{h}\left(k\right)$ oder $\newtilde{f}\left(-k\right)\newtilde{f}\left(k\right)$ als kinetisches Energiespektrum\index{kinetisches Energiespektrum}\index{Energiespektrum!kinetisches} ansieht, wie es die Parseval-Identität\index{Parseval-Identität} Glg. \eqref{eq:parseval_identity} nahelegt. Man entscheidet sich für zweiteres, weil $\newtilde{f}\left(-k\right)\newtilde{f}\left(k\right)$ ausschließlich von Bewegungen der Wellenzahl $k$ abhängt, was bei $\newtilde{h}\left(k\right)$ nicht der Fall ist.
 
 \section{Legendre-Polynome}
 \label{sec:legendrepolynome}\index{Legendre-Polynom}
