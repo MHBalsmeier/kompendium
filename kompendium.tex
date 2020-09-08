@@ -5114,9 +5114,9 @@ dJ & = & -SdT - pdV - Nd\mu.
 Hieraus lassen sich folgende Aussagen ablesen:
 %
 \begin{eqnarray}
-\left(\frac{\partial E}{\partial S}\right)_{V, N} & = & T\\
+\left(\frac{\partial E}{\partial S}\right)_{V, N} & = & T\label{eq:energy_partial_deriv_0}\\
 \left(\frac{\partial E}{\partial V}\right)_{S, N} & = & -p\\
-\left(\frac{\partial E}{\partial N}\right)_{S, V} & = & \mu\label{eq:chemisches_potential_prop_1}\\
+\left(\frac{\partial E}{\partial N}\right)_{S, V} & = & \mu\label{eq:chemisches_potential_prop_0}\\
 \left(\frac{\partial F}{\partial T}\right)_{V, N} & = & -S
 \end{eqnarray}
 \begin{eqnarray}
@@ -9214,7 +9214,6 @@ und
 q_T^{(\text{diss})} & = & -\mathbf{v}\cdot\nabla\cdot\newoverline{\rho\mathbf{v}'\mathbf{v}'}.
 \end{eqnarray}
 %
-
 \subsubsection{Potentielle Temperatur als prognostische Variable}
 \label{sec:potentielle_temperatur_als_prognostische_variable_hamilton}
 
@@ -9242,40 +9241,40 @@ Die Funktionalableitungen hiervon sind
 Nun sollen die Zeitentwicklungen der Größen
 %
 \begin{eqnarray}
-B \coloneqq \int_A\newtilde{I} + \rho\phi d^3r = \int_A\rho\phi + c_d^{(v)}\rho Td^3r = \int_A\rho\phi + c_d^{(v)}\frac{p_0}{R_d}\left(\frac{R_d\newtilde{\theta}}{p_0}\right)^\kappa d^3r
+I' \coloneqq \int_A\newtilde{I} + \rho\phi d^3r = \int_A\rho\phi + c_d^{(v)}\rho Td^3r = \int_A\rho\phi + c_d^{(v)}\frac{p_0}{R_d}\left(\frac{R_d\newtilde{\theta}}{p_0}\right)^\kappa d^3r
 \end{eqnarray}
 %
 und
 %
 \begin{eqnarray}
-C \coloneqq \int_A\frac{1}{2}\rho\mathbf{v}^2d^3r
+K \coloneqq \int_A\frac{1}{2}\rho\mathbf{v}^2d^3r
 \end{eqnarray}
 %
 in Termen der Poisson-Klammer mit der Hamilton-Funktion $H$ notiert werden. Dazu rechnet man vorbereitend
 %
 \begin{eqnarray}
-\frac{\delta B}{\delta\mathbf{v}} & = & 0,\\
-\frac{\delta B}{\delta\rho} & = & \phi,\\
-\frac{\delta B}{\delta\newtilde{\theta}} & = & c_d^{(v)}\Pi,\\
-\frac{\delta C}{\delta\mathbf{v}} & = & \rho\mathbf{v},\\
-\frac{\delta C}{\delta\rho} & = & \frac{1}{2}\mathbf{v}^2,\\
-\frac{\delta C}{\delta\newtilde{\theta}} & = & 0
+\frac{\delta I'}{\delta\mathbf{v}} & = & 0,\\
+\frac{\delta I'}{\delta\rho} & = & \phi,\\
+\frac{\delta I'}{\delta\newtilde{\theta}} & = & c_d^{(v)}\Pi,\\
+\frac{\delta K}{\delta\mathbf{v}} & = & \rho\mathbf{v},\\
+\frac{\delta K}{\delta\rho} & = & \frac{1}{2}\mathbf{v}^2,\\
+\frac{\delta K}{\delta\newtilde{\theta}} & = & 0
 \end{eqnarray}
 %
 und erhält somit
 %
 \begin{eqnarray}
-\lbrace B, H\rbrace & = & -\int_A\frac{\delta B}{\delta\mathbf{v}}\cdot\left(\frac{\etabi}{\rho}\times\frac{\delta H}{\delta\mathbf{v}}\right)d^3r\\
-&& -\int_A\frac{\delta B}{\delta\rho}\nabla\cdot\frac{\delta H}{\delta\mathbf{v}} - \frac{\delta H}{\delta\rho}\nabla\cdot\frac{\delta B}{\delta\mathbf{v}}d^3r\\
-&& -\int_A\frac{\partial B}{\partial\newtilde{q}}\nabla\cdot\left(q\frac{\partial H}{\partial\mathbf{v}}\right) - \frac{\partial H}{\partial\newtilde{q}}\nabla\cdot\left(q\frac{\delta B}{\delta\mathbf{v}}\right)d^3r\nonumber\\
+\lbrace I', H\rbrace & = & -\int_A\frac{\delta I'}{\delta\mathbf{v}}\cdot\left(\frac{\etabi}{\rho}\times\frac{\delta H}{\delta\mathbf{v}}\right)d^3r\\
+&& -\int_A\frac{\delta I'}{\delta\rho}\nabla\cdot\frac{\delta H}{\delta\mathbf{v}} - \frac{\delta H}{\delta\rho}\nabla\cdot\frac{\delta I'}{\delta\mathbf{v}}d^3r\\
+&& -\int_A\frac{\partial I'}{\partial\newtilde{q}}\nabla\cdot\left(q\frac{\partial H}{\partial\mathbf{v}}\right) - \frac{\partial H}{\partial\newtilde{q}}\nabla\cdot\left(q\frac{\delta I'}{\delta\mathbf{v}}\right)d^3r\nonumber\\
 & = & -\int_A\phi\nabla\cdot\left(\rho\mathbf{v}\right) + c_d^{(p)}\Pi\nabla\cdot\left(\newtilde{\theta}\mathbf{v}\right)d^3r,\\
-\lbrace C, H\rbrace & = & -\int_A\frac{\delta C}{\delta\mathbf{v}}\cdot\left(\frac{\etabi}{\rho}\times\frac{\delta H}{\delta\mathbf{v}}\right)d^3r\\
-&& -\int_A\frac{\delta C}{\delta\rho}\nabla\cdot\frac{\delta H}{\delta\mathbf{v}} - \frac{\delta H}{\delta\rho}\nabla\cdot\frac{\delta C}{\delta\mathbf{v}}d^3r\\
-&& -\int_A\frac{\partial C}{\partial\newtilde{q}}\nabla\cdot\left(q\frac{\partial H}{\partial\mathbf{v}}\right) - \frac{\partial H}{\partial\newtilde{q}}\nabla\cdot\left(q\frac{\delta C}{\delta\mathbf{v}}\right)d^3r\nonumber\\
+\lbrace K, H\rbrace & = & -\int_A\frac{\delta K}{\delta\mathbf{v}}\cdot\left(\frac{\etabi}{\rho}\times\frac{\delta H}{\delta\mathbf{v}}\right)d^3r\\
+&& -\int_A\frac{\delta K}{\delta\rho}\nabla\cdot\frac{\delta H}{\delta\mathbf{v}} - \frac{\delta H}{\delta\rho}\nabla\cdot\frac{\delta K}{\delta\mathbf{v}}d^3r\\
+&& -\int_A\frac{\partial K}{\partial\newtilde{q}}\nabla\cdot\left(q\frac{\partial H}{\partial\mathbf{v}}\right) - \frac{\partial H}{\partial\newtilde{q}}\nabla\cdot\left(q\frac{\delta C}{\delta\mathbf{v}}\right)d^3r\nonumber\\
 & = & -\int_A-\phi\nabla\cdot\left(\rho\mathbf{v}\right) - c_d^{(p)}\Pi\nabla\cdot\left(\newtilde{\theta}\mathbf{v}\right)d^3r = -\int_A\rho\mathbf{v}\cdot\nabla\phi + c_d^{(p)}\newtilde{\theta}\mathbf{v}\cdot\nabla\Pi d^3r.
 \end{eqnarray}
 
-\subsubsection{Entropdiedichte als prognostische Variable}
+\subsubsection{Entropiedichte als prognostische Variable}
 \label{sec:entropiedichte_temperatur_als_prognostische_variable_hamilton}
 
 Verwendet man anstatt der potentiellen Temperatur die Entropie\index{Entropie} und definiert
@@ -9310,55 +9309,49 @@ notieren. Die Funktionalableitungen hiervon sind
 %
 \begin{eqnarray}
 \frac{\delta H}{\delta\mathbf{v}} & = & \rho\mathbf{v},\\
-\frac{\delta H}{\delta\rho} & = & \frac{1}{2}\mathbf{v}^2 + \phi + c_d^{(p)}\left(\frac{\rho R_d}{p_0}\right)^{\frac{R_d}{c_d^{(v)}}}\exp\left(-\frac{c}{c_d^{(v)}}\right)\exp\left(\frac{\newtilde{s}}{c_d^{(v)}\rho}\right)\nonumber\\
-&& -\frac{\newtilde{s}}{\rho}\left(\frac{\rho R_d}{p_0}\right)^{\frac{R_d}{c_d^{(v)}}}\exp\left(-\frac{c}{c_d^{(v)}}\right)\exp\left(\frac{\newtilde{s}}{c_d^{(v)}\rho}\right),\nonumber\\
-& = & \frac{1}{2}\mathbf{v}^2 + \phi + \left(c_d^{(p)} - s\right)\left(\frac{\rho R_d}{p_0}\right)^{\frac{R_d}{c_d^{(v)}}}\exp\left(-\frac{c}{c_d^{(v)}}\right)\exp\left(\frac{\newtilde{s}}{c_d^{(v)}\rho}\right),\nonumber\\
-& \stackrel{\text{Glg. \eqref{eq:pot_temp_entropy_diagnostics}}}{=} & \frac{1}{2}\mathbf{v}^2 + \phi + \left(c_d^{(p)} - s\right)\left(\frac{\rho R_d\theta}{p_0}\right)^{\frac{R_d}{c_d^{(v)}}}\theta,\nonumber\\
-& \stackrel{\text{Glg. \eqref{eq:exner_pressure_diag}}}{=} & \frac{1}{2}\mathbf{v}^2 + \phi + \left(c_d^{(p)} - s\right)\Pi\theta \stackrel{\text{Glg. \eqref{eq:def_exner-druck}}}{=} \frac{1}{2}\mathbf{v}^2 + \phi + \left(c_d^{(p)} - s\right)T \stackrel{\text{Glg. \eqref{eq:gibbs_ideal}}}{=} \frac{1}{2}\mathbf{v}^2 + \phi + G,\\
-\frac{\delta H}{\delta\newtilde{s}} & = & \left(\frac{\rho R_d}{p_0}\right)^{\frac{R_d}{c_d^{(v)}}}\exp\left(-\frac{c}{c_d^{(v)}}\right)\exp\left(\frac{\newtilde{s}}{c_d^{(v)}\rho}\right) = \left[\left(\frac{\rho R_d}{p_0}\right)^{\frac{R_d}{c_d^{(p)}}}\exp\left(-\frac{c}{c_d^{(p)}}\right)\exp\left(\frac{\newtilde{s}}{c_d^{(p)}\rho}\right)\right]^\kappa\nonumber\\
-& = & \left[\left(\frac{\rho R_d}{p_0}\right)^{\frac{R_d}{c_d^{(p)}}}\exp\left(\frac{\newtilde{s}}{c_d^{(p)}\rho} - \frac{c}{c_d^{(p)}}\right)\right]^\kappa \stackrel{\text{Glg. \eqref{eq:pot_temp_entropy_diagnostics}}}{=} \left(\frac{\rho\theta R_d}{p_0}\right)^{\frac{R_d}{c_d^{(v)}}}\theta\nonumber\\
-& \stackrel{\text{Glg. \eqref{eq:exner_pressure_diag}}}{=} & \Pi\theta \stackrel{\text{Glg. \eqref{eq:def_exner-druck}}}{=} T.
+\frac{\delta H}{\delta\rho} & \stackrel{\text{Glg. \eqref{eq:chemisches_potential_prop_0}}}{=} & \frac{1}{2}\mathbf{v}^2 + \phi + G,\\
+\frac{\delta H}{\delta\newtilde{s}} & \stackrel{\text{Glg. \eqref{eq:energy_partial_deriv_0}}}{=} & T.
 \end{eqnarray}
 %
 $G$ bezeichnet hierbei das spezifische Gibbs-Potential. Nun sollen die Zeitentwicklungen der Größen
 %
 \begin{eqnarray}
-B \coloneqq \int_A\newtilde{I} + \rho\phi d^3r = \int_A\rho\phi + c_d^{(v)}\rho Td^3r = \int_A\rho\phi + c\rho^\kappa\exp\left(\frac{\newtilde{s}}{c_d^{(v)}\rho}\right)d^3r
+I' \coloneqq \int_A\newtilde{I} + \rho\phi d^3r = \int_A\rho\phi + c_d^{(v)}\rho Td^3r = \int_A\rho\phi + c\rho^\kappa\exp\left(\frac{\newtilde{s}}{c_d^{(v)}\rho}\right)d^3r
 \end{eqnarray}
 %
 und
 %
 \begin{eqnarray}
-C \coloneqq \int_A\frac{1}{2}\rho\mathbf{v}^2d^3r
+K \coloneqq \int_A\frac{1}{2}\rho\mathbf{v}^2d^3r
 \end{eqnarray}
 %
 in Termen der Poisson-Klammer mit der Hamilton-Funktion $H$ notiert werden. Dazu rechnet man vorbereitend
 %
 \begin{eqnarray}
-\frac{\delta B}{\delta\mathbf{v}} & = & 0,\\
-\frac{\delta B}{\delta\rho} & = & \phi + G,\\
-\frac{\delta B}{\delta\newtilde{s}} & = & T,\\
-\frac{\delta C}{\delta\mathbf{v}} & = & \rho\mathbf{v},\\
-\frac{\delta C}{\delta\rho} & = & \frac{1}{2}\mathbf{v}^2,\\
-\frac{\delta C}{\delta\newtilde{s}} & = & 0
+\frac{\delta I'}{\delta\mathbf{v}} & = & 0,\\
+\frac{\delta I'}{\delta\rho} & = & \phi + G,\\
+\frac{\delta I'}{\delta\newtilde{s}} & = & T,\\
+\frac{\delta K}{\delta\mathbf{v}} & = & \rho\mathbf{v},\\
+\frac{\delta K}{\delta\rho} & = & \frac{1}{2}\mathbf{v}^2,\\
+\frac{\delta K}{\delta\newtilde{s}} & = & 0
 \end{eqnarray}
 %
 und erhält somit
 %
 \begin{eqnarray}
-\lbrace B, H\rbrace & = & -\int_A\frac{\delta B}{\delta\mathbf{v}}\cdot\left(\frac{\etabi}{\rho}\times\frac{\delta H}{\delta\mathbf{v}}\right)d^3r\\
-&& -\int_A\frac{\delta B}{\delta\rho}\nabla\cdot\frac{\delta H}{\delta\mathbf{v}} - \frac{\delta H}{\delta\rho}\nabla\cdot\frac{\delta B}{\delta\mathbf{v}}d^3r\\
-&& -\int_A\frac{\partial B}{\partial\newtilde{s}}\nabla\cdot\left(s\frac{\partial H}{\partial\mathbf{v}}\right) - \frac{\partial H}{\partial\newtilde{s}}\nabla\cdot\left(q\frac{\delta B}{\delta\mathbf{v}}\right)d^3r\nonumber\\
-& = & -\int_A\frac{\delta B}{\delta\rho}\nabla\cdot\left(\rho\mathbf{v}\right) + \frac{\partial B}{\partial\newtilde{s}}\nabla\cdot\left(s\rho\mathbf{v}\right)d^3r = -\int_A\left(\phi + c_d^{(p)}T - sT\right)\nabla\cdot\left(\rho\mathbf{v}\right) + T\nabla\cdot\left(s\rho\mathbf{v}\right)d^3r\nonumber\\
+\lbrace I', H\rbrace & = & -\int_A\frac{\delta I'}{\delta\mathbf{v}}\cdot\left(\frac{\etabi}{\rho}\times\frac{\delta H}{\delta\mathbf{v}}\right)d^3r\\
+&& -\int_A\frac{\delta I'}{\delta\rho}\nabla\cdot\frac{\delta H}{\delta\mathbf{v}} - \frac{\delta H}{\delta\rho}\nabla\cdot\frac{\delta I'}{\delta\mathbf{v}}d^3r\\
+&& -\int_A\frac{\partial I'}{\partial\newtilde{s}}\nabla\cdot\left(s\frac{\partial H}{\partial\mathbf{v}}\right) - \frac{\partial H}{\partial\newtilde{s}}\nabla\cdot\left(q\frac{\delta I'}{\delta\mathbf{v}}\right)d^3r\nonumber\\
+& = & -\int_A\frac{\delta I'}{\delta\rho}\nabla\cdot\left(\rho\mathbf{v}\right) + \frac{\partial I'}{\partial\newtilde{s}}\nabla\cdot\left(s\rho\mathbf{v}\right)d^3r = -\int_A\left(\phi + c_d^{(p)}T - sT\right)\nabla\cdot\left(\rho\mathbf{v}\right) + T\nabla\cdot\left(s\rho\mathbf{v}\right)d^3r\nonumber\\
 & = & -\int_A\left(\phi + G\right)\nabla\cdot\left(\rho\mathbf{v}\right) + T\nabla\cdot\left(\newtilde{s}\mathbf{v}\right)d^3r,\label{eq:poisson_entropy_internal}
 \end{eqnarray}
 %
 \begin{eqnarray}
-\lbrace C, H\rbrace & = & -\int_A\frac{\delta C}{\delta\mathbf{v}}\cdot\left(\frac{\etabi}{\rho}\times\frac{\delta H}{\delta\mathbf{v}}\right)d^3r\\
-&& -\int_A\frac{\delta C}{\delta\rho}\nabla\cdot\frac{\delta H}{\delta\mathbf{v}} - \frac{\delta H}{\delta\rho}\nabla\cdot\frac{\delta C}{\delta\mathbf{v}}d^3r\\
-&& -\int_A\frac{\partial C}{\partial\newtilde{s}}\nabla\cdot\left(s\frac{\partial H}{\partial\mathbf{v}}\right) - \frac{\partial H}{\partial\newtilde{s}}\nabla\cdot\left(s\frac{\delta C}{\delta\mathbf{v}}\right)d^3r\nonumber\\
-& = & -\int_A\frac{\delta C}{\delta\rho}\nabla\cdot\frac{\delta H}{\delta\mathbf{v}} - \frac{\delta H}{\delta\rho}\nabla\cdot\frac{\delta C}{\delta\mathbf{v}} - \frac{\partial H}{\partial\newtilde{s}}\nabla\cdot\left(s\frac{\delta C}{\delta\mathbf{v}}\right)d^3r\nonumber\\
-& = & -\int_A\frac{\delta C}{\delta\rho}\nabla\cdot\left(\rho\mathbf{v}\right) - \frac{\delta H}{\delta\rho}\nabla\cdot\left(\rho\mathbf{v}\right) - T\nabla\cdot\left(s\rho\mathbf{v}\right)d^3r\nonumber\\
+\lbrace K, H\rbrace & = & -\int_A\frac{\delta K}{\delta\mathbf{v}}\cdot\left(\frac{\etabi}{\rho}\times\frac{\delta H}{\delta\mathbf{v}}\right)d^3r\\
+&& -\int_A\frac{\delta K}{\delta\rho}\nabla\cdot\frac{\delta H}{\delta\mathbf{v}} - \frac{\delta H}{\delta\rho}\nabla\cdot\frac{\delta K}{\delta\mathbf{v}}d^3r\\
+&& -\int_A\frac{\partial K}{\partial\newtilde{s}}\nabla\cdot\left(s\frac{\partial H}{\partial\mathbf{v}}\right) - \frac{\partial H}{\partial\newtilde{s}}\nabla\cdot\left(s\frac{\delta K}{\delta\mathbf{v}}\right)d^3r\nonumber\\
+& = & -\int_A\frac{\delta K}{\delta\rho}\nabla\cdot\frac{\delta H}{\delta\mathbf{v}} - \frac{\delta H}{\delta\rho}\nabla\cdot\frac{\delta K}{\delta\mathbf{v}} - \frac{\partial H}{\partial\newtilde{s}}\nabla\cdot\left(s\frac{\delta K}{\delta\mathbf{v}}\right)d^3r\nonumber\\
+& = & -\int_A\frac{\delta K}{\delta\rho}\nabla\cdot\left(\rho\mathbf{v}\right) - \frac{\delta H}{\delta\rho}\nabla\cdot\left(\rho\mathbf{v}\right) - T\nabla\cdot\left(s\rho\mathbf{v}\right)d^3r\nonumber\\
 & = & -\int_A -\left(\phi + G\right)\nabla\cdot\left(\rho\mathbf{v}\right) - T\nabla\cdot\left(\newtilde{s}\mathbf{v}\right)d^3r\nonumber\\
 & = & \int_A\left(\phi + G\right)\nabla\cdot\left(\rho\mathbf{v}\right) - \newtilde{s}\mathbf{v}\cdot\nabla Td^3r\nonumber\\
 & = & \int_A-\rho\mathbf{v}\cdot\nabla\left(\phi + G\right) - \rho\mathbf{v}\cdot\left(s\nabla T\right)d^3r.
