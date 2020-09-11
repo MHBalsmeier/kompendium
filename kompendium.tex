@@ -194,7 +194,7 @@ Der Leser soll Antworten finden auf Fragen wie
 %
 und wird eine mathematisch rigorose, aber keine didaktisch heruntergebrochene Vorstellung der Inhalte vorfinden; alle Voraussetzungen und Beschränkungen eines Konzepts werden klar als solche benannt. Die Herleitungen sind so kleinschrittig, das für einen in der gymnasialen Schulmathematik souveränen Leser Nebenrechnungen nicht nötig sein sollten.
 
-Abgedeckt werden Dynamik, Strahlung, Wolkenmikrophysik und Numerik. In Teil \ref{part:von_der_physik_zur_atmosphaere} werden die herrschenden Gleichungen aus den physikalischen Grundgleichungen abgeleitet. Die dabei entfaltete Theorie ist grundlegend für alle Prozesse in der Atmosphäre. In Teil \ref{part:dynamik} werden die Luftströmungen einer Planetenatmosphäre untersucht, was man als \textit{Dynamik}\index{Dynamik} bezeichnet. In Abgrenzung hierzu geht es in Teil \ref{part:strahlung_und_wolkenmikrophysik} um die darüber hinausgehenden Bereiche Strahlung und Wolkenmikrophysik. \textit{Numerische Probleme}\index{Numerik} werden im vierten Teil behandelt, dort wird auch ein \textit{dynamischer Kern}\index{Kern!dynamischer}\index{dynamischer Kern} entwickelt. Im Anhang werden mathematische Grundlagen abgearbeitet.
+Abgedeckt werden Dynamik, Strahlung, Wolkenmikrophysik und Numerik. In Teil \ref{part:von_der_physik_zur_atmosphaere} werden die herrschenden Gleichungen aus den physikalischen Grundgleichungen abgeleitet. Die dabei entfaltete Theorie ist grundlegend für alle Prozesse in der Atmosphäre. In Teil \ref{part:dynamik} werden die Luftströmungen einer Planetenatmosphäre untersucht, was man als \textit{Dynamik}\index{Dynamik} bezeichnet. In Abgrenzung hierzu geht es in Teil \ref{part:strahlung_und_wolkenmikrophysik} um die darüber hinausgehenden Bereiche Strahlung und Wolkenmikrophysik. \textit{Numerische Probleme}\index{Numerik} werden im vierten Teil behandelt. Im fünften Teil wird ein \textit{dynamischer Kern}\index{Kern!dynamischer}\index{dynamischer Kern} entwickelt. Im Anhang werden mathematische Grundlagen abgearbeitet.
 
 Als Einheitensystem wird das SI-System\index{SI-System} verwendet, außer in der Elektrodynamik, dort wird das cgs-System verwendet\index{cgs-System}. Bei qualitativen Betrachtungen bedeutet ein horizontaler Pfeil $\rightarrow$ neben einer Größe, dass diese konstant bleibt, ein nach oben gerichteter Pfeil $\uparrow$, dass diese wächst, ein nach unten gerichteter Pfeil $\downarrow$, dass die Größe sinkt.
 %
@@ -15379,6 +15379,24 @@ Es gibt nur fünf platonische Körper. Dementsprechend existieren nur fünf unif
 
 Diskretisiert man ein zweidimensionales Vektorfeld auf ein ebenes Gitter, so müssen keineswegs alle Variablen an den gleichen Punkten ausgewertet werden. Die unterschiedlichen Größen können an unterschiedlichen Stellen der Polygone definiert werden. Fünf Arten, dies zu tun, sind die Arakawa-Gitter \cite{arakawa}, die in Abb. \ref{fig:arakawa} dargestellt sind.
 
+\subsection{A-Gitter}
+\label{sec:a-gitter}\index{A-Gitter}
+
+\subsection{B-Gitter}
+\label{sec:b-gitter}\index{B-Gitter}
+
+\subsection{C-Gitter}
+\label{sec:c-gitter}\index{C-Gitter}
+
+\subsection{D-Gitter}
+\label{sec:d-gitter}\index{D-Gitter}
+
+\subsection{E-Gitter}
+\label{sec:e-gitter}\index{E-Gitter}
+
+\subsection{Festlegung auf das C-Gitter}
+\label{sec:festlegung_auf_das_c-gitter}\index{C-Gitter}
+
 \section{Skalare Erhaltungseigenschaften auf dem C-Gitter}
 \label{sec:skalare_erhaltungseigenschaften_auf_dem_c-gitter}
 
@@ -15504,15 +15522,6 @@ Jeder Wert von $\psi$ tritt in Glg. \eqref{eq:c-grid_rot_kons_deriv_1} also zwei
 \end{center}
 }}
 \end{center}
-
-\section{Geostrophie auf dem C-Gitter}
-\label{sec:geostrophie_auf_dem_c-gitter}
-
-\subsection{Lineare SWEs}
-\label{sec:lineare_swes}
-
-\subsection{Nichtlineare SWEs}
-\label{sec:nichtlineare_swes}
 
 \section{Probleme eines dreielementigen Erzeugendensystems}
 \label{sec:probleme_eines_dreielementigen_erzeugendensystems}\index{dreielementiges Erzeugendensystem}\index{Erzeugendensystem!dreielementiges}
@@ -15966,17 +15975,70 @@ Hiermit sind die Glg.en \eqref{eq:linear_condition_trivariate_discrete_0} - \eqr
 \subsection{Folgerungen}
 \label{sec:folgerungen}
 
-\subsubsection{Neuformulierung der Rotation}
-\label{sec:neuformulierung_der_rotation}
+\subsubsection{Formulierung der Rotation}
+\label{sec:formulierung_der_rotation}
 
-\subsubsection{Vorzug dex hexagonalen vorm dreieckigen Gitter}
+\subsubsection{Vorzug des hexagonalen vorm dreieckigen Gitter}
 \label{sec:vorzug_des_hexagonalen_vorm_dreieckigen_gitter}
 
 \section{Vergleich quasi-uniformer sphärischer C-Gitter}
 \label{sec:vergleich_quasi-uniformer_sphaerischer_c-gitter}
 
-\chapter{\normalfont\textsc{Entwicklung eines dynamischen Kerns}}
-\label{chap:entwicklung_eines_dynamischen_kerns}\index{dynamischer Kern}\index{Kern!dynamischer}
+\section{Festlegung auf das hexagonale C-Gitter}
+\label{sec:festlegung_auf_das_hexagonale_c-gitter}\index{C-Gitter!hexagonales}\index{hexagonales C-Gitter}
+
+\chapter{\normalfont\textsc{Generalisierte Coriolis-Kraft auf dem C-Gitter}}
+\label{chap:generalisierte_coriolis-kraft_auf_dem_c-gitter}
+
+\section{Ausgang von der Geostrophie}
+\label{sec:ausgang_von_der_geostrophie}\index{Geostrophie}
+
+\subsection{Lineare SWEs}
+\label{sec:lineare_swes_geostrophie}
+
+\subsection{Nichtlineare SWEs}
+\label{sec:nichtlineare_swes_geostrophie}
+
+\section{Ausgang von der Drehimpulserhaltung}
+\label{sec:ausgang_von_der_drehimpulserhaltung}\index{Drehimpulserhaltung}
+
+\subsection{Lineare SWEs}
+\label{sec:lineare_swes_drehimpuls}
+
+\subsection{Nichtlineare SWEs}
+\label{sec:nichtlineare_swes_drehimpuls}
+
+\section{Barokline Verallgemeinerung}
+\label{sec:barokline_verallgemeinerung}
+
+\chapter{\normalfont\textsc{Strahlungstransportalgorithmen}}
+\label{chap:strahlungstransportalgorithmen}\index{Strahlung!in Modellen}
+
+Strahlung wird in Modellen durch separate Simulationen, sogenannte \textit{Strahlungstransportmodelle}\index{Strahlungstransportmodell} behandelt. Dies läuft in folgenden Schritten ab, gegebenenfalls ist das Vorgehen in der konkreten Implementierung leicht modifiziert:
+%
+\begin{itemize}
+\item Zunächst werden die Dichten der Komponenten der Luft an das Strahlungsmodell übermittelt.
+\item Anschließend werden mittels dieser Dichten und tabellierter Spektren der Stoffe Strahlungseigenschaften der Materie berechnet.
+\item Nun wird durch Lösen der Strahlungsübertragungsgleichung die spektrale Strahldichte berechnet.
+\item Durch spektrale Integration der Konvergenz der Strahlungsflussdichte\index{Strahlungsflussdichte} werden Wärmeleistungsdichten\index{Wärmeleistungsdichten} ermittelt, die an den dynamischen Kern\index{dynamischer Kern}\index{Kern!dynamischer} zurückübermittelt werden. Hieraus gehen Heizraten hervor.
+\end{itemize}
+%
+Da das Lösen der Strahlungsübertragungsgleichung\index{Strahlungsübertragungsgleichung} zu einem globalen linearen Gleichungssystem führen würde, unterteilt man die Atmosphäre hierzu in nicht wechselwirkende Säulen ein, die mindestens so eine horizontale Ausdehnung haben, wie eine Gitterzelle.
+
+\chapter{\normalfont\textsc{Datenassimilation}}
+\label{chap:datenassimilation}\index{Datenassimilation}
+
+\section{3D-Var}
+\label{sec:3d-var}\index{3D-Var}
+
+\section{4D-Var}
+\label{sec:4d-var}\index{4D-Var}
+
+\part{Entwicklung eines dynamischen Kerns}
+\label{part:entwicklung_eines_dynamischen_kerns}\index{dynamischer Kern}\index{Kern!dynamischer}
+
+\chapter{\normalfont\textsc{Kinematik}}
+\label{chap:kinematik}\index{Modell!Kinematik}\index{Kinematik!des Modells}
 
 Der Begriff \textit{dynamischer Kern}\index{dynamischer Kern}\index{Kern!dynamischer} wird häufig nicht präzise definiert, was hier jedoch getan werden soll. Dazu werden verschiedene Unterkomponenten definiert:
 %
@@ -16237,6 +16299,9 @@ Die \textit{shallow-atmosphere}-Aprroximation\index{shallow atmosphere} geht von
 }}
 \end{center}
 
+\subsection{SLEVE}
+\label{sec:sleve}\index{SLEVE}
+
 \section{Felder}
 \label{sec:felder}\index{Feld!im Modell}
 
@@ -16264,6 +16329,9 @@ Im Falle von Kugelkoordinaten, also oberhalb des Layers oberhalb von $\newtilde{
 
 \subsection{Rotationsfelder}
 \label{sec:rotationsfelder}\index{Rotationsfeld}\index{Modell!Rotationsfeld}
+
+\chapter{\normalfont\textsc{Reversible Dynamik}}
+\label{chap:reversible_dynamik}\index{reversible Dynamik}\index{Dynamik!reversible}
 
 \section{Prognostische Variablen}
 \label{sec:prognostische_variablen}
@@ -16728,6 +16796,9 @@ Der Jablonowski-Williamson-Test \cite{jablonowski} (im Folgenden JW-Test genannt
 \subsection{Superzelle}
 \label{sec:superzelle}
 
+\chapter{\normalfont\textsc{Irreversible Dynamik}}
+\label{chap:irreversible_dynamik}\index{irreversible Dynamik}\index{Dynamik!irreversible}
+
 \section{Horizontale Diffusion}
 \label{sec:horizontale_diffusion}\index{horizontale Diffusion}\index{Diffusion!horizontale}
 
@@ -16764,6 +16835,9 @@ Der Jablonowski-Williamson-Test \cite{jablonowski} (im Folgenden JW-Test genannt
 \subsection{Held-Suarez-Test}
 \label{sec:held-suarez-test}\index{Held-Suarez-Test}
 
+\chapter{\normalfont\textsc{Weiterführende Aspekte}}
+\label{chap:weiterfuehrende_aspekte}
+
 \section{Rahmen für die Berücksichtigung von Tracern}
 \label{sec:rahmen_fuer_die_beruecksichtigung_von_tracern}
 
@@ -16774,29 +16848,6 @@ Führt man $N \geq 1$ Tracer ein (also Anteile der Luft, die nicht zur trockenen
 
 \section{Model output statistics (MOS)}
 \label{sec:model_output_statistics_mos}\index{model output statistics}
-
-\chapter{\normalfont\textsc{Strahlungstransportalgorithmen}}
-\label{chap:strahlungstransportalgorithmen}\index{Strahlung!in Modellen}
-
-Strahlung wird in Modellen durch separate Simulationen, sogenannte \textit{Strahlungstransportmodelle}\index{Strahlungstransportmodell} behandelt. Dies läuft in folgenden Schritten ab, gegebenenfalls ist das Vorgehen in der konkreten Implementierung leicht modifiziert:
-%
-\begin{itemize}
-\item Zunächst werden die Dichten der Komponenten der Luft an das Strahlungsmodell übermittelt.
-\item Anschließend werden mittels dieser Dichten und tabellierter Spektren der Stoffe Strahlungseigenschaften der Materie berechnet.
-\item Nun wird durch Lösen der Strahlungsübertragungsgleichung die spektrale Strahldichte berechnet.
-\item Durch spektrale Integration der Konvergenz der Strahlungsflussdichte\index{Strahlungsflussdichte} werden Wärmeleistungsdichten\index{Wärmeleistungsdichten} ermittelt, die an den dynamischen Kern\index{dynamischer Kern}\index{Kern!dynamischer} zurückübermittelt werden. Hieraus gehen Heizraten hervor.
-\end{itemize}
-%
-Da das Lösen der Strahlungsübertragungsgleichung\index{Strahlungsübertragungsgleichung} zu einem globalen linearen Gleichungssystem führen würde, unterteilt man die Atmosphäre hierzu in nicht wechselwirkende Säulen ein, die mindestens so eine horizontale Ausdehnung haben, wie eine Gitterzelle.
-
-\chapter{\normalfont\textsc{Datenassimilation}}
-\label{chap:datenassimilation}\index{Datenassimilation}
-
-\section{3D-Var}
-\label{sec:3d-var}\index{3D-Var}
-
-\section{4D-Var}
-\label{sec:4d-var}\index{4D-Var}
 
 \part{Anhang}
 \label{part:anhang}
