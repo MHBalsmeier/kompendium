@@ -183,16 +183,18 @@ Das Skript enthält mit großer Wahrscheinlichkeit Fehler und Ungenauigkeiten. E
 \chapter{\normalfont\textsc{Einleitung}}
 \label{chap:einleitung}
 
-Es existieren viele gute Lehrbücher zu den unterschiedlichen Bereichen der Meteorologie, insbesondere in der Dynamik ist die Menge an Literatur groß und ständig wachsend. Aber auch in der Wolkenphysik und Strahlung gibt es umfangreiche Standardwerke und eine gewisse Anzahl inhaltlich etwas ausgedünnter, dafür aber didaktisch aufbereiteter Bücher. Wie es für Lehrbücher typisch ist, werden in ihnen jedoch manche Herleitungen, genau wie in vielen Vorlesungen, vereinfacht oder zumindest verkürzt dargestellt. Beim theoretisch interessierten Leser oder Hörer kann dies dazu führen, dass ein Gefühl eines gewissen Zweifels an der Korrektheit der Theorie zurückbleibt. Darüber hinaus existieren zahlreiche unterschiedliche Notationen der Größen, sodass eine Literaturrecherche, beispielsweise zu Herleitungen und Voraussetzungen gewisser Konzepte, gelegentlich keine Klarheit bringt. Diese Lücke soll mit diesem Buch geschlossen werden. Es ist weder als ein reines Lehrbuch zu verstehen, denn in einem solchen wären die sprachlichen Erläuterungen wohl etwas weniger kondensiert ausgefallen; andererseits ist es auch keine reine Formelsammlung, denn eine solche enthält keine Herleitungen. Der Leser soll Antworten finden auf Fragen wie
+Es existieren viele gute Lehrbücher zu den unterschiedlichen Bereichen der Meteorologie, insbesondere in der Dynamik ist die Menge an Literatur groß und ständig wachsend. Aber auch in der Wolkenphysik und Strahlung gibt es umfangreiche Standardwerke und eine gewisse Anzahl inhaltlich etwas ausgedünnter, dafür aber didaktisch aufbereiteter Bücher. Wie es für Lehrbücher typisch ist, werden in ihnen jedoch manche Herleitungen, genau wie in vielen Vorlesungen, vereinfacht oder zumindest verkürzt dargestellt. Beim theoretisch interessierten Leser oder Hörer kann dies dazu führen, dass ein Gefühl eines gewissen Zweifels an der Korrektheit der Theorie zurückbleibt. Darüber hinaus existieren zahlreiche unterschiedliche Notationen der Größen, sodass eine Literaturrecherche, beispielsweise zu Herleitungen und Voraussetzungen gewisser Konzepte, gelegentlich keine Klarheit bringt. Diese Lücke soll mit diesem Buch geschlossen werden. Es ist weder als ein reines Lehrbuch zu verstehen, denn in einem solchen wären die sprachlichen Erläuterungen wohl etwas weniger kondensiert ausgefallen; andererseits ist es auch keine reine Formelsammlung, denn eine solche enthielte keine Herleitungen.
+
+Der Leser soll Antworten finden auf Fragen wie
 %
 \begin{itemize}
-\item Wie kommt man auf die verschiedenen Formen der Divergenzgleichung im p-System?
+\item Wie kommt man auf die verschiedenen Formen der Divergenzgleichung im p-System?,
 \item Unter welchen Voraussetzungen ist die quasigeostrophische Theorie eine ergiebige Näherung?
 \end{itemize}
 %
 und wird eine mathematisch rigorose, aber keine didaktisch heruntergebrochene Vorstellung der Inhalte vorfinden; alle Voraussetzungen und Beschränkungen eines Konzepts werden klar als solche benannt. Die Herleitungen sind so kleinschrittig, das für einen in der gymnasialen Schulmathematik souveränen Leser Nebenrechnungen nicht nötig sein sollten.
 
-Abgedeckt werden Dynamik, Strahlung, Wolkenmikrophysik und Numerik. In Teil \ref{part:von_der_physik_zur_atmosphaere} werden die herrschenden Gleichungen aus den physikalischen Grundgleichungen abgeleitet. Die dabei entfaltete Theorie ist grundlegend für alle Prozesse in der Atmosphäre. In Teil \ref{part:dynamik} werden die Luftströmungen einer Planetenatmosphäre untersucht, was man als \textit{Dynamik}\index{Dynamik} bezeichnet. In Abgrenzung hierzu geht es in Teil \ref{part:strahlung_und_wolkenmikrophysik} um die darüber hinausgehenden Bereiche Strahlung und Wolkenmikrophysik. \textit{Numerische Probleme}\index{Numerik} werden im vierten Teil behandelt, dort wird auch ein globaler \textit{dynamischer Kern}\index{Kern!dynamischer}\index{dynamischer Kern} entwickelt. Im Anhang werden mathematische Grundlagen abgearbeitet.
+Abgedeckt werden Dynamik, Strahlung, Wolkenmikrophysik und Numerik. In Teil \ref{part:von_der_physik_zur_atmosphaere} werden die herrschenden Gleichungen aus den physikalischen Grundgleichungen abgeleitet. Die dabei entfaltete Theorie ist grundlegend für alle Prozesse in der Atmosphäre. In Teil \ref{part:dynamik} werden die Luftströmungen einer Planetenatmosphäre untersucht, was man als \textit{Dynamik}\index{Dynamik} bezeichnet. In Abgrenzung hierzu geht es in Teil \ref{part:strahlung_und_wolkenmikrophysik} um die darüber hinausgehenden Bereiche Strahlung und Wolkenmikrophysik. \textit{Numerische Probleme}\index{Numerik} werden im vierten Teil behandelt, dort wird auch ein \textit{dynamischer Kern}\index{Kern!dynamischer}\index{dynamischer Kern} entwickelt. Im Anhang werden mathematische Grundlagen abgearbeitet.
 
 Als Einheitensystem wird das SI-System\index{SI-System} verwendet, außer in der Elektrodynamik, dort wird das cgs-System verwendet\index{cgs-System}. Bei qualitativen Betrachtungen bedeutet ein horizontaler Pfeil $\rightarrow$ neben einer Größe, dass diese konstant bleibt, ein nach oben gerichteter Pfeil $\uparrow$, dass diese wächst, ein nach unten gerichteter Pfeil $\downarrow$, dass die Größe sinkt.
 %
@@ -15445,6 +15447,63 @@ Es werden alle als notwendig identifizierten Punkte zusammengefasst:
 \item mimetische Eigenschaften von Differentialoperatoren ist wichtiger als Konvergenzordnung
 \item ellipsoidisches Gitter
 \end{itemize}
+
+\section{Gradientenfelder auf dem C-Gitter}
+\label{sec:gradientenfelder_auf_dem_c-gitter}\index{Gradientenfeld!C-Gitter}\index{C-Gitter!Gradientenfeld}
+
+Seien $\psi$ ein Skalarfeld $\nabla\psi$ der Gradient dieses Skalarfeldes, dies ist ein Vektorfeld. Auf dem C-Gitter\index{C-Gitter} wird die Rotation eines Vektorfeldes $\mathbf{v}$ durch Anwendung des Stokes'schen Satzes\index{Stokes'scher Satz}\index{Satz!Stokes'scher} auf ein Polygon mit Fläche $A$ und Kantenlängen $l_i$ ermittelt. Es gilt also
+%
+\begin{eqnarray}
+\mathbf{k}\cdot\nabla\times\mathbf{v} = \frac{1}{A}\sum_{i}\gamma_il_iv_i,
+\end{eqnarray}
+%
+wobei $v_i$ der Wert von $\mathbf{v}$ an der Kante $i$ ist und $\gamma_i = 1$ ist, falls der Einheitsvektor der Kante in mathmetisch positiver Zirkulationsrichtung um das Polygon zeigt, andernfalls ist $\gamma_i = -1$. Der Einfachheit halber nimmt man o. B. d. A. an, dass $\gamma_i = 1$ für alle $i$ ist, sodass man
+%
+\begin{eqnarray}
+\mathbf{k}\cdot\nabla\times\mathbf{v} = \frac{1}{A}\sum_{i}l_iv_i
+\end{eqnarray}
+%
+notieren kann. Nun setzt man
+%
+\begin{eqnarray}
+\mathbf{v} = \nabla\psi
+\end{eqnarray}
+%
+an, was auf
+%
+\begin{eqnarray}
+\mathbf{k}\cdot\nabla\times\mathbf{v} = \frac{1}{A}\sum_{i}l_i\left(\nabla\psi\right)_i\label{eq:c-grid_rot_kons_deriv_0}
+\end{eqnarray}
+%
+führt. Es gilt
+%
+\begin{eqnarray}
+\left(\nabla\psi\right)_i = \frac{\psi_{\text{to}\left(i\right)} - \psi_{\text{from}\left(i\right)}}{l_i}.
+\end{eqnarray}
+%
+Setzt man dies in Glg. \eqref{eq:c-grid_rot_kons_deriv_0} ein, erhält man
+%
+\begin{eqnarray}
+\mathbf{k}\cdot\nabla\times\psi = \frac{1}{A}\sum_{i}l_i\frac{\psi_{\text{to}\left(i\right)} - \psi_{\text{from}\left(i\right)}}{l_i} = \frac{1}{A}\sum_{i}\psi_{\text{to}\left(i\right)} - \psi_{\text{from}\left(i\right)}.\label{eq:c-grid_rot_kons_deriv_1}
+\end{eqnarray}
+%
+Sortiert man die Kanten in mathematisch positiver Zirkulationsrichtung um das betrachtete Polygon, gilt
+%
+\begin{eqnarray}
+\psi_{\text{to}\left(i\right)} = \psi_{\text{from}\left(i + 1\right)}.
+\end{eqnarray}
+%
+Jeder Wert von $\psi$ tritt in Glg. \eqref{eq:c-grid_rot_kons_deriv_1} also zweimal auf, einmal mit positivem und einmal mit negativem Vorzeichen. Dies gilt unabhängig von der betrachteten Raumrichtung. Somit gilt auf einem C-Gitter
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{eqnarray}
+\nabla\times\nabla\psi = \mathbf{0}.
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
 
 \section{Geostrophie auf dem C-Gitter}
 \label{sec:geostrophie_auf_dem_c-gitter}
