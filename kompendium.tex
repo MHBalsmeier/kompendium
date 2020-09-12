@@ -7689,8 +7689,8 @@ Somit erhält man folgendes Gleichungssystem:
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{eqnarray}
-\frac{\partial\mathbf{v}}{\partial t} + \left(\mathbf{v}\cdot\nabla\right)\mathbf{v} & = & -g\nabla_h\left(h + b\right) - f\left(y\right)\mathbf{k}\times\mathbf{v}\label{eq:flach_1}\\
-\frac{\partial h}{\partial t} + \nabla_h\cdot\left(h\mathbf{v}\right) & = & 0\label{eq:flach_2}
+\frac{\partial\mathbf{v}}{\partial t} + \left(\mathbf{v}\cdot\nabla\right)\mathbf{v} & = & -g\nabla_h\left(h + b\right) - f\left(y\right)\mathbf{k}\times\mathbf{v}\label{eq:swe_0}\\
+\frac{\partial h}{\partial t} + \nabla\cdot\left(h\mathbf{v}\right) & = & 0\label{eq:swe_1}
 \end{eqnarray}
 \end{center}
 }}
@@ -10764,34 +10764,32 @@ Der Term des $\beta-$Effekts hat in mittleren Breiten eine Größenordnung von $
 In der Dynamik der SWEs ist die \textit{barotrope potentielle Vorticity} (barotrope PV) $q$ definiert durch
 %
 \begin{eqnarray}
-q \coloneqq\frac{\eta}{h} = \frac{\zeta + f}{h} = \frac{\mathbf{k}\cdot\nabla\times\mathbf{v}_h + f}{h}, 
+q \coloneqq\frac{\eta}{h} = \frac{\zeta + f}{h} = \frac{\mathbf{k}\cdot\left(\nabla\times\mathbf{v}\right) + f}{h}, 
 \end{eqnarray}
 %
 hierbei ist $h$ die Tiefe. Nach Glg. \eqref{eq:diff_op_rule_10} gilt
 %
 \begin{eqnarray}
-\left(\mathbf{v}_h\cdot\nabla\right)\mathbf{v}_h & = & \nabla k - \mathbf{v}_h\times\left(\nabla\times\mathbf{v}_h\right)
+\left(\mathbf{v}\cdot\nabla\right)\mathbf{v} & = & \nabla k - \mathbf{v}\times\left(\nabla\times\mathbf{v}\right)
 \end{eqnarray}
 %
-mit der spezifischen kinetischen Energie $k = \frac{1}{2}\mathbf{v}_h^2$. Für den zweiten Term gilt mit Glg. \eqref{eq:rot_geo}
+mit der spezifischen kinetischen Energie $k = \frac{1}{2}\mathbf{v}^2$. Für den zweiten Term gilt mit Glg. \eqref{eq:rot_shallow}
 %
 \begin{eqnarray}
-\mathbf{v}_h\times\left(\nabla\times\mathbf{v}_h\right) & = & \mathbf{v}_h\times\left[-\frac{v}{r}\mathbf{i} + \frac{u\tan\left(\varphi\right)}{r}\mathbf{k} + \frac{u}{r}\mathbf{j} + \mathbf{k}\left(\frac{\partial v}{\partial x} - \frac{\partial u}{\partial y}\right) + \mathbf{j}\frac{\partial u}{\partial z} - \mathbf{i}\frac{\partial v}{\partial z}\right].
+\mathbf{v}\times\left(\nabla\times\mathbf{v}\right) & = & \mathbf{v}\times\left[\frac{u\tan\left(\varphi\right)}{r}\mathbf{k} + \mathbf{k}\left(\frac{\partial v}{\partial x} - \frac{\partial u}{\partial y}\right) + \mathbf{j}\frac{\partial u}{\partial z} - \mathbf{i}\frac{\partial v}{\partial z}\right].
 \end{eqnarray}
 %
 Aufgrund des Verschwindens vertikaler Scherung im barotropen Fall gilt
 %
 \begin{eqnarray}
-\mathbf{v}_h\times\left(\nabla\times\mathbf{v}_h\right) & = & \mathbf{v}_h\times\left[-\frac{v}{r}\mathbf{i} + \frac{u\tan\left(\varphi\right)}{r}\mathbf{k} + \frac{u}{r}\mathbf{j} + \mathbf{k}\left(\frac{\partial v}{\partial x} - \frac{\partial u}{\partial y}\right)\right]\nonumber\\
-& = & \mathbf{v}_h\times\mathbf{k}\zeta + \frac{u^2}{r}\mathbf{i}\times\mathbf{j} + \frac{v^2}{r}\mathbf{i}\times\mathbf{j} = \mathbf{v}_h\times\mathbf{k}\zeta + \frac{u^2}{r}\mathbf{k} - + \frac{v^2}{r}\mathbf{k}\nonumber\\
-& = & -\mathbf{k}\times\zeta\mathbf{v}_h + \frac{\mathbf{k}}{r}\left(u^2 + v^2\right).
+\mathbf{v}\times\left(\nabla\times\mathbf{v}\right) & = & \mathbf{v}\times\left[\frac{u\tan\left(\varphi\right)}{r}\mathbf{k} + \mathbf{k}\left(\frac{\partial v}{\partial x} - \frac{\partial u}{\partial y}\right)\right] = \mathbf{v}\times\mathbf{k}\left(\frac{\partial v}{\partial x} - \frac{\partial u}{\partial y} + \frac{u\tan\left(\varphi\right)}{r}\right) = \mathbf{v}\times\mathbf{k}\zeta = -\mathbf{k}\times\zeta\mathbf{v}.
 \end{eqnarray}
 %
-Die Vertikalkomponente interessiert hier nicht weiter. Nun kann man für die Impulsgleichung der Flachwassergleichungen Glg. \eqref{eq:flach_1} unter Vernachlässigung der Reibung schreiben
+Die Vertikalkomponente interessiert hier nicht weiter. Nun kann man für die Impulsgleichung der Flachwassergleichungen Glg. \eqref{eq:swe_0} unter Vernachlässigung der Reibung schreiben
 %
 \begin{eqnarray}
-\frac{\partial\mathbf{v}_h}{\partial t} + \mathbf{k}\times\zeta\mathbf{v}_h & = & -g\nabla\left(h + b\right) - \nabla k - f\mathbf{k}\times\mathbf{v}_h\nonumber\\
-\Leftrightarrow\frac{\partial\mathbf{v}_h}{\partial t} + qh\mathbf{k}\times\mathbf{v}_h & = & -g\nabla\left(h + b\right) - \nabla k.
+\frac{\partial\mathbf{v}}{\partial t} + \mathbf{k}\times\zeta\mathbf{v} & = & -g\nabla\left(h + b\right) - \nabla k - f\mathbf{k}\times\mathbf{v}\nonumber\\
+\Leftrightarrow\frac{\partial\mathbf{v}}{\partial t} + qh\mathbf{k}\times\mathbf{v} & = & -g\nabla\left(h + b\right) - \nabla k.
 \end{eqnarray}
 %
 Es gilt
@@ -10800,7 +10798,7 @@ Es gilt
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{eqnarray}
-\md{q} & = & \frac{1}{h}\md{\eta} - \frac{\eta}{h^2}\md{h}\stackrel{\eqref{eq:flach_2}}{=} - \frac{\eta}{h}\nabla_h\cdot\mathbf{v}_h - \frac{\eta}{h^2}\left(-h\nabla_h\cdot\mathbf{v}_h\right) = 0.
+\md{q} & = & \frac{1}{h}\md{\eta} - \frac{\eta}{h^2}\md{h}\stackrel{\eqref{eq:swe_1}}{=} - \frac{\eta}{h}\nabla\cdot\mathbf{v} - \frac{\eta}{h^2}\left(-h\nabla\cdot\mathbf{v}\right) = 0.\label{eq:pv_conservation_baro}
 \end{eqnarray}
 \end{center}
 }}
@@ -10813,6 +10811,27 @@ h\downarrow \Rightarrow \left(\zeta + f\right)\downarrow \Rightarrow \zeta\downa
 \end{eqnarray}
 %
 wobei von einem postiven Vorzeichen von $f$ und somit auch von $\eta$ ausgegangen wurde. Bei negativem $f$ gilt analog, dass $\zeta$ wachsen muss. Trifft eine Westströmung also auf ein orographisches Hindernis, so entsteht antizyklonale relative Vorticity. Dies bezeichnet man als \textit{orographischen $\beta-$Effekt}\index{$\beta-$Effekt!orographischer}\index{orographischer $\beta-$Effekt}. Ein wichtiges Beispiel ist das Entstehen planetarer Wellen an den Rocky Mountains.
+
+Glg. \eqref{eq:pv_conservation_baro} kann man in der Form
+%
+\begin{eqnarray}
+\frac{\partial q}{\partial t} + \mathbf{v}\cdot\nabla h = 0
+\end{eqnarray}
+%
+notieren. Kombiniert man dies mit Glg. \eqref{eq:swe_1}, erhält man
+%
+\begin{eqnarray}
+h\frac{\partial q}{\partial t} + h\mathbf{v}\cdot\nabla q + q\frac{\partial h}{\partial t} + qh\nabla\cdot\mathbf{v} + q\mathbf{v}\cdot\nabla h = 0\nonumber
+\end{eqnarray}
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{eqnarray}
+\Leftrightarrow \frac{\partial\left(hq\right)}{\partial t} + \nabla\cdot\left(hq\mathbf{v}\right) = 0.\label{eq:pv_conservation_baro_flux}
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
 
 \section{Divergenz}
 \label{sec:divergenz}\index{Divergenz}
@@ -11711,7 +11730,7 @@ Die Oberflächensapnnung von Wasser beträgt ca. $\sigma \sim 75$ mN/m, woraus f
 \subsection{Inertialwellen}
 \label{sec:inertialwellen}\index{Inertialwelle}\index{Welle!Inertialwelle}
 
-Bei Inertialwellen\index{Inertialwellen}\index{Welle!Inertialwelle} geht man von einem verschwindenden horizontalen Druckgradienten aus, sodass nur die Coriolis-Kraft übrigbleibt. Die Impulsgleichungen der SWEs Glg. \eqref{eq:flach_1} werden unter Vernachlässigung der advektiven Terme zu
+Bei Inertialwellen\index{Inertialwellen}\index{Welle!Inertialwelle} geht man von einem verschwindenden horizontalen Druckgradienten aus, sodass nur die Coriolis-Kraft übrigbleibt. Die Impulsgleichungen der SWEs Glg. \eqref{eq:swe_0} werden unter Vernachlässigung der advektiven Terme zu
 %
 \begin{eqnarray}
 \frac{d u}{d t} & = & f_0v,\\
@@ -11985,7 +12004,7 @@ mit einer Kugelflächenfunktion $Y_{l, m}$. Somit folgt
 %
 \begin{eqnarray}
 i\omega^3d & = & f^2i\omega d + i\omega\frac{gD}{a^2}l\left(l + 1\right)d\nonumber\\
-\Rightarrow\omega\left(\omega^2 - f^2 - l\left(l + 1\right)\frac{gD}{a^2}\right) & = & 0.
+\Rightarrow\omega\left(\omega^2 - f^2 - l\left(l + 1\right)\frac{gD}{a^2}\right) & = & 0.\label{eq:disprel_global_modes}
 \end{eqnarray}
 %
 Für die Kreisfrequenzen gilt $\omega_0 = 0$ und
@@ -16003,13 +16022,117 @@ Hiermit sind die Glg.en \eqref{eq:linear_condition_trivariate_discrete_0} - \eqr
 \label{sec:festlegung_auf_das_hexagonale_c-gitter}\index{C-Gitter!hexagonales}\index{hexagonales C-Gitter}
 
 \chapter{\normalfont\textsc{Generalisierte Coriolis-Kraft auf dem C-Gitter}}
-\label{chap:generalisierte_coriolis-kraft_auf_dem_c-gitter}
+\label{chap:generalisierte_coriolis-kraft_auf_dem_c-gitter}\index{generalisierte Coriolis-Kraft}\index{Coriolis-Kraft!generalisierte}
+
+Der generalisierte Coriolis-Term\index{generalisierte Coriolis-Term}\index{Coriolis-Term!generalisierte}
+%
+\begin{eqnarray}
+\mathbf{v}\times\etabi = \mathbf{v}\times\left(\mathbf{f} + \zetabi\right) = \mathbf{v}\times\left(\mathbf{f} + \nabla\times\mathbf{v}\right)
+\end{eqnarray}
+%
+erfordert auf einem C-Gitter\index{C-Gitter} besondere Aufmerksamkeit. Insbesondere müssen die folgenden drei Fragen beantwortet werden:
+%
+\begin{enumerate}
+\item Über welches Polygon muss der Stokes'sche Satz ausgewertet werden, um die Vorticity zu berechnen?
+\item Wie muss die tangentiale Windkomponente an einer Kante aus den normalen Windkomponenten an den umliegenden Kanten rekonstruiert werden?
+\item Mit welcher Vorticity muss die tangentiale Windkomponente am Ende multipliziert werden, um eine Komponente von $\mathbf{v}\times\etabi$ zu erhalten?
+\end{enumerate}
+%
+In diesem Kapitel werden diese Fragen zunächst im Lichte der shallow water equations (SWEs)\index{shallow water equations (SWEs)}\index{SWEs} betrachtet, bevor in Absch. \ref{sec:barokline_verallgemeinerung} barokline Effekte betrachtet werden. Die SWEs lauten ohne Reibung
+%
+\begin{eqnarray}
+\frac{\partial\mathbf{v}}{\partial t} & \stackrel{\text{Glg. \eqref{eq:swe_0}}}{=} & -g\nabla\left(h + b\right) - f\mathbf{k}\times\mathbf{v} \textcolor{red}{- \nabla k - \zeta\mathbf{k}\times\mathbf{v}} + \mu\mathbf{k},\label{eq:swe_gen_cori_0}\\
+\frac{\partial h}{\partial t} & \stackrel{\text{Glg. \eqref{eq:swe_1}}}{=} & -\nabla\cdot\left(h\mathbf{v}\right),
+\end{eqnarray}
+%
+hierbei sind $\mathbf{v}$ die Geschwindigkeit, $g$ die Schwerebeschleunigung, $h$ die Auslenkung der Oberfläche aus der Ruhelage, $f$ der Coriolis-Parameter\index{der Coriolis-Parameter}, $\mathbf{k}$ der vertikale Einheitsvektor, $k \coloneqq \frac{1}{2}\mathbf{v}^2$ die spezifische kinetische Energie, $\zeta\coloneqq\mathbf{k}\cdot\left(\nabla\times\mathbf{v}\right)$ die relative Vorticity\index{relative Vorticity}\index{Vorticity!relative} und $\mu$ ein Lagrange-Multiplikator\index{Lagrange-Multiplikator}, der im Fall einer gekrümmten Menge wie einer Kugel sicherstellt, dass die rechte Seite der Gleichung tangential zu dieser Menge ist. Die \textcolor{red}{roten} Terme sind die Terme der Impulsadvektion\index{Impulsadvektion}, dies sind gleichzeitig auch die nichtlinearen Terme. Somit lautet die linearisierte Impulsgleichung der SWEs\index{Impulsgleichung!SWEs}\index{SWEs!Impulsgleichung}
+%
+\begin{eqnarray}
+\frac{\partial\mathbf{v}}{\partial t} = -g\nabla\left(h + b\right) - f\mathbf{k}\times\mathbf{v}.
+\end{eqnarray}
+%
+Projiziert man Glg. \eqref{eq:swe_gen_cori_0} auf einen Normalenvektor $\mathbf{n}$ einer Kante, erhält man
+%
+\begin{eqnarray}
+\frac{\partial v_n}{\partial t} = -g\frac{\partial\left(h + b\right)}{\partial n} - f\mathbf{n}\cdot\left(\mathbf{k}\times\mathbf{v}\right) - \frac{\partial k}{\partial n} - \zeta\mathbf{n}\cdot\left(\mathbf{k}\times\mathbf{v}\right),
+\end{eqnarray}
+%
+dabei ist
+%
+\begin{eqnarray}
+v_n \coloneqq \mathbf{n}\cdot\mathbf{v}
+\end{eqnarray}
+%
+die normale Geschwindigkeitskomponente an der Kante. Mit $\partial/\partial n$ werden partielle Ableitungen senkrecht zur Kante bezeichnet. Mit Glg. \eqref{eq:spat_prod_prop_0} erhält man
+%
+\begin{eqnarray}
+\mathbf{n}\cdot\left(\mathbf{k}\times\mathbf{v}\right) & = & \mathbf{v}\cdot\left(\mathbf{n}\times\mathbf{k}\right) \stackrel{\text{Glg. \eqref{eq:cross_product_anticommutative}}}{=} -\mathbf{v}\cdot\left(\mathbf{k}\times\mathbf{n}\right) = -\mathbf{v}\cdot\mathbf{t} = -v_t,
+\end{eqnarray}
+%
+dabei sind $\mathbf{t} \coloneqq \mathbf{k}\times\mathbf{n}$ der tangentiale Einheitsvektor an der Kante und
+%
+\begin{eqnarray}
+v_t \coloneqq \mathbf{v}\cdot\mathbf{t}
+\end{eqnarray}
+%
+die tangentiale Geschwindigkeitskomponente an der Kante. Somit gilt
+%
+\begin{eqnarray}
+\frac{\partial v_n}{\partial t} = -g\frac{\partial\left(h + b\right)}{\partial n} + \left(f + \zeta\right)v_t - \frac{\partial k}{\partial n}.
+\end{eqnarray}
+%
+Der lineare Anteil hiervon ist
+%
+\begin{eqnarray}
+\frac{\partial v_n}{\partial t} = -g\frac{\partial\left(h + b\right)}{\partial n} + fv_t.
+\end{eqnarray}
+%
+Die Vorticity- und Divergenzdynamik der SWEs kann in den Gleichungen \eqref{eq:swe_1} und \eqref{eq:pv_conservation_baro_flux} zusammenfassen:
+%
+\begin{eqnarray}
+\frac{\partial h}{\partial t} + \nabla\cdot\left(h\mathbf{v}\right) & = & 0\nonumber\\
+\frac{\partial\left(hq\right)}{\partial t} + \nabla\cdot\left(hq\mathbf{v}\right) & = & 0
+\end{eqnarray}
+%
+Aus der zweiten Gleichung (dies ist eine Form der barotropen Vorticitygleichung\index{barotrope Vorticitygleichung}\index{Vorticitygleichung!barotrope}) kann man
+%
+\begin{eqnarray}
+\frac{d}{dt}\int_{4\pi}hqd\omega & = & \int_{4\pi}\frac{\partial\left(hq\right)}{\partial t}d\omega = -\int_{4\pi}\nabla\cdot\left(hq\mathbf{v}\right)d\omega
+\end{eqnarray}
+%
+folgern. Das Integral über die Divergenz der potentiellen Vorticityflussdichte\index{barotrope Vorticityflussdichte}\index{Vorticityflussdichte!barotrope} über die Einheitskugel kann man auswerten, indem man eine dritte Dimension in Form einer dünnen Kugelschale der Dicke $\Delta r$ hinzunimmt. Durch die vertikalen Ränder dieser Menge fließt keine potentielle Vorticity\index{Vorticity!potentielle}\index{potentielle Vorticity}, da in den SWEs\index{SWEs}\index{shallow water equations (SWEs)} $w = 0$ gilt. Somit folgt
+%
+\begin{eqnarray}
+\frac{d}{dt}\int_{4\pi}hqd\omega & = & 0.
+\end{eqnarray}
+%
+Das globale Integral der barotropen potentiellen Vorticity\index{barotrope potentielle Vorticity}\index{potentielle barotrope Vorticity}\index{Vorticity!barotrope potentielle} $q$ ist also konstant.
+
+Um die obigen Eingangsfragen dieses Kapitels zu beantworten, muss man sich fragen, was man damit meint, zu sagen \glqq Die Größe $x$ muss auf \textit{diese Weise} berechnet werden\grqq. Hierbei wird in diesem Kapitel von zwei Grundforderungen ausgegangen:
+%
+\begin{itemize}
+\item In Absch. \ref{sec:ausgang_von_der_geostrophie} fordert man, dass das diskretisierte Analogon der Dispersionrelation\index{Dispersionsrelation!globale Mode}\index{Dispersionsrelation!Mode!globale}\index{globale Mode!Dispersionsrelation}\index{Mode!globale!Dispersionsrelation} Glg. \eqref{eq:disprel_global_modes} eine geostrophische Mode $\omega = 0$ hat. 
+\item In Absch. \ref{sec:ausgang_von_der_drehimpulserhaltung} fordert man, dass der axiale (der der Rotationsachse der Erde parallele) Drehimpuls
+%
+\begin{eqnarray}
+L_z \coloneqq \mathbf{e}_z\cdot\int_{4\pi}h\mathbf{r}\times\rho\mathbf{v}a^2\cos\left(\varphi\right)d\varphi d\lambda\label{eq:def_ax_ang_mom_swe}
+\end{eqnarray}
+%
+des Geofluides konstant ist, wobei sich $\mathbf{e}_z$ auf globale Koordinaten\index{globale Koordinaten}\index{Koordinaten!globale} bezieht und $a$ der mittlere Erdradius ist.
+\end{itemize}
+%
+In beiden Fällen fordert man, dass
+%
+\begin{enumerate}
+\item der generalisierte Coriolis-Term\index{generalisierte Coriolis-Term}\index{Coriolis-Term!generalisierte} wegen $\mathbf{v}\cdot\left(\mathbf{v}\times\etabi\right) = 0$ keine kinetische Energie\index{kinetische Energie}\index{Energie!kinetische} produziert oder vernichtet und
+\item dass die global integrierte potentielle Vorticity $\int_{4\pi}h\frac{\zeta + f}{h}d\omega$ konstant ist.
+\end{enumerate}
 
 \section{Ausgang von der Geostrophie}
 \label{sec:ausgang_von_der_geostrophie}\index{Geostrophie}
 
-\subsection{Lineare SWEs}
-\label{sec:lineare_swes_geostrophie}
+\subsection{Lineare SWEs auf der f-Kugel}
+\label{sec:lineare_swes_auf_der_f-kugel_geostrophie}\index{f-Kugel}
 
 \subsection{Nichtlineare SWEs}
 \label{sec:nichtlineare_swes_geostrophie}
@@ -16017,8 +16140,18 @@ Hiermit sind die Glg.en \eqref{eq:linear_condition_trivariate_discrete_0} - \eqr
 \section{Ausgang von der Drehimpulserhaltung}
 \label{sec:ausgang_von_der_drehimpulserhaltung}\index{Drehimpulserhaltung}
 
-\subsection{Lineare SWEs}
-\label{sec:lineare_swes_drehimpuls}
+Den axialen Drehimpuls der SWEs Glg. \eqref{eq:def_ax_ang_mom_swe} kann man zu
+%
+\begin{eqnarray}
+L_z & = & \mathbf{e}_z\cdot\int_{4\pi}h\mathbf{r}\times\rho\mathbf{v}a^2\cos\left(\varphi\right)d\varphi d\lambda = a^2\int_{4\pi}h\mathbf{e}_z\cdot\left(\mathbf{r}\times\rho\mathbf{v}\right)\cos\left(\varphi\right)d\varphi d\lambda\nonumber\\
+& \stackrel{\text{Glg. \eqref{eq:spat_prod_prop_0}}}{=} & a^2\int_{4\pi}h\mathbf{v}\cdot\left(\mathbf{e}_z\times\rho\mathbf{r}\right)\cos\left(\varphi\right)d\varphi d\lambda = a^3\int_{4\pi}\rho h\mathbf{v}\cdot\left(\mathbf{e}_z\times\mathbf{e}_r\right)\cos\left(\varphi\right)d\varphi d\lambda\nonumber\\
+& = & a^3\int_{4\pi}\rho h\mathbf{v}\cdot\mathbf{i}\cos^2\left(\varphi\right)d\varphi d\lambda = a^3\int_{4\pi}\rho hu\cos^2\left(\varphi\right)d\varphi d\lambda
+\end{eqnarray}
+%
+umformulieren.
+
+\subsection{Lineare SWEs auf der f-Kugel}
+\label{sec:lineare_swes_auf_der_f-kugel_drehimpuls}\index{f-Kugel}
 
 \subsection{Nichtlineare SWEs}
 \label{sec:nichtlineare_swes_drehimpuls}
@@ -16359,14 +16492,6 @@ Im Falle von Kugelkoordinaten, also oberhalb des Layers oberhalb von $\newtilde{
 
 \section{Prognostische Variablen}
 \label{sec:prognostische_variablen}
-
-\begin{center}
-\doublebox{\parbox{0.8\textwidth}{
-\begin{center}
-Eine Variable ist eine \textit{prognostische Variable}\index{prognostische Variable}\index{Variable!prognostische}, wenn für sie eine Evolutionsgleichung gelöst wird, anonsten handelt es sich um eine \textit{diagnostische Variable}\index{diagnostische Variable}\index{Variable!diagnostische}.
-\end{center}
-}}
-\end{center}
 
 \section{Diskretisierung der Poisson-Klammern}
 
@@ -16783,10 +16908,10 @@ Es ergibt sich also die gleiche Dispersionsrelation wie Glg. \eqref{eq:velocity_
 \section{Tests}
 \label{sec:tests}
 
-\subsection{JW-Test}
-\label{sec:jw-test}\index{JW-Test}
+\subsection{Ullrich-Test}
+\label{sec:ullrich-test}\index{Ullrich-Test}
 
-Der Jablonowski-Williamson-Test \cite{jablonowski} (im Folgenden JW-Test genannt) ist ein Standardtest für dynamische Kerne. Er geht von einem durch analytische Ausdrücke definierten, baroklinen, realistischen Grundzustand aus, der eine stationäre Lösung der trockenen adiabatischen herrschenden Gleichungen ist. Anschließend wird eine kleine Störung überlagert, die sich in Form barokliner Wellen über mehrere Tage fortpflanzt. Der Test soll zwei Fragen beantworten:
+Der Ullrich-Test\index{Ullrich-Test} \cite{doi:10.1002/qj.2241} ist ein Standardtest für dynamische Kerne\index{dynamischer Kern}\index{Kern!dynamischer}. Er geht von einem durch analytische Ausdrücke definierten, baroklinen, realistischen Grundzustand aus, der eine stationäre Lösung der trockenen adiabatischen herrschenden Gleichungen ist. Anschließend wird eine kleine Störung überlagert, die sich in Form barokliner Wellen über mehrere Tage fortpflanzt. Der Test soll zwei Fragen beantworten:
 %
 \begin{enumerate}
 \item Ist der dynamische Kern in der Lage, den stationären Grundzustand beizubehalten?
@@ -17767,6 +17892,13 @@ also steht $\mathbf{B}_\perp$ in der Tat senkrecht auf $\mathbf{A}$. Mit Glg. \e
 \begin{eqnarray}
 \mathbf{A}\times\left(\mathbf{B}\times\mathbf{A}\right) & = & \mathbf{B}A^2 - \mathbf{A}\left(\mathbf{A}\cdot\mathbf{B}\right) = A^2\mathbf{B} - A^2\mathbf{B}_\parallel = A^2\mathbf{B}_\perp\nonumber\\
 \Rightarrow \mathbf{B}_\perp & = & \frac{1}{A^2}\mathbf{A}\times\left(\mathbf{B}\times\mathbf{A}\right).
+\end{eqnarray}
+
+Es gilt
+%
+\begin{eqnarray}
+\mathbf{A}\cdot\left(\mathbf{B}\times\mathbf{C}\right) & = & \sum_{i = 1}^3A_i\left(\mathbf{B}\times\mathbf{C}\right)_i = \sum_{i = 1}^3A_i\sum_{j, k = 1}^{3}\epsilon_{j, k, i}B_jC_k  = \sum_{i, j, k = 1}^{3}\epsilon_{j, k, i}A_iB_jC_k = \sum_{i, j, k = 1}^{3}\epsilon_{i, j, k}A_iB_jC_k\nonumber\\
+& = & \sum_{k = 1}^{3}C_k\sum_{i, j = 1}^{3}\epsilon_{i, j, k}A_iB_j = \sum_{i = 1}^3C_k\left(\mathbf{A}\times\mathbf{B}\right)_k = \mathbf{C}\cdot\left(\mathbf{A}\times\mathbf{B}\right).\label{eq:spat_prod_prop_0}
 \end{eqnarray}
 
 \chapter{\normalfont\textsc{Vektoranalysis}}

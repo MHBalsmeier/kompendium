@@ -362,37 +362,6 @@
       \field{year}{2000}
       \field{dateera}{ce}
     \endentry
-    \entry{jablonowski}{article}{}
-      \name{author}{2}{}{%
-        {{hash=186ff8f4f730682f2fba61b189af2569}{%
-           family={Jablonowski},
-           familyi={J\bibinitperiod},
-           given={C.},
-           giveni={C\bibinitperiod}}}%
-        {{hash=9425f2bbd012857d8bf51dad7ab30696}{%
-           family={Williamson},
-           familyi={W\bibinitperiod},
-           given={D.\bibnamedelimi L.},
-           giveni={D\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
-      }
-      \strng{namehash}{571b682ef4dcff3ec050f6413c9b83bb}
-      \strng{fullhash}{571b682ef4dcff3ec050f6413c9b83bb}
-      \strng{bibnamehash}{571b682ef4dcff3ec050f6413c9b83bb}
-      \strng{authorbibnamehash}{571b682ef4dcff3ec050f6413c9b83bb}
-      \strng{authornamehash}{571b682ef4dcff3ec050f6413c9b83bb}
-      \strng{authorfullhash}{571b682ef4dcff3ec050f6413c9b83bb}
-      \field{sortinit}{J}
-      \field{sortinithash}{c45040a764d616897e7f5b30174d7b92}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Q. J. R. Meteorol. Soc.}
-      \field{number}{132}
-      \field{title}{A baroclinic instabiliy test case for atmospheric model dynamical cores}
-      \field{year}{2006}
-      \field{dateera}{ce}
-      \field{pages}{2943\bibrangedash 2975}
-      \range{pages}{33}
-    \endentry
     \entry{pruppacher_klett}{book}{}
       \name{author}{2}{}{%
         {{hash=e0d148b09fa42dbffbaf633741dec664}{%
@@ -696,6 +665,61 @@
       \field{labeltitlesource}{title}
       \field{howpublished}{Wikimedia Commons, user: Rpnl ocn, license: CC BY - SA 4.0}
       \field{title}{The five different grids by Arakawa}
+    \endentry
+    \entry{doi:10.1002/qj.2241}{article}{}
+      \name{author}{4}{}{%
+        {{hash=96a1a0d2473c521339d05cee913b62d6}{%
+           family={Ullrich},
+           familyi={U\bibinitperiod},
+           given={Paul\bibnamedelima A.},
+           giveni={P\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=e7d77fea1b4424cec653ba1765e106ca}{%
+           family={Melvin},
+           familyi={M\bibinitperiod},
+           given={Thomas},
+           giveni={T\bibinitperiod}}}%
+        {{hash=0e9f7e93139e8647670d94fc9c8320cc}{%
+           family={Jablonowski},
+           familyi={J\bibinitperiod},
+           given={Christiane},
+           giveni={C\bibinitperiod}}}%
+        {{hash=cc3f7d74922076e1acac0b8ccd840702}{%
+           family={Staniforth},
+           familyi={S\bibinitperiod},
+           given={Andrew},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{8af1cbe00173e033d4b97ba951d281eb}
+      \strng{fullhash}{936b2f67e7e581340c6691dcebc1f382}
+      \strng{bibnamehash}{8af1cbe00173e033d4b97ba951d281eb}
+      \strng{authorbibnamehash}{8af1cbe00173e033d4b97ba951d281eb}
+      \strng{authornamehash}{8af1cbe00173e033d4b97ba951d281eb}
+      \strng{authorfullhash}{936b2f67e7e581340c6691dcebc1f382}
+      \field{sortinit}{U}
+      \field{sortinithash}{77a6935510e008adcf5b555e7b4f0711}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Abstract Idealised studies of key dynamical features of the atmosphere provide insight into the behaviour of atmospheric models. A very important, well understood, aspect of midlatitude dynamics is baroclinic instability. This can be idealised by perturbing a vertically sheared basic state in geostrophic and hydrostatic balance. An unstable wave mode then results with exponential growth (due to linear dynamics) in time until, eventually, nonlinear effects dominate and the wave breaks. A new, unified, idealised baroclinic instability test case is proposed. This improves on previous ones in three ways. First, it is suitable for both deep- and shallow-atmosphere models. Second, the constant surface pressure and zero surface geopotential of the basic state makes it particularly well-suited for models employing a pressure- or height-based vertical coordinate. Third, the wave triggering mechanism selectively perturbs the rotational component of the flow; this, together with a vertical tapering, significantly improves dynamic balance.}
+      \field{journaltitle}{Quarterly Journal of the Royal Meteorological Society}
+      \field{number}{682}
+      \field{title}{A proposed baroclinic wave test case for deep- and shallow-atmosphere dynamical cores}
+      \field{volume}{140}
+      \field{year}{2014}
+      \field{pages}{1590\bibrangedash 1602}
+      \range{pages}{13}
+      \verb{doi}
+      \verb 10.1002/qj.2241
+      \endverb
+      \verb{eprint}
+      \verb https://rmets.onlinelibrary.wiley.com/doi/pdf/10.1002/qj.2241
+      \endverb
+      \verb{urlraw}
+      \verb https://rmets.onlinelibrary.wiley.com/doi/abs/10.1002/qj.2241
+      \endverb
+      \verb{url}
+      \verb https://rmets.onlinelibrary.wiley.com/doi/abs/10.1002/qj.2241
+      \endverb
+      \keyw{baroclinic instability,model intercomparison,small Earth}
     \endentry
   \enddatalist
 \endrefsection
