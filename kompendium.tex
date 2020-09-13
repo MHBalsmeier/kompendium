@@ -9153,6 +9153,20 @@ Es bleibt in diesem Abschnitt eine offene Frage, warum der größte Anteil der v
 \section{Anwendung des Hamilton-Formalismus auf die Atmosphäre}
 \label{sec:anwendung_des_hamilton-formalismus_auf_die_atmosphaere}\index{Hamilton-Formalismus!Atmosphäre}\index{Atmosphäre!Hamiltonä-Formalismus}
 
+Es ist sinnvoll, die Massendichte\index{Massendichte} $\rho$ als erste prognostische Variable\index{prognostische Variable}\index{Variable!prognostische} festzulegen und die Kontinuitätsgleichung\index{Kontinuitätsgleichung}
+%
+\begin{eqnarray}
+\frac{\partial\rho}{\partial t} + \nabla\cdot\left(\rho\mathbf{v}\right) = 0
+\end{eqnarray}
+%
+als erste prognostische Gleichung\index{prognostische Gleichung}\index{Gleichung!prognostische}. Dies ist so, da die Masendichte\index{Massendichte} eine sehr fundamentale Größe (sie beschreibt einfach, wie viel Masse sich an einem gewissen Ort befindet) und die Kontinuitätsgleichung\index{Kontinuitätsgleichung} in der Herleitung vieler anderer prognostischer Gleichungen\index{prognostische Gleichung}\index{Gleichung!prognostische} enthalten ist. Aufgrund der thermischen Zustandsgleichung idealer Gase\index{thermische Zustandsgleichung idealer Gase}\index{Zustandsgleichung!thermische!idealer Gase}\index{ideales Gas!Zustandsgleichung!thermische} hat man die Freiheit, eine weitere thermodynamische Variable $q_1 \not= \rho$ zu wählen. Für die Hamilton-Funktion\index{Hamilton-Funktion} der Atmosphäre notiert man dann 
+%
+\begin{eqnarray}
+H = H\left(\rho, \newtilde{T}, \mathbf{v}\right) = \int_A\frac{1}{2}\rho\mathbf{v}^2 + \rho\phi + \newtilde{I}\left(\rho, q_1\right)d^3r.
+\end{eqnarray}
+%
+$\newtilde{I}\left(\rho, q_1\right)$ ist die innere Energiedichte\index{innere Energiedichte}\index{Energiedichte!innere} als Funktion der Massendichte und der prognostischen Variable\index{prognostische Variable}\index{Variable!prognostische} $q_1$. In diesem funktionalen Zusammenhang ist die thermische Zustandsgleichung idealer Gase\index{thermische Zustandsgleichung idealer Gase}\index{Zustandsgleichung!thermische!idealer Gase}\index{ideales Gas!Zustandsgleichung!thermische} implizit enthalten.
+
 \subsection{Trockene Atmosphäre}
 \label{sec:trockene_atmosphaere}
 
@@ -9162,7 +9176,7 @@ Die Hamilton-Funktion\index{Hamilton-Funktion!Atmosphäre}\index{Atmosphäre!Ham
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{eqnarray}
-H = H\left(\mathbf{v}, \rho, \newtilde{T}\right) = \int_A\frac{1}{2}\rho\mathbf{v}^2 + \rho\phi + c_d^{(v)}\newtilde{T}d^3r.\label{eq:hamilton_function_atmosphere}
+H = H\left(\rho, \newtilde{T}, \mathbf{v}\right) = \int_A\frac{1}{2}\rho\mathbf{v}^2 + \rho\phi + c_d^{(v)}\newtilde{T}d^3r.\label{eq:hamilton_function_atmosphere}
 \end{eqnarray}
 \end{center}
 }}
@@ -9216,6 +9230,8 @@ und
 q_T^{(\text{diss})} & = & -\mathbf{v}\cdot\nabla\cdot\newoverline{\rho\mathbf{v}'\mathbf{v}'}.
 \end{eqnarray}
 %
+Der Poisson-Klammer-Formalismus\index{Poisson-Klammer} führt auf eine spezielle Form der Druckgradientbeschleunigung\index{Druckgradientbeschleunigung}. Darin ist neben $\rho$ und $q_1$ meist eine dritte Variable $q_1$ enthalten, gelegentlich sogar eine vierte oder fünfte. Eine dieser Variablen wählt man als \textit{semi-prognostische Variable}\index{semi-prognostische Variable} $q_2$.
+
 \subsubsection{Potentielle Temperatur als prognostische Variable}
 \label{sec:potentielle_temperatur_als_prognostische_variable_hamilton}
 
@@ -9277,7 +9293,7 @@ und erhält somit
 \end{eqnarray}
 
 \subsubsection{Entropiedichte als prognostische Variable}
-\label{sec:entropiedichte_temperatur_als_prognostische_variable_hamilton}
+\label{sec:entropiedichte_als_prognostische_variable_hamilton}
 
 Verwendet man anstatt der potentiellen Temperatur die Entropie\index{Entropie} und definiert
 %
@@ -16620,7 +16636,7 @@ Im Falle von Kugelkoordinaten, also oberhalb des Layers oberhalb von $\newtilde{
 \chapter{\normalfont\textsc{Reversible Dynamik}}
 \label{chap:reversible_dynamik}\index{reversible Dynamik}\index{Dynamik!reversible}
 
-Ziel dieses Kapitels ist es, herzuleiten, wie Skalarfelder, Vektorfelder, differentielle und algebraische Operatoren und Randbedingungen zu diskretisieren sind. Hierzu betrachtet man die Atmosphäre $A \subseteq \mathbb{R}^3$ als offene Menge und verwendet als Gleichungssystem die reversiblen Gleichungen
+Ziel dieses Kapitels ist es, herzuleiten, wie differentielle und algebraische Operatoren und Randbedingungen zu diskretisieren sind. Hierzu betrachtet man die Atmosphäre $A \subseteq \mathbb{R}^3$ als offene Menge und verwendet als Gleichungssystem die reversiblen Gleichungen trockener Luft\index{trockene Luft}\index{Luft!trockene}
 %
 \begin{eqnarray}
 \md{\mathbf{v}} & = & -\frac{1}{\rho}\nabla p - \mathbf{f}\times\mathbf{v} + \mathbf{g},\\
@@ -16643,8 +16659,47 @@ am oberen Rand und
 %
 am unteren Rand.
 
-\section{Prognostische Variablen}
-\label{sec:prognostische_variablen}
+\section{Prognostische Variablen und Gleichungen}
+\label{sec:prognostische_variablen_und_gleichungen}\index{prognostische Variable}\index{Variable!prognostische}\index{prognostische Gleichung}\index{Gleichung!prognostische}
+
+Als prognostische Variablen\index{prognostische Variable}\index{Variable!prognostische} werden
+%
+\begin{itemize}
+\item die Massendichte\index{Massendichte} $\rho$ in den Zentren der Boxen,
+\item die Entropiedichte\index{Entropiedichte} $\newtilde{s}$ in den Zentren der Boxen,
+\item die Horizontalgeschwindigkeit\index{Horizontalgeschwindigkeit} $u$ and den Kanten der Zellen
+\item die Vertikalgeschwindigkeit\index{Vertikalgeschwindigkeit} $w$ in den Levels\index{Level} sowie
+\item die Temperatur\index{Temperatur} $T$ in den Zentren der Boxen als semi-prognostische Variable\index{semi-prognostische Variable}\index{Variable!semi-prognostische}
+\end{itemize}
+%
+gewählt. Die Hamilton-Funktion\index{Hamilton-Funktion} $H$ schreibt man dann als Funktion von $\rho, \newtilde{s}$ und $\mathbf{v}$,
+%
+\begin{eqnarray}
+H = H\left(\rho, \newtilde{s}, \mathbf{v}\right).
+\end{eqnarray}
+%
+Die Form der prognostischen Gleichungen\index{prognostische Gleichung}\index{Gleichung!prognostische} für diesen Fall wurden in in Absch. \ref{sec:entropiedichte_als_prognostische_variable_hamilton} hergeleitet, sie lauten
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{eqnarray}
+\frac{\partial\mathbf{v}}{\partial t} & = & -c^{(p)}\nabla T + T\nabla s - \nabla k + \mathbf{v}\times\etabi - \nabla\phi,\\
+\frac{\partial\rho}{\partial t} & = & -\nabla\cdot\left(\rho\mathbf{v}\right),\\
+\frac{\partial\newtilde{s}}{\partial t} & = & -\nabla\cdot\left(\newtilde{s}\mathbf{v}\right),\\
+T_1 & = & \frac{c^{(v)}\rho_0T_0 + \left(R_dT_0 - \frac{R_d}{c^{(p)}}s_0T_0\right)\Delta\rho + \frac{R_d}{c^{(p)}}T_0\Delta\newtilde{s}}{c^{(v)}\rho_0 + \frac{c^{(v)}}{c^{(p)}}s_1\Delta\rho - \frac{c^{(v)}}{c^{(p)}}\Delta\newtilde{s}}.\label{eq:prog_rev_3}
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
+%
+Der Druckgradient\index{Druckgradient} wurde dabei in der Form
+%
+\begin{eqnarray}
+-\nabla G - s\nabla T = -\nabla\left(c^{(p)}\nabla T - sT\right) - s\nabla T = -c^{(p)}\nabla T + T\nabla s
+\end{eqnarray}
+%
+umgeschrieben, da dies die implizite Behandlung vertikal propagierender Schallwellen vereinfacht, s. Absch. \ref{sec:vertikaler_sound_wave_solver}. Die thermische Zustandsgleichung idealer Gase\index{thermische Zustandsgleichung idealer Gase}\index{Zustandsgleichung!thermische!idealer Gase}\index{ideales Gas!Zustandsgleichung!thermische} ist implizit in Glg. \eqref{eq:prog_rev_3} enthalten, diese wurde in Absch. \ref{sec:energetisch_konsistente_zeitentwicklung_der_temperatur} hergeleitet.
 
 \section{Diskretisierung der Poisson-Klammern}
 \label{sec:diskretisierung_der_poisson-klammern}
