@@ -16456,6 +16456,116 @@ Die \textit{shallow-atmosphere}-Aprroximation\index{shallow atmosphere} geht von
 }}
 \end{center}
 
+\subsection{Rekonstruktion der vertikalen kontravarianten Maßzahl}
+\label{sec:rekonstruktion_der_vertikalen_kontravarianten_maßzahl}\index{kontravariante Maßzahl!Rekonstruktion (geländefolgende Koordinaten)}\index{Maßzahl!kontravariante!Rekonstruktion (geländefolgende Koordinaten)}
+
+In der Horizontalen sind die kontravarianten Maßzahlen prognostische Variablen\index{prognostische Variable}\index{Variable!prognostische} und müssen daher nicht rekonstruiert werden. In der Vertikalen benötigt man jedoch
+%
+\begin{eqnarray}
+\mathbf{v}\cdot\mathbf{e}^{(v)} = v^{(v)},
+\end{eqnarray}
+%
+wobei $\mathbf{e}^{(v)}$ der vertikale kontravariante Einheitsvektor ist. Um $v^{(v)}$ aus $w$ und den horizontalen kontravarianten Komponenten $u$ zu bestimmen, betrachtet man zunächst ein zweidimensionales xz-Koordinatensystem, in der y-Richtung sei das System homogen. Der Einfachheit halber geht man von einer Koordinatenfläche der Form
+%
+\begin{eqnarray}
+z\left(x\right) = Jx = \tan\left(\alpha\right)x
+\end{eqnarray}
+%
+aus, wobei $\alpha$ der Winkel zwischen der Koordinatenfläche und der x-Achse ist. In diesem Fall gilt
+%
+\begin{eqnarray}
+\mathbf{e}^{(v)} = \left(\begin{array}{c}
+-\sin\left(\alpha\right)\\
+\cos\left(\alpha\right)
+\end{array}\right).
+\end{eqnarray}
+%
+Notiert man für das Vektorfeld
+%
+\begin{eqnarray}
+\mathbf{v} = \left(\begin{array}{c}
+u\\
+w
+\end{array}\right),
+\end{eqnarray}
+%
+folgt
+%
+\begin{eqnarray}
+\mathbf{v}\cdot\mathbf{e}^{(v)} = -u\sin\left(\alpha\right) + w\cos\left(\alpha\right).
+\end{eqnarray}
+%
+Eine horizontale Koordinatenfläche $A'$ vergrößert sich bei Verkippung um den Winkel $\alpha$ um den Faktor
+%
+\begin{eqnarray}
+A' = A\cos\left(\alpha\right) \Leftrightarrow A = \frac{A'}{\cos\left(\alpha\right)}.
+\end{eqnarray}
+%
+In einer numerischen Implementierung ist es häufig effizienter, diesen Vergrößerungsfaktor der horizontalen Fläche in die Vektorfeldkomponente zu absorbieren. Damit erhält man
+%
+\begin{eqnarray}
+\mathbf{v}\cdot\mathbf{e}^{(v)}\vline_\text{GK} = w - u\tan\left(\alpha\right) = w - Ju,
+\end{eqnarray}
+%
+wobei der Index GK für \textit{geometriekorrigiert} steht. Es gilt also
+%
+\begin{eqnarray}
+v^{(v)}_{b, k + \frac{1}{2}, \text{GK}} = w_{b, k + \frac{1}{2}} - \newoverline{\newoverline{u^{(h)}_{e, k}J_{n, e, k}}^{(b)}}^{k + \frac{1}{2}}.
+\end{eqnarray}
+
+\subsection{Rekonstruktion der horizontalen kovarianten Maßzahl}
+\label{sec:rekonstruktion_der_horizontalen_kovarianten_maßzahl}\index{kovariante Maßzahl!Rekonstruktion (geländefolgende Koordinaten)}\index{Maßzahl!kovariante!Rekonstruktion (geländefolgende Koordinaten)}
+
+In der Vertikalen sind die kovarianten Maßzahlen prognostische Variablen\index{prognostische Variable}\index{Variable!prognostische} und müssen daher nicht rekonstruiert werden. In der Horizontalen benötigt man jedoch
+%
+\begin{eqnarray}
+\mathbf{v}\cdot\mathbf{e}_h = u_h,
+\end{eqnarray}
+%
+wobei $\mathbf{e}_h$ der horizontale kovariante Einheitsvektor ist. Um $u_h$ aus $u$ und den vertikalen kovarianten Komponenten $w$ zu bestimmen, betrachtet man zunächst ein zweidimensionales xz-Koordinatensystem. Der Einfachheit halber geht man von einer Koordinatenfläche der Form
+%
+\begin{eqnarray}
+z\left(x\right) = Jx = \tan\left(\alpha\right)x
+\end{eqnarray}
+%
+aus, wobei $\alpha$ der Winkel zwischen der Koordinatenfläche und der x-Achse ist. In diesem Fall gilt
+%
+\begin{eqnarray}
+\mathbf{e}_h = \left(\begin{array}{c}
+\cos\left(\alpha\right)\\
+\sin\left(\alpha\right)
+\end{array}\right).
+\end{eqnarray}
+%
+Notiert man für das Vektorfeld
+%
+\begin{eqnarray}
+\mathbf{v} = \left(\begin{array}{c}
+u\\
+w
+\end{array}\right),
+\end{eqnarray}
+%
+folgt
+%
+\begin{eqnarray}
+\mathbf{v}\cdot\mathbf{e}_h = u\cos\left(\alpha\right) + w\sin\left(\alpha\right).
+\end{eqnarray}
+%
+Eine horizontale Länge entlang einer Koordinatenlinie $L'$ vergrößert sich bei Verkippung um den Winkel $\alpha$ um den Faktor
+%
+\begin{eqnarray}
+L' = L\cos\left(\alpha\right) \Leftrightarrow L = \frac{L'}{\cos\left(\alpha\right)}.
+\end{eqnarray}
+%
+In einer numerischen Implementierung ist es häufig effizienter, diesen Vergrößerungsfaktor der horizontalen Länge in die Vektorfeldkomponente zu absorbieren. Damit erhält man
+%
+\begin{eqnarray}
+\mathbf{v}\cdot\mathbf{e}_h\vline_\text{GK} = u + w\tan\left(\alpha\right) = u + Jw,
+\end{eqnarray}
+%
+wobei der Index GK für \textit{geometriekorrigiert} steht.
+
 \subsection{SLEVE}
 \label{sec:sleve}\index{SLEVE}
 
@@ -16490,28 +16600,7 @@ Im Falle von Kugelkoordinaten, also oberhalb des Layers oberhalb von $\newtilde{
 \chapter{\normalfont\textsc{Reversible Dynamik}}
 \label{chap:reversible_dynamik}\index{reversible Dynamik}\index{Dynamik!reversible}
 
-\section{Prognostische Variablen}
-\label{sec:prognostische_variablen}
-
-\section{Diskretisierung der Poisson-Klammern}
-
-\subsection{Volumengewichtete Mittelungsoperatoren}
-
-In der Horizontalen sind die kontravarianten Maßzahlen prognostische Variablen und müssen daher nicht rekonstruiert werden. In der Vertikalen benötigt man jedoch
-%
-\begin{eqnarray}
-\mathbf{v}\cdot\mathbf{e}^{(v)} = v^{(v)}.
-\end{eqnarray}
-%
-Es gilt also
-%
-\begin{eqnarray}
-v^{(v)}_{b, k + \frac{1}{2}} = w_{b, k + \frac{1}{2}} - \newoverline{\newoverline{u^{(h)}_{e, k}J_{n, e, k}}^{(b)}}^{k + \frac{1}{2}}.
-\end{eqnarray}
-
-\subsection{Die innere-Energie-Klammer}
-
-Ziel dieses Abschnittes ist es, herzuleiten, wie Skalarfelder, Vektorfelder, differentielle und algebraische Operatoren und Randbedingungen zu diskretisieren sind. Hierzu betrachtet man die Atmosphäre $A \subseteq \mathbb{R}^3$ zunächst als offene Kugelschale und verwendet als Gleichungssystem die reversiblen Gleichungen
+Ziel dieses Kapitels ist es, herzuleiten, wie Skalarfelder, Vektorfelder, differentielle und algebraische Operatoren und Randbedingungen zu diskretisieren sind. Hierzu betrachtet man die Atmosphäre $A \subseteq \mathbb{R}^3$ als offene Menge und verwendet als Gleichungssystem die reversiblen Gleichungen
 %
 \begin{eqnarray}
 \md{\mathbf{v}} & = & -\frac{1}{\rho}\nabla p - \mathbf{f}\times\mathbf{v} + \mathbf{g},\\
@@ -16520,13 +16609,31 @@ c^{(v)}\md{T} - \frac{p}{\rho^2}\md{\rho} & = & 0,\\
 p & = & \rho R_dT
 \end{eqnarray}
 %
-ohne Näherungen mit der Randbedingung
+ohne Näherungen mit den Randbedingungen\index{Randbedingung}
 %
 \begin{eqnarray}
 \mathbf{v}\cdot\mathbf{n} = 0
 \end{eqnarray}
 %
-auf $\partial A$.
+am oberen Rand und
+%
+\begin{eqnarray}
+\mathbf{v} = \mathbf{0}
+\end{eqnarray}
+%
+am unteren Rand.
+
+\section{Prognostische Variablen}
+\label{sec:prognostische_variablen}
+
+\section{Diskretisierung der Poisson-Klammern}
+\label{sec:diskretisierung_der_poisson-klammern}
+
+\subsection{Volumengewichtete Mittelungsoperatoren}
+\label{sec:volumengewichtete_mittelungsoperatoren}
+
+\subsection{Die innere-Energie-Klammer}
+\label{sec:die_innere-energie-klammer}
 
 Das Produkt eines Skalarfeldes $\psi$ mit einem Vektorfeld $\mathbf{v}$ ist ein Vektorfeld $\mathbf{w}$, man notiert
 %
@@ -16573,7 +16680,7 @@ Die spezifische kinetische Energie\index{kinetische Energie!spezifische}\index{E
 k_b = \sum_{i = 1}^{n_k}C_{k, b, i}v_{k, b, i}^2
 \end{eqnarray}
 %
-In kartesichen Koordinaten\index{kartesichen Koordinaten}\index{Koordinaten!kartesiche} gilt
+In kartesischen Koordinaten\index{kartesichen Koordinaten}\index{Koordinaten!kartesiche} gilt
 %
 \begin{eqnarray}
 k = \frac{1}{2}\left(v_x^2 + v_y^2 + v_z^2\right),
@@ -16586,20 +16693,6 @@ woraus man die Bedingung
 \end{eqnarray}
 %
 für alle $1 \leq b \leq N_b$ ableitet.
-
-Gesucht wird nach einer Diskretisierung $\times$ des Vektorproduktes $\times$ so, dass die Eigenschaften
-%
-\begin{eqnarray}
-\mathbf{v}\times\mathbf{v}_h = -\mathbf{v}_h\times\mathbf{v}
-\end{eqnarray}
-%
-sowie
-%
-\begin{eqnarray}
-\mathbf{v}\cdot\left(\mathbf{v}\times\mathbf{v}_h\right) = \mathbf{v}_h\cdot\left(\mathbf{v}\times\mathbf{v}_h\right) = 0
-\end{eqnarray}
-%
-erhalten bleiben.
 
 \subsection{Die kinetische-Energie-Klammer}
 
@@ -16634,10 +16727,10 @@ Es besteht folgender Konflikt zwischen expliziten\index{explizites Zeitschrittve
 %
 \begin{itemize}
 \item Explizite Verfahren sind einfach zu implementieren und schnell. Der aus dem CFL-Kriterium\index{CFL-Kriterium} folgende Zeitschritt ist jedoch meist deutlich kleiner als der physikalisch notwendige. Dies mindert die Performance expliziter Verfahren erheblich. Explizite Multischrittverfahren\index{Multischrittverfahren} machen darüber hinaus Filter\index{Filter!Zeitschrittverfahren}\index{Zeitschrittverfahren!Filter} erforderlich, welche mimetische Eigenschaften\index{mimetische Eigenschaft!einer Diskretisierung}\index{Diskretisierung!mimetische Eigenschaft} zerstören können.
-\item Implizite Verfahren\index{implizites Zeitschrittverfahren}\index{Zeitschrittverfahren!implizites} sind aufwendiger zu implementieren. Ihre Geschwindigkeit hängt von der Komplexität des Problems ab. Sie sind stabiler als explizite Verfahren.
+\item Implizite Verfahren\index{implizites Zeitschrittverfahren}\index{Zeitschrittverfahren!implizites} sind aufwendiger zu implementieren. Ihre Geschwindigkeit hängt von der Komplexität des Problems ab. Sie sind stabiler als explizite Verfahren und ermöglichen einen großen Zeitschritt, was positiv zu ihrer Performance beiträgt.
 \end{itemize}
 %
-Hieraus folgt, dass ein schnelles implizites Verfahren ideal für einen dynamischen Kern wäre. Da die zu lösenden Gleichungen jedoch nichtlinear sind, ist ein dreidimensional implizites Verfahren nur über ein iteratives Vorgehen möglich. Bisher ist es nicht gelungen, hier eine zufriedenstellende Konvergenzgeschwindigkeit zu erreichen. Daher wählt man als Kompromiss das \textit{HEVI-Konzept,}\index{HEVI-Konzept} was für \textit{horizontally explicit, vertically implicit}\index{horizontally explicit, vertically implicit (HEVI)} steht. Das grundlegende Zeitschrittverfahren des Modells ist das Runge-Kutta-Verfahren dritter Ordnung\index{Runge-Kutta-Verfahren!dritter Ordnung}. Das prinzipielle Verfahren bei jedem der drei Unterschritte ist folgendes:
+Hieraus folgt, dass ein schnelles implizites Verfahren ideal für einen dynamischen Kern wäre. Da die zu lösenden Gleichungen jedoch nichtlinear sind, ist ein dreidimensional implizites Verfahren nur über ein iteratives Vorgehen möglich. Bisher ist es nicht gelungen, hier eine zufriedenstellende Konvergenzgeschwindigkeit zu erreichen. Daher wählt man als Kompromiss das \textit{HEVI-Konzept,}\index{HEVI-Konzept} was für \textit{horizontally explicit, vertically implicit}\index{horizontally explicit, vertically implicit (HEVI)} steht. Das grundlegende Zeitschrittverfahren des Modells ist das Runge-Kutta-Verfahren dritter Ordnung\index{Runge-Kutta-Verfahren!dritter Ordnung}. Das prinzipielle Vorgehen bei jedem der drei Unterschritte ist folgendes:
 
 \begin{enumerate}
 \item Zunächst werden die Geschwindigkeitstendenzen des expliziten Anteils berechnet.
@@ -16905,37 +16998,6 @@ Es ergibt sich also die gleiche Dispersionsrelation wie Glg. \eqref{eq:velocity_
 \section{Regionaler Modus}
 \label{sec:regionaler_modus}
 
-\section{Tests}
-\label{sec:tests}
-
-\subsection{Ullrich-Test}
-\label{sec:ullrich-test}\index{Ullrich-Test}
-
-Der Ullrich-Test\index{Ullrich-Test} \cite{doi:10.1002/qj.2241} ist ein Standardtest für dynamische Kerne\index{dynamischer Kern}\index{Kern!dynamischer}. Er geht von einem durch analytische Ausdrücke definierten, baroklinen, realistischen Grundzustand aus, der eine stationäre Lösung der trockenen adiabatischen herrschenden Gleichungen ist. Anschließend wird eine kleine Störung überlagert, die sich in Form barokliner Wellen über mehrere Tage fortpflanzt. Der Test soll zwei Fragen beantworten:
-%
-\begin{enumerate}
-\item Ist der dynamische Kern in der Lage, den stationären Grundzustand beizubehalten?
-\item Wie gut wird die Störung simuliert?
-\end{enumerate}
-%
-\subsubsection{Stationärer Grundzustand}
-\label{sec:stationaerer_grundzustand}
-
-\subsubsection{Störung}
-\label{sec:stoerung}
-
-\subsection{Steile Orographie}
-\label{sec:steile_orographie}
-
-\subsubsection{Ruhende Atmosphäre}
-\label{sec:ruhende_atmosphaere}
-
-\subsubsection{Bewegte Atmosphäre}
-\label{sec:bewegte_atmosphaere}
-
-\subsection{Superzelle}
-\label{sec:superzelle}
-
 \chapter{\normalfont\textsc{Irreversible Dynamik}}
 \label{chap:irreversible_dynamik}\index{irreversible Dynamik}\index{Dynamik!irreversible}
 
@@ -16974,9 +17036,6 @@ Der Ullrich-Test\index{Ullrich-Test} \cite{doi:10.1002/qj.2241} ist ein Standard
 
 \section{Turbulenzparametrisierungen}
 \label{sec:turbulenzparametrisierungen}\index{Turbulenzparametrisierung}
-
-\subsection{Held-Suarez-Test}
-\label{sec:held-suarez-test}\index{Held-Suarez-Test}
 
 \chapter{\normalfont\textsc{Weiterführende Aspekte}}
 \label{chap:weiterfuehrende_aspekte}
