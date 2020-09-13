@@ -16507,11 +16507,19 @@ In einer numerischen Implementierung ist es häufig effizienter, diesen Vergrö�
 \mathbf{v}\cdot\mathbf{e}^{(v)}\vline_\text{GK} = w - u\tan\left(\alpha\right) = w - Ju,
 \end{eqnarray}
 %
-wobei der Index GK für \textit{geometriekorrigiert} steht. Es gilt also
+wobei der Index GK für \textit{geometriekorrigiert} steht.
+
+Verallgemeinert dies auf eine dreidimensionale C-Gitter-Diskretisierung\index{C-Gitter}\index{Diskretisierung}, erhält man
 %
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 \begin{eqnarray}
-v^{(v)}_{b, k + \frac{1}{2}, \text{GK}} = w_{b, k + \frac{1}{2}} - \newoverline{\newoverline{u^{(h)}_{e, k}J_{n, e, k}}^{(b)}}^{k + \frac{1}{2}}.
+v^{(v)}_{c, k + \frac{1}{2}, \text{GK}} = w_{c, k + \frac{1}{2}} - \newoverline{\newoverline{u_{e, k}J_{n, e, k}}^{(c)}}^{(k + \frac{1}{2})}.
 \end{eqnarray}
+\end{center}
+}}
+\end{center}
 
 \subsection{Rekonstruktion der horizontalen kovarianten Maßzahl}
 \label{sec:rekonstruktion_der_horizontalen_kovarianten_maßzahl}\index{kovariante Maßzahl!Rekonstruktion (geländefolgende Koordinaten)}\index{Maßzahl!kovariante!Rekonstruktion (geländefolgende Koordinaten)}
@@ -16565,6 +16573,18 @@ In einer numerischen Implementierung ist es häufig effizienter, diesen Vergrö�
 \end{eqnarray}
 %
 wobei der Index GK für \textit{geometriekorrigiert} steht.
+
+Verallgemeinert dies auf eine dreidimensionale C-Gitter-Diskretisierung\index{C-Gitter}\index{Diskretisierung}, erhält man
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{eqnarray}
+v_{h, e, k, \text{GK}} = u_{e, k} + \newoverline{\newoverline{w_{c, k + \frac{1}{2}}J_{n, e, k + \frac{1}{2}}}^{(e)}}^{(k)}.
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
 
 \subsection{SLEVE}
 \label{sec:sleve}\index{SLEVE}
