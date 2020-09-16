@@ -16081,7 +16081,7 @@ erfordert auf einem C-Gitter\index{C-Gitter} besondere Aufmerksamkeit. Insbesond
 \item Mit welcher Vorticity muss die tangentiale Windkomponente am Ende multipliziert werden, um eine Komponente von $\mathbf{v}\times\etabi$ zu erhalten?
 \end{enumerate}
 %
-In diesem Kapitel werden diese Fragen zunächst im Lichte der shallow water equations (SWEs)\index{shallow water equations (SWEs)}\index{SWEs} betrachtet, bevor in Absch. \ref{sec:barokline_verallgemeinerung} barokline Effekte betrachtet werden. Die SWEs lauten ohne Reibung
+In diesem Kapitel werden diese Fragen zunächst im Lichte der shallow water equations (SWEs)\index{shallow water equations (SWEs)}\index{SWEs} betrachtet, bevor in Absch. \ref{sec:barokline_aspekte} barokline Effekte betrachtet werden. Die SWEs lauten ohne Reibung
 %
 \begin{eqnarray}
 \frac{\partial\mathbf{v}}{\partial t} & \stackrel{\text{Glg. \eqref{eq:swe_0}}}{=} & -g\nabla\left(h + b\right) - f\mathbf{k}\times\mathbf{v} \textcolor{red}{- \nabla k - \zeta\mathbf{k}\times\mathbf{v}} + \mu\mathbf{k},\label{eq:swe_gen_cori_0}\\
@@ -16151,56 +16151,27 @@ folgern. Das Integral über die Divergenz der potentiellen Vorticityflussdichte\
 %
 Das globale Integral der barotropen potentiellen Vorticity\index{barotrope potentielle Vorticity}\index{potentielle barotrope Vorticity}\index{Vorticity!barotrope potentielle} $q$ ist also konstant.
 
-Um die obigen Eingangsfragen dieses Kapitels zu beantworten, muss man sich fragen, was man damit meint, zu sagen \glqq Die Größe $x$ muss auf \textit{diese Weise} berechnet werden\grqq. Hierbei wird in diesem Kapitel von zwei Grundforderungen ausgegangen:
+Um die obigen Eingangsfragen dieses Kapitels zu beantworten, muss man sich fragen, was man damit meint, zu sagen \glqq Die Größe $x$ muss auf \textit{diese Weise} berechnet werden\grqq. Hierbei wird in diesem Kapitel von folgender Grundforderungen ausgegangen:
 %
-\begin{itemize}
-\item In Absch. \ref{sec:ausgang_von_der_geostrophie} fordert man, dass das diskretisierte Analogon der Dispersionrelation\index{Dispersionsrelation!globale Mode}\index{Dispersionsrelation!Mode!globale}\index{globale Mode!Dispersionsrelation}\index{Mode!globale!Dispersionsrelation} Glg. \eqref{eq:disprel_global_modes} eine geostrophische Mode $\omega = 0$ hat. 
-\item In Absch. \ref{sec:ausgang_von_der_drehimpulserhaltung} fordert man, dass der axiale (der der Rotationsachse der Erde parallele) Drehimpuls
+\begin{center}
+\item Das diskretisierte Analogon der Dispersionrelation\index{Dispersionsrelation!globale Mode}\index{Dispersionsrelation!Mode!globale}\index{globale Mode!Dispersionsrelation}\index{Mode!globale!Dispersionsrelation} Glg. \eqref{eq:disprel_global_modes} soll eine geostrophische Mode $\omega = 0$ haben.
+\end{center}
 %
-\begin{eqnarray}
-L_z \coloneqq \mathbf{e}_z\cdot\int_{4\pi}h\mathbf{r}\times\rho\mathbf{v}a^2\cos\left(\varphi\right)d\varphi d\lambda\label{eq:def_ax_ang_mom_swe}
-\end{eqnarray}
-%
-des Geofluides konstant ist, wobei sich $\mathbf{e}_z$ auf globale Koordinaten\index{globale Koordinaten}\index{Koordinaten!globale} bezieht und $a$ der mittlere Erdradius ist.
-\end{itemize}
-%
-In beiden Fällen fordert man, dass
+Außerdem fordert man, dass
 %
 \begin{enumerate}
 \item der generalisierte Coriolis-Term\index{generalisierte Coriolis-Term}\index{Coriolis-Term!generalisierte} wegen $\mathbf{v}\cdot\left(\mathbf{v}\times\etabi\right) = 0$ keine kinetische Energie\index{kinetische Energie}\index{Energie!kinetische} produziert oder vernichtet und
 \item dass die global integrierte potentielle Vorticity $\int_{4\pi}h\frac{\zeta + f}{h}d\omega$ konstant ist.
 \end{enumerate}
 
-\section{Ausgang von der Geostrophie}
-\label{sec:ausgang_von_der_geostrophie}\index{Geostrophie}
-
-\subsection{Lineare SWEs auf der f-Kugel}
+\section{Lineare SWEs auf der f-Kugel}
 \label{sec:lineare_swes_auf_der_f-kugel_geostrophie}\index{f-Kugel}
 
-\subsection{Nichtlineare SWEs}
+\section{Nichtlineare SWEs}
 \label{sec:nichtlineare_swes_geostrophie}
 
-\section{Ausgang von der Drehimpulserhaltung}
-\label{sec:ausgang_von_der_drehimpulserhaltung}\index{Drehimpulserhaltung}
-
-Den axialen Drehimpuls der SWEs Glg. \eqref{eq:def_ax_ang_mom_swe} kann man zu
-%
-\begin{eqnarray}
-L_z & = & \mathbf{e}_z\cdot\int_{4\pi}h\mathbf{r}\times\rho\mathbf{v}a^2\cos\left(\varphi\right)d\varphi d\lambda = a^2\int_{4\pi}h\mathbf{e}_z\cdot\left(\mathbf{r}\times\rho\mathbf{v}\right)\cos\left(\varphi\right)d\varphi d\lambda\nonumber\\
-& \stackrel{\text{Glg. \eqref{eq:spat_prod_prop_0}}}{=} & a^2\int_{4\pi}h\mathbf{v}\cdot\left(\mathbf{e}_z\times\rho\mathbf{r}\right)\cos\left(\varphi\right)d\varphi d\lambda = a^3\int_{4\pi}\rho h\mathbf{v}\cdot\left(\mathbf{e}_z\times\mathbf{e}_r\right)\cos\left(\varphi\right)d\varphi d\lambda\nonumber\\
-& = & a^3\int_{4\pi}\rho h\mathbf{v}\cdot\mathbf{i}\cos^2\left(\varphi\right)d\varphi d\lambda = a^3\int_{4\pi}\rho hu\cos^2\left(\varphi\right)d\varphi d\lambda
-\end{eqnarray}
-%
-umformulieren.
-
-\subsection{Lineare SWEs auf der f-Kugel}
-\label{sec:lineare_swes_auf_der_f-kugel_drehimpuls}\index{f-Kugel}
-
-\subsection{Nichtlineare SWEs}
-\label{sec:nichtlineare_swes_drehimpuls}
-
-\section{Barokline Verallgemeinerung}
-\label{sec:barokline_verallgemeinerung}
+\section{Barokline Aspekte}
+\label{sec:barokline_aspekte}
 
 \chapter{\normalfont\textsc{Strahlungstransportalgorithmen}}
 \label{chap:strahlungstransportalgorithmen}\index{Strahlung!in Modellen}
