@@ -14810,8 +14810,35 @@ wobei sich willkürlich auf das negative Vorzeichen in der Exponentialfunktion\i
 \section{Thermohaline Zirkulation}
 \label{sec:thermohaline_zirkulation}\index{thermohaline Zirkulation}\index{Zirkulation!thermohaline}
 
-\section{Windsee}
-\label{sec:windsee}\index{Windsee}
+\section{Ozeanoberflächenwellen}
+\label{sec:ozeanoberflaechenwellen}\index{Ozeanoberflächenwelle}
+
+In diesem Abschnitt werden der Einfachheit halber kartesische Koordinate $x, y$ verwendet, da dies die wesentlichen Aspekte der Herleitungen nicht beeinträchtigt. Als Seegebiet wird der $\mathbb{R}^2$ verwendet. Als einzige prognostische Variable\index{prognostische Variable}\index{Variable!prognostische} für die Beschreibung der \textit{Ozeanoberflächenwellen}\index{Ozeanoberflächenwelle} ist dabei die Auslenkung der Wasseroberfläche
+%
+\begin{eqnarray}
+h = h\left(x, y, t\right)
+\end{eqnarray}
+%
+von der mittleren Position der Wasseroberfläche ausreichend.\footnote{Es kann nicht einfach $h$ als Abweichung vom Geoid\index{Geoid} definiert werden, da hier noch die dynamische Topographie\index{dynamische Topographie}\index{Topographie!dynamische} überlagert wäre. Diese zählt nicht in die mit den Wellen verbundene Auslenkung hinein. Dementsprechend muss die Länge des Mittelungsintervalls gewählt werden.} In vielen Situationen ist $h$ keine Funktion der horizontalen Koordinaten, wie zum Beispiel im Falle von Brandung oder bei aufgewühlter See, da in diesen Fällen die Position der Wasseroberfläche nicht mehr eindeutig festgelegt ist. Solche Effekte werden später in Form von Energie dissipierenden Quelltermen berücksichtigt. Es wäre nun möglich, eine prognostische Gleichung\index{prognostische Gleichung}\index{Gleichung!prognostische} in der Form
+%
+\begin{eqnarray}
+\frac{\partial h}{\partial t} = \dots
+\end{eqnarray}
+%
+herzuleiten. Dies hat jedoch mehrere Nachteile:
+%
+\begin{itemize}
+\item Um einen wesentlichen Anteil der Energie des Wellenfeldes\index{Wellenfeld} zu erfassen, wären ein sehr kleiner Zeitschritt und eine sehr feine räumliche Auflösung erforderlich.
+\item Die Phasen der Wellen sind in den allermeisten Fällen nicht bekannt und auch nicht sehr relevant. Vielmehr sind Größen wie Richtung und Höhe der Wellen entscheidend.
+\end{itemize}
+%
+Daher verwendet man zur Beschreibung von Ozeanoberflächenwellen\index{Ozeanoberflächenwelle} meistens spektrale Größen. Hierzu Fourier-transformiert\index{Fourier-Transformation} man $h$ in der Form
+%
+\begin{eqnarray}
+\newtilde{h}\left(k_x, k_y, t\right) = C^2\int_{x = -\infty}^\infty\int_{y = -\infty}^\infty h\left(x, y, t\right)\exp\left[-i\left(k_xx + k_yy\right)\right]dydx,
+\end{eqnarray}
+%
+wobei $C$ die gleiche Bedeutung hat wie in Absch. \ref{sec:komplexe_exponentialfunktionen}.
 
 \part{Strahlung und Wolkenmikrophysik}
 \label{part:strahlung_und_wolkenmikrophysik}
