@@ -7254,7 +7254,7 @@ In kartesischen Koordinaten mit $\mathbf{v} = \left(u, v, w\right)^T$ wird Glg. 
 %
 \begin{eqnarray}
 \overleftrightarrow{T} = \left(\begin{array}{ccc}
--p + 2\mu\frac{\partial u}{\partial x} + \left(\mu_v - \frac{2}{3}\mu\right)\nabla\cdot\mathbf{v} & \mu\left(\frac{\partial u}{\partial y} + \frac{\partial v}{\partial x}\right) & \mu\left(\frac{\partial u}{\partial z} + \frac{\partial x}{\partial x}\right)\\
+-p + 2\mu\frac{\partial u}{\partial x} + \left(\mu_v - \frac{2}{3}\mu\right)\nabla\cdot\mathbf{v} & \mu\left(\frac{\partial u}{\partial y} + \frac{\partial v}{\partial x}\right) & \mu\left(\frac{\partial u}{\partial z} + \frac{\partial w}{\partial x}\right)\\
 \mu\left(\frac{\partial v}{\partial x} + \frac{\partial u}{\partial y}\right) & -p + 2\mu\frac{\partial v}{\partial y} + \left(\mu_v - \frac{2}{3}\mu\right)\nabla\cdot\mathbf{v} & \mu\left(\frac{\partial v}{\partial z} + \frac{\partial w}{\partial y}\right)\\
 \mu\left(\frac{\partial w}{\partial x} + \frac{\partial u}{\partial z}\right) & \mu\left(\frac{\partial w}{\partial y} + \frac{\partial v}{\partial z}\right) & -p + 2\mu\frac{\partial w}{\partial z} + \left(\mu_v - \frac{2}{3}\mu\right)\nabla\cdot\mathbf{v}\label{eq:friction_acceleration}
 \end{array}\right).\nonumber\\
@@ -7264,17 +7264,40 @@ In kartesischen Koordinaten mit $\mathbf{v} = \left(u, v, w\right)^T$ wird Glg. 
 Für die Reibung werden häufig andere als der mit Glg. \eqref{eq:friction_acceleration} erhaltene Ausdruck verwendet. Daher wird in den Herleitungen von nun an meist ein allgemeiner Ausdruck
 %
 \begin{eqnarray}
-\mathbf{F}_R = \left(\begin{array}{c}
-F_{R,x}\\
-F_{R,y}\\
-F_{R,z}
+\mathbf{f}_R = \left(\begin{array}{c}
+f_{R,x}\\
+f_{R,y}\\
+f_{R,z}
 \end{array}\right) \equiv \left(\begin{array}{c}
-\mathbf{F}_R^{(H)}\\
-F_{R,z}
+\mathbf{f}_R^{(H)}\\
+f_{R,z}
 \end{array}\right)
 \end{eqnarray}
 %
 für die Reibungsbeschleunigung mitgeführt. Dies ist trotz der relativen Kleinheit der Reibung in der Atmosphäre aufgrund ihrer Bedeutung für die Energiekaskade (s. Absch. \ref{sec:thermodynamische_bedeutung_der_reibung}) sinnvoll.
+
+\subsubsection{Dissipation}
+\label{sec:dissipation}\index{Dissipation}
+
+Der Reibungsterm $\mathbf{f}_R$ dissipiert spezifische kinetische Energie $k = \frac{1}{2}\mathbf{v}^2$ in thermische Energie $u = c^{(v)}T$. Wäre nur der Reibungsterm wirksam, würde die Impulsgleichung
+%
+\begin{eqnarray}
+\md{\mathbf{v}} = \frac{\partial\mathbf{v}}{\partial t} + \left(\mathbf{v}\cdot\nabla\right)\mathbf{v} = \mathbf{f}_R
+\end{eqnarray}
+%
+lauten. Für die materielle Änderung der spezifischen kinetischen Energie $k$ gilt in diesem Fall
+%
+\begin{eqnarray}
+\md{k} = \md{}\left(\frac{1}{2}\mathbf{v}^2\right) = \mathbf{v}\cdot\md{\mathbf{v}} = \mathbf{v}\cdot\mathbf{f}_R.
+\end{eqnarray}
+%
+Um energetische Konsistenz zu gewährleisten, setzt man daher
+%
+\begin{eqnarray}
+\epsilon \coloneqq q_{\text{diss}}\frac{1}{\rho} = \md{u} = -\md{k} = -\mathbf{v}\cdot\mathbf{f}_R\label{eq:diss_heat}
+\end{eqnarray}
+%
+für den mit die Reibung assoziierte Wärmeleistungsdichte\index{Wärmeleistungsdichte} $q_{\text{diss}}$ an, $\epsilon$ bezeichnet man als \textit{Dissipation}\index{Dissipation} oder auch \textit{Dissipationsrate}\index{Dissipationsrate}.
 
 \subsubsection{Inkompressibler Grenzfall}
 \label{sec:inkompressibler_grenzfall}\index{Stress-Tensor!Grenzfall!inkompressibler}\index{Stress-Tensor!inkompressibler Grenzfall}
@@ -7412,7 +7435,7 @@ Setzt man Glg. \eqref{eq:transformkraft} und Glg. \eqref{eq:friction_acceleratio
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{eqnarray}
-\md{\mathbf{v}} = -\frac{1}{\rho}\nabla p + \mathbf{v}\times\mathbf{f} + \mathbf{g} + \mathbf{F}_R.\label{eq:momentum}
+\md{\mathbf{v}} = -\frac{1}{\rho}\nabla p + \mathbf{v}\times\mathbf{f} + \mathbf{g} + \mathbf{f}_R.\label{eq:momentum}
 \end{eqnarray}
 \end{center}
 }}
@@ -8847,7 +8870,7 @@ Dabei wurde in der Notation explizit berücksichtigt, dass die isochore spezifis
 Die prognostische Gleichung der spezifischen kinetischen Energie\index{spezifische kinetische Energie}\index{kinetische Energie!spezifische}\index{Energie!kinetische!spezifische} $k = \frac{1}{2}\mathbf{v}^2$ erhält man durch Multiplikation der Impulsgleichung in der Form Glg. \eqref{eq:momentum_mod} von links mit $\mathbf{v}\cdot $:
 %
 \begin{eqnarray}
-\md{k} = \frac{\partial k}{\partial t} + \mathbf{v}\cdot\nabla k = -\frac{1}{\rho}\mathbf{v}\cdot\nabla p - wg + \mathbf{v}\cdot\mathbf{F}_R.
+\md{k} = \frac{\partial k}{\partial t} + \mathbf{v}\cdot\nabla k = -\frac{1}{\rho}\mathbf{v}\cdot\nabla p - wg + \mathbf{v}\cdot\mathbf{f}_R.
 \end{eqnarray}
 %
 Multipliziert man diese Gleichung mit $\rho$ und addiert das Produkt der Kontinuitätsgleichung mit $k$ dazu, erhält man
@@ -8856,7 +8879,7 @@ Multipliziert man diese Gleichung mit $\rho$ und addiert das Produkt der Kontinu
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{eqnarray}
-\md{K} = \frac{\partial K}{\partial t} + \mathbf{v}\cdot\nabla K = -\mathbf{v}\cdot\nabla p - \rho wg - K\nabla\cdot\mathbf{v} + \rho\mathbf{v}\cdot\mathbf{F}_R\label{eq:kin_energy_density_flux_form}
+\md{K} = \frac{\partial K}{\partial t} + \mathbf{v}\cdot\nabla K = -\mathbf{v}\cdot\nabla p - \rho wg - K\nabla\cdot\mathbf{v} + \rho\mathbf{v}\cdot\mathbf{f}_R\label{eq:kin_energy_density_flux_form}
 \end{eqnarray}
 \end{center}
 }}
@@ -8883,7 +8906,7 @@ Multipliziert man diese Gleichung mit $\rho$ und addiert das Produkt der Kontinu
 als prognostische Gleichung für die geopotentielle Energiedichte $P = \rho\phi$. Als prognostische Gleichung für die spezifische innere Energie\index{innere Energie}\index{Energie!innere} $i = c^{(v)}T$ erhält man
 %
 \begin{eqnarray}
-\md{i} = \frac{\partial i}{\partial t} + \mathbf{v}\cdot\nabla i = -p\md{\alpha} - \mathbf{v}\cdot\mathbf{F}_R = -p\alpha\nabla\cdot\mathbf{v} - \mathbf{v}\cdot\mathbf{F}_R.
+\md{i} = \frac{\partial i}{\partial t} + \mathbf{v}\cdot\nabla i = -p\md{\alpha} - \mathbf{v}\cdot\mathbf{f}_R = -p\alpha\nabla\cdot\mathbf{v} - \mathbf{v}\cdot\mathbf{f}_R.
 \end{eqnarray}
 %
 Multipliziert man diese Gleichung mit $\rho$ und addiert das Produkt der Kontinuitätsgleichung mit $i$ dazu, erhält man
@@ -8892,7 +8915,7 @@ Multipliziert man diese Gleichung mit $\rho$ und addiert das Produkt der Kontinu
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{eqnarray}
-\md{\newtilde{I}} = \frac{\partial\newtilde{I}}{\partial t} + \mathbf{v}\cdot\nabla\newtilde{I} = -\left(p + \newtilde{I}\right)\nabla\cdot\mathbf{v} - \rho\mathbf{v}\cdot\mathbf{F}_R\label{eq:internal_energy_prognostic}
+\md{\newtilde{I}} = \frac{\partial\newtilde{I}}{\partial t} + \mathbf{v}\cdot\nabla\newtilde{I} = -\left(p + \newtilde{I}\right)\nabla\cdot\mathbf{v} - \rho\mathbf{v}\cdot\mathbf{f}_R\label{eq:internal_energy_prognostic}
 \end{eqnarray}
 \end{center}
 }}
@@ -9006,13 +9029,13 @@ Dieses Integral nichtnegativ, da der Wärmefluss positiv in kälteren und negati
 In einer idealen adiabatischen einphasigen Atmosphäre laufen die Prozesse reversibel\index{reversibel} ab. Für die Zeitableitung der inneren Energie\index{innere Energie}\index{Energie!innere} einer einphasigen Atmosphäre gilt mit Glg. \eqref{eq:internal_energy_prognostic}
 %
 \begin{eqnarray}
-\frac{d}{dt}\int_A\newtilde{I}d^3r = \frac{d}{dt}\int_A-p\nabla\cdot\mathbf{v} - \rho\mathbf{v}\cdot\mathbf{F}_Rd^3r = \int_A\mathbf{v}\cdot\nabla p - \rho\mathbf{v}\cdot\mathbf{F}_Rd^3r.
+\frac{d}{dt}\int_A\newtilde{I}d^3r = \frac{d}{dt}\int_A-p\nabla\cdot\mathbf{v} - \rho\mathbf{v}\cdot\mathbf{f}_Rd^3r = \int_A\mathbf{v}\cdot\nabla p - \rho\mathbf{v}\cdot\mathbf{f}_Rd^3r.
 \end{eqnarray}
 %
 Die Bilanz der Enthalpie\index{Enthalpie} erhält man durch Multiplikation dieser Gleichung mit dem Adiabatenexponenten $\kappa = \frac{c^{(p)}}{c^{(v)}}$. Analog erhält man für die kinetische bzw. potentielle Energie
 %
 \begin{eqnarray}
-\frac{d}{dt}\int_AKd^3r & \stackrel{\text{Glg. \eqref{eq:kin_energy_density_flux_form}}}{=} & \int_A-\mathbf{v}\cdot\nabla p - \rho wg + \rho\mathbf{v}\cdot\mathbf{F}_Rd^3r,\\
+\frac{d}{dt}\int_AKd^3r & \stackrel{\text{Glg. \eqref{eq:kin_energy_density_flux_form}}}{=} & \int_A-\mathbf{v}\cdot\nabla p - \rho wg + \rho\mathbf{v}\cdot\mathbf{f}_Rd^3r,\\
 \frac{d}{dt}\int_APd^3r & \stackrel{\text{Glg. \eqref{eq:pot_energy_density_flux_form}}}{=} & \int_A\rho wgd^3r.
 \end{eqnarray}
 %
@@ -9038,19 +9061,19 @@ C & \coloneqq & \int_A-\mathbf{v}\cdot\nabla p - \rho wgd^3r
 und der Dissipation\index{Dissipation}
 %
 \begin{eqnarray}
-D & \coloneqq & \int_A - \rho\mathbf{v}\cdot\mathbf{F}_Rd^3r.
+D & \coloneqq & \int_A - \rho\mathbf{v}\cdot\mathbf{f}_Rd^3r.
 \end{eqnarray}
 %
 Die adiabatische Konversion\index{adiabatische Konversion}\index{Konversion!adiabatische} steht für die Umwandlung von potentieller und innerer Energie in kinetische Energie. Dies geschieht, indem der Druckgradient und die Schwere Arbeit leisten. In der Impulsgleichung kann man daher die Zuordnung
 %
 \begin{eqnarray}
-\underbrace{\overbrace{\frac{\partial\mathbf{v}}{\partial t}}^{\text{lokalzeitl. Änderung}} = \overbrace{-\left(\mathbf{v}\cdot\nabla\right)\mathbf{v} - \mathbf{f}\times\mathbf{v}}^{\text{Advektion}} \overbrace{- \frac{1}{\rho}\nabla p + \mathbf{g}}^{\text{adiabatische Konversion}}}_{\text{reversibel}} + \underbrace{\overbrace{\mathbf{F}_R}^{\text{Dissipation}}}_{\text{irreversibel}} 
+\underbrace{\overbrace{\frac{\partial\mathbf{v}}{\partial t}}^{\text{lokalzeitl. Änderung}} = \overbrace{-\left(\mathbf{v}\cdot\nabla\right)\mathbf{v} - \mathbf{f}\times\mathbf{v}}^{\text{Advektion}} \overbrace{- \frac{1}{\rho}\nabla p + \mathbf{g}}^{\text{adiabatische Konversion}}}_{\text{reversibel}} + \underbrace{\overbrace{\mathbf{f}_R}^{\text{Dissipation}}}_{\text{irreversibel}} 
 \end{eqnarray}
 %
 bzw.
 %
 \begin{eqnarray}
-\underbrace{\overbrace{\frac{\partial\mathbf{v}}{\partial t}}^{\text{lokalzeitl. Änderung}} = \overbrace{\mathbf{v}\times\etabi - \nabla k}^{\text{Advektion}} \overbrace{- \frac{1}{\rho}\nabla p - \nabla\phi}^{\text{adiabatische Konversion}}}_{\text{reversibel}} + \underbrace{\overbrace{\mathbf{F}_R}^{\text{Dissipation}}}_{\text{irreversibel}} 
+\underbrace{\overbrace{\frac{\partial\mathbf{v}}{\partial t}}^{\text{lokalzeitl. Änderung}} = \overbrace{\mathbf{v}\times\etabi - \nabla k}^{\text{Advektion}} \overbrace{- \frac{1}{\rho}\nabla p - \nabla\phi}^{\text{adiabatische Konversion}}}_{\text{reversibel}} + \underbrace{\overbrace{\mathbf{f}_R}^{\text{Dissipation}}}_{\text{irreversibel}} 
 \end{eqnarray}
 %
 vornehmen.
@@ -9292,7 +9315,7 @@ notieren. Hängt $F$ nicht explizit von der Zeit ab, was im Regelfall so ist, fo
 In einer trockenen Atmosphäre gilt also für jede beliebige Größe $F$ die Evolutionsgleichung
 %
 \begin{eqnarray}
-\frac{dF}{dt} = \lbrace F, H\rbrace + \left(F, \mathbf{f}_r\right) + \left(F, Q\right)
+\frac{dF}{dt} = \lbrace F, H\rbrace + \left(F, \mathbf{f}_R\right) + \left(F, Q\right)
 \end{eqnarray}
 %
 mit
@@ -9306,7 +9329,7 @@ mit
 und
 %
 \begin{eqnarray}
-\left(F, \mathbf{f}_r\right) & = & -\int_A\frac{\delta F}{\delta\mathbf{v}}\cdot\frac{1}{\rho}\nabla\cdot\newoverline{\rho\mathbf{v}'\mathbf{v}'}d^3r,\\
+\left(F, \mathbf{f}_R\right) & = & -\int_A\frac{\delta F}{\delta\mathbf{v}}\cdot\frac{1}{\rho}\nabla\cdot\newoverline{\rho\mathbf{v}'\mathbf{v}'}d^3r,\\
 \left(F, Q\right) & = & \int_A\frac{\partial F}{\partial\newtilde{q}}\frac{q_T^{(\text{diss})}q}{Tc_d^{(p)}}d^3r,\\
 q_T^{(\text{diss})} & = & -\mathbf{v}\cdot\nabla\cdot\newoverline{\rho\mathbf{v}'\mathbf{v}'}.
 \end{eqnarray}
@@ -9565,36 +9588,18 @@ q_h = \sum_{i}^{}n_iA_i\xi_i\left(T_i - T\right).
 \end{eqnarray}
 %
 \subsection{Dissipation}
-\label{sec:dissipation}\index{Dissipation}
+\label{sec:dissipation_konkretisierung}\index{Dissipation}
 
-Der Reibungsterm $\mathbf{F}_R$ dissipiert spezifische kinetische Energie $k = \frac{1}{2}\mathbf{v}^2$ in thermische Energie $u = c^{(v)}T$. Wäre nur der Reibungsterm wirksam, würde die Impulsgleichung
+In einem Medium mit Kondensationsprodukten wird angenommen, dass sich die Leistungsdichte $q_{\text{diss}}$ entsprechend der Massen auf die Komponenten aufteilt:
 %
 \begin{eqnarray}
-\frac{\partial\mathbf{v}}{\partial t} + \left(\mathbf{v}\cdot\nabla\right)\mathbf{v} = \mathbf{F}_R
-\end{eqnarray}
-%
-lauten. Für die materielle Änderung der spezifischen kinetischen Energie $k$ gilt in diesem Fall
-%
-\begin{eqnarray}
-\md{k} = \md{}\left(\frac{1}{2}\mathbf{v}^2\right) = \mathbf{v}\cdot\md{\mathbf{v}} = \mathbf{v}\cdot\mathbf{F}_R.
-\end{eqnarray}
-%
-Um energetische Konsistenz zu gewährleisten, setzt man daher
-%
-\begin{eqnarray}
-q_{\text{diss}}\frac{1}{\rho} = \md{u} = -\md{k} = -\mathbf{v}\cdot\mathbf{F}_R\label{eq:diss_heat}
-\end{eqnarray}
-%
-für den dissipativen Wärmestrom pro Volumen $q_{\text{diss}}$ an. In einem Medium mit Kondensationsprodukten wird angenommen, dass sich die Leistungsdichte $q_{\text{diss}}$ entsprechend der Massen auf die Komponenten aufteilt:
-%
-\begin{eqnarray}
-q_{\text{diss}, i} = -\rho_i\mathbf{v}\cdot\mathbf{F}_R
+q_{\text{diss}, i} = -\rho_i\mathbf{v}\cdot\mathbf{f}_R
 \end{eqnarray}
 %
 Dann ergibt sich die Gesamt-Leistungsdichte zu
 %
 \begin{eqnarray}
-q_{\text{diss}} = q_{h} + \sum_{i}^{}q_{\text{diss}, i} = -\left[\rho_h + \sum_{i}^{}\rho_i\right]\mathbf{v}\cdot\mathbf{F}_R = -\rho\mathbf{v}\cdot\mathbf{F}_R,
+q_{\text{diss}} = q_{h} + \sum_{i}^{}q_{\text{diss}, i} = -\left[\rho_h + \sum_{i}^{}\rho_i\right]\mathbf{v}\cdot\mathbf{f}_R = -\rho\mathbf{v}\cdot\mathbf{f}_R,
 \end{eqnarray}
 %
 was wieder Glg. \eqref{eq:diss_heat} entspricht.
@@ -10095,15 +10100,15 @@ Die hydrostatische Grundgleichung\index{hydrostatische Grundgleichung}\index{Gru
 Setzt man dies in die Impulsgleichung\index{Impulsgleichung} ein, erhält man
 %
 \begin{eqnarray}
-\rho\left(\frac{\partial}{\partial t} + \mathbf{v}\cdot\nabla\right)\mathbf{v} & = & -\nabla p' - \frac{dp_0}{dz}\mathbf{k} - g\rho\mathbf{k} - \rho\mathbf{f}\times\mathbf{v} + \rho\mathbf{F}_R\nonumber\\
-& = & -\nabla p' - \frac{dp_0}{dz}\mathbf{k} - g\rho_m\mathbf{k} - g\rho_0\mathbf{k} - g\rho'\mathbf{k} - \rho\mathbf{f}\times\mathbf{v} + \rho\mathbf{F}_R\nonumber\\
-& = & -\nabla p' - g\rho'\mathbf{k} - \rho\mathbf{f}\times\mathbf{v} + \rho\mathbf{F}_R.
+\rho\left(\frac{\partial}{\partial t} + \mathbf{v}\cdot\nabla\right)\mathbf{v} & = & -\nabla p' - \frac{dp_0}{dz}\mathbf{k} - g\rho\mathbf{k} - \rho\mathbf{f}\times\mathbf{v} + \rho\mathbf{f}_R\nonumber\\
+& = & -\nabla p' - \frac{dp_0}{dz}\mathbf{k} - g\rho_m\mathbf{k} - g\rho_0\mathbf{k} - g\rho'\mathbf{k} - \rho\mathbf{f}\times\mathbf{v} + \rho\mathbf{f}_R\nonumber\\
+& = & -\nabla p' - g\rho'\mathbf{k} - \rho\mathbf{f}\times\mathbf{v} + \rho\mathbf{f}_R.
 \end{eqnarray}
 %
 Dividiert man dies durch $\rho_m$, erhält man
 %
 \begin{eqnarray}
-\frac{\rho}{\rho_m}\left(\frac{\partial}{\partial t} + \mathbf{v}\cdot\nabla\right)\mathbf{v} & = & -\frac{1}{\rho_m}\nabla p' - g\frac{\rho'}{\rho_m}\mathbf{k} - \frac{\rho}{\rho_m}\mathbf{f}\times\mathbf{v} + \frac{\rho}{\rho_m}\mathbf{F}_R.
+\frac{\rho}{\rho_m}\left(\frac{\partial}{\partial t} + \mathbf{v}\cdot\nabla\right)\mathbf{v} & = & -\frac{1}{\rho_m}\nabla p' - g\frac{\rho'}{\rho_m}\mathbf{k} - \frac{\rho}{\rho_m}\mathbf{f}\times\mathbf{v} + \frac{\rho}{\rho_m}\mathbf{f}_R.
 \end{eqnarray}
 %
 Aufgrund von Glg. \eqref{eq:boussinesq_deriv_0} kann man
@@ -10118,7 +10123,7 @@ nähern. Dies führt auf
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{eqnarray}
-\left(\frac{\partial}{\partial t} + \mathbf{v}\cdot\nabla\right)\mathbf{v} & = & -\frac{1}{\rho_m}\nabla p' - g\frac{\rho'}{\rho_m}\mathbf{k} - \mathbf{f}\times\mathbf{v} + \mathbf{F}_R.\label{eq:boussinesq_momentum_0}
+\left(\frac{\partial}{\partial t} + \mathbf{v}\cdot\nabla\right)\mathbf{v} & = & -\frac{1}{\rho_m}\nabla p' - g\frac{\rho'}{\rho_m}\mathbf{k} - \mathbf{f}\times\mathbf{v} + \mathbf{f}_R.\label{eq:boussinesq_momentum_0}
 \end{eqnarray}
 \end{center}
 }}
@@ -10153,7 +10158,7 @@ Unter der Boussinesq-Approximation\index{Boussinesq-Approximation} vereinfacht s
 Man kann die Impulsgleichung\index{Impulsgleichung!Boussinesq-Approximation}\index{Boussinesq-Approximation!Impulsgleichung} Glg. \eqref{eq:boussinesq_momentum_0} noch etwas vereinfachen. Die vertikale Komponente dieser Gleichung lautet
 %
 \begin{eqnarray}
-\left(\frac{\partial}{\partial t} + \mathbf{v}\cdot\nabla\right)w & = & -\frac{1}{\rho_m}\frac{\partial p'}{\partial z} - g\frac{\rho'}{\rho_m} - \left(\mathbf{f}\times\mathbf{v}\right)\cdot\mathbf{k} + \mathbf{F}_R\cdot\mathbf{k}.
+\left(\frac{\partial}{\partial t} + \mathbf{v}\cdot\nabla\right)w & = & -\frac{1}{\rho_m}\frac{\partial p'}{\partial z} - g\frac{\rho'}{\rho_m} - \left(\mathbf{f}\times\mathbf{v}\right)\cdot\mathbf{k} + \mathbf{f}_R\cdot\mathbf{k}.
 \end{eqnarray}
 %
 Für Druckgradient und Schwere erhält man mit Glg. \eqref{eq:boussinesq_deriv_2}
@@ -10199,7 +10204,7 @@ nähern kann. Dies führt auf eine vereinfachte Form von Glg. \eqref{eq:boussine
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{eqnarray}
-\left(\frac{\partial}{\partial t} + \mathbf{v}\cdot\nabla\right)\mathbf{v} & = & -\frac{1}{\rho_m}\nabla p' + ga_mT'\mathbf{k} - \mathbf{f}\times\mathbf{v} + \mathbf{F}_R
+\left(\frac{\partial}{\partial t} + \mathbf{v}\cdot\nabla\right)\mathbf{v} & = & -\frac{1}{\rho_m}\nabla p' + ga_mT'\mathbf{k} - \mathbf{f}\times\mathbf{v} + \mathbf{f}_R
 \end{eqnarray}
 \end{center}
 }}
@@ -10640,7 +10645,7 @@ wobei $\mathbf{F}$ die Summe aller wirkenden Kräfte ist. Konservative Kräfte �
 folgt
 %
 \begin{eqnarray}
-\md{S} = \int_A\left(\frac{1}{\rho^2}\nabla\rho\times\nabla p + \left(\mathbf{f}\cdot\nabla\right)\mathbf{v} - \mathbf{f}\nabla\cdot\mathbf{v} + \nabla\times\mathbf{F}_R\right)\cdot d\mathbf{n}\label{eq:circ_theorem}
+\md{S} = \int_A\left(\frac{1}{\rho^2}\nabla\rho\times\nabla p + \left(\mathbf{f}\cdot\nabla\right)\mathbf{v} - \mathbf{f}\nabla\cdot\mathbf{v} + \nabla\times\mathbf{f}_R\right)\cdot d\mathbf{n}\label{eq:circ_theorem}
 \end{eqnarray}
 %
 In IS gilt also in barotropen idealen Medien
@@ -10655,7 +10660,7 @@ In IS gilt also in barotropen idealen Medien
 Die Impulsgleichung Glg. \eqref{eq:momentum_mod} lautet
 %
 \begin{eqnarray}
-\frac{\partial\mathbf{v}}{\partial t} & = & -\frac{1}{\rho}\nabla p + \mathbf{v}\times\etabi - \nabla k + \mathbf{g} + \mathbf{F}_R.
+\frac{\partial\mathbf{v}}{\partial t} & = & -\frac{1}{\rho}\nabla p + \mathbf{v}\times\etabi - \nabla k + \mathbf{g} + \mathbf{f}_R.
 \end{eqnarray}
 %
 Nun wendet man auf die einzelnen Terme den Operator $\nabla\times $ an:
@@ -10671,14 +10676,14 @@ Nun wendet man auf die einzelnen Terme den Operator $\nabla\times $ an:
 Somit gilt
 %
 \begin{eqnarray}
-\frac{\partial}{\partial t}\text{rot}\left(\mathbf{v}\right) & = & \frac{1}{\rho^2}\nabla\rho\times\nabla p - \left(\mathbf{v}\cdot\nabla\right)\etabi - \etabi\nabla\cdot\mathbf{v} + \left(\etabi\cdot\nabla\right)\mathbf{v} + \nabla\times\mathbf{F}_R.\label{eq:vorticity_eq_3d}
+\frac{\partial}{\partial t}\text{rot}\left(\mathbf{v}\right) & = & \frac{1}{\rho^2}\nabla\rho\times\nabla p - \left(\mathbf{v}\cdot\nabla\right)\etabi - \etabi\nabla\cdot\mathbf{v} + \left(\etabi\cdot\nabla\right)\mathbf{v} + \nabla\times\mathbf{f}_R.\label{eq:vorticity_eq_3d}
 \end{eqnarray}
 %
 Durch Projektion auf die lokale Senkrechte erhält man
 %
 \begin{eqnarray}
 \frac{\partial\zeta}{\partial t} & = & \frac{1}{\rho^2}\mathbf{k}\cdot\left(\nabla\rho\times\nabla p\right) - \eta\nabla\cdot\mathbf{v}\nonumber\\
-&& + \mathbf{k}\cdot\left[\left(\etabi\cdot\nabla\right)\mathbf{v}\right] - \mathbf{k}\cdot\left[\left(\mathbf{v}\cdot\nabla\right)\etabi\right] + \mathbf{k}\cdot\nabla\times\mathbf{F}_R.
+&& + \mathbf{k}\cdot\left[\left(\etabi\cdot\nabla\right)\mathbf{v}\right] - \mathbf{k}\cdot\left[\left(\mathbf{v}\cdot\nabla\right)\etabi\right] + \mathbf{k}\cdot\nabla\times\mathbf{f}_R.
 \end{eqnarray}
 %
 Man rechnet zunächst mit Glg. \eqref{eq:diff_op_rule_11}
@@ -10694,7 +10699,7 @@ Somit gilt
 %
 \begin{eqnarray}
 \frac{\partial\zeta}{\partial t} & = & \frac{1}{\rho ^2}\mathbf{k}\cdot\left(\nabla\rho\times\nabla p\right) - \eta\nabla\cdot\mathbf{v} + \left(\etabi\cdot\nabla\right)w - \mathbf{v}\cdot\left[\left(\etabi\cdot\nabla\right)\mathbf{k}\right] - \mathbf{v}\cdot\nabla\eta\nonumber\\
-&& + \etabi\cdot\left[\left(\mathbf{v}\cdot\nabla\right)\mathbf{k}\right] + \mathbf{k}\cdot\nabla\times\mathbf{F}_R.
+&& + \etabi\cdot\left[\left(\mathbf{v}\cdot\nabla\right)\mathbf{k}\right] + \mathbf{k}\cdot\nabla\times\mathbf{f}_R.
 \end{eqnarray}
 %
 Es gelten mit den Feststellungen in Absch. \ref{sec:kugelkoordinaten}
@@ -10708,7 +10713,7 @@ Es gelten mit den Feststellungen in Absch. \ref{sec:kugelkoordinaten}
 Somit folgt
 %
 \begin{eqnarray}
-\frac{\partial\zeta}{\partial t} & = & \frac{1}{\rho ^2}\mathbf{k}\cdot\left(\nabla\rho\times\nabla p\right) - \eta\nabla\cdot\mathbf{v} + \etabi\cdot\nabla w - \frac{u\eta_x}{r} - \frac{v\eta_y}{r} - \mathbf{v}\cdot\nabla\eta + \frac{\eta_xu}{r} + \frac{\eta_yv}{r} + \mathbf{k}\cdot\nabla\times\mathbf{F}_R.
+\frac{\partial\zeta}{\partial t} & = & \frac{1}{\rho ^2}\mathbf{k}\cdot\left(\nabla\rho\times\nabla p\right) - \eta\nabla\cdot\mathbf{v} + \etabi\cdot\nabla w - \frac{u\eta_x}{r} - \frac{v\eta_y}{r} - \mathbf{v}\cdot\nabla\eta + \frac{\eta_xu}{r} + \frac{\eta_yv}{r} + \mathbf{k}\cdot\nabla\times\mathbf{f}_R.
 \end{eqnarray}
 %
 Die Vorticitygleichung lautet schlussendlich
@@ -10717,7 +10722,7 @@ Die Vorticitygleichung lautet schlussendlich
 \doublebox{\parbox{\textwidth}{
 \begin{center}
 \begin{eqnarray}
-\frac{\partial\zeta}{\partial t} = -\mathbf{v}\cdot\nabla\eta - \eta\nabla\cdot\mathbf{v} + \etabi\cdot\nabla w + \frac{1}{\rho ^2}\mathbf{k}\cdot\left(\nabla\rho\times\nabla p\right) + \mathbf{k}\cdot\nabla\times\mathbf{F}_R\label{eq:vorticit_z}.
+\frac{\partial\zeta}{\partial t} = -\mathbf{v}\cdot\nabla\eta - \eta\nabla\cdot\mathbf{v} + \etabi\cdot\nabla w + \frac{1}{\rho ^2}\mathbf{k}\cdot\left(\nabla\rho\times\nabla p\right) + \mathbf{k}\cdot\nabla\times\mathbf{f}_R\label{eq:vorticit_z}.
 \end{eqnarray}
 \end{center}
 }}
@@ -10773,7 +10778,7 @@ Im inkompressiblen, horizontaldivergenzfreien, barotropen Fall (außerdem wurde 
 Nun soll dasselbe im p-System durchgeführt werden. Die Impulsgleichungen Glg.en \eqref{eq:x_momentum_simplified_simplified_p} - \eqref{eq:y_momentum_simplified_simplified_p} im p-System lauten vektoriell
 %
 \begin{eqnarray}
-\frac{\partial\mathbf{v}_h}{\partial t} & = & -\nabla\phi - \frac{1}{2}\nabla\left(\mathbf{v}_h\cdot\mathbf{v}_h\right) + \mathbf{v}_h\times\etabi' - \omega\frac{\partial\mathbf{v}_h}{\partial p} + \nabla\times\mathbf{F}_R^{(H)}.
+\frac{\partial\mathbf{v}_h}{\partial t} & = & -\nabla\phi - \frac{1}{2}\nabla\left(\mathbf{v}_h\cdot\mathbf{v}_h\right) + \mathbf{v}_h\times\etabi' - \omega\frac{\partial\mathbf{v}_h}{\partial p} + \nabla\times\mathbf{f}_R^{(H)}.
 \end{eqnarray}
 %
 Dabei wurde die modifizierte absolute Vorticity $\etabi'$ durch
@@ -10796,14 +10801,14 @@ definiert. Nun wendet man auf die einzelnen Terme den Operator $\nabla\times $ a
 Somit gilt
 %
 \begin{eqnarray}
-\frac{\partial}{\partial t}\nabla\times\mathbf{v}_h & = & -\left(\mathbf{v}_h\cdot\nabla\right)\etabi' - \etabi'\nabla\cdot\mathbf{v}_h + \left(\etabi'\cdot\nabla\right)\mathbf{v}_h + \omega\nabla\times\frac{\partial\mathbf{v}_h}{\partial p} - \frac{\partial\mathbf{v}_h}{\partial p}\times\nabla\omega + \nabla\times\mathbf{F}_R^{(H)}.
+\frac{\partial}{\partial t}\nabla\times\mathbf{v}_h & = & -\left(\mathbf{v}_h\cdot\nabla\right)\etabi' - \etabi'\nabla\cdot\mathbf{v}_h + \left(\etabi'\cdot\nabla\right)\mathbf{v}_h + \omega\nabla\times\frac{\partial\mathbf{v}_h}{\partial p} - \frac{\partial\mathbf{v}_h}{\partial p}\times\nabla\omega + \nabla\times\mathbf{f}_R^{(H)}.
 \end{eqnarray}
 %
 Durch Projektion auf die lokale Senkrechte $\mathbf{k}$ erhält man
 %
 \begin{eqnarray}
 \frac{\partial\zeta}{\partial t} & = & -\mathbf{k}\cdot\left[\left(\mathbf{v}_h\cdot\nabla\right)\etabi'\right] - \left(f + \zeta\right)\nabla\cdot\mathbf{v}_h + \mathbf{k}\cdot\left[\left(\etabi'\cdot\nabla\right)\mathbf{v}_h\right]\nonumber\\
-&& - \omega\frac{\partial\zeta}{\partial p} + \mathbf{k}\cdot\left[\frac{\partial\mathbf{v}_h}{\partial p}\times\nabla\omega\right] + \mathbf{k}\cdot\nabla\times\mathbf{F}_R^{(H)}.
+&& - \omega\frac{\partial\zeta}{\partial p} + \mathbf{k}\cdot\left[\frac{\partial\mathbf{v}_h}{\partial p}\times\nabla\omega\right] + \mathbf{k}\cdot\nabla\times\mathbf{f}_R^{(H)}.
 \end{eqnarray}
 %
 Man rechnet zunächst mit Glg. \eqref{eq:diff_op_rule_11}
@@ -10835,7 +10840,7 @@ Die Vorticitygleichung im p-System lautet somit
 \doublebox{\parbox{\textwidth}{
 \begin{center}
 \begin{eqnarray}
-\frac{\partial\zeta}{\partial t} & = & -v\beta - \left(f + \zeta\right)\nabla\cdot\mathbf{v}_h - \mathbf{v}_h\cdot\nabla\zeta - \omega\frac{\partial\zeta}{\partial p} + \mathbf{k}\cdot\left[\frac{\partial\mathbf{v}_h}{\partial p}\times\nabla\omega\right] + \mathbf{k}\cdot\nabla\times\mathbf{F}_R^{(H)}.\label{eq:vorticity_p}
+\frac{\partial\zeta}{\partial t} & = & -v\beta - \left(f + \zeta\right)\nabla\cdot\mathbf{v}_h - \mathbf{v}_h\cdot\nabla\zeta - \omega\frac{\partial\zeta}{\partial p} + \mathbf{k}\cdot\left[\frac{\partial\mathbf{v}_h}{\partial p}\times\nabla\omega\right] + \mathbf{k}\cdot\nabla\times\mathbf{f}_R^{(H)}.\label{eq:vorticity_p}
 \end{eqnarray}
 \end{center}
 }}
@@ -11003,7 +11008,7 @@ Der erste Term beschreibt eine Divergenz aufgrund von Geschwindigkeitsunterschie
 Es gibt auch eine prognostische Gleichung für die Divergenz, die sogenannte \textit{Divergenzgleichung}. Die Impulsgleichung Glg. \eqref{eq:momentum_mod} lautet
 %
 \begin{eqnarray}
-\frac{\partial\mathbf{v}}{\partial t} & = & -\frac{1}{\rho}\nabla p + \mathbf{v}\times\mathbf{f} - \left(\mathbf{v}\cdot\nabla\right)\mathbf{v} + \mathbf{g} + \mathbf{F}_R.
+\frac{\partial\mathbf{v}}{\partial t} & = & -\frac{1}{\rho}\nabla p + \mathbf{v}\times\mathbf{f} - \left(\mathbf{v}\cdot\nabla\right)\mathbf{v} + \mathbf{g} + \mathbf{f}_R.
 \end{eqnarray}
 %
 Nun wendet man auf die einzelnen Terme den Operator $\nabla\cdot $ an:
@@ -11020,7 +11025,7 @@ Die Divergenz von $\mathbf{g}$ besteht aufgrund der Poisson-Gleichung nur aus de
 \doublebox{\parbox{\textwidth}{
 \begin{center}
 \begin{eqnarray}
-\frac{\partial\xi}{\partial t} & = & \frac{1}{\rho^2}\nabla\rho\cdot\nabla p -\frac{1}{\rho}\Delta p + \mathbf{f}\cdot\zetabi - \nabla\cdot\left[\left(\mathbf{v}\cdot\nabla\right)\mathbf{v}\right] + \nabla\cdot\mathbf{F}_R.\label{eq:divergence_equation_1}
+\frac{\partial\xi}{\partial t} & = & \frac{1}{\rho^2}\nabla\rho\cdot\nabla p -\frac{1}{\rho}\Delta p + \mathbf{f}\cdot\zetabi - \nabla\cdot\left[\left(\mathbf{v}\cdot\nabla\right)\mathbf{v}\right] + \nabla\cdot\mathbf{f}_R.\label{eq:divergence_equation_1}
 \end{eqnarray}
 \end{center}
 }}
@@ -11040,7 +11045,7 @@ Dies führt auf eine weitere Form der Divergenzgleichung:
 \begin{center}
 \begin{eqnarray}
 \frac{\partial\xi}{\partial t} & = & \frac{1}{\rho^2}\nabla\rho\cdot\nabla p -\frac{1}{\rho}\Delta p + \mathbf{f}\cdot\zetabi - \Delta k + \zetabi^2\nonumber\\
-&& +\mathbf{v}\cdot\left(\Delta\mathbf{v}\right) - \mathbf{v}\cdot\nabla\xi + \nabla\cdot\mathbf{F}_R\label{eq:divergence_equation_2}
+&& +\mathbf{v}\cdot\left(\Delta\mathbf{v}\right) - \mathbf{v}\cdot\nabla\xi + \nabla\cdot\mathbf{f}_R\label{eq:divergence_equation_2}
 \end{eqnarray}
 \end{center}
 }}
@@ -11052,7 +11057,7 @@ Dies führt auf eine weitere Form der Divergenzgleichung:
 Die Impulsgleichungen Glg.en \eqref{eq:x_momentum_simplified_simplified_p} - \eqref{eq:y_momentum_simplified_simplified_p} im p-System lauten vektoriell
 %
 \begin{eqnarray}
-\frac{\partial\mathbf{v}_h}{\partial t} & = & -\nabla\phi - f\mathbf{k}\times\mathbf{v}_h - \left(\mathbf{v}_h\cdot\nabla\right)\mathbf{v}_h - \omega\frac{\partial\mathbf{v}_h}{\partial p} + \nabla\cdot\mathbf{F}_R^{(H)}.
+\frac{\partial\mathbf{v}_h}{\partial t} & = & -\nabla\phi - f\mathbf{k}\times\mathbf{v}_h - \left(\mathbf{v}_h\cdot\nabla\right)\mathbf{v}_h - \omega\frac{\partial\mathbf{v}_h}{\partial p} + \nabla\cdot\mathbf{f}_R^{(H)}.
 \end{eqnarray}
 %
 Es ist für die Hereitung sinnvoll, hier ein $\mathbf{g}$ zu addieren und $-\nabla\phi$ als dreidimensionalen Vektor zu interpretieren mit $-g$ in der z-Komponente. Somit ergibt eine Anwendung von $\nabla\cdot $ auf $-\nabla\phi + \mathbf{g} = -\Delta_h\phi$, wofür aber in der weiteren Herleitung einfach $\Delta\phi$ notiert wird. Durch Applizieren des Operators $\nabla\cdot $ auf die einzelnen Terme erhält man somit
@@ -11071,7 +11076,7 @@ Somit folgt
 \doublebox{\parbox{\textwidth}{
 \begin{center}
 \begin{eqnarray}
-\frac{\partial\delta}{\partial t} & = & -\Delta\phi - u\beta + f\zeta - \nabla\cdot\left[\left(\mathbf{v}_h\cdot\nabla\right)\mathbf{v}_h\right] - \omega\frac{\partial\delta}{\partial p} - \frac{\partial\mathbf{v}_h}{\partial p}\cdot\nabla\omega + \nabla\cdot\mathbf{F}_R^{(H)}.\label{eq:divergence_equation_p_1}
+\frac{\partial\delta}{\partial t} & = & -\Delta\phi - u\beta + f\zeta - \nabla\cdot\left[\left(\mathbf{v}_h\cdot\nabla\right)\mathbf{v}_h\right] - \omega\frac{\partial\delta}{\partial p} - \frac{\partial\mathbf{v}_h}{\partial p}\cdot\nabla\omega + \nabla\cdot\mathbf{f}_R^{(H)}.\label{eq:divergence_equation_p_1}
 \end{eqnarray}
 \end{center}
 }}
@@ -11091,7 +11096,7 @@ Dies führt auf eine weitere Form der Divergenzgleichung:
 \begin{center}
 \begin{eqnarray}
 \frac{\partial\delta}{\partial t} & = & -\Delta\phi - u\beta + f\zeta - \Delta k + \left(\nabla\times\mathbf{v}_h\right)^2 + \mathbf{v}_h\cdot\left(\Delta\mathbf{v}_h\right) - \mathbf{v}_h\cdot\nabla\delta\nonumber\\
-&&- \omega\frac{\partial\delta}{\partial p} - \frac{\partial\mathbf{v}_h}{\partial p}\cdot\nabla\omega + \nabla\cdot\mathbf{F}_R^{(H)}\label{eq:divergence_equation_p_2}
+&&- \omega\frac{\partial\delta}{\partial p} - \frac{\partial\mathbf{v}_h}{\partial p}\cdot\nabla\omega + \nabla\cdot\mathbf{f}_R^{(H)}\label{eq:divergence_equation_p_2}
 \end{eqnarray}
 \end{center}
 }}
@@ -11142,7 +11147,7 @@ wobei $\alpha$ das spezifische Volumen sei und $\psi$ eine beliebige Funktion vo
 Zunächst wird Glg. \eqref{eq:vorticity_eq_3d} in Termen von $\alpha$ notiert
 %
 \begin{eqnarray}
-\frac{\partial}{\partial t}\text{rot}\left(\mathbf{v}\right) & = & \nabla p\times\nabla \alpha - \left(\mathbf{v}\cdot\nabla\right)\etabi - \etabi\nabla\cdot\mathbf{v} + \left(\etabi\cdot\nabla\right)\mathbf{v} + \nabla\times\mathbf{F}_R
+\frac{\partial}{\partial t}\text{rot}\left(\mathbf{v}\right) & = & \nabla p\times\nabla \alpha - \left(\mathbf{v}\cdot\nabla\right)\etabi - \etabi\nabla\cdot\mathbf{v} + \left(\etabi\cdot\nabla\right)\mathbf{v} + \nabla\times\mathbf{f}_R
 \end{eqnarray}
 %
 In Absch. \ref{sec:vorticitygleichung} hat man durch Projektion dieser Gleichung auf die lokale Senkrechte $\mathbf{k}$ eine Gleichung für $\frac{\partial\zeta}{\partial t}$ hergeleitet, analog wird hier mit einer Projektion auf $\nabla\psi$ verfahren. Man rechnet zunächst mit Glg. \eqref{eq:diff_op_rule_11}
@@ -11158,7 +11163,7 @@ Man erhält somit
 %
 \begin{eqnarray}
 \alpha\frac{\partial\left(\nabla\times\mathbf{v}\right)}{\partial t}\cdot\nabla\psi & = & \alpha\left(\nabla p\times\nabla\alpha\right)\cdot\nabla\psi - \alpha\left(\mathbf{v}\cdot\nabla\right)\left(\etabi\cdot\nabla\psi\right) + \alpha\etabi\cdot\left[\left(\mathbf{v}\cdot\nabla\right)\nabla\psi\right]\nonumber\\
-&& -\alpha\left(\nabla\psi\cdot\etabi\right)\nabla\cdot\mathbf{v} + \alpha\left(\etabi\cdot\nabla\right)\left(\mathbf{v}\cdot\nabla\psi\right) - \alpha\mathbf{v}\cdot\left[\left(\etabi\cdot\nabla\right)\nabla\psi\right] + \alpha\mathbf{F}_R\cdot\nabla\psi.
+&& -\alpha\left(\nabla\psi\cdot\etabi\right)\nabla\cdot\mathbf{v} + \alpha\left(\etabi\cdot\nabla\right)\left(\mathbf{v}\cdot\nabla\psi\right) - \alpha\mathbf{v}\cdot\left[\left(\etabi\cdot\nabla\right)\nabla\psi\right] + \alpha\mathbf{f}_R\cdot\nabla\psi.
 \end{eqnarray}
 %
 Es folgt
@@ -11166,9 +11171,9 @@ Es folgt
 \begin{eqnarray}
 \frac{\partial P_\psi}{\partial t} & = & \alpha\etabi\cdot\nabla\left(\frac{\partial\psi}{\partial t}\right) + \alpha\left(\nabla p\times\nabla\alpha\right)\cdot\nabla\psi - \alpha\left(\mathbf{v}\cdot\nabla\right)\left(\etabi\cdot\nabla\psi\right) + \alpha\etabi\cdot\left[\left(\mathbf{v}\cdot\nabla\right)\nabla\psi\right]\nonumber\\
 && -\alpha\left(\nabla\psi\cdot\etabi\right)\nabla\cdot\mathbf{v} + \alpha\left(\etabi\cdot\nabla\right)\left(\mathbf{v}\cdot\nabla\psi\right) - \alpha\mathbf{v}\cdot\left[\left(\etabi\cdot\nabla\right)\nabla\psi\right]\nonumber\\
-&& +\frac{\partial\alpha}{\partial t}\etabi\cdot\nabla\psi + \alpha\mathbf{F}_R\cdot\nabla\psi\nonumber\\
+&& +\frac{\partial\alpha}{\partial t}\etabi\cdot\nabla\psi + \alpha\mathbf{f}_R\cdot\nabla\psi\nonumber\\
 & = & \alpha\etabi\cdot\nabla\left(\frac{\partial\psi}{\partial t}\right) + \alpha\left(\nabla p\times\nabla\alpha\right)\cdot\nabla\psi - \alpha\left(\mathbf{v}\cdot\nabla\right)\left(\etabi\cdot\nabla\psi\right) + \alpha\etabi\cdot\left[\left(\mathbf{v}\cdot\nabla\right)\nabla\psi\right]\nonumber\\
-&& +\alpha\left(\etabi\cdot\nabla\right)\left(\mathbf{v}\cdot\nabla\psi\right) - \alpha\mathbf{v}\cdot\left[\left(\etabi\cdot\nabla\right)\nabla\psi\right] - \left(\mathbf{v}\cdot\nabla\alpha\right)\left(\etabi\cdot\nabla\psi\right) + \alpha\mathbf{F}_R\cdot\nabla\psi.
+&& +\alpha\left(\etabi\cdot\nabla\right)\left(\mathbf{v}\cdot\nabla\psi\right) - \alpha\mathbf{v}\cdot\left[\left(\etabi\cdot\nabla\right)\nabla\psi\right] - \left(\mathbf{v}\cdot\nabla\alpha\right)\left(\etabi\cdot\nabla\psi\right) + \alpha\mathbf{f}_R\cdot\nabla\psi.
 \end{eqnarray}
 %
 Mit Glg. \eqref{eq:diff_op_rule_12} folgt
@@ -11184,7 +11189,7 @@ Der \index{Ertel'scher Wirbelsatz}\index{Wirbelsatz!Ertel'scher}\textit{Ertel'sc
 \begin{center}
 \begin{eqnarray}
 \frac{\partial P_\psi}{\partial t} & = & \alpha\etabi\cdot\nabla\left(\frac{\partial\psi}{\partial t}\right) + \alpha\left(\nabla p\times\nabla\alpha\right)\cdot\nabla\psi - \alpha\left(\mathbf{v}\cdot\nabla\right)\left(\etabi\cdot\nabla\psi\right)\nonumber\\
-&& +\alpha\left(\etabi\cdot\nabla\right)\left(\mathbf{v}\cdot\nabla\psi\right) - \left(\mathbf{v}\cdot\nabla\alpha\right)\left(\etabi\cdot\nabla\psi\right) + \alpha\mathbf{F}_R\cdot\nabla\psi.\label{eq:ertel_vorticity_theorem}
+&& +\alpha\left(\etabi\cdot\nabla\right)\left(\mathbf{v}\cdot\nabla\psi\right) - \left(\mathbf{v}\cdot\nabla\alpha\right)\left(\etabi\cdot\nabla\psi\right) + \alpha\mathbf{f}_R\cdot\nabla\psi.\label{eq:ertel_vorticity_theorem}
 \end{eqnarray}
 \end{center}
 }}
@@ -11196,7 +11201,7 @@ Mit der materiellen Ableitung kann man dies zu
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{eqnarray}
-\md{P_\psi} & = & \alpha\etabi\cdot\nabla\left(\md{\psi}\right) + \alpha\left(\nabla p\times\nabla\alpha\right)\cdot\nabla\psi + \alpha\mathbf{F}_R\cdot\nabla\psi\label{eq:ertel_vorticity_theorem_mat}
+\md{P_\psi} & = & \alpha\etabi\cdot\nabla\left(\md{\psi}\right) + \alpha\left(\nabla p\times\nabla\alpha\right)\cdot\nabla\psi + \alpha\mathbf{f}_R\cdot\nabla\psi\label{eq:ertel_vorticity_theorem_mat}
 \end{eqnarray}
 \end{center}
 }}
@@ -11219,7 +11224,7 @@ sie entsteht also, indem man in Glg. \eqref{eq:def_pot_vorticity_gen} für $\psi
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{eqnarray}
-\frac{\partial P}{\partial t} & = & -\alpha\left(\mathbf{v}\cdot\nabla\right)\left(\etabi\cdot\nabla\psi\right) - \left(\etabi\cdot\nabla\psi\right)\left(\mathbf{v}\cdot\nabla\alpha\right) + \alpha\mathbf{F}_R\cdot\nabla\theta.
+\frac{\partial P}{\partial t} & = & -\alpha\left(\mathbf{v}\cdot\nabla\right)\left(\etabi\cdot\nabla\psi\right) - \left(\etabi\cdot\nabla\psi\right)\left(\mathbf{v}\cdot\nabla\alpha\right) + \alpha\mathbf{f}_R\cdot\nabla\theta.
 \end{eqnarray}
 \end{center}
 }}
@@ -11231,7 +11236,7 @@ in diesem Fall ist die potentielle Vorticity also bis auf die Reibung eine Erhal
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{eqnarray}
-\md{P} & = &  \alpha\mathbf{F}_R\cdot\nabla\theta
+\md{P} & = &  \alpha\mathbf{f}_R\cdot\nabla\theta
 \end{eqnarray}
 \end{center}
 }}
@@ -16763,9 +16768,9 @@ Die Form der prognostischen Gleichungen\index{prognostische Gleichung}\index{Gle
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{eqnarray}
-\frac{\partial\mathbf{v}}{\partial t} & = & -c^{(p)}\nabla T + T\nabla s - \nabla k + \mathbf{v}\times\etabi - \nabla\phi,\\
-\frac{\partial\rho}{\partial t} & = & -\nabla\cdot\left(\rho\mathbf{v}\right),\\
-\frac{\partial\newtilde{s}}{\partial t} & = & -\nabla\cdot\left(\newtilde{s}\mathbf{v}\right),\\
+\frac{\partial\mathbf{v}}{\partial t} & = & -c^{(p)}\nabla T + T\nabla s - \nabla k + \mathbf{v}\times\etabi - \nabla\phi,\label{eq:prog_rev_0}\\
+\frac{\partial\rho}{\partial t} & = & -\nabla\cdot\left(\rho\mathbf{v}\right),\label{eq:prog_rev_1}\\
+\frac{\partial\newtilde{s}}{\partial t} & = & -\nabla\cdot\left(\newtilde{s}\mathbf{v}\right),\label{eq:prog_rev_2}\\
 T_1 & = & \frac{c^{(v)}\rho_0T_0 + \left(R_dT_0 - \frac{R_d}{c^{(p)}}s_0T_0\right)\Delta\rho + \frac{R_d}{c^{(p)}}T_0\Delta\newtilde{s}}{c^{(v)}\rho_0 + \frac{c^{(v)}}{c^{(p)}}s_1\Delta\rho - \frac{c^{(v)}}{c^{(p)}}\Delta\newtilde{s}}.\label{eq:prog_rev_3}
 \end{eqnarray}
 \end{center}
@@ -17155,6 +17160,33 @@ Es ergibt sich also die gleiche Dispersionsrelation wie Glg. \eqref{eq:velocity_
 \chapter{\normalfont\textsc{Irreversible Dynamik}}
 \label{chap:irreversible_dynamik}\index{irreversible Dynamik}\index{Dynamik!irreversible}
 
+In diesem Kapitel wird weiterhin von trockener Luft\index{trockene Luft}\index{Luft!trockene} ausgegangen. Aufgrund von Glg. in Verbindun mit Glg. ist die im vorigen Kapitel entwickelte Diskretisierung reversibel. Die irreversible Effekte in einer trockenen Atmosphäre sind die Diffusionen. Es gibt drei Arten von Diffusion:
+%
+\begin{itemize}
+\item Massendiffusion\index{Massendiffusion}\index{Diffusion!Masse}
+\item Temperaturdiffusion\index{Temperaturdiffusion}\index{Diffusion!Temperatur}
+\item Impulsdiffusion\index{Impulsdiffusion}\index{Diffusion!Impuls}
+\end{itemize}
+%
+Dementsprechend muss das Gleichungssystem Glg.en \eqref{eq:prog_rev_0} - \eqref{eq:prog_rev_3} wie folgt \textcolor{red}{modifiziert} werden:
+
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{eqnarray}
+\frac{\partial\mathbf{v}}{\partial t} & = & -c^{(p)}\nabla T + T\nabla s - \nabla k + \mathbf{v}\times\etabi - \nabla\phi + \textcolor{red}{\mathbf{f}_R}\label{eq:prog_irrev_0}\\
+\frac{\partial\rho}{\partial t} & = & -\nabla\cdot\left(\rho\mathbf{v}\right) + \textcolor{red}{\nabla\cdot\left(\kappa_\rho\nabla\rho\right)}\label{eq:prog_irrev_1}\\
+\frac{\partial\newtilde{s}}{\partial t} & = & -\nabla\cdot\left(\newtilde{s}\mathbf{v}\right) + \textcolor{red}{\frac{q}{T}}\label{eq:prog_irrev_2}\\
+T_1 & = & \frac{c^{(v)}\rho_0T_0 + \left(R_dT_0 - \frac{R_d}{c^{(p)}}s_0T_0\right)\Delta\rho + \frac{R_d}{c^{(p)}}T_0\Delta\newtilde{s}}{c^{(v)}\rho_0 + \frac{c^{(v)}}{c^{(p)}}s_1\Delta\rho - \frac{c^{(v)}}{c^{(p)}}\Delta\newtilde{s}}\label{eq:prog_irrev_3}
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
+
+Die Impulsdiffusion\index{Impulsdiffusion}\index{Diffusion!Impuls} $\mathbf{f}_R$ wird in den Abschnitten \ref{sec:impulsdiffusion_h} und \ref{sec:impulsdiffusion_v} konkretisiert. Die Temperaturgleichung Glg. \eqref{eq:prog_irrev_3} ist dieselbe wie Glg. \eqref{eq:prog_rev_3}, die diffusiven Effekte gehen über $\Delta\rho$ und $\Delta\newtilde{s}$ auch in die Temperatur ein.
+
+In Analogie zum vorigen Kapitel werden auch in diesem Kapitel die horizontalen und vertikalen Disjretisierungen separat hergeleitet, auch wenn es in einem nichthydrostatischen Modell keine Auszeichnung der vertikalen Raumrichtung mehr gibt.
+
 \section{Horizontale Diffusion}
 \label{sec:horizontale_diffusion}\index{horizontale Diffusion}\index{Diffusion!horizontale}
 
@@ -17168,7 +17200,27 @@ Es ergibt sich also die gleiche Dispersionsrelation wie Glg. \eqref{eq:velocity_
 \label{sec:impulsdiffusion_h}\index{Impulsdiffusion!horizontale}\index{Impulsdiffusion!horizontale}
 
 \subsubsection{Dissipation}
-\label{sec:dissipation_h}
+\label{sec:dissipation_modell}
+
+Die mit der Reibung verbundene spezifische Heizrate ist die Dissipation $\epsilon$. Für diese gilt laut Glg. \eqref{eq:diss_heat}
+%
+\begin{eqnarray}
+\epsilon = -\mathbf{f}_R\cdot\mathbf{v}.
+\end{eqnarray}
+%
+Die hieraus resultierende Wärmeleistungsdichte\index{Wärmeleistungsdichte} $q_\text{diss}$ lautet somit
+%
+\begin{eqnarray}
+q_\text{diss} = \rho\epsilon = -\rho\mathbf{f}_R\cdot\mathbf{v}.
+\end{eqnarray}
+%
+Als Zeitdiskretisierung wird
+%
+\begin{eqnarray}
+q_\text{diss} = \rho^{(1/2)}\epsilon^{(1/2)} = -\rho^{(1/2)}\mathbf{f}_R^{(1/2)}\cdot\mathbf{v}^{(1/2)}.
+\end{eqnarray}
+%
+gewählt. Der Term $q_\text{diss}$ wird nur im letzten Runge-Kutta-Zeitschritt\index{Runge-Kutta-Verfahren} in Glg. aufgenommen.
 
 \section{Vertikale Diffusion}
 \label{sec:vertikale_diffusion}\index{vertikale Diffusion}\index{Diffusion!vertikale}
@@ -17182,8 +17234,7 @@ Es ergibt sich also die gleiche Dispersionsrelation wie Glg. \eqref{eq:velocity_
 \subsection{Impulsdiffusion}
 \label{sec:impulsdiffusion_v}\index{Impulsdiffusion!vertikale}\index{Impulsdiffusion!vertikale}
 
-\subsubsection{Dissipation}
-\label{sec:dissipation_v}
+Die mit der vertikalen Diffusion von Impuls\index{Impulsdiffusion!vertikale}\index{vertikale Impulsdiffusion} verbundene Dissipation\index{Dissipation} ist durch die Betrachtung in Absch. \ref{sec:dissipation_modell} bereits vollständig festgelegt.
 
 \subsection{Obere Randbedingung}
 \label{sec:obere_randbedingung_irreversibel}\index{obere Randbedingung}\index{Randbedingung!obere}
