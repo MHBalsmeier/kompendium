@@ -7337,9 +7337,71 @@ Dementspricht gilt
 \int_0^Lqdx = -\int_0^Lua_Rdx \geq 0,
 \end{eqnarray}
 %
-die Reibung vernichtet global integriert also kinetische Energie mittels einer Wärmeleistungsdichte\index{Wärmeleistungsdichte} $q$ zugunsten der inneren Energie. Lokal kann die Reibung jedoch kinetische Energie produzieren, was mit $q < 0$ einhergeht.
+die Reibung vernichtet global integriert also kinetische Energie mittels einer Wärmeleistungsdichte\index{Wärmeleistungsdichte} $q$ zugunsten der inneren Energie. Lokal kann die Reibung jedoch kinetische Energie\index{kinetische Energie}\index{Energie!kinetische} produzieren, was mit $q < 0$ einhergeht. Die Randbedingungen haben für die thermodynamische Rolle der Reibung\index{Thermodynamik!Reibung}\index{Reibung!thermodynamische Bedeutung} also eine entscheidende Bedeutung.
 
-Beide Gedankengänge kann man auch dreidimensional verallgemeinern.
+Beide Gedankengänge kann man auch dreidimensional verallgemeinern. Hierzu gehe man zunächst von einem dreidimensionalen Windfeld der Form
+%
+\begin{eqnarray}
+\mathbf{v}\left(\mathbf{r}\right) = \mathbf{u}\left(2 + \sin\left(\mathbf{k}\cdot\mathbf{r}\right)\right)
+\end{eqnarray}
+%
+aus. Hieraus folgt
+%
+\begin{eqnarray}
+\mathbf{v}\cdot\Delta\mathbf{v} = -k^2u^2\sin\left(\mathbf{k}\cdot\mathbf{r}\right)\left(2 + \sin\left(\mathbf{k}\cdot\mathbf{r}\right)\right).
+\end{eqnarray}
+%
+Dieser Ausdruck nimmt beide Vorzeichen an, auch im dreidimensionalen Fall kann die Reibungsbeschleunigung also lokal kinetische Energie\index{kinetische Energie}\index{Energie!kinetische} produzieren. Für die Arbeit, die die Reibungsbeschleunigung leistet kann man lokal
+%
+\begin{eqnarray}
+\mathbf{v}\cdot\Delta\mathbf{v} = \sum_{i, j = 1}^3v_i\frac{\partial^2v_i}{\partial x_j^2}
+\end{eqnarray}
+%
+notieren. Die dieser Ausdruck isotrop ist, kann man sich bei der weiteren Betrachtung auf die Terme mit x-Ableitung beschränken:
+%
+\begin{eqnarray}
+\sum_{i = 1}^3v_i\frac{\partial^2v_i}{\partial x^2}\label{eq:fric_td_deriv_0}
+\end{eqnarray}
+%
+Man betrachtet nun die Menge
+%
+\begin{eqnarray}
+\Omega \coloneqq \left[0, L_x\right] \times \left[0, L_y\right] \times \left[0, L_z\right]
+\end{eqnarray}
+%
+mit den Randbedingungen\index{Randbedingung}
+%
+\begin{eqnarray}
+\mathbf{v}\cdot\mathbf{n} & = & 0,\\
+\nabla\mathbf{v}\cdot\mathbf{n} & = & \mathbf{0}
+\end{eqnarray}
+%
+auf $\partial\Omega$, hierbei ist $\mathbf{n}$ ein Normalenvektor auf $\partial\Omega$. Integriert man nun Glg. \eqref{eq:fric_td_deriv_0} auf $\Omega$, erhält man
+%
+\begin{eqnarray}
+\int_\Omega\sum_{i = 1}^3v_i\frac{\partial^2v_i}{\partial x^2}d^3r & = & \int_{z = 0}^{L_z}\int_{y = 0}^{L_y}\int_{x = 0}^{L_x}\sum_{i = 1}^3v_i\frac{\partial^2v_i}{\partial x^2}dxdydz.
+\end{eqnarray}
+%
+Führt man nur die Integration über x aus, erhält man
+%
+\begin{eqnarray}
+\int_0^{L_x}\sum_{i = 1}^3v_i\frac{\partial^2v_i}{\partial x^2}dx = \int_0^{L_x}v_x\frac{\partial^2v_x}{\partial x^2} + v_y\frac{\partial^2v_y}{\partial x^2} + v_z\frac{\partial^2v_z}{\partial x^2}dx.
+\end{eqnarray}
+%
+Integriert man wieder partiell\index{partielle Integration}\index{Integration!partielle}, folgt
+%
+\begin{eqnarray}
+\int_0^{L_x}v_x\frac{\partial^2v_x}{\partial x^2} + v_y\frac{\partial^2v_y}{\partial x^2} + v_z\frac{\partial^2v_z}{\partial x^2}dx & = & \left[v_x\frac{\partial v_x}{\partial x} + v_y\frac{\partial v_y}{\partial x} + v_z\frac{\partial v_z}{\partial x}\right]_0^L - \int_0^{L_x}\left(\frac{\partial v_x}{\partial x}\right)^2 + \left(\frac{\partial v_y}{\partial x}\right)^2 + \left(\frac{\partial v_z}{\partial x}\right)^2dx\nonumber\\
+& = & -\int_0^{L_x}\left(\frac{\partial v_x}{\partial x}\right)^2 + \left(\frac{\partial v_y}{\partial x}\right)^2 + \left(\frac{\partial v_z}{\partial x}\right)^2dx < 0.
+\end{eqnarray}
+%
+Dies impliziert
+%
+\begin{eqnarray}
+\int_\Omega\mathbf{v}\cdot\Delta\mathbf{v}d^3r < 0.
+\end{eqnarray}
+%
+Dementsprechend vernichtet auch in diesem Fall die Reibung kinetische Energie.\index{kinetische Energie}\index{Energie!kinetische}
 
 \subsection{Addition der Kräfte}
 \label{sec:addition_der_kraefte}\index{Impulsgleichung}
