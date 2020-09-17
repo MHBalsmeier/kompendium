@@ -7311,7 +7311,7 @@ Eine Skalenanalyse der Reibungsbeschleunigung für die synoptische Skala ergibt 
 u = 2 + \sin\left(x\right) > 0
 \end{eqnarray}
 %
-ausgegangen, wobei Einheiten für den Moment ignoriert werden. Ist das Medium inkompressibel, lautet die Reibungsbeschleunigung $a_R$ bis auf eine Konstante
+ausgegangen, wobei Einheiten für den Moment ignoriert werden. Ein solches Feld ist realistisch, es handelt sich um einen Hintergrundwind mit einer überlagerten Welle. Ist das Medium inkompressibel, lautet die Reibungsbeschleunigung $a_R$ bis auf eine Konstante
 %
 \begin{eqnarray}
 a_R = \frac{\partial^2u}{\partial x^2} = -\sin\left(x\right).
@@ -7320,18 +7320,18 @@ a_R = \frac{\partial^2u}{\partial x^2} = -\sin\left(x\right).
 Somit kann die durch die Reibung geleistete Arbeit
 %
 \begin{eqnarray}
-ua_R = -u\sin\left(x\right)
+ua_R = -u\sin\left(x\right) = -\left(2 + \sin\left(x\right)\right)\sin\left(x\right) = -2\sin\left(x\right) - \sin^2\left(x\right)\label{eq:fric_td_deriv_1}
 \end{eqnarray}
 %
-beide Vorzeichen haben. Es ist in Fluiden also möglich, dass die Reibung kinetische Energie\index{Reibung!kinetische Energie}\index{kinetische Energie!Reibung}\index{Energie!kinetische!Reibung} produziert.
+beide Vorzeichen haben. Es ist in Fluiden also möglich, dass die Reibung kinetische Energie\index{Reibung!kinetische Energie}\index{kinetische Energie!Reibung}\index{Energie!kinetische!Reibung} produziert. Nichtsdestotrotz ist der Mittelwert von Glg. \eqref{eq:fric_td_deriv_0} negativ, im Mittel dissipiert\index{Dissipation} die Reibung also auch in diesem Fall kinetische Energie\index{kinetische Energie}\index{Energie!kinetische}. Dies ist jedoch noch keine allgemeingültige Herleitung der dissipativen Wirkung der Reibung.
 
-Integriert man die Gleichungen jedoch global, ist die Auswirkung der Reibung\index{Reibung!kinetische Energie}\index{kinetische Energie!Reibung}\index{Energie!kinetische!Reibung}. Um dies einzusehen, wird weiterhin von einem eindimensionalen inkompressiblen Medium ausgegangen, welches auf den Bereich $\left[0, L\right]$ beschränkt ist, die Randbedingungen\index{Randbedingung} lauten $u\left(x = 0, L\right) 0$. Somit erhält man mittels partieller Integration\index{partielle Integration}\index{Integration!partielle}
+Integriert man die Gleichungen jedoch global, ist die negative Auswirkung der Reibung\index{Reibung!kinetische Energie}\index{kinetische Energie!Reibung}\index{Energie!kinetische!Reibung} auf das Integral der kinetischen Energie auch formal einsehbar. Hierfür wird zunächst weiterhin von einem eindimensionalen inkompressiblen Medium ausgegangen, welches auf den Bereich $\left[0, L\right]$ beschränkt ist, die Randbedingungen\index{Randbedingung} lauten $u\left(x = 0, L\right) 0$. Somit erhält man mittels partieller Integration\index{partielle Integration}\index{Integration!partielle}
 %
 \begin{eqnarray}
 \int_0^Lua_Rdx = \int_0^Lu\frac{\partial^2u}{\partial x^2}dx = \left[u\frac{\partial u}{\partial x}\right]_0^L - \int_0^L\left(\frac{\partial u}{\partial x}\right)^2dx = -\int_0^L\left(\frac{\partial u}{\partial x}\right)^2dx \leq 0.
 \end{eqnarray}
 %
-Dementspricht gilt
+Dementsprechend gilt
 %
 \begin{eqnarray}
 \int_0^Lqdx = -\int_0^Lua_Rdx \geq 0,
