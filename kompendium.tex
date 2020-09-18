@@ -7394,7 +7394,7 @@ die Reibung vernichtet global integriert also kinetische Energie mittels einer W
 Beide Gedankengänge kann man auch dreidimensional verallgemeinern. Hierzu gehe man zunächst von einem dreidimensionalen Windfeld der Form
 %
 \begin{eqnarray}
-\mathbf{v}\left(\mathbf{r}\right) = \mathbf{u}\left(2 + \sin\left(\mathbf{k}\cdot\mathbf{r}\right)\right)
+\mathbf{v}\left(\mathbf{r}\right) = \mathbf{u}\left(2 + \sin\left(\mathbf{k}\cdot\mathbf{r}\right)\right)\label{eq:diss_sample_wind_field}
 \end{eqnarray}
 %
 aus. Hieraus folgt
@@ -7454,6 +7454,14 @@ Dies impliziert
 \end{eqnarray}
 %
 Dementsprechend vernichtet auch in diesem Fall die Reibung kinetische Energie\index{kinetische Energie}\index{Energie!kinetische}.
+
+Auch auf den dreidimensionalen kompressiblen Fall lassen sich beide Beobachtungen verallgemeinern. Hierzu geht man wieder von einem Windfeld der Form Glg. \eqref{eq:diss_sample_wind_field} aus, diesmal jedoch mit der Zusatzbedingung $\mathbf{u}\cdot\mathbf{k} = 0$. Dies impliziert
+%
+\begin{eqnarray}
+\nabla\cdot\mathbf{v} = \mathbf{k}\cdot\mathbf{u}\cos\left(\mathbf{k}\cdot\mathbf{r}\right) = 0.
+\end{eqnarray}
+%
+Somit fällt der Term mit $\nabla\cdot\mathbf{v}$ in Glg. \eqref{eq:friction_acceleration} mit diesem speziellen Windfeld weg, was in Analogie zum dreidimensionalen inkompressiblen Fall dazu führt, dass die von der Reibungskraft geleistete Arbeit $\mathbf{v}\cdot\mathbf{f}_R$ beide Vorzeichen annehmen kann.
 
 \subsection{Addition der Kräfte}
 \label{sec:addition_der_kraefte}\index{Impulsgleichung}
