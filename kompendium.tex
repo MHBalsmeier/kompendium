@@ -7256,12 +7256,41 @@ In kartesischen Koordinaten mit $\mathbf{v} = \left(u, v, w\right)^T$ wird Glg. 
 \overleftrightarrow{T} = \left(\begin{array}{ccc}
 -p + 2\mu\frac{\partial u}{\partial x} + \left(\mu_v - \frac{2}{3}\mu\right)\nabla\cdot\mathbf{v} & \mu\left(\frac{\partial u}{\partial y} + \frac{\partial v}{\partial x}\right) & \mu\left(\frac{\partial u}{\partial z} + \frac{\partial w}{\partial x}\right)\\
 \mu\left(\frac{\partial v}{\partial x} + \frac{\partial u}{\partial y}\right) & -p + 2\mu\frac{\partial v}{\partial y} + \left(\mu_v - \frac{2}{3}\mu\right)\nabla\cdot\mathbf{v} & \mu\left(\frac{\partial v}{\partial z} + \frac{\partial w}{\partial y}\right)\\
-\mu\left(\frac{\partial w}{\partial x} + \frac{\partial u}{\partial z}\right) & \mu\left(\frac{\partial w}{\partial y} + \frac{\partial v}{\partial z}\right) & -p + 2\mu\frac{\partial w}{\partial z} + \left(\mu_v - \frac{2}{3}\mu\right)\nabla\cdot\mathbf{v}\label{eq:friction_acceleration}
+\mu\left(\frac{\partial w}{\partial x} + \frac{\partial u}{\partial z}\right) & \mu\left(\frac{\partial w}{\partial y} + \frac{\partial v}{\partial z}\right) & -p + 2\mu\frac{\partial w}{\partial z} + \left(\mu_v - \frac{2}{3}\mu\right)\nabla\cdot\mathbf{v}
 \end{array}\right).\nonumber\\
 &&
 \end{eqnarray}
 %
-Für die Reibung werden häufig andere als der mit Glg. \eqref{eq:friction_acceleration} erhaltene Ausdruck verwendet. Daher wird in den Herleitungen von nun an meist ein allgemeiner Ausdruck
+Hieraus lässt sich die Reibungsbeschleunigung\index{Reibungsbeschleunigung} $\mathbf{f}_R$ berechnen:
+%
+\begin{eqnarray}
+\mathbf{f}_R & = & \frac{1}{\rho}\nabla\cdot\overleftrightarrow{\tau} = \frac{1}{\rho}\left(\begin{array}{c}
+2\mu\frac{\partial^2u}{\partial x^2} + \left(\mu_v - \frac{2}{3}\mu\right)\frac{\partial\nabla\cdot\mathbf{v}}{\partial x} + \mu\left(\frac{\partial^2u}{\partial y^2} + \frac{\partial^2v}{\partial y\partial x}\right) + \mu\left(\frac{\partial^2u}{\partial z^2} + \frac{\partial^2w}{\partial z\partial x}\right)\\
+\mu\left(\frac{\partial^2v}{\partial x^2} + \frac{\partial^2u}{\partial x\partial y}\right) + 2\mu\frac{\partial^2v}{\partial y^2} + \left(\mu_v - \frac{2}{3}\mu\right)\frac{\partial\nabla\cdot\mathbf{v}}{\partial y} + \mu\left(\frac{\partial^2v}{\partial z^2} + \frac{\partial^2w}{\partial z\partial y}\right)\\
+\mu\left(\frac{\partial^2w}{\partial x^2} + \frac{\partial^2u}{\partial x\partial z}\right) + \mu\left(\frac{\partial^2w}{\partial y^2} + \frac{\partial^2v}{\partial y\partial z}\right) + 2\mu\frac{\partial^2w}{\partial z^2} + \left(\mu_v - \frac{2}{3}\mu\right)\frac{\partial\nabla\cdot\mathbf{v}}{\partial z}
+\end{array}
+\right)\nonumber\\
+& = & \frac{\mu}{\rho}\Delta\mathbf{v} + \frac{1}{\rho}\left(\begin{array}{c}
+\mu\frac{\partial^2u}{\partial x^2} + \left(\mu_v - \frac{2}{3}\mu\right)\frac{\partial\nabla\cdot\mathbf{v}}{\partial x} + \mu\frac{\partial^2v}{\partial y\partial x} + \mu\frac{\partial^2w}{\partial z\partial x}\\
+\mu\frac{\partial^2u}{\partial x\partial y} + \mu\frac{\partial^2v}{\partial y^2} + \left(\mu_v - \frac{2}{3}\mu\right)\frac{\partial\nabla\cdot\mathbf{v}}{\partial y} + \mu\frac{\partial^2w}{\partial z\partial y}\\
+\mu\frac{\partial^2u}{\partial x\partial z} + \mu\frac{\partial^2v}{\partial y\partial z} + \mu\frac{\partial^2w}{\partial z^2} + \left(\mu_v - \frac{2}{3}\mu\right)\frac{\partial\nabla\cdot\mathbf{v}}{\partial z}
+\end{array}
+\right)\nonumber\\
+& = & \nu\Delta\mathbf{v} + \frac{\mu_v}{\rho}\nabla\left(\nabla\cdot\mathbf{v}\right) + \frac{\mu}{\rho}\left(\begin{array}{c}
+\frac{\partial^2u}{\partial x^2} - \frac{2}{3}\frac{\partial\nabla\cdot\mathbf{v}}{\partial x} + \frac{\partial^2v}{\partial y\partial x} + \frac{\partial^2w}{\partial z\partial x}\\
+\frac{\partial^2u}{\partial x\partial y} + \frac{\partial^2v}{\partial y^2} - \frac{2}{3}\frac{\partial\nabla\cdot\mathbf{v}}{\partial y} + \frac{\partial^2w}{\partial z\partial y}\\
+\frac{\partial^2u}{\partial x\partial z} + \frac{\partial^2v}{\partial y\partial z} + \frac{\partial^2w}{\partial z^2} - \frac{2}{3}\frac{\partial\nabla\cdot\mathbf{v}}{\partial z}
+\end{array}
+\right)\nonumber\\
+& = & \nu\Delta\mathbf{v} + \frac{\mu_v}{\rho}\nabla\left(\nabla\cdot\mathbf{v}\right) + \frac{\nu}{3}\left(\begin{array}{c}
+\frac{\partial^2u}{\partial x^2} + \frac{\partial^2v}{\partial y\partial x} + \frac{\partial^2w}{\partial z\partial x}\\
+\frac{\partial^2u}{\partial x\partial y} + \frac{\partial^2v}{\partial y^2} + \frac{\partial^2w}{\partial z\partial y}\\
+\frac{\partial^2u}{\partial x\partial z} + \frac{\partial^2v}{\partial y\partial z} + \frac{\partial^2w}{\partial z^2}
+\end{array}
+\right) = \nu\Delta\mathbf{v} + \left(\frac{\mu_v}{\rho} + \frac{\nu}{3}\right)\nabla\left(\nabla\cdot\mathbf{v}\right) \label{eq:friction_acceleration}
+\end{eqnarray}
+%
+Dabei wurde angenommen, dass die Viskositäten\index{Viskosität} homogen sind. Für die Reibung werden häufig andere als der mit Glg. \eqref{eq:friction_acceleration} erhaltene Ausdruck verwendet. Daher wird in den Herleitungen von nun an meist ein allgemeiner Ausdruck
 %
 \begin{eqnarray}
 \mathbf{f}_R = \left(\begin{array}{c}
@@ -9466,13 +9495,13 @@ Hieraus folgt
 \section{Hydrostatik}
 \label{sec:hydrostatik}\index{Hydrostatik}
 
-Druckgradient und Schwere sind von der Größenordnung $10$ m/s$^2$, während die Vertikalbeschleunigung in der Größenordnung $10^{-7}$ m/$s^2$ liegt. Die Glg.
+Druckgradient und Schwere sind von der Größenordnung $10$ m/s$^2$, während die Vertikalbeschleunigung in der Größenordnung $10^{-7}$ m/$s^2$ liegt. Die Gleichung
 %
 \begin{center}
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{eqnarray}
-\frac{\mathbf{g}}{g}\cdot\nabla p = \rho\mathbf{g} \stackrel{\substack{\text{radialsymmetrisches}\\\text{Schwerefeld}}}{\Rightarrow} \frac{\partial p}{\partial z} = -g\rho\label{eq:hydrostatic}, 
+\mathbf{0} = -\frac{1}{\rho}\nabla p + \mathbf{g} \Leftrightarrow \nabla p = \rho\mathbf{g} \stackrel{\substack{\text{radialsymmetrisches}\\\text{Schwerefeld}}}{\Rightarrow} \frac{\partial p}{\partial z} = -g\rho\label{eq:hydrostatic}
 \end{eqnarray}
 \end{center}
 }}
