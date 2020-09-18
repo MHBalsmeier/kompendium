@@ -7287,7 +7287,7 @@ Hieraus lässt sich die Reibungsbeschleunigung\index{Reibungsbeschleunigung} $\m
 \frac{\partial^2u}{\partial x\partial y} + \frac{\partial^2v}{\partial y^2} + \frac{\partial^2w}{\partial z\partial y}\\
 \frac{\partial^2u}{\partial x\partial z} + \frac{\partial^2v}{\partial y\partial z} + \frac{\partial^2w}{\partial z^2}
 \end{array}
-\right) = \nu\Delta\mathbf{v} + \left(\frac{\mu_v}{\rho} + \frac{\nu}{3}\right)\nabla\left(\nabla\cdot\mathbf{v}\right) \label{eq:friction_acceleration}
+\right) = \nu\Delta\mathbf{v} + \left(\frac{\mu_v}{\rho} + \frac{\nu}{3}\right)\nabla\left(\nabla\cdot\mathbf{v}\right)\label{eq:friction_acceleration}
 \end{eqnarray}
 %
 Dabei wurde angenommen, dass die Viskositäten\index{Viskosität} homogen sind. Für die Reibung werden häufig andere als der mit Glg. \eqref{eq:friction_acceleration} erhaltene Ausdruck verwendet. Daher wird in den Herleitungen von nun an meist ein allgemeiner Ausdruck
@@ -7462,6 +7462,36 @@ Auch auf den dreidimensionalen kompressiblen Fall lassen sich beide Beobachtunge
 \end{eqnarray}
 %
 Somit fällt der Term mit $\nabla\cdot\mathbf{v}$ in Glg. \eqref{eq:friction_acceleration} mit diesem speziellen Windfeld weg, was in Analogie zum dreidimensionalen inkompressiblen Fall dazu führt, dass die von der Reibungskraft geleistete Arbeit $\mathbf{v}\cdot\mathbf{f}_R$ beide Vorzeichen annehmen kann.
+
+Multipliziert man Glg. \eqref{eq:friction_acceleration} mit $\rho\mathbf{v}$, erhält man
+%
+\begin{eqnarray}
+\rho\mathbf{v}\cdot\mathbf{f}_R = \mu\mathbf{v}\cdot\Delta\mathbf{v} + \left(\mu_v + \frac{\mu}{3}\right)\mathbf{v}\cdot\nabla\left(\nabla\cdot\mathbf{v}\right).
+\end{eqnarray}
+%
+Unter der Annahme, dass die Viskositäten\index{Viskosität} homogen sind, gilt in Analogie zum inkompressiblen Fall
+%
+\begin{eqnarray}
+\int_\Omega\mu\mathbf{v}\cdot\Delta\mathbf{v}d^3r < 0.\label{eq:friction_dissipation_deriv_0}
+\end{eqnarray}
+%
+Für den zweiten Term rechnet man
+%
+\begin{eqnarray}
+\int_0^{L_x}u\frac{\partial\nabla\cdot\mathbf{v}}{\partial x}dx & = & \left[u\nabla\cdot\mathbf{v}\right]_0^{L_x} - \int_0^{L_x}\frac{\partial u}{\partial x}\nabla\cdot\mathbf{v}dx.
+\end{eqnarray}
+%
+Mit der kinematischen Randbedingung\index{kinematische Randbedingung}\index{Randbedingung!kinematische} $u\left(x = 0, L_x\right) = 0$ fällt der erste Term weg. Somit gilt
+%
+\begin{eqnarray}
+\int_\Omega\mathbf{v}\cdot\nabla\left(\nabla\cdot\mathbf{v}\right)d^3r = -\int_\Omega\left(\nabla\cdot\mathbf{v}\right)^2d^3r < 0.
+\end{eqnarray}
+%
+Somit gilt auch im kompressiblen Fall
+%
+\begin{eqnarray}
+\int_\Omega\rho\mathbf{v}\cdot\mathbf{f}_Rd^3r < 0.
+\end{eqnarray}
 
 \subsection{Addition der Kräfte}
 \label{sec:addition_der_kraefte}\index{Impulsgleichung}
