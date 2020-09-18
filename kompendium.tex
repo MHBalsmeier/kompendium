@@ -9155,10 +9155,12 @@ Anschaulich bedeutet die Vernachlässigbarkeit der Krümmungsterme, dass die Dyn
 \section{Boussinesq-Approximation}
 \label{sec:boussinesq-approximation}\index{Boussinesq-Approximation}
 
-Dieser Abschnitt orientiert sich an den Darstellungen in \cite{1960ApJ...131..442S}. Sei $\psi$ eine der thermodynamischen Zustandsgrößen. Notiere für diese
+In \cite{1960ApJ...131..442S} wurde die sogenannte \textit{Boussinesq-Approximation}\index{Boussinesq-Approximation} für ein ideales Gas\index{ideales Gas}\index{Gas!ideales} hergeleitet. Sie wird jedoch heutzutage vorwiegend auf den Oezan angemeldet, daher wird die dortige Herleitung hier für ein allgemeines Fluid verallgemeinert.
+
+Sei $\psi$ eine der thermodynamischen Zustandsgrößen. Notiere für diese
 %
 \begin{eqnarray}
-\psi = \psi\left(\varphi, \lambda, z\right) = \psi_m + \psi_0\left(z\right) + \psi'\left(\varphi, \lambda, z\right),
+\psi = \psi\left(\varphi, \lambda, z\right) = \psi_m + \psi_0\left(z\right) + \psi'\left(\varphi, \lambda, z\right),\label{eq:boussinesq_deriv_5}
 \end{eqnarray}
 %
 hierbei ist $\psi_m$ der Mittelwert von $\psi$, $\psi_0$ die hydrostatische Schichtung unter Abwesenheit von Bewegung und Beschleunigungen und $\psi'$ die Variation, die durch Bewegung entsteht. Definiere die zu $\psi$ gehörende Skalenhöhe\index{Skalenhöhe} $D_\psi$ durch
@@ -9240,7 +9242,7 @@ Aufgrund von Glg.en \eqref{eq:boussinesq_deriv_0} und \eqref{eq:boussinesq_1} ka
 nähern. Es gilt also unter Vernachlässigung des Ungefähr-Zeichens (in erster Ordnung in den Störungen $\psi - \psi_m$ der thermodynamischen Variablen $\psi$)
 %
 \begin{eqnarray}
-\frac{\rho - \rho_m}{\rho_m} = -a_m\left(T - T_m\right) + K_m\left(p - p_m\right).
+\frac{\rho - \rho_m}{\rho_m} = -a_m\left(T - T_m\right) + K_m\left(p - p_m\right).\label{eq:boussinesq_deriv_6}
 \end{eqnarray}
 %
 Dies impliziert
@@ -9249,16 +9251,16 @@ Dies impliziert
 \rho_0 & = & \rho_m\left(-a_mT_0 + K_mp_0\right),\\
 \rho' & = & \rho_m\left(-a_mT' + K_mp'\right).\label{eq:boussinesq_deriv_2}
 \end{eqnarray}
-%
-Die hydrostatische Grundgleichung\index{hydrostatische Grundgleichung}\index{Grundgleichung!hydrostatische} \eqref{eq:hydrostatic} lautet
-%
-\begin{eqnarray}
-\frac{dp_0}{dz} = -g\rho_m - g\rho_0.
-\end{eqnarray}
 
 \subsection{Impulsgleichung}
 \label{sec:impulsgleichung_boussinesq}\index{Boussinesq-Approximation!Impulsgleichung}\index{Impulsgleichung!Boussinesq-Approximation}
 
+Die hydrostatische Grundgleichung\index{hydrostatische Grundgleichung}\index{Grundgleichung!hydrostatische} \eqref{eq:hydrostatic} lautet
+%
+\begin{eqnarray}
+\frac{dp_0}{dz} = -g\rho_m - g\rho_0.\label{eq:boussinesq_hydrostat}
+\end{eqnarray}
+%
 Setzt man dies in die Impulsgleichung\index{Impulsgleichung} ein, erhält man
 %
 \begin{eqnarray}
@@ -9375,14 +9377,91 @@ nähern kann. Dies führt auf eine vereinfachte Form von Glg. \eqref{eq:boussine
 \subsection{Temperaturgleichung}
 \label{sec:temperaturgleichung}\index{Boussinesq-Approximation!Temperaturgleichung}\index{Temperaturgleichung!Boussinesq-Approximation}
 
-Multipliziert man Glg. \eqref{eq:td1_ideal_gas_cont} mit der Dichte $\rho$, erhält man
+Multipliziert man Glg. \eqref{eq:td1_ideal_gas} mit der Dichte $\rho$, erhält man
 
 \begin{eqnarray}
-\rho c^{(v)}\md{T} + p\nabla\cdot\mathbf{v} = q^{(V)},
+\rho c^{(v)}\md{T} - \frac{p}{\rho}\md{\rho} = q^{(V)},\label{eq:boussineq_t_deriv_0}
 \end{eqnarray}
 %
-wobei $q^{(V)}$ die Wärmeleistungsdichte\index{Wärmeleistungsdichte} ist.
-
+wobei $q^{(V)}$ die Wärmeleistungsdichte\index{Wärmeleistungsdichte} ist. Aufgrund von Glg. \eqref{eq:boussinesq_deriv_5} gilt
+%
+\begin{eqnarray}
+\md{T} = \frac{\partial T}{\partial t} + \mathbf{v}\cdot\nabla T = \frac{\partial T'}{\partial t} + \mathbf{v}\cdot\nabla T.
+\end{eqnarray}
+%
+Setzt man dies in Glg. \eqref{eq:boussineq_t_deriv_0} ein, erhält man
+%
+\begin{eqnarray}
+\rho_mc^{(v)}\left(\frac{\partial T'}{\partial t} + \mathbf{v}\cdot\nabla T\right) - \frac{p}{\rho}\md{\rho} = q^{(V)},\label{eq:boussinesq_deriv_7}
+\end{eqnarray}
+%
+wobei im Vorfaktor der Temperaturtendenz die Dichte $\rho$ durch die mittlere Dichte $\rho_m$ ersetzt wurde. Den Kompressionsterm kann man in erster Ordnung in den Abweichungen von den gemittelten Größen zu
+%
+\begin{eqnarray}
+-\frac{p}{\rho}\md{\rho} \approx -\frac{p_m}{\rho_m}\md{\rho} = -\frac{p_m}{\rho_m}\left(\frac{\partial\rho}{\partial t} + \mathbf{v}\cdot\nabla\rho\right)
+\end{eqnarray}
+%
+vereinfachen. Mit Glg. \eqref{eq:boussinesq_deriv_6} folgt unter Vernachlässigung des Ungefähr-Zeichens
+%
+\begin{eqnarray}
+-\frac{p}{\rho}\md{\rho} \approx -\frac{p_m}{\rho_m}\left(\frac{\partial\rho}{\partial t} + \mathbf{v}\cdot\nabla\rho\right) = -p_m\left(\frac{\partial}{\partial t} + \mathbf{v}\cdot\nabla\right)\left[-a_m\left(T - T_m\right) + K_m\left(p - p_m\right)\right].
+\end{eqnarray}
+%
+Um hier die Zeitabhängigkeit des Drucks zu eliminieren, nähert man weiter
+%
+\begin{eqnarray}
+-\frac{p}{\rho}\md{\rho} & \approx & -p_m\left(\frac{\partial}{\partial t} + \mathbf{v}\cdot\nabla\right)\left[-a_m\left(T - T_m\right) + K_m\left(p - p_m\right)\right]\nonumber\\
+& = & -p_m\left(\frac{\partial}{\partial t} + \mathbf{v}\cdot\nabla\right)\left[-a_m\left(T_0 + T'\right) + K_mp_0\right]\nonumber\\
+& = & p_m\left(\frac{\partial}{\partial t} + \mathbf{v}\cdot\nabla\right)a_mT' + p_mwa_m\frac{dT_0}{dz} - p_mK_mw\frac{dp_0}{dz}.
+\end{eqnarray}
+%
+Laut Glg. \eqref{eq:boussinesq_hydrostat} gilt in erster Ordnung in der Abweichung von der mittleren Dichte
+%
+\begin{eqnarray}
+\frac{dp_0}{dz} \approx -g\rho_m.
+\end{eqnarray}
+%
+Somit gilt unter Vernachlässigung des Ungefähr-Zeichens
+%
+\begin{eqnarray}
+-\frac{p}{\rho}\md{\rho} & = & p_m\left(\frac{\partial}{\partial t} + \mathbf{v}\cdot\nabla\right)a_mT' + p_mwa_m\frac{dT_0}{dz} - p_mK_mw\frac{dp_0}{dz}\nonumber\\
+& = & p_m\left(\frac{\partial}{\partial t} + \mathbf{v}\cdot\nabla\right)a_mT' + p_mwa_m\frac{dT_0}{dz} + p_mK_mwg\rho_m.
+\end{eqnarray}
+%
+Setzt man dies in Glg. \eqref{eq:boussinesq_deriv_7} ein, erhält man
+%
+\begin{eqnarray}
+&& \rho_mc^{(v)}\left(\frac{\partial T'}{\partial t} + \mathbf{v}\cdot\nabla T\right) - \frac{p}{\rho}\md{\rho} = q^{(V)}\nonumber\\
+&& \rho_mc^{(v)}\left(\frac{\partial T'}{\partial t} + \mathbf{v}\cdot\nabla T\right) + p_m\left(\frac{\partial}{\partial t} + \mathbf{v}\cdot\nabla\right)a_mT' + p_mwa_m\frac{dT_0}{dz} + p_mK_mwg\rho_m = q^{(V)}\nonumber\\
+&& \left(\rho_mc^{(v)} + p_ma_m\right)\left(\frac{\partial T'}{\partial t} + \mathbf{v}\cdot\nabla T'\right) + w\left(p_ma_m + \rho_mc^{(v)}\right)\frac{dT_0}{dz} + p_mK_mwg\rho_m = q^{(V)}
+\end{eqnarray}
+%
+Dies ist die Temperaturgleichung\index{Boussinesq-Approximation!Temperaturgleichung}\index{Temperaturgleichung!Boussinesq-Approximation} der Boussinesq-Approximation:
+%
+\begin{center}
+\doublebox{\parbox{0.95\textwidth}{
+\begin{center}
+\begin{eqnarray}
+\left(c^{(v)} + \frac{p_ma_m}{\rho_m}\right)\left(\frac{\partial T'}{\partial t} + \mathbf{v}\cdot\nabla T'\right) + w\left[\left(\frac{p_ma_m}{\rho_m} + c^{(v)}\right)\frac{dT_0}{dz} + p_mK_mg\right] = \frac{q^{(V)}}{\rho_m}
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
+%
+Im idealen Gas\index{ideales Gas}\index{Gas!ideales} gelten
+%
+\begin{eqnarray}
+a_m & = & -\left[\frac{1}{\rho}\left(\frac{\partial\rho}{\partial T}\right)_p\right]_m = \frac{p_m}{R_s\rho T_m^2} = \frac{\rho_mR_sT_m}{R_s\rho_mT_m^2} = \frac{1}{T_m},\\
+K_m & = & \left[\frac{1}{\rho}\left(\frac{\partial\rho}{\partial p}\right)_T\right]_m = \frac{1}{\rho_m}\frac{1}{R_sT_m} = \frac{1}{p_m}.
+\end{eqnarray}
+%
+Hieraus folgt
+%
+\begin{eqnarray}
+\left(c^{(v)} + R_s\right)\left(\frac{\partial T'}{\partial t} + \mathbf{v}\cdot\nabla T'\right) + w\left[\left(R_s + c^{(v)}\right)\frac{dT_0}{dz} + g\right] & = & \frac{q^{(V)}}{\rho_m}\nonumber\\
+\Leftrightarrow c^{(p)}\left(\frac{\partial T'}{\partial t} + \mathbf{v}\cdot\nabla T'\right) + wc^{(p)}\left(\frac{dT_0}{dz} + g\right) & = & \frac{q^{(V)}}{\rho_m}\nonumber\\
+\Leftrightarrow\left(\frac{\partial T'}{\partial t} + \mathbf{v}\cdot\nabla T'\right) + w\left(\frac{dT_0}{dz} + \frac{g}{c^{(p)}}\right) & = & \frac{q^{(V)}}{c^{(p)}\rho_m}.
+\end{eqnarray}
 
 \section{Hydrostatik}
 \label{sec:hydrostatik}\index{Hydrostatik}
