@@ -10096,7 +10096,10 @@ Die hydrostatische Grundgleichung\index{hydrostatische Grundgleichung}\index{Gru
 \begin{eqnarray}
 \frac{dp_0}{dz} = -g\rho_m - g\rho_0.
 \end{eqnarray}
-%
+
+\subsection{Impulsgleichung}
+\label{sec:impulsgleichung_boussinesq}\index{Boussinesq-Approximation!Impulsgleichung}\index{Impulsgleichung!Boussinesq-Approximation}
+
 Setzt man dies in die Impulsgleichung\index{Impulsgleichung} ein, erhält man
 %
 \begin{eqnarray}
@@ -10209,6 +10212,15 @@ nähern kann. Dies führt auf eine vereinfachte Form von Glg. \eqref{eq:boussine
 \end{center}
 }}
 \end{center}
+
+\subsection{Temperaturgleichung}
+\label{sec:temperaturgleichung}\index{Boussinesq-Approximation!Temperaturgleichung}\index{Temperaturgleichung!Boussinesq-Approximation}
+
+\section{Anelastische Approximation}
+\label{sec:anelastische_approximation}\index{anelastische Approximation}\index{Approximation!anelastische}
+
+\section{Pseudo-inkompressible Approximation}
+\label{sec:pseudo-inkompressible_approximation}\index{pseudo-inkompressible Approximation}\index{Approximation!pseudo-inkompressible}
 
 \section{Entwicklungen des Coriolis-Parameters in ebener Geometrie}
 \label{sec:entwicklungen_des_coriolisparameters_in_ebener_geometrie}
@@ -15270,6 +15282,25 @@ m_j = \begin{cases}
 %
 Es wurde stillschweigend davon ausgegangen, dass $f$ das einzige auftretende Feld ist. Verallgemeinernd kann man $f$ als Tupel von Feldern ansehen, also als Zustandsvektor. Weiterhin kann man $0 \leq m_j \leq 1$ zulassen, hierbei ist $m_j$ der implizite Anteil. Das Crank-Nicolson-Verfahren\index{Crank-Nicolson-Verfahren} bedeutet $m_j = \frac{1}{2}$.
 
+\section{CFL-Kriterium}
+\label{sec:cfl-kriterium}\index{CFL-Kriterium}\index{Courant-Friedrichs-Lewy-Kriterium}
+
+Das \textit{Courant-Friedrichs-Lewy-Kriterium (CFL-Kriterium)} ist eine Beschränkung des maximalen Zeitschrittes bei expliziten Verfahren. Sei $u$ die Phasengeschwindigkeit der am schnellsten propagierenden Welle. Man definiert die \textit{Courant-Zahl}\index{Courant-Zahl} oder auch \textit{CFL-Zahl}\index{CFL-Zahl} $c$ durch
+%
+\begin{eqnarray}
+c \coloneqq \frac{u\Delta t}{\Delta x}.
+\end{eqnarray}
+%
+Das CFL-Kriterium lautet
+
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+Das explizite Euler-Verfahren ist genau dann stabil, wenn $c < 1$ ist.
+\end{center}
+}}
+\end{center}
+
 \section{Mischung von Zeitschrittverfahren}
 \label{sec:mischung_von_zeitschrittverfahren}
 
@@ -17183,9 +17214,15 @@ T_1 & = & \frac{c^{(v)}\rho_0T_0 + \left(R_dT_0 - \frac{R_d}{c^{(p)}}s_0T_0\righ
 }}
 \end{center}
 
-Die Impulsdiffusion\index{Impulsdiffusion}\index{Diffusion!Impuls} $\mathbf{f}_R$ wird in den Abschnitten \ref{sec:impulsdiffusion_h} und \ref{sec:impulsdiffusion_v} konkretisiert. Die Temperaturgleichung Glg. \eqref{eq:prog_irrev_3} ist dieselbe wie Glg. \eqref{eq:prog_rev_3}, die diffusiven Effekte gehen über $\Delta\rho$ und $\Delta\newtilde{s}$ auch in die Temperatur ein.
+Die Impulsdiffusion\index{Impulsdiffusion}\index{Diffusion!Impuls} $\mathbf{f}_R$ wird in den Abschnitten \ref{sec:impulsdiffusion_h} und \ref{sec:impulsdiffusion_v} konkretisiert.  Die Massendiffusion\index{Massendiffusion}\index{Diffusion!Masse} wird in Form der Konvergenz einer Flussdichte $\nabla\cdot\left(\kappa_\rho\nabla\rho\right)$ in die Kontinuitätsleichung\index{Kontinuitätsleichung} aufgenommen, wobei $\kappa_\rho$ der zugehörige molekulare Diffusionskoeffizient\index{Diffusionskoeffizient!Masse} ist. In die Wärmeleistungsdichte\index{Wärmeleistungsdichte} $q$ gehen zwei Effekte ein:
+%
+\begin{eqnarray}
+q = q_\text{diss} + q_\text{Tdiff} = \rho\epsilon + \nabla\cdot\left(c_d^{(v)}\rho\kappa_T\nabla T\right)
+\end{eqnarray}
+%
+Hierbei ist $\epsilon = -\mathbf{f}_R\cdot\mathbf{v}$ die Dissipation\index{Dissipation}. Der Term $\nabla\cdot\left(c_d^{(v)}\rho\kappa_T\nabla T\right)$ beschreibt die Konvergenz der aus der Temperaturdiffusion\index{Temperaturdiffusion}\index{Diffusion!Temperatur} resultierenden Wärmeflussdichte\index{Wärmeflussdichte}.
 
-In Analogie zum vorigen Kapitel werden auch in diesem Kapitel die horizontalen und vertikalen Disjretisierungen separat hergeleitet, auch wenn es in einem nichthydrostatischen Modell keine Auszeichnung der vertikalen Raumrichtung mehr gibt.
+Die Temperaturgleichung Glg. \eqref{eq:prog_irrev_3} ist dieselbe wie Glg. \eqref{eq:prog_rev_3}, die diffusiven Effekte gehen über $\Delta\rho$ und $\Delta\newtilde{s}$ auch in die Temperatur ein. In Analogie zum vorigen Kapitel werden auch in diesem Kapitel die horizontalen und vertikalen Diskretisierungen separat hergeleitet, auch wenn es in einem nichthydrostatischen Modell keine Auszeichnung der vertikalen Raumrichtung mehr gibt. Alle in diesem Kapitel betrachteten irreversiblen Terme werden nur im dritten (letzten) Runge-Kutta-Zeitschritt\index{Runge-Kutta-Verfahren} berücksichtigt.
 
 \section{Horizontale Diffusion}
 \label{sec:horizontale_diffusion}\index{horizontale Diffusion}\index{Diffusion!horizontale}
@@ -17220,7 +17257,7 @@ Als Zeitdiskretisierung wird
 q_\text{diss} = \rho^{(1/2)}\epsilon^{(1/2)} = -\rho^{(1/2)}\mathbf{f}_R^{(1/2)}\cdot\mathbf{v}^{(1/2)}.
 \end{eqnarray}
 %
-gewählt. Der Term $q_\text{diss}$ wird nur im letzten Runge-Kutta-Zeitschritt\index{Runge-Kutta-Verfahren} in Glg. aufgenommen.
+gewählt.
 
 \section{Vertikale Diffusion}
 \label{sec:vertikale_diffusion}\index{vertikale Diffusion}\index{Diffusion!vertikale}
@@ -17241,6 +17278,15 @@ Die mit der vertikalen Diffusion von Impuls\index{Impulsdiffusion!vertikale}\ind
 
 \section{Turbulenzparametrisierungen}
 \label{sec:turbulenzparametrisierungen}\index{Turbulenzparametrisierung}
+
+\subsection{Masse}
+\label{sec:masse}\index{Massendiffusion}\index{Diffusion!Masse}
+
+\subsection{Temperatur}
+\label{sec:temperatur}\index{Temperaturdiffusion}\index{Diffusion!Temperatur}
+
+\subsection{Impuls}
+\label{sec:impuls}\index{Impulsdiffusion}\index{Diffusion!Impuls}
 
 \chapter{\normalfont\textsc{Weiterführende Aspekte}}
 \label{chap:weiterfuehrende_aspekte}
