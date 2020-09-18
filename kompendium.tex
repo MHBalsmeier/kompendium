@@ -7503,11 +7503,11 @@ Setzt man dies in die Bewegungsgleichung ein, folgt
 \doublebox{\parbox{0.9\textwidth}{
 \begin{center}
 \begin{eqnarray}
-\frac{\partial u}{\partial t} + u\frac{\partial u}{\partial x} + v\frac{\partial u}{\partial y} + w\frac{\partial u}{\partial z} - \frac{uv\tan\left(\varphi\right)}{a + z} + \frac{uw}{a + z} & = & -\frac{1}{\rho}\frac{\partial p}{\partial x} - f'w + fv + F_{R,x}
+\frac{\partial u}{\partial t} + u\frac{\partial u}{\partial x} + v\frac{\partial u}{\partial y} + w\frac{\partial u}{\partial z} - \frac{uv\tan\left(\varphi\right)}{a + z} + \frac{uw}{a + z} & = & -\frac{1}{\rho}\frac{\partial p}{\partial x} + g_x - f'w + fv + F_{R,x}
 \label{eq:x_momentum},\\
-\frac{\partial v}{\partial t} + u\frac{\partial v}{\partial x} + v\frac{\partial v}{\partial y} + w\frac{\partial v}{\partial z} + \frac{u^2\tan\left(\varphi\right)}{a + z} + \frac{vw}{a + z} & = & -\frac{1}{\rho}\frac{\partial p}{\partial y} - fu + F_{R,y}
+\frac{\partial v}{\partial t} + u\frac{\partial v}{\partial x} + v\frac{\partial v}{\partial y} + w\frac{\partial v}{\partial z} + \frac{u^2\tan\left(\varphi\right)}{a + z} + \frac{vw}{a + z} & = & -\frac{1}{\rho}\frac{\partial p}{\partial y} + g_y - fu + F_{R,y}
 \label{eq:y_momentum},\\
-\frac{\partial w}{\partial t} + u\frac{\partial w}{\partial x} + v\frac{\partial w}{\partial y} + w\frac{\partial w}{\partial z} - \frac{u^2 + v^2}{a + z} & = & -\frac{1}{\rho}\frac{\partial p}{\partial z} - g + f'u + F_{R,z}
+\frac{\partial w}{\partial t} + u\frac{\partial w}{\partial x} + v\frac{\partial w}{\partial y} + w\frac{\partial w}{\partial z} - \frac{u^2 + v^2}{a + z} & = & -\frac{1}{\rho}\frac{\partial p}{\partial z} + g_z + f'u + F_{R,z}
 \label{eq:z_momentum}.
 \end{eqnarray}
 \end{center}
@@ -7538,277 +7538,6 @@ Ist das Druckfeld stetig, so gilt an einer Phasengrenze $A$
 \end{eqnarray}
 %
 wobei die zwei Grenzwerte für die unterschiedlichen Seiten der Phasengrenzfläche stehen. Dies gilt bis auf eine eventuell vorhandene Oberflächenspannung, bei der es sich ja gerade um eine Diskontinuität im Druckfeld an einer Grenzfläche handelt. Glg. \eqref{eq:boundary_cond_dynamic} bezeichnet man als \textit{dynamische Randbedingung}\index{dynamische Randbedingung}\index{Randbedingung!dynamische}.
-
-\subsection{Näherungen}
-\label{sec:naeherungen}
-
-\subsubsection{Advektive Anteile}
-\label{sec:advektive_anteile}\index{Advektion}
-
-Die Nichtlinearität der hergeleiteten Impulsgleichung steckt zu einem großen Anteil in der Advektion $\left(\mathbf{v}\cdot\nabla\right)\mathbf{v}$. Diese Terme tragen also entscheidend zur Interaktion verschiedener atmosphärischer Phänomene und zur Entstehung von Instabilitäten\index{Instabilität} bei. Hingegen ist die Reibung ein stabilisiernder Einfluss. Man definiert daher die sogenannte \textit{Reynolds-Zahl}\index{Reynolds-Zahl} $N_\text{Re}$ als das Verhältnis dieser beiden Terme:
-%
-\begin{eqnarray}
-N_\text{Re} \coloneqq \frac{U^2}{L}\frac{L^2}{\nu U} = \frac{UL}{\nu}
-\end{eqnarray}
-%
-Desto größer die Reynolds-Zahl\index{Reynolds-Zahl} ist, desto instabiler und turbulenter\index{Turbulenz} ist die Strömung. Auf der synoptischen\index{Synotpik} Skala gilt
-%
-\begin{eqnarray}
-N_\text{Re} \sim \frac{10^110^6}{10^{-5}} = 10^{12}.
-\end{eqnarray}
-%
-Synotische\index{Synoptik} Strömungen sind also sehr instabil.
-
-\subsubsection{Shallow atmosphere}
-\label{sec:shallow_atmosphere}\index{shallow atmosphere}
-
-Die sogenannte \textit{shallow-atmosphere-}Approximation lautet
-%
-\begin{center}
-\doublebox{\parbox{0.9\textwidth}{
-\begin{center}
-\begin{eqnarray}
-\sqrt{g} = r^2\cos\left(\phi\right) \to a^2\cos\left(\phi\right)\label{eq:shallow_atmosphere}
-\end{eqnarray}
-\end{center}
-}}
-\end{center}
-%
-für die Funktionaldeterminante\index{Funktionaldeterminante} der \textit{geographischen Koordinaten}\index{geographischen Koordinaten}\index{Koordinaten!geographische}, hierbei ist $a$ ein konstanter Wert für den Radius. Setzt man dies in Glg. \eqref{eq:rot_sphere} ein, erhält man
-%
-\begin{eqnarray}
-\nabla\times\mathbf{v} & = & \frac{1}{a^2\sin\left(\theta\right)}\Bigg[\mathbf{e}_r\left(\frac{\partial\left(a\sin\left(\theta\right)\newtilde{v}_\phi\right)}{\partial\theta} - \frac{\partial\left(a\newtilde{v}_\theta\right)}{\partial\phi}\right) + a\mathbf{e}_\theta\left(\frac{\partial\newtilde{v}_r}{\partial\phi} - \frac{\partial\left(a\sin\left(\theta\right)\newtilde{v}_\phi\right)}{\partial r}\right)\nonumber\\
-&& + a\sin\left(\theta\right)\mathbf{e}_\phi\left(\frac{\partial\left(a\newtilde{v}_\theta\right)}{\partial r} - \frac{\partial\newtilde{v}_r}{\partial\theta}\right)\Bigg]\nonumber\\
-& = & \frac{\newtilde{v}_\phi}{a\tan\left(\theta\right)}\mathbf{e}_r + \mathbf{e}_r\left(\frac{1}{a}\frac{\partial\newtilde{v}_\phi}{\partial\theta} - \frac{1}{a\sin\left(\theta\right)}\frac{\partial\newtilde{v}_\theta}{\partial\phi}\right)\nonumber\\
-&& + \mathbf{e}_\theta\left(\frac{1}{a\sin\left(\theta\right)}\frac{\partial\newtilde{v}_r}{\partial\phi} - \frac{\partial\newtilde{v}_\phi}{\partial r}\right) + \mathbf{e}_\phi\left(\frac{\partial \newtilde{v}_\theta}{\partial r} - \frac{1}{a}\frac{\partial\newtilde{v}_r}{\partial\theta}\right).
-\end{eqnarray}
-%
-Dies bedeutet, dass Glg. \eqref{eq:rot_local} in der shallow atmosphere die Form
-%
-\begin{eqnarray}
-\nabla\times\mathbf{v} & = & \left(\frac{\partial w}{\partial y} - \frac{\partial v}{\partial z}\right)\mathbf{i} + \left(\frac{\partial u}{\partial z} - \frac{\partial w}{\partial x}\right)\mathbf{j} + \left(\frac{\partial v}{\partial x} - \frac{\partial u}{\partial y}\right)\mathbf{k} + \frac{u\tan\left(\varphi\right)}{a}\mathbf{k}.\label{eq:rot_shallow}
-\end{eqnarray}
-%
-annimmt. In der shallow atmosphere gilt für die aus der Erdrotation\index{Erdrotation} folgende Geschwindigkeit
-%
-\begin{eqnarray}
-\mathbf{v}_i & = & \boldsymbol{\Omega}\times\mathbf{r} = \left(\begin{array}{c}
-0\\
-0\\
-\Omega
-\end{array}\right)\times a\left(\begin{array}{c}
-\cos\left(\varphi\right)\cos\left(\lambda\right)\\
-\cos\left(\varphi\right)\sin\left(\lambda\right)\\
-\sin\left(\varphi\right)
-\end{array}\right) = \Omega a\left(\begin{array}{c}
--\cos\left(\varphi\right)\sin\left(\lambda\right)\\
-\cos\left(\varphi\right)\cos\left(\lambda\right)\\
-0
-\end{array}\right) = \Omega a\cos\left(\varphi\right)\left(\begin{array}{c}
--\sin\left(\lambda\right)\\
-\cos\left(\lambda\right)\\
-0
-\end{array}\right)\nonumber\\
-& = & \Omega a\cos\left(\phi\right)\mathbf{i}.
-\end{eqnarray}
-%
-Mit Glg. \eqref{eq:rot_shallow} erhält man
-%
-\begin{eqnarray}
-\nabla\times\mathbf{v}_i & = & \left(-\frac{\partial\left(\Omega a\cos\left(\phi\right)\right)}{\partial y} + \Omega a\cos\left(\phi\right)\frac{\tan\left(\phi\right)}{a}\right)\mathbf{k}\nonumber\\
-& = & \left(-\frac{\partial\left(\Omega \cos\left(\phi\right)\right)}{\partial\phi} + \Omega\sin\left(\phi\right)\right)\mathbf{k} = 2\Omega\sin\left(\phi\right)\mathbf{k}
-\end{eqnarray}
-%
-Daher impliziert die shallow-atmosphere-Approximation die sogenannte \textit{traditionelle Approximation}\index{traditionelle Approximation}\index{Approximation!traditionelle}
-%
-\begin{center}
-\doublebox{\parbox{0.9\textwidth}{
-\begin{center}
-\begin{eqnarray}
-f' = 0.\hspace{2 cm}\text{(traditionelle Approximation)}
-\end{eqnarray}
-\end{center}
-}}
-\end{center}
-%
-Glg. \eqref{eq:rot_shallow} impliziert mit Glg. \eqref{eq:mat_deriv_momentum_met_prop_0}, dass in der Impulsadvektion\index{Impulsadvektion} die Terme $\propto uw/r, vw/r, u^2/r, v^2/r$ vernachlässigt werden müssen.
-
-Setzt man Glg. \eqref{eq:shallow_atmosphere} in Glg. \eqref{eq:div_sphere} ein, erhält man
-%
-\begin{eqnarray}
-\nabla\cdot\mathbf{v} & = & \frac{1}{a^2\sin\left(\theta\right)}\left(\frac{\partial\left(v^{(r)}a^2\sin\left(\theta\right)\right)}{\partial r} + \frac{\partial\left(v^{(\theta)}a^2\sin\left(\theta\right)\right)}{\partial\theta} + \frac{\partial\left(v^{(\phi)}a^2\sin\left(\theta\right)\right)}{\partial\phi}\right)\nonumber\\
-& = & \frac{\partial v^{(r)}}{\partial r} + \frac{\partial v^{(\theta)}}{\partial\theta} + \frac{\partial v^{(\phi)}}{\partial\phi} + \cot\left(\theta\right)v^{(\theta)}\nonumber\\
-& = & \frac{\partial\newtilde{v}^{(r)}}{\partial r} + \frac{1}{r}\frac{\partial\newtilde{v}^{(\theta)}}{\partial\theta} + \frac{1}{r\sin\left(\theta\right)}\frac{\partial\newtilde{v}^{(\phi)}}{\partial\phi} + \frac{\cot\left(\theta\right)}{a}\newtilde{v}^{(\theta)}.
-\end{eqnarray}
-%
-Dies bedeutet, dass Glg. \eqref{eq:div_geo} in der shallow atmosphere\index{shallow atmosphere} die Form
-%
-\begin{eqnarray}
-\nabla\cdot\mathbf{v} & = & \frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} + \frac{\partial w}{\partial z} - \frac{v\tan\left(\varphi\right)}{a}
-\end{eqnarray}
-%
-annimmt. Da bei der Berechnung von $\mathbf{g}$ die Dichte der Atmosphäre vernachlässigt wird, gilt mit der SGA\index{SGA (spherical geopotential approximation)}\index{spherical geopotential approximation (SGA)}
-%
-\begin{eqnarray}
-\nabla\cdot\mathbf{g} = -\frac{dg}{dz} = 0,
-\end{eqnarray}
-%
-was impliziert, dass $g$ in der shallow atmosphere\index{shallow atmosphere} höhenunabhängig sein muss,
-%
-\begin{center}
-\doublebox{\parbox{0.9\textwidth}{
-\begin{center}
-\begin{eqnarray}
-g = g_0.
-\end{eqnarray}
-\end{center}
-}}
-\end{center}
-
-Die Implikationen von Glg. \eqref{eq:shallow_atmosphere} lauten also zusammengefasst
-%
-\begin{enumerate}
-\item die traditionelle Approximation\index{traditionelle Approximation}\index{Approximation!traditionelle} $f' = 0$ muss gemacht werden,
-\item alle metrischen Terme, die nicht $\tan\left(\varphi\right)$ enhalten, müssen vernachlässigt werden (in der Divergenz\index{Divergenz}, Vorticity\index{Vorticity} und Impulsadvektion\index{Impulsadvektion}),
-\item die Schwere muss höhenunabhängig sein, $g \to g_0 =$ homogen.
-\end{enumerate}
-%
-Das Impulsgleichung der shallow atmosphere\index{shallow atmosphere} lautet somit
-%
-\begin{center}
-\doublebox{\parbox{0.9\textwidth}{
-\begin{center}
-\begin{eqnarray}
-\frac{\partial u}{\partial t} + u\frac{\partial u}{\partial x} + v\frac{\partial u}{\partial y} - \frac{uv\tan\left(\varphi\right)}{a + z} & = & -\frac{1}{\rho}\frac{\partial p}{\partial x} + fv + F_{R,x}
-\label{eq:x_momentum_simplified},\\
-\frac{\partial v}{\partial t} + u\frac{\partial v}{\partial x} + v\frac{\partial v}{\partial y} + \frac{u^2\tan\left(\varphi\right)}{a + z} & = & -\frac{1}{\rho}\frac{\partial p}{\partial y} - fu + F_{R,y}
-\label{eq:y_momentum_simplified},\\
-\frac{\partial w}{\partial t} + u\frac{\partial w}{\partial x} + v\frac{\partial w}{\partial y} + w\frac{\partial w}{\partial z} & = & -\frac{1}{\rho}\frac{\partial p}{\partial z} - g_0 + F_{R,z}
-\label{eq:z_momentum_simplified}.
-\end{eqnarray}
-\end{center}
-}}
-\end{center}
-
-\subsubsection{Modifizierter Coriolis-Parameter}
-\label{sec:modifizierter_coriolisparameter}
-
-\begin{figure}
-\begin{center}
-\includegraphics[width = 0.6\textwidth]{figs/f_mod}
-\caption{Die Zusatzkomponente von $f^\star$ als Funktion der Breite. Der Wert bei $\varphi = \pm 85^\circ$ ist zusätzlich eingetragen. Es wurde von einer Windgeschwindigkeit von $u = 10$ m/s ausgegangen.}
-\label{fig:coriolis_mod}
-\end{center}
-\end{figure}
-
-Alle bisher gemachten Näherungen sind global anwendbar. Bei der in diesem Abschnitt gemachten Approximation ist dies nicht mehr der Fall. Man definiert den modifizierten Coriolis-Parameter $f^\star$ durch
-%
-\begin{eqnarray}
-f^\star \coloneqq f\left(1 + \frac{u}{2a\omega\cos\left(\varphi\right)}\right)\label{eq:f_mod}.
-\end{eqnarray}
-%
-$f^\star$ ist dabei, anders als $f$, auch vom Geschwindigkeitsfeld abhängig und beschreibt nicht mehr nur die Coriolis-Kraft. Damit lassen sich die Glg.en \eqref{eq:x_momentum_simplified} - \eqref{eq:y_momentum_simplified} kürzer notieren als
-%
-\begin{eqnarray}
-\frac{\partial u}{\partial t} + u\frac{\partial u}{\partial x} + v\frac{\partial u}{\partial y} + w\frac{\partial u}{\partial z} & = & -\frac{1}{\rho}\frac{\partial p}{\partial x} + f^\star v + F_{R,x}
-\label{eq:x_momentum_simplified_shallow_mod},\\
-\frac{\partial v}{\partial t} + u\frac{\partial v}{\partial x} + v\frac{\partial v}{\partial y} + w\frac{\partial v}{\partial z} & = & -\frac{1}{\rho}\frac{\partial p}{\partial y} - f^\star u + F_{R,y}
-\label{eq:y_momentum_simplified_shallow_mod}.
-\end{eqnarray}
-%
-Für alle dynamischen Überlegungen kann man, zumindest bis in Breiten von 80 Grad, von $f^\star = f$ ausgehen. Dies wird in Abb. \ref{fig:coriolis_mod} veranschaulicht. Damit erhält man folgende vereinfachte horizontale Bewegungsgleichungen:
-%
-\begin{center}
-\doublebox{\parbox{0.8\textwidth}{
-\begin{center}
-\begin{eqnarray}
-\frac{\partial u}{\partial t} + u\frac{\partial u}{\partial x} + v\frac{\partial u}{\partial y} + w\frac{\partial u}{\partial z} & = & -\frac{1}{\rho}\frac{\partial p}{\partial x} + fv + F_{R,x}
-\label{eq:x_momentum_simplified_simplified}\\
-\frac{\partial v}{\partial t} + u\frac{\partial v}{\partial x} + v\frac{\partial v}{\partial y} + w\frac{\partial v}{\partial z} & = & -\frac{1}{\rho}\frac{\partial p}{\partial y} - fu + F_{R,y}
-\label{eq:y_momentum_simplified_simplified}
-\end{eqnarray}
-\end{center}
-}}
-\end{center}
-%
-Anschaulich bedeutet die Vernachlässigbarkeit der Krümmungsterme, dass die Dynamik der Erdatmosphäre (außer in den hohen Breiten) die eines ebenen, rotierenden Fluides mit y-abhängiger Winkelgeschwindigkeit ist. An den Polen divergieren die Krümmungsterme, dies ist allerdings keine Eigenschaft der Erde, sondern des verwendeten Koordinatensystems. Da man dieses beliebig ausrichten kann, kann man für alle regionalen Betrachtungen die Krümmungsterme vernachlässigen. In einem globalen Modell jedoch nicht.
-
-\subsubsection{Flachwassergleichungen}
-\label{sec:flachwassergleichungen}\index{Flachwassergleichung}
-
-Das einfachste Gleichungssystem der Geofluiddynamik mit Zeitableitungen ist das der \textit{Flachwassergleichungen} (SWEs, engl. \textit{shallow water equations}). Um dieses herzuleiten, geht man von den Glg.en \eqref{eq:x_momentum_simplified_simplified} - \eqref{eq:y_momentum_simplified_simplified} aus und nimmt eine homogene Dichte an, außerdem ignoriert man die Reibung. Damit wird die Kontinuitätsgleichung zu
-%
-\begin{eqnarray}
-\nabla\cdot\mathbf{v} = 0.
-\end{eqnarray}
-%
-Das Fluid habe weiterhin eine Oberfläche, an dieser gelte $p = 0$. Die Tiefe des Mediums sei $h = h\left(x, y, t\right)$ und der Grund habe die z-Koordinate $b = b\left(x, y\right)$. Damit erhält man durch Integration der hydrostatischen Grundgleichung
-%
-\begin{eqnarray}
-p\left(z\right) = -\left(0 - p\left(z\right)\right) = -\left(p\left(b + h\right) - p\left(z\right)\right) = -\int_{z}^{b + h}\frac{\partial p}{\partial z}dz = g\rho\int_{z}^{b + h}dz = \left(b + h - z\right)g\rho.
-\end{eqnarray}
-%
-Somit folgt
-%
-\begin{eqnarray}
-\frac{\partial p}{\partial x} = g\rho \frac{\partial}{\partial x}\left(b + h\right)
-\end{eqnarray}
-%
-und analog in y-Richtung. Verschwindet die vertikale Scherung der Horizontalbewegung $\left(\frac{\partial u}{\partial z}, \frac{\partial v}{\partial z}\right)^T$ global zu einem beliebigen Zeitpunkt, so verschwindet auch die lokalzeitliche Tendenz der vertikalen Scherung. Somit ist das Geschwindigkeitsfeld dann zu allen Zeitpunkten höhenunabhängig. Hiervon wird nun ausgegangen. Damit verschwinden die Terme der vertikalen Geschwindigkeitsadvektion. Nun kann man die Kontinuitätsgleichung trivial integrieren:
-%
-\begin{eqnarray}
-h\nabla\cdot\mathbf{v} = \int_{b}^{b + h}\nabla\cdot\mathbf{v}dz = -\int_{b}^{b + h}\frac{\partial w}{\partial z}dz = -w\left(b + h\right) + w\left(b\right)\label{eq:swe_deriv_1}
-\end{eqnarray}
-%
-Die Annahme, dass die Horizontalgeschwindigkeit nicht geschert ist und die die Integration Glg. \eqref{eq:swe_deriv_1} ermöglicht hat, gibt den Flachwassergleichungen ihren Namen. Bei großen Tiefen kann hiervon nämlich anschaulicherweise nicht mehr ausgegangen werden. In Absch. \ref{sec:sub-poincare-wellen} wird über diese Annahme hinausgegangen. Behandelt man Wellen, so kann man die Flachwassergleichungen verwenden, falls
-%
-\begin{eqnarray}
-\text{Wellenlänge} & \gg & \text{Tiefe},\\
-\text{Wellenhöhe} & \ll & \text{Tiefe}
-\end{eqnarray}
-%
-gelten, was für die Tide (außer in Randmeeren) sowie die Dünung auf offener See der Fall sein kann.
-
-In der Tiefe $b$ gilt die kinematische Randbedingung:
-%
-\begin{eqnarray}
-w\left(b\right) & = & \frac{dz}{dt}\left(b\right) = \frac{db}{dt} = \mathbf{v}\cdot\nabla_hb
-\end{eqnarray}
-%
-An der Oberfläche gilt
-%
-\begin{eqnarray}
-w\left(b + h\right) = \md{}\left(b + h\right) = \frac{\partial h}{\partial t} + \mathbf{v}_h\cdot\nabla_h\left(b + h\right).
-\end{eqnarray}
-%
-Setzt man dies in Glg. \eqref{eq:swe_deriv_1} ein, erhält man
-%
-\begin{eqnarray}
-h\nabla_h\cdot\mathbf{v} & = & -\frac{\partial h}{\partial t} - \mathbf{v}\cdot\nabla_h h.
-\end{eqnarray}
-%
-Somit erhält man folgendes Gleichungssystem:
-%
-\begin{center}
-\doublebox{\parbox{0.8\textwidth}{
-\begin{center}
-\begin{eqnarray}
-\frac{\partial\mathbf{v}}{\partial t} + \left(\mathbf{v}\cdot\nabla\right)\mathbf{v} & = & -g\nabla_h\left(h + b\right) - f\left(y\right)\mathbf{k}\times\mathbf{v}\label{eq:swe_0}\\
-\frac{\partial h}{\partial t} + \nabla\cdot\left(h\mathbf{v}\right) & = & 0\label{eq:swe_1}
-\end{eqnarray}
-\end{center}
-}}
-\end{center}
-%
-\paragraph{Linearisierung}
-\label{par:linearisierung}\index{Linearisierung!der Flachwassergleichungen}\index{Flachwassergleichungen!Linearisierung}
-
-Nimmt man einen homogenen Untergrund $b$ an, sowie eine mittlere Tiefe $D$, der eine Störung $d$ überlagert ist, und vernachlässigt alle nichtlinearen Terme, folgt
-%
-\begin{eqnarray}
-\frac{\partial\mathbf{v}}{\partial t} & = & -g\nabla d - f\mathbf{k}\times\mathbf{v}, \label{eq:flach_lin_1}\\
-\frac{\partial d}{\partial t} + D\nabla\cdot\mathbf{v} & = & 0.\label{eq:flach_lin_2}
-\end{eqnarray}
 
 \section{Generalisierte Vertikalkoordinaten}
 \label{sec:generalisierte_vertikalkoordinaten}\index{generalisierte Vertikalkoordinate}\index{Vertikalkoordinate!generalisierte}
@@ -8129,7 +7858,7 @@ Mittels der Kontinuitätsgleichung in der Form
 kann man dies zu
 %
 \begin{eqnarray}
-c^{(v)}\frac{\partial T}{\partial t} + c^{(v)}\mathbf{v}\cdot\nabla T + \frac{p}{\rho}\nabla\cdot\mathbf{v} = \frac{q_T^{(V)}}{\rho} - \frac{sT}{\rho}q_\rho^{(V)}
+c^{(v)}\frac{\partial T}{\partial t} + c^{(v)}\mathbf{v}\cdot\nabla T + \frac{p}{\rho}\nabla\cdot\mathbf{v} = \frac{q_T^{(V)}}{\rho} - \frac{sT}{\rho}q_\rho^{(V)}\label{eq:td1_ideal_gas_cont}
 \end{eqnarray}
 %
 umformen. Mit $p = \rho R_sT$ folgt
@@ -9760,243 +9489,229 @@ Der Determinismus dieser Gleichungen ist nicht nur mathematisch unklar, sie sind
 \label{part:dynamik}\index{Dynamik}
 
 \chapter{\normalfont\textsc{Wichtige Approximationen}}
-\label{chap:important_approximations}
+\label{chap:important_approximations}\index{Approximation}
 
-\section{Hydrostatik}
-\label{sec:hydrostatik}\index{Hydrostatik}
+In der Meteorologie und Ozeanographie\index{Ozeanographie} gibt es viele diffizile Approximationen mit detaillierten und komplexen Annahmen. In diesem Kapitel werden die gebräuchlisten von ihnen hergeleitet, dabei wird bei den weniger rigorosen begonnen.
 
-Druckgradient und Schwere sind von der Größenordnung $10$ m/s$^2$, während die Vertikalbeschleunigung in der Größenordnung $10^{-7}$ m/$s^2$ liegt. Die Glg.
-%
-\begin{center}
-\doublebox{\parbox{0.8\textwidth}{
-\begin{center}
-\begin{eqnarray}
-\frac{\mathbf{g}}{g}\cdot\nabla p = \rho\mathbf{g} \stackrel{\substack{\text{radialsymmetrisches}\\\text{Schwerefeld}}}{\Rightarrow} \frac{\partial p}{\partial z} = -g\rho\label{eq:hydrostatic}, 
-\end{eqnarray}
-\end{center}
-}}
-\end{center}
-%
-gilt also auf der synoptischen Skala in ausgezeichneter Näherung, dies ist die \textit{hydrostatische Grundgleichung}.\index{Grundgleichung!hydrostatische}\index{hydrostatische Grundgleichung}
+\section{Allgemeines}
+\label{sec:allgemeines}
 
-Eine andere Formulierung dieser Gleichung ist $\md{w} = 0$. Die Teilchen haben also eine konstante Vertikalgeschwindigkeit. Diese muss Null sein, da es sonst zum Regelfall wird, dass ein Teilchen im Erdboden oder Weltall verschwindet. Es gilt also die Implikation
-%
-\begin{eqnarray}
-\frac{\mathbf{g}}{g}\cdot\nabla p = \rho\mathbf{g} \Rightarrow w = 0.
-\end{eqnarray}
-%
-Trotzdem ist es sinnvoll, auch in hydrostatischen Gleichungssystemen eine Vertikalgeschwindigkeit zuzulassen. Dies ist zwar physikalisch widersprüchlich, jedoch nicht mathematisch, da das Gleichungssystem nichts von obiger Folgerung wissen kann. Die Vertikalbewegungen eines solchen Systems entstehen aus der Kontinuitätsgleichung.
+\subsection{Filterung}
+\label{sec:filterung}\index{Filterung}
 
-Allgemein werden häufig Näherungsannahmen an die herrschenden Gleichungen gemacht, die physikalisch widersprüchlich sind oder den Definitionen widersprechen. So spielt die Feuchte durchaus eine Rolle für die Dynamik, jedoch kann man Zyklogenese\index{Zyklogenese} (also das Entstehen von Tiefdruckgebieten) auch in einer trockenen Atmosphäre beobachten. Man spricht von \textit{Filterung:}\index{Filterung} Feuchte ist nicht notwendig für das Entstehen der Tiefdruckgebiete, weil in einer trockenen Atmosphäre immernoch Tiefdruckgebiete entstehen, also nicht gefiltert werden. Will man ein Phänomen untersuchen, so wählt man hierfür zunächst immer das einfachst mögliche Gleichungssystem.
+Es werden häufig Näherungsannahmen an die herrschenden Gleichungen gemacht, die physikalisch widersprüchlich sind oder den Definitionen widersprechen. So spielt die Feuchte durchaus eine Rolle für die Dynamik, jedoch kann man Zyklogenese\index{Zyklogenese} (also das Entstehen von Tiefdruckgebieten) auch in einer trockenen Atmosphäre beobachten. Man spricht von \textit{Filterung:}\index{Filterung} Feuchte ist nicht notwendig für das Entstehen der Tiefdruckgebiete, weil in einer trockenen Atmosphäre immernoch Tiefdruckgebiete entstehen, also nicht gefiltert werden. Will man ein Phänomen untersuchen, so wählt man hierfür zunächst immer das einfachst mögliche Gleichungssystem.
 
-Auch wenn man die hydrostatische Annahme nicht macht, kann man einen Grundzustand $\{\newoverline{\alpha}, \newoverline{p}\}$ einführen mit $\alpha \coloneqq \frac{1}{\rho}$ als spezifischem Volumen, der Glg. \eqref{eq:hydrostatic} erfüllt, und die tatsächlichen Größen $\{\alpha, p\}$ als Übelagerung des Grundzustandes mit Abweichungen $\{\alpha', p'\}$ zu notieren, also
+\subsection{Dimensionslose Kennzahlen}
+\label{sec:dimensionslose_kennzahlen}\index{dimensionslose Kennzahl}\index{Kennzahl!dimensionslose}
+
+Um verschiedene Terme in den herrschenden Gleichungen\index{herrschende Gleichung}\index{Gleichung!herrschende} vergleichen zu können, führt man dimensionslose Kennzahlen ein. Besonders problematisch bei der theoretischen Behandlung der Hydrodynamik ist die Nichtlinearität. Diese steckt zu einem großen Anteil in der Impulsadvektion\index{Impulsadvektion} $\left(\mathbf{v}\cdot\nabla\right)\mathbf{v}$. Diese Terme tragen entscheidend zur Interaktion der Skalen (Spektralkomponenten) und zur Entstehung von Instabilitäten\index{Instabilität} bei. Hingegen ist die Reibung ein stabilisiernder Einfluss. Man definiert daher die sogenannte \textit{Reynolds-Zahl}\index{Reynolds-Zahl} $N_\text{Re}$ als das Verhältnis dieser beiden Terme:
 %
 \begin{eqnarray}
-\alpha & = & \newoverline{\alpha} + \alpha',\\
-p & = & \newoverline{p} + p'.
+N_\text{Re} \coloneqq \frac{U^2}{L}\frac{L^2}{\nu U} = \frac{UL}{\nu}
 \end{eqnarray}
 %
-Dann gilt
+Desto größer die Reynolds-Zahl\index{Reynolds-Zahl} ist, desto instabiler und turbulenter\index{Turbulenz} ist die Strömung. Auf der synoptischen\index{Synotpik} Skala gilt
 %
 \begin{eqnarray}
--\alpha\nabla p + \mathbf{g} = -\alpha'\nabla\newoverline{p} - \newoverline{\alpha}\nabla p' - \alpha'\nabla p' = -\alpha'\nabla p - \newoverline{\alpha}\nabla p' = -\alpha\nabla p' - ´\alpha'\nabla\newoverline{p}.\label{eq:background_state_prop_0}
+N_\text{Re} \sim \frac{10^110^6}{10^{-5}} = 10^{12}.
 \end{eqnarray}
 %
-Das Schwerefeld der Erde hat eine komplizierte Form, der man sich in verschiedenen Stufen annähert. Zunächst geht man davon aus, dass das Schwerefeld radialsymmetrisch ist mit homogenem Betrag des Schwerevektors. Verwendet man anstatt der geometrischen Höhe $z$ die geopotentielle Höhe $\phi = gz$ (dies ist die Energie pro Masse, die nötig ist, um ein Teilchen vom Meeresspiegel auf die Höhe $z$ zu bringen), lautet die hydrostatische Grundgleichung mit der Kettenregel
+Synotische\index{Synoptik} Strömungen sind also sehr instabil. Die \textit{Rossby-Zahl}\index{Rossby-Zahl} $N_\text{Ro}$ definiert man als Verhältnis von advektiven Termen zu Coriolis-Kraft, also
 %
 \begin{eqnarray}
-\frac{\partial p}{\partial\phi} = \frac{\partial p}{\partial z}\frac{\partial z}{\partial\phi} = -\rho.
+N_\text{Ro} \coloneqq \frac{U^2}{LfU} = \frac{U}{Lf}.
 \end{eqnarray}
-%
-Die SI-Einheit des Geopotentials ist m$^2$/s$^2$. Ein Geopotentialmeter gpm ist definiert durch
-%
-\begin{eqnarray}
-1\:\text{gpm} \coloneqq 9,8\:\text{m}^2/\text{s}^2, 
-\end{eqnarray}
-%
-sodass
-%
-\begin{eqnarray}
-\frac{z}{\text{m}} = \frac{\phi/g}{\text{m}} \approx \frac{\phi}{\text{gpm}}
-\end{eqnarray}
-%
-gilt. Möchte man die Höhenabhängigkeit der Schwerebeschleunigung berücksichtigen, so verwendet man hierfür als Formel für das Gravitationspotential zunächst
-%
-\begin{eqnarray}
-\phi_g\left(r\right) = -\frac{\phi_0a}{r} + \phi_0
-\end{eqnarray}
-%
-mit $\phi_0 \coloneqq GM/a$ mit $G$ als Newton'scher Gravitationskonstante\index{Newton'sche Gravitationskonstante}\index{Gravitationskonstante!Newton'sche} und $M$ als Erdmasse. Dies ist die Formel für das Schwerefeld eines Planeten mit radialsymmatrischer Massenverteilung, sie ergibt sich aus der Formel für eine Punktmasse mit dem Gauß'schen Satz\index{Gauß'scher Satz}\index{Satz!Gauß'scher}. Bei $r = a$ ist das Potential zu Null normiert. Hieraus folgt
-%
-\begin{eqnarray}
-g = \frac{\phi_0a}{r^2} = g_0\frac{a^2}{r^2}
-\end{eqnarray}
-%
-mit $g_0 \coloneqq \frac{\phi_0}{a}$. In dieser Approximation fordert man für die generalisierte Vertikalkoordinate\index{generalisierte Vertikalkoordinate}\index{Vertikalkoordinate!generalisierte} geopotentielle Höhe\index{geopotentielle Höhe}\index{Höhe!geopotentielle} $z_g$, dass gilt
-%
-\begin{eqnarray}
-g_0z_g \stackrel{!}{=} \phi_g\left(a + z\right) = -\frac{\phi_0a}{a + z} + \phi_0 \Rightarrow z_g = -\frac{a^2}{a + z} + a = \frac{-a^2 + a^2 + za}{a + z} = \frac{z}{1 + \frac{z}{a}}.
-\end{eqnarray}
-%
-Hieraus folgt weiterhin
-%
-\begin{eqnarray}
-\frac{\partial p}{\partial z} & = & \frac{z_g}{z}\frac{\partial p}{\partial z_g} = \left(\frac{1}{1 + \frac{z}{a}} - \frac{z}{a}\frac{1}{\left(1 + \frac{z}{a}\right)^2}\right)\frac{\partial p}{\partial z_g} = \frac{1}{\left(1 + \frac{z}{a}\right)^2}\frac{\partial p}{\partial z_g} = \frac{a^2}{r^2}\frac{\partial p}{\partial z_g} = -g\rho  = -g_0\frac{a^2}{r^2}\rho\nonumber\\
-\Rightarrow \frac{\partial p}{\partial z_g} & = & -g_0\rho.
-\end{eqnarray}
-%
+
+\section{Spherical geopotential approximation}
+\label{sec:spherical_geopotential_approximation}\index{spherical geopotential approximation (SGA)}\index{SGA (spherical geopotential approximation)}
+
 Bezieht man die Fliehbeschleunigung $-\omegabi\times\left(\omegabi\times\mathbf{r}\right)$ und/oder die eher ellipsoidische Form der Erde mit ein, sind die Äquipotentialflächen keine Kugelschalen mehr, s. Absch. \ref{sec:ellipsoidische_approximation_des_schwerefeldes}. Rechnet man die Fliehbeschleunigung betragsmäßig approximativ in $g_0$ hinein und verwendet weiterhin eine sphärische Approximation des Schwerefeldes, spricht man von der \textit{spherical geopotential approximation (SGA)}.
 
-Verwendet man den Druck als Höhenkoordinate und das Geopotential als die abhängige Koordinate, transformiert man also $p\left(\phi\right)$ auf $\phi\left(p\right)$, so lautet die hydrostatische Grundgleichung
-%
-\begin{eqnarray}
-\frac{\partial\phi}{\partial p} = -\alpha\label{eq:hydrostatic_p}
-\end{eqnarray}
-%
-mit $\alpha \coloneqq \frac{1}{\rho}$ als dem spezifischen Volumen. Mit der Zustandsgleichung folgt $\alpha = \frac{R_dT}{p}$ in einer trockenen Atmosphäre. Deshalb bezeichnet man $\frac{\partial\phi}{\partial p}$ häufig auch einfach als »Temperatur«.\ Man sieht, dass die Schichtdicke proportional zur Temperatur der Schicht ist. Das dreidimensionale Geopotentialfeld ist also Ausdruck des Bodendrucks und der Temperatur der Luftmassen.
+\section{Shallow atmosphere}
+\label{sec:shallow_atmosphere}\index{shallow atmosphere}
 
-\section{Barotropie}
-\label{sec:barotropie}\index{Barotropie}
-
-Von Barotropie spricht man, wenn die Konturflächen des Druckfeldes und des Dichtefeldes gleich sind. In einer trockenen Atmosphäre ist dies gleichbedeutend mit der Tatsache, dass die Temperaturflächen und die Druckflächen gleich sind. In der Realität ist der Baroklinitätswinkel, der den Winkel zwischen $\nabla\rho$ und $\nabla p$ beschreibt, klein. Jedoch ist die vorhandene Baroklinität sehr wichtig für die atmosphärische Dynamik und Barotropie hat weitreichende einschränkende Implikationen.
-
-Leitet man die x-Komponente von Glg. \eqref{eq:x_momentum_simplified_simplified_p} unter Annahme von Barotropie nach $p$ ab, erhält man
-%
-\begin{eqnarray}
-\frac{\partial}{\partial p}\md{u} = -\frac{\partial }{\partial p}\frac{\partial\phi}{\partial x} + f\frac{\partial v}{\partial p} = -\frac{\partial }{\partial x}\frac{\partial\phi}{\partial p} + f\frac{\partial v}{\partial p} = f\frac{\partial v}{\partial p}.
-\end{eqnarray}
-%
-Es gilt außerdem
-%
-\begin{eqnarray}
-\frac{\partial }{\partial p}\md{u} = \frac{\partial}{\partial p}\left(\frac{\partial u}{\partial t} + u\frac{\partial u}{\partial x} + v\frac{\partial u}{\partial y} + \omega\frac{\partial u}{\partial p}\right), 
-\end{eqnarray}
-%
-hieraus folgt
-%
-\begin{eqnarray}
-\frac{\partial}{\partial t}\frac{\partial u}{\partial p} = \frac{\partial}{\partial p}\frac{\partial u}{\partial t} = f\frac{\partial v}{\partial p} - \frac{\partial}{\partial p}\left(u\frac{\partial u}{\partial x} + v\frac{\partial u}{\partial y} + \omega\frac{\partial u}{\partial p}\right).
-\end{eqnarray}
-%
-An dieser Gleichung sieht man, dass, falls die vertikale Scherung global für einen Zeitpunkt verschwindet, dies für alle Zeitpunkte so ist. Verschwindet die vertikale Scherung, sind auch die Horizontaldivergenz und damit nach Glg. \eqref{eq:kont_p} $\frac{\partial\omega}{\partial p}$ höhenkonstant. Das Feld der Vertikalgeschwindigkeit im p-System $\omega = \omega\left( p\right)$ ist also in diesem Fall eine Gerade und eine diagnostische Größe.
-
-\section{Geostrophie}
-\label{sec:geostrophie}\index{Geostrophie}
-
-\renewcommand{\arraystretch}{1.2}
-\begin{table}
-\centering
-\begin{tabular}[h]{|c|c|}
-\hline 
-\textbf{Term} & \textbf{Größenordnung im SI} \\ 
-\hline\hline
-$\frac{\partial u}{\partial t}$ & $10^{-4}$ \\ 
-\hline 
-$u\frac{\partial u}{\partial x}$ & $10^{-4}$ \\ 
-\hline 
-$fv$ & $10^{-3}$ \\ 
-\hline 
-$\frac{1}{\rho}\frac{\partial p}{\partial x}$ & $10^{-3}$ \\ 
-\hline 
-\end{tabular}
-\caption{Skalierung der horizontalen Impulsgleichung auf der synoptischen Skala.}
-\label{tab:skal_geos}
-\end{table}
-\renewcommand{\arraystretch}{1}
-
-Die \textit{Rossby-Zahl}\index{Rossby-Zahl} $N_\text{Ro}$ definiert man als Verhältnis von advektiven Termen zu Coriolis-Kraft, also
-%
-\begin{eqnarray}
-N_\text{Ro} \coloneqq\frac{U^2}{LfU} = \frac{v}{Lf}\sim10^{-1}
-\end{eqnarray}
-%
-auf der synoptischen Skala. In erster Ordnung liegt also ein Kräftegleichgewicht aus Coriolis-Kraft und Druckgradientkraft vor. Dies ist die geostrophische Approximation. Das entsprechende Windfeld $\mathbf{v}_h = \left(u_g, v_g\right)^T$ erhält man, indem man in den horizontalen Bewegungsgleichungen Glg.en \eqref{eq:x_momentum_simplified_simplified_p} - \eqref{eq:y_momentum_simplified_simplified_p} die Beschleunigung gleich Null setzt.
-%
-\begin{eqnarray}
-0 = -\frac{\partial\phi}{\partial x} + fv_g\\
-0 = -\frac{\partial\phi}{\partial y} - fu_g
-\end{eqnarray}
-%
-Stellt man dies nach der Windgeschwindigkeit um, ergeben sich
-%
-\begin{eqnarray}
-v_g = \frac{1}{f}\frac{\partial\phi}{\partial x}, \label{eq:geostrophie_y}\\
-u_g = -\frac{1}{f}\frac{\partial\phi}{\partial y}.
-\label{eq:geostrophie_x}
-\end{eqnarray}
-%
-Der geostrophische Wind ist also
+Die sogenannte \textit{shallow-atmosphere-}Approximation lautet
 %
 \begin{center}
-\doublebox{\parbox{0.8\textwidth}{
+\doublebox{\parbox{0.9\textwidth}{
 \begin{center}
 \begin{eqnarray}
-\mathbf{v}_{h, g} = \frac{1}{f}\left(\begin{array}{c}
-- \frac{\partial\phi}{\partial y}\\
-\frac{\partial\phi}{\partial x}\\
-\end{array}\right) = \mathbf{k}\times\frac{1}{f}\nabla\phi.
-\label{eq:geostr_wind}
+\sqrt{g} = r^2\cos\left(\phi\right) \to a^2\cos\left(\phi\right)\label{eq:shallow_atmosphere}
 \end{eqnarray}
 \end{center}
 }}
 \end{center}
 %
-Die geostrophische Windgeschwindigkeit nimmt also mit wachsendem Betrag der Breite ab, am Äquator geht sie gegen unendlich. Daher ist zu hinterfragen, bis in welche Breiten die Geostrophie eine gute Näherung ist. Diese Frage wird in Absch. \ref{sec:betaebene} näher untersucht.
+für die Funktionaldeterminante\index{Funktionaldeterminante} der \textit{geographischen Koordinaten}\index{geographischen Koordinaten}\index{Koordinaten!geographische}, hierbei ist $a$ ein konstanter Wert für den Radius. Setzt man dies in Glg. \eqref{eq:rot_sphere} ein, erhält man
+%
+\begin{eqnarray}
+\nabla\times\mathbf{v} & = & \frac{1}{a^2\sin\left(\theta\right)}\Bigg[\mathbf{e}_r\left(\frac{\partial\left(a\sin\left(\theta\right)\newtilde{v}_\phi\right)}{\partial\theta} - \frac{\partial\left(a\newtilde{v}_\theta\right)}{\partial\phi}\right) + a\mathbf{e}_\theta\left(\frac{\partial\newtilde{v}_r}{\partial\phi} - \frac{\partial\left(a\sin\left(\theta\right)\newtilde{v}_\phi\right)}{\partial r}\right)\nonumber\\
+&& + a\sin\left(\theta\right)\mathbf{e}_\phi\left(\frac{\partial\left(a\newtilde{v}_\theta\right)}{\partial r} - \frac{\partial\newtilde{v}_r}{\partial\theta}\right)\Bigg]\nonumber\\
+& = & \frac{\newtilde{v}_\phi}{a\tan\left(\theta\right)}\mathbf{e}_r + \mathbf{e}_r\left(\frac{1}{a}\frac{\partial\newtilde{v}_\phi}{\partial\theta} - \frac{1}{a\sin\left(\theta\right)}\frac{\partial\newtilde{v}_\theta}{\partial\phi}\right)\nonumber\\
+&& + \mathbf{e}_\theta\left(\frac{1}{a\sin\left(\theta\right)}\frac{\partial\newtilde{v}_r}{\partial\phi} - \frac{\partial\newtilde{v}_\phi}{\partial r}\right) + \mathbf{e}_\phi\left(\frac{\partial \newtilde{v}_\theta}{\partial r} - \frac{1}{a}\frac{\partial\newtilde{v}_r}{\partial\theta}\right).
+\end{eqnarray}
+%
+Dies bedeutet, dass Glg. \eqref{eq:rot_local} in der shallow atmosphere die Form
+%
+\begin{eqnarray}
+\nabla\times\mathbf{v} & = & \left(\frac{\partial w}{\partial y} - \frac{\partial v}{\partial z}\right)\mathbf{i} + \left(\frac{\partial u}{\partial z} - \frac{\partial w}{\partial x}\right)\mathbf{j} + \left(\frac{\partial v}{\partial x} - \frac{\partial u}{\partial y}\right)\mathbf{k} + \frac{u\tan\left(\varphi\right)}{a}\mathbf{k}.\label{eq:rot_shallow}
+\end{eqnarray}
+%
+annimmt. In der shallow atmosphere gilt für die aus der Erdrotation\index{Erdrotation} folgende Geschwindigkeit
+%
+\begin{eqnarray}
+\mathbf{v}_i & = & \boldsymbol{\Omega}\times\mathbf{r} = \left(\begin{array}{c}
+0\\
+0\\
+\Omega
+\end{array}\right)\times a\left(\begin{array}{c}
+\cos\left(\varphi\right)\cos\left(\lambda\right)\\
+\cos\left(\varphi\right)\sin\left(\lambda\right)\\
+\sin\left(\varphi\right)
+\end{array}\right) = \Omega a\left(\begin{array}{c}
+-\cos\left(\varphi\right)\sin\left(\lambda\right)\\
+\cos\left(\varphi\right)\cos\left(\lambda\right)\\
 
-Bildet man das Skalarprodukt mit dem Gradienten des Geopotentials, so folgt
-%
-\begin{eqnarray}
-\nabla\phi\cdot\mathbf{v}_{h, g} = 0, 
+0
+\end{array}\right) = \Omega a\cos\left(\varphi\right)\left(\begin{array}{c}
+-\sin\left(\lambda\right)\\
+\cos\left(\lambda\right)\\
+0
+\end{array}\right)\nonumber\\
+& = & \Omega a\cos\left(\phi\right)\mathbf{i}.
 \end{eqnarray}
 %
-der geostrophische Wind ist senkrecht zum Geopotentialgradienten. Daher ist der geostrophische Wind isohypsenparallel. Die lokalzeitliche Tendenz des Horizontalwindes entsteht bei Geostrophie rein aus der Advektion. Weitere wichtige Implikationen der geostrophischen Annahme werden in Absch. \ref{sec:entwicklungen_des_coriolisparameters_in_ebener_geometrie} behandelt.
-%
-Bildet man die Divergenz von Glg. \eqref{eq:geostr_wind}, erhält man
+Mit Glg. \eqref{eq:rot_shallow} erhält man
 %
 \begin{eqnarray}
-\nabla\cdot\mathbf{v}_{h, g} = -\frac{1}{f}\frac{\partial^2\phi}{\partial x\partial y} + \frac{1}{f}\frac{\partial^2\phi}{\partial y\partial x} - \frac{\beta}{f^2}\frac{\partial\phi}{\partial x} - \frac{v\tan\left(\varphi\right)}{r} = -\frac{\beta}{f^2}\frac{\partial\phi}{\partial x} = -\frac{\beta}{f}v - \frac{v\tan\left(\varphi\right)}{r}.
+\nabla\times\mathbf{v}_i & = & \left(-\frac{\partial\left(\Omega a\cos\left(\phi\right)\right)}{\partial y} + \Omega a\cos\left(\phi\right)\frac{\tan\left(\phi\right)}{a}\right)\mathbf{k}\nonumber\\
+& = & \left(-\frac{\partial\left(\Omega \cos\left(\phi\right)\right)}{\partial\phi} + \Omega\sin\left(\phi\right)\right)\mathbf{k} = 2\Omega\sin\left(\phi\right)\mathbf{k}
 \end{eqnarray}
 %
-Unter Verwendung der Skalen aus Tab. \ref{tab:syn_scale} folgt
-%
-\begin{eqnarray}
-\mathcal{O}\left(\nabla\cdot\mathbf{v}_{h, g}\right) = \frac{10^{-11}}{10^{-4}}10^{1}\:\frac{1}{\text{s}} = 10^{-6}\:\frac{1}{\text{s}}
-\end{eqnarray}
-%
-für mittlere und hohe Breiten. Dies ist etwa eine Größenordnung kleiner als die synoptisch-skalige Divergenz, der geostrophische Wind ist also außerhalb der Tropen als fast divergenzfrei anzusehen, in niederen Breiten gilt dies jedoch nicht mehr. Global ist die geostrophische Approximation also, insbesondere für Modelle, nicht anwendbar.
-
-Der \textit{thermische Wind}\index{thermischer Wind}\index{Wind!thermischer} bezeichnet die Änderung des geostrophischen Windes mit der Höhe aufgrund von Baroklinität. Aus Glg. \eqref{eq:geostr_wind} folgt
+Daher impliziert die shallow-atmosphere-Approximation die sogenannte \textit{traditionelle Approximation}\index{traditionelle Approximation}\index{Approximation!traditionelle}
 %
 \begin{center}
-\doublebox{\parbox{0.8\textwidth}{
+\doublebox{\parbox{0.9\textwidth}{
 \begin{center}
 \begin{eqnarray}
-\frac{\partial\mathbf{v}_{h, g}}{\partial p} = \mathbf{k}\times\frac{1}{f}\nabla\frac{\partial\phi}{\partial p} = -\frac{R_d}{pf}\mathbf{k}\times\nabla T.\label{eq:therm_wind}
+f' = 0.\hspace{2 cm}\text{(traditionelle Approximation)}
 \end{eqnarray}
 \end{center}
 }}
 \end{center}
 %
-Die vertikale Scherung des geostrophischen Windes ergibt sich also aus der Baroklinität der Atmosphäre. Man spricht auch von auch von \textit{vertikaler Scherung des geostrophischen Windes aufgrund horizontaler Temperaturgradienten}, wobei sich \textit{horizontal} hier auf die Druckfläche bezieht. Glg. \eqref{eq:therm_wind} ist die \textit{thermische Windgleichung}.
+Glg. \eqref{eq:rot_shallow} impliziert mit Glg. \eqref{eq:mat_deriv_momentum_met_prop_0}, dass in der Impulsadvektion\index{Impulsadvektion} die Terme $\propto uw/r, vw/r, u^2/r, v^2/r$ vernachlässigt werden müssen.
 
-Seien $p_1 < p_2$ zwei Druckniveaus, dann folgt über Integration von Glg. \eqref{eq:therm_wind}
+Setzt man Glg. \eqref{eq:shallow_atmosphere} in Glg. \eqref{eq:div_sphere} ein, erhält man
 %
 \begin{eqnarray}
-\mathbf{v}_{h, g}\left(p_2\right) - \mathbf{v}_{h, g}\left(p_1\right) & = & \int_{p_1}^{p_2}-\frac{R_d}{pf}\mathbf{k}\times\nabla Tdp\nonumber\\
-\Rightarrow\mathbf{v}_{h, g}\left(p_1\right) & = & \mathbf{v}_{h, g}\left(p_2\right) + \int_{p_1}^{p_2}\frac{R_d}{pf}\mathbf{k}\times\nabla Tdp = \mathbf{v}_{h, g}\left(p_2\right) + \frac{R_d}{f}\int_{p_1}^{p_2}\frac{1}{p}\mathbf{k}\times\nabla Tdp\nonumber\\
-& = & \mathbf{v}_{h, g}\left(p_2\right) + \frac{R_d}{f}\ln\left(\frac{p_2}{p_1}\right)\mathbf{k}\times\nabla\newoverline{T}\left(p_1, p_2\right)
+\nabla\cdot\mathbf{v} & = & \frac{1}{a^2\sin\left(\theta\right)}\left(\frac{\partial\left(v^{(r)}a^2\sin\left(\theta\right)\right)}{\partial r} + \frac{\partial\left(v^{(\theta)}a^2\sin\left(\theta\right)\right)}{\partial\theta} + \frac{\partial\left(v^{(\phi)}a^2\sin\left(\theta\right)\right)}{\partial\phi}\right)\nonumber\\
+& = & \frac{\partial v^{(r)}}{\partial r} + \frac{\partial v^{(\theta)}}{\partial\theta} + \frac{\partial v^{(\phi)}}{\partial\phi} + \cot\left(\theta\right)v^{(\theta)}\nonumber\\
+& = & \frac{\partial\newtilde{v}^{(r)}}{\partial r} + \frac{1}{r}\frac{\partial\newtilde{v}^{(\theta)}}{\partial\theta} + \frac{1}{r\sin\left(\theta\right)}\frac{\partial\newtilde{v}^{(\phi)}}{\partial\phi} + \frac{\cot\left(\theta\right)}{a}\newtilde{v}^{(\theta)}.
 \end{eqnarray}
 %
-mit einer gewichteten Schichtmitteltemperatur
+Dies bedeutet, dass Glg. \eqref{eq:div_geo} in der shallow atmosphere\index{shallow atmosphere} die Form
 %
 \begin{eqnarray}
-\newoverline{T}\left(p_1, p_2\right) & = & \frac{\int_{p_1}^{p_2}\frac{1}{p}Tdp}{\int_{p_1}^{p_2}\frac{1}{p}dp}.
+\nabla\cdot\mathbf{v} & = & \frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} + \frac{\partial w}{\partial z} - \frac{v\tan\left(\varphi\right)}{a}
 \end{eqnarray}
+%
+annimmt. Da bei der Berechnung von $\mathbf{g}$ die Dichte der Atmosphäre vernachlässigt wird, gilt mit der SGA\index{SGA (spherical geopotential approximation)}\index{spherical geopotential approximation (SGA)}
+%
+\begin{eqnarray}
+\nabla\cdot\mathbf{g} = -\frac{dg}{dz} = 0,
+\end{eqnarray}
+%
+was impliziert, dass $g$ in der shallow atmosphere\index{shallow atmosphere} höhenunabhängig sein muss,
+%
+\begin{center}
+\doublebox{\parbox{0.9\textwidth}{
+\begin{center}
+\begin{eqnarray}
+g = g_0.
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
+
+Die Implikationen von Glg. \eqref{eq:shallow_atmosphere} lauten also zusammengefasst
+%
+\begin{enumerate}
+\item die traditionelle Approximation\index{traditionelle Approximation}\index{Approximation!traditionelle} $f' = 0$ muss gemacht werden,
+\item alle metrischen Terme, die nicht $\tan\left(\varphi\right)$ enhalten, müssen vernachlässigt werden (in der Divergenz\index{Divergenz}, Vorticity\index{Vorticity} und Impulsadvektion\index{Impulsadvektion}),
+\item die Schwere muss höhenunabhängig sein, $g \to g_0 =$ homogen.
+\end{enumerate}
+%
+Das Impulsgleichung der shallow atmosphere\index{shallow atmosphere} lautet somit
+%
+\begin{center}
+\doublebox{\parbox{0.9\textwidth}{
+\begin{center}
+\begin{eqnarray}
+\frac{\partial u}{\partial t} + u\frac{\partial u}{\partial x} + v\frac{\partial u}{\partial y} - \frac{uv\tan\left(\varphi\right)}{a + z} & = & -\frac{1}{\rho}\frac{\partial p}{\partial x} + fv + F_{R,x}
+\label{eq:x_momentum_simplified},\\
+\frac{\partial v}{\partial t} + u\frac{\partial v}{\partial x} + v\frac{\partial v}{\partial y} + \frac{u^2\tan\left(\varphi\right)}{a + z} & = & -\frac{1}{\rho}\frac{\partial p}{\partial y} - fu + F_{R,y}
+\label{eq:y_momentum_simplified},\\
+\frac{\partial w}{\partial t} + u\frac{\partial w}{\partial x} + v\frac{\partial w}{\partial y} + w\frac{\partial w}{\partial z} & = & -\frac{1}{\rho}\frac{\partial p}{\partial z} - g_0 + F_{R,z}
+\label{eq:z_momentum_simplified}.
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
+
+\subsection{Modifizierter Coriolis-Parameter}
+\label{sec:modifizierter_coriolisparameter}
+
+\begin{figure}
+\begin{center}
+\includegraphics[width = 0.6\textwidth]{figs/f_mod}
+\caption{Die Zusatzkomponente von $f^\star$ als Funktion der Breite. Der Wert bei $\varphi = \pm 85^\circ$ ist zusätzlich eingetragen. Es wurde von einer Windgeschwindigkeit von $u = 10$ m/s ausgegangen.}
+\label{fig:coriolis_mod}
+\end{center}
+\end{figure}
+
+Alle bisher gemachten Näherungen sind global anwendbar. Bei der in diesem Abschnitt gemachten Approximation ist dies nicht mehr der Fall. Man definiert den modifizierten Coriolis-Parameter $f^\star$ durch
+%
+\begin{eqnarray}
+f^\star \coloneqq f\left(1 + \frac{u}{2a\omega\cos\left(\varphi\right)}\right)\label{eq:f_mod}.
+\end{eqnarray}
+%
+$f^\star$ ist dabei, anders als $f$, auch vom Geschwindigkeitsfeld abhängig und beschreibt nicht mehr nur die Coriolis-Kraft. Damit lassen sich die Glg.en \eqref{eq:x_momentum_simplified} - \eqref{eq:y_momentum_simplified} kürzer notieren als
+%
+\begin{eqnarray}
+\frac{\partial u}{\partial t} + u\frac{\partial u}{\partial x} + v\frac{\partial u}{\partial y} + w\frac{\partial u}{\partial z} & = & -\frac{1}{\rho}\frac{\partial p}{\partial x} + f^\star v + F_{R,x}
+\label{eq:x_momentum_simplified_shallow_mod},\\
+\frac{\partial v}{\partial t} + u\frac{\partial v}{\partial x} + v\frac{\partial v}{\partial y} + w\frac{\partial v}{\partial z} & = & -\frac{1}{\rho}\frac{\partial p}{\partial y} - f^\star u + F_{R,y}
+\label{eq:y_momentum_simplified_shallow_mod}.
+\end{eqnarray}
+%
+Für alle dynamischen Überlegungen kann man, zumindest bis in Breiten von 80 Grad, von $f^\star = f$ ausgehen. Dies wird in Abb. \ref{fig:coriolis_mod} veranschaulicht. Damit erhält man folgende vereinfachte horizontale Bewegungsgleichungen:
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{eqnarray}
+\frac{\partial u}{\partial t} + u\frac{\partial u}{\partial x} + v\frac{\partial u}{\partial y} + w\frac{\partial u}{\partial z} & = & -\frac{1}{\rho}\frac{\partial p}{\partial x} + fv + F_{R,x}
+\label{eq:x_momentum_simplified_simplified}\\
+\frac{\partial v}{\partial t} + u\frac{\partial v}{\partial x} + v\frac{\partial v}{\partial y} + w\frac{\partial v}{\partial z} & = & -\frac{1}{\rho}\frac{\partial p}{\partial y} - fu + F_{R,y}
+\label{eq:y_momentum_simplified_simplified}
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
+%
+Anschaulich bedeutet die Vernachlässigbarkeit der Krümmungsterme, dass die Dynamik der Erdatmosphäre (außer in den hohen Breiten) die eines ebenen, rotierenden Fluides mit y-abhängiger Winkelgeschwindigkeit ist. An den Polen divergieren die Krümmungsterme, dies ist allerdings keine Eigenschaft der Erde, sondern des verwendeten Koordinatensystems. Da man dieses beliebig ausrichten kann, kann man für alle regionalen Betrachtungen die Krümmungsterme vernachlässigen. In einem globalen Modell jedoch nicht.
+
+\section{Pseudo-inkompressible Approximation}
+\label{sec:pseudo-inkompressible_approximation}\index{pseudo-inkompressible Approximation}\index{Approximation!pseudo-inkompressible}
+
+\section{Anelastische Approximation}
+\label{sec:anelastische_approximation}\index{anelastische Approximation}\index{Approximation!anelastische}
 
 \section{Boussinesq-Approximation}
 \label{sec:boussinesq-approximation}\index{Boussinesq-Approximation}
 
-Sei $\psi$ eine der thermodynamischen Zustandsgrößen. Notiere für diese
+Dieser Abschnitt orientiert sich an den Darstellungen in \cite{1960ApJ...131..442S}. Sei $\psi$ eine der thermodynamischen Zustandsgrößen. Notiere für diese
 %
 \begin{eqnarray}
 \psi = \psi\left(\varphi, \lambda, z\right) = \psi_m + \psi_0\left(z\right) + \psi'\left(\varphi, \lambda, z\right),
@@ -10216,11 +9931,318 @@ nähern kann. Dies führt auf eine vereinfachte Form von Glg. \eqref{eq:boussine
 \subsection{Temperaturgleichung}
 \label{sec:temperaturgleichung}\index{Boussinesq-Approximation!Temperaturgleichung}\index{Temperaturgleichung!Boussinesq-Approximation}
 
-\section{Anelastische Approximation}
-\label{sec:anelastische_approximation}\index{anelastische Approximation}\index{Approximation!anelastische}
+Multipliziert man Glg. \eqref{eq:td1_ideal_gas_cont} mit der Dichte $\rho$, erhält man
 
-\section{Pseudo-inkompressible Approximation}
-\label{sec:pseudo-inkompressible_approximation}\index{pseudo-inkompressible Approximation}\index{Approximation!pseudo-inkompressible}
+\begin{eqnarray}
+\rho c^{(v)}\md{T} + p\nabla\cdot\mathbf{v} = q^{(V)},
+\end{eqnarray}
+%
+wobei $q^{(V)}$ die Wärmeleistungsdichte\index{Wärmeleistungsdichte} ist.
+
+
+\section{Hydrostatik}
+\label{sec:hydrostatik}\index{Hydrostatik}
+
+Druckgradient und Schwere sind von der Größenordnung $10$ m/s$^2$, während die Vertikalbeschleunigung in der Größenordnung $10^{-7}$ m/$s^2$ liegt. Die Glg.
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{eqnarray}
+\frac{\mathbf{g}}{g}\cdot\nabla p = \rho\mathbf{g} \stackrel{\substack{\text{radialsymmetrisches}\\\text{Schwerefeld}}}{\Rightarrow} \frac{\partial p}{\partial z} = -g\rho\label{eq:hydrostatic}, 
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
+%
+gilt also auf der synoptischen Skala in ausgezeichneter Näherung, dies ist die \textit{hydrostatische Grundgleichung}.\index{Grundgleichung!hydrostatische}\index{hydrostatische Grundgleichung}
+
+Eine andere Formulierung dieser Gleichung ist $\md{w} = 0$. Die Teilchen haben also eine konstante Vertikalgeschwindigkeit. Diese muss Null sein, da es sonst zum Regelfall wird, dass ein Teilchen im Erdboden oder Weltall verschwindet. Es gilt also die Implikation
+%
+\begin{eqnarray}
+\frac{\mathbf{g}}{g}\cdot\nabla p = \rho\mathbf{g} \Rightarrow w = 0.
+\end{eqnarray}
+%
+Trotzdem ist es sinnvoll, auch in hydrostatischen Gleichungssystemen eine Vertikalgeschwindigkeit zuzulassen. Dies ist zwar physikalisch widersprüchlich, jedoch nicht mathematisch, da das Gleichungssystem nichts von obiger Folgerung wissen kann. Die Vertikalbewegungen eines solchen Systems entstehen aus der Kontinuitätsgleichung.
+
+Auch wenn man die hydrostatische Annahme nicht macht, kann man einen Grundzustand $\{\newoverline{\alpha}, \newoverline{p}\}$ einführen mit $\alpha \coloneqq \frac{1}{\rho}$ als spezifischem Volumen, der Glg. \eqref{eq:hydrostatic} erfüllt, und die tatsächlichen Größen $\{\alpha, p\}$ als Übelagerung des Grundzustandes mit Abweichungen $\{\alpha', p'\}$ zu notieren, also
+%
+\begin{eqnarray}
+\alpha & = & \newoverline{\alpha} + \alpha',\\
+p & = & \newoverline{p} + p'.
+\end{eqnarray}
+%
+Dann gilt
+%
+\begin{eqnarray}
+-\alpha\nabla p + \mathbf{g} = -\alpha'\nabla\newoverline{p} - \newoverline{\alpha}\nabla p' - \alpha'\nabla p' = -\alpha'\nabla p - \newoverline{\alpha}\nabla p' = -\alpha\nabla p' - ´\alpha'\nabla\newoverline{p}.\label{eq:background_state_prop_0}
+\end{eqnarray}
+%
+Das Schwerefeld der Erde hat eine komplizierte Form, der man sich in verschiedenen Stufen annähert. Zunächst geht man davon aus, dass das Schwerefeld radialsymmetrisch ist mit homogenem Betrag des Schwerevektors. Verwendet man anstatt der geometrischen Höhe $z$ die geopotentielle Höhe $\phi = gz$ (dies ist die Energie pro Masse, die nötig ist, um ein Teilchen vom Meeresspiegel auf die Höhe $z$ zu bringen), lautet die hydrostatische Grundgleichung mit der Kettenregel
+%
+\begin{eqnarray}
+\frac{\partial p}{\partial\phi} = \frac{\partial p}{\partial z}\frac{\partial z}{\partial\phi} = -\rho.
+\end{eqnarray}
+%
+Die SI-Einheit des Geopotentials ist m$^2$/s$^2$. Ein Geopotentialmeter gpm ist definiert durch
+%
+\begin{eqnarray}
+1\:\text{gpm} \coloneqq 9,8\:\text{m}^2/\text{s}^2, 
+\end{eqnarray}
+%
+sodass
+%
+\begin{eqnarray}
+\frac{z}{\text{m}} = \frac{\phi/g}{\text{m}} \approx \frac{\phi}{\text{gpm}}
+\end{eqnarray}
+%
+gilt. Möchte man die Höhenabhängigkeit der Schwerebeschleunigung berücksichtigen, so verwendet man hierfür als Formel für das Gravitationspotential zunächst
+%
+\begin{eqnarray}
+\phi_g\left(r\right) = -\frac{\phi_0a}{r} + \phi_0
+\end{eqnarray}
+%
+mit $\phi_0 \coloneqq GM/a$ mit $G$ als Newton'scher Gravitationskonstante\index{Newton'sche Gravitationskonstante}\index{Gravitationskonstante!Newton'sche} und $M$ als Erdmasse. Dies ist die Formel für das Schwerefeld eines Planeten mit radialsymmatrischer Massenverteilung, sie ergibt sich aus der Formel für eine Punktmasse mit dem Gauß'schen Satz\index{Gauß'scher Satz}\index{Satz!Gauß'scher}. Bei $r = a$ ist das Potential zu Null normiert. Hieraus folgt
+%
+\begin{eqnarray}
+g = \frac{\phi_0a}{r^2} = g_0\frac{a^2}{r^2}
+\end{eqnarray}
+%
+mit $g_0 \coloneqq \frac{\phi_0}{a}$. In dieser Approximation fordert man für die generalisierte Vertikalkoordinate\index{generalisierte Vertikalkoordinate}\index{Vertikalkoordinate!generalisierte} geopotentielle Höhe\index{geopotentielle Höhe}\index{Höhe!geopotentielle} $z_g$, dass gilt
+%
+\begin{eqnarray}
+g_0z_g \stackrel{!}{=} \phi_g\left(a + z\right) = -\frac{\phi_0a}{a + z} + \phi_0 \Rightarrow z_g = -\frac{a^2}{a + z} + a = \frac{-a^2 + a^2 + za}{a + z} = \frac{z}{1 + \frac{z}{a}}.
+\end{eqnarray}
+%
+Hieraus folgt weiterhin
+%
+\begin{eqnarray}
+\frac{\partial p}{\partial z} & = & \frac{z_g}{z}\frac{\partial p}{\partial z_g} = \left(\frac{1}{1 + \frac{z}{a}} - \frac{z}{a}\frac{1}{\left(1 + \frac{z}{a}\right)^2}\right)\frac{\partial p}{\partial z_g} = \frac{1}{\left(1 + \frac{z}{a}\right)^2}\frac{\partial p}{\partial z_g} = \frac{a^2}{r^2}\frac{\partial p}{\partial z_g} = -g\rho  = -g_0\frac{a^2}{r^2}\rho\nonumber\\
+\Rightarrow \frac{\partial p}{\partial z_g} & = & -g_0\rho.
+\end{eqnarray}
+%
+Verwendet man den Druck als Höhenkoordinate und das Geopotential als die abhängige Koordinate, transformiert man also $p\left(\phi\right)$ auf $\phi\left(p\right)$, so lautet die hydrostatische Grundgleichung
+%
+\begin{eqnarray}
+\frac{\partial\phi}{\partial p} = -\alpha\label{eq:hydrostatic_p}
+\end{eqnarray}
+%
+mit $\alpha \coloneqq \frac{1}{\rho}$ als dem spezifischen Volumen. Mit der Zustandsgleichung folgt $\alpha = \frac{R_dT}{p}$ in einer trockenen Atmosphäre. Deshalb bezeichnet man $\frac{\partial\phi}{\partial p}$ häufig auch einfach als »Temperatur«.\ Man sieht, dass die Schichtdicke proportional zur Temperatur der Schicht ist. Das dreidimensionale Geopotentialfeld ist also Ausdruck des Bodendrucks und der Temperatur der Luftmassen.
+
+\section{Barotropie}
+\label{sec:barotropie}\index{Barotropie}
+
+Von Barotropie spricht man, wenn die Konturflächen des Druckfeldes und des Dichtefeldes gleich sind. In einer trockenen Atmosphäre ist dies gleichbedeutend mit der Tatsache, dass die Temperaturflächen und die Druckflächen gleich sind. In der Realität ist der Baroklinitätswinkel, der den Winkel zwischen $\nabla\rho$ und $\nabla p$ beschreibt, klein. Jedoch ist die vorhandene Baroklinität sehr wichtig für die atmosphärische Dynamik und Barotropie hat weitreichende einschränkende Implikationen.
+
+Leitet man die x-Komponente von Glg. \eqref{eq:x_momentum_simplified_simplified_p} unter Annahme von Barotropie nach $p$ ab, erhält man
+%
+\begin{eqnarray}
+\frac{\partial}{\partial p}\md{u} = -\frac{\partial }{\partial p}\frac{\partial\phi}{\partial x} + f\frac{\partial v}{\partial p} = -\frac{\partial }{\partial x}\frac{\partial\phi}{\partial p} + f\frac{\partial v}{\partial p} = f\frac{\partial v}{\partial p}.
+\end{eqnarray}
+%
+Es gilt außerdem
+%
+\begin{eqnarray}
+\frac{\partial }{\partial p}\md{u} = \frac{\partial}{\partial p}\left(\frac{\partial u}{\partial t} + u\frac{\partial u}{\partial x} + v\frac{\partial u}{\partial y} + \omega\frac{\partial u}{\partial p}\right), 
+\end{eqnarray}
+%
+hieraus folgt
+%
+\begin{eqnarray}
+\frac{\partial}{\partial t}\frac{\partial u}{\partial p} = \frac{\partial}{\partial p}\frac{\partial u}{\partial t} = f\frac{\partial v}{\partial p} - \frac{\partial}{\partial p}\left(u\frac{\partial u}{\partial x} + v\frac{\partial u}{\partial y} + \omega\frac{\partial u}{\partial p}\right).
+\end{eqnarray}
+%
+An dieser Gleichung sieht man, dass, falls die vertikale Scherung global für einen Zeitpunkt verschwindet, dies für alle Zeitpunkte so ist. Verschwindet die vertikale Scherung, sind auch die Horizontaldivergenz und damit nach Glg. \eqref{eq:kont_p} $\frac{\partial\omega}{\partial p}$ höhenkonstant. Das Feld der Vertikalgeschwindigkeit im p-System $\omega = \omega\left( p\right)$ ist also in diesem Fall eine Gerade und eine diagnostische Größe.
+
+\subsection{Flachwassergleichungen}
+\label{sec:flachwassergleichungen}\index{Flachwassergleichung}
+
+Das einfachste Gleichungssystem der Geofluiddynamik mit Zeitableitungen ist das der \textit{Flachwassergleichungen} (SWEs, engl. \textit{shallow water equations}). Um dieses herzuleiten, geht man von den Glg.en \eqref{eq:x_momentum_simplified_simplified} - \eqref{eq:y_momentum_simplified_simplified} aus und nimmt eine homogene Dichte an, außerdem ignoriert man die Reibung. Damit wird die Kontinuitätsgleichung zu
+%
+\begin{eqnarray}
+\nabla\cdot\mathbf{v} = 0.
+\end{eqnarray}
+%
+Das Fluid habe weiterhin eine Oberfläche, an dieser gelte $p = 0$. Die Tiefe des Mediums sei $h = h\left(x, y, t\right)$ und der Grund habe die z-Koordinate $b = b\left(x, y\right)$. Damit erhält man durch Integration der hydrostatischen Grundgleichung
+%
+\begin{eqnarray}
+p\left(z\right) = -\left(0 - p\left(z\right)\right) = -\left(p\left(b + h\right) - p\left(z\right)\right) = -\int_{z}^{b + h}\frac{\partial p}{\partial z}dz = g\rho\int_{z}^{b + h}dz = \left(b + h - z\right)g\rho.
+\end{eqnarray}
+%
+Somit folgt
+%
+\begin{eqnarray}
+\frac{\partial p}{\partial x} = g\rho \frac{\partial}{\partial x}\left(b + h\right)
+\end{eqnarray}
+%
+und analog in y-Richtung. Verschwindet die vertikale Scherung der Horizontalbewegung $\left(\frac{\partial u}{\partial z}, \frac{\partial v}{\partial z}\right)^T$ global zu einem beliebigen Zeitpunkt, so verschwindet auch die lokalzeitliche Tendenz der vertikalen Scherung. Somit ist das Geschwindigkeitsfeld dann zu allen Zeitpunkten höhenunabhängig. Hiervon wird nun ausgegangen. Damit verschwinden die Terme der vertikalen Geschwindigkeitsadvektion. Nun kann man die Kontinuitätsgleichung trivial integrieren:
+%
+\begin{eqnarray}
+h\nabla\cdot\mathbf{v} = \int_{b}^{b + h}\nabla\cdot\mathbf{v}dz = -\int_{b}^{b + h}\frac{\partial w}{\partial z}dz = -w\left(b + h\right) + w\left(b\right)\label{eq:swe_deriv_1}
+\end{eqnarray}
+%
+Die Annahme, dass die Horizontalgeschwindigkeit nicht geschert ist und die die Integration Glg. \eqref{eq:swe_deriv_1} ermöglicht hat, gibt den Flachwassergleichungen ihren Namen. Bei großen Tiefen kann hiervon nämlich anschaulicherweise nicht mehr ausgegangen werden. In Absch. \ref{sec:sub-poincare-wellen} wird über diese Annahme hinausgegangen. Behandelt man Wellen, so kann man die Flachwassergleichungen verwenden, falls
+%
+\begin{eqnarray}
+\text{Wellenlänge} & \gg & \text{Tiefe},\\
+\text{Wellenhöhe} & \ll & \text{Tiefe}
+\end{eqnarray}
+%
+gelten, was für die Tide (außer in Randmeeren) sowie die Dünung auf offener See der Fall sein kann.
+
+In der Tiefe $b$ gilt die kinematische Randbedingung:
+%
+\begin{eqnarray}
+w\left(b\right) & = & \frac{dz}{dt}\left(b\right) = \frac{db}{dt} = \mathbf{v}\cdot\nabla_hb
+\end{eqnarray}
+%
+An der Oberfläche gilt
+%
+\begin{eqnarray}
+w\left(b + h\right) = \md{}\left(b + h\right) = \frac{\partial h}{\partial t} + \mathbf{v}_h\cdot\nabla_h\left(b + h\right).
+\end{eqnarray}
+%
+Setzt man dies in Glg. \eqref{eq:swe_deriv_1} ein, erhält man
+%
+\begin{eqnarray}
+h\nabla_h\cdot\mathbf{v} & = & -\frac{\partial h}{\partial t} - \mathbf{v}\cdot\nabla_h h.
+\end{eqnarray}
+%
+Somit erhält man folgendes Gleichungssystem:
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{eqnarray}
+\frac{\partial\mathbf{v}}{\partial t} + \left(\mathbf{v}\cdot\nabla\right)\mathbf{v} & = & -g\nabla_h\left(h + b\right) - f\left(y\right)\mathbf{k}\times\mathbf{v}\label{eq:swe_0}\\
+\frac{\partial h}{\partial t} + \nabla\cdot\left(h\mathbf{v}\right) & = & 0\label{eq:swe_1}
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
+%
+\subsubsection{Linearisierung}
+\label{par:linearisierung}\index{Linearisierung!der Flachwassergleichungen}\index{Flachwassergleichungen!Linearisierung}
+
+Nimmt man einen homogenen Untergrund $b$ an, sowie eine mittlere Tiefe $D$, der eine Störung $d$ überlagert ist, und vernachlässigt alle nichtlinearen Terme, folgt
+%
+\begin{eqnarray}
+\frac{\partial\mathbf{v}}{\partial t} & = & -g\nabla d - f\mathbf{k}\times\mathbf{v}, \label{eq:flach_lin_1}\\
+\frac{\partial d}{\partial t} + D\nabla\cdot\mathbf{v} & = & 0.\label{eq:flach_lin_2}
+\end{eqnarray}
+
+\section{Geostrophie}
+\label{sec:geostrophie}\index{Geostrophie}
+
+\renewcommand{\arraystretch}{1.2}
+\begin{table}
+\centering
+\begin{tabular}[h]{|c|c|}
+\hline 
+\textbf{Term} & \textbf{Größenordnung im SI} \\ 
+\hline\hline
+$\frac{\partial u}{\partial t}$ & $10^{-4}$ \\ 
+\hline 
+$u\frac{\partial u}{\partial x}$ & $10^{-4}$ \\ 
+\hline 
+$fv$ & $10^{-3}$ \\ 
+\hline 
+$\frac{1}{\rho}\frac{\partial p}{\partial x}$ & $10^{-3}$ \\ 
+\hline 
+\end{tabular}
+\caption{Skalierung der horizontalen Impulsgleichung auf der synoptischen Skala.}
+\label{tab:skal_geos}
+\end{table}
+\renewcommand{\arraystretch}{1}
+
+Für die Rossby-Zahl\index{Rossby-Zahl} $N_\text{Ro}$ gilt
+%
+\begin{eqnarray}
+N_\text{Ro} = \frac{U}{Lf} \sim10^{-1}
+\end{eqnarray}
+%
+auf der synoptischen Skala. In erster Ordnung liegt also ein Kräftegleichgewicht aus Coriolis-Kraft und Druckgradientkraft vor. Dies ist die geostrophische Approximation. Das entsprechende Windfeld $\mathbf{v}_h = \left(u_g, v_g\right)^T$ erhält man, indem man in den horizontalen Bewegungsgleichungen Glg.en \eqref{eq:x_momentum_simplified_simplified_p} - \eqref{eq:y_momentum_simplified_simplified_p} die Beschleunigung gleich Null setzt.
+%
+\begin{eqnarray}
+0 = -\frac{\partial\phi}{\partial x} + fv_g\\
+0 = -\frac{\partial\phi}{\partial y} - fu_g
+\end{eqnarray}
+%
+Stellt man dies nach der Windgeschwindigkeit um, ergeben sich
+%
+\begin{eqnarray}
+v_g = \frac{1}{f}\frac{\partial\phi}{\partial x}, \label{eq:geostrophie_y}\\
+u_g = -\frac{1}{f}\frac{\partial\phi}{\partial y}.
+\label{eq:geostrophie_x}
+\end{eqnarray}
+%
+Der geostrophische Wind ist also
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{eqnarray}
+\mathbf{v}_{h, g} = \frac{1}{f}\left(\begin{array}{c}
+- \frac{\partial\phi}{\partial y}\\
+\frac{\partial\phi}{\partial x}\\
+\end{array}\right) = \mathbf{k}\times\frac{1}{f}\nabla\phi.
+\label{eq:geostr_wind}
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
+%
+Die geostrophische Windgeschwindigkeit nimmt also mit wachsendem Betrag der Breite ab, am Äquator geht sie gegen unendlich. Daher ist zu hinterfragen, bis in welche Breiten die Geostrophie eine gute Näherung ist. Diese Frage wird in Absch. \ref{sec:betaebene} näher untersucht.
+
+Bildet man das Skalarprodukt mit dem Gradienten des Geopotentials, so folgt
+%
+\begin{eqnarray}
+\nabla\phi\cdot\mathbf{v}_{h, g} = 0, 
+\end{eqnarray}
+%
+der geostrophische Wind ist senkrecht zum Geopotentialgradienten. Daher ist der geostrophische Wind isohypsenparallel. Die lokalzeitliche Tendenz des Horizontalwindes entsteht bei Geostrophie rein aus der Advektion. Weitere wichtige Implikationen der geostrophischen Annahme werden in Absch. \ref{sec:entwicklungen_des_coriolisparameters_in_ebener_geometrie} behandelt.
+%
+Bildet man die Divergenz von Glg. \eqref{eq:geostr_wind}, erhält man
+%
+\begin{eqnarray}
+\nabla\cdot\mathbf{v}_{h, g} = -\frac{1}{f}\frac{\partial^2\phi}{\partial x\partial y} + \frac{1}{f}\frac{\partial^2\phi}{\partial y\partial x} - \frac{\beta}{f^2}\frac{\partial\phi}{\partial x} - \frac{v\tan\left(\varphi\right)}{r} = -\frac{\beta}{f^2}\frac{\partial\phi}{\partial x} = -\frac{\beta}{f}v - \frac{v\tan\left(\varphi\right)}{r}.
+\end{eqnarray}
+%
+Unter Verwendung der Skalen aus Tab. \ref{tab:syn_scale} folgt
+%
+\begin{eqnarray}
+\mathcal{O}\left(\nabla\cdot\mathbf{v}_{h, g}\right) = \frac{10^{-11}}{10^{-4}}10^{1}\:\frac{1}{\text{s}} = 10^{-6}\:\frac{1}{\text{s}}
+\end{eqnarray}
+%
+für mittlere und hohe Breiten. Dies ist etwa eine Größenordnung kleiner als die synoptisch-skalige Divergenz, der geostrophische Wind ist also außerhalb der Tropen als fast divergenzfrei anzusehen, in niederen Breiten gilt dies jedoch nicht mehr. Global ist die geostrophische Approximation also, insbesondere für Modelle, nicht anwendbar.
+
+Der \textit{thermische Wind}\index{thermischer Wind}\index{Wind!thermischer} bezeichnet die Änderung des geostrophischen Windes mit der Höhe aufgrund von Baroklinität. Aus Glg. \eqref{eq:geostr_wind} folgt
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{eqnarray}
+\frac{\partial\mathbf{v}_{h, g}}{\partial p} = \mathbf{k}\times\frac{1}{f}\nabla\frac{\partial\phi}{\partial p} = -\frac{R_d}{pf}\mathbf{k}\times\nabla T.\label{eq:therm_wind}
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
+%
+Die vertikale Scherung des geostrophischen Windes ergibt sich also aus der Baroklinität der Atmosphäre. Man spricht auch von auch von \textit{vertikaler Scherung des geostrophischen Windes aufgrund horizontaler Temperaturgradienten}, wobei sich \textit{horizontal} hier auf die Druckfläche bezieht. Glg. \eqref{eq:therm_wind} ist die \textit{thermische Windgleichung}.
+
+Seien $p_1 < p_2$ zwei Druckniveaus, dann folgt über Integration von Glg. \eqref{eq:therm_wind}
+%
+\begin{eqnarray}
+\mathbf{v}_{h, g}\left(p_2\right) - \mathbf{v}_{h, g}\left(p_1\right) & = & \int_{p_1}^{p_2}-\frac{R_d}{pf}\mathbf{k}\times\nabla Tdp\nonumber\\
+\Rightarrow\mathbf{v}_{h, g}\left(p_1\right) & = & \mathbf{v}_{h, g}\left(p_2\right) + \int_{p_1}^{p_2}\frac{R_d}{pf}\mathbf{k}\times\nabla Tdp = \mathbf{v}_{h, g}\left(p_2\right) + \frac{R_d}{f}\int_{p_1}^{p_2}\frac{1}{p}\mathbf{k}\times\nabla Tdp\nonumber\\
+& = & \mathbf{v}_{h, g}\left(p_2\right) + \frac{R_d}{f}\ln\left(\frac{p_2}{p_1}\right)\mathbf{k}\times\nabla\newoverline{T}\left(p_1, p_2\right)
+\end{eqnarray}
+%
+mit einer gewichteten Schichtmitteltemperatur
+%
+\begin{eqnarray}
+\newoverline{T}\left(p_1, p_2\right) & = & \frac{\int_{p_1}^{p_2}\frac{1}{p}Tdp}{\int_{p_1}^{p_2}\frac{1}{p}dp}.
+\end{eqnarray}
 
 \section{Entwicklungen des Coriolis-Parameters in ebener Geometrie}
 \label{sec:entwicklungen_des_coriolisparameters_in_ebener_geometrie}
@@ -17207,17 +17229,17 @@ Dementsprechend muss das Gleichungssystem Glg.en \eqref{eq:prog_rev_0} - \eqref{
 \begin{eqnarray}
 \frac{\partial\mathbf{v}}{\partial t} & = & -c^{(p)}\nabla T + T\nabla s - \nabla k + \mathbf{v}\times\etabi - \nabla\phi + \textcolor{red}{\mathbf{f}_R}\label{eq:prog_irrev_0}\\
 \frac{\partial\rho}{\partial t} & = & -\nabla\cdot\left(\rho\mathbf{v}\right) + \textcolor{red}{\nabla\cdot\left(\kappa_\rho\nabla\rho\right)}\label{eq:prog_irrev_1}\\
-\frac{\partial\newtilde{s}}{\partial t} & = & -\nabla\cdot\left(\newtilde{s}\mathbf{v}\right) + \textcolor{red}{\frac{q}{T}}\label{eq:prog_irrev_2}\\
+\frac{\partial\newtilde{s}}{\partial t} & = & -\nabla\cdot\left(\newtilde{s}\mathbf{v}\right) + \textcolor{red}{\frac{q^{(V)}}{T}}\label{eq:prog_irrev_2}\\
 T_1 & = & \frac{c^{(v)}\rho_0T_0 + \left(R_dT_0 - \frac{R_d}{c^{(p)}}s_0T_0\right)\Delta\rho + \frac{R_d}{c^{(p)}}T_0\Delta\newtilde{s}}{c^{(v)}\rho_0 + \frac{c^{(v)}}{c^{(p)}}s_1\Delta\rho - \frac{c^{(v)}}{c^{(p)}}\Delta\newtilde{s}}\label{eq:prog_irrev_3}
 \end{eqnarray}
 \end{center}
 }}
 \end{center}
 
-Die Impulsdiffusion\index{Impulsdiffusion}\index{Diffusion!Impuls} $\mathbf{f}_R$ wird in den Abschnitten \ref{sec:impulsdiffusion_h} und \ref{sec:impulsdiffusion_v} konkretisiert.  Die Massendiffusion\index{Massendiffusion}\index{Diffusion!Masse} wird in Form der Konvergenz einer Flussdichte $\nabla\cdot\left(\kappa_\rho\nabla\rho\right)$ in die Kontinuitätsleichung\index{Kontinuitätsleichung} aufgenommen, wobei $\kappa_\rho$ der zugehörige molekulare Diffusionskoeffizient\index{Diffusionskoeffizient!Masse} ist. In die Wärmeleistungsdichte\index{Wärmeleistungsdichte} $q$ gehen zwei Effekte ein:
+Die Impulsdiffusion\index{Impulsdiffusion}\index{Diffusion!Impuls} $\mathbf{f}_R$ wird in den Abschnitten \ref{sec:impulsdiffusion_h} und \ref{sec:impulsdiffusion_v} konkretisiert.  Die Massendiffusion\index{Massendiffusion}\index{Diffusion!Masse} wird in Form der Konvergenz einer Flussdichte $\nabla\cdot\left(\kappa_\rho\nabla\rho\right)$ in die Kontinuitätsleichung\index{Kontinuitätsleichung} aufgenommen, wobei $\kappa_\rho$ der zugehörige molekulare Diffusionskoeffizient\index{Diffusionskoeffizient!Masse} ist. In die Wärmeleistungsdichte\index{Wärmeleistungsdichte} $q^{(V)}$ gehen zwei Effekte ein:
 %
 \begin{eqnarray}
-q = q_\text{diss} + q_\text{Tdiff} = \rho\epsilon + \nabla\cdot\left(c_d^{(v)}\rho\kappa_T\nabla T\right)
+q^{(V)} = q^{(V)}_\text{diss} + q^{(V)}_\text{Tdiff} = \rho\epsilon + \nabla\cdot\left(c_d^{(v)}\rho\kappa_T\nabla T\right)
 \end{eqnarray}
 %
 Hierbei ist $\epsilon = -\mathbf{f}_R\cdot\mathbf{v}$ die Dissipation\index{Dissipation}. Der Term $\nabla\cdot\left(c_d^{(v)}\rho\kappa_T\nabla T\right)$ beschreibt die Konvergenz der aus der Temperaturdiffusion\index{Temperaturdiffusion}\index{Diffusion!Temperatur} resultierenden Wärmeflussdichte\index{Wärmeflussdichte}.
@@ -17245,16 +17267,16 @@ Die mit der Reibung verbundene spezifische Heizrate ist die Dissipation $\epsilo
 \epsilon = -\mathbf{f}_R\cdot\mathbf{v}.
 \end{eqnarray}
 %
-Die hieraus resultierende Wärmeleistungsdichte\index{Wärmeleistungsdichte} $q_\text{diss}$ lautet somit
+Die hieraus resultierende Wärmeleistungsdichte\index{Wärmeleistungsdichte} $q^{(V)}_\text{diss}$ lautet somit
 %
 \begin{eqnarray}
-q_\text{diss} = \rho\epsilon = -\rho\mathbf{f}_R\cdot\mathbf{v}.
+q^{(V)}_\text{diss} = \rho\epsilon = -\rho\mathbf{f}_R\cdot\mathbf{v}.
 \end{eqnarray}
 %
 Als Zeitdiskretisierung wird
 %
 \begin{eqnarray}
-q_\text{diss} = \rho^{(1/2)}\epsilon^{(1/2)} = -\rho^{(1/2)}\mathbf{f}_R^{(1/2)}\cdot\mathbf{v}^{(1/2)}.
+q^{(V)}_\text{diss} = \rho^{(1/2)}\epsilon^{(1/2)} = -\rho^{(1/2)}\mathbf{f}_R^{(1/2)}\cdot\mathbf{v}^{(1/2)}.
 \end{eqnarray}
 %
 gewählt.
