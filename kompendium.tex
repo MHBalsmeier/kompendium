@@ -5844,7 +5844,7 @@ wobei $\newoverline{v}$ und $n$ als homogen angenommen werden. Befindet sich das
 aufgewendet werden, um das Strömungsfeld aufrechtzuerhalten. Diese Gleichung definiert die \textit{dynamische Viskosität}\index{dynamische Viskosität}\index{Viskosität!dynamische} $\eta$. Der horizontale Impuls fließt hierbei in $-z-$Richtung, bei Stationarität gilt somit
 %
 \begin{eqnarray}
-\eta\approx\frac{n\lambda\newoverline{v}m}{3}.
+	\eta \approx \frac{n\lambda\newoverline{v}m}{3}.\label{eq:dyn_viscosity_kinetic_model}
 \end{eqnarray}
 %
 Innere Reibung in einem Fluid ist also diffusiver Impulstransport aufgrund der Viskosität. Ist $c$ die Wärmekapazität pro Teilchen, ist $cT$ die Wärmeenergie pro Teilchen. Setzt man $q = cT$ an, erhält man
@@ -17751,6 +17751,28 @@ Die mit der vertikalen Diffusion von Impuls\index{Impulsdiffusion!vertikale}\ind
 
 \section{Turbulenzparametrisierungen}
 \label{sec:turbulenzparametrisierungen}\index{Turbulenzparametrisierung}
+
+Die diffusiven (irreversiblen) Terme stellen eine Ankopplung der kontinuierlichen Welt der Navier-Stokes-Gleichungen\index{Navier-Stokes-Gleichung} and die molekulare Skala dar. Wie in Absch. \ref{sec:thermodynamische_bedeutung_der_reibung} festgestellt wurde, vernichtet (dissipiert\index{Dissipation}) die Impulsdiffusion\index{Impulsdiffusion} kinetische Energie\index{kinetische Energie}\index{Energie!kinetische} zugunsten der inneren Energie\index{innere Energie}\index{Energie!innere}. Die Atmosphäre kann konzeptionell als Tiefpass\index{Tiefpass}\index{Atmosphäre!als Tiefpass} aufgefasst werden, wobei Wellenlängen  $< 100 \lambda$ gefiltert werden, wobei $\lambda$ die mittlere freie Weglänge\index{mittlere freie Weglänge}\index{Weglänge!freie mittlere} bezeichnet. Der Faktor 100 ist in gewissen Grenzen willkürlich, er berücksichtigt, dass die Kontinuumshypothese\index{Kontinuumshypothese} nicht erst auf der Größenordnung $\lambda$ ihre Gültigkeit verliert.
+
+Bisher wurden nur tatsächliche physikalische Gleichungen diskretisiert, dies bezeichnet man als \textit{direkte numerische Simulation (DNS)}\index{direkte numerische Simulation (DNS)}\index{DNS (direkte numerische Simulation)}. Dieses Vorgehen ist jedoch problematisch falls für die Auflösung $\Delta r$ gilt
+%
+\begin{eqnarray}
+\Delta r \gg \lambda,
+\end{eqnarray}
+%
+eine solche Diskretisierung\index{Diskretisierung} ist nämlich ein Tiefpass\index{Tiefpass}\index{Diskretisierung!als Tiefpass} mit der Grenzwellenlänge $2\Delta r$. Dementsrpechend muss in einem numerischen Modell die Dissipation\index{Dissipation!numerische}\index{Numerik!Dissipation} schon eher einsetzen. Laut Glg. \eqref{eq:dyn_viscosity_kinetic_model} gilt für die kinematische Viskosität\index{kinematische Viskosität}\index{Viskosität!kinematische} $\nu$ die Gleichung
+%
+\begin{eqnarray}
+\nu \propto \lambda.
+\end{eqnarray}
+%
+Dementsprechend erwartet man, dass
+%
+\begin{eqnarray}
+	\frac{\nu_\text{numerisch}}{\nu_\text{molekular}} \sim \frac{2\Delta r}{\lambda}
+\end{eqnarray}
+%
+eine sinnvolle Abschätzung für die numerische Viskosität\index{numerische Viskosität}\index{Viskosität!numerische} ist.
 
 \subsection{Masse}
 \label{sec:masse}\index{Massendiffusion}\index{Diffusion!Masse}

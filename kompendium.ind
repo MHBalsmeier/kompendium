@@ -61,6 +61,7 @@
   \item Arcusfunktion, 326, 328
   \item Areafunktion, 325
   \item Atmosphäre
+    \subitem als Tiefpass, 316
     \subitem einphasige
       \subsubitem Integralrelation, 173
     \subitem Gesamtdrehimpuls, 176
@@ -203,9 +204,11 @@
   \item dimensionslose Kennzahl, 153
   \item Dirac-Gleichung, 69
   \item Dirac-Notation, 43
+  \item direkte numerische Simulation (DNS), 316
   \item diskrete Schichtung
     \subitem Kelvin-Helmholtz-Instabilität, 224
-  \item Diskretisierung, 269, 303, 304
+  \item Diskretisierung, 269, 303, 304, 316
+    \subitem als Tiefpass, 316
     \subitem mimetische Eigenschaft, 309
   \item Dispersion
     \subitem anormale, 195
@@ -218,11 +221,13 @@
     \subitem Quantenmechanik
       \subsubitem freies Teilchen, 36
   \item Dissipation, 119, 120, 142, 143, 175, 315, 316
+    \subitem numerische, 316
   \item Dissipationsrate, 119
   \item Divergenz, 155, 179, 187, 285, 286, 335
     \subitem eines Vektorfeldes, 335
   \item Divergenzgleichung, 188
     \subitem p-System, 189
+  \item DNS (direkte numerische Simulation), 316
   \item Drehimpuls, 19
     \subitem der Atmosphäre, 176
     \subitem quantenmechanischer, 58
@@ -292,8 +297,8 @@
   \item Energie, 19
     \subitem des elektromagnetischen Feldes, 28
     \subitem freie, 85
-    \subitem innere, 173, 175, 176
-    \subitem kinetische, 20, 120--122, 176, 248, 249, 292, 355
+    \subitem innere, 173, 175, 176, 316
+    \subitem kinetische, 20, 120--122, 176, 248, 249, 292, 316, 355
       \subsubitem Bilanzgleichung, 250
       \subsubitem Reibung, 120
       \subsubitem spezifische, 173, 308
@@ -647,7 +652,7 @@
     \subitem Kontinuitätsgleichung, 163
   \item inkompressiblen Kontinuitätsgleichung, 249
   \item inkompressibles Gleichungssystem, 158
-  \item innere Energie, 173, 175, 176
+  \item innere Energie, 173, 175, 176, 316
   \item innere Energiedichte, 137
   \item Instabilität, 153, 193, 222
     \subitem barokline, 223
@@ -719,8 +724,8 @@
     \subitem des Modells, 299
     \subitem Welle, 193
   \item kinematische Randbedingung, 122, 123, 174, 225, 226
-  \item kinematische Viskosität, 120
-  \item kinetische Energie, 20, 120, 121, 176, 248, 249, 292, 355
+  \item kinematische Viskosität, 120, 316
+  \item kinetische Energie, 20, 120, 121, 176, 248, 249, 292, 316, 355
     \subitem Bilanzgleichung, 250
     \subitem Reibung, 120
     \subitem spezifische, 122, 173, 308
@@ -754,6 +759,7 @@
     \subitem vertikale
       \subsubitem anelastische Approximation, 160
   \item Kontinuitätsleichung, 315
+  \item Kontinuumshypothese, 316
   \item Kontinuumsübergang, 107
     \subitem Zweiter, 107
   \item kontravariante Maßzahl
@@ -940,6 +946,7 @@
   \item Mittelungsoperator
     \subitem konkreter, 246
   \item mittlere Breiten, 237
+  \item mittlere freie Weglänge, 316
   \item mittlere Stoßzeit, 95
   \item mittlerer Druck, 118
   \item Mode
@@ -973,7 +980,7 @@
   \item Nabla-Operator
     \subitem horizontaler, 336
   \item natürliche Logarithmusfunktion, 325
-  \item Navier-Stokes-Gleichung, 107, 108
+  \item Navier-Stokes-Gleichung, 107, 108, 316
   \item Newton'sche Gravitationskonstante, 166
   \item Newton'sches Axiom
     \subitem Zusatz, 17
@@ -984,7 +991,9 @@
   \item Normierung
     \subitem Legendre-Polynome, 357
   \item Numerik, 11, 269
+    \subitem Dissipation, 316
     \subitem Grundkonzepte, 269
+  \item numerische Viskosität, 316
 
   \indexspace
 
@@ -1397,6 +1406,7 @@
   \item Thuburn-Mittelung, 289
   \item Tide, 255
   \item tiefe Konvektion, 158
+  \item Tiefpass, 316
   \item Tiefwasserwelle, 198
   \item Topographie
     \subitem dynamische, 258
@@ -1474,7 +1484,8 @@
   \item virtueller Temperaturzuschlag, 92
   \item Viskosität, 119, 122
     \subitem dynamische, 96, 117
-    \subitem kinematische, 120
+    \subitem kinematische, 120, 316
+    \subitem numerische, 316
   \item volle Turbulenz, 241
   \item vollständige Induktion, 322
   \item vollständige Observable, 51
@@ -1510,6 +1521,8 @@
   \item Wasserstoff, 51
   \item Wassserstoff
     \subitem Drehimpuls, 60
+  \item Weglänge
+    \subitem freie mittlere, 316
   \item Welle, 193
     \subitem barokline, 207
     \subitem barotrope, 197
