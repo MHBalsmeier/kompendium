@@ -9441,6 +9441,64 @@ Für die meisten dynamischen Überlegungen kann man, zumindest bis in Breiten vo
 }}
 \end{center}
 
+\section{Pseudo-inkompressible Approximation}
+\label{sec:pseudo-inkompressible_approximation}\index{pseudo-inkompressible Approximation}\index{Approximation!pseudo-inkompressible}
+
+Die sogenannte \textit{pseudo-inkompressible Approximation} wurde in \cite{10.1175/1520-04691989046<1453:ITAA>2.0.CO;2} vorgestellt. Um sie zu begründen, betrachtet man zunächst die Gleichungen der shallow atmosphere\index{shallow atmosphere} in der in Absch. \ref{sec:potentielle_temperatur_als_prognostische_variable_hamilton} Form
+%
+\begin{eqnarray}
+	\md{u} & = & -c^{(p)}\theta\frac{\partial\Pi}{\partial x} + fv,\\
+	\md{v} & = & -c^{(p)}\theta\frac{\partial\Pi}{\partial y} - fu,\\
+	\md{w} & = & -c^{(p)}\theta\frac{\partial\Pi}{\partial z} - g,\\
+	\md{\rho} & = & -\rho\nabla\cdot\mathbf{v},\\
+	\md{\Pi} & \stackrel{\text{Glg. \eqref{eq:exner-pressure_material_derivative}}}{=} & -\frac{R_d\Pi}{c^{(v)}}\nabla\cdot\mathbf{v}.\label{eq:pseudo-inc_deriv_0}
+\end{eqnarray}
+%
+Modifiziert wird nun lediglich Glg. \eqref{eq:pseudo-inc_deriv_0}. Hierzu führt man einen Hintergrundzustand $\left(\newoverline{\Pi}\left(z\right), \newoverline{\theta}\left(z\right)\right)$ ein, Abweichungen hiervon werden wie üblich mit gestrichenen Größen bezeichnet. Damit lässt sich Glg. \eqref{eq:pseudo-inc_deriv_0} unter der Annahme $\Pi' \ll \newoverline{\Pi}$ in der Form
+%
+\begin{eqnarray}
+	\md{\Pi'} + w\frac{d\newoverline{\Pi}}{dz} + \frac{R_d\newoverline{\Pi}}{c^{(v)}}\nabla\cdot\mathbf{v} & = & 0\\
+	\Leftrightarrow \frac{c^{(v)}}{R_d\Pi}\md{\Pi'} + \frac{c^{(v)}}{R_d\newoverline{\Pi}}w\frac{d\newoverline{\Pi}}{dz} + \nabla\cdot\mathbf{v} & = & 0\label{eq:pseudo-inc_deriv_1}
+\end{eqnarray}
+%
+notieren. Die pseudo-inkompressible Approximation\index{pseudo-inkompressible Approximation}\index{Approximation!pseudo-inkompressible} beruht nun darauf, in Glg. \eqref{eq:pseudo-inc_deriv_1} den Term $\frac{c^{(v)}}{R_d\Pi}\md{\Pi}$ zu vernachlässigen, also von
+%
+\begin{eqnarray}
+	\frac{c^{(v)}}{R_d\newoverline{\Pi}}w\frac{d\newoverline{\Pi}}{dz} + \nabla\cdot\mathbf{v} = 0\label{eq:pseudo-inc_deriv_2}
+\end{eqnarray}
+%
+auszugehen. Der Hintergrundzustand erfüllt die Zustandsgleichung\index{thermische Zustandsgleichung idealer Gase}\index{Zustandsgleichung!thermische!idealer Gase}\index{ideales Gas!Zustandsgleichung!thermische} in der Form Glg. \eqref{eq:exner_pressure_diag}:
+%
+\begin{eqnarray}
+	\newoverline{\Pi} & = & \left(\frac{R_d\newoverline{\rho}\newoverline{\theta}}{p_0}\right)^{R_d/c^{(v)}}
+\end{eqnarray}
+%
+Hieraus folgt mittels der Kettenregel\index{Kettenregel}
+%
+\begin{eqnarray}
+	\frac{d\newoverline{\Pi}}{dz} = \newoverline{\Pi}\frac{R_d}{c^{(v)}\newoverline{\rho}\newoverline{\theta}}\frac{d\left(\newoverline{\rho}\newoverline{\theta}\right)}{dz}.
+\end{eqnarray}
+%
+Setzt man dies in Glg. \eqref{eq:pseudo-inc_deriv_2} ein, erhält man
+%
+\begin{eqnarray}
+	w\frac{d\left(\newoverline{\rho}\newoverline{\Pi}\right)}{dz} + \newoverline{\rho}\newoverline{\theta}\nabla\cdot\mathbf{v} = 0
+\end{eqnarray}
+%
+Dies führt auf die kompakte Formulierung
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{eqnarray}
+\nabla\cdot\left(\newoverline{\rho}\newoverline{\theta}\mathbf{v}\right) & = & 0
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
+%
+der pseudo-inkompressiblen Approximation\index{pseudo-inkompressible Approximation}\index{Approximation!pseudo-inkompressible}.
+
 \section{Anelastische Approximation}
 \label{sec:anelastische_approximation}\index{anelastische Approximation}\index{Approximation!anelastische}
 
@@ -9632,11 +9690,6 @@ Das anelastische Gleichungssystem\index{anelastisches Gleichungssystem}\index{Gl
 \end{center}
 }}
 \end{center}
-
-\section{Pseudo-inkompressible Approximation}
-\label{sec:pseudo-inkompressible_approximation}\index{pseudo-inkompressible Approximation}\index{Approximation!pseudo-inkompressible}
-
-Die sogenannte \textit{pseudo-inkompressible Approximation} ist eine Modifikation der anelastischen Approximation\index{anelastische Approximation}\index{Approximation!anelastische}.
 
 \section{Boussinesq-Approximation}
 \label{sec:boussinesq-approximation}\index{Boussinesq-Approximation}
