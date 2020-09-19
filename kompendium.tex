@@ -7444,13 +7444,13 @@ Integriert man wieder partiell\index{partielle Integration}\index{Integration!pa
 %
 \begin{eqnarray}
 \int_0^{L_x}v_x\frac{\partial^2v_x}{\partial x^2} + v_y\frac{\partial^2v_y}{\partial x^2} + v_z\frac{\partial^2v_z}{\partial x^2}dx & = & \left[v_x\frac{\partial v_x}{\partial x} + v_y\frac{\partial v_y}{\partial x} + v_z\frac{\partial v_z}{\partial x}\right]_0^L - \int_0^{L_x}\left(\frac{\partial v_x}{\partial x}\right)^2 + \left(\frac{\partial v_y}{\partial x}\right)^2 + \left(\frac{\partial v_z}{\partial x}\right)^2dx\nonumber\\
-& = & -\int_0^{L_x}\left(\frac{\partial v_x}{\partial x}\right)^2 + \left(\frac{\partial v_y}{\partial x}\right)^2 + \left(\frac{\partial v_z}{\partial x}\right)^2dx < 0.
+& = & -\int_0^{L_x}\left(\frac{\partial v_x}{\partial x}\right)^2 + \left(\frac{\partial v_y}{\partial x}\right)^2 + \left(\frac{\partial v_z}{\partial x}\right)^2dx \leq 0.
 \end{eqnarray}
 %
 Dies impliziert
 %
 \begin{eqnarray}
-\int_\Omega\mathbf{v}\cdot\Delta\mathbf{v}d^3r < 0.
+\int_\Omega\mathbf{v}\cdot\Delta\mathbf{v}d^3r \leq 0.
 \end{eqnarray}
 %
 Dementsprechend vernichtet auch in diesem Fall die Reibung kinetische Energie\index{kinetische Energie}\index{Energie!kinetische}.
@@ -7484,13 +7484,13 @@ Für den zweiten Term rechnet man
 Mit der kinematischen Randbedingung\index{kinematische Randbedingung}\index{Randbedingung!kinematische} $u\left(x = 0, L_x\right) = 0$ fällt der erste Term weg. Somit gilt
 %
 \begin{eqnarray}
-\int_\Omega\mathbf{v}\cdot\nabla\left(\nabla\cdot\mathbf{v}\right)d^3r = -\int_\Omega\left(\nabla\cdot\mathbf{v}\right)^2d^3r < 0.
+\int_\Omega\mathbf{v}\cdot\nabla\left(\nabla\cdot\mathbf{v}\right)d^3r = -\int_\Omega\left(\nabla\cdot\mathbf{v}\right)^2d^3r \leq 0.
 \end{eqnarray}
 %
 Somit gilt auch im kompressiblen Fall
 %
 \begin{eqnarray}
-\int_\Omega\rho\mathbf{v}\cdot\mathbf{f}_Rd^3r < 0.
+\int_\Omega\rho\mathbf{v}\cdot\mathbf{f}_Rd^3r \leq 0.
 \end{eqnarray}
 
 \subsection{Addition der Kräfte}
@@ -8936,6 +8936,236 @@ Der Determinismus dieser Gleichungen ist nicht nur mathematisch unklar, sie sind
 \part{Dynamik}
 \label{part:dynamik}\index{Dynamik}
 
+\chapter{\normalfont\textsc{Generalisierte Vertikalkoordinaten}}
+\label{chap:generalisierte_vertikalkoordinaten}\index{generalisierte Vertikalkoordinate}\index{Vertikalkoordinate!generalisierte}
+
+Eine generalisierte Vertikalkoordinate $\mu$ wird definiert durch eine Transformation $\mu\leftrightarrow z$. Diese Abbildung ist i. A. von den horizontalen Koordinaten abhängig: $z = z\left(\varphi, \lambda, \mu\right)$. Schreibt man für ein Skalarfeld $\psi$ in geographischen Koordinaten mit geodätischer bzw. generalisierter Vertikalkoordinate
+%
+\begin{eqnarray}
+\psi\left(\varphi, \lambda, z\left(\varphi, \lambda, \mu\right)\right) = \newtilde{\psi}\left(\varphi, \lambda, \mu\right), 
+\end{eqnarray}
+%
+so folgt für die Gradienten in diesen Koordinaten
+%
+\begin{eqnarray}
+\nabla\psi & = & \left(\begin{array}{c}
+\frac{\partial\psi}{\partial\varphi}\\
+\frac{\partial\psi}{\partial\lambda}\\
+\frac{\partial\psi}{\partial z}
+\end{array}\right),\\
+\nabla\newtilde{\psi} & = & \left(\begin{array}{c}
+\frac{\partial\newtilde{\psi}}{\partial\varphi}\\
+\frac{\partial\newtilde{\psi}}{\partial\lambda}\\
+\frac{\partial\newtilde{\psi}}{\partial\mu}
+\end{array}\right).
+\end{eqnarray}
+%
+Es gilt
+%
+\begin{eqnarray}
+\frac{\partial\newtilde{\psi}}{\partial\lambda} & = & \frac{d}{d\lambda}\psi\left(\varphi, \lambda, z\left(\varphi, \lambda, \mu\right)\right) = \nabla\psi\cdot\left(
+\begin{array}{c}
+\frac{d\varphi}{d\lambda}\\
+\frac{d\lambda}{d\lambda}\\
+\frac{dz}{d\lambda}
+\end{array}\right) = \nabla\psi\cdot\left(\begin{array}{c}
+0\\
+
+1\\
+\frac{\partial z}{\partial\lambda}
+\end{array}\right) = \frac{\partial\psi}{\partial\lambda} + \frac{\partial z}{\partial\lambda}\frac{\partial\psi}{\partial z}.
+\end{eqnarray}
+%
+Die Ableitungen nach $\lambda$ sind proportional zu den Ableitungen nach $x$. Damit folgt
+%
+\begin{eqnarray}
+\frac{\partial\newtilde{\psi}}{\partial x} = \frac{\partial\psi}{\partial x} + \frac{\partial z}{\partial x}\frac{\partial\psi}{\partial z}.
+\end{eqnarray}
+%
+Unterschlägt man in der Notation den Unterschied von $\psi$ und $\newtilde{\psi}$ und kennzeichnet anstattdessen konstantgehaltene Größen durch Indizes, so erhält man
+%
+\begin{eqnarray}
+\left(\frac{\partial\psi}{\partial x}\right) _\mu & = & \left(\frac{\partial\psi}{\partial x}\right)_z + \left(\frac{\partial z}{\partial x}\right)_\mu\frac{\partial\psi}{\partial z}.\label{eq:z_to_gen}
+\end{eqnarray}
+%
+$z$ und $\mu$ sind in der Herleitung vertauschbar, daher gilt genauso
+%
+\begin{eqnarray}
+\left(\frac{\partial\psi}{\partial x}\right) _z & = & \left(\frac{\partial\psi}{\partial x}\right)_\mu + \left(\frac{\partial \mu}{\partial x}\right)_z\frac{\partial\psi}{\partial \mu}.\label{eq:trans_gen_2}
+\end{eqnarray}
+%
+In den herrschenden Gleichungen treten partielle Ableitungen $\frac{\partial}{\partial x}, \frac{\partial}{\partial z}$ auf, hierbei wurde bisher $z$ als Vertikalkoordinate verwendet. Will man auf eine generalisierte Koordinate $\mu$ transformieren, nutzt man die Kettenregel und stellt Glg. \eqref{eq:z_to_gen} um:
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{eqnarray}
+\frac{\partial\psi}{\partial z} & = & \frac{\partial\mu}{\partial z}\frac{\partial\psi}{\partial\mu}\label{eq:trans_gen_4}\\
+\left(\frac{\partial\psi}{\partial x}\right)_z & = & \left(\frac{\partial\psi}{\partial x}\right)_\mu - \left(\frac{\partial z}{\partial x}\right)_\mu\frac{\partial\mu}{\partial z}\frac{\partial\psi}{\partial\mu}\label{eq:trans_gen_5}
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
+%
+Analog auch in y-Richtung. Die materielle Ableitung $\md{}$ ist unabhängig von der Vertikalkoordinate. Die horizontale materielle Ableitung $\md{_h}$ (s. Glg. \eqref{eq:mat_derivative_op_hor}) jedoch ist abhängig vom Koordinatensystem. $z$ ist in obiger Herleitung nicht ausgezeichnet, daher kann $z$ durch eine beliebige Vertikalkoordinate $\nu$ ersetzt werden.
+
+\section{p-System}
+\label{sec:p-system}\index{p-System}
+
+Im p-System verwendet man den Druck $p$ als Vertikalkoordinate, was bei Hydrostatik ($\frac{\partial p}{\partial z} = -g\rho\not = 0$, s. Absch. \ref{sec:hydrostatik}) möglich ist. Für die \textit{totale Ableitung}\index{Ableitung!totale}\index{totale Ableitung} im p-System gilt dann
+%
+\begin{eqnarray}
+\md{\psi} = \frac{\partial\psi}{\partial t} + u\frac{\partial\psi}{\partial x} + v\frac{\partial\psi}{\partial y} + \omega\frac{\partial\psi}{\partial p}.
+\end{eqnarray}
+%
+Hierbei ist $\omega \coloneqq\md{p}$ die Vertikalgeschwindigkeit im p-System. Nun sollen die herrschenden Gleichungen ins p-System transformiert werden. Die Kontinuitätsgleichung lautet allgemein
+%
+\begin{eqnarray}
+\frac{\partial\rho}{\partial t} + \nabla\cdot\left(\rho\mathbf{v}\right) = 0.
+\end{eqnarray}
+%
+Setzt man die hydrostatische Grundgleichung $\rho = -\frac{1}{g}\frac{\partial p}{\partial z}$ ein, so folgt
+%
+\begin{eqnarray}
+\frac{\partial^2p}{\partial z\partial t} + \nabla\cdot\left(\frac{\partial p}{\partial z}\mathbf{v}\right) & = & 0\nonumber\\
+\Leftrightarrow\frac{\partial^2p}{\partial z\partial t} + \mathbf{v}\cdot\nabla\left(\frac{\partial p}{\partial z}\right) + \frac{\partial p}{\partial z}\nabla\cdot\mathbf{v} & = & \frac{\partial^2p}{\partial z\partial t} + \frac{\partial}{\partial z}\left(\mathbf{v}\cdot\nabla p\right) - \nabla p\cdot\frac{\partial\mathbf{v}}{\partial z} + \frac{\partial p}{\partial z}\nabla\cdot\mathbf{v}\nonumber\\
+= \frac{\partial\omega}{\partial z} - \nabla_hp\cdot\frac{\partial\mathbf{v}_h}{\partial z} + \frac{\partial p}{\partial z}\nabla\cdot\mathbf{v}_h & = & 0.
+\end{eqnarray}
+%
+Hierbei wurde ein kleiner Transformationsterm vernachlässigt, s. Glg. \eqref{eq:div_geo}. Nach der Kettenregel ist $\frac{\partial}{\partial z} = \frac{\partial p}{\partial z}\frac{\partial }{\partial p}$. Damit folgt
+%
+\begin{eqnarray}
+\frac{\partial\omega}{\partial p} + \nabla\cdot\mathbf{v}_h - \nabla_hp\cdot\frac{\partial\mathbf{v}_h}{\partial p} = 0.
+\end{eqnarray}
+%
+Verwendet man Glg. \eqref{eq:trans_gen_2}, erhält man
+%
+\begin{eqnarray}
+\left(\frac{\partial u}{\partial x}\right)_z & = & \left(\frac{\partial u}{\partial x}\right)_p + \frac{\partial u}{\partial p}\left(\frac{\partial p}{\partial x}\right)_z\Leftrightarrow\left(\frac{\partial u}{\partial x}\right)_z - \frac{\partial u}{\partial p}\left(\frac{\partial p}{\partial x}\right)_z = \left(\frac{\partial u}{\partial x}\right)_p
+\end{eqnarray}
+%
+und analog für $v$. Nicht näher bezeichnete partielle Ableitungen sind bisher Ableitungen im z-System. Nun werden Ableitungen im p-System verwendet:
+%
+\begin{eqnarray}
+\frac{\partial\omega}{\partial p} + \nabla\cdot\mathbf{v}_h = 0.\label{eq:kont_p}
+\end{eqnarray}
+%
+Im p-System reduziert sich die Kontinuitätsgleichung also auf eine rein diagnostische Gleichung, die formal der Kontinuitätsgleichung für ein inkompressibles Fluid im z-System entspricht. Skaliert man diese Gleichung mit den Werten aus Tab. \ref{tab:scales}, folgt in SI-Einheiten
+%
+\begin{itemize}
+\item $\nabla\cdot\mathbf{v}_h\sim10^{-5}$
+\item $\frac{\partial\omega}{\partial p}\sim10^{-6}$.
+\end{itemize}
+%
+Die Divergenz des Horizontalwindes ist also in Wirklichkeit eine Größenordnung kleiner als die synoptisch-skalige Vorticity.
+
+Will man die Bewegungsgleichungen für Flachgeofluide Glg.en \eqref{eq:x_momentum_simplified_simplified} - \eqref{eq:y_momentum_simplified_simplified} transformieren, so müssen auf der linken Seite nur die totalen Ableitungen im p-System notiert werden. Der Druckgradient macht etwas mehr Arbeit. Mit Glg. \eqref{eq:trans_gen_2} sowie der hydrostatischen Approximation folgt
+%
+\begin{eqnarray}
+\left(\frac{\partial p}{\partial x}\right)_p = 0 = \left(\frac{\partial p}{\partial x}\right)_z + \left(\frac{\partial z}{\partial x}\right)_p\frac{\partial p}{\partial z} = \left(\frac{\partial p}{\partial x}\right)_z - g\rho\left(\frac{\partial z}{\partial x}\right)_p.
+\end{eqnarray}
+%
+Es gilt also
+%
+\begin{eqnarray}
+\frac{1}{\rho}\left(\frac{\partial p}{\partial x}\right)_z = g\left(\frac{\partial z}{\partial x}\right)_p = \left(\frac{\partial\phi}{\partial x}\right)_p
+\end{eqnarray}
+%
+und analog in y-Richtung. Damit werden die horizontalen Impulsgleichungen im p-System zu
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{eqnarray}
+\frac{\partial u}{\partial t} + u\frac{\partial u}{\partial x} + v\frac{\partial u}{\partial y} + \omega\frac{\partial u}{\partial p} & = & -\frac{\partial\phi}{\partial x} + fv + F_{R,x}, 
+\label{eq:x_momentum_simplified_simplified_p}\\
+\frac{\partial v}{\partial t} + u\frac{\partial v}{\partial x} + v\frac{\partial v}{\partial y} + \omega\frac{\partial v}{\partial p} & = & -\frac{\partial \phi}{\partial y} - fu + F_{R,y}.
+\label{eq:y_momentum_simplified_simplified_p}
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
+%
+\section{$\theta-$System}
+\label{sec:theta-system}\index{$\theta-$System}
+
+In einer thermisch stabil geschichteten Atmosphäre kann $\theta$ als generalisierte Vertikalkoordinate verwendet werden. Außerdem wird hier von Hydrostatik\index{Hydrostatik} ausgegangen. Dies bezeichnet man als \textit{$\theta-$System} oder auch als \textit{isentrope Koordinaten}\index{isentrope Koordinate}\index{Koordinte!isentrope}. Notiert man die Glg.en \eqref{eq:trans_gen_4} - \eqref{eq:trans_gen_5} mit $\mu = \theta$, folgt
+%
+\begin{eqnarray}
+\frac{\partial\psi}{\partial z} & = & \frac{\partial\theta}{\partial z}\frac{\partial\psi}{\partial\theta},\\
+\left(\frac{\partial\psi}{\partial x}\right)_z & = & \left(\frac{\partial\psi}{\partial x}\right)_\theta - \left(\frac{\partial z}{\partial x}\right)_\theta\frac{\partial\theta}{\partial z}\frac{\partial\psi}{\partial\theta} = \left(\frac{\partial\psi}{\partial x}\right)_\theta + \rho\left(\frac{\partial\phi}{\partial x}\right)_\theta\frac{\partial\theta}{\partial p}\frac{\partial\psi}{\partial\theta},\\
+\left(\frac{\partial\psi}{\partial y}\right)_z & = & \left(\frac{\partial\psi}{\partial y}\right)_\theta - \left(\frac{\partial z}{\partial y}\right)_\theta\frac{\partial\theta}{\partial z}\frac{\partial\psi}{\partial\theta} = \left(\frac{\partial\psi}{\partial y}\right)_\theta + \rho\left(\frac{\partial\phi}{\partial y}\right)_\theta\frac{\partial\theta}{\partial p}\frac{\partial\psi}{\partial\theta}.
+\end{eqnarray}
+%
+Im Fall $\psi = p$ folgt
+%
+\begin{eqnarray}
+\left(\frac{\partial p}{\partial x}\right)_z & = & \left(\frac{\partial p}{\partial x}\right)_\theta - \left(\frac{\partial z}{\partial x}\right)_\theta\frac{\partial\theta}{\partial z}\frac{\partial p}{\partial\theta} = \left(\frac{\partial p}{\partial x}\right)_\theta + \rho\left(\frac{\partial\phi}{\partial x}\right)_\theta.
+\end{eqnarray}
+%
+Es gilt
+%
+\begin{eqnarray}
+p & = & \rho R_d\theta\left(\frac{p}{p_0}\right)^{\frac{R_d}{c^{(p)}}}\nonumber\\
+\Rightarrow \left(\frac{\partial p}{\partial x}\right)_\theta & = & R_d\theta\left(\frac{p}{p_0}\right)^{\frac{R_d}{c^{(p)}}}\left(\frac{\partial\rho}{\partial x}\right)_\theta + \rho R_d\theta\frac{1}{p_0^{\frac{R_d}{c^{(p)}}}}\frac{R_d}{c^{(p)}}p^{\frac{R_d}{c^{(p)}} - 1}\left(\frac{\partial p}{\partial x}\right)_\theta\nonumber\\
+& = & R_dT\left(\frac{\partial\rho}{\partial x}\right)_\theta + \rho R_d\theta\left(\frac{p}{p_0}\right)^{\frac{R_d}{c^{(p)}}}\frac{R_d}{c_pp}\left(\frac{\partial p}{\partial x}\right)_\theta\nonumber\\
+& = & R_dT\left(\frac{\partial\rho}{\partial x}\right)_\theta + \rho R_dT\frac{R_d}{c^{(p)}\rho R_dT}\left(\frac{\partial p}{\partial x}\right)_\theta\nonumber\\
+& = & R_dT\left(\frac{\partial\rho}{\partial x}\right)_\theta + \frac{R_d}{c^{(p)}}\left(\frac{\partial p}{\partial x}\right)_\theta\nonumber\\
+\Rightarrow \left(\frac{\partial p}{\partial x}\right)_\theta & = & \frac{c^{(p)}R_dT}{c^{(v)}}\left(\frac{\partial\rho}{\partial x}\right)_\theta = \frac{c^{(p)}}{c^{(v)}}T\left(\frac{\partial}{\partial x}\left(\frac{p}{T}\right)\right)_\theta\nonumber\\
+& = & \frac{c^{(p)}}{c^{(v)}}T\left(\frac{1}{T}\frac{\partial p}{\partial x} - \frac{p}{T^2}\frac{\partial T}{\partial x}\right) = \frac{c^{(p)}}{c^{(v)}}\left(\frac{\partial p}{\partial x}\right)_\theta - \frac{c^{(p)}}{c^{(v)}}\frac{p}{T}\left(\frac{\partial T}{\partial x}\right)_\theta\nonumber\\
+& = & \frac{c^{(p)}}{c^{(v)}}\left(\frac{\partial p}{\partial x}\right)_\theta - \frac{c^{(p)}}{c^{(v)}}\rho R_d\left(\frac{\partial T}{\partial x}\right)_\theta\nonumber\\
+\Rightarrow \frac{R_d}{c^{(v)}}\left(\frac{\partial p}{\partial x}\right)_\theta & = & \frac{c^{(p)}}{c^{(v)}}\rho R_d\left(\frac{\partial T}{\partial x}\right)_\theta\nonumber\\
+\Rightarrow \left(\frac{\partial p}{\partial x}\right)_\theta & = & c^{(p)}\rho\left(\frac{\partial T}{\partial x}\right)_\theta.
+\end{eqnarray}
+%
+Somit erhält man
+%
+\begin{eqnarray}
+\frac{1}{\rho}\left(\frac{\partial p}{\partial x}\right)_z = \frac{\partial}{\partial x}\left(c^{(p)}T + \phi\right), 
+\end{eqnarray}
+%
+wobei auf der rechten Seite die partielle Ableitung im $\theta-$System durchgeführt wird. Man defininert
+%
+\begin{eqnarray}
+M \coloneqq c^{(p)}T + \phi
+\end{eqnarray}
+%
+als das \index{Montgomery-Potential}\textit{Montgomery-Potential}.
+
+\section{$\sigma_z-$System}
+\label{sec:sigmaz-system}\index{$\sigma_z-$System}
+
+Mit $h$ als \textit{Orographie}\index{orographie} und $H$ als Oberrand der Atmosphäre definiert man die \textit{orographische Koordinate}\index{orographische Koordinate}\index{Koordinate!orographische} $\sigma_z$ durch
+%
+\begin{eqnarray}
+\sigma_z \coloneqq\frac{z - h}{H - h} \Leftrightarrow z = h + \sigma_z\left(H - h\right), 
+\end{eqnarray}
+%
+daraus folgen
+%
+\begin{eqnarray}
+\frac{\partial\sigma_z}{\partial z} & = & \frac{1}{H - h},\\
+\left(\frac{\partial z}{\partial x}\right)_{\sigma_z} & = & \left(1 - \sigma_z\right)\frac{\partial h}{\partial x},\\
+\left(\frac{\partial z}{\partial x}\right)_{\sigma_z}\frac{\partial\sigma_z}{\partial z} & = & \frac{1 - \sigma_z}{H - h}\frac{\partial h}{\partial x}.
+\end{eqnarray}
+
+\section{$\sigma_p-$System}
+\label{sec:sigmap-system}\index{$\sigma_p-$System}
+
+Mit $p_S$ als Bodendruck und $p_T$ als Druck am Oberrand der Atmosphäre definiert man eine weitere orographische Koordinate\index{orographische Koordinate}\index{Koordinate!orographische} $\sigma_p$ durch
+%
+\begin{eqnarray}
+\sigma_p \coloneqq\frac{p - p_T}{p_S - p_T} \Leftrightarrow p = p_T + \sigma_p\left(p_S - p_T\right), 
+\end{eqnarray}
+%
+daraus folgen
+%
+\begin{eqnarray}
+\frac{\partial\sigma_p}{\partial p} & = & \frac{1}{p_S - p_T},\\
+\left(\frac{\partial p}{\partial x}\right)_{\sigma_p} & = & \sigma_p\frac{\partial p_S}{\partial x},\\
+\left(\frac{\partial p}{\partial x}\right)_{\sigma_p}\frac{\partial\sigma_p}{\partial z} & = & \frac{\sigma_p}{p_S - p_T}\frac{\partial p_S}{\partial x}.
+\end{eqnarray}
+
 \chapter{\normalfont\textsc{Wichtige Approximationen}}
 \label{chap:important_approximations}\index{Approximation}
 
@@ -9196,7 +9426,7 @@ $f^\star$ ist dabei, anders als $f$, auch vom Geschwindigkeitsfeld abhängig und
 \label{eq:y_momentum_simplified_shallow_mod}.
 \end{eqnarray}
 %
-Für alle dynamischen Überlegungen kann man, zumindest bis in Breiten von 80 Grad, von $f^\star = f$ ausgehen. Dies wird in Abb. \ref{fig:coriolis_mod} veranschaulicht. Damit erhält man folgende vereinfachte horizontale Bewegungsgleichungen:
+Für die meisten dynamischen Überlegungen kann man, zumindest bis in Breiten von 80 Grad, von $f^\star = f$ ausgehen. Dies wird in Abb. \ref{fig:coriolis_mod} veranschaulicht. Damit erhält man folgende vereinfachte horizontale Bewegungsgleichungen:
 %
 \begin{center}
 \doublebox{\parbox{0.8\textwidth}{
@@ -9210,19 +9440,208 @@ Für alle dynamischen Überlegungen kann man, zumindest bis in Breiten von 80 Gr
 \end{center}
 }}
 \end{center}
-%
-Anschaulich bedeutet die Vernachlässigbarkeit der Krümmungsterme, dass die Dynamik der Erdatmosphäre (außer in den hohen Breiten) die eines ebenen, rotierenden Fluides mit y-abhängiger Winkelgeschwindigkeit ist. An den Polen divergieren die Krümmungsterme, dies ist allerdings keine Eigenschaft der Erde, sondern des verwendeten Koordinatensystems. Da man dieses beliebig ausrichten kann, kann man für alle regionalen Betrachtungen die Krümmungsterme vernachlässigen. In einem globalen Modell jedoch nicht.
-
-\section{Pseudo-inkompressible Approximation}
-\label{sec:pseudo-inkompressible_approximation}\index{pseudo-inkompressible Approximation}\index{Approximation!pseudo-inkompressible}
 
 \section{Anelastische Approximation}
 \label{sec:anelastische_approximation}\index{anelastische Approximation}\index{Approximation!anelastische}
 
+In der sogenannten \textit{anelastischen Approximation}\index{anelastische Approximation}\index{Approximation!anelastische} schreibt man die thermodynamischen Größen in der Form
+%
+\begin{eqnarray}
+\rho\left(\varphi, \lambda, z, t\right) & = & \rho_0\left(z\right) + \rho'\left(\varphi, \lambda, z, t\right),\label{eq:anelastic_deriv_0}\\
+p\left(\varphi, \lambda, z, t\right) & = & p_0\left(z\right) + p'\left(\varphi, \lambda, z, t\right),\label{eq:anelastic_deriv_1}\\
+\theta\left(\varphi, \lambda, z, t\right) & = & \theta_0 + \theta'\left(\varphi, \lambda, z, t\right).\label{eq:anelastic_deriv_2}
+\end{eqnarray}
+%
+Der Hintergrundzustand $\left(\rho_0, p_0, \theta_0\right)$ sei isentrop und hydrostatisch\index{Hydrostatik} balanciert,
+%
+\begin{eqnarray}
+\frac{dp_0}{dz} = -g\rho_0.\label{eq:anelastic_deriv_4}
+\end{eqnarray}
+%
+Die unapproximierten reversiblen Gleichungen lauten
+%
+\begin{eqnarray}
+\rho\md{\mathbf{v}} & = & -\nabla p - \rho\mathbf{f}\times\mathbf{v} + \rho\mathbf{g},\\
+\frac{\partial\rho}{\partial t} + \nabla\cdot\left(\rho\mathbf{v}\right) & = & 0,\\
+	\md{\theta} & = & 0.\label{eq:anelastic_deriv_5}
+\end{eqnarray}
+%
+Setzt man hier die Gleichungen \eqref{eq:anelastic_deriv_0} - \eqref{eq:anelastic_deriv_2} ein. erhält man
+%
+\begin{eqnarray}
+\left(\rho_0 + \rho'\right)\md{\mathbf{v}} & = & -\nabla\left(p_0 + p'\right) - \left(\rho_0 + \rho'\right)\mathbf{f}\times\mathbf{v} + \left(\rho_0 + \rho'\right)\mathbf{g},\\
+\frac{\partial\rho'}{\partial t} + \nabla\cdot\left[\left(\rho_0 + \rho'\right)\mathbf{v}\right] & = & 0,\\
+\md{\theta'} & = & 0.
+\end{eqnarray}
+%
+Das anelastische Gleichungssystem\index{anelastisches Gleichungssystem}\index{Gleichungssystem!anelastisches} wird genau wie das inkompressible\index{inkompressibles Gleichungssystem}\index{Gleichungssystem!inkompressibles} häufig verwendet, um atmosphärische tiefe Konvektion\index{tiefe Konvektion}\index{Konvektion!tiefe} zu untersuchen.
+
+\subsection{Horizontale Impulsgleichung}
+\label{sec:horizontale_impulsgleichung}\index{horizontale Impulsgleichung!anelastische Approximation}\index{Impulsgleichung!horizontale!anelastische Approximation}
+
+Ersetzt man im Vorfaktor der Beschleunigung (inklusive der Coriolis-Beschleunigung\index{Coriolis-Beschleunigung}) die Dichte durch ihren Mittelwert, erhält man
+%
+\begin{eqnarray}
+\rho_0\md{\mathbf{v}} & = & -\nabla\left(p_0 + p'\right) - \rho_0\mathbf{f}\times\mathbf{v} + \left(\rho_0 + \rho'\right)\mathbf{g}\nonumber\\
+\Leftrightarrow \md{\mathbf{v}} & = & -\frac{1}{\rho_0}\nabla\left(p_0 + p'\right) - \mathbf{f}\times\mathbf{v} + \frac{\rho_0 + \rho'}{\rho_0}\mathbf{g}\nonumber\\
+\Leftrightarrow \md{\mathbf{v}} & = & -\nabla\Phi - \mathbf{f}\times\mathbf{v} + \frac{\rho_0 + \rho'}{\rho_0}\mathbf{g}\label{eq:anelastic_deriv_3}
+\end{eqnarray}
+%
+mit
+%
+\begin{eqnarray}
+\Phi \coloneqq \frac{p'}{\rho_0}
+\end{eqnarray}
+%
+Mit der shallow-atmosphere-Approximation\index{shallow-atmosphere-Approximation} erhält man die Komponenten der horizontalen Impulsgleichung\index{horizontale Impulsgleichung}\index{Impulsgleichung!horizontale} in der Form
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{eqnarray}
+\md{u} & = & -\frac{\partial\Phi}{\partial x} + fv,\\
+\md{v} & = & -\frac{\partial\Phi}{\partial y} - fu.
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
+
+\subsection{Vertikale Impulsgleichung}
+\label{sec:vertikale_impulsgleichung}\index{vertikale Impulsgleichung!anelastische Approximation}\index{Impulsgleichung!vertikale!anelastische Approximation}
+
+Projiziert man Glg. \eqref{eq:anelastic_deriv_3} auf $\mathbf{k}$, erhält man
+%
+\begin{eqnarray}
+\md{w} & = & -\frac{1}{\rho_0}\frac{\partial\left(p_0 + p'\right)}{\partial z} - \frac{\rho_0 + \rho'}{\rho_0}g\nonumber\\
+\Leftrightarrow \md{w} & = & -\frac{1}{\rho_0}\frac{\partial p_0}{\partial z} - g - \frac{1}{\rho_0}\frac{\partial p'}{\partial z} - \frac{\rho'}{\rho_0}g\nonumber\\
+\Leftrightarrow \md{w} & \stackrel{\text{Glg. \eqref{eq:anelastic_deriv_4}}}{=} & -\frac{1}{\rho_0}\frac{\partial p'}{\partial z} - \frac{\rho'}{\rho_0}g\nonumber\\
+\Leftrightarrow \md{w} & = & -\frac{\partial\Phi}{\partial z} - \frac{\Phi}{\rho_0}\frac{d\rho_0}{dz} - \frac{\rho'}{\rho_0}g\nonumber\\
+	\Leftrightarrow \md{w} & = & -\frac{\partial\Phi}{\partial z} - \frac{p'}{\rho_0^2}\frac{d\rho_0}{dz} - \frac{\rho'}{\rho_0}g.\label{eq:anelastic_deriv_6}
+\end{eqnarray}
+%
+Für die Hintergrundtemepratur $T_0 = T_0\left(z\right)$ als Funktion der Höhe gilt
+%
+\begin{eqnarray}
+	T_0\left(z\right) = \theta_0\left(\frac{p_0}{p_\text{ref}}\right)^{R_d/c^{(p)}}.
+\end{eqnarray}
+%
+Für die Hintergrunddichte $\rho_0 = \rho_0\left(z\right)$ gilt mit der thermischen Zustandsgleichung idealer Gase\index{thermische Zustandsgleichung idealer Gase}\index{Zustandsgleichung idealer Gase!thermische}\index{ideales Gas!thermische Zustandgleichung}
+%
+\begin{eqnarray}
+	\rho_0\left(z\right) = \frac{p_0}{R_dT_0} = \frac{p_0}{R_d\theta_0}\left(\frac{p_\text{ref}}{p_0}\right)^{R_d/c^{(p)}}.\label{eq:anelastic_deriv_7}
+\end{eqnarray}
+%
+Hieraus folgt
+\begin{eqnarray}
+	\frac{d\rho_0}{dz} = \rho_0\frac{1 - \frac{R_d}{c^{(p)}}}{p_0}\frac{dp_0}{dz} = -\rho_0\frac{1 - \frac{R_d}{c^{(p)}}}{p_0}g\rho_0 = -\frac{c^{(p)} - c^{(p)} + c^{(v)}}{c^{(p)}p_0}g\rho_0^2 = -\frac{c^{(v)}}{c^{(p)}p_0}g\rho_0^2 = -\frac{g\rho_0^2}{\kappa p_0}.
+\end{eqnarray}
+%
+Setzt man dies in Glg. \eqref{eq:anelastic_deriv_6} ein, erhält man
+%
+\begin{eqnarray}
+\md{w} & = & -\frac{\partial\Phi}{\partial z} + \frac{gp'}{\kappa p_0} - \frac{\rho'}{\rho_0}g = -\frac{\partial\Phi}{\partial z} + g\left(\frac{p'}{\kappa p_0} - \frac{\rho'}{\rho_0}\right). 
+\end{eqnarray}
+%
+Aus Glg. \eqref{eq:anelastic_deriv_7} folgt
+%
+\begin{eqnarray}
+	\theta\left(\rho, p\right) = \frac{p}{R_d\rho}\left(\frac{p_\text{ref}}{p}\right)^{R_d/c^{(p)}}.
+\end{eqnarray}
+%
+Entwickelt man dies in erster Ordnung um $\left(\rho_0, p_0\right)$, erhält man
+%
+\begin{eqnarray}
+	\theta \approx \theta_0\left(1 - \frac{\rho'}{\rho_0} + \frac{p'}{\kappa p_0}\right) \Rightarrow \theta' \approx \theta_0\left(-\frac{\rho'}{\rho_0} + \frac{p'}{\kappa p_0}\right). 
+\end{eqnarray}
+%
+Somit gilt unter Vernachlässigung des Ungefähr-Zeichens
+%
+\begin{eqnarray}
+	g\left(\frac{p'}{\kappa p_0} - \frac{\rho'}{\rho_0}\right) = g\frac{\theta'}{\theta_0}.
+\end{eqnarray}
+%
+Definiert man die Buoyancy\index{Buoyancy} $b$ durch
+%
+\begin{eqnarray}
+	b \coloneqq g\frac{\theta'}{\theta_0},
+\end{eqnarray}
+%
+so lautet die vertikale Impulsgleichung\index{vertikale Impulsgleichung!anelastische Approximation}\index{Impulsgleichung!vertikale!anelastische Approximation}\index{anelastische Approximation!anelastische Approximation} der anelastischen Approximation
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{eqnarray}
+	\md{w} = -\frac{\partial\Phi}{\partial z} + b.
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
+
+\subsection{Temperaturgleichung}
+\label{sec:temperaturgleichung_anleastische_approximation}\index{Temperaturgleichung!anelastische Approximation}\index{Temperaturgleichung!vertikale!anelastische Approximation}
+
+Die Buoyancy\index{Buoyancy} $b$ ist nur eine Funktion der potentiellen Temperatur\index{potentielle Temperatur}\index{Temperatur!potentielle} $\theta$, somit folgt aus Glg. \eqref{eq:anelastic_deriv_5}
+
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{eqnarray}
+	\md{b} = 0.
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
+
+\subsection{Kontinuitätsgleichung}
+\label{sec:kontinuitätsgleichung_anleastische_approximation}\index{Kontinuitätsgleichung!anelastische Approximation}\index{Kontinuitätsgleichung!vertikale!anelastische Approximation}
+
+Setzt man Glg. \eqref{eq:anelastic_deriv_0} in die Kontinuitätsgleichung\index{Kontinuitätsgleichung} ein, erhält man
+%
+\begin{eqnarray}
+	\frac{\partial \rho'}{\partial t} + \nabla\cdot\left[\left(\rho_0 + \rho'\right)\mathbf{v}\right] = 0.
+\end{eqnarray}
+%
+Vernachlässigt man hier die Schwankung $\rho'$, erhält man
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{eqnarray}
+	\nabla\cdot\left(\rho_0\mathbf{v}\right) = 0.
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
+
+\subsection{Zusammenstellung}
+\label{sec:zusammenstellung}
+
+Das anelastische Gleichungssystem\index{anelastisches Gleichungssystem}\index{Gleichungssystem!anelastisches} lautet zusammenfassend
+
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{eqnarray}
+	\md{u} & = & -\frac{\partial\Phi}{\partial x} + fv,\\
+	\md{v} & = & -\frac{\partial\Phi}{\partial y} - fu,\\
+	\md{w} & = & -\frac{\partial\Phi}{\partial z} + b,\\
+	\md{b} & = & 0,\\
+	\nabla\cdot\left(\rho_0\mathbf{v}\right) & = & 0.
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
+
+\section{Pseudo-inkompressible Approximation}
+\label{sec:pseudo-inkompressible_approximation}\index{pseudo-inkompressible Approximation}\index{Approximation!pseudo-inkompressible}
+
+Die sogenannte \textit{pseudo-inkompressible Approximation} ist eine Modifikation der anelastischen Approximation\index{anelastische Approximation}\index{Approximation!anelastische}.
+
 \section{Boussinesq-Approximation}
 \label{sec:boussinesq-approximation}\index{Boussinesq-Approximation}
 
-In \cite{1960ApJ...131..442S} wurde die sogenannte \textit{Boussinesq-Approximation}\index{Boussinesq-Approximation} für ein ideales Gas\index{ideales Gas}\index{Gas!ideales} hergeleitet. Sie wird jedoch heutzutage vorwiegend auf den Oezan angemeldet, daher wird die dortige Herleitung hier für ein allgemeines Fluid verallgemeinert.
+In \cite{1960ApJ...131..442S} wurde die sogenannte \textit{Boussinesq-Approximation}\index{Boussinesq-Approximation} für ein ideales Gas\index{ideales Gas}\index{Gas!ideales} hergeleitet. Sie wird jedoch heutzutage vorwiegend auf den Ozean angemeldet, daher wird die Herleitung in \cite{1960ApJ...131..442S} hier für ein allgemeines Fluid verallgemeinert.
 
 Sei $\psi$ eine der thermodynamischen Zustandsgrößen. Notiere für diese
 %
@@ -9266,6 +9685,8 @@ für alle thermodynamischen Variablen. Der zweite Teil der Boussinesq-Approximat
 }}
 \end{center}
 %
+Die Boussinesq-Approximation\index{Boussinesq-Approximation} ist im Ozean gerechtfertigt, in der Atmosphäre jedoch nur für flache Systeme.
+
 Man geht an dieser Stelle von einem homogenen System\index{homogenes System}\index{System!homogenes} aus. In diesem Fall kann man die thermische Zustandsgleichung\index{thermische Zustandsgleichung}\index{Zustandsgleichung!thermische} in der Form
 %
 \begin{eqnarray}
@@ -9384,7 +9805,7 @@ Setzt man hier Glg. \eqref{eq:boussinesq_deriv_0} ein, erhält man
 }}
 \end{center}
 %
-Unter der Boussinesq-Approximation\index{Boussinesq-Approximation} vereinfacht sich die Kontinuitätsgleichung\index{Kontinuitätsgleichung!inkompressible}\index{inkompressible!Kontinuitätsgleichung} also auf ihre inkompressible Form. Die Boussinesq-Approximation\index{Boussinesq-Approximation} ist im Ozean gerechtfertigt, in der Atmosphäre jedoch nicht.
+Unter der Boussinesq-Approximation\index{Boussinesq-Approximation} vereinfacht sich die Kontinuitätsgleichung\index{Kontinuitätsgleichung!inkompressible}\index{inkompressible!Kontinuitätsgleichung} also auf ihre inkompressible Form.
 
 Man kann die Impulsgleichung\index{Impulsgleichung!Boussinesq-Approximation}\index{Boussinesq-Approximation!Impulsgleichung} Glg. \eqref{eq:boussinesq_momentum_0} noch etwas vereinfachen. Die vertikale Komponente dieser Gleichung lautet
 %
@@ -9990,236 +10411,6 @@ Der \textit{zyklostrophische Wind} ist gegeben, wenn ein Druckgradient eine Zent
 \end{eqnarray}
 %
 Er gilt in \textit{Tornados}\index{Tornado} und \textit{Staubteufeln}\index{Staubteufel}.
-
-\chapter{\normalfont\textsc{Generalisierte Vertikalkoordinaten}}
-\label{chap:generalisierte_vertikalkoordinaten}\index{generalisierte Vertikalkoordinate}\index{Vertikalkoordinate!generalisierte}
-
-Eine generalisierte Vertikalkoordinate $\mu$ wird definiert durch eine Transformation $\mu\leftrightarrow z$. Diese Abbildung ist i. A. von den horizontalen Koordinaten abhängig: $z = z\left(\varphi, \lambda, \mu\right)$. Schreibt man für ein Skalarfeld $\psi$ in geographischen Koordinaten mit geodätischer bzw. generalisierter Vertikalkoordinate
-%
-\begin{eqnarray}
-\psi\left(\varphi, \lambda, z\left(\varphi, \lambda, \mu\right)\right) = \newtilde{\psi}\left(\varphi, \lambda, \mu\right), 
-\end{eqnarray}
-%
-so folgt für die Gradienten in diesen Koordinaten
-%
-\begin{eqnarray}
-\nabla\psi & = & \left(\begin{array}{c}
-\frac{\partial\psi}{\partial\varphi}\\
-\frac{\partial\psi}{\partial\lambda}\\
-\frac{\partial\psi}{\partial z}
-\end{array}\right),\\
-\nabla\newtilde{\psi} & = & \left(\begin{array}{c}
-\frac{\partial\newtilde{\psi}}{\partial\varphi}\\
-\frac{\partial\newtilde{\psi}}{\partial\lambda}\\
-\frac{\partial\newtilde{\psi}}{\partial\mu}
-\end{array}\right).
-\end{eqnarray}
-%
-Es gilt
-%
-\begin{eqnarray}
-\frac{\partial\newtilde{\psi}}{\partial\lambda} & = & \frac{d}{d\lambda}\psi\left(\varphi, \lambda, z\left(\varphi, \lambda, \mu\right)\right) = \nabla\psi\cdot\left(
-\begin{array}{c}
-\frac{d\varphi}{d\lambda}\\
-\frac{d\lambda}{d\lambda}\\
-\frac{dz}{d\lambda}
-\end{array}\right) = \nabla\psi\cdot\left(\begin{array}{c}
-0\\
-
-1\\
-\frac{\partial z}{\partial\lambda}
-\end{array}\right) = \frac{\partial\psi}{\partial\lambda} + \frac{\partial z}{\partial\lambda}\frac{\partial\psi}{\partial z}.
-\end{eqnarray}
-%
-Die Ableitungen nach $\lambda$ sind proportional zu den Ableitungen nach $x$. Damit folgt
-%
-\begin{eqnarray}
-\frac{\partial\newtilde{\psi}}{\partial x} = \frac{\partial\psi}{\partial x} + \frac{\partial z}{\partial x}\frac{\partial\psi}{\partial z}.
-\end{eqnarray}
-%
-Unterschlägt man in der Notation den Unterschied von $\psi$ und $\newtilde{\psi}$ und kennzeichnet anstattdessen konstantgehaltene Größen durch Indizes, so erhält man
-%
-\begin{eqnarray}
-\left(\frac{\partial\psi}{\partial x}\right) _\mu & = & \left(\frac{\partial\psi}{\partial x}\right)_z + \left(\frac{\partial z}{\partial x}\right)_\mu\frac{\partial\psi}{\partial z}.\label{eq:z_to_gen}
-\end{eqnarray}
-%
-$z$ und $\mu$ sind in der Herleitung vertauschbar, daher gilt genauso
-%
-\begin{eqnarray}
-\left(\frac{\partial\psi}{\partial x}\right) _z & = & \left(\frac{\partial\psi}{\partial x}\right)_\mu + \left(\frac{\partial \mu}{\partial x}\right)_z\frac{\partial\psi}{\partial \mu}.\label{eq:trans_gen_2}
-\end{eqnarray}
-%
-In den herrschenden Gleichungen treten partielle Ableitungen $\frac{\partial}{\partial x}, \frac{\partial}{\partial z}$ auf, hierbei wurde bisher $z$ als Vertikalkoordinate verwendet. Will man auf eine generalisierte Koordinate $\mu$ transformieren, nutzt man die Kettenregel und stellt Glg. \eqref{eq:z_to_gen} um:
-%
-\begin{center}
-\doublebox{\parbox{0.8\textwidth}{
-\begin{center}
-\begin{eqnarray}
-\frac{\partial\psi}{\partial z} & = & \frac{\partial\mu}{\partial z}\frac{\partial\psi}{\partial\mu}\label{eq:trans_gen_4}\\
-\left(\frac{\partial\psi}{\partial x}\right)_z & = & \left(\frac{\partial\psi}{\partial x}\right)_\mu - \left(\frac{\partial z}{\partial x}\right)_\mu\frac{\partial\mu}{\partial z}\frac{\partial\psi}{\partial\mu}\label{eq:trans_gen_5}
-\end{eqnarray}
-\end{center}
-}}
-\end{center}
-%
-Analog auch in y-Richtung. Die materielle Ableitung $\md{}$ ist unabhängig von der Vertikalkoordinate. Die horizontale materielle Ableitung $\md{_h}$ (s. Glg. \eqref{eq:mat_derivative_op_hor}) jedoch ist abhängig vom Koordinatensystem. $z$ ist in obiger Herleitung nicht ausgezeichnet, daher kann $z$ durch eine beliebige Vertikalkoordinate $\nu$ ersetzt werden.
-
-\section{p-System}
-\label{sec:p-system}\index{p-System}
-
-Im p-System verwendet man den Druck $p$ als Vertikalkoordinate, was bei Hydrostatik wegen $\frac{\partial p}{\partial z} = -g\rho\not = 0$ möglich ist. Für die \textit{totale Ableitung}\index{Ableitung!totale}\index{totale Ableitung} im p-System gilt dann
-%
-\begin{eqnarray}
-\md{\psi} = \frac{\partial\psi}{\partial t} + u\frac{\partial\psi}{\partial x} + v\frac{\partial\psi}{\partial y} + \omega\frac{\partial\psi}{\partial p}.
-\end{eqnarray}
-%
-Hierbei ist $\omega \coloneqq\md{p}$ die Vertikalgeschwindigkeit im p-System. Nun sollen die herrschenden Gleichungen ins p-System transformiert werden. Die Kontinuitätsgleichung lautet allgemein
-%
-\begin{eqnarray}
-\frac{\partial\rho}{\partial t} + \nabla\cdot\left(\rho\mathbf{v}\right) = 0.
-\end{eqnarray}
-%
-Setzt man die hydrostatische Grundgleichung $\rho = -\frac{1}{g}\frac{\partial p}{\partial z}$ ein, so folgt
-%
-\begin{eqnarray}
-\frac{\partial^2p}{\partial z\partial t} + \nabla\cdot\left(\frac{\partial p}{\partial z}\mathbf{v}\right) & = & 0\nonumber\\
-\Leftrightarrow\frac{\partial^2p}{\partial z\partial t} + \mathbf{v}\cdot\nabla\left(\frac{\partial p}{\partial z}\right) + \frac{\partial p}{\partial z}\nabla\cdot\mathbf{v} & = & \frac{\partial^2p}{\partial z\partial t} + \frac{\partial}{\partial z}\left(\mathbf{v}\cdot\nabla p\right) - \nabla p\cdot\frac{\partial\mathbf{v}}{\partial z} + \frac{\partial p}{\partial z}\nabla\cdot\mathbf{v}\nonumber\\
-= \frac{\partial\omega}{\partial z} - \nabla_hp\cdot\frac{\partial\mathbf{v}_h}{\partial z} + \frac{\partial p}{\partial z}\nabla\cdot\mathbf{v}_h & = & 0.
-\end{eqnarray}
-%
-Hierbei wurde ein kleiner Transformationsterm vernachlässigt, s. Glg. \eqref{eq:div_geo}. Nach der Kettenregel ist $\frac{\partial}{\partial z} = \frac{\partial p}{\partial z}\frac{\partial }{\partial p}$. Damit folgt
-%
-\begin{eqnarray}
-\frac{\partial\omega}{\partial p} + \nabla\cdot\mathbf{v}_h - \nabla_hp\cdot\frac{\partial\mathbf{v}_h}{\partial p} = 0.
-\end{eqnarray}
-%
-Verwendet man Glg. \eqref{eq:trans_gen_2}, erhält man
-%
-\begin{eqnarray}
-\left(\frac{\partial u}{\partial x}\right)_z & = & \left(\frac{\partial u}{\partial x}\right)_p + \frac{\partial u}{\partial p}\left(\frac{\partial p}{\partial x}\right)_z\Leftrightarrow\left(\frac{\partial u}{\partial x}\right)_z - \frac{\partial u}{\partial p}\left(\frac{\partial p}{\partial x}\right)_z = \left(\frac{\partial u}{\partial x}\right)_p
-\end{eqnarray}
-%
-und analog für $v$. Nicht näher bezeichnete partielle Ableitungen sind bisher Ableitungen im z-System. Nun werden Ableitungen im p-System verwendet:
-%
-\begin{eqnarray}
-\frac{\partial\omega}{\partial p} + \nabla\cdot\mathbf{v}_h = 0.\label{eq:kont_p}
-\end{eqnarray}
-%
-Im p-System reduziert sich die Kontinuitätsgleichung also auf eine rein diagnostische Gleichung, die formal der Kontinuitätsgleichung für ein inkompressibles Fluid im z-System entspricht. Skaliert man diese Gleichung mit den Werten aus Tab. \ref{tab:scales}, folgt in SI-Einheiten
-%
-\begin{itemize}
-\item $\nabla\cdot\mathbf{v}_h\sim10^{-5}$
-\item $\frac{\partial\omega}{\partial p}\sim10^{-6}$.
-\end{itemize}
-%
-Die Divergenz des Horizontalwindes ist also in Wirklichkeit eine Größenordnung kleiner als die synoptisch-skalige Vorticity.
-
-Will man die Bewegungsgleichungen für Flachgeofluide Glg.en \eqref{eq:x_momentum_simplified_simplified} - \eqref{eq:y_momentum_simplified_simplified} transformieren, so müssen auf der linken Seite nur die totalen Ableitungen im p-System notiert werden. Der Druckgradient macht etwas mehr Arbeit. Mit Glg. \eqref{eq:trans_gen_2} sowie der hydrostatischen Approximation folgt
-%
-\begin{eqnarray}
-\left(\frac{\partial p}{\partial x}\right)_p = 0 = \left(\frac{\partial p}{\partial x}\right)_z + \left(\frac{\partial z}{\partial x}\right)_p\frac{\partial p}{\partial z} = \left(\frac{\partial p}{\partial x}\right)_z - g\rho\left(\frac{\partial z}{\partial x}\right)_p.
-\end{eqnarray}
-%
-Es gilt also
-%
-\begin{eqnarray}
-\frac{1}{\rho}\left(\frac{\partial p}{\partial x}\right)_z = g\left(\frac{\partial z}{\partial x}\right)_p = \left(\frac{\partial\phi}{\partial x}\right)_p
-\end{eqnarray}
-%
-und analog in y-Richtung. Damit werden die horizontalen Impulsgleichungen im p-System zu
-%
-\begin{center}
-\doublebox{\parbox{0.8\textwidth}{
-\begin{center}
-\begin{eqnarray}
-\frac{\partial u}{\partial t} + u\frac{\partial u}{\partial x} + v\frac{\partial u}{\partial y} + \omega\frac{\partial u}{\partial p} & = & -\frac{\partial\phi}{\partial x} + fv + F_{R,x}, 
-\label{eq:x_momentum_simplified_simplified_p}\\
-\frac{\partial v}{\partial t} + u\frac{\partial v}{\partial x} + v\frac{\partial v}{\partial y} + \omega\frac{\partial v}{\partial p} & = & -\frac{\partial \phi}{\partial y} - fu + F_{R,y}.
-\label{eq:y_momentum_simplified_simplified_p}
-\end{eqnarray}
-\end{center}
-}}
-\end{center}
-%
-\section{$\theta-$System}
-\label{sec:theta-system}\index{$\theta-$System}
-
-In einer thermisch stabil geschichteten Atmosphäre kann $\theta$ als generalisierte Vertikalkoordinate verwendet werden. Außerdem wird hier von Hydrostatik\index{Hydrostatik} ausgegangen. Dies bezeichnet man als \textit{$\theta-$System} oder auch als \textit{isentrope Koordinaten}\index{isentrope Koordinate}\index{Koordinte!isentrope}. Notiert man die Glg.en \eqref{eq:trans_gen_4} - \eqref{eq:trans_gen_5} mit $\mu = \theta$, folgt
-%
-\begin{eqnarray}
-\frac{\partial\psi}{\partial z} & = & \frac{\partial\theta}{\partial z}\frac{\partial\psi}{\partial\theta},\\
-\left(\frac{\partial\psi}{\partial x}\right)_z & = & \left(\frac{\partial\psi}{\partial x}\right)_\theta - \left(\frac{\partial z}{\partial x}\right)_\theta\frac{\partial\theta}{\partial z}\frac{\partial\psi}{\partial\theta} = \left(\frac{\partial\psi}{\partial x}\right)_\theta + \rho\left(\frac{\partial\phi}{\partial x}\right)_\theta\frac{\partial\theta}{\partial p}\frac{\partial\psi}{\partial\theta},\\
-\left(\frac{\partial\psi}{\partial y}\right)_z & = & \left(\frac{\partial\psi}{\partial y}\right)_\theta - \left(\frac{\partial z}{\partial y}\right)_\theta\frac{\partial\theta}{\partial z}\frac{\partial\psi}{\partial\theta} = \left(\frac{\partial\psi}{\partial y}\right)_\theta + \rho\left(\frac{\partial\phi}{\partial y}\right)_\theta\frac{\partial\theta}{\partial p}\frac{\partial\psi}{\partial\theta}.
-\end{eqnarray}
-%
-Im Fall $\psi = p$ folgt
-%
-\begin{eqnarray}
-\left(\frac{\partial p}{\partial x}\right)_z & = & \left(\frac{\partial p}{\partial x}\right)_\theta - \left(\frac{\partial z}{\partial x}\right)_\theta\frac{\partial\theta}{\partial z}\frac{\partial p}{\partial\theta} = \left(\frac{\partial p}{\partial x}\right)_\theta + \rho\left(\frac{\partial\phi}{\partial x}\right)_\theta.
-\end{eqnarray}
-%
-Es gilt
-%
-\begin{eqnarray}
-p & = & \rho R_d\theta\left(\frac{p}{p_0}\right)^{\frac{R_d}{c^{(p)}}}\nonumber\\
-\Rightarrow \left(\frac{\partial p}{\partial x}\right)_\theta & = & R_d\theta\left(\frac{p}{p_0}\right)^{\frac{R_d}{c^{(p)}}}\left(\frac{\partial\rho}{\partial x}\right)_\theta + \rho R_d\theta\frac{1}{p_0^{\frac{R_d}{c^{(p)}}}}\frac{R_d}{c^{(p)}}p^{\frac{R_d}{c^{(p)}} - 1}\left(\frac{\partial p}{\partial x}\right)_\theta\nonumber\\
-& = & R_dT\left(\frac{\partial\rho}{\partial x}\right)_\theta + \rho R_d\theta\left(\frac{p}{p_0}\right)^{\frac{R_d}{c^{(p)}}}\frac{R_d}{c_pp}\left(\frac{\partial p}{\partial x}\right)_\theta\nonumber\\
-& = & R_dT\left(\frac{\partial\rho}{\partial x}\right)_\theta + \rho R_dT\frac{R_d}{c^{(p)}\rho R_dT}\left(\frac{\partial p}{\partial x}\right)_\theta\nonumber\\
-& = & R_dT\left(\frac{\partial\rho}{\partial x}\right)_\theta + \frac{R_d}{c^{(p)}}\left(\frac{\partial p}{\partial x}\right)_\theta\nonumber\\
-\Rightarrow \left(\frac{\partial p}{\partial x}\right)_\theta & = & \frac{c^{(p)}R_dT}{c^{(v)}}\left(\frac{\partial\rho}{\partial x}\right)_\theta = \frac{c^{(p)}}{c^{(v)}}T\left(\frac{\partial}{\partial x}\left(\frac{p}{T}\right)\right)_\theta\nonumber\\
-& = & \frac{c^{(p)}}{c^{(v)}}T\left(\frac{1}{T}\frac{\partial p}{\partial x} - \frac{p}{T^2}\frac{\partial T}{\partial x}\right) = \frac{c^{(p)}}{c^{(v)}}\left(\frac{\partial p}{\partial x}\right)_\theta - \frac{c^{(p)}}{c^{(v)}}\frac{p}{T}\left(\frac{\partial T}{\partial x}\right)_\theta\nonumber\\
-& = & \frac{c^{(p)}}{c^{(v)}}\left(\frac{\partial p}{\partial x}\right)_\theta - \frac{c^{(p)}}{c^{(v)}}\rho R_d\left(\frac{\partial T}{\partial x}\right)_\theta\nonumber\\
-\Rightarrow \frac{R_d}{c^{(v)}}\left(\frac{\partial p}{\partial x}\right)_\theta & = & \frac{c^{(p)}}{c^{(v)}}\rho R_d\left(\frac{\partial T}{\partial x}\right)_\theta\nonumber\\
-\Rightarrow \left(\frac{\partial p}{\partial x}\right)_\theta & = & c^{(p)}\rho\left(\frac{\partial T}{\partial x}\right)_\theta.
-\end{eqnarray}
-%
-Somit erhält man
-%
-\begin{eqnarray}
-\frac{1}{\rho}\left(\frac{\partial p}{\partial x}\right)_z = \frac{\partial}{\partial x}\left(c^{(p)}T + \phi\right), 
-\end{eqnarray}
-%
-wobei auf der rechten Seite die partielle Ableitung im $\theta-$System durchgeführt wird. Man defininert
-%
-\begin{eqnarray}
-M \coloneqq c^{(p)}T + \phi
-\end{eqnarray}
-%
-als das \index{Montgomery-Potential}\textit{Montgomery-Potential}.
-
-\section{$\sigma_z-$System}
-\label{sec:sigmaz-system}\index{$\sigma_z-$System}
-
-Mit $h$ als \textit{Orographie}\index{orographie} und $H$ als Oberrand der Atmosphäre definiert man die \textit{orographische Koordinate}\index{orographische Koordinate}\index{Koordinate!orographische} $\sigma_z$ durch
-%
-\begin{eqnarray}
-\sigma_z \coloneqq\frac{z - h}{H - h} \Leftrightarrow z = h + \sigma_z\left(H - h\right), 
-\end{eqnarray}
-%
-daraus folgen
-%
-\begin{eqnarray}
-\frac{\partial\sigma_z}{\partial z} & = & \frac{1}{H - h},\\
-\left(\frac{\partial z}{\partial x}\right)_{\sigma_z} & = & \left(1 - \sigma_z\right)\frac{\partial h}{\partial x},\\
-\left(\frac{\partial z}{\partial x}\right)_{\sigma_z}\frac{\partial\sigma_z}{\partial z} & = & \frac{1 - \sigma_z}{H - h}\frac{\partial h}{\partial x}.
-\end{eqnarray}
-
-\section{$\sigma_p-$System}
-\label{sec:sigmap-system}\index{$\sigma_p-$System}
-
-Mit $p_S$ als Bodendruck und $p_T$ als Druck am Oberrand der Atmosphäre definiert man eine weitere orographische Koordinate\index{orographische Koordinate}\index{Koordinate!orographische} $\sigma_p$ durch
-%
-\begin{eqnarray}
-\sigma_p \coloneqq\frac{p - p_T}{p_S - p_T} \Leftrightarrow p = p_T + \sigma_p\left(p_S - p_T\right), 
-\end{eqnarray}
-%
-daraus folgen
-%
-\begin{eqnarray}
-\frac{\partial\sigma_p}{\partial p} & = & \frac{1}{p_S - p_T},\\
-\left(\frac{\partial p}{\partial x}\right)_{\sigma_p} & = & \sigma_p\frac{\partial p_S}{\partial x},\\
-\left(\frac{\partial p}{\partial x}\right)_{\sigma_p}\frac{\partial\sigma_p}{\partial z} & = & \frac{\sigma_p}{p_S - p_T}\frac{\partial p_S}{\partial x}.
-\end{eqnarray}
 
 \chapter{\normalfont\textsc{Integralrelationen einer einphasigen Atmosphäre}}
 \label{chap:integralrelationen_einer_einphasigen_atmosphäre}\index{Integralrelation!einer einphasigen Atmosphäre}\index{Atmosphäre!einphasige!Integralrelation}
