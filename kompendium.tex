@@ -12119,7 +12119,7 @@ wobei $z_w$ die Position der Dichtediskontinuität und $z_0$ die Tiefenkoordinat
 Im Fall $\lambda \gg D$ folgt hieraus
 %
 \begin{eqnarray}
-\omega^2 = k^2gD
+	\omega^2 = k^2gD\label{eq:disp_rel_shallow_waves}
 \end{eqnarray}
 %
 als Dispersionsrelation der sogenannten \textit{Flachwasserwellen}\index{Flachwasserwelle}\index{Welle!Flachwasser}. Im umgekehrten Fall $\lambda \ll D$ folgt die Dispersionsrelation der \textit{Tiefwasserwellen}\index{Tiefwasserwelle}\index{Welle!Tiefwasser}
@@ -15426,15 +15426,16 @@ N\left(\mathbf{r}, \mathbf{k}, t\right)c_\text{gr}\left(\mathbf{r}, \mathbf{k}\r
 herleiten. Die Strahlungsübertragungsgleichung\index{Strahlungsübertragungsgleichung} ist eine Art Kontinuitätsgleichung für $N$, was konzeptionell mit der Energieerhaltung\index{Energieerhaltung} zusammenhängt:
 %
 \begin{eqnarray}
-	\frac{\partial N}{\partial t} + \nabla\cdot\left(N\left(\mathbf{r}, \mathbf{k}, t\right)c_\text{gr}\left(\mathbf{r}, \mathbf{k}\right)\right) = S_\text{ws} + S_\text{bd} + S_\text{diss}
+	\frac{\partial N}{\partial t} + \nabla\cdot\left(N\left(\mathbf{r}, \mathbf{k}, t\right)c_\text{gr}\left(\mathbf{r}, \mathbf{k}\right)\right) = S_\text{nl}\left(\mathbf{r}, \mathbf{k}, t\right) + S_\text{ws}\left(\mathbf{r}, \mathbf{k}, t\right) + S_\text{bd}\left(\mathbf{r}, \mathbf{k}, t\right) + S_\text{diss}\left(\mathbf{r}, \mathbf{k}, t\right)
 \end{eqnarray}
 %
 Hierbei wurden drei zusätzliche Quellterme\index{Quellterm} aufgenommen:
 %
 \begin{itemize}
-	\item $S_\text{ws}$ ist die Energiequelle, die aus aus der Wechselwirkung mit dem Windfeld resultiert
-	\item $S_\text{bd}$ ist die Energiequelle, die aus der Wechselwirkung mit der Bathymetrie zusammenhängt
-	\item $S_\text{diss}$ ist die Enrgiequelle, die mit der Reibung zusammenhängt
+	\item $S_\text{nl}\left(\mathbf{r}, \mathbf{k}, t\right)$ ist die Energiequelle, die aus nichtlinearen Effekten resultiert
+	\item $S_\text{ws}\left(\mathbf{r}, \mathbf{k}, t\right)$ ist die Energiequelle, die aus der Wechselwirkung mit dem Windfeld resultiert
+	\item $S_\text{bd}\left(\mathbf{r}, \mathbf{k}, t\right)$ ist die Energiequelle, die aus der Wechselwirkung mit der Bathymetrie zusammenhängt
+	\item $S_\text{diss}\left(\mathbf{r}, \mathbf{k}, t\right)$ ist die Enrgiequelle, die mit der Reibung zusammenhängt
 \end{itemize}
 
 \part{Strahlung und Wolkenmikrophysik}
@@ -16057,20 +16058,63 @@ Es gibt nur fünf platonische Körper. Dementsprechend existieren nur fünf unif
 
 Diskretisiert man ein zweidimensionales Vektorfeld auf ein ebenes Gitter, so müssen keineswegs alle Variablen an den gleichen Punkten ausgewertet werden. Die unterschiedlichen Größen können an unterschiedlichen Stellen der Polygone definiert werden. Fünf Arten, dies zu tun, sind die Arakawa-Gitter \cite{ARAKAWA1977173}, die in Abb. \ref{fig:arakawa} dargestellt sind.
 
+Hier werden zunächst nur das A-Gitter\index{A-Gitter} und das C-Gitter\index{C-Gitter} eindimensional untersucht. Hierzu geht man vom System der linearisierten Flachwassergleichungen\index{linearisierte Flachwassergleichungen}\index{Flachwassergleichungen!linearisierte} Glg.en \eqref{eq:flach_lin_1} - \eqref{eq:flach_lin_2} ohne Corioliskraft aus:
+%
+\begin{eqnarray}
+	\frac{\partial h}{\partial t} & = & -H\frac{\partial u}{\partial x}\\
+	\frac{\partial u}{\partial t} & = & -g\frac{\partial h}{\partial x}
+\end{eqnarray}
+%
+Als Ansatz macht man hier
+%
+\begin{eqnarray}
+	h & = & \newhat{h}\exp\left(ikx - i\omega t\right),\\
+	u & = & \newhat{u}\exp\left(ikx - i\omega t\right)
+\end{eqnarray}
+%
+mit $\newhat{h}, \newhat{u} \in \mathbb{C}$. Dies führt auf
+%
+\begin{eqnarray}
+	-i\omega\newhat{h} & = & -Hik\newhat{u} \Leftrightarrow \omega\newhat{h} - Hk\newhat{u} = 0,\\
+	-i\omega\newhat{u} & = & -gik\newhat{h} \Leftrightarrow \omega\newhat{u} - gk\newhat{h} = 0. 
+\end{eqnarray}
+%
+In Matrixschreibweise wird dies zu
+%
+\begin{eqnarray}
+	\left(\begin{array}{cc}
+		\omega & -Hk\\
+		-gk & \omega
+	\end{array}\right)\left(\begin{array}{c}\newhat{h}\\
+	\newhat{u}\end{array}\right) = \left(\begin{array}{c}
+	0\\
+	0\end{array}\right)
+\end{eqnarray}
+%
+Nichttriviale Lösungen existieren, falls die Determinante der Matrix verschwindet:
+%
+\begin{eqnarray}
+	\omega^2 - gHk^2 = 0 \Rightarrow \omega = k\sqrt{gH}
+\end{eqnarray}
+%
+Hieraus folgt für die Geschwindigkeiten
+%
+\begin{eqnarray}
+	c_\text{ph} & = & \frac{\omega}{k} = \sqrt{gH},\\
+	c_\text{gr} & = & \frac{\partial\omega}{\partial k} = \sqrt{gH} = c_\text{ph}.
+\end{eqnarray}
+%
+Dies ist bereits die aus Glg. \eqref{eq:disp_rel_shallow_waves} bekannte Dispersionsrelation der Flachwasserwellen\index{Dispersionsrelation!Flachwasserwellen}\index{Flachwasserwellen!Dispersionsrelation}.
+
 \subsection{A-Gitter}
 \label{sec:a-gitter}\index{A-Gitter}
 
-\subsection{B-Gitter}
-\label{sec:b-gitter}\index{B-Gitter}
+
 
 \subsection{C-Gitter}
 \label{sec:c-gitter}\index{C-Gitter}
 
-\subsection{D-Gitter}
-\label{sec:d-gitter}\index{D-Gitter}
 
-\subsection{E-Gitter}
-\label{sec:e-gitter}\index{E-Gitter}
 
 \subsection{Festlegung auf das C-Gitter}
 \label{sec:festlegung_auf_das_c-gitter}\index{C-Gitter}
