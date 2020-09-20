@@ -16106,6 +16106,8 @@ Hieraus folgt für die Geschwindigkeiten
 %
 Dies ist bereits die aus Glg. \eqref{eq:disp_rel_shallow_waves} bekannte Dispersionsrelation der Flachwasserwellen\index{Dispersionsrelation!Flachwasserwellen}\index{Flachwasserwellen!Dispersionsrelation}.
 
+In der nun folgenden Herleitung der numerischen Versionen dieser Gleichungen wird von zeitlich kontinuierlichen und räumlich diskretisierten Gleichungen ausgegangen, um die Resultate nicht durch ein gewähltes Zeitschrittverfahren zu beeinflussen.
+
 \subsection{A-Gitter}
 \label{sec:a-gitter}\index{A-Gitter}
 
@@ -16234,9 +16236,6 @@ und für die Gruppengeschwindigkeit\index{Gruppengeschwindigkeit!C-Gitter}\index
 	c_\text{gr} = \frac{\partial\omega}{\partial k} = \frac{1}{2\omega}\frac{\partial\omega^2}{\partial k} = gH2\frac{\sin\left(k\Delta x\right)}{2\omega\Delta x} = gH\frac{\sin\left(k\Delta x\right)}{\omega\Delta x} = c_\text{gr}^{\text{(real)}}\frac{\sin\left(k\Delta x\right)}{\sqrt{2 - 2\cos\left(k\Delta x\right)}}.
 \end{eqnarray}
 
-\subsection{Festlegung auf das C-Gitter}
-\label{sec:festlegung_auf_das_c-gitter}\index{C-Gitter}
-
 \section{Skalare Erhaltungseigenschaften auf dem C-Gitter}
 \label{sec:skalare_erhaltungseigenschaften_auf_dem_c-gitter}
 
@@ -16362,6 +16361,19 @@ Jeder Wert von $\psi$ tritt in Glg. \eqref{eq:c-grid_rot_kons_deriv_1} also zwei
 \end{center}
 }}
 \end{center}
+
+\section{Festlegung auf das C-Gitter}
+\label{sec:festlegung_auf_das_c-gitter}\index{C-Gitter}
+
+Das C-Gitter\index{C-Gitter} hat gegenüber den anderen Gittern zusammenfassend drei Vorteile:
+%
+\begin{enumerate}
+        \item Es hat vorteilhafte Dispersionsrelationen\index{Dispersionsrelation}.
+        \item Erhaltung skalarer Variablen ist leicht zu gewährleisten.
+        \item Gradientenfelder sind rotationsfrei.
+\end{enumerate}
+%
+Daher wird an dieser Stelle die Entscheidung getroffen, ein C-Gitter\index{C-Gitter} für den in Teil \ref{part:entwicklung_eines_dynamischen_kerns} zu entwickelnden dynamischen Kern\index{dynamischer Kern}\index{Kern!dynamischer}.
 
 \chapter{\normalfont\textsc{Probleme eines dreielementigen Erzeugendensystems einer zweidimensionalen Menge}}
 \label{chap:probleme_eines_dreielementigen_erzeugendensystems_einer_zweidimensionalen_menge}\index{dreielementiges Erzeugendensystem}\index{Erzeugendensystem!dreielementiges}
