@@ -16061,8 +16061,8 @@ Diskretisiert man ein zweidimensionales Vektorfeld auf ein ebenes Gitter, so mü
 Hier werden zunächst nur das A-Gitter\index{A-Gitter} und das C-Gitter\index{C-Gitter} eindimensional untersucht. Hierzu geht man vom System der linearisierten Flachwassergleichungen\index{linearisierte Flachwassergleichungen}\index{Flachwassergleichungen!linearisierte} Glg.en \eqref{eq:flach_lin_1} - \eqref{eq:flach_lin_2} ohne Corioliskraft aus:
 %
 \begin{eqnarray}
-	\frac{\partial h}{\partial t} & = & -H\frac{\partial u}{\partial x}\\
-	\frac{\partial u}{\partial t} & = & -g\frac{\partial h}{\partial x}
+	\frac{\partial h}{\partial t} & = & -H\frac{\partial u}{\partial x}\label{eq:arakawa_deriv_0}\\
+	\frac{\partial u}{\partial t} & = & -g\frac{\partial h}{\partial x}\label{eq:arakawa_deriv_1}
 \end{eqnarray}
 %
 Als Ansatz macht man hier
@@ -16109,12 +16109,130 @@ Dies ist bereits die aus Glg. \eqref{eq:disp_rel_shallow_waves} bekannte Dispers
 \subsection{A-Gitter}
 \label{sec:a-gitter}\index{A-Gitter}
 
-
+Beim A-Gitter\index{A-Gitter} werden die Oberflächenauslenkung $h$ und die Windgeschwindigkeit $u$ an denselben Orten $j\Delta x$ mit $j\in\mathbb{N}$ definiert. Man notiert hier als Ansatz
+%
+\begin{eqnarray}
+	h_j & = & \newhat{h}\exp\left(ikj\Delta x - i\omega t\right),\\
+	u_j & = & \newhat{u}\exp\left(ikj\Delta x - i\omega t\right).
+\end{eqnarray}
+%
+Die Gleichungen \eqref{eq:arakawa_deriv_0} - \eqref{eq:arakawa_deriv_1} diskretisiert man wie folgt:
+%
+\begin{eqnarray}
+	\frac{\partial h_j}{\partial t} & = & -H\frac{u_{j + 1} - u_{j - 1}}{2\Delta x}\\
+	\frac{\partial u_j}{\partial t} & = & -g\frac{h_{j + 1} - h_{j - 1}}{2\Delta x}
+\end{eqnarray}
+%
+Setzt man hier den Ansatz ein, erhält man
+%
+\begin{eqnarray}
+	-i\omega\newhat{h} & = & -\frac{H\newhat{u}}{2\Delta x}\left[\exp\left(ik\Delta x\right) - \exp\left(-ik\Delta x\right)\right]\nonumber\\
+	\Leftrightarrow -i\omega\newhat{h} & = & -\frac{H\newhat{u}}{2\Delta x}\left[i\sin\left(k\Delta x\right) + i\sin\left(k\Delta x\right)\right]\nonumber\\
+	\Leftrightarrow -i\omega\newhat{h} & = & -\frac{H\newhat{u}i}{\Delta x}\sin\left(k\Delta x\right)\nonumber\\
+	\Leftrightarrow \omega\newhat{h} - \frac{H\newhat{u}}{\Delta x}\sin\left(k\Delta x\right) & = & 0\label{eq:arakawa_deriv_2}
+\end{eqnarray}
+%
+sowie
+%
+\begin{eqnarray}
+	-i\omega\newhat{u} & = & -\frac{g\newhat{h}}{2\Delta x}\left[\exp\left(ik\Delta x\right) - \exp\left(-ik\Delta x\right)\right]\nonumber\\
+	\Leftrightarrow -i\omega\newhat{u} & = & -\frac{g\newhat{h}}{2\Delta x}2i\sin\left(k\Delta x\right) = -\frac{g\newhat{h}}{\Delta x}i\sin\left(k\Delta x\right)\nonumber\\
+	\Leftrightarrow \omega\newhat{u} - \frac{g\newhat{h}}{\Delta x}\sin\left(k\Delta x\right) & = & 0.\label{eq:arakawa_deriv_3}
+\end{eqnarray}
+%
+Notiert man Glg.en \eqref{eq:arakawa_deriv_2} - \eqref{eq:arakawa_deriv_3} in Matrixschreibweise, erhält man
+%
+\begin{eqnarray}
+        \left(\begin{array}{cc}
+		\omega & -\frac{H}{\Delta x}\sin\left(k\Delta x\right)\\
+		-\frac{g}{\Delta x}\sin\left(k\Delta x\right) & \omega
+        \end{array}\right)\left(\begin{array}{c}\newhat{h}\\
+        \newhat{u}\end{array}\right) = \left(\begin{array}{c}
+        0\\
+        0\end{array}\right).
+\end{eqnarray}
+%
+Nichttriviale Lösungen existieren, falls die Determinante der Matrix verschwindet, also für
+%
+\begin{eqnarray}
+	\omega^2 - gH\frac{\sin^2\left(k\Delta x\right)}{\left(\Delta x\right)^2} & = & 0\nonumber\\
+	\Rightarrow\omega = \sqrt{gH}\frac{\sin\left(k\Delta x\right)}{\Delta x}.
+\end{eqnarray}
+%
+Hieraus folgt für die Phasengeschwindigkeit\index{Phasengeschwindigkeit!A-Gitter}\index{A-Gitter!Phasengeschwindigkeit}\index{Arakawa!A-Gitter!Phasengeschwindigkeit}
+%
+\begin{eqnarray}
+	c_\text{ph} = c_\text{ph}^{\text{(real)}}\frac{\sin\left(k\Delta x\right)}{k\Delta x}
+\end{eqnarray}
+%
+und für die Gruppengeschwindigkeit\index{Gruppengeschwindigkeit!A-Gitter}\index{A-Gitter!Gruppengeschwindigkeit}\index{Arakawa!A-Gitter!Gruppengeschwindigkeit}
+%
+\begin{eqnarray}
+	c_\text{gr} = \frac{\partial\omega}{\partial k} = c_\text{gr}^{\text{(real)}}\cos\left(k\Delta x\right).
+\end{eqnarray}
 
 \subsection{C-Gitter}
 \label{sec:c-gitter}\index{C-Gitter}
 
-
+Beim C-Gitter\index{C-Gitter} werden die Windgeschwindigkeit $u$ an Orten $j\Delta x$ und die Oberflächenauslenkung $h$ and Orten $\left(j + \frac{1}{2}\right)\Delta x$ mit $j\in\mathbb{N}$ definiert. Man notiert hier als Ansatz
+%
+\begin{eqnarray}
+	h_{j + \frac{1}{2}} & = & \newhat{h}\exp\left(ikj\Delta x - i\omega t\right)\exp\left(\frac{ik\Delta x}{2}\right),\\
+	u_j & = & \newhat{u}\exp\left(ikj\Delta x - i\omega t\right).
+\end{eqnarray}
+%
+Die Gleichungen \eqref{eq:arakawa_deriv_0} - \eqref{eq:arakawa_deriv_1} diskretisiert man wie folgt:
+%
+\begin{eqnarray}
+	\frac{\partial h_{j + \frac{1}{2}}}{\partial t} & = & -H\frac{u_{j + 1} - u_{j}}{2\Delta x}\\
+	\frac{\partial u_j}{\partial t} & = & -g\frac{h_{j + \frac{1}{2}} - h_{j - \frac{1}{2}}}{2\Delta x}
+\end{eqnarray}
+%
+Setzt man hier den Ansatz ein, erhält man
+%
+\begin{eqnarray}
+	-i\omega\newhat{h}\exp\left(\frac{ik\Delta x}{2}\right) & = & -\frac{H\newhat{u}}{\Delta x}\left[\exp\left(ik\Delta x\right) - 1\right]\nonumber\\
+	\Leftrightarrow i\omega\newhat{h}\exp\left(\frac{ik\Delta x}{2}\right) - \frac{H\newhat{u}}{\Delta x}\left[\exp\left(ik\Delta x\right) - 1\right] & = & 0\label{eq:arakawa_deriv_4}
+\end{eqnarray}
+%
+sowie
+%
+\begin{eqnarray}
+	-i\omega\newhat{u} & = & -\frac{g\newhat{h}}{\Delta x}\exp\left(\frac{ik\Delta x}{2}\right)\left[1 - \exp\left(-ik\Delta x\right)\right]\nonumber\\
+	\Leftrightarrow i\omega\newhat{u} - \frac{g\newhat{h}}{\Delta x}\exp\left(\frac{ik\Delta x}{2}\right)\left[1 - \exp\left(-ik\Delta x\right)\right] & = & 0.\label{eq:arakawa_deriv_5}
+\end{eqnarray}
+%
+Notiert man Glg.en \eqref{eq:arakawa_deriv_4} - \eqref{eq:arakawa_deriv_5} in Matrixschreibweise, erhält man
+%
+\begin{eqnarray}
+        \left(\begin{array}{cc}
+		i\omega\exp\left(\frac{ik\Delta x}{2}\right) & -\frac{H}{\Delta x}\left[\exp\left(ik\Delta x\right) - 1\right]\\
+		-\frac{g}{\Delta x}\left[1 - \exp\left(-ik\Delta x\right)\right] & i\omega
+        \end{array}\right)\left(\begin{array}{c}\newhat{h}\\
+        \newhat{u}\end{array}\right) = \left(\begin{array}{c}
+        0\\
+        0\end{array}\right).
+\end{eqnarray}
+%
+Nichttriviale Lösungen existieren, falls die Determinante der Matrix verschwindet, also für
+%
+\begin{eqnarray}
+	-\omega^2 - gH\frac{\left[\exp\left(ik\Delta x\right) - 1\right]\left[1 - \exp\left(-ik\Delta x\right)\right]}{\left(\Delta x\right)^2} & = & 0\nonumber\\
+	\Rightarrow \omega^2 & = & gH\frac{\left[1 - \exp\left(ik\Delta x\right)\right]\left[1 - \exp\left(-ik\Delta x\right)\right]}{\left(\Delta x\right)^2}\nonumber\\
+	\Rightarrow \omega^2 & = & gH\frac{2 - 2\cos\left(k\Delta x\right)}{\left(\Delta x\right)^2} = gH2\frac{1 - \cos\left(k\Delta x\right)}{\left(\Delta x\right)^2}.
+\end{eqnarray}
+%
+Hieraus folgt für die Phasengeschwindigkeit\index{Phasengeschwindigkeit!C-Gitter}\index{C-Gitter!Phasengeschwindigkeit}\index{Arakawa!C-Gitter!Phasengeschwindigkeit}
+%
+\begin{eqnarray}
+	c_\text{ph} = c_\text{ph}^{\text{(real)}}\sqrt{2\frac{1 - \cos\left(k\Delta x\right)}{\left(\Delta x\right)^2}}
+\end{eqnarray}
+%
+und für die Gruppengeschwindigkeit\index{Gruppengeschwindigkeit!C-Gitter}\index{C-Gitter!Gruppengeschwindigkeit}\index{Arakawa!C-Gitter!Gruppengeschwindigkeit}
+%
+\begin{eqnarray}
+	c_\text{gr} = \frac{\partial\omega}{\partial k} = \frac{1}{2\omega}\frac{\partial\omega^2}{\partial k} = gH2\frac{\sin\left(k\Delta x\right)}{2\omega\Delta x} = gH\frac{\sin\left(k\Delta x\right)}{\omega\Delta x} = c_\text{gr}^{\text{(real)}}\frac{\sin\left(k\Delta x\right)}{\sqrt{2 - 2\cos\left(k\Delta x\right)}}.
+\end{eqnarray}
 
 \subsection{Festlegung auf das C-Gitter}
 \label{sec:festlegung_auf_das_c-gitter}\index{C-Gitter}
