@@ -80,36 +80,59 @@
       \verb https://nssdc.gsfc.nasa.gov/planetary/factsheet/earthfact.html
       \endverb
     \endentry
-    \entry{arakawa}{article}{}
+    \entry{ARAKAWA1977173}{incollection}{}
       \name{author}{2}{}{%
-        {{hash=1d5a6752c9802eab954c68d988d17663}{%
-           family={Arakawa},
+        {{hash=3f73ed7d1a277fcb6dc3dbcf00c1ccb5}{%
+           family={ARAKAWA},
            familyi={A\bibinitperiod},
-           given={A.},
+           given={AKIO},
            giveni={A\bibinitperiod}}}%
-        {{hash=a4fbcb2efddd4ef45ae53b528281fb83}{%
-           family={Lamb},
+        {{hash=01c20bcfb02f7cbd3b171be4f28497ab}{%
+           family={LAMB},
            familyi={L\bibinitperiod},
-           given={V.\bibnamedelimi R.},
+           given={VIVIAN\bibnamedelima R.},
            giveni={V\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
       }
-      \strng{namehash}{8ba852666e37b314b7f0b1cff3b5daec}
-      \strng{fullhash}{8ba852666e37b314b7f0b1cff3b5daec}
-      \strng{bibnamehash}{8ba852666e37b314b7f0b1cff3b5daec}
-      \strng{authorbibnamehash}{8ba852666e37b314b7f0b1cff3b5daec}
-      \strng{authornamehash}{8ba852666e37b314b7f0b1cff3b5daec}
-      \strng{authorfullhash}{8ba852666e37b314b7f0b1cff3b5daec}
+      \name{editor}{1}{}{%
+        {{hash=15b0dfd9c71b8a04cf45de11e82a9107}{%
+           family={CHANG},
+           familyi={C\bibinitperiod},
+           given={JULIUS},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{fe02b32301f113a357934de36aebf287}
+      \strng{fullhash}{fe02b32301f113a357934de36aebf287}
+      \strng{bibnamehash}{fe02b32301f113a357934de36aebf287}
+      \strng{authorbibnamehash}{fe02b32301f113a357934de36aebf287}
+      \strng{authornamehash}{fe02b32301f113a357934de36aebf287}
+      \strng{authorfullhash}{fe02b32301f113a357934de36aebf287}
+      \strng{editorbibnamehash}{15b0dfd9c71b8a04cf45de11e82a9107}
+      \strng{editornamehash}{15b0dfd9c71b8a04cf45de11e82a9107}
+      \strng{editorfullhash}{15b0dfd9c71b8a04cf45de11e82a9107}
       \field{sortinit}{A}
       \field{sortinithash}{a3dcedd53b04d1adfd5ac303ecd5e6fa}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Methods of Computational Physics}
-      \field{title}{Computational design of the basic dynamical processes of the UCLA general circulation model}
+      \field{booktitle}{General Circulation Models of the Atmosphere}
+      \field{issn}{0076-6860}
+      \field{series}{Methods in Computational Physics: Advances in Research and Applications}
+      \field{title}{Computational Design of the Basic Dynamical Processes of the UCLA General Circulation Model}
       \field{volume}{17}
       \field{year}{1977}
-      \field{dateera}{ce}
       \field{pages}{173\bibrangedash 265}
       \range{pages}{93}
+      \verb{doi}
+      \verb https://doi.org/10.1016/B978-0-12-460817-7.50009-4
+      \endverb
+      \verb{urlraw}
+      \verb http://www.sciencedirect.com/science/article/pii/B9780124608177500094
+      \endverb
+      \verb{url}
+      \verb http://www.sciencedirect.com/science/article/pii/B9780124608177500094
+      \endverb
     \endentry
     \entry{chandrasekhar}{book}{}
       \name{author}{1}{}{%

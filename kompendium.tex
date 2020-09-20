@@ -15403,13 +15403,39 @@ herzuleiten. Dies hat jedoch mehrere Nachteile:
 \item Die Phasen der Wellen sind in den allermeisten Fällen nicht bekannt und auch nicht sehr relevant. Vielmehr sind Größen wie Richtung und Höhe der Wellen entscheidend.
 \end{itemize}
 %
-Daher verwendet man zur Beschreibung von Wasseroberflächenwellen\index{Wasseroberflächenwelle} meistens spektrale Größen. Hierzu Fourier-transformiert\index{Fourier-Transformation} man $h$ in der Form
+Daher verwendet man zur Beschreibung von Wasseroberflächenwellen\index{Wasseroberflächenwelle} meistens eine Strahlungsübertragungsgleicung\index{Strahlungsübertragungsgleichung} (radiative transfer equation (RTE))\index{radiative transfer equation (RTE)}\index{RTE (radiative transfer equation)}. Als prognostische Variable\index{prognostische Variable}\index{Variable!prognostische} wird daher die spektrale Strahldichte\index{spektrale Strahldichte}\index{Strahldichte!spektrale}
 %
 \begin{eqnarray}
-\newtilde{h}\left(k_x, k_y, t\right) = C^2\int_{x = -\infty}^\infty\int_{y = -\infty}^\infty h\left(x, y, t\right)\exp\left[-i\left(k_xx + k_yy\right)\right]dydx,
+	N = N\left(\mathbf{r}, \mathbf{k}, t\right)
 \end{eqnarray}
 %
-wobei $C$ die gleiche Bedeutung hat wie in Absch. \ref{sec:komplexe_exponentialfunktionen}.
+verwendet. Hierbei sind $\mathbf{r}$ ein zweidimensionaler Ortsvektor und $\mathbf{k}$ ein zweidimensionaler Wellenvektor. Die Dispersionsrelation\index{Dispersionsrelation} $\omega = \omega\left(\mathbf{k}\right)$ wird asl bekannt vroausgesetzt. Alternativ könnte man mittels der Dispersionsrelation\index{Dispersionsrelation!Wasseroberflächenwelle}\index{Wasseroberflächenwelle!Dispersionsrelation} statt $\mathbf{k}$ auch $\left(\mathbf{e}_k, \omega\right)$ oder $\left(\theta, \omega\right)$ mit $\mathbf{e}_k = \left(\cos\left(\theta\right), \sin\left(\theta\right)\right)^T$ verwenden.
+
+Aus der Dispersionsrelation\index{Dispersionsrelation!Wasseroberflächenwelle}\index{Wasseroberflächenwelle!Dispersionsrelation} kann man eine Gruppengeschwindigkeit\index{Gruppengeschwindigkeit}
+%
+\begin{eqnarray}
+	c_\text{gr} = c_\text{gr}\left(\mathbf{r}, \mathbf{k}\right) = \nabla_\mathbf{k}\omega\left(\mathbf{r}, \mathbf{k}\right)\cdot\mathbf{e}_k
+\end{eqnarray}
+%
+herleiten, diese weder als homogen noch als isotrop vorausgesetzt. Hieraus kann man eine spektrale Strahlungsflussdichte\index{spektrale Strahlungsflussdichte}\index{Strahlungsflussdicte!spektrale}
+%
+\begin{eqnarray}
+N\left(\mathbf{r}, \mathbf{k}, t\right)c_\text{gr}\left(\mathbf{r}, \mathbf{k}\right)
+\end{eqnarray}
+%
+herleiten. Die Strahlungsübertragungsgleichung\index{Strahlungsübertragungsgleichung} ist eine Art Kontinuitätsgleichung für $N$, was konzeptionell mit der Energieerhaltung\index{Energieerhaltung} zusammenhängt:
+%
+\begin{eqnarray}
+	\frac{\partial N}{\partial t} + \nabla\cdot\left(N\left(\mathbf{r}, \mathbf{k}, t\right)c_\text{gr}\left(\mathbf{r}, \mathbf{k}\right)\right) = S_\text{ws} + S_\text{bd} + S_\text{diss}
+\end{eqnarray}
+%
+Hierbei wurden drei zusätzliche Quellterme\index{Quellterm} aufgenommen:
+%
+\begin{itemize}
+	\item $S_\text{ws}$ ist die Energiequelle, die aus aus der Wechselwirkung mit dem Windfeld resultiert
+	\item $S_\text{bd}$ ist die Energiequelle, die aus der Wechselwirkung mit der Bathymetrie zusammenhängt
+	\item $S_\text{diss}$ ist die Enrgiequelle, die mit der Reibung zusammenhängt
+\end{itemize}
 
 \part{Strahlung und Wolkenmikrophysik}
 \label{part:strahlung_und_wolkenmikrophysik}
@@ -16029,7 +16055,7 @@ Es gibt nur fünf platonische Körper. Dementsprechend existieren nur fünf unif
 \section{Arakawa-Gitter}
 \label{sec:arakawa-gitter}\index{Arakawa-Gitter}\index{Gitter!Arakawa}
 
-Diskretisiert man ein zweidimensionales Vektorfeld auf ein ebenes Gitter, so müssen keineswegs alle Variablen an den gleichen Punkten ausgewertet werden. Die unterschiedlichen Größen können an unterschiedlichen Stellen der Polygone definiert werden. Fünf Arten, dies zu tun, sind die Arakawa-Gitter \cite{arakawa}, die in Abb. \ref{fig:arakawa} dargestellt sind.
+Diskretisiert man ein zweidimensionales Vektorfeld auf ein ebenes Gitter, so müssen keineswegs alle Variablen an den gleichen Punkten ausgewertet werden. Die unterschiedlichen Größen können an unterschiedlichen Stellen der Polygone definiert werden. Fünf Arten, dies zu tun, sind die Arakawa-Gitter \cite{ARAKAWA1977173}, die in Abb. \ref{fig:arakawa} dargestellt sind.
 
 \subsection{A-Gitter}
 \label{sec:a-gitter}\index{A-Gitter}
@@ -22645,5 +22671,3 @@ Die Transformation der Differenzialoperatoren kann nun durchgeführt werden. Die
 \printindex
 
 \end{document}
-
-
