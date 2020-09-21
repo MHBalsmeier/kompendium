@@ -16056,6 +16056,13 @@ Es gibt nur fünf platonische Körper. Dementsprechend existieren nur fünf unif
 \section{Arakawa-Gitter}
 \label{sec:arakawa-gitter}\index{Arakawa-Gitter}\index{Gitter!Arakawa}
 
+\begin{figure}
+\centering
+\includegraphics[width = .6\textwidth]{figs/arakawa.png}
+\caption{Die fünf Gitterstrukturen nach Arakawa. Die Massenvariable wurde mit $q$ bezeichnet \cite{arakawa_grids_figure}.}
+\label{fig:arakawa}
+\end{figure}
+
 Diskretisiert man ein zweidimensionales Vektorfeld auf ein ebenes Gitter, so müssen keineswegs alle Variablen an den gleichen Punkten ausgewertet werden. Die unterschiedlichen Größen können an unterschiedlichen Stellen der Polygone definiert werden. Fünf Arten, dies zu tun, sind die Arakawa-Gitter \cite{ARAKAWA1977173}, die in Abb. \ref{fig:arakawa} dargestellt sind.
 
 Hier werden zunächst nur das A-Gitter\index{A-Gitter} und das C-Gitter\index{C-Gitter} eindimensional untersucht. Hierzu geht man vom System der linearisierten Flachwassergleichungen\index{linearisierte Flachwassergleichungen}\index{Flachwassergleichungen!linearisierte} Glg.en \eqref{eq:flach_lin_1} - \eqref{eq:flach_lin_2} ohne Corioliskraft aus:
@@ -16164,14 +16171,35 @@ Nichttriviale Lösungen existieren, falls die Determinante der Matrix verschwind
 Hieraus folgt für die Phasengeschwindigkeit\index{Phasengeschwindigkeit!A-Gitter}\index{A-Gitter!Phasengeschwindigkeit}\index{Arakawa!A-Gitter!Phasengeschwindigkeit}
 %
 \begin{eqnarray}
-	c_\text{ph} = c_\text{ph}^{\text{(real)}}\frac{\sin\left(k\Delta x\right)}{k\Delta x}
+	c_\text{ph} = c_\text{ph}^{\text{(real)}}\frac{\sin\left(k\Delta x\right)}{k\Delta x}\label{eq:arakawa_deriv_6}
 \end{eqnarray}
 %
 und für die Gruppengeschwindigkeit\index{Gruppengeschwindigkeit!A-Gitter}\index{A-Gitter!Gruppengeschwindigkeit}\index{Arakawa!A-Gitter!Gruppengeschwindigkeit}
 %
 \begin{eqnarray}
-	c_\text{gr} = \frac{\partial\omega}{\partial k} = c_\text{gr}^{\text{(real)}}\cos\left(k\Delta x\right).
+	c_\text{gr} = \frac{\partial\omega}{\partial k} = c_\text{gr}^{\text{(real)}}\cos\left(k\Delta x\right).\label{eq:arakawa_deriv_7}
 \end{eqnarray}
+%
+Führt man die dimensionslose Geschwindigkeit
+%
+\begin{eqnarray}
+\newtilde{c} \coloneqq \frac{c{\sqrt{gH}}\label{eq:arakawa_deriv_8}
+\end{eqnarray}
+%
+sowie die dimensionslose Wellenzahl
+%
+\begin{eqnarray}
+\kappa \coloneqq k\Delta x\label{eq:arakawa_deriv_9}
+\end{eqnarray}
+%
+ein, so lassen sich die Glg.en \eqref{eq:arakawa_deriv_6} - \eqref{eq:arakawa_deriv_7} in der Form
+%
+\begin{eqnarray}
+\newtilde{c}_\text{ph} & = & \frac{\sin\left(\kappa\right)}{\kappa},\label{eq:arakawa_deriv_10}\\
+\newtilde{c}_\text{gr} & = & \cos\left(\kappa\right)\label{eq:arakawa_deriv_11}
+\end{eqnarray}
+%
+notieren.
 
 \subsection{C-Gitter}
 \label{sec:c-gitter}\index{C-Gitter}
@@ -16227,14 +16255,30 @@ Nichttriviale Lösungen existieren, falls die Determinante der Matrix verschwind
 Hieraus folgt für die Phasengeschwindigkeit\index{Phasengeschwindigkeit!C-Gitter}\index{C-Gitter!Phasengeschwindigkeit}\index{Arakawa!C-Gitter!Phasengeschwindigkeit}
 %
 \begin{eqnarray}
-	c_\text{ph} = c_\text{ph}^{\text{(real)}}\sqrt{2\frac{1 - \cos\left(k\Delta x\right)}{\left(\Delta x\right)^2}}
+	c_\text{ph} = c_\text{ph}^{\text{(real)}}\sqrt{2\frac{1 - \cos\left(k\Delta x\right)}{\left(k\Delta x\right)^2}}\label{eq:arakawa_deriv_12}
 \end{eqnarray}
 %
 und für die Gruppengeschwindigkeit\index{Gruppengeschwindigkeit!C-Gitter}\index{C-Gitter!Gruppengeschwindigkeit}\index{Arakawa!C-Gitter!Gruppengeschwindigkeit}
 %
 \begin{eqnarray}
-	c_\text{gr} = \frac{\partial\omega}{\partial k} = \frac{1}{2\omega}\frac{\partial\omega^2}{\partial k} = gH2\frac{\sin\left(k\Delta x\right)}{2\omega\Delta x} = gH\frac{\sin\left(k\Delta x\right)}{\omega\Delta x} = c_\text{gr}^{\text{(real)}}\frac{\sin\left(k\Delta x\right)}{\sqrt{2 - 2\cos\left(k\Delta x\right)}}.
+	c_\text{gr} = \frac{\partial\omega}{\partial k} = \frac{1}{2\omega}\frac{\partial\omega^2}{\partial k} = gH2\frac{\sin\left(k\Delta x\right)}{2\omega\Delta x} = gH\frac{\sin\left(k\Delta x\right)}{\omega\Delta x} = c_\text{gr}^{\text{(real)}}\frac{\sin\left(k\Delta x\right)}{\sqrt{2 - 2\cos\left(k\Delta x\right)}}.\label{eq:arakawa_deriv_13}
 \end{eqnarray}
+%
+In Termen der dimensionslosen Größen Glg.en \eqref{eq:arakawa_deriv_8} - \eqref{eq:arakawa_deriv_9} kann man die Glg.en \eqref{eq:arakawa_deriv_12} - \eqref{eq:arakawa_deriv_13} in der Form
+%
+\begin{eqnarray}
+\newtilde{c}_\text{ph} & = & \sqrt{2\frac{1 - \cos\left(\kappa\right)}{\left(\kappa\right)^2}},\\
+\newtilde{c}_\text{gr} & = & \frac{\sin\left(\kappa\right)}{\sqrt{2 - 2\cos\left(\kappa\right)}}
+\end{eqnarray}
+%
+notieren. Abb. \ref{fig:arakawa_disp_relations} zeigt die Dispersionsrelationen des A-Gitters\index{Dispersionsrelation!A-Gitter}\index{A-Gitter!Dispersionsrelation} sowie des C-Gitters\index{Dispersionsrelation!C-Gitter}\index{C-Gitter!Dispersionsrelation}.
+
+\begin{figure}
+\centering
+\includegraphics[width = .7\textwidth]{figs/arakawa_disp_relations.png}
+\caption{Die Dispersionsrelationen des A-Gitters und des C-Gitters.}
+\label{fig:arakawa_disp_relations}
+\end{figure}
 
 \section{Skalare Erhaltungseigenschaften auf dem C-Gitter}
 \label{sec:skalare_erhaltungseigenschaften_auf_dem_c-gitter}
@@ -16286,13 +16330,6 @@ Q = \text{const.}
 gilt. Flächen, die Teil von $\partial A$ sind, stellen dabei trivialerweise kein Problem da, da durch sie unter kinematischen Randbedingungen per Definition überhaupt kein Massenfluss stattfindet. Auch unter der verallgemeinerten Voraussetzung, dass $\mathbf{j}_{\newtilde{q}}$ nicht nur aus $\newtilde{q}\mathbf{v}$, sondern aus weiteren, insbesondere diffusive,n Flüssen besteht, gilt dies noch. Angemerkt werden sollte außerdem, dass selbst bei fehlerhafter Berechnung von Gittergeometrien $Q$ eine Erhaltungsgröße bleibt.
 
 Auch die Diskretisierung des Gradienten ist einfach und sofort zweiter Ordnung, da es um einen zentralen Differenzenquotienten handelt (s. Absch. \ref{sec:finite_differenzen}). Die Vorticity kann auf dem dualen Gitter ohne weiteres aus dem Stokes'schen Satz bestimmt werden.
-
-\begin{figure}
-\centering
-\includegraphics[width = .6\textwidth]{figs/arakawa.png}
-\caption{Die fünf Gitterstrukturen nach Arakawa. Die Massenvariable wurde mit $q$ bezeichnet \cite{arakawa_grids_figure}.}
-\label{fig:arakawa}
-\end{figure}
 %
 Es werden alle als notwendig identifizierten Punkte zusammengefasst:
 %
