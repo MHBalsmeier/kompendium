@@ -5518,7 +5518,7 @@ Man definiert weiter die \textit{virtuelle Temperatur}\index{virtuelle Temperatu
 %
 \begin{eqnarray}
 R_h\rho T & = & R_d\rho T_v\Rightarrow T_v = \frac{R_h}{R_d}T = T\left(1 - \frac{\rho_v}{\rho_h} + \frac{\rho_v}{\rho_h}\frac{M_d}{M_v}\right)\nonumber\\
-& = & T\left[1 + \frac{\rho_v}{\rho_h}\left(\frac{1}{\epsilon} - 1\right)\right].
+& = & T\left[1 + \frac{\rho_v}{\rho_h}\left(\frac{1}{\epsilon} - 1\right)\right].\label{eq:def_virtual_temperature}
 \end{eqnarray}
 %
 Die Differenz
@@ -8278,6 +8278,27 @@ mit der isobaren spezifischen Wärmekapazität feuchter Luft\index{spezifische W
 \begin{eqnarray}
 c_h^{(p)} = \frac{\rho_dc_d^{(p)} + \rho_vc_v^{(p)}}{\rho = \rho_d + \rho_v}.
 \end{eqnarray}
+%
+Man definiert die sogenannte \textit{virtuelle potentielle Temperatur}\index{potentielle virtuelle Temperatur}\index{Temperatur!potentielle!virtuelle}\index{Temperatur!virtuelle!potentielle}
+$\theta_v$ durch
+%
+\begin{eqnarray}
+\theta_v \coloneqq T_v\left(\frac{p_0}{p}\right)^{R_d/c_d^{(p)}},
+\end{eqnarray}
+%
+hierbei ist
+%
+\begin{eqnarray}
+T_v = \left(1 - q + \frac{q}{\epsilon}\right)T
+\end{eqnarray}
+%
+die in Glg. \eqref{eq:def_virtual_temperature} definierte virtuelle Temperatur\index{virtuelle Temperatur}\index{Temperatur!virtuelle}. Dies ist eher eine Behelfsgröße als die potentielle Temperatur feuchter Luft $\theta_v$, denn für diese würde
+%
+\begin{eqnarray}
+\theta_h \coloneqq T\left(\frac{p_0}{p}\right)^{R_h/c_h^{(p)}}
+\end{eqnarray}
+%
+gelten. Die virtuelle potentielle Temperatur\index{potentielle virtuelle Temperatur}\index{Temperatur!potentielle!virtuelle}\index{Temperatur!virtuelle!potentielle} ist diejenige potentielle Temperatur\index{potentielle Temperatur}\index{Temperatur!potentielle}, die trockene Luft\index{trockene Luft}\index{Luft!trockene} haben müsste, um nach adiabatischer Kompression auf den Referenzdruck $p_0$ die gleiche Dichte zu haben wie die betrachtete feuchte Luft.
 
 \subsection{Anwendungen}
 \label{sec:anwendungen}
@@ -14407,7 +14428,7 @@ wobei $\Theta$ die $\Theta-$Funktion bezeichnet\index{$\Theta-$Funktion}. Im Fal
 f\left(z'\right) \coloneqq g\frac{\frac{1}{T} - \frac{1}{T'}}{\frac{1}{T'}} = g\frac{T' - T}{T} = g\frac{\theta' - \theta}{\theta}.
 \end{eqnarray}
 %
-Das \textit{level of free convection}\index{level of free convection}\index{LFC} $z_{\text{LFC}}$ ist die Höhe, in der das adiabatisch aufstegende Teilchen zum ersten mal leichter ist als die Umgebung
+Im Fall feuchter Luft kann man $T \to T_v$ ersetzen, hierbei ist $T_v$ die in Glg. \eqref{eq:def_virtual_temperature} definierte virtuelle Temperatur\index{virtuelle Temperatur}\index{Temperatur!virtuelle}, da bei dieser Temperatur die trockene Luft\index{trockene Luft}\index{Luft!trockene} die gleiche Dichte hätte wie die vorhandene feuchte Luft\index{feuchte Luft}\index{Luft!feuchte}. Das \textit{level of free convection}\index{level of free convection}\index{LFC} $z_{\text{LFC}}$ ist die Höhe, in der das adiabatisch aufstegende Teilchen zum ersten mal leichter ist als die Umgebung
 %
 \begin{eqnarray}
 z_{\text{LFC}} \coloneqq\inf\{z\newvline f\left(z\right) > 0\}.
