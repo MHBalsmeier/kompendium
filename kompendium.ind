@@ -157,11 +157,11 @@
   \item chemisches Element, 51
   \item chemisches Potential, 84, 88, 100
     \subitem ideales Gas, 90
-  \item CIN, 235
+  \item CIN, 236
   \item Clausius-Clapeyron-Gleichung, 97--99
   \item convective available potential Energy (CAPE), 234, 235
   \item convective condensation level (CCL), 236
-  \item convective inhibition (CIN), 235
+  \item convective inhibition (CIN), 236
   \item Coriolis-Beschleunigung, 158
   \item Coriolis-Kraft
     \subitem generalisierte, 295
@@ -390,7 +390,7 @@
   \item Fermion, 63
   \item Feuchtadiabate
     \subitem irreversible, 231, 234
-    \subitem reversible, 231
+    \subitem reversible, 231, 234
   \item feuchtadiabatischer Temperaturgradient, 233
   \item Feuchte
     \subitem absolute, 92
@@ -788,7 +788,7 @@
     \subitem tiefe, 158
   \item Konvektionskondensationsniveau (KKN), 236
   \item konvektiv verfügbare potentielle Energie, 234, 235
-  \item konvektive Schranke, 235
+  \item konvektive Schranke, 236
   \item Konvention
     \subitem über Koordinatensysteme, 375
   \item Konversion
@@ -901,6 +901,7 @@
   \item Luft, 107
     \subitem feuchte, 107, 134, 235
     \subitem trockene, 107, 134, 235, 311, 319
+  \item Luftmasse, 234
   \item Lösung, 99
 
   \indexspace
@@ -1087,6 +1088,7 @@
   \item Photonengas, 103
   \item Physik
     \subitem statistische, 76, 109, 117
+  \item Phäsenübergangsenthalpie, 234
   \item plan-parallele Atmosphäre, 263
   \item Planck'sches Strahlungsgesetz, 105
   \item Planck'sches Wirkungsquantum, 35
@@ -1110,7 +1112,7 @@
   \item potentielle Energie, 176
     \subitem konvektiv verfügbare, 234, 235
     \subitem verfügbare, 176
-  \item potentielle Temperatur, 126, 128, 134, 138, 160
+  \item potentielle Temperatur, 126, 128, 134, 138, 160, 234
     \subitem Wasserdampf, 134
   \item potentielle virtuelle Temperatur, 134
   \item potentielle Vorticitiy, 238
@@ -1129,7 +1131,8 @@
   \item Prozess
     \subitem quasistatischer, 80
   \item pseudo-inkompressible Approximation, 157
-  \item pseudopotentielle Temperatur, 234
+  \item pseudo-potentielle Temperatur, 234
+  \item pseudo-äquivalent-potentielle Temperatur, 234
   \item PV-Denken, 238
 
   \indexspace
@@ -1185,9 +1188,9 @@
     \subitem Spezielle, 30
   \item Residuensatz, 335
   \item reversibel, 175
-  \item reversibel-pseudopotentielle Temperatur, 234
+  \item reversibel-äquivalent-potentielle Temperatur, 234
   \item reversible Dynamik, 311
-  \item reversible Feuchtadiabate, 231
+  \item reversible Feuchtadiabate, 231, 234
   \item Reynolds-Mittelung, 241
   \item Reynolds-Operator, 241
   \item Reynolds-Zahl, 153
@@ -1232,7 +1235,7 @@
   \item Schichtungswelle, 207, 235
   \item Schließungsproblem, 242
   \item Schranke
-    \subitem konvektive, 235
+    \subitem konvektive, 236
   \item Schrödinger-Gleichung, 35, 53
     \subitem freies Teilchen, 36
     \subitem harmonischer Oszillator, 40
@@ -1391,13 +1394,16 @@
   \item Teilchen
     \subitem freies, 36
   \item Teilchenzahloperator, 47, 49
-  \item Temperatur, 80, 107, 311
-    \subitem potentielle, 126, 128, 134, 138, 160
+  \item Temperatur, 80, 107, 234, 311
+    \subitem potentielle, 126, 128, 134, 138, 160, 234
       \subsubitem virtuelle, 134
-    \subitem pseudopotentielle, 234
-    \subitem reversibelpseudopotentielle, 234
+    \subitem pseudo-potentielle, 234
+    \subitem pseudo-äquivalent-potentielle, 234
+    \subitem reversibel-äquivalent-potentielle, 234
     \subitem virtuelle, 91, 134, 235
       \subsubitem potentielle, 134
+    \subitem äquivalent-potentielle, 234
+    \subitem äquivalent-potentiellen, 234
   \item Temperaturadvektion
     \subitem differenzielle, 238
   \item Temperaturdiffusion, 319, 320
@@ -1670,5 +1676,7 @@
     \subitem verbotener, 45
   \item Übergang im H-Atom, 73
   \item äquatoriale Kelvin-Welle, 204
+  \item äquivalent-potentielle Temperatur, 234
+  \item äquivalent-potentiellen Temperatur, 234
 
 \end{theindex}
