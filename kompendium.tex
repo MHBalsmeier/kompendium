@@ -15403,22 +15403,18 @@ wobei sich willkürlich auf das negative Vorzeichen in der Exponentialfunktion\i
 \section{Thermohaline Zirkulation}
 \label{sec:thermohaline_zirkulation}\index{thermohaline Zirkulation}\index{Zirkulation!thermohaline}
 
-\section{Wasseroberflächenwellen}
-\label{sec:ozeanoberflaechenwellen}\index{Wasseroberflächenwelle}
+\section{Seegangsvorhersage}
+\label{sec:seegangsvorhersage}\index{Seegangsvorhersage}
 
-In diesem Abschnitt werden der Einfachheit halber kartesische Koordinate $x, y$ verwendet, da dies die wesentlichen Aspekte der Herleitungen nicht beeinträchtigt. Als Seegebiet wird der $\mathbb{R}^2$ verwendet. Als einzige prognostische Variable\index{prognostische Variable}\index{Variable!prognostische} für die Beschreibung der \textit{Wasseroberflächenwellen}\index{Wasseroberflächenwelle} ist dabei die Auslenkung der Wasseroberfläche
+\textit{Seegang}\index{Seegang} ist ein anderes Wort für Wasseroberflächenwellen\index{Wasseroberflächenwelle}. Die prognostische Variable\index{prognostische Variable}\index{Variable!prognostische}, auf die dabei abgezielt wird, ist die Auslenkung der Wasseroberfläche
 %
 \begin{eqnarray}
 h = h\left(x, y, t\right)
 \end{eqnarray}
 %
-von der mittleren Position der Wasseroberfläche ausreichend.\footnote{Es kann nicht einfach $h$ als Abweichung vom Geoid\index{Geoid} definiert werden, da hier noch die dynamische Topographie\index{dynamische Topographie}\index{Topographie!dynamische} überlagert wäre. Diese zählt nicht in die mit den Wellen verbundene Auslenkung hinein. Dementsprechend muss die Länge des Mittelungsintervalls gewählt werden.} In vielen Situationen ist $h$ keine Funktion der horizontalen Koordinaten, wie zum Beispiel im Falle von Brandung oder bei aufgewühlter See, da in diesen Fällen die Position der Wasseroberfläche nicht mehr eindeutig festgelegt ist. Solche Effekte werden später in Form von Energie dissipierenden Quelltermen berücksichtigt. Es wäre nun möglich, eine prognostische Gleichung\index{prognostische Gleichung}\index{Gleichung!prognostische} in der Form
-%
-\begin{eqnarray}
-\frac{\partial h}{\partial t} = \dots
-\end{eqnarray}
-%
-herzuleiten. Dies hat jedoch mehrere Nachteile:
+von der mittleren Position der Wasseroberfläche.\footnote{Es kann nicht einfach $h$ als Abweichung vom Geoid\index{Geoid} definiert werden, da hier noch die dynamische Topographie\index{dynamische Topographie}\index{Topographie!dynamische} überlagert wäre. Diese zählt nicht in die mit den Wellen verbundene Auslenkung hinein. Dementsprechend muss die Länge des Mittelungsintervalls gewählt werden.} In vielen Situationen ist $h$ keine Funktion der horizontalen Koordinaten, wie zum Beispiel im Falle von Brandung oder bei aufgewühlter See, da in diesen Fällen die Position der Wasseroberfläche nicht mehr eindeutig festgelegt ist. Solche Effekte werden später in Form von Energie dissipierenden Quelltermen berücksichtigt.
+
+Es könnte nun als Satz prognosticher Gleichungen\index{prognostische Gleichung}\index{Gleichung!prognostische} die in Absch. \ref{sec:flachwassergleichungen} hergeleiteten Flachwassergleichungen\index{Flachwassergleichung} verwendet werden, eventuell mit einigen halb-empirischen Zusatztermen. Dies hat jedoch mehrere Nachteile:
 %
 \begin{itemize}
 \item Um einen wesentlichen Anteil der Energie des Wellenfeldes\index{Wellenfeld} zu erfassen, wären ein sehr kleiner Zeitschritt und eine sehr feine räumliche Auflösung erforderlich.
@@ -15448,17 +15444,25 @@ N\left(\mathbf{r}, \mathbf{k}, t\right)c_\text{gr}\left(\mathbf{r}, \mathbf{k}\r
 herleiten. Die Strahlungsübertragungsgleichung\index{Strahlungsübertragungsgleichung} ist eine Art Kontinuitätsgleichung für $N$, was konzeptionell mit der Energieerhaltung\index{Energieerhaltung} zusammenhängt:
 %
 \begin{eqnarray}
-	\frac{\partial N}{\partial t} + \nabla\cdot\left(N\left(\mathbf{r}, \mathbf{k}, t\right)c_\text{gr}\left(\mathbf{r}, \mathbf{k}\right)\right) = S_\text{nl}\left(\mathbf{r}, \mathbf{k}, t\right) + S_\text{ws}\left(\mathbf{r}, \mathbf{k}, t\right) + S_\text{bd}\left(\mathbf{r}, \mathbf{k}, t\right) + S_\text{diss}\left(\mathbf{r}, \mathbf{k}, t\right)
+	\frac{\partial N}{\partial t} + \nabla\cdot\left(N\left(\mathbf{r}, \mathbf{k}, t\right)c_\text{gr}\left(\mathbf{r}, \mathbf{k}\right)\right) = S_\text{nl}\left(\mathbf{r}, \mathbf{k}, t\right) + S_\text{ws}\left(\mathbf{r}, \mathbf{k}, t\right) + S_\text{wc}\left(\mathbf{r}, \mathbf{k}, t\right) + S_\text{diss}\left(\mathbf{r}, \mathbf{k}, t\right) + S_\text{bd}\left(\mathbf{r}, \mathbf{k}, t\right)\label{eq:rte_water_surface}
 \end{eqnarray}
 %
-Hierbei wurden drei zusätzliche Quellterme\index{Quellterm} aufgenommen:
+Hierbei wurden fünf zusätzliche Quellterme\index{Quellterm} aufgenommen:
 %
 \begin{itemize}
-	\item $S_\text{nl}\left(\mathbf{r}, \mathbf{k}, t\right)$ ist die Energiequelle, die aus nichtlinearen Effekten resultiert
-	\item $S_\text{ws}\left(\mathbf{r}, \mathbf{k}, t\right)$ ist die Energiequelle, die aus der Wechselwirkung mit dem Windfeld resultiert
-	\item $S_\text{bd}\left(\mathbf{r}, \mathbf{k}, t\right)$ ist die Energiequelle, die aus der Wechselwirkung mit der Bathymetrie zusammenhängt
-	\item $S_\text{diss}\left(\mathbf{r}, \mathbf{k}, t\right)$ ist die Enrgiequelle, die mit der Reibung zusammenhängt
+	\item $S_\text{nl}\left(\mathbf{r}, \mathbf{k}, t\right)$ ist die Energiequelle, die aus nichtlinearen Effekten resultiert. Dieser Term ist besonders relevant für die Wechselwirkung von Skalen. Ein Beispiel ist die Entstehung langer Wellen (sogenannte \textit{Dünung}\index{Dünung}) aus der \textit{Windsee}\index{Windsee} (unmittelbar aus Windeinwirkung entstehende Wellen), welche aus kürzeren Wellen besteht, über upscaling\index{upscaling}.
+	\item $S_\text{ws}\left(\mathbf{r}, \mathbf{k}, t\right)$ ist die Energiequelle, die aus der Wechselwirkung mit dem Windfeld resultiert. Dies ist die Hauptenergiequelle des Wellenfeldes.
+	\item $S_\text{wc}\left(\mathbf{r}, \mathbf{k}, t\right)$ ist die Energiequelle, die aus der \textit{Gischt}\index{Gischt} (das sogenannte \textit{whitecapping}\index{whitecapping}) resultiert, dies ist ein dissipativer\index{Dissipation} und somit üblicherweise negativer Term.
+	\item $S_\text{diss}\left(\mathbf{r}, \mathbf{k}, t\right)$ ist die Energiequelle, die mit der inneren Reibung (Viskosität\index{Viskosität}) zusammenhängt. Da die Viskosität quadratisch stärker auf die kleineren Skalen wirkt, führt dieser Effekt dazu, dass Windsee\index{Windsee} schneller als Dünung\index{Dünung} dissipiert\index{Dissipation} wird.
+	\item $S_\text{bd}\left(\mathbf{r}, \mathbf{k}, t\right)$ ist die Energiequelle, die aus der Wechselwirkung mit der Bathymetrie\index{Bathymetrie} \textit{(bottom drag)}\index{bottom drag} zusammenhängt, auch dies ist ein dissipativer\index{Dissipation} und somit üblicherweise negativer Term.
 \end{itemize}
+%
+Abhängig von der konkreten Situation können weitere Quellterme\index{Quellterm} aufgenommen werden.
+
+\subsection{Seegangsvorhersagemodelle}
+\label{sec:seegangsvorhersagemodelle}\index{Seegangsvorhersagemodelle}
+
+Das gebräuchlichste Seegangsvorhersagemodell\index{Seegangsvorhersagemodell} ist \textsc{Wavewatch III}. Modelle, die sich an Glg. \eqref{eq:rte_water_surface} orientieren, sind sogenannte Seegangsvorhersagemodelle\index{Seegangsvorhersagemodell} dritter Generation. Sie lösen diese Gleichung auf einem Gitter und sind daher Gitterpunktmodelle, auch wenn sie gelegentlich als Spektralmodelle bezeichnet werden, da ihre prognostische Variable\index{prognostische Variable}\index{Variable!prognostische} spektrale Bedeutung hat. Sie lösen meist Glg. \eqref{eq:rte_water_surface} in der Form Glg. , wobei an jedem Gitterpunkt ein spektrales richtungsabhängiges Gitter im $\left(\omega, \theta\right)-$Raum aufgespannt werden muss. Meist wird zusätzlich eine recht große Vielfalt an halb-empirischen Quelltermen $Q_i$ aufgenommen.
 
 \part{Strahlung und Wolkenmikrophysik}
 \label{part:strahlung_und_wolkenmikrophysik}
