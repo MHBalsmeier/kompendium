@@ -12120,9 +12120,15 @@ W\left(z\right) & = & -\frac{i\hat{\eta}\omega}{\sinh\left(kD\right)}\sinh\left[
 %
 erfüllt. Somit folgt aus Glg. \eqref{eq:deep_disp_pre} die Disperionsrelation
 %
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 \begin{eqnarray}
-\omega^2 & = & gk\tanh\left(kD\right).
+\omega^2 & = & gk\tanh\left(kD\right).\label{eq:disp_rel_sub-poincare}
 \end{eqnarray}
+\end{center}
+}}
+\end{center}
 %
 Im Falle einer Dichtediskontinuität $\rho_1 < \rho_2$ mit einem leichteren Fluid über einem schwereren Fluid lautet der Druckgradientterm unterhalb der Welle
 %
@@ -12139,15 +12145,27 @@ mit $\Delta\rho \coloneqq \rho_2 - \rho_1$, wobei $\eta$ als Auslenkung der Dich
 wobei $z_w$ die Position der Dichtediskontinuität und $z_0$ die Tiefenkoordinate des Grunds bezeichnet.
 Im Fall $\lambda \gg D$ folgt hieraus
 %
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 \begin{eqnarray}
 	\omega^2 = k^2gD\label{eq:disp_rel_shallow_waves}
 \end{eqnarray}
+\end{center}
+}}
+\end{center}
 %
 als Dispersionsrelation der sogenannten \textit{Flachwasserwellen}\index{Flachwasserwelle}\index{Welle!Flachwasser}. Im umgekehrten Fall $\lambda \ll D$ folgt die Dispersionsrelation der \textit{Tiefwasserwellen}\index{Tiefwasserwelle}\index{Welle!Tiefwasser}
 %
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 \begin{eqnarray}
 \omega^2 & = & gk.
 \end{eqnarray}
+\end{center}
+}}
+\end{center}
 
 \subsubsection{Stokes-Drift}
 \label{sec:stokes-drift}\index{Stokes-Drift}
@@ -14382,7 +14400,7 @@ Diese Größe ist also nicht nur um den Druckunterschied, sondern auch um die vo
 \subsubsection{reversibeläquivalentpotentielle Temperatur}
 \label{sec:reversibeläquivalentpotentielle_temperatur}\index{reversibeläquivalentpotentielle Temperatur}\index{Temperatur!reversibeläquivalentpotentielle}
 
-Die reversibeläquivalentpotentielle Temperatur\index{reversibeläquivalentpotentielle Temperatur}\index{Temperatur!reversibeläquivalentpotentielle} ist analog zur äquivalentpotentiellen Temperatur\index{äquivalentpotentiellen Temperatur}\index{Temperatur!äquivalentpotentiellen} definiert, nur dass bei Schritt 2. aus Absch. \ref{sec:äquivalentpotentielle_temperatur} eine reversible Feuchtadiabate\index{reversible Feuchtadiabate}\index{Feuchtadiabate!reversible} verfolgt wird.
+Die reversibeläquivalentpotentielle Temperatur\index{reversibeläquivalentpotentielle Temperatur}\index{Temperatur!reversibeläquivalentpotentielle} ist analog zur äquivalentpotentiellen Temperatur\index{äquivalentpotentielle Temperatur}\index{Temperatur!äquivalentpotentielle} definiert, nur dass bei Schritt 2. aus Absch. \ref{sec:äquivalentpotentielle_temperatur} eine reversible Feuchtadiabate\index{reversible Feuchtadiabate}\index{Feuchtadiabate!reversible} verfolgt wird.
 
 \subsubsection{CAPE}
 \label{sec:cape}\index{convective available potential Energy (CAPE)}\index{CAPE}\index{Energie!potentielle!konvektiv verfügbare}\index{potentielle Energie!konvektiv verfügbare}\index{konvektiv verfügbare potentielle Energie}
@@ -15427,15 +15445,29 @@ Daher verwendet man zur Beschreibung von Wasseroberflächenwellen\index{Wasserob
 	N = N\left(\mathbf{r}, \mathbf{k}, t\right)
 \end{eqnarray}
 %
-verwendet. Hierbei sind $\mathbf{r}$ ein zweidimensionaler Ortsvektor und $\mathbf{k}$ ein zweidimensionaler Wellenvektor. Die Dispersionsrelation\index{Dispersionsrelation} $\omega = \omega\left(\mathbf{k}\right)$ wird asl bekannt vroausgesetzt. Alternativ könnte man mittels der Dispersionsrelation\index{Dispersionsrelation!Wasseroberflächenwelle}\index{Wasseroberflächenwelle!Dispersionsrelation} statt $\mathbf{k}$ auch $\left(\mathbf{e}_k, \omega\right)$ oder $\left(\theta, \omega\right)$ mit $\mathbf{e}_k = \left(\cos\left(\theta\right), \sin\left(\theta\right)\right)^T$ verwenden.
-
-Aus der Dispersionsrelation\index{Dispersionsrelation!Wasseroberflächenwelle}\index{Wasseroberflächenwelle!Dispersionsrelation} kann man eine Gruppengeschwindigkeit\index{Gruppengeschwindigkeit}
+verwendet. Hierbei sind $\mathbf{r}$ ein zweidimensionaler Ortsvektor und $\mathbf{k}$ ein zweidimensionaler Wellenvektor. Als Dispersionsrelation\index{Dispersionsrelation} $\omega = \omega\left(\mathbf{k}\right)$ wird diejenige der Sub-Poincaré-Wellen\index{Sub-Poincaré-Welle!Dispersionsrelation}\index{Dispersionsrelation!Sub-Poincaré-Welle}
 %
 \begin{eqnarray}
-	c_\text{gr} = c_\text{gr}\left(\mathbf{r}, \mathbf{k}\right) = \nabla_\mathbf{k}\omega\left(\mathbf{r}, \mathbf{k}\right)\cdot\mathbf{e}_k
+\omega^2 & = & gk\tanh\left(kD\right) \Rightarrow \omega = \sqrt{gk\tanh\left(kD\right)},
 \end{eqnarray}
 %
-herleiten, diese weder als homogen noch als isotrop vorausgesetzt. Hieraus kann man eine spektrale Strahlungsflussdichte\index{spektrale Strahlungsflussdichte}\index{Strahlungsflussdicte!spektrale}
+verwendet, hierbei ist $D$ die mittlere Wassertiefe (Wassertiefe ohne Wellen). Hieraus folgen
+%
+\begin{eqnarray}
+c_\text{ph} & = & \frac{\omega}{k} = \sqrt{\frac{g\tanh\left(kD\right)}{k}}
+c_\text{gr} & = & \frac{1}{2\omega}\frac{\partial\omega^2}{\partial k} = \frac{1}{2\omega}\left[g\tanh\left(kD\right) + \frac{gkD}{\cosh^2\left(kD\right)}\right] = \frac{g\tanh\left(kD\right)}{2\omega}\left[1 + \frac{kD}{\sinh\left(kD\right)\cosh\left(kD\right)}\right]\nonumber\\
+& = & \frac{c_\text{ph}}{2}\left[1 + \frac{2kD}{2\sinh\left(kD\right)\cosh\left(kD\right)}\right] = \frac{c_\text{ph}}{2}\left[1 + \frac{2kD}{\sinh\left(2kD\right)}\right].
+\end{eqnarray}
+%
+Alternativ könnte statt $\mathbf{k}$ auch $\left(\mathbf{e}_k, \omega\right)$ oder $\left(\theta, \omega\right)$ mit $\mathbf{e}_k = \left(\sin\left(\theta\right), \cos\left(\theta\right)\right)^T$ verwenden.
+
+Die Gruppengeschwindigkeit wird als isotrop, aber nicht als homogen vorausgesetzt,
+%
+\begin{eqnarray}
+c_\text{gr} = c_\text{gr}\left(\mathbf{k}\right),
+\end{eqnarray}
+%
+die Ortsabhängigkeit entsteht übder die Ortsabhängigkeit von $D$. Hieraus kann man eine spektrale Strahlungsflussdichte\index{spektrale Strahlungsflussdichte}\index{Strahlungsflussdicte!spektrale}
 %
 \begin{eqnarray}
 N\left(\mathbf{r}, \mathbf{k}, t\right)c_\text{gr}\left(\mathbf{r}, \mathbf{k}\right)
@@ -17455,6 +17487,9 @@ v_{h, e, k, \text{GK}} = u_{e, k} + \newoverline{\newoverline{w_{c, k + \frac{1}
 
 \subsection{SLEVE}
 \label{sec:sleve}\index{SLEVE}
+
+\section{Ellipsoidische Modifikation des Gitters}
+\label{sec:ellipsoidische_modifikation_des_gitters}\index{Gitter!ellipsoidische Modifikation}\index{ellipsoidisches Gitter}
 
 \section{Felder}
 \label{sec:felder}\index{Feld!im Modell}
@@ -22491,10 +22526,10 @@ Somit legt folgende Gleichung die gesuchten senkrechten Trajektorien fest:
 %
 
 
-\section{GREAT-Koordinaten}
-\label{sec:greatkoordinaten}\index{GREAT-Koordinaten}\index{Koordinatensystem!GREAT}
+\section{\textsc{Great}-Koordinaten}
+\label{sec:greatkoordinaten}\index{\textsc{Great}-Koordinaten}\index{Koordinatensystem!\textsc{Great}}
 
-Die GREAT-Koordinaten werden in \cite{staniforth} beschrieben. Sie eignen sich, um Differenzialoperatoren in ellipsoidischen Geometrien auszudrücken. Außerdem sind sie orthogonal.
+Die \textsc{Great}-Koordinaten werden in \cite{staniforth} beschrieben. Sie eignen sich, um Differenzialoperatoren in ellipsoidischen Geometrien auszudrücken. Außerdem sind sie orthogonal.
 
 Zunächst werden alle Längen auf die große Halbachse der Erde $a$ skaliert:
 %
@@ -22512,17 +22547,17 @@ Glg. \eqref{eq:great_senkr_traj} lautet dann
 \end{eqnarray}
 %
 \subsection{Vertikalkoordinate}
-\label{sec:vertikalkoordinate}\index{GREAT-Koordinaten!Vertikalkoordinate}
+\label{sec:vertikalkoordinate}\index{\textsc{Great}-Koordinaten!Vertikalkoordinate}
 
-In Kugelkoordinaten bezeichnet die radiale Koordinate $r$ eine Kugeloberfläche. In GREAT-Koordinaten bezeichnet die Radialkoordinate $R$ ein bestimmtes Ellipsoid, $R$ wurde bereits als Äquatorradius des entsprechenden Ellipsoids eingeführt. Dies ist die Vertikalkoordinate im GREAT-System.
+In Kugelkoordinaten bezeichnet die radiale Koordinate $r$ eine Kugeloberfläche. In \textsc{Great}-Koordinaten bezeichnet die Radialkoordinate $R$ ein bestimmtes Ellipsoid, $R$ wurde bereits als Äquatorradius des entsprechenden Ellipsoids eingeführt. Dies ist die Vertikalkoordinate im \textsc{Great}-System.
 
 \subsection{Zonale Koordinate}
-\label{sec:zonale_koordinate}\index{GREAT-Koordinaten!zonale Koordinate}
+\label{sec:zonale_koordinate}\index{\textsc{Great}-Koordinaten!zonale Koordinate}
 
 Die zonale Koordinate $\lambda$ eines Ortes $\mathbf{r}$ ist der Winkel, um den man die xz-Ebene um die z-Achse drehen muss, bis $\mathbf{r}$ in dieser Ebene liegt. Dies ist analog zum Azimuthwinkel in gewöhnlichen Kugelkoordinaten.
 
 \subsection{Meridionale Koordinate}
-\label{sec:meridionale_koordinate}\index{GREAT-Koordinaten!meridionale Koordinate}
+\label{sec:meridionale_koordinate}\index{\textsc{Great}-Koordinaten!meridionale Koordinate}
 
 Um die Konsistenz mit Messdaten zu gewährleisten, wird als meridionale Koordinate die geographische Breite $\varphi$ gewählt. Die geographische Breite eines Punktes $\mathbf{r}$ außerhalb der Erde findet man wie folgt:
 %
@@ -22533,10 +22568,10 @@ Um die Konsistenz mit Messdaten zu gewährleisten, wird als meridionale Koordina
 \item Verfolge die Gerade $\mathbf{g}$ bis zu ihrem Schnittpunkt $\mathbf{r}_0$ mit der xy-Ebene der globalen Koordinaten. Der Winkel, den $\mathbf{r}_0$ mit der xy-Ebene einschließt, ist die geographische Breite $\varphi$.
 \end{itemize}
 %
-\subsection{Metrische Faktoren}
-\label{sec:metrische_faktoren}\index{GREAT-Koordinaten!metrische Faktoren}
+\subsection{Metrischer Tensor}
+\label{sec:metrischer_tensor}\index{\textsc{Great}-Koordinaten!metrischer Tensor}
 
-Um die herrschenden Gleichungen in GREAT-Koordinaten ausdrücken zu können, müssen die Differenzialoperatoren durch partielle Ableitungen nach $\varphi, \lambda, R$ ausgedrückt werden. Hierzu muss zunächst einige Vorarbeit geleistet werden. Sei also ein Punkt $\mathbf{r} = \left(x, y, z\right)^T$ in globalen Koordinaten gegeben, $\mathbf{r}$ habe die GREAT-Koordinaten $\left(R, \varphi, \lambda\right)$. Die Transformation sämtlicher Differenzialoperatoren beruht auf den metrischen Faktoren $h_\lambda, h_\varphi, h_R>0$, definiert durch
+Um die herrschenden Gleichungen in \textsc{Great}-Koordinaten ausdrücken zu können, müssen die Differenzialoperatoren durch partielle Ableitungen nach $\varphi, \lambda, R$ ausgedrückt werden. Hierzu muss zunächst einige Vorarbeit geleistet werden. Sei also ein Punkt $\mathbf{r} = \left(x, y, z\right)^T$ in globalen Koordinaten gegeben, $\mathbf{r}$ habe die \textsc{Great}-Koordinaten $\left(R, \varphi, \lambda\right)$. Die Transformation sämtlicher Differenzialoperatoren beruht auf den metrischen Faktoren $h_\lambda, h_\varphi, h_R>0$, definiert durch
 %
 \begin{eqnarray}
 h_\lambda^2 & = & \left(\frac{\partial x}{\partial\lambda}\right)^2 + \left(\frac{\partial y}{\partial\lambda}\right)^2 + \left(\frac{\partial z}{\partial\lambda}\right)^2,\\
@@ -22710,11 +22745,25 @@ Somit folgt
 \begin{eqnarray}
 h_\lambda = \sqrt{\left(\frac{\partial x}{\partial \lambda}\right)^2 + \left(\frac{\partial y}{\partial \lambda}\right)^2} = \sqrt{x^2 + y^2}.
 \end{eqnarray}
-%
-\subsection{Transformation von GREAT-Koordinaten in globale Koordinaten}
-\label{sec:transformation_von_greatKoordinaten_in_globale_koordinaten}\index{GREAT-Koordinaten!Transformation}
 
-Sei ein Punkt $\mathbf{r}$ mit den GREAT-Koordinaten $\left(R, \varphi, \lambda\right)$ gegeben. Man möchte die globalen Koordinaten $\left(x, y, z\right)^T$ dieses Punktes bestimmen. Nehme zunächst $\lambda = 0$ an. Quadriert man Glg. \eqref{eq:great_deriv_2}, erhält man
+\subsection{Rotation in \textsc{Great}-Koordinaten}
+\label{sec:rotation_in_great-koordinaten}\index{Rotation!\textsc{Great}-Koordinaten}\index{\textsc{Great}-Koordinaten!Rotation}
+
+\subsubsection{Lamb-Transformation in \textsc{Great}-Koordinaten}
+\label{sec:lamb-transformation_in_great-koordinaten}\index{Lamb-Transformation!\textsc{Great}-Koordinaten}\index{\textsc{Great}-Koordinaten!Lamb-Transformation}
+
+Die Impulsadvektion\index{Impulsadvektion} kann laut Glg. \eqref{eq:diff_op_rule_10} in der Form
+%
+\begin{eqnarray}
+-\left(\mathbf{v}\cdot\nabla\right)\mathbf{v} = -\nabla k - \left(\nabla\times\mathbf{v}\right)\times\mathbf{v}
+\end{eqnarray}
+%
+notiert werden, hierbei ist $k = \frac{1}{2}\mathbf{v}\cdot\mathbf{v}$ die spezifische kinetische Energie\index{spezifische kinetische Energie}\index{kinetische Energie!spezifische}\index{Energie!kinetische!spezifische}. Da die \textsc{Great}-Koordinaten orthogonal sind, müssen das Skalarprodukt, der Gradient und das Vektorprodukt nicht weiter transformiert werden. 
+
+\subsection{Transformation von \textsc{Great}-Koordinaten in globale Koordinaten}
+\label{sec:transformation_von_greatKoordinaten_in_globale_koordinaten}\index{\textsc{Great}-Koordinaten!Transformation}
+
+Sei ein Punkt $\mathbf{r}$ mit den \textsc{Great}-Koordinaten $\left(R, \varphi, \lambda\right)$ gegeben. Man möchte die globalen Koordinaten $\left(x, y, z\right)^T$ dieses Punktes bestimmen. Nehme zunächst $\lambda = 0$ an. Quadriert man Glg. \eqref{eq:great_deriv_2}, erhält man
 %
 \begin{eqnarray}
 z^2 = D\left(\varphi\right)^2\left(x^2\right)^{1 + \mu}\exp\left[\nu\left(x^2 + z^2\right)\right].
@@ -22732,17 +22781,19 @@ Diese Gleichung ist implizit und daher iterativ zu lösen. $D\left(\varphi\right
 x^2\to r_\perp^2
 \end{eqnarray}
 %
-zu ersetzen, sodass man erhält
+zu ersetzen, sodass man
 %
 \begin{eqnarray}
 x & = & r_\perp\cos\left(\lambda\right),\\
-y & = & r_\perp\sin\left(\lambda\right).
+y & = & r_\perp\sin\left(\lambda\right)
 \end{eqnarray}
 %
-\subsection{Transformation von globalen Koordinaten in GREAT-Koordinaten}
-\label{sec:transformation_von_globalen_Koordinaten_in_greatkoordinaten}\index{GREAT-Koordinaten!Transformation}
+erhält.
 
-Sei ein Punkt $\mathbf{r}$ mit den globalen Koordinaten $\left(x, y, z\right)^T$ gegeben, und man möchte die GREAT-Koordinaten $\left(R, \varphi, \lambda\right)$ von $\mathbf{r}$ bestimmen. Notiert man Glg. \eqref{eq:great_senkr_traj_deriv_5} mit den Ersetzungen Glg.en \eqref{eq:great_skal_1} - \eqref{eq:great_skal_4}, erhält man
+\subsection{Transformation von globalen Koordinaten in \textsc{Great}-Koordinaten}
+\label{sec:transformation_von_globalen_Koordinaten_in_greatkoordinaten}\index{\textsc{Great}-Koordinaten!Transformation}
+
+Sei ein Punkt $\mathbf{r}$ mit den globalen Koordinaten $\left(x, y, z\right)^T$ gegeben, und man möchte die \textsc{Great}-Koordinaten $\left(R, \varphi, \lambda\right)$ von $\mathbf{r}$ bestimmen. Notiert man Glg. \eqref{eq:great_senkr_traj_deriv_5} mit den Ersetzungen Glg.en \eqref{eq:great_skal_1} - \eqref{eq:great_skal_4}, erhält man
 %
 \begin{eqnarray}
 R^2 = \frac{x^2 + y^2 + \left(1 + \mu\right)z^2}{1 - \nu z^2}.
@@ -22887,9 +22938,6 @@ Somit erhält man
 \end{eqnarray}
 %
 Die Transformation der Differenzialoperatoren kann nun durchgeführt werden. Dies wird hier jedoch nicht mehr gemacht, da analytische Rechnungen in Kugelkoordinaten vorgenommen werden und es für die Transformation der Differenzialoperatoren auf das Modellgitter auch nicht in Gänze benötigt wird.
-
-\subsection{Lamb-Transformation in GREAT-Koordinaten}
-\label{sec:lamb-transformation_in_great-koordinaten}\index{Lamb-Transformation!GREAT-Koordinaten}\index{GREAT-Koordinaten!Lamb-Transformation}
 
 \section{Ellipsoidische Geometrie}
 \label{sec:ellipsoidische_geometrie}\index{ellipsoidische Geometrie}\index{Geometrie!ellipsoidische}
