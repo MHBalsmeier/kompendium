@@ -15457,7 +15457,7 @@ verwendet. Hierbei sind $\mathbf{r}$ ein zweidimensionaler Ortsvektor und $\math
 verwendet, hierbei ist $D$ die mittlere Wassertiefe (Wassertiefe ohne Wellen). Hieraus folgen
 %
 \begin{eqnarray}
-c_\text{ph} & = & \frac{\omega}{k} = \sqrt{\frac{g\tanh\left(kD\right)}{k}}
+c_\text{ph} & = & \frac{\omega}{k} = \sqrt{\frac{g\tanh\left(kD\right)}{k}},\\
 c_\text{gr} & = & \frac{1}{2\omega}\frac{\partial\omega^2}{\partial k} = \frac{1}{2\omega}\left[g\tanh\left(kD\right) + \frac{gkD}{\cosh^2\left(kD\right)}\right] = \frac{g\tanh\left(kD\right)}{2\omega}\left[1 + \frac{kD}{\sinh\left(kD\right)\cosh\left(kD\right)}\right]\nonumber\\
 & = & \frac{c_\text{ph}}{2}\left[1 + \frac{2kD}{2\sinh\left(kD\right)\cosh\left(kD\right)}\right] = \frac{c_\text{ph}}{2}\left[1 + \frac{2kD}{\sinh\left(2kD\right)}\right].
 \end{eqnarray}
@@ -15487,7 +15487,8 @@ herleiten, hierbei ist $\mathbf{v} = \mathbf{v}\left(\mathbf{r}, t\right)$ die S
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{eqnarray}
-	\frac{\partial N}{\partial t} + \nabla\cdot\left(N\left(\mathbf{r}, \mathbf{k}, t\right)c_\text{gr}\left(\mathbf{r}, \mathbf{k}\right)\right) = S_\text{nl}\left(\mathbf{r}, \mathbf{k}, t\right) + S_\text{ws}\left(\mathbf{r}, \mathbf{k}, t\right) + S_\text{wc}\left(\mathbf{r}, \mathbf{k}, t\right) + S_\text{diss}\left(\mathbf{r}, \mathbf{k}, t\right) + S_\text{bd}\left(\mathbf{r}, \mathbf{k}, t\right)\label{eq:rte_water_surface}
+\frac{\partial N}{\partial t} + \nabla\cdot\left(N\left(\mathbf{r}, \mathbf{k}, t\right)c_\text{gr}\left(\mathbf{r}, \mathbf{k}\right)\right) & = & S_\text{nl}\left(\mathbf{r}, \mathbf{k}, t\right) + S_\text{ws}\left(\mathbf{r}, \mathbf{k}, t\right) + S_\text{wc}\left(\mathbf{r}, \mathbf{k}, t\right)\nonumber\\
+&&  + S_\text{diss}\left(\mathbf{r}, \mathbf{k}, t\right) + S_\text{bd}\left(\mathbf{r}, \mathbf{k}, t\right)\label{eq:rte_water_surface}
 \end{eqnarray}
 \end{center}
 }}
