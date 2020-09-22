@@ -15424,6 +15424,9 @@ wobei sich willkürlich auf das negative Vorzeichen in der Exponentialfunktion\i
 \section{Seegangsvorhersage}
 \label{sec:seegangsvorhersage}\index{Seegangsvorhersage}
 
+\subsection{Prognostische Variablen}
+\label{sec:prognostische_variablen_seegangsvorhersage}\index{prognostische Variable!Seegangsvorhersage}\index{Variable!prognostische!Seegangsvorhersage}\index{Seegangsvorhersage!prognostische Variablen}
+
 \textit{Seegang}\index{Seegang} ist ein anderes Wort für Wasseroberflächenwellen\index{Wasseroberflächenwelle}. Die prognostische Variable\index{prognostische Variable}\index{Variable!prognostische}, auf die dabei abgezielt wird, ist die Auslenkung der Wasseroberfläche
 %
 \begin{eqnarray}
@@ -15467,7 +15470,12 @@ Die Gruppengeschwindigkeit wird als isotrop, aber nicht als homogen vorausgesetz
 c_\text{gr} = c_\text{gr}\left(\mathbf{k}\right),
 \end{eqnarray}
 %
-die Ortsabhängigkeit entsteht übder die Ortsabhängigkeit von $D$. Hieraus kann man eine spektrale Strahlungsflussdichte\index{spektrale Strahlungsflussdichte}\index{Strahlungsflussdicte!spektrale}
+die Ortsabhängigkeit entsteht übder die Ortsabhängigkeit von $D$.
+
+\subsection{Wave action equation}
+\label{sec:wave_action_equation}\index{wave action equation}
+
+Hieraus kann man eine spektrale Strahlungsflussdichte\index{spektrale Strahlungsflussdichte}\index{Strahlungsflussdicte!spektrale}
 %
 \begin{eqnarray}
 N\left(\mathbf{r}, \mathbf{k}, t\right)c_\text{gr}\left(\mathbf{r}, \mathbf{k}\right)
@@ -15475,9 +15483,15 @@ N\left(\mathbf{r}, \mathbf{k}, t\right)c_\text{gr}\left(\mathbf{r}, \mathbf{k}\r
 %
 herleiten. Die Strahlungsübertragungsgleichung\index{Strahlungsübertragungsgleichung} ist eine Art Kontinuitätsgleichung für $N$, was konzeptionell mit der Energieerhaltung\index{Energieerhaltung} zusammenhängt:
 %
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 \begin{eqnarray}
 	\frac{\partial N}{\partial t} + \nabla\cdot\left(N\left(\mathbf{r}, \mathbf{k}, t\right)c_\text{gr}\left(\mathbf{r}, \mathbf{k}\right)\right) = S_\text{nl}\left(\mathbf{r}, \mathbf{k}, t\right) + S_\text{ws}\left(\mathbf{r}, \mathbf{k}, t\right) + S_\text{wc}\left(\mathbf{r}, \mathbf{k}, t\right) + S_\text{diss}\left(\mathbf{r}, \mathbf{k}, t\right) + S_\text{bd}\left(\mathbf{r}, \mathbf{k}, t\right)\label{eq:rte_water_surface}
 \end{eqnarray}
+\end{center}
+}}
+\end{center}
 %
 Hierbei wurden fünf zusätzliche Quellterme\index{Quellterm} aufgenommen:
 %
@@ -15489,7 +15503,7 @@ Hierbei wurden fünf zusätzliche Quellterme\index{Quellterm} aufgenommen:
 	\item $S_\text{bd}\left(\mathbf{r}, \mathbf{k}, t\right)$ ist die Energiequelle, die aus der Wechselwirkung mit der Bathymetrie\index{Bathymetrie} \textit{(bottom drag)}\index{bottom drag} zusammenhängt, auch dies ist ein dissipativer\index{Dissipation} und somit üblicherweise negativer Term.
 \end{itemize}
 %
-Abhängig von der konkreten Situation können weitere Quellterme\index{Quellterm} aufgenommen werden.
+Abhängig von der konkreten Situation können weitere Quellterme\index{Quellterm} aufgenommen werden. Glg. \eqref{eq:rte_water_surface} bezeichnet man auch als \textit{wave action equation}\index{wave action equation}.
 
 \subsection{Seegangsvorhersagemodelle}
 \label{sec:seegangsvorhersagemodelle}\index{Seegangsvorhersagemodelle}
