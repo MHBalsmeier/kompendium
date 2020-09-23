@@ -14990,8 +14990,8 @@ Dabei ist der horizontale Diffusionskoeffizient größer als der vertikale.
 \section{Turbulenzspektren}
 \label{sec:turbulenzspektren}\index{Turbulenzspektrum}
 
-\subsection{Spektralform der inkompressiblen Impulsgleichung}
-\label{sec:spektralform_der_inkompressiblen_impulsgleichung}\index{Impulsgleichung!inkompressible!Spektralform}\index{Spektralform der inkompressiblen Impulsgleichung}
+\subsection{Spektralform der Navier-Stokes-Gleichungen}
+\label{sec:spektralform_der_navier-stokes-gleichungen}\index{Navier-Stokes-Gleichungen!Spektralform}\index{Spektralform der Navier-Stokes-Gleichungen}
 
 Für die Fourier-Transformation\index{Fourier-Transformation} $\newtilde{\mathbf{v}}\left(\mathbf{k}, t\right)$ eines Geschwindigkeitsfeldes $\mathbf{v} = \mathbf{v}\left(\mathbf{r}, t\right)$ gilt
 %
@@ -15058,9 +15058,15 @@ Aus der inkompressiblen Kontinuitätsgleichung\index{inkompressiblen Kontinuitä
 %
 folgt
 %
+\begin{center}
+\doublebox{\parbox{\textwidth}{
+\begin{center}
 \begin{eqnarray}
 \mathbf{k}\cdot\newtilde{\mathbf{v}}\left(\mathbf{k}, t\right) = 0.\label{eq:cont_incom_spec}
 \end{eqnarray}
+\end{center}
+}}
+\end{center}
 %
 Damit erhält man
 %
@@ -15120,14 +15126,20 @@ Addiert man die Glg.en \eqref{eq:deriv_turbulence_spec_1} und \eqref{eq:deriv_tu
 %
 \begin{eqnarray}
 &&\left(\frac{\partial}{\partial t} + 2\nu\mathbf{k}^2\right)\newtilde{e}\left(\mathbf{k}, t\right)\nonumber\\
-& = & \frac{i}{2}\int\left\{\left[\newtilde{\mathbf{v}}\left(\mathbf{k}', t\right)\cdot\mathbf{k}\right]\left[\newtilde{\mathbf{v}}\left(\mathbf{k}, t\right)\cdot\newtilde{\mathbf{v}}\left(-\mathbf{k} - \mathbf{k}', t\right)\right] - \left[\newtilde{\mathbf{v}}\left(\mathbf{k}', t\right)\cdot\mathbf{k}\right]\left[\newtilde{\mathbf{v}}\left(-\mathbf{k}, t\right)\cdot\newtilde{\mathbf{v}}\left(\mathbf{k} - \mathbf{k}', t\right)\right]\right\}d^3k'.
+& = & \frac{i}{2}\int\left\{\left[\newtilde{\mathbf{v}}\left(\mathbf{k}', t\right)\cdot\mathbf{k}\right]\left[\newtilde{\mathbf{v}}\left(\mathbf{k}, t\right)\cdot\newtilde{\mathbf{v}}\left(-\mathbf{k} - \mathbf{k}', t\right)\right]d^3k' - \frac{i}{2}\int\left[\newtilde{\mathbf{v}}\left(\mathbf{k}', t\right)\cdot\mathbf{k}\right]\left[\newtilde{\mathbf{v}}\left(-\mathbf{k}, t\right)\cdot\newtilde{\mathbf{v}}\left(\mathbf{k} - \mathbf{k}', t\right)\right]\right\}d^3k'.
 \end{eqnarray}
 %
-Man definiert die \textit{Energie-Transfer-Funktion}\index{Energie-Transfer-Funktion} $W = W\left(\mathbf{k}, \mathbf{k}', t\right)$ durch
+Substituiert man im ersten Integral mit $\mathbf{f}\left(\mathbf{k}'\right) = \mathbf{k}' - \mathbf{k}$ und im zweiten Integral mit $\mathbf{f}\left(\mathbf{k}'\right) = \mathbf{k} - \mathbf{k}'$, erhält man
 %
 \begin{eqnarray}
-W\left(\mathbf{k}, \mathbf{k}', t\right) & = & \frac{i}{2}\left\{\left[\newtilde{\mathbf{v}}\left(\mathbf{k}', t\right)\cdot\mathbf{k}\right]\left[\newtilde{\mathbf{v}}\left(\mathbf{k}, t\right)\cdot\newtilde{\mathbf{v}}\left(-\mathbf{k} - \mathbf{k}', t\right)\right] - \left[\newtilde{\mathbf{v}}\left(\mathbf{k}', t\right)\cdot\mathbf{k}\right]\left[\newtilde{\mathbf{v}}\left(-\mathbf{k}, t\right)\cdot\newtilde{\mathbf{v}}\left(\mathbf{k} - \mathbf{k}', t\right)\right]\right\}\nonumber\\
-& = & i\frac{\newtilde{\mathbf{v}}\left(\mathbf{k}', t\right)\cdot\mathbf{k}}{2}\left[\newtilde{\mathbf{v}}\left(\mathbf{k}, t\right)\cdot\newtilde{\mathbf{v}}\left(-\mathbf{k} - \mathbf{k}', t\right) - \newtilde{\mathbf{v}}\left(-\mathbf{k}, t\right)\cdot\newtilde{\mathbf{v}}\left(\mathbf{k} - \mathbf{k}', t\right)\right].
+&&\left(\frac{\partial}{\partial t} + 2\nu\mathbf{k}^2\right)\newtilde{e}\left(\mathbf{k}, t\right)\nonumber\\
+& = & \frac{i}{2}\int\left\{\left[\newtilde{\mathbf{v}}\left(\mathbf{k}' - \mathbf{k}, t\right)\cdot\mathbf{k}\right]\left[\newtilde{\mathbf{v}}\left(\mathbf{k}, t\right)\cdot\newtilde{\mathbf{v}}\left(-\mathbf{k}', t\right)\right] - \left[\newtilde{\mathbf{v}}\left(\mathbf{k} - \mathbf{k}', t\right)\cdot\mathbf{k}\right]\left[\newtilde{\mathbf{v}}\left(-\mathbf{k}, t\right)\cdot\newtilde{\mathbf{v}}\left(\mathbf{k}', t\right)\right]\right\}d^3k'.
+\end{eqnarray}
+%
+Im zweiten Integral sei darauf hingewiesen, dass sich das Minuszeichen, welches aus dem Vertausch der Integrationsgrenzen folgt, mit demjenigen aufhebt, welches sich aus der Ableitung der substituierten Funktion ergibt. Man definiert die \textit{Energie-Transfer-Funktion}\index{Energie-Transfer-Funktion} $W = W\left(\mathbf{k}, \mathbf{k}', t\right)$ durch
+%
+\begin{eqnarray}
+W\left(\mathbf{k}, \mathbf{k}', t\right) & = & \frac{i\mathbf{k}}{2}\cdot\left\{\newtilde{\mathbf{v}}\left(\mathbf{k}' - \mathbf{k}, t\right)\left[\newtilde{\mathbf{v}}\left(\mathbf{k}, t\right)\cdot\newtilde{\mathbf{v}}\left(-\mathbf{k}', t\right)\right] - \newtilde{\mathbf{v}}\left(\mathbf{k} - \mathbf{k}', t\right)\left[\newtilde{\mathbf{v}}\left(-\mathbf{k}, t\right)\cdot\newtilde{\mathbf{v}}\left(\mathbf{k}', t\right)\right]\right\}.\label{eq:def_energy_tranfer_function}
 \end{eqnarray}
 %
 Damit erhält man die Bilanzgleichung der kinetischen Energie in spektraler Form\index{Bilanzgleichung!kinetische Energie}\index{kinetische Energie!Bilanzgleichung}\index{Energie!kinetische!Bilanzgleichung}
@@ -15142,7 +15154,39 @@ Damit erhält man die Bilanzgleichung der kinetischen Energie in spektraler Form
 }}
 \end{center}
 %
-Hieraus wird ersichtlich, dass die Reibung $\propto\frac{1}{L^2}$ skalensensitiv ist und in jedem Fall die spektrale spezifische kinetische Energie reduziert.
+Hieraus wird ersichtlich, dass die Reibung $\propto\frac{1}{L^2}$ skalensensitiv ist und in jedem Fall die spektrale spezifische kinetische Energie reduziert. Für die Energie-Transfer-Funktion\index{Energie-Transfer-Funktion} gilt
+%
+\begin{eqnarray}
+W\left(\mathbf{k}', \mathbf{k}, t\right) & = & \frac{i\mathbf{k}'}{2}\cdot\left\{\newtilde{\mathbf{v}}\left(\mathbf{k} - \mathbf{k}', t\right)\left[\newtilde{\mathbf{v}}\left(\mathbf{k}', t\right)\cdot\newtilde{\mathbf{v}}\left(-\mathbf{k}, t\right)\right] - \newtilde{\mathbf{v}}\left(\mathbf{k}' - \mathbf{k}, t\right)\left[\newtilde{\mathbf{v}}\left(-\mathbf{k}', t\right)\cdot\newtilde{\mathbf{v}}\left(\mathbf{k}, t\right)\right]\right\}\nonumber\\
+& = & -\frac{i\mathbf{k}'}{2}\cdot\left\{\newtilde{\mathbf{v}}\left(\mathbf{k}' - \mathbf{k}, t\right)\left[\newtilde{\mathbf{v}}\left(-\mathbf{k}', t\right)\cdot\newtilde{\mathbf{v}}\left(\mathbf{k}, t\right)\right] - \newtilde{\mathbf{v}}\left(\mathbf{k} - \mathbf{k}', t\right)\left[\newtilde{\mathbf{v}}\left(\mathbf{k}', t\right)\cdot\newtilde{\mathbf{v}}\left(-\mathbf{k}, t\right)\right]\right\}\nonumber\\
+& = & -\frac{i\mathbf{k}'}{2}\cdot\left\{\newtilde{\mathbf{v}}\left(\mathbf{k}' - \mathbf{k}, t\right)\left[\newtilde{\mathbf{v}}\left(\mathbf{k}, t\right)\cdot\newtilde{\mathbf{v}}\left(-\mathbf{k}', t\right)\right] - \newtilde{\mathbf{v}}\left(\mathbf{k} - \mathbf{k}', t\right)\left[\newtilde{\mathbf{v}}\left(-\mathbf{k}, t\right)\cdot\newtilde{\mathbf{v}}\left(\mathbf{k}', t\right)\right]\right\}
+\end{eqnarray}
+%
+Hieraus folgt
+%
+\begin{eqnarray}
+&& W\left(\mathbf{k}', \mathbf{k}, t\right) + W\left(\mathbf{k}, \mathbf{k}', t\right)\nonumber\\
+& = & \frac{i\mathbf{k}}{2}\cdot\left\{\newtilde{\mathbf{v}}\left(\mathbf{k}' - \mathbf{k}, t\right)\left[\newtilde{\mathbf{v}}\left(\mathbf{k}, t\right)\cdot\newtilde{\mathbf{v}}\left(-\mathbf{k}', t\right)\right] - \newtilde{\mathbf{v}}\left(\mathbf{k} - \mathbf{k}', t\right)\left[\newtilde{\mathbf{v}}\left(-\mathbf{k}, t\right)\cdot\newtilde{\mathbf{v}}\left(\mathbf{k}', t\right)\right]\right\}\nonumber\\
+&& - \frac{i\mathbf{k}'}{2}\cdot\left\{\newtilde{\mathbf{v}}\left(\mathbf{k}' - \mathbf{k}, t\right)\left[\newtilde{\mathbf{v}}\left(\mathbf{k}, t\right)\cdot\newtilde{\mathbf{v}}\left(-\mathbf{k}', t\right)\right] - \newtilde{\mathbf{v}}\left(\mathbf{k} - \mathbf{k}', t\right)\left[\newtilde{\mathbf{v}}\left(-\mathbf{k}, t\right)\cdot\newtilde{\mathbf{v}}\left(\mathbf{k}', t\right)\right]\right\}\nonumber\\
+& = & \frac{i}{2}\left[\newtilde{\mathbf{v}}\left(\mathbf{k}, t\right)\cdot\newtilde{\mathbf{v}}\left(-\mathbf{k}', t\right)\right]\newtilde{\mathbf{v}}\left(\mathbf{k}' - \mathbf{k}, t\right)\cdot\left(\mathbf{k} - \mathbf{k}'\right)\nonumber\\
+&& -\frac{i}{2}\left[\newtilde{\mathbf{v}}\left(-\mathbf{k}, t\right)\cdot\newtilde{\mathbf{v}}\left(\mathbf{k}', t\right)\right]\newtilde{\mathbf{v}}\left(\mathbf{k} - \mathbf{k}', t\right)\cdot\left(\mathbf{k} - \mathbf{k}'\right)\nonumber\\
+& \stackrel{\text{Glg. \eqref{eq:cont_incom_spec}}}{=} & 0.
+\end{eqnarray}
+%
+Die Energie-Transfer-Funktion ist also antisymmetrisch\index{Energie-Transfer-Funktion!Antisymmetrie}\index{Antisymmetrie der Energie-Transfer-Funktion}:
+%
+\begin{center}
+\doublebox{\parbox{\textwidth}{
+\begin{center}
+\begin{eqnarray}
+W\left(k, k', t\right) = -W\left(k, k', t\right)\label{eq:energy_tranfer_function_antisymmetric}
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
+%
+Dies hängt mit der Energieerhaltung\index{Energieerhaltung} zusammen: Der Energiegewinn der Komponente $\mathbf{k}$ auf Kosten der Komponente $\mathbf{k}'$ ist gleich dem Energieverlust der Komponente $\mathbf{k}'$ aufgrund der Komponente $\mathbf{k}$.
+
 \subsubsection{Isotrope Form}
 \label{sec:isotrope_form}\index{isotrope Form der Energie-Transfer-Funktion}\index{Energie-Transfer-Funktion!isotrope Form}
 
@@ -15168,8 +15212,8 @@ Dabei wurde für die Geometrie der Kugelkoordinaten korrigiert. Somit wird Glg. 
 }}
 \end{center}
 
-\subsection{Heisenberg-Konstante}
-\label{sec:heisenberg-konstante}\index{Heisenberg-Konstante}
+\subsection{Heisenberg-Ansatz}
+\label{sec:heisenberg-ansatz}\index{Heisenberg-Ansatz}
 
 
 
