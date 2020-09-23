@@ -15005,10 +15005,10 @@ Die inverse Fourier-Transformation\index{inverse Fourier-Transformation}\index{F
 \mathbf{v}\left(\mathbf{r}, t\right) = \newtilde{C}^3\int_{\mathbb{R}^3}\newtilde{\mathbf{v}}\left(\mathbf{k}, t\right)\exp\left(i\mathbf{k}\cdot\mathbf{r}\right)d^3k.
 \end{eqnarray}
 %
-Man setzt an dieser Stelle $\newtilde{C} = 1$ an, um die Notation abzukürzen und vernachlässigt das $\mathbb{R}^3$ am Integral. Die inkompressible Impulsgleichung lautet
+Man setzt an dieser Stelle $\newtilde{C} = 1 \stackrel{\text{Glg. \eqref{eq:ft_norm}}}{\Leftrightarrow} C = \frac{1}{2\pi}$ an, um die Notation abzukürzen und vernachlässigt das $\mathbb{R}^3$ am Integral. Die inkompressible Impulsgleichung lautet
 %
 \begin{eqnarray}
-\frac{\partial\mathbf{v}}{\partial t} = -\nabla\pi - \nabla\varphi - \frac{1}{2}\nabla\mathbf{v}^2 + \mathbf{v}\times\left(\nabla\times\mathbf{v}\right) + \nu\Delta\mathbf{v},
+\frac{\partial\mathbf{v}}{\partial t} = -\nabla\pi - \nabla\varphi - \left(\mathbf{v}\cdot\nabla\right)\mathbf{v} + \nu\Delta\mathbf{v},
 \end{eqnarray}
 %
 wobei die Abkürzung
@@ -15033,71 +15033,21 @@ Weiterhin gilt für die Anwendung der Differentialoperatoren auf die Felder
 \Delta\mathbf{v} & = & -\int\mathbf{k}^2\newtilde{\mathbf{v}}\left(\mathbf{k}, t\right)\exp\left(i\mathbf{k}\cdot\mathbf{r}\right)d^3k.
 \end{eqnarray}
 %
-Für die kinetische Energie\index{kinetische Energie}\index{Energie!kinetische} gilt
+Für die Impulsadvektion\index{Impulsadvektion} gilt
 %
 \begin{eqnarray}
-\frac{1}{2}\mathbf{v}^2 & = & \frac{1}{2}\int\newtilde{\mathbf{v}}\left(\mathbf{k}, t\right)\exp\left(i\mathbf{k}\cdot\mathbf{r}\right)d^3k\cdot\int\newtilde{\mathbf{v}}\left(\mathbf{k}', t\right)\exp\left(i\mathbf{k}'\cdot\mathbf{r}\right)d^3k'\nonumber\\
-& = & \frac{1}{2}\int\int\newtilde{\mathbf{v}}\left(\mathbf{k}, t\right)\cdot\newtilde{\mathbf{v}}\left(\mathbf{k}', t\right)\exp\left[i\left(\mathbf{k} + \mathbf{k}'\right)\cdot\mathbf{r}\right]d^3k'd^3k.
+\left(\mathbf{v}\cdot\nabla\right)\mathbf{v} & = & \left(\int\newtilde{\mathbf{v}}\left(\mathbf{k}, t\right)\exp\left(i\mathbf{k}\cdot\mathbf{r}\right)d^3k\cdot\nabla\right)\int\newtilde{\mathbf{v}}\left(\mathbf{k}, t\right)\exp\left(i\mathbf{k}\cdot\mathbf{r}\right)d^3k\nonumber\\
+& = & \left(\int\newtilde{\mathbf{v}}\left(\mathbf{k}', t\right)\exp\left(i\mathbf{k}'\cdot\mathbf{r}\right)d^3k'\cdot\nabla\right)\int\newtilde{\mathbf{v}}\left(\mathbf{k}'', t\right)\exp\left(i\mathbf{k}''\cdot\mathbf{r}\right)d^3k''\nonumber\\
+& = & \int\int\exp\left(i\mathbf{k}'\cdot\mathbf{r}\right)\left[\newtilde{\mathbf{v}}\left(\mathbf{k}', t\right)\cdot\nabla\right]\left[\newtilde{\mathbf{v}}\left(\mathbf{k}'', t\right)\exp\left(i\mathbf{k}''\cdot\mathbf{r}\right)\right]d^3k'd^3k''\nonumber\\
+& = & i\int\int\left[\newtilde{\mathbf{v}}\left(\mathbf{k}', t\right)\cdot\mathbf{k}''\right]\newtilde{\mathbf{v}}\left(\mathbf{k}'', t\right)\exp\left[i\left(\mathbf{k}' + \mathbf{k}''\right)\cdot\mathbf{r}\right]d^3k'd^3k''.
 \end{eqnarray}
 %
-Für den Gradienten dieser Größe erhält man
+Dies impliziert
 %
 \begin{eqnarray}
--\frac{1}{2}\nabla\mathbf{v}^2 & = & -\frac{i}{2}\int\int\newtilde{\mathbf{v}}\left(\mathbf{k}, t\right)\cdot\newtilde{\mathbf{v}}\left(\mathbf{k}', t\right)\left(\mathbf{k} + \mathbf{k}'\right)\exp\left[i\left(\mathbf{k} + \mathbf{k}'\right)\cdot\mathbf{r}\right]d^3k'd^3k.
-\end{eqnarray}
-%
-Für die Rotation gilt
-%
-\begin{eqnarray}
-\nabla\times\mathbf{v} & = & \nabla\times\int\newtilde{\mathbf{v}}\left(\mathbf{k}', t\right)\exp\left(i\mathbf{k}'\cdot\mathbf{r}\right)d^3k' = \int\nabla\times\left[\newtilde{\mathbf{v}}\left(\mathbf{k}', t\right)\exp\left(i\mathbf{k}'\cdot\mathbf{r}\right)\right]d^3k'\nonumber\\
-& = & i\int\left[\mathbf{k}'\times\newtilde{\mathbf{v}}\left(\mathbf{k}', t\right)\right]\exp\left(i\mathbf{k}'\cdot\mathbf{r}\right)d^3k'.
-\end{eqnarray}
-%
-Somit gilt für den Rotationsanteil der Advektion
-%
-\begin{eqnarray}
-\mathbf{v}\times\left(\nabla\times\mathbf{v}\right) & = & \mathbf{v}\times i\int\left[\mathbf{k}'\times\newtilde{\mathbf{v}}\left(\mathbf{k}', t\right)\right]\exp\left(i\mathbf{k}'\cdot\mathbf{r}\right)d^3k'\nonumber\\
-& = & \int\newtilde{\mathbf{v}}\left(\mathbf{k}, t\right)\exp\left(i\mathbf{k}\cdot\mathbf{r}\right)d^3k\times i\int\left[\mathbf{k}'\times\newtilde{\mathbf{v}}\left(\mathbf{k}', t\right)\right]\exp\left(i\mathbf{k}'\cdot\mathbf{r}\right)d^3k'\nonumber\\
-& = & i\int\int\newtilde{\mathbf{v}}\left(\mathbf{k}, t\right)\times\left[\mathbf{k}'\times\newtilde{\mathbf{v}}\left(\mathbf{k}', t\right)\right]\exp\left[i\left(\mathbf{k} + \mathbf{k}'\right)\cdot\mathbf{r}\right]d^3k'd^3k.
-\end{eqnarray}
-%
-Aus den bisherigen Rechnungen kann man die Entwicklung der Impulsgleichung bezüglich ebener Wellen\index{Impulsgleichung!Entwicklung nach ebenen Wellen} zusammensetzen:
-%
-\begin{eqnarray}
-&& \int\left(\frac{\partial}{\partial t} + \nu\mathbf{k}^2\right)\newtilde{\mathbf{v}}\left(\mathbf{k}, t\right)\exp\left(i\mathbf{k}\cdot\mathbf{r}\right)d^3k = \nonumber\\
-& = & \int\Big[-i\mathbf{k}\newtilde{\pi}\left(\mathbf{k}, t\right) - i\mathbf{k}\newtilde{\varphi}\left(\mathbf{k}\right) + i\int\left\{-\frac{\newtilde{\mathbf{v}}\left(\mathbf{k}, t\right)\cdot\newtilde{\mathbf{v}}\left(\mathbf{k}', t\right)}{2}\left(\mathbf{k} + \mathbf{k}'\right) + \newtilde{\mathbf{v}}\left(\mathbf{k}, t\right)\times\left[\mathbf{k}'\times\newtilde{\mathbf{v}}\left(\mathbf{k}', t\right)\right]\right\}\cdot\nonumber\\
-&&\cdot\exp\left(i\mathbf{k}'\cdot\mathbf{r}\right)d^3k'\Big]\exp\left(i\mathbf{k}\cdot\mathbf{r}\right)d^3k
-\end{eqnarray}
-%
-Damit die Gleichung gilt, muss der Integrand an jedem Punkt im Spektralraum verschwinden. Dies führt auf die Spektralform der inkompressiblen Impulsgleichung:
-%
-\begin{center}
-\doublebox{\parbox{\textwidth}{
-\begin{center}
-\begin{eqnarray}
-&&\left(\frac{\partial}{\partial t} + \nu\mathbf{k}^2\right)\newtilde{\mathbf{v}}\left(\mathbf{k}, t\right) = -i\mathbf{k}\newtilde{\pi}\left(\mathbf{k}\right) - i\mathbf{k}\newtilde{\varphi}\left(\mathbf{k}\right)\nonumber\\
-&& + i\int\left\{-\frac{\newtilde{\mathbf{v}}\left(\mathbf{k}, t\right)\cdot\newtilde{\mathbf{v}}\left(\mathbf{k}', t\right)}{2}\left(\mathbf{k} + \mathbf{k}'\right) + \newtilde{\mathbf{v}}\left(\mathbf{k}, t\right)\times\left[\mathbf{k}'\times\newtilde{\mathbf{v}}\left(\mathbf{k}', t\right)\right]\right\}\exp\left(i\mathbf{k}'\cdot\mathbf{r}\right)d^3k'\label{eq:turbulence_inc_spec}
-\end{eqnarray}
-\end{center}
-}}
-\end{center}
-%
-Hieraus wird ersichtlich, dass der einzige Term, der Wechselwirkungen zwischen Skalen enthält, die Impulsadvektion ist.
-
-\subsection{Energie-Transfer-Funktion}
-\label{sec:energie-transfer-funktion}\index{Energie-Transfer-Funktion}
-
-Wie man aus der Parseval-Identität\index{Parseval-Identität} Glg. \eqref{eq:parseval_identity} folgern kann, wird die spezifische kinetische Energie\index{Energie!kinetische}\index{kinetische Energie} mit dem Wellenvektor $\mathbf{k}$ durch die Größe
-%
-\begin{eqnarray}
-\newtilde{e}\left(\mathbf{k}, t\right) = \frac{1}{2}\newtilde{\mathbf{v}}\left(\mathbf{k}, t\right)\newtilde{\mathbf{v}}\left(-\mathbf{k}, t\right)
-\end{eqnarray}
-%
-beschrieben. Notiert man Glg. \eqref{eq:turbulence_inc_spec} mit der Ersetzung $\mathbf{k} \to -\mathbf{k}$, erhält man
-%
-\begin{eqnarray}
-&&\left(\frac{\partial}{\partial t} + \nu\mathbf{k}^2\right)\newtilde{\mathbf{v}}\left(-\mathbf{k}, t\right) = i\mathbf{k}\newtilde{\pi}\left(-\mathbf{k}\right) + i\mathbf{k}\newtilde{\varphi}\left(-\mathbf{k}\right)\nonumber\\
-&& + i\int\left\{-\frac{\newtilde{\mathbf{v}}\left(-\mathbf{k}, t\right)\cdot\newtilde{\mathbf{v}}\left(\mathbf{k}', t\right)}{2}\left(-\mathbf{k} + \mathbf{k}'\right) + \newtilde{\mathbf{v}}\left(-\mathbf{k}, t\right)\times\left[\mathbf{k}'\times\newtilde{\mathbf{v}}\left(\mathbf{k}', t\right)\right]\right\}\exp\left(i\mathbf{k}'\cdot\mathbf{r}\right)d^3k'\label{eq:deriv_turbulence_spec_0}
+\left[\newtilde{\left(\mathbf{v}\cdot\nabla\right)\mathbf{v}}\right]\left(\mathbf{k}\right) & = & \frac{i}{\left(2\pi\right)^3}\int\int\left[\newtilde{\mathbf{v}}\left(\mathbf{k}', t\right)\cdot\mathbf{k}''\right]\newtilde{\mathbf{v}}\left(\mathbf{k}'', t\right)\exp\left[i\left(-\mathbf{k} + \mathbf{k}' + \mathbf{k}''\right)\cdot\mathbf{r}\right]d^3k'd^3k''\nonumber\\
+& \stackrel{\text{Glg. \eqref{eq:delta_distribution_prop_2}}}{=} & i\int\int\left[\newtilde{\mathbf{v}}\left(\mathbf{k}', t\right)\cdot\mathbf{k}''\right]\newtilde{\mathbf{v}}\left(\mathbf{k}'', t\right)\delta\left(\mathbf{k}' + \mathbf{k}'' - \mathbf{k}\right)d^3k'd^3k''\nonumber\\
+& = & i\int\left[\newtilde{\mathbf{v}}\left(\mathbf{k}', t\right)\cdot\left(\mathbf{k} - \mathbf{k}'\right)\right]\newtilde{\mathbf{v}}\left(\mathbf{k} - \mathbf{k}', t\right)d^3k'
 \end{eqnarray}
 %
 Aus der inkompressiblen Kontinuitätsgleichung\index{inkompressiblen Kontinuitätsgleichung}\index{Kontinuitätsgleichung!inkompressible}
@@ -15112,31 +15062,72 @@ folgt
 \mathbf{k}\cdot\newtilde{\mathbf{v}}\left(\mathbf{k}, t\right) = 0.\label{eq:cont_incom_spec}
 \end{eqnarray}
 %
+Damit erhält man
+%
+\begin{eqnarray}
+\left[\newtilde{\left(\mathbf{v}\cdot\nabla\right)\mathbf{v}}\right]\left(\mathbf{k}\right) & = & i\int\left[\newtilde{\mathbf{v}}\left(\mathbf{k}', t\right)\cdot\mathbf{k}\right]\newtilde{\mathbf{v}}\left(\mathbf{k} - \mathbf{k}', t\right)d^3k'
+\end{eqnarray}
+%
+Aus den bisherigen Rechnungen kann man die Entwicklung der Impulsgleichung bezüglich ebener Wellen\index{Impulsgleichung!Entwicklung nach ebenen Wellen} zusammensetzen:
+%
+\begin{eqnarray}
+&& \int\left(\frac{\partial}{\partial t} + \nu\mathbf{k}^2\right)\newtilde{\mathbf{v}}\left(\mathbf{k}, t\right)\exp\left(i\mathbf{k}\cdot\mathbf{r}\right)d^3k\nonumber\\
+& = & i\int\left\{-\mathbf{k}\newtilde{\pi}\left(\mathbf{k}, t\right) - \mathbf{k}\newtilde{\varphi}\left(\mathbf{k}\right) - \int\left[\newtilde{\mathbf{v}}\left(\mathbf{k}', t\right)\cdot\mathbf{k}\right]\newtilde{\mathbf{v}}\left(\mathbf{k} - \mathbf{k}', t\right)d^3k'\right\}\exp\left(i\mathbf{k}\cdot\mathbf{r}\right)d^3k
+\end{eqnarray}
+%
+Dies muss an jedem Punkt im Spektralraum gelten, also
+%
+\begin{center}
+\doublebox{\parbox{\textwidth}{
+\begin{center}
+\begin{eqnarray}
+\left(\frac{\partial}{\partial t} + \nu\mathbf{k}^2\right)\newtilde{\mathbf{v}}\left(\mathbf{k}, t\right) & = & -i\mathbf{k}\newtilde{\pi}\left(\mathbf{k}, t\right) - i\mathbf{k}\newtilde{\varphi}\left(\mathbf{k}\right) - i\int\left[\newtilde{\mathbf{v}}\left(\mathbf{k}', t\right)\cdot\mathbf{k}\right]\newtilde{\mathbf{v}}\left(\mathbf{k} - \mathbf{k}', t\right)d^3k'.\label{eq:turbulence_inc_spec}
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
+%
+Dies ist die Spektralform der inkompressiblen Impulsgleichung. Hieraus wird ersichtlich, dass der einzige Term, der Wechselwirkungen zwischen Skalen enthält, die Impulsadvektion ist.
+
+\subsection{Energie-Transfer-Funktion}
+\label{sec:energie-transfer-funktion}\index{Energie-Transfer-Funktion}
+
+Wie man aus der Parseval-Identität\index{Parseval-Identität} Glg. \eqref{eq:parseval_identity} folgern kann, wird die spezifische kinetische Energie\index{Energie!kinetische}\index{kinetische Energie} mit dem Wellenvektor $\mathbf{k}$ durch die Größe
+%
+\begin{eqnarray}
+\newtilde{e}\left(\mathbf{k}, t\right) = \frac{1}{2}\newtilde{\mathbf{v}}\left(\mathbf{k}, t\right)\newtilde{\mathbf{v}}\left(-\mathbf{k}, t\right)
+\end{eqnarray}
+%
+beschrieben. Notiert man Glg. \eqref{eq:turbulence_inc_spec} mit der Ersetzung $\mathbf{k} \to -\mathbf{k}$, erhält man
+%
+\begin{eqnarray}
+\left(\frac{\partial}{\partial t} + \nu\mathbf{k}^2\right)\newtilde{\mathbf{v}}\left(-\mathbf{k}, t\right) & = & i\mathbf{k}\newtilde{\pi}\left(-\mathbf{k}, t\right) + i\mathbf{k}\newtilde{\varphi}\left(-\mathbf{k}\right) + i\int\left[\newtilde{\mathbf{v}}\left(\mathbf{k}', t\right)\cdot\mathbf{k}\right]\newtilde{\mathbf{v}}\left(-\mathbf{k} - \mathbf{k}', t\right)d^3k'.\label{eq:deriv_turbulence_spec_0}
+\end{eqnarray}
+%
 Multipliziert man Glg. \eqref{eq:deriv_turbulence_spec_0} mit $\newtilde{\mathbf{v}}\left(\mathbf{k}, t\right)$ und berücksichtigt dabei Glg. \eqref{eq:cont_incom_spec}, erhält man
 %
 \begin{eqnarray}
-&& \newtilde{\mathbf{v}}\left(\mathbf{k}, t\right)\cdot\left(\frac{\partial}{\partial t} + \nu\mathbf{k}^2\right)\newtilde{\mathbf{v}}\left(-\mathbf{k}, t\right) = -i\int\left[\frac{\newtilde{\mathbf{v}}\left(-\mathbf{k}, t\right)\cdot\newtilde{\mathbf{v}}\left(\mathbf{k}', t\right)}{2}\newtilde{\mathbf{v}}\left(\mathbf{k}, t\right)\cdot\mathbf{k}'\right]\exp\left(i\mathbf{k}'\cdot\mathbf{r}\right)d^3k'.\label{eq:deriv_turbulence_spec_1}
+\newtilde{\mathbf{v}}\left(\mathbf{k}, t\right)\cdot\left(\frac{\partial}{\partial t} + \nu\mathbf{k}^2\right)\newtilde{\mathbf{v}}\left(-\mathbf{k}, t\right) & = & i\int\left[\newtilde{\mathbf{v}}\left(\mathbf{k}', t\right)\cdot\mathbf{k}\right]\left[\newtilde{\mathbf{v}}\left(\mathbf{k}, t\right)\cdot\newtilde{\mathbf{v}}\left(-\mathbf{k} - \mathbf{k}', t\right)\right]d^3k'.\label{eq:deriv_turbulence_spec_1}
 \end{eqnarray}
 %
 Multipliziert man analog Glg. \eqref{eq:turbulence_inc_spec} mit $\newtilde{\mathbf{v}}\left(-\mathbf{k}, t\right)$, erhält man
 %
 \begin{eqnarray}
-&& \newtilde{\mathbf{v}}\left(-\mathbf{k}, t\right)\cdot\left(\frac{\partial}{\partial t} + \nu\mathbf{k}^2\right)\newtilde{\mathbf{v}}\left(\mathbf{k}, t\right) = -i\int\left[\frac{\newtilde{\mathbf{v}}\left(\mathbf{k}, t\right)\cdot\newtilde{\mathbf{v}}\left(\mathbf{k}', t\right)}{2}\newtilde{\mathbf{v}}\left(-\mathbf{k}, t\right)\cdot\mathbf{k}'\right]\exp\left(i\mathbf{k}'\cdot\mathbf{r}\right)d^3k'\label{eq:deriv_turbulence_spec_2}
+\newtilde{\mathbf{v}}\left(-\mathbf{k}, t\right)\cdot\left(\frac{\partial}{\partial t} + \nu\mathbf{k}^2\right)\newtilde{\mathbf{v}}\left(\mathbf{k}, t\right) & = & -i\int\left[\newtilde{\mathbf{v}}\left(\mathbf{k}', t\right)\cdot\mathbf{k}\right]\left[\newtilde{\mathbf{v}}\left(-\mathbf{k}, t\right)\cdot\newtilde{\mathbf{v}}\left(\mathbf{k} - \mathbf{k}', t\right)\right]d^3k'\label{eq:deriv_turbulence_spec_2}
 \end{eqnarray}
 %
 Addiert man die Glg.en \eqref{eq:deriv_turbulence_spec_1} und \eqref{eq:deriv_turbulence_spec_2} und dividiert durch zwei, erhält man
 %
 \begin{eqnarray}
 &&\left(\frac{\partial}{\partial t} + 2\nu\mathbf{k}^2\right)\newtilde{e}\left(\mathbf{k}, t\right)\nonumber\\
-& = & -\frac{i}{2}\int\left[\frac{\newtilde{\mathbf{v}}\left(-\mathbf{k}, t\right)\cdot\newtilde{\mathbf{v}}\left(\mathbf{k}', t\right)}{2}\newtilde{\mathbf{v}}\left(\mathbf{k}, t\right) + \frac{\newtilde{\mathbf{v}}\left(\mathbf{k}, t\right)\cdot\newtilde{\mathbf{v}}\left(\mathbf{k}', t\right)}{2}\newtilde{\mathbf{v}}\left(-\mathbf{k}, t\right)\right]\cdot\mathbf{k}'\exp\left(i\mathbf{k}'\cdot\mathbf{r}\right)d^3k'.
+& = & \frac{i}{2}\int\left\{\left[\newtilde{\mathbf{v}}\left(\mathbf{k}', t\right)\cdot\mathbf{k}\right]\left[\newtilde{\mathbf{v}}\left(\mathbf{k}, t\right)\cdot\newtilde{\mathbf{v}}\left(-\mathbf{k} - \mathbf{k}', t\right)\right] - \left[\newtilde{\mathbf{v}}\left(\mathbf{k}', t\right)\cdot\mathbf{k}\right]\left[\newtilde{\mathbf{v}}\left(-\mathbf{k}, t\right)\cdot\newtilde{\mathbf{v}}\left(\mathbf{k} - \mathbf{k}', t\right)\right]\right\}d^3k'.
 \end{eqnarray}
 %
 Man definiert die \textit{Energie-Transfer-Funktion}\index{Energie-Transfer-Funktion} $W = W\left(\mathbf{k}, \mathbf{k}', t\right)$ durch
 %
 \begin{eqnarray}
-W\left(\mathbf{k}, \mathbf{k}', t\right) & = & -\frac{i}{4}\left\{\left[\newtilde{\mathbf{v}}\left(-\mathbf{k}, t\right)\cdot\newtilde{\mathbf{v}}\left(\mathbf{k}', t\right)\right]\newtilde{\mathbf{v}}\left(\mathbf{k}, t\right) + \left[\newtilde{\mathbf{v}}\left(\mathbf{k}, t\right)\cdot\newtilde{\mathbf{v}}\left(\mathbf{k}', t\right)\right]\newtilde{\mathbf{v}}\left(-\mathbf{k}, t\right)\right\}\cdot\mathbf{k}'\nonumber\\
-& = & -\frac{i}{4}\left\{\newtilde{\mathbf{v}}\left(\mathbf{k}, t\right)\left[\newtilde{\mathbf{v}}\left(-\mathbf{k}, t\right)\cdot\newtilde{\mathbf{v}}\left(\mathbf{k}', t\right)\right] + \newtilde{\mathbf{v}}\left(-\mathbf{k}, t\right)\left[\newtilde{\mathbf{v}}\left(\mathbf{k}, t\right)\cdot\newtilde{\mathbf{v}}\left(\mathbf{k}', t\right)\right]\right\}\cdot\mathbf{k}'\nonumber\\
-& = & -\frac{i\mathbf{k}'}{4}\cdot\left\{\newtilde{\mathbf{v}}\left(\mathbf{k}, t\right)\times\left[\newtilde{\mathbf{v}}\left(-\mathbf{k}, t\right)\times\newtilde{\mathbf{v}}\left(\mathbf{k}', t\right)\right]\right\}.
+W\left(\mathbf{k}, \mathbf{k}', t\right) & = & \frac{i}{2}\left\{\left[\newtilde{\mathbf{v}}\left(\mathbf{k}', t\right)\cdot\mathbf{k}\right]\left[\newtilde{\mathbf{v}}\left(\mathbf{k}, t\right)\cdot\newtilde{\mathbf{v}}\left(-\mathbf{k} - \mathbf{k}', t\right)\right] - \left[\newtilde{\mathbf{v}}\left(\mathbf{k}', t\right)\cdot\mathbf{k}\right]\left[\newtilde{\mathbf{v}}\left(-\mathbf{k}, t\right)\cdot\newtilde{\mathbf{v}}\left(\mathbf{k} - \mathbf{k}', t\right)\right]\right\}\nonumber\\
+& = & i\frac{\newtilde{\mathbf{v}}\left(\mathbf{k}', t\right)\cdot\mathbf{k}}{2}\left[\newtilde{\mathbf{v}}\left(\mathbf{k}, t\right)\cdot\newtilde{\mathbf{v}}\left(-\mathbf{k} - \mathbf{k}', t\right) - \newtilde{\mathbf{v}}\left(-\mathbf{k}, t\right)\cdot\newtilde{\mathbf{v}}\left(\mathbf{k} - \mathbf{k}', t\right)\right].
 \end{eqnarray}
 %
 Damit erhält man die Bilanzgleichung der kinetischen Energie in spektraler Form\index{Bilanzgleichung!kinetische Energie}\index{kinetische Energie!Bilanzgleichung}\index{Energie!kinetische!Bilanzgleichung}
@@ -15151,16 +15142,11 @@ Damit erhält man die Bilanzgleichung der kinetischen Energie in spektraler Form
 }}
 \end{center}
 %
-Hieraus wird ersichtlich, dass die Reibung $\propto\frac{1}{L^2}$ skalensensitiv ist und in jedem Fall die spektrale spezifische kinetische Energie reduziert. Die Energie-Transfer-Funktion\index{Energie-Transfer-Funktion} ist antisymmetrisch in $\mathbf{k}$ und $\mathbf{k}'$:
-% 
-\begin{eqnarray}
-W\left(\mathbf{k}', \mathbf{k}, t\right) & = & -\frac{i}{2}\left[\frac{\newtilde{\mathbf{v}}\left(\mathbf{k}, t\right)\cdot\newtilde{\mathbf{v}}\left(-\mathbf{k}', t\right)}{2}\newtilde{\mathbf{v}}\left(\mathbf{k}', t\right)\cdot\mathbf{k} + \frac{\newtilde{\mathbf{v}}\left(\mathbf{k}, t\right)\cdot\newtilde{\mathbf{v}}\left(\mathbf{k}', t\right)}{2}\newtilde{\mathbf{v}}\left(-\mathbf{k}', t\right)\cdot\mathbf{k}\right]\nonumber
-\end{eqnarray}
-%
-Dies hängt mit der Energieerhaltung\index{Energieerhaltung!spektral} zusammen: Der spektrale kinetische Energiegewinn bei der Komponente $\mathbf{k}$ auf Kosten der spektralen kinetischen Energie bei $\mathbf{k}'$ ist gleich dem Energieverlust der spektralen kinetischen Energie bei der Komponente $\mathbf{k}'$ aufgrund der Komponente $\mathbf{k}$.
-
+Hieraus wird ersichtlich, dass die Reibung $\propto\frac{1}{L^2}$ skalensensitiv ist und in jedem Fall die spektrale spezifische kinetische Energie reduziert.
 \subsubsection{Isotrope Form}
 \label{sec:isotrope_form}\index{isotrope Form der Energie-Transfer-Funktion}\index{Energie-Transfer-Funktion!isotrope Form}
+
+
 
 \subsection{Heisenberg-Konstante}
 \label{sec:heisenberg-konstante}\index{Heisenberg-Konstante}
@@ -20031,7 +20017,7 @@ mit einer zweiten Konstanten $\newtilde{C} > 0$. Es handelt sich um eine Lineark
 Man muss also auf die Bedingung
 %
 \begin{eqnarray}
-\newtilde{C} = \frac{1}{2\pi C}
+\newtilde{C} = \frac{1}{2\pi C}\label{eq:ft_norm}
 \end{eqnarray}
 %
 achten. Hieraus kann man unmittelbar
