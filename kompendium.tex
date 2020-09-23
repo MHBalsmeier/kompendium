@@ -15215,7 +15215,56 @@ Dabei wurde für die Geometrie der Kugelkoordinaten korrigiert. Somit wird Glg. 
 \subsection{Heisenberg-Ansatz}
 \label{sec:heisenberg-ansatz}\index{Heisenberg-Ansatz}
 
-
+Beim \textit{Heisenberg-Ansatz}\index{Heisenberg-Ansatz} wird zunächst von Stationarität ausgegangen, also
+%
+\begin{eqnarray}
+2\nu k^2\newtilde{e}\left(k\right) & = & \int W\left(k, k'\right)dk'.
+\end{eqnarray}
+%
+Weiterhin nimmt man an, dass es eine Grenz-Wellenzahl $k^\star$ gibt, welche das Spektrum in zwei Regionen aufteilt:
+%
+\begin{itemize}
+\item Die Region $k < k^\star$ (größere Wellenlängen) bezeichnet man als Region 1. Hier kann aus geometrischen Gründen keine Isotropie angenommen werden. Der Heisenberg-Ansatz\index{Heisenberg-Ansatz} macht über diesen Bereich keine Aussagen.
+\item Die Region $k \geq k^\star$ (kleinere Wellenlängen) bezeichnet man als \textit{universality region}\index{universality region}. Hier kann von Isotropie ausgegangen werden und die Strömung wird wenig von Randbedingungen beeinflusst.
+\end{itemize}
+%
+Der Heisenberg-Ansatz\index{Heisenberg-Ansatz} bezieht sich ausschließlich auf die universality region\index{universality region}. Es wird dabei angenommen, dass die kleineren Skalen auf die größeren Skalen eine ähnliche Wirkung haben wie die Viskosität\index{Viskosität} auf die kleinstskaligen Wirbel: sie diffundieren Impuls. Dies ist gerechtfertigt, da davon ausgegangen werden kann, dass die kleinerskaligen Wirbel im Mittel Impuls diffundieren (Gradienten des Geschwindigkeitsfeldes abbauen). Der Heisenberg-Ansatz\index{Heisenberg-Ansatz} lautet als Formel
+%
+\begin{eqnarray}
+W\left(k, k'\right) = -2\kappa_Hk^2\newtilde{e}\left(k\right)g\left(k', \newtilde{e}\left(k'\right)\right),
+\end{eqnarray}
+%
+wobei von $k, k' \geq k^\star$ und $k' > k$ ausgegangen wird. $\kappa_H \geq 0$ ist eine Art dimensionslose Viskosität\index{Viskosität}, die sogenannte \textit{Heisenberg-Konstante}\index{Heisenberg-Konstante}. Diese Formel ist analog zum molekularen dissipativen Term $-2\nu k^2\newtilde{e}\left(k\right)$. Die Funktion $g\left(k', \newtilde{e}\left(k'\right)\right)$ beschreibt, wie die kleinere Skala $k'$ auf die auf die Skala $k$ wirkt, wobei eine explizite Abhängigkeit von der bei $k'$ vorhandenen Energie $\newtilde{e}\left(k'\right)$ mit aufgenommen wurde. Im SI-Sytem gelten
+%
+\begin{eqnarray}
+\left[\newtilde{e}\right] & = & \frac{\text{J}}{\text{kg/m}} = \frac{\text{Jm}}{\text{kg}} = \frac{\text{Nm}^2}{\text{kg}} = \frac{\text{m}^3}{\text{s}^2}\\
+\Rightarrow \left[\frac{\partial\newtilde{e}}{\partial t}\right] & = & \frac{\text{m}^3}{\text{s}^3},\\
+\left[W\right] & = & \frac{\text{m}^4}{\text{s}^3}\\
+\Rightarrow \left[k^2\newtilde{e}\left(k\right)\right] & = & \frac{\text{m}}{\text{s}^2}\\
+\Rightarrow \left[g\left(k', \newtilde{e}\left(k'\right)\right)\right] & = & \frac{\text{m}^3}{\text{s}}.
+\end{eqnarray}
+%
+Als Ansatz für $g$ wählt man nun
+%
+\begin{eqnarray}
+g\left(k', \newtilde{e}\left(k'\right)\right) = \left(k'\right)^\alpha\newtilde{e}\left(k'\right)^\beta.
+\end{eqnarray}
+%
+Dies impliziert
+%
+\begin{eqnarray}
+\beta & = & \frac{1}{2}, \alpha = -\frac{3}{2}\\
+\Rightarrow g\left(k', \newtilde{e}\left(k'\right)\right) & = & \left(k'\right)^{-3/2}\newtilde{e}\left(k'\right)^{1/2} = \sqrt{\frac{\newtilde{e}\left(k'\right)}{\left(k'\right)^3}}.
+\end{eqnarray}
+%
+Zusammenfassend lautet der Heisenberg-Ansatz\index{Heisenberg-Ansatz} also
+%
+\begin{eqnarray}
+T\left(k, k'\right) = \begin{cases}
+-2\kappa_Hk^2\newtilde{e}\left(k\right)\newtilde{e}\left(k'\right)^{1/2}\left(k'\right)^{-3/2},\text{ falls }k' \geq k\text{ gilt (Energieverlust an kleinere Skala),}\\
+2\kappa_Hk^2\newtilde{e}\left(k\right)\newtilde{e}\left(k'\right)^{1/2}\left(k'\right)^{-3/2},\text{ falls }k' < k\text{ gilt (Energiegewinn von größerer Skala).}
+\end{cases}
+\end{eqnarray}
 
 \subsection{Integrationen}
 \label{sec:integrationen}
