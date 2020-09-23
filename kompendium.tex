@@ -15146,10 +15146,32 @@ Hieraus wird ersichtlich, dass die Reibung $\propto\frac{1}{L^2}$ skalensensitiv
 \subsubsection{Isotrope Form}
 \label{sec:isotrope_form}\index{isotrope Form der Energie-Transfer-Funktion}\index{Energie-Transfer-Funktion!isotrope Form}
 
-
+Nun macht man die Annahme der Isotropie\index{Isotropie}, d. h. man geht geht davon aus, dass spektrale Eigenschaften nicht von den drei Komponente des Vektors $\mathbf{k}$ abhängen, sondern ausschließlich vom Betrag von $k$, also
+%
+\begin{eqnarray}
+e\left(\mathbf{k}, t\right) & \to & \frac{\newtilde{e}\left(k, t\right)}{4\pi k^2},\\
+W\left(\mathbf{k}, \mathbf{k}, t\right) & \to & \frac{W\left(k, k', t\right)}{4\pi k'^24\pi k^2}.
+\end{eqnarray}
+%
+Dabei wurde für die Geometrie der Kugelkoordinaten korrigiert. Somit wird Glg. \eqref{eq:e_kin_budget_spectral} zu
+%
+\begin{eqnarray}
+\left(\frac{\partial}{\partial t} + 2\nu k^2\right)\frac{\newtilde{e}\left(k, t\right)}{4\pi k^2} & = & \int\frac{W\left(k, k', t\right)}{4\pi k'^24\pi k^2}4\pi k'^2dk'\nonumber
+\end{eqnarray}
+\begin{center}
+\doublebox{\parbox{\textwidth}{
+\begin{center}
+\begin{eqnarray}
+\Rightarrow\left(\frac{\partial}{\partial t} + 2\nu k^2\right)\newtilde{e}\left(k, t\right) & = & \int W\left(k, k', t\right)dk'.
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
 
 \subsection{Heisenberg-Konstante}
 \label{sec:heisenberg-konstante}\index{Heisenberg-Konstante}
+
+
 
 \subsection{Integrationen}
 \label{sec:integrationen}
