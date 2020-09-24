@@ -15218,7 +15218,7 @@ Dabei wurde für die Geometrie der Kugelkoordinaten korrigiert. Somit wird Glg. 
 Beim \textit{Heisenberg-Ansatz}\index{Heisenberg-Ansatz} wird zunächst von Stationarität ausgegangen, also
 %
 \begin{eqnarray}
-2\nu k^2\newtilde{e}\left(k\right) & = & \int W\left(k, k'\right)dk'.
+2\nu k^2\newtilde{e}\left(k\right) & = & \int W\left(k, k'\right)dk'.\label{eq:heisenberg_turb_0}
 \end{eqnarray}
 %
 Weiterhin nimmt man an, dass es eine Grenz-Wellenzahl $k^\star$ gibt, welche das Spektrum in zwei Regionen aufteilt:
@@ -15263,11 +15263,96 @@ Zusammenfassend lautet der Heisenberg-Ansatz\index{Heisenberg-Ansatz} also
 T\left(k, k'\right) = \begin{cases}
 -2\kappa_Hk^2\newtilde{e}\left(k\right)\newtilde{e}\left(k'\right)^{1/2}\left(k'\right)^{-3/2},\text{ falls }k' \geq k\text{ gilt (Energieverlust an kleinere Skala),}\\
 2\kappa_Hk^2\newtilde{e}\left(k\right)\newtilde{e}\left(k'\right)^{1/2}\left(k'\right)^{-3/2},\text{ falls }k' < k\text{ gilt (Energiegewinn von größerer Skala).}
-\end{cases}
+\end{cases}\label{eq:heisenberg-ansatz}
+\end{eqnarray}
+%
+Im Rahmen der Stationarität wird die durch Dissipation\index{Dissipation} verlorene kinetische Energie durch die Zufuhrt von den größeren Skalen kompensiert. Die größeren Skalen haben also einen Energieverlust an die kleineren Skalen, welcher durch eine Produktion $\sigma\left(k\right)$ von kinetischer Energie kompensiert werden muss. Der Mechanismus, über welchen dies passiert, wird hier offengelassen. Man geht jedoch von $\sigma\left(k\right) = 0$ für $k > k^\star$ aus, um die Betrachtungen in der universality region\index{universality region} zu vereinfachen. Glg. \eqref{eq:heisenberg_turb_0} wird damit zu
+%
+\begin{eqnarray}
+2\nu k^2\newtilde{e}\left(k\right) & = & \int W\left(k, k'\right)dk' + \sigma\left(k\right).\label{eq:heisenberg_turb_1}
 \end{eqnarray}
 
 \subsection{Integrationen}
 \label{sec:integrationen}
+
+Integriert man Glg. \eqref{eq:heisenberg_turb_1} bis zu einer Wellenzahl $k > k^\star$, erhält man
+%
+\begin{eqnarray}
+2\nu\int_0^k\left(k'\right)^2\newtilde{e}\left(k'\right)dk' & = & \int_0^k\int_0^\infty W\left(k', k''\right)dk''dk' + \int_0^k\sigma\left(k'\right)dk'.\label{eq:heisenberg_turb_2}
+\end{eqnarray}
+%
+Unter stationären Bedingungen ist die Energiezufuhr gleich dem Energieverlust, also
+%
+\begin{eqnarray}
+2\nu\int_0^\infty\left(k'\right)^2\newtilde{e}\left(k'\right)dk' = \int_0^k\sigma\left(k'\right)dk'.
+\end{eqnarray}
+%
+Es gilt für die Dissipation\index{Dissipation}
+%
+\begin{eqnarray}
+\epsilon = 2\nu\int_0^\infty\left(k'\right)^2\newtilde{e}\left(k'\right)dk',
+\end{eqnarray}
+%
+da Dissipation\index{Dissipation} Verlust kinetischer Energie ist. Wegen $k > k^\star$ und $\sigma\left(k'\right) = 0$ für $k' > k^\star$ gilt
+%
+\begin{eqnarray}
+\int_0^k\sigma\left(k'\right)dk' = \int_0^\infty\sigma\left(k'\right)dk'.
+\end{eqnarray}
+%
+Somit kann man Glg. \eqref{eq:heisenberg_turb_2} in der Form
+%
+\begin{eqnarray}
+2\nu\int_0^k\left(k'\right)^2\newtilde{e}\left(k'\right)dk' & = & \int_0^k\int_0^\infty W\left(k', k''\right)dk''dk' + \epsilon
+\end{eqnarray}
+%
+aufschreiben. Wegen $W\left(k', k''\right) = -W\left(k'', k'\right)$ gilt
+%
+\begin{eqnarray}
+\int_0^k\int_0^kW\left(k', k''\right)dk''dk' = 0.
+\end{eqnarray}
+%
+Somit gilt
+%
+\begin{eqnarray}
+2\nu\int_0^k\left(k'\right)^2\newtilde{e}\left(k'\right)dk' & = & \int_0^k\int_k^\infty W\left(k', k''\right)dk''dk' + \epsilon.
+\end{eqnarray}
+%
+Setzt man hier Glg. \eqref{eq:heisenberg-ansatz} ein und beachtet $k'' > k'$, erhält man
+%
+\begin{eqnarray}
+\epsilon = \left(\nu + \kappa_H\int_k^\infty\sqrt{\frac{\newtilde{e}\left(k''\right)}{\left(k''\right)^3}}dk''\right)2\int_0^k\left(k'\right)^2\newtilde{e}\left(k'\right)dk'.\label{eq:heisenberg_turb_3}
+\end{eqnarray}
+%
+Die Größe
+%
+\begin{eqnarray}
+K \coloneqq \kappa_H\int_k^\infty\sqrt{\frac{\newtilde{e}\left(k''\right)}{\left(k''\right)^3}}dk''
+\end{eqnarray}
+%
+hat die Dimension ener Viskosität\index{Viskosität} und wird als \textit{Heisenberg'scher Austauschkoeffizient}\index{Heisenberg'scher Austauschkoeffizient} bezeichnet.
+
+Man definiert nun eine Hilfsfunktion
+%
+\begin{eqnarray}
+f\left(k\right) & \coloneqq & 2\int_0^k\left(k'\right)^2\newtilde{e}\left(k'\right)dk'\nonumber\\
+\Rightarrow f'\left(k\right) = 2k^2\newtilde{e}\left(k\right).
+\end{eqnarray}
+%
+Hiermit kann man Glg. \eqref{eq:heisenberg_turb_3} in der Form
+%
+\begin{eqnarray}
+\frac{\epsilon}{f\left(k\right)} & = & \nu + \kappa_H\int_k^\infty\sqrt{\frac{\newtilde{e}\left(k'\right)}{\left(k'\right)^3}}dk'\nonumber\\
+& = & \nu + \kappa_H\int_k^\infty\sqrt{\frac{f'\left(k'\right)}{2\left(k'\right)^5}}dk'
+\end{eqnarray}
+%
+notieren. Differenziert man diese Gleichung, erhält man
+%
+\begin{eqnarray}
+-\frac{\epsilon^2f'\left(k\right)}{f\left(k\right)^2} & = & -\kappa_H\sqrt{\frac{f'\left(k\right)}{2k^5}}\nonumber\\
+\Leftrightarrow \frac{\epsilon^2f'\left(k\right)^2}{f\left(k\right)^4} & = & \kappa_H^2\frac{f'\left(k\right)}{2k^5}\nonumber\\
+\Leftrightarrow \frac{\epsilon^2f'\left(k\right)}{f\left(k\right)^4} & = & \frac{\kappa_H^}{2k^5}.
+\end{eqnarray}
+
 
 \subsection{Ergebnisse}
 \label{sec:ergebnisse}
