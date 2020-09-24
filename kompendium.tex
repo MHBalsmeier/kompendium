@@ -15335,14 +15335,14 @@ Man definiert nun eine Hilfsfunktion
 %
 \begin{eqnarray}
 f\left(k\right) & \coloneqq & 2\int_0^k\left(k'\right)^2\newtilde{e}\left(k'\right)dk'\nonumber\\
-\Rightarrow f'\left(k\right) = 2k^2\newtilde{e}\left(k\right).
+\Rightarrow f'\left(k\right) = 2k^2\newtilde{e}\left(k\right).\label{eq:heisenberg_turb_6}
 \end{eqnarray}
 %
 Hiermit kann man Glg. \eqref{eq:heisenberg_turb_3} in der Form
 %
 \begin{eqnarray}
 \frac{\epsilon}{f\left(k\right)} & = & \nu + \kappa_H\int_k^\infty\sqrt{\frac{\newtilde{e}\left(k'\right)}{\left(k'\right)^3}}dk'\nonumber\\
-& = & \nu + \kappa_H\int_k^\infty\sqrt{\frac{f'\left(k'\right)}{2\left(k'\right)^5}}dk'
+& = & \nu + \kappa_H\int_k^\infty\sqrt{\frac{f'\left(k'\right)}{2\left(k'\right)^5}}dk'\label{eq:heisenberg_turb_5}
 \end{eqnarray}
 %
 notieren. Differenziert man diese Gleichung, erhält man
@@ -15350,12 +15350,140 @@ notieren. Differenziert man diese Gleichung, erhält man
 \begin{eqnarray}
 -\frac{\epsilon^2f'\left(k\right)}{f\left(k\right)^2} & = & -\kappa_H\sqrt{\frac{f'\left(k\right)}{2k^5}}\nonumber\\
 \Leftrightarrow \frac{\epsilon^2f'\left(k\right)^2}{f\left(k\right)^4} & = & \kappa_H^2\frac{f'\left(k\right)}{2k^5}\nonumber\\
-\Leftrightarrow \frac{\epsilon^2f'\left(k\right)}{f\left(k\right)^4} & = & \frac{\kappa_H^}{2k^5}.
+\Leftrightarrow \frac{\epsilon^2f'\left(k\right)}{f\left(k\right)^4} & = & \frac{\kappa_H^2}{2k^5}.
 \end{eqnarray}
-
+%
+Integriert man beide Seiten über $k$, erhält man
+%
+\begin{eqnarray}
+-\frac{\epsilon^2}{3f\left(k\right)^3} + C & = & -\frac{\kappa_H^2}{8k^4}\nonumber\\
+\Leftrightarrow \frac{\epsilon^2}{3f\left(k\right)^3} & = & \frac{\kappa_H^2}{8k^4} + C\label{eq:heisenberg_turb_4}
+\end{eqnarray}
+%
+mit einer Integrationskonstante $C$. Um diese zu bestimmen, wertet man Glg. \eqref{eq:heisenberg_turb_4} für $k \to \infty$ aus:
+%
+\begin{eqnarray}
+C = \frac{\epsilon^2}{3f\left(\infty\right)^3}
+\end{eqnarray}
+%
+Um $f\left(\infty\right)$ zu bestimmen, wertet man Glg. \eqref{eq:heisenberg_turb_5} für $k \to infty$ aus:
+%
+\begin{eqnarray}
+\frac{\epsilon}{f\left(\infty\right)} & = & \nu \Rightarrow f\left(\infty\right) = \frac{\epsilon}{\nu}\nonumber\\
+\Rightarrow C & = & \frac{\epsilon^2}{3f\left(\infty\right)^3} = \frac{\nu^3}{3\epsilon}
+\end{eqnarray}
+%
+Setzt man dies in Glg. \eqref{eq:heisenberg_turb_4} ein, erhält man
+%
+\begin{eqnarray}
+\frac{\epsilon^2}{3f\left(k\right)^3} & = & \frac{\kappa_H^2}{8k^4} + \frac{\nu^3}{3\epsilon}\nonumber\\
+\Rightarrow f\left(k\right)^3 & = & \frac{\epsilon^2}{3}\left(\frac{\kappa_H^2}{8k^4} + \frac{\nu^3}{3\epsilon}\right)^{-1}\nonumber\\
+\Rightarrow f\left(k\right) & = & \frac{\epsilon^{2/3}}{3^{1/3}}\left(\frac{\kappa_H^2}{8k^4} + \frac{\nu^3}{3\epsilon}\right)^{-1/3}.
+\end{eqnarray}
+%
+Differenziert man dies nach $k$, erhält man
+%
+\begin{eqnarray}
+f'\left(k\right) & = & \frac{\epsilon^{2/3}}{3^{1/3}}\frac{4}{3}\frac{\kappa_H^2}{8k^5}\left(\frac{\kappa_H^2}{8k^4} + \frac{\nu^3}{3\epsilon}\right)^{-4/3}.
+\end{eqnarray}
+%
+Setzt man hier Glg. \eqref{eq:heisenberg_turb_6} ein, erhält man
+%
+\begin{eqnarray}
+2k^2\newtilde{e}\left(k\right) & = & \frac{\epsilon^{2/3}}{3^{1/3}}\frac{4}{3}\frac{\kappa_H^2}{8k^5}\left(\frac{\kappa_H^2}{8k^4} + \frac{\nu^3}{3\epsilon}\right)^{-4/3}\nonumber\\
+\Leftrightarrow \newtilde{e}\left(k\right) & = & \frac{\epsilon^{2/3}}{3^{1/3}}\frac{2}{3}\frac{\kappa_H^2}{8k^7}\left(\frac{\kappa_H^2}{8k^4} + \frac{\nu^3}{3\epsilon}\right)^{-4/3}\nonumber\\
+\Leftrightarrow \newtilde{e}\left(k\right) & = & \frac{\epsilon^{2/3}}{3^{1/3}}\frac{2}{3k^3}\frac{\kappa_H^2}{8k^4}\left(\frac{\kappa_H^2}{8k^4} + \frac{\nu^3}{3\epsilon}\right)^{-4/3}\nonumber\\
+\Leftrightarrow \newtilde{e}\left(k\right) & = & \frac{\epsilon^{2/3}}{3^{1/3}}\frac{2}{3k^3}\left(\frac{\kappa_H^2}{8k^4}\right)^{-1/3}\left(\frac{\kappa_H^2}{8k^4}\right)^{4/3}\left(\frac{\kappa_H^2}{8k^4} + \frac{\nu^3}{3\epsilon}\right)^{-4/3}\nonumber
+\end{eqnarray}
+\begin{eqnarray}
+\Leftrightarrow \newtilde{e}\left(k\right) & = & \frac{\epsilon^{2/3}}{3^{1/3}}\frac{2}{3k^3}\left(\frac{\kappa_H^2}{8k^4}\right)^{-1/3}\left(\frac{8k^4}{\kappa_H^2}\right)^{-4/3}\left(\frac{\kappa_H^2}{8k^4} + \frac{\nu^3}{3\epsilon}\right)^{-4/3}\nonumber\\
+\Leftrightarrow \newtilde{e}\left(k\right) & = & \frac{\epsilon^{2/3}}{3^{1/3}}\frac{2}{3k^3}\left(\frac{\kappa_H^2}{8k^4}\right)^{-1/3}\left(1 + \frac{8\nu^3k^4}{3\epsilon\kappa_H^2}\right)^{-4/3}\nonumber\\
+\Leftrightarrow \newtilde{e}\left(k\right) & = & \frac{\epsilon^{2/3}}{3^{1/3}}\frac{2}{3}\left(\frac{\kappa_H^2}{8}\right)^{-1/3}k^{-5/3}\left(1 + \frac{8\nu^3k^4}{3\epsilon\kappa_H^2}\right)^{-4/3}\nonumber\\
+\Leftrightarrow \newtilde{e}\left(k\right) & = & \left(\frac{8^2}{3^4\kappa_H^2}\right)^{1/3}\epsilon^{2/3}k^{-5/3}\left(1 + \frac{8\nu^3k^4}{3\epsilon\kappa_H^2}\right)^{-4/3}\nonumber\\
+\Leftrightarrow \newtilde{e}\left(k\right) & = & \left(\frac{8}{9\kappa_H}\right)^{2/3}\epsilon^{2/3}k^{-5/3}\left(1 + \frac{8\nu^3k^4}{3\epsilon\kappa_H^2}\right)^{-4/3}.\label{eq:turb_iso_inc_spec_pre_0}
+\end{eqnarray}
 
 \subsection{Ergebnisse}
 \label{sec:ergebnisse}
+
+Der Ausgangspunkt dieses Abschnittes ist Glg. \eqref{eq:turb_iso_inc_spec_pre_0}. Man definiert zunächst einige Abkürzungen. Zunächst definiert man
+%
+\begin{eqnarray}
+k_c \coloneqq \left(\frac{\epsilon}{\nu^3}\right)^{1/4}.
+\end{eqnarray}
+%
+Damit wird Glg. \eqref{eq:turb_iso_inc_spec_pre_1} zu
+%
+\begin{eqnarray}
+\newtilde{e}\left(k\right) & = & \left(\frac{8}{9\kappa_H}\right)^{2/3}\epsilon^{2/3}k^{-5/3}\left(1 + \frac{8k^4}{3\kappa_H^2k_c^4}\right)^{-4/3}.\label{eq:turb_iso_inc_spec_pre_1}
+\end{eqnarray}
+%
+Weiterhin definiert man die \textit{Kolmogorov-Konstante}\index{Kolmogorov-Konstante} $\kappa_K$ durch
+%
+\begin{eqnarray}
+\kappa_K \coloneqq \left(\frac{8}{9\kappa_H}\right)^{2/3},
+\end{eqnarray}
+%
+die \textit{charakteristische Länge}\index{charakteristische Länge}\index{Länge!charakteristische} $l_c$ durch
+%
+\begin{eqnarray}
+l_c \coloneqq \left(\frac{\nu^3}{\epsilon}\right)^{1/4}
+\end{eqnarray}
+%
+sowie die \textit{charakteristische Zeit}\index{charakteristische Zeit}\index{Zeit!charakteristische} $t_c$ durch
+%
+\begin{eqnarray}
+t_c \coloneqq \left(\frac{\nu}{\epsilon}\right)^{1/2}.
+\end{eqnarray}
+%
+Hieraus folgt
+%
+\begin{eqnarray}
+k_c = \frac{1}{l_c}.
+\end{eqnarray}
+%
+Setzt man dies in Glg. \eqref{eq:turb_iso_inc_spec_pre_1} ein, erhält man 
+%
+\begin{center}
+\doublebox{\parbox{\textwidth}{
+\begin{center}
+\begin{eqnarray}
+\newtilde{e}\left(k\right) & = & \kappa_K\epsilon^{2/3}k^{-5/3}\left(1 + \frac{8k^4l_c^4}{3\kappa_H^2}\right)^{-4/3}.\label{eq:turb_iso_inc_spec}
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
+%
+Hieraus lassen sich noch zwei wichtige Grenzfälle ableiten. Für $k > k_c$ gilt
+%
+\begin{eqnarray}
+\newtilde{e}\left(k\right) & \approx & \left(\frac{8}{9\kappa_H}\right)^{2/3}\epsilon^{2/3}k^{-5/3}\left(\frac{8k^4l_c^4}{3\kappa_H^2}\right)^{-4/3}\nonumber\\
+& = & \left(\frac{8\epsilon}{9\kappa_H}\right)^{2/3}\left(\frac{8\nu^3}{3\epsilon\kappa_H^2}\right)^{-4/3}k^{-7}\nonumber\\
+& = & \left(\frac{8\epsilon}{9\kappa_H}\right)^{2/3}\left(\frac{3\epsilon\kappa_H^2}{8\nu^3}\right)^{4/3}k^{-7}\nonumber
+\end{eqnarray}
+\begin{center}
+\doublebox{\parbox{\textwidth}{
+\begin{center}
+\begin{eqnarray}
+\Leftrightarrow\newtilde{e}\left(k\right) & \approx & \left(\frac{\kappa_H\epsilon}{2\nu^2}\right)^{2}k^{-7}.
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
+%
+Dieses Gebit des Spektrums ($k > k_c$) bezeichnet man als \textit{dissipative range}\index{dissipative range}. In diesem Bereich führt die Viskosität\index{Viskosität} zu einem steilen Abfall des Spektrums. Im Fall $k^\star < k \ll k_c$ gilt
+%
+\begin{center}
+\doublebox{\parbox{\textwidth}{
+\begin{center}
+\begin{eqnarray}
+\newtilde{e}\left(k\right) & \approx & \kappa_K\epsilon^{2/3}k^{-5/3}.
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
+%
+Diesen Bereich des Spektrums ($k^\star < k \ll k_c$) bezeichnet man als \textit{inertial subrange}\index{inertial subrange}.
 
 \section{Energiekaskade}
 \label{sec:energiekaskade}\index{Energiekaskade}
