@@ -14627,12 +14627,12 @@ Man nimmt nun an, dass das Hesselberg-Mittel\index{Hesselberg-Mittel} ein Reynol
 %
 \begin{eqnarray}
 \frac{\partial\newoverline{\mathbf{v}}}{\partial t} & = & -\left(\newoverline{\mathbf{v}}\cdot\nabla\right)\newoverline{\mathbf{v}} - \newoverline{\left(\mathbf{v}''\cdot\nabla\right)\mathbf{v}''} - \newoverline{\alpha}\frac{\partial\newoverline{p}}{\partial x} - \newoverline{\alpha''\frac{\partial p'}{\partial x}} - \mathbf{f}\times\newoverline{\mathbf{v}} + \mathbf{g},\\
-\frac{\partial\newoverline{\theta}}{\partial t}& = & -\newoverline{\mathbf{v}}\cdot\nabla\newoverline{\theta} - \newoverline{\mathbf{v}''\cdot\nabla\theta} ,\\
-\frac{\partial\newoverline{\rho}}{\partial t} & = & -\newoverline{\rho}\nabla\cdot\newoverline{\mathbf{v}} - \newoverline{\mathbf{v}}\cdot\nabla\newoverline{\rho} - \newoverline{\rho'\nabla\cdot\mathbf{v}''} - \newoverline{\mathbf{v}''\cdot\nabla\rho''},\\
-\newoverline{p}\newoverline{\alpha}& = & R_d\newoverline{T} - \newoverline{p'\alpha''}.
+\frac{\partial\newoverline{\theta}}{\partial t}& = & -\newoverline{\mathbf{v}}\cdot\nabla\newoverline{\theta} - \newoverline{\mathbf{v}''\cdot\nabla\theta''} ,\\
+\frac{\partial\newoverline{\rho}}{\partial t} & = & -\newoverline{\rho}\nabla\cdot\newoverline{\mathbf{v}} - \newoverline{\mathbf{v}}\cdot\nabla\newoverline{\rho} - \newoverline{\rho''\nabla\cdot\mathbf{v}''} - \newoverline{\mathbf{v}''\cdot\nabla\rho''},\\
+\newoverline{p}\newoverline{\alpha}& = & R_d\newoverline{T} - \newoverline{p''\alpha''}.
 \end{eqnarray}
 %
-Die prognostischen Gleichungen der gemittelten Felder sind also gegenüber denen der ungemittelten Felder um Terme der Form $\newoverline{f'g'}$ korrigiert, wobei $f, g$ linear in den Feldern und ihren Ableitungen sind. Diese Terme bezeichnet man als die Konvergenzen der \textit{turbulenten Korrelationsflüsse}\index{Korrelationsfluss}. Diese sind natürlich von der Größe der Menge abhängig, über die gemittelt wird, d. h. im Falle eines numerischen Modells auflösungsabhängig. Im Falle einer immer kleiner werdenden Mittelungsmege verlieren die Kovarianzterme an Bedeutung, bis sie schließlich ganz verschwinden. 
+Die prognostischen Gleichungen der gemittelten Felder sind also gegenüber denen der ungemittelten Felder um Terme der Form $\newoverline{f''g''}$ korrigiert, wobei $f, g$ linear in den Feldern und ihren Ableitungen sind. Diese Terme bezeichnet man als die Konvergenzen der \textit{turbulenten Korrelationsflüsse}\index{Korrelationsfluss}. Diese sind natürlich von der Größe der Menge abhängig, über die gemittelt wird, d. h. im Falle eines numerischen Modells auflösungsabhängig. Im Falle einer immer kleiner werdenden Mittelungsmege verlieren die Kovarianzterme an Bedeutung, bis sie schließlich ganz verschwinden. 
 
 Für die turbulenten Größen liegen jedoch keine prognostischen Gleichungen vor, was man als \textit{Schließungsproblem}\index{Schließungsproblem} bezeichnet. Um die Korrelationsterme in der Impulsgleichung näher zu spezifizieren, wendet man den Reynolds-Mittelungsoperator auf Glg. an, man erhält so
 %
@@ -14644,9 +14644,9 @@ wobei die Horizontalstriche der Übersichtlichkeit halber weggelassen wurden. Au
 %
 \begin{eqnarray}
 \newtilde{\Pi} \coloneqq \rho\left(\begin{array}{ccc}
-\newoverline{u'u'} & \newoverline{u'v'} & \newoverline{u'w'} \\
-\newoverline{v'u'} & \newoverline{v'v'} & \newoverline{v'w'} \\
-\newoverline{w'u'} & \newoverline{w'v'} & \newoverline{w'w'}
+\newoverline{u''u''} & \newoverline{u''v''} & \newoverline{u''w''} \\
+\newoverline{v''u''} & \newoverline{v''v''} & \newoverline{v''w''} \\
+\newoverline{w''u''} & \newoverline{w''v''} & \newoverline{w''w''}
 \end{array}\right) =: \left(\begin{array}{ccc}
 -\tau_{x, x} & -\tau_{x, y} & -\tau_{x, z} \\
 -\tau_{y, x} & -\tau_{y, y} & -\tau_{y, z} \\
@@ -14657,31 +14657,36 @@ wobei die Horizontalstriche der Übersichtlichkeit halber weggelassen wurden. Au
 definiert. Es wurde von der gerechtfertigten Annahme
 %
 \begin{eqnarray}
-\left|\frac{\rho'}{\newoverline{\rho}}\right| \ll \left|\frac{u'}{\newoverline{u}}\right|
+\left|\frac{\rho''}{\newoverline{\rho}}\right| \ll \left|\frac{u''}{\newoverline{u}}\right|
 \end{eqnarray}
 %
-ausgegangen. $-\nabla\cdot\newtilde{\Pi}$ liefert die \index{Eddy-Stress-Term}\textit{Eddy-Stress-Terme}, die sich in der Impulsgleichung niederschlagen und anstatt der $- \newoverline{\left(\mathbf{v}'\cdot\nabla\right)\mathbf{v}'} - \newoverline{\alpha'\frac{\partial p'}{\partial x}}$ verwendet werden. Die $\tau_{i, j}$ sind jedoch immernoch unbekannte Größen, um diese zu parametrisieren\index{Parametrisierung} (s. hierzu auch Absch. \ref{sec:parametrisierungen}), verwendet man den \index{Mischungsweg}\textit{Mischungswegansatz}. Hierbei geht man davon aus, dass Druckgradient und Coriolis-Kraft keine bedeutende Rolle spielen, woraus
+ausgegangen. $-\nabla\cdot\newtilde{\Pi}$ liefert die \index{Eddy-Stress-Term}\textit{Eddy-Stress-Terme}, die sich in der Impulsgleichung niederschlagen und anstatt der $- \newoverline{\left(\mathbf{v}''\cdot\nabla\right)\mathbf{v}''} - \newoverline{\alpha''\frac{\partial p''}{\partial x}}$ verwendet werden.
+
+\section{Mischungswegansatz}
+\label{sec:mischungswegansatz}\index{Mischungswegansatz}
+
+Die $\tau_{i, j}$ sind jedoch immernoch unbekannte Größen, um diese zu parametrisieren\index{Parametrisierung} (s. hierzu auch Absch. \ref{sec:parametrisierungen}), verwendet man den \index{Mischungsweg}\textit{Mischungswegansatz}. Hierbei geht man davon aus, dass Druckgradient und Coriolis-Kraft keine bedeutende Rolle spielen, woraus
 %
 \begin{eqnarray}
 \md{\mathbf{v}} = \mathbf{0}\label{eq:burgers_eq}
 \end{eqnarray}
 %
-folgt, was man als \textit{Burgers-Gleichung}\index{Burgers-Gleichung} bezeichnet. Ihr entsprechend bewegt sich jedes Fluidteilchen auf einer geradlinig-gleichförmigen Bahn. Dies ist jedoch kein vollständig sinnvoller Ansatz, es ergibt sich daraus jedoch eine sinnvolle Möglichkeit, die $u', v', w'$ zu parametrisieren. Bewegt sich ein Teilchen von $z$ nach $z + l$ und behält dabei seine Horizontalgeschwindigkeit $\mathbf{v}_h$ bei, gilt nach Glg. \eqref{eq:burgers_eq}
+folgt, was man als \textit{Burgers-Gleichung}\index{Burgers-Gleichung} bezeichnet. Ihr entsprechend bewegt sich jedes Fluidteilchen auf einer geradlinig-gleichförmigen Bahn. Dies ist jedoch kein vollständig sinnvoller Ansatz, es ergibt sich daraus jedoch eine sinnvolle Möglichkeit, die $u'', v'', w''$ zu parametrisieren. Bewegt sich ein Teilchen von $z$ nach $z + l$ und behält dabei seine Horizontalgeschwindigkeit $\mathbf{v}_h$ bei, gilt nach Glg. \eqref{eq:burgers_eq}
 %
 \begin{eqnarray}
-\mathbf{v}_h'\left(z + l\right) = \mathbf{v}_h\left(z + l\right) - \overline{\mathbf{v}_h}\left(z + l\right) = \newoverline{\mathbf{v}_h}\left(z\right) - \overline{\mathbf{v}_h}\left(z + l\right) = \overline{\mathbf{v}_h}\left(z + l\right) - l\frac{\partial\newoverline{\mathbf{v}_h}}{\partial z} - \overline{\mathbf{v}_h}\left(z + l\right) = -l\frac{\partial\newoverline{\mathbf{v}_h}}{\partial z}
+\mathbf{v}_h''\left(z + l\right) = \mathbf{v}_h\left(z + l\right) - \overline{\mathbf{v}_h}\left(z + l\right) = \newoverline{\mathbf{v}_h}\left(z\right) - \overline{\mathbf{v}_h}\left(z + l\right) = \overline{\mathbf{v}_h}\left(z + l\right) - l\frac{\partial\newoverline{\mathbf{v}_h}}{\partial z} - \overline{\mathbf{v}_h}\left(z + l\right) = -l\frac{\partial\newoverline{\mathbf{v}_h}}{\partial z}
 \end{eqnarray}
 %
 Man beachte hierbei auch das Vorzeichen von $l$, welches im Fall nach unten gerichteter Bewegung als negativ verstanden werden muss. Somit folgt beispielsweise
 %
 \begin{eqnarray}
-\tau_{x, z} = -\rho\newoverline{u'w'} = \rho\newoverline{w'l}\frac{\partial\newoverline{u}}{\partial z}.
+\tau_{x, z} = -\rho\newoverline{u''w''} = \rho\newoverline{w''l}\frac{\partial\newoverline{u}}{\partial z}.
 \end{eqnarray}
 %
-Im Falle einer indifferent geschichteten Atmosphäre gilt $\left|w'\right| \sim \left|\mathbf{v}_h'\right|$, was der Tatsache entspricht, dass in diesem Fall die horizontale Skala der Wirbel genauso groß ist wie die vertikale, man setzt daher
+Im Falle einer indifferent geschichteten Atmosphäre gilt $\left|w''\right| \sim \left|\mathbf{v}_h''\right|$, was der Tatsache entspricht, dass in diesem Fall die horizontale Skala der Wirbel genauso groß ist wie die vertikale, man setzt daher
 %
 \begin{eqnarray}
-w' = l\left|\frac{\partial\overline{\mathbf{v}_h}}{\partial z}\right|.
+w'' = l\left|\frac{\partial\overline{\mathbf{v}_h}}{\partial z}\right|.
 \end{eqnarray}
 %
 Daraus folgt
@@ -14697,7 +14702,10 @@ A_z \coloneqq \rho\newoverline{l^2}\left|\frac{\partial\newoverline{\mathbf{v}_h
 %
 bezeichnet man als \index{Eddy-Austauschkoeffizient}\textit{Eddy-Austauschkoeffizienten}.
 
-Die \index{planetrische Grenzschicht}\index{Grenzschicht!planetare}\textit{planetare Grenzschicht} ist definiert als diejenige untere Schicht der Atmosphäre, in der die \index{Bodenreibung}\textit{Bodenreibung}, d. h. die Existenz der Erdoberfläche, einen Einfluss hat. Als Kräftegleichgewicht setzt man hier an
+\subsection{Planetarische Grenzschicht}
+\label{sec:planetarische_Grenzschicht}\index{planetarische Grenzschicht}\index{Grenzschicht!planetarische}
+
+Die \textit{planetarische Grenzschicht}\index{planetarische Grenzschicht}\index{Grenzschicht!planetarische} ist definiert als diejenige untere Schicht der Atmosphäre, in der die \index{Bodenreibung}\textit{Bodenreibung}, d. h. die Existenz der Erdoberfläche, einen Einfluss hat. Als Kräftegleichgewicht setzt man hier an
 %
 \begin{eqnarray}
 -fv & = & -\frac{1}{\rho}\frac{\partial p}{\partial x} + \frac{1}{\rho}\frac{\partial\tau_{x, z}}{\partial z}, \label{eq:friction_boundary_equilibrium_x}\\
@@ -14737,9 +14745,15 @@ u_\star = kz\frac{\partial\newoverline{u}}{\partial z}.
 %
 Die Lösung für $\newoverline{u}\left(z\right)$ ist das logarithmische Windprofil
 %
+\begin{center}
+\doublebox{\parbox{\textwidth}{
+\begin{center}
 \begin{eqnarray}
-\newoverline{u}\left(z\right) = \frac{u_\star}{k}\ln\left(\frac{z}{z_0}\right)\label{eq:ln_wind_profile}
+\newoverline{u}\left(z\right) = \frac{u_\star}{k}\ln\left(\frac{z}{z_0}\right).\label{eq:ln_wind_profile}
 \end{eqnarray}
+\end{center}
+}}
+\end{center}
 %
 Die Konstante $z_0 > 0$ ist die \textit{Rauhigkeitslänge}\index{Rauhigkeitslänge}, es gilt $\newoverline{u}\left(z_0\right) = 0$. Glg. \eqref{eq:ln_wind_profile} sollte überhaupt nur für $z > z_0$ angewandt werden.
 
@@ -14876,7 +14890,7 @@ Dies ist über fünf Größenordnungen über dem Wert der kinematischen Viskosit
 l = \sqrt{\frac{K}{\left|\frac{\partial\newoverline{\mathbf{v}_h}}{\partial z}\right|}} \sim \sqrt{\frac{KD}{u_g}} \sim 2\cdot 10^1\text{ m}.
 \end{eqnarray}
 %
-Dies entspricht der Erwartung, dass $l \ll D$ sein muss, damit das Mischungswegkonzept in der planetaren Grenzschicht sinnvoll ist. Es ergibt sich mit Glg. \eqref{eq:karman_eq} eine Höhe $D_P$ der Prandtl-Schicht von ca.
+Dies entspricht der Erwartung, dass $l \ll D$ sein muss, damit das Mischungswegkonzept in der planetarischen Grenzschicht sinnvoll ist. Es ergibt sich mit Glg. \eqref{eq:karman_eq} eine Höhe $D_P$ der Prandtl-Schicht von ca.
 %
 \begin{eqnarray}
 D_P = \frac{l}{k} = 50\text{ m}
@@ -14953,113 +14967,47 @@ Dies soll für beliebige Zeitpunkte gelten, also folgt hieraus bereits
 %
 zu allen Zeitpunkten als Kriterium für die Gültigkeit von Glg. \eqref{eq:reynolds_prop_3} für den einfachen Fall $g = 1$, was nur für lineare Funktionen $f$ der Fall ist.
 
-\subsection{Allgemeines gewichtetes Mittel}
-\label{sec:allgemeines_gewichtetes_mittel}\index{gewichtetes Mittel!allgemeines}\index{Mittel!gewichtetes!allgemeines}
+\subsection{Hesselberg-Mittel}
+\label{sec:hesselberg-mittel}\index{Hesselberg-Mittel}
 
-\section{Parametrisierungen}
-\label{sec:parametrisierungen}\index{Parametrisierung}
+Setzt man in Glg. \eqref{eq:av_op_gen} den Fall $h = \rho$ ein, erhält man das bereits in der Einleitung erwähnte Hesselberg-Mittel\index{Hesselberg-Mittel}. Für dieses notiert man die Zerlegung
+%
+\begin{eqnarray}
+f = \left\langle f\right\rangle + f'',
+\end{eqnarray}
+%
+um das Hesselberg-Mittel\index{Hesselberg-Mittel} von anderen Mittelungen wie z. B. dem gleitenden Zeitmittel\index{Zeitmittel!gleitendes}\index{gleitendes Zeitmittel}\index{gleitendes Mittel}\index{Mittel!gleitendes} oder einem allgemeinen Reynolds-Operator\index{Reynolds-Operator} abzugrenzen.
 
-Die Abschätzung der Auswirkungen subskaliger Variabilität auf die gemittelten Größen bezeichnet man als \textit{Parmetrisierungen}. In einer anderen Konvention bezeichnet man all das als Parametrisierung, oder auch \glqq Physik\grqq\ (in Abgrenzung zur \glqq Dynamik\grqq), was über das trockenadiabatische Gleichungssystem hinausgeht. Von dieser Konvention wird hier kein Gebrauch gemacht.
+\subsection{Tiefpass}
+\label{sec:tiefpass}\index{Tiefpass}
 
-\subsection{Beispiel: skalare Diffusion}
-\label{sec:beispiel:skalare_diffusion}\index{skalare Diffusion!Parametrisierung}\index{Diffusion!skalare!Parametrisierung}\index{Parametrisierung!skalare Diffusion}\index{Parametrisierung!Diffusion!skalare}
+Die Fourier-Transformation\index{Fourier-Transformation} $\newtilde{f}\left(k\right)$ eines Feldes $f = f\left(x\right)$ lautet
+%
+\begin{eqnarray}
+\newtilde{f}\left(k\right) \stackrel{\text{Glg. \eqref{eq:def_ft_1d}}}{=} C\int_{-\infty}^\infty f\left(x\right)\exp\left(-ikx\right)dx.
+\end{eqnarray}
+%
+Die inverse Fourier-Transformation\index{inverse Fourier-Transformation}\index{Fourier-Transformation!inverse} ist laut Glg. \eqref{eq:def_ft_1d_inv} gegeben durch
+%
+\begin{eqnarray}
+f\left(x\right) = \newtilde{C}\int_{-\infty}^\infty f\left(x\right)\exp\left(ikx\right)dk,
+\end{eqnarray}
+%
+wobei laut Glg. \eqref{eq:ft_norm} auf $C\newtilde{C} = 1/\left(2\pi\right)$ zu achten ist. Ein Tiefpass\index{Tiefpass} mit der Grenz-Wellenzahl $k^\star > 0$ wird durch die Gleichung
+%
+\begin{eqnarray}
+\newoverline{f}\left(x\right) = \newtilde{C}\int_{-k^\star}^{k^\star}f\left(x\right)\exp\left(ikx\right)dk
+\end{eqnarray}
+%
+festgelegt. Wie schon durch die Notation $\newoverline{f}$ angedeutet wurde, handelt es sich auch hier um eine Art Mittelungsoperator\index{Mittelungsoperator}. Für die Fluktuation\index{Fluktuation} $f'$ erhält man
+%
+\begin{eqnarray}
+f'\left(x\right) & \coloneqq & f\left(x\right) - \newoverline{f}\left(x\right) = \newtilde{C}\int_{-\infty}^{\infty}f\left(x\right)\exp\left(ikx\right)dk - \newtilde{C}\int_{-k^\star}^{k^\star}f\left(x\right)\exp\left(ikx\right)dk\nonumber\\
+& = & \newtilde{C}\int_{-\infty}^{-k^\star}f\left(x\right)\exp\left(ikx\right)dk + \newtilde{C}\int_{k^\star}^{\infty}f\left(x\right)\exp\left(ikx\right)dk.
+\end{eqnarray}
 
-Die Natur diffundiert die Größen Temperatur $T$ und Gasdichten $\rho_n$. Sei $\psi$ eine solche Größe. Die Diffusion erfolgt durch einen von den thermodynamischen Zustandsgrößen abhängenden Diffusionskoeffizienten $\kappa_\psi$, der somit von Ort und Zeit abhängt. Man notiert
-%
-\begin{eqnarray}
-\frac{\partial\psi}{\partial t} = \dots + \nabla\cdot\left(\kappa_\psi\nabla\psi\right).
-\end{eqnarray}
-%
-$\kappa_{\psi}$ ist zunächst einmal molekularen Ursprungs. Die in nichtlinearen Systemen bei Mittelung entstehenden Kovarianzterme skalarer Größen parametrisiert man sinnvollerweise so, dass man ansetzt
-%
-\begin{eqnarray}
-\kappa_{\psi, \Delta} = \kappa_\psi + \kappa_{\psi, S},
-\end{eqnarray}
-%
-wobei der Index $\Delta$ für den in die Diskretisierung einzusetzenden Diffusionskoeffizienten steht und der Index $S$ für die Auswirkung der Subskala. Auf diese Weise ist physikalische Konsistenz gewährleistet. Mit kleiner werdenden $\Delta x, \Delta t$, also mit höherer Ausflösung, konvergiert $\kappa_{\psi, \Delta}$ gegen $\kappa_{\psi}.$ Bei niedriger Ausflösung gilt in guter Näherung $\kappa_{\psi, \Delta} = \kappa_{\psi, S}$. Da der vertikale Gitterpunktabstand üblicherweise deutlich kleiner ist als der horizontale, kann man $\kappa_{\psi, S}$ richtungsabhängig ansetzen, also
-%
-\begin{eqnarray}
-\kappa_{\psi, \Delta}\nabla\psi \to \kappa_{\psi, \Delta, H}\nabla_h\psi + \kappa_{\psi, \Delta, z}\frac{\partial\psi}{\partial z}\mathbf{k}.
-\end{eqnarray}
-%
-Dabei ist der horizontale Diffusionskoeffizient größer als der vertikale.
-
-\subsection{Beispiel: Phasenübergangsraten}
-\label{sec:beispiel:phasenuebergangsraten}\index{Phasenübergangsrate!Parametrisierung}\index{Parametrisierung!Phasenübergangsrate}
-
-Sei $\rho_v$ die Dichte des Wasserdampfes, die Advektionsgleichung für diese Größe lautet
-%
-\begin{eqnarray}
-\frac{\partial\rho_v}{\partial t} = -\nabla\cdot\left(\rho_v\mathbf{v}\right) + s_v,
-\end{eqnarray}
-%
-hierbei ist $s_v$ die Quelldichte des Wasserdampfes. Integriert man diese Gleichung über eine Menge $\Omega \subseteq \mathbb{R}^3$, erhält man mit dem Gauß'schen Satz\index{Gauß'scher Satz}\index{Satz!Gauß'scher}
-%
-\begin{eqnarray}
-\int_\Omega\frac{\partial\rho_v}{\partial t}d^3r = -\int_\Omega\nabla\cdot\left(\rho_v\mathbf{v}\right)d^3r = -\int_{\partial\Omega}\rho_v\mathbf{v}\cdot d\mathbf{n} + \int_\Omega s_vd^3rdt'.
-\end{eqnarray}
-%
-Integriert man ferner über ein Zeitintervall $\left[t, t + \Delta t\right]$, folgt
-%
-\begin{eqnarray}
-\int_t^{t + \Delta t}\int_\Omega\frac{\partial\rho_v}{\partial t}d^3rdt' & = & -\int_t^{t + \Delta t}\int_{\partial\Omega}\rho_v\mathbf{v}\cdot d\mathbf{n}dt' + \int_t^{t + \Delta t}\int_\Omega s_vd^3rdt'\nonumber\\
-\Leftrightarrow\int_\Omega\rho_v\left(t + \Delta t\right) - \rho_v\left(t\right)d^3r & = & -\int_t^{t + \Delta t}\int_{\partial\Omega}\rho_v\mathbf{v}\cdot d\mathbf{n}dt' + \int_t^{t + \Delta t}\int_\Omega s_vd^3rdt'\nonumber\\
-\Leftrightarrow V\left[\newoverline{\rho_v}\left(t + \Delta t\right) - \newoverline{\rho_v}\left(t\right)\right] & = & -\int_t^{t + \Delta t}\int_{\partial\Omega}\rho_v\mathbf{v}\cdot d\mathbf{n}dt' + \int_t^{t + \Delta t}\int_\Omega s_vd^3rdt'\nonumber\\
-\Leftrightarrow \newoverline{\rho_v}\left(t + \Delta t\right) & = & \newoverline{\rho_v}\left(t\right) - \frac{1}{V}\int_t^{t + \Delta t}\int_{\partial\Omega}\rho_v\mathbf{v}\cdot d\mathbf{n}dt' + \int_t^{t + \Delta t}\int_\Omega s_vd^3rdt'\nonumber\\
-\Leftrightarrow \newoverline{\rho_v}\left(t + \Delta t\right) & = & \newoverline{\rho_v}\left(t\right) - \frac{1}{V}\int_t^{t + \Delta t}\int_{\partial\Omega}\rho_v\mathbf{v}\cdot d\mathbf{n}dt' + \int_\Omega\int_t^{t + \Delta t}s_vdt'd^3r.\label{eq:phase_trans_para_deriv_0}
-\end{eqnarray}
-%
-Man geht an dieser Stelle der Einfachheit halber davon aus, dass zum Zeitpunkt $t$ keine Kondensate vorhanden sind und dass während des Zeitintervals $\left[t, t + \Delta t\right]$ keine Phasenübergänge in Richtung des Wasserdampfes stattfinden. In diesem Fall gilt
-%
-\begin{eqnarray}
-\int_t^{t + \Delta t}s_vdt' = -\Theta\left[\rho_v\left(t + \Delta t\right) - \rho_v^{(\text{sat})}\left(t + \Delta t\right)\right]\left[\rho_v\left(t + \Delta t\right) - \rho_v^{(\text{sat})}\left(t + \Delta t\right)\right] \leq 0.
-\end{eqnarray}
-%
-Es gilt also
-%
-\begin{eqnarray}
-Q_v \coloneqq \int_\Omega\int_t^{t + \Delta t}s_vdt'd^3r = -\int_\Omega\Theta\left[\rho_v\left(t + \Delta t\right) - \rho_v^{(\text{sat})}\left(t + \Delta t\right)\right]\left[\rho_v\left(t + \Delta t\right) - \rho_v^{(\text{sat})}\left(t + \Delta t\right)\right]d^3r \leq 0.
-\end{eqnarray}
-%
-Definiere nun
-%
-\begin{eqnarray}
-\newtilde{Q}_v & \coloneqq & -\Theta\left\{\newoverline{\rho_v}\left(t + \Delta t\right) - \rho_v^{(\text{sat})}\left[\newoverline{T}\left(t + \Delta t\right), \newoverline{p}\left(t + \Delta t\right)\right]\right\}\left\{\rho_v\left(t + \Delta t\right) - \rho_v^{(\text{sat})}\left[\newoverline{T}\left(t + \Delta t\right), \newoverline{p}\left(t + \Delta t\right)\right]\right\} \leq 0\nonumber\\
-&&
-\end{eqnarray}
-%
-Dies ist der Quellterm, der sich ergeben würde, wenn man den Phasenübergang aus den gemittelten thermodynamischen Größen (in einem Modell wären dies die Werte in den Gitterboxen) heraus berechnen würde. Es gilt
-%
-\begin{eqnarray}
-Q_v \leq \newtilde{Q}_v.
-\end{eqnarray}
-%
-Definiere nun die Differenz zwischen dem tatsächlichen Phasenübergang und dem aus den gemittelten Größen heraus berechneten durch
-%
-\begin{eqnarray}
-\Delta Q_v \coloneqq Q_v - \newtilde{Q}_v \leq 0.
-\end{eqnarray}
-%
-Damit kann man Glg. \eqref{eq:phase_trans_para_deriv_0} in der Form
-%
-\begin{eqnarray}
-\newoverline{\rho_v}\left(t + \Delta t\right) & = & \newoverline{\rho_v}\left(t\right) - \frac{1}{V}\int_t^{t + \Delta t}\int_{\partial\Omega}\rho_v\mathbf{v}\cdot d\mathbf{n}dt' + Q_v\nonumber\\
-& = & \newoverline{\rho_v}\left(t\right) - \frac{1}{V}\int_t^{t + \Delta t}\int_{\partial\Omega}\rho_v\mathbf{v}\cdot d\mathbf{n}dt' + \newtilde{Q}_v + \Delta Q_v.
-\end{eqnarray}
-%
-Der Quellterm $Q_v$ setzt sich somit aus zwei Anteilen zusammen:
-%
-\begin{itemize}
-\item Der Term $\newtilde{Q}_v \leq 0$ entspricht dem aufgelösten Anteil.
-\item Der Term $\Delta Q_v \leq 0$ entspricht dem subskaligen Anteil.
-\end{itemize}
-%
-Ein Modell hätte zunächst nur Kenntnis vom aufgelösten Anteil $\newtilde{Q}_v$ und würde somit den Gesamt-Phasenübergang $Q_v$ unterschätzen. Insbesondere kann es Situationen mit $\newtilde{Q}_v = 0$ und $\Delta Q_v < 0$ geben. Man könnte nun aus hergeleiteten oder gemessenen Spektraleigenschaften der Felder Ansätze für den Term $\Delta Q_v$ herleiten. Dies wäre jedoch mit großem theoretischen Aufwand verbunden. Anstattdessen wäre es sinnvoll, sich einen sehr einfachen Ansatz für $\Delta Q_v$ zu überlegen und die hierin vorhandenen Koeffizienten direkt an Beobachtungen anzupassen.
-
-Nichtsdestotrotz veranschaulicht dieser Abschnitt, dass alle Arten von Parametrisierungen letzten Endes mit subskaliger Variabilität zu tun haben.  Im Fall $\Omega, \Delta t \to 0$ geht $\Delta Q_v$ gegen Null, was ebenfalls für alle Parametrisierungen der Fall ist.
-
-\section{Turbulenzspektren}
-\label{sec:turbulenzspektren}\index{Turbulenzspektrum}
+\section{Isotrope Turbulenz}
+\label{sec:isotrope_turbulenz}\index{isotrope Turbulenz}\index{Turbulenz!isotrope}
 
 \subsection{Spektralform der Navier-Stokes-Gleichungen}
 \label{sec:spektralform_der_navier-stokes-gleichungen}\index{Navier-Stokes-Gleichungen!Spektralform}\index{Spektralform der Navier-Stokes-Gleichungen}
@@ -15210,7 +15158,7 @@ Substituiert man im ersten Integral mit $\mathbf{f}\left(\mathbf{k}'\right) = \m
 Im zweiten Integral sei darauf hingewiesen, dass sich das Minuszeichen, welches aus dem Vertausch der Integrationsgrenzen folgt, mit demjenigen aufhebt, welches sich aus der Ableitung der substituierten Funktion ergibt. Man definiert die \textit{Energie-Transfer-Funktion}\index{Energie-Transfer-Funktion} $W = W\left(\mathbf{k}, \mathbf{k}', t\right)$ durch
 %
 \begin{eqnarray}
-W\left(\mathbf{k}, \mathbf{k}', t\right) & = & \frac{i\mathbf{k}}{2}\cdot\left\{\newtilde{\mathbf{v}}\left(\mathbf{k}' - \mathbf{k}, t\right)\left[\newtilde{\mathbf{v}}\left(\mathbf{k}, t\right)\cdot\newtilde{\mathbf{v}}\left(-\mathbf{k}', t\right)\right] - \newtilde{\mathbf{v}}\left(\mathbf{k} - \mathbf{k}', t\right)\left[\newtilde{\mathbf{v}}\left(-\mathbf{k}, t\right)\cdot\newtilde{\mathbf{v}}\left(\mathbf{k}', t\right)\right]\right\}.\label{eq:def_energy_tranfer_function}
+W\left(\mathbf{k}, \mathbf{k}', t\right) & \coloneqq & \frac{i\mathbf{k}}{2}\cdot\left\{\newtilde{\mathbf{v}}\left(\mathbf{k}' - \mathbf{k}, t\right)\left[\newtilde{\mathbf{v}}\left(\mathbf{k}, t\right)\cdot\newtilde{\mathbf{v}}\left(-\mathbf{k}', t\right)\right] - \newtilde{\mathbf{v}}\left(\mathbf{k} - \mathbf{k}', t\right)\left[\newtilde{\mathbf{v}}\left(-\mathbf{k}, t\right)\cdot\newtilde{\mathbf{v}}\left(\mathbf{k}', t\right)\right]\right\}.\label{eq:def_energy_tranfer_function}
 \end{eqnarray}
 %
 Damit erhält man die Bilanzgleichung der kinetischen Energie in spektraler Form\index{Bilanzgleichung!kinetische Energie}\index{kinetische Energie!Bilanzgleichung}\index{Energie!kinetische!Bilanzgleichung}
@@ -15573,8 +15521,116 @@ Dieses Gebiet des Spektrums ($k > k_c$) bezeichnet man als \textit{dissipative r
 %
 Diesen Bereich des Spektrums ($k^\star < k \ll k_c$) bezeichnet man als \textit{inertial subrange}\index{inertial subrange}.
 
+\section{Geostrophische Turbulenz}
+\label{sec:geostrophische_turbulenz}\index{geostrophische Turbulenz}\index{Turbulenz!geostrophische}
+
 \section{Energiekaskade}
 \label{sec:energiekaskade}\index{Energiekaskade}
+
+\section{Parametrisierungen}
+\label{sec:parametrisierungen}\index{Parametrisierung}
+
+Die Abschätzung der Auswirkungen subskaliger Variabilität auf die gemittelten Größen bezeichnet man als \textit{Parmetrisierungen}. In einer anderen Konvention bezeichnet man all das als Parametrisierung, oder auch \glqq Physik\grqq\ (in Abgrenzung zur \glqq Dynamik\grqq), was über das trockenadiabatische Gleichungssystem hinausgeht. Von dieser Konvention wird hier kein Gebrauch gemacht.
+
+\subsection{Beispiel: skalare Diffusion}
+\label{sec:beispiel:skalare_diffusion}\index{skalare Diffusion!Parametrisierung}\index{Diffusion!skalare!Parametrisierung}\index{Parametrisierung!skalare Diffusion}\index{Parametrisierung!Diffusion!skalare}
+
+Die Natur diffundiert die Größen Temperatur $T$ und Gasdichten $\rho_n$. Sei $\psi$ eine solche Größe. Die Diffusion erfolgt durch einen von den thermodynamischen Zustandsgrößen abhängenden Diffusionskoeffizienten $\kappa_\psi$, der somit von Ort und Zeit abhängt. Man notiert
+%
+\begin{eqnarray}
+\frac{\partial\psi}{\partial t} = \dots + \nabla\cdot\left(\kappa_\psi\nabla\psi\right).
+\end{eqnarray}
+%
+$\kappa_{\psi}$ ist zunächst einmal molekularen Ursprungs. Die in nichtlinearen Systemen bei Mittelung entstehenden Kovarianzterme skalarer Größen parametrisiert man sinnvollerweise so, dass man ansetzt
+%
+\begin{eqnarray}
+\kappa_{\psi, \Delta} = \kappa_\psi + \kappa_{\psi, S},
+\end{eqnarray}
+%
+wobei der Index $\Delta$ für den in die Diskretisierung einzusetzenden Diffusionskoeffizienten steht und der Index $S$ für die Auswirkung der Subskala. Auf diese Weise ist physikalische Konsistenz gewährleistet. Mit kleiner werdenden $\Delta x, \Delta t$, also mit höherer Ausflösung, konvergiert $\kappa_{\psi, \Delta}$ gegen $\kappa_{\psi}.$ Bei niedriger Ausflösung gilt in guter Näherung $\kappa_{\psi, \Delta} = \kappa_{\psi, S}$. Da der vertikale Gitterpunktabstand üblicherweise deutlich kleiner ist als der horizontale, kann man $\kappa_{\psi, S}$ richtungsabhängig ansetzen, also
+%
+\begin{eqnarray}
+\kappa_{\psi, \Delta}\nabla\psi \to \kappa_{\psi, \Delta, H}\nabla_h\psi + \kappa_{\psi, \Delta, z}\frac{\partial\psi}{\partial z}\mathbf{k}.
+\end{eqnarray}
+%
+Dabei ist der horizontale Diffusionskoeffizient größer als der vertikale.
+
+\subsection{Beispiel: Impulsdiffusion}
+\label{sec:impulsdiffusion}\index{Impulsdiffusion}
+
+\subsection{Beispiel: Phasenübergänge}
+\label{sec:beispiel:phasenuebergaenge}\index{Phasenübergang!Parametrisierung}\index{Parametrisierung!Phasenübergänge}
+
+Sei $\rho_v$ die Dichte des Wasserdampfes, die Advektionsgleichung für diese Größe lautet
+%
+\begin{eqnarray}
+\frac{\partial\rho_v}{\partial t} = -\nabla\cdot\left(\rho_v\mathbf{v}\right) + s_v,
+\end{eqnarray}
+%
+hierbei ist $s_v$ die Quelldichte des Wasserdampfes. Integriert man diese Gleichung über eine Menge $\Omega \subseteq \mathbb{R}^3$, erhält man mit dem Gauß'schen Satz\index{Gauß'scher Satz}\index{Satz!Gauß'scher}
+%
+\begin{eqnarray}
+\int_\Omega\frac{\partial\rho_v}{\partial t}d^3r = -\int_\Omega\nabla\cdot\left(\rho_v\mathbf{v}\right)d^3r = -\int_{\partial\Omega}\rho_v\mathbf{v}\cdot d\mathbf{n} + \int_\Omega s_vd^3rdt'.
+\end{eqnarray}
+%
+Integriert man ferner über ein Zeitintervall $\left[t, t + \Delta t\right]$, folgt
+%
+\begin{eqnarray}
+\int_t^{t + \Delta t}\int_\Omega\frac{\partial\rho_v}{\partial t}d^3rdt' & = & -\int_t^{t + \Delta t}\int_{\partial\Omega}\rho_v\mathbf{v}\cdot d\mathbf{n}dt' + \int_t^{t + \Delta t}\int_\Omega s_vd^3rdt'\nonumber\\
+\Leftrightarrow\int_\Omega\rho_v\left(t + \Delta t\right) - \rho_v\left(t\right)d^3r & = & -\int_t^{t + \Delta t}\int_{\partial\Omega}\rho_v\mathbf{v}\cdot d\mathbf{n}dt' + \int_t^{t + \Delta t}\int_\Omega s_vd^3rdt'\nonumber\\
+\Leftrightarrow V\left[\newoverline{\rho_v}\left(t + \Delta t\right) - \newoverline{\rho_v}\left(t\right)\right] & = & -\int_t^{t + \Delta t}\int_{\partial\Omega}\rho_v\mathbf{v}\cdot d\mathbf{n}dt' + \int_t^{t + \Delta t}\int_\Omega s_vd^3rdt'\nonumber\\
+\Leftrightarrow \newoverline{\rho_v}\left(t + \Delta t\right) & = & \newoverline{\rho_v}\left(t\right) - \frac{1}{V}\int_t^{t + \Delta t}\int_{\partial\Omega}\rho_v\mathbf{v}\cdot d\mathbf{n}dt' + \int_t^{t + \Delta t}\int_\Omega s_vd^3rdt'\nonumber\\
+\Leftrightarrow \newoverline{\rho_v}\left(t + \Delta t\right) & = & \newoverline{\rho_v}\left(t\right) - \frac{1}{V}\int_t^{t + \Delta t}\int_{\partial\Omega}\rho_v\mathbf{v}\cdot d\mathbf{n}dt' + \int_\Omega\int_t^{t + \Delta t}s_vdt'd^3r.\label{eq:phase_trans_para_deriv_0}
+\end{eqnarray}
+%
+Man geht an dieser Stelle der Einfachheit halber davon aus, dass zum Zeitpunkt $t$ keine Kondensate vorhanden sind und dass während des Zeitintervals $\left[t, t + \Delta t\right]$ keine Phasenübergänge in Richtung des Wasserdampfes stattfinden. In diesem Fall gilt
+%
+\begin{eqnarray}
+\int_t^{t + \Delta t}s_vdt' = -\Theta\left[\rho_v\left(t + \Delta t\right) - \rho_v^{(\text{sat})}\left(t + \Delta t\right)\right]\left[\rho_v\left(t + \Delta t\right) - \rho_v^{(\text{sat})}\left(t + \Delta t\right)\right] \leq 0.
+\end{eqnarray}
+%
+Es gilt also
+%
+\begin{eqnarray}
+Q_v \coloneqq \int_\Omega\int_t^{t + \Delta t}s_vdt'd^3r = -\int_\Omega\Theta\left[\rho_v\left(t + \Delta t\right) - \rho_v^{(\text{sat})}\left(t + \Delta t\right)\right]\left[\rho_v\left(t + \Delta t\right) - \rho_v^{(\text{sat})}\left(t + \Delta t\right)\right]d^3r \leq 0.
+\end{eqnarray}
+%
+Definiere nun
+%
+\begin{eqnarray}
+\newtilde{Q}_v & \coloneqq & -\Theta\left\{\newoverline{\rho_v}\left(t + \Delta t\right) - \rho_v^{(\text{sat})}\left[\newoverline{T}\left(t + \Delta t\right), \newoverline{p}\left(t + \Delta t\right)\right]\right\}\left\{\rho_v\left(t + \Delta t\right) - \rho_v^{(\text{sat})}\left[\newoverline{T}\left(t + \Delta t\right), \newoverline{p}\left(t + \Delta t\right)\right]\right\} \leq 0\nonumber\\
+&&
+\end{eqnarray}
+%
+Dies ist der Quellterm, der sich ergeben würde, wenn man den Phasenübergang aus den gemittelten thermodynamischen Größen (in einem Modell wären dies die Werte in den Gitterboxen) heraus berechnen würde. Es gilt
+%
+\begin{eqnarray}
+Q_v \leq \newtilde{Q}_v.
+\end{eqnarray}
+%
+Definiere nun die Differenz zwischen dem tatsächlichen Phasenübergang und dem aus den gemittelten Größen heraus berechneten durch
+%
+\begin{eqnarray}
+\Delta Q_v \coloneqq Q_v - \newtilde{Q}_v \leq 0.
+\end{eqnarray}
+%
+Damit kann man Glg. \eqref{eq:phase_trans_para_deriv_0} in der Form
+%
+\begin{eqnarray}
+\newoverline{\rho_v}\left(t + \Delta t\right) & = & \newoverline{\rho_v}\left(t\right) - \frac{1}{V}\int_t^{t + \Delta t}\int_{\partial\Omega}\rho_v\mathbf{v}\cdot d\mathbf{n}dt' + Q_v\nonumber\\
+& = & \newoverline{\rho_v}\left(t\right) - \frac{1}{V}\int_t^{t + \Delta t}\int_{\partial\Omega}\rho_v\mathbf{v}\cdot d\mathbf{n}dt' + \newtilde{Q}_v + \Delta Q_v.
+\end{eqnarray}
+%
+Der Quellterm $Q_v$ setzt sich somit aus zwei Anteilen zusammen:
+%
+\begin{itemize}
+\item Der Term $\newtilde{Q}_v \leq 0$ entspricht dem aufgelösten Anteil.
+\item Der Term $\Delta Q_v \leq 0$ entspricht dem subskaligen Anteil.
+\end{itemize}
+%
+Ein Modell hätte zunächst nur Kenntnis vom aufgelösten Anteil $\newtilde{Q}_v$ und würde somit den Gesamt-Phasenübergang $Q_v$ unterschätzen. Insbesondere kann es Situationen mit $\newtilde{Q}_v = 0$ und $\Delta Q_v < 0$ geben. Man könnte nun aus hergeleiteten oder gemessenen Spektraleigenschaften der Felder Ansätze für den Term $\Delta Q_v$ herleiten. Dies wäre jedoch mit großem theoretischen Aufwand verbunden. Anstattdessen wäre es sinnvoll, sich einen sehr einfachen Ansatz für $\Delta Q_v$ zu überlegen und die hierin vorhandenen Koeffizienten direkt an Beobachtungen anzupassen.
+
+Nichtsdestotrotz veranschaulicht dieser Abschnitt, dass alle Arten von Parametrisierungen letzten Endes mit subskaliger Variabilität zu tun haben.  Im Fall $\Omega, \Delta t \to 0$ geht $\Delta Q_v$ gegen Null, was ebenfalls für alle Parametrisierungen der Fall ist.
 
 \chapter{\normalfont\textsc{Klimatologie der Atmosphäre}}
 \label{chap:klimatologie_der_atmosphaere}\index{Klimatologie!der Atmosphäre}
@@ -17515,7 +17571,7 @@ Der Begriff \textit{dynamischer Kern}\index{dynamischer Kern}\index{Kern!dynamis
 %
 \begin{itemize}
 \item Der \textit{reversible Teil des dynamischen Kerns}\index{dynamischer Kern!reversibler Teil}\index{Kern!dynamischer!reversibler Teil} löst die Gleichungen einer trockenadiabatischen Atmosphäre ohne molekulare und numerische Diffusionsterme. Bei Modellen, bei denen dieser Teil des dynamischen Kerns den Zweiten Hauptsatz nicht exakt einhält, sollte man diesen Teil besser als \textit{primären Teil des dynamischen Kerns}\index{dynamischer Kern!primärer Teil}\index{Kern!dynamischer!primärer Teil} bezeichnen.
-\item Der \textit{irreversible Teil des dynamischen Kerns}\index{dynamischer Kern!irreversibler Teil}\index{Kern!dynamischer!irreversibler Teil} behandelt molekulare und numerische diffusive Flüsse\index{diffusiver Fluss}\index{Fluss!diffusiver}. Dabei kann es sich um Wärme-, Massen- oder Impulsflüsse handeln. Die Parametrisierung\index{Parametrisierung} der numerischen diffusiven Flüsse bezeichnet man auch als Turbulenzparametrisierungen\index{Turbulenzparametrisierungen}. Bei Modellen, bei denen der zuvor definierte Teil des dynamischen Kerns den Zweiten Hauptsatz nicht exakt einhält, sollte man diesen Teil besser als \textit{sekundären Teil des dynamischen Kerns}\index{dynamischer Kern!sekundärer Teil}\index{Kern!dynamischer!sekundären Teil} bezeichnen. Zusammen mit dem zuvor definierten Teil bildet dieser Teil den \textit{trockenen dynamischen Kern}\index{dynamischer Kern!trockener}\index{Kern!dynamischer!trockener}.
+\item Der \textit{irreversible Teil des dynamischen Kerns}\index{dynamischer Kern!irreversibler Teil}\index{Kern!dynamischer!irreversibler Teil} behandelt molekulare und numerische diffusive Flüsse\index{diffusiver Fluss}\index{Fluss!diffusiver}. Dabei kann es sich um Wärme-, Massen- oder Impulsflüsse handeln. Bei Modellen, bei denen der zuvor definierte Teil des dynamischen Kerns den Zweiten Hauptsatz nicht exakt einhält, sollte man diesen Teil besser als \textit{sekundären Teil des dynamischen Kerns}\index{dynamischer Kern!sekundärer Teil}\index{Kern!dynamischer!sekundärer Teil} bezeichnen. Zusammen mit dem zuvor definierten Teil bildet dieser Teil den \textit{trockenen dynamischen Kern}\index{dynamischer Kern!trockener}\index{Kern!dynamischer!trockener}.
 \item Der \textit{erweiterte dynamische Kern}\index{dynamischer Kern!erweiterter}\index{Kern!dynamischer!erweiterter} behandelt die Advektion von Tracern und stellt sicher, dass keine negativen Tracerdichten auftreten. Dabei kann es sich um Wasserkomponenten, Aerosole oder Gase handeln.
 \end{itemize}
 
@@ -17900,7 +17956,7 @@ v_{h, e, k, \text{GK}} = u_{e, k} + \newoverline{\newoverline{w_{c, k + \frac{1}
 }}
 \end{center}
 
-\subsection{SLEVE}
+\subsection{\textsc{SLEVE}}
 \label{sec:sleve}\index{SLEVE}
 
 \section{Ellipsoidische Modifikation des Gitters}
@@ -18462,8 +18518,8 @@ Die mit der vertikalen Diffusion von Impuls\index{Impulsdiffusion!vertikale}\ind
 \subsection{Obere Randbedingung}
 \label{sec:obere_randbedingung_irreversibel}\index{obere Randbedingung}\index{Randbedingung!obere}
 
-\section{Turbulenzparametrisierungen}
-\label{sec:turbulenzparametrisierungen}\index{Turbulenzparametrisierung}
+\section{Parametrisierungen}
+\label{sec:parametrisierungen_modell_irreversibel}\index{Parametrisierung}
 
 Die diffusiven (irreversiblen) Terme stellen eine Ankopplung der kontinuierlichen Welt der Navier-Stokes-Gleichungen\index{Navier-Stokes-Gleichung} and die molekulare Skala dar. Wie in Absch. \ref{sec:thermodynamische_bedeutung_der_reibung} festgestellt wurde, vernichtet (dissipiert\index{Dissipation}) die Impulsdiffusion\index{Impulsdiffusion} kinetische Energie\index{kinetische Energie}\index{Energie!kinetische} zugunsten der inneren Energie\index{innere Energie}\index{Energie!innere}. Die Atmosphäre kann konzeptionell als Tiefpass\index{Tiefpass}\index{Atmosphäre!als Tiefpass} aufgefasst werden, wobei Wellenlängen  $< 100 \lambda$ gefiltert werden, wobei $\lambda$ die mittlere freie Weglänge\index{mittlere freie Weglänge}\index{Weglänge!freie mittlere} bezeichnet. Der Faktor 100 ist in gewissen Grenzen willkürlich, er berücksichtigt, dass die Kontinuumshypothese\index{Kontinuumshypothese} nicht erst auf der Größenordnung $\lambda$ ihre Gültigkeit verliert.
 
@@ -18506,6 +18562,12 @@ Führt man $N \geq 1$ Tracer ein (also Anteile der Luft, die nicht zur trockenen
 
 \subsection{Limiter}
 \label{sec:limiter}\index{Limiter}
+
+\subsection{Parametrisierungen}
+\label{sec:parametrisierungen_tracer}\index{Parametrisierung!Phasenübergänge}\index{Phasenübergang!Parametrisierung}
+
+\section{Ankopplung an ein Strahlungstransportmodell}
+\label{sec:ankopplung_an_ein_strahlungstransportmodell}
 
 \section{Model output statistics (MOS)}
 \label{sec:model_output_statistics_mos}\index{model output statistics}
