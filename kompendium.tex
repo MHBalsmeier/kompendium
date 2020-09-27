@@ -5261,7 +5261,7 @@ J = -k_BT\ln\left(Y\left(T, V, \mu\right)\right).\label{eq:groskan_pot_zustandss
 %
 Durch die Glg.en \eqref{eq:free_energy_zustandssumme} und \eqref{eq:groskan_pot_zustandssumme} ist eine Verbindung zwischen mikroskopischer Statistik und makroskopischer Thermodynamik gegeben.
 
-Für das vollständige Differential $d\mu$ des chemischen Potentials\index{chemisches Potential}\index{Potential!chemisches} $\mu = \mu\left(T, p\right)$ gilt
+Für das vollständige differenzial $d\mu$ des chemischen Potentials\index{chemisches Potential}\index{Potential!chemisches} $\mu = \mu\left(T, p\right)$ gilt
 %
 \begin{eqnarray}
 d\mu = \left(\frac{\partial\mu}{\partial T}\right)_pdT + \left(\frac{\partial\mu}{\partial p}\right)_Tdp \stackrel{\text{Glg.en \eqref{eq:maxwell_rel_4}, \eqref{eq:maxwell_rel_3}}}{=} -\left(\frac{\partial S}{\partial N}\right)_{T, V}dT + \left(\frac{\partial V}{\partial N}\right)_{p, T}dp.
@@ -7305,6 +7305,8 @@ f_{R,z}
 %
 für die Reibungsbeschleunigung mitgeführt. Dies ist trotz der relativen Kleinheit der Reibung in der Atmosphäre aufgrund ihrer Bedeutung für die Energiekaskade (s. Absch. \ref{sec:thermodynamische_bedeutung_der_reibung}) sinnvoll.
 
+Eine Skalenanalyse der Reibungsbeschleunigung für die synoptische Skala ergibt $10^{-5}10^{-11} = 10^{-16}$ m/s$^2$, die typische Beschleunigung ist $10^{-4}$ m/s$^2$, die Reibung ist also auf der synoptischen Skala zwölf Größenordnungen kleiner als die Beschleunigung und damit komplett vernachlässigbar. Sie hat nichtsdestotrotz eine wichtige thermodynamische Bedeutung, da sie für die Dissipation kinetischer Energie verantwortlich ist. Die dissipierte kinetische Energie wird in thermische Energie umgewandelt. Fluide ohne Reibung bezeichnet man als \textit{ideale Fluide}\index{ideales Fluid}\index{Fluid!ideales}.
+
 \subsubsection{Dissipation}
 \label{sec:dissipation}\index{Dissipation}
 
@@ -7340,19 +7342,8 @@ T_{i, j} = -p\delta_{i, j} + 2\mu S_{i, j}.
 Hiieraus folgt
 %
 \begin{eqnarray}
-\frac{1}{\rho}\nabla\cdot\overleftrightarrow{T} & = & -\frac{1}{\rho}\nabla p + \frac{2\mu}{\rho}\sum_{i, j = 1}^3\mathbf{e}_i\frac{\partial S_{i, j}}{\partial x_j} = -\frac{1}{\rho}\nabla p + \frac{\mu}{\rho}\sum_{i, j = 1}^3\mathbf{e}_i\frac{\partial\left(\frac{\partial v_i}{\partial x_j} + \frac{\partial v_j}{\partial x_i}\right)}{\partial x_j} = -\frac{1}{\rho}\nabla p + \nu\sum_{i, j = 1}^3\mathbf{e}_i\left(\frac{\partial^2v_i}{\partial x_j^2} + \frac{\partial}{\partial x_i}\frac{\partial v_j}{\partial x_j}\right)\nonumber\\
-& = & -\frac{1}{\rho}\nabla p + \nu\Delta\mathbf{v} + \nu\sum_{i = 1}^3\mathbf{e}_i\frac{\partial}{\partial x_i}\nabla\cdot\mathbf{v} = \nu\Delta\mathbf{v},\label{eq:friction_acceleration_inc}
+\frac{1}{\rho}\nabla\cdot\overleftrightarrow{T} & \stackrel{\text{Glg. \eqref{eq:friction_acceleration}}}{=} & \nu\Delta\mathbf{v}.\label{eq:friction_acceleration_inc}
 \end{eqnarray}
-%
-wobei die \textit{kinematische Viskosität}\index{kinematische Viskosität}\index{Viskosität!kinematische}
-%
-\begin{eqnarray}
-\nu \coloneqq \frac{\mu}{\rho}
-\end{eqnarray}
-%
-eingeführt wurde.
-
-Eine Skalenanalyse der Reibungsbeschleunigung für die synoptische Skala ergibt $10^{-5}10^{-11} = 10^{-16}$ m/s$^2$, die typische Beschleunigung ist $10^{-4}$ m/s$^2$, die Reibung ist also auf der synoptischen Skala zwölf Größenordnungen kleiner als die Beschleunigung und damit komplett vernachlässigbar. Sie hat nichtsdestotrotz eine wichtige thermodynamische Bedeutung, da sie für die Dissipation kinetischer Energie verantwortlich ist. Die dissipierte kinetische Energie wird in thermische Energie umgewandelt. Fluide ohne Reibung bezeichnet man als \textit{ideale Fluide}\index{ideales Fluid}\index{Fluid!ideales}.
 
 \subsubsection{Thermodynamische Bedeutung der Reibung}
 \label{sec:thermodynamische_bedeutung_der_reibung}\index{Thermodynamik!Reibung}\index{Reibung!thermodynamische Bedeutung}
@@ -7584,7 +7575,7 @@ Setzt man dies in die Bewegungsgleichung ein, folgt
 \subsection{Randbedingungen}
 \label{sec:randbedingungen_impulsgleichung}\index{Randbedingung}
 
-Will man ein Differentialgleichungssystem auf eine Menge $\Omega$ anwenden, benötigt man Randbedingungen. $\Omega$ sei durch kondensierte Materie begrenzt. Sei $\mathbf{n}$ ein Normalenvektor auf $\partial\Omega$, dann gilt als Randbedingung für das Windfeld $\mathbf{v}$
+Will man ein differenzialgleichungssystem auf eine Menge $\Omega$ anwenden, benötigt man Randbedingungen. $\Omega$ sei durch kondensierte Materie begrenzt. Sei $\mathbf{n}$ ein Normalenvektor auf $\partial\Omega$, dann gilt als Randbedingung für das Windfeld $\mathbf{v}$
 %
 \begin{eqnarray}
 \mathbf{v}\cdot\mathbf{n} = 0, 
@@ -14584,7 +14575,7 @@ Es gibt keine mathematisch exakte Definition dafür, ob ein Strömungsfeld turbu
 \newoverline{f} \coloneqq \frac{1}{\mu\left(\Omega\right)}\int_\Omega fd\omega,\label{eq:simple_average}
 \end{eqnarray}
 %
-wobei $\Omega$ eine beliebeige räumliche und/oder zeitliche Menge sein soll, $\mu\left(\Omega\right)$ deren Maß, $f$ eine beliebige Funktion von Ort und Zeit und $d\omega$ ein geeignetes Differntial. Nun kann man $f$ in der Form
+wobei $\Omega$ eine beliebeige räumliche und/oder zeitliche Menge sein soll, $\mu\left(\Omega\right)$ deren Maß, $f$ eine beliebige Funktion von Ort und Zeit und $d\omega$ ein geeignetes differenzial. Nun kann man $f$ in der Form
 %
 \begin{eqnarray}
 f & \equiv & \newoverline{f} + f'
@@ -15043,7 +15034,7 @@ eingesetzt wurde. Die inverse Fourier-Transformationen\index{Fourier-Transformat
 \varphi\left(\mathbf{r}\right) & = & \int\newtilde{\varphi}\left(\mathbf{k}\right)\exp\left(i\mathbf{k}\cdot\mathbf{r}\right)d^3k.
 \end{eqnarray}
 %
-Weiterhin gilt für die Anwendung der Differentialoperatoren auf die Felder
+Weiterhin gilt für die Anwendung der differenzialoperatoren auf die Felder
 %
 \begin{eqnarray}
 \frac{\partial\mathbf{v}}{\partial t} & = & \int\frac{\partial\newtilde{\mathbf{v}}\left(\mathbf{k}, t\right)}{\partial t}\exp\left(i\mathbf{k}\cdot\mathbf{r}\right)d^3k,\\
@@ -15827,7 +15818,7 @@ an. Die wird gelöst durch
 \psi_I = \left(C - x\right)\frac{\epsilon\pi}{rL}\rho_0U^2\sin\left(\pi\frac{y}{L}\right).
 \end{eqnarray}
 %
-mit einer Konstanten $C$. Der verbleibende Teil der Differentialgleichung soll durch $\phi$ gelöst werden:
+mit einer Konstanten $C$. Der verbleibende Teil der differenzialgleichung soll durch $\phi$ gelöst werden:
 %
 \begin{eqnarray}
 \epsilon\Delta\phi = 0
@@ -16309,7 +16300,7 @@ also die gleiche Dispersionsrelation wie beim expliziten Euler-Verfahren.
 \subsection{Crank-Nicolson-Verfahren}
 \label{sec:crank-nicolson-Verfahren}\index{Crank-Nicolson-Verfahren}
 
-Man ist nicht darauf beschränkt, eine Differentialgleichung entweder nur explizit oder nur implizit zu lösen. Sei $\newtilde{f}$ das diskretisierte Analogon eines kontinuierlichen Feldes $f$ und seien $\mathbf{r}_i$ die Gitterpunkte. Ein Zwei-Schritt-Verfahren für eine Differentialgleichung erster Ordnung in der Zeit für $f$ lässt sich in der Form
+Man ist nicht darauf beschränkt, eine differenzialgleichung entweder nur explizit oder nur implizit zu lösen. Sei $\newtilde{f}$ das diskretisierte Analogon eines kontinuierlichen Feldes $f$ und seien $\mathbf{r}_i$ die Gitterpunkte. Ein Zwei-Schritt-Verfahren für eine differenzialgleichung erster Ordnung in der Zeit für $f$ lässt sich in der Form
 %
 \begin{eqnarray}
 \newtilde{f}\left(\mathbf{r}_i, \left(n + 1\right)\Delta t\right) = \newtilde{f}\left(\mathbf{r}_i, n\Delta t\right) + \Delta t\sum_{j = 1}^N\newtilde{F}_j\left[\newtilde{f}\left(\left(n + m_j\right)\Delta t\right)\right]
@@ -16348,8 +16339,8 @@ Das explizite Euler-Verfahren ist genau dann stabil, wenn $c < 1$ ist.
 \section{Mischung von Zeitschrittverfahren}
 \label{sec:mischung_von_zeitschrittverfahren}
 
-\section{Aspekte partieller Differentialgleichungen}
-\label{sec:aspekte_partieller_differentialgleichungen}
+\section{Aspekte partieller differenzialgleichungen}
+\label{sec:aspekte_partieller_differenzialgleichungen}
 
 \subsection{Das Forward-backward-Verfahren}
 \label{sec:das_forward-backward-verfahren}
@@ -16882,7 +16873,7 @@ Es werden alle als notwendig identifizierten Punkte zusammengefasst:
 \item quasi-uniformes Gitter
 \item orthogonales Gitter
 \item Gültigkeit der Integralsätze für Masse, Entropie und Energie
-\item mimetische Eigenschaften von Differentialoperatoren ist wichtiger als Konvergenzordnung
+\item mimetische Eigenschaften von differenzialoperatoren ist wichtiger als Konvergenzordnung
 \item ellipsoidisches Gitter
 \end{itemize}
 
@@ -16959,8 +16950,8 @@ Daher wird an dieser Stelle die Entscheidung getroffen, ein C-Gitter\index{C-Git
 \chapter{\normalfont\textsc{Probleme eines dreielementigen Erzeugendensystems einer zweidimensionalen Menge}}
 \label{chap:probleme_eines_dreielementigen_erzeugendensystems_einer_zweidimensionalen_menge}\index{dreielementiges Erzeugendensystem}\index{Erzeugendensystem!dreielementiges}
 
-\section{Differentialoperatoren}
-\label{sec:differentialoperatoren}
+\section{differenzialoperatoren}
+\label{sec:differenzialoperatoren}
 
 Die beiden Einheitsvektoren\index{Einheitsvektor} der Ebene werden mit
 %
@@ -19742,7 +19733,7 @@ Benötigt man einen linearen Ausdruck für $1/r$, verwendet man meist
 \end{eqnarray}
 %
 \subsection{Rechenregeln für Differenzialoperatoren}
-\label{sec:rechenregeln_fuer_differentialoperatoren}\index{Rechenregel!Differenzialoperator}\index{Differenzialoperator!Rechenregel}
+\label{sec:rechenregeln_fuer_differenzialoperatoren}\index{Rechenregel!Differenzialoperator}\index{Differenzialoperator!Rechenregel}
 
 Seien $\mathbf{u}, \mathbf{v}, \mathbf{w}:\mathbb{R}^3\to\mathbb{R}^3$ mit $\mathbf{u} = \left(u_1, u_2, u_3\right)^T, \mathbf{v} = \left(v_1, v_2, v_3\right)^T$ und $\mathbf{w} = \left(w_1, w_2, w_3\right)^T$ drei Vektorfelder, $\psi, \chi:\mathbb{R}^3\to\mathbb{R}$ zwei Skalarfelder und $\lambda\in\mathbb{C}$ ein Skalar. Es wird definiert
 %
