@@ -23232,21 +23232,6 @@ Somit folgt
 \begin{eqnarray}
 h_\lambda = \sqrt{\left(\frac{\partial x}{\partial \lambda}\right)^2 + \left(\frac{\partial y}{\partial \lambda}\right)^2} = \sqrt{x^2 + y^2}.
 \end{eqnarray}
-
-\subsection{Rotation in \textsc{Great}-Koordinaten}
-\label{sec:rotation_in_great-koordinaten}\index{Rotation!\textsc{Great}-Koordinaten}\index{\textsc{Great}-Koordinaten!Rotation}
-
-\subsubsection{Lamb-Transformation in \textsc{Great}-Koordinaten}
-\label{sec:lamb-transformation_in_great-koordinaten}\index{Lamb-Transformation!\textsc{Great}-Koordinaten}\index{\textsc{Great}-Koordinaten!Lamb-Transformation}
-
-Die Impulsadvektion\index{Impulsadvektion} kann laut Glg. \eqref{eq:diff_op_rule_10} in der Form
-%
-\begin{eqnarray}
--\left(\mathbf{v}\cdot\nabla\right)\mathbf{v} = -\nabla k - \left(\nabla\times\mathbf{v}\right)\times\mathbf{v}
-\end{eqnarray}
-%
-notiert werden, hierbei ist $k = \frac{1}{2}\mathbf{v}\cdot\mathbf{v}$ die spezifische kinetische Energie\index{spezifische kinetische Energie}\index{kinetische Energie!spezifische}\index{Energie!kinetische!spezifische}. Da die \textsc{Great}-Koordinaten orthogonal sind, müssen das Skalarprodukt, der Gradient und das Vektorprodukt nicht weiter transformiert werden. 
-
 \subsection{Transformation von \textsc{Great}-Koordinaten in globale Koordinaten}
 \label{sec:transformation_von_greatKoordinaten_in_globale_koordinaten}\index{\textsc{Great}-Koordinaten!Transformation}
 
@@ -23301,10 +23286,10 @@ D = \frac{z}{\sqrt{x^2 + y^2}^{1 + \mu}}\exp\left(-\frac{\nu}{2}\left(x^2 + y^2 
 Nun setzt man in Glg. \eqref{eq:trafo_great_zu_glo_deriv_1} $R = 1$ ein, was der Oberfläche des WGS 84 entspricht, und löst numerisch für $z_S^2$, das Vorzeichen von $z_S$ ist identisch mit dem Vorzeichen von $z$. Nun kann man Glg. \eqref{eq:great_deriv_1} mit $R = 1$, $z = z_S$ und $x^2\to x_S^2 + y_S^2$ verwenden, um $x_S^2 + y_S^2$ zu bestimmen. Über die Gleichung
 %
 \begin{eqnarray}
-\varphi_S = \arctan\left[\frac{a^2}{c^2}\frac{z_S}{\sqrt{x^2 + y^2}}\right]\label{eq:eq:trafo_glo_zu_great_deriv_1}
+\varphi = \arctan\left[\frac{a^2}{c^2}\frac{z_S}{\sqrt{x^2 + y^2}}\right]\label{eq:eq:trafo_glo_zu_great_deriv_1}
 \end{eqnarray}
 %
-kann man $\varphi_S$ schließlich bestimmen. Glg. \eqref{eq:eq:trafo_glo_zu_great_deriv_1} soll nun noch hergeleitet werden. Betrachte hierzu o. B. d. A. die Ebene $\lambda = 0$, also $y = 0$. Der Schnitt des WGS 84 mit dieser Ebene ist gegeben durch (man beachte die Skalierung)
+kann man $\varphi$ schließlich bestimmen. Glg. \eqref{eq:eq:trafo_glo_zu_great_deriv_1} soll nun noch hergeleitet werden. Betrachte hierzu o. B. d. A. die Ebene $\lambda = 0$, also $y = 0$. Der Schnitt des WGS 84 mit dieser Ebene ist gegeben durch (man beachte die Skalierung)
 %
 \begin{eqnarray}
 x^2 + \frac{z^2}{c^2} = 1.\label{eq:def_ell_skal}
@@ -23352,7 +23337,7 @@ x = x_S\left(1 - c^2\right).
 Es gilt also
 %
 \begin{eqnarray}
-\tan\left(\varphi_S\right) = \frac{z_S}{x_Sc^2}.\label{eq:trafo_glo_zu_great_deriv_2}
+\tan\left(\varphi\right) = \frac{z_S}{x_Sc^2}.\label{eq:trafo_glo_zu_great_deriv_2}
 \end{eqnarray}
 %
 Mit Glg. \eqref{eq:def_ell_skal} folgt
@@ -23364,14 +23349,14 @@ z_S^2 = c^2\left(1 - x_S^2\right)
 und damit gilt
 %
 \begin{eqnarray}
-\tan\left(\varphi_S\right) & = & \frac{c\sqrt{1 - x_S^2}}{x_Sc^2} = \frac{\sqrt{1 - x_S^2}}{x_Sc}\Leftrightarrow \tan^2\left(\varphi_S\right) = \frac{1 - x_S^2}{x_S^2c^2}\Leftrightarrow x_S^2\left(c^2\tan^2\left(\varphi_S\right) + 1\right) = 1\nonumber\\
-\Leftrightarrow x_S^2 & = & \frac{\cos^2\left(\varphi_S\right)}{c^2\sin^2\left(\varphi_S\right) + \cos^2\left(\varphi_S\right)}.
+\tan\left(\varphi\right) & = & \frac{c\sqrt{1 - x_S^2}}{x_Sc^2} = \frac{\sqrt{1 - x_S^2}}{x_Sc}\Leftrightarrow \tan^2\left(\varphi\right) = \frac{1 - x_S^2}{x_S^2c^2}\Leftrightarrow x_S^2\left(c^2\tan^2\left(\varphi\right) + 1\right) = 1\nonumber\\
+\Leftrightarrow x_S^2 & = & \frac{\cos^2\left(\varphi\right)}{c^2\sin^2\left(\varphi\right) + \cos^2\left(\varphi\right)}.
 \end{eqnarray}
 %
 Mit $x_S>0$ folgt
 %
 \begin{eqnarray}
-x_S = \frac{\cos\left(\varphi_S\right)}{\sqrt{c^2\sin^2\left(\varphi_S\right) + \cos^2\left(\varphi_S\right)}}.\label{eq:trafo_glo_zu_great_deriv_3}
+x_S = \frac{\cos\left(\varphi\right)}{\sqrt{c^2\sin^2\left(\varphi\right) + \cos^2\left(\varphi\right)}}.\label{eq:trafo_glo_zu_great_deriv_3}
 \end{eqnarray}
 %
 Stellt man Glg. \eqref{eq:def_ell_skal} nach $x_S$ um, erhält man
@@ -23383,9 +23368,9 @@ x_S = \sqrt{1 - \frac{z^2}{c^2}}.
 Setzt man dies in Glg. \eqref{eq:trafo_glo_zu_great_deriv_2} ein, erhält man
 %
 \begin{eqnarray}
-\tan\left(\varphi_S\right) & = & \frac{z_S}{c^2\sqrt{1 - \frac{z_S^2}{c^2}}}\Leftrightarrow c^4\tan^2\left(\varphi_S\right)\left(1 - \frac{z_S^2}{c^2}\right) = z_S^2\nonumber\\
-\Leftrightarrow z_S^2\left(1 + c^2\tan^2\left(\varphi_S\right)\right) & = & c^4\tan^2\left(\varphi_S\right)\Leftrightarrow z_S^2 = \frac{c^4\sin^2\left(\varphi_S\right)}{\cos^2\left(\varphi_S\right) + c^2\sin^2\left(\varphi_S\right)}\nonumber\\
-\Leftrightarrow z_S & = & \sign\left(\varphi_S\right)\frac{c^2\sin\left(\varphi_S\right)}{\sqrt{\cos^2\left(\varphi_S\right) + c^2\sin^2\left(\varphi_S\right)}}.\label{eq:trafo_glo_zu_great_deriv_4}
+\tan\left(\varphi\right) & = & \frac{z_S}{c^2\sqrt{1 - \frac{z_S^2}{c^2}}}\Leftrightarrow c^4\tan^2\left(\varphi\right)\left(1 - \frac{z_S^2}{c^2}\right) = z_S^2\nonumber\\
+\Leftrightarrow z_S^2\left(1 + c^2\tan^2\left(\varphi\right)\right) & = & c^4\tan^2\left(\varphi\right)\Leftrightarrow z_S^2 = \frac{c^4\sin^2\left(\varphi\right)}{\cos^2\left(\varphi\right) + c^2\sin^2\left(\varphi\right)}\nonumber\\
+\Leftrightarrow z_S & = & \sign\left(\varphi\right)\frac{c^2\sin\left(\varphi\right)}{\sqrt{\cos^2\left(\varphi\right) + c^2\sin^2\left(\varphi\right)}}.\label{eq:trafo_glo_zu_great_deriv_4}
 \end{eqnarray}
 %
 Es gilt somit
@@ -23399,32 +23384,65 @@ mit der Verallgemeinerung $x_S\to\sqrt{x_S^2 + y_S^2}$ folgt Glg. \eqref{eq:eq:t
 Nun soll noch ein expliziter Ausdruck für $D\left(\varphi\right)$ gefunden werden. Hierzu setzt man die Glg.en \eqref{eq:trafo_glo_zu_great_deriv_3} und \eqref{eq:trafo_glo_zu_great_deriv_4} mit $y = 0$ in Glg. \eqref{eq:trafo_glo_zu_great_deriv_5} ein:
 %
 \begin{eqnarray}
-&&D\left(\varphi_S\right) = \frac{\left|z_S\right|}{x_S^{1 + \mu}}\exp\left(-\frac{\nu}{2}\left(x_S^2 + z_S^2\right)\right)\nonumber\\
-&& = \frac{c^2\sin\left(\varphi_S\right)\left(\cos^2\left(\varphi_S\right) + c^2\sin^2\left(\varphi_S\right)\right)^{\mu/2}}{\left(\cos\left(\varphi_S\right)\right)^{1 + \mu}}\exp\left[-\frac{\nu}{2}\left(\frac{\cos^2\left(\varphi_S\right) + c^4\sin^2\left(\varphi_S\right)}{\cos^2\left(\varphi_S\right) + c^2\sin^2\left(\varphi_S\right)}\right)\right].
+&&D\left(\varphi\right) = \frac{\left|z_S\right|}{x_S^{1 + \mu}}\exp\left(-\frac{\nu}{2}\left(x_S^2 + z_S^2\right)\right)\nonumber\\
+&& = \frac{c^2\sin\left(\varphi\right)\left(\cos^2\left(\varphi\right) + c^2\sin^2\left(\varphi\right)\right)^{\mu/2}}{\left(\cos\left(\varphi\right)\right)^{1 + \mu}}\exp\left[-\frac{\nu}{2}\left(\frac{\cos^2\left(\varphi\right) + c^4\sin^2\left(\varphi\right)}{\cos^2\left(\varphi\right) + c^2\sin^2\left(\varphi\right)}\right)\right].
 \end{eqnarray}
 %
 Logarithmiert man dies, folgt
 %
 \begin{eqnarray}
-\ln\left[D\left(\varphi_S\right)\right] & = & 2\ln\left(c\right) + \ln\left(\sin\left(\varphi_S\right)\right) + \frac{\mu}{2}\ln\left(\cos^2\left(\varphi_S\right) + c^2\sin^2\left(\varphi_S\right)\right) - \left(1 + \mu\right)\ln\left(\cos\left(\varphi_S\right)\right)\nonumber\\
-&&- \frac{\nu}{2}\left(\frac{\cos^2\left(\varphi_S\right) + c^4\sin^2\left(\varphi_S\right)}{\cos^2\left(\varphi_S\right) + c^2\sin^2\left(\varphi_S\right)}\right).
+\ln\left[D\left(\varphi\right)\right] & = & 2\ln\left(c\right) + \ln\left(\sin\left(\varphi\right)\right) + \frac{\mu}{2}\ln\left(\cos^2\left(\varphi\right) + c^2\sin^2\left(\varphi\right)\right) - \left(1 + \mu\right)\ln\left(\cos\left(\varphi\right)\right)\nonumber\\
+&&- \frac{\nu}{2}\left(\frac{\cos^2\left(\varphi\right) + c^4\sin^2\left(\varphi\right)}{\cos^2\left(\varphi\right) + c^2\sin^2\left(\varphi\right)}\right).
 \end{eqnarray}
 %
 Somit erhält man
 %
 \begin{eqnarray}
-&&\frac{d\ln\left[D\left(\varphi\right)\right]}{d\varphi} = \frac{\cos\left(\varphi_S\right)}{\sin\left(\varphi_S\right)} + \frac{\mu}{2}\frac{ - 2\sin\left(\varphi_S\right)\cos\left(\varphi_S\right) + c^22\cos\left(\varphi_S\right)\sin\left(\varphi_S\right)}{\cos^2\left(\varphi_S\right) + c^2\sin^2\left(\varphi_S\right)} + \left(1 + \mu\right)\frac{\sin\left(\varphi_S\right)}{\cos\left(\varphi_S\right)}\nonumber\\
-&&- \frac{\nu}{2}\frac{\left(-2\cos\left(\varphi_S\right)\sin\left(\varphi_S\right) + 2c^4\cos\left(\varphi_S\right)\sin\left(\varphi_S\right)\right)\left(\cos^2\left(\varphi_S\right) + c^2\sin^2\left(\varphi_S\right)\right)}{\left(\cos^2\left(\varphi_S\right) + c^2\sin^2\left(\varphi_S\right)\right)^2}\nonumber\\
-&&+ \frac{\nu}{2}\frac{\left(\cos^2\left(\varphi_S\right) + c^4\sin^2\left(\varphi_S\right)\right)\left(-2\sin\left(\varphi_S\right)\cos\left(\varphi_S\right) + c^22\cos\left(\varphi_S\right)\sin\left(\varphi_S\right)\right)}{\left(\cos^2\left(\varphi_S\right) + c^2\sin^2\left(\varphi_S\right)\right)^2}\nonumber\\
-& = & \frac{1}{\sin\left(\varphi_S\right)}\left(\cos\left(\varphi_S\right) + \frac{\sin^2\left(\varphi_S\right)}{\cos\left(\varphi_S\right)}\right) + \mu\sin\left(\varphi_S\right)\cos\left(\varphi_S\right)\frac{c^2 - 1 + 1 + c^2\tan^2\left(\varphi_S\right)}{\cos^2\left(\varphi_S\right) + c^2\sin^2\left(\varphi_S\right)}\nonumber\\
-&&+ \nu\frac{\left(\cos\left(\varphi_S\right)\sin\left(\varphi_S\right) - c^4\cos\left(\varphi_S\right)\sin\left(\varphi_S\right)\right)\left(\cos^2\left(\varphi_S\right) + c^2\sin^2\left(\varphi_S\right)\right)}{\left(\cos^2\left(\varphi_S\right) + c^2\sin^2\left(\varphi_S\right)\right)^2}\nonumber\\
-&&+ \nu\frac{\left(\cos^2\left(\varphi_S\right) + c^4\sin^2\left(\varphi_S\right)\right)\left(-\sin\left(\varphi_S\right)\cos\left(\varphi_S\right) + c^2\cos\left(\varphi_S\right)\sin\left(\varphi_S\right)\right)}{\left(\cos^2\left(\varphi_S\right) + c^2\sin^2\left(\varphi_S\right)\right)^2}\nonumber\\
-& = & \frac{1}{\sin\left(\varphi_S\right)\cos\left(\varphi_S\right)} + \mu\tan\left(\varphi_S\right)\frac{c^2}{\cos^2\left(\varphi_S\right) + c^2\sin^2\left(\varphi_S\right)}\nonumber\\
-&&+ \nu\frac{\sin\left(\varphi_S\right)\cos\left(\varphi_S\right)\left(c^2\left(\sin^2\left(\varphi_S\right) + \cos^2\left(\varphi_S\right)\right) + c^4\left(-\sin^2\left(\varphi_S\right) - \cos^2\left(\varphi_S\right)\right)\right)}{\left(\cos^2\left(\varphi_S\right) + c^2\sin^2\left(\varphi_S\right)\right)^2}\nonumber\\
-& = & \frac{1}{\sin\left(\varphi_S\right)\cos\left(\varphi_S\right)} + \mu\tan\left(\varphi_S\right)\frac{c^2}{\cos^2\left(\varphi_S\right) + c^2\sin^2\left(\varphi_S\right)} + \nu\frac{\sin\left(\varphi_S\right)\cos\left(\varphi_S\right)c^2\left(1 - c^2\right)}{\left(\cos^2\left(\varphi_S\right) + c^2\sin^2\left(\varphi_S\right)\right)^2}.
+&&\frac{d\ln\left[D\left(\varphi\right)\right]}{d\varphi} = \frac{\cos\left(\varphi\right)}{\sin\left(\varphi\right)} + \frac{\mu}{2}\frac{ - 2\sin\left(\varphi\right)\cos\left(\varphi\right) + c^22\cos\left(\varphi\right)\sin\left(\varphi\right)}{\cos^2\left(\varphi\right) + c^2\sin^2\left(\varphi\right)} + \left(1 + \mu\right)\frac{\sin\left(\varphi\right)}{\cos\left(\varphi\right)}\nonumber\\
+&&- \frac{\nu}{2}\frac{\left(-2\cos\left(\varphi\right)\sin\left(\varphi\right) + 2c^4\cos\left(\varphi\right)\sin\left(\varphi\right)\right)\left(\cos^2\left(\varphi\right) + c^2\sin^2\left(\varphi\right)\right)}{\left(\cos^2\left(\varphi\right) + c^2\sin^2\left(\varphi\right)\right)^2}\nonumber\\
+&&+ \frac{\nu}{2}\frac{\left(\cos^2\left(\varphi\right) + c^4\sin^2\left(\varphi\right)\right)\left(-2\sin\left(\varphi\right)\cos\left(\varphi\right) + c^22\cos\left(\varphi\right)\sin\left(\varphi\right)\right)}{\left(\cos^2\left(\varphi\right) + c^2\sin^2\left(\varphi\right)\right)^2}\nonumber\\
+& = & \frac{1}{\sin\left(\varphi\right)}\left(\cos\left(\varphi\right) + \frac{\sin^2\left(\varphi\right)}{\cos\left(\varphi\right)}\right) + \mu\sin\left(\varphi\right)\cos\left(\varphi\right)\frac{c^2 - 1 + 1 + c^2\tan^2\left(\varphi\right)}{\cos^2\left(\varphi\right) + c^2\sin^2\left(\varphi\right)}\nonumber\\
+&&+ \nu\frac{\left(\cos\left(\varphi\right)\sin\left(\varphi\right) - c^4\cos\left(\varphi\right)\sin\left(\varphi\right)\right)\left(\cos^2\left(\varphi\right) + c^2\sin^2\left(\varphi\right)\right)}{\left(\cos^2\left(\varphi\right) + c^2\sin^2\left(\varphi\right)\right)^2}\nonumber\\
+&&+ \nu\frac{\left(\cos^2\left(\varphi\right) + c^4\sin^2\left(\varphi\right)\right)\left(-\sin\left(\varphi\right)\cos\left(\varphi\right) + c^2\cos\left(\varphi\right)\sin\left(\varphi\right)\right)}{\left(\cos^2\left(\varphi\right) + c^2\sin^2\left(\varphi\right)\right)^2}\nonumber\\
+& = & \frac{1}{\sin\left(\varphi\right)\cos\left(\varphi\right)} + \mu\tan\left(\varphi\right)\frac{c^2}{\cos^2\left(\varphi\right) + c^2\sin^2\left(\varphi\right)}\nonumber\\
+&&+ \nu\frac{\sin\left(\varphi\right)\cos\left(\varphi\right)\left(c^2\left(\sin^2\left(\varphi\right) + \cos^2\left(\varphi\right)\right) + c^4\left(-\sin^2\left(\varphi\right) - \cos^2\left(\varphi\right)\right)\right)}{\left(\cos^2\left(\varphi\right) + c^2\sin^2\left(\varphi\right)\right)^2}\nonumber\\
+& = & \frac{1}{\sin\left(\varphi\right)\cos\left(\varphi\right)} + \mu\tan\left(\varphi\right)\frac{c^2}{\cos^2\left(\varphi\right) + c^2\sin^2\left(\varphi\right)} + \nu\frac{\sin\left(\varphi\right)\cos\left(\varphi\right)c^2\left(1 - c^2\right)}{\left(\cos^2\left(\varphi\right) + c^2\sin^2\left(\varphi\right)\right)^2}.
+\end{eqnarray}
+
+\subsection{Rotation in \textsc{Great}-Koordinaten}
+\label{sec:rotation_in_great-koordinaten}\index{Rotation!\textsc{Great}-Koordinaten}\index{\textsc{Great}-Koordinaten!Rotation}
+
+Für die Determinante $g$ des metrischen Tensors der \textsc{Great}-Koordinaten gilt
+%
+\begin{eqnarray}
+\sqrt{g} & = & h_Rh\lambda h_\varphi = h_Rr_\perp h_\varphi = h_Rr_\perp\frac{r_\perp z}{\left(1 - \nu z^2\right)\left(R^2 + \left(\mu + \nu R^2\right)\left(1 + \mu + \nu R^2\right)z^2\right)^{1/2}}\left|\frac{d\ln\left[D\left(\varphi\right)\right]}{d\varphi}\right|\nonumber\\
+& = & h_R\frac{r_\perp^2z}{\left(1 - \nu z^2\right)\left(R^2 + \left(\mu + \nu R^2\right)\left(1 + \mu + \nu R^2\right)z^2\right)^{1/2}}\left|\frac{d\ln\left[D\left(\varphi\right)\right]}{d\varphi}\right|\nonumber\\
+& = & \frac{R\left(1 - \nu z^2\right)}{\left[R^2 + z^2\left(1 + \mu + \nu R^2\right)\left(\mu + \nu R^2\right)\right]^{1/2}}\frac{r_\perp^2z}{\left(1 - \nu z^2\right)\left(R^2 + \left(\mu + \nu R^2\right)\left(1 + \mu + \nu R^2\right)z^2\right)^{1/2}}\left|\frac{d\ln\left[D\left(\varphi\right)\right]}{d\varphi}\right|\nonumber\\
+& = & \frac{R}{\left[R^2 + z^2\left(1 + \mu + \nu R^2\right)\left(\mu + \nu R^2\right)\right]^{1/2}}\frac{r_\perp^2z}{\left(R^2 + \left(\mu + \nu R^2\right)\left(1 + \mu + \nu R^2\right)z^2\right)^{1/2}}\left|\frac{d\ln\left[D\left(\varphi\right)\right]}{d\varphi}\right|\nonumber\\
+& = & \frac{Rr_\perp^2z}{R^2 + \left(\mu + \nu R^2\right)\left(1 + \mu + \nu R^2\right)z^2}\left|\frac{d\ln\left[D\left(\varphi\right)\right]}{d\varphi}\right|\nonumber\\
+& = & \frac{Rr_\perp^2z}{R^2 + \left(\mu + \nu R^2\right)\left(1 + \mu + \nu R^2\right)z^2}\cdot\nonumber\\
+&&\cdot\left|\frac{1}{\sin\left(\varphi\right)\cos\left(\varphi\right)} + \mu\tan\left(\varphi\right)\frac{c^2}{\cos^2\left(\varphi\right) + c^2\sin^2\left(\varphi\right)} + \nu\frac{\sin\left(\varphi\right)\cos\left(\varphi\right)c^2\left(1 - c^2\right)}{\left(\cos^2\left(\varphi\right) + c^2\sin^2\left(\varphi\right)\right)^2}\right|.
 \end{eqnarray}
 %
-Die Transformation der Differenzialoperatoren kann nun durchgeführt werden. Dies wird hier jedoch nicht mehr gemacht, da analytische Rechnungen in Kugelkoordinaten vorgenommen werden und es für die Transformation der Differenzialoperatoren auf das Modellgitter auch nicht in Gänze benötigt wird.
+Zunächst stellt man
+%
+\begin{eqnarray}
+\frac{\partial\sqrt{g}}{\partial\lambda} & = & 0,
+\end{eqnarray}
+%
+was auch aus Symmetriegründen der Fall sein muss.
+
+\subsubsection{Lamb-Transformation in \textsc{Great}-Koordinaten}
+\label{sec:lamb-transformation_in_great-koordinaten}\index{Lamb-Transformation!\textsc{Great}-Koordinaten}\index{\textsc{Great}-Koordinaten!Lamb-Transformation}
+
+Die Impulsadvektion\index{Impulsadvektion} kann laut Glg. \eqref{eq:diff_op_rule_10} in der Form
+%
+\begin{eqnarray}
+-\left(\mathbf{v}\cdot\nabla\right)\mathbf{v} = -\nabla k - \left(\nabla\times\mathbf{v}\right)\times\mathbf{v}
+\end{eqnarray}
+%
+notiert werden, hierbei ist $k = \frac{1}{2}\mathbf{v}\cdot\mathbf{v}$ die spezifische kinetische Energie\index{spezifische kinetische Energie}\index{kinetische Energie!spezifische}\index{Energie!kinetische!spezifische}. Da die \textsc{Great}-Koordinaten orthogonal sind, müssen das Skalarprodukt, der Gradient und das Vektorprodukt nicht weiter transformiert werden. 
+
 
 \section{Ellipsoidische Geometrie}
 \label{sec:ellipsoidische_geometrie}\index{ellipsoidische Geometrie}\index{Geometrie!ellipsoidische}

@@ -1,28 +1,28 @@
 [0] Config.pm:304> INFO - This is Biber 2.14 (beta)
 [0] Config.pm:307> INFO - Logfile is 'kompendium.blg'
-[57] biber:322> INFO - === So Sep 27, 2020, 12:26:27
-[75] Biber.pm:415> INFO - Reading 'kompendium.bcf'
-[125] Biber.pm:943> INFO - Found 24 citekeys in bib section 0
-[135] Biber.pm:4256> INFO - Processing section 0
-[135] Utils.pm:75> INFO - Globbing data source '../references.bib'
-[135] Utils.pm:91> INFO - Globbed data source '../references.bib' to ../references.bib
-[145] Biber.pm:4455> INFO - Looking for bibtex format file '../references.bib' for section 0
-[154] bibtex.pm:1653> INFO - LaTeX decoding ...
-[260] bibtex.pm:1471> INFO - Found BibTeX data source '../references.bib'
-[361] Utils.pm:293> WARN - month field 'mar' in entry '1960ApJ...131..442S' is not an integer - this will probably not sort properly.
-[375] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
-[376] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
-[376] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
-[376] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
-[376] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
-[376] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
-[376] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
-[376] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
-[376] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
-[399] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
-[399] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[399] Biber.pm:4084> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'de-DE'
-[399] Biber.pm:4090> INFO - No sort tailoring available for locale 'de-DE'
-[421] bbl.pm:652> INFO - Writing 'kompendium.bbl' with encoding 'UTF-8'
-[430] bbl.pm:755> INFO - Output to kompendium.bbl
-[431] Biber.pm:128> INFO - WARNINGS: 10
+[55] biber:322> INFO - === So Sep 27, 2020, 21:57:53
+[72] Biber.pm:415> INFO - Reading 'kompendium.bcf'
+[120] Biber.pm:943> INFO - Found 24 citekeys in bib section 0
+[129] Biber.pm:4256> INFO - Processing section 0
+[130] Utils.pm:75> INFO - Globbing data source '../references.bib'
+[130] Utils.pm:91> INFO - Globbed data source '../references.bib' to ../references.bib
+[139] Biber.pm:4455> INFO - Looking for bibtex format file '../references.bib' for section 0
+[148] bibtex.pm:1653> INFO - LaTeX decoding ...
+[253] bibtex.pm:1471> INFO - Found BibTeX data source '../references.bib'
+[350] Utils.pm:293> WARN - month field 'mar' in entry '1960ApJ...131..442S' is not an integer - this will probably not sort properly.
+[364] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
+[364] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
+[364] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
+[364] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
+[364] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
+[365] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
+[365] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
+[365] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
+[365] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
+[387] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
+[387] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[387] Biber.pm:4084> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'de-DE'
+[387] Biber.pm:4090> INFO - No sort tailoring available for locale 'de-DE'
+[409] bbl.pm:652> INFO - Writing 'kompendium.bbl' with encoding 'UTF-8'
+[416] bbl.pm:755> INFO - Output to kompendium.bbl
+[418] Biber.pm:128> INFO - WARNINGS: 10
