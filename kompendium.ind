@@ -59,7 +59,7 @@
   \item anormale Dispersion, 195
   \item Antisymmetrie
     \subitem der Wellenfunktion, 75
-  \item Antisymmetrie der Energie-Transfer-Funktion, 250
+  \item Antisymmetrie der Energie-Transfer-Funktion, 251
   \item Antizyklogenese, 238
   \item APE, 176
   \item Approximation, 153, 267
@@ -126,7 +126,7 @@
     \subitem Hamilton-Formalismus, 24
   \item Bijektion, 330
   \item Bilanzgleichung
-    \subitem kinetische Energie, 250
+    \subitem kinetische Energie, 251
   \item Binomialkoeffizient, 330
   \item binomische Formel
     \subitem allgemeine, 331
@@ -162,15 +162,15 @@
   \item CFL-Kriterium, 277, 317, 318
   \item CFL-Zahl, 277
   \item cgs-System, 11, 329
-  \item charakteristische Länge, 255
-  \item charakteristische Zeit, 255
+  \item charakteristische Länge, 256
+  \item charakteristische Zeit, 256
   \item Checkerboard-Pattern, 297
   \item chemische Reaktion, 76
   \item chemisches Element, 51
   \item chemisches Potential, 84, 88, 100
     \subitem ideales Gas, 90
   \item CIN, 236
-  \item Clausius-Clapeyron-Gleichung, 97--99
+  \item Clausius-Clapeyron-Gleichung, 97, 98, 100
   \item convective available potential Energy (CAPE), 234, 235
   \item convective condensation level (CCL), 236
   \item convective inhibition (CIN), 236
@@ -250,10 +250,10 @@
     \subitem Quantenmechanik
       \subsubitem freies Teilchen, 36
     \subitem Sub-Poincaré-Welle, 263
-  \item Dissipation, 119, 120, 142, 143, 175, 252, 263, 323, 324
+  \item Dissipation, 119, 120, 142, 143, 175, 252, 253, 263, 323, 324
     \subitem numerische, 324
   \item Dissipationsrate, 119
-  \item dissipative range, 255
+  \item dissipative range, 256
   \item Divergenz, 155, 179, 187, 293, 294, 343
     \subitem eines Vektorfeldes, 343
   \item Divergenzgleichung, 188
@@ -284,7 +284,7 @@
     \subitem tropische, 239
   \item dynamische Randbedingung, 123, 225, 226
   \item dynamische Topographie, 262
-  \item dynamische Viskosität, 96, 117
+  \item dynamische Viskosität, 97, 117
   \item dynamischer Kern, 11, 289, 301, 307
     \subitem erweiterter, 307
     \subitem irreversibler Teil, 307
@@ -330,16 +330,16 @@
     \subitem des elektromagnetischen Feldes, 28
     \subitem freie, 85
     \subitem innere, 173, 175, 176, 324
-    \subitem kinetische, 20, 120--122, 176, 249, 300, 324, 363
-      \subsubitem Bilanzgleichung, 250
+    \subitem kinetische, 20, 120--122, 176, 250, 300, 324, 363
+      \subsubitem Bilanzgleichung, 251
       \subsubitem Reibung, 120
       \subsubitem spezifische, 173, 316, 407
     \subitem potentielle, 176
       \subsubitem konvektiv verfügbare, 234, 235
       \subsubitem totale, 176
       \subsubitem verfügbare, 176
-  \item Energie-Transfer-Funktion, 249, 250
-    \subitem Antisymmetrie, 250
+  \item Energie-Transfer-Funktion, 250, 251, 253
+    \subitem Antisymmetrie, 251
     \subitem isotrope Form, 251
   \item Energiedichte, 30, 173
     \subitem innere, 137
@@ -388,7 +388,7 @@
   \item explizites Zeitschrittverfahren, 317
   \item Exponentialfunktion, 261, 333
     \subitem komplexe, 359
-  \item extensive Größe, 90
+  \item extensive Größe, 91
   \item externe Kraft, 176
   \item Extratropen, 237
   \item Exzentrizität, 381
@@ -446,7 +446,7 @@
     \subitem binomische
       \subsubitem allgenmeine, 331
   \item Forward-backward-Verfahren, 280
-  \item Fourier-Transformation, 248, 359
+  \item Fourier-Transformation, 248, 249, 359
     \subitem inverse, 248, 359
   \item Fourier-Transformierte, 362
   \item freie Energie, 85
@@ -480,7 +480,7 @@
     \subitem kinetisches, 95
   \item Gasphase, 107
   \item Gauß'sche Summenformel, 329
-  \item Gauß'scher Satz, 25, 166, 357
+  \item Gauß'scher Satz, 25, 166, 248, 357
   \item Gefrierpunkterniedrigung, 101
   \item gemischter Zustand, 78
   \item generalisierte Coriolis-Kraft, 299
@@ -522,7 +522,7 @@
   \item gewichtetes Mittel
     \subitem allgemeines, 247
   \item Gibbs-Duhem-Relation, 88
-  \item Gibbs-Potential, 85, 90
+  \item Gibbs-Potential, 85, 91
     \subitem ideales Gas, 90
   \item Gischt, 263
   \item Gitter
@@ -581,7 +581,7 @@
     \subitem barokline Schwerewelle, 221, 222
     \subitem C-Gitter, 286
   \item Größe
-    \subitem extensive, 90
+    \subitem extensive, 91
 
   \indexspace
 
@@ -604,11 +604,9 @@
   \item Hauptsatz der Vektoranalysis, 179, 295
   \item Hebungskondensationsniveau (HKN), 231, 234
   \item Hebungskurve, 127
-  \item Heisenberg'scher Austauschkoeffizient, 253
-  \item Heisenberg-Ansatz, 251, 252
-  \item Heisenberg-Konstante, 251
-  \item Herleitung
-    \subitem einer Parametrisierung, 247
+  \item Heisenberg'scher Austauschkoeffizient, 254
+  \item Heisenberg-Ansatz, 252
+  \item Heisenberg-Konstante, 252
   \item Hermite'sche Differenzialgleichung, 371
   \item Hermite'scher Operator, 45
   \item Hermite-Polynom, 42, 371
@@ -657,7 +655,7 @@
   \item Impuls
     \subitem der Atmosphäre, 175
     \subitem kanonischer, 23
-  \item Impulsadvektion, 153, 155, 248, 299, 357, 407
+  \item Impulsadvektion, 153, 155, 249, 299, 357, 407
   \item Impulsdiffusion, 323, 324
     \subitem horizontale, 323
     \subitem vertikale, 324
@@ -665,7 +663,7 @@
   \item Impulsflussdichtetensor, 114
   \item Impulsgleichung, 113, 122, 162
     \subitem Boussinesq-Approximation, 162, 163
-    \subitem Entwicklung nach ebenen Wellen, 249
+    \subitem Entwicklung nach ebenen Wellen, 250
     \subitem horizontale, 158
       \subsubitem anelastische Approximation, 158
     \subitem SWEs, 299
@@ -763,8 +761,8 @@
     \subitem Welle, 193
   \item kinematische Randbedingung, 122, 123, 174, 225, 226
   \item kinematische Viskosität, 120, 324
-  \item kinetische Energie, 20, 120, 121, 176, 249, 300, 324, 363
-    \subitem Bilanzgleichung, 250
+  \item kinetische Energie, 20, 120, 121, 176, 250, 300, 324, 363
+    \subitem Bilanzgleichung, 251
     \subitem Reibung, 120
     \subitem spezifische, 122, 173, 316, 407
   \item kinetische Energiedichte, 173
@@ -777,7 +775,7 @@
   \item Klimatologie
     \subitem der Atmosphäre, 257
   \item Kollision, 142
-  \item Kolmogorov-Konstante, 255
+  \item Kolmogorov-Konstante, 256
   \item Kommutator, 48
   \item kommutierende Operatoren, 48
   \item Komnbinatorik, 330
@@ -923,7 +921,7 @@
     \subitem trockene, 107, 134, 235, 315, 323
   \item Luftmasse, 234
   \item Länge
-    \subitem charakteristische, 255
+    \subitem charakteristische, 256
   \item Lösung, 99
 
   \indexspace
@@ -954,7 +952,7 @@
   \item Maxwell-Gleichungen
     \subitem Eichinvarianz, 26
   \item Maxwell-Relation, 86
-  \item Maxwell-Verteilung, 93
+  \item Maxwell-Verteilung, 94
   \item Maßzahl
     \subitem kontravariante
       \subsubitem Rekonstruktion (geländefolgende Koordinaten), 311
@@ -990,7 +988,7 @@
     \subitem konkreter, 246
   \item mittlere Breiten, 237
   \item mittlere freie Weglänge, 324
-  \item mittlere Stoßzeit, 95
+  \item mittlere Stoßzeit, 96
   \item mittlerer Druck, 118
   \item Mode
     \subitem geostrophische, 221
@@ -1080,14 +1078,13 @@
 
   \item p-System, 150, 178, 191, 192
   \item Parallelisierung, 283
-  \item Parametrisierung, 242, 307
+  \item Parametrisierung, 242, 247, 307
     \subitem der Reibung durch Stommel, 260
     \subitem Diffusion
       \subsubitem skalare, 247
-    \subitem Herleitung, 247
     \subitem Phasenübergangsrate, 248
     \subitem skalare Diffusion, 247
-  \item Parseval-Identität, 249, 361, 363
+  \item Parseval-Identität, 250, 361, 363
   \item partielle Integration, 120, 121, 176, 337
   \item Pauli-Gleichung, 65
   \item Pauli-Matrix, 64
@@ -1245,7 +1242,7 @@
   \item Salzlösung
     \subitem Dampfdruck, 99
   \item Satz
-    \subitem Gauß'scher, 166
+    \subitem Gauß'scher, 166, 248
     \subitem Stokes'scher, 288
   \item Satz von Clairaut, 398
   \item Satz von Gauß, 25, 357
@@ -1363,7 +1360,7 @@
   \item Stokes-Drift, 198
   \item Stommel-Modell, 260
   \item Stoßzeit
-    \subitem mittlere, 95
+    \subitem mittlere, 96
   \item Strahldichte, 30
     \subitem spektrale, 108, 262, 267
   \item Strahlung, 29, 142
@@ -1513,7 +1510,7 @@
   \item Uniformität
     \subitem eines Gitters, 283
   \item unitäre Matrix, 44
-  \item universality region, 251, 252
+  \item universality region, 252
   \item Unschärferelation, 50
   \item untere Randbedingung
     \subitem im Modell, 321
@@ -1557,8 +1554,8 @@
       \subsubitem Funktionaldeterminante, 310
   \item virtuelle Temperatur, 91, 134, 235
   \item virtueller Temperaturzuschlag, 92
-  \item Viskosität, 119, 122, 251, 253, 255, 263
-    \subitem dynamische, 96, 117
+  \item Viskosität, 119, 122, 252, 254, 256, 263
+    \subitem dynamische, 97, 117
     \subitem kinematische, 120, 324
     \subitem numerische, 324
   \item volle Turbulenz, 241
@@ -1660,7 +1657,7 @@
   \item Zahl
     \subitem komplexe, 336
   \item Zeit
-    \subitem charakteristische, 255
+    \subitem charakteristische, 256
   \item zeitabhängige Bernoulli-Gleichung, 187, 226
   \item zeitabhängige Störungstheorie, 71
   \item Zeitableitung

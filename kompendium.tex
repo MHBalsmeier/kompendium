@@ -14660,7 +14660,7 @@ definiert. Es wurde von der gerechtfertigten Annahme
 \left|\frac{\rho'}{\newoverline{\rho}}\right| \ll \left|\frac{u'}{\newoverline{u}}\right|
 \end{eqnarray}
 %
-ausgegangen. $-\nabla\cdot\newtilde{\Pi}$ liefert die \index{Eddy-Stress-Term}\textit{Eddy-Stress-Terme}, die sich in der Impulsgleichung niederschlagen und anstatt der $- \newoverline{\left(\mathbf{v}'\cdot\nabla\right)\mathbf{v}'} - \newoverline{\alpha'\frac{\partial p'}{\partial x}}$ verwendet werden. Die $\tau_{i, j}$ sind jedoch immernoch unbekannte Größen, um diese zu parametrisieren\index{Parametrisierung} (s. hierzu auch Absch. \ref{sec:herleitung_von_parametrisierungen}), verwendet man den \index{Mischungsweg}\textit{Mischungswegansatz}. Hierbei geht man davon aus, dass Druckgradient und Coriolis-Kraft keine bedeutende Rolle spielen, woraus
+ausgegangen. $-\nabla\cdot\newtilde{\Pi}$ liefert die \index{Eddy-Stress-Term}\textit{Eddy-Stress-Terme}, die sich in der Impulsgleichung niederschlagen und anstatt der $- \newoverline{\left(\mathbf{v}'\cdot\nabla\right)\mathbf{v}'} - \newoverline{\alpha'\frac{\partial p'}{\partial x}}$ verwendet werden. Die $\tau_{i, j}$ sind jedoch immernoch unbekannte Größen, um diese zu parametrisieren\index{Parametrisierung} (s. hierzu auch Absch. \ref{sec:parametrisierungen}), verwendet man den \index{Mischungsweg}\textit{Mischungswegansatz}. Hierbei geht man davon aus, dass Druckgradient und Coriolis-Kraft keine bedeutende Rolle spielen, woraus
 %
 \begin{eqnarray}
 \md{\mathbf{v}} = \mathbf{0}\label{eq:burgers_eq}
@@ -14921,7 +14921,7 @@ wobei die Zeit $t$ als eine der $x_i$ aufgefasst werden soll und $h$ eine Gewich
 \subsection{Gleitendes Zeitmittel}
 \label{sec:gleitendes_zeitmittel}\index{Zeitmittel!gleitendes}\index{gleitendes Zeitmittel}\index{gleitendes Mittel}\index{Mittel!gleitendes}
 
-Das \textit{gleitende Zeitmittel} mit der Mittelungslänge $T$ erhält man aus Glg. \eqref{eq:av_op_gen} mit $\Omega = \left(t - \frac{T}{2}, t + \frac{T}{2}\right)$ und $g = 1$, also
+Das \textit{gleitende Zeitmittel} mit der Mittelungslänge $T$ erhält man aus Glg. \eqref{eq:av_op_gen} mit $\Omega = \left(t - \frac{T}{2}, t + \frac{T}{2}\right)$ und $h = 1$, also
 %
 \begin{eqnarray}
 \newoverline{f}\left(\mathbf{r}, t\right) = \frac{1}{T}\int_{t-\frac{T}{2}}^{t + \frac{T}{2}}f\left(\mathbf{r}, t'\right)dt'.
@@ -14956,8 +14956,8 @@ zu allen Zeitpunkten als Kriterium für die Gültigkeit von Glg. \eqref{eq:reyno
 \subsection{Allgemeines gewichtetes Mittel}
 \label{sec:allgemeines_gewichtetes_mittel}\index{gewichtetes Mittel!allgemeines}\index{Mittel!gewichtetes!allgemeines}
 
-\section{Herleitung von Parametrisierungen}
-\label{sec:herleitung_von_parametrisierungen}\index{Parametrisierung!Herleitung}\index{Herleitung!einer Parametrisierung}
+\section{Parametrisierungen}
+\label{sec:parametrisierungen}\index{Parametrisierung}
 
 Die Abschätzung der Auswirkungen subskaliger Variabilität auf die gemittelten Größen bezeichnet man als \textit{Parmetrisierungen}. In einer anderen Konvention bezeichnet man all das als Parametrisierung, oder auch \glqq Physik\grqq\ (in Abgrenzung zur \glqq Dynamik\grqq), was über das trockenadiabatische Gleichungssystem hinausgeht. Von dieser Konvention wird hier kein Gebrauch gemacht.
 
@@ -14986,6 +14986,77 @@ Dabei ist der horizontale Diffusionskoeffizient größer als der vertikale.
 
 \subsection{Beispiel: Phasenübergangsraten}
 \label{sec:beispiel:phasenuebergangsraten}\index{Phasenübergangsrate!Parametrisierung}\index{Parametrisierung!Phasenübergangsrate}
+
+Sei $\rho_v$ die Dichte des Wasserdampfes, die Advektionsgleichung für diese Größe lautet
+%
+\begin{eqnarray}
+\frac{\partial\rho_v}{\partial t} = -\nabla\cdot\left(\rho_v\mathbf{v}\right) + s_v,
+\end{eqnarray}
+%
+hierbei ist $s_v$ die Quelldichte des Wasserdampfes. Integriert man diese Gleichung über eine Menge $\Omega \subseteq \mathbb{R}^3$, erhält man mit dem Gauß'schen Satz\index{Gauß'scher Satz}\index{Satz!Gauß'scher}
+%
+\begin{eqnarray}
+\int_\Omega\frac{\partial\rho_v}{\partial t}d^3r = -\int_\Omega\nabla\cdot\left(\rho_v\mathbf{v}\right)d^3r = -\int_{\partial\Omega}\rho_v\mathbf{v}\cdot d\mathbf{n} + \int_\Omega s_vd^3rdt'.
+\end{eqnarray}
+%
+Integriert man ferner über ein Zeitintervall $\left[t, t + \Delta t\right]$, folgt
+%
+\begin{eqnarray}
+\int_t^{t + \Delta t}\int_\Omega\frac{\partial\rho_v}{\partial t}d^3rdt' & = & -\int_t^{t + \Delta t}\int_{\partial\Omega}\rho_v\mathbf{v}\cdot d\mathbf{n}dt' + \int_t^{t + \Delta t}\int_\Omega s_vd^3rdt'\nonumber\\
+\Leftrightarrow\int_\Omega\rho_v\left(t + \Delta t\right) - \rho_v\left(t\right)d^3r & = & -\int_t^{t + \Delta t}\int_{\partial\Omega}\rho_v\mathbf{v}\cdot d\mathbf{n}dt' + \int_t^{t + \Delta t}\int_\Omega s_vd^3rdt'\nonumber\\
+\Leftrightarrow V\left[\newoverline{\rho_v}\left(t + \Delta t\right) - \newoverline{\rho_v}\left(t\right)\right] & = & -\int_t^{t + \Delta t}\int_{\partial\Omega}\rho_v\mathbf{v}\cdot d\mathbf{n}dt' + \int_t^{t + \Delta t}\int_\Omega s_vd^3rdt'\nonumber\\
+\Leftrightarrow \newoverline{\rho_v}\left(t + \Delta t\right) & = & \newoverline{\rho_v}\left(t\right) - \frac{1}{V}\int_t^{t + \Delta t}\int_{\partial\Omega}\rho_v\mathbf{v}\cdot d\mathbf{n}dt' + \int_t^{t + \Delta t}\int_\Omega s_vd^3rdt'\nonumber\\
+\Leftrightarrow \newoverline{\rho_v}\left(t + \Delta t\right) & = & \newoverline{\rho_v}\left(t\right) - \frac{1}{V}\int_t^{t + \Delta t}\int_{\partial\Omega}\rho_v\mathbf{v}\cdot d\mathbf{n}dt' + \int_\Omega\int_t^{t + \Delta t}s_vdt'd^3r.\label{eq:phase_trans_para_deriv_0}
+\end{eqnarray}
+%
+Man geht an dieser Stelle der Einfachheit halber davon aus, dass zum Zeitpunkt $t$ keine Kondensate vorhanden sind und dass während des Zeitintervals $\left[t, t + \Delta t\right]$ keine Phasenübergänge in Richtung des Wasserdampfes stattfinden. In diesem Fall gilt
+%
+\begin{eqnarray}
+\int_t^{t + \Delta t}s_vdt' = -\Theta\left[\rho_v\left(t + \Delta t\right) - \rho_v^{(\text{sat})}\left(t + \Delta t\right)\right]\left[\rho_v\left(t + \Delta t\right) - \rho_v^{(\text{sat})}\left(t + \Delta t\right)\right] \leq 0.
+\end{eqnarray}
+%
+Es gilt also
+%
+\begin{eqnarray}
+Q_v \coloneqq \int_\Omega\int_t^{t + \Delta t}s_vdt'd^3r = -\int_\Omega\Theta\left[\rho_v\left(t + \Delta t\right) - \rho_v^{(\text{sat})}\left(t + \Delta t\right)\right]\left[\rho_v\left(t + \Delta t\right) - \rho_v^{(\text{sat})}\left(t + \Delta t\right)\right]d^3r \leq 0.
+\end{eqnarray}
+%
+Definiere nun
+%
+\begin{eqnarray}
+\newtilde{Q}_v & \coloneqq & -\Theta\left\{\newoverline{\rho_v}\left(t + \Delta t\right) - \rho_v^{(\text{sat})}\left[\newoverline{T}\left(t + \Delta t\right), \newoverline{p}\left(t + \Delta t\right)\right]\right\}\left\{\rho_v\left(t + \Delta t\right) - \rho_v^{(\text{sat})}\left[\newoverline{T}\left(t + \Delta t\right), \newoverline{p}\left(t + \Delta t\right)\right]\right\} \leq 0\nonumber\\
+&&
+\end{eqnarray}
+%
+Dies ist der Quellterm, der sich ergeben würde, wenn man den Phasenübergang aus den gemittelten thermodynamischen Größen (in einem Modell wären dies die Werte in den Gitterboxen) heraus berechnen würde. Es gilt
+%
+\begin{eqnarray}
+Q_v \leq \newtilde{Q}_v.
+\end{eqnarray}
+%
+Definiere nun die Differenz zwischen dem tatsächlichen Phasenübergang und dem aus den gemittelten Größen heraus berechneten durch
+%
+\begin{eqnarray}
+\Delta Q_v \coloneqq Q_v - \newtilde{Q}_v \leq 0.
+\end{eqnarray}
+%
+Damit kann man Glg. \eqref{eq:phase_trans_para_deriv_0} in der Form
+%
+\begin{eqnarray}
+\newoverline{\rho_v}\left(t + \Delta t\right) & = & \newoverline{\rho_v}\left(t\right) - \frac{1}{V}\int_t^{t + \Delta t}\int_{\partial\Omega}\rho_v\mathbf{v}\cdot d\mathbf{n}dt' + Q_v\nonumber\\
+& = & \newoverline{\rho_v}\left(t\right) - \frac{1}{V}\int_t^{t + \Delta t}\int_{\partial\Omega}\rho_v\mathbf{v}\cdot d\mathbf{n}dt' + \newtilde{Q}_v + \Delta Q_v.
+\end{eqnarray}
+%
+Der Quellterm $Q_v$ setzt sich somit aus zwei Anteilen zusammen:
+%
+\begin{itemize}
+\item Der Term $\newtilde{Q}_v \leq 0$ entspricht dem aufgelösten Anteil.
+\item Der Term $\Delta Q_v \leq 0$ entspricht dem subskaligen Anteil.
+\end{itemize}
+%
+Ein Modell hätte zunächst nur Kenntnis vom aufgelösten Anteil $\newtilde{Q}_v$ und würde somit den Gesamt-Phasenübergang $Q_v$ unterschätzen. Insbesondere kann es Situationen mit $\newtilde{Q}_v = 0$ und $\Delta Q_v < 0$ geben. Man könnte nun aus hergeleiteten oder gemessenen Spektraleigenschaften der Felder Ansätze für den Term $\Delta Q_v$ herleiten. Dies wäre jedoch mit großem theoretischen Aufwand verbunden. Anstattdessen wäre es sinnvoll, sich einen sehr einfachen Ansatz für $\Delta Q_v$ zu überlegen und die hierin vorhandenen Koeffizienten direkt an Beobachtungen anzupassen.
+
+Nichtsdestotrotz veranschaulicht dieser Abschnitt, dass alle Arten von Parametrisierungen letzten Endes mit subskaliger Variabilität zu tun haben.  Im Fall $\Omega, \Delta t \to 0$ geht $\Delta Q_v$ gegen Null, was ebenfalls für alle Parametrisierungen der Fall ist.
 
 \section{Turbulenzspektren}
 \label{sec:turbulenzspektren}\index{Turbulenzspektrum}
@@ -15488,7 +15559,7 @@ Hieraus lassen sich noch zwei wichtige Grenzfälle ableiten. Für $k > \sqrt{\ka
 }}
 \end{center}
 %
-Dieses Gebit des Spektrums ($k > k_c$) bezeichnet man als \textit{dissipative range}\index{dissipative range}. In diesem Bereich führt die Viskosität\index{Viskosität} zu einem steilen Abfall des Spektrums. Im Fall $k^\star < k \ll k_c$ gilt
+Dieses Gebiet des Spektrums ($k > k_c$) bezeichnet man als \textit{dissipative range}\index{dissipative range}. In diesem Bereich führt die Viskosität\index{Viskosität} zu einem steilen Abfall des Spektrums. Im Fall $k^\star < k \ll k_c$ gilt
 %
 \begin{center}
 \doublebox{\parbox{\textwidth}{
@@ -23059,7 +23130,7 @@ Somit folgt wiederum mit Glg. \eqref{eq:great_deriv_1}
 \begin{eqnarray}
 &&h_\varphi = \sqrt{\left(\frac{\partial x}{\partial\varphi}\right)^2 + \left(\frac{\partial\varphi}{\partial z\varphi}\right)^2} = \frac{xz\sqrt{x^2 + z^2\left(1 + \mu + \nu R^2\right)^2}}{\left(1 - \nu z^2\right)\left(R^2 + \left(\mu + \nu R^2\right)\left(1 + \mu + \nu R^2\right)z^2\right)}\left|\frac{d\ln\left[D\left(\varphi\right)\right]}{d\varphi}\right|\nonumber\\
 &\Leftrightarrow&h_\varphi = \frac{xz\sqrt{R^2 + z^2\left(\mu + \nu R^2\right)\left(1 + \mu + \nu R^2\right)}}{\left(1 - \nu z^2\right)\left(R^2 + \left(\mu + \nu R^2\right)\left(1 + \mu + \nu R^2\right)z^2\right)}\left|\frac{d\ln\left[D\left(\varphi\right)\right]}{d\varphi}\right|\nonumber\\
-&\Leftrightarrow&h_\varphi = \frac{xz}{\left(1 - \nu z^2\right)\left(R^2 + \left(\mu + \nu R^2\right)\left(1 + \mu + \nu R^2\right)z^2\right)^{1/2}}\left|\frac{d\ln\left[D\left(\varphi\right)\right]}{d\varphi}\right.
+&\Leftrightarrow&h_\varphi = \frac{xz}{\left(1 - \nu z^2\right)\left(R^2 + \left(\mu + \nu R^2\right)\left(1 + \mu + \nu R^2\right)z^2\right)^{1/2}}\left|\frac{d\ln\left[D\left(\varphi\right)\right]}{d\varphi}\right|.
 \end{eqnarray}
 %
 Logarithmiert man beide Seiten von Glg. \eqref{eq:great_deriv_3}, erhält man
@@ -23075,8 +23146,12 @@ Differenziert man dies, folgt
 & = & \frac{d\ln\left(\left|z_S\right|\right)}{d\varphi}\left(1 - \nu z_S^2\right) - \frac{d\ln\left(x_S\right)}{d\varphi}\left(1 + \mu + \nu x_S^2\right).\label{eq:great_deriv_12}
 \end{eqnarray}
 %
-Diese Gleichung kann genutzt werden, um $\frac{d\ln\left(D\right)}{d\varphi}$ durch $\frac{d x_S}{d\varphi}$ und $\frac{d z_S}{d\varphi}$ auszudrücken.
-
+Diese Gleichung kann genutzt werden, um $\frac{d\ln\left(D\right)}{d\varphi}$ durch $\frac{d x_S}{d\varphi}$ und $\frac{d z_S}{d\varphi}$ auszudrücken:
+%
+\begin{eqnarray}
+h_\varphi = \frac{xz}{\left(1 - \nu z^2\right)\left(R^2 + \left(\mu + \nu R^2\right)\left(1 + \mu + \nu R^2\right)z^2\right)^{1/2}}\left|\frac{d\ln\left(\left|z_S\right|\right)}{d\varphi}\left(1 - \nu z_S^2\right) - \frac{d\ln\left(x_S\right)}{d\varphi}\left(1 + \mu + \nu x_S^2\right)\right|
+\end{eqnarray}
+%
 Es gelten
 %
 \begin{eqnarray}
