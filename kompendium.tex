@@ -7608,7 +7608,7 @@ In diesem Abschnitt soll es um die Thermodynamik einer Atmosphäre gehen, die au
 \subsubsection{Temperatur als prognostische Variable}
 \label{sec:temperatur_als_prognostische_variable}
 
-Der Ausgangspunkt ist Glg. \eqref{eq:td_1_id_gas}. Durch Differentiation nach der Zeit ergibt sich
+Der Ausgangspunkt ist Glg. \eqref{eq:td_1_id_gas}. Durch Differenziation nach der Zeit ergibt sich
 %
 \begin{eqnarray}
 \frac{dE}{dt} + p\frac{dV}{dt} = \frac{dQ_T}{dt} + \mu\frac{dN}{dt}.
@@ -9219,7 +9219,7 @@ N_\text{Ro} \coloneqq \frac{U^2}{LfU} = \frac{U}{Lf}.
 \section{Spherical geopotential approximation}
 \label{sec:spherical_geopotential_approximation}\index{spherical geopotential approximation (SGA)}\index{SGA (spherical geopotential approximation)}
 
-Bezieht man die Fliehbeschleunigung $-\omegabi\times\left(\omegabi\times\mathbf{r}\right)$ und/oder die eher ellipsoidische Form der Erde mit ein, sind die Äquipotentialflächen keine Kugelschalen mehr, s. Absch. \ref{sec:ellipsoidische_approximation_des_schwerefeldes}. Rechnet man diese Effekte betragsmäßig approximativ in $g_z$ hinein und verwendet eine sphärische Approximation des Schwerefeldes, spricht man von der \textit{spherical geopotential approximation (SGA)}\index{spherical geopotential approximation (SGA)}\index{SGA (spherical geopotential approximation)}. Dies bedeutet
+Bezieht man die Fliehbeschleunigung $-\omegabi\times\left(\omegabi\times\mathbf{r}\right)$ und/oder die eher ellipsoidische Form der Erde mit ein, sind die Äquipotentialflächen keine Kugelschalen mehr, s. Absch. \ref{sec:schwerefeld_eines_ellipsoides}. Rechnet man diese Effekte betragsmäßig approximativ in $g_z$ hinein und verwendet eine sphärische Approximation des Schwerefeldes, spricht man von der \textit{spherical geopotential approximation (SGA)}\index{spherical geopotential approximation (SGA)}\index{SGA (spherical geopotential approximation)}. Dies bedeutet
 %
 \begin{eqnarray}
 g_x & = & 0,\\
@@ -11141,9 +11141,15 @@ wobei $\mathbf{F}$ die Summe aller wirkenden Kräfte ist. Konservative Kräfte �
 %
 folgt
 %
+\begin{center}
+\doublebox{\parbox{\textwidth}{
+\begin{center}
 \begin{eqnarray}
-\md{S} = \int_A\left(\frac{1}{\rho^2}\nabla\rho\times\nabla p + \left(\mathbf{f}\cdot\nabla\right)\mathbf{v} - \mathbf{f}\nabla\cdot\mathbf{v} + \nabla\times\mathbf{f}_R\right)\cdot d\mathbf{n}\label{eq:circ_theorem}
+\md{S} = \int_A\left(\frac{1}{\rho^2}\nabla\rho\times\nabla p + \left(\mathbf{f}\cdot\nabla\right)\mathbf{v} - \mathbf{f}\nabla\cdot\mathbf{v} + \nabla\times\mathbf{f}_R\right)\cdot d\mathbf{n}.\label{eq:circ_theorem}
 \end{eqnarray}
+\end{center}
+}}
+\end{center}
 %
 In IS gilt also in barotropen idealen Medien
 %
@@ -11163,11 +11169,11 @@ Die Impulsgleichung Glg. \eqref{eq:momentum_mod} lautet
 Nun wendet man auf die einzelnen Terme den Operator $\nabla\times $ an:
 %
 \begin{eqnarray}
-\nabla\times\frac{\partial\mathbf{v}}{\partial t}&\stackrel{\eqref{eq:diff_op_rule_4}}{=}&\frac{\partial}{\partial t}\nabla\times\mathbf{v}\\
-\nabla\times\left(-\frac{1}{\rho}\nabla p\right)&\stackrel{\eqref{eq:diff_op_rule_5}}{=}& -\frac{1}{\rho^2}\nabla p\times\nabla\rho\\
-\nabla\times\left(\mathbf{v}\times\etabi\right)&\stackrel{\eqref{eq:diff_op_rule_7}}{=}& -\left(\mathbf{v}\cdot\nabla\right)\etabi - \etabi\nabla\cdot\mathbf{v} + \left(\etabi\cdot\nabla\right)\mathbf{v}\\
-\nabla\times\mathbf{g}&\stackrel{\eqref{eq:diff_op_rule_1}}{=}&\mathbf{0}\\
-\nabla\times\nabla k&\stackrel{\eqref{eq:diff_op_rule_1}}{=}&\mathbf{0}.
+\nabla\times\frac{\partial\mathbf{v}}{\partial t}&\stackrel{\text{Glg. \eqref{eq:diff_op_rule_4}}}{=}&\frac{\partial}{\partial t}\nabla\times\mathbf{v}\\
+\nabla\times\left(-\frac{1}{\rho}\nabla p\right)&\stackrel{\text{Glg. \eqref{eq:diff_op_rule_5}}}{=}& -\frac{1}{\rho^2}\nabla p\times\nabla\rho\\
+\nabla\times\left(\mathbf{v}\times\etabi\right)&\stackrel{\text{Glg. \eqref{eq:diff_op_rule_7}}}{=}& -\left(\mathbf{v}\cdot\nabla\right)\etabi - \etabi\nabla\cdot\mathbf{v} + \left(\etabi\cdot\nabla\right)\mathbf{v}\\
+\nabla\times\mathbf{g}&\stackrel{\text{Glg. \eqref{eq:diff_op_rule_1}}}{=}&\mathbf{0}\\
+\nabla\times\nabla k&\stackrel{\text{Glg. \eqref{eq:diff_op_rule_1}}}{=}&\mathbf{0}.
 \end{eqnarray}
 %
 Somit gilt
@@ -11287,12 +11293,12 @@ Dabei wurde die modifizierte absolute Vorticity $\etabi'$ durch
 definiert. Nun wendet man auf die einzelnen Terme den Operator $\nabla\times $ an:
 %
 \begin{eqnarray}
-\nabla\times\frac{\partial\mathbf{v}_h}{\partial t}&\stackrel{\eqref{eq:diff_op_rule_4}}{=}&\frac{\partial}{\partial t}\nabla\times\mathbf{v}_h\\
-\nabla\times\nabla\phi&\stackrel{\eqref{eq:diff_op_rule_1}}{=}&\mathbf{0}\\
-\nabla\times\mathbf{g}&\stackrel{\eqref{eq:diff_op_rule_1}}{=}&\mathbf{0}\\
-\nabla\times\nabla\left(\mathbf{v}_h\cdot\mathbf{v}_h\right)&\stackrel{\eqref{eq:diff_op_rule_1}}{=}&\mathbf{0}\\
-\nabla\times\left(\mathbf{v}_h\times\etabi'\right)&\stackrel{\eqref{eq:diff_op_rule_7}}{=}& -\left(\mathbf{v}_h\cdot\nabla\right)\etabi' - \etabi'\nabla\cdot\mathbf{v}_h + \left(\etabi'\cdot\nabla\right)\mathbf{v}_h\\
-\nabla\times\left(\omega\frac{\partial\mathbf{v}_h}{\partial p}\right)&\stackrel{\eqref{eq:diff_op_rule_5}}{=}&\omega\nabla\times\frac{\partial\mathbf{v}_h}{\partial p} - \frac{\partial\mathbf{v}_h}{\partial p}\times\nabla\omega
+\nabla\times\frac{\partial\mathbf{v}_h}{\partial t}&\stackrel{\text{Glg. \eqref{eq:diff_op_rule_4}}}{=}&\frac{\partial}{\partial t}\nabla\times\mathbf{v}_h\\
+\nabla\times\nabla\phi&\stackrel{\text{Glg. \eqref{eq:diff_op_rule_1}}}{=}&\mathbf{0}\\
+\nabla\times\mathbf{g}&\stackrel{\text{Glg. \eqref{eq:diff_op_rule_1}}}{=}&\mathbf{0}\\
+\nabla\times\nabla\left(\mathbf{v}_h\cdot\mathbf{v}_h\right)&\stackrel{\text{Glg. \eqref{eq:diff_op_rule_1}}}{=}&\mathbf{0}\\
+\nabla\times\left(\mathbf{v}_h\times\etabi'\right)&\stackrel{\text{Glg. \eqref{eq:diff_op_rule_7}}}{=}& -\left(\mathbf{v}_h\cdot\nabla\right)\etabi' - \etabi'\nabla\cdot\mathbf{v}_h + \left(\etabi'\cdot\nabla\right)\mathbf{v}_h\\
+\nabla\times\left(\omega\frac{\partial\mathbf{v}_h}{\partial p}\right)&\stackrel{\text{Glg. \eqref{eq:diff_op_rule_5}}}{=}&\omega\nabla\times\frac{\partial\mathbf{v}_h}{\partial p} - \frac{\partial\mathbf{v}_h}{\partial p}\times\nabla\omega
 \end{eqnarray}
 %
 Somit gilt
@@ -11397,7 +11403,7 @@ Es gilt
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{eqnarray}
-\md{q} & = & \frac{1}{h}\md{\eta} - \frac{\eta}{h^2}\md{h}\stackrel{\eqref{eq:swe_1}}{=} - \frac{\eta}{h}\nabla\cdot\mathbf{v} - \frac{\eta}{h^2}\left(-h\nabla\cdot\mathbf{v}\right) = 0.\label{eq:pv_conservation_baro}
+\md{q} & = & \frac{1}{h}\md{\eta} - \frac{\eta}{h^2}\md{h}\stackrel{\text{Glg. \eqref{eq:swe_1}}}{=} - \frac{\eta}{h}\nabla\cdot\mathbf{v} - \frac{\eta}{h^2}\left(-h\nabla\cdot\mathbf{v}\right) = 0.\label{eq:pv_conservation_baro}
 \end{eqnarray}
 \end{center}
 }}
@@ -11511,9 +11517,9 @@ Es gibt auch eine prognostische Gleichung für die Divergenz, die sogenannte \te
 Nun wendet man auf die einzelnen Terme den Operator $\nabla\cdot $ an:
 %
 \begin{eqnarray}
-\nabla\cdot\frac{\partial\mathbf{v}}{\partial t} & \stackrel{\eqref{eq:diff_op_rule_4}}{=} & \frac{\partial\xi}{\partial t}\\
-\nabla\cdot\left(-\frac{1}{\rho}\nabla p\right) & \stackrel{\eqref{eq:diff_op_rule_3}}{=} & \frac{1}{\rho^2}\nabla\rho\cdot\nabla p -\frac{1}{\rho}\Delta p\\
-\nabla\cdot\left(\mathbf{v}\times\mathbf{f}\right) & \stackrel{\eqref{eq:diff_op_rule_9}}{=} & \mathbf{f}\cdot\zetabi
+\nabla\cdot\frac{\partial\mathbf{v}}{\partial t} & \stackrel{\text{Glg. \eqref{eq:diff_op_rule_4}}}{=} & \frac{\partial\xi}{\partial t}\\
+\nabla\cdot\left(-\frac{1}{\rho}\nabla p\right) & \stackrel{\text{Glg. \eqref{eq:diff_op_rule_3}}}{=} & \frac{1}{\rho^2}\nabla\rho\cdot\nabla p -\frac{1}{\rho}\Delta p\\
+\nabla\cdot\left(\mathbf{v}\times\mathbf{f}\right) & \stackrel{\text{Glg. \eqref{eq:diff_op_rule_9}}}{=} & \mathbf{f}\cdot\zetabi
 \end{eqnarray}
 %
 Die Divergenz von $\mathbf{g}$ besteht aufgrund der Poisson-Gleichung nur aus dem Zentrifugalanteil. Da man in der Meteorologie jedoch für analytische Herleitungen meist von einem radialsymmetrischen Schwerefeld ausgeht, wird auch dieser Anteil vernachlässigt. Es gilt also
@@ -11560,11 +11566,11 @@ Die Impulsgleichungen Glg.en \eqref{eq:x_momentum_simplified_simplified_p} - \eq
 Es ist für die Hereitung sinnvoll, hier ein $\mathbf{g}$ zu addieren und $-\nabla\phi$ als dreidimensionalen Vektor zu interpretieren mit $-g$ in der z-Komponente. Somit ergibt eine Anwendung von $\nabla\cdot $ auf $-\nabla\phi + \mathbf{g} = -\Delta_h\phi$, wofür aber in der weiteren Herleitung einfach $\Delta\phi$ notiert wird. Durch Applizieren des Operators $\nabla\cdot $ auf die einzelnen Terme erhält man somit
 %
 \begin{eqnarray}
-\nabla\cdot\frac{\partial\mathbf{v}_h}{\partial t}&\stackrel{\eqref{eq:diff_op_rule_4}}{=}&\frac{\partial\delta}{\partial t}, \nonumber\\
+\nabla\cdot\frac{\partial\mathbf{v}_h}{\partial t}&\stackrel{\text{Glg. \eqref{eq:diff_op_rule_4}}}{=}&\frac{\partial\delta}{\partial t}, \nonumber\\
 - \nabla\cdot\nabla\phi & = & -\Delta\phi, \nonumber\\
-- \nabla\cdot\left(f\mathbf{k}\times\mathbf{v}_h\right)&\stackrel{\eqref{eq:diff_op_rule_9}}{=}& -\mathbf{v}_h\cdot\left[\nabla\times\left(f\mathbf{k}\right)\right] + f\mathbf{k}\cdot\left(\nabla\times\mathbf{v}_h\right)\stackrel{\eqref{eq:diff_op_rule_5}}{=} - \mathbf{v}_h\cdot\left[-\mathbf{k}\times\nabla f + f\nabla\times\mathbf{k}\right] + f\zeta\nonumber\\
+- \nabla\cdot\left(f\mathbf{k}\times\mathbf{v}_h\right)&\stackrel{\text{Glg. \eqref{eq:diff_op_rule_9}}}{=}& -\mathbf{v}_h\cdot\left[\nabla\times\left(f\mathbf{k}\right)\right] + f\mathbf{k}\cdot\left(\nabla\times\mathbf{v}_h\right)\stackrel{\text{Glg. \eqref{eq:diff_op_rule_5}}}{=} - \mathbf{v}_h\cdot\left[-\mathbf{k}\times\nabla f + f\nabla\times\mathbf{k}\right] + f\zeta\nonumber\\
 & = &\mathbf{v}_h\cdot\left(\mathbf{k}\times\beta\mathbf{j}\right) + f\zeta = -u\beta + f\zeta, \nonumber\\
-\nabla\cdot\left(-\omega\frac{\partial\mathbf{v}_h}{\partial p}\right)&\stackrel{\eqref{eq:diff_op_rule_3}}{=}& -\omega\frac{\partial\delta}{\partial p} - \frac{\partial\mathbf{v}_h}{\partial p}\cdot\nabla\omega.
+\nabla\cdot\left(-\omega\frac{\partial\mathbf{v}_h}{\partial p}\right)&\stackrel{\text{Glg. \eqref{eq:diff_op_rule_3}}}{=}& -\omega\frac{\partial\delta}{\partial p} - \frac{\partial\mathbf{v}_h}{\partial p}\cdot\nabla\omega.
 \end{eqnarray}
 %
 Somit folgt
@@ -11601,9 +11607,15 @@ Dies führt auf eine weitere Form der Divergenzgleichung:
 %
 Setzt man hier $\delta = \omega = 0$ ein, folgt die \index{Balancegleichung}\textit{Balancegleichung}
 %
+\begin{center}
+\doublebox{\parbox{\textwidth}{
+\begin{center}
 \begin{eqnarray}
 \Delta\phi & = & - u\beta + f\zeta - \Delta k + \left(\nabla\times\mathbf{v}_h\right)^2 + \mathbf{v}_h\cdot\left(\Delta\mathbf{v}_h\right).\label{eq:balance_equation}
 \end{eqnarray}
+\end{center}
+}}
+\end{center}
 %
 Vernachlässigt man den letzten Term, erhält man die \textit{lineare Balancegleichung}\index{Balancegleichung!lineare}\index{lineare Balancegleichung}
 %
@@ -11840,9 +11852,15 @@ haben, hierbei bezeichnet man $\mathbf{k} = \left(k_x, k_y, k_z\right)^T$ als de
 %
 Setzt man die linke Seite gleich Null, bewegt sich also mit einem Punkt konstanter Phase mit, und wählt eine Trajektorie parallel zu $\mathbf{k}$, so erhält man die Phasengeschwindigkeit
 %
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 \begin{eqnarray}
 c = \frac{\omega}{k} = \frac{\lambda}{T} = \lambda f.
 \end{eqnarray}
+\end{center}
+}}
+\end{center}
 %
 Die Abhängigkeit
 %
@@ -11903,9 +11921,15 @@ c_{\text{gr}} = c
 %
 unabhängig von $k$, so bezeichnet man die Welle als \textit{dispersionsfrei}. Man kann die Gruppengeschwindigkeit vektoriell zu
 %
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 \begin{eqnarray}
 c_{\text{gr}} = \nabla_{\mathbf{k}}\omega.
 \end{eqnarray}
+\end{center}
+}}
+\end{center}
 %
 verallgemeinern. Mit $\omega = ck$ kann man schreiben
 %
@@ -12048,9 +12072,15 @@ Nichttriviale Lösungen existieren für
 %
 Für die Phasengeschwindigkeit $c$ folgt also
 %
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 \begin{eqnarray}
 c = U\pm \sqrt{R_dT\kappa}.\label{eq:velocity_sound}
 \end{eqnarray}
+\end{center}
+}}
+\end{center}
 %
 Hierbei wurde die Zustandsgleichung eingesetzt, $T$ ist die Gleichgewichtstemperatur und $\kappa = c_p/c_v>1$ der Adiabatenexponent\index{Adiabatenexponent}\index{Isentropenexponent}. Der Wert von $c$ ist jedoch auch von der Feuchte abhängig. Man könnte also über eine Messung der Schallgeschwindigkeit durch Kombination mit einer Temperaturmessung die Feuchte bestimmen. Anzumerken ist, dass Schallwellen dispersionsfrei sind, die Phasengeschwindigkeit jedoch orts- und zeitabhängig ist, da sie von der Temperatur und der Feuchte abhängt.
 
@@ -15034,7 +15064,7 @@ eingesetzt wurde. Die inverse Fourier-Transformationen\index{Fourier-Transformat
 \varphi\left(\mathbf{r}\right) & = & \int\newtilde{\varphi}\left(\mathbf{k}\right)\exp\left(i\mathbf{k}\cdot\mathbf{r}\right)d^3k.
 \end{eqnarray}
 %
-Weiterhin gilt für die Anwendung der differenzialoperatoren auf die Felder
+Weiterhin gilt für die Anwendung der Differenzialoperatoren auf die Felder
 %
 \begin{eqnarray}
 \frac{\partial\mathbf{v}}{\partial t} & = & \int\frac{\partial\newtilde{\mathbf{v}}\left(\mathbf{k}, t\right)}{\partial t}\exp\left(i\mathbf{k}\cdot\mathbf{r}\right)d^3k,\\
@@ -16258,6 +16288,25 @@ also eine andere Dispersionsrelation als im expliziten Fall. Allgemein scheint d
 \subsection{Runge-Kutta-Verfahren}
 \label{sec:runge-kutta-verfahren}\index{Runge-Kutta-Verfahren}
 
+\section{CFL-Kriterium}
+\label{sec:cfl-kriterium}\index{CFL-Kriterium}\index{Courant-Friedrichs-Lewy-Kriterium}
+
+Das \textit{Courant-Friedrichs-Lewy-Kriterium (CFL-Kriterium)} ist eine Beschränkung des maximalen Zeitschrittes bei expliziten Verfahren. Sei $u$ die Phasengeschwindigkeit der am schnellsten propagierenden Welle. Man definiert die \textit{Courant-Zahl}\index{Courant-Zahl} oder auch \textit{CFL-Zahl}\index{CFL-Zahl} $c$ durch
+%
+\begin{eqnarray}
+c \coloneqq \frac{u\Delta t}{\Delta x}.
+\end{eqnarray}
+%
+Das CFL-Kriterium lautet
+
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+Das explizite Euler-Verfahren ist genau dann stabil, wenn $c < 1$ ist.
+\end{center}
+}}
+\end{center}
+
 \section{Verfahren mit impliziten Anteilen}
 \label{sec:verfahren_mit_impliziten_anteilen}
 
@@ -16317,29 +16366,10 @@ m_j = \begin{cases}
 %
 Es wurde stillschweigend davon ausgegangen, dass $f$ das einzige auftretende Feld ist. Verallgemeinernd kann man $f$ als Tupel von Feldern ansehen, also als Zustandsvektor. Weiterhin kann man $0 \leq m_j \leq 1$ zulassen, hierbei ist $m_j$ der implizite Anteil. Das Crank-Nicolson-Verfahren\index{Crank-Nicolson-Verfahren} bedeutet $m_j = \frac{1}{2}$.
 
-\section{CFL-Kriterium}
-\label{sec:cfl-kriterium}\index{CFL-Kriterium}\index{Courant-Friedrichs-Lewy-Kriterium}
-
-Das \textit{Courant-Friedrichs-Lewy-Kriterium (CFL-Kriterium)} ist eine Beschränkung des maximalen Zeitschrittes bei expliziten Verfahren. Sei $u$ die Phasengeschwindigkeit der am schnellsten propagierenden Welle. Man definiert die \textit{Courant-Zahl}\index{Courant-Zahl} oder auch \textit{CFL-Zahl}\index{CFL-Zahl} $c$ durch
-%
-\begin{eqnarray}
-c \coloneqq \frac{u\Delta t}{\Delta x}.
-\end{eqnarray}
-%
-Das CFL-Kriterium lautet
-
-\begin{center}
-\doublebox{\parbox{0.8\textwidth}{
-\begin{center}
-Das explizite Euler-Verfahren ist genau dann stabil, wenn $c < 1$ ist.
-\end{center}
-}}
-\end{center}
-
 \section{Mischung von Zeitschrittverfahren}
 \label{sec:mischung_von_zeitschrittverfahren}
 
-\section{Aspekte partieller differenzialgleichungen}
+\section{Aspekte partieller Differenzialgleichungen}
 \label{sec:aspekte_partieller_differenzialgleichungen}
 
 \subsection{Das Forward-backward-Verfahren}
@@ -16873,7 +16903,7 @@ Es werden alle als notwendig identifizierten Punkte zusammengefasst:
 \item quasi-uniformes Gitter
 \item orthogonales Gitter
 \item Gültigkeit der Integralsätze für Masse, Entropie und Energie
-\item mimetische Eigenschaften von differenzialoperatoren ist wichtiger als Konvergenzordnung
+\item mimetische Eigenschaften von Differenzialoperatoren ist wichtiger als Konvergenzordnung
 \item ellipsoidisches Gitter
 \end{itemize}
 
@@ -16950,8 +16980,8 @@ Daher wird an dieser Stelle die Entscheidung getroffen, ein C-Gitter\index{C-Git
 \chapter{\normalfont\textsc{Probleme eines dreielementigen Erzeugendensystems einer zweidimensionalen Menge}}
 \label{chap:probleme_eines_dreielementigen_erzeugendensystems_einer_zweidimensionalen_menge}\index{dreielementiges Erzeugendensystem}\index{Erzeugendensystem!dreielementiges}
 
-\section{differenzialoperatoren}
-\label{sec:differenzialoperatoren}
+\section{Differenzialoperatoren}
+\label{sec:Differenzialoperatoren}
 
 Die beiden Einheitsvektoren\index{Einheitsvektor} der Ebene werden mit
 %
@@ -17999,7 +18029,7 @@ Im Falle von Kugelkoordinaten, also oberhalb des Layers oberhalb von $\newtilde{
 \chapter{\normalfont\textsc{Reversible Dynamik}}
 \label{chap:reversible_dynamik}\index{reversible Dynamik}\index{Dynamik!reversible}
 
-Ziel dieses Kapitels ist es, herzuleiten, wie differentielle und algebraische Operatoren und Randbedingungen zu diskretisieren sind. Hierzu betrachtet man die Atmosphäre $A \subseteq \mathbb{R}^3$ als offene Menge und verwendet als Gleichungssystem die reversiblen Gleichungen trockener Luft\index{trockene Luft}\index{Luft!trockene}
+Ziel dieses Kapitels ist es, herzuleiten, wie differenzielle und algebraische Operatoren und Randbedingungen zu diskretisieren sind. Hierzu betrachtet man die Atmosphäre $A \subseteq \mathbb{R}^3$ als offene Menge und verwendet als Gleichungssystem die reversiblen Gleichungen trockener Luft\index{trockene Luft}\index{Luft!trockene}
 %
 \begin{eqnarray}
 \md{\mathbf{v}} & = & -\frac{1}{\rho}\nabla p - \mathbf{f}\times\mathbf{v} + \mathbf{g},\\
@@ -19733,7 +19763,7 @@ Benötigt man einen linearen Ausdruck für $1/r$, verwendet man meist
 \end{eqnarray}
 %
 \subsection{Rechenregeln für Differenzialoperatoren}
-\label{sec:rechenregeln_fuer_differenzialoperatoren}\index{Rechenregel!Differenzialoperator}\index{Differenzialoperator!Rechenregel}
+\label{sec:rechenregeln_fuer_Differenzialoperatoren}\index{Rechenregel!Differenzialoperator}\index{Differenzialoperator!Rechenregel}
 
 Seien $\mathbf{u}, \mathbf{v}, \mathbf{w}:\mathbb{R}^3\to\mathbb{R}^3$ mit $\mathbf{u} = \left(u_1, u_2, u_3\right)^T, \mathbf{v} = \left(v_1, v_2, v_3\right)^T$ und $\mathbf{w} = \left(w_1, w_2, w_3\right)^T$ drei Vektorfelder, $\psi, \chi:\mathbb{R}^3\to\mathbb{R}$ zwei Skalarfelder und $\lambda\in\mathbb{C}$ ein Skalar. Es wird definiert
 %
@@ -19829,7 +19859,7 @@ Seien $\mathbf{k} = \left(k_1, k_2, k_3\right)^T\in\mathbb{C}^3$, $\varphi:\math
 \end{eqnarray}
 
 \section{Differenzialoperatoren unter Koordinatentransformationen}
-\label{sec:differenzialoperatoren:unter_koordinatentransformationen}\index{Differenzialoperator!unter Koordinatentransformation}\index{Koordinatentransformation!Differenzialoperator}
+\label{sec:Differenzialoperatoren:unter_koordinatentransformationen}\index{Differenzialoperator!unter Koordinatentransformation}\index{Koordinatentransformation!Differenzialoperator}
 
 Allgemein bezeichnet man Punkte im $\mathbb{R}^3$ durch drei reelle Zahlen $x = \left(x_1, x_2, x_3\right)$, die in Linearkombination mit der Standardbasis $\mathbf{c}_1, \mathbf{c}_2, \mathbf{c}_3$ einen Vektor $\mathbf{r}$ ergeben:
 %
@@ -21825,8 +21855,8 @@ V & = & \int_{ - c}^{c}\int_{0}^{a\sqrt{1 - \frac{z^2}{c^2}}}2\pi xdxdz = 2\pi\i
 & = & \pi 2a^2c - \frac{2}{3}\pi a^2c = \frac{4}{3}\pi a^2c\label{eq:vol_rot_ellipsoid}
 \end{eqnarray}
 
-\subsection{Ellipsoidische Approximation des Schwerefeldes}
-\label{sec:ellipsoidische_approximation_des_schwerefeldes}\index{Schwerefeld der Erde!ellipsoidische Approximation}\index{ellipsoidische Approximation!des Schwerefeldes}
+\subsection{Schwerefeld eines Ellipsoides}
+\label{sec:schwerefeld_eines_ellipsoides}\index{Schwerefeld eines Ellipsoids}\index{Ellipsoid!Schwerefeld}
 
 Die ellipsoidischen Koordinaten werden sich am Geopotential $\phi_g$ der Erde orientieren, für welches gilt
 %
@@ -22518,11 +22548,20 @@ Man nutzt
 %
 aus, um den Ausdruck für das Schwerepotential zu vereinfachen:
 %
+\begin{center}
+\doublebox{\parbox{0.99\textwidth}{
+\begin{center}
 \begin{eqnarray}
 \phi_g\left(r, \chi\right) & = & \frac{GM}{r}\left[\left\lbrace\left(\frac{2\epsilon - m}{2}\right)\frac{a^2}{r^2} + \frac{m}{2}\frac{r^3}{a^3}\right\rbrace\sin^2\left(\chi\right) - 1\right] - \frac{GM}{a}\left\lbrace\left(\frac{2\epsilon - m}{6}\right)\frac{a^3}{r^3} + \frac{m}{2}\frac{r^2}{a^2}\right\rbrace\label{eq:schwerepotential}
 \end{eqnarray}
+\end{center}
+}}
+\end{center}
 %
 Dies ist die Formel mit der von nun an gearbeitet wird. Da sie erster Ordnung in $\epsilon$ und $m$ ist, werden alle noch folgenden Approximationen ebenfalls nur in erster Ordnung in $\epsilon$ und $m$ gemacht.
+
+\subsection{Notwendigkeit ellipsoidischer Koordinaten}
+\label{sec:notwendigkeit_ellipsoidischer_Koordinaten}\index{Notwendigkeit ellipsoidischer Koordinaten}\index{ellipsoidische Koordinaten!Notwendigkeit}\index{Koordinaten!ellipsoidische!Notwendigkeit}
 
 Horizontale Druckgradienten sind vier Größenordnungen kleiner als vertikale (s. Kapitel \ref{chap:important_approximations}), deshalb ist es praktisch, eine Achse des Koordinatensystems an der Schwere auszurichten, sodass diese die horizontalen Bewegungsgleichungen nicht beeinfusst. Zunächst kann man hierfür einfach Kugelkoordinaten verwenden, die Orographie kann man dabei als Höhe der Erdoberfläche über der Kugel interpretieren. Die Erde ist jedoch ein Ellipsoid. Ein erster Ansatz hierfür könnte sein, die ellipsoidische Form der Erde in die Orographie zu absorbieren und weiterhin Kugelkoordinaten zu verwenden. Für den Winkel $\varphi$, den das Ellipsoid mit einer Kugeloberfläche einschließt, gilt
 %
@@ -22538,12 +22577,15 @@ Für die Entwicklung eines nicht-kugelförmigen Koordinatensystems ist es außer
 
 Die drei Forderungen an eine Approximation des Schwerefeldes sind also:
 %
-\begin{itemize}
+\begin{enumerate}
 \item analytische Angabe der senkrechten Trajektorien möglich
 \item ellipsoidische Konturflächen
 \item Konsistenz
-\end{itemize}
-%
+\end{enumerate}
+
+\subsection{Ellipsoidische Approximation des Schwerefeldes}
+\label{sec:ellipsoidische_approximation des_schwerefeldes}
+
 Es stellt sich also zunächst die Frage, ob alle Konturflächen von Glg. \eqref{eq:schwerepotential} Ellipsoide sind. Für die Oberfläche der Erde (ohne Orographie) wurde dies in erster Ordnung in $\epsilon$ und $m$ durch $\epsilon = \frac{5}{4}m$ bereits sichergestellt. Mit $r = \sqrt{x^2 + y^2 + z^2}$ kann man sich einen Ausdruck für den Abstand $r$ vom Mittelpunkt eines Rotationsellipsoiden mit großer Halbachse $A$ und kleiner Halbachse $C$ als Funktion des geozentrischen Winkels $\chi$ bei gegebener Exzentrizität herleiten:
 %
 \begin{eqnarray}
@@ -22553,9 +22595,15 @@ Es stellt sich also zunächst die Frage, ob alle Konturflächen von Glg. \eqref{
 %
 Mit $A = a$, $C = c = a\left(1 - \epsilon\right)$ folgt
 %
+\begin{center}
+\doublebox{\parbox{0.99\textwidth}{
+\begin{center}
 \begin{eqnarray}
 r\left(\chi\right) = a\left(1 - \epsilon\right)\left[\left(1 - \epsilon\right)^2 + \left(1 - \left(1 - \epsilon\right)^2\right)\sin^2\left(\chi\right)\right]^{-1/2}\label{eq:defellipse_2}
 \end{eqnarray}
+\end{center}
+}}
+\end{center}
 %
 Glg. \eqref{eq:schwerepotential} ist nicht von dieser Form: Hält man die linke Seite der Gleichung konstant und multipliziert mit $r^3$, so entsteht ein Polynom fünften Grades in $r$, welches im Allgemeinen nur numerisch gelöst werden kann.
 
@@ -22703,9 +22751,15 @@ Somit kann man in erster Ordnung überall $\epsilon$ durch $\newtilde{\epsilon}$
 %
 Mit dieser Formel erhält man ebenfalls ellipsoidische Konturflächen, 
 %
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 \begin{eqnarray}
 r\left(\chi, R\right) = R\left[1 + \sin^2\left(\chi\right)\left\{\left(\frac{8\newtilde{\epsilon} - 5m}{2}\right) + \left(\frac{5m - 4\newtilde{\epsilon}}{2}\right)\frac{R^2}{a^2}\right\}\right]^{-1/2}, \label{eq:schwere_approx_r}
 \end{eqnarray}
+\end{center}
+}}
+\end{center}
 %
 und außerdem
 %
@@ -22792,9 +22846,15 @@ Damit folgt
 %
 Also gilt
 %
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 \begin{eqnarray}
 \frac{a - c}{c} + \frac{g_p - g_a}{g_a}\approx \frac{5}{2}m = \frac{5\omega^2a^3}{2GM}.\label{eq:clairaut}
 \end{eqnarray}
+\end{center}
+}}
+\end{center}
 %
 Dies ist der Satz von Clairaut. Dies soll nun für Glg. \eqref{eq:schwere_approx} nachgerechnet werden. Alles, was man zeigen muss ist, dass Glg. \eqref{eq:clairaut_deriv_1} weiterhin gilt. Am Äquator gilt
 %
@@ -22879,9 +22939,15 @@ also
 %
 Damit folgt
 %
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 \begin{eqnarray}
 \frac{g_p - g_a}{g_a} \approx \frac{5m}{2} - \newtilde{\epsilon}\approx \frac{5m}{2} - \epsilon, 
 \end{eqnarray}
+\end{center}
+}}
+\end{center}
 %
 also ist mit Glg. \eqref{eq:schwere_approx} auch der Satz von Clairaut erfüllt. Als Anmerkung sei gesagt: Glg. \eqref{eq:schwere_approx} ist erster Ordnung genau in $\epsilon$ und $m$ und daher nicht besser oder schlechter als Glg. \eqref{eq:schwerepotential}.
 
@@ -23003,11 +23069,15 @@ mit einer Integrationskonstanten $D \coloneqq \exp\left(D'\right)>0$ mit $D'\in\
 %
 Somit legt folgende Gleichung die gesuchten senkrechten Trajektorien fest:
 %
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 \begin{eqnarray}
 \frac{z}{z_S} = \left(\frac{x}{x_S}\right)^{1 + \mu}\exp\left[\frac{\nu}{2a^2}\left(x^2 + z^2\right) - \frac{\nu}{2a^2}\left(x_S^2 + z_S^2\right)\right]\label{eq:great_senkr_traj}
 \end{eqnarray}
-%
-
+\end{center}
+}}
+\end{center}
 
 \section{\textsc{Great}-Koordinaten}
 \label{sec:greatkoordinaten}\index{\textsc{Great}-Koordinaten}\index{Koordinatensystem!\textsc{Great}}
@@ -23025,9 +23095,15 @@ Zunächst werden alle Längen auf die große Halbachse der Erde $a$ skaliert:
 %
 Glg. \eqref{eq:great_senkr_traj} lautet dann
 %
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 \begin{eqnarray}
 \frac{z}{z_S} = \left(\frac{x}{x_S}\right)^{1 + \mu}\exp\left[\frac{\nu}{2}\left(x^2 + z^2\right) - \frac{\nu}{2}\left(x_S^2 + z_S^2\right)\right]\label{eq:great_senkr_traj_skaliert}
 \end{eqnarray}
+\end{center}
+}}
+\end{center}
 %
 \subsection{Vertikalkoordinate}
 \label{sec:vertikalkoordinate}\index{\textsc{Great}-Koordinaten!Vertikalkoordinate}
@@ -23137,9 +23213,17 @@ Dabei wurde wieder Glg. \eqref{eq:great_deriv_1} verwendet. Setzt man Glg. \eqre
 Man erhält also mit Glg. \eqref{eq:great_deriv_1}
 %
 \begin{eqnarray}
-h_R & = & \sqrt{\left(\frac{\partial x}{\partial R}\right)^2 + \left(\frac{\partial z}{\partial R}\right)^2} = \frac{R\left(1 - \nu z^2\right)\sqrt{z^2\left(1 + \mu + \nu R^2\right)^2 + x^2}}{R^2 + z^2\left(1 + \mu + \nu R^2\right)\left(\mu + \nu R^2\right)}\nonumber\\
-& = & \frac{R\left(1 - \nu z^2\right)}{\left[R^2 + z^2\left(1 + \mu + \nu R^2\right)\left(\mu + \nu R^2\right)\right]^{1/2}}.
+h_R & = & \sqrt{\left(\frac{\partial x}{\partial R}\right)^2 + \left(\frac{\partial z}{\partial R}\right)^2} = \frac{R\left(1 - \nu z^2\right)\sqrt{z^2\left(1 + \mu + \nu R^2\right)^2 + x^2}}{R^2 + z^2\left(1 + \mu + \nu R^2\right)\left(\mu + \nu R^2\right)}\nonumber
 \end{eqnarray}
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{eqnarray}
+\Leftrightarrow h_R & = & \frac{R\left(1 - \nu z^2\right)}{\left[R^2 + z^2\left(1 + \mu + \nu R^2\right)\left(\mu + \nu R^2\right)\right]^{1/2}}.
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
 %
 Nun differenziert man Glg. \eqref{eq:great_deriv_3} partiell nach $\varphi$:
 %
@@ -23197,9 +23281,17 @@ Somit folgt wiederum mit Glg. \eqref{eq:great_deriv_1}
 %
 \begin{eqnarray}
 &&h_\varphi = \sqrt{\left(\frac{\partial x}{\partial\varphi}\right)^2 + \left(\frac{\partial\varphi}{\partial z\varphi}\right)^2} = \frac{xz\sqrt{x^2 + z^2\left(1 + \mu + \nu R^2\right)^2}}{\left(1 - \nu z^2\right)\left(R^2 + \left(\mu + \nu R^2\right)\left(1 + \mu + \nu R^2\right)z^2\right)}\left|\frac{d\ln\left[D\left(\varphi\right)\right]}{d\varphi}\right|\nonumber\\
-&\Leftrightarrow&h_\varphi = \frac{xz\sqrt{R^2 + z^2\left(\mu + \nu R^2\right)\left(1 + \mu + \nu R^2\right)}}{\left(1 - \nu z^2\right)\left(R^2 + \left(\mu + \nu R^2\right)\left(1 + \mu + \nu R^2\right)z^2\right)}\left|\frac{d\ln\left[D\left(\varphi\right)\right]}{d\varphi}\right|\nonumber\\
-&\Leftrightarrow&h_\varphi = \frac{xz}{\left(1 - \nu z^2\right)\left(R^2 + \left(\mu + \nu R^2\right)\left(1 + \mu + \nu R^2\right)z^2\right)^{1/2}}\left|\frac{d\ln\left[D\left(\varphi\right)\right]}{d\varphi}\right|.
+&\Leftrightarrow&h_\varphi = \frac{xz\sqrt{R^2 + z^2\left(\mu + \nu R^2\right)\left(1 + \mu + \nu R^2\right)}}{\left(1 - \nu z^2\right)\left(R^2 + \left(\mu + \nu R^2\right)\left(1 + \mu + \nu R^2\right)z^2\right)}\left|\frac{d\ln\left[D\left(\varphi\right)\right]}{d\varphi}\right|\nonumber
 \end{eqnarray}
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{eqnarray}
+h_\varphi = \frac{xz}{\left(1 - \nu z^2\right)\left(R^2 + \left(\mu + \nu R^2\right)\left(1 + \mu + \nu R^2\right)z^2\right)^{1/2}}\left|\frac{d\ln\left[D\left(\varphi\right)\right]}{d\varphi}\right|.
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
 %
 Logarithmiert man beide Seiten von Glg. \eqref{eq:great_deriv_3}, erhält man
 %
@@ -23229,9 +23321,16 @@ y & = & \sqrt{x^2 + y^2}\sin\lambda.
 %
 Somit folgt
 %
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 \begin{eqnarray}
-h_\lambda = \sqrt{\left(\frac{\partial x}{\partial \lambda}\right)^2 + \left(\frac{\partial y}{\partial \lambda}\right)^2} = \sqrt{x^2 + y^2}.
+h_\lambda = \sqrt{\left(\frac{\partial x}{\partial \lambda}\right)^2 + \left(\frac{\partial y}{\partial \lambda}\right)^2} = \sqrt{x^2 + y^2} = r_\perp.
 \end{eqnarray}
+\end{center}
+}}
+\end{center}
+
 \subsection{Transformation von \textsc{Great}-Koordinaten in globale Koordinaten}
 \label{sec:transformation_von_greatKoordinaten_in_globale_koordinaten}\index{\textsc{Great}-Koordinaten!Transformation}
 
@@ -23405,9 +23504,18 @@ Somit erhält man
 &&+ \nu\frac{\left(\cos\left(\varphi\right)\sin\left(\varphi\right) - c^4\cos\left(\varphi\right)\sin\left(\varphi\right)\right)\left(\cos^2\left(\varphi\right) + c^2\sin^2\left(\varphi\right)\right)}{\left(\cos^2\left(\varphi\right) + c^2\sin^2\left(\varphi\right)\right)^2}\nonumber\\
 &&+ \nu\frac{\left(\cos^2\left(\varphi\right) + c^4\sin^2\left(\varphi\right)\right)\left(-\sin\left(\varphi\right)\cos\left(\varphi\right) + c^2\cos\left(\varphi\right)\sin\left(\varphi\right)\right)}{\left(\cos^2\left(\varphi\right) + c^2\sin^2\left(\varphi\right)\right)^2}\nonumber\\
 & = & \frac{1}{\sin\left(\varphi\right)\cos\left(\varphi\right)} + \mu\tan\left(\varphi\right)\frac{c^2}{\cos^2\left(\varphi\right) + c^2\sin^2\left(\varphi\right)}\nonumber\\
-&&+ \nu\frac{\sin\left(\varphi\right)\cos\left(\varphi\right)\left(c^2\left(\sin^2\left(\varphi\right) + \cos^2\left(\varphi\right)\right) + c^4\left(-\sin^2\left(\varphi\right) - \cos^2\left(\varphi\right)\right)\right)}{\left(\cos^2\left(\varphi\right) + c^2\sin^2\left(\varphi\right)\right)^2}\nonumber\\
-& = & \frac{1}{\sin\left(\varphi\right)\cos\left(\varphi\right)} + \mu\tan\left(\varphi\right)\frac{c^2}{\cos^2\left(\varphi\right) + c^2\sin^2\left(\varphi\right)} + \nu\frac{\sin\left(\varphi\right)\cos\left(\varphi\right)c^2\left(1 - c^2\right)}{\left(\cos^2\left(\varphi\right) + c^2\sin^2\left(\varphi\right)\right)^2}.
+&&+ \nu\frac{\sin\left(\varphi\right)\cos\left(\varphi\right)\left(c^2\left(\sin^2\left(\varphi\right) + \cos^2\left(\varphi\right)\right) + c^4\left(-\sin^2\left(\varphi\right) - \cos^2\left(\varphi\right)\right)\right)}{\left(\cos^2\left(\varphi\right) + c^2\sin^2\left(\varphi\right)\right)^2}\nonumber
 \end{eqnarray}
+\begin{center}
+\doublebox{\parbox{\textwidth}{
+\begin{center}
+\begin{eqnarray}
+\Leftrightarrow\frac{d\ln\left[D\left(\varphi\right)\right]}{d\varphi}& = & \frac{1}{\sin\left(\varphi\right)\cos\left(\varphi\right)} + \mu\tan\left(\varphi\right)\frac{c^2}{\cos^2\left(\varphi\right) + c^2\sin^2\left(\varphi\right)} + \nu\frac{\sin\left(\varphi\right)\cos\left(\varphi\right)c^2\left(1 - c^2\right)}{\left(\cos^2\left(\varphi\right) + c^2\sin^2\left(\varphi\right)\right)^2}\nonumber\\
+&&
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
 
 \subsection{Rotation in \textsc{Great}-Koordinaten}
 \label{sec:rotation_in_great-koordinaten}\index{Rotation!\textsc{Great}-Koordinaten}\index{\textsc{Great}-Koordinaten!Rotation}
@@ -23415,14 +23523,22 @@ Somit erhält man
 Für die Determinante $g$ des metrischen Tensors der \textsc{Great}-Koordinaten gilt
 %
 \begin{eqnarray}
-\sqrt{g} & = & h_Rh\lambda h_\varphi = h_Rr_\perp h_\varphi = h_Rr_\perp\frac{r_\perp z}{\left(1 - \nu z^2\right)\left(R^2 + \left(\mu + \nu R^2\right)\left(1 + \mu + \nu R^2\right)z^2\right)^{1/2}}\left|\frac{d\ln\left[D\left(\varphi\right)\right]}{d\varphi}\right|\nonumber\\
+\sqrt{g} & = & h_Rh_\lambda h_\varphi = h_Rr_\perp h_\varphi = h_Rr_\perp\frac{r_\perp z}{\left(1 - \nu z^2\right)\left(R^2 + \left(\mu + \nu R^2\right)\left(1 + \mu + \nu R^2\right)z^2\right)^{1/2}}\left|\frac{d\ln\left[D\left(\varphi\right)\right]}{d\varphi}\right|\nonumber\\
 & = & h_R\frac{r_\perp^2z}{\left(1 - \nu z^2\right)\left(R^2 + \left(\mu + \nu R^2\right)\left(1 + \mu + \nu R^2\right)z^2\right)^{1/2}}\left|\frac{d\ln\left[D\left(\varphi\right)\right]}{d\varphi}\right|\nonumber\\
 & = & \frac{R\left(1 - \nu z^2\right)}{\left[R^2 + z^2\left(1 + \mu + \nu R^2\right)\left(\mu + \nu R^2\right)\right]^{1/2}}\frac{r_\perp^2z}{\left(1 - \nu z^2\right)\left(R^2 + \left(\mu + \nu R^2\right)\left(1 + \mu + \nu R^2\right)z^2\right)^{1/2}}\left|\frac{d\ln\left[D\left(\varphi\right)\right]}{d\varphi}\right|\nonumber\\
 & = & \frac{R}{\left[R^2 + z^2\left(1 + \mu + \nu R^2\right)\left(\mu + \nu R^2\right)\right]^{1/2}}\frac{r_\perp^2z}{\left(R^2 + \left(\mu + \nu R^2\right)\left(1 + \mu + \nu R^2\right)z^2\right)^{1/2}}\left|\frac{d\ln\left[D\left(\varphi\right)\right]}{d\varphi}\right|\nonumber\\
-& = & \frac{Rr_\perp^2z}{R^2 + \left(\mu + \nu R^2\right)\left(1 + \mu + \nu R^2\right)z^2}\left|\frac{d\ln\left[D\left(\varphi\right)\right]}{d\varphi}\right|\nonumber\\
-& = & \frac{Rr_\perp^2z}{R^2 + \left(\mu + \nu R^2\right)\left(1 + \mu + \nu R^2\right)z^2}\cdot\nonumber\\
+& = & \frac{Rr_\perp^2z}{R^2 + \left(\mu + \nu R^2\right)\left(1 + \mu + \nu R^2\right)z^2}\left|\frac{d\ln\left[D\left(\varphi\right)\right]}{d\varphi}\right|\nonumber
+\end{eqnarray}
+\begin{center}
+\doublebox{\parbox{0.99\textwidth}{
+\begin{center}
+\begin{eqnarray}
+\Leftrightarrow\sqrt{g} & = & \frac{Rr_\perp^2z}{R^2 + \left(\mu + \nu R^2\right)\left(1 + \mu + \nu R^2\right)z^2}\cdot\nonumber\\
 &&\cdot\left|\frac{1}{\sin\left(\varphi\right)\cos\left(\varphi\right)} + \mu\tan\left(\varphi\right)\frac{c^2}{\cos^2\left(\varphi\right) + c^2\sin^2\left(\varphi\right)} + \nu\frac{\sin\left(\varphi\right)\cos\left(\varphi\right)c^2\left(1 - c^2\right)}{\left(\cos^2\left(\varphi\right) + c^2\sin^2\left(\varphi\right)\right)^2}\right|.
 \end{eqnarray}
+\end{center}
+}}
+\end{center}
 %
 Zunächst stellt man
 %
