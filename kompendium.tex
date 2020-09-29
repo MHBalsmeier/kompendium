@@ -3,7 +3,7 @@
 \usepackage[style = numeric, backend = biber]{biblatex}
 \usepackage[nodisplayskipstretch]{setspace}
 \usepackage[oldsyntax]{stackengine}
-\usepackage{csquotes, makeidx, fancybox, microtype, graphicx, mathtools, subcaption, amssymb, fancyhdr, titlesec, mathspec, fontspec, listings, color, array}
+\usepackage{csquotes, makeidx, fancybox, microtype, graphicx, mathtools, subcaption, amssymb, fancyhdr, titlesec, mathspec, fontspec, listings, color, array, mtp2lite}
 \usepackage[ngerman]{babel}
 \setmainfont{OldStandard}[Extension = .otf, Path = /home/max/latex_man_fonts/oldstandard/fonts/opentype/public/oldstandard/, UprightFont = *-Regular, BoldFont = *-Bold, ItalicFont = *-Italic, Ligatures = TeX]
 \setmathsfont(Latin)[Path = /home/max/latex_man_fonts/oldstandard/fonts/opentype/public/oldstandard/, Extension = .otf]{OldStandard-Italic}
@@ -50,7 +50,7 @@
 \tilde{#1}
 \fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi}
 \newcommand\newoverline[1]{%
-\overline{#1}}
+\shiftoverline{#1}}
 \newcommand\newdot[1]{%
 \if A#1\shiftdot{5.2 pt}{#1}\else
 \if B#1\shiftdot{4.7 pt}{#1}\else
@@ -16933,19 +16933,6 @@ Q = \text{const.}
 %
 gilt. Flächen, die Teil von $\partial A$ sind, stellen dabei trivialerweise kein Problem da, da durch sie unter kinematischen Randbedingungen per Definition überhaupt kein Massenfluss stattfindet. Auch unter der verallgemeinerten Voraussetzung, dass $\mathbf{j}_{\newtilde{q}}$ nicht nur aus $\newtilde{q}\mathbf{v}$, sondern aus weiteren, insbesondere diffusive,n Flüssen besteht, gilt dies noch. Angemerkt werden sollte außerdem, dass selbst bei fehlerhafter Berechnung von Gittergeometrien $Q$ eine Erhaltungsgröße bleibt.
 
-Auch die Diskretisierung des Gradienten ist einfach und sofort zweiter Ordnung, da es um einen zentralen Differenzenquotienten handelt (s. Absch. \ref{sec:finite_differenzen}). Die Vorticity kann auf dem dualen Gitter ohne weiteres aus dem Stokes'schen Satz bestimmt werden.
-%
-Es werden alle als notwendig identifizierten Punkte zusammengefasst:
-%
-\begin{itemize}
-\item keine spektrale Formulierung
-\item quasi-uniformes Gitter
-\item orthogonales Gitter
-\item Gültigkeit der Integralsätze für Masse, Entropie und Energie
-\item mimetische Eigenschaften von Differenzialoperatoren ist wichtiger als Konvergenzordnung
-\item ellipsoidisches Gitter
-\end{itemize}
-
 \section{Gradientenfelder auf dem C-Gitter}
 \label{sec:gradientenfelder_auf_dem_c-gitter}\index{Gradientenfeld!C-Gitter}\index{C-Gitter!Gradientenfeld}
 
@@ -17015,6 +17002,36 @@ Das C-Gitter\index{C-Gitter} hat gegenüber den anderen Gittern zusammenfassend 
 \end{enumerate}
 %
 Daher wird an dieser Stelle die Entscheidung getroffen, ein C-Gitter\index{C-Gitter} für den in Teil \ref{part:entwicklung_eines_dynamischen_kerns} zu entwickelnden dynamischen Kern\index{dynamischer Kern}\index{Kern!dynamischer}.
+
+\section{Festlegung auf CVT-Gitter}
+\label{sec:festlegung_auf_cvt-gitter}\index{CVT-Gitter}
+
+\section{Vergleich quasi-uniformer Gitter}
+\label{sec:vergleich_quasi-uniformer_gitter}\index{quasi-uniformes Gitter}\index{Gitter!quasi-uniformes}
+
+\subsection{Reduziertes Länge-Breite-Gitter}
+\label{sec:reduziertes_länge-breite-gitter}\index{reduziertes Länge-Breite-Gitter}\index{Länge-Breite-Gitter!reduziertes}
+
+\subsection{Kite-Gitter}
+\label{sec:kite-gitter}\index{Kite-Gitter}
+
+\subsection{Cubed-sphere-Gitter}
+\label{sec:cubed-sphere-gitter}\index{Cubed-sphere-Gitter}
+
+\subsection{Ikoseader-Gitter}
+\label{sec:ikoseader-gitter}\index{Ikosaeder-Gitter}
+
+\subsubsection{Dreiecksgitter}
+\label{sec:dreiecksgitter}\index{Dreiecksgitter}
+
+\subsubsection{Sechseckgitter}
+\label{sec:sechseckgitter}\index{Sechseckgitter}
+
+\section{Festlegung auf das Ikosaedergitter}
+\label{sec:festlegung_auf_das_ikosaedergitter}\index{Ikosaedergitter}
+
+\section{Das Problem des Verhältnisses der Freiheitsgrade}
+\label{sec:das_problem_des_verhältnisses_der_freiheitsgrade}
 
 \chapter{\normalfont\textsc{Probleme eines dreielementigen Erzeugendensystems einer zweidimensionalen Menge}}
 \label{chap:probleme_eines_dreielementigen_erzeugendensystems_einer_zweidimensionalen_menge}\index{dreielementiges Erzeugendensystem}\index{Erzeugendensystem!dreielementiges}
@@ -17421,22 +17438,33 @@ D & = & \Delta\chi,\\
 %
 gelten weiter
 %
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 \begin{eqnarray}
 \Delta u_1 & = & -\frac{1}{\sqrt{3}}\left(\frac{\partial\zeta}{\partial x_2} - \frac{\partial\zeta}{\partial x_3}\right) + \frac{\partial D}{\partial x_1},\\
 \Delta u_2 & = & -\frac{1}{\sqrt{3}}\left(\frac{\partial\zeta}{\partial x_3} - \frac{\partial\zeta}{\partial x_1}\right) + \frac{\partial D}{\partial x_2},\\
-\Delta u_3 & = & -\frac{1}{\sqrt{3}}\left(\frac{\partial\zeta}{\partial x_1} - \frac{\partial\zeta}{\partial x_2}\right) + \frac{\partial D}{\partial x_3},\\
+\Delta u_3 & = & -\frac{1}{\sqrt{3}}\left(\frac{\partial\zeta}{\partial x_1} - \frac{\partial\zeta}{\partial x_2}\right) + \frac{\partial D}{\partial x_3},
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
+\begin{eqnarray}
 \Delta v_1 & = & \frac{\partial\zeta}{\partial x_1} + \frac{1}{\sqrt{3}}\left(\frac{\partial D}{\partial x_2} - \frac{\partial D}{\partial x_3}\right),\\
 \Delta v_2 & = & \frac{\partial\zeta}{\partial x_2} + \frac{1}{\sqrt{3}}\left(\frac{\partial D}{\partial x_3} - \frac{\partial D}{\partial x_1}\right),\\
 \Delta v_3 & = & \frac{\partial\zeta}{\partial x_3} + \frac{1}{\sqrt{3}}\left(\frac{\partial D}{\partial x_1} - \frac{\partial D}{\partial x_2}\right).
 \end{eqnarray}
-%
+
+\section{Diskretisierung}
+\label{sec:diskretisierung}\index{Diskretisierung}
+
 Bei einer ebenen dreieckigen oder hexagonalen C-Gitter-Diskretisierung sind die Geschwindigkeitskomponenten um 120 bzw. 60$^\circ$ gegenüber einander rotiert, jedoch sind die Komponenten nicht am selben Ort definiert. Daher gilt die Bedingung Glg. \eqref{eq:linear_condition_trivariate} nicht ohne weiteres für die Vektorkomponenten, sondern erst nach einer Interpolation an Referenzorte, wofür hier die Zentren der Zellen verwendet werden. Diese Interpolation erfolgt mittels Operatoren
 %
 \begin{eqnarray}
-\newtilde{x}^{(i)}
+\newtilde{u}^{(i)}
 \end{eqnarray}
 %
-mit $1 \leq i \leq 3$, wobei $x$ eine beliebige Vektorkomponente ist. Für jede Raumrichtung $i$ braucht man einen separaten Mittelungsoperator. Die Bedingungen Glg. \eqref{eq:linear_condition_trivariate} lassen sich also hier in der Form
+mit $1 \leq i \leq 3$, wobei $u$ eine beliebige Vektorkomponente ist. Für jede Raumrichtung $i$ braucht man einen separaten Mittelungsoperator. Die Bedingungen Glg. \eqref{eq:linear_condition_trivariate} lassen sich also hier in der Form
 %
 \begin{eqnarray}
 \newtilde{u}_1^{(1)} + \newtilde{u}_2^{(2)} + \newtilde{u}_3^{(3)} & = & 0\label{eq:linear_condition_trivariate_discrete_0},\\
