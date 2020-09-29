@@ -7287,8 +7287,17 @@ Hieraus lässt sich die Reibungsbeschleunigung\index{Reibungsbeschleunigung} $\m
 \frac{\partial^2u}{\partial x\partial y} + \frac{\partial^2v}{\partial y^2} + \frac{\partial^2w}{\partial z\partial y}\\
 \frac{\partial^2u}{\partial x\partial z} + \frac{\partial^2v}{\partial y\partial z} + \frac{\partial^2w}{\partial z^2}
 \end{array}
-\right) = \nu\Delta\mathbf{v} + \left(\frac{\mu_v}{\rho} + \frac{\nu}{3}\right)\nabla\left(\nabla\cdot\mathbf{v}\right)\label{eq:friction_acceleration}
+\right) = \nu\Delta\mathbf{v} + \left(\frac{\mu_v}{\rho} + \frac{\nu}{3}\right)\nabla\left(\nabla\cdot\mathbf{v}\right)\nonumber
 \end{eqnarray}
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{eqnarray}
+\Leftrightarrow\mathbf{f}_R & = & \nu\Delta\mathbf{v} + \left(\frac{\mu_v}{\rho} + \frac{\nu}{3}\right)\nabla\left(\nabla\cdot\mathbf{v}\right)\label{eq:friction_acceleration}
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
 %
 Dabei wurde angenommen, dass die Viskositäten\index{Viskosität} homogen sind. Für die Reibung werden häufig andere als der mit Glg. \eqref{eq:friction_acceleration} erhaltene Ausdruck verwendet. Daher wird in den Herleitungen von nun an meist ein allgemeiner Ausdruck
 %
@@ -7324,9 +7333,15 @@ lauten. Für die materielle Änderung der spezifischen kinetischen Energie $k$ g
 %
 Um energetische Konsistenz zu gewährleisten, setzt man daher
 %
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 \begin{eqnarray}
 \epsilon \coloneqq q_{\text{diss}}\frac{1}{\rho} = \md{u} = -\md{k} = -\mathbf{v}\cdot\mathbf{f}_R\label{eq:diss_heat}
 \end{eqnarray}
+\end{center}
+}}
+\end{center}
 %
 für den mit die Reibung assoziierte Wärmeleistungsdichte\index{Wärmeleistungsdichte} $q_{\text{diss}}$ an, $\epsilon$ bezeichnet man als \textit{Dissipation}\index{Dissipation} oder auch \textit{Dissipationsrate}\index{Dissipationsrate}.
 
@@ -7339,11 +7354,17 @@ Im Falle von Inkompressibilität\index{Inkompressibilität} gilt wegen $S_{m, m}
 T_{i, j} = -p\delta_{i, j} + 2\mu S_{i, j}.
 \end{eqnarray}
 %
-Hiieraus folgt
+Hieraus folgt
 %
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 \begin{eqnarray}
 \frac{1}{\rho}\nabla\cdot\overleftrightarrow{T} & \stackrel{\text{Glg. \eqref{eq:friction_acceleration}}}{=} & \nu\Delta\mathbf{v}.\label{eq:friction_acceleration_inc}
 \end{eqnarray}
+\end{center}
+}}
+\end{center}
 
 \subsubsection{Thermodynamische Bedeutung der Reibung}
 \label{sec:thermodynamische_bedeutung_der_reibung}\index{Thermodynamik!Reibung}\index{Reibung!thermodynamische Bedeutung}
@@ -7480,9 +7501,15 @@ Mit der kinematischen Randbedingung\index{kinematische Randbedingung}\index{Rand
 %
 Somit gilt auch im kompressiblen Fall
 %
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 \begin{eqnarray}
 \int_\Omega\rho\mathbf{v}\cdot\mathbf{f}_Rd^3r \leq 0.
 \end{eqnarray}
+\end{center}
+}}
+\end{center}
 
 \subsection{Addition der Kräfte}
 \label{sec:addition_der_kraefte}\index{Impulsgleichung}
@@ -7686,9 +7713,15 @@ Mittels der Kontinuitätsgleichung in der Form
 %
 kann man dies zu
 %
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 \begin{eqnarray}
 c^{(v)}\frac{\partial T}{\partial t} + c^{(v)}\mathbf{v}\cdot\nabla T + \frac{p}{\rho}\nabla\cdot\mathbf{v} = \frac{q_T^{(V)}}{\rho} - \frac{sT}{\rho}q_\rho^{(V)}\label{eq:td1_ideal_gas_cont}
 \end{eqnarray}
+\end{center}
+}}
+\end{center}
 %
 umformen. Mit $p = \rho R_sT$ folgt
 %
@@ -7698,9 +7731,15 @@ umformen. Mit $p = \rho R_sT$ folgt
 %
 Mit $R_s = c^{(p)} - c^{(v)}$ kann man dies zu
 %
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 \begin{eqnarray}
 \frac{\partial T}{\partial t} = - \nabla\cdot\left(T\mathbf{v}\right) + \left(2 - \kappa\right)T\nabla\cdot\mathbf{v} + \frac{q_T^{(V)}}{c^{(v)}\rho} - \frac{sT}{c^{(v)}\rho}q_\rho^{(V)}\label{eq:td_1_ideal_gas_partial}
 \end{eqnarray}
+\end{center}
+}}
+\end{center}
 %
 umschreiben.
 
