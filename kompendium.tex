@@ -16654,11 +16654,6 @@ T_1 & = \frac{c^{(v)}\rho_0T_0 + \left(R_dT_0 - \frac{R_d}{c^{(p)}}s_0T_0\right)
 
 Die Vielfalt an numerischen Methoden für die Diskretisierung der herrschenden Gleichungen ist groß und der Aufwand, der damit verbunden ist, eine solche Diskretisierung bis hin zur operationellen Anwendbarkeit zu implementieren, ebenfalls. Daher ist es wichtig, eine gute Entscheidung über die Grundstruktur eines zu formulierenden Modells zu treffen, bevor man mit der Programmierung beginnt.
 
-\section{Duales Gitter}
-\label{sec:duales_gitter}
-
-Ein Gitter heißt orthogonal\index{Orthogonalität!eines Gitters}\index{Gitter!Orthogonalität}, wenn ein zweites existiert, dessen Verbinungslinien diejenigen des ersten senkrecht schneiden, und die Schnittpunkte der Verbindungslinien des einen Gitters in den geometrischen Zentren der Boxen des jeweils anderen liegen. Diese beiden Gitter nennt man dual. Orthogonalität ist bei der Formulierung der Differenzialoperatoren hilfreich.
-
 \section{Aus Rechnerarchitektur folgende Beschränkungen}
 \label{sec:aus:rechnerarchitektur_folgende_beschraenkungen}
 
@@ -16934,13 +16929,13 @@ Somit gilt
 \frac{dQ}{dt} = \sum_{i = 1}^N\frac{dQ_i}{dt} = -\sum_{i = 1}^N\int_{\partial A_i}\mathbf{j}_{\newtilde{q}}\cdot d\mathbf{n} = -\sum_{i = 1}^N\sum_{F \in F_i}\mathbf{j}_{\newtilde{q}}\cdot\mathbf{n}_F,
 \end{align}
 %
-wobei $F_i$ die Menge aller Seitenflächen der Gitterbox $i$ ist, und $\mathbf{n}_F$ der auf der Fläche $F$ senkrecht stehende Normalenvektor (nach außen zeigend). Dabei wird davon ausgegangen, dass $\partial A_i$ jeweils aus einer Anzahl glatter Flächen besteht, über die einzeln zu summieren ist, da sie durch Kanten getrennt sind. Da jede Fläche $F$ in der Doppelsumme zweimal auftritt, jedoch der Vektor $\mathbf{n}$ dabei in zwei entgegengesetzte Richtungen zeigt, ergibt sich die Summe zu null, sodass auf einem C-Gitter auch nach der Diskretisierung
+wobei $F_i$ die Menge aller Seitenflächen der Gitterbox $i$ ist, und $\mathbf{n}_F$ der auf der Fläche $F$ senkrecht stehende Normalenvektor (nach außen zeigend). Dabei wird davon ausgegangen, dass $\partial A_i$ jeweils aus einer Anzahl glatter Flächen besteht, über die einzeln zu summieren ist, da sie durch Kanten getrennt sind. Da jede Fläche $F$ in der Doppelsumme zweimal auftritt, jedoch der Vektor $\mathbf{n}$ dabei in zwei entgegengesetzte Richtungen zeigt, ergibt sich die Summe zu Null, sodass auf einem C-Gitter auch nach der Diskretisierung
 %
 \begin{align}
 Q = \text{const.}
 \end{align}
 %
-gilt. Flächen, die Teil von $\partial A$ sind, stellen dabei trivialerweise kein Problem da, da durch sie unter kinematischen Randbedingungen per Definition überhaupt kein Massenfluss stattfindet. Auch unter der verallgemeinerten Voraussetzung, dass $\mathbf{j}_{\newtilde{q}}$ nicht nur aus $\newtilde{q}\mathbf{v}$, sondern aus weiteren, insbesondere diffusive,n Flüssen besteht, gilt dies noch. Angemerkt werden sollte außerdem, dass selbst bei fehlerhafter Berechnung von Gittergeometrien $Q$ eine Erhaltungsgröße bleibt.
+gilt. Flächen, die Teil von $\partial A$ sind, stellen dabei trivialerweise kein Problem da, da durch sie unter kinematischen Randbedingungen per Definition überhaupt kein Massenfluss stattfindet. Auch unter der verallgemeinerten Voraussetzung, dass $\mathbf{j}_{\newtilde{q}}$ nicht nur aus $\newtilde{q}\mathbf{v}$, sondern aus weiteren, insbesondere diffusiven Flüssen besteht, gilt dies noch. Angemerkt werden sollte außerdem, dass selbst bei fehlerhafter Berechnung von Gittergeometrien $Q$ eine Erhaltungsgröße bleibt.
 
 \section{Gradientenfelder auf dem C-Gitter}
 \label{sec:gradientenfelder_auf_dem_c-gitter}\index{Gradientenfeld!C-Gitter}\index{C-Gitter!Gradientenfeld}
@@ -16999,6 +16994,26 @@ Jeder Wert von $\psi$ tritt in Glg. \eqref{eq:c-grid_rot_kons_deriv_1} also zwei
 }}
 \end{center}
 
+\section{Produktregel auf dem C-Gitter}
+\label{sec:produktregel_auf_dem_c-gitter}\index{Produktregel!C-Gitter}\index{C-Gitter!Produktregel}
+
+In diesem Abschnitt wird die C-Gitter-Diskretisierung von $\nabla\cdot\left(\psi\mathbf{v}\right) = \mathbf{v}\cdot\nabla\psi + \psi\nabla\cdot\mathbf{v}$ untersucht.
+
+\subsection{Eindimensionaler Fall}
+\label{sec:eindimensionaler_fall}
+
+Die Notation wird aus Absch. \ref{sec:c-gitter} mit der Ersetzung $h \to \psi$ übernommen.
+%
+\begin{align}
+\frac{\newtilde{\psi}_{j + 1}u_{j + 1} - \newtilde{\psi}_{j}u_{j}}{\Delta x} &= \frac{\left(\psi_{j + 3/2} + \psi_{j + 1/2}\right)u_{j + 1} - \left(\psi_{j + 1/2} + \psi_{j - 1/2}\right)u_{j}}{2\Delta x}\nonumber\\
+&= \frac{\psi_{j + 3/2}u_{j + 1} - \psi_{j - 1/2}u_{j} + \psi_{j + 1/2}\left(u_{j + 1} - u_{j}\right)}{2\Delta x}\nonumber\\
+&= \frac{\psi_{j + 3/2}u_{j + 1} - \psi_{j - 1/2}u_{j} - \psi_{j + 1/2}\left(u_{j + 1} - u_{j}\right) + 2\psi_{j + 1/2}\left(u_{j + 1} - u_{j}\right)}{2\Delta x}\nonumber\\
+&= \frac{\left(\psi_{j + 3/2} - \psi_{j + 1/2}\right)u_{j + 1} - \left(\psi_{j - 1/2} - \psi_{j + 1/2}\right)u_{j} + 2\psi_{j + 1/2}\left(u_{j + 1} - u_{j}\right)}{2\Delta x}\nonumber\\
+&= \frac{1}{2}\left[\frac{\psi_{j + 3/2} - \psi_{j + 1/2}}{\Delta x}u_{j + 1} + \frac{\psi_{j + 1/2} - \psi_{j - 1/2}}{\Delta x}u_{j}\right]+ \psi_{j + 1/2}\frac{u_{j + 1} - u_{j}}{\Delta x}
+\end{align}
+%
+Die Produktregel überträgt sich in diesem Fall also.
+
 \section{Festlegung auf das C-Gitter}
 \label{sec:festlegung_auf_das_c-gitter}\index{C-Gitter}
 
@@ -17008,6 +17023,7 @@ Das C-Gitter\index{C-Gitter} hat gegenüber den anderen Gittern zusammenfassend 
         \item Es hat vorteilhafte Dispersionsrelationen\index{Dispersionsrelation}.
         \item Erhaltung skalarer Variablen ist leicht zu gewährleisten.
         \item Gradientenfelder sind rotationsfrei.
+        \item Die Produktregel\index{Produktregel!C-Gitter}\index{C-Gitter!Produktregel} $\nabla\cdot\left(\psi\mathbf{v}\right) = \mathbf{v}\cdot\nabla\psi + \psi\nabla\cdot\mathbf{v}$ reproduziert sich.
 \end{enumerate}
 %
 Daher wird an dieser Stelle die Entscheidung getroffen, ein C-Gitter\index{C-Gitter} für den in Teil \ref{part:entwicklung_eines_dynamischen_kerns} zu entwickelnden dynamischen Kern\index{dynamischer Kern}\index{Kern!dynamischer}.
@@ -17015,11 +17031,12 @@ Daher wird an dieser Stelle die Entscheidung getroffen, ein C-Gitter\index{C-Git
 \section{Festlegung auf CVT-Gitter}
 \label{sec:festlegung_auf_cvt-gitter}\index{CVT-Gitter}
 
+Die positiven Eigenschaften des C-Gitters gelten nur, wenn das Gitter orthogonal ist. Ein Gitter ist genau dann orthogonal, wenn ein zweites exisitiert, dessen Kanten diejenigen des ersten orthogonal schneiden. Eines der beiden Gitter ist dreieckig, und jedes Gitter ist das duale des anderen. Ein solches Gitterpaar bezeichnet man also Voronoi-Netz bzw. \textit{voronoi tesselation (VT)}\index{voronoi tesselation}\index{Voronoi-Netz}.
+
+Die Zentren der Gitterzellen bzw. der Gitterboxen sind die \textit{Voronoi-Zentren}\index{Voronoi-Zentrum}. Dort werden die skalaren Variablen platziert. Darüber hinaus ist es vorteilhaft, wenn dies auch die Massenschwerpunkte \textit{(Baryzentren)}\index{Baryzentrum} der Gitterzellen bzw. -boxen sind. Ein Gitter, bei dem die Voronoi-Zentren und Baryzentren zusammenfallen, bezeichnet man als \textit{centroidal Voronoi tesselation (CVT)}\index{centroidal Voronoi tesselation}. Man legt sich an dieser Stelle auf solch ein Gitter für den in Teil \ref{part:entwicklung_eines_dynamischen_kerns} zu formulierenden dynamischen Kern\index{dynamische Kern}\index{Kern!dynamischer} fest.
+
 \section{Vergleich quasi-uniformer Gitter}
 \label{sec:vergleich_quasi-uniformer_gitter}\index{quasi-uniformes Gitter}\index{Gitter!quasi-uniformes}
-
-\subsection{Reduziertes Länge-Breite-Gitter}
-\label{sec:reduziertes_länge-breite-gitter}\index{reduziertes Länge-Breite-Gitter}\index{Länge-Breite-Gitter!reduziertes}
 
 \subsection{Kite-Gitter}
 \label{sec:kite-gitter}\index{Kite-Gitter}
@@ -17035,6 +17052,9 @@ Daher wird an dieser Stelle die Entscheidung getroffen, ein C-Gitter\index{C-Git
 
 \subsubsection{Sechseckgitter}
 \label{sec:sechseckgitter}\index{Sechseckgitter}
+
+\subsection{Reduziertes Länge-Breite-Gitter}
+\label{sec:reduziertes_länge-breite-gitter}\index{reduziertes Länge-Breite-Gitter}\index{Länge-Breite-Gitter!reduziertes}
 
 \section{Festlegung auf das Ikosaedergitter}
 \label{sec:festlegung_auf_das_ikosaedergitter}\index{Ikosaedergitter}
