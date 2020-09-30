@@ -7505,7 +7505,7 @@ Somit gilt auch im kompressiblen Fall
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-\int_\Omega\rho\mathbf{v}\cdot\mathbf{f}_Rd^3r \leq 0.
+\int_\Omega\rho\mathbf{v}\cdot\mathbf{f}_Rd^3r \leq 0.\label{eq:friction_work_sign}
 \end{align}
 \end{center}
 }}
@@ -10721,7 +10721,7 @@ C &\coloneqq \int_A-\mathbf{v}\cdot\nabla p - \rho wgd^3r
 und der Dissipation\index{Dissipation}
 %
 \begin{align}
-D &\coloneqq \int_A - \rho\mathbf{v}\cdot\mathbf{f}_Rd^3r.
+D &\coloneqq \int_A - \rho\mathbf{v}\cdot\mathbf{f}_Rd^3r \stackrel{\text{Glg. \eqref{eq:friction_work_sign}}}{\geq} 0.
 \end{align}
 %
 Die adiabatische Konversion\index{adiabatische Konversion}\index{Konversion!adiabatische} steht für die Umwandlung von potentieller und innerer Energie in kinetische Energie. Dies geschieht, indem der Druckgradient und die Schwere Arbeit leisten. In der Impulsgleichung kann man daher die Zuordnung
