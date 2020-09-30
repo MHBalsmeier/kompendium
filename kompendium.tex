@@ -14703,7 +14703,7 @@ Es gibt keine mathematisch exakte Definition dafür, ob ein Strömungsfeld turbu
 wobei $\Omega$ eine beliebeige räumliche und/oder zeitliche Menge sein soll, $\mu\left(\Omega\right)$ deren Maß, $f$ eine beliebige Funktion von Ort und Zeit und $d\omega$ ein geeignetes differenzial. Nun kann man $f$ in der Form
 %
 \begin{align}
-f & \equiv & \newoverline{f} + f'
+f & \equiv \newoverline{f} + f'
 \end{align}
 %
 zerlegen; hierzu definiert man die Fluktuation oder Turbulenz durch
@@ -14959,10 +14959,16 @@ Dies kann man verallgemeinern zu
 %
 Man kann o. B. d. A. $u_g > 0, v_g = 0$ annehmen, dann gilt
 %
+\begin{center}
+\doublebox{\parbox{\textwidth}{
+\begin{center}
 \begin{align}
 \newoverline{u} & = u_g - u_g\cos\left(\sqrt{\frac{\left|f\right|}{2K}}z\right)\exp\left(-\sqrt{\frac{\left|f\right|}{2K}}z\right),\\
 \newoverline{v} & = \sign\left(f\right)u_g\sin\left(\sqrt{\frac{\left|f\right|}{2K}}z\right)\exp\left(-\sqrt{\frac{\left|f\right|}{2K}}z\right).
 \end{align}
+\end{center}
+}}
+\end{center}
 %
 $\sign\left(f\right)\rho\newoverline{v}$ ist die Massenflussdichte ins Tief hinein, daher rechnet man mit zweifacher partieller Integration
 %
@@ -14990,9 +14996,15 @@ In einer isothermen Atmosphäre gilt
 %
 mit $H \approx 8$ km als Skalenhöhe. Die Höhe $D$, in der der Wind parallel zum geostrophischen Wind ist, verwendet man häufig als eine technische Definition der \index{Dicke der Grenzschicht}\textit{Dicke der Grenzschicht}\index{Grenzschicht}. Es gilt
 %
+\begin{center}
+\doublebox{\parbox{\textwidth}{
+\begin{center}
 \begin{align}
 D & = \sqrt{\frac{2K}{\left|f\right|}}\pi
 \end{align}
+\end{center}
+}}
+\end{center}
 %
 Dort ist die Windgeschwindigkeit etwas höher als die geostrophische Geschwindigkeit, weshalb diese Höhe auch als \index{Gradientenwindhöhe}\textit{Gradientenwindhöhe} bezeichnet wird. Aus Beobachtungen weiß man, dass in ca. 1 km Höhe der Wind seinen geostrophischen Wert anstrebt, daraus folgt
 %
@@ -15014,22 +15026,28 @@ D_P = \frac{l}{k} = 50\text{ m}
 %
 mit $k = 0, 4$. Man definiert die \textit{Ekman-Zahl}\index{Ekman-Zahl} $\Ek$ als das Verhältnis von Reibungs- zu Coriolistermen, also
 %
+\begin{center}
+\doublebox{\parbox{\textwidth}{
+\begin{center}
 \begin{align}
 \Ek \coloneqq \frac{KU}{H^2fU} = \frac{K}{fH^2}, \label{eq:def_ekman_number}
 \end{align}
+\end{center}
+}}
+\end{center}
 %
 wobei $H$ die charakteristische Vertikalausdehnung des Phänomens ist. Bei kleinen Ekman-Zahlen kann die Reibungskraft durch die Coriolis-Kraft ausgeglichen werden. In der Grenzschicht erhält man eine Ekman-Zahl von $\Ek \sim 5$ \%.
 
 Die Ekman-Spirale führt bei einer Zyklone mit Radius $R$ zu einer Drucktendenz $\frac{\partial p}{\partial t}$ in der Größenordnung
 %
 \begin{align}
-\frac{\partial p}{\partial t} & \sim & \frac{2g}{R}\frac{u_g\rho_0\alpha}{\beta^2 + \alpha^2}.
+\frac{\partial p}{\partial t} & \sim \frac{2g}{R}\frac{u_g\rho_0\alpha}{\beta^2 + \alpha^2}.
 \end{align}
 %
 Man erhält mit $u_g \sim 10$ m/s, $\rho_0 \approx 1, 2$ kg/m$^3$ und $R \sim 500$ km
 %
 \begin{align}
-\frac{\partial p}{\partial t} & \sim & 2, 6\text{ }\frac{\text{hPa}}{\text{hr}}.
+\frac{\partial p}{\partial t} & \sim 2, 6\text{ }\frac{\text{hPa}}{\text{hr}}.
 \end{align}
 %
 Dies ist deutlich geringer als der in Absch. \ref{sec:reibungswind} abgeschätzte Wert. Die Obergrenze der Grenzschicht ist gleichzeitig die Obergrenze der Ekman-Schicht.
