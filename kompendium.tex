@@ -146,7 +146,7 @@
 \titleformat{\chapter}[hang]{\vspace{-3cm}\LARGE\centering}{\thechapter\hspace{20pt}}{0pt}{\LARGE\centering}
 \setlength\parskip{0 mm}
 \setstretch{0.5}
-\addbibresource{../references.bib}
+\addbibresource{references.bib}
 \DeclareFieldFormat[article]{title}{{#1}}
 \makeindex
 \definecolor{mygray}{rgb}{0.5, 0.5, 0.5}
@@ -16202,7 +16202,7 @@ Hieran sieht man, dass die Approximation, wie erwartet, gegen den richtigen Wert
 \label{sec:ebene_spektralmethode}
 
 \section{Sphärische Spektralmethode}
-\label{sec:sphaerische_spektralmethode}
+\label{sec:sphärische_spektralmethode}
 
 Sei $\psi = \psi\left(\varphi, \lambda, z\right)$ ein Skalarfeld. Da die in Absch. \ref{sec:kugelflaechenfunktionen} vorgestellten Kugelflächenfunktionen\index{Kugelflächenfunktion} eine vollständige Orthonormalbasis\index{vollständige Orthonormalbasis}\index{Orthonormalbasis!vollständige} auf Kugelschalen\index{Kugelschale} bilden, ist es möglich, die horizontale Abhängigkeit von $\psi$ durch diesen Satz an Funktionen auszudrücken:
 %
@@ -16652,14 +16652,54 @@ T_1 & = \frac{c^{(v)}\rho_0T_0 + \left(R_dT_0 - \frac{R_d}{c^{(p)}}s_0T_0\right)
 \chapter{\normalfont\textsc{Auswahl einer zukunftsfähigen horizontalen Diskretisierung}}
 \label{sec:auswahl_einer_zukunftsfaehigen_horizontalen_diskretisierung}
 
-Die Vielfalt an numerischen Methoden für die Diskretisierung der herrschenden Gleichungen ist groß und der Aufwand, der damit verbunden ist, eine solche Diskretisierung bis hin zur operationellen Anwendbarkeit zu implementieren, ebenfalls. Daher ist es wichtig, eine gute Entscheidung über die Grundstruktur eines zu formulierenden Modells zu treffen, bevor man mit der Programmierung beginnt.
+Die Vielfalt an numerischen Methoden für die Diskretisierung der herrschenden Gleichungen ist groß und der Aufwand, der damit verbunden ist, eine solche Diskretisierung bis hin zur operationellen Anwendbarkeit zu implementieren, ebenfalls. Daher ist es wichtig, eine gute Entscheidung über die Grundstruktur des in Teil \ref{part:entwicklung_eines_dynamischen_kerns} zu formulierenden dynamischen Kerns\index{dynamischer Kern}\index{Kern!dynamischer} zu treffen, bevor man mit der weiteren Entwicklung und Programmierung fortfährt.
 
-\section{Aus Rechnerarchitektur folgende Beschränkungen}
-\label{sec:aus:rechnerarchitektur_folgende_beschraenkungen}
+\section{Aus dem CFL-Kriterium folgende Beschränkungen}
+\label{sec:aus_dem_cfl-kriterium_folgende_beschränkungen}\index{CFL-Kriterium}
 
-Die optimale Vorhersagemethode hängt nicht nur von rein mathematischen Fragestellungen ab, sondern auch von der verwendeten Rechnerarchitektur. Die Entwicklung der Großrechner geht in die Richtung von Systemen aus sehr vielen Prozessoren \cite{staniforth_grids}. Die Kapazitäten eines solchen Rechners nutzt man dann optimal aus, wenn jeder Prozessor fortwährend beschäftigt ist. Dies bezeichnet man als \textit{Parallelisierung}.\index{Parallelisierung} Hierbei fließen Daten zwischen den Prozessoren hin und her, was zeitkritisch ist. Daher ist eine notwendige Bedingung an eine zukunftsträchtige Diskretisierung der herrschenden Gleichungen deren \textit{Skalierbarkeit}\index{Skalierbarkeit} auf parallelen Rechnerarchitekturen. Mit \textit{Skalierung} ist dabei das Anwachsen der Rechenzeit mit der Auflösung gemeint. Das Länge-Breite-Gitter sowie die spektrale Formulierung stellen sich bezüglich dieses Punktes als unvorteilhaft heraus. Hierzu sind viel mehr \textit{quasi-uniforme}\index{Quasi-Uniformität!eines Gitters}\index{Gitter!Quasi-Uniformität} Gitter geeignet. Von \textit{Uniformität}\index{Uniformität!eines Gitters}\index{Gitter!Uniformität} spricht man, wenn alle Ecken, Kanten und Flächen des Gitters kongruent sind. Quasi-Uniformität liegt vor, wenn das Verhältnis von maximalem zu minimalem Gitterpunktabstand mit wachsender Auflösung gleich bleibt und nicht viel größer als Eins ist. Dies ist notwendig für die Skalierbarkeit auf Parallelrechnern.
+Das CFL-Kriterium lautet
+%
+\begin{align}
+\Delta t \leq \frac{\Delta r_\text{min}}{c_\text{max}},
+\end{align}
+%
+hierbei sind $\Delta r_\text{min}$ der minimale Gitterpunktabstand und $c_\text{max}$ die maximale Phasengeschwindigkeit des Gleichungssystems. Daher ist es für die Effiezienz des Modells bei feiner werdender Auflösung nützlich, wenn das Verhältnis
+%
+\begin{align}
+r \coloneqq \frac{\Delta r_\text{max}}{\Delta r_\text{min}}
+\end{align}
+%
+von maximalem zu minimalem Gitterpunktabstand bei feiner werdender Auflösung bei einem Wert nicht viel größer als Eins beschränkt ist. Ein solches Gitter bezeichnet man als \textit{quasi-uniform}\index{Quasi-Uniformität!eines Gitters}\index{Gitter!Quasi-Uniformität}. Auf dem Länge-Breite-Gitter\index{Länge-Breite-Gitter} mit Winkelauflösung $\phi$ gilt
+%
+\begin{eqnarray}
+r = \frac{\phi}{\phi\sin\left(\phi\right)} = \frac{1}{\sin\left(\phi\right)}.
+\end{eqnarray}
+%
+Das Länge-Breite-Gitter muss an dieser Stelle also ausgeschlossen werden. 
 
-Es gibt nur fünf platonische Körper. Dementsprechend existieren nur fünf uniforme Gitter auf der Kugel. Diese entstehen aus den platonischen Körpern, indem man ihre Ecken vom Mittelpunkt auf die Kugeloberfläche projiziert. All diese Gitter sind zu grob für ein Atmosphärenmodell. Daher haben alle verwendbaren Gitter irgendwo Punkte, Linien oder Flächen, an denen die lokale Gitterstruktur von der allgemeinen Struktur abweicht. An diesen Stellen sind die Fehler der Diskretisierung ebenfalls anders, was zu einer Sichtbarkeit des Gitters in der Lösung führen kann oder Wellen erzeugen kann, die als Lärm durch die Lösung propagieren.
+Es ist also notwendig, dass das in Teil \ref{part:entwicklung_eines_dynamischen_kerns} zu entwickelnde Atmosphärenmodell auf einem quasi-uniformen Gitter formuliert wird. Von tatsächlicher \textit{Uniformität}\index{Uniformität!eines Gitters}\index{Gitter!Uniformität} spricht man, wenn alle Ecken, Kanten und Flächen des Gitters kongruent sind. Es gibt nur fünf platonische Körper (Tetraeder, Würfel, Oktaeder, Dodekaeder, Ikosaeder). Dementsprechend existieren nur fünf uniforme Gitter auf der Kugel. Diese entstehen aus den platonischen Körpern, indem man ihre Ecken vom Mittelpunkt auf die Kugeloberfläche projiziert. All diese Gitter sind zu grob für ein Atmosphärenmodell und können daher nicht direkt verwendet werden. Darüber hinus folgt aus dieser Tatsache, dass alle verwendbaren Gitter irgendwo Punkte, Linien oder Flächen haben, an denen die lokale Gitterstruktur von der allgemeinen Struktur abweicht. An diesen Stellen sind die Fehler der Diskretisierung ebenfalls anders, was zu einer Sichtbarkeit des Gitters in der Lösung führen kann oder Wellen erzeugen kann, die als Lärm durch die Lösung propagieren. Dies bezeichnet man als \textit{grid imprinting}\index{grid imprinting}.
+
+\subsection{Grid imprinting}
+\label{sec:grid_imprinting}\index{grid imprinting}
+
+Quasi-uniforme Gitter\index{Quasi-Uniformität!eines Gitters}\index{Gitter!Quasi-Uniformität} können beispielsweise erzeugt werden, indem man von einem der platonischen Körper ausgeht und anschließend die Flächen durch sukzessive Bisektionen unterteilt. Als Ausgangspunkt hierfür wählt man man üblicherweise den Ikosaeder, da dieser die meisten Ecken hat und daher das homogenste Gitter generiert. Durch Bisketionen der dreieckigen Flächen entstehen weitere Dreicke, die ein sogenanntes \textit{Voronoi-Gitter}\index{Voronoi-Gitter} bilden. Die \textit{Voronoi-Zentren}\index{Voronoi-Zentrum} dieser Zellen erhält man als Schnittpunkte der Mittelsenkrechten auf den Kanten. Verbindet man diese Punkte, erhält man zwölf Fünnfecke (an den Ecken des Ikosaeder) und eine von der Anzahl der Bisektionen abhängige Anzahl von Sechsecken.
+
+\section{Aus Rotationssymmetrie folgende Beschränkungen}
+\label{sec:aus_rotationssymmetrie_folgende_beschränkungen}
+
+Die herrschenden Gleichungen sind lokal rotationssymmetrisch bezüglich $\mathbf{k}$. Das bedeutet, dass bei Rotation um diese Achse um jeden Winkel $\phi \in \mathbb{R}$ die Gleichugnen wieder in sich selbst überführt werden. Dies möglichst gut auch für das Gitter zu erreichen ist daher erstrebenswert. Damit ist gemeint, dass nach Rotation um einen möglichst kleinen Winkel $\phi$ das Gitter wieder in sich selbst überführt werden soll. $2\pi/\phi$ ist die Zähligkeit dieser Drehachse. Diese sollte möglichst hoch sein. Dies ist für sphärische nicht-uniforme Gitter nicht zu erreichen. Jedoch ist es sinnvoll, zu versuchen, sich der Isotropie\index{Isotropie} (Rotationssymmetrie) möglichst anzunäheren. Dies impliziert zum Beispiel, dass die Standardabweichung der Kantenlängen der Zellen in Relation zur mittleren Länge klein sein sollte.
+
+\section{Ausschluss spektraler Formulierungen}
+\label{sec:ausschluss_spektraler_formulierungen}
+
+Entwickelt man horizontale Felder wie in Absch. \ref{sec:sphärische_spektralmethode} beschrieben nach Kugelflächenfunktionen\index{Kugelflächenfunktion}, ist es aus zwei Gründen notwendig, Transformationen zwischen Spektral- und Realgitter durchzuführen:
+%
+\begin{enumerate}
+\item Felder mit steilen Gradienten, wie zum Beispiel Feuchtegrößen, müssen im Realraum belassen werden, da sonst zu viele Gibbs'sche Phänomene\index{Gibbs'sches Phänomen} auftreten würden.
+\item Für das Herausschreiben der Daten muss auf ein Realgitter tranformiert werden.
+\end{enumerate}
+%
+Die Transformation zwischen Spektral- und Realgitter ist die in Absch. besprochene Legendre-Transformation\index{Legendre-Transformation}. Diese skaliert $\propto N^3$, wohingegen der numerische Aufwand der horizontalen Numerik eines Gitterpunktmodells $\propto N$ skaliert, hierbei ist $N$ die Anzahl der Gitterpunkte. Bei höher werdender Auflösung werden Spektralmodelle also zunehmend ineffizient und werden daher an dieser Stelle ausgeschlossen.
 
 \section{Arakawa-Gitter}
 \label{sec:arakawa-gitter}\index{Arakawa-Gitter}\index{Gitter!Arakawa}
@@ -16790,22 +16830,40 @@ und für die Gruppengeschwindigkeit\index{Gruppengeschwindigkeit!A-Gitter}\index
 %
 Führt man die dimensionslose Geschwindigkeit
 %
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 \begin{align}
 \newtilde{c} \coloneqq \frac{c}{\sqrt{gH}}\label{eq:arakawa_deriv_8}
 \end{align}
+\end{center}
+}}
+\end{center}
 %
 sowie die dimensionslose Wellenzahl
 %
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 \begin{align}
 \kappa \coloneqq k\Delta x\label{eq:arakawa_deriv_9}
 \end{align}
+\end{center}
+}}
+\end{center}
 %
 ein, so lassen sich die Glg.en \eqref{eq:arakawa_deriv_6} - \eqref{eq:arakawa_deriv_7} in der Form
 %
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 \begin{align}
 \newtilde{c}_\text{ph} & = \frac{\sin\left(\kappa\right)}{\kappa},\label{eq:arakawa_deriv_10}\\
 \newtilde{c}_\text{gr} & = \cos\left(\kappa\right)\label{eq:arakawa_deriv_11}
 \end{align}
+\end{center}
+}}
+\end{center}
 %
 notieren.
 
@@ -16874,10 +16932,16 @@ und für die Gruppengeschwindigkeit\index{Gruppengeschwindigkeit!C-Gitter}\index
 %
 In Termen der dimensionslosen Größen Glg.en \eqref{eq:arakawa_deriv_8} - \eqref{eq:arakawa_deriv_9} kann man die Glg.en \eqref{eq:arakawa_deriv_12} - \eqref{eq:arakawa_deriv_13} in der Form
 %
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 \begin{align}
 \newtilde{c}_\text{ph} & = \sqrt{2\frac{1 - \cos\left(\kappa\right)}{\left(\kappa\right)^2}},\\
 \newtilde{c}_\text{gr} & = \frac{\sin\left(\kappa\right)}{\sqrt{2 - 2\cos\left(\kappa\right)}}
 \end{align}
+\end{center}
+}}
+\end{center}
 %
 notieren. Abb. \ref{fig:arakawa_disp_relations} zeigt die Dispersionsrelationen des A-Gitters\index{Dispersionsrelation!A-Gitter}\index{A-Gitter!Dispersionsrelation} sowie des C-Gitters\index{Dispersionsrelation!C-Gitter}\index{C-Gitter!Dispersionsrelation}.
 
@@ -16931,9 +16995,15 @@ Somit gilt
 %
 wobei $F_i$ die Menge aller Seitenflächen der Gitterbox $i$ ist, und $\mathbf{n}_F$ der auf der Fläche $F$ senkrecht stehende Normalenvektor (nach außen zeigend). Dabei wird davon ausgegangen, dass $\partial A_i$ jeweils aus einer Anzahl glatter Flächen besteht, über die einzeln zu summieren ist, da sie durch Kanten getrennt sind. Da jede Fläche $F$ in der Doppelsumme zweimal auftritt, jedoch der Vektor $\mathbf{n}$ dabei in zwei entgegengesetzte Richtungen zeigt, ergibt sich die Summe zu Null, sodass auf einem C-Gitter auch nach der Diskretisierung
 %
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 \begin{align}
 Q = \text{const.}
 \end{align}
+\end{center}
+}}
+\end{center}
 %
 gilt. Flächen, die Teil von $\partial A$ sind, stellen dabei trivialerweise kein Problem da, da durch sie unter kinematischen Randbedingungen per Definition überhaupt kein Massenfluss stattfindet. Auch unter der verallgemeinerten Voraussetzung, dass $\mathbf{j}_{\newtilde{q}}$ nicht nur aus $\newtilde{q}\mathbf{v}$, sondern aus weiteren, insbesondere diffusiven Flüssen besteht, gilt dies noch. Angemerkt werden sollte außerdem, dass selbst bei fehlerhafter Berechnung von Gittergeometrien $Q$ eine Erhaltungsgröße bleibt.
 
@@ -17014,6 +17084,9 @@ Die Notation wird aus Absch. \ref{sec:c-gitter} mit der Ersetzung $h \to \psi$ �
 %
 Die Produktregel überträgt sich in diesem Fall also.
 
+\subsection{Dreidimensionaler rechteckiger Fall}
+\label{sec:dreidimensionaler_rechteckiger_fall}
+
 \section{Festlegung auf das C-Gitter}
 \label{sec:festlegung_auf_das_c-gitter}\index{C-Gitter}
 
@@ -17028,36 +17101,10 @@ Das C-Gitter\index{C-Gitter} hat gegenüber den anderen Gittern zusammenfassend 
 %
 Daher wird an dieser Stelle die Entscheidung getroffen, ein C-Gitter\index{C-Gitter} für den in Teil \ref{part:entwicklung_eines_dynamischen_kerns} zu entwickelnden dynamischen Kern\index{dynamischer Kern}\index{Kern!dynamischer}.
 
-\section{Festlegung auf CVT-Gitter}
-\label{sec:festlegung_auf_cvt-gitter}\index{CVT-Gitter}
+\subsection{Folgerungen}
+\label{sec:folgerungen_c-gitter}\index{C-Gitter}
 
-Die positiven Eigenschaften des C-Gitters gelten nur, wenn das Gitter orthogonal ist. Ein Gitter ist genau dann orthogonal, wenn ein zweites exisitiert, dessen Kanten diejenigen des ersten orthogonal schneiden. Eines der beiden Gitter ist dreieckig, und jedes Gitter ist das duale des anderen. Ein solches Gitterpaar bezeichnet man also Voronoi-Netz bzw. \textit{voronoi tesselation (VT)}\index{voronoi tesselation}\index{Voronoi-Netz}.
-
-Die Zentren der Gitterzellen bzw. der Gitterboxen sind die \textit{Voronoi-Zentren}\index{Voronoi-Zentrum}. Dort werden die skalaren Variablen platziert. Darüber hinaus ist es vorteilhaft, wenn dies auch die Massenschwerpunkte \textit{(Baryzentren)}\index{Baryzentrum} der Gitterzellen bzw. -boxen sind. Ein Gitter, bei dem die Voronoi-Zentren und Baryzentren zusammenfallen, bezeichnet man als \textit{centroidal Voronoi tesselation (CVT)}\index{centroidal Voronoi tesselation}. Man legt sich an dieser Stelle auf solch ein Gitter für den in Teil \ref{part:entwicklung_eines_dynamischen_kerns} zu formulierenden dynamischen Kern\index{dynamische Kern}\index{Kern!dynamischer} fest.
-
-\section{Vergleich quasi-uniformer Gitter}
-\label{sec:vergleich_quasi-uniformer_gitter}\index{quasi-uniformes Gitter}\index{Gitter!quasi-uniformes}
-
-\subsection{Kite-Gitter}
-\label{sec:kite-gitter}\index{Kite-Gitter}
-
-\subsection{Cubed-sphere-Gitter}
-\label{sec:cubed-sphere-gitter}\index{Cubed-sphere-Gitter}
-
-\subsection{Ikoseader-Gitter}
-\label{sec:ikoseader-gitter}\index{Ikosaeder-Gitter}
-
-\subsubsection{Dreiecksgitter}
-\label{sec:dreiecksgitter}\index{Dreiecksgitter}
-
-\subsubsection{Sechseckgitter}
-\label{sec:sechseckgitter}\index{Sechseckgitter}
-
-\subsection{Reduziertes Länge-Breite-Gitter}
-\label{sec:reduziertes_länge-breite-gitter}\index{reduziertes Länge-Breite-Gitter}\index{Länge-Breite-Gitter!reduziertes}
-
-\section{Festlegung auf das Ikosaedergitter}
-\label{sec:festlegung_auf_das_ikosaedergitter}\index{Ikosaedergitter}
+Die Vektoren befinden sich bei einem C-Gitter\index{C-Gitter} auf den Kanten und schneiden diese orthogonal. Verlängert man die Vektorpfeile in beide Richtungen, landet man an den skalaren Datenpunkten. Das so erhaltene Gitter ist das sogenannte \textit{duale Gitter}\index{duales Gitter}\index{Gitter!duales}. Gitter, die ein duales Gitter haben, bezeichnet man als \textit{orthogonal}\index{orthogonales Gitter}\index{Gitter!orthogonales}. Dies ist nicht immer der Fall. Um die positiven Eigenschaften des C-Gitters\index{C-Gitter} nutzen zu können, legt man sich an dieer Stelle auf ein orthogonales Gitter\index{orthogonales Gitter}\index{Gitter!orthogonales} für den in Teil \ref{part:entwicklung_eines_dynamischen_kerns} zu formulierenden dynamischen Kern\index{dynamische Kern}\index{Kern!dynamischer} fest.
 
 \section{Das Problem des Verhältnisses der Freiheitsgrade}
 \label{sec:das_problem_des_verhältnisses_der_freiheitsgrade}
@@ -17066,10 +17113,41 @@ Im kontinuierlichen Fall gelten für $N \geq 1$ prognostische Variablen\index{pr
 
 Die Dispersionsrelationenen einer Diskretisierung lassen sich analog bestimmen. Führt eine Diskretisierung auf eine vom kontinuierlichen Fall abweichende Anzahl an prognostischen Variablen und Gleichungen, so fehlen der Dispersionsrelation entweder Zweige (im Fall von zu wenig Variablen) oder es sind zu viele Zweige vorhanden (im Fall von zu vielen Variablen). Diese Zweige können auch Instabilitäten beinhalten. Es ist daher essentiell, bei der Diskretisierung weder zu viele noch zu wenige prognostische Variablen zu generieren. Dies ist insbesondere beim staggering von Vektorfeldern wichtig. Im Falle der linearisierten shallow water equations hat man drei Gleichungen für die drei Variablen $\left(u, v, h\right)$, man hat also \glqq doppelt so viele Pfeile wie Punkte\grqq.
 
-\section{Festlegung auf das hexagonale C-Gitter}
-\label{sec:festlegung_auf_das_hexagonale_c-gitter}\index{C-Gitter!hexagonales}\index{hexagonales C-Gitter}
+\subsection{Folgerungen}
+\label{sec:folgerungen_freiheitsgrade}
 
-Auf dem dreieckigen Gitter hat man pro skalarem Gitterpunkt 1,5 Vektorpunkte und auf dem sechseckigen Gitter 3, wohingegen das korrekte Verhältnis 2 lautet. Beide Gitter lassen also Probleme erwarten. Auf dem dreieckigen Gitter ist dies nicht zu korrigieren. Dieses wird daher ausgeschlossen. Auf dem sechseckigen Gitter muss man die Überspezifikation durch eine algebraische Bedingung an Vektorfelder (man könnte auch sagen: diagnostische Gleichung oder Zustandsgleichung) pro skalarem Gitterpunkt eliminieren, was die Anzahl der unabhängigen Vektoren pro skalarem Datenpunkt auf 2 reduziert. Um die Ermittlung einer solchen Bedingung und deren Implikationen soll es im folgenden Kapitel gehen.
+Auf dem dreieckigen Gitter hat man pro skalarem Gitterpunkt 1,5 Vektorpunkte, wohingegen das korrekte Verhältnis 2 lautet. Solche Gitter werden daher ausgeschlossen. Viereckige Gitter sind in dieser Hinsicht optimal. Bei Gittern mit mehr als vier Ecken muss man die Überspezifikation durch $m$ algebraische Bedingungen an Vektorfelder (man könnte auch sagen: diagnostische Gleichungen oder Zustandsgleichungen) pro skalarm Gitterpunkt eliminieren. Bei $N$ Ecken gilt
+%
+\begin{align}
+m = \frac{N - 4}{2},
+\end{align}
+%
+da zwei Zellen sich jeweils eine Kante teilen. Bei ungeraden $N$ liegt $m$ in der Mitte zwischen zwei natürlichen Zahlen, sodass in diesem Fall eine diagnostische Vektorgleichung für zwei Zellen gelten muss, was die Isotropie des Gitters zerstört. Daher ist es notwendig, dass $N$ gerade ist. Weiterhin möchte man möglichst nur eine algebraische Zusatzbedingung an Vektorfelder pro Zelle aufstellen, daher ist die erste Wahl für $N$ 4 und die zweite Wahl 6. Um die Auswahl einer Zustandsgleichung für Vektorfelder und deren Implikationen für sechseckige Gitter geht es im folgenden Kapitel.
+
+\section{Ausschluss viereckiger Gitter}
+\label{sec:ausschluss_viereckiger_gitter}
+
+Das einfachste viereckige Gitter ist das bereits in Absch. \ref{sec:aus_dem_cfl-kriterium_folgende_beschränkungen} ausgeschlossene Länge-Breite-Gitter\index{Länge-Breite-Gitter}. Man stellt fest, dass alle bekannten viereckigen Gitter mindestens eines der folgenden grundlegenden Probleme haben, die bereits als Ausschlusskriterium identifiziert wurden:
+%
+\begin{itemize}
+\item Orthogonalität wird verletzt (so z. B. beim \textit{cubed-sphere-Gitter}\index{cubed-sphere-Gitter})
+\item Quasi-Uniformität wird verletzt (so z. B. beim Länge-Breite-Gitter).
+\item Isotropie wird grob verletzt (so z. B. beim \textit{kite grid}\index{kite grid}).
+\item Das Gitter hat Kanten oder Punkte, an denen die Struktur stark von der Gitterstruktur in anderen Regionen abweicht (so z. B. beim reduzierten Länge-Breite-Gitter).
+\end{itemize}
+%
+Daher werden viereckige Gitter an dieser Stelle ausgeschlossen.
+
+\section{Festlegung auf das sechseckige Ikosaedergitter}
+\label{sec:festlegung_auf_das_sechseckige_ikosaedergitter}\index{Ikosaedergitter}
+
+Das einzige nach diesem Ausschlussverfahren noch übriggebliebene Gitter ist das sechseckige Ikosaedergitter\index{Ikosaedergitter}.
+
+\subsection{Gittergenerierung auf der Einheitskugel}
+\label{sec:gittergenerierung_auf_der_einheitskugel}\index{Modellgitter!Generierung auf der Einheitskugel}
+
+\subsection{Gitteroptimierung}
+\label{sec:gitteroptimierung}\index{Gitteroptimierung}
 
 \chapter{\normalfont\textsc{Probleme eines dreielementigen Erzeugendensystems einer zweidimensionalen Menge}}
 \label{chap:probleme_eines_dreielementigen_erzeugendensystems_einer_zweidimensionalen_menge}\index{dreielementiges Erzeugendensystem}\index{Erzeugendensystem!dreielementiges}
@@ -17555,8 +17633,8 @@ Hiermit sind die Glg.en \eqref{eq:linear_condition_trivariate_discrete_0} - \eqr
 \subsection{Formulierung der Rotation}
 \label{sec:formulierung_der_rotation}
 
-\subsection{Vorzug des hexagonalen vorm dreieckigen Gitter}
-\label{sec:vorzug_des_hexagonalen_vorm_dreieckigen_gitter}
+\subsection{Eine weitere Perspektive auf die Überlegenheit des sechseckigen Gitters gegenüber dem dreieckigen}
+\label{sec:eine_weitere_perspektive_auf_die_überlegenheit_des_sechseckigen_gitters_gegenüber_dem_dreieckigen}
 
 \chapter{\normalfont\textsc{Generalisierte Coriolis-Kraft auf dem C-Gitter}}
 \label{chap:generalisierte_coriolis-kraft_auf_dem_c-gitter}\index{generalisierte Coriolis-Kraft}\index{Coriolis-Kraft!generalisierte}
@@ -17829,12 +17907,6 @@ Auf dem dualen Gitter (dem Dreiecksgitter) gelten
 \label{tab:ico_vertices}
 \end{table}
 \renewcommand{\arraystretch}{1}
-
-\subsection{Gittergenerierung auf der Einheitskugel}
-\label{sec:gittergenerierung_auf_der_einheitskugel}\index{Modellgitter!Generierung auf der Einheitskugel}
-
-\subsection{Gitteroptimierung}
-\label{sec:gitteroptimierung}\index{Gitteroptimierung}
 
 \section{Vertikales Gitter}
 \label{sec:vertikales_gitter}\index{vertikale Erweiterung des Modellgitters}\index{Modellgitter!vertikale Erweiterung}\index{Modellgitter!Erweiterung!vertikale}
@@ -21773,7 +21845,7 @@ Lokal ist die Verwendung des Kugelkoordinatensystems sehr unanschaulich, wenn ma
 \end{align}
 
 \section{Sphärische Geometrie}
-\label{sec:sphaerische_geometrie}\index{sphärische Geometrie}\index{Geometrie!sphärische}
+\label{sec:sphärische_geometrie}\index{sphärische Geometrie}\index{Geometrie!sphärische}
 
 \subsection{Geodäten}
 \label{sec:geodaeten}\index{Geodäte}
@@ -21887,10 +21959,10 @@ V = \int_{r_0}^{r_1}A\frac{r^2}{r_0^2}dr = \frac{A}{r_0^2}\frac{1}{3}\left(r_1^3
 \end{align}
 
 \subsection{Sphärische Dreiecke}
-\label{sec:sphaerische_dreiecke}
+\label{sec:sphärische_dreiecke}
 
 \subsection{Sphärische Voronoi-Gitter}
-\label{sec:sphaerische_voronoi-gitter}\index{Voronoi-Gitter!sphärisches}\index{sphärisches Voronoi-Gitter}
+\label{sec:sphärische_voronoi-gitter}\index{Voronoi-Gitter!sphärisches}\index{sphärisches Voronoi-Gitter}
 
 \section{Schwerefeld der Erde}
 \label{secschwerefeld_der_erde}\index{Schwerefeld der Erde}\index{Erde!Schwerefeld}
