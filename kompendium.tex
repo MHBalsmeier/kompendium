@@ -1678,39 +1678,75 @@ wobei jeweils zu $\mathbf{v}$ parallele und senkrechte Komponenten gemeint sind.
 
 Hier werden nur die Grundlagen der Quantenmechanik (QM) erklärt, für eine ausführlichere Darstellung s. \cite{fliessbach_theo_3}. In der QM wird die Bahnkurve $\mathbf{r}\left(t\right)$ durch die Wellenfunktion $\psi\left(\mathbf{r}, t\right)$ ersetzt, um den Zustand eines Teilchens ohne Spin festzulegen. $\psi$ ist i. A. komplexwertig und $\left|\psi\left(\mathbf{r}, t\right)\right|^2$ ist die Wahrscheinlichkeitsdichte, das Teilchen zur Zeit $t$ bei $\mathbf{r}$ anzutreffen. Für Funktionen $f, g:\mathbb{R}^3\to\mathbb{C}$ definiert man das unitäre Produkt $\langle|\rangle$ durch
 %
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 \begin{align}
 \left\langle f\big|g\right\rangle \coloneqq \int_{\mathbb{R}^3}f^\star gd^3r.
 \end{align}
+\end{center}
+}}
+\end{center}
 %
 Da das Teilchen irgendwo ist, gilt
 %
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 \begin{align}
 \left\langle\psi\big|\psi\right\rangle = 1.
 \end{align}
+\end{center}
+}}
+\end{center}
 %
 Es gilt die \textit{Schrödinger-Gleichung (SG)}\index{Schrödinger-Gleichung}
 %
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 \begin{align}
 \newhat{H}\psi\left(\mathbf{r}, t\right) = i\hbar\frac{\partial\psi\left(\mathbf{r}, t\right)}{\partial t}
 \end{align}
+\end{center}
+}}
+\end{center}
 %
 mit dem \textit{Hamilton-Operator}\index{Hamilton-Operator}
 %
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 \begin{align}
 \newhat{H} \coloneqq  - \frac{\hbar^2}{2m}\Delta + V\left(\mathbf{r}\right).
 \end{align}
+\end{center}
+}}
+\end{center}
 %
-Dabei ist $\hbar \coloneqq \frac{h}{2\pi}$ mit dem \textit{Planck'schen Wirkungsquantum}\index{Planck'sches Wirkungsquantum} $h$. Ein Operator macht aus einer Funktion eine neue Funktion und wird durch ein Dachsymbol gekennzeichnet. Zwei weitere axiomatische Annahmen der QM sind
+Dabei ist $\hbar \coloneqq \frac{h}{2\pi}$ mit dem \textit{Planck'schen Wirkungsquantum}\index{Planck'sches Wirkungsquantum} $h$. Ein Operator macht aus einer Funktion eine neue Funktion und wird durch ein Dachsymbol gekennzeichnet. Zwei weitere axiomatische Annahmen der QM sind die \textit{de-Broglie-Relation}\index{de-Broglie-Relation}
 %
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 \begin{align}
 \mathbf{p} = \hbar\mathbf{k}\label{eq:debroglie}
 \end{align}
+\end{center}
+}}
+\end{center}
 %
-für den Zusammenhang von Impuls $\mathbf{p}$ und Kreiswellenzahl $\mathbf{k}$ eines Teilchens sowie
+für den Zusammenhang von Impuls $\mathbf{p}$ und Kreiswellenzahl $\mathbf{k}$ eines Teilchens sowie die \textit{Planck-Einstein-Relation}\index{Planck-Einstein-Relation}
 %
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 \begin{align}
 E = \hbar\omega\label{eq:energy_photon}
 \end{align}
+\end{center}
+}}
+\end{center}
 %
 für den Zusammenhang von Energie $E$ und Kreisfrequenz $\omega$. Eine ebene Welle kann somit durch
 %
@@ -1738,9 +1774,15 @@ mit der nichtrelativistischen Energie-Impuls-Beziehung $E_{\text{kin}} = \frac{p
 %
 definiert man
 %
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 \begin{align}
 \newhat{\mathbf{p}} \coloneqq - i\hbar\nabla
 \end{align}
+\end{center}
+}}
+\end{center}
 %
 als den \textit{Impulsoperator}.\index{Impulsoperator} Der Term der partiellen Zeitableitung $i\hbar\frac{\partial}{\partial t}$ wird bei Wellenfunktionen $\psi\left(\mathbf{r}, t\right)$, deren Zeitabhängigkeit trivial ist und von der Ortsabhängigkeit absepariert werden kann, also
 %
@@ -1756,9 +1798,15 @@ i\hbar\frac{\partial}{\partial t} = E.
 %
 Die Schrödinger-Gleichung wird dann zur \textit{stationären Schrödinger-Gleichung}\index{Schrödinger-Gleichung!stationäre}\index{stationäre Schrödinger-Gleichung}
 %
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 \begin{align}
 \newhat{H}\psi\left(\mathbf{r}, t\right) = E\psi\left(\mathbf{r}, t\right).
 \end{align}
+\end{center}
+}}
+\end{center}
 %
 Dies ist ein Eigenwertproblem, wobei $E$ der Eigenwert ist und $\psi\left(\mathbf{r}, t\right)$ der Eigenvektor.
 
@@ -2248,13 +2296,7 @@ Ein Teilchen wird in der QM beschrieben durch seine im Allgemeinen zeitabhängig
 \subsubsection{Hilbert-Raum}
 \label{sec:hilbertraum}
 
-Die Menge aller stetig-differenzierbaren Funktionen $\mathbb{R}^3\to\mathbb{C}$ bezeichnet man in der QM als \textit{Hilbert-Raum} $H$. Für zwei $f, g\in H$ definiert man das unitäre Produkt $\langle|\rangle$ durch
-%
-\begin{align}
-\langle f|g\rangle \coloneqq \int_{\mathbb{R}^3}f^\star gd^3r.
-\end{align}
-%
-Die Dimension von $H$ ist unendlich. Man kann unendlich viele verschiedene Basen $\left(f_1, f_2, \dotsc\right)$ mit $f_i\in H$ für alle $i\in\mathbb{N}$ mit $i\geq 1$ von $H$ angeben. Üblicherweise wählt man Orthonormalbasen, also Basen mit
+Die Menge aller stetig-differenzierbaren Funktionen $\mathbb{R}^3\to\mathbb{C}$ bezeichnet man in der QM als \textit{Hilbert-Raum} $H$. Die Dimension von $H$ ist unendlich. Man kann unendlich viele verschiedene Basen $\left(f_1, f_2, \dotsc\right)$ mit $f_i\in H$ für alle $i\in\mathbb{N}$ mit $i\geq 1$ von $H$ angeben. Üblicherweise wählt man Orthonormalbasen, also Basen mit
 %
 \begin{align}
 \langle f_i|f_j\rangle = \delta_{i, j}
@@ -3072,7 +3114,7 @@ Dies ergibt
 Für kleine $r$ gilt
 %
 \begin{align}
-\frac{d^2U_l\left(u\right)}{du^2}&\approx&l\left(l + 1\right)\frac{U_l\left(u\right)}{u^2}.
+\frac{d^2U_l\left(u\right)}{du^2}&\approx l\left(l + 1\right)\frac{U_l\left(u\right)}{u^2}.
 \end{align}
 %
 Hier bietet sich ein Ansatz
@@ -3116,12 +3158,11 @@ Setzt man dies in Glg. \eqref{eq:radial_seq_rescaled} ein, erhält man
 %
 \begin{align}
 & - \exp\left(-\lambda u\right)u^{l + 1}\left[P_l'' + \frac{2\left(l + 1\right)P_l'}{u} - 2\lambda P_l' + \lambda^2P_l - 2\lambda\frac{l + 1}{u}P_l + l\frac{l + 1}{u^2}P_l\right]\nonumber\\
-& + l\frac{l + 1}{u^2}P_l\exp\left(-\lambda u\right)u^{l + 1} - 2Z\exp\left(-\lambda
-u\right)u^lP_l - 2\epsilon\exp\left(-\lambda u\right)u^{l + 1}P_l = 0\nonumber\\
-&\Leftrightarrow& -u^{l + 1}P_l'' - u^l2\left(l + 1\right)P_l' + 2\lambda P_l'u^{l + 1} - \lambda^2P_lu^{l + 1} + 2\lambda\left(l + 1\right)u^lP_l - 2Zu^lP_l - 2\epsilon u^{l + 1}P_l = 0\nonumber\\
-&\Leftrightarrow&uP_l'' + 2\left(l + 1\right)P_l' - 2\lambda P_l'u + \lambda^2P_lu - 2\lambda\left(l + 1\right)P_l + 2ZP_l + 2\epsilon uP_l = 0\nonumber\\
-&\Leftrightarrow&uP_l'' + \left(2l + 2 - 2\lambda u\right)P_l' + \left(\lambda^2u - 2\lambda\left(l + 1\right) + 2Z + 2\epsilon u\right)P_l = 0\nonumber\\
-&\Leftrightarrow&uP_l'' + \left(2l + 2 - 2\lambda u\right)P_l' + \left(-2\lambda\left(l + 1\right) + 2Z\right)P_l = 0, 
+& + l\frac{l + 1}{u^2}P_l\exp\left(-\lambda u\right)u^{l + 1} - 2Z\exp\left(-\lambda u\right)u^lP_l - 2\epsilon\exp\left(-\lambda u\right)u^{l + 1}P_l = 0\nonumber\\
+&\Leftrightarrow -u^{l + 1}P_l'' - u^l2\left(l + 1\right)P_l' + 2\lambda P_l'u^{l + 1} - \lambda^2P_lu^{l + 1} + 2\lambda\left(l + 1\right)u^lP_l - 2Zu^lP_l - 2\epsilon u^{l + 1}P_l = 0\nonumber\\
+&\Leftrightarrow uP_l'' + 2\left(l + 1\right)P_l' - 2\lambda P_l'u + \lambda^2P_lu - 2\lambda\left(l + 1\right)P_l + 2ZP_l + 2\epsilon uP_l = 0\nonumber\\
+&\Leftrightarrow uP_l'' + \left(2l + 2 - 2\lambda u\right)P_l' + \left(\lambda^2u - 2\lambda\left(l + 1\right) + 2Z + 2\epsilon u\right)P_l = 0\nonumber\\
+&\Leftrightarrow uP_l'' + \left(2l + 2 - 2\lambda u\right)P_l' + \left(-2\lambda\left(l + 1\right) + 2Z\right)P_l = 0, 
 \end{align}
 %
 der letzte Schritt folgt wegen $\lambda^2 = -2\epsilon$, Glg. \eqref{eq:energy_radial_sg}. Dies wird durch $2\lambda$ dividiert:
@@ -4096,15 +4137,15 @@ Es gilt für $l\not = 0$
 Man identifiziert
 %
 \begin{align}
-m& \coloneqq&n - l - 1\geq0\Rightarrow n = m + l + 1,\\
-k& \coloneqq&2l + 1\geq3.
+m& \coloneqq n - l - 1\geq0\Rightarrow n = m + l + 1,\\
+k& \coloneqq 2l + 1\geq3.
 \end{align}
 %
 Hieraus folgen die Transformationen
 %
 \begin{align}
-n& \coloneqq&m + 1 + \frac{1}{2}\left(k - 1\right) = m + \frac{1}{2}\left(k + 1\right),\\
-l& \coloneqq&\frac{1}{2}\left(k - 1\right).
+n& \coloneqq m + 1 + \frac{1}{2}\left(k - 1\right) = m + \frac{1}{2}\left(k + 1\right),\\
+l& \coloneqq\frac{1}{2}\left(k - 1\right).
 \end{align}
 %
 Mit Glg. \eqref{eq:laguerre_int_prop_2} folgt
@@ -5146,35 +5187,35 @@ Hieraus lassen sich folgende Aussagen ablesen:
 Dies sind jeweils drei Aussagen für die partiellen Ableitungen von $E$, $F$, $H$, $G$ und $J$. Indem man die Gleichheit der zweiten partiellen Ableitungen anwendet, lassen sich daraus 15 nichttriviale thermodynamische Relationen ableiten, die man \index{Maxwell-Relation}\textit{Maxwell-Relationen} nennt:
 %
 \begin{align}
-\left(\frac{\partial^2E}{\partial V\partial S}\right)_N = \left(\frac{\partial^2E}{\partial S\partial V}\right)_N&\Rightarrow&\left(\frac{\partial T}{\partial V}\right)_{S, N} = -\left(\frac{\partial p}{\partial S}\right)_{V, N}\\
-\left(\frac{\partial^2E}{\partial N\partial S}\right)_V = \left(\frac{\partial^2E}{\partial S\partial N}\right)_V&\Rightarrow&\left(\frac{\partial T}{\partial N}\right)_{S, V} = \left(\frac{\partial \mu}{\partial S}\right)_{N, V}
+\left(\frac{\partial^2E}{\partial V\partial S}\right)_N = \left(\frac{\partial^2E}{\partial S\partial V}\right)_N&\Rightarrow\left(\frac{\partial T}{\partial V}\right)_{S, N} = -\left(\frac{\partial p}{\partial S}\right)_{V, N}\\
+\left(\frac{\partial^2E}{\partial N\partial S}\right)_V = \left(\frac{\partial^2E}{\partial S\partial N}\right)_V&\Rightarrow\left(\frac{\partial T}{\partial N}\right)_{S, V} = \left(\frac{\partial \mu}{\partial S}\right)_{N, V}
 \end{align}
 \begin{align}
-\left(\frac{\partial^2E}{\partial N\partial V}\right)_S = \left(\frac{\partial^2E}{\partial V\partial N}\right)_S&\Rightarrow& -\left(\frac{\partial p}{\partial N}\right)_{V, S} = \left(\frac{\partial \mu}{\partial V}\right)_{N, S}\\
-\left(\frac{\partial^2F}{\partial V\partial T}\right)_N = \left(\frac{\partial^2F}{\partial T\partial V}\right)_N&\Rightarrow&\left(\frac{\partial S}{\partial V}\right)_{T, N} = \left(\frac{\partial p}{\partial T}\right)_{V, N}
+\left(\frac{\partial^2E}{\partial N\partial V}\right)_S = \left(\frac{\partial^2E}{\partial V\partial N}\right)_S&\Rightarrow -\left(\frac{\partial p}{\partial N}\right)_{V, S} = \left(\frac{\partial \mu}{\partial V}\right)_{N, S}\\
+\left(\frac{\partial^2F}{\partial V\partial T}\right)_N = \left(\frac{\partial^2F}{\partial T\partial V}\right)_N&\Rightarrow\left(\frac{\partial S}{\partial V}\right)_{T, N} = \left(\frac{\partial p}{\partial T}\right)_{V, N}
 \end{align}
 \begin{align}
-\left(\frac{\partial^2F}{\partial N\partial T}\right)_V = \left(\frac{\partial^2F}{\partial T\partial N}\right)_V&\Rightarrow& -\left(\frac{\partial S}{\partial N}\right)_{T, V} = \left(\frac{\partial\mu}{\partial T}\right)_{N, V}\label{eq:maxwell_rel_4}\\
-\left(\frac{\partial^2F}{\partial N\partial V}\right)_T = \left(\frac{\partial^2F}{\partial V\partial N}\right)_T&\Rightarrow& -\left(\frac{\partial p}{\partial N}\right)_{V, T} = \left(\frac{\partial\mu}{\partial V}\right)_{N, T}
+\left(\frac{\partial^2F}{\partial N\partial T}\right)_V = \left(\frac{\partial^2F}{\partial T\partial N}\right)_V&\Rightarrow -\left(\frac{\partial S}{\partial N}\right)_{T, V} = \left(\frac{\partial\mu}{\partial T}\right)_{N, V}\label{eq:maxwell_rel_4}\\
+\left(\frac{\partial^2F}{\partial N\partial V}\right)_T = \left(\frac{\partial^2F}{\partial V\partial N}\right)_T&\Rightarrow -\left(\frac{\partial p}{\partial N}\right)_{V, T} = \left(\frac{\partial\mu}{\partial V}\right)_{N, T}
 \end{align}
 \begin{align}
-\left(\frac{\partial^2H}{\partial p\partial S}\right)_N = \left(\frac{\partial^2H}{\partial S\partial p}\right)_N&\Rightarrow&\left(\frac{\partial T}{\partial p}\right)_{S, N} = \left(\frac{\partial V}{\partial S}\right)_{p, N}\\
-\left(\frac{\partial^2H}{\partial N\partial S}\right)_p = \left(\frac{\partial^2H}{\partial S\partial N}\right)_p&\Rightarrow&\left(\frac{\partial T}{\partial N}\right)_{S, p} = \left(\frac{\partial\mu}{\partial S}\right)_{N, p}
+\left(\frac{\partial^2H}{\partial p\partial S}\right)_N = \left(\frac{\partial^2H}{\partial S\partial p}\right)_N&\Rightarrow\left(\frac{\partial T}{\partial p}\right)_{S, N} = \left(\frac{\partial V}{\partial S}\right)_{p, N}\\
+\left(\frac{\partial^2H}{\partial N\partial S}\right)_p = \left(\frac{\partial^2H}{\partial S\partial N}\right)_p&\Rightarrow\left(\frac{\partial T}{\partial N}\right)_{S, p} = \left(\frac{\partial\mu}{\partial S}\right)_{N, p}
 \end{align}
 \begin{align}
-\left(\frac{\partial^2H}{\partial N\partial p}\right)_S = \left(\frac{\partial^2H}{\partial p\partial N}\right)_S&\Rightarrow&\frac{V}{N} = \left(\frac{\partial V}{\partial N}\right)_{p, S} = \left(\frac{\partial\mu}{\partial p}\right)_{N, S}\label{eq:maxwell_rel_1}\\
-\left(\frac{\partial^2G}{\partial p\partial T}\right)_N = \left(\frac{\partial^2G}{\partial T\partial p}\right)_N&\Rightarrow& -\left(\frac{\partial S}{\partial p}\right)_{T, N} = \left(\frac{\partial V}{\partial T}\right)_{p, N}
+\left(\frac{\partial^2H}{\partial N\partial p}\right)_S = \left(\frac{\partial^2H}{\partial p\partial N}\right)_S&\Rightarrow\frac{V}{N} = \left(\frac{\partial V}{\partial N}\right)_{p, S} = \left(\frac{\partial\mu}{\partial p}\right)_{N, S}\label{eq:maxwell_rel_1}\\
+\left(\frac{\partial^2G}{\partial p\partial T}\right)_N = \left(\frac{\partial^2G}{\partial T\partial p}\right)_N&\Rightarrow -\left(\frac{\partial S}{\partial p}\right)_{T, N} = \left(\frac{\partial V}{\partial T}\right)_{p, N}
 \end{align}
 \begin{align}
-\left(\frac{\partial^2G}{\partial N\partial T}\right)_p = \left(\frac{\partial^2G}{\partial T\partial N}\right)_p&\Rightarrow& -\frac{S}{N} = -\left(\frac{\partial S}{\partial N}\right)_{T, p} = \left(\frac{\partial\mu}{\partial T}\right)_{N, p}\label{eq:maxwell_rel_2}\\
-\left(\frac{\partial^2G}{\partial N\partial p}\right)_T = \left(\frac{\partial^2G}{\partial p\partial N}\right)_T&\Rightarrow&\left(\frac{\partial V}{\partial N}\right)_{p, T} = \left(\frac{\partial\mu}{\partial p}\right)_{N, T}\label{eq:maxwell_rel_3}
+\left(\frac{\partial^2G}{\partial N\partial T}\right)_p = \left(\frac{\partial^2G}{\partial T\partial N}\right)_p&\Rightarrow -\frac{S}{N} = -\left(\frac{\partial S}{\partial N}\right)_{T, p} = \left(\frac{\partial\mu}{\partial T}\right)_{N, p}\label{eq:maxwell_rel_2}\\
+\left(\frac{\partial^2G}{\partial N\partial p}\right)_T = \left(\frac{\partial^2G}{\partial p\partial N}\right)_T&\Rightarrow\left(\frac{\partial V}{\partial N}\right)_{p, T} = \left(\frac{\partial\mu}{\partial p}\right)_{N, T}\label{eq:maxwell_rel_3}
 \end{align}
 \begin{align}
-\left(\frac{\partial^2J}{\partial T\partial V}\right)_\mu = \left(\frac{\partial^2J}{\partial V\partial T}\right)_\mu&\Rightarrow&\left(\frac{\partial p}{\partial T}\right)_{\mu, V} = \left(\frac{\partial S}{\partial V}\right)_{\mu, T}\\
-\left(\frac{\partial^2J}{\partial T\partial \mu}\right)_V = \left(\frac{\partial^2J}{\partial \mu\partial T}\right)_V&\Rightarrow&\left(\frac{\partial N}{\partial T}\right)_{\mu, V} = \left(\frac{\partial S}{\partial\mu}\right)_{T, V}
+\left(\frac{\partial^2J}{\partial T\partial V}\right)_\mu = \left(\frac{\partial^2J}{\partial V\partial T}\right)_\mu&\Rightarrow\left(\frac{\partial p}{\partial T}\right)_{\mu, V} = \left(\frac{\partial S}{\partial V}\right)_{\mu, T}\\
+\left(\frac{\partial^2J}{\partial T\partial \mu}\right)_V = \left(\frac{\partial^2J}{\partial \mu\partial T}\right)_V&\Rightarrow\left(\frac{\partial N}{\partial T}\right)_{\mu, V} = \left(\frac{\partial S}{\partial\mu}\right)_{T, V}
 \end{align}
 \begin{align}
-\left(\frac{\partial^2J}{\partial V\partial\mu}\right)_T = \left(\frac{\partial^2J}{\partial\mu\partial V}\right)_T&\Rightarrow&\left(\frac{\partial N}{\partial V}\right)_{\mu, T} = \left(\frac{\partial p}{\partial\mu}\right)_{T, V}\label{eq:maxwell_rel_0}
+\left(\frac{\partial^2J}{\partial V\partial\mu}\right)_T = \left(\frac{\partial^2J}{\partial\mu\partial V}\right)_T&\Rightarrow\left(\frac{\partial N}{\partial V}\right)_{\mu, T} = \left(\frac{\partial p}{\partial\mu}\right)_{T, V}\label{eq:maxwell_rel_0}
 \end{align}
 %
 Kennt man die mikroskopische Struktur eines Systems, kann man je nach physikalischer Voraussetzung die Entropie, die mikrokanonische Zustandssumme oder die großkanonische Zustandssumme bestimmen. Die Frage ist, wie man aus den Zustandssummen makroskopische Größen, wie Kompressibilitäten oder Wärmekapazitäten ermitteln kann. Hierzu muss man eines der thermodynamischen Potentiale durch die Zustandssumme des System ausdrücken können. Zunächst wird das kanonische Ensemble betrachtet. In diesem Fall sind $\left(T, V, N\right)$ oder alternativ $\left(\beta, V, N\right)$ festgelegt. Es gilt
@@ -5524,7 +5565,7 @@ R_h\rho T & = R_d\rho T_v\Rightarrow T_v = \frac{R_h}{R_d}T = T\left(1 - \frac{\
 Die Differenz
 %
 \begin{align}
-\Delta T_v& \coloneqq&T_v - T = T\frac{\rho_v}{\rho_h}\left(\frac{1}{\epsilon} - 1\right)
+\Delta T_v& \coloneqq T_v - T = T\frac{\rho_v}{\rho_h}\left(\frac{1}{\epsilon} - 1\right)
 \end{align}
 %
 bezeichnet man als \textit{virtuellen Temperaturzuschlag}.\index{virtueller Temperaturzuschlag}\index{Temperaturzuschlag!virtueller}
@@ -6979,7 +7020,7 @@ der Fluss der Impulsdichte in $\mathbf{e}_i-$Richtung. Für einen allgemeinen Ei
 \begin{align}
 \frac{\partial\mathbf{p}}{\partial t} & = \int_\Omega\frac{\partial\left(\rho\mathbf{v}\right)}{\partial t}d^3r = \int_\Omega-\nabla p + \rho\mathbf{g}d^3r - \int_{\partial\Omega}\Pi\cdot d\mathbf{n}\nonumber\\
 & \Rightarrow &\int_\Omega\frac{\partial\left(\rho\mathbf{v}\right)}{\partial t}d^3r = \int_\Omega-\nabla p + \rho\mathbf{g} - \nabla\cdot\Pi d^3r\nonumber\\
-&\Rightarrow&\int_\Omega\frac{\partial\left(\rho\mathbf{v}\right)}{\partial t} + \nabla p + \nabla\cdot\Pi - \rho\mathbf{g}d^3r = 0.
+&\Rightarrow\int_\Omega\frac{\partial\left(\rho\mathbf{v}\right)}{\partial t} + \nabla p + \nabla\cdot\Pi - \rho\mathbf{g}d^3r = 0.
 \end{align}
 %
 Somit gilt bereits
@@ -14454,9 +14495,9 @@ Für die Ableitung $\frac{dp_v^{(S)}}{dT}$ kann die Clausius-Clapeyron-Gleichung
 %
 definiert. Setzt man in Glg. \eqref{eq:beta_malr} $\rho_c = 0$ und $p_v \ll p$ ein, behält aber Terme mit $\frac{dp_v^{(S)}}{dT}$, folgt
 %
-\begin{eqnarray}
+\begin{align}
 \frac{dT}{dz} & = -\frac{g}{c^{(p)}}\frac{1 + \frac{c_cp_v^{(S)}}{TR_vp}}{\frac{c^{(v)}}{c^{(p)}} + \frac{p}{T\rho c^{(p)}}\frac{c_c}{pR_v}\frac{dp_v^{(S)}}{dT} + \frac{p}{c^{(p)}T\rho}}.
-\end{eqnarray}
+\end{align}
 %
 Setzt man hier die Zustandsgleichung idealer Gase\index{thermische Zustandsgleichung idealer Gase}\index{Zustandsgleichung!thermische!idealer Gase}\index{ideales Gas!thermische Zustandsgleichung}\index{Gas!ideales!thermische Zustandsgleichung} $p = \rho R_dT$ ein, erhält man den in der Literatur häufig angetroffene Ausdruck
 %
@@ -16736,9 +16777,9 @@ r \coloneqq \frac{\Delta r_\text{max}}{\Delta r_\text{min}}
 %
 von maximalem zu minimalem Gitterpunktabstand bei feiner werdender Auflösung bei einem Wert nicht viel größer als Eins beschränkt ist. Ein solches Gitter bezeichnet man als \textit{quasi-uniform}\index{Quasi-Uniformität!eines Gitters}\index{Gitter!Quasi-Uniformität}. Auf dem Länge-Breite-Gitter\index{Länge-Breite-Gitter} mit Winkelauflösung $\phi$ gilt
 %
-\begin{eqnarray}
+\begin{align}
 r = \frac{\phi}{\phi\sin\left(\phi\right)} = \frac{1}{\sin\left(\phi\right)}.
-\end{eqnarray}
+\end{align}
 %
 Das Länge-Breite-Gitter muss an dieser Stelle also ausgeschlossen werden. 
 
@@ -17169,7 +17210,7 @@ Daher wird an dieser Stelle die Entscheidung getroffen, ein C-Gitter\index{C-Git
 \subsection{Folgerungen}
 \label{sec:folgerungen_c-gitter}\index{C-Gitter}
 
-Die Vektoren befinden sich bei einem C-Gitter\index{C-Gitter} auf den Kanten und schneiden diese orthogonal. Verlängert man die Vektorpfeile in beide Richtungen, landet man an den skalaren Datenpunkten. Das so erhaltene Gitter ist das sogenannte \textit{duale Gitter}\index{duales Gitter}\index{Gitter!duales}. Gitter, die ein duales Gitter haben, bezeichnet man als \textit{orthogonal}\index{orthogonales Gitter}\index{Gitter!orthogonales}. Dies ist nicht immer der Fall. Um die positiven Eigenschaften des C-Gitters\index{C-Gitter} nutzen zu können, legt man sich an dieer Stelle auf ein orthogonales Gitter\index{orthogonales Gitter}\index{Gitter!orthogonales} für den in Teil \ref{part:entwicklung_eines_dynamischen_kerns} zu formulierenden dynamischen Kern\index{dynamische Kern}\index{Kern!dynamischer} fest.
+Die Vektoren befinden sich bei einem C-Gitter\index{C-Gitter} auf den Kanten und schneiden diese orthogonal. Verlängert man die Vektorpfeile in beide Richtungen, landet man an den skalaren Datenpunkten. Das so erhaltene Gitter ist das sogenannte \textit{duale Gitter}\index{duales Gitter}\index{Gitter!duales}. Gitter, die ein duales Gitter haben, bezeichnet man als \textit{orthogonal}\index{orthogonales Gitter}\index{Gitter!orthogonales}. Dies ist nicht immer der Fall. Um die positiven Eigenschaften des C-Gitters\index{C-Gitter} nutzen zu können, legt man sich an dieser Stelle auf ein orthogonales Gitter\index{orthogonales Gitter}\index{Gitter!orthogonales} für den in Teil \ref{part:entwicklung_eines_dynamischen_kerns} zu formulierenden dynamischen Kern\index{dynamische Kern}\index{Kern!dynamischer} fest.
 
 \section{Das Problem des Verhältnisses der Freiheitsgrade}
 \label{sec:das_problem_des_verhältnisses_der_freiheitsgrade}
@@ -17181,7 +17222,7 @@ Die Dispersionsrelationenen einer Diskretisierung lassen sich analog bestimmen. 
 \subsection{Folgerungen}
 \label{sec:folgerungen_freiheitsgrade}
 
-Auf dem dreieckigen Gitter hat man pro skalarem Gitterpunkt 1,5 Vektorpunkte, wohingegen das korrekte Verhältnis 2 lautet. Solche Gitter werden daher ausgeschlossen. Viereckige Gitter sind in dieser Hinsicht optimal. Bei Gittern mit mehr als vier Ecken muss man die Überspezifikation durch $m$ algebraische Bedingungen an Vektorfelder (man könnte auch sagen: diagnostische Gleichungen oder Zustandsgleichungen) pro skalarm Gitterpunkt eliminieren. Bei $N$ Ecken gilt
+Auf dem dreieckigen Gitter hat man pro skalarem Gitterpunkt 1,5 Vektorpunkte, wohingegen das korrekte Verhältnis 2 lautet. Solche Gitter werden daher ausgeschlossen. Viereckige Gitter sind in dieser Hinsicht optimal. Bei Gittern mit mehr als vier Ecken muss man die Überspezifikation durch $m$ algebraische Bedingungen an Vektorfelder (man könnte auch sagen: diagnostische Gleichungen oder Zustandsgleichungen) pro skalarem Gitterpunkt eliminieren. Bei $N$ Ecken gilt
 %
 \begin{align}
 m = \frac{N - 4}{2},
@@ -17880,13 +17921,7 @@ Nun wird jedes Dreieck $n-$mal in jeweils vier Dreiecke unterteilt, hierbei ist 
 D = 20\cdot 4^n
 \end{align}
 %
-Dreiecke. Die Flächen dieser Dreiecke sind identisch, sie betragen
-%
-\begin{align}
-A_D = r^2\frac{4\pi}{D} = \frac{\pi r^2}{5\cdot 4^n}.
-\end{align}
-%
-Das duale Gitter des so entstehenden Gitters ist das hexagonale Gitter. Dieses besteht aus
+Dreiecke. Das duale Gitter des so entstehenden Gitters ist das hexagonale Gitter. Dieses besteht aus
 %
 \begin{align}
 N = N_5 + N_6
@@ -17926,18 +17961,6 @@ der Vektoren zu erhalten. Für die Gesamtzahl der Skalare $N_S$ gilt
 %
 \begin{align}
 N_S = N_L\cdot N_S^{(H)} = N_L\left[10\left(4^n - 1\right) + 12\right].
-\end{align}
-%
-Die Grundflächen $A_5$ der Pentagone ergeben sich zu
-%
-\begin{align}
-A_5 = \frac{5}{3}A_D = \frac{\pi r^2}{3\cdot 4^n}, 
-\end{align}
-%
-diejenigen der Hexagone zu
-%
-\begin{align}
-A_6 = \frac{6}{3}A_D = \frac{2\pi r^2}{5\cdot 4^n}.
 \end{align}
 %
 Auf dem dualen Gitter (dem Dreiecksgitter) gelten
