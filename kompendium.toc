@@ -129,9 +129,9 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.4.2}Stress-Tensor}{118}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.4.2.1}Dissipation}{121}%
+\contentsline {subsubsection}{\numberline {3.4.2.1}Inkompressibler Grenzfall}{121}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.4.2.2}Inkompressibler Grenzfall}{122}%
+\contentsline {subsubsection}{\numberline {3.4.2.2}Dissipation}{122}%
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {3.4.2.3}Thermodynamische Bedeutung der Reibung}{122}%
 \defcounter {refsection}{0}\relax 
@@ -171,21 +171,23 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {3.6}Anwendung des Hamilton-Formalismus auf die Atmosphäre}{139}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.6.1}Trockene Atmosphäre}{139}%
+\contentsline {subsection}{\numberline {3.6.1}Reversible trockene Atmosphäre}{139}%
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {3.6.1.1}Potentielle Temperatur als prognostische Variable}{140}%
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {3.6.1.2}Entropiedichte als prognostische Variable}{142}%
 \defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.6.2}Irreversible trockene Atmosphäre}{144}%
+\defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {3.7}Konkretisierung der Wärmeflüsse}{144}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.7.1}Wärmeleitung}{145}%
+\contentsline {subsection}{\numberline {3.7.1}Wärmeleitung}{144}%
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.7.2}Phasenübergangswärme}{145}%
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.7.3}Wärmeübergang}{145}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.7.4}Dissipation}{146}%
+\contentsline {subsection}{\numberline {3.7.4}Dissipation}{145}%
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.7.5}Strahlungsübertragungsgleichung}{146}%
 \defcounter {refsection}{0}\relax 
@@ -265,7 +267,17 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {6}\normalfont \textsc {Integralrelationen einer einphasigen Atmosphäre}}{177}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.1}APE}{180}%
+\contentsline {section}{\numberline {6.1}Impuls und Drehimpuls}{177}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {6.2}Entropie}{177}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {6.3}Energie}{178}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {6.3.1}Gesamtenergie}{178}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {6.3.2}Energieformen}{180}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {6.4}APE}{180}%
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {7}\normalfont \textsc {Vorticity und Divergenz}}{185}%
 \defcounter {refsection}{0}\relax 
@@ -673,13 +685,13 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {25.1.3.1}Dissipation}{331}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {25.2}Vertikale Diffusion}{332}%
+\contentsline {section}{\numberline {25.2}Vertikale Diffusion}{331}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {25.2.1}Massendiffuson}{332}%
+\contentsline {subsection}{\numberline {25.2.1}Massendiffuson}{331}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {25.2.2}Temperaturdiffuson}{332}%
+\contentsline {subsection}{\numberline {25.2.2}Temperaturdiffuson}{331}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {25.2.3}Impulsdiffusion}{332}%
+\contentsline {subsection}{\numberline {25.2.3}Impulsdiffusion}{331}%
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {25.2.4}Obere Randbedingung}{332}%
 \defcounter {refsection}{0}\relax 
@@ -721,11 +733,21 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {A.7}Integralformeln}{345}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {A.7.1}Residuensatz}{347}%
+\contentsline {subsection}{\numberline {A.7.1}Partielle Integration}{345}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {A.8}Vektorräume}{347}%
+\contentsline {subsection}{\numberline {A.7.2}Substitutionsregel}{345}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {A.8.1}Vektorprodukt}{349}%
+\contentsline {subsection}{\numberline {A.7.3}Trennung der Variablen}{345}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {A.7.4}Leibniz-Regel}{346}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {A.7.5}Weitere Formeln}{346}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {A.7.6}Residuensatz}{348}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {A.8}Vektorräume}{348}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {A.8.1}Vektorprodukt}{350}%
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {B}\normalfont \textsc {Vektoranalysis}}{353}%
 \defcounter {refsection}{0}\relax 
@@ -743,78 +765,80 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {B.3}Mehrdimensionale Integralrechnung}{367}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {C}\normalfont \textsc {Orthogonale Funktionensysteme}}{369}%
+\contentsline {subsection}{\numberline {B.3.1}Transporttheorem}{368}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {C.1}Komplexe Exponentialfunktionen}{369}%
+\contentsline {chapter}{\numberline {C}\normalfont \textsc {Orthogonale Funktionensysteme}}{371}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {C.1.1}Faltungstheorem}{372}%
+\contentsline {section}{\numberline {C.1}Komplexe Exponentialfunktionen}{371}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {C.2}Legendre-Polynome}{373}%
+\contentsline {subsection}{\numberline {C.1.1}Faltungstheorem}{374}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {C.3}Hermite-Polynome}{381}%
+\contentsline {section}{\numberline {C.2}Legendre-Polynome}{375}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {C.4}Laguerre-Polynome}{383}%
+\contentsline {section}{\numberline {C.3}Hermite-Polynome}{383}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {C.5}Kugelflächenfunktionen}{385}%
+\contentsline {section}{\numberline {C.4}Laguerre-Polynome}{385}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {C.5.1}Produkte}{388}%
+\contentsline {section}{\numberline {C.5}Kugelflächenfunktionen}{387}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {D}\normalfont \textsc {Geodäsie}}{389}%
+\contentsline {subsection}{\numberline {C.5.1}Produkte}{390}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {D.1}Konvention über Koordinatensysteme}{389}%
+\contentsline {chapter}{\numberline {D}\normalfont \textsc {Geodäsie}}{391}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {D.1.1}Ruhende Koordinaten}{389}%
+\contentsline {section}{\numberline {D.1}Konvention über Koordinatensysteme}{391}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {D.1.2}Globale Koordinaten}{389}%
+\contentsline {subsection}{\numberline {D.1.1}Ruhende Koordinaten}{391}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {D.1.3}Geographische Koordinaten}{389}%
+\contentsline {subsection}{\numberline {D.1.2}Globale Koordinaten}{391}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {D.2}Sphärische Geometrie}{389}%
+\contentsline {subsection}{\numberline {D.1.3}Geographische Koordinaten}{391}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {D.2.1}Geodäten}{389}%
+\contentsline {section}{\numberline {D.2}Sphärische Geometrie}{391}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {D.2.2}Vertikale Flächen}{391}%
+\contentsline {subsection}{\numberline {D.2.1}Geodäten}{391}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {D.2.3}Volumina}{391}%
+\contentsline {subsection}{\numberline {D.2.2}Vertikale Flächen}{393}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {D.2.4}Sphärische Dreiecke}{391}%
+\contentsline {subsection}{\numberline {D.2.3}Volumina}{393}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {D.2.5}Sphärische Voronoi-Gitter}{391}%
+\contentsline {subsection}{\numberline {D.2.4}Sphärische Dreiecke}{393}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {D.3}Schwerefeld der Erde}{391}%
+\contentsline {subsection}{\numberline {D.2.5}Sphärische Voronoi-Gitter}{393}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {D.3.1}Eigenschaften von Ellipsen und Ellipsoiden}{391}%
+\contentsline {section}{\numberline {D.3}Schwerefeld der Erde}{393}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {D.3.2}Schwerefeld eines Ellipsoides}{392}%
+\contentsline {subsection}{\numberline {D.3.1}Eigenschaften von Ellipsen und Ellipsoiden}{393}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {D.3.3}Notwendigkeit ellipsoidischer Koordinaten}{405}%
+\contentsline {subsection}{\numberline {D.3.2}Schwerefeld eines Ellipsoides}{394}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {D.3.4}Ellipsoidische Approximation des Schwerefeldes}{406}%
+\contentsline {subsection}{\numberline {D.3.3}Notwendigkeit ellipsoidischer Koordinaten}{407}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {D.3.5}Senkrechte Trajektorien}{412}%
+\contentsline {subsection}{\numberline {D.3.4}Ellipsoidische Approximation des Schwerefeldes}{408}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {D.4}\textsc {Great}-Koordinaten}{414}%
+\contentsline {subsection}{\numberline {D.3.5}Senkrechte Trajektorien}{414}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {D.4.1}Vertikalkoordinate}{414}%
+\contentsline {section}{\numberline {D.4}\textsc {Great}-Koordinaten}{416}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {D.4.2}Zonale Koordinate}{414}%
+\contentsline {subsection}{\numberline {D.4.1}Vertikalkoordinate}{416}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {D.4.3}Meridionale Koordinate}{414}%
+\contentsline {subsection}{\numberline {D.4.2}Zonale Koordinate}{416}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {D.4.4}Metrischer Tensor}{414}%
+\contentsline {subsection}{\numberline {D.4.3}Meridionale Koordinate}{416}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {D.4.5}Transformation von \textsc {Great}-Koordinaten in globale Koordinaten}{418}%
+\contentsline {subsection}{\numberline {D.4.4}Metrischer Tensor}{416}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {D.4.6}Transformation von globalen Koordinaten in \textsc {Great}-Koordinaten}{418}%
+\contentsline {subsection}{\numberline {D.4.5}Transformation von \textsc {Great}-Koordinaten in globale Koordinaten}{420}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {D.4.7}Rotation in \textsc {Great}-Koordinaten}{421}%
+\contentsline {subsection}{\numberline {D.4.6}Transformation von globalen Koordinaten in \textsc {Great}-Koordinaten}{420}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {D.4.7.1}Lamb-Transformation in \textsc {Great}-Koordinaten}{422}%
+\contentsline {subsection}{\numberline {D.4.7}Rotation in \textsc {Great}-Koordinaten}{423}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {D.5}Ellipsoidische Geometrie}{422}%
+\contentsline {subsubsection}{\numberline {D.4.7.1}Lamb-Transformation in \textsc {Great}-Koordinaten}{424}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {D.5.1}Ellipsoidische Geodäten}{422}%
+\contentsline {section}{\numberline {D.5}Ellipsoidische Geometrie}{424}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {D.5.2}Ellipsoidische Dreiecke}{422}%
+\contentsline {subsection}{\numberline {D.5.1}Ellipsoidische Geodäten}{424}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {D.5.3}Ellipsoidische Voronoi-Gitter}{422}%
+\contentsline {subsection}{\numberline {D.5.2}Ellipsoidische Dreiecke}{424}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {D.5.3}Ellipsoidische Voronoi-Gitter}{424}%

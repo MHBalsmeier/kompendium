@@ -1682,7 +1682,7 @@ Hier werden nur die Grundlagen der Quantenmechanik (QM) erklärt, für eine ausf
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-\left\langle f\big|g\right\rangle \coloneqq \int_{\mathbb{R}^3}f^\star gd^3r.
+\left\langle f\big|g\right\rangle \coloneqq \int_{\mathbb{R}^3}f^\star gd^3r.\label{eq:def_unitary_product}
 \end{align}
 \end{center}
 }}
@@ -7357,6 +7357,27 @@ für die Reibungsbeschleunigung mitgeführt. Dies ist trotz der relativen Kleinh
 
 Eine Skalenanalyse der Reibungsbeschleunigung für die synoptische Skala ergibt $10^{-5}10^{-11} = 10^{-16}$ m/s$^2$, die typische Beschleunigung ist $10^{-4}$ m/s$^2$, die Reibung ist also auf der synoptischen Skala zwölf Größenordnungen kleiner als die Beschleunigung und damit komplett vernachlässigbar. Sie hat nichtsdestotrotz eine wichtige thermodynamische Bedeutung, da sie für die Dissipation kinetischer Energie verantwortlich ist. Die dissipierte kinetische Energie wird in thermische Energie umgewandelt. Fluide ohne Reibung bezeichnet man als \textit{ideale Fluide}\index{ideales Fluid}\index{Fluid!ideales}.
 
+\subsubsection{Inkompressibler Grenzfall}
+\label{sec:inkompressibler_grenzfall}\index{Stress-Tensor!Grenzfall!inkompressibler}\index{Stress-Tensor!inkompressibler Grenzfall}
+
+Im Falle von Inkompressibilität\index{Inkompressibilität} gilt wegen $S_{m, m} = \nabla\cdot\mathbf{v} = 0$ die Gleichung
+%
+\begin{align}
+T_{i, j} = -p\delta_{i, j} + 2\mu S_{i, j}.
+\end{align}
+%
+Hieraus folgt
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\frac{1}{\rho}\nabla\cdot\overleftrightarrow{T} & \stackrel{\text{Glg. \eqref{eq:friction_acceleration}}}{=} \nu\Delta\mathbf{v}.\label{eq:friction_acceleration_inc}
+\end{align}
+\end{center}
+}}
+\end{center}
+
 \subsubsection{Dissipation}
 \label{sec:dissipation}\index{Dissipation}
 
@@ -7385,27 +7406,6 @@ Um energetische Konsistenz zu gewährleisten, setzt man daher
 \end{center}
 %
 für den mit die Reibung assoziierte Wärmeleistungsdichte\index{Wärmeleistungsdichte} $q_{\text{diss}}$ an, $\epsilon$ bezeichnet man als \textit{Dissipation}\index{Dissipation} oder auch \textit{Dissipationsrate}\index{Dissipationsrate}.
-
-\subsubsection{Inkompressibler Grenzfall}
-\label{sec:inkompressibler_grenzfall}\index{Stress-Tensor!Grenzfall!inkompressibler}\index{Stress-Tensor!inkompressibler Grenzfall}
-
-Im Falle von Inkompressibilität\index{Inkompressibilität} gilt wegen $S_{m, m} = \nabla\cdot\mathbf{v} = 0$ die Gleichung
-%
-\begin{align}
-T_{i, j} = -p\delta_{i, j} + 2\mu S_{i, j}.
-\end{align}
-%
-Hieraus folgt
-%
-\begin{center}
-\doublebox{\parbox{0.8\textwidth}{
-\begin{center}
-\begin{align}
-\frac{1}{\rho}\nabla\cdot\overleftrightarrow{T} & \stackrel{\text{Glg. \eqref{eq:friction_acceleration}}}{=} \nu\Delta\mathbf{v}.\label{eq:friction_acceleration_inc}
-\end{align}
-\end{center}
-}}
-\end{center}
 
 \subsubsection{Thermodynamische Bedeutung der Reibung}
 \label{sec:thermodynamische_bedeutung_der_reibung}\index{Thermodynamik!Reibung}\index{Reibung!thermodynamische Bedeutung}
@@ -7547,6 +7547,16 @@ Somit gilt auch im kompressiblen Fall
 \begin{center}
 \begin{align}
 \int_\Omega\rho\mathbf{v}\cdot\mathbf{f}_Rd^3r \leq 0.\label{eq:friction_work_sign}
+\end{align}
+\end{center}
+}}
+\end{center}
+
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\int_\Omega\rho\epsilon + \rho\mathbf{v}\cdot\mathbf{f}_Rd^3r = 0.\label{eq:friction_dissipation_balance}
 \end{align}
 \end{center}
 }}
@@ -8532,16 +8542,28 @@ Es ist sinnvoll, die Massendichte\index{Massendichte} $\rho$ als erste prognosti
 \frac{\partial\rho}{\partial t} + \nabla\cdot\left(\rho\mathbf{v}\right) = 0
 \end{align}
 %
-als erste prognostische Gleichung\index{prognostische Gleichung}\index{Gleichung!prognostische}. Dies ist so, da die Masendichte\index{Massendichte} eine sehr fundamentale Größe (sie beschreibt einfach, wie viel Masse sich an einem gewissen Ort befindet) und die Kontinuitätsgleichung\index{Kontinuitätsgleichung} in der Herleitung vieler anderer prognostischer Gleichungen\index{prognostische Gleichung}\index{Gleichung!prognostische} enthalten ist. Aufgrund der thermischen Zustandsgleichung idealer Gase\index{thermische Zustandsgleichung idealer Gase}\index{Zustandsgleichung!thermische!idealer Gase}\index{ideales Gas!Zustandsgleichung!thermische} hat man die Freiheit, eine weitere thermodynamische Variable $q_1 \not= \rho$ zu wählen. Für die Hamilton-Funktion\index{Hamilton-Funktion} der Atmosphäre notiert man dann 
+als erste prognostische Gleichung\index{prognostische Gleichung}\index{Gleichung!prognostische}. Dies ist so, da die Masendichte\index{Massendichte} eine sehr fundamentale Größe ist (sie beschreibt einfach, wie viel Masse sich an einem gewissen Ort befindet) und die Kontinuitätsgleichung\index{Kontinuitätsgleichung} in der Herleitung vieler anderer prognostischer Gleichungen\index{prognostische Gleichung}\index{Gleichung!prognostische} enthalten ist. Aufgrund der thermischen Zustandsgleichung idealer Gase\index{thermische Zustandsgleichung idealer Gase}\index{Zustandsgleichung!thermische!idealer Gase}\index{ideales Gas!Zustandsgleichung!thermische} hat man die Freiheit, eine weitere thermodynamische Variable $q_1 \not= \rho$ zu wählen. Für die Hamilton-Funktion\index{Hamilton-Funktion} der Atmosphäre notiert man dann 
 %
 \begin{align}
-H = H\left(\rho, \newtilde{T}, \mathbf{v}\right) = \int_A\frac{1}{2}\rho\mathbf{v}^2 + \rho\phi + \newtilde{I}\left(\rho, q_1\right)d^3r.
+H = H\left(\rho, q_1, \mathbf{v}\right) = \int_A\frac{1}{2}\rho\mathbf{v}^2 + \rho\phi + \newtilde{I}\left(\rho, q_1\right)d^3r.
 \end{align}
 %
 $\newtilde{I}\left(\rho, q_1\right)$ ist die innere Energiedichte\index{innere Energiedichte}\index{Energiedichte!innere} als Funktion der Massendichte und der prognostischen Variable\index{prognostische Variable}\index{Variable!prognostische} $q_1$. In diesem funktionalen Zusammenhang ist die thermische Zustandsgleichung idealer Gase\index{thermische Zustandsgleichung idealer Gase}\index{Zustandsgleichung!thermische!idealer Gase}\index{ideales Gas!Zustandsgleichung!thermische} implizit enthalten.
 
-\subsection{Trockene Atmosphäre}
-\label{sec:trockene_atmosphaere}
+Als Skalarprodukt\index{Skalarprodukt} zweier Funktionen skalarer Funktionen $f$, $g$ definiert man
+%
+\begin{align}
+\left\langle f \big| g\right\rangle \coloneqq \int_Af^\star\left(\mathbf{r}, t\right)g\left(\mathbf{r}, t\right)d^3r.
+\end{align}
+%
+Dies entspricht dem in der Quantenmechanik definierten unitären Produkt\index{unitäres Produkt}\index{Produkt!unitäres} Glg. \eqref{eq:def_unitary_product}. Dabei lässt man für $f$ und $g$ reell- und komplexwertige Funktionen zu. Im Falle reeller Funktionen spielt die komplexe Konjugation von $f$ keine Rolle. Für vektorwertige Funktionen definiert man analog
+%
+\begin{align}
+\left\langle\mathbf{f}\big|\mathbf{g}\right\rangle \coloneqq \int_A\mathbf{f}^\star\left(\mathbf{r}, t\right)\cdot\mathbf{g}\left(\mathbf{r}, t\right)d^3r.
+\end{align}
+
+\subsection{Reversible trockene Atmosphäre}
+\label{sec:reversible_trockene_atmosphaere}
 
 Die Hamilton-Funktion\index{Hamilton-Funktion!Atmosphäre}\index{Atmosphäre!Hamilton-Funktion} $H$ einer trockenen Atmosphäre $A \subseteq \mathbb{R}^3$ lautet mit den generalisierten Zustandskoordianten $\mathbf{v}, \rho, \newtilde{T} \coloneqq \rho T$
 %
@@ -8581,10 +8603,10 @@ notieren. Hängt $F$ nicht explizit von der Zeit ab, was im Regelfall so ist, fo
 }}
 \end{center}
 
-In einer trockenen Atmosphäre gilt also für jede beliebige Größe $F$ die Evolutionsgleichung
+In einer reversiblen trockenen Atmosphäre gilt also für jede beliebige Größe $F$ die Evolutionsgleichung
 %
 \begin{align}
-\frac{dF}{dt} = \lbrace F, H\rbrace + \left(F, \mathbf{f}_R\right) + \left(F, Q\right)
+\frac{dF}{dt} = \lbrace F, H\rbrace
 \end{align}
 %
 mit
@@ -8592,15 +8614,7 @@ mit
 \begin{align}
 \lbrace F, H\rbrace & = -\int_A\frac{\delta F}{\delta\mathbf{v}}\cdot\left(\frac{\etabi}{\rho}\times\frac{\delta H}{\delta\mathbf{v}}\right)d^3r\\
 &  -\int_A\frac{\delta F}{\delta\rho}\nabla\cdot\frac{\delta H}{\delta\mathbf{v}} - \frac{\delta H}{\delta\rho}\nabla\cdot\frac{\delta F}{\delta\mathbf{v}}d^3r\\
-&  -\int_A\frac{\partial F}{\partial\newtilde{q}}\nabla\cdot\left(q\frac{\partial H}{\partial\mathbf{v}}\right) - \frac{\partial H}{\partial\newtilde{q}}\nabla\cdot\left(q\frac{\delta F}{\delta\mathbf{v}}\right)d^3r
-\end{align}
-%
-und
-%
-\begin{align}
-\left(F, \mathbf{f}_R\right) & = -\int_A\frac{\delta F}{\delta\mathbf{v}}\cdot\frac{1}{\rho}\nabla\cdot\newoverline{\rho\mathbf{v}'\mathbf{v}'}d^3r,\\
-\left(F, Q\right) & = \int_A\frac{\partial F}{\partial\newtilde{q}}\frac{q_T^{(\text{diss})}q}{Tc_d^{(p)}}d^3r,\\
-q_T^{(\text{diss})} & = -\mathbf{v}\cdot\nabla\cdot\newoverline{\rho\mathbf{v}'\mathbf{v}'}.
+&  -\int_A\frac{\partial F}{\partial\newtilde{q}}\nabla\cdot\left(q\frac{\partial H}{\partial\mathbf{v}}\right) - \frac{\partial H}{\partial\newtilde{q}}\nabla\cdot\left(q\frac{\delta F}{\delta\mathbf{v}}\right)d^3r.
 \end{align}
 %
 Der Poisson-Klammer-Formalismus\index{Poisson-Klammer} führt auf eine spezielle Form der Druckgradientbeschleunigung\index{Druckgradientbeschleunigung}. Darin ist neben $\rho$ und $q_1$ meist eine dritte Variable $q_1$ enthalten, gelegentlich sogar eine vierte oder fünfte. Eine dieser Variablen wählt man als \textit{semi-prognostische Variable}\index{semi-prognostische Variable} $q_2$.
@@ -8768,6 +8782,28 @@ Dies wird auch durch
 \end{align}
 %
 bestätigt.
+
+\subsection{Irreversible trockene Atmosphäre}
+\label{sec:irreversible_trockene_atmosphaere}
+
+Dieser Abschnitt wird nur mit dem in Absch. \ref{sec:entropiedichte_als_prognostische_variable_hamilton} begonnenen Entropieformulismus ausformuliert. In einer irreversiblen trockenen Atmosphäre definiert man zwei irreversible Klammern:
+%
+\begin{align}
+\left(F, \mathbf{f}_R\right) & \coloneqq \left\langle\frac{\delta F}{\delta\mathbf{v}}\Big| \mathbf{f}_R\right\rangle = \int_A\frac{\delta F}{\delta\mathbf{v}}\cdot\mathbf{f}_Rd^3r\\
+\left(F, Q\right) & \coloneqq \left\langle\frac{\partial F}{\partial\newtilde{s}}\Big|\frac{\rho\epsilon}{T}\right\rangle = \int_A\frac{\partial F}{\partial\newtilde{s}}\frac{\rho\epsilon}{T}d^3r
+\end{align}
+%
+Nach Glg. \eqref{eq:friction_dissipation_balance} gilt hierbei
+%
+\begin{align}
+\left(F, \mathbf{f}_R\right) + \left(F, Q\right) = 0.
+\end{align}
+%
+Die Dynamik wird dann festgelegt durch
+%
+\begin{align}
+\frac{dF}{dt} = \lbrace F, H\rbrace + \left(F, \mathbf{f}_R\right) + \left(F, Q\right).
+\end{align}
 
 \section{Konkretisierung der Wärmeflüsse}
 \label{sec:konkretisierung_der_waermefluesse}\index{Wärmefluss}
@@ -10559,6 +10595,73 @@ Er gilt in \textit{Tornados}\index{Tornado} und \textit{Staubteufeln}\index{Stau
 \chapter{\normalfont\textsc{Integralrelationen einer einphasigen Atmosphäre}}
 \label{chap:integralrelationen_einer_einphasigen_atmosphäre}\index{Integralrelation!einer einphasigen Atmosphäre}\index{Atmosphäre!einphasige!Integralrelation}
 
+\section{Impuls und Drehimpuls}
+\label{sec:impuls_und_drehimpuls}\index{Impuls}\index{Drehimpuls}
+
+Für den Gesamtimpuls $\mathbf{P}$ der Atmosphäre\index{Gesamtimpuls der Atmosphäre}\index{Atmosphäre!Gesamtimpuls}\index{Impuls!der Atmosphäre} gilt
+%
+\begin{align}
+\mathbf{P} = \int_A\rho\mathbf{v}d^3r.
+\end{align}
+%
+Für die Zeitableitung dieser Größe sind laut dem Zweiten Newton'schen Axiom\index{Zweites Newton'sches Axiom}\index{Newton'sches Axiom!Zweites}\index{Axiom!Zweites!Newton'sches} nur die externen Kräfte zu berücksichtigen:
+%
+\begin{align}
+\frac{d\mathbf{P}}{dt} = \int_A\rho\mathbf{f}_{\text{ext}}d^3r.
+\end{align}
+%
+$\mathbf{P}$ ist also nie erhalten, da mindestens durch die Oberfläche und die Schwere immer externe Kräfte\index{externe Kraft}\index{Kraft!externe} wirken.
+
+Für den Gesamtdrehimpuls $\mathbf{L}$ der Atmosphäre\index{Gesamtdrehimpuls der Atmosphäre}\index{Atmosphäre!Gesamtdrehimpuls}\index{Drehimpuls!der Atmosphäre} gilt
+%
+\begin{align}
+\mathbf{L} & = \int_A\mathbf{r} \times \rho\mathbf{v}d^3r\nonumber\\
+\frac{d\mathbf{L}}{dt} & = \int_A\mathbf{r} \times \rho\mathbf{f}_{\text{ext}}d^3r.
+\end{align}
+%
+Der Drehimpuls ist also genau dann erhalten, wenn alle externen Kräfte auf der radialen Achse wirken, also nur in ruhenden Koordinaten\index{Koordinaten!ruhende}\index{ruhende Koordinaten} über einem Planten mit radialsymmetrischer Massenverteilung im Inneren.
+
+\section{Entropie}
+\label{sec:entropie}\index{Entropie}
+
+Für die Gesamtentropie $S$ einer Atmosphäre gilt bis auf eine Konstante
+%
+\begin{align}
+S = \int_A\newtilde{s}d^3r
+\end{align}
+%
+mit $\newtilde{s}$ wie in Glg. \eqref{eq:def_entropy_density} definiert. Die prognostische Gleichung dieser Größe ist Glg. \eqref{eq:td_1_id_gas_density_entropy}:
+%
+\begin{align}
+\frac{\partial\newtilde{s}}{\partial t} + \nabla\cdot\left(\newtilde{s}\mathbf{v}\right) & = c^{(v)}\frac{\rho}{T}q_T
+\end{align}
+%
+Globale Integration liefert
+%
+\begin{align}
+\frac{dS}{dt} = \int_Ac^{(v)}\frac{\rho}{T}q_Td^3r.\label{eq:entropy_balance_global_pre}
+\end{align}
+%
+Dieses Integral nichtnegativ, da der Wärmefluss positiv in kälteren und negativ in wärmeren Gebieten ist. Somit gilt
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\frac{dS}{dt} & \geq 0.
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+In einer idealen adiabatischen einphasigen Atmosphäre laufen die Prozesse also reversibel\index{reversibel} ab. 
+
+\section{Energie}
+\label{sec:energie}
+
+\subsection{Gesamtenergie}
+\label{sec:gesamtenergie}
+
 Die prognostische Gleichung der spezifischen kinetischen Energie\index{spezifische kinetische Energie}\index{kinetische Energie!spezifische}\index{Energie!kinetische!spezifische} $k = \frac{1}{2}\mathbf{v}^2$ erhält man durch Multiplikation der Impulsgleichung in der Form Glg. \eqref{eq:momentum_mod} von links mit $\mathbf{v}\cdot $:
 %
 \begin{align}
@@ -10598,7 +10701,7 @@ Multipliziert man diese Gleichung mit $\rho$ und addiert das Produkt der Kontinu
 als prognostische Gleichung für die geopotentielle Energiedichte $P = \rho\phi$. Als prognostische Gleichung für die spezifische innere Energie\index{innere Energie}\index{Energie!innere} $i = c^{(v)}T$ erhält man
 %
 \begin{align}
-\md{i} = \frac{\partial i}{\partial t} + \mathbf{v}\cdot\nabla i = -p\md{\alpha} - \mathbf{v}\cdot\mathbf{f}_R = -p\alpha\nabla\cdot\mathbf{v} - \mathbf{v}\cdot\mathbf{f}_R.
+\md{i} = \frac{\partial i}{\partial t} + \mathbf{v}\cdot\nabla i = -p\md{\alpha} + \epsilon = -p\alpha\nabla\cdot\mathbf{v} + \epsilon.
 \end{align}
 %
 Multipliziert man diese Gleichung mit $\rho$ und addiert das Produkt der Kontinuitätsgleichung mit $i$ dazu, erhält man
@@ -10607,7 +10710,7 @@ Multipliziert man diese Gleichung mit $\rho$ und addiert das Produkt der Kontinu
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-\md{\newtilde{I}} = \frac{\partial\newtilde{I}}{\partial t} + \mathbf{v}\cdot\nabla\newtilde{I} = -\left(p + \newtilde{I}\right)\nabla\cdot\mathbf{v} - \rho\mathbf{v}\cdot\mathbf{f}_R\label{eq:internal_energy_prognostic}
+\md{\newtilde{I}} = \frac{\partial\newtilde{I}}{\partial t} + \mathbf{v}\cdot\nabla\newtilde{I} = -\left(p + \newtilde{I}\right)\nabla\cdot\mathbf{v} + \rho\epsilon\label{eq:internal_energy_prognostic}
 \end{align}
 \end{center}
 }}
@@ -10622,17 +10725,17 @@ e = K + P + \newtilde{I}.
 Die totale Ableitung hiervon ergibt sich durch Summation der gerade hergeleiteten Glg.en \eqref{eq:kin_energy_density_flux_form} - \eqref{eq:internal_energy_prognostic}:
 %
 \begin{align}
-\md{K} = \frac{\partial K}{\partial t} + \mathbf{v}\cdot\nabla K & = \frac{\partial K}{\partial t} + \mathbf{v}\cdot\nabla K = -\mathbf{v}\cdot\nabla p \textcolor{blue}{-\rho wg} - K\nabla\cdot\mathbf{v} \textcolor{red}{+ \rho\mathbf{v}\cdot\mathbf{f}_R}\nonumber\\
+\md{K} = \frac{\partial K}{\partial t} + \mathbf{v}\cdot\nabla K & = \frac{\partial K}{\partial t} + \mathbf{v}\cdot\nabla K = -\mathbf{v}\cdot\nabla p \textcolor{blue}{-\rho wg} - K\nabla\cdot\mathbf{v} + \rho\mathbf{v}\cdot\mathbf{f}_R\nonumber\\
 + \md{P} = \frac{\partial P}{\partial t} + \mathbf{v}\cdot\nabla P & = \frac{\partial P}{\partial t} + \mathbf{v}\cdot\nabla P = \textcolor{blue}{\rho wg} - P\nabla\cdot\mathbf{v}\nonumber\\
-+ \md{\newtilde{I}} = \frac{\partial\newtilde{I}}{\partial t} + \mathbf{v}\cdot\nabla\newtilde{I} & = \frac{\partial\newtilde{I}}{\partial t} + \mathbf{v}\cdot\nabla\newtilde{I} = -p\nabla\cdot\mathbf{v} - \newtilde{I}\nabla\cdot\mathbf{v} \textcolor{red}{-\rho\mathbf{v}\cdot\mathbf{f}_R}\nonumber\\
++ \md{\newtilde{I}} = \frac{\partial\newtilde{I}}{\partial t} + \mathbf{v}\cdot\nabla\newtilde{I} & = \frac{\partial\newtilde{I}}{\partial t} + \mathbf{v}\cdot\nabla\newtilde{I} = -p\nabla\cdot\mathbf{v} - \newtilde{I}\nabla\cdot\mathbf{v} + \epsilon\nonumber\\
 \cline{1-2}
-\frac{\partial}{\partial t}\left(K + P + \newtilde{I}\right) + \mathbf{v}\cdot\nabla\left(K + P + \newtilde{I}\right) &= -\left(K + P + \newtilde{I}\right)\nabla\cdot\mathbf{v} - \mathbf{v}\cdot\nabla p - p\nabla\cdot\mathbf{v}
+\frac{\partial}{\partial t}\left(K + P + \newtilde{I}\right) + \mathbf{v}\cdot\nabla\left(K + P + \newtilde{I}\right) &= -\left(K + P + \newtilde{I}\right)\nabla\cdot\mathbf{v} - \mathbf{v}\cdot\nabla p - p\nabla\cdot\mathbf{v} + \rho\mathbf{v}\cdot\mathbf{f}_R + \epsilon
 \end{align}
 %
-Die jeweils farblich markierten Terme heben sich gegenseitig auf. Somit erhält man
+Die \textcolor{blue}{blau} markierten Terme sind die Schwereterme, diese heben sich gegenseitig auf: wenn die Schwere kinetische Energie produziert, geht dies auf Kosten der potentiellen Energie. Somit erhält man
 %
 \begin{align}
-\frac{\partial e}{\partial t} + \mathbf{v}\cdot\nabla e & = -e\nabla\cdot\mathbf{v} - \nabla\cdot\left(p\mathbf{v}\right).\label{eq:bernoulli_pre}
+\frac{\partial e}{\partial t} + \mathbf{v}\cdot\nabla e & = -e\nabla\cdot\mathbf{v} - \nabla\cdot\left(p\mathbf{v}\right) + \rho\mathbf{v}\cdot\mathbf{f}_R + \epsilon.\label{eq:bernoulli_pre}
 \end{align}
 %
 Damit folgt
@@ -10641,13 +10744,13 @@ Damit folgt
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-\frac{\partial e}{\partial t} & =  -\nabla\cdot\left(p\mathbf{v}\right) - \nabla\cdot\left(e\mathbf{v}\right) \Leftrightarrow\frac{\partial e}{\partial t} + \nabla\cdot\left(e\mathbf{v}\right) = -\nabla\cdot\left(p\mathbf{v}\right).\label{eq:poynting_met}
+\frac{\partial e}{\partial t} & =  -\nabla\cdot\left(p\mathbf{v}\right) - \nabla\cdot\left(e\mathbf{v}\right) \Leftrightarrow\frac{\partial e}{\partial t} + \nabla\cdot\left(e\mathbf{v}\right) = -\nabla\cdot\left(p\mathbf{v}\right) + \rho\mathbf{v}\cdot\mathbf{f}_R + \epsilon.\label{eq:poynting_met}
 \end{align}
 \end{center}
 }}
 \end{center}
 %
-Dies bezeichnet man auch als das \textit{Poynting-Theorem der Meteorologie}\index{Poynting-Theorem!Meteorologie} in Analogie zum Poynting-Theorem der ED Glg. \eqref{eq:poynting_theorem}. Als Spezialfall von Glg. \eqref{eq:bernoulli_pre} erhält man für stationäre Strömungen inkompressibler Medien wegen
+Dies bezeichnet man auch als das \textit{Poynting-Theorem der Meteorologie}\index{Poynting-Theorem!Meteorologie} in Analogie zum Poynting-Theorem der ED Glg. \eqref{eq:poynting_theorem}. Als Spezialfall von Glg. \eqref{eq:bernoulli_pre} erhält man für stationäre Strömungen inkompressibler idealer Medien wegen
 %
 \begin{align}
 \nabla\cdot\mathbf{v} & = 0,\\
@@ -10682,10 +10785,22 @@ E = \int_{A}^{}ed^3r.
 Nimmt man $A$ als konstant an, gilt mit dem Gauß'schen Satz
 %
 \begin{align}
-\frac{dE}{dt} = \int_{A}^{}\frac{\partial e}{\partial t}d^3r = \int_{A}^{} - \nabla\cdot\left[\left(e + p\right)\mathbf{v}\right]d^3r = -\int_{O}^{}\left(e + p\right)\mathbf{v}\cdot d\mathbf{n} - \int_{v}^{}\left(e + p\right)\mathbf{v}\cdot d\mathbf{n}, 
+\frac{dE}{dt} = \int_{A}^{}\frac{\partial e}{\partial t}d^3r = \int_{A}^{} - \nabla\cdot\left[\left(e + p\right)\mathbf{v}\right] + \rho\mathbf{v}\cdot\mathbf{f}_R + \epsilon d^3r.
 \end{align}
 %
-hierbei sind $O$ der Oberrand der Atmosphäre und $U$ die Erdoberfläche. Unter der Voraussetzung von Massenerhaltung (hier: kinematische Randbedingung\index{kinematische Randbedingung}\index{Randbedingung!kinematische}) gilt also
+Aufgrund von Glg. \eqref{eq:friction_dissipation_balance} gilt
+%
+\begin{align}
+\int_{A}\rho\mathbf{v}\cdot\mathbf{f}_R + \epsilon d^3r = 0.
+\end{align}
+%
+Somit folgt
+%
+\begin{align}
+\frac{dE}{dt} = -\int_{O}^{}\left(e + p\right)\mathbf{v}\cdot d\mathbf{n} - \int_{v}^{}\left(e + p\right)\mathbf{v}\cdot d\mathbf{n}, 
+\end{align}
+%
+hierbei sind $O$ der Oberrand der Atmosphäre und $U$ die Erdoberfläche. Mit der kinematischen Randbedingung\index{kinematische Randbedingung}\index{Randbedingung!kinematische} gilt also
 %
 \begin{center}
 \doublebox{\parbox{0.8\textwidth}{
@@ -10696,38 +10811,11 @@ E & = \text{const}.
 \end{center}
 }}
 \end{center}
-%
-Dreht sich die kondensierte Erde mit fester Winkelgeschwindigkeit und gilt die kinematische Randbedingung, so sind Impuls und Drehimpuls aufgrund fehlender Symmetrieeigenschaften keine Erhaltungsgrößen. Für die Gesamtentropie $S$ einer Atmosphäre gilt bis auf eine Konstante
-%
-\begin{align}
-S = \int_A\newtilde{s}d^3r
-\end{align}
-%
-mit $\newtilde{s}$ wie in Glg. \eqref{eq:def_entropy_density} definiert. Die prognostische Gleichung dieser Größe ist Glg. \eqref{eq:td_1_id_gas_density_entropy}:
-%
-\begin{align}
-\frac{\partial\newtilde{s}}{\partial t} + \nabla\cdot\left(\newtilde{s}\mathbf{v}\right) & = c^{(v)}\frac{\rho}{T}q_T
-\end{align}
-%
-Globale Integration liefert
-%
-\begin{align}
-\frac{dS}{dt} = \int_Ac^{(v)}\frac{\rho}{T}q_Td^3r.\label{eq:entropy_balance_global_pre}
-\end{align}
-%
-Dieses Integral nichtnegativ, da der Wärmefluss positiv in kälteren und negativ in wärmeren Gebieten ist. Somit gilt
-%
-\begin{center}
-\doublebox{\parbox{0.8\textwidth}{
-\begin{center}
-\begin{align}
-\frac{dS}{dt} & \geq 0.
-\end{align}
-\end{center}
-}}
-\end{center}
-%
-In einer idealen adiabatischen einphasigen Atmosphäre laufen die Prozesse reversibel\index{reversibel} ab. Für die Zeitableitung der inneren Energie\index{innere Energie}\index{Energie!innere} einer einphasigen Atmosphäre gilt mit Glg. \eqref{eq:internal_energy_prognostic}
+
+\subsection{Energieformen}
+\label{sec:energieformen}
+
+Für die Zeitableitung der inneren Energie\index{innere Energie}\index{Energie!innere} einer einphasigen Atmosphäre gilt mit Glg. \eqref{eq:internal_energy_prognostic}
 %
 \begin{align}
 \frac{d}{dt}\int_A\newtilde{I}d^3r = \frac{d}{dt}\int_A-p\nabla\cdot\mathbf{v} - \rho\mathbf{v}\cdot\mathbf{f}_Rd^3r = \int_A\mathbf{v}\cdot\nabla p - \rho\mathbf{v}\cdot\mathbf{f}_Rd^3r.
@@ -10778,29 +10866,6 @@ bzw.
 \end{align}
 %
 vornehmen.
-
-Für den Gesamtimpuls $\mathbf{P}$ der Atmosphäre\index{Gesamtimpuls der Atmosphäre}\index{Atmosphäre!Gesamtimpuls}\index{Impuls!der Atmosphäre} gilt
-%
-\begin{align}
-\mathbf{P} = \int_A\rho\mathbf{v}d^3r.
-\end{align}
-%
-Für die Zeitableitung dieser Größe sind laut dem Zweiten Newton'schen Axiom\index{Zweites Newton'sches Axiom}\index{Newton'sches Axiom!Zweites}\index{Axiom!Zweites!Newton'sches} nur die externen Kräfte zu berücksichtigen:
-%
-\begin{align}
-\frac{d\mathbf{P}}{dt} = \int_A\rho\mathbf{f}_{\text{ext}}d^3r.
-\end{align}
-%
-$\mathbf{P}$ ist also nie erhalten, da mindestens durch die Oberfläche immer externe Kräfte\index{externe Kraft}\index{Kraft!externe} wirken.
-
-Für den Gesamtdrehimpuls $\mathbf{L}$ der Atmosphäre\index{Gesamtdrehimpuls der Atmosphäre}\index{Atmosphäre!Gesamtdrehimpuls}\index{Drehimpuls!der Atmosphäre} gilt
-%
-\begin{align}
-\mathbf{L} & = \int_A\mathbf{r} \times \rho\mathbf{v}d^3r\nonumber\\
-\frac{d\mathbf{L}}{dt} & = \int_A\mathbf{r} \times \rho\mathbf{f}_{\text{ext}}d^3r.
-\end{align}
-%
-Der Drehimpuls ist also genau dann erhalten, wenn alle externen Kräfte auf der radialen Achse wirken, also nur in ruhenden Koordinaten\index{Koordinaten!ruhende}\index{ruhende Koordinaten} über einem Planten mit radialsymmetrischer Massenverteilung im Inneren.
 
 \section{APE}
 \label{sec:ape}\index{available potential Energy (APE)}\index{APE}\index{Energie!potentielle!verfügbare}\index{potentielle Energie!verfügbare}\index{verfügbare potentielle Energie}
@@ -18779,26 +18844,6 @@ Die Temperaturgleichung Glg. \eqref{eq:prog_irrev_3} ist dieselbe wie Glg. \eqre
 \subsubsection{Dissipation}
 \label{sec:dissipation_modell}
 
-Die mit der Reibung verbundene spezifische Heizrate ist die Dissipation $\epsilon$. Für diese gilt laut Glg. \eqref{eq:diss_heat}
-%
-\begin{align}
-\epsilon = -\mathbf{f}_R\cdot\mathbf{v}.
-\end{align}
-%
-Die hieraus resultierende Wärmeleistungsdichte\index{Wärmeleistungsdichte} $q^{(V)}_\text{diss}$ lautet somit
-%
-\begin{align}
-q^{(V)}_\text{diss} = \rho\epsilon = -\rho\mathbf{f}_R\cdot\mathbf{v}.
-\end{align}
-%
-Als Zeitdiskretisierung wird
-%
-\begin{align}
-q^{(V)}_\text{diss} = \rho^{(1/2)}\epsilon^{(1/2)} = -\rho^{(1/2)}\mathbf{f}_R^{(1/2)}\cdot\mathbf{v}^{(1/2)}.
-\end{align}
-%
-gewählt.
-
 \section{Vertikale Diffusion}
 \label{sec:vertikale_diffusion}\index{vertikale Diffusion}\index{Diffusion!vertikale}
 
@@ -19393,13 +19438,19 @@ Nach \cite{fliessbach_theo_2} gilt
 \section{Integralformeln}
 \label{sec:integralformeln}\index{Integralformel}
 
+\subsection{Partielle Integration}
+\label{sec:partielle_integration}\index{partielle Integration}\index{Integration!partielle}
+
 Seien $f, g:\mathbb{R}\to\mathbb{R}$ Riemann-integrierbar. Dann gilt mit der Produktregel
 %
 \begin{align}
 \left(fg\right)' & = f'g + fg'\Leftrightarrow fg = \int f'gdx + \int fg'dx\Leftrightarrow \int f'gdx = fg - \int fg'dx.
 \end{align}
 %
-Dies bezeichnet man als \textit{partielle Integration}.\index{partielle Integration}\index{Integration!partielle}
+Dies bezeichnet man als \textit{partielle Integration}\index{partielle Integration}\index{Integration!partielle}.
+
+\subsection{Substitutionsregel}
+\label{sec:substitutionsregel}\index{Substitutionsregel}
 
 Seien $a, b\in\mathbb{R}$ mit $a<b$, $f:\left[a, b\right]\to\mathbb{R}$ Riemann-integrierbar, $I\subseteq\mathbb{R}$ ein Intervall, $\varphi:I\to\left[a, b\right]$ stetig-differenzierbar und bijektiv und $F$ eine Stammfunktion von $f$. Dann gilt
 %
@@ -19408,6 +19459,9 @@ Seien $a, b\in\mathbb{R}$ mit $a<b$, $f:\left[a, b\right]\to\mathbb{R}$ Riemann-
 \end{align}
 %
 Dies bezeichnet man als \textit{Substitutionsregel}.\index{Substitutionsregel}
+
+\subsection{Trennung der Variablen}
+\label{sec:trennung_der_variablen}\index{Trennung der Variablen}
 
 Es wird das Verfahren der \textit{Trennung der Variablen}\index{Trennung der Variablen} hergeleitet. Seien $a, b\in\mathbb{R}$ mit $a<b$ gegeben, seien $h:\left[a, b\right]\to\mathbb{R}$ Riemann-integrierbar, $f:\left[a, b\right]\to\mathbb{R}$ stetig-differenzierbar und bijektiv und $g:f\left(\left[a, b\right]\right)\to\mathbb{R}$ Riemann-integrierbar mit $g\left(y\right)\not = 0$ für alle $y\in f\left(\left[a, b\right]\right)$. Man will die Differenzialgleichung
 %
@@ -19427,7 +19481,72 @@ Dies integriert man nun von $a$ bis zu einem gewünschten $x\in\left[a, b\right]
 \int_{a}^x\frac{1}{g\left(f\left(x'\right)\right)}\frac{df}{dx'}dx' & = \int_{a}^{x}h\left(x'\right)dx'\Leftrightarrow \int_{f\left(a\right)}^{f\left(x\right)}\frac{1}{g\left(f\right)}df = \int_{a}^{x}h\left(x'\right)dx'
 \end{align}
 %
-Hierbei wurde die Substitutionsregel verwendet. Sind diese beiden Integrale lösbar, erhält man einen algebraischen Ausdruck für $f\left(x\right)$. Nun soll
+Hierbei wurde die Substitutionsregel verwendet. Sind diese beiden Integrale lösbar, erhält man einen algebraischen Ausdruck für $f\left(x\right)$.
+
+\subsection{Leibniz-Regel}
+\label{sec:leibniz-regel}\index{Leibniz-Regel}
+
+Sei eine stetig differenzierbare Funktion $f: \mathbb{R}^2 \to \mathbb{R}$ gegeben. Seien ferner zwei Funktionen $a \leq b$ gegeben, welche von einem Parameter $t$ abhängen, $a = a\left(t\right)$, $b = b\left(t\right)$. Definiere die Funktion $F = F\left(t\right)$ durch
+%
+\begin{align}
+F\left(t\right) \coloneqq \int_{a\left(t\right)}^{b\left(t\right)}f\left(x, t\right)dx.
+\end{align}
+%
+Die \textit{Leibniz-Regel}\index{Leibniz-Regel} ist eine Aussage über die Ableitung von $F$. Um diese herzuleiten, definiert man zunächst eine Hilfsfunktion
+%
+\begin{align}
+\newtilde{F}\left(a, b, t\right) \coloneqq \int_{a}^{b}f\left(x, t\right)dx.
+\end{align}
+%
+Dann gilt für die Ableitung von $\newtilde{F}$
+%
+\begin{align}
+\newtilde{F}'\left(a, b, t\right)&= \nabla\newtilde{F}\left(a, b, t\right) = \left(\begin{array}{c}
+\frac{\partial\int_{a}^{b}f\left(x, t\right)dx}{\partial a}\\
+\frac{\partial\int_{a}^{b}f\left(x, t\right)dx}{\partial b}\\
+\frac{\partial\int_{a}^{b}f\left(x, t\right)dx}{\partial t}
+\end{array}\right).
+\end{align}
+%
+Mit dem Hauptsatz der Analysis\index{Hauptsatz der Analysis}\index{Analysis!Hauptsatz der} kann man dies zu
+%
+\begin{align}
+\left(\begin{array}{c}
+\frac{\partial\int_{a}^{b}f\left(x, t\right)dx}{\partial a}\\
+\frac{\partial\int_{a}^{b}f\left(x, t\right)dx}{\partial b}\\
+\frac{\partial\int_{a}^{b}f\left(x, t\right)dx}{\partial t}
+\end{array}\right) &= \left(\begin{array}{c}
+-f\left(a, t\right)\\
+f\left(b, t\right)\\
+\int_{a}^{b}\frac{\partial f\left(x, t\right)}{\partial t}dx
+\end{array}\right)
+\end{align}
+%
+umformulieren. Mit der mehrdimensionalen Kettenregel\index{mehrdimensionale Kettenregel}\index{Kettenregel!mehrdimensionale} erhält man
+%
+\begin{align}
+\frac{dF\left(t\right)}{dt} &= \left(\begin{array}{c}
+\frac{da}{dt}\\
+\frac{db}{dt}\\
+1
+\end{array}\right)\cdot\nabla\newtilde{F}\left(a, b, t\right)
+\end{align}
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\Leftrightarrow\frac{dF\left(t\right)}{dt} = \int_{a\left(t\right)}^{b\left(t\right)}\frac{\partial f\left(x, t\right)}{\partial t}dx + f\left[b\left(t\right), t\right]\frac{db}{dt} - f\left[a\left(t\right), t\right]\frac{da}{dt}.\label{eq:leibniz-rule}
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+Dies ist die Leibniz-Regel\index{Leibniz-Regel}.
+
+\subsection{Weitere Formeln}
+\label{sec:weitere_formeln}
+
+Nun soll
 %
 \begin{align}
 \int_{0}^{\infty}x^ne^{-\beta x}dx = \frac{n!}{\beta^{n + 1}}\label{eq:int_prop_1}
@@ -20645,9 +20764,15 @@ Die metrischen Terme\index{metrischer Term}\index{Term!metrischer} in der Impuls
 
 Seien $M, N\subseteq\mathbb{R}^3$, $f:M\to\mathbb{R}$ stetig, $T:N\to M$ ein Diffeomorphismus, dann gilt
 %
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 \begin{align}
 \int_{M}^{}fd^3r = \int_{N}^{}f\circ T\left|\det\left(T'\right)\right|d^3r, \label{eq:trans_formel}
 \end{align}
+\end{center}
+}}
+\end{center}
 %
 dies entspricht der mehrdimensionalen Substitutionsformel. Die Determinante $\det\left(T'\right)$ heißt \textit{Funktionaldeterminante}.\index{Funktionaldeterminante} Als Beispiel nehme $M = \mathbb{R}$, $N = \left[0, \infty\right)\times\left[0, \pi\right]\times\left[0, 2\pi\right)$ und
 %
@@ -20681,9 +20806,15 @@ im Falle geographischer Koordinaten ist die Funktionaldeterminante $r^2\cos\left
 
 Der Satz von Stokes Glg. \eqref{eq:satz_von_stokes} wurde bereits eingeführt. Seien $A\subseteq\mathbb{R}^3$ zusammenhängend und $\mathbf{v}:A\to\mathbb{R}^3$ stetig-differenzierbar. Dann gilt
 %
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 \begin{align}
-\int_{A}\nabla\cdot\mathbf{v}d^3r = \int_{\partial A}\mathbf{v}\cdot d\mathbf{A}.\label{eq:gaussscher_satz}
+\int_{A}\nabla\cdot\mathbf{v}d^3r = \int_{\partial A}\mathbf{v}\cdot d\mathbf{n}.\label{eq:gaussscher_satz}
 \end{align}
+\end{center}
+}}
+\end{center}
 %
 Dies ist der \index{Gauß'scher Satz}\index{Satz von Gauß}\textit{Gauß'sche Satz}.
 
@@ -20733,9 +20864,44 @@ Der letzte Schritt folgt mit Glg. \eqref{eq:integral_fehlerfunktion}. Es gilt mi
 %
 Es folgt mit Glg. \eqref{eq:gamma_prop_1}
 %
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 \begin{align}
 V_N = C_NR^{N} = \frac{\pi^{N/2}}{\frac{N}{2}\Gamma\left(\frac{N}{2}\right)}R^N = \frac{\pi^{N/2}}{\Gamma\left(\frac{N}{2} + 1\right)}R^N.\label{eq:volumen_n_dim_kugel}
 \end{align}
+\end{center}
+}}
+\end{center}
+
+\subsection{Transporttheorem}
+\label{sec:transporttheorem}\index{Transporttheorem}
+
+Sei zeitabhängige zusammenhängende Menge $\Omega = \Omega\left(t\right) \subseteq \mathbb{R}^3$ gegeben, welche sich mit dem stetig differenzierbaren Vektorfeld $\mathbf{v} = \mathbf{v}\left(\mathbf{r}, t\right)$ fortbewegt.
+
+Das sogenannte \textit{Transporttheorem}\index{Transporttheorem} ist die dreidimensionale Verallgemeinerung der Leibniz-Regel\index{Leibniz-Regel} Glg. \eqref{eq:leibniz-rule}.
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\frac{dF\left(t\right)}{dt} = \int_{\Omega\left(t\right)}\frac{\partial f\left(x, y, z, t\right)}{\partial t}dx + \int_{\partial\Omega}f\left(x, y, z, t\right)\left(\mathbf{v}\cdot d\mathbf{n}\right).\label{eq:transport_theorem}
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+Dies ist das Transporttheorem\index{Transporttheorem} oder auch \textit{Reynolds'sches Transporttheorem}\index{Reynolds'sches Transporttheorem}. $f$ kann auch die Komponente eines Vektorfeldes sein. Somit kann man die Herleitung vektoriell verallgemeinern:
+
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\frac{d\mathbf{F}\left(t\right)}{dt} = \int_{\Omega\left(t\right)}\frac{\partial\mathbf{f}\left(x, y, z, t\right)}{\partial t}dx + \int_{\partial\Omega}\mathbf{f}\left(x, y, z, t\right)\left(\mathbf{v}\cdot d\mathbf{n}\right)
+\end{align}
+\end{center}
+}}
+\end{center}
 
 \chapter{\normalfont\textsc{Orthogonale Funktionensysteme}}
 \label{chap:orthogonale_funktionensysteme}\index{orthogonale Funktionensysteme}\index{Funktionensysteme!orthogonale}
@@ -21080,18 +21246,17 @@ Nun wird gezeigt, dass die Legendre-Polynome nach Glg. \eqref{eq:legendre_poly_f
 %
 \begin{align}
 & - 2xP_n'\left(x\right) + \left(1 - x^2\right)P_n''\left(x\right)\hastobe - n\left(n + 1\right)P_n\left(x\right)\nonumber\\
-&\Leftrightarrow&
-- 2x\frac{1}{2^n}\sum_{k = 0}^{n - 1}\frac{\left(n + k + 1\right)!}{k!}\frac{1}{\left(\frac{n + k + 1}{2}\right)!}\frac{1}{\left(\frac{n - k - 1}{2}\right)!}\left(-1\right)^{\frac{n - k - 1}{2}}\delta_{n + k + 1}x^k\nonumber\\
+&\Leftrightarrow -2x\frac{1}{2^n}\sum_{k = 0}^{n - 1}\frac{\left(n + k + 1\right)!}{k!}\frac{1}{\left(\frac{n + k + 1}{2}\right)!}\frac{1}{\left(\frac{n - k - 1}{2}\right)!}\left(-1\right)^{\frac{n - k - 1}{2}}\delta_{n + k + 1}x^k\nonumber\\
 & + \frac{1}{2^n}\sum_{k = 0}^{n - 2}\frac{1}{\left(\frac{n + k}{2}\right)!}\frac{1}{\left(\frac{n - k}{2}\right)!}\frac{\left(n + k + 1\right)!}{k!}\left(n - k\right)\left(-1\right)^{\frac{n - k - 2}{2}}\delta_{n + k}x^k\nonumber\\
 & - \frac{1}{2^n}\sum_{k = 0}^{n - 2}\frac{\left(n + k + 2\right)!}{k!}\frac{1}{\left(\frac{n + k + 2}{2}\right)!}\frac{1}{\left(\frac{n - k - 2}{2}\right)!}\left(-1\right)^{\frac{n - k - 2}{2}}\delta_{n + k}x^{k + 2}\nonumber\\
 & = -n\left(n + 1\right)\frac{1}{2^n}\sum_{k = 0}^{n}\frac{\left(n + k\right)!}{k!}\frac{1}{\left(\frac{n + k}{2}\right)!}\frac{1}{\left(\frac{n - k}{2}\right)!}\left(-1\right)^{\frac{n - k}{2}}\delta_{n + k}x^k\nonumber\\
-&\Leftrightarrow& -2\sum_{k = 0}^{n}k\frac{\left(n + k\right)!}{k!}\frac{1}{\left(\frac{n + k}{2}\right)!}\frac{1}{\left(\frac{n - k}{2}\right)!}\left(-1\right)^{\frac{n - k}{2}}\delta_{n + k}x^k\nonumber\\
+&\Leftrightarrow -2\sum_{k = 0}^{n}k\frac{\left(n + k\right)!}{k!}\frac{1}{\left(\frac{n + k}{2}\right)!}\frac{1}{\left(\frac{n - k}{2}\right)!}\left(-1\right)^{\frac{n - k}{2}}\delta_{n + k}x^k\nonumber\\
 & + \sum_{k = 0}^{n - 2}\frac{1}{\left(\frac{n + k}{2}\right)!}\frac{1}{\left(\frac{n - k}{2}\right)!}\frac{\left(n + k + 1\right)!}{k!}\left(n - k\right)\left(-1\right)^{\frac{n - k - 2}{2}}\delta_{n + k}x^k\nonumber\\
 & - \sum_{k = 0}^{n}k\left(k - 1\right)\frac{\left(n + k\right)!}{k!}\frac{1}{\left(\frac{n + k}{2}\right)!}\frac{1}{\left(\frac{n - k}{2}\right)!}\left(-1\right)^{\frac{n - k}{2}}\delta_{n + k}x^k\nonumber
 \end{align}
 \begin{align}
 & = -n\left(n + 1\right)\sum_{k = 0}^{n}\frac{\left(n + k\right)!}{k!}\frac{1}{\left(\frac{n + k}{2}\right)!}\frac{1}{\left(\frac{n - k}{2}\right)!}\left(-1\right)^{\frac{n - k}{2}}\delta_{n + k}x^k\nonumber\\
-&\Leftrightarrow& -2\sum_{k = 0}^{n}k\frac{\left(n + k\right)!}{k!}\frac{1}{\left(\frac{n + k}{2}\right)!}\frac{1}{\left(\frac{n - k}{2}\right)!}\left(-1\right)^{\frac{n - k}{2}}\delta_{n + k}x^k\nonumber\\
+&\Leftrightarrow -2\sum_{k = 0}^{n}k\frac{\left(n + k\right)!}{k!}\frac{1}{\left(\frac{n + k}{2}\right)!}\frac{1}{\left(\frac{n - k}{2}\right)!}\left(-1\right)^{\frac{n - k}{2}}\delta_{n + k}x^k\nonumber\\
 & - \sum_{k = 0}^{n - 2}\frac{1}{\left(\frac{n + k}{2}\right)!\left(\frac{n - k}{2}\right)!}\frac{\left(n + k\right)!}{k!}\left(n + k + 1\right)\left(n - k\right)\left(-1\right)^{\frac{n - k}{2}}\delta_{n + k}x^k\nonumber\\
 & - \sum_{k = 0}^{n}k\left(k - 1\right)\frac{\left(n + k\right)!}{k!}\frac{1}{\left(\frac{n + k}{2}\right)!}\frac{1}{\left(\frac{n - k}{2}\right)!}\left(-1\right)^{\frac{n - k}{2}}\delta_{n + k}x^k\nonumber\\
 & = -n\left(n + 1\right)\sum_{k = 0}^{n}\frac{\left(n + k\right)!}{k!}\frac{1}{\left(\frac{n + k}{2}\right)!}\frac{1}{\left(\frac{n - k}{2}\right)!}\left(-1\right)^{\frac{n - k}{2}}\delta_{n + k}x^k
@@ -21322,7 +21487,7 @@ Um dies zu zeigen leitet man zunächst Glg. \eqref{eq:dgl_ass_leg_herl} ab:
 %
 \begin{align}
 &  -2T_{l, m}'\left(\mu\right) - 4\mu T_{l, m}''\left(\mu\right) + \left(1 - \mu^2\right)T_{l, m}'''\left(\mu\right) = 2mT_{l, m}'\left(\mu\right) + 2\mu mT_{l, m}''\left(\mu\right) + \left(m\left(m + 1\right) - \lambda\right)T_{l, m}'\left(\mu\right)\nonumber\\
-&\Leftrightarrow& -2\mu T_{l, m}''\left(\mu\right) + \left(1 - \mu^2\right)T_{l, m}'''\left(\mu\right)\nonumber\\
+&\Leftrightarrow -2\mu T_{l, m}''\left(\mu\right) + \left(1 - \mu^2\right)T_{l, m}'''\left(\mu\right)\nonumber\\
 & = 2\left(1 + m\right)T_{l, m}'\left(\mu\right) + \left(m\left(m + 1\right) - \lambda\right)T_{l, m}'\left(\mu\right) + 2\mu\left(1 + m\right)T_{l, m}''\left(\mu\right)
 \end{align}
 %
@@ -21429,9 +21594,9 @@ Die Normierung der Legendre-Funktionen ergibt sich zu
 %
 \begin{align}
 \int_{-1}^{1}P_{l, m}\left(x\right)^2dx & = \frac{1}{2^{2l}l!^2}\int_{-1}^{\left(1\right)}\left(1 - x^2\right)^m\frac{d^{l + m}}{dx^{l + m}}\left(1 - x^2\right)^l\frac{d^{l + m}}{dx^{l + m}}\left(1 - x^2\right)^ldx\nonumber\\
-&\stackrel{m+l-\text{fache p.I}.}{=}&\frac{1}{2^{2l}l!^2}\left(-1\right)^{m + l}\left(-1\right)^{m + l}\left(m + l\right)!\frac{\left(2l\right)!}{\left(l - m\right)!}\int_{-1}^{1}\left(1 - x^2\right)^ldx\nonumber\\
+&\stackrel{m+l-\text{fache p.I}.}{=}\frac{1}{2^{2l}l!^2}\left(-1\right)^{m + l}\left(-1\right)^{m + l}\left(m + l\right)!\frac{\left(2l\right)!}{\left(l - m\right)!}\int_{-1}^{1}\left(1 - x^2\right)^ldx\nonumber\\
 & = \frac{1}{2^{2l}l!^2}\frac{\left(m + l\right)!}{\left(l - m\right)!}\left(2l\right)!\int_{-1}^{1}\left(1 + x\right)^l\left(1 - x\right)^ldx\nonumber\\
-&\stackrel{l-\text{fache p.I}.}{=}&\frac{1}{2^{2l}l!^2}\frac{\left(m + l\right)!}{\left(l - m\right)!}\left(2l\right)!\frac{l!}{\left(2l\right)!}l!\int_{-1}^{1}\left(1 + x\right)^{2l}dx\nonumber\\
+&\stackrel{l-\text{fache p.I}.}{=}\frac{1}{2^{2l}l!^2}\frac{\left(m + l\right)!}{\left(l - m\right)!}\left(2l\right)!\frac{l!}{\left(2l\right)!}l!\int_{-1}^{1}\left(1 + x\right)^{2l}dx\nonumber\\
 & = \frac{1}{2^{2l}}\frac{\left(m + l\right)!}{\left(l - m\right)!}\frac{2^{2l + 1}}{2l + 1} = \frac{2}{2l + 1}\frac{\left(l + m\right)!}{\left(l - m\right)!}.
 \end{align}
 %
@@ -21964,7 +22129,7 @@ Gehe zunächst von der Kugel aus, hier kann man für die Bestimmung der Funktion
 Definiere eine Funktion
 %
 \begin{align}
-\mathbf{r}'\left(\tau'\right)& \coloneqq&\tau'\mathbf{r}\left(1\right) + \left(1 - \tau'\right)\mathbf{r}\left(0\right).
+\mathbf{r}'\left(\tau'\right)&\coloneqq\tau'\mathbf{r}\left(1\right) + \left(1 - \tau'\right)\mathbf{r}\left(0\right).
 \end{align}
 %
 Dann gilt
@@ -21994,9 +22159,15 @@ d & = \sqrt{\left(x_b - x_a\right)^2 + \left(y_b - y_a\right)^2 + \left(z_b - z_
 %
 Im Fall $r_a = r_b = r$ gilt
 %
+\begin{center}
+\doublebox{\parbox{0.99\textwidth}{
+\begin{center}
 \begin{align}
 d = r\sqrt{2 - 2\left(\cos\left(\varphi_a\right)\cos\left(\varphi_b\right)\cos(\lambda_a - \lambda_b) + \sin\left(\varphi_a\right)\sin\left(\varphi_b\right)\right)}.
 \end{align}
+\end{center}
+}}
+\end{center}
 %
 Der Abstand zwischen zwei Punkten auf einer Kugel lässt sich hieraus leicht errechnen. Sei eine Kugel mit Radius $r$ gegeben. Dann ist der Abstand $\Delta$ zwischen zwei Punkten auf der Oberfläche, gemessen entlang der Oberfläche, gegeben durch
 %
@@ -22012,21 +22183,37 @@ wobei $\theta$ der Winkel zwischen den beiden Punkten ist, für diesen Winkel gi
 %
 Es gilt also wegen $\frac{\theta}{2}\in\left[0, \frac{\pi}{2}\right]$ für den Abstand $\Delta$ die Gleichung
 %
+\begin{center}
+\doublebox{\parbox{0.99\textwidth}{
+\begin{center}
 \begin{align}
 \Delta = 2r\arcsin\left(\sqrt{\frac{1}{2} - \frac{1}{2}\left(\cos\left(\varphi_a\right)\cos\left(\varphi_b\right)\cos(\lambda_a - \lambda_b) + \sin\left(\varphi_a\right)\sin\left(\varphi_b\right)\right)}\right).\label{eq:dist_kugel_h}
 \end{align}
+\end{center}
+}}
+\end{center}
 %
 Nun muss noch $\tau$ in $\tau'$ umgerechnet werden. Es gilt
 %
 \begin{align}
-\tau & = \frac{1}{2} + \frac{1}{\theta}\arctan\left(\frac{\tau' - \frac{1}{2}}{\sqrt{r^2 - \frac{d^2}{4}}}d\right) = \frac{1}{2} + \frac{1}{\theta}\arctan\left(\frac{\tau' - \frac{1}{2}}{\sqrt{\frac{r^2}{d^2} - \frac{1}{4}}}\right).
+\tau & = \frac{1}{2} + \frac{1}{\theta}\arctan\left(\frac{\tau' - \frac{1}{2}}{\sqrt{r^2 - \frac{d^2}{4}}}d\right) = \frac{1}{2} + \frac{1}{\theta}\arctan\left(\frac{\tau' - \frac{1}{2}}{\sqrt{\frac{r^2}{d^2} - \frac{1}{4}}}\right)\nonumber\\
+\Leftrightarrow\tau - \frac{1}{2} & = \frac{1}{\theta}\arctan\left(\frac{\tau' - \frac{1}{2}}{\sqrt{\frac{r^2}{d^2} - \frac{1}{4}}}\right)\nonumber\\
+\Leftrightarrow\theta\left(\tau - \frac{1}{2}\right) & = \arctan\left(\frac{\tau' - \frac{1}{2}}{\sqrt{\frac{r^2}{d^2} - \frac{1}{4}}}\right)\nonumber\\
+\Leftrightarrow\tan\left[\theta\left(\tau - \frac{1}{2}\right)\right] & = \frac{\tau' - \frac{1}{2}}{\sqrt{\frac{r^2}{d^2} - \frac{1}{4}}}\nonumber\\
+\Leftrightarrow\sqrt{\frac{r^2}{d^2} - \frac{1}{4}}\tan\left[\theta\left(\tau - \frac{1}{2}\right)\right] & = \tau' - \frac{1}{2}\nonumber.
 \end{align}
 %
 Hieraus folgt
 %
+\begin{center}
+\doublebox{\parbox{0.99\textwidth}{
+\begin{center}
 \begin{align}
 \tau' & = \frac{1}{2} + \sqrt{\frac{r^2}{d^2} - \frac{1}{4}}\tan\left[\theta\left(\tau - \frac{1}{2}\right)\right].\\
 \end{align}
+\end{center}
+}}
+\end{center}
 
 \subsection{Vertikale Flächen}
 \label{sec:vertikale_flaechen}
@@ -22060,15 +22247,27 @@ V = \int_{r_0}^{r_1}A\frac{r^2}{r_0^2}dr = \frac{A}{r_0^2}\frac{1}{3}\left(r_1^3
 
 Eine \textit{Ellipse}\index{Ellipse} in der xz-Ebene wird beschrieben durch
 %
+\begin{center}
+\doublebox{\parbox{0.99\textwidth}{
+\begin{center}
 \begin{align}
 \frac{x^2}{a^2} + \frac{z^2}{c^2} = 1.
 \end{align}
+\end{center}
+}}
+\end{center}
 %
 Dabei ist $a > 0$ die \textit{große Halbachse}\index{große Halbachse}\index{Halbachse!große}\index{Ellipse!Halbachse!große} (maximale Ausdehung der Ellipse in x-Richtung) und $0 < c < a$ die \textit{kleine Halbachse}\index{kleine Halbachse}\index{Halbachse!kleine}\index{Ellipse!Halbachse!kleine} (maximale Ausdehung der Ellipse in z-Richtung). Die \textit{Exzentrizität}\index{Exzentrizität} wird zu
 %
+\begin{center}
+\doublebox{\parbox{0.99\textwidth}{
+\begin{center}
 \begin{align}
 \epsilon \coloneqq \frac{a - c}{a}
 \end{align}
+\end{center}
+}}
+\end{center}
 %
 definiert. Damit erhält man
 %
@@ -22099,9 +22298,15 @@ Mit
 %
 kann man dies zu
 %
+\begin{center}
+\doublebox{\parbox{0.99\textwidth}{
+\begin{center}
 \begin{align}
 r\left(\varphi\right) & = a\left[1 + \frac{2\epsilon - \epsilon^2}{\left(1 - \epsilon\right)^2}\sin^2\left(\varphi\right)\right]^{-1/2}.
 \end{align}
+\end{center}
+}}
+\end{center}
 %
 umschreiben. Aus Glg \eqref{eq:ellips_prop_1} folgt weiter
 %
@@ -22114,8 +22319,17 @@ Ein \textit{Rotationsellipsoid}\index{Rotationsellipsoid} oder auch einfach \tex
 \begin{align}
 V & = \int_{ - c}^{c}\int_{0}^{a\sqrt{1 - \frac{z^2}{c^2}}}2\pi xdxdz = 2\pi\int_{ - c}^{c}\left[\frac{1}{2}x^2\right]_0^{a\sqrt{1 - \frac{z^2}{c^2}}}dz\nonumber\\
 & = 2\pi\int_{ - c}^{c}\frac{1}{2}a^2\left(1 - \frac{z^2}{c^2}\right)dz = \pi\int_{ - c}^{c}a^2 - \frac{a^2}{c^2}z^2dz = \pi 2a^2c - \pi\frac{a^2}{c^2}\frac{2}{3}c^3\nonumber\\
-& = \pi 2a^2c - \frac{2}{3}\pi a^2c = \frac{4}{3}\pi a^2c\label{eq:vol_rot_ellipsoid}
+& = \pi 2a^2c - \frac{2}{3}\pi a^2c\nonumber
 \end{align}
+\begin{center}
+\doublebox{\parbox{0.99\textwidth}{
+\begin{center}
+\begin{align}
+\Leftrightarrow V & = \frac{4}{3}\pi a^2c\label{eq:vol_rot_ellipsoid}
+\end{align}
+\end{center}
+}}
+\end{center}
 
 \subsection{Schwerefeld eines Ellipsoides}
 \label{sec:schwerefeld_eines_ellipsoides}\index{Schwerefeld eines Ellipsoids}\index{Ellipsoid!Schwerefeld}
@@ -22377,12 +22591,12 @@ Hierbei ist
 Die Voraussetzungen hierfür sind
 %
 \begin{align}
-A&<&0,\\
-B^2>4AC\Leftrightarrow 4r^2&>&4\left(1 - \frac{a^2}{c^2}\right)\left(a^2 + r^2\right)\nonumber\\
-\Leftrightarrow r^2&>&a^2 + r^2 - \frac{a^4}{c^2} - a^2\frac{r^2}{c^2}, \nonumber\\
-|2Ax + B|<\sqrt{B^2 - 4AC}\Leftrightarrow \left|2\left(1 - \frac{a^2}{c^2}\right)x - 2r\right|&<&\sqrt{4r^2 + 4\left(a^2 + r^2\right)\left(\frac{a^2}{c^2} - 1\right)}\nonumber\\
-\Leftrightarrow \left|x\left(1 - \frac{a^2}{c^2}\right) - r\right|&<&\sqrt{r^2 - a^2 - r^2 + \frac{a^4}{c^2} + r^2\frac{a^2}{c^2}}\nonumber\\
-\Leftarrow c\left(\frac{a^2}{c^2} - 1\right) + r&<&a\sqrt{\frac{a^2}{c^2} - 1 + \frac{r^2}{c^2}}.\label{eq:ungl_schwere}
+A&<0,\\
+B^2>4AC\Leftrightarrow 4r^2&>&\left(1 - \frac{a^2}{c^2}\right)\left(a^2 + r^2\right)\nonumber\\
+\Leftrightarrow r^2&>a^2 + r^2 - \frac{a^4}{c^2} - a^2\frac{r^2}{c^2}, \nonumber\\
+|2Ax + B|<\sqrt{B^2 - 4AC}\Leftrightarrow \left|2\left(1 - \frac{a^2}{c^2}\right)x - 2r\right|&<\sqrt{4r^2 + 4\left(a^2 + r^2\right)\left(\frac{a^2}{c^2} - 1\right)}\nonumber\\
+\Leftrightarrow \left|x\left(1 - \frac{a^2}{c^2}\right) - r\right|&<\sqrt{r^2 - a^2 - r^2 + \frac{a^4}{c^2} + r^2\frac{a^2}{c^2}}\nonumber\\
+\Leftarrow c\left(\frac{a^2}{c^2} - 1\right) + r&<a\sqrt{\frac{a^2}{c^2} - 1 + \frac{r^2}{c^2}}.\label{eq:ungl_schwere}
 \end{align}
 %
 Für $r = c$ werden die letzten beiden Ausdrücke gleich. Die Ableitung des linken Ausdrucks nach $r$ ist
