@@ -7381,19 +7381,61 @@ Hieraus folgt
 \subsubsection{Dissipation}
 \label{sec:dissipation}\index{Dissipation}
 
-Der Reibungsterm $\mathbf{f}_R$ dissipiert spezifische kinetische Energie $k = \frac{1}{2}\mathbf{v}^2$ in innere Energie $u = c^{(v)}T$. Wäre nur der Reibungsterm wirksam, würde die Impulsgleichung
+Der Reibungsterm $\mathbf{f}_R$ dissipiert spezifische kinetische Energie $k = \frac{1}{2}\mathbf{v}^2$ in innere Energie $i = c^{(v)}T$. Die Impulsgleichung in einem IS lautet
 %
 \begin{align}
-\md{\mathbf{v}} = \frac{\partial\mathbf{v}}{\partial t} + \left(\mathbf{v}\cdot\nabla\right)\mathbf{v} = \mathbf{f}_R
+\md{\mathbf{v}} = \frac{\partial\mathbf{v}}{\partial t} + \left(\mathbf{v}\cdot\nabla\right)\mathbf{v} = -\frac{1}{\rho}\nabla p + \mathbf{g} + \mathbf{f}_R
 \end{align}
 %
 lauten. Für die materielle Änderung der spezifischen kinetischen Energie $k$ gilt in diesem Fall
 %
 \begin{align}
-\md{k} = \md{}\left(\frac{1}{2}\mathbf{v}^2\right) = \mathbf{v}\cdot\md{\mathbf{v}} = \mathbf{v}\cdot\mathbf{f}_R.
+\md{k} = \md{}\left(\frac{1}{2}\mathbf{v}^2\right) = \mathbf{v}\cdot\md{\mathbf{v}} = -\frac{1}{\rho}\nabla p\cdot\mathbf{v} + \mathbf{v}\cdot\mathbf{g} + \mathbf{v}\cdot\mathbf{f}_R = -\frac{1}{\rho}\sum_{i = 1}^3v_i\frac{\partial p}{\partial x_i} + \sum_{i = 1}^3v_ig_i + \frac{1}{\rho}\sum_{i, j = 1}^3v_j\frac{\partial\tau_{i, j}}{\partial x_i}.
 \end{align}
 %
-Man definiert die spezifische Dissipationsrate, oder kurz \textit{Dissipation}\index{Dissipation} $\epsilon$, durch
+Multipliziert man dies mit $\rho$, erhält man
+%
+\begin{align}
+\rho\md{k} = -\sum_{i = 1}^3v_i\frac{\partial p}{\partial x_i} + \sum_{i = 1}^3\rho v_ig_i + \sum_{i, j = 1}^3v_j\frac{\partial\tau_{i, j}}{\partial x_i}.\label{eq:dissipation_deriv_0}
+\end{align}
+%
+Sei $\Omega = \Omega\left(t\right) \subseteq \mathbb{R}^3$ ein zusammenhängendes Kontrollvolumen. Dann gilt für die Gesamtenergie in diesem Bereich unter Abwesenheit von Wärmeflüssen (außer Dissipation)
+%
+\begin{align}
+\frac{d}{dt}\int_{\Omega\left(t\right)}\rho\left(k + i\right)d^3r &= \int_{\Omega\left(t\right)}\rho\mathbf{v}\cdot\mathbf{g}d^3r + \int_{\partial\Omega\left(t\right)}\mathbf{f}\cdot\mathbf{v}dA.\label{eq:dissipation_deriv_1}
+\end{align}
+%
+Hierbei ist $\mathbf{v}$ die auf die Oberfläche des Kontrollvolumens wirkende Kraft. Für diese gilt mit den Definitionen zu Beginn von Absch. \ref{sec:stress-tensor}
+%
+\begin{align}
+\int_{\partial\Omega\left(t\right)}\mathbf{f}\cdot\mathbf{v}dA &= \int_{\partial\Omega\left(t\right)}\sum_{i, j = 1}^3n_iT_{i, j}v_jdA = \int_{\Omega\left(t\right)}\sum_{i, j = 1}^3\frac{\partial\left(T_{i, j}v_j\right)}{\partial x_i}d^3r.
+\end{align}
+%
+Für den Integranden erhält man
+%
+\begin{align}
+\sum_{i, j = 1}^3\frac{\partial\left(T_{i, j}v_j\right)}{\partial x_i} &= \sum_{i, j = 1}^3v_j\frac{\partial T_{i, j}}{\partial x_i} + T_{i, j}\frac{\partial v_j}{\partial x_i} = \sum_{i, j = 1}^3v_j\frac{\partial\tau_{i, j}}{\partial x_i} + \sum_{i, j = 1}^3\tau_{i, j}\frac{\partial v_j}{\partial x_i} - \sum_{i = 1}^3v_i\frac{\partial p}{\partial x_i} - \sum_{i = 1}^3p\frac{\partial v_i}{\partial x_i}.
+\end{align}
+%
+Setzt man dies in Glg. \eqref{eq:dissipation_deriv_1} ein, erhält man
+%
+\begin{align}
+\frac{d}{dt}\int_{\Omega\left(t\right)}\rho\left(k + i\right)d^3r &= \int_{\Omega\left(t\right)}\rho\sum_{i = 1}^3g_iv_i + \sum_{i, j = 1}^3v_j\frac{\partial\tau_{i, j}}{\partial x_i} + \sum_{i, j = 1}^3\tau_{i, j}\frac{\partial v_j}{\partial x_i} - \sum_{i = 1}^3v_i\frac{\partial p}{\partial x_i} - \sum_{i = 1}^3p\frac{\partial v_i}{\partial x_i}d^3r.
+\end{align}
+%
+Lässt man $\Omega$ auf die Größe eines Fluidteilchens zusammenschrumpfen, erhält man
+%
+\begin{align}
+\md{\left[\rho\left(k + i\right)\right]} &= \sum_{i = 1}^3\rho v_ig_i + \sum_{i, j = 1}^3v_j\frac{\partial\tau_{i, j}}{\partial x_i} + \sum_{i, j = 1}^3\tau_{i, j}\frac{\partial v_j}{\partial x_i} - \sum_{i = 1}^3v_i\frac{\partial p}{\partial x_i} - \sum_{i = 1}^3p\frac{\partial v_i}{\partial x_i}.
+\end{align}
+%
+Subtrahiert man hiervon Glg. \eqref{eq:dissipation_deriv_0}, erhält man
+%
+\begin{align}
+\md{\left(\rho i\right)} &= \sum_{i, j = 1}^3\tau_{i, j}\frac{\partial v_j}{\partial x_i} - \sum_{i = 1}^3p\frac{\partial v_i}{\partial x_i} = -p\nabla\cdot\mathbf{v} + \sum_{i, j = 1}^3\tau_{i, j}\frac{\partial v_j}{\partial x_i} \equiv -p\nabla\cdot\mathbf{v} + \rho\epsilon.
+\end{align}
+%
+Man definiert somit die spezifische Dissipationsrate, oder kurz \textit{Dissipation}\index{Dissipation} $\epsilon$, durch
 %
 \begin{align}
 \epsilon \coloneqq \frac{1}{\rho}\sum_{i, j = 1}^3\tau_{i, j}\frac{\partial v_j}{\partial x_i} \stackrel{\text{Glg.en \eqref{eq:def_strain_rate_tensor} - \eqref{eq:def_rotation_tensor}}}{=} \frac{1}{\rho}\sum_{i, j = 1}^3\tau_{i, j}\left(S_{i, j} - \frac{1}{2}R_{i, j}\right) \stackrel{R_{i, j}\text{ antisymmetrisch}}{=} \frac{1}{\rho}\sum_{i, j = 1}^3\tau_{i, j}S_{i, j}.
@@ -7576,9 +7618,9 @@ Es gilt nach Glg. \eqref{eq:dissipation}
 %
 Nach Glg. \eqref{eq:lame_viscosity_relation} gilt
 %
-\begin{eqnarray}
+\begin{align}
 \mu_v - \frac{2}{3}\mu = \lambda,
-\end{eqnarray}
+\end{align}
 %
 hierbei ist $\lambda \geq 0$ die Lamé-Konstante\index{Lamé-Konstante}. Somit gilt
 %
@@ -7594,9 +7636,9 @@ hierbei ist $\lambda \geq 0$ die Lamé-Konstante\index{Lamé-Konstante}. Somit g
 
 Die Reibung vernichtet laut Glg. \eqref{eq:friction_work_sign} im globalen Mittel kinetische Energie, kann jedoch, wie in Absch. \ref{sec:thermodynamische_bedeutung_der_reibung} gezeigt, lokal auch kinetische Energie produzieren. Die Dissipation hingegen ist immer positiv. Lokal gilt also
 %
-\begin{eqnarray}
+\begin{align}
 \rho\mathbf{v}\cdot\mathbf{f}_R + \rho\epsilon \stackrel{\text{i. A.}}{\not=} 0.
-\end{eqnarray}
+\end{align}
 %
 Man erwartet jedoch, dass im globalen Mittel die Dissipation\index{Dissipation} genau so viel innere Energie produziert, wie die Reibung kinetische Energie vernichtet. Um dies zu zeigen, rechnet man
 %
@@ -7620,9 +7662,9 @@ Es gilt
 %
 Mit der Randbedingung
 %
-\begin{eqnarray}
+\begin{align}
 \nabla\mathbf{v}\cdot\mathbf{n} = 0
-\end{eqnarray}
+\end{align}
 %
 sind partielle Ableitungen tangentialer Windkomponenten orthogonal zur Oberfläche gleich Null. Somit folgt
 %
