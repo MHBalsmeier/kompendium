@@ -7179,8 +7179,8 @@ Die Größe $\frac{\partial v_i}{\partial x_j}$ bezeichnet man als \textit{Gesch
 %
 mit
 \begin{align}
-S_{i, j} &\coloneqq \frac{1}{2}\left(\frac{\partial v_i}{\partial x_j} + \frac{\partial v_j}{\partial x_i}\right),\label{eq:def_strain_tensor}\\
-R_{i, j} &\coloneqq \frac{\partial v_i}{\partial x_j} - \frac{\partial v_j}{\partial x_i}.
+S_{i, j} &\coloneqq \frac{1}{2}\left(\frac{\partial v_i}{\partial x_j} + \frac{\partial v_j}{\partial x_i}\right),\label{eq:def_strain_rate_tensor}\\
+R_{i, j} &\coloneqq \frac{\partial v_i}{\partial x_j} - \frac{\partial v_j}{\partial x_i}.\label{eq:def_rotation_tensor}
 \end{align}
 %
 $S_{i, j}$ bezeichnet man als \textit{Spannungstensor}\index{Spannungstensor}, dieser ist symmetrisch, und $R_{i, j}$ als \textit{Rotationstensor}\index{Rotationstensor}, dieser ist antisymmetrisch. Die Elemente des Rotationstensors\index{Rotationstensor} entsprechen der Rotation von Fluidteilchen, aber keiner Verformung oder Beschleunigung. Nur die Elemente des Spannungstensors\index{Spannungstensor} sind also relevant für den Stress\index{stress}. Daher kann man notieren
@@ -7209,13 +7209,13 @@ Dies führt auf
 K_{i, j, m, n} = \lambda\delta_{i, j}\delta_{m, n} + 2\mu\delta_{i, m}\delta_{j, n}.
 \end{align}
 %
-$\mu$ bezeichnet man als \textit{dynamische Viskosität}\index{dynamische Viskosität}\index{Viskosität!dynamische}. Setzt man dies in Glg. \eqref{eq:strain_to_stress} ein, erhält man
+$\mu$ bezeichnet man als \textit{dynamische Viskosität}\index{dynamische Viskosität}\index{Viskosität!dynamische} und $\lambda$ als \textit{Lamé-Konstante}\index{Lamé-Konstante}. Setzt man dies in Glg. \eqref{eq:strain_to_stress} ein, erhält man
 %
 \begin{align}
 \tau_{i, j} = \sum_{n, m}\left(\lambda\delta_{i, j}\delta_{m, n} + 2\mu\delta_{i, m}\delta_{j, n}\right)S_{m, n} = \lambda\delta_{i, j}\sum_{m}S_{m, m} + 2\mu S_{i, j}.
 \end{align}
 %
-Aus Glg. \eqref{eq:def_strain_tensor} folgt
+Aus Glg. \eqref{eq:def_strain_rate_tensor} folgt
 %
 \begin{align}
 \sum_{m}S_{m, m} = \nabla\cdot\mathbf{v}.
@@ -7265,10 +7265,10 @@ Die \index{Stokes-Annahme}\textit{Stokes-Annahme}
 \mu_v = 0
 \end{align}
 %
-ist oft gerechtfertigt, wird jedoch im weiteren nicht gemacht. Für die Materialkonstante $\lambda$ erhält man in Termen der Bulk-Viskosität\index{Bulk-Viskosität}
+ist oft gerechtfertigt, wird jedoch im weiteren nicht gemacht. Für die Lamé-Konstante $\lambda$ erhält man in Termen der Bulk-Viskosität\index{Bulk-Viskosität}
 %
 \begin{align}
-\lambda = \mu_v - \frac{2}{3}\mu.
+\lambda = \mu_v - \frac{2}{3}\mu.\label{eq:lame_viscosity_relation}
 \end{align}
 %
 Setzt man dies in Glg. \eqref{eq:stress_tensor_deriv_0} ein, erhält man
@@ -7381,7 +7381,7 @@ Hieraus folgt
 \subsubsection{Dissipation}
 \label{sec:dissipation}\index{Dissipation}
 
-Der Reibungsterm $\mathbf{f}_R$ dissipiert spezifische kinetische Energie $k = \frac{1}{2}\mathbf{v}^2$ in thermische Energie $u = c^{(v)}T$. Wäre nur der Reibungsterm wirksam, würde die Impulsgleichung
+Der Reibungsterm $\mathbf{f}_R$ dissipiert spezifische kinetische Energie $k = \frac{1}{2}\mathbf{v}^2$ in innere Energie $u = c^{(v)}T$. Wäre nur der Reibungsterm wirksam, würde die Impulsgleichung
 %
 \begin{align}
 \md{\mathbf{v}} = \frac{\partial\mathbf{v}}{\partial t} + \left(\mathbf{v}\cdot\nabla\right)\mathbf{v} = \mathbf{f}_R
@@ -7393,19 +7393,25 @@ lauten. Für die materielle Änderung der spezifischen kinetischen Energie $k$ g
 \md{k} = \md{}\left(\frac{1}{2}\mathbf{v}^2\right) = \mathbf{v}\cdot\md{\mathbf{v}} = \mathbf{v}\cdot\mathbf{f}_R.
 \end{align}
 %
-Um energetische Konsistenz zu gewährleisten, setzt man daher
+Man definiert die spezifische Dissipationsrate, oder kurz \textit{Dissipation}\index{Dissipation} $\epsilon$, durch
+%
+\begin{align}
+\epsilon \coloneqq \frac{1}{\rho}\sum_{i, j = 1}^3\tau_{i, j}\frac{\partial v_j}{\partial x_i} \stackrel{\text{Glg.en \eqref{eq:def_strain_rate_tensor} - \eqref{eq:def_rotation_tensor}}}{=} \frac{1}{\rho}\sum_{i, j = 1}^3\tau_{i, j}\left(S_{i, j} - \frac{1}{2}R_{i, j}\right) \stackrel{R_{i, j}\text{ antisymmetrisch}}{=} \frac{1}{\rho}\sum_{i, j = 1}^3\tau_{i, j}S_{i, j}.
+\end{align}
+%
+Es wird als Resultat dieses Abschnitts
 %
 \begin{center}
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-\epsilon \coloneqq q_{\text{diss}}\frac{1}{\rho} = \md{u} = -\md{k} = -\mathbf{v}\cdot\mathbf{f}_R\label{eq:diss_heat}
+\epsilon = \frac{1}{\rho}\sum_{i, j = 1}^3\tau_{i, j}S_{i, j} = \frac{1}{\rho}\sum_{i, j = 1}^3\tau_{i, j}\frac{\partial v_j}{\partial x_i}\label{eq:dissipation}
 \end{align}
 \end{center}
 }}
 \end{center}
 %
-für den mit die Reibung assoziierte Wärmeleistungsdichte\index{Wärmeleistungsdichte} $q_{\text{diss}}$ an, $\epsilon$ bezeichnet man als \textit{Dissipation}\index{Dissipation} oder auch \textit{Dissipationsrate}\index{Dissipationsrate}.
+notiert.
 
 \subsubsection{Thermodynamische Bedeutung der Reibung}
 \label{sec:thermodynamische_bedeutung_der_reibung}\index{Thermodynamik!Reibung}\index{Reibung!thermodynamische Bedeutung}
@@ -7552,6 +7558,80 @@ Somit gilt auch im kompressiblen Fall
 }}
 \end{center}
 
+\subsubsection{Thermodynamische Bedeutung der Dissipation}
+\label{sec:thermodynamische_bedeutung_der_dissipation}\index{Thermodynamik!Dissipation}\index{Dissipation!thermodynamische Bedeutung}
+
+Es gilt nach Glg. \eqref{eq:dissipation}
+%
+\begin{align}
+\epsilon &= \frac{1}{\rho}\sum_{i, j = 1}^3\tau_{i, j}S_{i, j} \stackrel{\text{Glg. \eqref{eq:stress-tensor}}}{=} \frac{1}{\rho}\sum_{i, j = 1}^3\left[2\mu\left(S_{i, j} - \frac{1}{3}\nabla\cdot\mathbf{v}\delta_{i, j}\right) + \mu_v\nabla\cdot\mathbf{v}\delta_{i, j}\right]S_{i, j}\nonumber\\
+&= \frac{2\mu}{\rho}\sum_{i, j = 1}^3S_{i, j}^2 - \frac{2}{3}\frac{\mu}{\rho}\sum_{i, j = 1}^3\nabla\cdot\mathbf{v}\delta_{i, j}S_{i, j} + \frac{\mu_v}{\rho}\sum_{i, j = 1}^3\nabla\cdot\mathbf{v}\delta_{i, j}S_{i, j}\nonumber\\
+&\stackrel{\text{Glg. \eqref{eq:def_strain_rate_tensor}}}{=} \frac{2\mu}{\rho}\sum_{i, j = 1}^3S_{i, j}^2 - \frac{2}{3}\frac{\mu}{\rho}\sum_{i, j = 1}^3\nabla\cdot\mathbf{v}\delta_{i, j}\frac{1}{2}\left(\frac{\partial v_i}{\partial x_j} + \frac{\partial v_j}{\partial x_i}\right) + \frac{\mu_v}{\rho}\sum_{i, j = 1}^3\nabla\cdot\mathbf{v}\delta_{i, j}\frac{1}{2}\left(\frac{\partial v_i}{\partial x_j} + \frac{\partial v_j}{\partial x_i}\right)\nonumber
+\end{align}
+\begin{align}
+& = \frac{2\mu}{\rho}\sum_{i, j = 1}^3S_{i, j}^2 - \frac{2}{3}\frac{\mu}{\rho}\nabla\cdot\mathbf{v}\sum_{i, j = 1}^3\delta_{i, j}\frac{1}{2}\left(\frac{\partial v_i}{\partial x_j} + \frac{\partial v_j}{\partial x_i}\right) + \frac{\mu_v}{\rho}\nabla\cdot\mathbf{v}\sum_{i, j = 1}^3\delta_{i, j}\frac{1}{2}\left(\frac{\partial v_i}{\partial x_j} + \frac{\partial v_j}{\partial x_i}\right)\nonumber\\
+& = \frac{2\mu}{\rho}\sum_{i, j = 1}^3S_{i, j}^2 - \frac{2}{3}\frac{\mu}{\rho}\left(\nabla\cdot\mathbf{v}\right)^2 + \frac{\mu_v}{\rho}\left(\nabla\cdot\mathbf{v}\right)^2\nonumber\\
+& = \frac{2\mu}{\rho}\sum_{i, j = 1}^3S_{i, j}^2 + \left(\frac{\mu_v}{\rho} - \frac{2}{3}\frac{\mu}{\rho}\right)\left(\nabla\cdot\mathbf{v}\right)^2.
+\end{align}
+%
+Nach Glg. \eqref{eq:lame_viscosity_relation} gilt
+%
+\begin{eqnarray}
+\mu_v - \frac{2}{3}\mu = \lambda,
+\end{eqnarray}
+%
+hierbei ist $\lambda \geq 0$ die Lamé-Konstante\index{Lamé-Konstante}. Somit gilt
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\epsilon \geq 0.
+\end{align}
+\end{center}
+}}
+\end{center}
+
+Die Reibung vernichtet laut Glg. \eqref{eq:friction_work_sign} im globalen Mittel kinetische Energie, kann jedoch, wie in Absch. \ref{sec:thermodynamische_bedeutung_der_reibung} gezeigt, lokal auch kinetische Energie produzieren. Die Dissipation hingegen ist immer positiv. Lokal gilt also
+%
+\begin{eqnarray}
+\rho\mathbf{v}\cdot\mathbf{f}_R + \rho\epsilon \stackrel{\text{i. A.}}{\not=} 0.
+\end{eqnarray}
+%
+Man erwartet jedoch, dass im globalen Mittel die Dissipation\index{Dissipation} genau so viel innere Energie produziert, wie die Reibung kinetische Energie vernichtet. Um dies zu zeigen, rechnet man
+%
+\begin{align}
+\int_\Omega\rho\epsilon + \rho\mathbf{v}\cdot\mathbf{f}_Rd^3r &\stackrel{\text{Glg. \eqref{eq:dissipation}}}{=} \int_\Omega\sum_{i, j = 1}^3\tau_{i, j}\frac{\partial v_j}{\partial x_i} + \rho\mathbf{v}\cdot\mathbf{f}_Rd^3r = \int_\Omega\sum_{i, j = 1}^3\tau_{i, j}\frac{\partial v_j}{\partial x_i} + \rho\sum_{i, j = 1}^3\frac{1}{\rho}v_j\frac{\partial\tau_{i, j}}{\partial x_i}d^3r\nonumber\\
+&= \int_\Omega\sum_{i, j = 1}^3\tau_{i, j}\frac{\partial v_j}{\partial x_i} + \sum_{i, j = 1}^3v_j\frac{\partial\tau_{i, j}}{\partial x_i}d^3r = \int_\Omega\sum_{i, j = 1}^3\tau_{i, j}\frac{\partial v_j}{\partial x_i} + v_j\frac{\partial\tau_{i, j}}{\partial x_i}d^3r\nonumber\\
+&= \int_\Omega\sum_{i, j = 1}^3\frac{\partial\left(\tau_{i, j}v_j\right)}{\partial x_i}d^3r.
+\end{align}
+%
+Man betrachtet zunächst beispielhaft nur die Terme mit partiellen Ableitungen nach $x$ und geht von $\Omega = \left[0, L_x\right] \times \left[0, L_z\right] \times \left[0, L_y\right]$ aus:
+%
+\begin{align}
+\int_{0}^{L_x}\sum_{j = 1}^3\frac{\partial\left(\tau_{x, j}v_j\right)}{\partial x}dx &= \left[\sum_{j = 1}^3\tau_{x, j}v_j\right]_0^{L_x} \stackrel{v_1 = u = 0}{=} \left[\tau_{x, y}v + \tau_{x, z}w\right]_0^{L_x}.
+\end{align}
+%
+Es gilt
+%
+\begin{align}
+\tau_{x, y}v + \tau_{x, z}w = v\mu\left(\frac{\partial u}{\partial y} + \frac{\partial v}{\partial x}\right) + w\mu\left(\frac{\partial u}{\partial z} + \frac{\partial w}{\partial x}\right) \stackrel{u = 0}{=} v\mu\frac{\partial v}{\partial x} + w\mu\frac{\partial w}{\partial x} = \mu\left(v\frac{\partial v}{\partial x} + w\frac{\partial w}{\partial x}\right).
+\end{align}
+%
+Mit der Randbedingung
+%
+\begin{eqnarray}
+\nabla\mathbf{v}\cdot\mathbf{n} = 0
+\end{eqnarray}
+%
+sind partielle Ableitungen tangentialer Windkomponenten orthogonal zur Oberfläche gleich Null. Somit folgt
+%
+\begin{align}
+\int_{0}^{L_x}\sum_{j = 1}^3\frac{\partial\left(\tau_{x, j}v_j\right)}{\partial x}dx &= 0.
+\end{align}
+%
+Durch zyklische Vertauschung folgt dies auch für die anderen Raumrichtungen. Es ist also in der Tat
+%
 \begin{center}
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
@@ -8907,7 +8987,7 @@ Dann ergibt sich die Gesamt-Leistungsdichte zu
 q_{\text{diss}} = q_{h} + \sum_{i}^{}q_{\text{diss}, i} = -\left[\rho_h + \sum_{i}^{}\rho_i\right]\mathbf{v}\cdot\mathbf{f}_R = -\rho\mathbf{v}\cdot\mathbf{f}_R,
 \end{align}
 %
-was wieder Glg. \eqref{eq:diss_heat} entspricht.
+was wieder Glg. \eqref{eq:dissipation} entspricht.
 
 \subsection{Strahlungsübertragungsgleichung}
 \label{sec:strahlungsuebertragungsgleichung}\index{Strahlungstransport}\index{Strahlungsübertragungsgleichung}
