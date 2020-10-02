@@ -7026,7 +7026,7 @@ der Fluss der Impulsdichte in $\mathbf{e}_i-$Richtung. Für einen allgemeinen Ei
 Somit gilt bereits
 %
 \begin{align}
-\frac{\partial\left(\rho\mathbf{v}\right)}{\partial t} + \nabla p + \nabla\cdot\Pi - \rho\mathbf{g} = 0.
+\frac{\partial\left(\rho\mathbf{v}\right)}{\partial t} + \nabla p + \nabla\cdot\Pi - \rho\mathbf{g} = 0.\label{eq:momentum_flux_form}
 \end{align}
 %
 Für die Divergenz von $\Pi$ folgt
@@ -7628,7 +7628,7 @@ hierbei ist $\lambda \geq 0$ die Lamé-Konstante\index{Lamé-Konstante}. Somit g
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-\epsilon \geq 0.
+\epsilon \geq 0.\label{eq:dissipation_sign}
 \end{align}
 \end{center}
 }}
@@ -7757,11 +7757,11 @@ Setzt man dies in die Bewegungsgleichung ein, folgt
 \doublebox{\parbox{0.9\textwidth}{
 \begin{center}
 \begin{align}
-\frac{\partial u}{\partial t} + u\frac{\partial u}{\partial x} + v\frac{\partial u}{\partial y} + w\frac{\partial u}{\partial z} - \frac{uv\tan\left(\varphi\right)}{a + z} + \frac{uw}{a + z} & = -\frac{1}{\rho}\frac{\partial p}{\partial x} + g_x - f'w + fv + F_{R,x}
+\frac{\partial u}{\partial t} + u\frac{\partial u}{\partial x} + v\frac{\partial u}{\partial y} + w\frac{\partial u}{\partial z} - \frac{uv\tan\left(\varphi\right)}{a + z} + \frac{uw}{a + z} & = -\frac{1}{\rho}\frac{\partial p}{\partial x} + g_x - f'w + fv + f_{R,x}
 \label{eq:x_momentum},\\
-\frac{\partial v}{\partial t} + u\frac{\partial v}{\partial x} + v\frac{\partial v}{\partial y} + w\frac{\partial v}{\partial z} + \frac{u^2\tan\left(\varphi\right)}{a + z} + \frac{vw}{a + z} & = -\frac{1}{\rho}\frac{\partial p}{\partial y} + g_y - fu + F_{R,y}
+\frac{\partial v}{\partial t} + u\frac{\partial v}{\partial x} + v\frac{\partial v}{\partial y} + w\frac{\partial v}{\partial z} + \frac{u^2\tan\left(\varphi\right)}{a + z} + \frac{vw}{a + z} & = -\frac{1}{\rho}\frac{\partial p}{\partial y} + g_y - fu + f_{R,y}
 \label{eq:y_momentum},\\
-\frac{\partial w}{\partial t} + u\frac{\partial w}{\partial x} + v\frac{\partial w}{\partial y} + w\frac{\partial w}{\partial z} - \frac{u^2 + v^2}{a + z} & = -\frac{1}{\rho}\frac{\partial p}{\partial z} + g_z + f'u + F_{R,z}
+\frac{\partial w}{\partial t} + u\frac{\partial w}{\partial x} + v\frac{\partial w}{\partial y} + w\frac{\partial w}{\partial z} - \frac{u^2 + v^2}{a + z} & = -\frac{1}{\rho}\frac{\partial p}{\partial z} + g_z + f'u + f_{R,z}
 \label{eq:z_momentum}.
 \end{align}
 \end{center}
@@ -14918,7 +14918,12 @@ Die semigeostrophische Annahme ist eine Relaxation der quasigeostrophischen Anna
 \chapter{\normalfont\textsc{Turbulenz}}
 \label{chap:turbulenz}\index{Turbulenz}
 
-Es gibt keine mathematisch exakte Definition dafür, ob ein Strömungsfeld turbulent ist oder nicht. Es kann davon ausgegangen werden, dass jedes Strömungsfeld, wenn man es nur aus genügend großer Entfernung betrachtet, tubulent aussieht. Zoomt man jedoch weit genug hinein, wird man meistens eine Skala finden, auf der des Feld einen \textit{laminaren}\index{laminare Strömung}\index{Strömung!laminare} Eindruck macht, was man als das Gegenteil von Turbulenz versteht. Ist diese Skala die molekulare Skala, liegt \textit{volle Turbulenz}\index{Turbulenz!volle}\index{volle Turbulenz} vor. Definiere einen Mittelungsoperator durch
+Es gibt keine mathematisch exakte Definition dafür, ob ein Strömungsfeld turbulent ist oder nicht. Es kann davon ausgegangen werden, dass jedes Strömungsfeld, wenn man es nur aus genügend großer Entfernung betrachtet, tubulent aussieht. Zoomt man jedoch weit genug hinein, wird man meistens eine Skala finden, auf der des Feld einen \textit{laminaren}\index{laminare Strömung}\index{Strömung!laminare} Eindruck macht, was man als das Gegenteil von Turbulenz versteht. Ist diese Skala die molekulare Skala, liegt \textit{volle Turbulenz}\index{Turbulenz!volle}\index{volle Turbulenz} vor. 
+
+\section{Grundlagen}
+\label{sec:grundlagen}
+
+Definiere einen Mittelungsoperator durch
 %
 \begin{align}
 \newoverline{f} \coloneqq \frac{1}{\mu\left(\Omega\right)}\int_\Omega fd\omega,\label{eq:simple_average}
@@ -14974,10 +14979,10 @@ Man nimmt nun an, dass das Hesselberg-Mittel\index{Hesselberg-Mittel} ein Reynol
 %
 Die prognostischen Gleichungen der gemittelten Felder sind also gegenüber denen der ungemittelten Felder um Terme der Form $\newoverline{f''g''}$ korrigiert, wobei $f, g$ linear in den Feldern und ihren Ableitungen sind. Diese Terme bezeichnet man als die Konvergenzen der \textit{turbulenten Korrelationsflüsse}\index{Korrelationsfluss}. Diese sind natürlich von der Größe der Menge abhängig, über die gemittelt wird, d. h. im Falle eines numerischen Modells auflösungsabhängig. Im Falle einer immer kleiner werdenden Mittelungsmege verlieren die Kovarianzterme an Bedeutung, bis sie schließlich ganz verschwinden. 
 
-Für die turbulenten Größen liegen jedoch keine prognostischen Gleichungen vor, was man als \textit{Schließungsproblem}\index{Schließungsproblem} bezeichnet. Um die Korrelationsterme in der Impulsgleichung näher zu spezifizieren, wendet man den Reynolds-Mittelungsoperator auf Glg. an, man erhält so
+Für die turbulenten Größen liegen jedoch keine prognostischen Gleichungen vor, was man als \textit{Schließungsproblem}\index{Schließungsproblem} bezeichnet. Um die Korrelationsterme in der Impulsgleichung näher zu spezifizieren, wendet man den Reynolds-Mittelungsoperator auf Glg. \eqref{eq:momentum_flux_form} an, man erhält so
 %
 \begin{align}
-\frac{\partial\left(\rho\mathbf{v}\right)}{\partial t} + \nabla p + \nabla\cdot\Pi + \nabla\cdot\newtilde{\Pi} - \rho\mathbf{g} = \mathbf{0}, 
+\frac{\partial\left(\rho\mathbf{v}\right)}{\partial t} + \nabla p + \nabla\cdot\overleftrightarrow{\Pi} - \rho\mathbf{g} + \nabla\cdot\overleftrightarrow{\newtilde{\Pi}} = \mathbf{0}, 
 \end{align}
 %
 wobei die Horizontalstriche der Übersichtlichkeit halber weggelassen wurden. Außerdem ist der \index{Turbulenzkorrelationstensor}\textit{Turbulenzkorrelationstensor} $\newtilde{\Pi}$ durch
@@ -14988,9 +14993,9 @@ wobei die Horizontalstriche der Übersichtlichkeit halber weggelassen wurden. Au
 \newoverline{v''u''} & \newoverline{v''v''} & \newoverline{v''w''} \\
 \newoverline{w''u''} & \newoverline{w''v''} & \newoverline{w''w''}
 \end{array}\right) =: \left(\begin{array}{ccc}
--\tau_{x, x} & -\tau_{x, y} & -\tau_{x, z} \\
--\tau_{y, x} & -\tau_{y, y} & -\tau_{y, z} \\
--\tau_{z, x} & -\tau_{z, y} & -\tau_{z, z}
+\newtilde{\Pi}_{x, x} & \newtilde{\Pi}_{x, y} & \newtilde{\Pi}_{x, z} \\
+\newtilde{\Pi}_{y, x} & \newtilde{\Pi}_{y, y} & \newtilde{\Pi}_{y, z} \\
+\newtilde{\Pi}_{z, x} & \newtilde{\Pi}_{z, y} & \newtilde{\Pi}_{z, z}
 \end{array}\right)
 \end{align}
 %
@@ -15001,6 +15006,109 @@ definiert. Es wurde von der gerechtfertigten Annahme
 \end{align}
 %
 ausgegangen. $-\nabla\cdot\newtilde{\Pi}$ liefert die \index{Eddy-Stress-Term}\textit{Eddy-Stress-Terme}, die sich in der Impulsgleichung niederschlagen und anstatt der $- \newoverline{\left(\mathbf{v}''\cdot\nabla\right)\mathbf{v}''} - \newoverline{\alpha''\frac{\partial p''}{\partial x}}$ verwendet werden.
+
+\subsection{Turbulente Dissipation}
+\label{sec:turbulente_dissipation}\index{turbulente Dissipation}\index{Dissipation!turbulente}
+
+Man kann analog zur molekularen Dissipation $\epsilon$ (s. Glg. \eqref{eq:dissipation}) eine mit der Turbulenz verbundene \textit{turbulente Dissipation}\index{turbulente Dissipation}\index{Dissipation!turbulente}
+%
+\begin{center}
+\doublebox{\parbox{\textwidth}{
+\begin{center}
+\begin{align}
+\epsilon_\text{turb} \coloneqq \frac{1}{\rho}\sum_{i, j = 1}^3-\newtilde{\Pi}_{i, j}S_{i, j} = \frac{1}{\rho}\sum_{i, j = 1}^3-\newtilde{\Pi}_{i, j}\frac{\partial v_j}{\partial x_i}
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+definieren. Da für $\overleftrightarrow{\newtilde{\Pi}}$ keine explizite Formel vorliegt, kann man kein turbulentes Analogon zu Glg. \eqref{eq:dissipation_sign} finden: Das Vorzeichen von $\epsilon_\text{turb}$ bleibt unbestimmt.
+
+\subsection{Konkrete Mittelungsoperatoren}
+\label{sec:konkrete_mittelungsoperatoren}\index{konkrete Mittelungsoperatoren}\index{Mittelungsoperator!konkreter}
+
+Sei $f$ eine skalare oder vektorielle Funktion von Ort und Zeit. Ein allgemeiner Mittelungsoperator $\newoverline{f}$ wird definiert durch
+%
+\begin{align}
+\newoverline{f}\left(x_i\right) \coloneqq \frac{\int_\Omega f\left(x_i\right)h\left(x_i\right)dx_1\dotsc dx_n}{\int_\Omega h\left(x_i\right)dx_1\dotsc dx_n}, \label{eq:av_op_gen}
+\end{align}
+%
+wobei die Zeit $t$ als eine der $x_i$ aufgefasst werden soll und $h$ eine Gewichtungsfunktion darstellt.
+
+\subsubsection{Gleitendes Zeitmittel}
+\label{sec:gleitendes_zeitmittel}\index{Zeitmittel!gleitendes}\index{gleitendes Zeitmittel}\index{gleitendes Mittel}\index{Mittel!gleitendes}
+
+Das \textit{gleitende Zeitmittel} mit der Mittelungslänge $T$ erhält man aus Glg. \eqref{eq:av_op_gen} mit $\Omega = \left(t - \frac{T}{2}, t + \frac{T}{2}\right)$ und $h = 1$, also
+%
+\begin{align}
+\newoverline{f}\left(\mathbf{r}, t\right) = \frac{1}{T}\int_{t-\frac{T}{2}}^{t + \frac{T}{2}}f\left(\mathbf{r}, t'\right)dt'.
+\end{align}
+%
+Man überpruft nun, ob dieser Operator die Eigenschaften eines Reynolds-Operators Glg.en \eqref{eq:reynolds_prop_1} - \eqref{eq:reynolds_prop_3} erfüllt. Zunächst gilt
+%
+\begin{align}
+\frac{\partial\overline{f}}{\partial x_i} & = \frac{1}{T}\int_{t-\frac{T}{2}}^{t + \frac{T}{2}}\frac{\partial f}{\partial x_i}\left(\mathbf{r}, t'\right)dt' = \newoverline{\frac{\partial f}{\partial x_i}}, 
+\end{align}
+%
+Glg. \eqref{eq:reynolds_prop_1} ist also erfüllt. Die Überprüfung der Erfüllung von Glg. \eqref{eq:reynolds_prop_2} erfolgt mittels des Haupsatz der Differenzial- und Integralrechnung:
+%
+\begin{align}
+\frac{\partial\overline{f}}{\partial t} & = \frac{f\left(\mathbf{r}, t + \frac{T}{2}\right) - f\left(\mathbf{r}, t - \frac{T}{2}\right)}{T} = \frac{1}{T}\int_{t-\frac{T}{2}}^{t + \frac{T}{2}}\frac{\partial f}{\partial t'}\left(\mathbf{r}, t'\right)dt' = \newoverline{\frac{\partial f}{\partial t}}
+\end{align}
+%
+Die ersten beiden Eigenschaften sind also erfüllt. Für die dritte rechnet man mit $g = 1$
+%
+\begin{align}
+\newoverline{f'} & = \frac{1}{T}\int_{t-\frac{T}{2}}^{t + \frac{T}{2}}f\left(\mathbf{r}, t'\right) - \newoverline{f}\left(\mathbf{r}, t'\right)dt' \hastobe 0.
+\end{align}
+%
+Dies soll für beliebige Zeitpunkte gelten, also folgt hieraus bereits
+%
+\begin{align}
+\newoverline{f} = f
+\end{align}
+%
+zu allen Zeitpunkten als Kriterium für die Gültigkeit von Glg. \eqref{eq:reynolds_prop_3} für den einfachen Fall $g = 1$, was nur für lineare Funktionen $f$ der Fall ist.
+
+\subsubsection{Hesselberg-Mittel}
+\label{sec:hesselberg-mittel}\index{Hesselberg-Mittel}
+
+Setzt man in Glg. \eqref{eq:av_op_gen} den Fall $h = \rho$ ein, erhält man das bereits in der Einleitung erwähnte Hesselberg-Mittel\index{Hesselberg-Mittel}. Für dieses notiert man die Zerlegung
+%
+\begin{align}
+f = \left\langle f\right\rangle + f'',
+\end{align}
+%
+um das Hesselberg-Mittel\index{Hesselberg-Mittel} von anderen Mittelungen wie z. B. dem gleitenden Zeitmittel\index{Zeitmittel!gleitendes}\index{gleitendes Zeitmittel}\index{gleitendes Mittel}\index{Mittel!gleitendes} oder einem allgemeinen Reynolds-Operator\index{Reynolds-Operator} abzugrenzen.
+
+\subsubsection{Tiefpass}
+\label{sec:tiefpass}\index{Tiefpass}
+
+Die Fourier-Transformation\index{Fourier-Transformation} $\newtilde{f}\left(k\right)$ eines Feldes $f = f\left(x\right)$ lautet
+%
+\begin{align}
+\newtilde{f}\left(k\right) \stackrel{\text{Glg. \eqref{eq:def_ft_1d}}}{=} C\int_{-\infty}^\infty f\left(x\right)\exp\left(-ikx\right)dx.
+\end{align}
+%
+Die inverse Fourier-Transformation\index{inverse Fourier-Transformation}\index{Fourier-Transformation!inverse} ist laut Glg. \eqref{eq:def_ft_1d_inv} gegeben durch
+%
+\begin{align}
+f\left(x\right) = \newtilde{C}\int_{-\infty}^\infty f\left(x\right)\exp\left(ikx\right)dk,
+\end{align}
+%
+wobei laut Glg. \eqref{eq:ft_norm} auf $C\newtilde{C} = 1/\left(2\pi\right)$ zu achten ist. Ein Tiefpass\index{Tiefpass} mit der Grenz-Wellenzahl $k^\star > 0$ wird durch die Gleichung
+%
+\begin{align}
+\newoverline{f}\left(x\right) = \newtilde{C}\int_{-k^\star}^{k^\star}f\left(x\right)\exp\left(ikx\right)dk
+\end{align}
+%
+festgelegt. Wie schon durch die Notation $\newoverline{f}$ angedeutet wurde, handelt es sich auch hier um eine Art Mittelungsoperator\index{Mittelungsoperator}. Für die Fluktuation\index{Fluktuation} $f'$ erhält man
+%
+\begin{align}
+f'\left(x\right) &\coloneqq f\left(x\right) - \newoverline{f}\left(x\right) = \newtilde{C}\int_{-\infty}^{\infty}f\left(x\right)\exp\left(ikx\right)dk - \newtilde{C}\int_{-k^\star}^{k^\star}f\left(x\right)\exp\left(ikx\right)dk\nonumber\\
+& = \newtilde{C}\int_{-\infty}^{-k^\star}f\left(x\right)\exp\left(ikx\right)dk + \newtilde{C}\int_{k^\star}^{\infty}f\left(x\right)\exp\left(ikx\right)dk.
+\end{align}
+
 
 \section{Mischungswegansatz}
 \label{sec:mischungswegansatz}\index{Mischungswegansatz}
@@ -15278,91 +15386,6 @@ Dies ist deutlich geringer als der in Absch. \ref{sec:reibungswind} abgeschätzt
 
 \subsection{Spin-down}
 \label{sec:spin-down}\index{Spin-down}
-
-\section{Konkrete Mittelungsoperatoren}
-\label{sec:konkrete_mittelungsoperatoren}\index{konkrete Mittelungsoperatoren}\index{Mittelungsoperator!konkreter}
-
-Sei $f$ eine skalare oder vektorielle Funktion von Ort und Zeit. Ein allgemeiner Mittelungsoperator $\newoverline{f}$ wird definiert durch
-%
-\begin{align}
-\newoverline{f}\left(x_i\right) \coloneqq \frac{\int_\Omega f\left(x_i\right)h\left(x_i\right)dx_1\dotsc dx_n}{\int_\Omega h\left(x_i\right)dx_1\dotsc dx_n}, \label{eq:av_op_gen}
-\end{align}
-%
-wobei die Zeit $t$ als eine der $x_i$ aufgefasst werden soll und $h$ eine Gewichtungsfunktion darstellt.
-
-\subsection{Gleitendes Zeitmittel}
-\label{sec:gleitendes_zeitmittel}\index{Zeitmittel!gleitendes}\index{gleitendes Zeitmittel}\index{gleitendes Mittel}\index{Mittel!gleitendes}
-
-Das \textit{gleitende Zeitmittel} mit der Mittelungslänge $T$ erhält man aus Glg. \eqref{eq:av_op_gen} mit $\Omega = \left(t - \frac{T}{2}, t + \frac{T}{2}\right)$ und $h = 1$, also
-%
-\begin{align}
-\newoverline{f}\left(\mathbf{r}, t\right) = \frac{1}{T}\int_{t-\frac{T}{2}}^{t + \frac{T}{2}}f\left(\mathbf{r}, t'\right)dt'.
-\end{align}
-%
-Man überpruft nun, ob dieser Operator die Eigenschaften eines Reynolds-Operators Glg.en \eqref{eq:reynolds_prop_1} - \eqref{eq:reynolds_prop_3} erfüllt. Zunächst gilt
-%
-\begin{align}
-\frac{\partial\overline{f}}{\partial x_i} & = \frac{1}{T}\int_{t-\frac{T}{2}}^{t + \frac{T}{2}}\frac{\partial f}{\partial x_i}\left(\mathbf{r}, t'\right)dt' = \newoverline{\frac{\partial f}{\partial x_i}}, 
-\end{align}
-%
-Glg. \eqref{eq:reynolds_prop_1} ist also erfüllt. Die Überprüfung der Erfüllung von Glg. \eqref{eq:reynolds_prop_2} erfolgt mittels des Haupsatz der Differenzial- und Integralrechnung:
-%
-\begin{align}
-\frac{\partial\overline{f}}{\partial t} & = \frac{f\left(\mathbf{r}, t + \frac{T}{2}\right) - f\left(\mathbf{r}, t - \frac{T}{2}\right)}{T} = \frac{1}{T}\int_{t-\frac{T}{2}}^{t + \frac{T}{2}}\frac{\partial f}{\partial t'}\left(\mathbf{r}, t'\right)dt' = \newoverline{\frac{\partial f}{\partial t}}
-\end{align}
-%
-Die ersten beiden Eigenschaften sind also erfüllt. Für die dritte rechnet man mit $g = 1$
-%
-\begin{align}
-\newoverline{f'} & = \frac{1}{T}\int_{t-\frac{T}{2}}^{t + \frac{T}{2}}f\left(\mathbf{r}, t'\right) - \newoverline{f}\left(\mathbf{r}, t'\right)dt' \hastobe 0.
-\end{align}
-%
-Dies soll für beliebige Zeitpunkte gelten, also folgt hieraus bereits
-%
-\begin{align}
-\newoverline{f} = f
-\end{align}
-%
-zu allen Zeitpunkten als Kriterium für die Gültigkeit von Glg. \eqref{eq:reynolds_prop_3} für den einfachen Fall $g = 1$, was nur für lineare Funktionen $f$ der Fall ist.
-
-\subsection{Hesselberg-Mittel}
-\label{sec:hesselberg-mittel}\index{Hesselberg-Mittel}
-
-Setzt man in Glg. \eqref{eq:av_op_gen} den Fall $h = \rho$ ein, erhält man das bereits in der Einleitung erwähnte Hesselberg-Mittel\index{Hesselberg-Mittel}. Für dieses notiert man die Zerlegung
-%
-\begin{align}
-f = \left\langle f\right\rangle + f'',
-\end{align}
-%
-um das Hesselberg-Mittel\index{Hesselberg-Mittel} von anderen Mittelungen wie z. B. dem gleitenden Zeitmittel\index{Zeitmittel!gleitendes}\index{gleitendes Zeitmittel}\index{gleitendes Mittel}\index{Mittel!gleitendes} oder einem allgemeinen Reynolds-Operator\index{Reynolds-Operator} abzugrenzen.
-
-\subsection{Tiefpass}
-\label{sec:tiefpass}\index{Tiefpass}
-
-Die Fourier-Transformation\index{Fourier-Transformation} $\newtilde{f}\left(k\right)$ eines Feldes $f = f\left(x\right)$ lautet
-%
-\begin{align}
-\newtilde{f}\left(k\right) \stackrel{\text{Glg. \eqref{eq:def_ft_1d}}}{=} C\int_{-\infty}^\infty f\left(x\right)\exp\left(-ikx\right)dx.
-\end{align}
-%
-Die inverse Fourier-Transformation\index{inverse Fourier-Transformation}\index{Fourier-Transformation!inverse} ist laut Glg. \eqref{eq:def_ft_1d_inv} gegeben durch
-%
-\begin{align}
-f\left(x\right) = \newtilde{C}\int_{-\infty}^\infty f\left(x\right)\exp\left(ikx\right)dk,
-\end{align}
-%
-wobei laut Glg. \eqref{eq:ft_norm} auf $C\newtilde{C} = 1/\left(2\pi\right)$ zu achten ist. Ein Tiefpass\index{Tiefpass} mit der Grenz-Wellenzahl $k^\star > 0$ wird durch die Gleichung
-%
-\begin{align}
-\newoverline{f}\left(x\right) = \newtilde{C}\int_{-k^\star}^{k^\star}f\left(x\right)\exp\left(ikx\right)dk
-\end{align}
-%
-festgelegt. Wie schon durch die Notation $\newoverline{f}$ angedeutet wurde, handelt es sich auch hier um eine Art Mittelungsoperator\index{Mittelungsoperator}. Für die Fluktuation\index{Fluktuation} $f'$ erhält man
-%
-\begin{align}
-f'\left(x\right) &\coloneqq f\left(x\right) - \newoverline{f}\left(x\right) = \newtilde{C}\int_{-\infty}^{\infty}f\left(x\right)\exp\left(ikx\right)dk - \newtilde{C}\int_{-k^\star}^{k^\star}f\left(x\right)\exp\left(ikx\right)dk\nonumber\\
-& = \newtilde{C}\int_{-\infty}^{-k^\star}f\left(x\right)\exp\left(ikx\right)dk + \newtilde{C}\int_{k^\star}^{\infty}f\left(x\right)\exp\left(ikx\right)dk.
-\end{align}
 
 \section{Isotrope Turbulenz}
 \label{sec:isotrope_turbulenz}\index{isotrope Turbulenz}\index{Turbulenz!isotrope}
