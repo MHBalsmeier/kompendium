@@ -5824,14 +5824,29 @@ N = n\sigma l
 Dabei ist $n$ die Teilchendichte und $\sigma l$ ist das Volumen eines Zylinders mit Radius $d$, in dem Stoßpartner getroffen werden. Für die \index{Stoßzeit!mittlere}\index{mittlere Stoßzeit}\textit{mittlere Stoßzeit} $\tau$ gilt somit
 %
 \begin{align}
-1 = n\sigma\newoverline{v_{\text{rel}}}\tau\stackrel{\text{Glg. \eqref{eq:mittlere_rel_gesch}}}{\Leftrightarrow}\tau = \frac{1}{\sqrt{2}n\sigma\newoverline{v}}.\label{eq:stosszeit}
+1 &= n\sigma\newoverline{v_{\text{rel}}}\tau\nonumber
 \end{align}
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\stackrel{\text{Glg. \eqref{eq:mittlere_rel_gesch}}}{\Leftrightarrow}\tau = \frac{1}{\sqrt{2}n\sigma\newoverline{v}}.\label{eq:stosszeit}
+\end{align}
+\end{center}
+}}
+\end{center}
 %
 Für die mittlere freie Weglänge $\lambda$ folgt
 %
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 \begin{align}
 \lambda = \frac{1}{\sqrt{2}n\sigma}\label{eq:mittlere_weglaenge}.
 \end{align}
+\end{center}
+}}
+\end{center}
 %
 Inhomogene Eigenschaften eines Gases werden durch Transportprozesse angeglichen. Dies soll hier anhand eines einfachen Modells nachvollzogen werden, die ermittelten Werte für die Transportkonstanten sind als Schätzungen zu verstehen. Sei $q$ also eine beliebige Eigenschaft des Gases. $q$ hänge nur von $z$ ab, $q = q\left(z\right)$. Die Geschwindigkeitsverteilung sei isotrop, was hier dadurch repräsentiert werde, dass gerade $1/6$ aller Teilchen in jede kartesische Koordinatenrichtung fliegt. Dabei transportieren sie ihre Eigenschaften im Mittel eine Länge $\lambda$. Somit erhält man für die Stromdichte $j_z$ bei $z = z_0$
 %
@@ -5891,14 +5906,8 @@ aufgewendet werden, um das Strömungsfeld aufrechtzuerhalten. Diese Gleichung de
 Innere Reibung in einem Fluid ist also diffusiver Impulstransport aufgrund der Viskosität. Ist $c$ die Wärmekapazität pro Teilchen, ist $cT$ die Wärmeenergie pro Teilchen. Setzt man $q = cT$ an, erhält man
 %
 \begin{align}
-j_z & = \frac{\text{Wärme}}{\text{Zeit x Fläche}} = \frac{1}{6}\left(\left(n\newoverline{v}cT\right)\left(z_0 - \lambda\right) - \left(n\newoverline{v}cT\right)\left(z_0 + \lambda\right)\right)\approx\frac{1}{6}\frac{\partial\left(n\newoverline{v}cT\right)}{\partial z}\left(-2\lambda\right)\nonumber\\
-& = -\frac{\lambda cn\newoverline{v}}{3}\frac{\partial T}{\partial z}, 
-\end{align}
-%
-Hieraus folgt
-%
-\begin{align}
-\frac{\partial T}{\partial t}\approx - \frac{\lambda\newoverline{v}}{3}\frac{\partial T}{\partial z}.
+j_z &= \frac{\text{Wärme}}{\text{Zeit x Fläche}} = \frac{1}{6}\left(\left(n\newoverline{v}cT\right)\left(z_0 - \lambda\right) - \left(n\newoverline{v}cT\right)\left(z_0 + \lambda\right)\right)\approx\frac{1}{6}\frac{\partial\left(n\newoverline{v}cT\right)}{\partial z}\left(-2\lambda\right)\nonumber\\
+&= -\frac{\lambda cn\newoverline{v}}{3}\frac{\partial T}{\partial z}, 
 \end{align}
 %
 Die Größe
@@ -5907,14 +5916,43 @@ Die Größe
 \kappa\approx\frac{\lambda\newoverline{v}}{3}
 \end{align}
 %
-nennt man \textit{Temperaturleitfähigkeit}, \index{Temperaturleitfähigkeit} diese ist im kinetischen Gasmodell gleich der Diffusionskonstanten. Auch für die Wärmestromdichte lässt sich eine Kontinuitätsgleichung anschreiben, solange keine neuen Freiheitsgrade in der Materie angeregt werden:
+nennt man \textit{Temperaturleitfähigkeit}, \index{Temperaturleitfähigkeit} diese ist im kinetischen Gasmodell gleich der Diffusionskonstanten. Somit gilt
 %
 \begin{align}
-\frac{\partial\left(ncT\right)}{\partial t} + \nabla\cdot\mathbf{j}_{\text{Wärme}} & = 0\nonumber\\
-\Leftrightarrow \frac{\partial T}{\partial T} = \kappa\Delta T\label{eq:waermeleitungsglg}
+j_z &= -cn\kappa\frac{\partial T}{\partial z}
 \end{align}
 %
-Dies ist die \index{Wärmeleitungsgleichung}\textit{Wärmeleitungsgleichung}.
+Dies kann man dreidimensional zu
+%
+\begin{align}
+\mathbf{j}_q = -\rho c_s\kappa\nabla T\label{eq:heat_current_from_heat_conduction}
+\end{align}
+%
+verallgemeinern, wobei die Wärmekapazität pro Teilchen $c$ durch die spezifische Wärmekapazität\index{spezifische Wärmekapazität}\index{Wärmekapazität!spezifische} $c_s$ ersetzt wurde. Auch für die Wärmeleitung gilt eine formale Kontinuitätsgleichung, solange die Wärmeleitung die einzige Wärmeleistungsdichte konstituiert:
+%
+\begin{align}
+\frac{\partial\left(ncT\right)}{\partial t} + \nabla\cdot\mathbf{j}_q & = 0\label{eq:heat_conduction_equation_pre}
+\end{align}
+%
+Dies kann man zu
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\frac{\partial\newtilde{I}}{\partial t} + \nabla\cdot\mathbf{j}_q & = 0\label{eq:heat_conduction_equation}
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+verallgemeinern, hierbei ist $\newtilde{I}$ die innere Energiedichte\index{innere Energiedichte}\index{Energiedichte!innere}. Dies ist die \index{Wärmeleitungsgleichung}\textit{Wärmeleitungsgleichung}. Sind $n$, $c$ und $\kappa$ zeit- und ortsabhängig, vereinfacht sich Glg. \eqref{eq:heat_conduction_equation_pre}
+%
+zu
+%
+\begin{align}
+\frac{\partial T}{\partial t}  & = \kappa\Delta T.
+\end{align}
 
 \subsection{Clausius-Clapeyron-Gleichung}
 \label{sec:clausius-clapeyron-gleichung}\index{Clausius-Clapeyron-Gleichung}
@@ -8431,7 +8469,7 @@ Somit gilt Glg. \eqref{eq:td_1_id_gas_density_entropy}
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-\Rightarrow \frac{\partial\newtilde{s}}{\partial t} + \nabla\cdot\left(\newtilde{s}\mathbf{v}\right) & = q_T^{(V)}
+\Rightarrow \frac{\partial\newtilde{s}}{\partial t} + \nabla\cdot\left(\newtilde{s}\mathbf{v}\right) & = \frac{q_T^{(V)}}{T}\label{eq:td_1_2_entropy_id_gas}
 \end{align}
 \end{center}
 }}
@@ -8498,6 +8536,59 @@ die in Glg. \eqref{eq:def_virtual_temperature} definierte virtuelle Temperatur\i
 \end{align}
 %
 gelten. Die virtuelle potentielle Temperatur\index{potentielle virtuelle Temperatur}\index{Temperatur!potentielle!virtuelle}\index{Temperatur!virtuelle!potentielle} ist diejenige potentielle Temperatur\index{potentielle Temperatur}\index{Temperatur!potentielle}, die trockene Luft\index{trockene Luft}\index{Luft!trockene} haben müsste, um nach adiabatischer Kompression auf den Referenzdruck $p_0$ die gleiche Dichte zu haben wie die betrachtete feuchte Luft.
+
+\subsection{Thermodynamische Bedeutung der Wärmeleitung}
+\label{sec:thermodynamische_bedeutung_der_wärmeleitung}\index{Thermodynamik!Wärmeleitung}\index{Wärmeleitung!thermodynamische Bedeutung}
+
+Glg. \eqref{eq:td_1_2_entropy_id_gas}
+%
+\begin{align}
+\frac{\partial\newtilde{s}}{\partial t} + \nabla\cdot\left(\newtilde{s}\mathbf{v}\right) & = \frac{q_T^{(V)}}{T}\label{eq:td_1_2_entropy_id_gas_repeat}
+\end{align}
+%
+ist eine Kombination des Ersten und Zweiten Hauptsatzes der Thermodynamik. Für $q_T^{(V)}$ gilt unter Abwesenheit von Strahlung und Kondensaten
+%
+\begin{align}
+q_T^{(V)} = -\nabla\cdot\mathbf{j}_q + \epsilon,
+\end{align}
+%
+hierbei ist $\mathbf{j}_q$ die Wärmestromdichte durch Wärmeleitung\index{Wärmeleitung}. Laut Glg. \eqref{eq:heat_current_from_heat_conduction} gilt
+%
+\begin{align}
+\mathbf{j}_q = -\rho c_d^{(v)}\kappa\nabla T.
+\end{align}
+%
+Man kann nun rechnen
+%
+\begin{align}
+\frac{\nabla\cdot\left(\rho\kappa\nabla T\right)}{T} = \nabla\cdot\frac{\rho c_d^{(v)}\kappa\nabla T}{T} + \frac{\rho c_d^{(v)}\kappa}{T^2}\left(\nabla T\right)^2 = -\nabla\cdot\frac{\mathbf{j}_q}{T} + \frac{\rho c_d^{(v)}\kappa}{T^2}\left(\nabla T\right)^2.
+\end{align}
+%
+Setzt man dies in Glg. \eqref{eq:td_1_2_entropy_id_gas_repeat} ein und integriert global, erhält man
+%
+\begin{align}
+\int_A\frac{\partial\newtilde{s}}{\partial t}d^3r &= \frac{d}{dt}\int_A\newtilde{s}d^3r = \int_A-\nabla\cdot\frac{\mathbf{j}_q}{T} + \frac{\rho c_d^{(v)}\kappa}{T^2}\left(\nabla T\right)^2d^3r = -\int_{\partial A}\frac{\mathbf{j}_q}{T}\cdot d\mathbf{n} + \int_A\frac{\rho c_d^{(v)}\kappa}{T^2}\left(\nabla T\right)^2d^3r.
+\end{align}
+%
+Die Evolutionsgleichung der Gesamtentropie der Atmosphäre
+%
+\begin{align}
+S = \int_A\newtilde{s}d^3r
+\end{align}
+%
+lautet in diesem Fall also
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\frac{dS}{dt} = \underbrace{-\int_{\partial A}\frac{\mathbf{j}_q}{T}\cdot d\mathbf{n}}_{\substack{\text{Wechselwirkung mit} \\\text{der Umgebung}}} + \underbrace{\int_A\frac{\rho c_d^{(v)}\kappa}{T^2}\left(\nabla T\right)^2d^3r}_{\substack{\text{Entropieproduktion durch} \\\text{Wärmeleitung (nichtnegativ)}}} + \underbrace{\int_A\frac{\epsilon}{T}d^3r\text{.}}_{\substack{\text{Entropieproduktion durch} \\\text{Dissipation (nichtnegativ)}}}
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+Durch interne Prozesse in einem idealen Gas mit Viskosität kann also nur Entropie produziert werden, wie es vom Zweiten Hauptsatz der Thermodynamik\index{Zweiter Hauptsatz der Thermodynamik}\index{Thermodynamik!Zweiter Hauptsatz} gefordert wird.
 
 \subsection{Anwendungen}
 \label{sec:anwendungen}
@@ -8950,7 +9041,7 @@ s. Glg.en \eqref{eq:quelle_trocken_masse} - \eqref{eq:quelle_kondensat_masse}.
 \subsection{Wärmeleitung}
 \label{sec:waermeleitung}\index{Wärmeleitung}
 
-Wärmeleitung tritt nur in der Gasphase und führt nach Glg. \eqref{eq:waermeleitungsglg} zu einer Temperaturtendenz
+Wärmeleitung tritt nur in der Gasphase und führt nach Glg. \eqref{eq:heat_conduction_equation} zu einer Temperaturtendenz
 %
 \begin{align}
 \frac{\partial T}{\partial t} = \kappa_h\Delta T
