@@ -18041,7 +18041,7 @@ Nun stellt man sich die Frage, wie der Mittelungsoperator $\newtilde{\psi}^{(j)}
 \psi\left(\mathbf{r}\right) = \exp\left(i\mathbf{k}\cdot\mathbf{r}\right)
 \end{align}
 %
-ist. Ein allgemeines Feld kann man durch Superposition solcher Fourier-Komponenten darstellen. Weiterhin bezeichnet man den Abstand zwischen den Zentren zweier Hexagone mit $d$. Dann gilt für $1 \leq j \leq 3$ die Gleichung
+ist. Ein allgemeines Feld kann man durch Superposition solcher Fourier-Komponenten darstellen. Weiterhin bezeichnet man den Abstand zwischen den Zentren zweier Hexagone mit $d$ (diese Größe wird von nun an als Gitterkonstante bezeichnet). Dann gilt für $1 \leq j \leq 3$ die Gleichung
 %
 \begin{align}
 \delta_j\psi &= \frac{\psi\left(\mathbf{r} + \mathbf{i}_j\frac{d}{2}\right) - \psi\left(\mathbf{r} - \mathbf{i}_j\frac{d}{2}\right)}{d} = \frac{\exp\left[i\mathbf{k}\cdot\left(\mathbf{r} + \mathbf{i}_j\frac{d}{2}\right)\right] - \exp\left[i\mathbf{k}\cdot\left(\mathbf{r} - \mathbf{i}_j\frac{d}{2}\right)\right]}{d}\nonumber\\
@@ -18167,6 +18167,88 @@ Dieser Operator wird als \textit{Thuburn-Operator}\index{Thuburn-Operator} bezei
 
 \subsection{Gründe}
 \label{sec:gruende}
+
+Auf einem regelmäßigen Sechseckgitter mit der Gitterkonstante $d$ hat ein Dreieck die Fläche
+%
+\begin{align}
+A_v = \frac{d}{2}l.
+\end{align}
+%
+Hierbei gilt
+%
+\begin{eqnarray}
+l = \cos\left(30^\circ\right)d = \frac{\sqrt{3}}{2}d,
+\end{eqnarray}
+%
+woraus
+%
+\begin{align}
+A_v = \frac{d^2\sqrt{3}}{4}
+\end{align}
+%
+folgt. Somit kann man auf einem Dreieck (Superskript $t$), welches nach oben zeigt (Index $u$), die Divergenz laut Gauß'schem Satz\index{Gauß'scher Satz}\index{Satz!Gauß'scher} in der Form
+%
+\begin{align}
+D^{(t)}_u = -\frac{dv_1 + dv_2 + dv_3}{A_v} = -\frac{4}{\sqrt{3}d}\left(v_1 + v_2 + v_3\right)
+\end{align}
+%
+berechnen. Das Minuszeichen kommt daher, dass bei einem solchen Dreieck die Koordinatenachsen des j-Systems nach innen zeigen. Auf einem Dreieck, welches nach unten zeigt (Index $l$), ist dies andersherum, es gilt
+%
+\begin{align}
+D^{(t)}_l = \frac{dv_1 + dv_2 + dv_3}{A_v} = \frac{4}{\sqrt{3}d}\left(v_1 + v_2 + v_3\right).
+\end{align}
+%
+Dies kann man in der Form
+%
+\begin{align}
+D^{(t)}_{u, l} = \mp\frac{dv_1 + dv_2 + dv_3}{A_v} = \mp\frac{4}{\sqrt{3}d}\left(v_1 + v_2 + v_3\right) = \mp\frac{4}{\sqrt{3}d}\sum_{e \in t}v_e
+\end{align}
+%
+zusammenfassen, wobei mit $e$ die Kanten des Dreiecks bezeichnet werden. Analog gilt für die relative Vorticity\index{relative Vorticity}\index{Vorticity!relative} laut Stokes'schem Satz\index{Stokes'scher Satz}\index{Satz!Stokes'scher}
+%
+\begin{align}
+\zeta^{(t)}_{u, l} = \pm\frac{du_1 + du_2 + du_3}{A_v} = \pm\frac{4}{\sqrt{3}d}\sum_{e \in t}u_e.
+\end{align}
+%
+$h$ bezeichne nun ein Hexagon. Dann bezeichnen $u \in h$ die drei nach oben gerichteten Dreiecke, welche einen Überlapp mit dem betrachteten Hexagon $h$ haben und analog $l \in h$ die drei nach unten gerichteten Dreiecke, welche sich mit $h$ überlappen. Mit diesen Bezeichnungen kann man
+%
+\begin{align}
+\frac{\sqrt{3}d}{4}\left(\sum_{l \in h}D_l^{(t)} - \sum_{u \in h}D_u^{(t)}\right) &= \sum_{l \in h}\sum_{e \in l}v_e + \sum_{u \in h}\sum_{e \in u}v_e = \sum_{l \in h}\left(\sum_{e \in l, e \in h}v_e + \sum_{e \in l, e \not\in h}v_e\right) + \sum_{u \in h}\left(\sum_{e \in u, e \in h}v_e + \sum_{e \in u, e \not\in h}v_e\right)
+\end{align}
+%
+notieren. Beim letzten Umformungsschritt wurden die Kanten der Dreiecke in solche eingeteilt, welche auch Kanten des betrachteten Sechseckes sind ($e \in h$), und solche, bei denen dies nicht der Fall ist ($e \not\in h$). Ausklammern ergibt
+%
+\begin{align}
+\frac{\sqrt{3}d}{4}\left(\sum_{l \in h}D_l^{(t)} - \sum_{u \in h}D_u^{(t)}\right) &= \sum_{l \in h}\sum_{e \in l, e \in h}v_e + \sum_{l \in h}\sum_{e \in l, e \not\in h}v_e + \sum_{u \in h}\sum_{e \in u, e \in h}v_e + \sum_{u \in h}\sum_{e \in u, e \not\in h}v_e.
+\end{align}
+%
+Wie man sieht, tragen alle Geschwindigkeitskomponenten mit positivem Vorzeichen zu $\sum_{l \in h}D_l^{(t)} - \sum_{u \in h}D_u^{(t)}$ bei. In den Summen $\sum_{l \in h}\sum_{e \in l, e \in h}$ und $\sum_{u \in h}\sum_{e \in u, e \in h}$ tritt jede Kante des Hexagons $h$ jeweils einmal auf. Somit gilt
+%
+\begin{align}
+\frac{\sqrt{3}d}{4}\left(\sum_{l \in h}D_l^{(t)} - \sum_{u \in h}D_u^{(t)}\right) &= 2\sum_{e \in h}v_e + \sum_{l \in h}\sum_{e \in l, e \not\in h}v_e + \sum_{u \in h}\sum_{e \in u, e \not\in h}v_e.
+\end{align}
+%
+Diejenigen Kanten, die nicht an das betrachtete Hexagon grenzen, tragen jeweils einmal zu $\sum_{l \in h}D_l^{(t)} - \sum_{u \in h}D_u^{(t)}$ bei:
+%
+\begin{align}
+\frac{\sqrt{3}d}{4}\left(\sum_{l \in h}D_l^{(t)} - \sum_{u \in h}D_u^{(t)}\right) &= 2\sum_{e \in h}v_e + \sum_{t \in h}\sum_{e \in t, e \not\in h}v_e
+\end{align}
+%
+Betrachte an dieser Stelle die Größe $\newtilde{v}_1^{(1)}$, welche Im Zentrum des betrachteten Hexagons definiert ist. Diese ist eine Überlagerung aus vier Geschwindigkeitskonponenten, zwei davon liegen auf der $\mathbf{i}_1-$Achse, zwei senkrecht zu dieser. Erstere tragen mit dem Gewicht $1/3$ zu $\newtilde{v}_1^{(1)}$ bei, letztere mit dem Gewicht $1/6$ Dies kann man zyklisch auch auf die anderen Raumrichtungen übertragen. Somit gilt
+%
+\begin{align}
+\frac{\sqrt{3}d}{4}\left(\sum_{l \in h}D_l^{(t)} - \sum_{u \in h}D_u^{(t)}\right) &= 6\left(\newtilde{v}_1^{(1)} + \newtilde{v}_2^{(2)} + \newtilde{v}_3^{(3)}\right).
+\end{align}
+%
+Ist die Bedingung $\newtilde{v}_1^{(1)} + \newtilde{v}_2^{(2)} + \newtilde{v}_3^{(3)} = 0$ nicht erfüllt, so ist der Mittelwert der Divergenz der drei nach oben gerichteten Dreiecke i. A. ungleich dem Mittelwert der Divergenz der nach unten gerichteten Dreiecke. Dies führt zur Entstehung eines sogenannten \textit{Checkerboard-Patterns}\index{Checkerboard-Pattern} in der Divergenz. Dieser Lärm pflanzt sich von dort auch in andere Felder fort. Es ist also wichtig, die Bedingung $\newtilde{v}_1^{(1)} + \newtilde{v}_2^{(2)} + \newtilde{v}_3^{(3)} = 0$ immer einzhalten.
+
+Auf dem sechseckigen Gitter kann man die Gedankengänge vollständig analog auf die relative Vorticity\index{relative Vorticity}\index{Vorticity!relative} übertragen, was auf
+%
+\begin{align}
+\frac{\sqrt{3}d}{4}\left(\sum_{u \in h}\zeta_u^{(t)} - \sum_{l \in h}\zeta_l^{(t)}\right) &= 6\left(\newtilde{u}_1^{(1)} + \newtilde{u}_2^{(2)} + \newtilde{u}_3^{(3)}\right)
+\end{align}
+%
+führt. Nichteinhaltung der Bedingung $\newtilde{u}_1^{(1)} + \newtilde{u}_2^{(2)} + \newtilde{u}_3^{(3)} = 0$ führt also auch auf dem sechseckigen Gitter zu einem Checkerboard-Pattern\index{Checkerboard-Pattern} (hier jedoch in der Vorticity) und ist daher auch hier zu beachten.
 
 \subsection{Eliminierung}
 \label{sec:eliminierung}
