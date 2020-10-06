@@ -13330,11 +13330,11 @@ Vertikale Moden führen also an der Oberfläche zu alternierenden Streifen von D
 Hier geht man aus vom hydrostatischen adiabatischen Gleichungssystem.
 %
 \begin{align}
-\md{_h\mathbf{v}_h} + \omega\frac{\partial\mathbf{v}_h}{\partial p}&\stackrel{\text{Glg.en }\eqref{eq:x_momentum_simplified_simplified_p}\text {, }\eqref{eq:y_momentum_simplified_simplified_p}}{=}& -f\mathbf{k}\times\mathbf{v}_h - \nabla\phi, \label{eq:hydrostat_1}\\
-\frac{\partial\phi}{\partial p}&\stackrel{\text{Glg. }\eqref{eq:hydrostatic_p}}{=}& -\alpha, \label{eq:hydrostat_2}\\
-\md{_hT} - S_p\omega&\stackrel{\text{Glg. }\eqref{eq:td1_ideal_gas_p}}{=}&0, \label{eq:hydrostat_3}\\
-\nabla\cdot\mathbf{v}_h + \frac{\partial\omega}{\partial p}&\stackrel{\text{Glg. }\eqref{eq:kont_p}}{=}&0, \label{eq:hydrostat_4}\\
-p\alpha&\stackrel{\text{Glg. }\eqref{eq:zustand_ideal_alt}}{=}&R_dT.\label{eq:hydrostat_5}
+\md{_h\mathbf{v}_h} + \omega\frac{\partial\mathbf{v}_h}{\partial p}&\stackrel{\text{Glg.en }\eqref{eq:x_momentum_simplified_simplified_p}\text {, }\eqref{eq:y_momentum_simplified_simplified_p}}{=} -f\mathbf{k}\times\mathbf{v}_h - \nabla\phi, \label{eq:hydrostat_1}\\
+\frac{\partial\phi}{\partial p}&\stackrel{\text{Glg. }\eqref{eq:hydrostatic_p}}{=} -\alpha, \label{eq:hydrostat_2}\\
+\md{_hT} - S_p\omega&\stackrel{\text{Glg. }\eqref{eq:td1_ideal_gas_p}}{=} 0, \label{eq:hydrostat_3}\\
+\nabla\cdot\mathbf{v}_h + \frac{\partial\omega}{\partial p}&\stackrel{\text{Glg. }\eqref{eq:kont_p}}{=} 0, \label{eq:hydrostat_4}\\
+p\alpha&\stackrel{\text{Glg. }\eqref{eq:zustand_ideal_alt}}{=} R_dT.\label{eq:hydrostat_5}
 \end{align}
 %
 Nun müssen zunächst einige Vereinfachungen vorgenommen werden. Ziel ist das \textit{quasigeostrophische Gleichungssystem}.\index{Quasigeostrophie} Dieses Konzept wendet man ausschließlich auf Kanäle in den Extratropen an, die schmal genug für die $\beta-$Ebene sind. Setzt man Glg. \eqref{eq:hydrostat_5} in Glg. \eqref{eq:hydrostat_2} ein, folgt
@@ -13395,7 +13395,7 @@ Mit Glg. \eqref{eq:geostr_wind_vereinfacht} vereinfacht man nun die materielle A
 %
 \begin{align}
 \md{} & = \md{_h} + \omega\frac{\partial}{\partial p} = \frac{\partial}{\partial t} + \mathbf{v}_h\cdot\nabla_h + \omega\frac{\partial}{\partial p}\nonumber\\
-&\to&\md{^{(g)}} \coloneqq\md{_h^{(g)}} + \omega\frac{\partial}{\partial p} = \frac{\partial}{\partial t} + \mathbf{v}_{h, g}\cdot\nabla_h + \omega\frac{\partial}{\partial p}.
+&\to \md{^{(g)}} \coloneqq\md{_h^{(g)}} + \omega\frac{\partial}{\partial p} = \frac{\partial}{\partial t} + \mathbf{v}_{h, g}\cdot\nabla_h + \omega\frac{\partial}{\partial p}.
 \end{align}
 %
 Hiermit folgt für den Ersten Hauptsatz
@@ -17985,16 +17985,30 @@ Bei einer ebenen dreieckigen oder hexagonalen C-Gitter-Diskretisierung sind die 
 %
 mit $1 \leq i \leq 3$, wobei $u$ eine beliebige Vektorkomponente ist. Für jede Raumrichtung $i$ braucht man einen separaten Mittelungsoperator. Die Bedingungen Glg. \eqref{eq:linear_condition_trivariate} lassen sich also hier in der Form
 %
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 \begin{align}
-\newtilde{u}_1^{(1)} + \newtilde{u}_2^{(2)} + \newtilde{u}_3^{(3)} & = 0\label{eq:linear_condition_trivariate_discrete_0},\\
-\newtilde{v}_1^{(1)} + \newtilde{v}_2^{(2)} + \newtilde{v}_3^{(3)} & = 0\label{eq:linear_condition_trivariate_discrete_1}
+\newtilde{u}_1^{(1)} + \newtilde{u}_2^{(2)} + \newtilde{u}_3^{(3)} & \stackrel{!}{=} 0,\label{eq:linear_condition_trivariate_discrete_0}
+\end{align}
+\end{center}
+}}
+\end{center}
+\begin{align}
+\newtilde{v}_1^{(1)} + \newtilde{v}_2^{(2)} + \newtilde{v}_3^{(3)} & \stackrel{!}{=} 0\label{eq:linear_condition_trivariate_discrete_1}
 \end{align}
 %
-notieren. Für jedes Skalarfeld $\alpha$ gilt weiter
+notieren. Diese Gleichungen sind als Forderungen an die Mittelungsoperatoren $\newtilde{\psi}^{(j)}$ zu verstehen. Für jedes Skalarfeld $\psi$ gelte weiterhin
 %
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 \begin{align}
-\newtilde{\delta_1\alpha}^{(1)} + \newtilde{\delta_2\alpha}^{(2)} + \newtilde{\delta_3\alpha}^{(3)} = 0,
+\newtilde{\delta_1\psi}^{(1)} + \newtilde{\delta_2\psi}^{(2)} + \newtilde{\delta_3\psi}^{(3)} \stackrel{!}{=} 0,\label{eq:linear_condition_trivariate_discrete_gradient}
 \end{align}
+\end{center}
+}}
+\end{center}
 %
 wobei mit $\delta_i\alpha$ für $1 \leq i \leq 3$ zentrale Differenzenquotienten des Skalarfeldes $\alpha$ in i-Richtung bezeichnet werden. Für die Helmholtz-Aufteilung Glg.en \eqref{eq:trivariate_helmholtz_eq_0} - \eqref{eq:trivariate_helmholtz_eq_5} folgt durch Mittelung in den jeweils relevanten Raumrichtungen
 %
@@ -18020,6 +18034,133 @@ Hiermit sind die Glg.en \eqref{eq:linear_condition_trivariate_discrete_0} - \eqr
 
 \section{Thuburn-Mittelung}
 \label{sec:thuburn-mittelung}\index{Thuburn-Mittelung}
+
+Nun stellt man sich die Frage, wie der Mittelungsoperator $\newtilde{\psi}^{(j)}$ konkret aussehen muss. Hierfür geht man davon aus, dass das Feld $\psi$ von der Form
+%
+\begin{align}
+\psi\left(\mathbf{r}\right) = \exp\left(i\mathbf{k}\cdot\mathbf{r}\right)
+\end{align}
+%
+ist. Ein allgemeines Feld kann man durch Superposition solcher Fourier-Komponenten darstellen. Weiterhin bezeichnet man den Abstand zwischen den Zentren zweier Hexagone mit $d$. Dann gilt für $1 \leq j \leq 3$ die Gleichung
+%
+\begin{align}
+\delta_j\psi &= \frac{\psi\left(\mathbf{r} + \mathbf{i}_j\frac{d}{2}\right) - \psi\left(\mathbf{r} - \mathbf{i}_j\frac{d}{2}\right)}{d} = \frac{\exp\left[i\mathbf{k}\cdot\left(\mathbf{r} + \mathbf{i}_j\frac{d}{2}\right)\right] - \exp\left[i\mathbf{k}\cdot\left(\mathbf{r} - \mathbf{i}_j\frac{d}{2}\right)\right]}{d}\nonumber\\
+&= \exp\left(i\mathbf{k}\cdot\mathbf{r}\right)\frac{\exp\left(i\mathbf{k}\cdot\mathbf{i}_j\frac{d}{2}\right) - \exp\left(-i\mathbf{k}\cdot\mathbf{i}_j\frac{d}{2}\right)}{d} = \psi\left(\mathbf{r}\right)\frac{\exp\left(i\mathbf{k}\cdot\mathbf{i}_j\frac{d}{2}\right) - \exp\left(-i\mathbf{k}\cdot\mathbf{i}_j\frac{d}{2}\right)}{d}\nonumber\\
+& = \psi\left(\mathbf{r}\right)\frac{\exp\left(ik_j\frac{d}{2}\right) - \exp\left(-ik_j\frac{d}{2}\right)}{d} = \psi\left(\mathbf{r}\right)\frac{2i}{d}\sin\left(\frac{k_jd}{2}\right).
+\end{align}
+%
+Man definiert nun weiterhin einen einfachen Mittelungsoperator in j-Richtung durch
+%
+\begin{align}
+\newoverline{\psi}^{(j)} & \coloneqq \frac{\psi\left(\mathbf{r} + \mathbf{i}_j\frac{d}{2}\right) + \psi\left(\mathbf{r} - \mathbf{i}_j\frac{d}{2}\right)}{2} = \frac{\exp\left[i\mathbf{k}\cdot\left(\mathbf{r} + \mathbf{i}_j\frac{d}{2}\right)\right] + \exp\left[i\mathbf{k}\cdot\left(\mathbf{r} - \mathbf{i}_j\frac{d}{2}\right)\right]}{2}\nonumber\\
+&= \exp\left(i\mathbf{k}\cdot\mathbf{r}\right)\frac{\exp\left(i\mathbf{k}\cdot\mathbf{i}_j\frac{d}{2}\right) + \exp\left(-i\mathbf{k}\cdot\mathbf{i}_j\frac{d}{2}\right)}{2}\nonumber\\
+&= \psi\left(\mathbf{r}\right)\frac{\exp\left(ik_j\frac{d}{2}\right) + \exp\left(-ik_j\frac{d}{2}\right)}{2} = \psi\left(\mathbf{r}\right)\cos\left(\frac{k_jd}{2}\right).
+\end{align}
+%
+Für diesen gilt
+%
+\begin{align}
+&\newoverline{\delta_1\psi}^{(1)} + \newoverline{\delta_1\psi}^{(2)} + \newoverline{\delta_1\psi}^{(3)}\nonumber\\
+& = \psi\left(\mathbf{r}\right)\frac{2i}{d}\left[\sin\left(\frac{k_1d}{2}\right)\cos\left(\frac{k_1d}{2}\right) + \sin\left(\frac{k_2d}{2}\right)\cos\left(\frac{k_2d}{2}\right) + \sin\left(\frac{k_3d}{2}\right)\cos\left(\frac{k_3d}{2}\right)\right]\nonumber\\
+& = \psi\left(\mathbf{r}\right)\frac{i}{d}\left[2\sin\left(\frac{k_1d}{2}\right)\cos\left(\frac{k_1d}{2}\right) + 2\sin\left(\frac{k_2d}{2}\right)\cos\left(\frac{k_2d}{2}\right) + 2\sin\left(\frac{k_3d}{2}\right)\cos\left(\frac{k_3d}{2}\right)\right]\nonumber\\
+& = \psi\left(\mathbf{r}\right)\frac{i}{d}\left[\sin\left(k_1d\right) + \sin\left(k_2d\right) + \sin\left(k_3d\right)\right] \stackrel{\text{i. A.}}{\not=} 0.
+\end{align}
+%
+Dieser Operator erfüllt die Bedingung Glg. \eqref{eq:linear_condition_trivariate_discrete_gradient} also nicht. Daher definiert man einen zweiten Mittelungsoperator
+%
+\begin{align}
+\newoverline{\psi}^{((1))} & \coloneqq \newoverline{\psi}^{(2, 3)} = \newoverline{\newoverline{\psi}^{(3)}}^{(2)} = \newoverline{\newoverline{\psi}^{(2)}}^{(3)} = \psi\left(\mathbf{r}\right)\cos\left(\frac{k_2d}{2}\right)\cos\left(\frac{k_3d}{2}\right).\text{ (und zyklisch)}
+\end{align}
+%
+Für diesen gilt
+%
+\begin{align}
+\newoverline{\delta_1\psi}^{((1))} + \newoverline{\delta_2\psi}^{((2))} + \newoverline{\delta_3\psi}^{((3))} &= \psi\left(\mathbf{r}\right)\frac{2i}{d}\Big[\sin\left(\frac{k_1d}{2}\right)\cos\left(\frac{k_2d}{2}\right)\cos\left(\frac{k_3d}{2}\right) + \cos\left(\frac{k_1d}{2}\right)\sin\left(\frac{k_2d}{2}\right)\cos\left(\frac{k_3d}{2}\right)\nonumber\\
+& + \cos\left(\frac{k_1d}{2}\right)\cos\left(\frac{k_2d}{2}\right)\sin\left(\frac{k_3d}{2}\right)\Big]\nonumber\\
+&= \psi\left(\mathbf{r}\right)\frac{2i}{d}\Big[\sin\left(\frac{k_1d + k_2d}{2}\right)\cos\left(\frac{k_3d}{2}\right) + \cos\left(\frac{k_1d}{2}\right)\cos\left(\frac{k_2d}{2}\right)\sin\left(\frac{k_3d}{2}\right)\Big]\nonumber\\
+&= \psi\left(\mathbf{r}\right)\frac{2i}{d}\Big[\sin\left(\frac{k_1 + k_2 + k_3}{2}d\right) - \cos\left(\frac{k_1 + k_2}{2}d\right)\sin\left(\frac{k_3}{2}d\right)\nonumber\\
+&+ \cos\left(\frac{k_1d}{2}\right)\cos\left(\frac{k_2d}{2}\right)\sin\left(\frac{k_3d}{2}\right)\Big].
+\end{align}
+%
+Mit $k_1 + k_2 + k_3 = 0$ folgt
+%
+\begin{align}
+\newoverline{\delta_1\psi}^{((1))} + \newoverline{\delta_2\psi}^{((2))} + \newoverline{\delta_3\psi}^{((3))} &= \psi\left(\mathbf{r}\right)\frac{2i}{d}\Big[-\cos\left(\frac{k_1 + k_2}{2}d\right)\sin\left(\frac{k_3}{2}d\right) + \cos\left(\frac{k_1d}{2}\right)\cos\left(\frac{k_2d}{2}\right)\sin\left(\frac{k_3d}{2}\right)\Big]\nonumber\\
+&= \psi\left(\mathbf{r}\right)\frac{2i}{d}\sin\left(\frac{k_3}{2}d\right)\Big[\cos\left(\frac{k_1d}{2}\right)\cos\left(\frac{k_2d}{2}\right) - \cos\left(\frac{k_1 + k_2}{2}d\right)\Big]\nonumber\\
+&= \psi\left(\mathbf{r}\right)\frac{2i}{d}\sin\left(\frac{k_3}{2}d\right)\Big[\cos\left(\frac{k_1d}{2}\right)\cos\left(\frac{k_2d}{2}\right) - \cos\left(\frac{k_1d}{2}\right)\cos\left(\frac{k_2d}{2}\right)\nonumber\\
+&+ \sin\left(\frac{k_1d}{2}\right)\sin\left(\frac{k_2d}{2}\right)\Big]\nonumber\\
+&= \psi\left(\mathbf{r}\right)\frac{2i}{d}\sin\left(\frac{k_1}{2}d\right)\sin\left(\frac{k_2d}{2}\right)\sin\left(\frac{k_3d}{2}\right) \stackrel{\text{i. A.}}{\not=} 0.\label{eq:thuburn_op_deriv_0}
+\end{align}
+%
+Auch dieser Operator erfüllt die Bedingung Glg. \eqref{eq:linear_condition_trivariate_discrete_gradient} also nicht. Man rechnet jedoch wiederum mit $k_1 + k_2 + k_3 = 0$ weiter:
+%
+\begin{align}
+& \newoverline{\delta_1\psi}^{((1))} + \newoverline{\delta_2\psi}^{((2))} + \newoverline{\delta_3\psi}^{((3))} = \psi\left(\mathbf{r}\right)\frac{2i}{d}\sin\left(\frac{k_1}{2}d\right)\sin\left(\frac{k_2d}{2}\right)\sin\left(\frac{k_3d}{2}\right)\nonumber\\
+&= \psi\left(\mathbf{r}\right)\frac{2i}{d}\sin\left(\frac{k_1}{2}d\right)\sin\left(\frac{k_2d}{2}\right)\sin\left(-\frac{k_1 + k_2}{2}d\right) = -\psi\left(\mathbf{r}\right)\frac{2i}{d}\sin\left(\frac{k_1}{2}d\right)\sin\left(\frac{k_2d}{2}\right)\sin\left(\frac{k_1 + k_2}{2}d\right)\nonumber\\
+&= -\psi\left(\mathbf{r}\right)\frac{2i}{d}\sin\left(\frac{k_1}{2}d\right)\sin\left(\frac{k_2d}{2}\right)\left[\sin\left(\frac{k_1}{2}d\right)\cos\left(\frac{k_2}{2}d\right) + \cos\left(\frac{k_1}{2}d\right)\sin\left(\frac{k_2}{2}d\right)\right]\nonumber\\
+&= -\psi\left(\mathbf{r}\right)\frac{2i}{d}\left[\sin\left(\frac{k_2}{2}d\right)\sin\left(\frac{k_1}{2}d\right)^2\cos\left(\frac{k_2}{2}d\right) + \sin\left(\frac{k_1}{2}d\right)\cos\left(\frac{k_1}{2}d\right)\sin\left(\frac{k_2}{2}d\right)^2\right]\nonumber\\
+&= -\psi\left(\mathbf{r}\right)\frac{i}{d}\left[\sin\left(k_2d\right)\sin\left(\frac{k_1}{2}d\right)^2 + \sin\left(k_1d\right)\sin\left(\frac{k_2}{2}d\right)^2\right]\nonumber\\
+&= -\psi\left(\mathbf{r}\right)\frac{i}{d}\left[\sin\left(k_2d\right) + \sin\left(k_1d\right) - \sin\left(k_2d\right)\cos\left(\frac{k_1}{2}d\right)^2 - \sin\left(k_1d\right)\cos\left(\frac{k_2}{2}d\right)^2\right]\nonumber
+\end{align}
+\begin{align}
+&= -\psi\left(\mathbf{r}\right)\frac{i}{d}\Big[\sin\left(k_2d\right) + \sin\left(k_1d\right) - \sin\left(k_2d\right)\cos\left(k_1\right) - \sin\left(k_1d\right)\cos\left(k_2d\right) + \sin\left(k_2d\right)\sin\left(\frac{k_1}{2}d\right)^2\nonumber\\
+& + \sin\left(k_1d\right)\sin\left(\frac{k_2}{2}d\right)^2\Big]\nonumber\\
+&= -\psi\left(\mathbf{r}\right)\frac{i}{d}\Big[\sin\left(k_2d\right) + \sin\left(k_1d\right) - \sin\left[\left(k_1 + k_2\right)d\right] + \sin\left(k_2d\right)\sin\left(\frac{k_1}{2}d\right)^2 + \sin\left(k_1d\right)\sin\left(\frac{k_2}{2}d\right)^2\Big]\nonumber\\
+&= -\psi\left(\mathbf{r}\right)\frac{i}{d}\Big[\sin\left(k_2d\right) + \sin\left(k_1d\right) - \sin\left(-k_3d\right) + \sin\left(k_2d\right)\sin\left(\frac{k_1}{2}d\right)^2 + \sin\left(k_1d\right)\sin\left(\frac{k_2}{2}d\right)^2\Big]\nonumber\\
+&= -\psi\left(\mathbf{r}\right)\frac{i}{d}\Big[\sin\left(k_2d\right) + \sin\left(k_1d\right) + \sin\left(k_3d\right) + \sin\left(k_2d\right)\sin\left(\frac{k_1}{2}d\right)^2 + \sin\left(k_1d\right)\sin\left(\frac{k_2}{2}d\right)^2\Big]\nonumber\\
+&= -\left(\newoverline{\delta_1\psi}^{(1)} + \newoverline{\delta_1\psi}^{(2)} + \newoverline{\delta_1\psi}^{(3)}\right) - \psi\left(\mathbf{r}\right)\frac{i}{d}\Big[\sin\left(k_2d\right)\sin\left(\frac{k_1}{2}d\right)^2 + \sin\left(k_1d\right)\sin\left(\frac{k_2}{2}d\right)^2\Big]
+\end{align}
+%
+Man rechnet nun
+%
+\begin{align}
+&\sin\left(k_2d\right)\sin\left(\frac{k_1}{2}d\right)^2 + \sin\left(k_1d\right)\sin\left(\frac{k_2}{2}d\right)^2 = \sin\left(\frac{k_2}{2}d + \frac{k_2}{2}d\right)\sin\left(\frac{k_1}{2}d\right)^2 + \sin\left(\frac{k_1}{2}d + \frac{k_1}{2}d\right)\sin\left(\frac{k_2}{2}d\right)^2\nonumber\\
+&= 2\sin\left(\frac{k_1}{2}d\right)^2\sin\left(\frac{k_2}{2}d\right)\cos\left(\frac{k_2}{2}d\right) + 2\sin\left(\frac{k_2}{2}d\right)^2\sin\left(\frac{k_1}{2}d\right)\cos\left(\frac{k_1}{2}d\right)\nonumber\\
+&= \sin\left(\frac{k_1}{2}d\right)\sin\left(\frac{k_2}{2}d\right)\left[2\sin\left(\frac{k_1}{2}d\right)\cos\left(\frac{k_2}{2}d\right) + 2\cos\left(\frac{k_1}{2}d\right)\sin\left(\frac{k_2}{2}d\right)\right]\nonumber\\
+&= \sin\left(\frac{k_1}{2}d\right)\sin\left(\frac{k_2}{2}d\right)\sin\left(\frac{k_1 + k_2}{2}d\right) = \sin\left(\frac{k_1}{2}d\right)\sin\left(\frac{k_2}{2}d\right)\sin\left(-\frac{k_3}{2}d\right)\nonumber\\
+&= -\sin\left(\frac{k_1}{2}d\right)\sin\left(\frac{k_2}{2}d\right)\sin\left(\frac{k_3}{2}d\right).
+\end{align}
+%
+Somit folgt
+%
+\begin{align}
+& \newoverline{\delta_1\psi}^{((1))} + \newoverline{\delta_2\psi}^{((2))} + \newoverline{\delta_3\psi}^{((3))} = -\left(\newoverline{\delta_1\psi}^{(1)} + \newoverline{\delta_1\psi}^{(2)} + \newoverline{\delta_1\psi}^{(3)}\right) + \psi\left(\mathbf{r}\right)\frac{i}{d}\sin\left(\frac{k_1}{2}d\right)\sin\left(\frac{k_2}{2}d\right)\sin\left(\frac{k_3}{2}d\right)\nonumber\\
+&\stackrel{\text{Glg. \eqref{eq:thuburn_op_deriv_0}}}{=} -\left(\newoverline{\delta_1\psi}^{(1)} + \newoverline{\delta_1\psi}^{(2)} + \newoverline{\delta_1\psi}^{(3)}\right) + \frac{1}{2}\left(\newoverline{\delta_1\psi}^{((1))} + \newoverline{\delta_2\psi}^{((2))} + \newoverline{\delta_3\psi}^{((3))}\right)\nonumber\\
+&\Rightarrow\newoverline{\delta_1\psi}^{((1))} + \newoverline{\delta_2\psi}^{((2))} + \newoverline{\delta_3\psi}^{((3))} = -\frac{1}{2}\left(\newoverline{\delta_1\psi}^{(1)} + \newoverline{\delta_1\psi}^{(2)} + \newoverline{\delta_1\psi}^{(3)}\right).\label{eq:thuburn_op_deriv_1}
+\end{align}
+%
+Man macht nun den Ansatz
+%
+\begin{align}
+\newtilde{\psi}^{(j)} = \alpha\newoverline{\psi}^{(j)} + \left(1 - \alpha\right)\newoverline{\psi}^{((j))}
+\end{align}
+%
+mit $0 \leq \alpha \leq 0$. Setzt man hier Glg. \eqref{eq:thuburn_op_deriv_1} ein, erhält man
+%
+\begin{align}
+\newtilde{\delta_1\psi}^{(1)} + \newtilde{\delta_2\psi}^{(2)} + \newtilde{\delta_3\psi}^{(3)} &= \left(\alpha - \frac{1}{2}\left(1 - \alpha\right)\right)\left(\newoverline{\delta_1\psi}^{(1)} + \newoverline{\delta_1\psi}^{(2)} + \newoverline{\delta_1\psi}^{(3)}\right) \stackrel{!}{=} 0.
+\end{align}
+%
+Dies ist erfüllt für
+%
+\begin{align}
+\alpha - \frac{1}{2}\left(1 - \alpha\right) &= 0 \Leftrightarrow \alpha - \frac{1}{2} + \frac{\alpha}{2} = \frac{3\alpha}{2} - \frac{1}{2} = 0\nonumber\\
+\Leftrightarrow \alpha = \frac{1}{3}.
+\end{align}
+%
+Somit gilt
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\newtilde{\psi}^{(j)} = \frac{1}{3}\newoverline{\psi}^{(j)} + \frac{2}{3}\newoverline{\psi}^{((j))}.
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+Dieser Operator wird als \textit{Thuburn-Operator}\index{Thuburn-Operator} bezeichnet, da er von Thuburn in \cite{thuburn_hexagonal_grid} erstmalig verwendet wurde.
 
 \section{Checkerboard-Pattern}
 \label{sec:checkerboard-pattern}\index{Checkerboard-Pattern}
