@@ -18046,10 +18046,10 @@ notieren. Hierbei ist $\Phi_0 \coloneqq gD$. Mit den Glg.en \eqref{eq:div_3eleme
 Räumliche Diskretisierung ergibt
 %
 \begin{align}
-\frac{\partial\Phi}{\partial t} + \frac{2}{3}\Phi_0\left(\delta_1u_1 + \delta_2u_2 + \delta_3u_3\right) &= 0,\\
-\frac{\partial u_1}{\partial t} - \frac{f_0}{\sqrt{3}}\left(\newoverline{u_2}^{(3)} - \newoverline{u_3}^{(2)}\right) + \delta_1\Phi &= 0,\\
-\frac{\partial u_2}{\partial t} - \frac{f_0}{\sqrt{3}}\left(\newoverline{u_3}^{(1)} - \newoverline{u_1}^{(3)}\right) + \delta_2\Phi &= 0,\\
-\frac{\partial u_3}{\partial t} - \frac{f_0}{\sqrt{3}}\left(\newoverline{u_1}^{(2)} - \newoverline{u_2}^{(1)}\right) + \delta_3\Phi &= 0.
+\frac{\partial\Phi}{\partial t} + \frac{2}{3}\Phi_0\left(\delta_1u_1 + \delta_2u_2 + \delta_3u_3\right) &= 0,\label{eq:swe_lin_hex_0}\\
+\frac{\partial u_1}{\partial t} - \frac{f_0}{\sqrt{3}}\left(\newoverline{u_2}^{(3)} - \newoverline{u_3}^{(2)}\right) + \delta_1\Phi &= 0,\label{eq:swe_lin_hex_1}\\
+\frac{\partial u_2}{\partial t} - \frac{f_0}{\sqrt{3}}\left(\newoverline{u_3}^{(1)} - \newoverline{u_1}^{(3)}\right) + \delta_2\Phi &= 0,\label{eq:swe_lin_hex_2}\\
+\frac{\partial u_3}{\partial t} - \frac{f_0}{\sqrt{3}}\left(\newoverline{u_1}^{(2)} - \newoverline{u_2}^{(1)}\right) + \delta_3\Phi &= 0.\label{eq:swe_lin_hex_3}
 \end{align}
 %
 Dabei wurde für die Rekonstruktion der Windkomponenten für die Berechnung der Coriolisbeschleunigung das arithmetische Mittel der zwei nächsten Geschwindigkeitskomponenten in der gesuchten Richtung verwendet. Setzt man für alle Felder eine monochromatische ebene Welle an, also
@@ -18108,7 +18108,72 @@ Nichttriviale Lösungen exisitieren genau dann, wenn die Determinante der Koeffi
 -\frac{2s_2}{d} & \frac{if_0}{\sqrt{3}}c_3 & \omega & -\frac{if_0}{\sqrt{3}}c_1\\
 -\frac{2s_3}{d} & -\frac{if_0}{\sqrt{3}}c_2 & \frac{if_0}{\sqrt{3}}c_1 & \omega
 \end{array}\right| &\stackrel{!}{=} 0\nonumber\\
-\Leftrightarrow &= 0
+\Leftrightarrow\omega\left|\begin{array}{ccc}
+\omega & -\frac{if_0}{\sqrt{3}}c_3 & \frac{if_0}{\sqrt{3}}c_2\\
+\frac{if_0}{\sqrt{3}}c_3 & \omega & -\frac{if_0}{\sqrt{3}}c_1\\
+-\frac{if_0}{\sqrt{3}}c_2 & \frac{if_0}{\sqrt{3}}c_1 & \omega
+\end{array}
+\right| + \frac{4}{3d}\Phi_0s_1\left|\begin{array}{ccc}
+-\frac{2s_1}{d} & -\frac{if_0}{\sqrt{3}}c_3 & \frac{if_0}{\sqrt{3}}c_2\\
+-\frac{2s_2}{d} & \omega & -\frac{if_0}{\sqrt{3}}c_1\\
+-\frac{2s_3}{d} & \frac{if_0}{\sqrt{3}}c_1 & \omega
+\end{array}\right| & \nonumber\\
+- \frac{4}{3d}\Phi_0s_2\left|\begin{array}{ccc}
+-\frac{2s_1}{d} & \omega & \frac{if_0}{\sqrt{3}}c_2\\
+-\frac{2s_2}{d} & \frac{if_0}{\sqrt{3}}c_3 & -\frac{if_0}{\sqrt{3}}c_1\\
+-\frac{2s_3}{d} & -\frac{if_0}{\sqrt{3}}c_2 & \omega
+\end{array}
+\right| + \frac{4}{3d}\Phi_0s_3\left|\begin{array}{ccc}
+-\frac{2s_1}{d} & \omega & -\frac{if_0}{\sqrt{3}}c_3\\
+-\frac{2s_2}{d} & \frac{if_0}{\sqrt{3}}c_3 & \omega\\
+-\frac{2s_3}{d} & -\frac{if_0}{\sqrt{3}}c_2 & \frac{if_0}{\sqrt{3}}c_1
+\end{array}
+\right| &= 0
+\end{align}
+\begin{align}
+\Leftrightarrow \omega^4 - \frac{\omega^2f_0^2}{3}\left(c_1^2 + c_2^2 + c_3^2\right) + \frac{4}{3d}\Phi_0s_1\left|\begin{array}{ccc}
+-\frac{2s_1}{d} & -\frac{if_0}{\sqrt{3}}c_3 & \frac{if_0}{\sqrt{3}}c_2\\
+-\frac{2s_2}{d} & \omega & -\frac{if_0}{\sqrt{3}}c_1\\
+-\frac{2s_3}{d} & \frac{if_0}{\sqrt{3}}c_1 & \omega
+\end{array}\right| & \nonumber\\
+-\frac{4}{3d}\Phi_0s_2\left|\begin{array}{ccc}
+-\frac{2s_1}{d} & \omega & \frac{if_0}{\sqrt{3}}c_2\\
+-\frac{2s_2}{d} & \frac{if_0}{\sqrt{3}}c_3 & -\frac{if_0}{\sqrt{3}}c_1\\
+-\frac{2s_3}{d} & -\frac{if_0}{\sqrt{3}}c_2 & \omega
+\end{array}\right|
+ + \frac{4}{3d}\Phi_0s_3\left|\begin{array}{ccc}
+-\frac{2s_1}{d} & \omega & -\frac{if_0}{\sqrt{3}}c_3\\
+-\frac{2s_2}{d} & \frac{if_0}{\sqrt{3}}c_3 & \omega\\
+-\frac{2s_3}{d} & -\frac{if_0}{\sqrt{3}}c_2 & \frac{if_0}{\sqrt{3}}c_1
+\end{array}
+\right| &= 0
+\end{align}
+%
+Es gilt
+%
+\begin{align}
+\frac{4}{3d}\Phi_0s_1\left|\begin{array}{ccc}
+-\frac{2s_1}{d} & -\frac{if_0}{\sqrt{3}}c_3 & \frac{if_0}{\sqrt{3}}c_2\\
+-\frac{2s_2}{d} & \omega & -\frac{if_0}{\sqrt{3}}c_1\\
+-\frac{2s_3}{d} & \frac{if_0}{\sqrt{3}}c_1 & \omega
+\end{array}\right| &= -\frac{8\omega^2}{3d^2}\Phi_0s_1^2 + \frac{8\Phi_0f_0^2}{9d^2}\left(s_1c_1s_3c_3 + s_1c_1s_2c_2 + s_1c_1s_1c_1\right) + \frac{8if_0}{3\sqrt{3}d}s_1\left(s_3c_2 - c_3s_2\right)\nonumber\\
+&= -\frac{8\omega^2}{3d^2}\Phi_0s_1^2 + \frac{8\Phi_0f_0^2}{9d^2}s_1c_1\left(s_1c_1 + s_2c_2 + s_3c_3\right) - \frac{8if_0}{3\sqrt{3}d}s_1\left(s_2c_3 - s_3c_2\right).
+\end{align}
+%
+Die verbleibenden zwei Teildeterminanten ergeben sich analog durch zyklische Vertauschung der Indizes:
+%
+\begin{align}
+-\frac{4}{3d}\Phi_0s_2\left|\begin{array}{ccc}
+-\frac{2s_1}{d} & \omega & \frac{if_0}{\sqrt{3}}c_2\\
+-\frac{2s_2}{d} & \frac{if_0}{\sqrt{3}}c_3 & -\frac{if_0}{\sqrt{3}}c_1\\
+-\frac{2s_3}{d} & -\frac{if_0}{\sqrt{3}}c_2 & \omega
+\end{array}\right| &= -\frac{8\omega^2}{3d^2}\Phi_0s_2^2 + \frac{8\Phi_0f_0^2}{9d^2}s_2c_2\left(s_1c_1 + s_2c_2 + s_3c_3\right) - \frac{8if_0}{3\sqrt{3}d}s_2\left(s_3c_1 - s_1c_3\right),\nonumber\\
+\frac{4}{3d}\Phi_0s_3\left|\begin{array}{ccc}
+-\frac{2s_1}{d} & \omega & -\frac{if_0}{\sqrt{3}}c_3\\
+-\frac{2s_2}{d} & \frac{if_0}{\sqrt{3}}c_3 & \omega\\
+-\frac{2s_3}{d} & -\frac{if_0}{\sqrt{3}}c_2 & \frac{if_0}{\sqrt{3}}c_1
+\end{array}
+\right| &= -\frac{8\omega^2}{3d^2}\Phi_0s_3^2 + \frac{8\Phi_0f_0^2}{9d^2}s_3c_3\left(s_1c_1 + s_2c_2 + s_3c_3\right) - \frac{8if_0}{3\sqrt{3}d}s_3\left(s_1c_2 - s_2c_1\right).
 \end{align}
 %
 Somit lautet das charakteristische Polynom schlussendlich
@@ -18292,7 +18357,7 @@ Man macht nun den Ansatz
 mit $0 \leq \beta \leq 0$. Setzt man hier Glg. \eqref{eq:thuburn_op_deriv_1} ein, erhält man
 %
 \begin{align}
-\newtilde{\delta_1\alpha}^{(1)} + \newtilde{\delta_2\alpha}^{(2)} + \newtilde{\delta_3\alpha}^{(3)} &= \left(\beta - \frac{1}{2}\left(1 - \beta\right)\right)\left(\newoverline{\delta_1\alpha}^{(1)} + \newoverline{\delta_1\alpha}^{(2)} + \newoverline{\delta_1alpha}^{(3)}\right) \stackrel{!}{=} 0.
+\newtilde{\delta_1\alpha}^{(1)} + \newtilde{\delta_2\alpha}^{(2)} + \newtilde{\delta_3\alpha}^{(3)} &= \left(\beta - \frac{1}{2}\left(1 - \beta\right)\right)\left(\newoverline{\delta_1\alpha}^{(1)} + \newoverline{\delta_1\alpha}^{(2)} + \newoverline{\delta_1\alpha}^{(3)}\right) \stackrel{!}{=} 0.
 \end{align}
 %
 Dies ist erfüllt für
@@ -18308,7 +18373,7 @@ Somit gilt
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-\newtilde{\alpha}^{(j)} = \frac{1}{3}\newoverline{\alpha}^{(j)} + \frac{2}{3}\newoverline{\alpha}^{((j))}.
+\newtilde{\alpha}^{(j)} = \frac{1}{3}\newoverline{\alpha}^{(j)} + \frac{2}{3}\newoverline{\alpha}^{((j))}.\label{eq:thuburn_op}
 \end{align}
 \end{center}
 }}
@@ -18318,6 +18383,42 @@ Dieser Operator wird als \textit{Thuburn-Operator}\index{Thuburn-Operator} bezei
 
 \subsection{Folgerungen für die Dispersionsrelation}
 \label{sec:folgerungen_für_die_dispersionsrelation}
+
+Die Anwendung des Thuburn-Operators in den linearisierten shallow water equations auf dem hexagonalen Gitter Glg.en \eqref{eq:swe_lin_hex_0} - \eqref{eq:swe_lin_hex_3} führt auf
+%
+\begin{align}
+\frac{\partial\Phi}{\partial t} + \frac{2}{3}\Phi_0\left(\delta_1u_1 + \delta_2u_2 + \delta_3u_3\right) &= 0,\\
+\frac{\partial u_1}{\partial t} - \frac{f_0}{\sqrt{3}}\left(\newtilde{u_2}^{(3)} - \newtilde{u_3}^{(2)}\right) + \delta_1\Phi &= 0,\\
+\frac{\partial u_2}{\partial t} - \frac{f_0}{\sqrt{3}}\left(\newtilde{u_3}^{(1)} - \newtilde{u_1}^{(3)}\right) + \delta_2\Phi &= 0,\\
+\frac{\partial u_3}{\partial t} - \frac{f_0}{\sqrt{3}}\left(\newtilde{u_1}^{(2)} - \newtilde{u_2}^{(1)}\right) + \delta_3\Phi &= 0.
+\end{align}
+%
+Die Dispersionsrelation dieses Gleichungssystems kann man analog zur Herleitung von Glg. \eqref{eq:disp_rel_hex_c} berechnen, indem man die Ersetzung
+%
+\begin{align}
+c_1 \to a_1 \coloneqq\frac{c_1 + 2c_2c_3}{3}\text{ (und zyklisch)}
+\end{align}
+%
+vornimmt. Dies führt auf
+%
+\begin{align}
+\omega^4 - \omega^2\left[\frac{f_0^2}{3}\left(a_1^2 + a_2^2 + a_3^2\right) + \frac{8\Phi_0}{3d^2}\left(s_1^2 + s_2^2 + s_3^2\right)\right] + \frac{8\Phi_0f_0^2}{9d^2}\left(s_1a_1 + s_2a_2 + s_3a_3\right)^2 = 0.\label{eq:disp_rel_hex_c_mod_0}
+\end{align}
+%
+Setzt man $\alpha = \exp\left(i\mathbf{k}\cdot\mathbf{r}\right)$ in Glg. \eqref{eq:linear_condition_trivariate_discrete_gradient} ein, erhält man
+%
+\begin{align}
+\frac{2i}{d}\left(a_1s_1 + a_2s_2 + a_3s_3\right)\alpha &= 0\nonumber\\
+\Leftrightarrow a_1s_1 + a_2s_2 + a_3s_3 &= 0.
+\end{align}
+%
+Somit wird Glg. \eqref{eq:disp_rel_hex_c_mod_0} zu
+%
+\begin{align}
+\omega^4 - \omega^2\left[\frac{f_0^2}{3}\left(a_1^2 + a_2^2 + a_3^2\right) + \frac{8\Phi_0}{3d^2}\left(s_1^2 + s_2^2 + s_3^2\right)\right] = 0.
+\end{align}
+%
+Verwendet man Glg. \eqref{eq:thuburn_op} zur Rekontruktion der tangentialen Geschwindigkeitskomponenten, so entsteht also eine stationäre geostrophische Mode.
 
 \section{Checkerboard-Pattern}
 \label{sec:checkerboard-pattern}\index{Checkerboard-Pattern}
