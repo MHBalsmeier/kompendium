@@ -17102,7 +17102,7 @@ Entwickelt man horizontale Felder wie in Absch. \ref{sec:sphärische_spektralmet
 \item Für das Herausschreiben der Daten muss auf ein Realgitter tranformiert werden.
 \end{enumerate}
 %
-Die Transformation zwischen Spektral- und Realgitter ist die in Absch. besprochene Legendre-Transformation\index{Legendre-Transformation}. Diese skaliert $\propto N^3$, wohingegen der numerische Aufwand der horizontalen Numerik eines Gitterpunktmodells $\propto N$ skaliert, hierbei ist $N$ die Anzahl der Gitterpunkte. Bei höher werdender Auflösung werden Spektralmodelle also zunehmend ineffizient und werden daher an dieser Stelle ausgeschlossen.
+Die Transformation zwischen Spektral- und Realgitter ist die in Absch. besprochene Legendre-Transformation\index{Legendre-Transformation}. Diese skaliert $\propto N^2$, wohingegen der numerische Aufwand der horizontalen Numerik eines Gitterpunktmodells $\propto N$ skaliert, hierbei ist $N$ die Anzahl der horizontalen Gitterpunkte. Bei höher werdender Auflösung werden Spektralmodelle also zunehmend ineffizient und werden daher an dieser Stelle ausgeschlossen.
 
 \section{Arakawa-Gitter}
 \label{sec:arakawa-gitter}\index{Arakawa-Gitter}\index{Gitter!Arakawa}
@@ -17512,9 +17512,9 @@ Die Vektoren befinden sich bei einem C-Gitter\index{C-Gitter} auf den Kanten und
 \section{Das Problem des Verhältnisses der Freiheitsgrade}
 \label{sec:das_problem_des_verhältnisses_der_freiheitsgrade}
 
-Im kontinuierlichen Fall gelten für $N \geq 1$ prognostische Variablen\index{prognostische Variable}\index{Variable!prognostische} $\psi_i$ mit $1 \leq i \leq N$ ein System aus $N$ prognostischen Gleichungen\index{prognostische Gleichung}\index{Gleichung!prognostische}. Linearisiert man diese, entsteht ein lineares gekoppeltes partielles Differenzialgleichungssystem. Nimmt man keine externen Forcings auf, ist dieses homogen. Setzt man für jede der prognostischen Variablen eine ebene Welle $\psi_i = \newhat{\psi}_i\exp\left(i\mathbf{k}\cdot\mathbf{r} - i\omega t\right)$ mit $\newhat{\psi}_i\in\mathbb{C}$ entsteht ein homogenes lineares Gleichungssystem für die komplexen Amplituden $\newhat{\psi}_i$. Dies ist ein Eigenwertproblem für die Frequenz $\omega$. Die Eigenwerte findet man über Nullsetzen des charakteristischen Polynoms (der Determinante) dieses Gleichungssystems. Das charakteristische Polynom hat nach dem Hauptsatz der Algebra\index{Hauptsatz der Algebra}\index{Algebra!Hauptsatz der} $N$ komplexe Nullstellen. Jede dieser Nullstellen entspricht einem Zweig der Dispersionsrelation.
+Im kontinuierlichen Fall gelten für $N \geq 1$ prognostische Variablen\index{prognostische Variable}\index{Variable!prognostische} $\psi_i$ mit $1 \leq i \leq N$ ein System aus $N$ prognostischen Gleichungen\index{prognostische Gleichung}\index{Gleichung!prognostische}. Linearisiert man diese, entsteht ein lineares gekoppeltes partielles Differenzialgleichungssystem. Nimmt man keine externen Forcings auf, ist dieses homogen. Setzt man für jede der prognostischen Variablen eine ebene Welle $\psi_i = \newhat{\psi}_i\exp\left(i\mathbf{k}\cdot\mathbf{r} - i\omega t\right)$ mit $\newhat{\psi}_i\in\mathbb{C}$ ein, entsteht homogenes lineares Gleichungssystem für die komplexen Amplituden $\newhat{\psi}_i$. Dies ist ein Eigenwertproblem für die Frequenz $\omega$. Die Eigenwerte findet man über Nullsetzen des charakteristischen Polynoms (der Determinante) dieses Gleichungssystems. Das charakteristische Polynom hat nach dem Hauptsatz der Algebra\index{Hauptsatz der Algebra}\index{Algebra!Hauptsatz der} $N$ komplexe, allerdings nicht notwendigerweise verschiedene Nullstellen. Jede der verschiedenen Nullstellen entspricht einem Zweig der Dispersionsrelation.
 
-Die Dispersionsrelationenen einer Diskretisierung lassen sich analog bestimmen. Führt eine Diskretisierung auf eine vom kontinuierlichen Fall abweichende Anzahl an prognostischen Variablen und Gleichungen, so fehlen der Dispersionsrelation entweder Zweige (im Fall von zu wenig Variablen) oder es sind zu viele Zweige vorhanden (im Fall von zu vielen Variablen). Diese Zweige können auch Instabilitäten beinhalten. Es ist daher essentiell, bei der Diskretisierung weder zu viele noch zu wenige prognostische Variablen zu generieren. Dies ist insbesondere beim staggering von Vektorfeldern wichtig. Im Falle der linearisierten shallow water equations hat man drei Gleichungen für die drei Variablen $\left(u, v, h\right)$, man hat also \glqq doppelt so viele Pfeile wie Punkte\grqq.
+Bei der Diskretisierung ist dies insbesondere beim staggering von Vektorfeldern wichtig. Im Falle der linearisierten shallow water equations hat man drei Gleichungen für die drei Variablen $\left(u, v, h\right)$, man hat also \glqq doppelt so viele Pfeile wie Punkte\grqq. Hat ein Gitter zu wenig Pfeile, so kann die Dispresionsrelation nicht mehr die nötige Anzahl an Moden beinhalten. Hat man zu viele Pfeile, so könnte die Dispersionsrelation zusätzliche, unphysikalische Zweige beinhalten. Dies kann jedoch durch Anwendung spezieller Mittelungsoperatoren in den prognostischen Gleichungen verhindert werden.
 
 \subsection{Folgerungen}
 \label{sec:folgerungen_freiheitsgrade}
@@ -17525,7 +17525,9 @@ Auf dem dreieckigen Gitter hat man pro skalarem Gitterpunkt 1,5 Vektorpunkte, wo
 m = \frac{N - 4}{2},
 \end{align}
 %
-da zwei Zellen sich jeweils eine Kante teilen. Bei ungeraden $N$ liegt $m$ in der Mitte zwischen zwei natürlichen Zahlen, sodass in diesem Fall eine diagnostische Vektorgleichung für zwei Zellen gelten muss, was die Isotropie des Gitters zerstört. Daher ist es notwendig, dass $N$ gerade ist. Weiterhin möchte man möglichst nur eine algebraische Zusatzbedingung an Vektorfelder pro Zelle aufstellen, daher ist die erste Wahl für $N$ 4 und die zweite Wahl 6. Um die Auswahl einer Zustandsgleichung für Vektorfelder und deren Implikationen für sechseckige Gitter geht es im folgenden Kapitel.
+da zwei Zellen sich jeweils eine Kante teilen. Bei ungeraden $N$ liegt $m$ in der Mitte zwischen zwei natürlichen Zahlen, sodass in diesem Fall eine diagnostische Vektorgleichung für zwei Zellen gelten muss, was die Isotropie des Gitters zerstört. Daher ist es notwendig, dass $N$ gerade ist. Weiterhin möchte man möglichst nur eine algebraische Zusatzbedingung an Vektorfelder pro Zelle aufstellen, daher ist die erste Wahl für $N$ 4 und die zweite Wahl 6.
+
+Die in diesem Abschnitt besprochene Problematik wird im nächsten Kapiel für das hexagonale Gitter näher ausformuliert.
 
 \section{Ausschluss viereckiger Gitter}
 \label{sec:ausschluss_viereckiger_gitter}
@@ -17545,12 +17547,6 @@ Daher werden viereckige Gitter an dieser Stelle ausgeschlossen.
 \label{sec:festlegung_auf_das_sechseckige_ikosaedergitter}\index{Ikosaedergitter}
 
 Das einzige nach diesem Ausschlussverfahren noch übriggebliebene Gitter ist das sechseckige Ikosaedergitter\index{Ikosaedergitter}.
-
-\subsection{Gittergenerierung auf der Einheitskugel}
-\label{sec:gittergenerierung_auf_der_einheitskugel}\index{Modellgitter!Generierung auf der Einheitskugel}
-
-\subsection{Gitteroptimierung}
-\label{sec:gitteroptimierung}\index{Gitteroptimierung}
 
 \chapter{\normalfont\textsc{Probleme eines dreielementigen Erzeugendensystems einer zweidimensionalen Menge}}
 \label{chap:probleme_eines_dreielementigen_erzeugendensystems_einer_zweidimensionalen_menge}\index{dreielementiges Erzeugendensystem}\index{Erzeugendensystem!dreielementiges}
@@ -17812,7 +17808,7 @@ Mit Glg. \eqref{eq:gradient_linear_condition} folgt
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-D = \frac{2}{3}\left(\frac{\partial u_1}{\partial x_1} + \frac{\partial u_2}{\partial x_2} + \frac{\partial u_3}{\partial x_3}\right).
+D = \frac{2}{3}\left(\frac{\partial u_1}{\partial x_1} + \frac{\partial u_2}{\partial x_2} + \frac{\partial u_3}{\partial x_3}\right).\label{eq:div_3elements2d}
 \end{align}
 \end{center}
 }}
@@ -17888,7 +17884,7 @@ Es gilt
 %
 \begin{align}
 v_1 & = \mathbf{v}\cdot\mathbf{j}_1 = \frac{2}{3}\left(u_1\mathbf{i}_1 + u_2\mathbf{i}_2 + u_3\mathbf{i}_3\right)\cdot\mathbf{j}_1 = \frac{2}{3}\left(u_1\mathbf{i}_1 + u_2\mathbf{i}_2 + u_3\mathbf{i}_3\right)\cdot\mathbf{j}\nonumber\\
-& = \frac{2}{3}\left(\frac{\sqrt{3}}{2}u_2 - \frac{\sqrt{3}}{2}u_3\right) = \frac{1}{\sqrt{3}}\left(u_2 - u_3\right).
+& = \frac{2}{3}\left(\frac{\sqrt{3}}{2}u_2 - \frac{\sqrt{3}}{2}u_3\right) = \frac{1}{\sqrt{3}}\left(u_2 - u_3\right).\label{eq:turn_3elemets2d}
 \end{align}
 %
 Durch zyklisches Verschieben der Indizes erhält man
@@ -17974,8 +17970,193 @@ gelten weiter
 \Delta v_3 & = \frac{\partial\zeta}{\partial x_3} + \frac{1}{\sqrt{3}}\left(\frac{\partial D}{\partial x_1} - \frac{\partial D}{\partial x_2}\right).
 \end{align}
 
-\section{Diskretisierung}
-\label{sec:diskretisierung}\index{Diskretisierung}
+\section{Dispersionsrelation}
+\label{sec:dispersionsrelation}
+
+Sei $\alpha$ ein Feld der Form
+%
+\begin{align}
+\alpha\left(\mathbf{r}\right) = \exp\left(i\mathbf{k}\cdot\mathbf{r}\right).
+\end{align}
+%
+Man bezeichnet den Abstand zwischen den Zentren zweier Hexagone mit $d$ (diese Größe wird von nun an als Gitterkonstante bezeichnet). Man definiert nun für $1 \leq j \leq 3$ den zentralen Differenzenquotienten in j-Richtung durch
+%
+\begin{align}
+\delta_j\alpha &= \frac{\alpha\left(\mathbf{r} + \mathbf{i}_j\frac{d}{2}\right) - \alpha\left(\mathbf{r} - \mathbf{i}_j\frac{d}{2}\right)}{d}.
+\end{align}
+%
+Hierfür gilt
+%
+\begin{align}
+\delta_j\alpha &= \frac{\exp\left[i\mathbf{k}\cdot\left(\mathbf{r} + \mathbf{i}_j\frac{d}{2}\right)\right] - \exp\left[i\mathbf{k}\cdot\left(\mathbf{r} - \mathbf{i}_j\frac{d}{2}\right)\right]}{d}\nonumber\\
+&= \exp\left(i\mathbf{k}\cdot\mathbf{r}\right)\frac{\exp\left(i\mathbf{k}\cdot\mathbf{i}_j\frac{d}{2}\right) - \exp\left(-i\mathbf{k}\cdot\mathbf{i}_j\frac{d}{2}\right)}{d} = \alpha\left(\mathbf{r}\right)\frac{\exp\left(i\mathbf{k}\cdot\mathbf{i}_j\frac{d}{2}\right) - \exp\left(-i\mathbf{k}\cdot\mathbf{i}_j\frac{d}{2}\right)}{d}\nonumber\\
+& = \alpha\left(\mathbf{r}\right)\frac{\exp\left(ik_j\frac{d}{2}\right) - \exp\left(-ik_j\frac{d}{2}\right)}{d} = \alpha\left(\mathbf{r}\right)\frac{2i}{d}\sin\left(\frac{k_jd}{2}\right).
+\end{align}
+%
+Definiert man
+%
+\begin{align}
+s_j \coloneqq \sin\left(\frac{k_jd}{2}\right),
+\end{align}
+%
+kann man dies in der Form
+%
+\begin{align}
+\delta_j\alpha = \frac{2i}{d}s_j\alpha
+\end{align}
+%
+notieren. Man definiert nun weiterhin einen einfachen Mittelungsoperator in j-Richtung durch
+%
+\begin{align}
+\newoverline{\alpha}^{(j)} & \coloneqq \frac{\alpha\left(\mathbf{r} + \mathbf{i}_j\frac{d}{2}\right) + \alpha\left(\mathbf{r} - \mathbf{i}_j\frac{d}{2}\right)}{2} = \frac{\exp\left[i\mathbf{k}\cdot\left(\mathbf{r} + \mathbf{i}_j\frac{d}{2}\right)\right] + \exp\left[i\mathbf{k}\cdot\left(\mathbf{r} - \mathbf{i}_j\frac{d}{2}\right)\right]}{2}\nonumber\\
+&= \exp\left(i\mathbf{k}\cdot\mathbf{r}\right)\frac{\exp\left(i\mathbf{k}\cdot\mathbf{i}_j\frac{d}{2}\right) + \exp\left(-i\mathbf{k}\cdot\mathbf{i}_j\frac{d}{2}\right)}{2}\nonumber\\
+&= \alpha\left(\mathbf{r}\right)\frac{\exp\left(ik_j\frac{d}{2}\right) + \exp\left(-ik_j\frac{d}{2}\right)}{2} = \alpha\left(\mathbf{r}\right)\cos\left(\frac{k_jd}{2}\right).\label{eq:hex_simple_average}
+\end{align}
+%
+Definiert man
+%
+\begin{align}
+c_j \coloneqq \cos\left(\frac{k_jd}{2}\right),
+\end{align}
+%
+kann man dies in der Form
+%
+\begin{align}
+\newoverline{\alpha}^{(j)} = c_j\alpha
+\end{align}
+%
+notieren.
+
+Die linearisierten shallow water equations Glg.en \eqref{eq:flach_lin_1} - \eqref{eq:flach_lin_2} auf der f-Ebene kann man mit dem Geopotential $\Phi \coloneqq gh$ in der Form
+%
+\begin{align}
+\frac{\partial\Phi}{\partial t} + \Phi_0\nabla\cdot\mathbf{v} &= 0,\\
+\frac{\partial\mathbf{v}}{\partial t} + f_0\mathbf{k}\times\mathbf{v} - \nabla\Phi &= 0
+\end{align}
+%
+notieren. Hierbei ist $\Phi_0 \coloneqq gD$. Mit den Glg.en \eqref{eq:div_3elements2d} und \eqref{eq:turn_3elemets2d} führt dies auf die Evolutionsgleichungen für die Komponenten bezüglich des dreielementigen Erzeugendensystems:
+%
+\begin{align}
+\frac{\partial\Phi}{\partial t} + \frac{2}{3}\Phi_0\left(\frac{\partial u_1}{\partial x_1} + \frac{\partial u_2}{\partial x_2} + \frac{\partial u_3}{\partial x_3}\right) &= 0,\\
+\frac{\partial u_1}{\partial t} - \frac{f_0}{\sqrt{3}}\left(u_2 - u_3\right) + \frac{\partial\Phi}{\partial x_1} &= 0,\\
+\frac{\partial u_2}{\partial t} - \frac{f_0}{\sqrt{3}}\left(u_3 - u_1\right) + \frac{\partial\Phi}{\partial x_2} &= 0,\\
+\frac{\partial u_3}{\partial t} - \frac{f_0}{\sqrt{3}}\left(u_1 - u_2\right) + \frac{\partial\Phi}{\partial x_3} &= 0.
+\end{align}
+%
+Räumliche Diskretisierung ergibt
+%
+\begin{align}
+\frac{\partial\Phi}{\partial t} + \frac{2}{3}\Phi_0\left(\delta_1u_1 + \delta_2u_2 + \delta_3u_3\right) &= 0,\\
+\frac{\partial u_1}{\partial t} - \frac{f_0}{\sqrt{3}}\left(\newoverline{u_2}^{(3)} - \newoverline{u_3}^{(2)}\right) + \delta_1\Phi &= 0,\\
+\frac{\partial u_2}{\partial t} - \frac{f_0}{\sqrt{3}}\left(\newoverline{u_3}^{(1)} - \newoverline{u_1}^{(3)}\right) + \delta_2\Phi &= 0,\\
+\frac{\partial u_3}{\partial t} - \frac{f_0}{\sqrt{3}}\left(\newoverline{u_1}^{(2)} - \newoverline{u_2}^{(1)}\right) + \delta_3\Phi &= 0.
+\end{align}
+%
+Dabei wurde für die Rekonstruktion der Windkomponenten für die Berechnung der Coriolisbeschleunigung das arithmetische Mittel der zwei nächsten Geschwindigkeitskomponenten in der gesuchten Richtung verwendet. Setzt man für alle Felder eine monochromatische ebene Welle an, also
+%
+\begin{align}
+\psi\left(\mathbf{r}, t\right) = \newhat{\psi}\exp\left(i\mathbf{k}\cdot\mathbf{r} - i\omega t\right)
+\end{align}
+%
+für jedes Feld $\psi$ mit einer komplexen Amplitude $\newhat{\psi}$, erhält man
+%
+\begin{align}
+-i\omega\newhat{\Phi} + \frac{4i}{3d}\Phi_0\left(s_1\newhat{u}_1 + s_2\newhat{u}_2 + s_3\newhat{u}_3\right) &= 0,\\
+-i\omega\newhat{u}_1 - \frac{f_0}{\sqrt{3}}\left(c_3\newhat{u}_2 - c_2\newhat{u}_3\right) + \frac{2is_1}{d}\newhat{\Phi} &= 0,\\
+-i\omega\newhat{u}_2 - \frac{f_0}{\sqrt{3}}\left(c_1\newhat{u}_3 - c_3\newhat{u}_1\right) + \frac{2is_1}{d}\newhat{\Phi} &= 0,\\
+-i\omega\newhat{u}_3 - \frac{f_0}{\sqrt{3}}\left(c_2\newhat{u}_1 - c_1\newhat{u}_2\right) + \frac{2is_1}{d}\newhat{\Phi} &= 0.
+\end{align}
+%
+Dabei ist zu beachten, dass zwischen den Gleichungen ein Phasenversatz besteht, welcher daraus entsteht, dass die einzelnen Gleichungen an unterschiedlichen Orten gelten. Dieser wurde herausgekürzt. In Matrixform erhält man
+%
+\begin{align}
+\left(\begin{array}{cccc}
+-i\omega & \frac{4i}{3d}\Phi_0s_1 & \frac{4i}{3d}\Phi_0s_2 & \frac{4i}{3d}\Phi_0s_3 \\
+\frac{2is_1}{d} & -i\omega & -\frac{f_0}{\sqrt{3}}c_3 & \frac{f_0}{\sqrt{3}}c_2\\
+\frac{2is_2}{d} & \frac{f_0}{\sqrt{3}}c_3 & -i\omega & -\frac{f_0}{\sqrt{3}}c_1\\
+\frac{2is_3}{d} & -\frac{f_0}{\sqrt{3}}c_2 & \frac{f_0}{\sqrt{3}}c_1 & -i\omega
+\end{array}\right)\left(\begin{array}{c}
+\newhat{\Phi}\\
+\newhat{u}_1\\
+\newhat{u}_2\\
+\newhat{u}_3
+\end{array}\right) = \mathbf{0}.
+\end{align}
+%
+Multipliziert man dies mit der imaginären Einheit $i$, erhält man
+%
+\begin{align}
+\left(\begin{array}{cccc}
+\omega & -\frac{4}{3d}\Phi_0s_1 & -\frac{4}{3d}\Phi_0s_2 & -\frac{4}{3d}\Phi_0s_3 \\
+-\frac{2s_1}{d} & \omega & -\frac{if_0}{\sqrt{3}}c_3 & \frac{if_0}{\sqrt{3}}c_2\\
+-\frac{2s_2}{d} & \frac{if_0}{\sqrt{3}}c_3 & \omega & -\frac{if_0}{\sqrt{3}}c_1\\
+-\frac{2s_3}{d} & -\frac{if_0}{\sqrt{3}}c_2 & \frac{if_0}{\sqrt{3}}c_1 & \omega
+\end{array}\right)\left(\begin{array}{c}
+\newhat{\Phi}\\
+\newhat{u}_1\\
+\newhat{u}_2\\
+\newhat{u}_3
+\end{array}\right) = \mathbf{0}.
+\end{align}
+%
+Nichttriviale Lösungen exisitieren genau dann, wenn die Determinante der Koeffizientenmatrix dieses linearen Gleichungssystem verschwindet:
+%
+\begin{align}
+\left|\begin{array}{cccc}
+\omega & -\frac{4}{3d}\Phi_0s_1 & -\frac{4}{3d}\Phi_0s_2 & -\frac{4}{3d}\Phi_0s_3 \\
+-\frac{2s_1}{d} & \omega & -\frac{if_0}{\sqrt{3}}c_3 & \frac{if_0}{\sqrt{3}}c_2\\
+-\frac{2s_2}{d} & \frac{if_0}{\sqrt{3}}c_3 & \omega & -\frac{if_0}{\sqrt{3}}c_1\\
+-\frac{2s_3}{d} & -\frac{if_0}{\sqrt{3}}c_2 & \frac{if_0}{\sqrt{3}}c_1 & \omega
+\end{array}\right| &\stackrel{!}{=} 0\nonumber\\
+\Leftrightarrow &= 0
+\end{align}
+%
+Somit lautet das charakteristische Polynom schlussendlich
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\omega^4 - \omega^2\left[\frac{f_0^2}{3}\left(c_1^2 + c_2^2 + c_3^2\right) + \frac{8\Phi_0}{3d^2}\left(s_1^2 + s_2^2 + s_3^2\right)\right] + \frac{8\Phi_0f_0^2}{9d^2}\left(s_1c_1 + s_2c_2 + s_3c_3\right)^2 = 0.\label{eq:disp_rel_hex_c}
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+Für den Fall gut aufgelöster Wellen $\left|\mathbf{k}\right| \ll \frac{1}{d}$ gelten
+%
+\begin{align}
+c_j &\approx 1,\\
+s_j &\approx \frac{k_jd}{2}.
+\end{align}
+%
+Setzt man dies in Glg. \eqref{eq:disp_rel_hex_c} ein, erhält man
+%
+\begin{align}
+\omega^4 - \omega^2\left[f_0^2 + \frac{8\Phi_0}{3d^2}\left(\frac{k_1^2d^2}{4} + \frac{k_2^2d^2}{4} + \frac{k_3^2d^2}{4}\right)\right] + \frac{8\Phi_0f_0^2}{9d^2}\underbrace{\left(\frac{k_1d}{2} + \frac{k_1d}{2} + \frac{k_1d}{2}\right)^2}_{\approx 0} &\approx 0\nonumber\\
+\Leftrightarrow\omega^4 - \omega^2\left[f_0^2 + \frac{2\Phi_0}{3}\left(k_1^2 + k_2^2 + k_3^2\right)\right] &\approx 0.\nonumber\\
+\Leftrightarrow\omega^4 - \omega^2\left[f_0^2 + \Phi\mathbf{k}^2\right] &\approx 0.
+\end{align}
+%
+Dabei wurde im letzten Schritt ausgenutzt, dass $k_1^2 + k_2^2 + k_3^2 = \frac{3}{2}\mathbf{k}^2$ gilt. Dies kann man sich klarmachen, indem man o. B. d. A. $\mathbf{k} \parallel \mathbf{i}_1$ annehmen, denn dann gelten $k_1 = k$, $k_2 = -k\sin\left(30^\circ\right) = -\frac{k}{2}$ sowie $k_3 = -\frac{k}{2}$. Dies führt auf die zwei Intertio-Schwere-Moden
+%
+\begin{align}
+\omega^2 \approx f_0^2 + \Phi_0\left|\mathbf{k}\right|^2
+\end{align}
+%
+sowie die geostrophische Mode
+%
+\begin{align}
+\omega \approx 0.
+\end{align}
+%
+Bei weniger gut aufgelösten Wellen führt der Term $\propto\left(s_1c_1 + s_2c_2 + s_3c_3\right)^2$ jedoch dazu, dass die geostrophische Mode in zwei Teilmoden mit $\omega \not= 0$ aufspaltet. Dies ist problematisch und entspricht den Erkenntnissen von Absch. \ref{sec:das_problem_des_verhältnisses_der_freiheitsgrade}.
+
+\section{Thuburn-Mittelung}
+\label{sec:thuburn-mittelung}\index{Thuburn-Mittelung}
+
+\subsection{Anforderungen}
+\label{sec:anforderungen}
 
 Bei einer ebenen dreieckigen oder hexagonalen C-Gitter-Diskretisierung sind die Geschwindigkeitskomponenten um 120 bzw. 60$^\circ$ gegenüber einander rotiert, jedoch sind die Komponenten nicht am selben Ort definiert. Daher gilt die Bedingung Glg. \eqref{eq:linear_condition_trivariate} nicht ohne weiteres für die Vektorkomponenten, sondern erst nach einer Interpolation an Referenzorte, wofür hier die Zentren der Zellen verwendet werden. Diese Interpolation erfolgt mittels Operatoren
 %
@@ -17983,34 +18164,29 @@ Bei einer ebenen dreieckigen oder hexagonalen C-Gitter-Diskretisierung sind die 
 \newtilde{u}^{(i)}
 \end{align}
 %
-mit $1 \leq i \leq 3$, wobei $u$ eine beliebige Vektorkomponente ist. Für jede Raumrichtung $i$ braucht man einen separaten Mittelungsoperator. Die Bedingungen Glg. \eqref{eq:linear_condition_trivariate} lassen sich also hier in der Form
+mit $1 \leq i \leq 3$, wobei $u$ eine beliebige Vektorkomponente ist. Für jede Raumrichtung $i$ wird hier ein separater Mittelungsoperator zugelassen. Die Bedingungen Glg. \eqref{eq:linear_condition_trivariate} lassen sich also hier in der Form
 %
-\begin{center}
-\doublebox{\parbox{0.8\textwidth}{
-\begin{center}
 \begin{align}
-\newtilde{u}_1^{(1)} + \newtilde{u}_2^{(2)} + \newtilde{u}_3^{(3)} & \stackrel{!}{=} 0,\label{eq:linear_condition_trivariate_discrete_0}
-\end{align}
-\end{center}
-}}
-\end{center}
-\begin{align}
+\newtilde{u}_1^{(1)} + \newtilde{u}_2^{(2)} + \newtilde{u}_3^{(3)} & \stackrel{!}{=} 0,\label{eq:linear_condition_trivariate_discrete_0}\\
 \newtilde{v}_1^{(1)} + \newtilde{v}_2^{(2)} + \newtilde{v}_3^{(3)} & \stackrel{!}{=} 0\label{eq:linear_condition_trivariate_discrete_1}
 \end{align}
 %
-notieren. Diese Gleichungen sind als Forderungen an die Mittelungsoperatoren $\newtilde{\psi}^{(j)}$ zu verstehen. Für jedes Skalarfeld $\psi$ gelte weiterhin
+notieren. Diese Gleichungen sind als Forderungen an Vektorfelder $\mathbf{v}$ zu verstehen. Sollten Gradientefelder $\nabla\alpha$ die Bedingung Glg. \eqref{eq:linear_condition_trivariate_discrete_0} nicht, so hat man ein Problem, da die Berechnung von Gradientenfeldern auf dem C-Gitter festgelegt ist. Daher verwendet man als Forderung an den zu findenden Mittelungsoperator die Mittelung von Glg. \eqref{eq:gradient_linear_condition}:
 %
 \begin{center}
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-\newtilde{\delta_1\psi}^{(1)} + \newtilde{\delta_2\psi}^{(2)} + \newtilde{\delta_3\psi}^{(3)} \stackrel{!}{=} 0,\label{eq:linear_condition_trivariate_discrete_gradient}
+\newtilde{\delta_1\alpha}^{(1)} + \newtilde{\delta_2\alpha}^{(2)} + \newtilde{\delta_3\alpha}^{(3)} \stackrel{!}{=} 0\label{eq:linear_condition_trivariate_discrete_gradient}
 \end{align}
 \end{center}
 }}
 \end{center}
-%
-wobei mit $\delta_i\alpha$ für $1 \leq i \leq 3$ zentrale Differenzenquotienten des Skalarfeldes $\alpha$ in i-Richtung bezeichnet werden. Für die Helmholtz-Aufteilung Glg.en \eqref{eq:trivariate_helmholtz_eq_0} - \eqref{eq:trivariate_helmholtz_eq_5} folgt durch Mittelung in den jeweils relevanten Raumrichtungen
+
+\subsection{Folgerungen für die Helmholtz-Aufteilung}
+\label{sec:folgerungen_für_die_helmholtz-aufteilung}\index{Helmholtz-Aufteilung!hexagonales Gitter}\index{hexagonales Gitter!Helmholtz-Aufteilung}
+
+Für die Helmholtz-Aufteilung Glg.en \eqref{eq:trivariate_helmholtz_eq_0} - \eqref{eq:trivariate_helmholtz_eq_5} folgt durch Mittelung in den jeweils relevanten Raumrichtungen
 %
 \begin{align}
 \newtilde{u}_1^{(1)} & = \frac{1}{\sqrt{3}}\left(\newtilde{\delta_3\psi}^{(1)} - \newtilde{\delta_2\psi}^{(1)}\right) + \newtilde{\delta_1\chi}^{(1)},\\
@@ -18032,32 +18208,10 @@ Hiermit sind die Glg.en \eqref{eq:linear_condition_trivariate_discrete_0} - \eqr
 \newtilde{v}_3^{(3)} & = \frac{1}{\sqrt{3}}\left(\newtilde{\delta_1\newtilde{\chi}^{(2)}}^{(3)} - \newtilde{\delta_2\newtilde{\chi}^{(1)}}^{(3)}\right) + \newtilde{\delta_3\psi}^{(3)}
 \end{align}
 
-\section{Thuburn-Mittelung}
-\label{sec:thuburn-mittelung}\index{Thuburn-Mittelung}
+\subsection{Herleitung des Mittelungsoperators}
+\label{sec:herleitung_des_mittelungsoperators}
 
-Nun stellt man sich die Frage, wie der Mittelungsoperator $\newtilde{\psi}^{(j)}$ konkret aussehen muss. Hierfür geht man davon aus, dass das Feld $\psi$ von der Form
-%
-\begin{align}
-\psi\left(\mathbf{r}\right) = \exp\left(i\mathbf{k}\cdot\mathbf{r}\right)
-\end{align}
-%
-ist. Ein allgemeines Feld kann man durch Superposition solcher Fourier-Komponenten darstellen. Weiterhin bezeichnet man den Abstand zwischen den Zentren zweier Hexagone mit $d$ (diese Größe wird von nun an als Gitterkonstante bezeichnet). Dann gilt für $1 \leq j \leq 3$ die Gleichung
-%
-\begin{align}
-\delta_j\psi &= \frac{\psi\left(\mathbf{r} + \mathbf{i}_j\frac{d}{2}\right) - \psi\left(\mathbf{r} - \mathbf{i}_j\frac{d}{2}\right)}{d} = \frac{\exp\left[i\mathbf{k}\cdot\left(\mathbf{r} + \mathbf{i}_j\frac{d}{2}\right)\right] - \exp\left[i\mathbf{k}\cdot\left(\mathbf{r} - \mathbf{i}_j\frac{d}{2}\right)\right]}{d}\nonumber\\
-&= \exp\left(i\mathbf{k}\cdot\mathbf{r}\right)\frac{\exp\left(i\mathbf{k}\cdot\mathbf{i}_j\frac{d}{2}\right) - \exp\left(-i\mathbf{k}\cdot\mathbf{i}_j\frac{d}{2}\right)}{d} = \psi\left(\mathbf{r}\right)\frac{\exp\left(i\mathbf{k}\cdot\mathbf{i}_j\frac{d}{2}\right) - \exp\left(-i\mathbf{k}\cdot\mathbf{i}_j\frac{d}{2}\right)}{d}\nonumber\\
-& = \psi\left(\mathbf{r}\right)\frac{\exp\left(ik_j\frac{d}{2}\right) - \exp\left(-ik_j\frac{d}{2}\right)}{d} = \psi\left(\mathbf{r}\right)\frac{2i}{d}\sin\left(\frac{k_jd}{2}\right).
-\end{align}
-%
-Man definiert nun weiterhin einen einfachen Mittelungsoperator in j-Richtung durch
-%
-\begin{align}
-\newoverline{\psi}^{(j)} & \coloneqq \frac{\psi\left(\mathbf{r} + \mathbf{i}_j\frac{d}{2}\right) + \psi\left(\mathbf{r} - \mathbf{i}_j\frac{d}{2}\right)}{2} = \frac{\exp\left[i\mathbf{k}\cdot\left(\mathbf{r} + \mathbf{i}_j\frac{d}{2}\right)\right] + \exp\left[i\mathbf{k}\cdot\left(\mathbf{r} - \mathbf{i}_j\frac{d}{2}\right)\right]}{2}\nonumber\\
-&= \exp\left(i\mathbf{k}\cdot\mathbf{r}\right)\frac{\exp\left(i\mathbf{k}\cdot\mathbf{i}_j\frac{d}{2}\right) + \exp\left(-i\mathbf{k}\cdot\mathbf{i}_j\frac{d}{2}\right)}{2}\nonumber\\
-&= \psi\left(\mathbf{r}\right)\frac{\exp\left(ik_j\frac{d}{2}\right) + \exp\left(-ik_j\frac{d}{2}\right)}{2} = \psi\left(\mathbf{r}\right)\cos\left(\frac{k_jd}{2}\right).
-\end{align}
-%
-Für diesen gilt
+Nun stellt man sich die Frage, wie der Mittelungsoperator $\newtilde{\psi}^{(j)}$ konkret aussehen muss. Für den in Glg. \eqref{eq:hex_simple_average} eingeführten Operator gilt
 %
 \begin{align}
 &\newoverline{\delta_1\psi}^{(1)} + \newoverline{\delta_1\psi}^{(2)} + \newoverline{\delta_1\psi}^{(3)}\nonumber\\
@@ -18075,40 +18229,40 @@ Dieser Operator erfüllt die Bedingung Glg. \eqref{eq:linear_condition_trivariat
 Für diesen gilt
 %
 \begin{align}
-\newoverline{\delta_1\psi}^{((1))} + \newoverline{\delta_2\psi}^{((2))} + \newoverline{\delta_3\psi}^{((3))} &= \psi\left(\mathbf{r}\right)\frac{2i}{d}\Big[\sin\left(\frac{k_1d}{2}\right)\cos\left(\frac{k_2d}{2}\right)\cos\left(\frac{k_3d}{2}\right) + \cos\left(\frac{k_1d}{2}\right)\sin\left(\frac{k_2d}{2}\right)\cos\left(\frac{k_3d}{2}\right)\nonumber\\
+\newoverline{\delta_1\alpha}^{((1))} + \newoverline{\delta_2\alpha}^{((2))} + \newoverline{\delta_3\alpha}^{((3))} &= \alpha\left(\mathbf{r}\right)\frac{2i}{d}\Big[\sin\left(\frac{k_1d}{2}\right)\cos\left(\frac{k_2d}{2}\right)\cos\left(\frac{k_3d}{2}\right) + \cos\left(\frac{k_1d}{2}\right)\sin\left(\frac{k_2d}{2}\right)\cos\left(\frac{k_3d}{2}\right)\nonumber\\
 & + \cos\left(\frac{k_1d}{2}\right)\cos\left(\frac{k_2d}{2}\right)\sin\left(\frac{k_3d}{2}\right)\Big]\nonumber\\
-&= \psi\left(\mathbf{r}\right)\frac{2i}{d}\Big[\sin\left(\frac{k_1d + k_2d}{2}\right)\cos\left(\frac{k_3d}{2}\right) + \cos\left(\frac{k_1d}{2}\right)\cos\left(\frac{k_2d}{2}\right)\sin\left(\frac{k_3d}{2}\right)\Big]\nonumber\\
-&= \psi\left(\mathbf{r}\right)\frac{2i}{d}\Big[\sin\left(\frac{k_1 + k_2 + k_3}{2}d\right) - \cos\left(\frac{k_1 + k_2}{2}d\right)\sin\left(\frac{k_3}{2}d\right)\nonumber\\
+&= \alpha\left(\mathbf{r}\right)\frac{2i}{d}\Big[\sin\left(\frac{k_1d + k_2d}{2}\right)\cos\left(\frac{k_3d}{2}\right) + \cos\left(\frac{k_1d}{2}\right)\cos\left(\frac{k_2d}{2}\right)\sin\left(\frac{k_3d}{2}\right)\Big]\nonumber\\
+&= \alpha\left(\mathbf{r}\right)\frac{2i}{d}\Big[\sin\left(\frac{k_1 + k_2 + k_3}{2}d\right) - \cos\left(\frac{k_1 + k_2}{2}d\right)\sin\left(\frac{k_3}{2}d\right)\nonumber\\
 &+ \cos\left(\frac{k_1d}{2}\right)\cos\left(\frac{k_2d}{2}\right)\sin\left(\frac{k_3d}{2}\right)\Big].
 \end{align}
 %
 Mit $k_1 + k_2 + k_3 = 0$ folgt
 %
 \begin{align}
-\newoverline{\delta_1\psi}^{((1))} + \newoverline{\delta_2\psi}^{((2))} + \newoverline{\delta_3\psi}^{((3))} &= \psi\left(\mathbf{r}\right)\frac{2i}{d}\Big[-\cos\left(\frac{k_1 + k_2}{2}d\right)\sin\left(\frac{k_3}{2}d\right) + \cos\left(\frac{k_1d}{2}\right)\cos\left(\frac{k_2d}{2}\right)\sin\left(\frac{k_3d}{2}\right)\Big]\nonumber\\
-&= \psi\left(\mathbf{r}\right)\frac{2i}{d}\sin\left(\frac{k_3}{2}d\right)\Big[\cos\left(\frac{k_1d}{2}\right)\cos\left(\frac{k_2d}{2}\right) - \cos\left(\frac{k_1 + k_2}{2}d\right)\Big]\nonumber\\
-&= \psi\left(\mathbf{r}\right)\frac{2i}{d}\sin\left(\frac{k_3}{2}d\right)\Big[\cos\left(\frac{k_1d}{2}\right)\cos\left(\frac{k_2d}{2}\right) - \cos\left(\frac{k_1d}{2}\right)\cos\left(\frac{k_2d}{2}\right)\nonumber\\
+\newoverline{\delta_1\alpha}^{((1))} + \newoverline{\delta_2\alpha}^{((2))} + \newoverline{\delta_3\alpha}^{((3))} &= \alpha\left(\mathbf{r}\right)\frac{2i}{d}\Big[-\cos\left(\frac{k_1 + k_2}{2}d\right)\sin\left(\frac{k_3}{2}d\right) + \cos\left(\frac{k_1d}{2}\right)\cos\left(\frac{k_2d}{2}\right)\sin\left(\frac{k_3d}{2}\right)\Big]\nonumber\\
+&= \alpha\left(\mathbf{r}\right)\frac{2i}{d}\sin\left(\frac{k_3}{2}d\right)\Big[\cos\left(\frac{k_1d}{2}\right)\cos\left(\frac{k_2d}{2}\right) - \cos\left(\frac{k_1 + k_2}{2}d\right)\Big]\nonumber\\
+&= \alpha\left(\mathbf{r}\right)\frac{2i}{d}\sin\left(\frac{k_3}{2}d\right)\Big[\cos\left(\frac{k_1d}{2}\right)\cos\left(\frac{k_2d}{2}\right) - \cos\left(\frac{k_1d}{2}\right)\cos\left(\frac{k_2d}{2}\right)\nonumber\\
 &+ \sin\left(\frac{k_1d}{2}\right)\sin\left(\frac{k_2d}{2}\right)\Big]\nonumber\\
-&= \psi\left(\mathbf{r}\right)\frac{2i}{d}\sin\left(\frac{k_1}{2}d\right)\sin\left(\frac{k_2d}{2}\right)\sin\left(\frac{k_3d}{2}\right) \stackrel{\text{i. A.}}{\not=} 0.\label{eq:thuburn_op_deriv_0}
+&= \alpha\left(\mathbf{r}\right)\frac{2i}{d}\sin\left(\frac{k_1}{2}d\right)\sin\left(\frac{k_2d}{2}\right)\sin\left(\frac{k_3d}{2}\right) \stackrel{\text{i. A.}}{\not=} 0.\label{eq:thuburn_op_deriv_0}
 \end{align}
 %
 Auch dieser Operator erfüllt die Bedingung Glg. \eqref{eq:linear_condition_trivariate_discrete_gradient} also nicht. Man rechnet jedoch wiederum mit $k_1 + k_2 + k_3 = 0$ weiter:
 %
 \begin{align}
-& \newoverline{\delta_1\psi}^{((1))} + \newoverline{\delta_2\psi}^{((2))} + \newoverline{\delta_3\psi}^{((3))} = \psi\left(\mathbf{r}\right)\frac{2i}{d}\sin\left(\frac{k_1}{2}d\right)\sin\left(\frac{k_2d}{2}\right)\sin\left(\frac{k_3d}{2}\right)\nonumber\\
-&= \psi\left(\mathbf{r}\right)\frac{2i}{d}\sin\left(\frac{k_1}{2}d\right)\sin\left(\frac{k_2d}{2}\right)\sin\left(-\frac{k_1 + k_2}{2}d\right) = -\psi\left(\mathbf{r}\right)\frac{2i}{d}\sin\left(\frac{k_1}{2}d\right)\sin\left(\frac{k_2d}{2}\right)\sin\left(\frac{k_1 + k_2}{2}d\right)\nonumber\\
-&= -\psi\left(\mathbf{r}\right)\frac{2i}{d}\sin\left(\frac{k_1}{2}d\right)\sin\left(\frac{k_2d}{2}\right)\left[\sin\left(\frac{k_1}{2}d\right)\cos\left(\frac{k_2}{2}d\right) + \cos\left(\frac{k_1}{2}d\right)\sin\left(\frac{k_2}{2}d\right)\right]\nonumber\\
-&= -\psi\left(\mathbf{r}\right)\frac{2i}{d}\left[\sin\left(\frac{k_2}{2}d\right)\sin\left(\frac{k_1}{2}d\right)^2\cos\left(\frac{k_2}{2}d\right) + \sin\left(\frac{k_1}{2}d\right)\cos\left(\frac{k_1}{2}d\right)\sin\left(\frac{k_2}{2}d\right)^2\right]\nonumber\\
-&= -\psi\left(\mathbf{r}\right)\frac{i}{d}\left[\sin\left(k_2d\right)\sin\left(\frac{k_1}{2}d\right)^2 + \sin\left(k_1d\right)\sin\left(\frac{k_2}{2}d\right)^2\right]\nonumber\\
-&= -\psi\left(\mathbf{r}\right)\frac{i}{d}\left[\sin\left(k_2d\right) + \sin\left(k_1d\right) - \sin\left(k_2d\right)\cos\left(\frac{k_1}{2}d\right)^2 - \sin\left(k_1d\right)\cos\left(\frac{k_2}{2}d\right)^2\right]\nonumber
+& \newoverline{\delta_1\alpha}^{((1))} + \newoverline{\delta_2\alpha}^{((2))} + \newoverline{\delta_3\alpha}^{((3))} = \alpha\left(\mathbf{r}\right)\frac{2i}{d}\sin\left(\frac{k_1}{2}d\right)\sin\left(\frac{k_2d}{2}\right)\sin\left(\frac{k_3d}{2}\right)\nonumber\\
+&= \alpha\left(\mathbf{r}\right)\frac{2i}{d}\sin\left(\frac{k_1}{2}d\right)\sin\left(\frac{k_2d}{2}\right)\sin\left(-\frac{k_1 + k_2}{2}d\right) = -\alpha\left(\mathbf{r}\right)\frac{2i}{d}\sin\left(\frac{k_1}{2}d\right)\sin\left(\frac{k_2d}{2}\right)\sin\left(\frac{k_1 + k_2}{2}d\right)\nonumber\\
+&= -\alpha\left(\mathbf{r}\right)\frac{2i}{d}\sin\left(\frac{k_1}{2}d\right)\sin\left(\frac{k_2d}{2}\right)\left[\sin\left(\frac{k_1}{2}d\right)\cos\left(\frac{k_2}{2}d\right) + \cos\left(\frac{k_1}{2}d\right)\sin\left(\frac{k_2}{2}d\right)\right]\nonumber\\
+&= -\alpha\left(\mathbf{r}\right)\frac{2i}{d}\left[\sin\left(\frac{k_2}{2}d\right)\sin\left(\frac{k_1}{2}d\right)^2\cos\left(\frac{k_2}{2}d\right) + \sin\left(\frac{k_1}{2}d\right)\cos\left(\frac{k_1}{2}d\right)\sin\left(\frac{k_2}{2}d\right)^2\right]\nonumber\\
+&= -\alpha\left(\mathbf{r}\right)\frac{i}{d}\left[\sin\left(k_2d\right)\sin\left(\frac{k_1}{2}d\right)^2 + \sin\left(k_1d\right)\sin\left(\frac{k_2}{2}d\right)^2\right]\nonumber\\
+&= -\alpha\left(\mathbf{r}\right)\frac{i}{d}\left[\sin\left(k_2d\right) + \sin\left(k_1d\right) - \sin\left(k_2d\right)\cos\left(\frac{k_1}{2}d\right)^2 - \sin\left(k_1d\right)\cos\left(\frac{k_2}{2}d\right)^2\right]\nonumber
 \end{align}
 \begin{align}
-&= -\psi\left(\mathbf{r}\right)\frac{i}{d}\Big[\sin\left(k_2d\right) + \sin\left(k_1d\right) - \sin\left(k_2d\right)\cos\left(k_1\right) - \sin\left(k_1d\right)\cos\left(k_2d\right) + \sin\left(k_2d\right)\sin\left(\frac{k_1}{2}d\right)^2\nonumber\\
+&= -\alpha\left(\mathbf{r}\right)\frac{i}{d}\Big[\sin\left(k_2d\right) + \sin\left(k_1d\right) - \sin\left(k_2d\right)\cos\left(k_1\right) - \sin\left(k_1d\right)\cos\left(k_2d\right) + \sin\left(k_2d\right)\sin\left(\frac{k_1}{2}d\right)^2\nonumber\\
 & + \sin\left(k_1d\right)\sin\left(\frac{k_2}{2}d\right)^2\Big]\nonumber\\
-&= -\psi\left(\mathbf{r}\right)\frac{i}{d}\Big[\sin\left(k_2d\right) + \sin\left(k_1d\right) - \sin\left[\left(k_1 + k_2\right)d\right] + \sin\left(k_2d\right)\sin\left(\frac{k_1}{2}d\right)^2 + \sin\left(k_1d\right)\sin\left(\frac{k_2}{2}d\right)^2\Big]\nonumber\\
-&= -\psi\left(\mathbf{r}\right)\frac{i}{d}\Big[\sin\left(k_2d\right) + \sin\left(k_1d\right) - \sin\left(-k_3d\right) + \sin\left(k_2d\right)\sin\left(\frac{k_1}{2}d\right)^2 + \sin\left(k_1d\right)\sin\left(\frac{k_2}{2}d\right)^2\Big]\nonumber\\
-&= -\psi\left(\mathbf{r}\right)\frac{i}{d}\Big[\sin\left(k_2d\right) + \sin\left(k_1d\right) + \sin\left(k_3d\right) + \sin\left(k_2d\right)\sin\left(\frac{k_1}{2}d\right)^2 + \sin\left(k_1d\right)\sin\left(\frac{k_2}{2}d\right)^2\Big]\nonumber\\
-&= -\left(\newoverline{\delta_1\psi}^{(1)} + \newoverline{\delta_1\psi}^{(2)} + \newoverline{\delta_1\psi}^{(3)}\right) - \psi\left(\mathbf{r}\right)\frac{i}{d}\Big[\sin\left(k_2d\right)\sin\left(\frac{k_1}{2}d\right)^2 + \sin\left(k_1d\right)\sin\left(\frac{k_2}{2}d\right)^2\Big]
+&= -\alpha\left(\mathbf{r}\right)\frac{i}{d}\Big[\sin\left(k_2d\right) + \sin\left(k_1d\right) - \sin\left[\left(k_1 + k_2\right)d\right] + \sin\left(k_2d\right)\sin\left(\frac{k_1}{2}d\right)^2 + \sin\left(k_1d\right)\sin\left(\frac{k_2}{2}d\right)^2\Big]\nonumber\\
+&= -\alpha\left(\mathbf{r}\right)\frac{i}{d}\Big[\sin\left(k_2d\right) + \sin\left(k_1d\right) - \sin\left(-k_3d\right) + \sin\left(k_2d\right)\sin\left(\frac{k_1}{2}d\right)^2 + \sin\left(k_1d\right)\sin\left(\frac{k_2}{2}d\right)^2\Big]\nonumber\\
+&= -\alpha\left(\mathbf{r}\right)\frac{i}{d}\Big[\sin\left(k_2d\right) + \sin\left(k_1d\right) + \sin\left(k_3d\right) + \sin\left(k_2d\right)\sin\left(\frac{k_1}{2}d\right)^2 + \sin\left(k_1d\right)\sin\left(\frac{k_2}{2}d\right)^2\Big]\nonumber\\
+&= -\left(\newoverline{\delta_1\alpha}^{(1)} + \newoverline{\delta_1\alpha}^{(2)} + \newoverline{\delta_1\alpha}^{(3)}\right) - \alpha\left(\mathbf{r}\right)\frac{i}{d}\Big[\sin\left(k_2d\right)\sin\left(\frac{k_1}{2}d\right)^2 + \sin\left(k_1d\right)\sin\left(\frac{k_2}{2}d\right)^2\Big]
 \end{align}
 %
 Man rechnet nun
@@ -18124,28 +18278,28 @@ Man rechnet nun
 Somit folgt
 %
 \begin{align}
-& \newoverline{\delta_1\psi}^{((1))} + \newoverline{\delta_2\psi}^{((2))} + \newoverline{\delta_3\psi}^{((3))} = -\left(\newoverline{\delta_1\psi}^{(1)} + \newoverline{\delta_1\psi}^{(2)} + \newoverline{\delta_1\psi}^{(3)}\right) + \psi\left(\mathbf{r}\right)\frac{i}{d}\sin\left(\frac{k_1}{2}d\right)\sin\left(\frac{k_2}{2}d\right)\sin\left(\frac{k_3}{2}d\right)\nonumber\\
-&\stackrel{\text{Glg. \eqref{eq:thuburn_op_deriv_0}}}{=} -\left(\newoverline{\delta_1\psi}^{(1)} + \newoverline{\delta_1\psi}^{(2)} + \newoverline{\delta_1\psi}^{(3)}\right) + \frac{1}{2}\left(\newoverline{\delta_1\psi}^{((1))} + \newoverline{\delta_2\psi}^{((2))} + \newoverline{\delta_3\psi}^{((3))}\right)\nonumber\\
-&\Rightarrow\newoverline{\delta_1\psi}^{((1))} + \newoverline{\delta_2\psi}^{((2))} + \newoverline{\delta_3\psi}^{((3))} = -\frac{1}{2}\left(\newoverline{\delta_1\psi}^{(1)} + \newoverline{\delta_1\psi}^{(2)} + \newoverline{\delta_1\psi}^{(3)}\right).\label{eq:thuburn_op_deriv_1}
+& \newoverline{\delta_1\alpha}^{((1))} + \newoverline{\delta_2\alpha}^{((2))} + \newoverline{\delta_3\alpha}^{((3))} = -\left(\newoverline{\delta_1\alpha}^{(1)} + \newoverline{\delta_1\alpha}^{(2)} + \newoverline{\delta_1\alpha}^{(3)}\right) + \alpha\left(\mathbf{r}\right)\frac{i}{d}\sin\left(\frac{k_1}{2}d\right)\sin\left(\frac{k_2}{2}d\right)\sin\left(\frac{k_3}{2}d\right)\nonumber\\
+&\stackrel{\text{Glg. \eqref{eq:thuburn_op_deriv_0}}}{=} -\left(\newoverline{\delta_1\alpha}^{(1)} + \newoverline{\delta_1\alpha}^{(2)} + \newoverline{\delta_1\alpha}^{(3)}\right) + \frac{1}{2}\left(\newoverline{\delta_1\alpha}^{((1))} + \newoverline{\delta_2\alpha}^{((2))} + \newoverline{\delta_3\alpha}^{((3))}\right)\nonumber\\
+&\Rightarrow\newoverline{\delta_1\alpha}^{((1))} + \newoverline{\delta_2\alpha}^{((2))} + \newoverline{\delta_3\alpha}^{((3))} = -\frac{1}{2}\left(\newoverline{\delta_1\alpha}^{(1)} + \newoverline{\delta_1\alpha}^{(2)} + \newoverline{\delta_1\alpha}^{(3)}\right).\label{eq:thuburn_op_deriv_1}
 \end{align}
 %
 Man macht nun den Ansatz
 %
 \begin{align}
-\newtilde{\psi}^{(j)} = \alpha\newoverline{\psi}^{(j)} + \left(1 - \alpha\right)\newoverline{\psi}^{((j))}
+\newtilde{\alpha}^{(j)} = \beta\newoverline{\alpha}^{(j)} + \left(1 - \beta\right)\newoverline{\alpha}^{((j))}
 \end{align}
 %
-mit $0 \leq \alpha \leq 0$. Setzt man hier Glg. \eqref{eq:thuburn_op_deriv_1} ein, erhält man
+mit $0 \leq \beta \leq 0$. Setzt man hier Glg. \eqref{eq:thuburn_op_deriv_1} ein, erhält man
 %
 \begin{align}
-\newtilde{\delta_1\psi}^{(1)} + \newtilde{\delta_2\psi}^{(2)} + \newtilde{\delta_3\psi}^{(3)} &= \left(\alpha - \frac{1}{2}\left(1 - \alpha\right)\right)\left(\newoverline{\delta_1\psi}^{(1)} + \newoverline{\delta_1\psi}^{(2)} + \newoverline{\delta_1\psi}^{(3)}\right) \stackrel{!}{=} 0.
+\newtilde{\delta_1\alpha}^{(1)} + \newtilde{\delta_2\alpha}^{(2)} + \newtilde{\delta_3\alpha}^{(3)} &= \left(\beta - \frac{1}{2}\left(1 - \beta\right)\right)\left(\newoverline{\delta_1\alpha}^{(1)} + \newoverline{\delta_1\alpha}^{(2)} + \newoverline{\delta_1alpha}^{(3)}\right) \stackrel{!}{=} 0.
 \end{align}
 %
 Dies ist erfüllt für
 %
 \begin{align}
-\alpha - \frac{1}{2}\left(1 - \alpha\right) &= 0 \Leftrightarrow \alpha - \frac{1}{2} + \frac{\alpha}{2} = \frac{3\alpha}{2} - \frac{1}{2} = 0\nonumber\\
-\Leftrightarrow \alpha = \frac{1}{3}.
+\beta - \frac{1}{2}\left(1 - \beta\right) &= 0 \Leftrightarrow \beta - \frac{1}{2} + \frac{\beta}{2} = \frac{3\beta}{2} - \frac{1}{2} = 0\nonumber\\
+\Leftrightarrow \beta = \frac{1}{3}.
 \end{align}
 %
 Somit gilt
@@ -18154,13 +18308,16 @@ Somit gilt
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-\newtilde{\psi}^{(j)} = \frac{1}{3}\newoverline{\psi}^{(j)} + \frac{2}{3}\newoverline{\psi}^{((j))}.
+\newtilde{\alpha}^{(j)} = \frac{1}{3}\newoverline{\alpha}^{(j)} + \frac{2}{3}\newoverline{\alpha}^{((j))}.
 \end{align}
 \end{center}
 }}
 \end{center}
 %
 Dieser Operator wird als \textit{Thuburn-Operator}\index{Thuburn-Operator} bezeichnet, da er von Thuburn in \cite{thuburn_hexagonal_grid} erstmalig verwendet wurde.
+
+\subsection{Folgerungen für die Dispersionsrelation}
+\label{sec:folgerungen_für_die_dispersionsrelation}
 
 \section{Checkerboard-Pattern}
 \label{sec:checkerboard-pattern}\index{Checkerboard-Pattern}
@@ -18176,9 +18333,9 @@ A_v = \frac{d}{2}l.
 %
 Hierbei gilt
 %
-\begin{eqnarray}
+\begin{align}
 l = \cos\left(30^\circ\right)d = \frac{\sqrt{3}}{2}d,
-\end{eqnarray}
+\end{align}
 %
 woraus
 %
@@ -18252,6 +18409,18 @@ führt. Nichteinhaltung der Bedingung $\newtilde{u}_1^{(1)} + \newtilde{u}_2^{(2
 
 \subsection{Eliminierung}
 \label{sec:eliminierung}
+
+Im vorherigen Abschnitt wurde gezeigt, dass ein Checkerboard-Pattern auf dem sechseckigen Gitter in der auf Dreiecken berechneten Vorticity existiert, falls die Bedingung $\newtilde{u}_1^{(1)} + \newtilde{u}_2^{(2)} + \newtilde{u}_3^{(3)} = 0$ für das Windfeld $\mathbf{u}$ nicht eingehalten wird. Damit diese Bedingung an das Windfeld jedoch für alle Zeitschritte erfüllt ist, muss dies sowohl im Anfangszustand für das Windfeld gelten, als auch für alle Forcings $\mathbf{w}$. Simulationen werden üblicherweise jedoch mit Impulsdiffusion durchgeführt, um eine Aufstauung der kinetischen Energie auf der Gitterskala zu vermeiden. Diese diffusiven Terme bauen Gradienten auf der Gitterskala ab und können daher auch ein bestehendes Checkerboard-Pattern abbauen, solange dieses nicht zu stark ist. Dementsprechend kann auf die Forderung $\newtilde{u}_1^{(1)} + \newtilde{u}_2^{(2)} + \newtilde{u}_3^{(3)} = 0$ für das Anfangswindfeld $\mathbf{u}$ verzichtet werden. Wichtig ist jedoch folgendes:
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+Für alle Geschwindigkeitstendenzen $\mathbf{w}$ muss $\newtilde{w}_1^{(1)} + \newtilde{w}_2^{(2)} + \newtilde{w}_3^{(3)} = 0$ gelten.
+\end{center}
+}}
+\end{center}
+%
+Die analogen Tatsachen gelten auf dem dreieckigen Gitter.
 
 \section{Folgerungen}
 \label{sec:folgerungen}
@@ -18352,7 +18521,11 @@ Das globale Integral der barotropen potentiellen Vorticity\index{barotrope poten
 Um die obigen Eingangsfragen dieses Kapitels zu beantworten, muss man sich fragen, was man damit meint, zu sagen \glqq Die Größe $x$ muss auf \textit{diese Weise} berechnet werden\grqq. Hierbei wird in diesem Kapitel von folgender Grundforderungen ausgegangen:
 %
 \begin{center}
-\item Das diskretisierte Analogon der Dispersionrelation\index{Dispersionsrelation!globale Mode}\index{Dispersionsrelation!Mode!globale}\index{globale Mode!Dispersionsrelation}\index{Mode!globale!Dispersionsrelation} Glg. \eqref{eq:disprel_global_modes} soll eine geostrophische Mode $\omega = 0$ haben.
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+Das diskretisierte Analogon der Dispersionrelation\index{Dispersionsrelation!globale Mode}\index{Dispersionsrelation!Mode!globale}\index{globale Mode!Dispersionsrelation}\index{Mode!globale!Dispersionsrelation} Glg. \eqref{eq:disprel_global_modes} soll eine geostrophische Mode $\omega = 0$ haben.
+\end{center}
+}}
 \end{center}
 %
 Außerdem fordert man, dass
@@ -18515,6 +18688,12 @@ Auf dem dualen Gitter (dem Dreiecksgitter) gelten
 \label{tab:ico_vertices}
 \end{table}
 \renewcommand{\arraystretch}{1}
+
+\subsection{Gittergenerierung auf der Einheitskugel}
+\label{sec:gittergenerierung_auf_der_einheitskugel}\index{Modellgitter!Generierung auf der Einheitskugel}
+
+\subsection{Gitteroptimierung}
+\label{sec:gitteroptimierung}\index{Gitteroptimierung}
 
 \section{Vertikales Gitter}
 \label{sec:vertikales_gitter}\index{vertikale Erweiterung des Modellgitters}\index{Modellgitter!vertikale Erweiterung}\index{Modellgitter!Erweiterung!vertikale}
