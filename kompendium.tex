@@ -17930,9 +17930,9 @@ Durch Umsortierung erhält man
 Analog zum Fall von Glg. \eqref{eq:div_3elements2d_mod} gelten auch hier
 %
 \begin{align}
-\zeta &= \frac{2}{\sqrt{3}}\left(\frac{\partial u_3}{\partial x_2} - \frac{\partial u_2}{\partial x_3}\right),\\
-\zeta &= \frac{2}{\sqrt{3}}\left(\frac{\partial u_1}{\partial x_3} - \frac{\partial u_3}{\partial x_1}\right),\\
-\zeta &= \frac{2}{\sqrt{3}}\left(\frac{\partial u_2}{\partial x_1} - \frac{\partial u_1}{\partial x_2}\right).
+\zeta &= \frac{2}{\sqrt{3}}\left(\frac{\partial u_3}{\partial x_2} - \frac{\partial u_2}{\partial x_3}\right),\label{eq:hex_curl_symm_0}\\
+\zeta &= \frac{2}{\sqrt{3}}\left(\frac{\partial u_1}{\partial x_3} - \frac{\partial u_3}{\partial x_1}\right),\label{eq:hex_curl_symm_1}\\
+\zeta &= \frac{2}{\sqrt{3}}\left(\frac{\partial u_2}{\partial x_1} - \frac{\partial u_1}{\partial x_2}\right).\label{eq:hex_curl_symm_2}
 \end{align}
 
 \section{Hauptsatz der Vektoranalysis}
@@ -18475,7 +18475,7 @@ l = \cos\left(30^\circ\right)d = \frac{\sqrt{3}}{2}d,
 woraus
 %
 \begin{align}
-A_v = \frac{d^2\sqrt{3}}{4}
+A_v = \frac{d^2\sqrt{3}}{4}\label{eq:hex_face_triangle}
 \end{align}
 %
 folgt. Somit kann man auf einem Dreieck (Superskript $t$), welches nach oben zeigt (Index $u$), die Divergenz laut Gauß'schem Satz\index{Gauß'scher Satz}\index{Satz!Gauß'scher} in der Form
@@ -18545,7 +18545,7 @@ führt. Nichteinhaltung der Bedingung $\newtilde{u}_1^{(1)} + \newtilde{u}_2^{(2
 \subsection{Eliminierung}
 \label{sec:eliminierung}
 
-Im vorherigen Abschnitt wurde gezeigt, dass ein Checkerboard-Pattern auf dem sechseckigen Gitter in der auf Dreiecken berechneten Vorticity existiert, falls die Bedingung $\newtilde{u}_1^{(1)} + \newtilde{u}_2^{(2)} + \newtilde{u}_3^{(3)} = 0$ für das Windfeld $\mathbf{u}$ nicht eingehalten wird. Damit diese Bedingung an das Windfeld jedoch für alle Zeitschritte erfüllt ist, muss dies sowohl im Anfangszustand für das Windfeld gelten, als auch für alle Forcings $\mathbf{w}$. Simulationen werden üblicherweise jedoch mit Impulsdiffusion durchgeführt, um eine Aufstauung der kinetischen Energie auf der Gitterskala zu vermeiden. Diese diffusiven Terme bauen Gradienten auf der Gitterskala ab und können daher auch ein bestehendes Checkerboard-Pattern abbauen, solange dieses nicht zu stark ist. Dementsprechend kann auf die Forderung $\newtilde{u}_1^{(1)} + \newtilde{u}_2^{(2)} + \newtilde{u}_3^{(3)} = 0$ für das Anfangswindfeld $\mathbf{u}$ verzichtet werden. Wichtig ist jedoch folgendes:
+Im vorherigen Abschnitt wurde gezeigt, dass ein Checkerboard-Pattern auf dem sechseckigen Gitter in der auf Dreiecken berechneten Vorticity existiert, falls die Bedingung $\newtilde{u}_1^{(1)} + \newtilde{u}_2^{(2)} + \newtilde{u}_3^{(3)} = 0$ für das Windfeld $\mathbf{v}$ nicht eingehalten wird. Damit diese Bedingung an das Windfeld jedoch für alle Zeitschritte erfüllt ist, muss dies sowohl im Anfangszustand für das Windfeld gelten, als auch für alle Forcings $\mathbf{w}$. Simulationen werden üblicherweise jedoch mit Impulsdiffusion durchgeführt, um eine Aufstauung der kinetischen Energie auf der Gitterskala zu vermeiden. Diese diffusiven Terme bauen Gradienten auf der Gitterskala ab und können daher auch ein bestehendes Checkerboard-Pattern abbauen, solange dieses nicht zu stark ist. Dementsprechend kann auf die Forderung $\newtilde{u}_1^{(1)} + \newtilde{u}_2^{(2)} + \newtilde{u}_3^{(3)} = 0$ für das Anfangswindfeld $\mathbf{v}$ verzichtet werden. Wichtig ist jedoch folgendes:
 %
 \begin{center}
 \doublebox{\parbox{0.8\textwidth}{
@@ -18604,10 +18604,82 @@ D &= \frac{2}{3}\left(\delta_1u_1 + \delta_2u_2 + \delta_3u_3\right).
 Setzt man dies in die Glg.en \eqref{eq:rhombus_curl_deriv_6} - \eqref{eq:rhombus_curl_deriv_8} ein, erhält man
 %
 \begin{align}
-\Delta u_1 & = \frac{1}{\sqrt{3}}\left(\delta_3\zeta_2 - \delta_2\zeta_3\right) + \frac{2}{3}\left(\delta_1\delta_1u_1 + \delta_1\delta_2u_2 + \delta_1\delta_3u_3\right),\\
-\Delta u_2 & = \frac{1}{\sqrt{3}}\left(\delta_1\zeta_3 - \delta_3\zeta_1\right) + \frac{2}{3}\left(\delta_2\delta_1u_1 + \delta_2\delta_2u_2 + \delta_2\delta_3u_3\right),\\
-\Delta u_3 & = \frac{1}{\sqrt{3}}\left(\delta_2\zeta_1 - \delta_1\zeta_2\right) + \frac{2}{3}\left(\delta_3\delta_1u_1 + \delta_3\delta_2u_2 + \delta_3\delta_3u_3\right).
+\Delta u_1 & = \frac{1}{\sqrt{3}}\left(\delta_3\zeta_2 - \delta_2\zeta_3\right) + \frac{2}{3}\left(\delta_1\delta_1u_1 + \delta_1\delta_2u_2 + \delta_1\delta_3u_3\right),\label{eq:hex_laplace_vec_0}\\
+\Delta u_2 & = \frac{1}{\sqrt{3}}\left(\delta_1\zeta_3 - \delta_3\zeta_1\right) + \frac{2}{3}\left(\delta_2\delta_1u_1 + \delta_2\delta_2u_2 + \delta_2\delta_3u_3\right),\label{eq:hex_laplace_vec_1}\\
+\Delta u_3 & = \frac{1}{\sqrt{3}}\left(\delta_2\zeta_1 - \delta_1\zeta_2\right) + \frac{2}{3}\left(\delta_3\delta_1u_1 + \delta_3\delta_2u_2 + \delta_3\delta_3u_3\right).\label{eq:hex_laplace_vec_2}
 \end{align}
+%
+Für die Vorticities $\zeta_i$ macht man, motiviert durch die Glg.en \eqref{eq:hex_curl_symm_0} - \eqref{eq:hex_curl_symm_2}, die Ansätze
+%
+\begin{align}
+\zeta_1 &= \frac{2}{\sqrt{3}}\left(\delta_2u_3 - \delta_3u_2\right),\label{eq:hex_curl_rhombus_0}\\
+\zeta_2 &= \frac{2}{\sqrt{3}}\left(\delta_3u_1 - \delta_1u_3\right),\label{eq:hex_curl_rhombus_1}\\
+\zeta_3 &= \frac{2}{\sqrt{3}}\left(\delta_1u_2 - \delta_2u_1\right).\label{eq:hex_curl_rhombus_2}
+\end{align}
+%
+Setzt man Glg. \eqref{eq:hex_curl_rhombus_0} in Glg \eqref{eq:hex_laplace_vec_0} ein, erhält man
+%
+\begin{align}
+\Delta u_1 & = \frac{2}{3}\left(\delta_3\delta_3u_1 - \delta_3\delta_1u_3 - \delta_2\delta_1u_2 + \delta_2\delta_2u_1\right) + \frac{2}{3}\left(\delta_1\delta_1u_1 + \delta_1\delta_2u_2 + \delta_1\delta_3u_3\right) = \frac{2}{3}\left(\delta_1\delta_1u_1 + \delta_2\delta_2u_1 + \delta_3\delta_3u_1\right).
+\end{align}
+%
+Durch zyklische Vertauschungen erhält man die analoge Aussage auch für die anderen Komponenten. Somit sind die Ansätze der Glg.en \eqref{eq:hex_curl_rhombus_0} - \eqref{eq:hex_curl_rhombus_2} gerechtfertigt. Zwei benachbarte Dreiecke bilden zusammen einen Rhombus (ein Parallelogramm), ein solcher hat nach Glg. \eqref{eq:hex_face_triangle} die Fläche
+%
+\begin{align}
+A_r = 2A_v = 2\frac{d^2\sqrt{3}}{4} = \frac{d^2\sqrt{3}}{2}.
+\end{align}
+%
+Somit entspricht $\zeta_i$ der mittels des Stokes'schen Satzes\index{Stokes'scher Satz}\index{Satz!Stokes'scher} über einen Rhombus, dessen kurze Symmetrieachse parallel zur i-Achse liegt, berechneten Vorticity. Auf dem hexagonalen Gitter bilden die Rhomben also die natürlichen Mengen, auf denen der Stokes'sche Satz ausgewertet werden muss\index{Stokes'scher Satz}\index{Satz!Stokes'scher}. Dies ist eine Abweichung von der eigentlich intuitiven Annahme, dass die Vorticity über das duale Gitter (das Dreicksgitter) berechnet werden muss.
+
+Auf dem dreieckigen Gitter treten wie üblich Divergenz und Vorticity in vertauschten Rollen auf. Die Vorticity hat dort den eindeutigen Wert
+%
+\begin{align}
+\zeta = \frac{2}{3}\left(\delta_1v_1 + \delta_2v_2 + \delta_3v_3\right)
+\end{align}
+%
+Dort treten jedoch drei Arten von Divergenzen auf, die jeweils mittels des Gauß'schen Satzes\index{Gauß'scher Satz}\index{Satz!Gauß'scher} über die jeweiligen Rhomben berechnet werden:
+%
+\begin{align}
+D_1 &= \frac{2}{\sqrt{3}}\left(\delta_3v_2 - \delta_2v_3\right)\\
+D_2 &= \frac{2}{\sqrt{3}}\left(\delta_1v_3 - \delta_3v_1\right)\\
+D_3 &= \frac{2}{\sqrt{3}}\left(\delta_2v_1 - \delta_1v_2\right)
+\end{align}
+%
+Dies wird auch durch die Diskretisierung des vektoriellen Laplace-Operators gemäß Glg. \eqref{eq:diff_op_rule_8} unterstrichen, welche
+%
+\begin{align}
+\Delta\mathbf{v} = \nabla\left(\nabla\cdot\mathbf{v}\right) - \nabla\times\left(\nabla\times\mathbf{v}\right)s
+\end{align}
+%
+lautet. Wendet man dies auf die Vektorkomponente $u_1$ an, erhält man
+%
+\begin{align}
+\Delta u_1 = \delta_1D_h - \delta_{i, \perp}\zeta_t.
+\end{align}
+%
+Hierbei ist $D_h$ die Divergenz auf Hexagonen und $\zeta_t$ die Vorticity auf Dreicken. $\delta_{i, \perp}$ bezeichnet den zentralen Differenzenquotienten in $\mathbf{j}_1-$Richtung. Für diesen gilt
+%
+\begin{align}
+-\delta_{i, \perp} &= \frac{\sqrt{3}}{d}\left(\zeta_{t, l} - \zeta_{t, u}\right).
+\end{align}
+%
+Aus Glg. \eqref{eq:rhombus_curl_deriv_6} folgt
+%
+\begin{align}
+\Delta u_1 &= \delta_1D_h + \frac{\sqrt{3}}{d}\left(\zeta_{t, l} - \zeta_{t, u}\right) = \delta_1 D_h + \frac{1}{\sqrt{3}}\left(\delta_3\zeta_2 - \delta_2\zeta_3\right)\nonumber\\
+& \Leftrightarrow \sqrt{3}\frac{\zeta_{t, l} - \zeta_{t, u}}{d} = \frac{\sqrt{3}}{3}\left(\delta_3\zeta_2 - \delta_2\zeta_3\right) \Leftrightarrow \sqrt{3}\frac{\zeta_{t, l} - \zeta_{t, u}}{d} = \frac{\sqrt{3}}{3}\frac{\zeta_{2, l} - \zeta_{2, u} - \zeta_{3, u} + \zeta_{3, l}}{d}\nonumber\\
+& \Leftrightarrow \sqrt{3}\frac{\zeta_{t, l} - \zeta_{t, u}}{d} = \frac{\sqrt{3}}{3}\frac{\zeta_{2, l} + \zeta_{3, l} - \left(\zeta_{2, u} - \zeta_{3, u}\right)}{d}\nonumber\\
+& \Leftrightarrow \sqrt{3}\frac{\zeta_{t, l} - \zeta_{t, u}}{d} = \frac{\sqrt{3}}{3}\frac{\zeta_{1, l} + \zeta_{2, l} + \zeta_{3, l} - \left(\zeta_{1, u} + \zeta_{2, u} - \zeta_{3, u}\right)}{d}.
+\end{align}
+%
+Die letzte Äquivalenzumformung folgt aus der Tatsache $\zeta_{1, l} = \zeta_{1, u}$. Dies ist mit den Definitionen
+%
+\begin{align}
+\zeta_{t, u} &\coloneqq \frac{\zeta_{1, u} + \zeta_{2, u} + \zeta_{3, u}}{3},\\
+\zeta_{t, l} &\coloneqq \frac{\zeta_{1, l} + \zeta_{2, l} + \zeta_{3, l}}{3}
+\end{align}
+%
+erfüllt. Die Rotation auf einem Dreieck ist also als Mittelwert der drei Rhomben zu berechnen, die sich mit diesm Dreieck überlappen.
 
 \subsection{Eine weitere Perspektive auf die Überlegenheit des sechseckigen Gitters gegenüber dem dreieckigen}
 \label{sec:eine_weitere_perspektive_auf_die_überlegenheit_des_sechseckigen_gitters_gegenüber_dem_dreieckigen}
