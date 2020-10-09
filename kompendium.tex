@@ -16829,7 +16829,10 @@ Es wurde stillschweigend davon ausgegangen, dass $f$ das einzige auftretende Fel
 \section{Energetische Konsistenz im idealen Gas}
 \label{sec:energetische_konsistenz_im_idealen_gas}
 
-\subsection{Advektion kinetischer Energie}
+\subsection{Advektion von Impuls}
+\label{sec:advektion_von_impuls}\index{Impulsadvektion!energetische Konsistenz}\index{energetische Konsistenz!Impulsadvektion}
+
+\subsubsection{Advektion kinetischer Energie}
 \label{sec:advektion_kinetischer_energie}
 
 Da $\mathbf{v}\cdot\left[\left(\nabla\times\mathbf{v}\right)\times\mathbf{v}\right] = 0$ gilt, ist der verallgemeinerte Coriolis-Term energetisch unerheblich. Für eine konsistente zeitliche Diskretisierung der Advektion von kinetischer Energie verwendet man daher das Gleichungssystem
@@ -16927,7 +16930,7 @@ Zusammenfassend ergeben sich folgende drei Möglichkeiten:
 \frac{\mathbf{v}^2}{2} = \frac{\mathbf{v}_0\cdot\mathbf{v}_1}{2}, &  \rho\mathbf{v} = \frac{\rho_0\mathbf{v}_0 + \rho_1\mathbf{v}_1}{2}
 \end{align}
 %
-\subsection{Generalisierte Coriolis-Terme}
+\subsubsection{Generalisierte Coriolis-Terme}
 \label{sec:generalisierte_coriolis-terme}
 
 Für die Zeitentwicklung der kinetischen Energie gilt
@@ -16942,7 +16945,7 @@ mit der Näherung
 \mathbf{v}_{1/2} \approx \frac{\mathbf{v}_1 + \mathbf{v}_2}{2}.
 \end{align}
 %
-Soll der verallgemeinerte Coriolisterm nicht zur Evolution der kinetischen Energie beitragen, muss dieser am gleichen Zeitlevel ausgwertet werden wie $\mathbf{v}_{1/2}$, also in der Mitte zwischen den beiden beteiligten Zeitschritten.
+Soll der verallgemeinerte Coriolisterm nicht zur Evolution der kinetischen Energie beitragen, muss dieser am gleichen Zeitlevel ausgwertet werden wie $\mathbf{v}_{1/2}$, also in der Mitte zwischen den beiden beteiligten Zeitschritten. Die Überlegungen in diesem Abschnitt (\ref{sec:advektion_von_impuls}) wurden erstmals von Gassmann und Herzog in \cite{gassmann_herzog} vorgebracht.
 
 \subsection{Evolution der Temperatur}
 \label{sec:evolution_der_temperatur}
