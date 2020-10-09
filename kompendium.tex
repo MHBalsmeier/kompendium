@@ -16493,7 +16493,79 @@ Bei dieser Approximation teilt man die Atmosphäre in unabhängige Säulen auf u
 \label{sec:zirkulation_um_kondensate}
 
 \subsection{Laminare Umströmung}
-\label{sec:laminare_umstroemung}
+\label{sec:laminare_umstroemung}\index{Kondensat!laminare Umströmung}\index{laminare Umströmung!von Kondensaten}\index{Umströmung!laminare!von Kondensaten}
+
+Man stelle sich eine Kugel mit Radius $a$, welche im Ursprung eines kartesischen Koordinatensystems zentriert ist. Man sucht nun nach Lösungen des imkompressiblen Gleichungssystems ohne Impulsadvektion
+%
+\begin{align}
+\frac{\partial\mathbf{v}}{\partial t} &= -\frac{1}{\rho}\nabla p + \nu\Delta\mathbf{v},\label{eq:momentum_for_stokes}\\
+\nabla\cdot\mathbf{v} &= 0
+\end{align}
+%
+mit den Randbedingungen
+%
+\begin{align}
+\mathbf{v}_\infty &\coloneqq \lim_{\left|\mathbf{r}\right| \to \infty}\mathbf{v} = U\mathbf{e}_z,\nonumber\\
+\mathbf{v}\left(\left|\mathbf{r}\right| = a\right) &= \mathbf{0}.
+\end{align}
+%
+lösen. Man beschränkt sich auf stationäre, also insbesondere laminare Lösungen. Damit wird die Impulsgleichung Glg. \eqref{eq:momentum_for_stokes} zu
+%
+\begin{align}
+\nabla p &= \eta\Delta\mathbf{v}.
+\end{align}
+%
+Die Notation von $\mathbf{v}$ in Kugelkoordinaten lautet
+%
+\begin{align}
+\mathbf{v} &= v_r\mathbf{e}_r + v_\theta\mathbf{e}_\theta + v_\phi\mathbf{e}_\phi.
+\end{align}
+%
+Hierbei sind $\theta$ der Winkel gegenüber der z-Achse und $\phi$ der Winkel gegenüber der xz-Ebene. Stationäre Lösungen sind rotationssymmetrisch um die z-Achse, dies impliziert
+%
+\begin{align}
+v_\phi = 0.
+\end{align}
+%
+Bei der weiteren Betrachtung kann man sich also auf die xz-Ebene beschränken. Für die durch die Strömung entstehende Reibungskraft, welche auf die Kugel wirkt, gilt
+%
+\begin{align}
+F = -2\pi a^2\int_0^\pi\left[p\cos\left(\theta\right) + \eta\sin\left(\theta\right)\frac{\partial v_\theta}{\partial r}\right]\sin\left(\theta\right)d\theta.
+\end{align}
+%
+Solch eine Reibungskraft bezeichnet man als \textit{Stokes'sche Reibung}\index{Stokes'sche Reibung}\index{Reibung!Stokes'sche}.
+
+Ein zweidimensionales divergenzfreies Strömungsfeld kann man durch eine skalare Stromfunktion definieren.
+
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+F = 6\pi a\eta U
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+Setzt man dies mit der Gewichtskraft
+%
+\begin{align}
+F_g = mg = \frac{4}{3}\pi a^3\rho_l'g
+\end{align}
+%
+gleich, erhält man
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+v_\text{sink} = \frac{F}{6\pi r\eta} = \frac{4\pi a^3\rho_l'g}{18\pi a\rho_h'\nu} = \frac{2\pi a^2\rho_l'g}{9\pi\rho_h'\nu}
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+als Formel für die Gleichgewichts-Sinkgeschwindigkeit $v_\text{sink}$.
 
 \subsection{Turbulente Umströmung}
 \label{sec:turbulente_umstroemung}
