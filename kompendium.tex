@@ -11233,37 +11233,37 @@ Es bleibt in diesem Abschnitt eine offene Frage, warum der größte Anteil der v
 Sei ein beliebiges Vektorfeld $\mathbf{v}$ gegeben. Der Ansatz
 %
 \begin{align}
-\mathbf{v} = \Delta\mathbf{v}
+\mathbf{v} = \Delta\mathbf{w}
 \end{align}
 %
 mit den Randbedingungen
 %
 \begin{align}
-\lim\limits_{\left|\mathbf{r}\right|\to\infty}\mathbf{v} = \mathbf{0}
+\lim\limits_{\left|\mathbf{r}\right|\to\infty}\mathbf{w} = \mathbf{0}
 \end{align}
 %
 mit einem Vektorfeld $\mathbf{v}$ ist für stetige $\mathbf{v}$ eindeutig lösbar, es handelt sich nämlich um drei unabhängige \index{Poisson-Gleichung}\textit{Poisson-Gleichungen}
 %
 \begin{align}
-U_i = \Delta v_i.
+v_i = \Delta w_i.
 \end{align}
 %
 Nach Glg. \eqref{eq:diff_op_rule_8} gilt
 %
 \begin{align}
-\Delta\mathbf{v} = \nabla\left(\nabla\cdot\mathbf{v}\right) - \nabla\times\left(\nabla\times\mathbf{v}\right).
+\Delta\mathbf{w} = \nabla\left(\nabla\cdot\mathbf{w}\right) - \nabla\times\left(\nabla\times\mathbf{w}\right).
 \end{align}
 %
 Man definiert
 %
 \begin{align}
-\chi \coloneqq\nabla\cdot\mathbf{v}
+\chi \coloneqq\nabla\cdot\mathbf{w}
 \end{align}
 %
 als \textit{Geschwindigkeitspotential}\index{Geschwindigkeitspotential}, weiterhin definiert man
 %
 \begin{align}
-\mathbf{A} \coloneqq - \nabla\times\mathbf{v}
+\mathbf{A} \coloneqq -\nabla\times\mathbf{w}
 \end{align}
 %
 als Vektorpotential, dann gilt
@@ -16495,24 +16495,36 @@ Bei dieser Approximation teilt man die Atmosphäre in unabhängige Säulen auf u
 \subsection{Laminare Umströmung}
 \label{sec:laminare_umstroemung}\index{Kondensat!laminare Umströmung}\index{laminare Umströmung!von Kondensaten}\index{Umströmung!laminare!von Kondensaten}
 
-Man stelle sich eine Kugel mit Radius $a$, welche im Ursprung eines kartesischen Koordinatensystems zentriert ist. Man sucht nun nach Lösungen des imkompressiblen Gleichungssystems ohne Impulsadvektion
+Man stelle sich eine Kugel mit Radius $a$ vor, welche im Ursprung eines kartesischen Koordinatensystems zentriert ist. Man sucht nun nach Lösungen des imkompressiblen Gleichungssystems ohne Impulsadvektion
 %
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 \begin{align}
 \frac{\partial\mathbf{v}}{\partial t} &= -\frac{1}{\rho}\nabla p + \nu\Delta\mathbf{v},\label{eq:momentum_for_stokes}\\
-\nabla\cdot\mathbf{v} &= 0
+\nabla\cdot\mathbf{v} &= 0\label{eq:incompressibility_stokes_fric}
 \end{align}
+\end{center}
+}}
+\end{center}
 %
 mit den Randbedingungen
 %
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 \begin{align}
-\mathbf{v}_\infty &\coloneqq \lim_{\left|\mathbf{r}\right| \to \infty}\mathbf{v} = U\mathbf{e}_z,\nonumber\\
-\mathbf{v}\left(\left|\mathbf{r}\right| = a\right) &= \mathbf{0}.
+\lim_{\left|\mathbf{r}\right| \to \infty}\mathbf{v} &= U\mathbf{e}_z,\label{eq:stokes_fric_boundary_0}\\
+\mathbf{v}\left(\left|\mathbf{r}\right| = a\right) &= \mathbf{0}.\label{eq:stokes_fric_boundary_1}
 \end{align}
+\end{center}
+}}
+\end{center}
 %
 lösen. Man beschränkt sich auf stationäre, also insbesondere laminare Lösungen. Damit wird die Impulsgleichung Glg. \eqref{eq:momentum_for_stokes} zu
 %
 \begin{align}
-\nabla p &= \eta\Delta\mathbf{v}.
+\nabla p &= \eta\Delta\mathbf{v}.\label{eq:momentum_for_stokes_mod}
 \end{align}
 %
 Die Notation von $\mathbf{v}$ in Kugelkoordinaten lautet
@@ -16521,27 +16533,328 @@ Die Notation von $\mathbf{v}$ in Kugelkoordinaten lautet
 \mathbf{v} &= v_r\mathbf{e}_r + v_\theta\mathbf{e}_\theta + v_\phi\mathbf{e}_\phi.
 \end{align}
 %
-Hierbei sind $\theta$ der Winkel gegenüber der z-Achse und $\phi$ der Winkel gegenüber der xz-Ebene. Stationäre Lösungen sind rotationssymmetrisch um die z-Achse, dies impliziert
+Hierbei sind $\theta$ der Winkel gegenüber der z-Achse und $\phi$ der Winkel gegenüber der xz-Ebene. Stationäre Lösungen sind rotationssymmetrisch um die z-Achse, außerdem gilt
 %
 \begin{align}
 v_\phi = 0.
 \end{align}
 %
-Bei der weiteren Betrachtung kann man sich also auf die xz-Ebene beschränken. Für die durch die Strömung entstehende Reibungskraft, welche auf die Kugel wirkt, gilt
+Für die durch die Strömung entstehende Reibungskraft, welche auf die Kugel wirkt, gilt
 %
 \begin{align}
 F = -2\pi a^2\int_0^\pi\left[p\cos\left(\theta\right) + \eta\sin\left(\theta\right)\frac{\partial v_\theta}{\partial r}\right]\sin\left(\theta\right)d\theta.
 \end{align}
 %
-Solch eine Reibungskraft bezeichnet man als \textit{Stokes'sche Reibung}\index{Stokes'sche Reibung}\index{Reibung!Stokes'sche}.
-
-Ein zweidimensionales divergenzfreies Strömungsfeld kann man durch eine skalare Stromfunktion definieren.
-
+Solch eine Reibungskraft bezeichnet man als \textit{Stokes'sche Reibung}\index{Stokes'sche Reibung}\index{Reibung!Stokes'sche}. Dies teilt man auf in eine Kraft $F_p$, die durch den Druck $p$ entsteht, und in einer Kraft $F_v$, die durch die Scherung des Geschwindigkeitsfeldes entsteht
+%
+\begin{align}
+F_p &\coloneqq -2\pi a^2\int_0^\pi p\cos\left(\theta\right)\sin\left(\theta\right)d\theta,\label{eq:stokes_friction_p}\\
+F_v &\coloneqq -2\pi\eta a^2\int_0^\pi\frac{\partial v_\theta}{\partial r}\sin\left(\theta\right)^2d\theta.\label{eq:stokes_friction_v}
+\end{align}
+%
+Damit gilt
+%
+\begin{align}
+F = F_p + F_v.\label{eq:stokes_friction_split-up}
+\end{align}
+%
+Nach den Feststellungen zu Beginn von Kap. \ref{chap:vorticity_und_divergenz} kann man $\mathbf{v}$ somit in der Form
+%
+\begin{align}
+\mathbf{v} = \nabla\times\mathbf{A}
+\end{align}
+%
+durch ein Geschwindigkeitspotential $\mathbf{A}$ darstellen. Nach Glg. \eqref{eq:rot_sphere} gilt
+%
+\begin{align}
+\nabla\times\mathbf{A} &= \frac{A_\theta}{r}\mathbf{e}_\phi + \frac{A_\phi}{r\tan\left(\theta\right)}\mathbf{e}_r - \frac{A_\phi}{r}\mathbf{e}_\theta + \mathbf{e}_r\left(\frac{1}{r}\frac{\partial A_\phi}{\partial\theta} - \frac{1}{r\sin\left(\theta\right)}\frac{\partial A_\theta}{\partial\phi}\right)\nonumber\\
+& + \mathbf{e}_\theta\left(\frac{1}{r\sin\left(\theta\right)}\frac{\partial A_r}{\partial\phi} - \frac{\partial A_\phi}{\partial r}\right) + \mathbf{e}_\phi\left(\frac{\partial A_\theta}{\partial r} - \frac{1}{r}\frac{\partial A_r}{\partial\theta}\right).
+\end{align}
+%
+Aufgrund der Rotationssymmetrie um die z-Achse, ist $\mathbf{v}$ nicht von $\phi$ abhängig. Dies impliziert
+%
+\begin{align}
+\nabla\times\mathbf{A} &= \frac{A_\theta}{r}\mathbf{e}_\phi + \frac{A_\phi}{r\tan\left(\theta\right)}\mathbf{e}_r - \frac{A_\phi}{r}\mathbf{e}_\theta + \mathbf{e}_r\frac{1}{r}\frac{\partial A_\phi}{\partial\theta} - \mathbf{e}_\theta\frac{\partial A_\phi}{\partial r} + \mathbf{e}_\phi\left(\frac{\partial A_\theta}{\partial r} - \frac{1}{r}\frac{\partial A_r}{\partial\theta}\right).
+\end{align}
+%
+Durch Projektionen auf die ortsabhängigen Basiselemente der Kugelkoordinaten erhält man
+%
+\begin{align}
+v_r &= \frac{A_\phi}{r\tan\left(\theta\right)} + \frac{1}{r}\frac{\partial A_\phi}{\partial\theta},\\
+v_\theta &= -\frac{A_\phi}{r} - \frac{\partial A_\phi}{\partial r},\\
+v_\phi &= \frac{A_\theta}{r} + \frac{\partial A_\theta}{\partial r} - \frac{1}{r}\frac{\partial A_r}{\partial\theta}.
+\end{align}
+%
+Die Bedingung $v_\phi = 0$ kann man also durch $A_\theta = A_r = 0$ erfüllen, ohne die anderen Komponenten zu beeinträchtigen. Definiere
+%
+\begin{align}
+\psi = \psi\left(r, \theta\right) \coloneqq -rA_\phi\sin\left(\theta\right),
+\end{align}
+%
+dann gilt
+%
 \begin{center}
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-F = 6\pi a\eta U
+v_r &= -\frac{1}{r^2\sin\left(\theta\right)}\frac{\partial\psi}{\partial\theta}\label{eq:v_r_for_stokes_friction},\\
+v_\theta &= \frac{1}{r\sin\left(\theta\right)}\frac{\partial\psi}{\partial r}.\label{eq:v_theta_for_stokes_friction}
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+Die Rotation des Windfeldes lautet
+%
+\begin{align}
+\nabla\times\mathbf{v} &= \frac{v_\theta}{r}\mathbf{e}_\phi + \frac{v_\phi}{r\tan\left(\theta\right)}\mathbf{e}_r - \frac{v_\phi}{r}\mathbf{e}_\theta + \mathbf{e}_r\frac{1}{r}\frac{\partial v_\phi}{\partial\theta} - \mathbf{e}_\theta\frac{\partial v_\phi}{\partial r} + \mathbf{e}_\phi\left(\frac{\partial v_\theta}{\partial r} - \frac{1}{r}\frac{\partial v_r}{\partial\theta}\right).
+\end{align}
+%
+Mit $v_\phi = 0$ folgt hieraus
+%
+\begin{align}
+\zetabi = \nabla\times\mathbf{v} &= \frac{v_\theta}{r}\mathbf{e}_\phi + \mathbf{e}_\phi\left(\frac{\partial v_\theta}{\partial r} - \frac{1}{r}\frac{\partial v_r}{\partial\theta}\right) = \mathbf{e}_\phi\left(\frac{\partial v_\theta}{\partial r} - \frac{1}{r}\frac{\partial v_r}{\partial\theta} + \frac{v_\theta}{r}\right).
+\end{align}
+%
+Setzt man hier die Glg.en \eqref{eq:v_r_for_stokes_friction} - \eqref{eq:v_theta_for_stokes_friction} ein, erhält man
+%
+\begin{align}
+\zetabi &= \nabla\times\mathbf{v} = \mathbf{e}_\phi\left(\frac{1}{r\sin\left(\theta\right)}\frac{\partial^2\psi}{\partial r^2} - \frac{1}{r^2\sin\left(\theta\right)}\frac{\partial\psi}{\partial r} - \frac{\cos\left(\theta\right)}{r^3\sin\left(\theta\right)^2}\frac{\partial\psi}{\partial\theta} + \frac{1}{r^3\sin\left(\theta\right)}\frac{\partial^2\psi}{\partial\theta^2} + \frac{1}{r^2\sin\left(\theta\right)}\frac{\partial\psi}{\partial r}\right)\nonumber\\
+&= \mathbf{e}_\phi\left(\frac{1}{r\sin\left(\theta\right)}\frac{\partial^2\psi}{\partial r^2} - \frac{\cos\left(\theta\right)}{r^3\sin\left(\theta\right)^2}\frac{\partial\psi}{\partial\theta} + \frac{1}{r^3\sin\left(\theta\right)}\frac{\partial^2\psi}{\partial\theta^2}\right)\nonumber\\
+&= \frac{\mathbf{e}_\phi}{r\sin\left(\theta\right)}\left(\frac{\partial^2\psi}{\partial r^2} - \frac{\cos\left(\theta\right)}{r^2\sin\left(\theta\right)}\frac{\partial\psi}{\partial\theta} + \frac{1}{r^2}\frac{\partial^2\psi}{\partial\theta^2}\right)\nonumber\\
+&= \frac{\mathbf{e}_\phi}{r\sin\left(\theta\right)}\left[\frac{\partial^2}{\partial r^2} + \frac{\sin\left(\theta\right)}{r^2}\frac{\partial}{\partial\theta}\left(\frac{1}{\sin\left(\theta\right)}\frac{\partial}{\partial\theta}\right)\right]\psi \equiv \frac{\mathbf{e}_\phi}{r\sin\left(\theta\right)}E^2\psi
+\end{align}
+%
+mit einem Differenzialoperator
+%
+\begin{align}
+E^2 \coloneqq \frac{\partial^2}{\partial r^2} - \frac{1}{r^2\tan\left(\theta\right)}\frac{\partial}{\partial\theta} + \frac{1}{r^2}\frac{\partial^2}{\partial\theta^2} = \frac{\partial^2}{\partial r^2} + \frac{\sin\left(\theta\right)}{r^2}\frac{\partial}{\partial\theta}\left(\frac{1}{\sin\left(\theta\right)}\frac{\partial}{\partial\theta}\right).
+\end{align}
+%
+Hieraus folgt, dass gilt
+%
+\begin{align}
+\zetabi &= \nabla\times\left(\nabla\times\mathbf{A}\right) = \nabla\times\left[\nabla\times\left(A_\phi\mathbf{e}_\phi\right)\right] = -\nabla\times\left[\nabla\times\left(\frac{\psi}{r\sin\left(\theta\right)}\mathbf{e}_\phi\right)\right].
+\end{align}
+%
+Für zweifach stetig differenzierbare Skalarfelder $\chi$ gilt also
+%
+\begin{align}
+-\nabla\times\left[\nabla\times\left(\frac{\chi}{r\sin\left(\theta\right)}\mathbf{e}_\phi\right)\right] &= \frac{\mathbf{e}_\phi}{r\sin\left(\theta\right)}E^2\chi.
+\end{align}
+%
+Glg. \eqref{eq:diff_op_rule_8} lautet
+%
+\begin{align}
+\Delta\mathbf{v} &= \nabla\left(\nabla\cdot\mathbf{v}\right) - \nabla\times\left(\nabla\times\mathbf{v}\right) \stackrel{\text{Glg. \eqref{eq:incompressibility_stokes_fric}}}{=} -\nabla\times\left(\nabla\times\mathbf{v}\right) = -\nabla\times\zetabi.
+\end{align}
+%
+Hiermit kann man die Impulsgleichung Glg. \eqref{eq:momentum_for_stokes_mod} in der Form
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\nabla p = -\eta\nabla\times\zetabi\label{eq:momentum_for_stokes_mod_mod}
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+notieren. Wendet man hierauf nochmal die Rotation an, folgt
+%
+\begin{align}
+0 = -\eta\nabla\times\left(\nabla\times\zetabi\right) = -\eta\nabla\times\left[\nabla\times\left(\frac{\mathbf{e}_\phi}{r\sin\left(\theta\right)}E^2\psi\right)\right] = \eta\frac{\mathbf{e}_\phi}{r\sin\left(\theta\right)}E^4\psi.
+\end{align}
+%
+Man kann also
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+E^4\psi = 0
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+als Differenzialgleichung für $\psi$ verwenden. Aus der Randbedingung Glg. \eqref{eq:stokes_fric_boundary_1} folgt
+%
+\begin{align}
+\frac{\partial\psi}{\partial r}\left(r = a\right) = \frac{\partial\psi}{\partial\theta}\left(r = a\right) = 0.
+\end{align}
+%
+$\psi$ ist also konstant entlang der Kugeloberfläche, o. B. d. A. kann man als Ranbedingung
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\psi\left(r = a\right) = 0
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+fordern. Die Randbedingung Glg. \eqref{eq:stokes_fric_boundary_0} lautet in Kugelkoordinaten
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\lim_{\left|\mathbf{r}\right| \to \infty}v_r &= U\cos\left(\theta\right),\\
+\lim_{\left|\mathbf{r}\right| \to \infty}v_\theta &= -U\sin\left(\theta\right).
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+Dies impliziert für $\psi$ die Tatsache
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\lim_{\left|\mathbf{r}\right| \to \infty}\psi &= -\frac{Ur^2\sin\left(\theta\right)^2}{2}.
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+Der Druck soll in der Unendlichkeit gegen einen homogenen Hintergrunddruck $p_0$ konvergieren:
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\lim_{\left|\mathbf{r}\right| \to \infty}p &= p_0
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+Es gilt
+%
+\begin{align}
+E^4\psi &= \left(\frac{\partial^2}{\partial r^2} - \frac{1}{r^2\tan\left(\theta\right)}\frac{\partial}{\partial\theta} + \frac{1}{r^2}\frac{\partial^2}{\partial\theta^2}\right)\left(\frac{\partial^2\psi}{\partial r^2} - \frac{1}{r^2\tan\left(\theta\right)}\frac{\partial\psi}{\partial\theta} + \frac{1}{r^2}\frac{\partial^2\psi}{\partial\theta^2}\right).
+\end{align}
+%
+Man rechnet zunächst vorbereitend
+%
+\begin{align}
+&\frac{\partial}{\partial r}\left(\frac{\partial^2\psi}{\partial r^2} - \frac{1}{r^2\tan\left(\theta\right)}\frac{\partial\psi}{\partial\theta} + \frac{1}{r^2}\frac{\partial^2\psi}{\partial\theta^2}\right) = \frac{\partial^3\psi}{\partial r^3} - \frac{1}{r^2\tan\left(\theta\right)}\frac{\partial^2\psi}{\partial r\partial\theta} + \frac{1}{r^2}\frac{\partial^3\psi}{\partial r\partial\theta^2} + \frac{2}{r^3\tan\left(\theta\right)}\frac{\partial\psi}{\partial\theta} - \frac{2}{r^3}\frac{\partial^2\psi}{\partial\theta^2},\nonumber\\
+&\frac{\partial^2}{\partial r^2}\left(\frac{\partial^2\psi}{\partial r^2} - \frac{1}{r^2\tan\left(\theta\right)}\frac{\partial\psi}{\partial\theta} + \frac{1}{r^2}\frac{\partial^2\psi}{\partial\theta^2}\right) = \frac{\partial^4\psi}{\partial r^4} - \frac{1}{r^2\tan\left(\theta\right)}\frac{\partial^3\psi}{\partial r^2\partial\theta} + \frac{1}{r^2}\frac{\partial^4\psi}{\partial r^2\partial\theta^2} + \frac{2}{r^3\tan\left(\theta\right)}\frac{\partial^2\psi}{\partial r\partial\theta} - \frac{2}{r^3}\frac{\partial^3\psi}{\partial r\partial\theta^2}\nonumber\\
+& + \frac{2}{r^3\tan\left(\theta\right)}\frac{\partial^2\psi}{\partial r\partial\theta} - \frac{2}{r^3}\frac{\partial^3\psi}{\partial r\partial\theta^2} - \frac{6}{r^4\tan\left(\theta\right)}\frac{\partial\psi}{\partial\theta} + \frac{6}{r^4}\frac{\partial^2\psi}{\partial\theta^2}\nonumber\\
+&= \textcolor{red}{\frac{\partial^4\psi}{\partial r^4} - \frac{1}{r^2\tan\left(\theta\right)}\frac{\partial^3\psi}{\partial r^2\partial\theta} + \frac{1}{r^2}\frac{\partial^4\psi}{\partial r^2\partial\theta^2} + \frac{4}{r^3\tan\left(\theta\right)}\frac{\partial^2\psi}{\partial r\partial\theta} - \frac{4}{r^3}\frac{\partial^3\psi}{\partial r\partial\theta^2} - \frac{6}{r^4\tan\left(\theta\right)}\frac{\partial\psi}{\partial\theta} + \frac{6}{r^4}\frac{\partial^2\psi}{\partial\theta^2}},
+\end{align}
+\begin{align}
+&\frac{\partial}{\partial\theta}\left(\frac{\partial^2\psi}{\partial r^2} - \frac{\cos\left(\theta\right)}{r^2\sin\left(\theta\right)}\frac{\partial\psi}{\partial\theta} + \frac{1}{r^2}\frac{\partial^2\psi}{\partial\theta^2}\right) = \frac{\partial^3\psi}{\partial\theta\partial r^2} - \frac{\cos\left(\theta\right)}{r^2\sin\left(\theta\right)}\frac{\partial^2\psi}{\partial\theta^2} + \frac{1}{r^2}\frac{\partial^3\psi}{\partial\theta^3} + \frac{1}{r^2}\frac{\partial\psi}{\partial\theta} + \frac{\cos\left(\theta\right)^2}{r^2\sin\left(\theta\right)^2}\frac{\partial\psi}{\partial\theta}\nonumber\\
+&\Rightarrow-\frac{1}{r^2\tan\left(\theta\right)}\frac{\partial}{\partial\theta}\left(\frac{\partial^2\psi}{\partial r^2} - \frac{\cos\left(\theta\right)}{r^2\sin\left(\theta\right)}\frac{\partial\psi}{\partial\theta} + \frac{1}{r^2}\frac{\partial^2\psi}{\partial\theta^2}\right)\nonumber\\
+&= \textcolor{red}{-\frac{1}{r^2\tan\left(\theta\right)}\frac{\partial^3\psi}{\partial\theta\partial r^2} + \frac{1}{r^4\tan\left(\theta\right)^2}\frac{\partial^2\psi}{\partial\theta^2} - \frac{1}{r^4\tan\left(\theta\right)}\frac{\partial^3\psi}{\partial\theta^3} - \frac{1}{r^4\tan\left(\theta\right)}\frac{\partial\psi}{\partial\theta} - \frac{1}{r^4\tan\left(\theta\right)^3}\frac{\partial\psi}{\partial\theta}},
+\end{align}
+\begin{align}
+&\frac{1}{r^2}\frac{\partial^2}{\partial\theta^2}\left(\frac{\partial^2\psi}{\partial r^2} - \frac{\cos\left(\theta\right)}{r^2\sin\left(\theta\right)}\frac{\partial\psi}{\partial\theta} + \frac{1}{r^2}\frac{\partial^2\psi}{\partial\theta^2}\right) = \frac{1}{r^2}\frac{\partial^4\psi}{\partial\theta^2\partial r^2} - \frac{\cos\left(\theta\right)}{r^4\sin\left(\theta\right)}\frac{\partial^3\psi}{\partial\theta^3} + \frac{1}{r^4}\frac{\partial^4\psi}{\partial\theta^4} + \frac{1}{r^4}\frac{\partial^2\psi}{\partial\theta^2} + \frac{\cos\left(\theta\right)^2}{r^4\sin\left(\theta\right)^2}\frac{\partial^2\psi}{\partial\theta^2}\nonumber\\
+&+ \frac{1}{r^4}\frac{\partial^3\psi}{\partial\theta^3} + \frac{\cos\left(\theta\right)^2}{r^4\sin\left(\theta\right)^2}\frac{\partial^3\psi}{\partial\theta^3} - \frac{2\cos\left(\theta\right)}{r^4\sin\left(\theta\right)}\frac{\partial^2\psi}{\partial\theta^2} - \frac{2\cos\left(\theta\right)^3}{r^4\sin\left(\theta\right)^3}\frac{\partial^2\psi}{\partial\theta^2}\nonumber\\
+&= \textcolor{red}{\frac{1}{r^2}\frac{\partial^4\psi}{\partial\theta^2\partial r^2} - \frac{1}{r^4\tan\left(\theta\right)}\frac{\partial^3\psi}{\partial\theta^3} + \frac{1}{r^4}\frac{\partial^4\psi}{\partial\theta^4} + \frac{1}{r^4}\frac{\partial^2\psi}{\partial\theta^2} + \frac{1}{r^4\tan\left(\theta\right)^2}\frac{\partial^2\psi}{\partial\theta^2}}\nonumber\\
+&\textcolor{red}{+ \frac{1}{r^4}\frac{\partial^3\psi}{\partial\theta^3} + \frac{1}{r^4\tan\left(\theta\right)^2}\frac{\partial^3\psi}{\partial\theta^3} - \frac{2}{r^4\tan\left(\theta\right)}\frac{\partial^2\psi}{\partial\theta^2} - \frac{2}{r^4\tan\left(\theta\right)^3}\frac{\partial^2\psi}{\partial\theta^2}}.
+\end{align}
+%
+Dies impliziert mit Glg. \eqref{eq:v_theta_for_stokes_friction}
+%
+\begin{align}
+v_\theta &= \frac{1}{r\sin\left(\theta\right)}\frac{\partial\psi}{\partial r} = \frac{1}{r\sin\left(\theta\right)}\frac{\partial}{\partial r}\left[\frac{Ua^2\sin^2\left(\theta\right)}{4}\left(-\frac{2r^2}{a^2} + \frac{3r}{a} - \frac{a}{r}\right)\right]\nonumber\\
+&= \frac{1}{r}\left[\frac{Ua^2\sin\left(\theta\right)}{4}\left(-\frac{4r}{a^2} + \frac{3}{a} + \frac{a}{r^2}\right)\right] = \frac{Ua^2\sin\left(\theta\right)}{4}\left(-\frac{4}{a^2} + \frac{3}{ar} + \frac{a}{r^3}\right).
+\end{align}
+%
+Hieraus folgt
+%
+\begin{align}
+\frac{\partial v_\theta}{\partial r} &= -\frac{Ua^2\sin\left(\theta\right)}{4}\left(\frac{3}{ar^2} + \frac{3a}{r^4}\right).
+\end{align}
+%
+Wertet man dies bei $r = a$ aus, folgt
+%
+\begin{align}
+\frac{\partial v_\theta}{\partial r}\left(r = a\right) &= -\frac{Ua^2\sin\left(\theta\right)}{4}\left(\frac{3}{a^3} + \frac{3}{a^3}\right) = -\frac{6U\sin\left(\theta\right)}{4a} = -\frac{3U\sin\left(\theta\right)}{2a}.
+\end{align}
+%
+Setzt man dies in Glg. \eqref{eq:stokes_friction_v} ein, erhält man
+%
+\begin{align}
+F_v &= -2\pi\eta a^2\int_0^\pi-\frac{3U\sin\left(\theta\right)}{2a}\sin\left(\theta\right)^2d\theta = 3U\pi\eta a\int_0^\pi\sin\left(\theta\right)^3d\theta.
+\end{align}
+%
+Man integriert nun
+%
+\begin{align}
+\int_0^\pi\sin\left(\theta\right)^3d\theta &= \left[-\cos\left(\theta\right)\sin\left(\theta\right)^2\right]_0^\pi + 2\int_0^\pi\cos\left(\theta\right)^2\sin\left(\theta\right)d\theta\nonumber\\
+&= 2\int_0^\pi\cos\left(\theta\right)^2\sin\left(\theta\right)d\theta = \frac{2}{3}\left[-\cos\left(\theta\right)^3\right]_0^\pi = \frac{2}{3}\left[\cos\left(\theta\right)^3\right]_\pi^0 = \frac{4}{3}.
+\end{align}
+%
+Dies impliziert
+%
+\begin{align}
+F_v &= 3U\pi\eta a\frac{4}{3} = 4U\pi\eta a.
+\end{align}
+%
+Nun muss noch das Druckfeld bestimmt werden. Hierzu geht man aus von Glg. \eqref{eq:momentum_for_stokes_mod_mod}, man berechnet zunächst
+%
+\begin{align}
+\nabla\times\zetabi &= \nabla\times\left[\mathbf{e}_\phi\frac{E^2\psi}{r\sin\left(\theta\right)}\right] \stackrel{\text{Glg. \eqref{eq:diff_op_rule_5}}}{=} -\mathbf{e}_\phi\times\nabla\frac{E^2\psi}{r\sin\left(\theta\right)} + \frac{E^2\psi}{r\sin\left(\theta\right)}\nabla\times\mathbf{e}_\phi.
+\end{align}
+%
+Es gilt
+%
+\begin{align}
+\nabla\frac{E^2\psi}{r\sin\left(\theta\right)} &= \nabla\left[\frac{1}{r\sin\left(\theta\right)}\left(\frac{\partial^2\psi}{\partial r^2} - \frac{\cos\left(\theta\right)}{r^2\sin\left(\theta\right)}\frac{\partial\psi}{\partial\theta} + \frac{1}{r^2}\frac{\partial^2\psi}{\partial\theta^2}\right)\right] = \nabla\left(\frac{1}{r\sin\left(\theta\right)}\frac{\partial^2\psi}{\partial r^2} - \frac{\cos\left(\theta\right)}{r^3\sin\left(\theta\right)^2}\frac{\partial\psi}{\partial\theta} + \frac{1}{r^3\sin\left(\theta\right)}\frac{\partial^2\psi}{\partial\theta^2}\right)\nonumber\\
+&= \frac{\partial}{\partial r}\left(\frac{1}{r\sin\left(\theta\right)}\frac{\partial^2\psi}{\partial r^2} - \frac{\cos\left(\theta\right)}{r^3\sin\left(\theta\right)^2}\frac{\partial\psi}{\partial\theta} + \frac{1}{r^3\sin\left(\theta\right)}\frac{\partial^2\psi}{\partial\theta^2}\right)\mathbf{e}_r\nonumber\\
+&+ \frac{\partial}{\partial\theta}\left(\frac{1}{r\sin\left(\theta\right)}\frac{\partial^2\psi}{\partial r^2} - \frac{\cos\left(\theta\right)}{r^3\sin\left(\theta\right)^2}\frac{\partial\psi}{\partial\theta} + \frac{1}{r^3\sin\left(\theta\right)}\frac{\partial^2\psi}{\partial\theta^2}\right)\mathbf{e}_\theta\nonumber
+\end{align}
+\begin{align}
+&= \left(\frac{1}{r\sin\left(\theta\right)}\frac{\partial^3\psi}{\partial r^3} - \frac{\cos\left(\theta\right)}{r^3\sin\left(\theta\right)^2}\frac{\partial^2\psi}{\partial r\partial\theta} + \frac{1}{r^3\sin\left(\theta\right)}\frac{\partial^3\psi}{\partial r\partial\theta^2} - \frac{1}{r^2\sin\left(\theta\right)}\frac{\partial^2\psi}{\partial r^2} + \frac{3\cos\left(\theta\right)}{r^4\sin\left(\theta\right)^2}\frac{\partial\psi}{\partial\theta} - \frac{3}{r^4\sin\left(\theta\right)}\frac{\partial^2\psi}{\partial\theta^2}\right)\mathbf{e}_r\nonumber\\
+&+ \Bigg(\frac{1}{r\sin\left(\theta\right)}\frac{\partial^2\psi}{\partial \theta\partial r^2} - \frac{\cos\left(\theta\right)}{r^3\sin\left(\theta\right)^2}\frac{\partial^2\psi}{\partial\theta^2} + \frac{1}{r^3\sin\left(\theta\right)}\frac{\partial^3\psi}{\partial\theta^3} - \frac{\cos\left(\theta\right)}{r\sin\left(\theta\right)^2}\frac{\partial^2\psi}{\partial r^2} + \frac{1}{r^3\sin\left(\theta\right)}\frac{\partial\psi}{\partial\theta}\nonumber\\
+&+ \frac{2\cos\left(\theta\right)^2}{r^3\sin\left(\theta\right)^2}\frac{\partial\psi}{\partial\theta} - \frac{\cos\left(\theta\right)^2}{r^3\sin\left(\theta\right)^2}\frac{\partial^2\psi}{\partial\theta^2}\Bigg)\mathbf{e}_\theta.
+\end{align}
+%
+Hieraus folgt
+%
+\begin{align}
+&-\mathbf{e}_\phi\times\nabla\frac{E^2\psi}{r\sin\left(\theta\right)}\nonumber\\
+&= -\left(\frac{1}{r\sin\left(\theta\right)}\frac{\partial^3\psi}{\partial r^3} - \frac{\cos\left(\theta\right)}{r^3\sin\left(\theta\right)^2}\frac{\partial^2\psi}{\partial r\partial\theta} + \frac{1}{r^3\sin\left(\theta\right)}\frac{\partial^3\psi}{\partial r\partial\theta^2} - \frac{1}{r^2\sin\left(\theta\right)}\frac{\partial^2\psi}{\partial r^2} + \frac{3\cos\left(\theta\right)}{r^4\sin\left(\theta\right)^2}\frac{\partial\psi}{\partial\theta} - \frac{3}{r^4\sin\left(\theta\right)}\frac{\partial^2\psi}{\partial\theta^2}\right)\mathbf{e}_\theta\nonumber\\
+&+ \Bigg(\frac{1}{r\sin\left(\theta\right)}\frac{\partial^2\psi}{\partial \theta\partial r^2} - \frac{\cos\left(\theta\right)}{r^3\sin\left(\theta\right)^2}\frac{\partial^2\psi}{\partial\theta^2} + \frac{1}{r^3\sin\left(\theta\right)}\frac{\partial^3\psi}{\partial\theta^3} - \frac{\cos\left(\theta\right)}{r\sin\left(\theta\right)^2}\frac{\partial^2\psi}{\partial r^2} + \frac{1}{r^3\sin\left(\theta\right)}\frac{\partial\psi}{\partial\theta}\nonumber\\
+&+ \frac{2\cos\left(\theta\right)^2}{r^3\sin\left(\theta\right)^2}\frac{\partial\psi}{\partial\theta} - \frac{\cos\left(\theta\right)^2}{r^3\sin\left(\theta\right)^2}\frac{\partial^2\psi}{\partial\theta^2}\Bigg)\mathbf{e}_r.
+\end{align}
+%
+Mit
+%
+\begin{align}
+\nabla\times\mathbf{e}_\phi &\stackrel{\text{Glg. \eqref{eq:rot_sphere}}}{=} \frac{1}{r\tan\left(\phi\right)}\mathbf{e}_r - \frac{1}{r}\mathbf{e}_\theta
+\end{align}
+%
+folgt
+%
+\begin{align}
+\frac{E^2\psi}{r\sin\left(\theta\right)}\nabla\times\mathbf{e}_\phi &= \frac{1}{r\sin\left(\theta\right)}\left[\frac{\partial^2\psi}{\partial r^2} - \frac{1}{r^2\tan\left(\theta\right)}\frac{\partial\psi}{\partial\theta} + \frac{1}{r^2}\frac{\partial^2\psi}{\partial\theta^2}\right]\left(\frac{1}{r\tan\left(\phi\right)}\mathbf{e}_r - \frac{1}{r}\mathbf{e}_\theta\right)\nonumber\\
+&= \left(\frac{1}{r\sin\left(\theta\right)}\frac{\partial^2\psi}{\partial r^2} - \frac{\cos\left(\theta\right)}{r^3\sin\left(\theta\right)^2}\frac{\partial\psi}{\partial\theta} + \frac{1}{r^3\sin\left(\theta\right)}\frac{\partial^2\psi}{\partial\theta^2}\right)\left(\frac{1}{r\tan\left(\phi\right)}\mathbf{e}_r - \frac{1}{r}\mathbf{e}_\theta\right)\nonumber\\
+&= \left(\frac{\cos\left(\theta\right)}{r^2\sin\left(\theta\right)^2}\frac{\partial^2\psi}{\partial r^2} - \frac{\cos\left(\theta\right)^2}{r^4\sin\left(\theta\right)^3}\frac{\partial\psi}{\partial\theta} + \frac{\cos\left(\theta\right)}{r^4\sin\left(\theta\right)^2}\frac{\partial^2\psi}{\partial\theta^2}\right)\mathbf{e}_r\nonumber\\
+&- \left(\frac{1}{r^2\sin\left(\theta\right)}\frac{\partial^2\psi}{\partial r^2} - \frac{\cos\left(\theta\right)}{r^4\sin\left(\theta\right)^2}\frac{\partial\psi}{\partial\theta} + \frac{1}{r^4\sin\left(\theta\right)}\frac{\partial^2\psi}{\partial\theta^2}\right)\mathbf{e}_\theta.
+\end{align}
+%
+Dies impliziert für die durch den Druck entstehende Reibungskraft laut Glg. \eqref{eq:stokes_friction_p}
+%
+\begin{align}
+F_p &= -2\pi a^2\int_0^\pi-\frac{3\eta aU\cos\left(\theta\right)}{2a^2}\cos\left(\theta\right)\sin\left(\theta\right)d\theta = \pi\int_0^\pi 3\eta aU\cos\left(\theta\right)\cos\left(\theta\right)\sin\left(\theta\right)d\theta\nonumber\\
+&= 3\eta aU\pi\int_0^\pi\cos^2\left(\theta\right)\sin\left(\theta\right)d\theta = -3\eta aU\pi\left[\frac{1}{3}\cos\left(\theta\right)^3\right]_0^\pi = 2\eta aU\pi.
+\end{align}
+%
+Somit gilt laut Glg. \eqref{eq:stokes_friction_split-up} für die Reibungskraft
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+F = 6\pi a\eta U.
 \end{align}
 \end{center}
 }}
@@ -16559,7 +16872,7 @@ gleich, erhält man
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-v_\text{sink} = \frac{F}{6\pi r\eta} = \frac{4\pi a^3\rho_l'g}{18\pi a\rho_h'\nu} = \frac{2\pi a^2\rho_l'g}{9\pi\rho_h'\nu}
+v_\text{sink} = \frac{F}{6\pi a\eta} = \frac{4\pi a^3\rho_l'g}{18\pi a\rho_h'\nu} = \frac{2\pi a^2\rho_l'g}{9\pi\rho_h'\nu}
 \end{align}
 \end{center}
 }}
@@ -21148,7 +21461,7 @@ nach den Feststellungen in Absch. \ref{sec:vektorraeume}. Weiterhin gelten
 \frac{\partial}{\partial x_i}\nabla\times\mathbf{v} & = \frac{\partial}{\partial x_i}\sum_{j, k.l = 1}^{3}\epsilon_{j, k, l}\frac{\partial}{\partial x_j}v_k\mathbf{e}_l = \sum_{j, k, l = 1}^{3}\epsilon_{j, k, l}\frac{\partial}{\partial x_j}\frac{\partial v_k}{\partial x_i}\mathbf{e}_l = \nabla\times\frac{\partial}{\partial x_i}\mathbf{v}, \label{eq:diff_op_rule_4}\\
 \nabla\times\psi\mathbf{v} & = \sum_{i, j, k = 1}^{3}\epsilon_{i, j, k}\frac{\partial}{\partial x_i}\left(\psi v_j\right)\mathbf{e}_k = \sum_{i, j, k = 1}^{3}\epsilon_{i, j, k}\left(v_j\frac{\partial\psi}{\partial x_i} + \psi\frac{\partial v_j}{\partial x_i}\right)\mathbf{e}_k\nonumber\\
 & = \sum_{i, j, k = 1}^{3}\epsilon_{i, j, k} \frac{\partial\psi}{\partial x_i}v_j\mathbf{e}_k + \sum_{i, j, k = 1}^{3}\psi\frac{\partial}{\partial x_i}v_j\mathbf{e}_k = \left(\nabla\psi\right)\times\mathbf{v} + \psi\nabla\times\mathbf{v}\nonumber\\
-& = -\mathbf{v}\times\nabla\psi + \psi\nabla\times\mathbf{v}, \label{eq:diff_op_rule_5}
+& = -\mathbf{v}\times\nabla\psi + \psi\nabla\times\mathbf{v},\label{eq:diff_op_rule_5}
 \end{align}
 \begin{align}
 \nabla\left(\mathbf{v}\cdot\mathbf{w}\right) & = \nabla\sum_{i = 1}^{3}v_iw_i = \sum_{i = 1}^{3}\frac{\partial}{\partial x_i}\left(\sum_{j = 1}^{3}v_jw_j\right)\mathbf{e}_i = \sum_{i = 1}^{3}\sum_{j = 1}^{3}\left(\frac{\partial v_j}{\partial x_i}w_j + v_j\frac{\partial w_j}{\partial x_i}\right)\mathbf{e}_i\nonumber\\
