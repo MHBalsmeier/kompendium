@@ -11820,13 +11820,13 @@ Nach Glg. \eqref{eq:div_geo} gilt
 Die Divergenz des Gesamtwindfeldes wird mit
 %
 \begin{align}
-\xi \coloneqq \nabla\cdot\mathbf{v}
+D \coloneqq \nabla\cdot\mathbf{v}
 \end{align}
 %
 bezeichnet. Mit Glg. \eqref{eq:div_geo} kann man 
 %
 \begin{align}
-\xi = \frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} + \frac{\partial w}{\partial z} - v\frac{\tan\left(\varphi\right)}{a + z} + \frac{2w}{a + z}
+D = \frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} + \frac{\partial w}{\partial z} - v\frac{\tan\left(\varphi\right)}{a + z} + \frac{2w}{a + z}
 \end{align}
 %
 notieren. Im Falle wirbelfreier nichtviskoser inkompressibler Strömungen gilt mit Glg. \eqref{eq:momentum_mod} für eine Stromfunktion $\chi$ in IS
@@ -11881,7 +11881,7 @@ Es gibt auch eine prognostische Gleichung für die Divergenz, die sogenannte \te
 Nun wendet man auf die einzelnen Terme den Operator $\nabla\cdot $ an:
 %
 \begin{align}
-\nabla\cdot\frac{\partial\mathbf{v}}{\partial t} & \stackrel{\text{Glg. \eqref{eq:diff_op_rule_4}}}{=} \frac{\partial\xi}{\partial t}\\
+\nabla\cdot\frac{\partial\mathbf{v}}{\partial t} & \stackrel{\text{Glg. \eqref{eq:diff_op_rule_4}}}{=} \frac{\partial D}{\partial t}\\
 \nabla\cdot\left(-\frac{1}{\rho}\nabla p\right) & \stackrel{\text{Glg. \eqref{eq:diff_op_rule_3}}}{=} \frac{1}{\rho^2}\nabla\rho\cdot\nabla p -\frac{1}{\rho}\Delta p\\
 \nabla\cdot\left(\mathbf{v}\times\mathbf{f}\right) & \stackrel{\text{Glg. \eqref{eq:diff_op_rule_9}}}{=} \mathbf{f}\cdot\zetabi
 \end{align}
@@ -11892,7 +11892,7 @@ Die Divergenz von $\mathbf{g}$ besteht aufgrund der Poisson-Gleichung nur aus de
 \doublebox{\parbox{\textwidth}{
 \begin{center}
 \begin{align}
-\frac{\partial\xi}{\partial t} & = \frac{1}{\rho^2}\nabla\rho\cdot\nabla p -\frac{1}{\rho}\Delta p + \mathbf{f}\cdot\zetabi - \nabla\cdot\left[\left(\mathbf{v}\cdot\nabla\right)\mathbf{v}\right] + \nabla\cdot\mathbf{f}_R.\label{eq:divergence_equation_1}
+\frac{\partial D}{\partial t} & = \frac{1}{\rho^2}\nabla\rho\cdot\nabla p -\frac{1}{\rho}\Delta p + \mathbf{f}\cdot\zetabi - \nabla\cdot\left[\left(\mathbf{v}\cdot\nabla\right)\mathbf{v}\right] + \nabla\cdot\mathbf{f}_R.\label{eq:divergence_equation_1}
 \end{align}
 \end{center}
 }}
@@ -11902,7 +11902,7 @@ Dies ist die Divergenzgleichung. Mit der Lamb-Transformation erhält man
 %
 \begin{align}
 \nabla\cdot\left[\left(\mathbf{v}\cdot\nabla\right)\mathbf{v}\right] & = \Delta k - \nabla\cdot\left[\mathbf{v}\times\left(\nabla\times\mathbf{v}\right)\right] \stackrel{\text{Glg. \eqref{eq:diff_op_rule_9}}}{=} \Delta k - \zetabi^2 + \mathbf{v}\cdot\left(\nabla\times\zetabi\right)\nonumber\\
-&\stackrel{\text{Glg. \eqref{eq:diff_op_rule_8}}}{=}& \Delta k - \zetabi^2 - \mathbf{v}\cdot\left(\Delta\mathbf{v}\right) + \mathbf{v}\cdot\nabla\xi.
+&\stackrel{\text{Glg. \eqref{eq:diff_op_rule_8}}}{=} \Delta k - \zetabi^2 - \mathbf{v}\cdot\left(\Delta\mathbf{v}\right) + \mathbf{v}\cdot\nabla D.
 \end{align}
 %
 Dies führt auf eine weitere Form der Divergenzgleichung:
@@ -11911,8 +11911,8 @@ Dies führt auf eine weitere Form der Divergenzgleichung:
 \doublebox{\parbox{\textwidth}{
 \begin{center}
 \begin{align}
-\frac{\partial\xi}{\partial t} & = \frac{1}{\rho^2}\nabla\rho\cdot\nabla p -\frac{1}{\rho}\Delta p + \mathbf{f}\cdot\zetabi - \Delta k + \zetabi^2\nonumber\\
-&  +\mathbf{v}\cdot\left(\Delta\mathbf{v}\right) - \mathbf{v}\cdot\nabla\xi + \nabla\cdot\mathbf{f}_R\label{eq:divergence_equation_2}
+\frac{\partial D}{\partial t} & = \frac{1}{\rho^2}\nabla\rho\cdot\nabla p -\frac{1}{\rho}\Delta p + \mathbf{f}\cdot\zetabi - \Delta k + \zetabi^2\nonumber\\
+&  +\mathbf{v}\cdot\left(\Delta\mathbf{v}\right) - \mathbf{v}\cdot\nabla D + \nabla\cdot\mathbf{f}_R\label{eq:divergence_equation_2}
 \end{align}
 \end{center}
 }}
@@ -16034,9 +16034,11 @@ Dabei ist der horizontale Diffusionskoeffizient größer als der vertikale.
 Um einen Ansatz für die Parametrisierung von Impulsadvektion\index{Impulsadvektion!Parametrisierung}\index{Parametrisierung!Impulsadvektion} herzuleiten, geht man analog zum Fall skalarer Advektion\index{skalare Advektion!Parametrisierung}\index{Advektion!skalare!Parametrisierung}\index{Parametrisierung!skalare Advektion}\index{Parametrisierung!Advektion!skalare} im vorherigen Abschnitt von dem Ansatz aus, dass die subskalige Variabilität zu einer isotropen Diffusion\index{Diffusion} führt. Dies entspricht auch dem in Absch. \ref{sec:mischungswegansatz} beschriebenen Mischungswegansatz\index{Mischungswegansatz}. Hierbei wurde ja davon ausgegangen, dass das Fluid über eine gewisse Länge, der sogenannten Mischungsweglänge\index{Mischungsweglänge} seine Eigenschaften unverändert transportiert, bevor es zu einer Angleichung mit der Umgebung kommt. Dies ist bei molekularer Diffusion\index{molekulare Diffusion}\index{Diffusion!molekulare}, und somit auch bei Reibung\index{Reibung} als Spezialfall dieser, ebenfalls der Fall. Man erinnert sich zunächst an Glg. \eqref{eq:friction_acceleration} für die Reibungsbeschleunigung $\mathbf{f}_R$:
 %
 \begin{align}
-\mathbf{f}_R = \nu\Delta\mathbf{v} + \left(\frac{\mu_v}{\rho} + \frac{\nu}{3}\right)\nabla\left(\nabla\cdot\mathbf{v}\right) \stackrel{\text{Glg. \eqref{eq:diff_op_rule_8}}}{=} \left(\frac{\mu_v}{\rho} + \frac{4\nu}{3}\right)\nabla\left(\nabla\cdot\mathbf{v}\right) - \nu\nabla\times\left(\nabla\times\mathbf{v}\right)
+\mathbf{f}_R &= \nu\Delta\mathbf{v} + \left(\frac{\mu_v}{\rho} + \frac{\nu}{3}\right)\nabla\left(\nabla\cdot\mathbf{v}\right) \stackrel{\text{Glg. \eqref{eq:diff_op_rule_8}}}{=} \left(\frac{\mu_v}{\rho} + \frac{4\nu}{3}\right)\nabla\left(\nabla\cdot\mathbf{v}\right) - \nu\nabla\times\left(\nabla\times\mathbf{v}\right)\nonumber\\
+&= \left(\frac{\mu_v}{\rho} + \frac{4\nu}{3}\right)\nabla D - \nu\nabla\times\zetabi
 \end{align}
 %
+
 Als modifizierte Begründung für diesen Ansatz kann man die folgende Analogie verwenden: Die Maxwell-Verteilung\index{Maxwell-Verteilung} Glg. \eqref{eq:maxwellverteilung} ist isotrop. Atome und Moleküle sind im Rahmen der Navier-Stokes-Gleichungen\index{Navier-Stokes-Gleichung} subskalig. Ihre isotrope Impulsverteilung ist der Windgeschwindigkeit $\mathbf{v}$ überlagert. Dies hat die physikalische Auswirkung der Existenz der Reibungsbeschleunigung Glg. \eqref{eq:friction_acceleration} und der Dissipation Glg. \eqref{eq:dissipation}. Ist die turbulente (subskalige) Bewegung isotrop, so kann man davon ausgehen, dass die Turbulenz ähnliche Auswirkungen auf die gemittelten Größen hat. Diese Analogie gilt auch für die diffusiven Ansätze des subskaligen Transportes skalarer Größen.
 
 Zu bestimmen bleiben allerdings die effektiven Viskositäten. In einer Diskretisierung setzt man nun analog zu Glg. \eqref{eq:para_ansatz_0}
@@ -16047,6 +16049,10 @@ Zu bestimmen bleiben allerdings die effektiven Viskositäten. In einer Diskretis
 \end{align}
 %
 an.
+
+\begin{align}
+\mathbf{f}_R &= \left(\frac{\mu_{v, \Delta}}{\rho} + \frac{4\nu_{v, \Delta}}{3}\right)\nabla D - \nu_{v, \Delta}\nabla\times\zetabi\label{eq:friction_acceleration_for_discrete}
+\end{align}
 
 \subsection{Beispiel: Phasenübergänge}
 \label{sec:beispiel:_phasenuebergaenge}\index{Phasenübergang!Parametrisierung}\index{Parametrisierung!Phasenübergänge}
@@ -20210,7 +20216,7 @@ Bisher wurden nur tatsächliche physikalische Gleichungen diskretisiert, dies be
 \Delta r \gg \lambda,
 \end{align}
 %
-eine solche Diskretisierung\index{Diskretisierung} ist nämlich ein Tiefpass\index{Tiefpass}\index{Diskretisierung!als Tiefpass} mit der Grenzwellenlänge $2\Delta r$. Dementsrpechend muss in einem numerischen Modell die Dissipation\index{Dissipation!numerische}\index{Numerik!Dissipation} schon eher einsetzen. Laut Glg. \eqref{eq:dyn_viscosity_kinetic_model} gilt für die kinematische Viskosität\index{kinematische Viskosität}\index{Viskosität!kinematische} $\nu$ die Gleichung
+eine solche Diskretisierung\index{Diskretisierung} ist nämlich ein Tiefpass\index{Tiefpass}\index{Diskretisierung!als Tiefpass} mit der Grenzwellenlänge $2\Delta r$. Dementsprechend muss in einem numerischen Modell die Dissipation\index{Dissipation!numerische}\index{Numerik!Dissipation} schon eher einsetzen. Laut Glg. \eqref{eq:dyn_viscosity_kinetic_model} gilt für die kinematische Viskosität\index{kinematische Viskosität}\index{Viskosität!kinematische} $\nu$ die Gleichung
 %
 \begin{align}
 \nu \propto \lambda.
@@ -20232,6 +20238,13 @@ eine sinnvolle Abschätzung für die numerische Viskosität\index{numerische Vis
 
 \subsection{Impuls}
 \label{sec:impuls}\index{Impulsdiffusion}\index{Diffusion!Impuls}
+
+Projiziert man Glg. \eqref{eq:friction_acceleration_for_discrete} auf $\mathbf{e}_x$, erhält man
+
+\begin{align}
+\mathbf{e}_x\cdot\mathbf{f}_R &= \mathbf{e}_x\cdot\left[\left(\frac{\mu_{v, \Delta}}{\rho} + \frac{4\nu_{v, \Delta}}{3}\right)\nabla D - \nu_{v, \Delta}\nabla\times\zetabi\right] = \left(\frac{\mu_{v, \Delta}}{\rho} + \frac{4\nu_{v, \Delta}}{3}\right)\frac{\partial D}{\partial x} - \nu_{v, \Delta}\left(\frac{\partial\zeta_z}{\partial y} - \frac{\partial\zeta_y}{\partial z}\right)\nonumber\\
+&= \left(\frac{\mu_{v, \Delta}}{\rho} + \frac{4\nu_{v, \Delta}}{3}\right)\frac{\partial D}{\partial x} + \nu_{v, \Delta}\left(\frac{\partial\zeta_y}{\partial z} - \frac{\partial\zeta_z}{\partial y}\right).
+\end{align}
 
 \chapter{\normalfont\textsc{Weiterführende Aspekte}}
 \label{chap:weiterfuehrende_aspekte}
@@ -22031,7 +22044,7 @@ Wegen
 %
 \begin{align}
 \left(\nabla\times\mathbf{v}\right)\times\mathbf{v}_h & = \left[\nabla\times\left(\mathbf{v}_h + w\mathbf{k}\right)\right]\times\mathbf{v}_h = \left(\nabla\times\mathbf{v}_h\right)\times\mathbf{v}_h + \left(\nabla\times w\mathbf{k}\right)\times\mathbf{v}_h\nonumber\\
-& \stackrel{\text{Glg. }\eqref{eq:rot_local}}{=} & \left(\nabla\times\mathbf{v}_h\right)\times\mathbf{v}_h + \left(\frac{\partial w}{\partial y}\mathbf{i} - \frac{\partial w}{\partial x}\mathbf{j}\right)\times\mathbf{v}_h = \left(\nabla\times\mathbf{v}_h\right)\times\mathbf{v}_h + \mathbf{k}\left(\mathbf{v}_h\cdot\nabla w\right)
+& \stackrel{\text{Glg. }\eqref{eq:rot_local}}{=} \left(\nabla\times\mathbf{v}_h\right)\times\mathbf{v}_h + \left(\frac{\partial w}{\partial y}\mathbf{i} - \frac{\partial w}{\partial x}\mathbf{j}\right)\times\mathbf{v}_h = \left(\nabla\times\mathbf{v}_h\right)\times\mathbf{v}_h + \mathbf{k}\left(\mathbf{v}_h\cdot\nabla w\right)
 \end{align}
 %
 und
