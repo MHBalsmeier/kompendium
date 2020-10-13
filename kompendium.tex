@@ -5414,8 +5414,8 @@ Für die Entropie folgt
 %
 \begin{align}
 \frac{S\left(E, V, N\right)}{k_B} & = \frac{1}{2}\ln\left(\frac{2}{3\pi^2}\right) - \ln\left(N\right) + \frac{3N}{2}\ln\left(c\right) + N\ln\left(\frac{V}{N}\right) + \frac{3N}{2}\ln\left(\frac{E}{N}\right)\nonumber\\
-&\approx&\frac{3N}{2}\ln\left(c\right) + N\ln\left(\frac{V}{N}\right) + \frac{3N}{2}\ln\left(\frac{E}{N}\right) - \ln\left(N\right)\nonumber\\
-&\approx&\frac{3N}{2}\ln\left(c\right) + N\ln\left(\frac{V}{N}\right) + \frac{3N}{2}\ln\left(\frac{E}{N}\right)\nonumber
+&\approx \frac{3N}{2}\ln\left(c\right) + N\ln\left(\frac{V}{N}\right) + \frac{3N}{2}\ln\left(\frac{E}{N}\right) - \ln\left(N\right)\nonumber\\
+&\approx \frac{3N}{2}\ln\left(c\right) + N\ln\left(\frac{V}{N}\right) + \frac{3N}{2}\ln\left(\frac{E}{N}\right)\nonumber
 \end{align}
 %
 \begin{center}
@@ -16031,13 +16031,15 @@ Dabei ist der horizontale Diffusionskoeffizient größer als der vertikale.
 \subsection{Beispiel: Impulsadvektion}
 \label{sec:impulsadvektion}\index{Impulsadvektion!Parametrisierung}\index{Parametrisierung!Impulsadvektion}
 
-Um einen Ansatz für die Parametrisierung von Impulsadvektion\index{Impulsadvektion!Parametrisierung}\index{Parametrisierung!Impulsadvektion} herzuleiten, geht man analog zum Fall skalarer Advektion\index{skalare Advektion!Parametrisierung}\index{Advektion!skalare!Parametrisierung}\index{Parametrisierung!skalare Advektion}\index{Parametrisierung!Advektion!skalare} im vorherigen Abschnitt von dem Ansatz aus, dass die subskalige Variabilität zu einer Diffusion\index{Diffusion} führt. Dies entspricht auch dem in Absch. \ref{sec:mischungswegansatz} beschriebenen Mischungswegansatz\index{Mischungswegansatz}. Hierbei wurde ja davon ausgegangen, dass das Fluid über eine gewisse Länge, der sogenannten Mischungsweglänge\index{Mischungsweglänge} seine Eigenschaften unverändert transportiert, bevor es zu einer Angleichung mit der Umgebung kommt. Dies ist bei molekularer Diffusion\index{molekulare Diffusion}\index{Diffusion!molekulare}, und somit auch bei Reibung\index{Reibung} als Spezialfall dieser, ebenfalls der Fall. Man erinnert sich zunächst an Glg. \eqref{eq:friction_acceleration} für die Reibungsbeschleunigung $\mathbf{f}_R$:
+Um einen Ansatz für die Parametrisierung von Impulsadvektion\index{Impulsadvektion!Parametrisierung}\index{Parametrisierung!Impulsadvektion} herzuleiten, geht man analog zum Fall skalarer Advektion\index{skalare Advektion!Parametrisierung}\index{Advektion!skalare!Parametrisierung}\index{Parametrisierung!skalare Advektion}\index{Parametrisierung!Advektion!skalare} im vorherigen Abschnitt von dem Ansatz aus, dass die subskalige Variabilität zu einer isotropen Diffusion\index{Diffusion} führt. Dies entspricht auch dem in Absch. \ref{sec:mischungswegansatz} beschriebenen Mischungswegansatz\index{Mischungswegansatz}. Hierbei wurde ja davon ausgegangen, dass das Fluid über eine gewisse Länge, der sogenannten Mischungsweglänge\index{Mischungsweglänge} seine Eigenschaften unverändert transportiert, bevor es zu einer Angleichung mit der Umgebung kommt. Dies ist bei molekularer Diffusion\index{molekulare Diffusion}\index{Diffusion!molekulare}, und somit auch bei Reibung\index{Reibung} als Spezialfall dieser, ebenfalls der Fall. Man erinnert sich zunächst an Glg. \eqref{eq:friction_acceleration} für die Reibungsbeschleunigung $\mathbf{f}_R$:
 %
 \begin{align}
-\mathbf{f}_R = \nu\Delta\mathbf{v} + \left(\frac{\mu_v}{\rho} + \frac{\nu}{3}\right)\nabla\left(\nabla\cdot\mathbf{v}\right)
+\mathbf{f}_R = \nu\Delta\mathbf{v} + \left(\frac{\mu_v}{\rho} + \frac{\nu}{3}\right)\nabla\left(\nabla\cdot\mathbf{v}\right) \stackrel{\text{Glg. \eqref{eq:diff_op_rule_8}}}{=} \left(\frac{\mu_v}{\rho} + \frac{4\nu}{3}\right)\nabla\left(\nabla\cdot\mathbf{v}\right) - \nu\nabla\times\left(\nabla\times\mathbf{v}\right)
 \end{align}
 %
-In einer Diskretisierung setzt man nun Analog zu Glg. \eqref{eq:para_ansatz_0}
+Als modifizierte Begründung für diesen Ansatz kann man die folgende Analogie verwenden: Die Maxwell-Verteilung\index{Maxwell-Verteilung} Glg. \eqref{eq:maxwellverteilung} ist isotrop. Atome und Moleküle sind im Rahmen der Navier-Stokes-Gleichungen\index{Navier-Stokes-Gleichung} subskalig. Ihre isotrope Impulsverteilung ist der Windgeschwindigkeit $\mathbf{v}$ überlagert. Dies hat die physikalische Auswirkung der Existenz der Reibungsbeschleunigung Glg. \eqref{eq:friction_acceleration} und der Dissipation Glg. \eqref{eq:dissipation}. Ist die turbulente (subskalige) Bewegung isotrop, so kann man davon ausgehen, dass die Turbulenz ähnliche Auswirkungen auf die gemittelten Größen hat. Diese Analogie gilt auch für die diffusiven Ansätze des subskaligen Transportes skalarer Größen.
+
+Zu bestimmen bleiben allerdings die effektiven Viskositäten. In einer Diskretisierung setzt man nun analog zu Glg. \eqref{eq:para_ansatz_0}
 %
 \begin{align}
 \nu_\Delta & = \nu + \nu_S,\\
