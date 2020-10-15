@@ -16696,52 +16696,28 @@ als Differenzialgleichung für $\psi$ verwenden. Aus der Randbedingung Glg. \eqr
 %
 $\psi$ ist also konstant entlang der Kugeloberfläche, o. B. d. A. kann man als Randbedingung
 %
-\begin{center}
-\doublebox{\parbox{0.8\textwidth}{
-\begin{center}
 \begin{align}
 \psi\left(r = a\right) = 0
 \end{align}
-\end{center}
-}}
-\end{center}
 %
 fordern. Die Randbedingung Glg. \eqref{eq:stokes_fric_boundary_0} lautet in Kugelkoordinaten
 %
-\begin{center}
-\doublebox{\parbox{0.8\textwidth}{
-\begin{center}
 \begin{align}
 \lim_{\left|\mathbf{r}\right| \to \infty}v_r &= U\cos\left(\theta\right),\\
 \lim_{\left|\mathbf{r}\right| \to \infty}v_\theta &= -U\sin\left(\theta\right).
 \end{align}
-\end{center}
-}}
-\end{center}
 %
 Dies impliziert für $\psi$ die Tatsache
 %
-\begin{center}
-\doublebox{\parbox{0.8\textwidth}{
-\begin{center}
 \begin{align}
 \lim_{\left|\mathbf{r}\right| \to \infty}\psi &= -\frac{Ur^2\sin\left(\theta\right)^2}{2}.
 \end{align}
-\end{center}
-}}
-\end{center}
 %
 Der Druck soll in der Unendlichkeit gegen einen homogenen Hintergrunddruck $p_0$ konvergieren:
 %
-\begin{center}
-\doublebox{\parbox{0.8\textwidth}{
-\begin{center}
 \begin{align}
 \lim_{\left|\mathbf{r}\right| \to \infty}p &= p_0
 \end{align}
-\end{center}
-}}
-\end{center}
 %
 Es gilt
 %
@@ -16755,20 +16731,20 @@ Man rechnet zunächst vorbereitend
 &\frac{\partial}{\partial r}\left(\frac{\partial^2\psi}{\partial r^2} - \frac{1}{r^2\tan\left(\theta\right)}\frac{\partial\psi}{\partial\theta} + \frac{1}{r^2}\frac{\partial^2\psi}{\partial\theta^2}\right) = \frac{\partial^3\psi}{\partial r^3} - \frac{1}{r^2\tan\left(\theta\right)}\frac{\partial^2\psi}{\partial r\partial\theta} + \frac{1}{r^2}\frac{\partial^3\psi}{\partial r\partial\theta^2} + \frac{2}{r^3\tan\left(\theta\right)}\frac{\partial\psi}{\partial\theta} - \frac{2}{r^3}\frac{\partial^2\psi}{\partial\theta^2},\nonumber\\
 &\frac{\partial^2}{\partial r^2}\left(\frac{\partial^2\psi}{\partial r^2} - \frac{1}{r^2\tan\left(\theta\right)}\frac{\partial\psi}{\partial\theta} + \frac{1}{r^2}\frac{\partial^2\psi}{\partial\theta^2}\right) = \frac{\partial^4\psi}{\partial r^4} - \frac{1}{r^2\tan\left(\theta\right)}\frac{\partial^3\psi}{\partial r^2\partial\theta} + \frac{1}{r^2}\frac{\partial^4\psi}{\partial r^2\partial\theta^2} + \frac{2}{r^3\tan\left(\theta\right)}\frac{\partial^2\psi}{\partial r\partial\theta} - \frac{2}{r^3}\frac{\partial^3\psi}{\partial r\partial\theta^2}\nonumber\\
 & + \frac{2}{r^3\tan\left(\theta\right)}\frac{\partial^2\psi}{\partial r\partial\theta} - \frac{2}{r^3}\frac{\partial^3\psi}{\partial r\partial\theta^2} - \frac{6}{r^4\tan\left(\theta\right)}\frac{\partial\psi}{\partial\theta} + \frac{6}{r^4}\frac{\partial^2\psi}{\partial\theta^2}\nonumber\\
-&= \textcolor{red}{\frac{\partial^4\psi}{\partial r^4} - \frac{1}{r^2\tan\left(\theta\right)}\frac{\partial^3\psi}{\partial r^2\partial\theta} + \frac{1}{r^2}\frac{\partial^4\psi}{\partial r^2\partial\theta^2} + \frac{4}{r^3\tan\left(\theta\right)}\frac{\partial^2\psi}{\partial r\partial\theta} - \frac{4}{r^3}\frac{\partial^3\psi}{\partial r\partial\theta^2} - \frac{6}{r^4\tan\left(\theta\right)}\frac{\partial\psi}{\partial\theta} + \frac{6}{r^4}\frac{\partial^2\psi}{\partial\theta^2}},
+&= \frac{\partial^4\psi}{\partial r^4} - \frac{1}{r^2\tan\left(\theta\right)}\frac{\partial^3\psi}{\partial r^2\partial\theta} + \frac{1}{r^2}\frac{\partial^4\psi}{\partial r^2\partial\theta^2} + \frac{4}{r^3\tan\left(\theta\right)}\frac{\partial^2\psi}{\partial r\partial\theta} - \frac{4}{r^3}\frac{\partial^3\psi}{\partial r\partial\theta^2} - \frac{6}{r^4\tan\left(\theta\right)}\frac{\partial\psi}{\partial\theta} + \frac{6}{r^4}\frac{\partial^2\psi}{\partial\theta^2},
 \end{align}
 \begin{align}
 &\frac{\partial}{\partial\theta}\left(\frac{\partial^2\psi}{\partial r^2} - \frac{\cos\left(\theta\right)}{r^2\sin\left(\theta\right)}\frac{\partial\psi}{\partial\theta} + \frac{1}{r^2}\frac{\partial^2\psi}{\partial\theta^2}\right) = \frac{\partial^3\psi}{\partial\theta\partial r^2} - \frac{\cos\left(\theta\right)}{r^2\sin\left(\theta\right)}\frac{\partial^2\psi}{\partial\theta^2} + \frac{1}{r^2}\frac{\partial^3\psi}{\partial\theta^3} + \frac{1}{r^2}\frac{\partial\psi}{\partial\theta} + \frac{\cos\left(\theta\right)^2}{r^2\sin\left(\theta\right)^2}\frac{\partial\psi}{\partial\theta}\nonumber\\
 &\Rightarrow-\frac{1}{r^2\tan\left(\theta\right)}\frac{\partial}{\partial\theta}\left(\frac{\partial^2\psi}{\partial r^2} - \frac{\cos\left(\theta\right)}{r^2\sin\left(\theta\right)}\frac{\partial\psi}{\partial\theta} + \frac{1}{r^2}\frac{\partial^2\psi}{\partial\theta^2}\right)\nonumber\\
 &= -\frac{1}{r^2\tan\left(\theta\right)}\frac{\partial^3\psi}{\partial\theta\partial r^2} + \frac{1}{r^4\tan\left(\theta\right)^2}\frac{\partial^2\psi}{\partial\theta^2} - \frac{1}{r^4\tan\left(\theta\right)}\frac{\partial^3\psi}{\partial\theta^3} - \frac{1}{r^4\tan\left(\theta\right)}\frac{\partial\psi}{\partial\theta} - \frac{1}{r^4\tan\left(\theta\right)^3}\frac{\partial\psi}{\partial\theta}\nonumber\\
-&= \textcolor{red}{-\frac{1}{r^2\tan\left(\theta\right)}\frac{\partial^3\psi}{\partial\theta\partial r^2} + \frac{1}{r^4\tan\left(\theta\right)^2}\frac{\partial^2\psi}{\partial\theta^2} - \frac{1}{r^4\tan\left(\theta\right)}\frac{\partial^3\psi}{\partial\theta^3} - \frac{\cos\left(\theta\right)}{r^4\sin\left(\theta\right)^3}\frac{\partial\psi}{\partial\theta}},
+&= -\frac{1}{r^2\tan\left(\theta\right)}\frac{\partial^3\psi}{\partial\theta\partial r^2} + \frac{1}{r^4\tan\left(\theta\right)^2}\frac{\partial^2\psi}{\partial\theta^2} - \frac{1}{r^4\tan\left(\theta\right)}\frac{\partial^3\psi}{\partial\theta^3} - \frac{\cos\left(\theta\right)}{r^4\sin\left(\theta\right)^3}\frac{\partial\psi}{\partial\theta},
 \end{align}
 \begin{align}
 &\frac{1}{r^2}\frac{\partial^2}{\partial\theta^2}\left(\frac{\partial^2\psi}{\partial r^2} - \frac{\cos\left(\theta\right)}{r^2\sin\left(\theta\right)}\frac{\partial\psi}{\partial\theta} + \frac{1}{r^2}\frac{\partial^2\psi}{\partial\theta^2}\right) = \frac{1}{r^2}\frac{\partial}{\partial\theta}\left(\frac{\partial^3\psi}{\partial\theta\partial r^2} - \frac{\cos\left(\theta\right)}{r^2\sin\left(\theta\right)}\frac{\partial^2\psi}{\partial\theta^2} + \frac{1}{r^2}\frac{\partial^3\psi}{\partial\theta^3} + \frac{1}{r^2}\frac{\partial\psi}{\partial\theta} + \frac{\cos\left(\theta\right)^2}{r^2\sin\left(\theta\right)^2}\frac{\partial\psi}{\partial\theta}\right)\nonumber\\
 &= \frac{1}{r^2}\frac{\partial^4\psi}{\partial\theta^2\partial r^2} - \frac{\cos\left(\theta\right)}{r^4\sin\left(\theta\right)}\frac{\partial^3\psi}{\partial\theta^3} + \frac{1}{r^4}\frac{\partial^4\psi}{\partial\theta^4} + \frac{1}{r^4}\frac{\partial^2\psi}{\partial\theta^2} + \frac{\cos\left(\theta\right)^2}{r^4\sin\left(\theta\right)^2}\frac{\partial^2\psi}{\partial\theta^2}\nonumber\\
 &+ \frac{1}{r^4}\frac{\partial^2\psi}{\partial\theta^2} + \frac{\cos\left(\theta\right)^2}{r^4\sin\left(\theta\right)^2}\frac{\partial^2\psi}{\partial\theta^2} - \frac{2\cos\left(\theta\right)}{r^4\sin\left(\theta\right)}\frac{\partial\psi}{\partial\theta} - \frac{2\cos\left(\theta\right)^3}{r^4\sin\left(\theta\right)^3}\frac{\partial\psi}{\partial\theta}\nonumber\\
 &= \frac{1}{r^2}\frac{\partial^4\psi}{\partial\theta^2\partial r^2} - \frac{\cos\left(\theta\right)}{r^4\sin\left(\theta\right)}\frac{\partial^3\psi}{\partial\theta^3} + \frac{1}{r^4}\frac{\partial^4\psi}{\partial\theta^4} + \frac{2}{r^4\sin\left(\theta\right)^2}\frac{\partial^2\psi}{\partial\theta^2} - \frac{2\cos\left(\theta\right)}{r^4\sin\left(\theta\right)}\frac{\partial\psi}{\partial\theta} - \frac{2\cos\left(\theta\right)^3}{r^4\sin\left(\theta\right)^3}\frac{\partial\psi}{\partial\theta}\nonumber\\
-&= \textcolor{red}{\frac{1}{r^2}\frac{\partial^4\psi}{\partial\theta^2\partial r^2} - \frac{\cos\left(\theta\right)}{r^4\sin\left(\theta\right)}\frac{\partial^3\psi}{\partial\theta^3} + \frac{1}{r^4}\frac{\partial^4\psi}{\partial\theta^4} + \frac{2}{r^4\sin\left(\theta\right)^2}\frac{\partial^2\psi}{\partial\theta^2} - \frac{2\cos\left(\theta\right)}{r^4\sin\left(\theta\right)^3}\frac{\partial\psi}{\partial\theta}}.
+&= \frac{1}{r^2}\frac{\partial^4\psi}{\partial\theta^2\partial r^2} - \frac{\cos\left(\theta\right)}{r^4\sin\left(\theta\right)}\frac{\partial^3\psi}{\partial\theta^3} + \frac{1}{r^4}\frac{\partial^4\psi}{\partial\theta^4} + \frac{2}{r^4\sin\left(\theta\right)^2}\frac{\partial^2\psi}{\partial\theta^2} - \frac{2\cos\left(\theta\right)}{r^4\sin\left(\theta\right)^3}\frac{\partial\psi}{\partial\theta}.
 \end{align}
 %
 Somit erhält man
@@ -16848,14 +16824,14 @@ Hieraus folgt
 Mit
 %
 \begin{align}
-\nabla\times\mathbf{e}_\phi &\stackrel{\text{Glg. \eqref{eq:rot_sphere}}}{=} \frac{1}{r\tan\left(\phi\right)}\mathbf{e}_r - \frac{1}{r}\mathbf{e}_\theta
+\nabla\times\mathbf{e}_\phi &\stackrel{\text{Glg. \eqref{eq:rot_sphere}}}{=} \frac{1}{r\tan\left(\theta\right)}\mathbf{e}_r - \frac{1}{r}\mathbf{e}_\theta
 \end{align}
 %
 folgt
 %
 \begin{align}
-\frac{E^2\psi}{r\sin\left(\theta\right)}\nabla\times\mathbf{e}_\phi &= \frac{1}{r\sin\left(\theta\right)}\left[\frac{\partial^2\psi}{\partial r^2} - \frac{1}{r^2\tan\left(\theta\right)}\frac{\partial\psi}{\partial\theta} + \frac{1}{r^2}\frac{\partial^2\psi}{\partial\theta^2}\right]\left(\frac{1}{r\tan\left(\phi\right)}\mathbf{e}_r - \frac{1}{r}\mathbf{e}_\theta\right)\nonumber\\
-&= \left(\frac{1}{r\sin\left(\theta\right)}\frac{\partial^2\psi}{\partial r^2} - \frac{\cos\left(\theta\right)}{r^3\sin\left(\theta\right)^2}\frac{\partial\psi}{\partial\theta} + \frac{1}{r^3\sin\left(\theta\right)}\frac{\partial^2\psi}{\partial\theta^2}\right)\left(\frac{1}{r\tan\left(\phi\right)}\mathbf{e}_r - \frac{1}{r}\mathbf{e}_\theta\right)\nonumber\\
+\frac{E^2\psi}{r\sin\left(\theta\right)}\nabla\times\mathbf{e}_\phi &= \frac{1}{r\sin\left(\theta\right)}\left[\frac{\partial^2\psi}{\partial r^2} - \frac{1}{r^2\tan\left(\theta\right)}\frac{\partial\psi}{\partial\theta} + \frac{1}{r^2}\frac{\partial^2\psi}{\partial\theta^2}\right]\left(\frac{1}{r\tan\left(\theta\right)}\mathbf{e}_r - \frac{1}{r}\mathbf{e}_\theta\right)\nonumber\\
+&= \left(\frac{1}{r\sin\left(\theta\right)}\frac{\partial^2\psi}{\partial r^2} - \frac{\cos\left(\theta\right)}{r^3\sin\left(\theta\right)^2}\frac{\partial\psi}{\partial\theta} + \frac{1}{r^3\sin\left(\theta\right)}\frac{\partial^2\psi}{\partial\theta^2}\right)\left(\frac{1}{r\tan\left(\theta\right)}\mathbf{e}_r - \frac{1}{r}\mathbf{e}_\theta\right)\nonumber\\
 &= \left(\frac{\cos\left(\theta\right)}{r^2\sin\left(\theta\right)^2}\frac{\partial^2\psi}{\partial r^2} - \frac{\cos\left(\theta\right)^2}{r^4\sin\left(\theta\right)^3}\frac{\partial\psi}{\partial\theta} + \frac{\cos\left(\theta\right)}{r^4\sin\left(\theta\right)^2}\frac{\partial^2\psi}{\partial\theta^2}\right)\mathbf{e}_r\nonumber\\
 &- \left(\frac{1}{r^2\sin\left(\theta\right)}\frac{\partial^2\psi}{\partial r^2} - \frac{\cos\left(\theta\right)}{r^4\sin\left(\theta\right)^2}\frac{\partial\psi}{\partial\theta} + \frac{1}{r^4\sin\left(\theta\right)}\frac{\partial^2\psi}{\partial\theta^2}\right)\mathbf{e}_\theta\nonumber\\
 &= \left(\textcolor{red}{\frac{\cos\left(\theta\right)}{r^2\sin\left(\theta\right)^2}\frac{\partial^2\psi}{\partial r^2}} \textcolor{blue}{- \frac{\cos\left(\theta\right)^2}{r^4\sin\left(\theta\right)^3}\frac{\partial\psi}{\partial\theta}} + \textcolor{brown}{\frac{\cos\left(\theta\right)}{r^4\sin\left(\theta\right)^2}\frac{\partial^2\psi}{\partial\theta^2}}\right)\mathbf{e}_r\nonumber\\
