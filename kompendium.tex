@@ -8867,7 +8867,7 @@ Setzt man dies in Glg. \eqref{eq:poisson_bracket_atm_gen_deriv_4} ein, erhält m
 \begin{align}
 \left\lbrace F, H\right\rbrace &= -\int_A\frac{\delta F}{\delta\rho}\nabla\cdot\frac{\delta H}{\delta\mathbf{v}} - \frac{\delta H}{\delta\rho}\nabla\cdot\frac{\delta F}{\delta\mathbf{v}}d^3r\nonumber\\
 &-\int_A\frac{\delta F}{\delta q_1}\nabla\cdot\left(\frac{q_1}{\rho}\frac{\delta H}{\delta\mathbf{v}}\right) - \frac{\delta H}{\delta q_1}\nabla\cdot\left(\frac{q_1}{\rho}\frac{\delta F}{\delta\mathbf{v}}\right)d^3r\nonumber\\
-&-\int_A\frac{\delta F}{\delta\mathbf{v}}\cdot\left(\frac{\etabi}{\rho}\times\frac{\delta H}{\delta\mathbf{v}} + \nabla\frac{\delta H}{\delta\rho} + \frac{q_1}{\rho}\nabla\frac{\delta H}{\delta q_1}\right) + \left(\frac{\etabi}{\rho}\times\frac{\delta F}{\delta\mathbf{v}} + \nabla\frac{\delta F}{\delta\rho} + \frac{q_1}{\rho}\nabla\frac{\delta F}{\delta q_1}\right)\cdot\frac{\delta H}{\delta\mathbf{v}}d^3r.
+&-\int_A\frac{\delta F}{\delta\mathbf{v}}\cdot\left(\frac{\etabi}{\rho}\times\frac{\delta H}{\delta\mathbf{v}} + \nabla\frac{\delta H}{\delta\rho} + \frac{q_1}{\rho}\nabla\frac{\delta H}{\delta q_1}\right) - \left(\frac{\etabi}{\rho}\times\frac{\delta F}{\delta\mathbf{v}} + \nabla\frac{\delta F}{\delta\rho} + \frac{q_1}{\rho}\nabla\frac{\delta F}{\delta q_1}\right)\cdot\frac{\delta H}{\delta\mathbf{v}}d^3r.
 \end{align}
 %
 Da $F$ und $H$ Energieformen sind, gelten $\frac{\delta F}{\delta\mathbf{v}} \parallel \mathbf{v}$, $\frac{\delta H}{\delta\mathbf{v}} \parallel \mathbf{v}$. Dies bedeutet, dass die beiden Terme mit Vektorprodukt verschwinden, somit gilt
@@ -8875,15 +8875,32 @@ Da $F$ und $H$ Energieformen sind, gelten $\frac{\delta F}{\delta\mathbf{v}} \pa
 \begin{align}
 \left\lbrace F, H\right\rbrace &= -\int_A\frac{\delta F}{\delta\rho}\nabla\cdot\frac{\delta H}{\delta\mathbf{v}} - \frac{\delta H}{\delta\rho}\nabla\cdot\frac{\delta F}{\delta\mathbf{v}}d^3r\nonumber\\
 &-\int_A\frac{\delta F}{\delta q_1}\nabla\cdot\left(\frac{q_1}{\rho}\frac{\delta H}{\delta\mathbf{v}}\right) - \frac{\delta H}{\delta q_1}\nabla\cdot\left(\frac{q_1}{\rho}\frac{\delta F}{\delta\mathbf{v}}\right)d^3r\nonumber\\
-&-\int_A\frac{\delta F}{\delta\mathbf{v}}\cdot\left(\nabla\frac{\delta H}{\delta\rho} + \frac{q_1}{\rho}\nabla\frac{\delta H}{\delta q_1}\right) + \frac{\delta H}{\delta\mathbf{v}}\cdot\left(\nabla\frac{\delta F}{\delta\rho} + \frac{q_1}{\rho}\nabla\frac{\delta F}{\delta q_1}\right)d^3r.
+&-\int_A\frac{\delta F}{\delta\mathbf{v}}\cdot\left(\nabla\frac{\delta H}{\delta\rho} + \frac{q_1}{\rho}\nabla\frac{\delta H}{\delta q_1}\right) - \frac{\delta H}{\delta\mathbf{v}}\cdot\left(\nabla\frac{\delta F}{\delta\rho} + \frac{q_1}{\rho}\nabla\frac{\delta F}{\delta q_1}\right)d^3r\nonumber\\
+&= -\int_A\frac{\delta F}{\delta\rho}\nabla\cdot\frac{\delta H}{\delta\mathbf{v}} - \frac{\delta H}{\delta\rho}\nabla\cdot\frac{\delta F}{\delta\mathbf{v}}d^3r\nonumber\\
+&-\int_A\frac{\delta F}{\delta q_1}\nabla\cdot\left(\frac{q_1}{\rho}\frac{\delta H}{\delta\mathbf{v}}\right) - \frac{\delta H}{\delta q_1}\nabla\cdot\left(\frac{q_1}{\rho}\frac{\delta F}{\delta\mathbf{v}}\right)d^3r\nonumber\\
+&-\int_A\nabla\cdot\left(\frac{\delta F}{\delta\mathbf{v}}\frac{\delta H}{\delta\rho}\right) + \nabla\cdot\left(\frac{\delta F}{\delta\mathbf{v}}\frac{q_1}{\rho}\frac{\delta H}{\delta q_1}\right) - \nabla\cdot\left(\frac{\delta H}{\delta\mathbf{v}}\frac{\delta F}{\delta\rho}\right) - \nabla\cdot\left(\frac{\delta H}{\delta\mathbf{v}}\frac{q_1}{\rho}\frac{\delta F}{\delta q_1}\right)d^3r\nonumber\\
+&-\int_A-\frac{\delta H}{\delta\rho}\nabla\cdot\frac{\delta F}{\delta\mathbf{v}} - \frac{\delta H}{\delta q_1}\nabla\cdot\left(\frac{\delta F}{\delta\mathbf{v}}\frac{q_1}{\rho}\right) + \frac{\delta F}{\delta\rho}\nabla\cdot\frac{\delta H}{\delta\mathbf{v}} + \frac{\delta F}{\delta q_1}\nabla\cdot\left(\frac{\delta H}{\delta\mathbf{v}}\frac{q_1}{\rho}\right)d^3r
 \end{align}
 %
-In einer reversiblen trockenen Atmosphäre gilt also für Energieformen $F$ Glg. \eqref{eq:poisson_bracket_non_explicit_t} mit
+Aufgrund kinematischer Randbedingungen verschwinden die Terme in der vorletzten Zeile. Es gilt also
 %
 \begin{align}
-\lbrace F, H\rbrace & = -\int_A\frac{\delta F}{\delta\rho}\nabla\cdot\frac{\delta H}{\delta\mathbf{v}} - \frac{\delta H}{\delta\rho}\nabla\cdot\frac{\delta F}{\delta\mathbf{v}}d^3r\nonumber\\
-& -\int_A\frac{\delta F}{\delta q_1}\nabla\cdot\left(\frac{q_1}{\rho}\frac{\delta H}{\delta\mathbf{v}}\right) - \frac{\delta H}{\delta q_1}\nabla\cdot\left(\frac{q_1}{\rho}\frac{\delta F}{\delta\mathbf{v}}\right)d^3r.
+\left\lbrace F, H\right\rbrace &= -\int_A\frac{\delta F}{\delta\rho}\nabla\cdot\frac{\delta H}{\delta\mathbf{v}} - \frac{\delta H}{\delta\rho}\nabla\cdot\frac{\delta F}{\delta\mathbf{v}}d^3r\nonumber\\
+&-\int_A\frac{\delta F}{\delta q_1}\nabla\cdot\left(\frac{q_1}{\rho}\frac{\delta H}{\delta\mathbf{v}}\right) - \frac{\delta H}{\delta q_1}\nabla\cdot\left(\frac{q_1}{\rho}\frac{\delta F}{\delta\mathbf{v}}\right)d^3r\nonumber\\
+&-\int_A-\frac{\delta H}{\delta\rho}\nabla\cdot\frac{\delta F}{\delta\mathbf{v}} - \frac{\delta H}{\delta q_1}\nabla\cdot\left(\frac{\delta F}{\delta\mathbf{v}}\frac{q_1}{\rho}\right) + \frac{\delta F}{\delta\rho}\nabla\cdot\frac{\delta H}{\delta\mathbf{v}} + \frac{\delta F}{\delta q_1}\nabla\cdot\left(\frac{\delta H}{\delta\mathbf{v}}\frac{q_1}{\rho}\right)d^3r
 \end{align}
+%
+In einer reversiblen trockenen Atmosphäre gilt also für Energieformen $F$
+%
+\begin{center}
+\doublebox{\parbox{0.95\textwidth}{
+\begin{center}
+\begin{align}
+\frac{dF}{dt} \stackrel{\text{Glg. \eqref{eq:poisson_bracket_non_explicit_t}}}{=} \lbrace F, H\rbrace & = 2\int_A\frac{\delta H}{\delta\rho}\nabla\cdot\frac{\delta F}{\delta\mathbf{v}} - \frac{\delta F}{\delta\rho}\nabla\cdot\frac{\delta H}{\delta\mathbf{v}} + \frac{\delta H}{\delta q_1}\nabla\cdot\left(\frac{q_1}{\rho}\frac{\delta F}{\delta\mathbf{v}}\right) - \frac{\delta F}{\delta q_1}\nabla\cdot\left(\frac{q_1}{\rho}\frac{\delta H}{\delta\mathbf{v}}\right)d^3r.
+\end{align}
+\end{center}
+}}
+\end{center}
 %
 Der Poisson-Klammer-Formalismus\index{Poisson-Klammer} führt auf eine spezielle Form der Druckgradientbeschleunigung\index{Druckgradientbeschleunigung}. Darin ist neben $\rho$ und $q_1$ meist eine dritte Variable enthalten, gelegentlich sogar eine vierte oder fünfte. Eine dieser Variablen wählt man als sogenannte \textit{semi-prognostische Variable}\index{semi-prognostische Variable} $q_2$. Diese ist aufgrund der thermischen Zustandsgleichung idealer Gase\index{thermische Zustandsgleichung idealer Gase}\index{Zustandsgleichung!thermische!idealer Gase}\index{ideales Gas!Zustandsgleichung!thermische} keine eigenständige prognostische Variable mehr, da der thermodynamische Zustand sonst überbestimmt wäre, jedoch ist sie gegenüber anderen diagnostischen Variablen ausgezeichnet, da sie in der Evolution der Energieformen eine Rolle spielt.
 
@@ -8928,23 +8945,18 @@ Dazu rechnet man vorbereitend
 \begin{align}
 \frac{\delta I'}{\delta\mathbf{v}} & = 0,\\
 \frac{\delta I'}{\delta\rho} & = \phi,\\
-\frac{\delta I'}{\delta\newtilde{\theta}} & = c_d^{(v)}\Pi,\\
+\frac{\delta I'}{\delta q_1} & = c_d^{(v)}\Pi,\\
 \frac{\delta K}{\delta\mathbf{v}} & = \rho\mathbf{v},\\
 \frac{\delta K}{\delta\rho} & = \frac{1}{2}\mathbf{v}^2,\\
-\frac{\delta K}{\delta\newtilde{\theta}} & = 0
+\frac{\delta K}{\delta q_1} & = 0
 \end{align}
 %
 und erhält somit
 %
 \begin{align}
-\lbrace I', H\rbrace & = -\int_A\frac{\delta I'}{\delta\mathbf{v}}\cdot\left(\frac{\etabi}{\rho}\times\frac{\delta H}{\delta\mathbf{v}}\right)d^3r\\
-&  -\int_A\frac{\delta I'}{\delta\rho}\nabla\cdot\frac{\delta H}{\delta\mathbf{v}} - \frac{\delta H}{\delta\rho}\nabla\cdot\frac{\delta I'}{\delta\mathbf{v}}d^3r\\
-&  -\int_A\frac{\delta I'}{\delta\newtilde{q}}\nabla\cdot\left(q\frac{\delta H}{\delta\mathbf{v}}\right) - \frac{\delta H}{\delta\newtilde{q}}\nabla\cdot\left(q\frac{\delta I'}{\delta\mathbf{v}}\right)d^3r\nonumber\\
-& = -\int_A\phi\nabla\cdot\left(\rho\mathbf{v}\right) + c_d^{(p)}\Pi\nabla\cdot\left(\newtilde{\theta}\mathbf{v}\right)d^3r,\\
-\lbrace K, H\rbrace & = -\int_A\frac{\delta K}{\delta\mathbf{v}}\cdot\left(\frac{\etabi}{\rho}\times\frac{\delta H}{\delta\mathbf{v}}\right)d^3r\\
-&  -\int_A\frac{\delta K}{\delta\rho}\nabla\cdot\frac{\delta H}{\delta\mathbf{v}} - \frac{\delta H}{\delta\rho}\nabla\cdot\frac{\delta K}{\delta\mathbf{v}}d^3r\\
-&  -\int_A\frac{\delta K}{\delta\newtilde{q}}\nabla\cdot\left(q\frac{\delta H}{\delta\mathbf{v}}\right) - \frac{\delta H}{\delta\newtilde{q}}\nabla\cdot\left(q\frac{\delta C}{\delta\mathbf{v}}\right)d^3r\nonumber\\
-& = -\int_A-\phi\nabla\cdot\left(\rho\mathbf{v}\right) - c_d^{(p)}\Pi\nabla\cdot\left(\newtilde{\theta}\mathbf{v}\right)d^3r = -\int_A\rho\mathbf{v}\cdot\nabla\phi + c_d^{(p)}\newtilde{\theta}\mathbf{v}\cdot\nabla\Pi d^3r.
+\lbrace I', H\rbrace &= 2\int_A-\phi\nabla\cdot\left(\rho\mathbf{v}\right) - c_d^{(p)}\Pi\nabla\cdot\left(\newtilde{\theta}\mathbf{v}\right)d^3r,\\
+\lbrace K, H\rbrace & = 2\int_A\phi\nabla\cdot\left(\rho\mathbf{v}\right) + c_d^{(p)}\Pi\nabla\cdot\left(\newtilde{\theta}\mathbf{v}\right)d^3r\nonumber\\
+&= 2\int_A-\rho\mathbf{v}\cdot\nabla\phi - c_d^{(p)}\newtilde{\theta}\mathbf{v}\cdot\nabla\Pi d^3r.
 \end{align}
 
 \subsubsection{Entropiedichte als prognostische Variable}
@@ -8975,31 +8987,19 @@ $G$ bezeichnet hierbei das spezifische Gibbs-Potential. Nun werden wieder die Ze
 \begin{align}
 \frac{\delta I'}{\delta\mathbf{v}} & = 0,\\
 \frac{\delta I'}{\delta\rho} & = \phi + G,\\
-\frac{\delta I'}{\delta\newtilde{s}} & = T,\\
+\frac{\delta I'}{\delta q_1} & = T,\\
 \frac{\delta K}{\delta\mathbf{v}} & = \rho\mathbf{v},\\
 \frac{\delta K}{\delta\rho} & = \frac{1}{2}\mathbf{v}^2,\\
-\frac{\delta K}{\delta\newtilde{s}} & = 0
+\frac{\delta K}{\delta q_1} & = 0
 \end{align}
 %
 und erhält somit
 %
 \begin{align}
-\lbrace I', H\rbrace & = -\int_A\frac{\delta I'}{\delta\mathbf{v}}\cdot\left(\frac{\etabi}{\rho}\times\frac{\delta H}{\delta\mathbf{v}}\right)d^3r\\
-&  -\int_A\frac{\delta I'}{\delta\rho}\nabla\cdot\frac{\delta H}{\delta\mathbf{v}} - \frac{\delta H}{\delta\rho}\nabla\cdot\frac{\delta I'}{\delta\mathbf{v}}d^3r\\
-&  -\int_A\frac{\delta I'}{\delta\newtilde{s}}\nabla\cdot\left(s\frac{\delta H}{\delta\mathbf{v}}\right) - \frac{\delta H}{\delta\newtilde{s}}\nabla\cdot\left(q\frac{\delta I'}{\delta\mathbf{v}}\right)d^3r\nonumber\\
-& = -\int_A\frac{\delta I'}{\delta\rho}\nabla\cdot\left(\rho\mathbf{v}\right) + \frac{\delta I'}{\delta\newtilde{s}}\nabla\cdot\left(s\rho\mathbf{v}\right)d^3r = -\int_A\left(\phi + c_d^{(p)}T - sT\right)\nabla\cdot\left(\rho\mathbf{v}\right) + T\nabla\cdot\left(s\rho\mathbf{v}\right)d^3r\nonumber\\
-& = -\int_A\left(\phi + G\right)\nabla\cdot\left(\rho\mathbf{v}\right) + T\nabla\cdot\left(\newtilde{s}\mathbf{v}\right)d^3r,\label{eq:poisson_entropy_internal}
-\end{align}
-%
-\begin{align}
-\lbrace K, H\rbrace & = -\int_A\frac{\delta K}{\delta\mathbf{v}}\cdot\left(\frac{\etabi}{\rho}\times\frac{\delta H}{\delta\mathbf{v}}\right)d^3r\\
-&  -\int_A\frac{\delta K}{\delta\rho}\nabla\cdot\frac{\delta H}{\delta\mathbf{v}} - \frac{\delta H}{\delta\rho}\nabla\cdot\frac{\delta K}{\delta\mathbf{v}}d^3r\\
-&  -\int_A\frac{\delta K}{\delta\newtilde{s}}\nabla\cdot\left(s\frac{\delta H}{\delta\mathbf{v}}\right) - \frac{\delta H}{\delta\newtilde{s}}\nabla\cdot\left(s\frac{\delta K}{\delta\mathbf{v}}\right)d^3r\nonumber\\
-& = -\int_A\frac{\delta K}{\delta\rho}\nabla\cdot\frac{\delta H}{\delta\mathbf{v}} - \frac{\delta H}{\delta\rho}\nabla\cdot\frac{\delta K}{\delta\mathbf{v}} - \frac{\delta H}{\delta\newtilde{s}}\nabla\cdot\left(s\frac{\delta K}{\delta\mathbf{v}}\right)d^3r\nonumber\\
-& = -\int_A\frac{\delta K}{\delta\rho}\nabla\cdot\left(\rho\mathbf{v}\right) - \frac{\delta H}{\delta\rho}\nabla\cdot\left(\rho\mathbf{v}\right) - T\nabla\cdot\left(s\rho\mathbf{v}\right)d^3r\nonumber\\
-& = -\int_A -\left(\phi + G\right)\nabla\cdot\left(\rho\mathbf{v}\right) - T\nabla\cdot\left(\newtilde{s}\mathbf{v}\right)d^3r\nonumber\\
-& = \int_A\left(\phi + G\right)\nabla\cdot\left(\rho\mathbf{v}\right) - \newtilde{s}\mathbf{v}\cdot\nabla Td^3r\nonumber\\
-& = -\int_A\rho\mathbf{v}\cdot\nabla\left(\phi + G\right) + \rho\mathbf{v}\cdot\left(s\nabla T\right)d^3r.
+\lbrace I', H\rbrace &= 2\int_A-\left(\phi + G\right)\nabla\cdot\left(\rho\mathbf{v}\right) - T\nabla\cdot\left(\newtilde{s}\mathbf{v}\right)d^3r,\nonumber\\\label{eq:poisson_entropy_internal}
+\lbrace K, H\rbrace & = 2\int_A\frac{\delta H}{\delta\rho}\nabla\cdot\left(\rho\mathbf{v}\right) - \frac{\delta K}{\delta\rho}\nabla\cdot\left(\rho\mathbf{v}\right) + T\nabla\cdot\left(s\rho\mathbf{v}\right)d^3r\nonumber\\
+& = 2\int_A\left(\phi + G\right)\nabla\cdot\left(\rho\mathbf{v}\right) + T\nabla\cdot\left(s\rho\mathbf{v}\right)d^3r\nonumber\\
+& = 2\int_A-\rho\mathbf{v}\cdot\nabla\left(\phi + G\right) - \rho\mathbf{v}\cdot\left(s\nabla T\right)d^3r.
 \end{align}
 %
 Hieraus erhält man als Ausdruck für die Druckgradientbeschleunigung\index{Druckgradient}\index{Druckgradientbeschleunigung}
@@ -9018,7 +9018,7 @@ Dies wird auch durch
 %
 \begin{align}
 -\nabla G - s\nabla T & = -c_d^{(p)}\nabla T + T\nabla s  = -c_d^{(p)}\nabla T + Tc_d^{(p)}\nabla\ln\left(\theta\right)\nonumber\\
-& = -c_d^{(p)}\nabla T + \frac{T}{\theta}c_d^{(p)}\nabla\theta = -c_d^{(p)}\theta\nabla\frac{T}{\theta} = -c_d^{(p)}\theta\nabla\Pi
+&= -c_d^{(p)}\nabla T + \frac{T}{\theta}c_d^{(p)}\nabla\theta = -c_d^{(p)}\theta\nabla\frac{T}{\theta} = -c_d^{(p)}\theta\nabla\Pi
 \end{align}
 %
 bestätigt.
