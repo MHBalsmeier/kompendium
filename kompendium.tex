@@ -834,14 +834,15 @@ Den Raum der $\left(q, p\right)$ nennt man \textit{Phasenraum}.\index{Phasenraum
 Zwei beliebige Größen $F$, $K$ können nur von $\left(q, p, t\right)$ abhängen. Man definiert die \textit{Poisson-Klammer} $\left\lbrace F, K\right\rbrace$ von $F$ und $K$ durch
 %
 \begin{align}
-\left\lbrace F, K\right\rbrace \coloneqq \sum_{i = 1}^f\left(\frac{\partial F}{\partial q_i}\frac{\partial K}{\partial p_i} - \frac{\partial F}{\partial p_i}\frac{\partial K}{\partial q_i}\right).
+\left\lbrace F, K\right\rbrace \coloneqq \sum_{i = 1}^f\left(\frac{\partial F}{\partial q_i}\frac{\partial K}{\partial p_i} - \frac{\partial F}{\partial p_i}\frac{\partial K}{\partial q_i}\right).\label{eq:poisson_bracket_def}
 \end{align}
 %
 Hieraus folgen unmittelbar
 %
 \begin{align}
-\left\lbrace F, K\right\rbrace & = -\left\lbrace K, F\right\rbrace,\\
-\left\lbrace F, F\right\rbrace & = 0.
+\left\lbrace F + G, K\right\rbrace & = \left\lbrace F, K\right\rbrace + \left\lbrace G, K\right\rbrace,\label{eq:poisson_bracket_prop_1}\\
+\left\lbrace F, K\right\rbrace & = -\left\lbrace K, F\right\rbrace,\label{eq:poisson_bracket_prop_2}\\
+\left\lbrace F, F\right\rbrace & = 0.\label{eq:poisson_bracket_prop_3}
 \end{align}
 %
 Im Hamilton-Formalismus gelten
@@ -8752,7 +8753,7 @@ Es ist sinnvoll, die Massendichte\index{Massendichte} $\rho$ als erste prognosti
 \frac{\partial\rho}{\partial t} + \nabla\cdot\left(\rho\mathbf{v}\right) = 0
 \end{align}
 %
-als erste prognostische Gleichung\index{prognostische Gleichung}\index{Gleichung!prognostische}. Dies ist so, da die Masendichte\index{Massendichte} eine sehr fundamentale Größe ist (sie beschreibt einfach, wie viel Masse sich an einem gewissen Ort befindet) und die Kontinuitätsgleichung\index{Kontinuitätsgleichung} in der Herleitung vieler anderer prognostischer Gleichungen\index{prognostische Gleichung}\index{Gleichung!prognostische} enthalten ist. Aufgrund der thermischen Zustandsgleichung idealer Gase\index{thermische Zustandsgleichung idealer Gase}\index{Zustandsgleichung!thermische!idealer Gase}\index{ideales Gas!Zustandsgleichung!thermische} hat man die Freiheit, eine weitere thermodynamische Variable $q_1 \not= \rho$ zu wählen. Für die Hamilton-Funktion\index{Hamilton-Funktion} der Atmosphäre notiert man dann 
+als erste prognostische Gleichung\index{prognostische Gleichung}\index{Gleichung!prognostische}. Dies ist so, da die Masendichte\index{Massendichte} eine sehr fundamentale Größe ist (sie beschreibt einfach, wie viel Masse sich an einem gewissen Ort befindet) und die Kontinuitätsgleichung\index{Kontinuitätsgleichung} in der Herleitung vieler anderer prognostischer Gleichungen\index{prognostische Gleichung}\index{Gleichung!prognostische} enthalten ist. Aufgrund der thermischen Zustandsgleichung idealer Gase\index{thermische Zustandsgleichung idealer Gase}\index{Zustandsgleichung!thermische!idealer Gase}\index{ideales Gas!Zustandsgleichung!thermische} muss man genau eine weitere thermodynamische Variable $q_1 \not= \rho$ wählen, um den thermodynamischen Zustand des idealen Gases eindeutig festzulegen. Für die Hamilton-Funktion\index{Hamilton-Funktion} der Atmosphäre notiert man dann 
 %
 \begin{align}
 H = H\left(\rho, q_1, \mathbf{v}\right) = \int_A\frac{1}{2}\rho\mathbf{v}^2 + \rho\phi + \newtilde{I}\left(\rho, q_1\right)d^3r.
@@ -8775,27 +8776,7 @@ Dies entspricht dem in der Quantenmechanik definierten unitären Produkt\index{u
 \subsection{Reversible trockene Atmosphäre}
 \label{sec:reversible_trockene_atmosphaere}
 
-Die Hamilton-Funktion\index{Hamilton-Funktion!Atmosphäre}\index{Atmosphäre!Hamilton-Funktion} $H$ einer trockenen Atmosphäre $A \subseteq \mathbb{R}^3$ lautet mit den generalisierten Zustandskoordianten $\mathbf{v}, \rho, \newtilde{T} \coloneqq \rho T$
-%
-\begin{center}
-\doublebox{\parbox{0.8\textwidth}{
-\begin{center}
-\begin{align}
-H = H\left(\rho, \newtilde{T}, \mathbf{v}\right) = \int_A\frac{1}{2}\rho\mathbf{v}^2 + \rho\phi + c_d^{(v)}\newtilde{T}d^3r.\label{eq:hamilton_function_atmosphere}
-\end{align}
-\end{center}
-}}
-\end{center}
-%
-Die Funktionalableitungen hiervon sind
-%
-\begin{align}
-\frac{\delta H}{\delta\mathbf{v}} & = \rho\mathbf{v},\\
-\frac{\delta H}{\delta\rho} & = \frac{1}{2}\mathbf{v}^2 + \phi,\\
-\frac{\delta H}{\delta\newtilde{T}} & = c_d^{(v)}.
-\end{align}
-%
-Sei $F$ ein beliebiges Funktional\index{Funktional} der atmosphärischen Zustandsvariablen. Die Zeitentwicklung von $F$ lässt sich laut Glg. \eqref{eq:poisson_bracket_prop_0} mittels der Poisson-Klammer\index{Poisson-Klammer} als
+Sei $F$ ein beliebiges Funktional\index{Funktional} der atmosphärischen Zustandsvariablen. Die Zeitentwicklung von $F$ lässt sich laut Glg. \eqref{eq:poisson_bracket_prop_1} mittels der Poisson-Klammer\index{Poisson-Klammer} als
 %
 \begin{align}
 \frac{dF}{dt} = \left\lbrace F, H\right\rbrace + \frac{\partial F}{\partial t}.
@@ -8807,27 +8788,116 @@ notieren. Hängt $F$ nicht explizit von der Zeit ab, was im Regelfall so ist, fo
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-\frac{dF}{dt} = \left\lbrace F, H\right\rbrace.
+\frac{dF}{dt} = \left\lbrace F, H\right\rbrace.\label{eq:poisson_bracket_non_explicit_t}
 \end{align}
 \end{center}
 }}
 \end{center}
+%
+Um für $\left\lbrace F, H\right\rbrace$ einen expliziten Ausdruck herzuleiten, beginnt man, indem man in Glg. \eqref{eq:poisson_bracket_def} $K = H$ einsetzt:
+%
+\begin{align}
+\left\lbrace F, H\right\rbrace \coloneqq \sum_{i = 1}^f\left(\frac{\partial F}{\partial q_i}\frac{\partial H}{\partial p_i} - \frac{\partial F}{\partial p_i}\frac{\partial H}{\partial q_i}\right)
+\end{align}
+%
+Für die generalisierten Koordinaten werden nun die atmosphärischen Zustandsgrößen $\left(\rho, q_1, \mathbf{v}\right)$ eingesetzt. Da es sich bei $F$ und $H$ jedoch um Funktionale handelt und die generalisierten koordinaten Funktionen sind, sind partielle Ableitungen durch Funktionalableitungen zu ersetzen und die Summe ist global zu integrieren:
 
-In einer reversiblen trockenen Atmosphäre gilt also für jede beliebige Größe $F$ die Evolutionsgleichung
-%
 \begin{align}
-\frac{dF}{dt} = \lbrace F, H\rbrace
+\left\lbrace F, H\right\rbrace &= \int_A\frac{\delta F}{\delta\rho}\frac{\delta H}{\delta p_\rho} - \frac{\delta F}{\delta p_\rho}\frac{\delta H}{\delta\rho}d^3r\nonumber\\
+&+ \int_A\frac{\delta F}{\delta q_1}\frac{\delta H}{\delta p_{q_1}} - \frac{\delta F}{\delta p_{q_1}}\frac{\delta H}{\delta q_1}d^3r\nonumber\\
+&+ \int_A\frac{\delta F}{\delta\mathbf{v}}\cdot\frac{\delta H}{\delta p_\mathbf{v}} - \frac{\delta F}{\delta p_\mathbf{v}}\cdot\frac{\delta H}{\delta\mathbf{v}}d^3r.\label{eq:poisson_bracket_atm_gen_deriv_0}
 \end{align}
 %
-mit
+Die Größen $p_i$ mit $i = \rho, q_1, \mathbf{v}$ sind dabei die kanonischen Impulse. Für die global integrierte kinetische Energie $K$ der Atmosphäre gilt
 %
 \begin{align}
-\lbrace F, H\rbrace & = -\int_A\frac{\delta F}{\delta\mathbf{v}}\cdot\left(\frac{\etabi}{\rho}\times\frac{\delta H}{\delta\mathbf{v}}\right)d^3r\\
-&  -\int_A\frac{\delta F}{\delta\rho}\nabla\cdot\frac{\delta H}{\delta\mathbf{v}} - \frac{\delta H}{\delta\rho}\nabla\cdot\frac{\delta F}{\delta\mathbf{v}}d^3r\\
-&  -\int_A\frac{\partial F}{\partial\newtilde{q}}\nabla\cdot\left(q\frac{\partial H}{\partial\mathbf{v}}\right) - \frac{\partial H}{\partial\newtilde{q}}\nabla\cdot\left(q\frac{\delta F}{\delta\mathbf{v}}\right)d^3r.
+K \coloneqq \int_A\frac{1}{2}\rho\mathbf{v}^2d^3r.
 \end{align}
 %
-Der Poisson-Klammer-Formalismus\index{Poisson-Klammer} führt auf eine spezielle Form der Druckgradientbeschleunigung\index{Druckgradientbeschleunigung}. Darin ist neben $\rho$ und $q_1$ meist eine dritte Variable $q_1$ enthalten, gelegentlich sogar eine vierte oder fünfte. Eine dieser Variablen wählt man als \textit{semi-prognostische Variable}\index{semi-prognostische Variable} $q_2$.
+Die Summe aus global integrierter innerer und potentieller Energie $I'$ lautet
+%
+\begin{align}
+I' \coloneqq \int_A\newtilde{I} + \rho\phi d^3r = \int_A\rho\phi + c_d^{(v)}\rho Td^3r = \int_A\rho\phi + c_d^{(v)}\frac{p_0}{R_d}\left(\frac{R_d\newtilde{\theta}}{p_0}\right)^\kappa d^3r
+\end{align}
+%
+Damit gilt $H = K + I'$, da $H$ die Gesamtenergie der Atmosphäre ist ($H$ ist nicht explizit zeitabhängig). Es gilt unabhängig von der Wahl von $q_1$
+%
+\begin{align}
+\frac{\delta I'}{\delta\mathbf{v}} = 0 \Rightarrow \frac{\delta H}{\delta\mathbf{v}} = \frac{\delta K}{\delta\mathbf{v}} = \rho\mathbf{v}.
+\end{align}
+%
+Bei der Wahl von $q_1$ schränkt man sich nun auf Erhaltungsgrößen ein, für diese gilt
+%
+\begin{align}
+\frac{\partial q_1}{\partial t} = -\nabla\cdot\left(q_1\mathbf{v}\right).
+\end{align}
+%
+Dies impliziert
+%
+\begin{align}
+\frac{q_1}{\rho} = f\left(s\right),
+\end{align}
+%
+wobei $s$ die spezifische Entropie ist. Aufgrund von Glg. \eqref{eq:hamilton_1} gilt
+%
+\begin{align}
+\frac{\delta H}{\delta p_\rho} &= \frac{\partial\rho}{\partial t} = -\nabla\cdot\left(\rho\mathbf{v}\right) = -\nabla\cdot\frac{\delta H}{\delta\mathbf{v}},\label{eq:poisson_bracket_atm_gen_deriv_1}\\
+\frac{\delta H}{\delta p_{q_1}} &= \frac{\partial q_1}{\partial t} = -\nabla\cdot\left(q_1\mathbf{v}\right) = -\nabla\cdot\left(\frac{q_1}{\rho}\rho\mathbf{v}\right) = -\nabla\cdot\left(\frac{q_1}{\rho}\frac{\delta H}{\delta\mathbf{v}}\right),\label{eq:poisson_bracket_atm_gen_deriv_2}\\
+\frac{\delta H}{\delta p_\mathbf{v}} &= \frac{\partial\mathbf{v}}{\partial t} = -\frac{\etabi}{\rho}\times\frac{\delta H}{\delta\mathbf{v}} - \nabla\frac{\delta H}{\delta\rho} - \frac{q_1}{\rho}\nabla\frac{\delta H}{\delta q_1}.\label{eq:poisson_bracket_atm_gen_deriv_3}
+\end{align}
+%
+Setzt man diese drei Gleichungen in Glg. \eqref{eq:poisson_bracket_atm_gen_deriv_0} ein, erhält man
+%
+\begin{align}
+\left\lbrace F, H\right\rbrace &= -\int_A\frac{\delta F}{\delta\rho}\nabla\cdot\frac{\delta H}{\delta\mathbf{v}} + \frac{\delta H}{\delta\rho}\frac{\delta F}{\delta p_\rho}d^3r\nonumber\\
+&-\int_A\frac{\delta F}{\delta q_1}\nabla\cdot\left(\frac{q_1}{\rho}\frac{\delta H}{\delta\mathbf{v}}\right) + \frac{\delta H}{\delta q_1}\frac{\delta F}{\delta p_{q_1}}d^3r\nonumber\\
+&-\int_A\frac{\delta F}{\delta\mathbf{v}}\cdot\left(\frac{\etabi}{\rho}\times\frac{\delta H}{\delta\mathbf{v}} + \nabla\frac{\delta H}{\delta\rho} + \frac{q_1}{\rho}\nabla\frac{\delta H}{\delta q_1}\right) + \frac{\delta F}{\delta p_\mathbf{v}}\cdot\frac{\delta H}{\delta\mathbf{v}}d^3r.\label{eq:poisson_bracket_atm_gen_deriv_4}
+\end{align}
+%
+Eine Energieform $F$ kann man als Gesamtenergie eines vereinfachten Systems auffassen. Die Glg.en \eqref{eq:poisson_bracket_atm_gen_deriv_1} - \eqref{eq:poisson_bracket_atm_gen_deriv_3} lassen sich somit auf alle Energieformen $F$ verallgemeinern:
+%
+\begin{align}
+\frac{\delta F}{\delta p_\rho} &= -\nabla\cdot\frac{\delta F}{\delta\mathbf{v}}\\
+\frac{\delta F}{\delta p_{q_1}} &= -\nabla\cdot\left(\frac{q_1}{\rho}\frac{\delta F}{\delta\mathbf{v}}\right)\\
+\frac{\delta F}{\delta p_\mathbf{v}} &= -\frac{\etabi}{\rho}\times\frac{\delta F}{\delta\mathbf{v}} - \nabla\frac{\delta F}{\delta\rho} - \frac{q_1}{\rho}\nabla\frac{\delta F}{\delta q_1}
+\end{align}
+%
+Setzt man dies in Glg. \eqref{eq:poisson_bracket_atm_gen_deriv_4} ein, erhält man
+%
+\begin{align}
+\left\lbrace F, H\right\rbrace &= -\int_A\frac{\delta F}{\delta\rho}\nabla\cdot\frac{\delta H}{\delta\mathbf{v}} - \frac{\delta H}{\delta\rho}\nabla\cdot\frac{\delta F}{\delta\mathbf{v}}d^3r\nonumber\\
+&-\int_A\frac{\delta F}{\delta q_1}\nabla\cdot\left(\frac{q_1}{\rho}\frac{\delta H}{\delta\mathbf{v}}\right) - \frac{\delta H}{\delta q_1}\nabla\cdot\left(\frac{q_1}{\rho}\frac{\delta F}{\delta\mathbf{v}}\right)d^3r\nonumber\\
+&-\int_A\frac{\delta F}{\delta\mathbf{v}}\cdot\left(\frac{\etabi}{\rho}\times\frac{\delta H}{\delta\mathbf{v}} + \nabla\frac{\delta H}{\delta\rho} + \frac{q_1}{\rho}\nabla\frac{\delta H}{\delta q_1}\right) + \left(\frac{\etabi}{\rho}\times\frac{\delta F}{\delta\mathbf{v}} + \nabla\frac{\delta F}{\delta\rho} + \frac{q_1}{\rho}\nabla\frac{\delta F}{\delta q_1}\right)\cdot\frac{\delta H}{\delta\mathbf{v}}d^3r.
+\end{align}
+%
+Da $F$ und $H$ Energieformen sind, gelten $\frac{\delta F}{\delta\mathbf{v}} \parallel \mathbf{v}$, $\frac{\delta H}{\delta\mathbf{v}} \parallel \mathbf{v}$. Dies bedeutet, dass die beiden Terme mit Vektorprodukt verschwinden, somit gilt
+%
+\begin{align}
+\left\lbrace F, H\right\rbrace &= -\int_A\frac{\delta F}{\delta\rho}\nabla\cdot\frac{\delta H}{\delta\mathbf{v}} - \frac{\delta H}{\delta\rho}\nabla\cdot\frac{\delta F}{\delta\mathbf{v}}d^3r\nonumber\\
+&-\int_A\frac{\delta F}{\delta q_1}\nabla\cdot\left(\frac{q_1}{\rho}\frac{\delta H}{\delta\mathbf{v}}\right) - \frac{\delta H}{\delta q_1}\nabla\cdot\left(\frac{q_1}{\rho}\frac{\delta F}{\delta\mathbf{v}}\right)d^3r\nonumber\\
+&-\int_A\frac{\delta F}{\delta\mathbf{v}}\cdot\left(\nabla\frac{\delta H}{\delta\rho} + \frac{q_1}{\rho}\nabla\frac{\delta H}{\delta q_1}\right) + \frac{\delta H}{\delta\mathbf{v}}\cdot\left(\nabla\frac{\delta F}{\delta\rho} + \frac{q_1}{\rho}\nabla\frac{\delta F}{\delta q_1}\right)d^3r.
+\end{align}
+%
+In einer reversiblen trockenen Atmosphäre gilt also für Energieformen $F$ Glg. \eqref{eq:poisson_bracket_non_explicit_t} mit
+%
+\begin{align}
+\lbrace F, H\rbrace & = -\int_A\frac{\delta F}{\delta\rho}\nabla\cdot\frac{\delta H}{\delta\mathbf{v}} - \frac{\delta H}{\delta\rho}\nabla\cdot\frac{\delta F}{\delta\mathbf{v}}d^3r\nonumber\\
+& -\int_A\frac{\delta F}{\delta q_1}\nabla\cdot\left(\frac{q_1}{\rho}\frac{\delta H}{\delta\mathbf{v}}\right) - \frac{\delta H}{\delta q_1}\nabla\cdot\left(\frac{q_1}{\rho}\frac{\delta F}{\delta\mathbf{v}}\right)d^3r.
+\end{align}
+%
+Der Poisson-Klammer-Formalismus\index{Poisson-Klammer} führt auf eine spezielle Form der Druckgradientbeschleunigung\index{Druckgradientbeschleunigung}. Darin ist neben $\rho$ und $q_1$ meist eine dritte Variable enthalten, gelegentlich sogar eine vierte oder fünfte. Eine dieser Variablen wählt man als sogenannte \textit{semi-prognostische Variable}\index{semi-prognostische Variable} $q_2$. Diese ist aufgrund der thermischen Zustandsgleichung idealer Gase\index{thermische Zustandsgleichung idealer Gase}\index{Zustandsgleichung!thermische!idealer Gase}\index{ideales Gas!Zustandsgleichung!thermische} keine eigenständige prognostische Variable mehr, da der thermodynamische Zustand sonst überbestimmt wäre, jedoch ist sie gegenüber anderen diagnostischen Variablen ausgezeichnet, da sie in der Evolution der Energieformen eine Rolle spielt.
+
+\subsubsection{Energieerhaltung aus Poisson-Klammer-Perspektive}
+\label{sec:energieerhaltung_aus_poisson-klammer-perspektive}
+
+Nun sollen die Zeitentwicklungen der global integrierten kinetischen Energie $K$ sowie der Summe aus innerer und potentieller Energie $I'$ in Termen der Poisson-Klammer mit der Hamilton-Funktion $H$ notiert werden.
+
+Die beiden linken Seiten summieren sich aufgrund von $K + I' = H$ und Glg. \eqref{eq:poisson_bracket_prop_0} zu Null, die beiden rechten Seiten tun dies aufgrund
+%
+\begin{itemize}
+\item der Produktregel $\nabla\cdot\left(\psi\mathbf{v}\right) = \psi\nabla\cdot\mathbf{v} + \mathbf{v}\cdot\nabla\psi$ sowie
+\item kinematischer Randbedingungen\index{kinematische Randbedingung}\index{Randbedingung!kinematische}.
+\end{itemize}
 
 \subsubsection{Potentielle Temperatur als prognostische Variable}
 \label{sec:potentielle_temperatur_als_prognostische_variable_hamilton}
@@ -8835,13 +8905,13 @@ Der Poisson-Klammer-Formalismus\index{Poisson-Klammer} führt auf eine spezielle
 Verwendet man anstatt der Temperatur die potentielle Temperatur\index{potentielle Temperatur}\index{Temperatur!potentielle} und definiert
 %
 \begin{align}
-\newtilde{q} \coloneqq \rho\theta,
+q_1 \coloneqq \newtilde{\theta} = \rho\theta,
 \end{align}
 %
 folgt mit Glg. \eqref{eq:state_theta}
 %
 \begin{align}
-H & = H\left(\mathbf{v}, \rho, \newtilde{\theta}\right) = \int_A\frac{1}{2}\rho\mathbf{v}^2 + \rho\phi + c_d^{(v)}\frac{p\left(\rho, \newtilde{\theta}\right)}{R_d}d^3r\nonumber\\
+H & = H\left(\mathbf{v}, \rho, q_1\right) = H\left(\mathbf{v}, \rho, \newtilde{\theta}\right) = \int_A\frac{1}{2}\rho\mathbf{v}^2 + \rho\phi + c_d^{(v)}\frac{p\left(\rho, \newtilde{\theta}\right)}{R_d}d^3r\nonumber\\
 & = \int_A\frac{1}{2}\rho\mathbf{v}^2 + \rho\phi + c_d^{(v)}\frac{p_0}{R_d}\left(\frac{R_d\newtilde{\theta}}{p_0}\right)^\kappa d^3r.
 \end{align}
 %
@@ -8853,19 +8923,7 @@ Die Funktionalableitungen hiervon sind
 \frac{\delta H}{\delta\newtilde{\theta}} & = c_d^{(v)}\frac{p_0}{R_d}\frac{R_d}{p_0}\kappa\left(\frac{R_d\newtilde{\theta}}{p_0}\right)^{\kappa - 1} = c_d^{(p)}\left(\frac{R_d\newtilde{\theta}}{p_0}\right)^{\kappa - 1} = c_d^{(p)}\left(\frac{R_d\newtilde{\theta}}{p_0}\right)^{\frac{R_d}{c_d^{(v)}}} \stackrel{\text{Glg. \eqref{eq:exner_pressure_diag}}}{=} c_d^{(p)}\Pi.
 \end{align}
 %
-Nun sollen die Zeitentwicklungen der Größen
-%
-\begin{align}
-I' \coloneqq \int_A\newtilde{I} + \rho\phi d^3r = \int_A\rho\phi + c_d^{(v)}\rho Td^3r = \int_A\rho\phi + c_d^{(v)}\frac{p_0}{R_d}\left(\frac{R_d\newtilde{\theta}}{p_0}\right)^\kappa d^3r
-\end{align}
-%
-und
-%
-\begin{align}
-K \coloneqq \int_A\frac{1}{2}\rho\mathbf{v}^2d^3r
-\end{align}
-%
-in Termen der Poisson-Klammer mit der Hamilton-Funktion $H$ notiert werden. Dazu rechnet man vorbereitend
+Dazu rechnet man vorbereitend
 %
 \begin{align}
 \frac{\delta I'}{\delta\mathbf{v}} & = 0,\\
@@ -8881,11 +8939,11 @@ und erhält somit
 \begin{align}
 \lbrace I', H\rbrace & = -\int_A\frac{\delta I'}{\delta\mathbf{v}}\cdot\left(\frac{\etabi}{\rho}\times\frac{\delta H}{\delta\mathbf{v}}\right)d^3r\\
 &  -\int_A\frac{\delta I'}{\delta\rho}\nabla\cdot\frac{\delta H}{\delta\mathbf{v}} - \frac{\delta H}{\delta\rho}\nabla\cdot\frac{\delta I'}{\delta\mathbf{v}}d^3r\\
-&  -\int_A\frac{\partial I'}{\partial\newtilde{q}}\nabla\cdot\left(q\frac{\partial H}{\partial\mathbf{v}}\right) - \frac{\partial H}{\partial\newtilde{q}}\nabla\cdot\left(q\frac{\delta I'}{\delta\mathbf{v}}\right)d^3r\nonumber\\
+&  -\int_A\frac{\delta I'}{\delta\newtilde{q}}\nabla\cdot\left(q\frac{\delta H}{\delta\mathbf{v}}\right) - \frac{\delta H}{\delta\newtilde{q}}\nabla\cdot\left(q\frac{\delta I'}{\delta\mathbf{v}}\right)d^3r\nonumber\\
 & = -\int_A\phi\nabla\cdot\left(\rho\mathbf{v}\right) + c_d^{(p)}\Pi\nabla\cdot\left(\newtilde{\theta}\mathbf{v}\right)d^3r,\\
 \lbrace K, H\rbrace & = -\int_A\frac{\delta K}{\delta\mathbf{v}}\cdot\left(\frac{\etabi}{\rho}\times\frac{\delta H}{\delta\mathbf{v}}\right)d^3r\\
 &  -\int_A\frac{\delta K}{\delta\rho}\nabla\cdot\frac{\delta H}{\delta\mathbf{v}} - \frac{\delta H}{\delta\rho}\nabla\cdot\frac{\delta K}{\delta\mathbf{v}}d^3r\\
-&  -\int_A\frac{\partial K}{\partial\newtilde{q}}\nabla\cdot\left(q\frac{\partial H}{\partial\mathbf{v}}\right) - \frac{\partial H}{\partial\newtilde{q}}\nabla\cdot\left(q\frac{\delta C}{\delta\mathbf{v}}\right)d^3r\nonumber\\
+&  -\int_A\frac{\delta K}{\delta\newtilde{q}}\nabla\cdot\left(q\frac{\delta H}{\delta\mathbf{v}}\right) - \frac{\delta H}{\delta\newtilde{q}}\nabla\cdot\left(q\frac{\delta C}{\delta\mathbf{v}}\right)d^3r\nonumber\\
 & = -\int_A-\phi\nabla\cdot\left(\rho\mathbf{v}\right) - c_d^{(p)}\Pi\nabla\cdot\left(\newtilde{\theta}\mathbf{v}\right)d^3r = -\int_A\rho\mathbf{v}\cdot\nabla\phi + c_d^{(p)}\newtilde{\theta}\mathbf{v}\cdot\nabla\Pi d^3r.
 \end{align}
 
@@ -8895,32 +8953,16 @@ und erhält somit
 Verwendet man anstatt der potentiellen Temperatur die Entropie\index{Entropie} und definiert
 %
 \begin{align}
-\newtilde{s} \coloneqq \rho s,
+q_1 \coloneqq \newtilde{s} = \rho s,
 \end{align}
 %
-folgt mit Glg. \eqref{eq:state_theta}
+folgt
 %
 \begin{align}
-H & = H\left(\mathbf{v}, \rho, \newtilde{\theta}\right) = \int_A\frac{1}{2}\rho\mathbf{v}^2 + \rho\phi + c_d^{(v)}\frac{s\left(\rho, \newtilde{\theta}\right)}{R_d}d^3r\nonumber\\
-& = \int_A\frac{1}{2}\rho\mathbf{v}^2 + \rho\phi + c_d^{(v)}\frac{p_0}{R_d}\left(\frac{R_d\rho\theta}{p_0}\right)^\kappa d^3r\nonumber\\
-& \stackrel{\text{Glg. \eqref{eq:pot_temp_entropy_diagnostics}}}{=} \int_A\frac{1}{2}\rho\mathbf{v}^2 + \rho\phi + c_d^{(v)}\frac{p_0}{R_d}\left(\frac{R_d\rho\exp\left(-\frac{c}{c_d^{(p)}}\right)\exp\left(\frac{\newtilde{s}}{c_d^{(p)}\rho}\right)}{p_0}\right)^\kappa d^3r\nonumber\\
-& = \int_A\frac{1}{2}\rho\mathbf{v}^2 + \rho\phi + c_d^{(v)}\left(\frac{R_d}{p_0}\right)^{\frac{R_d}{c^{(v)}}}\exp\left(-\frac{c}{c_d^{(v)}}\right)\left(\rho\exp\left(\frac{\newtilde{s}}{c_d^{(p)}\rho}\right)\right)^\kappa d^3r\nonumber\\
-& = \int_A\frac{1}{2}\rho\mathbf{v}^2 + \rho\phi + c_d^{(v)}\left(\frac{R_d}{p_0}\right)^{\frac{R_d}{c^{(v)}}}\exp\left(-\frac{c}{c_d^{(v)}}\right)\rho^\kappa\exp\left(\frac{\newtilde{s}}{c_d^{(v)}\rho}\right)d^3r.
+H & = H\left(\mathbf{v}, \rho, q_1\right) = H\left(\mathbf{v}, \rho, \newtilde{s}\right) = \int_A\frac{1}{2}\rho\mathbf{v}^2 + \rho\phi + c_d^{(v)}\frac{p\left(\rho, \newtilde{s}\right)}{R_d}d^3r.
 \end{align}
 %
-Mit der Bezeichnungsänderung
-%
-\begin{align}
-c \to c_d^{(v)}\left(\frac{R_d}{p_0}\right)^{\frac{R_d}{c_d^{(v)}}}\exp\left(-\frac{c}{c_d^{(v)}}\right)
-\end{align}
-%
-lässt sich dies als
-%
-\begin{align}
-H & = \int_A\frac{1}{2}\rho\mathbf{v}^2 + \rho\phi + c\rho^\kappa\exp\left(\frac{\newtilde{s}}{c_d^{(v)}\rho}\right)d^3r
-\end{align}
-%
-notieren. Die Funktionalableitungen hiervon sind
+Die Funktionalableitungen hiervon sind
 %
 \begin{align}
 \frac{\delta H}{\delta\mathbf{v}} & = \rho\mathbf{v},\\
@@ -8928,19 +8970,7 @@ notieren. Die Funktionalableitungen hiervon sind
 \frac{\delta H}{\delta\newtilde{s}} & \stackrel{\text{Glg. \eqref{eq:energy_partial_deriv_0}}}{=} T.
 \end{align}
 %
-$G$ bezeichnet hierbei das spezifische Gibbs-Potential. Nun sollen die Zeitentwicklungen der Größen
-%
-\begin{align}
-I' \coloneqq \int_A\newtilde{I} + \rho\phi d^3r = \int_A\rho\phi + c_d^{(v)}\rho Td^3r = \int_A\rho\phi + c\rho^\kappa\exp\left(\frac{\newtilde{s}}{c_d^{(v)}\rho}\right)d^3r
-\end{align}
-%
-und
-%
-\begin{align}
-K \coloneqq \int_A\frac{1}{2}\rho\mathbf{v}^2d^3r
-\end{align}
-%
-in Termen der Poisson-Klammer mit der Hamilton-Funktion $H$ notiert werden. Dazu rechnet man vorbereitend
+$G$ bezeichnet hierbei das spezifische Gibbs-Potential. Nun werden wieder die Zeitentwicklungen der Größen $K$ und $I'$ untersucht. Dazu rechnet man vorbereitend
 %
 \begin{align}
 \frac{\delta I'}{\delta\mathbf{v}} & = 0,\\
@@ -8956,20 +8986,20 @@ und erhält somit
 \begin{align}
 \lbrace I', H\rbrace & = -\int_A\frac{\delta I'}{\delta\mathbf{v}}\cdot\left(\frac{\etabi}{\rho}\times\frac{\delta H}{\delta\mathbf{v}}\right)d^3r\\
 &  -\int_A\frac{\delta I'}{\delta\rho}\nabla\cdot\frac{\delta H}{\delta\mathbf{v}} - \frac{\delta H}{\delta\rho}\nabla\cdot\frac{\delta I'}{\delta\mathbf{v}}d^3r\\
-&  -\int_A\frac{\partial I'}{\partial\newtilde{s}}\nabla\cdot\left(s\frac{\partial H}{\partial\mathbf{v}}\right) - \frac{\partial H}{\partial\newtilde{s}}\nabla\cdot\left(q\frac{\delta I'}{\delta\mathbf{v}}\right)d^3r\nonumber\\
-& = -\int_A\frac{\delta I'}{\delta\rho}\nabla\cdot\left(\rho\mathbf{v}\right) + \frac{\partial I'}{\partial\newtilde{s}}\nabla\cdot\left(s\rho\mathbf{v}\right)d^3r = -\int_A\left(\phi + c_d^{(p)}T - sT\right)\nabla\cdot\left(\rho\mathbf{v}\right) + T\nabla\cdot\left(s\rho\mathbf{v}\right)d^3r\nonumber\\
+&  -\int_A\frac{\delta I'}{\delta\newtilde{s}}\nabla\cdot\left(s\frac{\delta H}{\delta\mathbf{v}}\right) - \frac{\delta H}{\delta\newtilde{s}}\nabla\cdot\left(q\frac{\delta I'}{\delta\mathbf{v}}\right)d^3r\nonumber\\
+& = -\int_A\frac{\delta I'}{\delta\rho}\nabla\cdot\left(\rho\mathbf{v}\right) + \frac{\delta I'}{\delta\newtilde{s}}\nabla\cdot\left(s\rho\mathbf{v}\right)d^3r = -\int_A\left(\phi + c_d^{(p)}T - sT\right)\nabla\cdot\left(\rho\mathbf{v}\right) + T\nabla\cdot\left(s\rho\mathbf{v}\right)d^3r\nonumber\\
 & = -\int_A\left(\phi + G\right)\nabla\cdot\left(\rho\mathbf{v}\right) + T\nabla\cdot\left(\newtilde{s}\mathbf{v}\right)d^3r,\label{eq:poisson_entropy_internal}
 \end{align}
 %
 \begin{align}
 \lbrace K, H\rbrace & = -\int_A\frac{\delta K}{\delta\mathbf{v}}\cdot\left(\frac{\etabi}{\rho}\times\frac{\delta H}{\delta\mathbf{v}}\right)d^3r\\
 &  -\int_A\frac{\delta K}{\delta\rho}\nabla\cdot\frac{\delta H}{\delta\mathbf{v}} - \frac{\delta H}{\delta\rho}\nabla\cdot\frac{\delta K}{\delta\mathbf{v}}d^3r\\
-&  -\int_A\frac{\partial K}{\partial\newtilde{s}}\nabla\cdot\left(s\frac{\partial H}{\partial\mathbf{v}}\right) - \frac{\partial H}{\partial\newtilde{s}}\nabla\cdot\left(s\frac{\delta K}{\delta\mathbf{v}}\right)d^3r\nonumber\\
-& = -\int_A\frac{\delta K}{\delta\rho}\nabla\cdot\frac{\delta H}{\delta\mathbf{v}} - \frac{\delta H}{\delta\rho}\nabla\cdot\frac{\delta K}{\delta\mathbf{v}} - \frac{\partial H}{\partial\newtilde{s}}\nabla\cdot\left(s\frac{\delta K}{\delta\mathbf{v}}\right)d^3r\nonumber\\
+&  -\int_A\frac{\delta K}{\delta\newtilde{s}}\nabla\cdot\left(s\frac{\delta H}{\delta\mathbf{v}}\right) - \frac{\delta H}{\delta\newtilde{s}}\nabla\cdot\left(s\frac{\delta K}{\delta\mathbf{v}}\right)d^3r\nonumber\\
+& = -\int_A\frac{\delta K}{\delta\rho}\nabla\cdot\frac{\delta H}{\delta\mathbf{v}} - \frac{\delta H}{\delta\rho}\nabla\cdot\frac{\delta K}{\delta\mathbf{v}} - \frac{\delta H}{\delta\newtilde{s}}\nabla\cdot\left(s\frac{\delta K}{\delta\mathbf{v}}\right)d^3r\nonumber\\
 & = -\int_A\frac{\delta K}{\delta\rho}\nabla\cdot\left(\rho\mathbf{v}\right) - \frac{\delta H}{\delta\rho}\nabla\cdot\left(\rho\mathbf{v}\right) - T\nabla\cdot\left(s\rho\mathbf{v}\right)d^3r\nonumber\\
 & = -\int_A -\left(\phi + G\right)\nabla\cdot\left(\rho\mathbf{v}\right) - T\nabla\cdot\left(\newtilde{s}\mathbf{v}\right)d^3r\nonumber\\
 & = \int_A\left(\phi + G\right)\nabla\cdot\left(\rho\mathbf{v}\right) - \newtilde{s}\mathbf{v}\cdot\nabla Td^3r\nonumber\\
-& = \int_A-\rho\mathbf{v}\cdot\nabla\left(\phi + G\right) - \rho\mathbf{v}\cdot\left(s\nabla T\right)d^3r.
+& = -\int_A\rho\mathbf{v}\cdot\nabla\left(\phi + G\right) + \rho\mathbf{v}\cdot\left(s\nabla T\right)d^3r.
 \end{align}
 %
 Hieraus erhält man als Ausdruck für die Druckgradientbeschleunigung\index{Druckgradient}\index{Druckgradientbeschleunigung}
@@ -9000,13 +9030,13 @@ Dieser Abschnitt wird nur mit dem in Absch. \ref{sec:entropiedichte_als_prognost
 %
 \begin{align}
 \left(F, \mathbf{f}_R\right) & \coloneqq \left\langle\frac{\delta F}{\delta\mathbf{v}}\Big| \mathbf{f}_R\right\rangle = \int_A\frac{\delta F}{\delta\mathbf{v}}\cdot\mathbf{f}_Rd^3r\\
-\left(F, Q\right) & \coloneqq \left\langle\frac{\partial F}{\partial\newtilde{s}}\Big|\frac{\rho\epsilon}{T}\right\rangle = \int_A\frac{\partial F}{\partial\newtilde{s}}\frac{\rho\epsilon}{T}d^3r
+\left(F, Q\right) & \coloneqq \left\langle\frac{\delta F}{\delta\newtilde{s}}\Big|\frac{\rho\epsilon}{T}\right\rangle = \int_A\frac{\delta F}{\delta\newtilde{s}}\frac{\rho\epsilon}{T}d^3r
 \end{align}
 %
 Nach Glg. \eqref{eq:friction_dissipation_balance} gilt hierbei
 %
 \begin{align}
-\left(F, \mathbf{f}_R\right) + \left(F, Q\right) = 0.
+\left(H, \mathbf{f}_R\right) + \left(H, Q\right) = 0.
 \end{align}
 %
 Die Dynamik wird dann festgelegt durch
@@ -9042,10 +9072,10 @@ s. Glg.en \eqref{eq:quelle_trocken_masse} - \eqref{eq:quelle_kondensat_masse}.
 \subsection{Wärmeleitung}
 \label{sec:waermeleitung}\index{Wärmeleitung}
 
-Wärmeleitung tritt nur in der Gasphase und führt nach Glg. \eqref{eq:heat_conduction_equation} zu einer Temperaturtendenz
+Wärmeleitung tritt nur in der Gasphase und führt nach Glg. \eqref{eq:heat_conduction_equation_pre} zu einer Temperaturtendenz
 %
 \begin{align}
-\frac{\partial T}{\partial t} = \kappa_h\Delta T
+\frac{\partial\left(\rho c_h^{(v)}T\right)}{\partial t} = \nabla\cdot\left(\rho c_h^{(v)}\kappa\nabla T\right)
 \end{align}
 %
 mit $\kappa_h$ als Temperaturleitfähigkeit der feuchten Luft.

@@ -1,3 +1,36 @@
+\subsubsection{Entropiedichte als prognostische Variable}
+\label{sec:entropiedichte_als_prognostische_variable_hamilton}
+
+Verwendet man anstatt der potentiellen Temperatur die Entropie\index{Entropie} und definiert
+%
+\begin{align}
+\newtilde{s} \coloneqq \rho s,
+\end{align}
+%
+folgt mit Glg. \eqref{eq:state_theta}
+%
+\begin{align}
+H & = H\left(\mathbf{v}, \rho, \newtilde{\theta}\right) = \int_A\frac{1}{2}\rho\mathbf{v}^2 + \rho\phi + c_d^{(v)}\frac{s\left(\rho, \newtilde{\theta}\right)}{R_d}d^3r\nonumber\\
+& = \int_A\frac{1}{2}\rho\mathbf{v}^2 + \rho\phi + c_d^{(v)}\frac{p_0}{R_d}\left(\frac{R_d\rho\theta}{p_0}\right)^\kappa d^3r\nonumber\\
+& \stackrel{\text{Glg. \eqref{eq:pot_temp_entropy_diagnostics}}}{=} \int_A\frac{1}{2}\rho\mathbf{v}^2 + \rho\phi + c_d^{(v)}\frac{p_0}{R_d}\left(\frac{R_d\rho\exp\left(-\frac{c}{c_d^{(p)}}\right)\exp\left(\frac{\newtilde{s}}{c_d^{(p)}\rho}\right)}{p_0}\right)^\kappa d^3r\nonumber\\
+& = \int_A\frac{1}{2}\rho\mathbf{v}^2 + \rho\phi + c_d^{(v)}\left(\frac{R_d}{p_0}\right)^{\frac{R_d}{c^{(v)}}}\exp\left(-\frac{c}{c_d^{(v)}}\right)\left(\rho\exp\left(\frac{\newtilde{s}}{c_d^{(p)}\rho}\right)\right)^\kappa d^3r\nonumber\\
+& = \int_A\frac{1}{2}\rho\mathbf{v}^2 + \rho\phi + c_d^{(v)}\left(\frac{R_d}{p_0}\right)^{\frac{R_d}{c^{(v)}}}\exp\left(-\frac{c}{c_d^{(v)}}\right)\rho^\kappa\exp\left(\frac{\newtilde{s}}{c_d^{(v)}\rho}\right)d^3r.
+\end{align}
+%
+Mit der Bezeichnungsänderung
+%
+\begin{align}
+c \to c_d^{(v)}\left(\frac{R_d}{p_0}\right)^{\frac{R_d}{c_d^{(v)}}}\exp\left(-\frac{c}{c_d^{(v)}}\right)
+\end{align}
+%
+lässt sich dies als
+%
+\begin{align}
+H & = \int_A\frac{1}{2}\rho\mathbf{v}^2 + \rho\phi + c\rho^\kappa\exp\left(\frac{\newtilde{s}}{c_d^{(v)}\rho}\right)d^3r
+\end{align}
+%
+notieren.
+
 \begin{eqnarray}
 \frac{\delta H}{\delta\mathbf{v}} & = & \rho\mathbf{v},\\
 \frac{\delta H}{\delta\rho} & = & \frac{1}{2}\mathbf{v}^2 + \phi + c_d^{(p)}\left(\frac{\rho R_d}{p_0}\right)^{\frac{R_d}{c_d^{(v)}}}\exp\left(-\frac{c}{c_d^{(v)}}\right)\exp\left(\frac{\newtilde{s}}{c_d^{(v)}\rho}\right)\nonumber\\
