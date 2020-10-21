@@ -8985,7 +8985,7 @@ Damit gilt $H = K + I'$, da $H$ die Gesamtenergie der Atmosphäre ist ($H$ ist n
 \frac{\delta I'}{\delta\mathbf{v}} = 0 \Rightarrow \frac{\delta H}{\delta\mathbf{v}} = \frac{\delta K}{\delta\mathbf{v}} = \rho\mathbf{v}.
 \end{align}
 %
-Für die kinetische Energie gilt $K$ und $I'$ gelten
+Für $K$ und $I'$ gelten weiterhin
 %
 \begin{align}
 \frac{\partial K}{\partial q_1} &= 0,\\
@@ -8993,12 +8993,19 @@ Für die kinetische Energie gilt $K$ und $I'$ gelten
 \frac{\partial I}{\partial\mathbf{v}} &= 0.
 \end{align}
 %
+Weiterhin gilt für Energieformen $F$ die Tatsache $\frac{\delta F}{\delta\mathbf{v}} \parallel \mathbf{v}$, somit gilt in diesem Fall
+%
+\begin{align}
+\lbrace F, h_a, H\rbrace = 0 \Rightarrow \lbrace F, H\rbrace = \lbrace F, H\rbrace_\rho + \lbrace F, H\rbrace_{q_1}.
+\end{align}
+%
 Hieraus folgen
 %
 \begin{align}
-\lbrace K, H\rbrace & = \int_A\frac{\delta H}{\delta\rho}\nabla\cdot\frac{\delta K}{\delta\mathbf{v}} - \frac{\delta K}{\delta\rho}\nabla\cdot\frac{\delta H}{\delta\mathbf{v}} + \frac{\delta H}{\delta q_1}\nabla\cdot\left(\frac{q_1}{\rho}\frac{\delta K}{\delta\mathbf{v}}\right)d^3r\nonumber\\
-& = \int_A\frac{\delta H}{\delta\rho}\nabla\cdot\frac{\delta H}{\delta\mathbf{v}} - \frac{\delta K}{\delta\rho}\nabla\cdot\frac{\delta H}{\delta\mathbf{v}} + \frac{\delta H}{\delta q_1}\nabla\cdot\left(\frac{q_1}{\rho}\frac{\delta H}{\delta\mathbf{v}}\right)d^3r\nonumber\\
-& = \int_A\frac{\delta I'}{\delta\rho}\nabla\cdot\frac{\delta H}{\delta\mathbf{v}} + \frac{\delta I'}{\delta q_1}\nabla\cdot\left(\frac{q_1}{\rho}\frac{\delta H}{\delta\mathbf{v}}\right)d^3r,\nonumber\\
+\lbrace K, H\rbrace &= \int_A-\frac{\delta K}{\delta\rho}\nabla\cdot\frac{\delta H}{\delta\mathbf{v}} + \frac{\delta H}{\delta\rho}\nabla\cdot\frac{\delta K}{\delta\mathbf{v}} + \frac{\delta H}{\delta q_1}\nabla\cdot\left(\frac{q_1}{\rho}\frac{\delta K}{\delta\mathbf{v}}\right)d^3r\nonumber\\
+& = \int_A-\frac{\delta K}{\delta\rho}\nabla\cdot\frac{\delta H}{\delta\mathbf{v}} + \frac{\delta H}{\delta\rho}\nabla\cdot\frac{\delta H}{\delta\mathbf{v}} + \frac{\delta H}{\delta q_1}\nabla\cdot\left(\frac{q_1}{\rho}\frac{\delta H}{\delta\mathbf{v}}\right)d^3r\nonumber\\
+& = \int_A\frac{\delta\left(H - K\right)}{\delta\rho}\nabla\cdot\frac{\delta H}{\delta\mathbf{v}} + \frac{\delta I'}{\delta q_1}\nabla\cdot\left(\frac{q_1}{\rho}\frac{\delta H}{\delta\mathbf{v}}\right)d^3r\nonumber\\
+& = \int_A\frac{\delta I'}{\delta\rho}\nabla\cdot\frac{\delta H}{\delta\mathbf{v}} + \frac{\delta I'}{\delta q_1}\nabla\cdot\left(\frac{q_1}{\rho}\frac{\delta H}{\delta\mathbf{v}}\right)d^3r,\\
 \lbrace I', H\rbrace & = \int_A-\frac{\delta I'}{\delta\rho}\nabla\cdot\frac{\delta H}{\delta\mathbf{v}} - \frac{\delta I'}{\delta q_1}\nabla\cdot\left(\frac{q_1}{\rho}\frac{\delta H}{\delta\mathbf{v}}\right)d^3r.
 \end{align}
 %
@@ -9007,15 +9014,6 @@ Addiert man beides, erhält man wie erwartet
 \begin{align}
 \lbrace K, H\rbrace + \lbrace I', H\rbrace = \lbrace H, H\rbrace = 0.
 \end{align}
-
-Nun sollen die Zeitentwicklungen der global integrierten kinetischen Energie $K$ sowie der Summe aus innerer und potentieller Energie $I'$ in Termen der Poisson-Klammer mit der Hamilton-Funktion $H$ notiert werden.
-
-Die beiden linken Seiten summieren sich aufgrund von $K + I' = H$ und Glg. \eqref{eq:poisson_bracket_prop_0} zu Null, die beiden rechten Seiten tun dies aufgrund
-%
-\begin{itemize}
-\item der Produktregel $\nabla\cdot\left(\psi\mathbf{v}\right) = \psi\nabla\cdot\mathbf{v} + \mathbf{v}\cdot\nabla\psi$ sowie
-\item kinematischer Randbedingungen\index{kinematische Randbedingung}\index{Randbedingung!kinematische}.
-\end{itemize}
 
 \subsubsection{Potentielle Temperatur als prognostische Variable}
 \label{sec:potentielle_temperatur_als_prognostische_variable_hamilton}
@@ -12072,11 +12070,11 @@ Die Impulsgleichungen Glg.en \eqref{eq:x_momentum_simplified_simplified_p} - \eq
 Es ist für die Hereitung sinnvoll, hier ein $\mathbf{g}$ zu addieren und $-\nabla\phi$ als dreidimensionalen Vektor zu interpretieren mit $-g$ in der z-Komponente. Somit ergibt eine Anwendung von $\nabla\cdot $ auf $-\nabla\phi + \mathbf{g} = -\Delta_h\phi$, wofür aber in der weiteren Herleitung einfach $\Delta\phi$ notiert wird. Durch Applizieren des Operators $\nabla\cdot $ auf die einzelnen Terme erhält man somit
 %
 \begin{align}
-\nabla\cdot\frac{\partial\mathbf{v}_h}{\partial t}&\stackrel{\text{Glg. \eqref{eq:diff_op_rule_4}}}{=}&\frac{\partial\delta}{\partial t}, \nonumber\\
+\nabla\cdot\frac{\partial\mathbf{v}_h}{\partial t}&\stackrel{\text{Glg. \eqref{eq:diff_op_rule_4}}}{=} \frac{\partial\delta}{\partial t}, \nonumber\\
 - \nabla\cdot\nabla\phi & = -\Delta\phi, \nonumber\\
-- \nabla\cdot\left(f\mathbf{k}\times\mathbf{v}_h\right)&\stackrel{\text{Glg. \eqref{eq:diff_op_rule_9}}}{=}& -\mathbf{v}_h\cdot\left[\nabla\times\left(f\mathbf{k}\right)\right] + f\mathbf{k}\cdot\left(\nabla\times\mathbf{v}_h\right)\stackrel{\text{Glg. \eqref{eq:diff_op_rule_5}}}{=} - \mathbf{v}_h\cdot\left[-\mathbf{k}\times\nabla f + f\nabla\times\mathbf{k}\right] + f\zeta\nonumber\\
-& =  &\mathbf{v}_h\cdot\left(\mathbf{k}\times\beta\mathbf{j}\right) + f\zeta = -u\beta + f\zeta, \nonumber\\
-\nabla\cdot\left(-\omega\frac{\partial\mathbf{v}_h}{\partial p}\right)&\stackrel{\text{Glg. \eqref{eq:diff_op_rule_3}}}{=}& -\omega\frac{\partial\delta}{\partial p} - \frac{\partial\mathbf{v}_h}{\partial p}\cdot\nabla\omega.
+- \nabla\cdot\left(f\mathbf{k}\times\mathbf{v}_h\right)&\stackrel{\text{Glg. \eqref{eq:diff_op_rule_9}}}{=} -\mathbf{v}_h\cdot\left[\nabla\times\left(f\mathbf{k}\right)\right] + f\mathbf{k}\cdot\left(\nabla\times\mathbf{v}_h\right)\stackrel{\text{Glg. \eqref{eq:diff_op_rule_5}}}{=} - \mathbf{v}_h\cdot\left[-\mathbf{k}\times\nabla f + f\nabla\times\mathbf{k}\right] + f\zeta\nonumber\\
+&= \mathbf{v}_h\cdot\left(\mathbf{k}\times\beta\mathbf{j}\right) + f\zeta = -u\beta + f\zeta, \nonumber\\
+\nabla\cdot\left(-\omega\frac{\partial\mathbf{v}_h}{\partial p}\right)&\stackrel{\text{Glg. \eqref{eq:diff_op_rule_3}}}{=} -\omega\frac{\partial\delta}{\partial p} - \frac{\partial\mathbf{v}_h}{\partial p}\cdot\nabla\omega.
 \end{align}
 %
 Somit folgt
@@ -12095,7 +12093,7 @@ Dies ist die Divergenzgleichung im p-System. Mit der Lamb-Transformation erhält
 %
 \begin{align}
 \nabla\cdot\left[\left(\mathbf{v}_h\cdot\nabla\right)\mathbf{v}_h\right] & = \Delta k - \nabla\cdot\left[\mathbf{v}_h\times\left(\nabla\times\mathbf{v}_h\right)\right] \stackrel{\text{Glg. \eqref{eq:diff_op_rule_9}}}{=} \Delta k - \left(\nabla\times\mathbf{v}_h\right)^2 + \mathbf{v}_h\cdot\left(\nabla\times\left(\nabla\times\mathbf{v}_h\right)\right)\nonumber\\
-&\stackrel{\text{Glg. \eqref{eq:diff_op_rule_8}}}{=}& \Delta k - \left(\nabla\times\mathbf{v}_h\right)^2 - \mathbf{v}_h\cdot\left(\Delta\mathbf{v}_h\right) + \mathbf{v}_h\cdot\nabla\delta.
+&\stackrel{\text{Glg. \eqref{eq:diff_op_rule_8}}}{=} \Delta k - \left(\nabla\times\mathbf{v}_h\right)^2 - \mathbf{v}_h\cdot\left(\Delta\mathbf{v}_h\right) + \mathbf{v}_h\cdot\nabla\delta.
 \end{align}
 %
 Dies führt auf eine weitere Form der Divergenzgleichung:
@@ -12267,7 +12265,7 @@ P & = \alpha\etabi\cdot\nabla\theta = \alpha\mathbf{f}\cdot\nabla\theta\nonumber
 Hier macht man nun folgende Näherungen:
 %
 \begin{itemize}
-\item Näherung für Flachgeofluide (s. Absch. \ref{sec:shallow_atmosphere})
+\item shallow atmosphere (s. Absch. \ref{sec:shallow_atmosphere})
 \item Vernachlässigung der Vertikalgeschwindigkeit bei der Berechnung der Rotation des Windfeldes
 \end{itemize}
 %
@@ -12621,7 +12619,7 @@ w & = W\left(z\right)\exp\left(ikx - i\omega t\right).
 Die Oberflächenauslenkung $\eta$ und die Vertikalgeschwindigkeit $w$ hängen über
 %
 \begin{align}
-\frac{\partial\eta}{\partial t}\left(z = 0\right) & \hastobe & w\left(z = 0\right),\\
+\frac{\partial\eta}{\partial t}\left(z = 0\right) & \hastobe w\left(z = 0\right),\\
 \Rightarrow -i\omega\hat{\eta} & = W\left(0\right)\label{eq:deep_deriv_2}
 \end{align}
 %
