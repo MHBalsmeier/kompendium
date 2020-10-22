@@ -18666,8 +18666,8 @@ Räumliche Diskretisierung ergibt
 %
 \begin{align}
 \frac{\partial\Phi}{\partial t} + \frac{2}{3}\Phi_0\left(\delta_1u_1 + \delta_2u_2 + \delta_3u_3\right) &= 0,\label{eq:swe_lin_hex_0}\\
-\frac{\partial u_1}{\partial t} - \frac{f_0}{\sqrt{3}}\left(\newoverline{u_2}^{(3)} - \newoverline{u_3}^{(2)}\right) + \delta_1\Phi &= 0,\label{eq:swe_lin_hex_1}\\
-\frac{\partial u_2}{\partial t} - \frac{f_0}{\sqrt{3}}\left(\newoverline{u_3}^{(1)} - \newoverline{u_1}^{(3)}\right) + \delta_2\Phi &= 0,\label{eq:swe_lin_hex_2}\\
+\frac{\partial u_1}{\partial t} - \frac{f_0}{\sqrt{3}}\left(\newoverline{u_2}^{3} - \newoverline{u_3}^{(2)}\right) + \delta_1\Phi &= 0,\label{eq:swe_lin_hex_1}\\
+\frac{\partial u_2}{\partial t} - \frac{f_0}{\sqrt{3}}\left(\newoverline{u_3}^{(1)} - \newoverline{u_1}^{3}\right) + \delta_2\Phi &= 0,\label{eq:swe_lin_hex_2}\\
 \frac{\partial u_3}{\partial t} - \frac{f_0}{\sqrt{3}}\left(\newoverline{u_1}^{(2)} - \newoverline{u_2}^{(1)}\right) + \delta_3\Phi &= 0.\label{eq:swe_lin_hex_3}
 \end{align}
 %
@@ -18851,8 +18851,8 @@ Bei einer ebenen dreieckigen oder hexagonalen C-Gitter-Diskretisierung sind die 
 mit $1 \leq i \leq 3$, wobei $u$ eine beliebige Vektorkomponente ist. Für jede Raumrichtung $i$ wird hier ein separater Mittelungsoperator zugelassen. Die Bedingungen Glg. \eqref{eq:linear_condition_trivariate} lassen sich also hier in der Form
 %
 \begin{align}
-\newtilde{u}_1^{(1)} + \newtilde{u}_2^{(2)} + \newtilde{u}_3^{(3)} & \stackrel{!}{=} 0,\label{eq:linear_condition_trivariate_discrete_0}\\
-\newtilde{v}_1^{(1)} + \newtilde{v}_2^{(2)} + \newtilde{v}_3^{(3)} & \stackrel{!}{=} 0\label{eq:linear_condition_trivariate_discrete_1}
+\newtilde{u}_1^{(1)} + \newtilde{u}_2^{(2)} + \newtilde{u}_3^{3} & \stackrel{!}{=} 0,\label{eq:linear_condition_trivariate_discrete_0}\\
+\newtilde{v}_1^{(1)} + \newtilde{v}_2^{(2)} + \newtilde{v}_3^{3} & \stackrel{!}{=} 0\label{eq:linear_condition_trivariate_discrete_1}
 \end{align}
 %
 notieren. Diese Gleichungen sind als Forderungen an Vektorfelder $\mathbf{v}$ zu verstehen. Sollten Gradientefelder $\nabla\alpha$ die Bedingung Glg. \eqref{eq:linear_condition_trivariate_discrete_0} nicht, so hat man ein Problem, da die Berechnung von Gradientenfeldern auf dem C-Gitter festgelegt ist. Daher verwendet man als Forderung an den zu findenden Mittelungsoperator die Mittelung von Glg. \eqref{eq:gradient_linear_condition}:
@@ -18861,7 +18861,7 @@ notieren. Diese Gleichungen sind als Forderungen an Vektorfelder $\mathbf{v}$ zu
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-\newtilde{\delta_1\alpha}^{(1)} + \newtilde{\delta_2\alpha}^{(2)} + \newtilde{\delta_3\alpha}^{(3)} \stackrel{!}{=} 0\label{eq:linear_condition_trivariate_discrete_gradient}
+\newtilde{\delta_1\alpha}^{(1)} + \newtilde{\delta_2\alpha}^{(2)} + \newtilde{\delta_3\alpha}^{3} \stackrel{!}{=} 0\label{eq:linear_condition_trivariate_discrete_gradient}
 \end{align}
 \end{center}
 }}
@@ -18875,31 +18875,31 @@ Für die Helmholtz-Aufteilung Glg.en \eqref{eq:trivariate_helmholtz_eq_0} - \eqr
 \begin{align}
 \newtilde{u}_1^{(1)} & = \frac{1}{\sqrt{3}}\left(\newtilde{\delta_3\psi}^{(1)} - \newtilde{\delta_2\psi}^{(1)}\right) + \newtilde{\delta_1\chi}^{(1)},\\
 \newtilde{u}_2^{(2)} & = \frac{1}{\sqrt{3}}\left(\newtilde{\delta_1\psi}^{(2)} - \newtilde{\delta_3\psi}^{(2)}\right) + \newtilde{\delta_2\chi}^{(2)},\\
-\newtilde{u}_3^{(3)} & = \frac{1}{\sqrt{3}}\left(\newtilde{\delta_2\psi}^{(3)} - \newtilde{\delta_1\psi}^{(3)}\right) + \newtilde{\delta_3\chi}^{(3)},\\
+\newtilde{u}_3^{3} & = \frac{1}{\sqrt{3}}\left(\newtilde{\delta_2\psi}^{3} - \newtilde{\delta_1\psi}^{3}\right) + \newtilde{\delta_3\chi}^{3},\\
 \newtilde{v}_1^{(1)} & = \frac{1}{\sqrt{3}}\left(\newtilde{\delta_2\chi}^{(1)} - \newtilde{\delta_3\chi}^{(1)}\right) + \newtilde{\delta_1\psi}^{(1)},\\
 \newtilde{v}_2^{(2)} & = \frac{1}{\sqrt{3}}\left(\newtilde{\delta_3\chi}^{(2)} - \newtilde{\delta_1\chi}^{(2)}\right) + \newtilde{\delta_2\psi}^{(2)},\\
-\newtilde{v}_3^{(3)} & = \frac{1}{\sqrt{3}}\left(\newtilde{\delta_1\chi}^{(3)} - \newtilde{\delta_2\chi}^{(3)}\right) + \newtilde{\delta_3\psi}^{(3)}.
+\newtilde{v}_3^{3} & = \frac{1}{\sqrt{3}}\left(\newtilde{\delta_1\chi}^{3} - \newtilde{\delta_2\chi}^{3}\right) + \newtilde{\delta_3\psi}^{3}.
 \end{align}
 %
 Hiermit sind die Glg.en \eqref{eq:linear_condition_trivariate_discrete_0} - \eqref{eq:linear_condition_trivariate_discrete_1} noch nicht erfüllt, vielmehr ist eine vorbereitende Mitttelung der Skalarfelder erforderlich:
 %
 \begin{align}
-\newtilde{u}_1^{(1)} & = \frac{1}{\sqrt{3}}\left(\newtilde{\delta_3\newtilde{\psi}^{(2)}}^{(1)} - \newtilde{\delta_2\newtilde{\psi}^{(3)}}^{(1)}\right) + \newtilde{\delta_1\chi}^{(1)}\\
-\newtilde{u}_2^{(2)} & = \frac{1}{\sqrt{3}}\left(\newtilde{\delta_1\newtilde{\psi}^{(3)}}^{(2)} - \newtilde{\delta_3\newtilde{\psi}^{(1)}}^{(2)}\right) + \newtilde{\delta_2\chi}^{(2)}\\
-\newtilde{u}_3^{(3)} & = \frac{1}{\sqrt{3}}\left(\newtilde{\delta_2\newtilde{\psi}^{(1)}}^{(3)} - \newtilde{\delta_1\newtilde{\psi}^{(2)}}^{(3)}\right) + \newtilde{\delta_3\chi}^{(3)}\\
-\newtilde{v}_1^{(1)} & = \frac{1}{\sqrt{3}}\left(\newtilde{\delta_2\newtilde{\chi}^{(3)}}^{(1)} - \newtilde{\delta_3\newtilde{\chi}^{(2)}}^{(1)}\right) + \newtilde{\delta_1\psi}^{(1)}\\
-\newtilde{v}_2^{(2)} & = \frac{1}{\sqrt{3}}\left(\newtilde{\delta_3\newtilde{\chi}^{(1)}}^{(2)} - \newtilde{\delta_1\newtilde{\chi}^{(3)}}^{(2)}\right) + \newtilde{\delta_2\psi}^{(2)}\\
-\newtilde{v}_3^{(3)} & = \frac{1}{\sqrt{3}}\left(\newtilde{\delta_1\newtilde{\chi}^{(2)}}^{(3)} - \newtilde{\delta_2\newtilde{\chi}^{(1)}}^{(3)}\right) + \newtilde{\delta_3\psi}^{(3)}
+\newtilde{u}_1^{(1)} & = \frac{1}{\sqrt{3}}\left(\newtilde{\delta_3\newtilde{\psi}^{(2)}}^{(1)} - \newtilde{\delta_2\newtilde{\psi}^{3}}^{(1)}\right) + \newtilde{\delta_1\chi}^{(1)}\\
+\newtilde{u}_2^{(2)} & = \frac{1}{\sqrt{3}}\left(\newtilde{\delta_1\newtilde{\psi}^{3}}^{(2)} - \newtilde{\delta_3\newtilde{\psi}^{(1)}}^{(2)}\right) + \newtilde{\delta_2\chi}^{(2)}\\
+\newtilde{u}_3^{3} & = \frac{1}{\sqrt{3}}\left(\newtilde{\delta_2\newtilde{\psi}^{(1)}}^{3} - \newtilde{\delta_1\newtilde{\psi}^{(2)}}^{3}\right) + \newtilde{\delta_3\chi}^{3}\\
+\newtilde{v}_1^{(1)} & = \frac{1}{\sqrt{3}}\left(\newtilde{\delta_2\newtilde{\chi}^{3}}^{(1)} - \newtilde{\delta_3\newtilde{\chi}^{(2)}}^{(1)}\right) + \newtilde{\delta_1\psi}^{(1)}\\
+\newtilde{v}_2^{(2)} & = \frac{1}{\sqrt{3}}\left(\newtilde{\delta_3\newtilde{\chi}^{(1)}}^{(2)} - \newtilde{\delta_1\newtilde{\chi}^{3}}^{(2)}\right) + \newtilde{\delta_2\psi}^{(2)}\\
+\newtilde{v}_3^{3} & = \frac{1}{\sqrt{3}}\left(\newtilde{\delta_1\newtilde{\chi}^{(2)}}^{3} - \newtilde{\delta_2\newtilde{\chi}^{(1)}}^{3}\right) + \newtilde{\delta_3\psi}^{3}
 \end{align}
 %
 Dies impliziert
 %
 \begin{align}
-u_1 & = \frac{1}{\sqrt{3}}\left(\delta_3\newtilde{\psi}^{(2)} - \delta_2\newtilde{\psi}^{(3)}\right) + \delta_1\chi\label{eq:hex:helmholtz_0},\\
-u_2 & = \frac{1}{\sqrt{3}}\left(\delta_1\newtilde{\psi}^{(3)} - \delta_3\newtilde{\psi}^{(1)}\right) + \delta_2\chi\label{eq:hex:helmholtz_1},\\
+u_1 & = \frac{1}{\sqrt{3}}\left(\delta_3\newtilde{\psi}^{(2)} - \delta_2\newtilde{\psi}^{3}\right) + \delta_1\chi\label{eq:hex:helmholtz_0},\\
+u_2 & = \frac{1}{\sqrt{3}}\left(\delta_1\newtilde{\psi}^{3} - \delta_3\newtilde{\psi}^{(1)}\right) + \delta_2\chi\label{eq:hex:helmholtz_1},\\
 u_3 & = \frac{1}{\sqrt{3}}\left(\delta_2\newtilde{\psi}^{(1)} - \delta_1\newtilde{\psi}^{(2)}\right) + \delta_3\chi\label{eq:hex:helmholtz_2},\\
-v_1 & = \frac{1}{\sqrt{3}}\left(\delta_2\newtilde{\chi}^{(3)} - \delta_3\newtilde{\chi}^{(2)}\right) + \delta_1\psi,\\
-v_2 & = \frac{1}{\sqrt{3}}\left(\delta_3\newtilde{\chi}^{(1)} - \delta_1\newtilde{\chi}^{(3)}\right) + \delta_2\psi,\\
+v_1 & = \frac{1}{\sqrt{3}}\left(\delta_2\newtilde{\chi}^{3} - \delta_3\newtilde{\chi}^{(2)}\right) + \delta_1\psi,\\
+v_2 & = \frac{1}{\sqrt{3}}\left(\delta_3\newtilde{\chi}^{(1)} - \delta_1\newtilde{\chi}^{3}\right) + \delta_2\psi,\\
 v_3 & = \frac{1}{\sqrt{3}}\left(\delta_1\newtilde{\chi}^{(2)} - \delta_2\newtilde{\chi}^{(1)}\right) + \delta_3\psi.
 \end{align}
 
@@ -18909,7 +18909,7 @@ v_3 & = \frac{1}{\sqrt{3}}\left(\delta_1\newtilde{\chi}^{(2)} - \delta_2\newtild
 Nun stellt man sich die Frage, wie der Mittelungsoperator $\newtilde{\psi}^{(j)}$ konkret aussehen muss. Für den in Glg. \eqref{eq:hex_simple_average} eingeführten Operator gilt
 %
 \begin{align}
-&\newoverline{\delta_1\psi}^{(1)} + \newoverline{\delta_1\psi}^{(2)} + \newoverline{\delta_1\psi}^{(3)}\nonumber\\
+&\newoverline{\delta_1\psi}^{(1)} + \newoverline{\delta_1\psi}^{(2)} + \newoverline{\delta_1\psi}^{3}\nonumber\\
 & = \psi\left(\mathbf{r}\right)\frac{2i}{d}\left[\sin\left(\frac{k_1d}{2}\right)\cos\left(\frac{k_1d}{2}\right) + \sin\left(\frac{k_2d}{2}\right)\cos\left(\frac{k_2d}{2}\right) + \sin\left(\frac{k_3d}{2}\right)\cos\left(\frac{k_3d}{2}\right)\right]\nonumber\\
 & = \psi\left(\mathbf{r}\right)\frac{i}{d}\left[2\sin\left(\frac{k_1d}{2}\right)\cos\left(\frac{k_1d}{2}\right) + 2\sin\left(\frac{k_2d}{2}\right)\cos\left(\frac{k_2d}{2}\right) + 2\sin\left(\frac{k_3d}{2}\right)\cos\left(\frac{k_3d}{2}\right)\right]\nonumber\\
 & = \psi\left(\mathbf{r}\right)\frac{i}{d}\left[\sin\left(k_1d\right) + \sin\left(k_2d\right) + \sin\left(k_3d\right)\right] \stackrel{\text{i. A.}}{\not=} 0.
@@ -18918,13 +18918,13 @@ Nun stellt man sich die Frage, wie der Mittelungsoperator $\newtilde{\psi}^{(j)}
 Dieser Operator erfüllt die Bedingung Glg. \eqref{eq:linear_condition_trivariate_discrete_gradient} also nicht. Daher definiert man einen zweiten Mittelungsoperator
 %
 \begin{align}
-\newoverline{\psi}^{((1))} & \coloneqq \newoverline{\psi}^{(2, 3)} = \newoverline{\newoverline{\psi}^{(3)}}^{(2)} = \newoverline{\newoverline{\psi}^{(2)}}^{(3)} = \psi\left(\mathbf{r}\right)\cos\left(\frac{k_2d}{2}\right)\cos\left(\frac{k_3d}{2}\right).\text{ (und zyklisch)}
+\newoverline{\psi}^{((1))} & \coloneqq \newoverline{\psi}^{(2, 3)} = \newoverline{\newoverline{\psi}^{3}}^{(2)} = \newoverline{\newoverline{\psi}^{(2)}}^{3} = \psi\left(\mathbf{r}\right)\cos\left(\frac{k_2d}{2}\right)\cos\left(\frac{k_3d}{2}\right).\text{ (und zyklisch)}
 \end{align}
 %
 Für diesen gilt
 %
 \begin{align}
-\newoverline{\delta_1\alpha}^{((1))} + \newoverline{\delta_2\alpha}^{((2))} + \newoverline{\delta_3\alpha}^{((3))} &= \alpha\left(\mathbf{r}\right)\frac{2i}{d}\Big[\sin\left(\frac{k_1d}{2}\right)\cos\left(\frac{k_2d}{2}\right)\cos\left(\frac{k_3d}{2}\right) + \cos\left(\frac{k_1d}{2}\right)\sin\left(\frac{k_2d}{2}\right)\cos\left(\frac{k_3d}{2}\right)\nonumber\\
+\newoverline{\delta_1\alpha}^{((1))} + \newoverline{\delta_2\alpha}^{((2))} + \newoverline{\delta_3\alpha}^{(3)} &= \alpha\left(\mathbf{r}\right)\frac{2i}{d}\Big[\sin\left(\frac{k_1d}{2}\right)\cos\left(\frac{k_2d}{2}\right)\cos\left(\frac{k_3d}{2}\right) + \cos\left(\frac{k_1d}{2}\right)\sin\left(\frac{k_2d}{2}\right)\cos\left(\frac{k_3d}{2}\right)\nonumber\\
 & + \cos\left(\frac{k_1d}{2}\right)\cos\left(\frac{k_2d}{2}\right)\sin\left(\frac{k_3d}{2}\right)\Big]\nonumber\\
 &= \alpha\left(\mathbf{r}\right)\frac{2i}{d}\Big[\sin\left(\frac{k_1d + k_2d}{2}\right)\cos\left(\frac{k_3d}{2}\right) + \cos\left(\frac{k_1d}{2}\right)\cos\left(\frac{k_2d}{2}\right)\sin\left(\frac{k_3d}{2}\right)\Big]\nonumber\\
 &= \alpha\left(\mathbf{r}\right)\frac{2i}{d}\Big[\sin\left(\frac{k_1 + k_2 + k_3}{2}d\right) - \cos\left(\frac{k_1 + k_2}{2}d\right)\sin\left(\frac{k_3}{2}d\right)\nonumber\\
@@ -18934,7 +18934,7 @@ Für diesen gilt
 Mit $k_1 + k_2 + k_3 = 0$ folgt
 %
 \begin{align}
-\newoverline{\delta_1\alpha}^{((1))} + \newoverline{\delta_2\alpha}^{((2))} + \newoverline{\delta_3\alpha}^{((3))} &= \alpha\left(\mathbf{r}\right)\frac{2i}{d}\Big[-\cos\left(\frac{k_1 + k_2}{2}d\right)\sin\left(\frac{k_3}{2}d\right) + \cos\left(\frac{k_1d}{2}\right)\cos\left(\frac{k_2d}{2}\right)\sin\left(\frac{k_3d}{2}\right)\Big]\nonumber\\
+\newoverline{\delta_1\alpha}^{((1))} + \newoverline{\delta_2\alpha}^{((2))} + \newoverline{\delta_3\alpha}^{(3)} &= \alpha\left(\mathbf{r}\right)\frac{2i}{d}\Big[-\cos\left(\frac{k_1 + k_2}{2}d\right)\sin\left(\frac{k_3}{2}d\right) + \cos\left(\frac{k_1d}{2}\right)\cos\left(\frac{k_2d}{2}\right)\sin\left(\frac{k_3d}{2}\right)\Big]\nonumber\\
 &= \alpha\left(\mathbf{r}\right)\frac{2i}{d}\sin\left(\frac{k_3}{2}d\right)\Big[\cos\left(\frac{k_1d}{2}\right)\cos\left(\frac{k_2d}{2}\right) - \cos\left(\frac{k_1 + k_2}{2}d\right)\Big]\nonumber\\
 &= \alpha\left(\mathbf{r}\right)\frac{2i}{d}\sin\left(\frac{k_3}{2}d\right)\Big[\cos\left(\frac{k_1d}{2}\right)\cos\left(\frac{k_2d}{2}\right) - \cos\left(\frac{k_1d}{2}\right)\cos\left(\frac{k_2d}{2}\right)\nonumber\\
 &+ \sin\left(\frac{k_1d}{2}\right)\sin\left(\frac{k_2d}{2}\right)\Big]\nonumber\\
@@ -18944,7 +18944,7 @@ Mit $k_1 + k_2 + k_3 = 0$ folgt
 Auch dieser Operator erfüllt die Bedingung Glg. \eqref{eq:linear_condition_trivariate_discrete_gradient} also nicht. Man rechnet jedoch wiederum mit $k_1 + k_2 + k_3 = 0$ weiter:
 %
 \begin{align}
-& \newoverline{\delta_1\alpha}^{((1))} + \newoverline{\delta_2\alpha}^{((2))} + \newoverline{\delta_3\alpha}^{((3))} = \alpha\left(\mathbf{r}\right)\frac{2i}{d}\sin\left(\frac{k_1}{2}d\right)\sin\left(\frac{k_2d}{2}\right)\sin\left(\frac{k_3d}{2}\right)\nonumber\\
+& \newoverline{\delta_1\alpha}^{((1))} + \newoverline{\delta_2\alpha}^{((2))} + \newoverline{\delta_3\alpha}^{(3)} = \alpha\left(\mathbf{r}\right)\frac{2i}{d}\sin\left(\frac{k_1}{2}d\right)\sin\left(\frac{k_2d}{2}\right)\sin\left(\frac{k_3d}{2}\right)\nonumber\\
 &= \alpha\left(\mathbf{r}\right)\frac{2i}{d}\sin\left(\frac{k_1}{2}d\right)\sin\left(\frac{k_2d}{2}\right)\sin\left(-\frac{k_1 + k_2}{2}d\right) = -\alpha\left(\mathbf{r}\right)\frac{2i}{d}\sin\left(\frac{k_1}{2}d\right)\sin\left(\frac{k_2d}{2}\right)\sin\left(\frac{k_1 + k_2}{2}d\right)\nonumber\\
 &= -\alpha\left(\mathbf{r}\right)\frac{2i}{d}\sin\left(\frac{k_1}{2}d\right)\sin\left(\frac{k_2d}{2}\right)\left[\sin\left(\frac{k_1}{2}d\right)\cos\left(\frac{k_2}{2}d\right) + \cos\left(\frac{k_1}{2}d\right)\sin\left(\frac{k_2}{2}d\right)\right]\nonumber\\
 &= -\alpha\left(\mathbf{r}\right)\frac{2i}{d}\left[\sin\left(\frac{k_2}{2}d\right)\sin\left(\frac{k_1}{2}d\right)^2\cos\left(\frac{k_2}{2}d\right) + \sin\left(\frac{k_1}{2}d\right)\cos\left(\frac{k_1}{2}d\right)\sin\left(\frac{k_2}{2}d\right)^2\right]\nonumber\\
@@ -18957,7 +18957,7 @@ Auch dieser Operator erfüllt die Bedingung Glg. \eqref{eq:linear_condition_triv
 &= -\alpha\left(\mathbf{r}\right)\frac{i}{d}\Big[\sin\left(k_2d\right) + \sin\left(k_1d\right) - \sin\left[\left(k_1 + k_2\right)d\right] + \sin\left(k_2d\right)\sin\left(\frac{k_1}{2}d\right)^2 + \sin\left(k_1d\right)\sin\left(\frac{k_2}{2}d\right)^2\Big]\nonumber\\
 &= -\alpha\left(\mathbf{r}\right)\frac{i}{d}\Big[\sin\left(k_2d\right) + \sin\left(k_1d\right) - \sin\left(-k_3d\right) + \sin\left(k_2d\right)\sin\left(\frac{k_1}{2}d\right)^2 + \sin\left(k_1d\right)\sin\left(\frac{k_2}{2}d\right)^2\Big]\nonumber\\
 &= -\alpha\left(\mathbf{r}\right)\frac{i}{d}\Big[\sin\left(k_2d\right) + \sin\left(k_1d\right) + \sin\left(k_3d\right) + \sin\left(k_2d\right)\sin\left(\frac{k_1}{2}d\right)^2 + \sin\left(k_1d\right)\sin\left(\frac{k_2}{2}d\right)^2\Big]\nonumber\\
-&= -\left(\newoverline{\delta_1\alpha}^{(1)} + \newoverline{\delta_1\alpha}^{(2)} + \newoverline{\delta_1\alpha}^{(3)}\right) - \alpha\left(\mathbf{r}\right)\frac{i}{d}\Big[\sin\left(k_2d\right)\sin\left(\frac{k_1}{2}d\right)^2 + \sin\left(k_1d\right)\sin\left(\frac{k_2}{2}d\right)^2\Big]
+&= -\left(\newoverline{\delta_1\alpha}^{(1)} + \newoverline{\delta_1\alpha}^{(2)} + \newoverline{\delta_1\alpha}^{3}\right) - \alpha\left(\mathbf{r}\right)\frac{i}{d}\Big[\sin\left(k_2d\right)\sin\left(\frac{k_1}{2}d\right)^2 + \sin\left(k_1d\right)\sin\left(\frac{k_2}{2}d\right)^2\Big]
 \end{align}
 %
 Man rechnet nun
@@ -18973,9 +18973,9 @@ Man rechnet nun
 Somit folgt
 %
 \begin{align}
-& \newoverline{\delta_1\alpha}^{((1))} + \newoverline{\delta_2\alpha}^{((2))} + \newoverline{\delta_3\alpha}^{((3))} = -\left(\newoverline{\delta_1\alpha}^{(1)} + \newoverline{\delta_1\alpha}^{(2)} + \newoverline{\delta_1\alpha}^{(3)}\right) + \alpha\left(\mathbf{r}\right)\frac{i}{d}\sin\left(\frac{k_1}{2}d\right)\sin\left(\frac{k_2}{2}d\right)\sin\left(\frac{k_3}{2}d\right)\nonumber\\
-&\stackrel{\text{Glg. \eqref{eq:thuburn_op_deriv_0}}}{=} -\left(\newoverline{\delta_1\alpha}^{(1)} + \newoverline{\delta_1\alpha}^{(2)} + \newoverline{\delta_1\alpha}^{(3)}\right) + \frac{1}{2}\left(\newoverline{\delta_1\alpha}^{((1))} + \newoverline{\delta_2\alpha}^{((2))} + \newoverline{\delta_3\alpha}^{((3))}\right)\nonumber\\
-&\Rightarrow\newoverline{\delta_1\alpha}^{((1))} + \newoverline{\delta_2\alpha}^{((2))} + \newoverline{\delta_3\alpha}^{((3))} = -\frac{1}{2}\left(\newoverline{\delta_1\alpha}^{(1)} + \newoverline{\delta_1\alpha}^{(2)} + \newoverline{\delta_1\alpha}^{(3)}\right).\label{eq:thuburn_op_deriv_1}
+& \newoverline{\delta_1\alpha}^{((1))} + \newoverline{\delta_2\alpha}^{((2))} + \newoverline{\delta_3\alpha}^{(3)} = -\left(\newoverline{\delta_1\alpha}^{(1)} + \newoverline{\delta_1\alpha}^{(2)} + \newoverline{\delta_1\alpha}^{3}\right) + \alpha\left(\mathbf{r}\right)\frac{i}{d}\sin\left(\frac{k_1}{2}d\right)\sin\left(\frac{k_2}{2}d\right)\sin\left(\frac{k_3}{2}d\right)\nonumber\\
+&\stackrel{\text{Glg. \eqref{eq:thuburn_op_deriv_0}}}{=} -\left(\newoverline{\delta_1\alpha}^{(1)} + \newoverline{\delta_1\alpha}^{(2)} + \newoverline{\delta_1\alpha}^{3}\right) + \frac{1}{2}\left(\newoverline{\delta_1\alpha}^{((1))} + \newoverline{\delta_2\alpha}^{((2))} + \newoverline{\delta_3\alpha}^{(3)}\right)\nonumber\\
+&\Rightarrow\newoverline{\delta_1\alpha}^{((1))} + \newoverline{\delta_2\alpha}^{((2))} + \newoverline{\delta_3\alpha}^{(3)} = -\frac{1}{2}\left(\newoverline{\delta_1\alpha}^{(1)} + \newoverline{\delta_1\alpha}^{(2)} + \newoverline{\delta_1\alpha}^{3}\right).\label{eq:thuburn_op_deriv_1}
 \end{align}
 %
 Man macht nun den Ansatz
@@ -18987,7 +18987,7 @@ Man macht nun den Ansatz
 mit $0 \leq \beta \leq 0$. Setzt man hier Glg. \eqref{eq:thuburn_op_deriv_1} ein, erhält man
 %
 \begin{align}
-\newtilde{\delta_1\alpha}^{(1)} + \newtilde{\delta_2\alpha}^{(2)} + \newtilde{\delta_3\alpha}^{(3)} &= \left(\beta - \frac{1}{2}\left(1 - \beta\right)\right)\left(\newoverline{\delta_1\alpha}^{(1)} + \newoverline{\delta_1\alpha}^{(2)} + \newoverline{\delta_1\alpha}^{(3)}\right) \stackrel{!}{=} 0.
+\newtilde{\delta_1\alpha}^{(1)} + \newtilde{\delta_2\alpha}^{(2)} + \newtilde{\delta_3\alpha}^{3} &= \left(\beta - \frac{1}{2}\left(1 - \beta\right)\right)\left(\newoverline{\delta_1\alpha}^{(1)} + \newoverline{\delta_1\alpha}^{(2)} + \newoverline{\delta_1\alpha}^{3}\right) \stackrel{!}{=} 0.
 \end{align}
 %
 Dies ist erfüllt für
@@ -19018,8 +19018,8 @@ Die Anwendung des Thuburn-Operators in den linearisierten shallow water equation
 %
 \begin{align}
 \frac{\partial\Phi}{\partial t} + \frac{2}{3}\Phi_0\left(\delta_1u_1 + \delta_2u_2 + \delta_3u_3\right) &= 0,\\
-\frac{\partial u_1}{\partial t} - \frac{f_0}{\sqrt{3}}\left(\newtilde{u_2}^{(3)} - \newtilde{u_3}^{(2)}\right) + \delta_1\Phi &= 0,\\
-\frac{\partial u_2}{\partial t} - \frac{f_0}{\sqrt{3}}\left(\newtilde{u_3}^{(1)} - \newtilde{u_1}^{(3)}\right) + \delta_2\Phi &= 0,\\
+\frac{\partial u_1}{\partial t} - \frac{f_0}{\sqrt{3}}\left(\newtilde{u_2}^{3} - \newtilde{u_3}^{(2)}\right) + \delta_1\Phi &= 0,\\
+\frac{\partial u_2}{\partial t} - \frac{f_0}{\sqrt{3}}\left(\newtilde{u_3}^{(1)} - \newtilde{u_1}^{3}\right) + \delta_2\Phi &= 0,\\
 \frac{\partial u_3}{\partial t} - \frac{f_0}{\sqrt{3}}\left(\newtilde{u_1}^{(2)} - \newtilde{u_2}^{(1)}\right) + \delta_3\Phi &= 0.
 \end{align}
 %
@@ -19125,28 +19125,28 @@ Diejenigen Kanten, die nicht an das betrachtete Hexagon grenzen, tragen jeweils 
 Betrachte an dieser Stelle die Größe $\newtilde{v}_1^{(1)}$, welche Im Zentrum des betrachteten Hexagons definiert ist. Diese ist eine Überlagerung aus vier Geschwindigkeitskonponenten, zwei davon liegen auf der $\mathbf{i}_1-$Achse, zwei senkrecht zu dieser. Erstere tragen mit dem Gewicht $1/3$ zu $\newtilde{v}_1^{(1)}$ bei, letztere mit dem Gewicht $1/6$ Dies kann man zyklisch auch auf die anderen Raumrichtungen übertragen. Somit gilt
 %
 \begin{align}
-\frac{\sqrt{3}d}{4}\left(\sum_{l \in h}D_l^{(t)} - \sum_{u \in h}D_u^{(t)}\right) &= 6\left(\newtilde{v}_1^{(1)} + \newtilde{v}_2^{(2)} + \newtilde{v}_3^{(3)}\right).\label{eq:checkerboard_triangular}
+\frac{\sqrt{3}d}{4}\left(\sum_{l \in h}D_l^{(t)} - \sum_{u \in h}D_u^{(t)}\right) &= 6\left(\newtilde{v}_1^{(1)} + \newtilde{v}_2^{(2)} + \newtilde{v}_3^{3}\right).\label{eq:checkerboard_triangular}
 \end{align}
 %
-Ist die Bedingung $\newtilde{v}_1^{(1)} + \newtilde{v}_2^{(2)} + \newtilde{v}_3^{(3)} = 0$ nicht erfüllt, so ist der Mittelwert der Divergenz der drei nach oben gerichteten Dreiecke i. A. ungleich dem Mittelwert der Divergenz der nach unten gerichteten Dreiecke. Dies führt zur Entstehung eines sogenannten \textit{Checkerboard-Patterns}\index{Checkerboard-Pattern} in der Divergenz. Dieser Lärm pflanzt sich von dort auch in andere Felder fort. Es ist also wichtig, die Bedingung $\newtilde{v}_1^{(1)} + \newtilde{v}_2^{(2)} + \newtilde{v}_3^{(3)} = 0$ immer einzhalten.
+Ist die Bedingung $\newtilde{v}_1^{(1)} + \newtilde{v}_2^{(2)} + \newtilde{v}_3^{3} = 0$ nicht erfüllt, so ist der Mittelwert der Divergenz der drei nach oben gerichteten Dreiecke i. A. ungleich dem Mittelwert der Divergenz der nach unten gerichteten Dreiecke. Dies führt zur Entstehung eines sogenannten \textit{Checkerboard-Patterns}\index{Checkerboard-Pattern} in der Divergenz. Dieser Lärm pflanzt sich von dort auch in andere Felder fort. Es ist also wichtig, die Bedingung $\newtilde{v}_1^{(1)} + \newtilde{v}_2^{(2)} + \newtilde{v}_3^{3} = 0$ immer einzhalten.
 
 Auf dem sechseckigen Gitter kann man die Gedankengänge vollständig analog auf die relative Vorticity\index{relative Vorticity}\index{Vorticity!relative} übertragen, was auf
 %
 \begin{align}
-\frac{\sqrt{3}d}{4}\left(\sum_{u \in h}\zeta_u^{(t)} - \sum_{l \in h}\zeta_l^{(t)}\right) &= 6\left(\newtilde{u}_1^{(1)} + \newtilde{u}_2^{(2)} + \newtilde{u}_3^{(3)}\right)
+\frac{\sqrt{3}d}{4}\left(\sum_{u \in h}\zeta_u^{(t)} - \sum_{l \in h}\zeta_l^{(t)}\right) &= 6\left(\newtilde{u}_1^{(1)} + \newtilde{u}_2^{(2)} + \newtilde{u}_3^{3}\right)
 \end{align}
 %
-führt. Nichteinhaltung der Bedingung $\newtilde{u}_1^{(1)} + \newtilde{u}_2^{(2)} + \newtilde{u}_3^{(3)} = 0$ führt also auch auf dem sechseckigen Gitter zu einem Checkerboard-Pattern\index{Checkerboard-Pattern} (hier jedoch in der Vorticity) und ist daher auch hier zu beachten.
+führt. Nichteinhaltung der Bedingung $\newtilde{u}_1^{(1)} + \newtilde{u}_2^{(2)} + \newtilde{u}_3^{3} = 0$ führt also auch auf dem sechseckigen Gitter zu einem Checkerboard-Pattern\index{Checkerboard-Pattern} (hier jedoch in der Vorticity) und ist daher auch hier zu beachten.
 
 \subsection{Eliminierung}
 \label{sec:eliminierung}
 
-Im vorherigen Abschnitt wurde gezeigt, dass ein Checkerboard-Pattern auf dem sechseckigen Gitter in der auf Dreiecken berechneten Vorticity existiert, falls die Bedingung $\newtilde{u}_1^{(1)} + \newtilde{u}_2^{(2)} + \newtilde{u}_3^{(3)} = 0$ für das Windfeld $\mathbf{v}$ nicht eingehalten wird. Damit diese Bedingung an das Windfeld jedoch für alle Zeitschritte erfüllt ist, muss dies sowohl im Anfangszustand für das Windfeld gelten, als auch für alle Forcings $\mathbf{w}$. Simulationen werden üblicherweise jedoch mit Impulsdiffusion durchgeführt, um eine Aufstauung der kinetischen Energie auf der Gitterskala zu vermeiden. Diese diffusiven Terme bauen Gradienten auf der Gitterskala ab und können daher auch ein bestehendes Checkerboard-Pattern abbauen, solange dieses nicht zu stark ist. Dementsprechend kann auf die Forderung $\newtilde{u}_1^{(1)} + \newtilde{u}_2^{(2)} + \newtilde{u}_3^{(3)} = 0$ für das Anfangswindfeld $\mathbf{v}$ verzichtet werden. Wichtig ist jedoch folgendes:
+Im vorherigen Abschnitt wurde gezeigt, dass ein Checkerboard-Pattern auf dem sechseckigen Gitter in der auf Dreiecken berechneten Vorticity existiert, falls die Bedingung $\newtilde{u}_1^{(1)} + \newtilde{u}_2^{(2)} + \newtilde{u}_3^{3} = 0$ für das Windfeld $\mathbf{v}$ nicht eingehalten wird. Damit diese Bedingung an das Windfeld jedoch für alle Zeitschritte erfüllt ist, muss dies sowohl im Anfangszustand für das Windfeld gelten, als auch für alle Forcings $\mathbf{w}$. Simulationen werden üblicherweise jedoch mit Impulsdiffusion durchgeführt, um eine Aufstauung der kinetischen Energie auf der Gitterskala zu vermeiden. Diese diffusiven Terme bauen Gradienten auf der Gitterskala ab und können daher auch ein bestehendes Checkerboard-Pattern abbauen, solange dieses nicht zu stark ist. Dementsprechend kann auf die Forderung $\newtilde{u}_1^{(1)} + \newtilde{u}_2^{(2)} + \newtilde{u}_3^{3} = 0$ für das Anfangswindfeld $\mathbf{v}$ verzichtet werden. Wichtig ist jedoch folgendes:
 %
 \begin{center}
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
-Für alle Geschwindigkeitstendenzen $\mathbf{w}$ muss $\newtilde{w}_1^{(1)} + \newtilde{w}_2^{(2)} + \newtilde{w}_3^{(3)} = 0$ gelten.
+Für alle Geschwindigkeitstendenzen $\mathbf{w}$ muss $\newtilde{w}_1^{(1)} + \newtilde{w}_2^{(2)} + \newtilde{w}_3^{3} = 0$ gelten.
 \end{center}
 }}
 \end{center}
@@ -19162,8 +19162,8 @@ Die analogen Tatsachen gelten auf dem dreieckigen Gitter.
 Wendet man den Laplace-Operator\index{Laplace-Operator} auf Glg.en \eqref{eq:hex:helmholtz_0} - \eqref{eq:hex:helmholtz_2} an, erhält man
 %
 \begin{align}
-\Delta u_1 & = \frac{1}{\sqrt{3}}\left(\delta_3\Delta\newtilde{\psi}^{(2)} - \delta_2\Delta \newtilde{\psi}^{(3)}\right) + \delta_1\Delta\chi,\label{eq:rhombus_curl_deriv_0}\\
-\Delta u_2 & = \frac{1}{\sqrt{3}}\left(\delta_1\Delta\newtilde{\psi}^{(3)} - \delta_3\Delta \newtilde{\psi}^{(1)}\right) + \delta_2\Delta\chi,\label{eq:rhombus_curl_deriv_1}\\
+\Delta u_1 & = \frac{1}{\sqrt{3}}\left(\delta_3\Delta\newtilde{\psi}^{(2)} - \delta_2\Delta \newtilde{\psi}^{3}\right) + \delta_1\Delta\chi,\label{eq:rhombus_curl_deriv_0}\\
+\Delta u_2 & = \frac{1}{\sqrt{3}}\left(\delta_1\Delta\newtilde{\psi}^{3} - \delta_3\Delta \newtilde{\psi}^{(1)}\right) + \delta_2\Delta\chi,\label{eq:rhombus_curl_deriv_1}\\
 \Delta u_3 & = \frac{1}{\sqrt{3}}\left(\delta_2\Delta\newtilde{\psi}^{(1)} - \delta_1\Delta \newtilde{\psi}^{(2)}\right) + \delta_3\Delta\chi.\label{eq:rhombus_curl_deriv_2}
 \end{align}
 %
@@ -19180,7 +19180,7 @@ Durch Vergleich stellt man fest, dass es im $\mathbf{i}-$System drei Arten von V
 \begin{align}
 \zeta_1 &\coloneqq \Delta\newtilde{\psi}^{(1)}\\
 \zeta_2 &\coloneqq \Delta\newtilde{\psi}^{(2)}\\
-\zeta_3 &\coloneqq \Delta\newtilde{\psi}^{(3)}
+\zeta_3 &\coloneqq \Delta\newtilde{\psi}^{3}
 \end{align}
 %
 Es gilt somit
@@ -19283,13 +19283,13 @@ erfüllt. Die Rotation auf einem Dreieck ist also als Mittelwert der drei Rhombe
 Auf dem hexagonalen C-Gitter erfüllen Gradientenfelder $\mathbf{u} = \nabla\psi$ die Bedingung
 %
 \begin{align}
-\newtilde{u}_1^{(1)} + \newtilde{u}_2^{(2)} + \newtilde{u}_3^{(3)} = 0.
+\newtilde{u}_1^{(1)} + \newtilde{u}_2^{(2)} + \newtilde{u}_3^{3} = 0.
 \end{align}
 %
 Auf dem dreieckigen C-Gitter hat ein Gradientenfeld $\mathbf{v} = \nabla\psi$ natürlicherweise Komponenten parallel zu den Basiselementen $\mathbf{j}_i$. Dies erfüllt
 %
 \begin{align}
-\newtilde{v}_1^{(1)} + \newtilde{v}_2^{(2)} + \newtilde{v}_3^{(3)} = 0
+\newtilde{v}_1^{(1)} + \newtilde{v}_2^{(2)} + \newtilde{v}_3^{3} = 0
 \end{align}
 %
 nicht, wie man sich leicht klarmachen kann. Daher produzieren Gradientenfelder auf dem dreieckigen C-Gitter nach Glg. \eqref{eq:checkerboard_triangular} ein Checkerboard-Pattern in der Divergenz, was unphysikalische numerische Stabilisatoren, wie zum Beispiel eine Divergenzdämpfung erfordern würde. Daher wurde dieses Gitter in Absch. \ref{sec:folgerungen_freiheitsgrade} zu Recht ausgeschlossen. Diese Erkenntnis wurde erstmals von Gassmann in \cite{gassmann_inspection} vorgebracht.
@@ -19707,16 +19707,33 @@ f_B' \coloneqq\frac{1}{V\left(B\right)}\int_Bfd^3r
 %
 für alle Gitterboxen $B$. Die Gitterpunkte der skalaren Variablen befinden sich in den massengewichteten Zentren der Gitterboxen, wobei von der Standardatmosphäre\index{Standardatmosphäre} ausgegangen wird.
 
-\subsection{Vektorfelder}
-\label{sec:vektorfelder}\index{Vektorfelder!im Modell}\index{Modell!Vektorfeld}
+\subsection{Horizontales Vektorfeld}
+\label{sec:horizontales_vektorfeld}\index{Vektorfelder!horizontales}\index{horizontales Vektorfeld}
 
 Für Vektorfelder verwendet man in der Horizontalen kovariante Komponenten, während man in der Vertikalen die kontravariante Komponente verwendet, damit in der Impulsgleichung unter der SGA\index{SGA (spherical geopotential approximation)}\index{spherical geopotential approximation (SGA)} keine Schwere auftritt. Dies ist zwar ungewöhnlich, aber nicht unmöglich, da die auftretenden Basisvektoren immer linear unabhöngig sind, außerdem werden die Geschwindigkeitskomponenten ja nicht am selben Ort platziert.
 
 Im Falle von Kugelkoordinaten, also oberhalb des Layers oberhalb von $\newtilde{z}$, tritt eine richtungsmäßige Unterscheidung von ko- und kontravarianten Basisvektoren nicht mehr auf, die Kugelkkordinaten nach Absch. \ref{sec:kugelkoordinaten} orthogonal sind.
 
-\subsection{Rotationsfelder}
-\label{sec:rotationsfelder}\index{Rotationsfeld}\index{Modell!Rotationsfeld}
+\subsection{Vertikales Vektorfeld}
+\label{sec:vertikales_vektorfeld}\index{Vektorfelder!vertikales}\index{vertikales Vektorfeld}
 
+\subsection{Horizontales duales Vektorfeld}
+\label{sec:horizontales_duales_vektorfeld}\index{Vektorfelder!duales!horizontales}\index{horizontales duales Vektorfeld}\index{duales Vektorfeld!horizontales}
+
+\subsection{Vertikales duales Vektorfeld}
+\label{sec:vertikales_duales_vektorfeld}\index{Vektorfelder!duales!vertikales}\index{vertikales duales Vektorfeld}\index{duales Vektorfeld!vertikales}
+
+\subsection{Horizontales Rotationsfeld}
+\label{sec:horizontales_rotationsfeld}\index{horizontales Rotationsfeld}\index{Rotationsfeld!horizontales}
+
+\subsection{Vertikales Rotationsfeld}
+\label{sec:vertikales_rotationsfeld}\index{vertikales Rotationsfeld}\index{Rotationsfeld!vertikales}
+
+\subsection{Nomenklatur}
+\label{sec:nomenklatur}
+
+\subsection{Mittelungsoperatoren}
+\label{sec:mittelungsoperatoren}\index{Mittelungsoperator}
 
 \subsection{Rekonstruktion der vertikalen kontravarianten Maßzahl}
 \label{sec:rekonstruktion_der_vertikalen_kontravarianten_maßzahl}\index{kontravariante Maßzahl!Rekonstruktion (geländefolgende Koordinaten)}\index{Maßzahl!kontravariante!Rekonstruktion (geländefolgende Koordinaten)}
@@ -20120,60 +20137,60 @@ Es ergibt sich also die gleiche Dispersionsrelation wie Glg. \eqref{eq:velocity_
 Sei $v$ eine horizontale Vektorkomponente. Vorbereitend wird das Crank-Nicolson-Verfahren\index{Crank-Nicolson-Verfahren} mit $n$ als gegenwärtigem Zeitschritt notiert:
 %
 \begin{align}
-v_{n + 1} = v_n + \frac{\Delta t}{2}\left(\frac{\partial v_n}{\partial t} + \frac{\partial v_{n + 1}}{\partial t}\right)
+v^{(n + 1)} = v^{(n)} + \frac{\Delta t}{2}\left(\frac{\partial v^{(n)}}{\partial t} + \frac{\partial v^{(n + 1)}}{\partial t}\right)
 \end{align}
 %
 An dieser Stelle geht es dabei nur um vertikale Advektion\index{Advektion!vertikale}, die anderen Terme werden explizit berechnet:
 %
 \begin{align}
-v_{n + 1} = v_n + \Delta t\newdot{v}_n^{(\text{expl})} - \frac{w_n\Delta t}{2}\left(\frac{\partial v_n}{\partial z} + \frac{\partial v_{n + 1}}{\partial z}\right)
+v^{(n + 1)} = v^{(n)} + \Delta t\newdot{v}^{(n)}_{(\text{expl})} - \frac{w^{(n)}\Delta t}{2}\left(\frac{\partial v^{(n)}}{\partial z} + \frac{\partial v^{(n + 1)}}{\partial z}\right)
 \end{align}
 %
 Die vertikale Diskretisierung erfordert einen Layerindex $0 \leq i \leq N_L - 1$:
 %
 \begin{align}
-v_{n + 1}^{(i)} = v_n^{(i)} + \Delta t\newdot{v}_n^{(\text{expl})} - \frac{\newoverline{w_n}^{(i)}\Delta t}{2}\left(\frac{v_n^{(i - 1)} - v_n^{(i + 1)}}{z^{(i - 1)} - z^{(i + 1)}} + \frac{v_{n + 1}^{(i - 1)} - v_{n + 1}^{(i + 1)}}{z^{(i - 1)} - z^{(i + 1)}}\right)
+v^{(n + 1)}_{i} = v^{(n)}_{i} + \Delta t\newdot{v}^{(n)}_{(\text{expl})} - \frac{\newoverline{w^{(n)}}_{i}\Delta t}{2}\left(\frac{v^{(n)}_{i - 1} - v^{(n)}_{i + 1}}{z_{i - 1} - z_{i + 1}} + \frac{v^{(n + 1)}_{i - 1} - v^{(n + 1)}_{i + 1}}{z_{i - 1} - z_{i + 1}}\right)
 \end{align}
 %
 Diese Gleichung wird noch einmal notiert, dabei werden die Unbekannten \textcolor{red}{rot} notiert, die Bekannten \textcolor{blue}{blau} und die Vorfaktoren der Unbekannten schwarz:
 %
 \begin{align}
-\textcolor{red}{v_{n + 1}^{(i)}} = \textcolor{blue}{v_n^{(i)} + \Delta t\newdot{v}_n^{(\text{expl})} - \frac{\newoverline{w_n}^{(i)}\Delta t}{2}\frac{v_n^{(i - 1)} - v_n^{(i + 1)}}{z^{(i - 1)} - z^{(i + 1)}}} - \frac{\newoverline{w_n}^{(i)}\Delta t}{2\left(z^{(i - 1)} - z^{(i + 1)}\right)}\textcolor{red}{v_{n + 1}^{(i - 1)}} + \frac{\newoverline{w_n}^{(i)}\Delta t}{2\left(z^{(i - 1)} - z^{(i + 1)}\right)}\textcolor{red}{v_{n + 1}^{(i + 1)}}
+\textcolor{red}{v^{(n + 1)}_{i}} = \textcolor{blue}{v^{(n)}_{i} + \Delta t\newdot{v}^{(n)}_{(\text{expl})} - \frac{\newoverline{w^{(n)}}_{i - 1/2}\Delta t}{2}\frac{v^{(n)}_{i - 1} - v^{(n)}_{i + 1}}{z_{i - 1} - z_{i + 1}}} - \frac{\newoverline{w^{(n)}}_{i - 1/2}\Delta t}{2\left(z_{i - 1} - z_{i + 1}\right)}\textcolor{red}{v^{(n + 1)}_{i - 1}} + \frac{\newoverline{w^{(n)}}_{i - 1/2}\Delta t}{2\left(z_{i - 1} - z_{i + 1}\right)}\textcolor{red}{v^{(n + 1)}_{i + 1}}
 \end{align}
 %
 Im nullten (obersten) Layer gilt
 %
 \begin{align}
-\textcolor{red}{v_{n + 1}^{(i)}} = \textcolor{blue}{v_n^{(i)} + \Delta t\newdot{v}_n^{(\text{expl})} - \frac{\newoverline{w_n}^{(i)}\Delta t}{2}\frac{v_n^{(i)} - v_n^{(i + 1)}}{z^{(i)} - z^{(i + 1)}}} - \frac{\newoverline{w_n}^{(i)}\Delta t}{2\left(z^{(i)} - z^{(i + 1)}\right)}\textcolor{red}{v_{n + 1}^{(i)}} + \frac{\newoverline{w_n}^{(i)}\Delta t}{2\left(z^{(i)} - z^{(i + 1)}\right)}\textcolor{red}{v_{n + 1}^{(i + 1)}}.
+\textcolor{red}{v^{(n + 1)}_{i}} = \textcolor{blue}{v^{(n)}_{i} + \Delta t\newdot{v}^{(n)}_{(\text{expl})} - \frac{\newoverline{w^{(n)}}_{i - 1/2}\Delta t}{2}\frac{v^{(n)}_{i} - v^{(n)}_{i + 1}}{z_{i} - z_{i + 1}}} - \frac{\newoverline{w^{(n)}}_{i - 1/2}\Delta t}{2\left(z_{i} - z_{i + 1}\right)}\textcolor{red}{v^{(n + 1)}_{i}} + \frac{\newoverline{w^{(n)}}_{i - 1/2}\Delta t}{2\left(z_{i} - z_{i + 1}\right)}\textcolor{red}{v^{(n + 1)}_{i + 1}}.
 \end{align}
 %
 Hier ist $i = 0$:
 %
 \begin{align}
-\textcolor{red}{v_{n + 1}^{(0)}} = \textcolor{blue}{v_n^{(0)} + \Delta t\newdot{v}_n^{(\text{expl})} - \frac{\newoverline{w_n}^{(0)}\Delta t}{2}\frac{v_n^{(0)} - v_n^{(1)}}{z^{(0)} - z^{(1)}}} - \frac{\newoverline{w_n}^{(0)}\Delta t}{2\left(z^{(0)} - z^{(1)}\right)}\textcolor{red}{v_{n + 1}^{(0)}} + \frac{\newoverline{w_n}^{(0)}\Delta t}{2\left(z^{(0)} - z^{(1)}\right)}\textcolor{red}{v_{n + 1}^{(1)}}
+\textcolor{red}{v^{(n + 1)}_{0}} = \textcolor{blue}{v^{(n)}_{0} + \Delta t\newdot{v}^{(n)}_{(\text{expl})} - \frac{\newoverline{w^{(n)}}_{-1/2}\Delta t}{2}\frac{v^{(n)}_{0} - v^{(n)}_{1}}{z_{0} - z_{1}}} - \frac{\newoverline{w^{(n)}}_{-1/2}\Delta t}{2\left(z_{0} - z_{1}\right)}\textcolor{red}{v^{(n + 1)}_{0}} + \frac{\newoverline{w^{(n)}}_{-1/2}\Delta t}{2\left(z_{0} - z_{1}\right)}\textcolor{red}{v^{(n + 1)}_{1}}
 \end{align}
 %
 Im $N_L - 1-$ten (untersten) Layer gilt
 %
 \begin{align}
-\textcolor{red}{v_{n + 1}^{(i)}} = \textcolor{blue}{v_n^{(i)} + \Delta t\newdot{v}_n^{(\text{expl})} - \frac{\newoverline{w_n}^{(i)}\Delta t}{2}\frac{v_n^{(i - 1)} - v_n^{(i)}}{z^{(i - 1)} - z^{(i)}}} - \frac{\newoverline{w_n}^{(i)}\Delta t}{2\left(z^{(i - 1)} - z^{(i)}\right)}\textcolor{red}{v_{n + 1}^{(i - 1)}} + \frac{\newoverline{w_n}^{(i)}\Delta t}{2\left(z^{(i - 1)} - z^{(i)}\right)}\textcolor{red}{v_{n + 1}^{(i)}}.
+\textcolor{red}{v^{(n + 1)}_{i}} = \textcolor{blue}{v^{(n)}_{i} + \Delta t\newdot{v}^{(n)}_{(\text{expl})} - \frac{\newoverline{w^{(n)}}_{-1/2}\Delta t}{2}\frac{v^{(n)}_{i - 1} - v^{(n)}_{i}}{z_{i - 1} - z_{i}}} - \frac{\newoverline{w^{(n)}}_{i - 1/2}\Delta t}{2\left(z_{i - 1} - z_{i}\right)}\textcolor{red}{v^{(n + 1)}_{i - 1}} + \frac{\newoverline{w^{(n)}}_{i - 1/2}\Delta t}{2\left(z_{i - 1} - z_{i}\right)}\textcolor{red}{v^{(n + 1)}_{i}}.
 \end{align}
 %
 Hier ist $i = N_L - 1$:
 %
 \begin{align}
-\textcolor{red}{v_{n + 1}^{(N_L - 1)}} & = \textcolor{blue}{v_n^{(N_L - 1)} + \Delta t\newdot{v}_n^{(\text{expl})} - \frac{\newoverline{w_n}^{(N_L - 1)}\Delta t}{2}\frac{v_n^{(N_L - 2)} - v_n^{(N_L - 1)}}{z^{(N_L - 2)} - z^{(N_L - 1)}}} - \frac{\newoverline{w_n}^{(N_L - 1)}\Delta t}{2\left(z^{(N_L - 2)} - z^{(N_L - 1)}\right)}\textcolor{red}{v_{n + 1}^{(N_L - 2)}}\nonumber\\
-&  +\frac{\newoverline{w_n}^{(N_L - 1)}\Delta t}{2\left(z^{(N_L - 2)} - z^{(N_L - 1)}\right)}\textcolor{red}{v_{n + 1}^{(N_L - 1)}}
+\textcolor{red}{v^{(n + 1)}_{N_L - 1}} & = \textcolor{blue}{v^{(n)}_{N_L - 1} + \Delta t\newdot{v}^{(n)}_{(\text{expl})} - \frac{\newoverline{w^{(n)}}_{N_L - 1 - 1/2}\Delta t}{2}\frac{v^{(n)}_{N_L - 2} - v^{(n)}_{N_L - 1}}{z_{N_L - 2} - z_{N_L - 1}}} - \frac{\newoverline{w^{(n)}}_{N_L - 1 - 1/2}\Delta t}{2\left(z_{N_L - 2} - z_{N_L - 1}\right)}\textcolor{red}{v^{(n + 1)}_{N_L - 2}}\nonumber\\
+&  +\frac{\newoverline{w^{(n)}}_{N_L - 1 - 1/2}\Delta t}{2\left(z_{N_L - 2} - z_{N_L - 1}\right)}\textcolor{red}{v^{(n + 1)}_{N_L - 1}}
 \end{align}
 %
 Man definiert den Vektor $\mathbf{V}$ der Unbekannten durch
 %
 \begin{align}
 \mathbf{V} = \left(\begin{array}{c}
-v_{n + 1}^{(0)}\\
-v_{n + 1}^{(1)}\\
+v^{(n + 1)}_{0}\\
+v^{(n + 1)}_{1}\\
 \vdots\\
-v_{n + 1}^{(N_L - 1)}
+v^{(n + 1)}_{N_L - 1}
 \end{array}\right),
 \end{align}
 %
@@ -20187,12 +20204,12 @@ mit einer Matrix $\overleftrightarrow{A}$ und einer rechten Seite $\mathbf{b}$. 
 %
 \begin{align}
 \mathbf{b} = \left(\begin{array}{c}
-v_n^{(0)} + \Delta t\newdot{v}_n^{(\text{expl})} - \frac{\newoverline{w_n}^{(0)}\Delta t}{2}\frac{v_n^{(0)} - v_n^{(1)}}{z^{(0)} - z^{(1)}}\\
-v_n^{(1)} + \Delta t\newdot{v}_n^{(\text{expl})} - \frac{\newoverline{w_n}^{(1)}\Delta t}{2}\frac{v_n^{(0)} - v_n^{(2)}}{z^{(0)} - z^{(2)}}\\
-v_n^{(2)} + \Delta t\newdot{v}_n^{(\text{expl})} - \frac{\newoverline{w_n}^{(2)}\Delta t}{2}\frac{v_n^{(1)} - v_n^{(3)}}{z^{(1)} - z^{(3)}}\\
+v^{(n)}_{0} + \Delta t\newdot{v}^{(n)}_{(\text{expl})} - \frac{\newoverline{w^{(n)}}_{0 - 1/2}\Delta t}{2}\frac{v^{(n)}_{0} - v^{(n)}_{1}}{z_{0} - z_{1}}\\
+v^{(n)}_{1} + \Delta t\newdot{v}^{(n)}_{(\text{expl})} - \frac{\newoverline{w^{(n)}}_{1 - 1/2}\Delta t}{2}\frac{v^{(n)}_{0} - v^{(n)}_{2}}{z_{0} - z_{2}}\\
+v^{(n)}_{2} + \Delta t\newdot{v}^{(n)}_{(\text{expl})} - \frac{\newoverline{w^{(n)}}_{2 - 1/2}\Delta t}{2}\frac{v^{(n)}_{1} - v^{(n)}_{3}}{z_{1} - z_{3}}\\
 \vdots\\
-v_n^{(N_L - 2)} + \Delta t\newdot{v}_n^{(\text{expl})} - \frac{\newoverline{w_n}^{(N_L - 2)}\Delta t}{2}\frac{v_n^{(N_L - 3)} - v_n^{(N_L - 1)}}{z^{(N_L - 3)} - z^{(N_L - 1)}}\\
-v_n^{(N_L - 1)} + \Delta t\newdot{v}_n^{(\text{expl})} - \frac{\newoverline{w_n}^{(N_L - 1)}\Delta t}{2}\frac{v_n^{(N_L - 2)} - v_n^{(N_L - 1)}}{z^{(N_L - 2)} - z^{(N_L - 1)}}
+v^{(n)}_{N_L - 2} + \Delta t\newdot{v}^{(n)}_{(\text{expl})} - \frac{\newoverline{w^{(n)}}_{N_L - 2 - 1/2}\Delta t}{2}\frac{v^{(n)}_{N_L - 3} - v^{(n)}_{N_L - 1}}{z_{N_L - 3} - z_{N_L - 1}}\\
+v^{(n)}_{N_L - 1} + \Delta t\newdot{v}^{(n)}_{(\text{expl})} - \frac{\newoverline{w^{(n)}}_{N_L - 1 - 1/2}\Delta t}{2}\frac{v^{(n)}_{N_L - 2} - v^{(n)}_{N_L - 1}}{z_{N_L - 2} - z_{N_L - 1}}
 \end{array}\right).
 \end{align}
 %
@@ -20200,10 +20217,10 @@ Für die Matrix $\overleftrightarrow{A}$ erhält man
 %
 \begin{align}
 \overleftrightarrow{A} & = \left(\begin{array}{cccc}
-\left(1 + \frac{\newoverline{w_n}^{(0)}\Delta t}{2\left(z^{(0)} - z^{(1)}\right)}\right) & -\left(\frac{\newoverline{w_n}^{(0)}\Delta t}{2\left(z^{(0)} - z^{(1)}\right)}\right)  & \dots & 0 \\
-\left(\frac{\newoverline{w_n}^{(1)}\Delta t}{2\left(z^{(0)} - z^{(2)}\right)}\right) & 1 & -\left(\frac{\newoverline{w_n}^{(1)}\Delta t}{2\left(z^{(0)} - z^{(2)}\right)}\right)\hspace{2 cm}\dots &  0 \\
+\left(1 + \frac{\newoverline{w^{(n)}}_{-1/2}\Delta t}{2\left(z_{0} - z_{1}\right)}\right) & -\left(\frac{\newoverline{w^{(n)}}_{0 - 1/2}\Delta t}{2\left(z_{0} - z_{1}\right)}\right)  & \dots & 0 \\
+\left(\frac{\newoverline{w^{(n)}}_{1 - 1/2}\Delta t}{2\left(z_{0} - z_{2}\right)}\right) & 1 & -\left(\frac{\newoverline{w^{(n)}}_{1 - 1/2}\Delta t}{2\left(z_{0} - z_{2}\right)}\right)\hspace{2 cm}\dots &  0 \\
 \vdots & \hspace{2 cm}\ddots & \ddots & \vdots \\
-0 & \dots & \left(\frac{\newoverline{w_n}^{(N_L - 1)}\Delta t}{2\left(z^{(N_L - 2)} - z^{(N_L - 1)}\right)}\right) & \left(1 - \frac{\newoverline{w_n}^{(N_L - 1)}\Delta t}{2\left(z^{(N_L - 2)} - z^{(N_L - 1)}\right)}\right)
+0 & \dots & \left(\frac{\newoverline{w^{(n)}}_{N_L - 1}\Delta t}{2\left(z_{N_L - 2} - z_{N_L - 1}\right)}\right) & \left(1 - \frac{\newoverline{w^{(n)}}_{N_L - 1 - 1/2}\Delta t}{2\left(z_{N_L - 2} - z_{N_L - 1}\right)}\right)
 \end{array}\right).\nonumber\\
 & 
 \end{align}
@@ -20214,49 +20231,49 @@ Für die Matrix $\overleftrightarrow{A}$ erhält man
 Sei $w$ eine vertikale Vektorkomponente. Vorbereitend wird das Crank-Nicolson-Verfahren\index{Crank-Nicolson-Verfahren} mit $n$ als gegenwärtigem Zeitschritt notiert:
 %
 \begin{align}
-w_{n + 1} = w_n + \frac{\Delta t}{2}\left(\frac{\partial w_n}{\partial t} + \frac{\partial w_{n + 1}}{\partial t}\right)
+w^{(n + 1)} = w^{(n)} + \frac{\Delta t}{2}\left(\frac{\partial w^{(n)}}{\partial t} + \frac{\partial w^{(n + 1)}}{\partial t}\right)
 \end{align}
 %
 An dieser Stelle geht es dabei nur um vertikale Advektion\index{Advektion!vertikale}, die anderen Terme werden explizit berechnet:
 %
 \begin{align}
-w_{n + 1} = w_n + \Delta t\newdot{w}_n^{(\text{expl})} - \frac{w_n\Delta t}{2}\left(\frac{\partial w_n}{\partial z} + \frac{\partial w_{n + 1}}{\partial z}\right)
+w^{(n + 1)} = w^{(n)} + \Delta t\newdot{w}^{(n)}_{(\text{expl})} - \frac{w^{(n)}\Delta t}{2}\left(\frac{\partial w^{(n)}}{\partial z} + \frac{\partial w^{(n + 1)}}{\partial z}\right)
 \end{align}
 %
 Die vertikale Diskretisierung erfordert einen Levelindex $0 \leq i \leq N_L - 2$. Hierbei ist $i = 1$ das erste Level (nicht das nullte), da im nullten Level $w$ aus der oberen Randbedingung bekannt ist.
 %
 \begin{align}
-w_{n + 1}^{(i)} = w_n^{(i)} + \Delta t\newdot{w}_n^{(\text{expl})} - \frac{w_n^{(i)}\Delta t}{2}\left(\frac{w_n^{(i - 1)} - w_n^{(i + 1)}}{z^{(i - 1)} - z^{(i + 1)}} + \frac{w_{n + 1}^{(i - 1)} - w_{n + 1}^{(i + 1)}}{z^{(i - 1)} - z^{(i + 1)}}\right)
+w^{(n + 1)}_{i - 1/2} = w^{(n)}_{i - 1/2} + \Delta t\newdot{w}^{(n)}_{(\text{expl})} - \frac{w^{(n)}_{i - 1/2}\Delta t}{2}\left(\frac{w^{(n)}_{i - 1 - 1/2} - w^{(n)}_{i + 1 - 1/2}}{z_{i - 1} - z_{i + 1}} + \frac{w^{(n + 1)}_{i - 1 - 1/2} - w^{(n + 1)}_{i + 1 - 1/2}}{z_{i - 1} - z_{i + 1}}\right)
 \end{align}
 %
 Diese Gleichung wird noch einmal notiert, dabei werden die Unbekannten \textcolor{red}{rot} notiert, die Bekannten \textcolor{blue}{blau} und die Vorfaktoren der Unbekannten schwarz:
 %
 \begin{align}
-\textcolor{red}{w_{n + 1}^{(i)}} = \textcolor{blue}{w_n^{(i)} + \Delta t\newdot{w}_n^{(\text{expl})} - \frac{w_n^{(i)}\Delta t}{2}\frac{w_n^{(i - 1)} - w_n^{(i + 1)}}{z^{(i - 1)} - z^{(i + 1)}}} - \frac{w_n^{(i)}\Delta t}{2\left(z^{(i - 1)} - z^{(i + 1)}\right)}\textcolor{red}{w_{n + 1}^{(i - 1)}} + \frac{w_n^{(i)}\Delta t}{2\left(z^{(i - 1)} - z^{(i + 1)}\right)}\textcolor{red}{w_{n + 1}^{(i + 1)}}\nonumber\\
+\textcolor{red}{w^{(n + 1)}_{i - 1/2}} = \textcolor{blue}{w^{(n)}_{i - 1/2} + \Delta t\newdot{w}^{(n)}_{(\text{expl})} - \frac{w^{(n)}_{i - 1/2}\Delta t}{2}\frac{w^{(n)}_{i - 1 - 1/2} - w^{(n)}_{i + 1 - 1/2}}{z_{i - 1} - z_{i + 1}}} - \frac{w^{(n)}_{i - 1/2}\Delta t}{2\left(z_{i - 1} - z_{i + 1}\right)}\textcolor{red}{w^{(n + 1)}_{i - 1}} + \frac{w^{(n)}_{i}\Delta t}{2\left(z_{i - 1} - z_{i + 1}\right)}\textcolor{red}{w^{(n + 1)}_{i + 1}}\nonumber\\
 & 
 \end{align}
 %
-Im nullten Level gilt
+Im -0,5-ten Level gilt
 %
 \begin{align}
-\textcolor{red}{w_{n + 1}^{(0)}} = \textcolor{blue}{w_n^{(0)} + \Delta t\newdot{w}_n^{(\text{expl})} - \frac{w_n^{(0)}\Delta t}{2}\frac{w_n^{(-1)} - w_n^{(1)}}{z^{(-1)} - z^{(1)}}} - \frac{w_n^{(0)}\Delta t}{2\left(z^{(-1)} - z^{(1)}\right)}w_{n + 1}^{(-1)} + \frac{w_n^{(0)}\Delta t}{2\left(z^{(-1)} - z^{(1)}\right)}\textcolor{red}{w_{n + 1}^{(1)}}
+\textcolor{red}{w^{(n + 1)}_{-1/2}} = \textcolor{blue}{w^{(n)}_{0} + \Delta t\newdot{w}^{(n)}_{(\text{expl})} - \frac{w^{(n)}_{-1/2}\Delta t}{2}\frac{w^{(n)}_{-1} - w^{(n)}_{1 - 1/2}}{z_{-1} - z_{1}}} - \frac{w^{(n)}_{-1/2}\Delta t}{2\left(z_{-1} - z_{1}\right)}w^{(n + 1)}_{-1/2} + \frac{w^{(n)}_{0}\Delta t}{2\left(z_{-1} - z_{1}\right)}\textcolor{red}{w^{(n + 1)}_{-1/2}}
 \end{align}
 %
-Hierbei ist $w^{(-1)} = 0$ aus der oberen Randbedingung bekannt. Im untersten Level gilt mit $i = N_L - 2$ die Gleichung
+Hierbei ist $w_{-1/2} = 0$ aus der oberen Randbedingung bekannt. Im untersten Level gilt mit $i = N_L - 2$ die Gleichung
 %
 \begin{align}
-\textcolor{red}{w_{n + 1}^{(N_L - 2)}} & = \textcolor{blue}{w_n^{(N_L - 2)} + \Delta t\newdot{w}_n^{(\text{expl})} - \frac{w_n^{(N_L - 2)}\Delta t}{2}\frac{w_n^{(N_L - 3)} - w_n^{(N_L - 1)}}{z^{(N_L - 3)} - z^{(N_L - 1)}}} - \frac{w_n^{(N_L - 2)}\Delta t}{2\left(z^{(N_L - 3)} - z^{(N_L - 1)}\right)}\textcolor{red}{w_{n + 1}^{(N_L - 3)}}\nonumber\\
-&  +\frac{w_n^{(N_L - 2)}\Delta t}{2\left(z^{(N_L - 3)} - z^{(N_L - 1)}\right)}w_{n + 1}^{(N_L - 1)}
+\textcolor{red}{w^{(n + 1)}_{N_L - 2 - 1/2}} & = \textcolor{blue}{w^{(n)}_{N_L - 2 - 1/2} + \Delta t\newdot{w}^{(n)}_{(\text{expl})} - \frac{w^{(n)}_{N_L - 2 - 1/2}\Delta t}{2}\frac{w^{(n)}_{N_L - 3 - 1/2} - w^{(n)}_{N_L - 1 - 1/2}}{z_{N_L - 3} - z_{N_L - 1}}} - \frac{w^{(n)}_{N_L - 2 - 1/2}\Delta t}{2\left(z_{N_L - 3} - z_{N_L - 1}\right)}\textcolor{red}{w^{(n + 1)}_{N_L - 3 - 1/2}}\nonumber\\
+&  +\frac{w^{(n)}_{N_L - 2 - 1/2}\Delta t}{2\left(z_{N_L - 3} - z_{N_L - 1}\right)}w^{(n + 1)}_{N_L - 1 - 1/2}
 \end{align}
 %
-$w_{n + 1}^{(N_L - 1)}$ ist aus der unteren Randbedingung bekannt. Man definiert den Vektor $\mathbf{W}$ der Unbekannten durch
+$w^{(n + 1)}_{N_L - 1/2}$ ist aus der unteren Randbedingung bekannt. Man definiert den Vektor $\mathbf{W}$ der Unbekannten durch
 %
 \begin{align}
 \mathbf{W} = \left(\begin{array}{c}
-w_{n + 1}^{(0)}\\
-w_{n + 1}^{(1)}\\
+w^{(n + 1)}_{1/2}\\
+w^{(n + 1)}_{1 + 1/2}\\
 \vdots\\
-w_{n + 1}^{(N_L - 2)}
+w^{(n + 1)}_{N_L - 1 - 1/2}
 \end{array}\right),
 \end{align}
 %
@@ -20270,26 +20287,35 @@ mit einer Matrix $\overleftrightarrow{A}$ und einer rechten Seite $\mathbf{b}$. 
 %
 \begin{align}
 \mathbf{b} = \left(\begin{array}{c}
-w_n^{(0)} + \Delta t\newdot{w}_n^{(\text{expl})} - \frac{w_n^{(0)}\Delta t}{2}\frac{w_n^{(-1)} - w_n^{(1)}}{z^{(-1)} - z^{(1)}}\\
-w_n^{(1)} + \Delta t\newdot{w}_n^{(\text{expl})} - \frac{w_n^{(1)}\Delta t}{2}\frac{w_n^{(0)} - w_n^{(2)}}{z^{(0)} - z^{(2)}}\\
-w_n^{(2)} + \Delta t\newdot{w}_n^{(\text{expl})} - \frac{w_n^{(2)}\Delta t}{2}\frac{w_n^{(1)} - w_n^{(3)}}{z^{(1)} - z^{(3)}}\\
+w^{(n)}_{1 - 1/2} + \Delta t\newdot{w}^{(n)}_{(\text{expl})} - \frac{w^{(n)}_{1 - 1/2}\Delta t}{2}\frac{w^{(n)}_{-1/2} - w^{(n)}_{2 - 1/2}}{z_{-1} - z_{1}}\\
+w^{(n)}_{2 - 1/2} + \Delta t\newdot{w}^{(n)}_{(\text{expl})} - \frac{w^{(n)}_{1}\Delta t}{2}\frac{w^{(n)}_{1 - 1/2} - w^{(n)}_{3 - 1/2}}{z_{1 - 1/2} - z_{3 - 1/2}}\\
+w^{(n)}_{3 - 1/2} + \Delta t\newdot{w}^{(n)}_{(\text{expl})} - \frac{w^{(n)}_{2}\Delta t}{2}\frac{w^{(n)}_{2 - 1/2} - w^{(n)}_{4 - 1/2}}{z_{2 - 1/2} - z_{4 - 1/2}}\\
 \vdots\\
-w_n^{(N_L - 3)} + \Delta t\newdot{w}_n^{(\text{expl})} - \frac{w_n^{(N_L - 3)}\Delta t}{2}\frac{w_n^{(N_L - 4)} - w_n^{(N_L - 2)}}{z^{(N_L - 4)} - z^{(N_L - 2)}}\\
-w_n^{(N_L - 2)} + \Delta t\newdot{w}_n^{(\text{expl})} - \frac{w_n^{(N_L - 2)}\Delta t}{2}\frac{w_n^{(N_L - 3)} - w_n^{(N_L - 1)}}{z^{(N_L - 3)} - z^{(N_L - 1)}}
+w^{(n)}_{N_L - 2 - 1/2} + \Delta t\newdot{w}^{(n)}_{(\text{expl})} - \frac{w^{(n)}_{N_L - 2 - 1/2}\Delta t}{2}\frac{w^{(n)}_{N_L - 3 - 1/2} - w^{(n)}_{N_L - 1 - 1/2}}{z_{N_L - 3 - 1/2} - z_{N_L - 1 - 1/2}}\\
+w^{(n)}_{N_L - 1 - 1/2} + \Delta t\newdot{w}^{(n)}_{(\text{expl})} - \frac{w^{(n)}_{N_L - 1 - 1/2}\Delta t}{2}\frac{w^{(n)}_{N_L - 2 - 1/2} - w^{(n)}_{N_L - 1/2}}{z_{N_L - 2 - 1/2} - z_{N_L - 1/2}}
 \end{array}\right).
 \end{align}
 %
-Für die Matrix $\overleftrightarrow{A}$ erhält man
+Für die Matrix $\overleftrightarrow{A}$ erhält man folgendes:
 %
-\begin{align}
-\overleftrightarrow{A} & = \left(\begin{array}{cccc}
-\left(1 + \frac{w_n^{(0)}\Delta t}{2\left(z^{(-1)} - z^{(1)}\right)}\right) & -\left(\frac{w_n^{(0)}\Delta t}{2\left(z^{(-1)} - z^{(1)}\right)}\right)  & \dots & 0 \\
-\left(\frac{w_n^{(1)}\Delta t}{2\left(z^{(0)} - z^{(2)}\right)}\right) & 1 & -\left(\frac{w_n^{(1)}\Delta t}{2\left(z^{(0)} - z^{(2)}\right)}\right)\hspace{2 cm}\dots &  0 \\
+\small
+\begin{align}\overleftrightarrow{A} & = \left(\begin{array}{cccc}
+\left(1 + \frac{w^{(n)}_{-1/2}\Delta t}{2\left(z_{-1/2} - z_{1 - 1/2}\right)}\right) & -\left(\frac{w^{(n)}_{0}\Delta t}{2\left(z_{-1/2} - z_{1 - 1/2}\right)}\right)  & \dots & 0 \\
+\left(\frac{w^{(n)}_{2 - 1/2}\Delta t}{2\left(z_{0} - z_{2}\right)}\right) & 1 & -\left(\frac{w^{(n)}_{1}\Delta t}{2\left(z_{1 - 1/2} - z_{3 - 1/2}\right)}\right)\hspace{2 cm}\dots &  0 \\
 \vdots & \hspace{2 cm}\ddots & \ddots & \vdots \\
-0 & \dots & \left(\frac{w_n^{(N_L - 2)}\Delta t}{2\left(z^{(N_L - 3)} - z^{(N_L - 1)}\right)}\right) & \left(1 - \frac{w_n^{(N_L - 2)}\Delta t}{2\left(z^{(N_L - 3)} - z^{(N_L - 1)}\right)}\right)
-\end{array}\right).\nonumber\\
-& 
+0 & \dots & \left(\frac{w^{(n)}_{N_L - 1 - 1/2}\Delta t}{2\left(z_{N_L - 2 - 1/2} - z_{N_L - 1/2}\right)}\right) & \left(1 - \frac{w^{(n)}_{N_L - 1 - 1/2}\Delta t}{2\left(z_{N_L - 2 - 1/2} - z_{N_L - 1/2}\right)}\right)
+\end{array}\right)
 \end{align}
+\normalsize
+
+\subsubsection{Vertikale Advektion einer generalisierten Dichte}
+\label{sec:vertikale_advektion_einer_generalisierten_dichte}
+
+\subsubsection{Horizontales Forward-backward-Verfahren}
+\label{sec:horizontales_forward-backward-Verfahren}
+
+\subsubsection{Konstanthalten des horizontalen Druckgradienten}
+\label{sec:konstanthalten_des_horizontalen_druckgradienten}
 
 \subsection{Zusammenfassung}
 \label{sec:zusammenfassung}
@@ -20307,15 +20333,6 @@ Das Zeitschrittverfahren ist das Runge-Kutta-Verfahren dritter Ordnung. Zusätzl
 \end{enumerate}
 %
 Aus Energieerhaltungsgründen wird für den kovarianten Druckgradienten in allen drei Unterschritten ein gleicher, spezieller Wert verwendet. Die Festlegung auf genau dieses und nicht etwa ein abgewandeltes Verfahren beruht auch auf Erfahrungswerten.
-
-\subsubsection{Vertikale Advektion einer generalisierten Dichte}
-\label{sec:vertikale_advektion_einer_generalisierten_dichte}
-
-\subsubsection{Horizontales Forward-backward-Verfahren}
-\label{sec:horizontales_forward-backward-Verfahren}
-
-\subsubsection{Konstanthalten des horizontalen Druckgradienten}
-\label{sec:konstanthalten_des_horizontalen_druckgradienten}
 
 \section{Zeitschrittverfahren: Variante II}
 \label{sec:zeitschrittverfahren_variante_ii}\index{Zeitschrittverfahren!im dynamischen Kern}\index{dynamischer Kern!Zeitschrittverfahren}\index{Kern!dynamischer!Zeitschrittverfahren}
@@ -21847,8 +21864,8 @@ Für das Vektorprodukt\index{Vektorprodukt!generalisierte Koordinaten}\index{gen
 \begin{align}
 \mathbf{v}\times\mathbf{w} = \left|\begin{array}{ccc}
 \mathbf{q}_2\times\mathbf{q}_3 & \mathbf{q}_3\times\mathbf{q}_1 & \mathbf{q}_1\times\mathbf{q}_2\\
-v^{(1)} & v^{(2)} & v^{(3)}\\
-w^{(1)} & w^{(2)} & w^{(3)}
+v^{(1)} & v^{(2)} & v^{3}\\
+w^{(1)} & w^{(2)} & w^{3}
 \end{array}\right|\label{eq:vector_product_gen}
 \end{align}
 %
@@ -21869,7 +21886,7 @@ Es gilt also
 \begin{align}
 \nabla\times\mathbf{v} = \frac{1}{\sqrt{g}}\left|\begin{array}{ccc}
 \mathbf{q}_1 & \mathbf{q}_2 & \mathbf{q}_3 \\
-\frac{\partial}{\partial q^{(1)}} & \frac{\partial}{\partial q^{(2)}} & \frac{\partial}{\partial q^{(3)}} \\
+\frac{\partial}{\partial q^{(1)}} & \frac{\partial}{\partial q^{(2)}} & \frac{\partial}{\partial q^{3}} \\
 v_1 & v_2 & v_3 
 \end{array}\right|\label{eq:rot_gen}
 \end{align}
