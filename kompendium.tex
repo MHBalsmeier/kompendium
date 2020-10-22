@@ -8830,19 +8830,29 @@ für $x \in \left\{\rho, q_1, \mathbf{v}\right\}$. Somit gilt
 \frac{dF\left[\mathbf{u}\right]}{dt} &= \left\lbrace F, H\right\rbrace = \int_A\frac{\delta F}{\delta \rho}\cdot\frac{\partial\rho}{\partial t}d^3r + \int_A\frac{\delta F}{\delta q_1}\cdot\frac{\partial q_1}{\partial t}d^3r + \int_A\frac{\delta F}{\delta \mathbf{v}}\cdot\frac{\partial\mathbf{v}}{\partial t}d^3r.\label{eq:poisson_bracket_atm_gen_deriv_0}
 \end{align}
 %
-Bei der Wahl von $q_1$ schränkt man sich nun auf Erhaltungsgrößen ein, für diese gilt
+Bei der Wahl von $q_1$ schränkt man sich nun Größen ein, für die
 %
 \begin{align}
-\frac{\partial q_1}{\partial t} = -\nabla\cdot\left(q_1\mathbf{v}\right).
+\frac{\partial q_1}{\partial t} = -\nabla\cdot\left(q_1\mathbf{v}\right)\label{eq:deriv_q_1_entropy}
 \end{align}
 %
-Dies impliziert
+gilt. Definieren $q_1' \coloneqq \frac{q_1}{\rho}$, dann folgt aus Glg. \eqref{eq:deriv_q_1_entropy}
 %
 \begin{align}
-\frac{q_1}{\rho} = f\left(s\right),
+\frac{\partial\left(\rho q_1'\right)}{\partial t} &= -\nabla\cdot\left(\rho q_1'\mathbf{v}\right)\nonumber\\
+\Leftrightarrow q_1'\frac{\partial\rho}{\partial t} + \rho\frac{\partial q_1'}{\partial t} &= -q_1'\nabla\cdot\left(\rho\mathbf{v}\right) - \rho\mathbf{v}\cdot\nabla q_1'\nonumber\\
+\stackrel{\text{Kontinuitätsglg.}}{\Leftrightarrow} \rho\frac{\partial q_1'}{\partial t} &= -\rho\mathbf{v}\cdot\nabla q_1' \Leftrightarrow \md{q_1'} = 0.
 \end{align}
 %
-wobei $s$ die spezifische Entropie ist. Definiere $p_x$ für $x \in \left\{\rho, q_1, \mathbf{v}\right\}$ als zur Zustandsvariable $x$ gehörenden kanonischen Impuls. Aufgrund von Glg. \eqref{eq:hamilton_1} gilt
+$q_1'$ ist also eine thermodynamische Zustandsgröße, welche sich bei adiabatischen Vorgängen nicht ändert. Dies impliziert
+%
+\begin{align}
+q_1' = \frac{q_1}{\rho} = f\left(s\right),
+\end{align}
+%
+wobei $s$ die spezifische Entropie ist.
+
+Definiere $p_x$ für $x \in \left\{\rho, q_1, \mathbf{v}\right\}$ als zur Zustandsvariable $x$ gehörenden kanonischen Impuls. Aufgrund von Glg. \eqref{eq:hamilton_1} gilt
 %
 \begin{align}
 \frac{\delta H}{\delta p_\rho} &= \frac{\partial\rho}{\partial t} = -\nabla\cdot\left(\rho\mathbf{v}\right) = -\nabla\cdot\frac{\delta H}{\delta\mathbf{v}},\\
@@ -17181,6 +17191,30 @@ Y_{l, m}\left(\varphi, \lambda\right) = \sqrt{\frac{2l + 1}{4\pi}\frac{\left(l -
 \chapter{\normalfont\textsc{Zeitschrittverfahren}}
 \label{chap:zeitschrittverfahren}\index{Zeitschrittverfahren}
 
+Sei $\psi: A \subseteq \mathbb{R}^3 \times \mathbb{R} \to \mathbb{R}^n$ der atmosphärische Zustandsvektor. Alle fundamentalen physikalischen Gesetze sind erster Ordnung in der Zeit, daher kann man schreiben
+%
+\begin{align}
+\frac{d\psi}{dt} = F\left(\psi\right),
+\end{align}
+%
+wobei $F$ die Physik enthält. Diskretisiert man dies auf ein zeitliches Gitter $n\Delta t$ mit $n \in \mathbb{Z}$ und interpoliert zwischen zwei Zeitschritten $n$, $n + l$, erhält man
+%
+\begin{align}
+\psi_{n + l} - \psi_{n} = \int_{n\Delta t}^{\left(n + l\right)\Delta t}F\left(\psi\right)dt.
+\end{align}
+%
+Die Anzahl der dabei involvierten Zeitschritte ist $l + 1$. Man kann nun das Integral auf der rechten Seite auf vielfälitge Art und Weise diskretisieren. Das explizite Euler-Verfahren\index{explizites Eueler-Verfahren}\index{Euler-Verfahren!explizites} ergibt sich mit $l = 1$ über die Näherung
+%
+\begin{align}
+\int_{n\Delta t}^{\left(n + 1\right)\Delta t}F\left(\psi\right)dt \approx F\left(\psi_{n}\right)\Delta t
+\end{align}
+%
+mit $\psi_{n} \coloneqq \psi\left(n\Delta t\right)$. Das implizite Euler-Verfahren\index{implizites Eueler-Verfahren}\index{Euler-Verfahren!implizites} hingegen erhält man über
+%
+\begin{align}
+\int_{n\Delta t}^{\left(n + 1\right)\Delta t}F\left(\psi\right)dt \approx F\left(\psi_{n + 1}\right)\Delta t
+\end{align}
+
 In diesem Kapitel soll verständlich gemacht werden, wie sich die zeitliche Disktretisierung einer linearen Differenzialgleichung auf die Dispersionsrelation und die Stabilität einer Wellenlösung auswirken kann. Es wird die lineare Advektionsgleichung 
 %
 \begin{align}
@@ -19652,6 +19686,38 @@ Die \textit{shallow-atmosphere}-Aprroximation\index{shallow atmosphere} geht von
 }}
 \end{center}
 
+\subsection{\textsc{SLEVE}}
+\label{sec:sleve}\index{SLEVE}
+
+\section{Felder}
+\label{sec:felder}\index{Feld!im Modell}
+
+Zunächst einige Definitionen. Seien $f$ ein Skalarfeld und $\mathbf{v}, \mathbf{w}$ Vektorfelder, dann bezeichne die diskretisierten Versionen dieser Felder durch $f', \mathbf{v}', \mathbf{w}'$. Seien weiter $B\subseteq\mathbb{R}^3$ eine Gitterbox mit dem Volumen $V\left(B\right), B_A$ die Menge aller Seitenflächen von $B$ und $B_B$ die Menge aller angrenzenden Gitterboxen, bezeichne weiter den Abstand zweier Gitterboxen $B, B'$ mit $B'\in B_B$ durch $L_{B, B'}$. Definiere außerdem für alle $B'\in B_B$ eine Abbildung $A = A\left(B'\right)$ sowie für alle $A\in B_A$ eine Abbildung $B' = B'\left(A\right)$, welche jede angrenzende Fläche $A$ mit der jeweiligen Gitterbox $B'$ verknüpfen. Für den Flächeninhalt einer Fläche $A\subseteq\mathbb{R}^3$ wird der Ausdruck $V_2\left(A\right)\geq 0$ notiert. Die diskretisierten Operatoren werden, genau wie die Felder, mit gestrichenen Symbolen gekennzeichnet, um sie von ihren kontinuierlichen Gegenstücken abzugrenzen. Wichtig ist außerdem, zu berücksichtigen, dass horizontale Verbindungslinien entlang eines Großkreises berechnet werden.
+
+Der Strich als Symbol der Diskretisierung wird von nun an vernachlässigt.
+
+\subsection{Skalarfelder}
+\label{sec:skalarfelder}\index{Skalarfeld!im Modell}\index{Modell!Skalarfeld}
+
+Die Übersetzung $f\to f'$ definiert man durch
+%
+\begin{align}
+f_B' \coloneqq\frac{1}{V\left(B\right)}\int_Bfd^3r
+\end{align}
+%
+für alle Gitterboxen $B$. Die Gitterpunkte der skalaren Variablen befinden sich in den massengewichteten Zentren der Gitterboxen, wobei von der Standardatmosphäre\index{Standardatmosphäre} ausgegangen wird.
+
+\subsection{Vektorfelder}
+\label{sec:vektorfelder}\index{Vektorfelder!im Modell}\index{Modell!Vektorfeld}
+
+Für Vektorfelder verwendet man in der Horizontalen kovariante Komponenten, während man in der Vertikalen die kontravariante Komponente verwendet, damit in der Impulsgleichung unter der SGA\index{SGA (spherical geopotential approximation)}\index{spherical geopotential approximation (SGA)} keine Schwere auftritt. Dies ist zwar ungewöhnlich, aber nicht unmöglich, da die auftretenden Basisvektoren immer linear unabhöngig sind, außerdem werden die Geschwindigkeitskomponenten ja nicht am selben Ort platziert.
+
+Im Falle von Kugelkoordinaten, also oberhalb des Layers oberhalb von $\newtilde{z}$, tritt eine richtungsmäßige Unterscheidung von ko- und kontravarianten Basisvektoren nicht mehr auf, die Kugelkkordinaten nach Absch. \ref{sec:kugelkoordinaten} orthogonal sind.
+
+\subsection{Rotationsfelder}
+\label{sec:rotationsfelder}\index{Rotationsfeld}\index{Modell!Rotationsfeld}
+
+
 \subsection{Rekonstruktion der vertikalen kontravarianten Maßzahl}
 \label{sec:rekonstruktion_der_vertikalen_kontravarianten_maßzahl}\index{kontravariante Maßzahl!Rekonstruktion (geländefolgende Koordinaten)}\index{Maßzahl!kontravariante!Rekonstruktion (geländefolgende Koordinaten)}
 
@@ -19711,7 +19777,7 @@ Verallgemeinert dies auf eine dreidimensionale C-Gitter-Diskretisierung\index{C-
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-v^{(v)}_{c, k + \frac{1}{2}, \text{GK}} = w_{c, k + \frac{1}{2}} - \newoverline{\newoverline{u_{e, k}J_{n, e, k}}^{(c)}}^{(k + \frac{1}{2})}.
+v^{(v)}_{c, k + \frac{1}{2}, \text{GK}} = w_{c, k + \frac{1}{2}} - \newoverline{\newoverline{u_{e, k}J_{n, e, k}}^{(c)}}^{(k + \frac{1}{2})}.\label{eq:contravariant_vertical_measure_number}
 \end{align}
 \end{center}
 }}
@@ -19782,39 +19848,8 @@ v_{h, e, k, \text{GK}} = u_{e, k} + \newoverline{\newoverline{w_{c, k + \frac{1}
 }}
 \end{center}
 
-\subsection{\textsc{SLEVE}}
-\label{sec:sleve}\index{SLEVE}
-
 \section{Ellipsoidische Modifikation des Gitters}
 \label{sec:ellipsoidische_modifikation_des_gitters}\index{Gitter!ellipsoidische Modifikation}\index{ellipsoidisches Gitter}
-
-\section{Felder}
-\label{sec:felder}\index{Feld!im Modell}
-
-Zunächst einige Definitionen. Seien $f$ ein Skalarfeld und $\mathbf{v}, \mathbf{w}$ Vektorfelder, dann bezeichne die diskretisierten Versionen dieser Felder durch $f', \mathbf{v}', \mathbf{w}'$. Seien weiter $B\subseteq\mathbb{R}^3$ eine Gitterbox mit dem Volumen $V\left(B\right), B_A$ die Menge aller Seitenflächen von $B$ und $B_B$ die Menge aller angrenzenden Gitterboxen, bezeichne weiter den Abstand zweier Gitterboxen $B, B'$ mit $B'\in B_B$ durch $L_{B, B'}$. Definiere außerdem für alle $B'\in B_B$ eine Abbildung $A = A\left(B'\right)$ sowie für alle $A\in B_A$ eine Abbildung $B' = B'\left(A\right)$, welche jede angrenzende Fläche $A$ mit der jeweiligen Gitterbox $B'$ verknüpfen. Für den Flächeninhalt einer Fläche $A\subseteq\mathbb{R}^3$ wird der Ausdruck $V_2\left(A\right)\geq 0$ notiert. Die diskretisierten Operatoren werden, genau wie die Felder, mit gestrichenen Symbolen gekennzeichnet, um sie von ihren kontinuierlichen Gegenstücken abzugrenzen. Wichtig ist außerdem, zu berücksichtigen, dass horizontale Verbindungslinien entlang eines Großkreises berechnet werden.
-
-Der Strich als Symbol der Diskretisierung wird von nun an vernachlässigt.
-
-\subsection{Skalarfelder}
-\label{sec:skalarfelder}\index{Skalarfeld!im Modell}\index{Modell!Skalarfeld}
-
-Die Übersetzung $f\to f'$ definiert man durch
-%
-\begin{align}
-f_B' \coloneqq\frac{1}{V\left(B\right)}\int_Bfd^3r
-\end{align}
-%
-für alle Gitterboxen $B$. Die Gitterpunkte der skalaren Variablen befinden sich in den massengewichteten Zentren der Gitterboxen, wobei von der Standardatmosphäre\index{Standardatmosphäre} ausgegangen wird.
-
-\subsection{Vektorfelder}
-\label{sec:vektorfelder}\index{Vektorfelder!im Modell}\index{Modell!Vektorfeld}
-
-Für Vektorfelder verwendet man in der Horizontalen kovariante Komponenten, während man in der Vertikalen die kontravariante Komponente verwendet, damit in der Impulsgleichung unter der SGA\index{SGA (spherical geopotential approximation)}\index{spherical geopotential approximation (SGA)} keine Schwere auftritt. Dies ist zwar ungewöhnlich, aber nicht unmöglich, da die auftretenden Basisvektoren immer linear unabhöngig sind, außerdem werden die Geschwindigkeitskomponenten ja nicht am selben Ort platziert.
-
-Im Falle von Kugelkoordinaten, also oberhalb des Layers oberhalb von $\newtilde{z}$, tritt eine richtungsmäßige Unterscheidung von ko- und kontravarianten Basisvektoren nicht mehr auf, die Kugelkkordinaten nach Absch. \ref{sec:kugelkoordinaten} orthogonal sind.
-
-\subsection{Rotationsfelder}
-\label{sec:rotationsfelder}\index{Rotationsfeld}\index{Modell!Rotationsfeld}
 
 \chapter{\normalfont\textsc{Reversible Dynamik}}
 \label{chap:reversible_dynamik}\index{reversible Dynamik}\index{Dynamik!reversible}
@@ -19870,13 +19905,13 @@ Die Form der prognostischen Gleichungen\index{prognostische Gleichung}\index{Gle
 \frac{\partial\mathbf{v}}{\partial t} & = -c^{(p)}\nabla T + T\nabla s - \nabla k + \mathbf{v}\times\etabi - \nabla\phi,\label{eq:prog_rev_0}\\
 \frac{\partial\rho}{\partial t} & = -\nabla\cdot\left(\rho\mathbf{v}\right),\label{eq:prog_rev_1}\\
 \frac{\partial\newtilde{s}}{\partial t} & = -\nabla\cdot\left(\newtilde{s}\mathbf{v}\right),\label{eq:prog_rev_2}\\
-T_1 & = \frac{c^{(v)}\rho_0T_0 + \left(R_dT_0 - \frac{R_d}{c^{(p)}}s_0T_0\right)\Delta\rho + \frac{R_d}{c^{(p)}}T_0\Delta\newtilde{s}}{c^{(v)}\rho_0 + \frac{c^{(v)}}{c^{(p)}}s_1\Delta\rho - \frac{c^{(v)}}{c^{(p)}}\Delta\newtilde{s}}.\label{eq:prog_rev_3}
+T_1 & = f\left(\rho, \newtilde{s}\right).\label{eq:prog_rev_3}
 \end{align}
 \end{center}
 }}
 \end{center}
 %
-Der Druckgradient\index{Druckgradient} wurde dabei in der Form
+Die Funktion $f$ in Glg. \eqref{eq:prog_rev_3} sei die thermische Zustandsgleichung idealer Gase\index{thermische Zustandsgleichung idealer Gase}\index{Zustandsgleichung!thermische!idealer Gase}\index{ideales Gas!thermische Zustandsgleichung}. Der Druckgradient\index{Druckgradient} wurde dabei in der Form
 %
 \begin{align}
 -\nabla G - s\nabla T = -\nabla\left(c^{(p)}\nabla T - sT\right) - s\nabla T = -c^{(p)}\nabla T + T\nabla s
@@ -19890,8 +19925,8 @@ umgeschrieben, da dies die implizite Behandlung vertikal propagierender Schallwe
 \subsection{Volumengewichtete Mittelungsoperatoren}
 \label{sec:volumengewichtete_mittelungsoperatoren}
 
-\subsection{Die innere-Energie-Klammer}
-\label{sec:die_innere-energie-klammer}
+\subsection{Massendichte-Klammer}
+\label{sec:massendichte-klammer}
 
 Das Produkt eines Skalarfeldes $\psi$ mit einem Vektorfeld $\mathbf{v}$ ist ein Vektorfeld $\mathbf{w}$, man notiert
 %
@@ -19952,35 +19987,18 @@ woraus man die Bedingung
 %
 für alle $1 \leq b \leq N_b$ ableitet.
 
-\subsection{Die kinetische-Energie-Klammer}
+\subsection{Entropiedichte-Klammer}
+\label{sec:entropiedichte-klammer}
+
+\subsection{Helizitäts-Klammer}
+\label{sec:helizitäts-klammer}
+
+\subsection{Überprüfung der Energieerhaltung}
+\label{sec:überprüfung_der_energieerhaltung}
 
 \section{Zeitschrittverfahren: Variante I}
 \label{sec:zeitschrittverfahren_variante_i}\index{Zeitschrittverfahren!im dynamischen Kern}\index{dynamischer Kern!Zeitschrittverfahren}\index{Kern!dynamischer!Zeitschrittverfahren}
 
-Sei $\psi: A \subseteq \mathbb{R}^3 \times \mathbb{R} \to \mathbb{R}^n$ der atmosphärische Zustandsvektor. Alle fundamentalen physikalischen Gesetze sind erster Ordnung in der Zeit, daher kann man schreiben
-%
-\begin{align}
-\frac{d\psi}{dt} = F\left(\psi\right),
-\end{align}
-%
-wobei $F$ die Physik enthält. Diskretisiert man dies auf ein zeitliches Gitter $n\Delta t$ mit $n \in \mathbb{Z}$ und interpoliert zwischen zwei Zeitschritten $n$, $n + l$, erhält man
-%
-\begin{align}
-\psi_{n + l} - \psi_{n} = \int_{n\Delta t}^{\left(n + l\right)\Delta t}F\left(\psi\right)dt.
-\end{align}
-%
-Die Anzahl der dabei involvierten Zeitschritte ist $l + 1$. Man kann nun das Integral auf der rechten Seite auf vielfälitge Art und Weise diskretisieren. Das explizite Euler-Verfahren\index{explizites Eueler-Verfahren}\index{Euler-Verfahren!explizites} ergibt sich mit $l = 1$ über die Näherung
-%
-\begin{align}
-\int_{n\Delta t}^{\left(n + 1\right)\Delta t}F\left(\psi\right)dt \approx F\left(\psi_{n}\right)\Delta t
-\end{align}
-%
-mit $\psi_{n} \coloneqq \psi\left(n\Delta t\right)$. Das implizite Euler-Verfahren\index{implizites Eueler-Verfahren}\index{Euler-Verfahren!implizites} hingegen erhält man über
-%
-\begin{align}
-\int_{n\Delta t}^{\left(n + 1\right)\Delta t}F\left(\psi\right)dt \approx F\left(\psi_{n + 1}\right)\Delta t
-\end{align}
-%
 Es besteht folgender Konflikt zwischen expliziten\index{explizites Zeitschrittverfahren}\index{Zeitschrittverfahren!explizites} und impliziten Verfahren\index{implizites Zeitschrittverfahren}\index{Zeitschrittverfahren!implizites}:
 %
 \begin{itemize}
@@ -19988,24 +20006,113 @@ Es besteht folgender Konflikt zwischen expliziten\index{explizites Zeitschrittve
 \item Implizite Verfahren\index{implizites Zeitschrittverfahren}\index{Zeitschrittverfahren!implizites} sind aufwendiger zu implementieren. Ihre Geschwindigkeit hängt von der Komplexität des Problems ab. Sie sind stabiler als explizite Verfahren und ermöglichen einen großen Zeitschritt, was positiv zu ihrer Performance beiträgt.
 \end{itemize}
 %
-Hieraus folgt, dass ein schnelles implizites Verfahren ideal für einen dynamischen Kern wäre. Da die zu lösenden Gleichungen jedoch nichtlinear sind, ist ein dreidimensional implizites Verfahren nur über ein iteratives Vorgehen möglich. Bisher ist es nicht gelungen, hier eine zufriedenstellende Konvergenzgeschwindigkeit zu erreichen. Daher wählt man als Kompromiss das \textit{HEVI-Konzept,}\index{HEVI-Konzept} was für \textit{horizontally explicit, vertically implicit}\index{horizontally explicit, vertically implicit (HEVI)} steht. Das grundlegende Zeitschrittverfahren des Modells ist das Runge-Kutta-Verfahren dritter Ordnung\index{Runge-Kutta-Verfahren!dritter Ordnung}. Das prinzipielle Vorgehen bei jedem der drei Unterschritte ist folgendes:
+Hieraus folgt, dass ein schnelles implizites Verfahren ideal für einen dynamischen Kern wäre. Da die zu lösenden Gleichungen jedoch nichtlinear sind, ist ein dreidimensional implizites Verfahren nur über ein iteratives Vorgehen möglich. Ein solches wird in Absch. \ref{sec:zeitschrittverfahren_variante_ii} entwickelt. In diesem Abschnitt wählt man als Kompromiss das \textit{HEVI-Konzept,}\index{HEVI-Konzept} was für \textit{horizontally explicit, vertically implicit}\index{horizontally explicit, vertically implicit (HEVI)} steht.
 
-\begin{enumerate}
-\item Zunächst werden die Geschwindigkeitstendenzen des expliziten Anteils berechnet.
-\item Anschließend wird die vertikale Advektion von $\mathbf{v}_h$ mittels eines impliziten Verfahrens berechnet, s. Absch. \ref{sec:vertikale_advektion_des_horizontalwindes}.
-\item Anschließend wird mittels der neuen Werte von $\mathbf{v}_h$ die Vertikalgeschwindigkeit an der Erdoberfläche aus der Bedingung $\mathbf{v}\cdot\mathbf{n} = 0$ am neuen Zeitschritt berechnet.
-\item Anschließend wird die vertikale Advektion von $w$ mittels eines impliziten Verfahrens berechnet, s. Absch. \ref{sec:vertikale_advektion_des_vertikalwindes}.
-\item Nun werden die horizontalen Divergenzen mittels der alten Werte der skalaren Variablen und der neuen Werte der horizontalen Geschwindigkeitskomponenten berechnet.
-\item Mittels des in Absch. \ref{sec:vertikaler_sound_wave_solver} beschriebenen Sound wave solvers werden die kontravarianten Vertikalgeschwindigkeiten ermittelt.
-\item Zuletzt werden mittels der generalisierten Kontinuitätsgleichungen die neuen Werte der Entropie- und Massendichte berechnet, wobei für die Horizontaldivergenz die in Schritt 5 und die Vertikaldivergenz die in Schritt 6 berechneten Windkomponenten verwendet werden.
-\end{enumerate}
+\subsection{Festlegung auf ein Runge-Kutta-Verfahren}
+\label{sec:Festlegung_auf_ein_runge-kutta-verfahren}
+
+Das grundlegende Zeitschrittverfahren des Modells soll explizit sein. Das explizite Euler-Verfahren ist nur erster Ordnung und daher nicht genau genug. Ein Multi-Schritt-Verfahren erzeugt unphysikalische Moden, was ebenfalls unvorteilhaft ist. Daher verwendet man ein Runge-Kutta-Verfahren. Als Konvergenzordnung ist Drei ein guter Kompromiss aus Genauigkeit und Effizienz. Dabei muss man beachten, dass aufgrund der Nichtlinearität das Gleichungssystems die tatsächliche Konvergenzordnung nur Zwei ist.
+
+\subsection{Ausschluss von Split-explicit-Techniken}
+\label{sec:ausschluss_von_split-explicit-techniken}\index{Split-explicit-Technik}
+
+Eine wesentliche Einschränkung in Bezug auf den Zeitschritt und somit auch in Bezug auf die Effizienz eines Modells ist das mit Schallwellen verbundene CFL-Kriterium\index{CFL-Kriterium!Schallwelle}\index{Schallwelle!CFL-Kriterium}. Daher teilt man das Gleichungssystem häufig in sogenannte \textit{fast modes}\index{fast mode} oder \textit{divergent modes}\index{divergent mode} einerseits und die \textit{slow modes}\index{slow mode}, \textit{advective modes}\index{advective mode} oder \textit{non-divergent modes}\index{non-divergent mode} andererseits ein. Die fast modes umfassen dabei alle mit Schallwellen verbundenen Terme, während die slow modes die restlichen Terme umfassen. Bei Split-explicit-Techniken\index{Split-explicit-Technik} integriert man nun die fast modes mit einem ca. dreimal kleineren Zeitschritt. Ein solches Vorgehen ist jedoch ausgeschlossen, wenn man hohe Anforderungen an die energetische Konsistenz eines Zeitschrittverfahrens stellt. Zunächst mal muss man sich klarmachen, dass die Advektion kinetischer Energie mit der Kontinuitätsgleichung in Verbindung steht und daher auch zu den fast modes zählt. Um dies einzuziehen, notiert man die Impulsgleichung in der Form
 %
-Aus Energieerhaltungsgründen wird für den kovarianten Druckgradienten in allen drei Unterschritten ein gleicher, spezieller Wert verwendet. Die Festlegung auf genau dieses und nicht etwa ein abgewandeltes Verfahren beruht auch auf Erfahrungswerten.
+\begin{align}
+\frac{\partial\mathbf{v}}{\partial t} = -\nabla k + \mathbf{l},
+\end{align}
+%
+wobei alle anderen Beschleunigungen im Term $\mathbf{l}$ zusammengefasst wurden. Skalare multiplikation mit $\mathbf{v}$ ergibt
+%
+\begin{align}
+\mathbf{v}\cdot\frac{\partial\mathbf{v}}{\partial t} &= -\mathbf{v}\cdot\nabla k + \mathbf{v}\cdot\mathbf{l}\nonumber\\
+\Leftrightarrow\frac{\partial k}{\partial t} &= -\mathbf{v}\cdot\nabla k + \mathbf{v}\cdot\mathbf{l}.
+\end{align}
+%
+Multipliziert man dies mit der Massendichte $\rho$, erhält man
+%
+\begin{align}
+\rho\frac{\partial k}{\partial t} &= -\rho\mathbf{v}\cdot\nabla k + \rho\mathbf{v}\cdot\mathbf{l}.\label{eq:no-split-explicit_deriv_0}
+\end{align}
+%
+Addiert man hierzu die Kontinuitätsgleichung\index{Kontinuitätsgleichung}, erhält man
+%
+\begin{align}
+\frac{\partial\rho}{\partial t} = -\mathbf{v}\cdot\nabla\rho - \rho\nabla\cdot\mathbf{v}.
+\end{align}
+%
+Multipliziert man dies mit der spezifischen kinetischen Energie $k$, erhält man
+%
+\begin{align}
+k\frac{\partial\rho}{\partial t} = -k\mathbf{v}\cdot\nabla\rho - k\rho\nabla\cdot\mathbf{v}.\label{eq:no-split-explicit_deriv_1}
+\end{align}
+%
+Addiert man die Glg.en \eqref{eq:no-split-explicit_deriv_0} und \eqref{eq:no-split-explicit_deriv_1}, erhält man
+%
+\begin{align}
+\frac{\partial\left(\rho k\right)}{\partial t} = -\nabla\cdot\left(\rho k\mathbf{v}\right) + \mathbf{v}\cdot\mathbf{l}.
+\end{align}
+%
+Hieraus ergibt sich, dass nur das globale Integral über $\mathbf{v}\cdot\mathbf{l}$ zur Evolution der gesamten kinetischen Energie der Atmosphäre beiträgt. Dies wird erst erreicht durch eine Kombination aus Kontinuitätsgleichung und Advektion kinetischer Energie. Somit müssen auch beide Gleichungen bzw. Terme mit dem gleichen Zeitschritt integriert werden. Zur Wahrung des diskretisierten Analogons der Lamb-Transformation $-\left(\mathbf{v}\cdot\nabla\right)\mathbf{v} = -\nabla k - \left(\nabla\times\mathbf{v}\right)\times\mathbf{v}$ muss dann auch der generalisierte Coriolis-Term und somit das komplette Gleichungssystem mit dem kleineren Zeitschritt integriert werden.
 
-\subsection{Modifikation zur Stabilisierung}
-\label{sec:modifikation_zur_stabilisierung}
+\subsection{Modifikationen zur Stabilisierung}
+\label{sec:modifikationen_zur_stabilisierung}
 
-Um in der vertikalen Richtung nicht all zu sehr an das CFL-Kriterium\index{CFL-Kriterium} gebunden zu sein, wird die vertikale Impulsadvektion implizit behandelt. Damit dies nicht auf ein globales nichtlineares Problem führt, muss man dies für jeden horizontalen skalaren und vektoriellen Datenpunkt separat tun.
+\subsubsection{Vertikaler Sound wave solver}
+\label{sec:vertikaler_sound_wave_solver}
+
+Um in der vertikalen Richtung nicht an das CFL-Kriterium\index{CFL-Kriterium} für Schallwellen gebunden zu sein, wird die vertikale Impulsadvektion implizit behandelt. Damit dies nicht auf ein globales nichtlineares Problem führt, muss man dies für jeden horizontalen skalaren und vektoriellen Datenpunkt separat tun.
+
+Zunächst muss festgestellt werden, welche der Terme in Entropieformulierung Schallwellen beschreiben, da diese impliizit behandelt werden müssen. Da Schallwellen adiabatisch sind ist nicht zu erwarten, dass der Anteil des Druckgradienten, der mit dem Gradienten der Entropie zusammenhängt, nicht zu Schallwellen beiträgt. Anders ist es mit dem Gradienten der Enthalpie. Um ein geschlossenes Gleichungssystem zu erhalten, muss daher eine prognostische Gleichung für die Temperatur gefunden werden. Man notiert dazu Glg. \eqref{eq:internal_energy_prognostic} in der Form
+%
+\begin{align}
+\frac{\partial\newtilde{T}}{\partial t} = -\nabla\cdot\left(\newtilde{T}\mathbf{v}\right) - \frac{R_d}{c^{(v)}}\newtilde{T}\nabla\cdot\mathbf{v}
+\end{align}
+%
+als Gleichung für $\newtilde{T} \coloneqq \rho T$. Der erste Term beschreibt die Advektion, diese ist für Schallwellen üblicherweise nicht relevant. Man notiert daher als eindimensionales Gleichungssystem
+%
+\begin{align}
+\frac{\partial w}{\partial t} & = -c^{(p)}\frac{\partial}{\partial z}\left(\frac{\newtilde{T}}{\rho}\right),\label{eq:sound_entropy_0}\\
+\frac{\partial\newtilde{T}}{\partial t} & = -\frac{R_d}{c^{(v)}}\newtilde{T}\frac{\partial w}{\partial z}.\label{eq:sound_entropy_1}
+\end{align}
+%
+Um zu verifizieren, dass dieses tatsächlich Schallwellen beschreibt, macht man den Ansatz
+%
+\begin{align}
+w & = w_1\exp\left(ikz - i\omega t\right),\\
+\newtilde{T} & = \newtilde{T}_0 + \newtilde{T}_1\exp\left(ikz - i\omega t\right).
+\end{align}
+%
+Die Dichte wird als homogen angenommen. Setzt man dies in Glg.en \eqref{eq:sound_entropy_0} - \eqref{eq:sound_entropy_1} ein, folgt
+%
+\begin{align}
+-i\omega w_1 & = -c^{(p)}ik\frac{\newtilde{T}_1}{\rho},\\
+-i\omega\newtilde{T}_1 & = -\frac{R_d}{c^{(v)}}\newtilde{T}_0ikw_1.
+\end{align}
+%
+In Matrixschreibweise erhält man
+%
+\begin{align}
+\left(
+\begin{array}{cc}
+-i\omega & c^{(p)}ik\frac{1}{\rho} \\
+\frac{R_d}{c^{(v)}}\newtilde{T}_0ik & -i\omega \end{array}\right)
+\left(\begin{array}{c}
+w_1 \\
+\newtilde{T}_1
+\end{array}\right) = \left(\begin{array}{c}
+0 \\
+0
+\end{array}\right).
+\end{align}
+%
+Durch Nullsetzen der Determinante erhält man
+%
+\begin{align}
+\omega^2 = \kappa R_dTk^2.
+\end{align}
+%
+Es ergibt sich also die gleiche Dispersionsrelation wie Glg. \eqref{eq:velocity_sound}. Hiermit ist verifiziert, dass die in den Glg.en \eqref{eq:sound_entropy_0} - \eqref{eq:sound_entropy_1} aufgeführten Terme in der Tat Schallwellen beschreiben.
 
 \subsubsection{Vertikale Advektion des Horizontalwindes}
 \label{sec:vertikale_advektion_des_horizontalwindes}
@@ -20184,62 +20291,31 @@ Für die Matrix $\overleftrightarrow{A}$ erhält man
 & 
 \end{align}
 
-\subsubsection{Vertikaler Sound wave solver}
-\label{sec:vertikaler_sound_wave_solver}
+\subsection{Zusammenfassung}
+\label{sec:zusammenfassung}
 
-Zunächst muss festgestellt werden, welche der Terme in Entropieformulierung Schallwellen beschreiben, da diese impliizit behandelt werden müssen. Da Schallwellen adiabatisch sind ist nicht zu erwarten, dass der Anteil des Druckgradienten, der mit dem Gradienten der Entropie zusammenhängt, nicht zu Schallwellen beiträgt. Anders ist es mit dem Gradienten der Enthalpie. Um ein geschlossenes Gleichungssystem zu erhalten, muss daher eine prognostische Gleichung für die Temperatur gefunden werden. Man notiert dazu Glg. \eqref{eq:internal_energy_prognostic} in der Form
+Das Zeitschrittverfahren ist das Runge-Kutta-Verfahren dritter Ordnung. Zusätzlich werden einige Modifikationen zur Stabilisierung und Effizienzerhöhung vorgenommen. Das prinzipielle Vorgehen bei jedem der drei Unterschritte ist folgendes:
+
+\begin{enumerate}
+\item Zunächst werden die Geschwindigkeitstendenzen des expliziten Anteils berechnet.
+\item Anschließend wird die vertikale Advektion von $\mathbf{v}_h$ mittels eines impliziten Verfahrens berechnet, s. Absch. \ref{sec:vertikale_advektion_des_horizontalwindes}.
+\item Anschließend wird mittels der neuen Werte von $\mathbf{v}_h$ die Vertikalgeschwindigkeit an der Erdoberfläche aus der Bedingung $\mathbf{v}\cdot\mathbf{n} = 0$ am neuen Zeitschritt berechnet.
+\item Anschließend wird die vertikale Advektion von $w$ mittels eines impliziten Verfahrens berechnet, s. Absch. \ref{sec:vertikale_advektion_des_vertikalwindes}.
+\item Nun werden die horizontalen Divergenzen mittels der alten Werte der skalaren Variablen und der neuen Werte der horizontalen Geschwindigkeitskomponenten berechnet.
+\item Mittels des in Absch. \ref{sec:vertikaler_sound_wave_solver} beschriebenen Sound wave solvers werden die kontravarianten Vertikalgeschwindigkeiten ermittelt.
+\item Zuletzt werden mittels der generalisierten Kontinuitätsgleichungen die neuen Werte der Entropie- und Massendichte berechnet, wobei für die Horizontaldivergenz die in Schritt 5 und die Vertikaldivergenz die in Schritt 6 berechneten Windkomponenten verwendet werden.
+\end{enumerate}
 %
-\begin{align}
-\frac{\partial\newtilde{T}}{\partial t} = -\nabla\cdot\left(\newtilde{T}\mathbf{v}\right) - \frac{R_d}{c^{(v)}}\newtilde{T}\nabla\cdot\mathbf{v}
-\end{align}
-%
-als Gleichung für $\newtilde{T} \coloneqq \rho T$. Der erste Term beschreibt die Advektion, diese ist für Schallwellen üblicherweise nicht relevant. Man notiert daher als eindimensionales Gleichungssystem
-%
-\begin{align}
-\frac{\partial w}{\partial t} & = -c^{(p)}\frac{\partial}{\partial z}\left(\frac{\newtilde{T}}{\rho}\right),\label{eq:sound_entropy_0}\\
-\frac{\partial\newtilde{T}}{\partial t} & = -\frac{R_d}{c^{(v)}}\newtilde{T}\frac{\partial w}{\partial z}.\label{eq:sound_entropy_1}
-\end{align}
-%
-Um zu verifizieren, dass dieses tatsächlich Schallwellen beschreibt, macht man den Ansatz
-%
-\begin{align}
-w & = w_1\exp\left(ikz - i\omega t\right),\\
-\newtilde{T} & = \newtilde{T}_0 + \newtilde{T}_1\exp\left(ikz - i\omega t\right).
-\end{align}
-%
-Die Dichte wird als homogen angenommen. Setzt man dies in Glg.en \eqref{eq:sound_entropy_0} - \eqref{eq:sound_entropy_1} ein, folgt
-%
-\begin{align}
--i\omega w_1 & = -c^{(p)}ik\frac{\newtilde{T}_1}{\rho},\\
--i\omega\newtilde{T}_1 & = -\frac{R_d}{c^{(v)}}\newtilde{T}_0ikw_1.
-\end{align}
-%
-In Matrixschreibweise erhält man
-%
-\begin{align}
-\left(
-\begin{array}{cc}
--i\omega & c^{(p)}ik\frac{1}{\rho} \\
-\frac{R_d}{c^{(v)}}\newtilde{T}_0ik & -i\omega \end{array}\right)
-\left(\begin{array}{c}
-w_1 \\
-\newtilde{T}_1
-\end{array}\right) = \left(\begin{array}{c}
-0 \\
-0
-\end{array}\right).
-\end{align}
-%
-Durch Nullsetzen der Determinante erhält man
-%
-\begin{align}
-\omega^2 = \kappa R_dTk^2.
-\end{align}
-%
-Es ergibt sich also die gleiche Dispersionsrelation wie Glg. \eqref{eq:velocity_sound}. Hiermit ist verifiziert, dass die in den Glg.en \eqref{eq:sound_entropy_0} - \eqref{eq:sound_entropy_1} aufgeführten Terme in der Tat Schallwellen beschreiben.
+Aus Energieerhaltungsgründen wird für den kovarianten Druckgradienten in allen drei Unterschritten ein gleicher, spezieller Wert verwendet. Die Festlegung auf genau dieses und nicht etwa ein abgewandeltes Verfahren beruht auch auf Erfahrungswerten.
 
 \subsubsection{Vertikale Advektion einer generalisierten Dichte}
 \label{sec:vertikale_advektion_einer_generalisierten_dichte}
+
+\subsubsection{Horizontales Forward-backward-Verfahren}
+\label{sec:horizontales_forward-backward-Verfahren}
+
+\subsubsection{Konstanthalten des horizontalen Druckgradienten}
+\label{sec:konstanthalten_des_horizontalen_druckgradienten}
 
 \section{Zeitschrittverfahren: Variante II}
 \label{sec:zeitschrittverfahren_variante_ii}\index{Zeitschrittverfahren!im dynamischen Kern}\index{dynamischer Kern!Zeitschrittverfahren}\index{Kern!dynamischer!Zeitschrittverfahren}
@@ -20250,8 +20326,24 @@ Es ergibt sich also die gleiche Dispersionsrelation wie Glg. \eqref{eq:velocity_
 \subsection{Obere Randbedingung}
 \label{sec:obere_randbedingung_reversibel}\index{obere Randbedingung!im Modell}\index{Randbedingung!obere!im Modell}\index{Modell!obere Randbedingung}
 
+Als obere Randbedingung im Rahmen der reversiblen Dynamik verwendet man die kinematische Randbedingung\index{kinematische Randbedingung}\index{Randbedingung!kinematische} $\mathbf{v}\cdot\mathbf{n} = 0$. Im Modell entspricht dies
+%
+\begin{align}
+w_{c, -1/2} = 0
+\end{align}
+%
+für alle Zellen $c$.
+
 \subsection{Untere Randbedingung}
 \label{sec:untere_randbedingung}\index{untere Randbedingung!im Modell}\index{Randbedingung!untere!im Modell}\index{Modell!untere Randbedingung}
+
+Die untere Randbedingung im Rahmen der reversiblen Dynamik ist die No-slip-Randbedingung\index{No-slip-Randbedingung} $\mathbf{v} = \mathbf{0}$. Da sich dort nur vertikale Vektorkomponenten befinden, entspricht dies
+%
+\begin{align}
+w_{c, N_L - 1 + \frac{1}{2}} = 0
+\end{align}
+%
+für alle Zellen $c$.
 
 \section{Regionaler Modus}
 \label{sec:regionaler_modus}
@@ -20276,7 +20368,7 @@ Dementsprechend muss das Gleichungssystem Glg.en \eqref{eq:prog_rev_0} - \eqref{
 \frac{\partial\mathbf{v}}{\partial t} & = -c^{(p)}\nabla T + T\nabla s - \nabla k + \mathbf{v}\times\etabi - \nabla\phi + \textcolor{red}{\mathbf{f}_R}\label{eq:prog_irrev_0}\\
 \frac{\partial\rho}{\partial t} & = -\nabla\cdot\left(\rho\mathbf{v}\right) + \textcolor{red}{\nabla\cdot\left(\kappa_\rho\nabla\rho\right)}\label{eq:prog_irrev_1}\\
 \frac{\partial\newtilde{s}}{\partial t} & = -\nabla\cdot\left(\newtilde{s}\mathbf{v}\right) + \textcolor{red}{\frac{q^{(V)}}{T}}\label{eq:prog_irrev_2}\\
-T_1 & = \frac{c^{(v)}\rho_0T_0 + \left(R_dT_0 - \frac{R_d}{c^{(p)}}s_0T_0\right)\Delta\rho + \frac{R_d}{c^{(p)}}T_0\Delta\newtilde{s}}{c^{(v)}\rho_0 + \frac{c^{(v)}}{c^{(p)}}s_1\Delta\rho - \frac{c^{(v)}}{c^{(p)}}\Delta\newtilde{s}}\label{eq:prog_irrev_3}
+T & = f\left(\rho, \newtilde{s}\right)\label{eq:prog_irrev_3}
 \end{align}
 \end{center}
 }}
@@ -20368,8 +20460,8 @@ Projiziert man Glg. \eqref{eq:friction_acceleration_for_discrete} auf $\mathbf{e
 \chapter{\normalfont\textsc{Weiterführende Aspekte}}
 \label{chap:weiterfuehrende_aspekte}
 
-\section{Rahmen für die Berücksichtigung von Tracern}
-\label{sec:rahmen_fuer_die_beruecksichtigung_von_tracern}
+\section{Framework für die Berücksichtigung von Tracern}
+\label{sec:framework_fuer_die_beruecksichtigung_von_tracern}
 
 Führt man $N \geq 1$ Tracer ein (also Anteile der Luft, die nicht zur trockenen Luft gehören), von denen $1 \leq N_C \leq N$ kondensiert sind, so benötigt man $N$ zusätzliche Kontinuitätsgleichungen und $N_C$ zusätzliche Erste Hauptsätze der Thermodynamik. Für die gasförmigen Komponenten sind keine zusätzlichen Ersten Hauptsätze notwendig, anstattdessen muss man den Hauptsatz für trockene Luft modifizieren. Der Druckgradientterm in der Impulsgleichung ist mit $\frac{\rho_h}{\rho}$ zu multiplizieren, um die Massenträgheit der Kondensate zu berücksichtigen.
 
