@@ -20060,6 +20060,31 @@ für alle $1 \leq b \leq N_b$ ableitet.
 \subsection{Überprüfung der Energieerhaltung}
 \label{sec:überprüfung_der_energieerhaltung}
 
+\section{Randbedingungen}
+\label{sec:randbedingungen}
+
+\subsection{Obere Randbedingung}
+\label{sec:obere_randbedingung_reversibel}\index{obere Randbedingung!im Modell}\index{Randbedingung!obere!im Modell}\index{Modell!obere Randbedingung}
+
+Als obere Randbedingung im Rahmen der reversiblen Dynamik verwendet man die kinematische Randbedingung\index{kinematische Randbedingung}\index{Randbedingung!kinematische} $\mathbf{v}\cdot\mathbf{n} = 0$. Im Modell entspricht dies
+%
+\begin{align}
+w_{c, -1/2} = 0
+\end{align}
+%
+für alle Zellen $c$.
+
+\subsection{Untere Randbedingung}
+\label{sec:untere_randbedingung}\index{untere Randbedingung!im Modell}\index{Randbedingung!untere!im Modell}\index{Modell!untere Randbedingung}
+
+Die untere Randbedingung im Rahmen der reversiblen Dynamik ist die No-slip-Randbedingung\index{No-slip-Randbedingung} $\mathbf{v} = \mathbf{0}$. Da sich dort nur vertikale Vektorkomponenten befinden, entspricht dies
+%
+\begin{align}
+w_{c, N_L - 1 + \frac{1}{2}} = 0
+\end{align}
+%
+für alle Zellen $c$.
+
 \section{Zeitschrittverfahren: Variante I}
 \label{sec:zeitschrittverfahren_variante_i}\index{Zeitschrittverfahren!im dynamischen Kern}\index{dynamischer Kern!Zeitschrittverfahren}\index{Kern!dynamischer!Zeitschrittverfahren}
 
@@ -20181,63 +20206,63 @@ Es ergibt sich also die gleiche Dispersionsrelation wie Glg. \eqref{eq:velocity_
 \subsubsection{Vertikale Advektion des Horizontalwindes}
 \label{sec:vertikale_advektion_des_horizontalwindes}
 
-Sei $v$ eine horizontale Vektorkomponente. Vorbereitend wird das Crank-Nicolson-Verfahren\index{Crank-Nicolson-Verfahren} mit $n$ als gegenwärtigem Zeitschritt notiert:
+Sei $u$ eine horizontale Vektorkomponente. Vorbereitend wird das Crank-Nicolson-Verfahren\index{Crank-Nicolson-Verfahren} mit $n$ als gegenwärtigem Zeitschritt notiert:
 %
 \begin{align}
-v^{(n + 1)} = v^{(n)} + \frac{\Delta t}{2}\left(\frac{\partial v^{(n)}}{\partial t} + \frac{\partial v^{(n + 1)}}{\partial t}\right)
+u^{(n + 1)} = u^{(n)} + \frac{\Delta t}{2}\left(\frac{\partial u^{(n)}}{\partial t} + \frac{\partial u^{(n + 1)}}{\partial t}\right)
 \end{align}
 %
 An dieser Stelle geht es dabei nur um vertikale Advektion\index{Advektion!vertikale}, die anderen Terme werden explizit berechnet:
 %
 \begin{align}
-v^{(n + 1)} = v^{(n)} + \Delta t\newdot{v}^{(n)}_{(\text{expl})} - \frac{w^{(n)}\Delta t}{2}\left(\frac{\partial v^{(n)}}{\partial z} + \frac{\partial v^{(n + 1)}}{\partial z}\right)
+u^{(n + 1)} = u^{(n)} + \Delta t\newdot{u}^{(n)}_{i, \text{expl}} - \frac{w^{(n)}\Delta t}{2}\left(\frac{\partial u^{(n)}}{\partial z} + \frac{\partial u^{(n + 1)}}{\partial z}\right)
 \end{align}
 %
 Die vertikale Diskretisierung erfordert einen Layerindex $0 \leq i \leq N_L - 1$:
 %
 \begin{align}
-v^{(n + 1)}_{i} = v^{(n)}_{i} + \Delta t\newdot{v}^{(n)}_{(\text{expl})} - \frac{\newoverline{w^{(n)}}_{i}\Delta t}{2}\left(\frac{v^{(n)}_{i - 1} - v^{(n)}_{i + 1}}{z_{i - 1} - z_{i + 1}} + \frac{v^{(n + 1)}_{i - 1} - v^{(n + 1)}_{i + 1}}{z_{i - 1} - z_{i + 1}}\right)
+u^{(n + 1)}_{i} = u^{(n)}_{i} + \Delta t\newdot{u}^{(n)}_{i, \text{expl}} - \frac{\newoverline{w^{(n)}_{k - 1/2}}^{(i)}\Delta t}{2}\left(\frac{u^{(n)}_{i - 1} - u^{(n)}_{i + 1}}{z_{i - 1} - z_{i + 1}} + \frac{u^{(n + 1)}_{i - 1} - u^{(n + 1)}_{i + 1}}{z_{i - 1} - z_{i + 1}}\right)
 \end{align}
 %
 Diese Gleichung wird noch einmal notiert, dabei werden die Unbekannten \textcolor{red}{rot} notiert, die Bekannten \textcolor{blue}{blau} und die Vorfaktoren der Unbekannten schwarz:
 %
 \begin{align}
-\textcolor{red}{v^{(n + 1)}_{i}} = \textcolor{blue}{v^{(n)}_{i} + \Delta t\newdot{v}^{(n)}_{(\text{expl})} - \frac{\newoverline{w^{(n)}}_{i - 1/2}\Delta t}{2}\frac{v^{(n)}_{i - 1} - v^{(n)}_{i + 1}}{z_{i - 1} - z_{i + 1}}} - \frac{\newoverline{w^{(n)}}_{i - 1/2}\Delta t}{2\left(z_{i - 1} - z_{i + 1}\right)}\textcolor{red}{v^{(n + 1)}_{i - 1}} + \frac{\newoverline{w^{(n)}}_{i - 1/2}\Delta t}{2\left(z_{i - 1} - z_{i + 1}\right)}\textcolor{red}{v^{(n + 1)}_{i + 1}}
+\textcolor{red}{u^{(n + 1)}_{i}} = \textcolor{blue}{u^{(n)}_{i} + \Delta t\newdot{u}^{(n)}_{i, \text{expl}} - \frac{\newoverline{w^{(n)}_{k - 1/2}}^{(i)}\Delta t}{2}\frac{u^{(n)}_{i - 1} - u^{(n)}_{i + 1}}{z_{i - 1} - z_{i + 1}}} - \frac{\newoverline{w^{(n)}_{k - 1/2}}^{(i)}\Delta t}{2\left(z_{i - 1} - z_{i + 1}\right)}\textcolor{red}{u^{(n + 1)}_{i - 1}} + \frac{\newoverline{w^{(n)}_{k - 1/2}}^{(i)}\Delta t}{2\left(z_{i - 1} - z_{i + 1}\right)}\textcolor{red}{u^{(n + 1)}_{i + 1}}
 \end{align}
 %
 Im nullten (obersten) Layer gilt
 %
 \begin{align}
-\textcolor{red}{v^{(n + 1)}_{i}} = \textcolor{blue}{v^{(n)}_{i} + \Delta t\newdot{v}^{(n)}_{(\text{expl})} - \frac{\newoverline{w^{(n)}}_{i - 1/2}\Delta t}{2}\frac{v^{(n)}_{i} - v^{(n)}_{i + 1}}{z_{i} - z_{i + 1}}} - \frac{\newoverline{w^{(n)}}_{i - 1/2}\Delta t}{2\left(z_{i} - z_{i + 1}\right)}\textcolor{red}{v^{(n + 1)}_{i}} + \frac{\newoverline{w^{(n)}}_{i - 1/2}\Delta t}{2\left(z_{i} - z_{i + 1}\right)}\textcolor{red}{v^{(n + 1)}_{i + 1}}.
+\textcolor{red}{u^{(n + 1)}_{i}} = \textcolor{blue}{u^{(n)}_{i} + \Delta t\newdot{u}^{(n)}_{i, \text{expl}} - \frac{\newoverline{w^{(n)}_{k - 1/2}}^{(i)}\Delta t}{2}\frac{u^{(n)}_{i} - u^{(n)}_{i + 1}}{z_{i} - z_{i + 1}}} - \frac{\newoverline{w^{(n)}_{k - 1/2}}^{(i)}\Delta t}{2\left(z_{i} - z_{i + 1}\right)}\textcolor{red}{v^{(n + 1)}_{i}} + \frac{\newoverline{w^{(n)}_{k - 1/2}}^{(i)}\Delta t}{2\left(z_{i} - z_{i + 1}\right)}\textcolor{red}{u^{(n + 1)}_{i + 1}}.
 \end{align}
 %
 Hier ist $i = 0$:
 %
 \begin{align}
-\textcolor{red}{v^{(n + 1)}_{0}} = \textcolor{blue}{v^{(n)}_{0} + \Delta t\newdot{v}^{(n)}_{(\text{expl})} - \frac{\newoverline{w^{(n)}}_{-1/2}\Delta t}{2}\frac{v^{(n)}_{0} - v^{(n)}_{1}}{z_{0} - z_{1}}} - \frac{\newoverline{w^{(n)}}_{-1/2}\Delta t}{2\left(z_{0} - z_{1}\right)}\textcolor{red}{v^{(n + 1)}_{0}} + \frac{\newoverline{w^{(n)}}_{-1/2}\Delta t}{2\left(z_{0} - z_{1}\right)}\textcolor{red}{v^{(n + 1)}_{1}}
+\textcolor{red}{u^{(n + 1)}_{0}} = \textcolor{blue}{u^{(n)}_{0} + \Delta t\newdot{u}^{(n)}_{i, \text{expl}} - \frac{\newoverline{w^{(n)}_{-1/2}}^{(0)}\Delta t}{2}\frac{u^{(n)}_{0} - u^{(n)}_{1}}{z_{0} - z_{1}}} - \frac{\newoverline{w^{(n)}_{-1/2}}^{(0)}\Delta t}{2\left(z_{0} - z_{1}\right)}\textcolor{red}{v^{(n + 1)}_{0}} + \frac{\newoverline{w^{(n)}_{-1/2}}^{(0)}\Delta t}{2\left(z_{0} - z_{1}\right)}\textcolor{red}{u^{(n + 1)}_{1}}
 \end{align}
 %
 Im $N_L - 1-$ten (untersten) Layer gilt
 %
 \begin{align}
-\textcolor{red}{v^{(n + 1)}_{i}} = \textcolor{blue}{v^{(n)}_{i} + \Delta t\newdot{v}^{(n)}_{(\text{expl})} - \frac{\newoverline{w^{(n)}}_{-1/2}\Delta t}{2}\frac{v^{(n)}_{i - 1} - v^{(n)}_{i}}{z_{i - 1} - z_{i}}} - \frac{\newoverline{w^{(n)}}_{i - 1/2}\Delta t}{2\left(z_{i - 1} - z_{i}\right)}\textcolor{red}{v^{(n + 1)}_{i - 1}} + \frac{\newoverline{w^{(n)}}_{i - 1/2}\Delta t}{2\left(z_{i - 1} - z_{i}\right)}\textcolor{red}{v^{(n + 1)}_{i}}.
+\textcolor{red}{u^{(n + 1)}_{i}} = \textcolor{blue}{u^{(n)}_{i} + \Delta t\newdot{u}^{(n)}_{i, \text{expl}} - \frac{\newoverline{w^{(n)}_{-1/2}}^{(i)}\Delta t}{2}\frac{u^{(n)}_{i - 1} - u^{(n)}_{i}}{z_{i - 1} - z_{i}}} - \frac{\newoverline{w^{(n)}_{k - 1/2}}^{(i)}\Delta t}{2\left(z_{i - 1} - z_{i}\right)}\textcolor{red}{v^{(n + 1)}_{i - 1}} + \frac{\newoverline{w^{(n)}_{i - 1/2}}^{(i)}\Delta t}{2\left(z_{i - 1} - z_{i}\right)}\textcolor{red}{v^{(n + 1)}_{i}}.
 \end{align}
 %
 Hier ist $i = N_L - 1$:
 %
 \begin{align}
-\textcolor{red}{v^{(n + 1)}_{N_L - 1}} & = \textcolor{blue}{v^{(n)}_{N_L - 1} + \Delta t\newdot{v}^{(n)}_{(\text{expl})} - \frac{\newoverline{w^{(n)}}_{N_L - 1 - 1/2}\Delta t}{2}\frac{v^{(n)}_{N_L - 2} - v^{(n)}_{N_L - 1}}{z_{N_L - 2} - z_{N_L - 1}}} - \frac{\newoverline{w^{(n)}}_{N_L - 1 - 1/2}\Delta t}{2\left(z_{N_L - 2} - z_{N_L - 1}\right)}\textcolor{red}{v^{(n + 1)}_{N_L - 2}}\nonumber\\
-&  +\frac{\newoverline{w^{(n)}}_{N_L - 1 - 1/2}\Delta t}{2\left(z_{N_L - 2} - z_{N_L - 1}\right)}\textcolor{red}{v^{(n + 1)}_{N_L - 1}}
+\textcolor{red}{u^{(n + 1)}_{N_L - 1}} & = \textcolor{blue}{u^{(n)}_{N_L - 1} + \Delta t\newdot{u}^{(n)}_{i, \text{expl}} - \frac{\newoverline{w^{(n)}}_{N_L - 1 - 1/2}\Delta t}{2}\frac{u^{(n)}_{N_L - 2} - v^{(n)}_{N_L - 1}}{z_{N_L - 2} - z_{N_L - 1}}} - \frac{\newoverline{w^{(n)}}_{N_L - 1 - 1/2}\Delta t}{2\left(z_{N_L - 2} - z_{N_L - 1}\right)}\textcolor{red}{u^{(n + 1)}_{N_L - 2}}\nonumber\\
+&  +\frac{\newoverline{w^{(n)}}_{N_L - 1 - 1/2}\Delta t}{2\left(z_{N_L - 2} - z_{N_L - 1}\right)}\textcolor{red}{u^{(n + 1)}_{N_L - 1}}
 \end{align}
 %
 Man definiert den Vektor $\mathbf{V}$ der Unbekannten durch
 %
 \begin{align}
 \mathbf{V} = \left(\begin{array}{c}
-v^{(n + 1)}_{0}\\
-v^{(n + 1)}_{1}\\
+u^{(n + 1)}_{0}\\
+u^{(n + 1)}_{1}\\
 \vdots\\
-v^{(n + 1)}_{N_L - 1}
+u^{(n + 1)}_{N_L - 1}
 \end{array}\right),
 \end{align}
 %
@@ -20251,12 +20276,12 @@ mit einer Matrix $\overleftrightarrow{A}$ und einer rechten Seite $\mathbf{b}$. 
 %
 \begin{align}
 \mathbf{b} = \left(\begin{array}{c}
-v^{(n)}_{0} + \Delta t\newdot{v}^{(n)}_{(\text{expl})} - \frac{\newoverline{w^{(n)}}_{0 - 1/2}\Delta t}{2}\frac{v^{(n)}_{0} - v^{(n)}_{1}}{z_{0} - z_{1}}\\
-v^{(n)}_{1} + \Delta t\newdot{v}^{(n)}_{(\text{expl})} - \frac{\newoverline{w^{(n)}}_{1 - 1/2}\Delta t}{2}\frac{v^{(n)}_{0} - v^{(n)}_{2}}{z_{0} - z_{2}}\\
-v^{(n)}_{2} + \Delta t\newdot{v}^{(n)}_{(\text{expl})} - \frac{\newoverline{w^{(n)}}_{2 - 1/2}\Delta t}{2}\frac{v^{(n)}_{1} - v^{(n)}_{3}}{z_{1} - z_{3}}\\
+u^{(n)}_{0} + \Delta t\newdot{u}^{(n)}_{0, \text{expl}} - \frac{\newoverline{w^{(n)}_{k - 1/2}}^{(0)}\Delta t}{2}\frac{u^{(n)}_{0} - u^{(n)}_{1}}{z_{0} - z_{1}}\\
+u^{(n)}_{1} + \Delta t\newdot{u}^{(n)}_{1, \text{expl}} - \frac{\newoverline{w^{(n)}_{k - 1/2}}^{(1)}\Delta t}{2}\frac{u^{(n)}_{0} - u^{(n)}_{2}}{z_{0} - z_{2}}\\
+u^{(n)}_{2} + \Delta t\newdot{u}^{(n)}_{2, \text{expl}} - \frac{\newoverline{w^{(n)}_{k - 1/2}}^{(2)}\Delta t}{2}\frac{u^{(n)}_{1} - u^{(n)}_{3}}{z_{1} - z_{3}}\\
 \vdots\\
-v^{(n)}_{N_L - 2} + \Delta t\newdot{v}^{(n)}_{(\text{expl})} - \frac{\newoverline{w^{(n)}}_{N_L - 2 - 1/2}\Delta t}{2}\frac{v^{(n)}_{N_L - 3} - v^{(n)}_{N_L - 1}}{z_{N_L - 3} - z_{N_L - 1}}\\
-v^{(n)}_{N_L - 1} + \Delta t\newdot{v}^{(n)}_{(\text{expl})} - \frac{\newoverline{w^{(n)}}_{N_L - 1 - 1/2}\Delta t}{2}\frac{v^{(n)}_{N_L - 2} - v^{(n)}_{N_L - 1}}{z_{N_L - 2} - z_{N_L - 1}}
+u^{(n)}_{N_L - 2} + \Delta t\newdot{u}^{(n)}_{N_L - 2, \text{expl}} - \frac{\newoverline{w^{(n)}_{k - 1/2}}^{(N_L - 2)}\Delta t}{2}\frac{u^{(n)}_{N_L - 3} - u^{(n)}_{N_L - 1}}{z_{N_L - 3} - z_{N_L - 1}}\\
+u^{(n)}_{N_L - 1} + \Delta t\newdot{u}^{(n)}_{N_L - 1, \text{expl}} - \frac{\newoverline{w^{(n)}_{k - 1/2}}^{(N_L - 1)}\Delta t}{2}\frac{u^{(n)}_{N_L - 2} - u^{(n)}_{N_L - 1}}{z_{N_L - 2} - z_{N_L - 1}}
 \end{array}\right).
 \end{align}
 %
@@ -20284,41 +20309,41 @@ w^{(n + 1)} = w^{(n)} + \frac{\Delta t}{2}\left(\frac{\partial w^{(n)}}{\partial
 An dieser Stelle geht es dabei nur um vertikale Advektion\index{Advektion!vertikale}, die anderen Terme werden explizit berechnet:
 %
 \begin{align}
-w^{(n + 1)} = w^{(n)} + \Delta t\newdot{w}^{(n)}_{(\text{expl})} - \frac{w^{(n)}\Delta t}{2}\left(\frac{\partial w^{(n)}}{\partial z} + \frac{\partial w^{(n + 1)}}{\partial z}\right)
+w^{(n + 1)} = w^{(n)} + \Delta t\newdot{w}^{(n)}_{\text{expl}} - \frac{w^{(n)}\Delta t}{2}\left(\frac{\partial w^{(n)}}{\partial z} + \frac{\partial w^{(n + 1)}}{\partial z}\right)
 \end{align}
 %
-Die vertikale Diskretisierung erfordert einen Levelindex $0 \leq i \leq N_L - 2$. Hierbei ist $i = 1$ das erste Level (nicht das nullte), da im nullten Level $w$ aus der oberen Randbedingung bekannt ist.
+Die vertikale Diskretisierung erfordert einen halbzahligen Levelindex $-\frac{1}{2} \leq i - \frac{1}{2} \leq N_L - \frac{1}{2}$:
 %
 \begin{align}
-w^{(n + 1)}_{i - 1/2} = w^{(n)}_{i - 1/2} + \Delta t\newdot{w}^{(n)}_{(\text{expl})} - \frac{w^{(n)}_{i - 1/2}\Delta t}{2}\left(\frac{w^{(n)}_{i - 1 - 1/2} - w^{(n)}_{i + 1 - 1/2}}{z_{i - 1} - z_{i + 1}} + \frac{w^{(n + 1)}_{i - 1 - 1/2} - w^{(n + 1)}_{i + 1 - 1/2}}{z_{i - 1} - z_{i + 1}}\right)
+w^{(n + 1)}_{i - 1/2} = w^{(n)}_{i - 1/2} + \Delta t\newdot{w}^{(n)}_{\text{expl}} - \frac{w^{(n)}_{i - 1/2}\Delta t}{2}\left(\frac{w^{(n)}_{i - 1 - 1/2} - w^{(n)}_{i + 1 - 1/2}}{z_{i - 1 - 1/2} - z_{i + 1 - 1/2}} + \frac{w^{(n + 1)}_{i - 1 - 1/2} - w^{(n + 1)}_{i + 1 - 1/2}}{z_{i - 1 - 1/2} - z_{i + 1 - 1/2}}\right)
 \end{align}
 %
 Diese Gleichung wird noch einmal notiert, dabei werden die Unbekannten \textcolor{red}{rot} notiert, die Bekannten \textcolor{blue}{blau} und die Vorfaktoren der Unbekannten schwarz:
 %
 \begin{align}
-\textcolor{red}{w^{(n + 1)}_{i - 1/2}} = \textcolor{blue}{w^{(n)}_{i - 1/2} + \Delta t\newdot{w}^{(n)}_{(\text{expl})} - \frac{w^{(n)}_{i - 1/2}\Delta t}{2}\frac{w^{(n)}_{i - 1 - 1/2} - w^{(n)}_{i + 1 - 1/2}}{z_{i - 1} - z_{i + 1}}} - \frac{w^{(n)}_{i - 1/2}\Delta t}{2\left(z_{i - 1} - z_{i + 1}\right)}\textcolor{red}{w^{(n + 1)}_{i - 1}} + \frac{w^{(n)}_{i}\Delta t}{2\left(z_{i - 1} - z_{i + 1}\right)}\textcolor{red}{w^{(n + 1)}_{i + 1}}\nonumber\\
-& 
+\textcolor{red}{w^{(n + 1)}_{i - 1/2}} &= \textcolor{blue}{w^{(n)}_{i - 1/2} + \Delta t\newdot{w}^{(n)}_{i - 1/2, \text{expl}} - \frac{w^{(n)}_{i - 1/2}\Delta t}{2}\frac{w^{(n)}_{i - 1 - 1/2} - w^{(n)}_{i + 1 - 1/2}}{z_{i - 1 - 1/2} - z_{i + 1 - 1/2}}}\nonumber\\
+&- \frac{w^{(n)}_{i - 1/2}\Delta t}{2\left(z_{i - 1 - 1/2} - z_{i + 1 - 1/2}\right)}\textcolor{red}{w^{(n + 1)}_{i - 1 - 1/2}} + \frac{w^{(n)}_{i - 1/2}\Delta t}{2\left(z_{i - 1 - 1/2} - z_{i + 1 - 1/2}\right)}\textcolor{red}{w^{(n + 1)}_{i + 1 - 1/2}}
 \end{align}
 %
-Im -0,5-ten Level gilt
+Bei $i = 1$ gilt aufgrund von $w_{-1/2} = 0$ die Gleichung
 %
 \begin{align}
-\textcolor{red}{w^{(n + 1)}_{-1/2}} = \textcolor{blue}{w^{(n)}_{0} + \Delta t\newdot{w}^{(n)}_{(\text{expl})} - \frac{w^{(n)}_{-1/2}\Delta t}{2}\frac{w^{(n)}_{-1} - w^{(n)}_{1 - 1/2}}{z_{-1} - z_{1}}} - \frac{w^{(n)}_{-1/2}\Delta t}{2\left(z_{-1} - z_{1}\right)}w^{(n + 1)}_{-1/2} + \frac{w^{(n)}_{0}\Delta t}{2\left(z_{-1} - z_{1}\right)}\textcolor{red}{w^{(n + 1)}_{-1/2}}
+\textcolor{red}{w^{(n + 1)}_{1 - 1/2}} &= \textcolor{blue}{w^{(n)}_{1 - 1/2} + \Delta t\newdot{w}^{(n)}_{1 - 1/2, \text{expl}} + \frac{w^{(n)}_{1 - 1/2}\Delta t}{2}\frac{w^{(n)}_{2 - 1/2}}{z_{-1/2} - z_{2 - 1/2}}} + \frac{w^{(n)}_{1 - 1/2}\Delta t}{2\left(z_{-1/2} - z_{2 - 1/2}\right)}\textcolor{red}{w^{(n + 1)}_{2 - 1/2}}.
 \end{align}
 %
-Hierbei ist $w_{-1/2} = 0$ aus der oberen Randbedingung bekannt. Im untersten Level gilt mit $i = N_L - 2$ die Gleichung
+Bei $i = N_L - 1$ gilt aufgrund von $w_{N_L - 1/2} = $ die Gleichung
 %
 \begin{align}
-\textcolor{red}{w^{(n + 1)}_{N_L - 2 - 1/2}} & = \textcolor{blue}{w^{(n)}_{N_L - 2 - 1/2} + \Delta t\newdot{w}^{(n)}_{(\text{expl})} - \frac{w^{(n)}_{N_L - 2 - 1/2}\Delta t}{2}\frac{w^{(n)}_{N_L - 3 - 1/2} - w^{(n)}_{N_L - 1 - 1/2}}{z_{N_L - 3} - z_{N_L - 1}}} - \frac{w^{(n)}_{N_L - 2 - 1/2}\Delta t}{2\left(z_{N_L - 3} - z_{N_L - 1}\right)}\textcolor{red}{w^{(n + 1)}_{N_L - 3 - 1/2}}\nonumber\\
-&  +\frac{w^{(n)}_{N_L - 2 - 1/2}\Delta t}{2\left(z_{N_L - 3} - z_{N_L - 1}\right)}w^{(n + 1)}_{N_L - 1 - 1/2}
+\textcolor{red}{w^{(n + 1)}_{N_L - 1 - 1/2}} &= \textcolor{blue}{w^{(n)}_{N_L - 1 - 1/2} + \Delta t\newdot{w}^{(n)}_{N_L - 1 - 1/2, \text{expl}} - \frac{w^{(n)}_{N_L - 1 - 1/2}\Delta t}{2}\frac{w^{(n)}_{N_L - 2 - 1/2}}{z_{N_L - 2 - 1/2} - z_{N_L - 1/2}}}\nonumber\\
+&- \frac{w^{(n)}_{i - 1/2}\Delta t}{2\left(z_{N_L - 2 - 1/2} - z_{N_L - 1/2}\right)}\textcolor{red}{w^{(n + 1)}_{N_L - 2 - 1/2}}.
 \end{align}
 %
-$w^{(n + 1)}_{N_L - 1/2}$ ist aus der unteren Randbedingung bekannt. Man definiert den Vektor $\mathbf{W}$ der Unbekannten durch
+Man definiert den Vektor $\mathbf{W}$ der Unbekannten durch
 %
 \begin{align}
 \mathbf{W} = \left(\begin{array}{c}
-w^{(n + 1)}_{1/2}\\
-w^{(n + 1)}_{1 + 1/2}\\
+w^{(n + 1)}_{1 - 1/2}\\
+w^{(n + 1)}_{2 - 1/2}\\
 \vdots\\
 w^{(n + 1)}_{N_L - 1 - 1/2}
 \end{array}\right),
@@ -20334,26 +20359,24 @@ mit einer Matrix $\overleftrightarrow{A}$ und einer rechten Seite $\mathbf{b}$. 
 %
 \begin{align}
 \mathbf{b} = \left(\begin{array}{c}
-w^{(n)}_{1 - 1/2} + \Delta t\newdot{w}^{(n)}_{(\text{expl})} - \frac{w^{(n)}_{1 - 1/2}\Delta t}{2}\frac{w^{(n)}_{-1/2} - w^{(n)}_{2 - 1/2}}{z_{-1} - z_{1}}\\
-w^{(n)}_{2 - 1/2} + \Delta t\newdot{w}^{(n)}_{(\text{expl})} - \frac{w^{(n)}_{1}\Delta t}{2}\frac{w^{(n)}_{1 - 1/2} - w^{(n)}_{3 - 1/2}}{z_{1 - 1/2} - z_{3 - 1/2}}\\
-w^{(n)}_{3 - 1/2} + \Delta t\newdot{w}^{(n)}_{(\text{expl})} - \frac{w^{(n)}_{2}\Delta t}{2}\frac{w^{(n)}_{2 - 1/2} - w^{(n)}_{4 - 1/2}}{z_{2 - 1/2} - z_{4 - 1/2}}\\
+w^{(n)}_{1 - 1/2} + \Delta t\newdot{w}^{(n)}_{1 - 1/2, \text{expl}} + \frac{w^{(n)}_{1 - 1/2}\Delta t}{2}\frac{w^{(n)}_{2 - 1/2}}{z_{0 - 1/2} - z_{2 - 1/2}}\\
+w^{(n)}_{2 - 1/2} + \Delta t\newdot{w}^{(n)}_{2 - 1/2, \text{expl}} - \frac{w^{(n)}_{2 - 1/2}\Delta t}{2}\frac{w^{(n)}_{1 - 1/2} - w^{(n)}_{3 - 1/2}}{z_{1 - 1/2} - z_{3 - 1/2}}\\
+w^{(n)}_{3 - 1/2} + \Delta t\newdot{w}^{(n)}_{3 - 1/2, \text{expl}} - \frac{w^{(n)}_{3 - 1/2}\Delta t}{2}\frac{w^{(n)}_{2 - 1/2} - w^{(n)}_{4 - 1/2}}{z_{2 - 1/2} - z_{4 - 1/2}}\\
 \vdots\\
-w^{(n)}_{N_L - 2 - 1/2} + \Delta t\newdot{w}^{(n)}_{(\text{expl})} - \frac{w^{(n)}_{N_L - 2 - 1/2}\Delta t}{2}\frac{w^{(n)}_{N_L - 3 - 1/2} - w^{(n)}_{N_L - 1 - 1/2}}{z_{N_L - 3 - 1/2} - z_{N_L - 1 - 1/2}}\\
-w^{(n)}_{N_L - 1 - 1/2} + \Delta t\newdot{w}^{(n)}_{(\text{expl})} - \frac{w^{(n)}_{N_L - 1 - 1/2}\Delta t}{2}\frac{w^{(n)}_{N_L - 2 - 1/2} - w^{(n)}_{N_L - 1/2}}{z_{N_L - 2 - 1/2} - z_{N_L - 1/2}}
+w^{(n)}_{N_L - 2 - 1/2} + \Delta t\newdot{w}^{(n)}_{N_L - 2 - 1/2, \text{expl}} - \frac{w^{(n)}_{N_L - 2 - 1/2}\Delta t}{2}\frac{w^{(n)}_{N_L - 3 - 1/2} - w^{(n)}_{N_L - 1 - 1/2}}{z_{N_L - 3 - 1/2} - z_{N_L - 1 - 1/2}}\\
+w^{(n)}_{N_L - 1 - 1/2} + \Delta t\newdot{w}^{(n)}_{N_L - 1 - 1/2, \text{expl}} - \frac{w^{(n)}_{N_L - 1 - 1/2}\Delta t}{2}\frac{w^{(n)}_{N_L - 2 - 1/2}}{z_{N_L - 2 - 1/2} - z_{N_L - 0 - 1/2}}
 \end{array}\right).
 \end{align}
 %
-Für die Matrix $\overleftrightarrow{A}$ erhält man folgendes:
+Für die Matrix $\overleftrightarrow{A}$ erhält man
 %
-\small
 \begin{align}\overleftrightarrow{A} & = \left(\begin{array}{cccc}
-\left(1 + \frac{w^{(n)}_{-1/2}\Delta t}{2\left(z_{-1/2} - z_{1 - 1/2}\right)}\right) & -\left(\frac{w^{(n)}_{0}\Delta t}{2\left(z_{-1/2} - z_{1 - 1/2}\right)}\right)  & \dots & 0 \\
-\left(\frac{w^{(n)}_{2 - 1/2}\Delta t}{2\left(z_{0} - z_{2}\right)}\right) & 1 & -\left(\frac{w^{(n)}_{1}\Delta t}{2\left(z_{1 - 1/2} - z_{3 - 1/2}\right)}\right)\hspace{2 cm}\dots &  0 \\
+1 & -\frac{w^{(n)}_{1 - 1/2}\Delta t}{2\left(z_{-1/2} - z_{2 - 1/2}\right)}  & \dots & 0 \\
+\frac{w^{(n)}_{2 - 1/2}\Delta t}{2\left(z_{1 - 1/2} - z_{3 - 1/2}\right)} & 1 & -\frac{w^{(n)}_{2 - 1/2}\Delta t}{2\left(z_{1 - 1/2} - z_{3 - 1/2}\right)}\hspace{2 cm}\dots &  0 \\
 \vdots & \hspace{2 cm}\ddots & \ddots & \vdots \\
-0 & \dots & \left(\frac{w^{(n)}_{N_L - 1 - 1/2}\Delta t}{2\left(z_{N_L - 2 - 1/2} - z_{N_L - 1/2}\right)}\right) & \left(1 - \frac{w^{(n)}_{N_L - 1 - 1/2}\Delta t}{2\left(z_{N_L - 2 - 1/2} - z_{N_L - 1/2}\right)}\right)
-\end{array}\right)
+0 & \dots & \frac{w^{(n)}_{N_L - 1 - 1/2}\Delta t}{2\left(z_{N_L - 2 - 1/2} - z_{N_L - 1/2}\right)} & 1
+\end{array}\right).
 \end{align}
-\normalsize
 
 \subsubsection{Vertikale Advektion einer generalisierten Dichte}
 \label{sec:vertikale_advektion_einer_generalisierten_dichte}
@@ -20383,31 +20406,6 @@ Aus Energieerhaltungsgründen wird für den kovarianten Druckgradienten in allen
 
 \section{Zeitschrittverfahren: Variante II}
 \label{sec:zeitschrittverfahren_variante_ii}\index{Zeitschrittverfahren!im dynamischen Kern}\index{dynamischer Kern!Zeitschrittverfahren}\index{Kern!dynamischer!Zeitschrittverfahren}
-
-\section{Randbedingungen}
-\label{sec:randbedingungen}
-
-\subsection{Obere Randbedingung}
-\label{sec:obere_randbedingung_reversibel}\index{obere Randbedingung!im Modell}\index{Randbedingung!obere!im Modell}\index{Modell!obere Randbedingung}
-
-Als obere Randbedingung im Rahmen der reversiblen Dynamik verwendet man die kinematische Randbedingung\index{kinematische Randbedingung}\index{Randbedingung!kinematische} $\mathbf{v}\cdot\mathbf{n} = 0$. Im Modell entspricht dies
-%
-\begin{align}
-w_{c, -1/2} = 0
-\end{align}
-%
-für alle Zellen $c$.
-
-\subsection{Untere Randbedingung}
-\label{sec:untere_randbedingung}\index{untere Randbedingung!im Modell}\index{Randbedingung!untere!im Modell}\index{Modell!untere Randbedingung}
-
-Die untere Randbedingung im Rahmen der reversiblen Dynamik ist die No-slip-Randbedingung\index{No-slip-Randbedingung} $\mathbf{v} = \mathbf{0}$. Da sich dort nur vertikale Vektorkomponenten befinden, entspricht dies
-%
-\begin{align}
-w_{c, N_L - 1 + \frac{1}{2}} = 0
-\end{align}
-%
-für alle Zellen $c$.
 
 \section{Regionaler Modus}
 \label{sec:regionaler_modus}
