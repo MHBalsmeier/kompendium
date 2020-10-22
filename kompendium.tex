@@ -19692,51 +19692,81 @@ Die \textit{shallow-atmosphere}-Aprroximation\index{shallow atmosphere} geht von
 \section{Felder}
 \label{sec:felder}\index{Feld!im Modell}
 
-Zunächst einige Definitionen. Seien $f$ ein Skalarfeld und $\mathbf{v}, \mathbf{w}$ Vektorfelder, dann bezeichne die diskretisierten Versionen dieser Felder durch $f', \mathbf{v}', \mathbf{w}'$. Seien weiter $B\subseteq\mathbb{R}^3$ eine Gitterbox mit dem Volumen $V\left(B\right), B_A$ die Menge aller Seitenflächen von $B$ und $B_B$ die Menge aller angrenzenden Gitterboxen, bezeichne weiter den Abstand zweier Gitterboxen $B, B'$ mit $B'\in B_B$ durch $L_{B, B'}$. Definiere außerdem für alle $B'\in B_B$ eine Abbildung $A = A\left(B'\right)$ sowie für alle $A\in B_A$ eine Abbildung $B' = B'\left(A\right)$, welche jede angrenzende Fläche $A$ mit der jeweiligen Gitterbox $B'$ verknüpfen. Für den Flächeninhalt einer Fläche $A\subseteq\mathbb{R}^3$ wird der Ausdruck $V_2\left(A\right)\geq 0$ notiert. Die diskretisierten Operatoren werden, genau wie die Felder, mit gestrichenen Symbolen gekennzeichnet, um sie von ihren kontinuierlichen Gegenstücken abzugrenzen. Wichtig ist außerdem, zu berücksichtigen, dass horizontale Verbindungslinien entlang eines Großkreises berechnet werden.
-
-Der Strich als Symbol der Diskretisierung wird von nun an vernachlässigt.
-
-\subsection{Skalarfelder}
-\label{sec:skalarfelder}\index{Skalarfeld!im Modell}\index{Modell!Skalarfeld}
-
-Die Übersetzung $f\to f'$ definiert man durch
-%
-\begin{align}
-f_B' \coloneqq\frac{1}{V\left(B\right)}\int_Bfd^3r
-\end{align}
-%
-für alle Gitterboxen $B$. Die Gitterpunkte der skalaren Variablen befinden sich in den massengewichteten Zentren der Gitterboxen, wobei von der Standardatmosphäre\index{Standardatmosphäre} ausgegangen wird.
-
-\subsection{Horizontales Vektorfeld}
-\label{sec:horizontales_vektorfeld}\index{Vektorfelder!horizontales}\index{horizontales Vektorfeld}
-
-Für Vektorfelder verwendet man in der Horizontalen kovariante Komponenten, während man in der Vertikalen die kontravariante Komponente verwendet, damit in der Impulsgleichung unter der SGA\index{SGA (spherical geopotential approximation)}\index{spherical geopotential approximation (SGA)} keine Schwere auftritt. Dies ist zwar ungewöhnlich, aber nicht unmöglich, da die auftretenden Basisvektoren immer linear unabhöngig sind, außerdem werden die Geschwindigkeitskomponenten ja nicht am selben Ort platziert.
-
-Im Falle von Kugelkoordinaten, also oberhalb des Layers oberhalb von $\newtilde{z}$, tritt eine richtungsmäßige Unterscheidung von ko- und kontravarianten Basisvektoren nicht mehr auf, die Kugelkkordinaten nach Absch. \ref{sec:kugelkoordinaten} orthogonal sind.
-
-\subsection{Vertikales Vektorfeld}
-\label{sec:vertikales_vektorfeld}\index{Vektorfelder!vertikales}\index{vertikales Vektorfeld}
-
-\subsection{Horizontales duales Vektorfeld}
-\label{sec:horizontales_duales_vektorfeld}\index{Vektorfelder!duales!horizontales}\index{horizontales duales Vektorfeld}\index{duales Vektorfeld!horizontales}
-
-\subsection{Vertikales duales Vektorfeld}
-\label{sec:vertikales_duales_vektorfeld}\index{Vektorfelder!duales!vertikales}\index{vertikales duales Vektorfeld}\index{duales Vektorfeld!vertikales}
-
-\subsection{Horizontales Rotationsfeld}
-\label{sec:horizontales_rotationsfeld}\index{horizontales Rotationsfeld}\index{Rotationsfeld!horizontales}
-
-\subsection{Vertikales Rotationsfeld}
-\label{sec:vertikales_rotationsfeld}\index{vertikales Rotationsfeld}\index{Rotationsfeld!vertikales}
-
 \subsection{Nomenklatur}
 \label{sec:nomenklatur}
+
+Sei $\psi: A \to \mathbb{R}^n$ mit $n \in \lbrace 1, 2, 3\rbrace$ ein zweifach stetig differenzierbares Skalar- oder Vektorfeld. Die Diskretisierung von $\psi$ notiert man in der Form
+%
+\begin{align}
+\psi \to \psi_{h, v}^{(\tau)},
+\end{align}
+%
+hierbei ist $h \in \mathbb{N}$ der horizontale Index, $v \in \mathbb{N}$ der vertikale Index und $\tau \in \mathbb{N}$ der den Zeitschritt festlegenden Index. Sollten einer oder mehrere der Indizes für eine Betrachtung nicht wichtig sein, so werden diese in der Notation vernachlässigt. Werden am jeweiligen Ort keine abweichenden Definitionen eingeführt, bezeichnet $c$ Zellen, $e$ Kanten, $dc$ duale Zellen und $de$ duale Kanten. In der Vertikalen werden die Layer von $k = 0$ bis $k = N_L - 1$ durchnummeriert, die Level werden von $k = -\frac{1}{2}$ bis $k = N_L - \frac{1}{2}$ (mit Abstand Eins) bezeichnet.
+
+\subsection{Ausgezeichnete Punkte}
+\label{sec:ausgezeichnete_punkte}
+
+Folgende Mengen von Punkten spielen eine besondere Rolle:
+%
+\begin{enumerate}
+\item die Mittelpunkte der Zellen (Index $c$)
+\item die Mittelpunkte der dualen Zellen (Index $d$)
+\item die Mittelpunkte der dualen Kanten aus Sicht des primären Gitters (Index $e$)
+\item die Mittelpunkte der dualen Kanten aus Sicht des dualen Gitters (Index $de$)
+\end{enumerate}
+%
+Dabei sind jeweils sowohl die Layer, als auch die Level wichtig. Jedem Element dieser acht Punktmengen ordnet man dabei ein Volumen $V_{l, k}$ mit $l \in \lbrace c, d, e, de\rbrace$ zu. Dabei muss bei den Kanten ein Unterschied zwischen dem primären und dualen Gitter machen, auch wenn es sich um die gleichen Punkte handelt. Normalenvektoren werden mit $\mathbf{n}_e$ bzw. $\mathbf{n}_{de}$ bezeichnet.
+
+\subsection{Arten von Feldern}
+\label{sec:arten_von_feldern}
+
+Seien $\psi$ ein Skalarfeld und $\mathbf{v} = \mathbf{u} + w\mathbf{k}$ ein Vektorfeld. Man definiert folgende Arten von Feldern:
+
+\begin{enumerate}
+\item Skalarfeld\index{Skalarfeld}:
+%
+\begin{align}
+\psi_{c, k} \coloneqq \frac{1}{V_{c, k}}\int_{V_{c, k}}\psi d^3r
+\end{align}
+%
+\item horizontales Vektorfeld\index{Vektorfelder!horizontales}\index{horizontales Vektorfeld}:
+%
+\begin{align}
+u_{e, k} \coloneqq \frac{1}{V_{e, k}}\int_{V_{e, k}}\mathbf{v}\cdot\mathbf{n}_ed^3r
+\end{align}
+%
+\item vertikales Vektorfeld\index{Vektorfelder!vertikales}\index{vertikales Vektorfeld}:
+%
+\begin{align}
+w_{c, k - 1/2} \coloneqq \frac{1}{V_{c, k - 1/2}}\int_{V_{c, k - 1/2}}\mathbf{v}\cdot\mathbf{k}d^3r
+\end{align}
+%
+\item horizontales duales Vektorfeld\index{Vektorfelder!duales!horizontales}\index{horizontales duales Vektorfeld}\index{duales Vektorfeld!horizontales}:
+%
+\begin{align}
+u_{e, k - 1/2} \coloneqq \frac{1}{V_{e, k - 1/2}}\int_{V_{e, k - 1/2}}\mathbf{v}\cdot\mathbf{n}_{de}d^3r
+\end{align}
+%
+\item vertikales duales Vektorfeld\index{Vektorfelder!duales!vertikales}\index{vertikales duales Vektorfeld}\index{duales Vektorfeld!vertikales}:
+%
+\begin{align}
+w_{d, k} \coloneqq \frac{1}{V_{d, k}}\int_{V_{d, k}}\mathbf{v}\cdot\mathbf{k}d^3r
+\end{align}
+%
+\item horizontales Rotationsfeld\index{horizontales Rotationsfeld}\index{Rotationsfeld!horizontales}: identisch zu horizontalen dualen Vektorefeldern\index{Vektorfelder!duales!horizontales}\index{horizontales duales Vektorfeld}\index{duales Vektorfeld!horizontales}
+\item vertikales Rotationsfeld\index{vertikales Rotationsfeld}\index{Rotationsfeld!vertikales}:
+%
+\begin{align}
+w_{e, k} \coloneqq \frac{1}{V_{e, k}}\int_{V_{e, k}}\mathbf{v}\cdot\mathbf{k}d^3r
+\end{align}
+%
+Rotationsfelder sind laut Absch. \ref{sec:formulierung_der_rotation} notwendig.
+\end{enumerate}
 
 \subsection{Mittelungsoperatoren}
 \label{sec:mittelungsoperatoren}\index{Mittelungsoperator}
 
-\subsection{Rekonstruktion der vertikalen kontravarianten Maßzahl}
-\label{sec:rekonstruktion_der_vertikalen_kontravarianten_maßzahl}\index{kontravariante Maßzahl!Rekonstruktion (geländefolgende Koordinaten)}\index{Maßzahl!kontravariante!Rekonstruktion (geländefolgende Koordinaten)}
+\subsubsection{Rekonstruktion der vertikalen kontravarianten Maßzahl}\index{kontravariante Maßzahl!Rekonstruktion (geländefolgende Koordinaten)}\index{Maßzahl!kontravariante!Rekonstruktion (geländefolgende Koordinaten)}
 
 In der Horizontalen sind die kontravarianten Maßzahlen prognostische Variablen\index{prognostische Variable}\index{Variable!prognostische} und müssen daher nicht rekonstruiert werden. In der Vertikalen benötigt man jedoch
 %
@@ -19800,7 +19830,7 @@ v^{(v)}_{c, k + \frac{1}{2}, \text{GK}} = w_{c, k + \frac{1}{2}} - \newoverline{
 }}
 \end{center}
 
-\subsection{Rekonstruktion der horizontalen kovarianten Maßzahl}
+\subsubsection{Rekonstruktion der horizontalen kovarianten Maßzahl}
 \label{sec:rekonstruktion_der_horizontalen_kovarianten_maßzahl}\index{kovariante Maßzahl!Rekonstruktion (geländefolgende Koordinaten)}\index{Maßzahl!kovariante!Rekonstruktion (geländefolgende Koordinaten)}
 
 In der Vertikalen sind die kovarianten Maßzahlen prognostische Variablen\index{prognostische Variable}\index{Variable!prognostische} und müssen daher nicht rekonstruiert werden. In der Horizontalen benötigt man jedoch
