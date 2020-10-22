@@ -19762,9 +19762,26 @@ w_{e, k} \coloneqq \frac{1}{V_{e, k}}\int_{V_{e, k}}\mathbf{v}\cdot\mathbf{k}d^3
 %
 Rotationsfelder sind laut Absch. \ref{sec:formulierung_der_rotation} notwendig.
 \end{enumerate}
+%
+In der Notation wurde nicht zwischen der Menge $V \in \mathbb{R}^3$ und dessen Volumen $\left|V\right|$ unterschieden, und dies wird auch weiterhin so gehandhabt werden, wenn eindeutig ist, was gemeint ist.
 
 \subsection{Mittelungsoperatoren}
 \label{sec:mittelungsoperatoren}\index{Mittelungsoperator}
+
+Seien $x, a \in \lbrace c, d, e, de\rbrace$ und $\psi_{a, k}$ ein diskretisiertes Feld. Dann definiert man
+%
+\begin{align}
+\newoverline{\psi_{a, k}}^{(x)} \coloneqq \frac{1}{V_{x, k}}\sum_{y \in a, k'}\psi_{y, k'}\left|V_{x, k}\cap V_{y, k'}\right|
+\end{align}
+%
+als Mittelungsoperator. Die Gewichtungsfaktoren $\frac{\left|V_{x, k}\cap V_{y, k'}\right|}{V_{x, k}}$ entsprechen dem relativen Überlapp der entsprechenden Mengen. Es gilt
+%
+\begin{align}
+\sum_{y \in a, k'}\frac{\left|V_{x, k}\cap V_{y, k'}\right|}{V_{x, k}}  = 1.
+\end{align}
+%
+Analog werden auch vertikale Mittelungen definiert. Ein einzelner Mittelungsoperator ist also entweder ausschließlich horizontal oder vertikal.
+
 
 \subsubsection{Rekonstruktion der vertikalen kontravarianten Maßzahl}\index{kontravariante Maßzahl!Rekonstruktion (geländefolgende Koordinaten)}\index{Maßzahl!kontravariante!Rekonstruktion (geländefolgende Koordinaten)}
 
