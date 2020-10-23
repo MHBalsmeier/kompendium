@@ -108,6 +108,7 @@
 \DeclareMathOperator*{\sum}{\raisebox{-3.5pt}{\scalebox{2}{\rotatebox{1}{{\bask Σ}}}}}
 \newfontfamily{\osgbi}[Path = /home/max/latex_man_fonts/oldstandard/fonts/opentype/public/oldstandard/, Extension = .otf]{OldStandard-BoldItalic}
 \newcommand{\omegabi}{\text{{\osgbi ω}}}
+\newcommand{\Omegabi}{\text{{\osgbi Ω}}}
 \newcommand{\mubi}{\text{{\osgbi μ}}}
 \newcommand{\sigmabi}{\text{{\osgbi σ}}}
 \newcommand{\epsilonbi}{\text{{\osgbi ϵ}}}
@@ -8932,25 +8933,13 @@ Es wird deutlich, dass jede Klammer in einer \glqq Skalarfeld x Divergenz\grqq- 
 \lbrace F, H\rbrace_{q_1} &= -\lbrace H, F\rbrace_{q_1}\label{eq:poisson_bracket_atm_gen_deriv_4}
 \end{align}
 %
-Definiert man nun sogenannte \textit{Nambu-Klammern}\index{Nambu-Klammer} durch
+Nun definiert man sogenannte \textit{Nambu-Klammern}\index{Nambu-Klammer} durch
 %
 \begin{align}
 \lbrace F, g, H\rbrace &\coloneqq -\int_A\frac{\delta F}{\delta\mathbf{v}}\cdot\left(\frac{1}{\rho}\frac{\delta g}{\delta\mathbf{v}}\times\frac{\delta H}{\delta\mathbf{v}}\right)d^3r = -\int_A\frac{1}{\rho}\frac{\delta F}{\delta\mathbf{v}}\cdot\left(\frac{\delta g}{\delta\mathbf{v}}\times\frac{\delta H}{\delta\mathbf{v}}\right)d^3r,
 \end{align}
 %
-kann man Glg. \eqref{eq:poisson_bracket_atm_gen_explicit} in der Form
-%
-\begin{center}
-\doublebox{\parbox{0.95\textwidth}{
-\begin{center}
-\begin{align}
-\frac{dF}{dt} = \lbrace F, H\rbrace &= \lbrace F, H\rbrace_\rho + \lbrace F, H\rbrace_{q_1} + \lbrace F, h_a, H\rbrace.\label{eq:poisson_bracket_atm_gen_parts}
-\end{align}
-\end{center}
-}}
-\end{center}
-%
-Für Nambu-Klammern gilt\index{Nambu-Klammer}
+hierbei ist $g$ ein Funktional. Für Nambu-Klammern gilt\index{Nambu-Klammer}
 %
 \begin{align}
 \lbrace F, g, H\rbrace = \lbrace H, F, g\rbrace = \lbrace g, H, F\rbrace.
@@ -8963,11 +8952,82 @@ Ferner gilt
 \end{align}
 %
 Setzt man dies zusammen mit den Glg.en \eqref{eq:poisson_bracket_atm_gen_deriv_3} - \eqref{eq:poisson_bracket_atm_gen_deriv_4} in Glg. \eqref{eq:poisson_bracket_atm_gen_parts} ein, erhält man
+
 %
 \begin{align}
 \lbrace H, F\rbrace &= \lbrace H, F\rbrace_\rho + \lbrace H, F\rbrace_{q_1} + \lbrace H, h_a, F\rbrace = -\lbrace F, H\rbrace_\rho - \lbrace F, H\rbrace_{q_1} - \lbrace F, h_a, H\rbrace = -\lbrace F, H\rbrace.
 \end{align}
-
+%
+Definiere nun die \textit{Helizität}\index{Helizität} $h$ durch
+%
+\begin{align}
+h \coloneqq \frac{1}{2}\mathbf{v}\cdot\nabla\times\mathbf{v}
+\end{align}
+%
+und die {absolute Helizität}\index{absolute Helizität}\index{Helizität!absolute} $h_a$ durch
+%
+\begin{align}
+h_a \coloneqq \frac{1}{2}\mathbf{v}_a\cdot\nabla\times\mathbf{v}_a = \frac{1}{2}\left(\Omegabi\times\mathbf{r} + \mathbf{v}\right)\cdot\nabla\times\left(\Omegabi\times\mathbf{r} + \mathbf{v}\right),
+\end{align}
+%
+dies ist die im Inertialsystem\index{Inertialsystem} gemessene Helizität\index{Helizität}. Die entsprechenden Funktionale werden durch
+%
+\begin{align}
+H &\coloneqq \int_A\frac{1}{2}\mathbf{v}\cdot\nabla\times\mathbf{v}d^3r,\\
+H_a &\coloneqq \int_A\frac{1}{2}\mathbf{v}_a\cdot\nabla\times\mathbf{v}_ad^3r
+\end{align}
+%
+definiert. Seien nun $\mathbf{h}: A \to\mathbb{R}^3$ eine Testfunktion mit $\mathbf{h}\left(\partial A\right) = \mathbf{0}$ und $\epsilon > 0$. Man definiert
+%
+\begin{align}
+H'\left(\epsilon\right) &\coloneqq \int_A\frac{1}{2}\left(\mathbf{v} + \epsilon\mathbf{h}\right)\cdot\nabla\times\left(\mathbf{v} + \epsilon\mathbf{h}\right)d^3r = \int_A\frac{1}{2}\mathbf{v}\cdot\nabla\times\mathbf{v}d^3r + \int_A\frac{\epsilon}{2}\mathbf{h}\cdot\nabla\times\mathbf{v}d^3r + \int_A\frac{\epsilon}{2}\mathbf{v}\cdot\nabla\times\mathbf{h}d^3r + \mathcal{O}\left(\epsilon^2\right).
+\end{align}
+%
+Es gilt nun in erster Ordnung in $\epsilon$ die Gleichung
+%
+\begin{align}
+\frac{H'\left(\epsilon\right) - H'\left(0\right)}{\epsilon} &= \frac{H'\left(\epsilon\right) - H}{\epsilon} = \int_A\frac{1}{2}\mathbf{h}\cdot\nabla\times\mathbf{v}d^3r + \int_A\frac{1}{2}\mathbf{v}\cdot\nabla\times\mathbf{h}d^3r = \frac{1}{2}\int_A\mathbf{h}\cdot\nabla\times\mathbf{v} + \mathbf{v}\cdot\nabla\times\mathbf{h}d^3r\nonumber\\
+&= \frac{1}{2}\int_A\mathbf{v}\cdot\nabla\times\mathbf{h} - \mathbf{h}\cdot\nabla\times\mathbf{v} + 2\mathbf{h}\cdot\nabla\times\mathbf{v}d^3r \stackrel{\text{Glg. \eqref{eq:diff_op_rule_9}}}{=} \frac{1}{2}\int_A\nabla\cdot\left(\mathbf{h}\times\mathbf{v}\right) + 2\mathbf{h}\cdot\nabla\times\mathbf{v}d^3r\nonumber\\
+&= \int_A\mathbf{h}\cdot\nabla\times\mathbf{v}d^3r.
+\end{align}
+%
+Im letzten Schritt wurden dabei der Gauß'sche Satz\index{Gauß'scher Satz}\index{Satz von Gauß} und die Tatsache $\mathbf{h}\left(\partial A\right) = \mathbf{0}$ eingesetzt. Somit gilt
+%
+\begin{align}
+\frac{\delta H}{\delta\mathbf{v}} = \nabla\times\mathbf{v} = \zetabi.
+\end{align}
+%
+Analog gilt auch
+%
+\begin{align}
+\frac{\delta H_a}{\delta\mathbf{v}_a} = \nabla\times\mathbf{v}_a = \etabi.
+\end{align}
+%
+Aufgrund von
+%
+\begin{align}
+\frac{\delta H}{\delta\mathbf{v}} = \frac{\delta H}{\delta\mathbf{v}_a}
+\end{align}
+%
+gilt auch
+%
+\begin{align}
+\frac{\delta H_a}{\delta\mathbf{v}} = \etabi.
+\end{align}
+%
+Somit kann man Glg. \eqref{eq:poisson_bracket_atm_gen_explicit} in der Form
+%
+\begin{center}
+\doublebox{\parbox{0.95\textwidth}{
+\begin{center}
+\begin{align}
+\frac{dF}{dt} = \lbrace F, H\rbrace &= \lbrace F, H\rbrace_\rho + \lbrace F, H\rbrace_{q_1} + \lbrace F, H_a, H\rbrace\label{eq:poisson_bracket_atm_gen_parts}
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+schreiben.
 
 \subsubsection{Semi-prognostische Variable}
 \label{sec:semi-prognostische_variable}\index{semi-prognostische Variable}\index{Variable!semi-prognostische}
@@ -9006,7 +9066,7 @@ Für $K$ und $I'$ gelten weiterhin
 Weiterhin gilt für Energieformen $F$ die Tatsache $\frac{\delta F}{\delta\mathbf{v}} \parallel \mathbf{v}$, somit gilt in diesem Fall
 %
 \begin{align}
-\lbrace F, h_a, H\rbrace = 0 \Rightarrow \lbrace F, H\rbrace = \lbrace F, H\rbrace_\rho + \lbrace F, H\rbrace_{q_1}.
+\lbrace F, H_a, H\rbrace = 0 \Rightarrow \lbrace F, H\rbrace = \lbrace F, H\rbrace_\rho + \lbrace F, H\rbrace_{q_1}.
 \end{align}
 %
 Hieraus folgen
