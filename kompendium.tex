@@ -20378,13 +20378,13 @@ Die vertikale Diskretisierung erfordert einen Layerindex $0 \leq i \leq N_L - 1$
 u^{(n + 1)}_{i} = u^{(n)}_{i} + \Delta t\newdot{u}^{(n)}_{i, \text{expl}} - \frac{\newoverline{w^{(n)}_{k - 1/2}}^{(i)}\Delta t}{2}\left(\frac{u^{(n)}_{i - 1} - u^{(n)}_{i + 1}}{z_{i - 1} - z_{i + 1}} + \frac{u^{(n + 1)}_{i - 1} - u^{(n + 1)}_{i + 1}}{z_{i - 1} - z_{i + 1}}\right)
 \end{align}
 %
-Diese Gleichung wird noch einmal notiert, dabei werden die Unbekannten \textcolor{red}{rot} notiert, die Bekannten \textcolor{blue}{blau} und die Vorfaktoren der Unbekannten schwarz:
+Diese Gleichung wird noch einmal notiert, dabei werden die Unbekannten \textcolor{red}{rot} notiert, die Bekannten \textcolor{blue}{blau} und die Vorfaktoren der Unbekannten schwarz eingefärbt:
 %
 \begin{align}
 \textcolor{red}{u^{(n + 1)}_{i}} = \textcolor{blue}{u^{(n)}_{i} + \Delta t\newdot{u}^{(n)}_{i, \text{expl}} - \frac{\newoverline{w^{(n)}_{k - 1/2}}^{(i)}\Delta t}{2}\frac{u^{(n)}_{i - 1} - u^{(n)}_{i + 1}}{z_{i - 1} - z_{i + 1}}} - \frac{\newoverline{w^{(n)}_{k - 1/2}}^{(i)}\Delta t}{2\left(z_{i - 1} - z_{i + 1}\right)}\textcolor{red}{u^{(n + 1)}_{i - 1}} + \frac{\newoverline{w^{(n)}_{k - 1/2}}^{(i)}\Delta t}{2\left(z_{i - 1} - z_{i + 1}\right)}\textcolor{red}{u^{(n + 1)}_{i + 1}}
 \end{align}
 %
-Im nullten (obersten) Layer verwendet man einen einseitigen, unteren Differenzenquotienten, um die Reflexion von Wellen am oberen Rand zu minimieren:
+Im nullten (obersten) Layer verwendet man einen einseitigen unteren Differenzenquotienten, um die Reflexion von Wellen am oberen Rand zu minimieren:
 %
 \begin{align}
 \textcolor{red}{u^{(n + 1)}_{0}} = \textcolor{blue}{u^{(n)}_{0} + \Delta t\newdot{u}^{(n)}_{0, \text{expl}} - \frac{\newoverline{w^{(n)}_{k - 1/2}}^{(0)}\Delta t}{2}\frac{u^{(n)}_{0} - u^{(n)}_{1}}{z_{0} - z_{1}}} - \frac{\newoverline{w^{(n)}_{k - 1/2}}^{(0)}\Delta t}{2\left(z_{0} - z_{1}\right)}\textcolor{red}{u^{(n + 1)}_{0}} + \frac{\newoverline{w^{(n)}_{k - 1/2}}^{(0)}\Delta t}{2\left(z_{0} - z_{1}\right)}\textcolor{red}{u^{(n + 1)}_{1}}
@@ -20455,10 +20455,10 @@ w^{(n + 1)} = w^{(n)} + \Delta t\newdot{w}^{(n)}_{\text{expl}} - \frac{w^{(n)}\D
 Die vertikale Diskretisierung erfordert einen halbzahligen Levelindex $-\frac{1}{2} \leq i - \frac{1}{2} \leq N_L - \frac{1}{2}$:
 %
 \begin{align}
-w^{(n + 1)}_{i - 1/2} = w^{(n)}_{i - 1/2} + \Delta t\newdot{w}^{(n)}_{\text{expl}} - \frac{w^{(n)}_{i - 1/2}\Delta t}{2}\left(\frac{w^{(n)}_{i - 1 - 1/2} - w^{(n)}_{i + 1 - 1/2}}{z_{i - 1 - 1/2} - z_{i + 1 - 1/2}} + \frac{w^{(n + 1)}_{i - 1 - 1/2} - w^{(n + 1)}_{i + 1 - 1/2}}{z_{i - 1 - 1/2} - z_{i + 1 - 1/2}}\right)
+w^{(n + 1)}_{i - 1/2} = w^{(n)}_{i - 1/2} + \Delta t\newdot{w}^{(n)}_{i - 1/2, \text{expl}} - \frac{w^{(n)}_{i - 1/2}\Delta t}{2}\left(\frac{w^{(n)}_{i - 1 - 1/2} - w^{(n)}_{i + 1 - 1/2}}{z_{i - 1 - 1/2} - z_{i + 1 - 1/2}} + \frac{w^{(n + 1)}_{i - 1 - 1/2} - w^{(n + 1)}_{i + 1 - 1/2}}{z_{i - 1 - 1/2} - z_{i + 1 - 1/2}}\right)
 \end{align}
 %
-Diese Gleichung wird noch einmal notiert, dabei werden die Unbekannten \textcolor{red}{rot} notiert, die Bekannten \textcolor{blue}{blau} und die Vorfaktoren der Unbekannten schwarz:
+Diese Gleichung wird noch einmal notiert, dabei werden die Unbekannten \textcolor{red}{rot} notiert, die Bekannten \textcolor{blue}{blau} und die Vorfaktoren der Unbekannten schwarz eingefärbt:
 %
 \begin{align}
 \textcolor{red}{w^{(n + 1)}_{i - 1/2}} &= \textcolor{blue}{w^{(n)}_{i - 1/2} + \Delta t\newdot{w}^{(n)}_{i - 1/2, \text{expl}} - \frac{w^{(n)}_{i - 1/2}\Delta t}{2}\frac{w^{(n)}_{i - 1 - 1/2} - w^{(n)}_{i + 1 - 1/2}}{z_{i - 1 - 1/2} - z_{i + 1 - 1/2}}}\nonumber\\
@@ -20472,11 +20472,11 @@ Bei $i = 1$ verwendet man einen unteren einseitigen Differenzenquotienten, um di
 &- \frac{w^{(n)}_{1 - 1/2}\Delta t}{2\left(z_{1 - 1/2} - z_{2 - 1/2}\right)}\textcolor{red}{w^{(n + 1)}_{1 - 1/2}} + \frac{w^{(n)}_{1 - 1/2}\Delta t}{2\left(z_{1 - 1/2} - z_{2 - 1/2}\right)}\textcolor{red}{w^{(n + 1)}_{2 - 1/2}}
 \end{align}
 %
-Bei $i = N_L - 1$ gilt aufgrund von $w_{N_L - 1/2} = $ die Gleichung
+Bei $i = N_L - 1$ gilt aufgrund von $w_{N_L - 1/2} = 0$ die Gleichung
 %
 \begin{align}
 \textcolor{red}{w^{(n + 1)}_{N_L - 1 - 1/2}} &= \textcolor{blue}{w^{(n)}_{N_L - 1 - 1/2} + \Delta t\newdot{w}^{(n)}_{N_L - 1 - 1/2, \text{expl}} - \frac{w^{(n)}_{N_L - 1 - 1/2}\Delta t}{2}\frac{w^{(n)}_{N_L - 2 - 1/2}}{z_{N_L - 2 - 1/2} - z_{N_L - 1/2}}}\nonumber\\
-&- \frac{w^{(n)}_{i - 1/2}\Delta t}{2\left(z_{N_L - 2 - 1/2} - z_{N_L - 1/2}\right)}\textcolor{red}{w^{(n + 1)}_{N_L - 2 - 1/2}}.
+&- \frac{w^{(n)}_{N_L - 1 - 1/2}\Delta t}{2\left(z_{N_L - 2 - 1/2} - z_{N_L - 1/2}\right)}\textcolor{red}{w^{(n + 1)}_{N_L - 2 - 1/2}}.
 \end{align}
 %
 Man definiert den Vektor $\mathbf{W}$ der Unbekannten durch
@@ -20500,7 +20500,7 @@ mit einer Matrix $\overleftrightarrow{A}$ und einer rechten Seite $\mathbf{b}$. 
 %
 \begin{align}
 \mathbf{b} = \left(\begin{array}{c}
-w^{(n)}_{1 - 1/2} + \Delta t\newdot{w}^{(n)}_{1 - 1/2, \text{expl}} + \frac{w^{(n)}_{1 - 1/2}\Delta t}{2}\frac{w^{(n)}_{1 - 1/2} - w^{(n)}_{2 - 1/2}}{z_{1 - 1/2} - z_{2 - 1/2}}\\
+w^{(n)}_{1 - 1/2} + \Delta t\newdot{w}^{(n)}_{1 - 1/2, \text{expl}} - \frac{w^{(n)}_{1 - 1/2}\Delta t}{2}\frac{w^{(n)}_{1 - 1/2} - w^{(n)}_{2 - 1/2}}{z_{1 - 1/2} - z_{2 - 1/2}}\\
 w^{(n)}_{2 - 1/2} + \Delta t\newdot{w}^{(n)}_{2 - 1/2, \text{expl}} - \frac{w^{(n)}_{2 - 1/2}\Delta t}{2}\frac{w^{(n)}_{1 - 1/2} - w^{(n)}_{3 - 1/2}}{z_{1 - 1/2} - z_{3 - 1/2}}\\
 w^{(n)}_{3 - 1/2} + \Delta t\newdot{w}^{(n)}_{3 - 1/2, \text{expl}} - \frac{w^{(n)}_{3 - 1/2}\Delta t}{2}\frac{w^{(n)}_{2 - 1/2} - w^{(n)}_{4 - 1/2}}{z_{2 - 1/2} - z_{4 - 1/2}}\\
 \vdots\\
