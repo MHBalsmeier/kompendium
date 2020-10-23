@@ -20215,7 +20215,7 @@ u^{(n + 1)} = u^{(n)} + \frac{\Delta t}{2}\left(\frac{\partial u^{(n)}}{\partial
 An dieser Stelle geht es dabei nur um vertikale Advektion\index{Advektion!vertikale}, die anderen Terme werden explizit berechnet:
 %
 \begin{align}
-u^{(n + 1)} = u^{(n)} + \Delta t\newdot{u}^{(n)}_{i, \text{expl}} - \frac{w^{(n)}\Delta t}{2}\left(\frac{\partial u^{(n)}}{\partial z} + \frac{\partial u^{(n + 1)}}{\partial z}\right)
+u^{(n + 1)} = u^{(n)} + \Delta t\newdot{u}^{(n)}_{\text{expl}} - \frac{w^{(n)}\Delta t}{2}\left(\frac{\partial u^{(n)}}{\partial z} + \frac{\partial u^{(n + 1)}}{\partial z}\right)
 \end{align}
 %
 Die vertikale Diskretisierung erfordert einen Layerindex $0 \leq i \leq N_L - 1$:
@@ -20230,29 +20230,16 @@ Diese Gleichung wird noch einmal notiert, dabei werden die Unbekannten \textcolo
 \textcolor{red}{u^{(n + 1)}_{i}} = \textcolor{blue}{u^{(n)}_{i} + \Delta t\newdot{u}^{(n)}_{i, \text{expl}} - \frac{\newoverline{w^{(n)}_{k - 1/2}}^{(i)}\Delta t}{2}\frac{u^{(n)}_{i - 1} - u^{(n)}_{i + 1}}{z_{i - 1} - z_{i + 1}}} - \frac{\newoverline{w^{(n)}_{k - 1/2}}^{(i)}\Delta t}{2\left(z_{i - 1} - z_{i + 1}\right)}\textcolor{red}{u^{(n + 1)}_{i - 1}} + \frac{\newoverline{w^{(n)}_{k - 1/2}}^{(i)}\Delta t}{2\left(z_{i - 1} - z_{i + 1}\right)}\textcolor{red}{u^{(n + 1)}_{i + 1}}
 \end{align}
 %
-Im nullten (obersten) Layer gilt
+Im nullten (obersten) Layer verwendet man einen einseitigen, unteren Differenzenquotienten, um die Reflexion von Wellen am oberen Rand zu minimieren:
 %
 \begin{align}
-\textcolor{red}{u^{(n + 1)}_{i}} = \textcolor{blue}{u^{(n)}_{i} + \Delta t\newdot{u}^{(n)}_{i, \text{expl}} - \frac{\newoverline{w^{(n)}_{k - 1/2}}^{(i)}\Delta t}{2}\frac{u^{(n)}_{i} - u^{(n)}_{i + 1}}{z_{i} - z_{i + 1}}} - \frac{\newoverline{w^{(n)}_{k - 1/2}}^{(i)}\Delta t}{2\left(z_{i} - z_{i + 1}\right)}\textcolor{red}{v^{(n + 1)}_{i}} + \frac{\newoverline{w^{(n)}_{k - 1/2}}^{(i)}\Delta t}{2\left(z_{i} - z_{i + 1}\right)}\textcolor{red}{u^{(n + 1)}_{i + 1}}.
+\textcolor{red}{u^{(n + 1)}_{0}} = \textcolor{blue}{u^{(n)}_{0} + \Delta t\newdot{u}^{(n)}_{0, \text{expl}} - \frac{\newoverline{w^{(n)}_{k - 1/2}}^{(0)}\Delta t}{2}\frac{u^{(n)}_{0} - u^{(n)}_{1}}{z_{0} - z_{1}}} - \frac{\newoverline{w^{(n)}_{k - 1/2}}^{(0)}\Delta t}{2\left(z_{0} - z_{1}\right)}\textcolor{red}{u^{(n + 1)}_{0}} + \frac{\newoverline{w^{(n)}_{k - 1/2}}^{(0)}\Delta t}{2\left(z_{0} - z_{1}\right)}\textcolor{red}{u^{(n + 1)}_{1}}
 \end{align}
 %
-Hier ist $i = 0$:
+Bei $i = N_L - 1$ gilt
 %
 \begin{align}
-\textcolor{red}{u^{(n + 1)}_{0}} = \textcolor{blue}{u^{(n)}_{0} + \Delta t\newdot{u}^{(n)}_{i, \text{expl}} - \frac{\newoverline{w^{(n)}_{-1/2}}^{(0)}\Delta t}{2}\frac{u^{(n)}_{0} - u^{(n)}_{1}}{z_{0} - z_{1}}} - \frac{\newoverline{w^{(n)}_{-1/2}}^{(0)}\Delta t}{2\left(z_{0} - z_{1}\right)}\textcolor{red}{v^{(n + 1)}_{0}} + \frac{\newoverline{w^{(n)}_{-1/2}}^{(0)}\Delta t}{2\left(z_{0} - z_{1}\right)}\textcolor{red}{u^{(n + 1)}_{1}}
-\end{align}
-%
-Im $N_L - 1-$ten (untersten) Layer gilt
-%
-\begin{align}
-\textcolor{red}{u^{(n + 1)}_{i}} = \textcolor{blue}{u^{(n)}_{i} + \Delta t\newdot{u}^{(n)}_{i, \text{expl}} - \frac{\newoverline{w^{(n)}_{-1/2}}^{(i)}\Delta t}{2}\frac{u^{(n)}_{i - 1} - u^{(n)}_{i}}{z_{i - 1} - z_{i}}} - \frac{\newoverline{w^{(n)}_{k - 1/2}}^{(i)}\Delta t}{2\left(z_{i - 1} - z_{i}\right)}\textcolor{red}{v^{(n + 1)}_{i - 1}} + \frac{\newoverline{w^{(n)}_{i - 1/2}}^{(i)}\Delta t}{2\left(z_{i - 1} - z_{i}\right)}\textcolor{red}{v^{(n + 1)}_{i}}.
-\end{align}
-%
-Hier ist $i = N_L - 1$:
-%
-\begin{align}
-\textcolor{red}{u^{(n + 1)}_{N_L - 1}} & = \textcolor{blue}{u^{(n)}_{N_L - 1} + \Delta t\newdot{u}^{(n)}_{i, \text{expl}} - \frac{\newoverline{w^{(n)}}_{N_L - 1 - 1/2}\Delta t}{2}\frac{u^{(n)}_{N_L - 2} - v^{(n)}_{N_L - 1}}{z_{N_L - 2} - z_{N_L - 1}}} - \frac{\newoverline{w^{(n)}}_{N_L - 1 - 1/2}\Delta t}{2\left(z_{N_L - 2} - z_{N_L - 1}\right)}\textcolor{red}{u^{(n + 1)}_{N_L - 2}}\nonumber\\
-&  +\frac{\newoverline{w^{(n)}}_{N_L - 1 - 1/2}\Delta t}{2\left(z_{N_L - 2} - z_{N_L - 1}\right)}\textcolor{red}{u^{(n + 1)}_{N_L - 1}}
+\textcolor{red}{u^{(n + 1)}_{N_L - 1}} = \textcolor{blue}{u^{(n)}_{N_L - 1} + \Delta t\newdot{u}^{(n)}_{N_L - 1, \text{expl}} - \frac{\newoverline{w^{(n)}_{k - 1/2}}^{(N_L - 1)}\Delta t}{2}\frac{u^{(n)}_{N_L - 2}}{z_{N_L - 2} - z_{N_L}}} - \frac{\newoverline{w^{(n)}_{k - 1/2}}^{(N_L - 1)}\Delta t}{2\left(z_{N_L - 2} - z_{N_L}\right)}\textcolor{red}{u^{(n + 1)}_{N_L - 2}}.
 \end{align}
 %
 Man definiert den Vektor $\mathbf{V}$ der Unbekannten durch
@@ -20272,7 +20259,7 @@ für diesen gilt ein lineares Gleichungssystem\index{lineares Gleichungssystem}\
 \overleftrightarrow{A}\cdot\mathbf{V} = \mathbf{b}
 \end{align}
 %
-mit einer Matrix $\overleftrightarrow{A}$ und einer rechten Seite $\mathbf{b}$. Für diese rechte Seite gilt
+mit einer Matrix $\overleftrightarrow{A}$ und einer rechten Seite $\mathbf{b}$. Für die rechte Seite gilt
 %
 \begin{align}
 \mathbf{b} = \left(\begin{array}{c}
@@ -20281,7 +20268,7 @@ u^{(n)}_{1} + \Delta t\newdot{u}^{(n)}_{1, \text{expl}} - \frac{\newoverline{w^{
 u^{(n)}_{2} + \Delta t\newdot{u}^{(n)}_{2, \text{expl}} - \frac{\newoverline{w^{(n)}_{k - 1/2}}^{(2)}\Delta t}{2}\frac{u^{(n)}_{1} - u^{(n)}_{3}}{z_{1} - z_{3}}\\
 \vdots\\
 u^{(n)}_{N_L - 2} + \Delta t\newdot{u}^{(n)}_{N_L - 2, \text{expl}} - \frac{\newoverline{w^{(n)}_{k - 1/2}}^{(N_L - 2)}\Delta t}{2}\frac{u^{(n)}_{N_L - 3} - u^{(n)}_{N_L - 1}}{z_{N_L - 3} - z_{N_L - 1}}\\
-u^{(n)}_{N_L - 1} + \Delta t\newdot{u}^{(n)}_{N_L - 1, \text{expl}} - \frac{\newoverline{w^{(n)}_{k - 1/2}}^{(N_L - 1)}\Delta t}{2}\frac{u^{(n)}_{N_L - 2} - u^{(n)}_{N_L - 1}}{z_{N_L - 2} - z_{N_L - 1}}
+u^{(n)}_{N_L - 1} + \Delta t\newdot{u}^{(n)}_{N_L - 1, \text{expl}} - \frac{\newoverline{w^{(n)}_{k - 1/2}}^{(N_L - 1)}\Delta t}{2}\frac{u^{(n)}_{N_L - 2}}{z_{N_L - 2} - z_{N_L}}
 \end{array}\right).
 \end{align}
 %
@@ -20289,12 +20276,11 @@ Für die Matrix $\overleftrightarrow{A}$ erhält man
 %
 \begin{align}
 \overleftrightarrow{A} & = \left(\begin{array}{cccc}
-\left(1 + \frac{\newoverline{w^{(n)}}_{-1/2}\Delta t}{2\left(z_{0} - z_{1}\right)}\right) & -\left(\frac{\newoverline{w^{(n)}}_{0 - 1/2}\Delta t}{2\left(z_{0} - z_{1}\right)}\right)  & \dots & 0 \\
-\left(\frac{\newoverline{w^{(n)}}_{1 - 1/2}\Delta t}{2\left(z_{0} - z_{2}\right)}\right) & 1 & -\left(\frac{\newoverline{w^{(n)}}_{1 - 1/2}\Delta t}{2\left(z_{0} - z_{2}\right)}\right)\hspace{2 cm}\dots &  0 \\
+1 + \frac{\newoverline{w^{(n)}_{k - 1/2}}^{(0)}\Delta t}{2\left(z_{0} - z_{1}\right)} & -\frac{\newoverline{w^{(n)}_{k - 1/2}}^{(0)}\Delta t}{2\left(z_{0} - z_{1}\right)}  & \dots & 0 \\
+\frac{\newoverline{w^{(n)}_{k - 1/2}}^{(1)}\Delta t}{2\left(z_{0} - z_{2}\right)} & 1 & -\frac{\newoverline{w^{(n)}_{k - 1/2}}^{(1)}\Delta t}{2\left(z_{0} - z_{2}\right)}\hspace{2 cm}\dots &  0 \\
 \vdots & \hspace{2 cm}\ddots & \ddots & \vdots \\
-0 & \dots & \left(\frac{\newoverline{w^{(n)}}_{N_L - 1}\Delta t}{2\left(z_{N_L - 2} - z_{N_L - 1}\right)}\right) & \left(1 - \frac{\newoverline{w^{(n)}}_{N_L - 1 - 1/2}\Delta t}{2\left(z_{N_L - 2} - z_{N_L - 1}\right)}\right)
-\end{array}\right).\nonumber\\
-& 
+0 & \dots & \frac{\newoverline{w^{(n)}_{k - 1/2}}^{(N_L - 1)}\Delta t}{2\left(z_{N_L - 2} - z_{N_L}\right)} & 1
+\end{array}\right).
 \end{align}
 
 \subsubsection{Vertikale Advektion des Vertikalwindes}
@@ -20325,10 +20311,11 @@ Diese Gleichung wird noch einmal notiert, dabei werden die Unbekannten \textcolo
 &- \frac{w^{(n)}_{i - 1/2}\Delta t}{2\left(z_{i - 1 - 1/2} - z_{i + 1 - 1/2}\right)}\textcolor{red}{w^{(n + 1)}_{i - 1 - 1/2}} + \frac{w^{(n)}_{i - 1/2}\Delta t}{2\left(z_{i - 1 - 1/2} - z_{i + 1 - 1/2}\right)}\textcolor{red}{w^{(n + 1)}_{i + 1 - 1/2}}
 \end{align}
 %
-Bei $i = 1$ gilt aufgrund von $w_{-1/2} = 0$ die Gleichung
+Bei $i = 1$ verwendet man einen unteren einseitigen Differenzenquotienten, um die Reflexion von Wellen am oberen Rand zu minimieren:
 %
 \begin{align}
-\textcolor{red}{w^{(n + 1)}_{1 - 1/2}} &= \textcolor{blue}{w^{(n)}_{1 - 1/2} + \Delta t\newdot{w}^{(n)}_{1 - 1/2, \text{expl}} + \frac{w^{(n)}_{1 - 1/2}\Delta t}{2}\frac{w^{(n)}_{2 - 1/2}}{z_{-1/2} - z_{2 - 1/2}}} + \frac{w^{(n)}_{1 - 1/2}\Delta t}{2\left(z_{-1/2} - z_{2 - 1/2}\right)}\textcolor{red}{w^{(n + 1)}_{2 - 1/2}}.
+\textcolor{red}{w^{(n + 1)}_{1 - 1/2}} &= \textcolor{blue}{w^{(n)}_{1 - 1/2} + \Delta t\newdot{w}^{(n)}_{1 - 1/2, \text{expl}} - \frac{w^{(n)}_{1 - 1/2}\Delta t}{2}\frac{w^{(n)}_{1 - 1/2} - w^{(n)}_{2 - 1/2}}{z_{1 - 1/2} - z_{2 - 1/2}}}\nonumber\\
+&- \frac{w^{(n)}_{1 - 1/2}\Delta t}{2\left(z_{1 - 1/2} - z_{2 - 1/2}\right)}\textcolor{red}{w^{(n + 1)}_{1 - 1/2}} + \frac{w^{(n)}_{1 - 1/2}\Delta t}{2\left(z_{1 - 1/2} - z_{2 - 1/2}\right)}\textcolor{red}{w^{(n + 1)}_{2 - 1/2}}
 \end{align}
 %
 Bei $i = N_L - 1$ gilt aufgrund von $w_{N_L - 1/2} = $ die Gleichung
@@ -20359,7 +20346,7 @@ mit einer Matrix $\overleftrightarrow{A}$ und einer rechten Seite $\mathbf{b}$. 
 %
 \begin{align}
 \mathbf{b} = \left(\begin{array}{c}
-w^{(n)}_{1 - 1/2} + \Delta t\newdot{w}^{(n)}_{1 - 1/2, \text{expl}} + \frac{w^{(n)}_{1 - 1/2}\Delta t}{2}\frac{w^{(n)}_{2 - 1/2}}{z_{0 - 1/2} - z_{2 - 1/2}}\\
+w^{(n)}_{1 - 1/2} + \Delta t\newdot{w}^{(n)}_{1 - 1/2, \text{expl}} + \frac{w^{(n)}_{1 - 1/2}\Delta t}{2}\frac{w^{(n)}_{1 - 1/2} - w^{(n)}_{2 - 1/2}}{z_{1 - 1/2} - z_{2 - 1/2}}\\
 w^{(n)}_{2 - 1/2} + \Delta t\newdot{w}^{(n)}_{2 - 1/2, \text{expl}} - \frac{w^{(n)}_{2 - 1/2}\Delta t}{2}\frac{w^{(n)}_{1 - 1/2} - w^{(n)}_{3 - 1/2}}{z_{1 - 1/2} - z_{3 - 1/2}}\\
 w^{(n)}_{3 - 1/2} + \Delta t\newdot{w}^{(n)}_{3 - 1/2, \text{expl}} - \frac{w^{(n)}_{3 - 1/2}\Delta t}{2}\frac{w^{(n)}_{2 - 1/2} - w^{(n)}_{4 - 1/2}}{z_{2 - 1/2} - z_{4 - 1/2}}\\
 \vdots\\
@@ -20371,7 +20358,7 @@ w^{(n)}_{N_L - 1 - 1/2} + \Delta t\newdot{w}^{(n)}_{N_L - 1 - 1/2, \text{expl}} 
 Für die Matrix $\overleftrightarrow{A}$ erhält man
 %
 \begin{align}\overleftrightarrow{A} & = \left(\begin{array}{cccc}
-1 & -\frac{w^{(n)}_{1 - 1/2}\Delta t}{2\left(z_{-1/2} - z_{2 - 1/2}\right)}  & \dots & 0 \\
+1 + \frac{w^{(n)}_{1 - 1/2}\Delta t}{2\left(z_{1 - 1/2} - z_{2 - 1/2}\right)} & -\frac{w^{(n)}_{1 - 1/2}\Delta t}{2\left(z_{1 - 1/2} - z_{2 - 1/2}\right)}  & \dots & 0 \\
 \frac{w^{(n)}_{2 - 1/2}\Delta t}{2\left(z_{1 - 1/2} - z_{3 - 1/2}\right)} & 1 & -\frac{w^{(n)}_{2 - 1/2}\Delta t}{2\left(z_{1 - 1/2} - z_{3 - 1/2}\right)}\hspace{2 cm}\dots &  0 \\
 \vdots & \hspace{2 cm}\ddots & \ddots & \vdots \\
 0 & \dots & \frac{w^{(n)}_{N_L - 1 - 1/2}\Delta t}{2\left(z_{N_L - 2 - 1/2} - z_{N_L - 1/2}\right)} & 1
