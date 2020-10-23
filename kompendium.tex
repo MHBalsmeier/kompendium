@@ -9735,7 +9735,7 @@ Nach Glg. \eqref{eq:rot_geo} gilt
 %
 \begin{align}
 \mathbf{0} & = \nabla\times\mathbf{g} = -\frac{g_y}{r}\mathbf{i} + \frac{g_x\tan\left(\varphi\right)}{r}\mathbf{k} + \frac{g_x}{r}\mathbf{j} + \mathbf{k}\left(-\frac{\partial g_x}{\partial y} + \frac{\partial g_y}{\partial x}\right) - \mathbf{j}\left(\frac{\partial g_z}{\partial x} - \frac{\partial g_x}{\partial r}\right) + \mathbf{i}\left(-\frac{\partial g_y}{\partial r} + \frac{\partial g_z}{\partial y}\right)\nonumber\\
-& \stackrel{g_x = g_y = 0}{=} & -\mathbf{j}\frac{\partial g_z}{\partial x} + \mathbf{i}\frac{\partial g_z}{\partial y}.
+& \stackrel{g_x = g_y = 0}{=} -\mathbf{j}\frac{\partial g_z}{\partial x} + \mathbf{i}\frac{\partial g_z}{\partial y}.
 \end{align}
 %
 Somit gilt in der SGA\index{spherical geopotential approximation (SGA)}\index{SGA (spherical geopotential approximation)}
@@ -17236,7 +17236,7 @@ setzt man dies ein folgt $-i\omega + Uik = 0$, also als Dispersionsrelation
 Phasen- und Gruppengeschwindigkeit sind also gleich $U$. Nun werden Ort und Zeit diskretisiert, man schreibt $f_l^{(m)} = f\left(l\Delta x, m\Delta t\right)$ und setzt an 
 %
 \begin{align}
-f_{l}^{(m)} = e^{Cm\Delta t}e^{i\left(kl\Delta x - \omega m\Delta t\right)}
+f_{l}^{(m)} = e^{Cm\Delta t}e^{i\left(kl\Delta x - \omega m\Delta t\right)}\label{eq:ansatz_time_stepping_1d_analysis}
 \end{align}
 %
 mit $f_{l}^{(0)} = e^{ikl\Delta x}$ als Anfangszustand. Es sollen $C$ und die Dispersion $\omega\left(k\right)$ bestimmt werden.
@@ -17357,7 +17357,7 @@ Das explizite Euler-Verfahren ist genau dann stabil, wenn $c < 1$ ist.
 \subsection{Implizites Euler-Verfahren}
 \label{sec:implizites_euler-verfahren}\index{implizites Euler-Verfahren}\index{Euler-Verfahren!implizites}
 
-Verwendet man einen linksseitigen Differenzenquotienten für die Zeitableitung (dies bezeichnet man als \textit{implizites Euler-Verfahren}\index{Euler-Verfahren!implizites}\index{implizites Euler-Verfahren}),  schreibt also
+Verwendet man einen linksseitigen Differenzenquotienten für die Zeitableitung (dies bezeichnet man als \textit{implizites Euler-Verfahren}\index{Euler-Verfahren!implizites}\index{implizites Euler-Verfahren}), schreibt also
 %
 \begin{align}
 \frac{f_l^{(m + 1)} - f_l^{(m)}}{\Delta t} + U\frac{f_{l + 1}^{(m + 1)} - f_{l - 1}^{(m + 1)}}{2\Delta x} = 0, 
@@ -17367,7 +17367,7 @@ so ergibt dies eingesetzt
 %
 \begin{align}
 & \frac{e^{C\Delta t}e^{-i\omega\Delta t} - 1}{\Delta t} + U \frac{e^{ik\Delta x}e^{C\Delta t}e^{-i\omega\Delta t} - e^{-ik\Delta x}e^{C\Delta t}e^{-i\omega\Delta t}}{2\Delta x} = 0 \nonumber\\
-&\Leftrightarrow&\frac{1 - e^{-C\Delta t}e^{i\omega\Delta t}}{\Delta t} + U \frac{e^{ik\Delta x} - e^{-ik\Delta x}}{2\Delta x} = 0.
+&\Leftrightarrow\frac{1 - e^{-C\Delta t}e^{i\omega\Delta t}}{\Delta t} + U \frac{e^{ik\Delta x} - e^{-ik\Delta x}}{2\Delta x} = 0.
 \end{align}
 %
 Der Realteil ergibt
@@ -17393,6 +17393,51 @@ also die gleiche Dispersionsrelation wie beim expliziten Euler-Verfahren.
 \subsection{Crank-Nicolson-Verfahren}
 \label{sec:crank-nicolson-Verfahren}\index{Crank-Nicolson-Verfahren}
 
+Das Crank-Nicolson-Verfahren ist eine Kombination aus explizitem und implizitem Euler-Verfahren:
+%
+\begin{align}
+\frac{f_l^{(m + 1)} - f_l^{(m)}}{\Delta t} + U\frac{f_{l + 1}^{(m)} - f_{l - 1}^{(m)} + f_{l + 1}^{(m + 1)} - f_{l - 1}^{(m + 1)}}{4\Delta x} = 0
+\end{align}
+%
+Setzt man hier Glg. \eqref{eq:ansatz_time_stepping_1d_analysis} ein, erhält man
+%
+\begin{align}
+& \frac{e^{C\Delta t}e^{-i\omega\Delta t} - 1}{\Delta t} + U \frac{e^{ik\Delta x} - e^{-ik\Delta x} + e^{ik\Delta x}e^{C\Delta t}e^{-i\omega\Delta t} - e^{-ik\Delta x}e^{C\Delta t}e^{-i\omega\Delta t}}{4\Delta x} = 0\nonumber\\
+&\Leftrightarrow\frac{e^{C\Delta t}\cos\left(\omega\Delta t\right) - ie^{C\Delta t}\sin\left(\omega\Delta t\right) - 1}{\Delta t} + U \frac{2i\sin\left(\omega\Delta t\right) + 2i\sin\left(k\Delta x\right)e^{C\Delta t}e^{-i\omega\Delta t}}{4\Delta x} = 0\nonumber\\
+&\Leftrightarrow\frac{e^{C\Delta t}\cos\left(\omega\Delta t\right) - ie^{C\Delta t}\sin\left(\omega\Delta t\right) - 1}{\Delta t} + U \frac{2i\sin\left(\omega\Delta t\right) + 2ie^{C\Delta t}\sin\left(k\Delta x\right)\cos\left(\omega\Delta t\right) + 2e^{C\Delta t}\sin\left(k\Delta x\right)\sin\left(\omega\Delta t\right)}{4\Delta x} = 0.
+\end{align}
+%
+Der Realteil ergibt
+%
+\begin{align}
+&\Leftrightarrow\frac{e^{C\Delta t}\cos\left(\omega\Delta t\right) - 1}{\Delta t} + U\frac{2e^{C\Delta t}\sin\left(k\Delta x\right)\sin\left(\omega\Delta t\right)}{4\Delta x} = 0\nonumber\\
+&\Leftrightarrow\frac{\cos\left(\omega\Delta t\right) - e^{-C\Delta t}}{\Delta t} + U\frac{\sin\left(k\Delta x\right)\sin\left(\omega\Delta t\right)}{2\Delta x} = 0\nonumber.
+\end{align}
+%
+Der Imaginärteil ergibt
+%
+\begin{align}
+&\Leftrightarrow-\frac{ie^{C\Delta t}\sin\left(\omega\Delta t\right)}{\Delta t} + U\frac{2i\sin\left(\omega\Delta t\right) + 2ie^{C\Delta t}\sin\left(k\Delta x\right)\cos\left(\omega\Delta t\right)}{4\Delta x} = 0\nonumber\\
+&\Leftrightarrow-\frac{e^{C\Delta t}}{\Delta t} + U\frac{1 + e^{C\Delta t}\sin\left(k\Delta x\right)\cot\left(\omega\Delta t\right)}{2\Delta x} = 0\nonumber.
+\end{align}
+%
+Das bedeutet $C < 0$, die Lösung ist also stabil, sie verschwindet jedoch irgendwann. Der Imaginärteil wird zu
+%
+\begin{align}
+\frac{e^{-C\Delta t}\sin\left(\omega\Delta t\right)}{\Delta t} = U\frac{\sin\left(k\Delta x\right)}{\Delta x}.
+\end{align}
+%
+Daraus folgt
+%
+\begin{align}
+\tan\left(\omega\Delta t\right) = U\frac{\Delta t}{\Delta x}\sin\left(k\Delta x\right), 
+\end{align}
+%
+also die gleiche Dispersionsrelation wie beim expliziten Euler-Verfahren.
+
+\section{Mischung von Zeitschrittverfahren}
+\label{sec:mischung_von_zeitschrittverfahren}
+
 Man ist nicht darauf beschränkt, eine differenzialgleichung entweder nur explizit oder nur implizit zu lösen. Sei $\newtilde{f}$ das diskretisierte Analogon eines kontinuierlichen Feldes $f$ und seien $\mathbf{r}_i$ die Gitterpunkte. Ein Zwei-Schritt-Verfahren für eine differenzialgleichung erster Ordnung in der Zeit für $f$ lässt sich in der Form
 %
 \begin{align}
@@ -17410,14 +17455,11 @@ m_j = \begin{cases}
 %
 Es wurde stillschweigend davon ausgegangen, dass $f$ das einzige auftretende Feld ist. Verallgemeinernd kann man $f$ als Tupel von Feldern ansehen, also als Zustandsvektor. Weiterhin kann man $0 \leq m_j \leq 1$ zulassen, hierbei ist $m_j$ der implizite Anteil. Das Crank-Nicolson-Verfahren\index{Crank-Nicolson-Verfahren} bedeutet $m_j = \frac{1}{2}$.
 
-\section{Mischung von Zeitschrittverfahren}
-\label{sec:mischung_von_zeitschrittverfahren}
-
 \section{Aspekte partieller Differenzialgleichungen}
 \label{sec:aspekte_partieller_differenzialgleichungen}
 
-\subsection{Das Forward-backward-Verfahren}
-\label{sec:das_forward-backward-verfahren}
+\subsection{Forward-backward-Verfahren}
+\label{sec:forward-backward-verfahren}
 
 \section{Energetische Konsistenz im idealen Gas}
 \label{sec:energetische_konsistenz_im_idealen_gas}
@@ -18063,10 +18105,16 @@ Jeder Wert von $\psi$ tritt in Glg. \eqref{eq:c-grid_rot_kons_deriv_1} also zwei
 }}
 \end{center}
 
-\section{Produktregel auf dem C-Gitter}
-\label{sec:produktregel_auf_dem_c-gitter}\index{Produktregel!C-Gitter}\index{C-Gitter!Produktregel}
+\section{Skalarprodukt auf dem C-Gitter}
+\label{sec:skalarprodukt_auf_dem_c-gitter}\index{Skalarprodukt!C-Gitter}\index{C-Gitter!Skalarprodukt}
 
-In diesem Abschnitt wird die C-Gitter-Diskretisierung von $\nabla\cdot\left(\psi\mathbf{v}\right) = \mathbf{v}\cdot\nabla\psi + \psi\nabla\cdot\mathbf{v}$ untersucht.
+Zunächst wird in diesem Abschnitt von einem rechteckigen C-Gitter ausgegangen. Während auf solch einem Gitter die Diskretisierungen von Gradient und Divergenz eindeutig sind, ist dies beim Skalarprodukt\index{Skalarprodukt!C-Gitter}\index{C-Gitter!Skalarprodukt} nicht der Fall. Als Forderung an die Diskretisierung des Skalarproduktes\index{Diskretisierung!Skalarprodukt}\index{Skalarprodukt!Diskretisierung} verwendet man, dass die Identität
+%
+\begin{align}
+\nabla\cdot\left(\psi\mathbf{v}\right) = \mathbf{v}\cdot\nabla\psi + \psi\nabla\cdot\mathbf{v}
+\end{align}
+%
+sich auf die Diskretisierung übertragen soll.
 
 \subsection{Eindimensionaler Fall}
 \label{sec:eindimensionaler_fall}
@@ -18074,17 +18122,67 @@ In diesem Abschnitt wird die C-Gitter-Diskretisierung von $\nabla\cdot\left(\psi
 Die Notation wird aus Absch. \ref{sec:c-gitter} mit der Ersetzung $h \to \psi$ übernommen.
 %
 \begin{align}
-\frac{\newtilde{\psi}_{j + 1}u_{j + 1} - \newtilde{\psi}_{j}u_{j}}{\Delta x} &= \frac{\left(\psi_{j + 3/2} + \psi_{j + 1/2}\right)u_{j + 1} - \left(\psi_{j + 1/2} + \psi_{j - 1/2}\right)u_{j}}{2\Delta x}\nonumber\\
+\nabla\cdot\left(\psi u\right) &= \frac{\newtilde{\psi}_{j + 1}u_{j + 1} - \newtilde{\psi}_{j}u_{j}}{\Delta x} = \frac{\left(\psi_{j + 3/2} + \psi_{j + 1/2}\right)u_{j + 1} - \left(\psi_{j + 1/2} + \psi_{j - 1/2}\right)u_{j}}{2\Delta x}\nonumber\\
 &= \frac{\psi_{j + 3/2}u_{j + 1} - \psi_{j - 1/2}u_{j} + \psi_{j + 1/2}\left(u_{j + 1} - u_{j}\right)}{2\Delta x}\nonumber\\
 &= \frac{\psi_{j + 3/2}u_{j + 1} - \psi_{j - 1/2}u_{j} - \psi_{j + 1/2}\left(u_{j + 1} - u_{j}\right) + 2\psi_{j + 1/2}\left(u_{j + 1} - u_{j}\right)}{2\Delta x}\nonumber\\
 &= \frac{\left(\psi_{j + 3/2} - \psi_{j + 1/2}\right)u_{j + 1} - \left(\psi_{j - 1/2} - \psi_{j + 1/2}\right)u_{j} + 2\psi_{j + 1/2}\left(u_{j + 1} - u_{j}\right)}{2\Delta x}\nonumber\\
-&= \frac{1}{2}\left[\frac{\psi_{j + 3/2} - \psi_{j + 1/2}}{\Delta x}u_{j + 1} + \frac{\psi_{j + 1/2} - \psi_{j - 1/2}}{\Delta x}u_{j}\right]+ \psi_{j + 1/2}\frac{u_{j + 1} - u_{j}}{\Delta x}
+&= \frac{1}{2}\left[\frac{\psi_{j + 3/2} - \psi_{j + 1/2}}{\Delta x}u_{j + 1} + \frac{\psi_{j + 1/2} - \psi_{j - 1/2}}{\Delta x}u_{j}\right]+ \psi_{j + 1/2}\frac{u_{j + 1} - u_{j}}{\Delta x}\nonumber\\
+&\stackrel{!}{=} \psi\nabla\cdot\left(u\right) + u\frac{\partial\psi}{\partial x}
 \end{align}
 %
-Die Produktregel überträgt sich in diesem Fall also.
+Die Produktregel überträgt sich also, falls man das Skalarprodukt $uv$ zweier Vektorfelder $u$, $v$ durch
+%
+\begin{align}
+\left(uv\right)_{j + 1/2} = \frac{u_jv_j + u_{j + 1}v_{j + 1}}{2}
+\end{align}
+%
+definiert.
 
 \subsection{Dreidimensionaler rechteckiger Fall}
 \label{sec:dreidimensionaler_rechteckiger_fall}
+
+Summiert man die Herleitung im vorherigen Abschnitt über alle drei Raumrichtungen, erhält man die analoge Aussage für den dreidimensionalen Fall mit einem Skalarprodukt
+%
+\begin{align}
+\mathbf{u}\cdot\mathbf{v} = \sum_{e\in c}\frac{u_ev_e}{2},
+\end{align}
+%
+wobei $c$ die Menge aller Seitenflächen $e$ der betrachteten Box ist.
+
+\subsection{Zweidimensionales orthogonales Gitter}
+\label{sec:zweidimensionales_orthogonales_gitter}
+
+Sei $A_c$ der Flächeninhalt der Zelle $c$, $e$ eine Kante der Zelle, $o\left(e\right)$ die an die Kante $e$ grenzende Nachbarzelle von $c$, $d_e$ eine duale Kantenlänge und $l_e$ eine primäre Kantenlänge. Man notiert zunächst
+%
+\begin{align}
+\nabla\cdot\left(\psi\mathbf{v}\right) &= \frac{1}{A_c}\sum_{e\in c}l_e\frac{\psi_{o(e)} + \psi_c}{2}v_e,\\
+\psi\nabla\cdot\mathbf{v} &= \frac{\psi_c}{A_c}\sum_{e\in c}l_ev_e.
+\end{align}
+%
+Man fordert nun
+%
+\begin{align}
+\mathbf{v}\cdot\nabla\psi &\stackrel{!}{=} \nabla\cdot\left(\psi\mathbf{v}\right) - \psi\nabla\cdot\mathbf{v}\nonumber\\
+\Leftrightarrow\mathbf{v}\cdot\nabla\psi &= \frac{1}{A_c}\sum_{e\in c}l_e\frac{\psi_{o(e)} + \psi_c}{2}v_e - \frac{\psi_c}{A_c}\sum_{e\in c}l_ev_e = \frac{1}{A_c}\sum_{e\in c}l_e\frac{\psi_{o(e)} - \psi_c}{2}v_e = \frac{1}{A_c}\sum_{e\in c}\frac{\psi_{o(e)} - \psi_c}{d_e}v_e\frac{l_ed_e}{2}\nonumber\\
+&= \sum_{e\in c}\frac{l_ed_e}{2A_c}\frac{\psi_{o(e)} - \psi_c}{d_e}v_e.
+\end{align}
+%
+Hieraus leitet man
+%
+\begin{align}
+\mathbf{u}\cdot\mathbf{v} = \sum_{e\in c}\frac{l_ed_e}{2A_c}u_ev_e
+\end{align}
+%
+als Diskretisierung für das Skalarprodukt ab. Im ebenen Fall ergibt sich für die Summe der Gewichtungsfaktoren
+%
+\begin{align}
+\sum_{e\in c}\frac{l_ed_e}{2A_c} = 2.
+\end{align}
+%
+Im gekrümmten Fall, wie z. B. einer Kugeloberfläche, ist dies jedoch im Allgemeinen nicht mehr der Fall.
+
+\subsection{Dreidimensionales orthogonales Gitter}
+\label{sec:dreidimensionales_orthogonales_gitter}
 
 \section{Festlegung auf das C-Gitter}
 \label{sec:festlegung_auf_das_c-gitter}\index{C-Gitter}
@@ -18092,10 +18190,10 @@ Die Produktregel überträgt sich in diesem Fall also.
 Das C-Gitter\index{C-Gitter} hat gegenüber den anderen Gittern zusammenfassend drei Vorteile:
 %
 \begin{enumerate}
-        \item Es hat vorteilhafte Dispersionsrelationen\index{Dispersionsrelation}.
-        \item Erhaltung skalarer Variablen ist leicht zu gewährleisten.
-        \item Gradientenfelder sind rotationsfrei.
-        \item Die Produktregel\index{Produktregel!C-Gitter}\index{C-Gitter!Produktregel} $\nabla\cdot\left(\psi\mathbf{v}\right) = \mathbf{v}\cdot\nabla\psi + \psi\nabla\cdot\mathbf{v}$ reproduziert sich.
+\item Es hat vorteilhafte Dispersionsrelationen\index{Dispersionsrelation}.
+\item Erhaltung skalarer Variablen ist leicht zu gewährleisten.
+\item Gradientenfelder sind rotationsfrei.
+\item Die Produktregel\index{Produktregel!C-Gitter}\index{C-Gitter!Produktregel} $\nabla\cdot\left(\psi\mathbf{v}\right) = \mathbf{v}\cdot\nabla\psi + \psi\nabla\cdot\mathbf{v}$ reproduziert sich bei passender Diskretisierung des Skalarproduktes.
 \end{enumerate}
 %
 Daher wird an dieser Stelle die Entscheidung getroffen, ein C-Gitter\index{C-Gitter} für den in Teil \ref{part:entwicklung_eines_dynamischen_kerns} zu entwickelnden dynamischen Kern\index{dynamischer Kern}\index{Kern!dynamischer}.
@@ -18110,7 +18208,7 @@ Die Vektoren befinden sich bei einem C-Gitter\index{C-Gitter} auf den Kanten und
 
 Im kontinuierlichen Fall gelten für $N \geq 1$ prognostische Variablen\index{prognostische Variable}\index{Variable!prognostische} $\psi_i$ mit $1 \leq i \leq N$ ein System aus $N$ prognostischen Gleichungen\index{prognostische Gleichung}\index{Gleichung!prognostische}. Linearisiert man diese, entsteht ein lineares gekoppeltes partielles Differenzialgleichungssystem. Nimmt man keine externen Forcings auf, ist dieses homogen. Setzt man für jede der prognostischen Variablen eine ebene Welle $\psi_i = \newhat{\psi}_i\exp\left(i\mathbf{k}\cdot\mathbf{r} - i\omega t\right)$ mit $\newhat{\psi}_i\in\mathbb{C}$ ein, entsteht homogenes lineares Gleichungssystem für die komplexen Amplituden $\newhat{\psi}_i$. Dies ist ein Eigenwertproblem für die Frequenz $\omega$. Die Eigenwerte findet man über Nullsetzen des charakteristischen Polynoms (der Determinante) dieses Gleichungssystems. Das charakteristische Polynom hat nach dem Hauptsatz der Algebra\index{Hauptsatz der Algebra}\index{Algebra!Hauptsatz der} $N$ komplexe, allerdings nicht notwendigerweise verschiedene Nullstellen. Jede der verschiedenen Nullstellen entspricht einem Zweig der Dispersionsrelation.
 
-Bei der Diskretisierung ist dies insbesondere beim staggering von Vektorfeldern wichtig. Im Falle der linearisierten shallow water equations hat man drei Gleichungen für die drei Variablen $\left(u, v, h\right)$, man hat also \glqq doppelt so viele Pfeile wie Punkte\grqq. Hat ein Gitter zu wenig Pfeile, so kann die Dispresionsrelation nicht mehr die nötige Anzahl an Moden beinhalten. Hat man zu viele Pfeile, so könnte die Dispersionsrelation zusätzliche, unphysikalische Zweige beinhalten. Dies kann jedoch durch Anwendung spezieller Mittelungsoperatoren in den prognostischen Gleichungen verhindert werden.
+Bei der Diskretisierung ist dies insbesondere beim Staggering von Vektorfeldern wichtig. Im Falle der linearisierten shallow water equations hat man drei Gleichungen für die drei Variablen $\left(u, v, h\right)$, man hat also \glqq doppelt so viele Pfeile wie Punkte\grqq. Hat ein Gitter zu wenig Pfeile, so kann die Dispresionsrelation nicht mehr die nötige Anzahl an Moden beinhalten. Hat man zu viele Pfeile, so könnte die Dispersionsrelation zusätzliche, unphysikalische Zweige beinhalten. Dies kann jedoch durch Anwendung spezieller Mittelungsoperatoren in den prognostischen Gleichungen verhindert werden.
 
 \subsection{Folgerungen}
 \label{sec:folgerungen_freiheitsgrade}
@@ -19567,7 +19665,7 @@ Um leichter kommunizieren zu können, werden folgende Festlegungen getroffen:
 \item Ein \textit{Layer}\index{Layer} ist eine Schicht von Gitterzellen.
 \item Ein \textit{Level}\index{Level} ist der Rand eines Layers.
 \item Die Nummerierung beginnt am Oberrand der Atmosphäre bei Null. Gibt es $n$ Layer, so gibt es $n + 1$ Level.
-\item Alle Variablen werden in der Mitte der Layer angeordnet, Vertikalkomponenten von Vektorfeldern in den Levels.
+\item Alle Variablen werden in der Mitte der Layer angeordnet, Vertikalkomponenten von Vektorfeldern in den Levels. Solch eine vertikale Gitterstruktur bezeichnet man als \textit{Lorenz-Gitter}\index{Lorenz-Gitter}.
 \item Die Radialkomponente eines Vektorfeldes zeigt positiv nach oben.
 \end{itemize}
 %
@@ -19918,16 +20016,7 @@ v_{h, e, k, \text{GK}} = u_{e, k} + \newoverline{\newoverline{w_{c, k + \frac{1}
 \chapter{\normalfont\textsc{Reversible Dynamik}}
 \label{chap:reversible_dynamik}\index{reversible Dynamik}\index{Dynamik!reversible}
 
-Ziel dieses Kapitels ist es, herzuleiten, wie differenzielle und algebraische Operatoren und Randbedingungen zu diskretisieren sind. Hierzu betrachtet man die Atmosphäre $A \subseteq \mathbb{R}^3$ als offene Menge und verwendet als Gleichungssystem die reversiblen Gleichungen trockener Luft\index{trockene Luft}\index{Luft!trockene}
-%
-\begin{align}
-\md{\mathbf{v}} & = -\frac{1}{\rho}\nabla p - \mathbf{f}\times\mathbf{v} + \mathbf{g},\\
-\frac{\partial\rho}{\partial t} + \nabla\cdot\left(\rho\mathbf{v}\right) & = 0,\\
-c^{(v)}\md{T} - \frac{p}{\rho^2}\md{\rho} & = 0,\\
-p & = \rho R_dT
-\end{align}
-%
-ohne Näherungen mit den Randbedingungen\index{Randbedingung}
+Ziel dieses Kapitels ist es, herzuleiten, wie differenzielle und algebraische Operatoren und Randbedingungen zu diskretisieren sind. Hierzu betrachtet man die Atmosphäre $A \subseteq \mathbb{R}^3$ als offene Menge und verwendet als Gleichungssystem die reversiblen Gleichungen trockener Luft\index{trockene Luft}\index{Luft!trockene} mit den Randbedingungen\index{Randbedingung}
 %
 \begin{align}
 \mathbf{v}\cdot\mathbf{n} = 0
@@ -19984,10 +20073,15 @@ Die Funktion $f$ in Glg. \eqref{eq:prog_rev_3} sei die thermische Zustandsgleich
 umgeschrieben, da dies die implizite Behandlung vertikal propagierender Schallwellen vereinfacht, s. Absch. \ref{sec:vertikaler_sound_wave_solver}. Die thermische Zustandsgleichung idealer Gase\index{thermische Zustandsgleichung idealer Gase}\index{Zustandsgleichung!thermische!idealer Gase}\index{ideales Gas!Zustandsgleichung!thermische} ist implizit in Glg. \eqref{eq:prog_rev_3} enthalten, diese wurde in Absch. \ref{sec:energetisch_konsistente_zeitentwicklung_der_temperatur} hergeleitet.
 
 \section{Diskretisierung der Poisson-Klammern}
-\label{sec:diskretisierung_der_poisson-klammern}
+\label{sec:diskretisierung_der_poisson-klammern}\index{Poisson-Klammer!Diskretisierung}\index{Diskretisierung von Poisson-Klammern}
 
-\subsection{Volumengewichtete Mittelungsoperatoren}
-\label{sec:volumengewichtete_mittelungsoperatoren}
+Die Poisson-Klammern sind globale Integrale. Man definiert daher einen diskreten Integraloperator gemäß der Ersetzung
+%
+\begin{align}
+\int_A\psi\left(\mathbf{r}\right)d^3r \to \sum_{i = 1}^N\psi_iV_i,
+\end{align}
+%
+hierbei sind $\psi\left(\mathbf{r}\right)$ ein integrierbares Skalar- oder Vektorfeld, $\psi_i$ der Wert der diskretisierten Version von $\psi$ in Gitterbox $i$, $V_i$ das Volumen der Gitterbox $i$ sowie $N$ die Anzahl der Gitterboxen.
 
 \subsection{Massendichte-Klammer}
 \label{sec:massendichte-klammer}
@@ -20172,7 +20266,7 @@ w & = w_1\exp\left(ikz - i\omega t\right),\\
 \newtilde{T} & = \newtilde{T}_0 + \newtilde{T}_1\exp\left(ikz - i\omega t\right).
 \end{align}
 %
-Die Dichte wird als homogen angenommen. Setzt man dies in Glg.en \eqref{eq:sound_entropy_0} - \eqref{eq:sound_entropy_1} ein, folgt
+Die Dichte wird als homogen angenommen. Setzt man dies in die Glg.en \eqref{eq:sound_entropy_0} - \eqref{eq:sound_entropy_1} ein, folgt
 %
 \begin{align}
 -i\omega w_1 & = -c^{(p)}ik\frac{\newtilde{T}_1}{\rho},\\
@@ -20368,8 +20462,12 @@ Für die Matrix $\overleftrightarrow{A}$ erhält man
 \subsubsection{Vertikale Advektion einer generalisierten Dichte}
 \label{sec:vertikale_advektion_einer_generalisierten_dichte}
 
+Alle vertikalen impliziten Solver führen auf Drei-Band-Matrizen, welche mit dem Thomas-Algorithmus\index{Thomas-Algorithmus} gelöst werden können.
+
 \subsubsection{Horizontales Forward-backward-Verfahren}
-\label{sec:horizontales_forward-backward-Verfahren}
+\label{sec:horizontales_forward-backward-Verfahren}\index{Forward-Backward-Verfahren}
+
+Das Forward-Backward-Verfahren wurde in Absch. \ref{sec:forward-backward-verfahren} dargestellt. Es erhöht nicht die Genauigkeit, jedoch die Stabilität des Modells. Im hier zu formulierenden dynamischen Kern\index{dynamischer Kern}\index{Kern!dynamischer} wird die horizontale Impulsgleichung zunächst vorwärts integriert, anschließend werden die skalaren Gleichungen mit den neuen Werten der Geschwindigkeiten gelöst.
 
 \subsubsection{Konstanthalten des horizontalen Druckgradienten}
 \label{sec:konstanthalten_des_horizontalen_druckgradienten}
@@ -20400,7 +20498,7 @@ Aus Energieerhaltungsgründen wird für den kovarianten Druckgradienten in allen
 \chapter{\normalfont\textsc{Irreversible Dynamik}}
 \label{chap:irreversible_dynamik}\index{irreversible Dynamik}\index{Dynamik!irreversible}
 
-In diesem Kapitel wird weiterhin von trockener Luft\index{trockene Luft}\index{Luft!trockene} ausgegangen. Aufgrund von Glg. in Verbindun mit Glg. ist die im vorigen Kapitel entwickelte Diskretisierung reversibel. Die irreversible Effekte in einer trockenen Atmosphäre sind die Diffusionen. Es gibt drei Arten von Diffusion:
+In diesem Kapitel wird weiterhin von trockener Luft\index{trockene Luft}\index{Luft!trockene} ausgegangen. Aufgrund von Glg. in Verbindung mit Glg. ist die im vorigen Kapitel entwickelte Diskretisierung reversibel. Die irreversible Effekte in einer trockenen Atmosphäre sind die Diffusionen. Es gibt drei Arten von Diffusion:
 %
 \begin{itemize}
 \item Massendiffusion\index{Massendiffusion}\index{Diffusion!Masse}
