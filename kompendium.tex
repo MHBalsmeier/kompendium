@@ -20335,13 +20335,13 @@ Das grundlegende Zeitschrittverfahren des Modells soll explizit sein. Das expliz
 \subsection{Ausschluss von Split-explicit-Techniken}
 \label{sec:ausschluss_von_split-explicit-techniken}\index{Split-explicit-Technik}
 
-Eine wesentliche Einschränkung in Bezug auf den Zeitschritt und somit auch in Bezug auf die Effizienz eines Modells ist das mit Schallwellen verbundene CFL-Kriterium\index{CFL-Kriterium!Schallwelle}\index{Schallwelle!CFL-Kriterium}. Daher teilt man das Gleichungssystem häufig in sogenannte \textit{fast modes}\index{fast mode} oder \textit{divergent modes}\index{divergent mode} einerseits und die \textit{slow modes}\index{slow mode}, \textit{advective modes}\index{advective mode} oder \textit{non-divergent modes}\index{non-divergent mode} andererseits ein. Die fast modes umfassen dabei alle mit Schallwellen verbundenen Terme, während die slow modes die restlichen Terme umfassen. Bei Split-explicit-Techniken\index{Split-explicit-Technik} integriert man nun die fast modes mit einem ca. dreimal kleineren Zeitschritt. Ein solches Vorgehen ist jedoch ausgeschlossen, wenn man hohe Anforderungen an die energetische Konsistenz eines Zeitschrittverfahrens stellt. Zunächst mal muss man sich klarmachen, dass die Advektion kinetischer Energie mit der Kontinuitätsgleichung in Verbindung steht und daher auch zu den fast modes zählt. Um dies einzuziehen, notiert man die Impulsgleichung in der Form
+Eine wesentliche Einschränkung in Bezug auf den Zeitschritt und somit auch in Bezug auf die Effizienz eines Modells ist das mit Schallwellen verbundene CFL-Kriterium\index{CFL-Kriterium!Schallwelle}\index{Schallwelle!CFL-Kriterium}. Daher teilt man das Gleichungssystem häufig in sogenannte \textit{fast modes}\index{fast mode} oder \textit{divergent modes}\index{divergent mode} einerseits und die \textit{slow modes}\index{slow mode}, \textit{advective modes}\index{advective mode} oder \textit{non-divergent modes}\index{non-divergent mode} andererseits ein. Die fast modes umfassen dabei alle mit Schallwellen verbundenen Terme, während die slow modes die restlichen Terme umfassen. Bei Split-explicit-Techniken\index{Split-explicit-Technik} integriert man nun die fast modes mit einem ca. dreimal kleineren Zeitschritt. Ein solches Vorgehen ist jedoch ausgeschlossen, wenn man hohe Anforderungen an die energetische Konsistenz eines Zeitschrittverfahrens stellt. Zunächst muss man sich klarmachen, dass die Advektion kinetischer Energie mit der Kontinuitätsgleichung in Verbindung steht und daher auch zu den fast modes zählt. Um dies einzusehen, notiert man die Impulsgleichung in der Form
 %
 \begin{align}
 \frac{\partial\mathbf{v}}{\partial t} = -\nabla k + \mathbf{l},
 \end{align}
 %
-wobei alle anderen Beschleunigungen im Term $\mathbf{l}$ zusammengefasst wurden. Skalare multiplikation mit $\mathbf{v}$ ergibt
+wobei Druckgradient- und Schwerebeschleunigung im Term $\mathbf{l}$ zusammengefasst wurden. Skalare multiplikation mit $\mathbf{v}$ ergibt
 %
 \begin{align}
 \mathbf{v}\cdot\frac{\partial\mathbf{v}}{\partial t} &= -\mathbf{v}\cdot\nabla k + \mathbf{v}\cdot\mathbf{l}\nonumber\\
