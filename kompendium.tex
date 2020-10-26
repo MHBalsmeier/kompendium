@@ -5161,7 +5161,7 @@ Hieraus lassen sich folgende Aussagen ablesen:
 %
 \begin{align}
 \left(\frac{\partial E}{\partial S}\right)_{V, N} & = T\label{eq:energy_partial_deriv_0}\\
-\left(\frac{\partial E}{\partial V}\right)_{S, N} & = -p\\
+\left(\frac{\partial E}{\partial V}\right)_{S, N} & = -p\label{eq:energy_partial_deriv_1}\\
 \left(\frac{\partial E}{\partial N}\right)_{S, V} & = \mu\label{eq:chemisches_potential_prop_0}\\
 \left(\frac{\partial F}{\partial T}\right)_{V, N} & = -S
 \end{align}
@@ -8828,7 +8828,7 @@ Die Ableitungen von $f$ sind die sogenannten \textit{Funktionalableitungen}\inde
 für $x \in \left\{\rho, q_1, \mathbf{v}\right\}$. Somit gilt
 %
 \begin{align}
-\frac{dF\left[\mathbf{u}\right]}{dt} &= \left\lbrace F, H\right\rbrace = \int_A\frac{\delta F}{\delta \rho}\cdot\frac{\partial\rho}{\partial t}d^3r + \int_A\frac{\delta F}{\delta q_1}\cdot\frac{\partial q_1}{\partial t}d^3r + \int_A\frac{\delta F}{\delta \mathbf{v}}\cdot\frac{\partial\mathbf{v}}{\partial t}d^3r.\label{eq:poisson_bracket_atm_gen_deriv_0}
+\frac{dF\left[\mathbf{u}\right]}{dt} &= \left\lbrace F, H\right\rbrace = \int_A\frac{\delta F}{\delta \rho}\frac{\partial\rho}{\partial t}d^3r + \int_A\frac{\delta F}{\delta q_1}\frac{\partial q_1}{\partial t}d^3r + \int_A\frac{\delta F}{\delta \mathbf{v}}\cdot\frac{\partial\mathbf{v}}{\partial t}d^3r.\label{eq:poisson_bracket_atm_gen_deriv_0}
 \end{align}
 %
 Bei der Wahl von $q_1$ schränkt man sich nun Größen ein, für die
@@ -8848,7 +8848,7 @@ gilt. Definieren $q_1' \coloneqq \frac{q_1}{\rho}$, dann folgt aus Glg. \eqref{e
 $q_1'$ ist also eine thermodynamische Zustandsgröße, welche sich bei adiabatischen Vorgängen nicht ändert. Dies impliziert
 %
 \begin{align}
-q_1' = \frac{q_1}{\rho} = f\left(s\right),
+q_1' = \frac{q_1}{\rho} = f\left(s\right),\label{eq:poisson_bracket_atm_gen_deriv_13}
 \end{align}
 %
 wobei $s$ die spezifische Entropie ist.
@@ -8856,12 +8856,126 @@ wobei $s$ die spezifische Entropie ist.
 Definiere $p_x$ für $x \in \left\{\rho, q_1, \mathbf{v}\right\}$ als zur Zustandsvariable $x$ gehörenden kanonischen Impuls. Aufgrund von Glg. \eqref{eq:hamilton_1} gilt
 %
 \begin{align}
-\frac{\delta H}{\delta p_\rho} &= \frac{\partial\rho}{\partial t} = -\nabla\cdot\left(\rho\mathbf{v}\right) = -\nabla\cdot\frac{\delta H}{\delta\mathbf{v}},\\
-\frac{\delta H}{\delta p_{q_1}} &= \frac{\partial q_1}{\partial t} = -\nabla\cdot\left(q_1\mathbf{v}\right) = -\nabla\cdot\left(\frac{q_1}{\rho}\rho\mathbf{v}\right) = -\nabla\cdot\left(\frac{q_1}{\rho}\frac{\delta H}{\delta\mathbf{v}}\right),\\
-\frac{\delta H}{\delta p_\mathbf{v}} &= \frac{\partial\mathbf{v}}{\partial t} = -\frac{\etabi}{\rho}\times\frac{\delta H}{\delta\mathbf{v}} - \nabla\frac{\delta H}{\delta\rho} - \frac{q_1}{\rho}\nabla\frac{\delta H}{\delta q_1}.
+\frac{\delta H}{\delta p_\rho} &= \frac{\partial\rho}{\partial t} = -\nabla\cdot\left(\rho\mathbf{v}\right),\label{eq:poisson_bracket_atm_gen_deriv_6}\\
+\frac{\delta H}{\delta p_{q_1}} &= \frac{\partial q_1}{\partial t} = -\nabla\cdot\left(q_1\mathbf{v}\right) = -\nabla\cdot\left(\frac{q_1}{\rho}\rho\mathbf{v}\right),\label{eq:poisson_bracket_atm_gen_deriv_7}\\
+\frac{\delta H}{\delta p_\mathbf{v}} &= \frac{\partial\mathbf{v}}{\partial t} =  -\frac{1}{\rho}\nabla p - \frac{\etabi}{\rho}\times\rho\mathbf{v} - \nabla\phi - \nabla k,\label{eq:poisson_bracket_atm_gen_deriv_8}
 \end{align}
 %
-Setzt man diese drei Gleichungen in Glg. \eqref{eq:poisson_bracket_atm_gen_deriv_0} ein, erhält man
+hierbei sind $\phi$ das Geopotential\index{Geopotential} und $k$ die spezifische kinetische Energie\index{spezifische kinetische Energie}\index{kinetische Energie!spezifische}\index{Energie!kinetische!spezifische}. Für die global integrierte kinetische Energie $K$ der Atmosphäre gilt
+%
+\begin{align}
+K \coloneqq \int_A\frac{1}{2}\rho\mathbf{v}^2d^3r.
+\end{align}
+%
+Die Summe aus global integrierter innerer und potentieller Energie $I'$ lautet
+%
+\begin{align}
+I' \coloneqq \int_A\newtilde{I} + \rho\phi d^3r = \int_A\rho\phi + c_d^{(v)}\rho Td^3r
+\end{align}
+%
+Damit gilt $H = K + I'$, da $H$ die Gesamtenergie der Atmosphäre ist ($H$ ist nicht explizit zeitabhängig). Es gilt unabhängig von der Wahl von $q_1$
+%
+\begin{align}
+\frac{\delta I'}{\delta\mathbf{v}} = 0 \Rightarrow \frac{\delta H}{\delta\mathbf{v}} = \frac{\delta K}{\delta\mathbf{v}} = \rho\mathbf{v}.\label{eq:poisson_bracket_atm_gen_deriv_9}
+\end{align}
+%
+Für $K$ gilt weiterhin
+%
+\begin{align}
+\frac{\delta K}{\delta q_1} &= 0,\label{eq:poisson_bracket_atm_gen_deriv_15}\\
+\frac{\delta K}{\delta\rho} &= \frac{1}{2}\mathbf{v}^2 = k.
+\end{align}
+%
+Setzt man dies in die Glg.en \eqref{eq:poisson_bracket_atm_gen_deriv_6} - \eqref{eq:poisson_bracket_atm_gen_deriv_8} ein, erhält man
+%
+\begin{align}
+\frac{\delta H}{\delta p_\rho} &= \frac{\partial\rho}{\partial t} = -\nabla\cdot\frac{\delta H}{\delta\mathbf{v}},\label{eq:poisson_bracket_atm_gen_deriv_10}\\
+\frac{\delta H}{\delta p_{q_1}} &= \frac{\partial q_1}{\partial t} = -\nabla\cdot\left(q_1\mathbf{v}\right) = -\nabla\cdot\left(\frac{q_1}{\rho}\frac{\delta H}{\delta\mathbf{v}}\right),\label{eq:poisson_bracket_atm_gen_deriv_11}\\
+\frac{\delta H}{\delta p_\mathbf{v}} &= \frac{\partial\mathbf{v}}{\partial t} =  -\frac{1}{\rho}\nabla p - \frac{\etabi}{\rho}\times\frac{\delta H}{\delta\mathbf{v}} - \nabla\phi - \nabla\frac{\delta K}{\delta\rho},\label{eq:poisson_bracket_atm_gen_deriv_12}
+\end{align}
+%
+Nun muss der Druckgradient in Termen von $H$ ausgedrückt werden. Nach Glg. \eqref{eq:energy_partial_deriv_1} gilt
+%
+\begin{align}
+p &= -\left(\frac{\partial E}{\partial V}\right)_{S, N},
+\end{align}
+%
+wobei $E$ die Gesamtenergie des Systems ist. Als System verwendet man ein Luftteilchen, in einem solchen sind sowohl die Masse $m$ als auch die Teilchenzahl $N$ konstant. Die Gesamtenergie entspricht hier der inneren Energie $I$. Somit gilt
+%
+\begin{align}
+p &= -\left(\frac{\partial I/m}{\partial V/m}\right)_{s} = -\left(\frac{\partial i}{\partial V/m}\right)_{s},
+\end{align}
+%
+wobei $i = I/m$ die spezifische innere Energie ist. $\frac{V}{m} = \alpha = \frac{1}{\rho}$ ist das spezifische Volumen. Somit gilt
+%
+\begin{align}
+p &= -\left(\frac{\partial i}{\partial\alpha}\right)_{s} = -\frac{\partial\rho}{\partial\alpha}\left(\frac{\partial i}{\partial\rho}\right)_{s} = \frac{1}{\alpha^2}\left(\frac{\partial i}{\partial\rho}\right)_{s} = \rho^2\left(\frac{\partial i}{\partial\rho}\right)_{s}.
+\end{align}
+%
+Es gilt nun
+%
+\begin{align}
+\left(\frac{\partial i}{\partial\rho}\right)_{s} &= \left(\frac{\partial i}{\partial\rho}\right)_{\newtilde{s}} + \left(\frac{\partial i}{\partial\newtilde{s}}\right)_{\rho}\frac{\partial\newtilde{s}}{\partial\rho}.
+\end{align}
+%
+Für die innere Energiedichte $\newtilde{I}$ gilt
+%
+\begin{align}
+\newtilde{I} = \rho i \Rightarrow i = \frac{\newtilde{I}}{\rho},
+\end{align}
+%
+hieraus folgt
+%
+\begin{align}
+p &= \rho^2\left(\frac{\partial\newtilde{I}/\rho}{\partial\rho}\right)_{\newtilde{s}} + \rho^2\left(\frac{\partial\newtilde{I}/\rho}{\partial\newtilde{s}}\right)_{\rho}\frac{\partial\newtilde{s}}{\partial\rho} = \rho\left(\frac{\partial\newtilde{I}}{\partial\rho}\right)_{\newtilde{s}} - \newtilde{I} + \newtilde{s}\left(\frac{\partial\newtilde{I}}{\partial\newtilde{s}}\right)_{\rho}.
+\end{align}
+%
+Somit erhält man für den Druckgradienten
+%
+\begin{align}
+\nabla p &= \left(\frac{\partial\newtilde{I}}{\partial\rho}\right)_{\newtilde{s}}\nabla\rho + \rho\nabla\left(\frac{\partial\newtilde{I}}{\partial\rho}\right)_{\newtilde{s}} - \nabla\newtilde{I} + \left(\frac{\partial\newtilde{I}}{\partial\newtilde{s}}\right)_{\rho}\nabla\newtilde{s} + \newtilde{s}\nabla\left(\frac{\partial\newtilde{I}}{\partial\newtilde{s}}\right)_{\rho}\nonumber\\
+&= \left(\left(\frac{\partial\newtilde{I}}{\partial\rho}\right)_{\newtilde{s}}\nabla\rho + \left(\frac{\partial\newtilde{I}}{\partial\newtilde{s}}\right)_{\rho}\nabla\newtilde{s} - \nabla\newtilde{I}\right) + \rho\nabla\left(\frac{\partial\newtilde{I}}{\partial\rho}\right)_{\newtilde{s}}\newtilde{s}\nabla\left(\frac{\partial\newtilde{I}}{\partial\newtilde{s}}\right)_{\rho}\nonumber\\
+&= \rho\nabla\left(\frac{\partial\newtilde{I}}{\partial\rho}\right)_{\newtilde{s}} + \newtilde{s}\nabla\left(\frac{\partial\newtilde{I}}{\partial\newtilde{s}}\right)_{\rho}.
+\end{align}
+%
+Für die Druckgradientbeschleunigung gilt somit
+%
+\begin{align}
+-\frac{1}{\rho}\nabla p &= -\nabla\left(\frac{\partial\newtilde{I}}{\partial\rho}\right)_{\newtilde{s}} - s\nabla\left(\frac{\partial\newtilde{I}}{\partial\newtilde{s}}\right)_{\rho}.\label{eq:poisson_bracket_atm_gen_deriv_14}
+\end{align}
+%
+Aufgrund von Glg. \eqref{eq:poisson_bracket_atm_gen_deriv_13} ist $\frac{q_1}{\rho} = f\left(s\right)$, was
+%
+\begin{align}
+\left(\frac{\partial i}{\partial x}\right)_s = \left(\frac{\partial i}{\partial x}\right)_{q_1/\rho}
+\end{align}
+%
+impliziert. Somit kann Glg. \eqref{eq:poisson_bracket_atm_gen_deriv_14} zu
+%
+\begin{align}
+-\frac{1}{\rho}\nabla p &= -\nabla\left(\frac{\partial\newtilde{I}}{\partial\rho}\right)_{q_1} - \frac{q_1}{\rho}\nabla\left(\frac{\partial\newtilde{I}}{\partial q_1}\right)_{\rho}.
+\end{align}
+%
+verallgeminert werden. Dies kann man durch Funktionalableitungen der global integrierten inneren Energie $I$ ausdrücken:
+%
+\begin{align}
+-\frac{1}{\rho}\nabla p &= -\nabla\left(\frac{\delta I}{\delta\rho}\right)_{q_1} - \frac{q_1}{\rho}\nabla\left(\frac{\delta I}{\delta q_1}\right)_{\rho}.
+\end{align}
+%
+Mit Glg. \eqref{eq:poisson_bracket_atm_gen_deriv_15} folgt
+%
+\begin{align}
+-\frac{1}{\rho}\nabla p &= -\nabla\left(\frac{\delta I}{\delta\rho}\right)_{q_1} - \frac{q_1}{\rho}\nabla\left(\frac{\delta H}{\delta q_1}\right)_{\rho}.
+\end{align}
+%
+Setzt man dies in Glg. \eqref{eq:poisson_bracket_atm_gen_deriv_12} ein, erhält man
+%
+\begin{align}
+\frac{\delta H}{\delta p_\mathbf{v}} &= \frac{\partial\mathbf{v}}{\partial t} = -\nabla\left(\frac{\delta I}{\delta\rho}\right)_{q_1} - \frac{q_1}{\rho}\nabla\left(\frac{\delta H}{\delta q_1}\right)_{\rho} - \frac{\etabi}{\rho}\times\frac{\delta H}{\delta\mathbf{v}} - \nabla\phi - \nabla\frac{\delta K}{\delta\rho}\nonumber\\
+&= -\nabla\frac{\delta H}{\delta\rho} - \frac{q_1}{\rho}\nabla\frac{\delta H}{\delta q_1} - \frac{\etabi}{\rho}\times\frac{\delta H}{\delta\mathbf{v}}.\label{eq:poisson_bracket_atm_gen_deriv_16}
+\end{align}
+%
+In der zweiten Zeile wurden dabei die Markierungen der konstant gehaltenen Größen weggelassen, da aus der Definition von $H$ eindeutig ist, wie die Ableitungen zu verstehen sind. Setzt man die Glg.en \eqref{eq:poisson_bracket_atm_gen_deriv_10} - \eqref{eq:poisson_bracket_atm_gen_deriv_11}, \eqref{eq:poisson_bracket_atm_gen_deriv_16} in Glg. \eqref{eq:poisson_bracket_atm_gen_deriv_0} ein, erhält man
 %
 \begin{align}
 \left\lbrace F, H\right\rbrace &= -\int_A\frac{\delta F}{\delta\rho}\nabla\cdot\frac{\delta H}{\delta\mathbf{v}}d^3r - \int_A\frac{\delta F}{\delta q_1}\nabla\cdot\left(\frac{q_1}{\rho}\frac{\delta H}{\delta\mathbf{v}}\right)d^3r\nonumber\\
@@ -8948,7 +9062,7 @@ hierbei ist $g$ ein Funktional. Für Nambu-Klammern gilt\index{Nambu-Klammer}
 Ferner gilt
 %
 \begin{align}
-\lbrace F, g, H\rbrace = -\lbrace F, H, g\rbrace = -\lbrace g, F, H\rbrace = -\lbrace H, g, F\rbrace.
+\lbrace F, g, H\rbrace = -\lbrace F, H, g\rbrace = -\lbrace g, F, H\rbrace = -\lbrace H, g, F\rbrace.\label{eq:poisson_bracket_atm_gen_deriv_5}
 \end{align}
 %
 Setzt man dies zusammen mit den Glg.en \eqref{eq:poisson_bracket_atm_gen_deriv_3} - \eqref{eq:poisson_bracket_atm_gen_deriv_4} in Glg. \eqref{eq:poisson_bracket_atm_gen_parts} ein, erhält man
@@ -8973,20 +9087,20 @@ h_a \coloneqq \frac{1}{2}\mathbf{v}_a\cdot\nabla\times\mathbf{v}_a = \frac{1}{2}
 dies ist die im Inertialsystem\index{Inertialsystem} gemessene Helizität\index{Helizität}. Die entsprechenden Funktionale werden durch
 %
 \begin{align}
-H &\coloneqq \int_A\frac{1}{2}\mathbf{v}\cdot\nabla\times\mathbf{v}d^3r,\\
-H_a &\coloneqq \int_A\frac{1}{2}\mathbf{v}_a\cdot\nabla\times\mathbf{v}_ad^3r
+Z &\coloneqq \int_A\frac{1}{2}\mathbf{v}\cdot\nabla\times\mathbf{v}d^3r,\\
+Z_a &\coloneqq \int_A\frac{1}{2}\mathbf{v}_a\cdot\nabla\times\mathbf{v}_ad^3r
 \end{align}
 %
 definiert. Seien nun $\mathbf{h}: A \to\mathbb{R}^3$ eine Testfunktion mit $\mathbf{h}\left(\partial A\right) = \mathbf{0}$ und $\epsilon > 0$. Man definiert
 %
 \begin{align}
-H'\left(\epsilon\right) &\coloneqq \int_A\frac{1}{2}\left(\mathbf{v} + \epsilon\mathbf{h}\right)\cdot\nabla\times\left(\mathbf{v} + \epsilon\mathbf{h}\right)d^3r = \int_A\frac{1}{2}\mathbf{v}\cdot\nabla\times\mathbf{v}d^3r + \int_A\frac{\epsilon}{2}\mathbf{h}\cdot\nabla\times\mathbf{v}d^3r + \int_A\frac{\epsilon}{2}\mathbf{v}\cdot\nabla\times\mathbf{h}d^3r + \mathcal{O}\left(\epsilon^2\right).
+Z'\left(\epsilon\right) &\coloneqq \int_A\frac{1}{2}\left(\mathbf{v} + \epsilon\mathbf{h}\right)\cdot\nabla\times\left(\mathbf{v} + \epsilon\mathbf{h}\right)d^3r = \int_A\frac{1}{2}\mathbf{v}\cdot\nabla\times\mathbf{v}d^3r + \int_A\frac{\epsilon}{2}\mathbf{h}\cdot\nabla\times\mathbf{v}d^3r + \int_A\frac{\epsilon}{2}\mathbf{v}\cdot\nabla\times\mathbf{h}d^3r + \mathcal{O}\left(\epsilon^2\right).
 \end{align}
 %
 Es gilt nun in erster Ordnung in $\epsilon$ die Gleichung
 %
 \begin{align}
-\frac{H'\left(\epsilon\right) - H'\left(0\right)}{\epsilon} &= \frac{H'\left(\epsilon\right) - H}{\epsilon} = \int_A\frac{1}{2}\mathbf{h}\cdot\nabla\times\mathbf{v}d^3r + \int_A\frac{1}{2}\mathbf{v}\cdot\nabla\times\mathbf{h}d^3r = \frac{1}{2}\int_A\mathbf{h}\cdot\nabla\times\mathbf{v} + \mathbf{v}\cdot\nabla\times\mathbf{h}d^3r\nonumber\\
+\frac{Z'\left(\epsilon\right) - Z'\left(0\right)}{\epsilon} &= \frac{Z'\left(\epsilon\right) - Z}{\epsilon} = \int_A\frac{1}{2}\mathbf{h}\cdot\nabla\times\mathbf{v}d^3r + \int_A\frac{1}{2}\mathbf{v}\cdot\nabla\times\mathbf{h}d^3r = \frac{1}{2}\int_A\mathbf{h}\cdot\nabla\times\mathbf{v} + \mathbf{v}\cdot\nabla\times\mathbf{h}d^3r\nonumber\\
 &= \frac{1}{2}\int_A\mathbf{v}\cdot\nabla\times\mathbf{h} - \mathbf{h}\cdot\nabla\times\mathbf{v} + 2\mathbf{h}\cdot\nabla\times\mathbf{v}d^3r \stackrel{\text{Glg. \eqref{eq:diff_op_rule_9}}}{=} \frac{1}{2}\int_A\nabla\cdot\left(\mathbf{h}\times\mathbf{v}\right) + 2\mathbf{h}\cdot\nabla\times\mathbf{v}d^3r\nonumber\\
 &= \int_A\mathbf{h}\cdot\nabla\times\mathbf{v}d^3r.
 \end{align}
@@ -8994,25 +9108,25 @@ Es gilt nun in erster Ordnung in $\epsilon$ die Gleichung
 Im letzten Schritt wurden dabei der Gauß'sche Satz\index{Gauß'scher Satz}\index{Satz von Gauß} und die Tatsache $\mathbf{h}\left(\partial A\right) = \mathbf{0}$ eingesetzt. Somit gilt
 %
 \begin{align}
-\frac{\delta H}{\delta\mathbf{v}} = \nabla\times\mathbf{v} = \zetabi.
+\frac{\delta Z}{\delta\mathbf{v}} = \nabla\times\mathbf{v} = \zetabi.
 \end{align}
 %
 Analog gilt auch
 %
 \begin{align}
-\frac{\delta H_a}{\delta\mathbf{v}_a} = \nabla\times\mathbf{v}_a = \etabi.
+\frac{\delta Z_a}{\delta\mathbf{v}_a} = \nabla\times\mathbf{v}_a = \etabi.
 \end{align}
 %
 Aufgrund von
 %
 \begin{align}
-\frac{\delta H}{\delta\mathbf{v}} = \frac{\delta H}{\delta\mathbf{v}_a}
+\frac{\delta Z}{\delta\mathbf{v}} = \frac{\delta H}{\delta\mathbf{v}_a}
 \end{align}
 %
 gilt auch
 %
 \begin{align}
-\frac{\delta H_a}{\delta\mathbf{v}} = \etabi.
+\frac{\delta Z_a}{\delta\mathbf{v}} = \etabi.
 \end{align}
 %
 Somit kann man Glg. \eqref{eq:poisson_bracket_atm_gen_explicit} in der Form
@@ -9021,7 +9135,7 @@ Somit kann man Glg. \eqref{eq:poisson_bracket_atm_gen_explicit} in der Form
 \doublebox{\parbox{0.95\textwidth}{
 \begin{center}
 \begin{align}
-\frac{dF}{dt} = \lbrace F, H\rbrace &= \lbrace F, H\rbrace_\rho + \lbrace F, H\rbrace_{q_1} + \lbrace F, H_a, H\rbrace\label{eq:poisson_bracket_atm_gen_parts}
+\frac{dF}{dt} = \lbrace F, H\rbrace &= \lbrace F, Z_a, H + \lbrace F, H\rbrace_\rho + \lbrace F, H\rbrace_{q_1}\rbrace\label{eq:poisson_bracket_atm_gen_parts}
 \end{align}
 \end{center}
 }}
@@ -9037,33 +9151,7 @@ Der Poisson-Klammer-Formalismus\index{Poisson-Klammer} führt auf eine spezielle
 \subsubsection{Energieerhaltung aus Poisson-Klammer-Perspektive}
 \label{sec:energieerhaltung_aus_poisson-klammer-perspektive}
 
-Für die global integrierte kinetische Energie $K$ der Atmosphäre gilt
-%
-\begin{align}
-K \coloneqq \int_A\frac{1}{2}\rho\mathbf{v}^2d^3r.
-\end{align}
-%
-Die Summe aus global integrierter innerer und potentieller Energie $I'$ lautet
-%
-\begin{align}
-I' \coloneqq \int_A\newtilde{I} + \rho\phi d^3r = \int_A\rho\phi + c_d^{(v)}\rho Td^3r
-\end{align}
-%
-Damit gilt $H = K + I'$, da $H$ die Gesamtenergie der Atmosphäre ist ($H$ ist nicht explizit zeitabhängig). Es gilt unabhängig von der Wahl von $q_1$
-%
-\begin{align}
-\frac{\delta I'}{\delta\mathbf{v}} = 0 \Rightarrow \frac{\delta H}{\delta\mathbf{v}} = \frac{\delta K}{\delta\mathbf{v}} = \rho\mathbf{v}.
-\end{align}
-%
-Für $K$ und $I'$ gelten weiterhin
-%
-\begin{align}
-\frac{\partial K}{\partial q_1} &= 0,\\
-\frac{\partial K}{\partial\mathbf{v}} &= \frac{\partial H}{\partial\mathbf{v}},\\
-\frac{\partial I}{\partial\mathbf{v}} &= 0.
-\end{align}
-%
-Weiterhin gilt für Energieformen $F$ die Tatsache $\frac{\delta F}{\delta\mathbf{v}} \parallel \mathbf{v}$, somit gilt in diesem Fall
+Es gilt für Energieformen $F$ die Tatsache $\frac{\delta F}{\delta\mathbf{v}} \parallel \mathbf{v}$, somit gilt in diesem Fall
 %
 \begin{align}
 \lbrace F, H_a, H\rbrace = 0 \Rightarrow \lbrace F, H\rbrace = \lbrace F, H\rbrace_\rho + \lbrace F, H\rbrace_{q_1}.
@@ -20155,6 +20243,36 @@ hierbei sind $\psi\left(\mathbf{r}\right)$ ein integrierbares Skalar- oder Vekto
 \subsection{Überprüfung der Energieerhaltung}
 \label{sec:überprüfung_der_energieerhaltung}
 
+Da die Hamilton-Funktion\index{Hamilton-Funktion} nicht explizit von der Zeit abhängt, ist sie gleich der Gesamtenergie. Setzt man in Glg. \eqref{eq:poisson_bracket_atm_gen_parts} $F = H$ ein, erhält man
+%
+\begin{align}
+\frac{dH}{dt} = \lbrace H, H\rbrace = \lbrace H, Z_a, H\rbrace + \lbrace H, H\rbrace_\rho + \lbrace H, H\rbrace_{\newtilde{s}}.
+\end{align}
+%
+Weiterhin gelten
+%
+\begin{align}
+\lbrace H, Z_a, H\rbrace &\stackrel{\text{Glg. \eqref{eq:poisson_bracket_atm_gen_deriv_5}}}{=} 0,\\
+\lbrace H, H\rbrace_\rho &\stackrel{\text{Glg. \eqref{eq:poisson_bracket_atm_gen_deriv_3}}}{=} 0,\\
+\lbrace H, H\rbrace_{\newtilde{s}} &\stackrel{\text{Glg. \eqref{eq:poisson_bracket_atm_gen_deriv_4}}}{=} 0.
+\end{align}
+%
+Dies impliziert Energieerhaltung\index{Energieerhaltung}
+%
+\begin{align}
+H = \text{const.}
+\end{align}
+%
+Um Energieerhaltung\index{Energieerhaltung} auf die räumliche Diskretisierung zu übertragen muss man also drei Voraussetzungen beachten:
+%
+\begin{enumerate}
+\item Die Helizitätsklammer $\lbrace H, Z_a, H\rbrace = \lbrace K, Z_a, H\rbrace$ ist energetisch inaktiv.
+\item Es gilt $\lbrace H, H\rbrace_\rho = \lbrace K, H\rbrace_\rho + \lbrace I', H\rbrace_\rho = 0$.
+\item Es gilt $\lbrace H, H\rbrace_{\newtilde{s}} = \lbrace K, H\rbrace_{\newtilde{s}} + \lbrace I', H\rbrace_{\newtilde{s}} = 0$.
+\end{enumerate}
+%
+Der erste Punkt entspricht der Tatsache, dass die generalisierte Coriolis-Kraft keine Arbeit leistet, was bereits in Kap. \ref{chap:generalisierte_coriolis-kraft_auf_dem_c-gitter} nachgewiesen wurde.
+
 \section{Randbedingungen}
 \label{sec:randbedingungen}
 
@@ -20175,7 +20293,7 @@ für alle Zellen $c$.
 Die untere Randbedingung im Rahmen der reversiblen Dynamik ist die No-slip-Randbedingung\index{No-slip-Randbedingung} $\mathbf{v} = \mathbf{0}$. Da sich dort nur vertikale Vektorkomponenten befinden, entspricht dies
 %
 \begin{align}
-w_{c, N_L - 1 + \frac{1}{2}} = 0
+w_{c, N_L - \frac{1}{2}} = 0
 \end{align}
 %
 für alle Zellen $c$.
