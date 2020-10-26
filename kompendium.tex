@@ -338,7 +338,7 @@ Die klassische Mechanik behandelt Massenpunkte, also Massen ohne räumliche Ausd
 \subsection{Newton'sche Mechanik}
 \label{sec:newtonsche_mechanik}
 
-Die klassische Mechanik baut auf Newtons Axiomen auf \cite{fliessbach_theo_1}. Das wichtigste Axiom ist das \textit{Zweite Newton'sche Axiom:}\index{Zweites Newton'sches Axiom}\index{Newton'sches Axiom!Zweites}
+Die klassische Mechanik baut auf Newtons Axiomen auf \cite{fliessbach_theo_1}. Das wichtigste Axiom ist das \textit{Zweite Newton'sche Axiom}\index{Zweites Newton'sches Axiom}\index{Newton'sches Axiom!Zweites}:
 %
 \begin{center}
 \doublebox{\parbox{0.8\textwidth}{
@@ -736,7 +736,7 @@ Im letztem Term wurde die folgende Identität ausgenutzt:
 \frac{d}{dt}\frac{\partial x_n}{\partial q_k} = \sum_{l = 1}^{f}\frac{\partial^2x_n}{\partial q_l\partial q_k}\newdot{q}_l + \frac{\partial^2 x_n}{\partial t\partial q_k} = \frac{\partial}{\partial q_k}\left(\sum_{l = 1}^{f}\frac{\partial x_n}{\partial q_l}\newdot{ q_l} + \frac{\partial x_n}{\partial t}\right) = \frac{\partial}{\partial q_k}\frac{dx_n}{dt}
 \end{align}
 %
-Man definiert nun \textit{verallgemeinerte Kräfte:}\index{Kraft!verallgemeinerte}\index{verallgemeinerte Kraft}
+Man definiert nun \textit{verallgemeinerte Kräfte}\index{Kraft!verallgemeinerte}\index{verallgemeinerte Kraft}:
 %
 \begin{align}
 Q_k \coloneqq \sum_{n = 1}^{3N}F_n\frac{\partial x_n}{\partial q_k}
@@ -9813,7 +9813,7 @@ In der Meteorologie und Ozeanographie\index{Ozeanographie} gibt es viele diffizi
 \subsection{Filterung}
 \label{sec:filterung}\index{Filterung}
 
-Es werden häufig Näherungsannahmen an die herrschenden Gleichungen gemacht, die physikalisch widersprüchlich sind oder den Definitionen widersprechen. So spielt die Feuchte durchaus eine Rolle für die Dynamik, jedoch kann man Zyklogenese\index{Zyklogenese} (also das Entstehen von Tiefdruckgebieten) auch in einer trockenen Atmosphäre beobachten. Man spricht von \textit{Filterung:}\index{Filterung} Feuchte ist nicht notwendig für das Entstehen der Tiefdruckgebiete, weil in einer trockenen Atmosphäre immernoch Tiefdruckgebiete entstehen, also nicht gefiltert werden. Will man ein Phänomen untersuchen, so wählt man hierfür zunächst immer das einfachst mögliche Gleichungssystem.
+Es werden häufig Näherungsannahmen an die herrschenden Gleichungen gemacht, die physikalisch widersprüchlich sind oder den Definitionen widersprechen. So spielt die Feuchte durchaus eine Rolle für die Dynamik, jedoch kann man Zyklogenese\index{Zyklogenese} (also das Entstehen von Tiefdruckgebieten) auch in einer trockenen Atmosphäre beobachten. Man spricht von \textit{Filterung}\index{Filterung}: Feuchte ist nicht notwendig für das Entstehen der Tiefdruckgebiete, weil in einer trockenen Atmosphäre immernoch Tiefdruckgebiete entstehen, also nicht gefiltert werden. Will man ein Phänomen untersuchen, so wählt man hierfür zunächst immer das einfachst mögliche Gleichungssystem.
 
 \subsection{Dimensionslose Kennzahlen}
 \label{sec:dimensionslose_kennzahlen}\index{dimensionslose Kennzahl}\index{Kennzahl!dimensionslose}
@@ -14287,7 +14287,7 @@ Dies kan man auch in der Form
 }}
 \end{center}
 %
-notieren. Dies ist die \textit{Dispersionsrelation von Schwerewellen.}\index{Dispersionsrelation!einer Schwerewelle}\index{Schwerewelle!Dispersionsrelation} Hieraus erhibt sich, dass der rechte Bruch nichthydrostatische Effekte beschreibt. Vernachlässigung der \textcolor{blue}{blauen} Terme liefert die \textit{Dispersionsrelation von hydrostatischen Schwerewellen:}\index{Dispersionsrelation!einer hydrostatischen Schwerewelle}\index{Schwerewelle!hydrostatische!Dispersionsrelation}
+notieren. Dies ist die \textit{Dispersionsrelation von Schwerewellen.}\index{Dispersionsrelation!einer Schwerewelle}\index{Schwerewelle!Dispersionsrelation} Hieraus erhibt sich, dass der rechte Bruch nichthydrostatische Effekte beschreibt. Vernachlässigung der \textcolor{blue}{blauen} Terme liefert die \textit{Dispersionsrelation von hydrostatischen Schwerewellen}\index{Dispersionsrelation!einer hydrostatischen Schwerewelle}\index{Schwerewelle!hydrostatische!Dispersionsrelation}:
 %
 \begin{center}
 \doublebox{\parbox{0.8\textwidth}{
@@ -20234,15 +20234,6 @@ Die Poisson-Klammern sind globale Integrale. Man definiert daher einen diskreten
 %
 hierbei sind $\psi\left(\mathbf{r}\right)$ ein integrierbares Skalar- oder Vektorfeld, $\psi_i$ der Wert der diskretisierten Version von $\psi$ in Gitterbox $i$, $V_i$ das Volumen der Gitterbox $i$ sowie $N$ die Anzahl der Gitterboxen.
 
-\subsection{Massendichte-Klammer}
-\label{sec:massendichte-klammer}
-
-\subsection{Entropiedichte-Klammer}
-\label{sec:entropiedichte-klammer}
-
-\subsection{Helizitäts-Klammer}
-\label{sec:helizitäts-klammer}
-
 \subsection{Überprüfung der Energieerhaltung}
 \label{sec:überprüfung_der_energieerhaltung}
 
@@ -20281,14 +20272,53 @@ Der erste Punkt entspricht der Tatsache, dass die generalisierte Coriolis-Kraft 
 \item Globale Integrale über $\nabla\cdot\left(\psi\mathbf{v}\right)$ verschwinden mit dem Gauß'schen Satz\index{Gauß'scher Satz}\index{Satz!Gauß'scher} aufgrund kinematischer Randbedingungen.
 \end{enumerate}
 %
-Beide Tatsachen gelten auch in der Diskretisierung. Die Nachweise dafür wurden bereuts erbracht:
+Beide Tatsachen gelten auch in der Diskretisierung. Die Nachweise dafür wurden bereits erbracht:
 %
 \begin{enumerate}
 \item Die Definition des Skalarproduktes in Absch. \ref{sec:skalare_erhaltungseigenschaften_auf_dem_c-gitter_in_gelaendefolgenden_koordinaten} stellt sicher, dass $\nabla\cdot\left(\psi\mathbf{v}\right) = \mathbf{v}\cdot\nabla\psi + \psi\nabla\cdot\mathbf{v}$ auch in der Diskretisierung gilt.
 \item Dass globale Integrale über Divergenzen verschwinden, wurde bereits in Absch. \ref{sec:skalare_erhaltungseigenschaften_auf_dem_c-gitter} nachgewiesen.
 \end{enumerate}
 %
-Somit ist die hier entwickelte Ortsdiskretisierung energetisch konsistent.
+Druckgradient- und Schwerebeschleunigung sowie die generalisierte Corioliskraft sind hierduch abgedeckt. Der Gradient der kinetischen Energie jedoch kürzt sich in den Poisson-Klammern heraus, da er zwar kinetische Energie transportiert, jedoch keine erzeugt oder vernichtet. Dies soll hier noch einmal nachvollzogen werden. Um dies einzusehen, notiert man die Impulsgleichung in der Form
+%
+\begin{align}
+\frac{\partial\mathbf{v}}{\partial t} = -\nabla k + \mathbf{l},
+\end{align}
+%
+wobei Druckgradient- und Schwerebeschleunigung im Term $\mathbf{l}$ zusammengefasst wurden. Die Corioliskraft kann hier ignoriert werden. Skalare Multiplikation mit $\mathbf{v}$ ergibt
+%
+\begin{align}
+\mathbf{v}\cdot\frac{\partial\mathbf{v}}{\partial t} &= -\mathbf{v}\cdot\nabla k + \mathbf{v}\cdot\mathbf{l}\nonumber\\
+\Leftrightarrow\frac{\partial k}{\partial t} &= -\mathbf{v}\cdot\nabla k + \mathbf{v}\cdot\mathbf{l}.
+\end{align}
+%
+Multipliziert man dies mit der Massendichte $\rho$, erhält man
+%
+\begin{align}
+\rho\frac{\partial k}{\partial t} &= -\rho\mathbf{v}\cdot\nabla k + \rho\mathbf{v}\cdot\mathbf{l}.\label{eq:no-split-explicit_deriv_0}
+\end{align}
+%
+Die Kontinuitätsgleichung lautet
+%
+\begin{align}
+\frac{\partial\rho}{\partial t} = -\nabla\cdot\left(\rho\mathbf{v}\right).
+\end{align}
+%
+Multipliziert man dies mit der spezifischen kinetischen Energie $k$, erhält man
+%
+\begin{align}
+k\frac{\partial\rho}{\partial t} = -k\nabla\cdot\left(\rho\mathbf{v}\right).\label{eq:no-split-explicit_deriv_1}
+\end{align}
+%
+Addiert man die Glg.en \eqref{eq:no-split-explicit_deriv_0} und \eqref{eq:no-split-explicit_deriv_1}, erhält man
+%
+\begin{align}
+\frac{\partial\left(\rho k\right)}{\partial t} = -\nabla\cdot\left(\rho k\mathbf{v}\right) + \mathbf{v}\cdot\mathbf{l}.\label{eq:no-split-explicit_deriv_2}
+\end{align}
+%
+Hieraus ergibt sich, dass nur das globale Integral über $\mathbf{v}\cdot\mathbf{l}$ zur Evolution der gesamten kinetischen Energie der Atmosphäre beiträgt. In die Herleitung sind nur Rechenregeln für $\frac{\partial}{\partial t}$ sowie die bereits als erfüllt eingesehene Regel $\nabla\cdot\left(\psi\mathbf{v}\right) = \mathbf{v}\cdot\nabla\psi + \psi\nabla\cdot\mathbf{v}$ eingegangen. Die Beschleunigung $-\nabla k$ beeinflusst die energetischen Integrale also auch in der Diskretisierung nicht.
+
+Somit ist die in diesem Kapitel entwickelte Ortsdiskretisierung energetisch konsistent.
 
 \section{Randbedingungen}
 \label{sec:randbedingungen}
@@ -20335,44 +20365,9 @@ Das grundlegende Zeitschrittverfahren des Modells soll explizit sein. Das expliz
 \subsection{Ausschluss von Split-explicit-Techniken}
 \label{sec:ausschluss_von_split-explicit-techniken}\index{Split-explicit-Technik}
 
-Eine wesentliche Einschränkung in Bezug auf den Zeitschritt und somit auch in Bezug auf die Effizienz eines Modells ist das mit Schallwellen verbundene CFL-Kriterium\index{CFL-Kriterium!Schallwelle}\index{Schallwelle!CFL-Kriterium}. Daher teilt man das Gleichungssystem häufig in sogenannte \textit{fast modes}\index{fast mode} oder \textit{divergent modes}\index{divergent mode} einerseits und die \textit{slow modes}\index{slow mode}, \textit{advective modes}\index{advective mode} oder \textit{non-divergent modes}\index{non-divergent mode} andererseits ein. Die fast modes umfassen dabei alle mit Schallwellen verbundenen Terme, während die slow modes die restlichen Terme umfassen. Bei Split-explicit-Techniken\index{Split-explicit-Technik} integriert man nun die fast modes mit einem ca. dreimal kleineren Zeitschritt. Ein solches Vorgehen ist jedoch ausgeschlossen, wenn man hohe Anforderungen an die energetische Konsistenz eines Zeitschrittverfahrens stellt. Zunächst muss man sich klarmachen, dass die Advektion kinetischer Energie mit der Kontinuitätsgleichung in Verbindung steht und daher auch zu den fast modes zählt. Um dies einzusehen, notiert man die Impulsgleichung in der Form
-%
-\begin{align}
-\frac{\partial\mathbf{v}}{\partial t} = -\nabla k + \mathbf{l},
-\end{align}
-%
-wobei Druckgradient- und Schwerebeschleunigung im Term $\mathbf{l}$ zusammengefasst wurden. Skalare multiplikation mit $\mathbf{v}$ ergibt
-%
-\begin{align}
-\mathbf{v}\cdot\frac{\partial\mathbf{v}}{\partial t} &= -\mathbf{v}\cdot\nabla k + \mathbf{v}\cdot\mathbf{l}\nonumber\\
-\Leftrightarrow\frac{\partial k}{\partial t} &= -\mathbf{v}\cdot\nabla k + \mathbf{v}\cdot\mathbf{l}.
-\end{align}
-%
-Multipliziert man dies mit der Massendichte $\rho$, erhält man
-%
-\begin{align}
-\rho\frac{\partial k}{\partial t} &= -\rho\mathbf{v}\cdot\nabla k + \rho\mathbf{v}\cdot\mathbf{l}.\label{eq:no-split-explicit_deriv_0}
-\end{align}
-%
-Addiert man hierzu die Kontinuitätsgleichung\index{Kontinuitätsgleichung}, erhält man
-%
-\begin{align}
-\frac{\partial\rho}{\partial t} = -\mathbf{v}\cdot\nabla\rho - \rho\nabla\cdot\mathbf{v}.
-\end{align}
-%
-Multipliziert man dies mit der spezifischen kinetischen Energie $k$, erhält man
-%
-\begin{align}
-k\frac{\partial\rho}{\partial t} = -k\mathbf{v}\cdot\nabla\rho - k\rho\nabla\cdot\mathbf{v}.\label{eq:no-split-explicit_deriv_1}
-\end{align}
-%
-Addiert man die Glg.en \eqref{eq:no-split-explicit_deriv_0} und \eqref{eq:no-split-explicit_deriv_1}, erhält man
-%
-\begin{align}
-\frac{\partial\left(\rho k\right)}{\partial t} = -\nabla\cdot\left(\rho k\mathbf{v}\right) + \mathbf{v}\cdot\mathbf{l}.
-\end{align}
-%
-Hieraus ergibt sich, dass nur das globale Integral über $\mathbf{v}\cdot\mathbf{l}$ zur Evolution der gesamten kinetischen Energie der Atmosphäre beiträgt. Dies wird erst erreicht durch eine Kombination aus Kontinuitätsgleichung und Advektion kinetischer Energie. Somit müssen auch beide Gleichungen bzw. Terme mit dem gleichen Zeitschritt integriert werden. Zur Wahrung des diskretisierten Analogons der Lamb-Transformation $-\left(\mathbf{v}\cdot\nabla\right)\mathbf{v} = -\nabla k - \left(\nabla\times\mathbf{v}\right)\times\mathbf{v}$ muss dann auch der generalisierte Coriolis-Term und somit das komplette Gleichungssystem mit dem kleineren Zeitschritt integriert werden.
+Eine wesentliche Einschränkung in Bezug auf den Zeitschritt und somit auch in Bezug auf die Effizienz eines Modells ist das mit Schallwellen verbundene CFL-Kriterium\index{CFL-Kriterium!Schallwelle}\index{Schallwelle!CFL-Kriterium}. Daher teilt man das Gleichungssystem häufig in sogenannte \textit{fast modes}\index{fast mode} oder \textit{divergent modes}\index{divergent mode} einerseits und die \textit{slow modes}\index{slow mode}, \textit{advective modes}\index{advective mode} oder \textit{non-divergent modes}\index{non-divergent mode} andererseits ein. Die fast modes umfassen dabei alle mit Schallwellen verbundenen Terme, während die slow modes die restlichen Terme umfassen. Bei Split-explicit-Techniken\index{Split-explicit-Technik} integriert man nun die fast modes mit einem ca. dreimal kleineren Zeitschritt. Im Falle des Gleichungssystems Glg.en \eqref{eq:prog_rev_0} - \eqref{eq:prog_rev_3} käme nur die Advektion des Impulses für den größeren Zeitschritt in Frage. Die Advektionen von Dichte und Entropie sollten hingegen zu den fast modes gezählt werden, um die Divergenzen der Flussidchten nicht in Advektions- und Kompressionsanteile zerlegen zu müssen. Wenn man hohe Anforderungen an die energetische Konsistenz eines Zeitschrittverfahrens stellt, ist jedoch auch die Abspaltung der Impulsadvektion nicht sinnvoll.
+
+Um dies einzusehen, muss man sich zunächst einmal klarmachen, dass die Advektion kinetischer Energie mit der Kontinuitätsgleichung in Verbindung steht und daher auch zu den fast modes zählt. Dies wurde bereits in Absch. \ref{sec:überprüfung_der_energieerhaltung} eingesehen. Somit müssen auch beide Terme bzw. Gleichungen mit dem gleichen Zeitschritt integriert werden. Zur Wahrung des diskretisierten Analogons der Lamb-Transformation $-\left(\mathbf{v}\cdot\nabla\right)\mathbf{v} = -\nabla k - \left(\nabla\times\mathbf{v}\right)\times\mathbf{v}$ muss dann auch der generalisierte Coriolis-Term und somit das komplette Gleichungssystem mit dem kleineren Zeitschritt integriert werden.
 
 \subsection{Modifikationen zur Stabilisierung}
 \label{sec:modifikationen_zur_stabilisierung}
@@ -20382,7 +20377,7 @@ Hieraus ergibt sich, dass nur das globale Integral über $\mathbf{v}\cdot\mathbf
 
 Um in der vertikalen Richtung nicht an das CFL-Kriterium\index{CFL-Kriterium} für Schallwellen gebunden zu sein, wird die vertikale Impulsadvektion implizit behandelt. Damit dies nicht auf ein globales nichtlineares Problem führt, muss man dies für jeden horizontalen skalaren und vektoriellen Datenpunkt separat tun.
 
-Zunächst muss festgestellt werden, welche der Terme in Entropieformulierung Schallwellen beschreiben, da diese impliizit behandelt werden müssen. Da Schallwellen adiabatisch sind ist nicht zu erwarten, dass der Anteil des Druckgradienten, der mit dem Gradienten der Entropie zusammenhängt, nicht zu Schallwellen beiträgt. Anders ist es mit dem Gradienten der Enthalpie. Um ein geschlossenes Gleichungssystem zu erhalten, muss daher eine prognostische Gleichung für die Temperatur gefunden werden. Man notiert dazu Glg. \eqref{eq:internal_energy_prognostic} in der Form
+Zunächst muss festgestellt werden, welche der Terme in Entropieformulierung Schallwellen beschreiben, da diese impliizit behandelt werden müssen. Da Schallwellen adiabatisch sind, ist nicht zu erwarten, dass der Anteil des Druckgradienten, der mit dem Gradienten der Entropie zusammenhängt, nicht zu Schallwellen beiträgt. Anders ist es mit dem Gradienten der Enthalpie. Um ein geschlossenes Gleichungssystem zu erhalten, muss daher eine prognostische Gleichung für die Temperatur gefunden werden. Man notiert dazu Glg. \eqref{eq:internal_energy_prognostic} in der Form
 %
 \begin{align}
 \frac{\partial\newtilde{T}}{\partial t} = -\nabla\cdot\left(\newtilde{T}\mathbf{v}\right) - \frac{R_d}{c^{(v)}}\newtilde{T}\nabla\cdot\mathbf{v}
