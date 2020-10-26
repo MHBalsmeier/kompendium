@@ -9072,16 +9072,16 @@ Setzt man dies zusammen mit den Glg.en \eqref{eq:poisson_bracket_atm_gen_deriv_3
 \lbrace H, F\rbrace &= \lbrace H, F\rbrace_\rho + \lbrace H, F\rbrace_{q_1} + \lbrace H, h_a, F\rbrace = -\lbrace F, H\rbrace_\rho - \lbrace F, H\rbrace_{q_1} - \lbrace F, h_a, H\rbrace = -\lbrace F, H\rbrace.
 \end{align}
 %
-Definiere nun die \textit{Helizität}\index{Helizität} $h$ durch
+Definiere nun die \textit{Helizität}\index{Helizität} $Z$ durch
 %
 \begin{align}
-h \coloneqq \frac{1}{2}\mathbf{v}\cdot\nabla\times\mathbf{v}
+Z \coloneqq \frac{1}{2}\mathbf{v}\cdot\nabla\times\mathbf{v}
 \end{align}
 %
-und die {absolute Helizität}\index{absolute Helizität}\index{Helizität!absolute} $h_a$ durch
+und die {absolute Helizität}\index{absolute Helizität}\index{Helizität!absolute} $Z_a$ durch
 %
 \begin{align}
-h_a \coloneqq \frac{1}{2}\mathbf{v}_a\cdot\nabla\times\mathbf{v}_a = \frac{1}{2}\left(\Omegabi\times\mathbf{r} + \mathbf{v}\right)\cdot\nabla\times\left(\Omegabi\times\mathbf{r} + \mathbf{v}\right),
+Z_a \coloneqq \frac{1}{2}\mathbf{v}_a\cdot\nabla\times\mathbf{v}_a = \frac{1}{2}\left(\Omegabi\times\mathbf{r} + \mathbf{v}\right)\cdot\nabla\times\left(\Omegabi\times\mathbf{r} + \mathbf{v}\right),
 \end{align}
 %
 dies ist die im Inertialsystem\index{Inertialsystem} gemessene Helizität\index{Helizität}. Die entsprechenden Funktionale werden durch
@@ -9259,12 +9259,12 @@ $G$ bezeichnet hierbei das spezifische Gibbs-Potential. Nun werden wieder die Ze
 und erhält somit
 %
 \begin{align}
-\lbrace K, H\rbrace & = 2\int_A\frac{\delta H}{\delta\rho}\nabla\cdot\left(\rho\mathbf{v}\right) - \frac{\delta K}{\delta\rho}\nabla\cdot\left(\rho\mathbf{v}\right) + T\nabla\cdot\left(q_1\mathbf{v}\right)d^3r\nonumber\\
+\lbrace K, H\rbrace & = \int_A\frac{\delta H}{\delta\rho}\nabla\cdot\left(\rho\mathbf{v}\right) - \frac{\delta K}{\delta\rho}\nabla\cdot\left(\rho\mathbf{v}\right) + T\nabla\cdot\left(q_1\mathbf{v}\right)d^3r\nonumber\\
 & = \int_A\left(\phi + G\right)\nabla\cdot\left(\rho\mathbf{v}\right) + T\nabla\cdot\left(q_1\mathbf{v}\right)d^3r\nonumber\\
-& = \int_A-\rho\mathbf{v}\cdot\nabla\left(\phi + G\right) - q_1\mathbf{v}\cdot\nabla Td^3r,\\
-\lbrace I', H\rbrace &= 2\int_A\frac{\delta H}{\delta\rho}\nabla\cdot\frac{\delta I'}{\delta\mathbf{v}} - \frac{\delta I'}{\delta\rho}\nabla\cdot\frac{\delta H}{\delta\mathbf{v}} + \frac{\delta H}{\delta q_1}\nabla\cdot\left(\frac{q_1}{\rho}\frac{\delta I'}{\delta\mathbf{v}}\right) - \frac{\delta I'}{\delta q_1}\nabla\cdot\left(\frac{q_1}{\rho}\frac{\delta H}{\delta\mathbf{v}}\right)d^3r\nonumber\\
+& = \int_A-\rho\mathbf{v}\cdot\nabla\left(\phi + G\right) - q_1\mathbf{v}\cdot\nabla Td^3r,\label{eq:poisson_entropy_kinetic}\\
+\lbrace I', H\rbrace &= \int_A\frac{\delta H}{\delta\rho}\nabla\cdot\frac{\delta I'}{\delta\mathbf{v}} - \frac{\delta I'}{\delta\rho}\nabla\cdot\frac{\delta H}{\delta\mathbf{v}} + \frac{\delta H}{\delta q_1}\nabla\cdot\left(\frac{q_1}{\rho}\frac{\delta I'}{\delta\mathbf{v}}\right) - \frac{\delta I'}{\delta q_1}\nabla\cdot\left(\frac{q_1}{\rho}\frac{\delta H}{\delta\mathbf{v}}\right)d^3r\nonumber\\
 &= \int_A-\frac{\delta I'}{\delta\rho}\nabla\cdot\frac{\delta H}{\delta\mathbf{v}} - \frac{\delta I'}{\delta q_1}\nabla\cdot\left(\frac{q_1}{\rho}\frac{\delta H}{\delta\mathbf{v}}\right)d^3r\nonumber\\
-&= \int_A-\left(\phi + G\right)\nabla\cdot\left(\rho\mathbf{v}\right) - T\nabla\cdot\left(q_1\mathbf{v}\right)d^3r.\label{eq:poisson_entropy_internal}
+&= \int_A-\left(\phi + G\right)\nabla\cdot\left(\rho\mathbf{v}\right) - T\nabla\cdot\left(q_1\mathbf{v}\right)d^3r.\label{eq:poisson_entropy_potential_internal}
 \end{align}
 %
 Hieraus erhält man als Ausdruck für die Druckgradientbeschleunigung\index{Druckgradient}\index{Druckgradientbeschleunigung}
@@ -11612,7 +11612,7 @@ und definiert eine \textit{Stromfunktion}\index{Stromfunktion} $\psi = \psi\left
 Zur Überprüfung rechnet man
 %
 \begin{align}
-\nabla\cdot\left(\mathbf{k}\times\nabla\psi\right)&\stackrel{\text{Glg. }\eqref{eq:diff_op_rule_9}}{=}&\nabla\psi\cdot\left(\nabla\times\mathbf{k}\right) - \mathbf{k}\cdot\left(\nabla\times\nabla\psi\right) = \mathbf{0}.
+\nabla\cdot\left(\mathbf{k}\times\nabla\psi\right)&\stackrel{\text{Glg. }\eqref{eq:diff_op_rule_9}}{=} \nabla\psi\cdot\left(\nabla\times\mathbf{k}\right) - \mathbf{k}\cdot\left(\nabla\times\nabla\psi\right) = \mathbf{0}.
 \end{align}
 %
 Man definiert
@@ -11662,7 +11662,7 @@ es wurde
 \nabla\times\left(\omegabi\times\mathbf{r}\right)\stackrel{\text{Glg. \eqref{eq:diff_op_rule_7}}}{=}\omegabi\left(\nabla\cdot\mathbf{r}\right) - \left(\omegabi\cdot\nabla\right)\mathbf{r} = 3\omegabi - \left(\omega\frac{\partial}{\partial z}\right)\mathbf{r} = 3\omegabi - \omegabi = 2\omegabi = \mathbf{f}
 \end{align}
 %
-eingesetzt. Man definiert die absolute Vorticity $\eta$ durch die Vertikalkomponente der Rotation von $\mathbf{v}'$. Diese erhält man als Skalarprodukt von $\nabla\times\mathbf{v}'$ mit dem vertikalen Einheitsvektor $\mathbf{k}:$
+eingesetzt. Man definiert die absolute Vorticity $\eta$ durch die Vertikalkomponente der Rotation von $\mathbf{v}'$. Diese erhält man als Skalarprodukt von $\nabla\times\mathbf{v}'$ mit dem vertikalen Einheitsvektor $\mathbf{k}$:
 %
 \begin{align}
 \eta \coloneqq\mathbf{k}\cdot\left(\nabla\times\mathbf{v}\right) + \mathbf{k}\cdot\mathbf{f} = \zeta + f
@@ -11695,7 +11695,7 @@ Die Vorticity hat auch eine anschauliche Bedeutung, die zunächst nicht so einle
 Um die wahre Bedeutung der Vorticity zu verstehen, stellt man sich am besten ein 2D-Vektorfeld $\mathbf{v}_h = \left(u, v\right)^T$ vor (in kartesischen Koordinaten). Nehme ein Rechteck $\left[-a, a\right]\times\left[-b, b\right]$. $\mathbf{s}$ sei eine Kurve, die im positiven mathematischen Drehsinn diese Menge umschließt. Dann gilt näherungsweise mit $\left(u, v\right)$ als Vektor am Ursprung
 %
 \begin{align}
-\int_{\mathbf{s}}^{}\mathbf{v}_h\cdot d\mathbf{s} &\approx& 2a\left(u - b\frac{\partial u}{\partial y}\right) + 2b\left(v + a\frac{\partial v}{\partial x}\right) - 2a\left(u + b\frac{\partial u}{\partial y}\right) - 2b\left(v - a\frac{\partial v}{\partial x}\right)\nonumber\\
+\int_{\mathbf{s}}^{}\mathbf{v}_h\cdot d\mathbf{s} &\approx 2a\left(u - b\frac{\partial u}{\partial y}\right) + 2b\left(v + a\frac{\partial v}{\partial x}\right) - 2a\left(u + b\frac{\partial u}{\partial y}\right) - 2b\left(v - a\frac{\partial v}{\partial x}\right)\nonumber\\
 & = -2ba\frac{\partial u}{\partial y} + 2ba\frac{\partial v}{\partial x} - 2ab\frac{\partial u}{\partial y} + 2ba\frac{\partial v}{\partial x} = -4ba\frac{\partial u}{\partial y} + 4ab\frac{\partial v}{\partial x} = 4ab\left(\frac{\partial v}{\partial x} - \frac{\partial u}{\partial y}\right).
 \end{align}
 %
@@ -11705,7 +11705,7 @@ Der Flächeninhalt der Fläche ist $4ab$. Betrachtet man die Zirkulation des Vek
 \lim\limits_{a, b\to 0}\frac{\int_{\mathbf{s}}^{}{\mathbf{v}_h\cdot d\mathbf{s}}}{4ab} = \frac{\partial v}{\partial x} - \frac{\partial u}{\partial y}, 
 \end{align}
 %
-so ergibt sich die Definition der z-Komponente der Wirbelstärke. Die Komponenten der Rotation geben deshalb an, wie eine kleine Fläche in einer Ebene senkrecht zur jeweiligen Komponente umströmt wird. Es gibt also einen Zusammenhang von Zirkulation und Vorticity. In integraler Form ist dies die Aussage des \textit{Satzes von Stokes:}\index{Stokes'scher Satz}\index{Satz von Stokes}
+so ergibt sich die Definition der z-Komponente der Wirbelstärke. Die Komponenten der Rotation geben deshalb an, wie eine kleine Fläche in einer Ebene senkrecht zur jeweiligen Komponente umströmt wird. Es gibt also einen Zusammenhang von Zirkulation und Vorticity. In integraler Form ist dies die Aussage des \textit{Satzes von Stokes}\index{Stokes'scher Satz}\index{Satz von Stokes}:
 %
 \begin{align}
 \int_{A}^{}\nabla\times\mathbf{v}\cdot d\mathbf{f} = \int_{\partial A}^{}\mathbf{v}\cdot d\mathbf{s}.\label{eq:satz_von_stokes}
@@ -17773,7 +17773,7 @@ in die diskretisierte Evolution der inneren Energiedichte eingeht.
 \subsubsection{Energetisch konsistente Zeitentwicklung der Temperatur}
 \label{sec:energetisch_konsistente_zeitentwicklung_der_temperatur}
 
-Nach Glg. \eqref{eq:poisson_entropy_internal} gilt
+Nach Glg. \eqref{eq:poisson_entropy_potential_internal} gilt
 %
 \begin{align}
 \frac{\newtilde{I}_1 - \newtilde{I}_0}{\Delta t} = G^\star\frac{\rho_1 - \rho_0}{\Delta t} + T^\star\frac{\newtilde{s}_1 - \newtilde{s}_0}{\Delta t} = G^\star\frac{\rho_1 - \rho_0}{\Delta t} + T^\star\frac{\rho_1s_1 - \rho_0s_0}{\Delta t},\label{eq:deriv_temp_evol_model_0}
@@ -19932,6 +19932,9 @@ Die \textit{shallow-atmosphere}-Aprroximation\index{shallow atmosphere} geht von
 }}
 \end{center}
 
+\subsection{Skalarprodukt auf dem C-Gitter in geländefolgenden Koordinaten}
+\label{sec:skalare_erhaltungseigenschaften_auf_dem_c-gitter_in_gelaendefolgenden_koordinaten}
+
 \subsection{\textsc{SLEVE}}
 \label{sec:sleve}\index{SLEVE}
 
@@ -20271,7 +20274,21 @@ Um Energieerhaltung\index{Energieerhaltung} auf die räumliche Diskretisierung z
 \item Es gilt $\lbrace H, H\rbrace_{\newtilde{s}} = \lbrace K, H\rbrace_{\newtilde{s}} + \lbrace I', H\rbrace_{\newtilde{s}} = 0$.
 \end{enumerate}
 %
-Der erste Punkt entspricht der Tatsache, dass die generalisierte Coriolis-Kraft keine Arbeit leistet, was bereits in Kap. \ref{chap:generalisierte_coriolis-kraft_auf_dem_c-gitter} nachgewiesen wurde.
+Der erste Punkt entspricht der Tatsache, dass die generalisierte Coriolis-Kraft keine Arbeit leistet, was bereits in Kap. \ref{chap:generalisierte_coriolis-kraft_auf_dem_c-gitter} nachgewiesen wurde. Die zweite und dritte Aussage haben rechnerisch die gleiche Voraussetzung. Hierzu addiere man die Glg.en \eqref{eq:poisson_entropy_kinetic} - \eqref{eq:poisson_entropy_potential_internal}, was auf $\lbrace H, H\rbrace = 0$ führt. Dabei wurden die folgenden beiden Tatsachen benutzt:
+%
+\begin{enumerate}
+\item Die Rechenregel $\nabla\cdot\left(\psi\mathbf{v}\right) = \mathbf{v}\cdot\nabla\psi + \psi\nabla\cdot\mathbf{v}$.
+\item Globale Integrale über $\nabla\cdot\left(\psi\mathbf{v}\right)$ verschwinden mit dem Gauß'schen Satz\index{Gauß'scher Satz}\index{Satz!Gauß'scher} aufgrund kinematischer Randbedingungen.
+\end{enumerate}
+%
+Beide Tatsachen gelten auch in der Diskretisierung. Die Nachweise dafür wurden bereuts erbracht:
+%
+\begin{enumerate}
+\item Die Definition des Skalarproduktes in Absch. \ref{sec:skalare_erhaltungseigenschaften_auf_dem_c-gitter_in_gelaendefolgenden_koordinaten} stellt sicher, dass $\nabla\cdot\left(\psi\mathbf{v}\right) = \mathbf{v}\cdot\nabla\psi + \psi\nabla\cdot\mathbf{v}$ auch in der Diskretisierung gilt.
+\item Dass globale Integrale über Divergenzen verschwinden, wurde bereits in Absch. \ref{sec:skalare_erhaltungseigenschaften_auf_dem_c-gitter} nachgewiesen.
+\end{enumerate}
+%
+Somit ist die hier entwickelte Ortsdiskretisierung energetisch konsistent.
 
 \section{Randbedingungen}
 \label{sec:randbedingungen}
