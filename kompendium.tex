@@ -9072,7 +9072,7 @@ Setzt man dies zusammen mit den Glg.en \eqref{eq:poisson_bracket_atm_gen_deriv_3
 \lbrace H, F\rbrace &= \lbrace H, F\rbrace_\rho + \lbrace H, F\rbrace_{q_1} + \lbrace H, h_a, F\rbrace = -\lbrace F, H\rbrace_\rho - \lbrace F, H\rbrace_{q_1} - \lbrace F, h_a, H\rbrace = -\lbrace F, H\rbrace.
 \end{align}
 %
-Definiere nun die \textit{Helizität}\index{Helizität} $Z$ durch
+Definiere nun eine \textit{reduzierte Helizität}\index{Helizität} $Z$ (für die originale Definition der Helizität siehe Glg. \eqref{eq:def_helicity}) durch
 %
 \begin{align}
 Z \coloneqq \frac{1}{2}\mathbf{v}\cdot\nabla\times\mathbf{v}
@@ -12095,6 +12095,64 @@ h\frac{\partial q}{\partial t} + h\mathbf{v}\cdot\nabla q + q\frac{\partial h}{\
 \begin{center}
 \begin{align}
 \Leftrightarrow \frac{\partial\left(hq\right)}{\partial t} + \nabla\cdot\left(hq\mathbf{v}\right) = 0.\label{eq:pv_conservation_baro_flux}
+\end{align}
+\end{center}
+}}
+\end{center}
+
+\subsection{Helizität}
+\label{sec:helizität}\index{Helizität}
+
+Man definiert die \textit{Helizität}\index{Helizität} $Z$ durch
+%
+\begin{align}
+Z \coloneqq \mathbf{v}\cdot\zetabi.\label{eq:def_helicity}
+\end{align}
+%
+Die Impulsgleichung Glg. \eqref{eq:momentum_mod} lautet
+%
+\begin{align}
+\frac{\partial\mathbf{v}}{\partial t} & = -\frac{1}{\rho}\nabla p + \mathbf{v}\times\mathbf{f} + \mathbf{v}\times\zetabi - \nabla k + \mathbf{g} + \mathbf{f}_R.
+\end{align}
+%
+Projiziert man dies auf $\zetabi$, erhält man
+%
+\begin{align}
+\zetabi\cdot\frac{\partial\mathbf{v}}{\partial t} & = -\frac{\zetabi}{\rho}\cdot\nabla p + \zetabi\cdot\left(\mathbf{v}\times\mathbf{f}\right) - \zetabi\cdot\nabla k + \zetabi\cdot\mathbf{g} + \zetabi\cdot\mathbf{f}_R.
+\end{align}
+%
+Die dreidimensionale Vorticitygleichung Glg. \eqref{eq:vorticity_eq_3d} lautet
+%
+\begin{align}
+\frac{\partial\zetabi}{\partial t} & = \frac{1}{\rho^2}\nabla\rho\times\nabla p - \left(\mathbf{v}\cdot\nabla\right)\zetabi - \mathbf{f}\nabla\cdot\mathbf{v} - \zetabi\nabla\cdot\mathbf{v} + \left(\mathbf{f}\cdot\nabla\right)\mathbf{v} + \left(\zetabi\cdot\nabla\right)\mathbf{v} + \nabla\times\mathbf{f}_R.
+\end{align}
+%
+Projiziert man dies auf $\mathbf{v}$, erhält man
+%
+\begin{align}
+\mathbf{v}\cdot\frac{\partial\zetabi}{\partial t} &= \frac{\mathbf{v}}{\rho^2}\cdot\left(\nabla\rho\times\nabla p\right) - \mathbf{v}\cdot\left[\left(\mathbf{v}\cdot\nabla\right)\zetabi\right] - \mathbf{v}\cdot\mathbf{f}\nabla\cdot\mathbf{v} - \mathbf{v}\cdot\zetabi\nabla\cdot\mathbf{v} + \mathbf{f}\cdot\nabla k + \zetabi\cdot\nabla k + \mathbf{v}\cdot\left(\nabla\times\mathbf{f}_R\right)\nonumber\\
+\Leftrightarrow\mathbf{v}\cdot\frac{\partial\zetabi}{\partial t} &= \frac{\mathbf{v}}{\rho^2}\cdot\left(\nabla\rho\times\nabla p\right) - \left(\mathbf{v}\cdot\nabla\right)\left(\mathbf{v}\cdot\zetabi\right) + \zetabi\cdot\left[\left(\mathbf{v}\cdot\nabla\right)\mathbf{v}\right] - \mathbf{v}\cdot\mathbf{f}\nabla\cdot\mathbf{v} - \mathbf{v}\cdot\zetabi\nabla\cdot\mathbf{v} + \mathbf{f}\cdot\nabla k + \zetabi\cdot\nabla k + \mathbf{v}\cdot\left(\nabla\times\mathbf{f}_R\right)\nonumber\\
+\Leftrightarrow\mathbf{v}\cdot\frac{\partial\zetabi}{\partial t} &= \frac{\mathbf{v}}{\rho^2}\cdot\left(\nabla\rho\times\nabla p\right) - \left(\mathbf{v}\cdot\nabla\right)\left(\mathbf{v}\cdot\zetabi\right) + \zetabi\cdot\nabla k - \mathbf{v}\cdot\mathbf{f}\nabla\cdot\mathbf{v} - \mathbf{v}\cdot\zetabi\nabla\cdot\mathbf{v} + \mathbf{f}\cdot\nabla k + \zetabi\cdot\nabla k + \mathbf{v}\cdot\left(\nabla\times\mathbf{f}_R\right)\nonumber\\
+\Leftrightarrow\mathbf{v}\cdot\frac{\partial\zetabi}{\partial t} &= \frac{\mathbf{v}}{\rho^2}\cdot\left(\nabla\rho\times\nabla p\right) - \left(\mathbf{v}\cdot\nabla\right)Z + 2\zetabi\cdot\nabla k - \mathbf{v}\cdot\mathbf{f}\nabla\cdot\mathbf{v} - \mathbf{v}\cdot\zetabi\nabla\cdot\mathbf{v} + \mathbf{f}\cdot\nabla k + \mathbf{v}\cdot\left(\nabla\times\mathbf{f}_R\right).
+\end{align}
+%
+%
+Somit erhält man
+%
+\begin{align}
+\frac{\partial Z}{\partial t} &= \frac{\partial\mathbf{v}}{\partial t}\cdot\zetabi + \mathbf{v}\cdot\frac{\partial\zetabi}{\partial t}\nonumber\\
+&= -\frac{\zetabi}{\rho}\cdot\nabla p + \zetabi\cdot\left(\mathbf{v}\times\mathbf{f}\right) - \zetabi\cdot\nabla k + \zetabi\cdot\mathbf{g} + \zetabi\cdot\mathbf{f}_R\nonumber\\
+&+ \frac{\mathbf{v}}{\rho^2}\cdot\left(\nabla\rho\times\nabla p\right) - \left(\mathbf{v}\cdot\nabla\right)Z + 2\zetabi\cdot\nabla k - \mathbf{v}\cdot\mathbf{f}\nabla\cdot\mathbf{v} - \mathbf{v}\cdot\zetabi\nabla\cdot\mathbf{v} + \mathbf{f}\cdot\nabla k + \mathbf{v}\cdot\left(\nabla\times\mathbf{f}_R\right).
+\end{align}
+%
+Die \textit{Helizitätsgleichung}\index{Helizitätsgleichung} lautet somit
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\frac{\partial Z}{\partial t} &=  -\left(\mathbf{v}\cdot\nabla\right)Z - \frac{\zetabi}{\rho}\cdot\nabla p + \zetabi\cdot\left(\mathbf{v}\times\mathbf{f}\right) + \left(\mathbf{f} + \zetabi\right)\cdot\nabla k + \zetabi\cdot\mathbf{g} + \zetabi\cdot\mathbf{f}_R\nonumber\\
+&+ \frac{\mathbf{v}}{\rho^2}\cdot\left(\nabla\rho\times\nabla p\right) - \mathbf{v}\cdot\left(\mathbf{f} + \zetabi\right)\nabla\cdot\mathbf{v} + \mathbf{v}\cdot\left(\nabla\times\mathbf{f}_R\right).
 \end{align}
 \end{center}
 }}
@@ -18329,8 +18387,8 @@ als Diskretisierung für das Skalarprodukt ab. Im ebenen Fall ergibt sich für d
 %
 Im gekrümmten Fall, wie z. B. einer Kugeloberfläche, ist dies jedoch im Allgemeinen nicht mehr der Fall.
 
-\subsection{Dreidimensionales orthogonales Gitter}
-\label{sec:dreidimensionales_orthogonales_gitter}
+\subsection{Dreidimensionales orthogonales Gitter (shallow)}
+\label{sec:dreidimensionales_orthogonales_gitter_(shallow)}
 
 Nun wird die Herleitung im vorherigen Abschnitt auf ein dreidimensionales Gitter verallgemeinert, dessen Schichtdickte $\Delta z_k$ nur vom vertikalen Index $k$ abhängt. Vertikale Vektorkomponenten werden mit $w$ bezeichnet, der Index $u$ bezeichnet den vektoriellen oder skalaren Gitterpunkt über der betrachteten Gitterbox, der Index $l$ den jeweiligen Gitterpunkt darunter. Dies führt auf
 %
@@ -18368,6 +18426,9 @@ wobei
 \end{align}
 %
 eingesetzt wurde. Im gekrümmten Fall, wie z. B. einer Kugeloberfläche, ist dies jedoch im Allgemeinen nicht mehr der Fall.
+
+\subsection{Dreidimensionales orthogonales Gitter (deep)}
+\label{sec:dreidimensionales_orthogonales_gitter_(deep)}
 
 \section{Festlegung auf das C-Gitter}
 \label{sec:festlegung_auf_das_c-gitter}\index{C-Gitter}
@@ -19105,7 +19166,7 @@ Setzt man dies in Glg. \eqref{eq:disp_rel_hex_c} ein, erhält man
 \Leftrightarrow\omega^4 - \omega^2\left[f_0^2 + \Phi\mathbf{k}^2\right] &\approx 0.
 \end{align}
 %
-Dabei wurde im letzten Schritt ausgenutzt, dass $k_1^2 + k_2^2 + k_3^2 = \frac{3}{2}\mathbf{k}^2$ gilt. Dies kann man sich klarmachen, indem man o. B. d. A. $\mathbf{k} \parallel \mathbf{i}_1$ annehmen, denn dann gelten $k_1 = k$, $k_2 = -k\sin\left(30^\circ\right) = -\frac{k}{2}$ sowie $k_3 = -\frac{k}{2}$. Dies führt auf die zwei Intertio-Schwere-Moden
+Dabei wurde im letzten Schritt ausgenutzt, dass $k_1^2 + k_2^2 + k_3^2 = \frac{3}{2}\mathbf{k}^2$ gilt. Dies kann man sich klarmachen, indem man o. B. d. A. $\mathbf{k} \parallel \mathbf{i}_1$ annimmt, denn dann gelten $k_1 = k$, $k_2 = -k\sin\left(30^\circ\right) = -\frac{k}{2}$ sowie $k_3 = -\frac{k}{2}$. Dies führt auf die zwei Intertio-Schwere-Moden
 %
 \begin{align}
 \omega^2 \approx f_0^2 + \Phi_0\left|\mathbf{k}\right|^2
@@ -19971,6 +20032,12 @@ Die \textit{shallow-atmosphere}-Aprroximation\index{shallow atmosphere} geht von
 
 \subsection{Skalarprodukt auf dem C-Gitter in geländefolgenden Koordinaten}
 \label{sec:skalare_erhaltungseigenschaften_auf_dem_c-gitter_in_gelaendefolgenden_koordinaten}
+
+\subsubsection{Shallow atmosphere}
+\label{sec:inner_c_shallow_atmosphere}\index{deep atmosphere}
+
+\subsubsection{Deep atmosphere}
+\label{sec:inner_c_deep_atmosphere}\index{shallow atmosphere}
 
 \subsection{\textsc{SLEVE}}
 \label{sec:sleve}\index{SLEVE}
