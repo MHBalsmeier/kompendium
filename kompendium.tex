@@ -20248,9 +20248,20 @@ Man teilt dies auf in zwei Anteile
 %
 \begin{align}
 H_\text{kin}\left(\rho, \newtilde{s}, \mathbf{v}\right) &= \sum_{c, k}\frac{1}{2}\rho_{c, k}\left(\mathbf{v}\cdot\mathbf{v}\right)_{c, k}V_{c, k},\\
-H_{I'}\left(\rho, \newtilde{s}, \mathbf{v}\right) &= \sum_{c, k}\left(\frac{1}{2}\rho_{c, k}\phi_{c, k} + \newtilde{I}_{c, k}\right)V_{c, k}.
+H_{I'}\left(\rho, \newtilde{s}, \mathbf{v}\right) &= \sum_{c, k}\left(\rho_{c, k}\phi_{c, k} + \newtilde{I}_{c, k}\right)V_{c, k}.
+\end{align}
+
+
+\subsection{Diskretisierung von Funktionalableitungen}
+\label{sec:diskretisierun_von_funktionalableitungen}\index{Diskretisierung!Funktionalableitung}\index{Funktionalableitung!Diskretisierung}
+
+Glg. \eqref{eq:def_functional_derivative} diskretisiert man in der Form
+
+\begin{align}
+\lim_{\epsilon\to 0}\frac{1}{\epsilon}\sum_{c, k}\left[f\left(\mathbf{u}_{c, k}\right) + \epsilon\mathbf{h}_{c, k} - f\left(\mathbf{u}_{c, k}\right)\right]V_{c, k} \hastobe \sum_{c, k}\left(\frac{\delta F}{\delta\mathbf{u}}\right)_{c, k}\cdot\mathbf{h}_{c, k}V_{c, k}.
 \end{align}
 %
+Die Funktionalableitung\index{Diskretisierung!Funktionalableitung}\index{Funktionalableitung!Diskretisierung} ist diejenige diskrete Funktion, welche dies für alle Hilfsfunktionen $\mathbf{h}_{c, k}$ erfüllt. $\mathbf{h}$ ist hierbei ein Tupel von Zustandsgrößen.
 
 \subsection{Überprüfung der Energieerhaltung}
 \label{sec:überprüfung_der_energieerhaltung}
@@ -21554,7 +21565,7 @@ definiert. Die {Funktionalableitung}\index{Funktionalableitung}
 ist diejenige Funktion, welche
 %
 \begin{align}
-\frac{dH\left(h, \epsilon\right)}{d\epsilon} = \lim_{\epsilon\to 0}\frac{F\left[\psi + \epsilon h\right] - F\left[\psi\right]}{\epsilon} = \lim_{\epsilon\to 0}\frac{1}{\epsilon}\int_\Omega f\left(\psi\left(\mathbf{r}\right) + \epsilon h\left(\mathbf{r}\right)\right) - f\left(\psi\left(\mathbf{r}\right)\right)d^3r = \int_\Omega\frac{\delta F}{\delta\psi}\cdot h\left(\mathbf{r}\right)d^3r
+\frac{dH\left(h, \epsilon\right)}{d\epsilon} = \lim_{\epsilon\to 0}\frac{F\left[\psi + \epsilon h\right] - F\left[\psi\right]}{\epsilon} = \lim_{\epsilon\to 0}\frac{1}{\epsilon}\int_\Omega f\left(\psi\left(\mathbf{r}\right) + \epsilon h\left(\mathbf{r}\right)\right) - f\left(\psi\left(\mathbf{r}\right)\right)d^3r = \int_\Omega\frac{\delta F}{\delta\psi}\cdot h\left(\mathbf{r}\right)d^3r\label{eq:def_functional_derivative}
 \end{align}
 %
 für alle $h \in D$ erfüllt. Die Funktionalableitung lässt sich als Ableitung von $F$ in Richtung $\psi$ verstehen.
