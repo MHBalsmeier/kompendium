@@ -9234,7 +9234,7 @@ folgt
 %
 \begin{align}
 H &= H\left(\mathbf{v}, \rho, q_1\right) = H\left(\mathbf{v}, \rho, \newtilde{s}\right) = \int_A\frac{1}{2}\rho\mathbf{v}^2 + \rho\phi + c_d^{(v)}\frac{p\left(\rho, \newtilde{s}\right)}{R_d}d^3r\nonumber\\
-&= \int_A\frac{1}{2}\rho\mathbf{v}^2 + \rho\phi + c_d^{(v)}\frac{p\left(\rho, q_1\right)}{R_d}d^3r.
+&= \int_A\frac{1}{2}\rho\mathbf{v}^2 + \rho\phi + c_d^{(v)}\frac{p\left(\rho, q_1\right)}{R_d}d^3r.\label{eq:hamilton-functional_entropy}
 \end{align}
 %
 Die Funktionalableitungen hiervon sind
@@ -18303,22 +18303,22 @@ wobei $c$ die Menge aller Seitenflächen $e$ der betrachteten Box ist.
 Sei $A_c$ der Flächeninhalt der Zelle $c$, $e$ eine Kante der Zelle, $o\left(e\right)$ die an die Kante $e$ grenzende Nachbarzelle von $c$, $d_e$ eine duale Kantenlänge und $l_e$ eine primäre Kantenlänge. Man notiert zunächst
 %
 \begin{align}
-\nabla\cdot\left(\psi\mathbf{v}\right) &= \frac{1}{A_c}\sum_{e\in c}l_e\frac{\psi_{o(e)} + \psi_c}{2}v_e,\\
-\psi\nabla\cdot\mathbf{v} &= \frac{\psi_c}{A_c}\sum_{e\in c}l_ev_e.
+\nabla\cdot\left(\psi\mathbf{v}\right) &= \frac{1}{A_c}\sum_{e\in c}l_e\frac{\psi_{o(e)} + \psi_c}{2}u_e,\\
+\psi\nabla\cdot\mathbf{v} &= \frac{\psi_c}{A_c}\sum_{e\in c}l_eu_e.
 \end{align}
 %
 Man fordert nun
 %
 \begin{align}
 \mathbf{v}\cdot\nabla\psi &\stackrel{!}{=} \nabla\cdot\left(\psi\mathbf{v}\right) - \psi\nabla\cdot\mathbf{v}\nonumber\\
-\Leftrightarrow\mathbf{v}\cdot\nabla\psi &= \frac{1}{A_c}\sum_{e\in c}l_e\frac{\psi_{o(e)} + \psi_c}{2}v_e - \frac{\psi_c}{A_c}\sum_{e\in c}l_ev_e = \frac{1}{A_c}\sum_{e\in c}l_e\frac{\psi_{o(e)} - \psi_c}{2}v_e = \frac{1}{A_c}\sum_{e\in c}\frac{\psi_{o(e)} - \psi_c}{d_e}v_e\frac{l_ed_e}{2}\nonumber\\
-&= \sum_{e\in c}\frac{l_ed_e}{2A_c}\frac{\psi_{o(e)} - \psi_c}{d_e}v_e.
+\Leftrightarrow\mathbf{v}\cdot\nabla\psi &= \frac{1}{A_c}\sum_{e\in c}l_e\frac{\psi_{o(e)} + \psi_c}{2}u_e - \frac{\psi_c}{A_c}\sum_{e\in c}l_eu_e = \frac{1}{A_c}\sum_{e\in c}l_e\frac{\psi_{o(e)} - \psi_c}{2}u_e = \frac{1}{A_c}\sum_{e\in c}\frac{\psi_{o(e)} - \psi_c}{d_e}u_e\frac{l_ed_e}{2}\nonumber\\
+&= \sum_{e\in c}\frac{l_ed_e}{2A_c}\frac{\psi_{o(e)} - \psi_c}{d_e}u_e.
 \end{align}
 %
 Hieraus leitet man
 %
 \begin{align}
-\mathbf{u}\cdot\mathbf{v} = \sum_{e\in c}\frac{l_ed_e}{2A_c}u_ev_e
+\mathbf{u}\cdot\mathbf{v} = \sum_{e\in c}\frac{l_ed_e}{2A_c}u_eu_e
 \end{align}
 %
 als Diskretisierung für das Skalarprodukt ab. Im ebenen Fall ergibt sich für die Summe der Gewichtungsfaktoren
@@ -18331,6 +18331,43 @@ Im gekrümmten Fall, wie z. B. einer Kugeloberfläche, ist dies jedoch im Allgem
 
 \subsection{Dreidimensionales orthogonales Gitter}
 \label{sec:dreidimensionales_orthogonales_gitter}
+
+Nun wird die Herleitung im vorherigen Abschnitt auf ein dreidimensionales Gitter verallgemeinert, dessen Schichtdickte $\Delta z_k$ nur vom vertikalen Index $k$ abhängt. Vertikale Vektorkomponenten werden mit $w$ bezeichnet, der Index $u$ bezeichnet den vektoriellen oder skalaren Gitterpunkt über der betrachteten Gitterbox, der Index $l$ den jeweiligen Gitterpunkt darunter. Dies führt auf
+%
+\begin{align}
+\nabla\cdot\left(\psi\mathbf{v}\right) &= \frac{1}{A_c\Delta z_k}\left(\sum_{e\in c}l_e\Delta z_k\frac{\psi_{o(e)} + \psi_c}{2}u_e + A_c\frac{\psi_u + \psi_c}{2}w_u - A_c\frac{\psi_l + \psi_c}{2}w_l\right),\\
+\psi\nabla\cdot\mathbf{v} &= \frac{\psi_c}{A_c\Delta z_k}\left(\sum_{e\in c}l_e\Delta z_ku_e + A_cw_u - A_cw_l\right).
+\end{align}
+%
+Man fordert nun wieder
+%
+\begin{align}
+\mathbf{v}\cdot\nabla\psi &\stackrel{!}{=} \nabla\cdot\left(\psi\mathbf{v}\right) - \psi\nabla\cdot\mathbf{v}\nonumber\\
+\Leftrightarrow\mathbf{v}\cdot\nabla\psi &= \frac{1}{A_c\Delta z_k}\left(\sum_{e\in c}l_e\Delta z_k\frac{\psi_{o(e)} + \psi_c}{2}u_e + A_c\frac{\psi_u + \psi_c}{2}w_u - A_c\frac{\psi_l + \psi_c}{2}w_l - \psi_c\sum_{e\in c}l_e\Delta z_ku_e - \psi_cA_cw_u + \psi_cA_cw_l\right)\nonumber\\
+\Leftrightarrow\mathbf{v}\cdot\nabla\psi &= \frac{1}{A_c\Delta z_k}\left(\sum_{e\in c}l_e\Delta z_k\frac{\psi_{o(e)} - \psi_c}{2}u_e + A_c\frac{\psi_u - \psi_c}{2}w_u + A_c\frac{\psi_c - \psi_l}{2}w_l\right)\nonumber\\
+\Leftrightarrow\mathbf{v}\cdot\nabla\psi &= \sum_{e\in c}\frac{l_ed_e}{2A_c}\frac{\psi_{o(e)} - \psi_c}{d_e}u_e + \frac{\Delta z_{k - 1/2}}{2\Delta z_k}\frac{\psi_u - \psi_c}{\Delta z_{k - 1/2}}w_u + \frac{\Delta z_{k + 1/2}}{2\Delta z_k}\frac{\psi_c - \psi_l}{\Delta z_{k + 1/2}}w_u.
+\end{align}
+%
+Hieraus leitet man
+%
+\begin{align}
+\mathbf{u}^{(1)}\cdot\mathbf{u}^{(2)} = \sum_{e\in c}\frac{l_ed_e}{2A_c}u_e^{(1)}u_e^{(2)} + \frac{\Delta z_{k - 1/2}}{2\Delta z_k}w_u^{(1)}w_u^{(2)} + \frac{\Delta z_{k + 1/2}}{2\Delta z_k}w_l^{(1)}w_l^{(2)}
+\end{align}
+%
+als Diskretisierung für das Skalarprodukt ab. Im ebenen Fall ergibt sich für die Summe der Gewichtungsfaktoren
+%
+\begin{align}
+\sum_{e\in c}\frac{l_ed_e}{2A_c} + \frac{\Delta z_{k - 1/2} + \Delta z_{k + 1/2}}{2\Delta z_k} = 3,
+\end{align}
+%
+wobei
+%
+\begin{align}
+\Delta z_k &= z_{k - 1/2} - z_{k + 1/2} = \frac{z_{k - 1} + z_k}{2} - \frac{z_{k} + z_{k + 1}}{2} = \frac{z_{k - 1} + z_k - z_{k} - z_{k + 1}}{2}\nonumber\\
+&= \frac{z_{k - 1} - z_{k} + z_k - z_{k + 1}}{2} = \frac{\Delta z_{k - 1/2} + \Delta z_{k + 1/2}}{2}
+\end{align}
+%
+eingesetzt wurde. Im gekrümmten Fall, wie z. B. einer Kugeloberfläche, ist dies jedoch im Allgemeinen nicht mehr der Fall.
 
 \section{Festlegung auf das C-Gitter}
 \label{sec:festlegung_auf_das_c-gitter}\index{C-Gitter}
@@ -20238,7 +20275,7 @@ hierbei sind $\psi\left(\mathbf{r}\right)$ ein integrierbares Skalar- oder Vekto
 \frac{dF\left[\mathbf{u}\right]}{dt} = \frac{d}{dt}\int_Af\left(\mathbf{u}\left(t\right)\right)d^3r = \int_A\frac{\delta F}{\delta\mathbf{u}}\cdot\frac{\partial\mathbf{u}}{\partial t}d^3r \to \sum_{c, k}\left(\frac{\delta F}{\delta\mathbf{u}}\cdot\frac{\partial\mathbf{u}}{\partial t}\right)_{c, k}V_{c, k}
 \end{align}
 %
-diskretisiert. Zunächst wird das Hamilton-Funktional benötigt. Man diskretisiert Glg. in der Form
+diskretisiert. Zunächst wird das Hamilton-Funktional benötigt. Man diskretisiert Glg. \eqref{eq:hamilton-functional_entropy} in der Form
 %
 \begin{align}
 H\left(\rho, \newtilde{s}, \mathbf{v}\right) = \sum_{c, k}\left[\frac{1}{2}\rho_{c, k}\left(\mathbf{v}\cdot\mathbf{v}\right)_{c, k} + \rho_{c, k}\phi_{c, k} + \newtilde{I}_{c, k}\right]V_{c, k}.
@@ -20250,7 +20287,14 @@ Man teilt dies auf in zwei Anteile
 H_\text{kin}\left(\rho, \newtilde{s}, \mathbf{v}\right) &= \sum_{c, k}\frac{1}{2}\rho_{c, k}\left(\mathbf{v}\cdot\mathbf{v}\right)_{c, k}V_{c, k},\\
 H_{I'}\left(\rho, \newtilde{s}, \mathbf{v}\right) &= \sum_{c, k}\left(\rho_{c, k}\phi_{c, k} + \newtilde{I}_{c, k}\right)V_{c, k}.
 \end{align}
-
+%
+Für die Funktionalableitungen nach den thermodynamischen Größen erhält man
+%
+\begin{align}
+\left(\frac{\delta H_\text{kin}}{\delta\rho}\right)_{c, k} &= \frac{1}{2}\left(\mathbf{v}\cdot\mathbf{v}\right)_{c, k},\\
+\left(\frac{\delta H_{I'}}{\delta\rho}\right)_{c, k} &= \phi_{c, k} + \frac{\partial\newtilde{I}_{c, k}}{\partial\rho},\\
+\left(\frac{\delta H_{I'}}{\delta\rho}\right)_{c, k} &= \frac{\partial\newtilde{I}_{c, k}}{\partial q_1}.
+\end{align}
 
 \subsection{Diskretisierung von Funktionalableitungen}
 \label{sec:diskretisierun_von_funktionalableitungen}\index{Diskretisierung!Funktionalableitung}\index{Funktionalableitung!Diskretisierung}
@@ -20258,7 +20302,7 @@ H_{I'}\left(\rho, \newtilde{s}, \mathbf{v}\right) &= \sum_{c, k}\left(\rho_{c, k
 Glg. \eqref{eq:def_functional_derivative} diskretisiert man in der Form
 
 \begin{align}
-\lim_{\epsilon\to 0}\frac{1}{\epsilon}\sum_{c, k}\left[f\left(\mathbf{u}_{c, k}\right) + \epsilon\mathbf{h}_{c, k} - f\left(\mathbf{u}_{c, k}\right)\right]V_{c, k} \hastobe \sum_{c, k}\left(\frac{\delta F}{\delta\mathbf{u}}\right)_{c, k}\cdot\mathbf{h}_{c, k}V_{c, k}.
+\lim_{\epsilon\to 0}\frac{1}{\epsilon}\sum_{c, k}\left[f\left(\mathbf{u}_{c, k} + \epsilon\mathbf{h}_{c, k}\right) - f\left(\mathbf{u}_{c, k}\right)\right]V_{c, k} \hastobe \sum_{c, k}\left(\frac{\delta F}{\delta\mathbf{u}}\right)_{c, k}\cdot\mathbf{h}_{c, k}V_{c, k}.
 \end{align}
 %
 Die Funktionalableitung\index{Diskretisierung!Funktionalableitung}\index{Funktionalableitung!Diskretisierung} ist diejenige diskrete Funktion, welche dies für alle Hilfsfunktionen $\mathbf{h}_{c, k}$ erfüllt. $\mathbf{h}$ ist hierbei ein Tupel von Zustandsgrößen.
