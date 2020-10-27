@@ -20232,7 +20232,25 @@ Die Poisson-Klammern sind globale Integrale. Man definiert daher einen diskreten
 \int_A\psi\left(\mathbf{r}\right)d^3r \to \sum_{i = 1}^N\psi_iV_i,
 \end{align}
 %
-hierbei sind $\psi\left(\mathbf{r}\right)$ ein integrierbares Skalar- oder Vektorfeld, $\psi_i$ der Wert der diskretisierten Version von $\psi$ in Gitterbox $i$, $V_i$ das Volumen der Gitterbox $i$ sowie $N$ die Anzahl der Gitterboxen.
+hierbei sind $\psi\left(\mathbf{r}\right)$ ein integrierbares Skalar- oder Vektorfeld, $\psi_i$ der Wert der diskretisierten Version von $\psi$ in Gitterbox $i$, $V_i$ das Volumen der Gitterbox $i$ sowie $N$ die Anzahl der Gitterboxen. Die Poisson-Klammern werden gemäß dem Grundansatz
+%
+\begin{align}
+\frac{dF\left[\mathbf{u}\right]}{dt} = \frac{d}{dt}\int_Af\left(\mathbf{u}\left(t\right)\right)d^3r = \int_A\frac{\delta F}{\delta\mathbf{u}}\cdot\frac{\partial\mathbf{u}}{\partial t}d^3r \to \sum_{c, k}\left(\frac{\delta F}{\delta\mathbf{u}}\cdot\frac{\partial\mathbf{u}}{\partial t}\right)_{c, k}V_{c, k}
+\end{align}
+%
+diskretisiert. Zunächst wird das Hamilton-Funktional benötigt. Man diskretisiert Glg. in der Form
+%
+\begin{align}
+H\left(\rho, \newtilde{s}, \mathbf{v}\right) = \sum_{c, k}\left[\frac{1}{2}\rho_{c, k}\left(\mathbf{v}\cdot\mathbf{v}\right)_{c, k} + \rho_{c, k}\phi_{c, k} + \newtilde{I}_{c, k}\right]V_{c, k}.
+\end{align}
+%
+Man teilt dies auf in zwei Anteile
+%
+\begin{align}
+H_\text{kin}\left(\rho, \newtilde{s}, \mathbf{v}\right) &= \sum_{c, k}\frac{1}{2}\rho_{c, k}\left(\mathbf{v}\cdot\mathbf{v}\right)_{c, k}V_{c, k},\\
+H_{I'}\left(\rho, \newtilde{s}, \mathbf{v}\right) &= \sum_{c, k}\left(\frac{1}{2}\rho_{c, k}\phi_{c, k} + \newtilde{I}_{c, k}\right)V_{c, k}.
+\end{align}
+%
 
 \subsection{Überprüfung der Energieerhaltung}
 \label{sec:überprüfung_der_energieerhaltung}
@@ -21505,6 +21523,41 @@ n!\approx \int_{0}^{\infty}e^{-n + n\ln\left(n\right) - \frac{1}{2}\frac{\left(t
 \end{align}
 %
 Im letzten Schritt wurde Glg. \eqref{eq:integral_fehlerfunktion} verwendet. Glg. \eqref{eq:stirling} ist die Stirling-Formel.
+
+\subsection{Funktionalableitungen}
+\label{sec:funktionalableitungen}\index{Funktionalableitung}
+
+Sei $n\in\mathbb{N}$ mit $n \geq 1$. Seien $\Omega \subseteq \mathbb{R}^3$ zusammenhängend und $\psi: \Omega\to\mathbb{R}^n$ und $f:\mathbb{R}^n\to\mathbb{R}$ stetig differenzierbar. Definiere das Funktional
+%
+\begin{align}
+F\left[\psi\right] \coloneqq \int_\Omega f\left(\psi\left(\mathbf{r}\right)\right)d^3r \in \mathbb{R}.
+\end{align}
+%
+Definiere nun eine Menge an Hilfsfunktionen
+%
+\begin{align}
+D \coloneqq \lbrace h:\Omega\to\mathbb{R}^n \vline \text{stetig differenzierbar, }h\left(\partial\Omega\right) = 0\rbrace.
+\end{align}
+%
+Hierauf aufbauend wird eine weitere Menge von Differenzenquotienten
+%
+\begin{align}
+H: D \times \mathbb{R}_{> 0}: \left(h, \epsilon\right) \mapsto \frac{F\left[\psi + \epsilon h\right] - F\left[\psi\right]}{\epsilon}
+\end{align}
+%
+definiert. Die {Funktionalableitung}\index{Funktionalableitung}
+%
+\begin{align}
+\frac{\delta F}{\delta\psi}: \Omega \to \mathbb{R}^n
+\end{align}
+%
+ist diejenige Funktion, welche
+%
+\begin{align}
+\frac{dH\left(h, \epsilon\right)}{d\epsilon} = \lim_{\epsilon\to 0}\frac{F\left[\psi + \epsilon h\right] - F\left[\psi\right]}{\epsilon} = \lim_{\epsilon\to 0}\frac{1}{\epsilon}\int_\Omega f\left(\psi\left(\mathbf{r}\right) + \epsilon h\left(\mathbf{r}\right)\right) - f\left(\psi\left(\mathbf{r}\right)\right)d^3r = \int_\Omega\frac{\delta F}{\delta\psi}\cdot h\left(\mathbf{r}\right)d^3r
+\end{align}
+%
+für alle $h \in D$ erfüllt. Die Funktionalableitung lässt sich als Ableitung von $F$ in Richtung $\psi$ verstehen.
 
 \subsection{Residuensatz}
 \label{sec:residuensatz}\index{Residuensatz}
