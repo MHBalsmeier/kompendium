@@ -396,8 +396,7 @@ Für die Beschleunigung des Schwerpunktes gilt nach dem Zweiten Newton'schen Axi
 wobei $\mathbf{F}_1$ die auf $m_1$ wirkende und $\mathbf{F}_2$ die auf $m_2$ wirkende Gesamtkraft darstellt. Diese kann man jeweils aufteilen in eine interne und in eine externe Kraft:
 %
 \begin{align}
-\mathbf{F}_1 & = \mathbf{F}_1^{\text{(int)}} + \mathbf{F}_1^{\text{(ext)}}\\
-\mathbf{F}_2 & = \mathbf{F}_2^{\text{(int)}} + \mathbf{F}_2^{\text{(ext)}}
+\mathbf{F}_1 & = \mathbf{F}_1^{\text{(int)}} + \mathbf{F}_1^{\text{(ext)}}, && \mathbf{F}_2 = \mathbf{F}_2^{\text{(int)}} + \mathbf{F}_2^{\text{(ext)}}
 \end{align}
 %
 Die interne Kraft entsteht dabei durch Wechselwirkungen innerhalb des Systems. Aufgrund des Dritten Newton'schen Axioms gilt
@@ -673,10 +672,8 @@ Summiert man dies über $n$, folgt
 Diese Gleichung gilt für alle $1\leq k\leq f$. Zwangskräfte treten hier nicht mehr auf. Man führt die folgenden Schreibweisen ein:
 %
 \begin{align}
-x &\coloneqq \left(x_1, \dotsc, x_n\right)\\
-\newdot{x} &\coloneqq \left(\newdot{x}_1, \dotsc, \newdot{x}_n\right)\\
-q &\coloneqq \left(q_1, \dotsc, q_n\right)\\
-\newdot{q} &\coloneqq \left(\newdot{q}_1, \dotsc, \newdot{q}_n\right)
+x \coloneqq \left(x_1, \dotsc, x_n\right), && \newdot{x} \coloneqq \left(\newdot{x}_1, \dotsc, \newdot{x}_n\right)\\
+q \coloneqq \left(q_1, \dotsc, q_n\right), && \newdot{q} \coloneqq \left(\newdot{q}_1, \dotsc, \newdot{q}_n\right)
 \end{align}
 %
 Die $\newdot{q}_i$ bezeichnet man auch als \textit{generalisierte Geschwindigkeiten}.\index{generalisierte Geschwindigkeit}\index{Geschwindigkeit!generalisierte} Man leitet nun die Transformationsgleichung
@@ -846,12 +843,8 @@ Hieraus folgen unmittelbar
 Im Hamilton-Formalismus gelten
 %
 \begin{align}
-\frac{\partial q_i}{\partial q_j} & = \delta_{i, j},\\
-\frac{\partial q_i}{\partial p_j} & = 0,\\
-\frac{\partial q_i}{\partial t} & = 0,\\
-\frac{\partial p_i}{\partial q_j} & = 0,\\
-\frac{\partial p_i}{\partial p_j} & = \delta_{i, j},\\
-\frac{\partial p_i}{\partial t} & = 0.
+\frac{\partial q_i}{\partial q_j} = \delta_{i, j}, && \frac{\partial q_i}{\partial p_j} = 0, && \frac{\partial q_i}{\partial t} = 0,\\
+\frac{\partial p_i}{\partial q_j} = 0, && \frac{\partial p_i}{\partial p_j} = \delta_{i, j}, && \frac{\partial p_i}{\partial t} = 0.
 \end{align}
 %
 Weiterhin sind
@@ -1028,7 +1021,7 @@ U\left(\mathbf{r}, \newdot{\mathbf{r}}, t\right) = q\phi\left(\mathbf{r}, t\righ
 so folgt mit Glg. \eqref{eq:lagrange_kraefte}
 %
 \begin{align}
-\mathbf{F}\left(\mathbf{r}, \newdot{\mathbf{r}}, t\right)&\stackrel{\text{Glg. \eqref{eq:diff_op_rule_6}}}{=}& -q\nabla\phi + \frac{q}{c}\left(\newdot{\mathbf{r}}\cdot\nabla\right)\mathbf{A} + \frac{q}{c}\newdot{\mathbf{r}}\times\mathbf{B} - \frac{q}{c}\md{}\mathbf{A} = q\left(-\nabla\phi - \frac{1}{c}\frac{\partial\mathbf{A}}{\partial t} + \frac{1}{c}\newdot{\mathbf{r}}\times\mathbf{B}\right)\nonumber\\
+\mathbf{F}\left(\mathbf{r}, \newdot{\mathbf{r}}, t\right)&\stackrel{\text{Glg. \eqref{eq:diff_op_rule_6}}}{=} -q\nabla\phi + \frac{q}{c}\left(\newdot{\mathbf{r}}\cdot\nabla\right)\mathbf{A} + \frac{q}{c}\newdot{\mathbf{r}}\times\mathbf{B} - \frac{q}{c}\md{}\mathbf{A} = q\left(-\nabla\phi - \frac{1}{c}\frac{\partial\mathbf{A}}{\partial t} + \frac{1}{c}\newdot{\mathbf{r}}\times\mathbf{B}\right)\nonumber\\
 & = q\left(\mathbf{E} + \frac{\newdot{\mathbf{r}}}{c}\times\mathbf{B}\right).
 \end{align}
 %
@@ -1073,8 +1066,7 @@ Wendet man $\nabla\times $ auf die Glg.en \eqref{eq:mwg_3_vak} und \eqref{eq:mwg
 also Wellengleichungen für das EMF $\left(\mathbf{E}, \mathbf{B}\right)$. Man macht nun Ansätze
 %
 \begin{align}
-\mathbf{E} & = \mathbf{E}_0e^{i\left(\mathbf{k}\cdot\mathbf{r} - \omega t\right)},\\
-\mathbf{B} & = \mathbf{B}_0e^{i\left(\mathbf{k}\cdot\mathbf{r} - \omega t + \varphi\right)}.
+\mathbf{E} = \mathbf{E}_0e^{i\left(\mathbf{k}\cdot\mathbf{r} - \omega t\right)}, && \mathbf{B} = \mathbf{B}_0e^{i\left(\mathbf{k}\cdot\mathbf{r} - \omega t + \varphi\right)}.
 \end{align}
 %
 Allgemeinere Wellen kann mit der FT aus der Überlagerung solcher ebener Wellen bekommen. Man sieht sofort, dass elektromagnetische Wellen im Vakuum dispersionsfrei sind und die Phasengeschwindigkeit $c$ haben. Man ist interessiert an dem Verhältnis der Amplituden $\mathbf{E}_0$, $\mathbf{B}_0$, sowie an der Phasenverschiebung $\varphi$. Aus den Glg.en \eqref{eq:mwg_1_vak} und \eqref{eq:mwg_2_vak} folgt $\mathbf{E}_0, \mathbf{B}_0\perp\mathbf{k}$. Elektromagnetische Wellen sind also Transversalwellen. Man stellt weiterhin mit Glg. \eqref{eq:diff_op_rule_5} fest
@@ -1086,9 +1078,7 @@ Allgemeinere Wellen kann mit der FT aus der Überlagerung solcher ebener Wellen 
 Außerdem gelten
 %
 \begin{align}
-\nabla\times\mathbf{B} & = -i\mathbf{B}\times\mathbf{k},\\
-\frac{\partial\mathbf{E}}{\partial t} & = -i\omega\mathbf{E},\\
-\frac{\partial\mathbf{B}}{\partial t} & = -i\omega\mathbf{B}.
+\nabla\times\mathbf{B} = -i\mathbf{B}\times\mathbf{k}, && \frac{\partial\mathbf{E}}{\partial t} = -i\omega\mathbf{E}, && \frac{\partial\mathbf{B}}{\partial t} = -i\omega\mathbf{B}.
 \end{align}
 %
 Setzt man dies in die Glg.en \eqref{eq:mwg_3_vak} - \eqref{eq:mwg_4_vak} ein, erhält man
@@ -1107,8 +1097,7 @@ Mit $c = \frac{\omega}{k}$ folgt
 Hieraus folgen
 %
 \begin{align}
-\mathbf{E}\cdot\mathbf{B} & = 0,\\
-\varphi & = 0.
+\mathbf{E}\cdot\mathbf{B} = 0, \varphi = 0.
 \end{align}
 %
 Da $\mathbf{E}\perp\mathbf{k}$ gilt, ist
@@ -1377,10 +1366,10 @@ Für die oben beschriebene Anordnung zweier KS IS und IS' gilt $\mathbf{b} = \ma
 Weiterhin gilt für den Ursprung von IS'
 %
 \begin{align}
-x^{\left(0\right)} = ct&\leftrightarrow&x'^{\left(0\right)} = ct',\\
-x^{\left(1\right)} = vt&\leftrightarrow&x'^{\left(1\right)} = 0,\\
-x^{\left(2\right)} = 0&\leftrightarrow&x'^{\left(2\right)} = 0,\\
-x^{\left(3\right)} = 0&\leftrightarrow&x'^{\left(3\right)} = 0.
+x^{\left(0\right)} = ct&\leftrightarrow x'^{\left(0\right)} = ct',\\
+x^{\left(1\right)} = vt&\leftrightarrow x'^{\left(1\right)} = 0,\\
+x^{\left(2\right)} = 0&\leftrightarrow x'^{\left(2\right)} = 0,\\
+x^{\left(3\right)} = 0&\leftrightarrow x'^{\left(3\right)} = 0.
 \end{align}
 %
 Aus Glg. \eqref{eq:bed_srt} folgt
@@ -1436,8 +1425,7 @@ Man kann für zwei reelle Zahlen $\psi, \varphi$ ansetzen
 Es gelten also
 %
 \begin{align}
-\Lambda_0^{(0)} & = \pm\cosh\left(\psi\right),\\
-\Lambda_1^{\left(1\right)} & = \pm\cosh\left(\varphi\right).
+\Lambda_0^{(0)} &= \pm\cosh\left(\psi\right), \Lambda_1^{\left(1\right)} &= \pm\cosh\left(\varphi\right).
 \end{align}
 %
 Für $\psi, \varphi\to0$ soll die identische Transformation herauskommen, also schließt man an dieser Stelle das Minuszeichen aus. Die dritte Bedingung lautet
@@ -1473,7 +1461,7 @@ Hieraus folgt
 $\psi$ nennt man \textit{Rapidität}.\index{Rapidität} Man definiert weiterhin
 %
 \begin{align}
-\gamma& \coloneqq&\cosh\left(\psi\right) = \frac{1}{\sqrt{1 - \tanh\left(\psi\right)^2}} = \frac{1}{\sqrt{1 - v^2/c^2}}, 
+\gamma &\coloneqq \cosh\left(\psi\right) = \frac{1}{\sqrt{1 - \tanh\left(\psi\right)^2}} = \frac{1}{\sqrt{1 - v^2/c^2}}, 
 \end{align}
 %
 dann gilt
@@ -1530,7 +1518,7 @@ A_z
 definiert. Definiere weiter
 %
 \begin{align}
-\left(j^{\left(\alpha\right)}\right)& \coloneqq&\left(\begin{array}{c}
+\left(j^{\left(\alpha\right)}\right) &\coloneqq \left(\begin{array}{c}
 \rho\\
 j_x\\
 j_y\\
@@ -1541,8 +1529,8 @@ j_z
 Man definiert als Kurzschreibweise für partielle Ableitungen
 %
 \begin{align}
-\partial_0 & = \partial^{(0)} \coloneqq\frac{1}{c}\frac{\partial}{\partial t},\\
-\partial^{(i)}& \coloneqq&\frac{\partial}{\partial x_i} = -\frac{\partial}{\partial x^{(i)}} = -\partial_i
+\partial_0 &= \partial^{(0)} \coloneqq\frac{1}{c}\frac{\partial}{\partial t},\\
+\partial^{(i)} &\coloneqq \frac{\partial}{\partial x_i} = -\frac{\partial}{\partial x^{(i)}} = -\partial_i
 \end{align}
 %
 für $1\leq i\leq 3$. Mit dem \textit{d'Alembert-Operator}\index{d'Alembert-Operator}
@@ -1578,8 +1566,7 @@ Diese Matrix ist antisymmetrisch:
 An dieser Stelle sei weiterhin an
 %
 \begin{align}
-\mathbf{E} & = -\nabla\phi - \frac{1}{c}\frac{\partial\mathbf{A}}{\partial t},\\
-\mathbf{B} & = \nabla\times\mathbf{A}
+\mathbf{E} = -\nabla\phi - \frac{1}{c}\frac{\partial\mathbf{A}}{\partial t},&& \mathbf{B} = \nabla\times\mathbf{A}
 \end{align}
 %
 erinnert. Es gilt
@@ -1647,12 +1634,8 @@ E_z'& -B_y'&B_x'&0
 Hieraus folgen
 %
 \begin{align}
-E_x' & = E_x,\\
-E_y' & = \gamma\left(E_y - B_z\frac{v}{c}\right),\\
-E_z' & = \gamma\left(E_z + B_y\frac{v}{c}\right),\\
-B_x' & = B_x,\\
-B_y' & = \gamma\left(B_y + E_z\frac{v}{c}\right),\\
-B_z' & = \gamma\left(B_z - E_y\frac{v}{c}\right).
+E_x' = E_x, && E_y' = \gamma\left(E_y - B_z\frac{v}{c}\right), && E_z' = \gamma\left(E_z + B_y\frac{v}{c}\right),\\
+B_x' = B_x, && B_y' = \gamma\left(B_y + E_z\frac{v}{c}\right), && B_z' = \gamma\left(B_z - E_y\frac{v}{c}\right).
 \end{align}
 %
 Dies kann man vektoriell verallgemeinern zu
@@ -1667,10 +1650,8 @@ Dies kann man vektoriell verallgemeinern zu
 wobei jeweils zu $\mathbf{v}$ parallele und senkrechte Komponenten gemeint sind. Die Rücktransformation erhält man mit $\mathbf{v}\to\mathbf{v'}$ zu
 %
 \begin{align}
-\mathbf{E}_\parallel & = \mathbf{E'}_\parallel,\\
-\mathbf{B}_\parallel & = \mathbf{B'}_\parallel,\\
-\mathbf{E}_\perp & = \gamma\left(\mathbf{E'}_\perp - \frac{\mathbf{v}}{c}\times\mathbf{B'}\right),\\
-\mathbf{B}_\perp & = \gamma\left(\mathbf{B'}_\perp + \frac{\mathbf{v}}{c}\times\mathbf{E'}\right).
+\mathbf{E}_\parallel = \mathbf{E'}_\parallel, && \mathbf{B}_\parallel = \mathbf{B'}_\parallel,\\
+\mathbf{E}_\perp = \gamma\left(\mathbf{E'}_\perp - \frac{\mathbf{v}}{c}\times\mathbf{B'}\right), && \mathbf{B}_\perp = \gamma\left(\mathbf{B'}_\perp + \frac{\mathbf{v}}{c}\times\mathbf{E'}\right).
 \end{align}
 %
 \chapter{\normalfont\textsc{Quantenmechanik}}
@@ -1918,15 +1899,14 @@ k_1 - k_2 = \frac{2n\pi}{L}.
 Setze also
 %
 \begin{align}
-k_1 & = n_1\frac{\pi}{L},\\
-k_2 & = n_2\frac{\pi}{L}
+k_1 = n_1\frac{\pi}{L}, && k_2 = n_2\frac{\pi}{L}
 \end{align}
 %
 mit $n_1 - n_2\in\mathbb{Z}$ gerade. Den Fall $k_1 = k_2$ muss man ausschließen, das sonst die Wellenfunktion verschwindet. Es gilt die Normierungsbedingung
 %
 \begin{align}
-1&\hastobe&\int_{0}^{L}\left|\psi\left(x\right)\right|^2dx = \left|C\right|^2\int_0^L 2 - \exp\left(i\left(k_1 - k_2\right)x\right) - \exp\left(i\left(k_2 - k_1\right)x\right)dx\nonumber\\
-&\Leftrightarrow &\left|C\right|^22L\Leftrightarrow \left|C\right| = \frac{1}{\sqrt{2L}}.
+1&\hastobe \int_{0}^{L}\left|\psi\left(x\right)\right|^2dx = \left|C\right|^2\int_0^L 2 - \exp\left(i\left(k_1 - k_2\right)x\right) - \exp\left(i\left(k_2 - k_1\right)x\right)dx\nonumber\\
+&\Leftrightarrow \left|C\right|^22L\Leftrightarrow \left|C\right| = \frac{1}{\sqrt{2L}}.
 \end{align}
 %
 Die Gesamtlösung für die Wellenfunktion lautet also unter der Annahme $C>0$ mit $n_1, n_2\in\mathbb{Z}, n_1\not = n_2$ und $n_1 - n_2$ gerade
@@ -2132,8 +2112,7 @@ Dieses Eigenwertproblem ist zu lösen. Man kann dies schreiben als
 mit $b \coloneqq \sqrt{\frac{\hbar}{m\omega}}$. Definiere $u \coloneqq \frac{x}{b}$, dann sind
 %
 \begin{align}
-\frac{d}{dx} & = \frac{du}{dx}\frac{d}{du} = \frac{1}{b}\frac{d}{du},\\
-\frac{d^2}{dx^2} & = \frac{1}{b^2}\frac{d^2}{du^2}.
+\frac{d}{dx} = \frac{du}{dx}\frac{d}{du} = \frac{1}{b}\frac{d}{du}, && \frac{d^2}{dx^2} = \frac{1}{b^2}\frac{d^2}{du^2}.
 \end{align}
 %
 Die stationäre SG wird mit der Ersetzung
@@ -2275,9 +2254,7 @@ Die Eigenzustände des harmonischen Oszillators sind also
 mit
 %
 \begin{align}
-b & = \sqrt{\frac{\hbar}{m\omega}},\\
-c_n & = \frac{1}{\sqrt{b\sqrt{\pi}2^nn!}},\\
-u & = \frac{x}{b}.
+b = \sqrt{\frac{\hbar}{m\omega}}, && c_n = \frac{1}{\sqrt{b\sqrt{\pi}2^nn!}}, && u = \frac{x}{b}.
 \end{align}
 %
 Zum Schluss werden noch zwei Relationen festgehalten, die aus den Glg.en \eqref{eq:herm_pol_prop_2} und \eqref{eq:herm_pol_prop_1} folgen:
@@ -2492,8 +2469,7 @@ Messgrößen sind immer reell. Hermite'sche Operatoren sind daher geeignet, um M
 Nun wird gezeigt, dass die Eigenvektoren Hermite'scher Operatoren zu unterschiedlichen Eigenwerten orthogonal sind. Seien also ein Hermite'scher Operator $\newhat{O}$ gegeben und $|\psi\rangle, |\chi\rangle\in H, \alpha, \beta\in\mathbb{R}$ mit $\alpha\not = \beta$ und
 %
 \begin{align}
-\newhat{O}|\psi\rangle & = \alpha|\psi\rangle,\\
-\newhat{O}|\chi\rangle & = \beta|\chi\rangle.
+\newhat{O}|\psi\rangle = \alpha|\psi\rangle, && \newhat{O}|\chi\rangle = \beta|\chi\rangle.
 \end{align}
 %
 Dann gilt
@@ -2676,10 +2652,10 @@ Da $\newhat{B}$ hermitesch ist, kann man die Matrix $\left(B_{i, j}\right) \colo
 %
 \begin{align}
 B' = U^TBU = \left(\begin{array}{cccc}
-\lambda_1& & & \\
+\lambda_1& & & 0\\
 &\lambda_2& &\\
 & &\ddots&\\
-& & &\lambda_n
+0 & & &\lambda_n
 \end{array}
 \right)
 \end{align}
@@ -2865,10 +2841,8 @@ L\left(\newdot{\mathbf{r}}_1, \newdot{\mathbf{r}}_2, \mathbf{r}_1, \mathbf{r}_2\
 Hierbei geht man sinnvollerweise davon aus, dass das Potential nur vom Relativvektor abhängt. Führt man die Definitionen
 %
 \begin{align}
-\mathbf{r}&\coloneqq\mathbf{r}_2 - \mathbf{r}_1,\\
-\mathbf{R}&\coloneqq\frac{m_1\mathbf{r}_1 + m_2\mathbf{r}_2}{m_1 + m_2},\\
-M&\coloneqq m_1 + m_2,\\
-\mu&\coloneqq\frac{m_1m_2}{m_1 + m_2}
+\mathbf{r} \coloneqq\mathbf{r}_2 - \mathbf{r}_1, && \mathbf{R} \coloneqq\frac{m_1\mathbf{r}_1 + m_2\mathbf{r}_2}{m_1 + m_2},\\
+M \coloneqq m_1 + m_2, && \mu \coloneqq\frac{m_1m_2}{m_1 + m_2}
 \end{align}
 %
 ein, kann man rechnen
@@ -2887,8 +2861,7 @@ L\left(\newdot{\mathbf{R}}, \newdot{\mathbf{r}}, \mathbf{r}\right) = \frac{M}{2}
 Für die kanonischen Impulse folgt
 %
 \begin{align}
-\mathbf{p} & = \frac{\partial L}{\partial\newdot{\mathbf{r}}} = \mu\newdot{\mathbf{r}},\\
-\mathbf{P} & = \frac{\partial L}{\partial\newdot{\mathbf{R}}} = M\newdot{\mathbf{R}}.
+\mathbf{p} = \frac{\partial L}{\partial\newdot{\mathbf{r}}} = \mu\newdot{\mathbf{r}}, && \mathbf{P} = \frac{\partial L}{\partial\newdot{\mathbf{R}}} = M\newdot{\mathbf{R}}.
 \end{align}
 %
 Für die Hamilton-Funktion folgt
@@ -2900,8 +2873,8 @@ H\left(\mathbf{P}, \mathbf{p}, \mathbf{r}\right) = \frac{\mathbf{P}^2}{2M} + \fr
 Mit den Ersetzungsregeln für Operatoren schreibt man
 %
 \begin{align}
-\mathbf{P}&\to&\newhat{\mathbf{P}} = -i\hbar\frac{\partial}{\partial\mathbf{R}},\\
-\mathbf{p}&\to&\newhat{\mathbf{p}} = -i\hbar\frac{\partial}{\partial\mathbf{r}}.
+\mathbf{P}&\to \newhat{\mathbf{P}} = -i\hbar\frac{\partial}{\partial\mathbf{R}},\\
+\mathbf{p}&\to \newhat{\mathbf{p}} = -i\hbar\frac{\partial}{\partial\mathbf{r}}.
 \end{align}
 %
 So erhält man den Hamilton-Operator
@@ -2943,8 +2916,7 @@ Dies setzt man in die stationäre SG ein:
 Mit den Definitionen
 %
 \begin{align}
-\Delta&\coloneqq \Delta_\mathbf{r},\\
-\epsilon&\coloneqq E - \frac{\hbar^2K^2}{2M}
+\Delta \coloneqq \Delta_\mathbf{r}, && \epsilon \coloneqq E - \frac{\hbar^2K^2}{2M}
 \end{align}
 %
 wird dies zu
@@ -3080,8 +3052,7 @@ U_l\left(r\right)\to U_l\left(u\right)
 und den Definitionen
 %
 \begin{align}
-E_{\text{at}}&\coloneqq\frac{\hbar^2}{m_ea_B^2},\\
-\epsilon&\coloneqq\frac{E}{E_{\text{at}}}
+E_{\text{at}} \coloneqq \frac{\hbar^2}{m_ea_B^2}, && \epsilon \coloneqq \frac{E}{E_{\text{at}}}
 \end{align}
 %
 wird Glg. \eqref{eq:radial_sgh} zu
@@ -3179,9 +3150,7 @@ x \coloneqq 2\lambda u,
 dann sind
 %
 \begin{align}
-u & = \frac{x}{2\lambda},\\
-\frac{d}{du} & = 2\lambda\frac{d}{dx},\\
-\frac{d^2}{du^2} & = 4\lambda^2\frac{d^2}{dx^2}.
+u = \frac{x}{2\lambda}, && \frac{d}{du} = 2\lambda\frac{d}{dx}, && \frac{d^2}{du^2} = 4\lambda^2\frac{d^2}{dx^2}.
 \end{align}
 %
 Ersetzt man
@@ -3390,9 +3359,7 @@ Somit folgt für den Kommutator zweier Komponenten des Drehimpulsoperators
 Dabei wurde Glg. \eqref{eq:levi-civita_prop_1} verwendet. Dies bedeutet insbesondere
 %
 \begin{align}
-\left[\newhat{J}_1, \newhat{J}_2\right] & = i\newhat{J}_3,\\
-\left[\newhat{J}_2, \newhat{J}_3\right] & = i\newhat{J}_1,\\
-\left[\newhat{J}_3, \newhat{J}_1\right] & = i\newhat{J}_2.
+\left[\newhat{J}_1, \newhat{J}_2\right] = i\newhat{J}_3, && \left[\newhat{J}_2, \newhat{J}_3\right] = i\newhat{J}_1, && \left[\newhat{J}_3, \newhat{J}_1\right] = i\newhat{J}_2.
 \end{align}
 %
 Somit ist
@@ -3495,15 +3462,13 @@ Weiterhin findet man
 Nun wird der verallgemeinerte Drehimpulsoperator $\newhat{\mathbf{J}}$ Glg. \eqref{eq:drehmomentum_op_allg} noch etwas weiter behandelt. Er und seine Komponenten wurden als hermitesch identifiziert, somit ist auch $\newhat{\mathbf{J}}^2$ als Hintereinanderausführung Hermite'scher, kommutativer Operatoren nach Absch. \ref{sec:Hermite'sche_operatoren} hermitesch Es gilt weiterhin
 %
 \begin{align}
-\newhat{J}_ + ^+ & = \newhat{J}_ - ,\\
-\newhat{J}_ - ^+& = \newhat{J}_ + .
+\newhat{J}_+^+ = \newhat{J}_-, && \newhat{J}_-^+ = \newhat{J}_+.
 \end{align}
 %
 Unter den vier Operatoren $\newhat{\mathbf{J}}^2, \newhat{J}_x, \newhat{J}_y, \newhat{J}_z$ kann man nach Glg. \eqref{eq:kommutator_angular_momentum_op} und Glg. \eqref{eq:komm_tot_angular_momentum} zwei finden, die kommutieren, nämlich $\newhat{\mathbf{J}}^2$ und ein anderer, hierfür wird $\newhat{J}_z$ gewählt. Diese haben nach Absch. \ref{sec:kommutierende_operatoren} die gleichen Eigenfunktionen, also kann man schreiben
 %
 \begin{align}
-\newhat{\mathbf{J}}^2\left|\lambda, m\right\rangle & = \lambda\left|\lambda, m\right\rangle,\\
-\newhat{J}_z\left|\lambda, m\right\rangle & = m\left|\lambda, m\right\rangle
+\newhat{\mathbf{J}}^2\left|\lambda, m\right\rangle = \lambda\left|\lambda, m\right\rangle, && \newhat{J}_z\left|\lambda, m\right\rangle = m\left|\lambda, m\right\rangle
 \end{align}
 %
 mit reellen Eigenwerten $\lambda, m\in\mathbb{R}$. Nun schaut man sich die Zustände
@@ -3633,14 +3598,13 @@ Glg. \eqref{eq:spin_up} wird als \textit{Spin-up-Zustand}\index{Spin-up-Zustand}
 J_z\left(\begin{array}{c}
 1\\
 0
-\end{array}\right) & = \left(\begin{array}{c}
+\end{array}\right) = \left(\begin{array}{c}
 \frac{1}{2}\\
 0
-\end{array}\right),\\
-J_z\left(\begin{array}{c}
+\end{array}\right), && J_z\left(\begin{array}{c}
 0\\
 1
-\end{array}\right) & = \left(\begin{array}{c}
+\end{array}\right) = \left(\begin{array}{c}
 0\\
 - \frac{1}{2}
 \end{array}\right), 
@@ -3696,15 +3660,13 @@ i&0
 Die hier auftretenden Matrizen
 %
 \begin{align}
-\overleftrightarrow{\sigma_x} &\coloneqq\left(\begin{array}{cc}
+\overleftrightarrow{\sigma_x} \coloneqq \left(\begin{array}{cc}
 0&1\\
 1&0
-\end{array}\right),\\
-\overleftrightarrow{\sigma_y} &\coloneqq\left(\begin{array}{cc}
+\end{array}\right), && \overleftrightarrow{\sigma_y} \coloneqq \left(\begin{array}{cc}
 0& -i\\
 i&0
-\end{array}\right),\\
-\overleftrightarrow{\sigma_z} &\coloneqq\left(\begin{array}{cc}
+\end{array}\right), && \overleftrightarrow{\sigma_z} \coloneqq \left(\begin{array}{cc}
 1&0\\
 0& -1
 \end{array}\right)
@@ -3824,8 +3786,7 @@ finden. Hierzu setzt man zunächst
 mit $\lambda\in\left[0, 1\right]$ an. Nun entwickelt man die Eigenzustände $\left|\psi\right\rangle$ und Eigenwerte $E$ nach Potenzen von $\lambda$:
 %
 \begin{align}
-E\left(\lambda\right) & = \sum_{i = 0}^{\infty}\lambda^{(i)}E^{(i)}\\
-\left|\psi\left(\lambda\right)\right\rangle & = \sum_{i = 0}^{\infty}\lambda^{(i)}\left|\psi^{(i)}\right\rangle
+E\left(\lambda\right) = \sum_{i = 0}^{\infty}\lambda^{(i)}E^{(i)}, && \left|\psi\left(\lambda\right)\right\rangle = \sum_{i = 0}^{\infty}\lambda^{(i)}\left|\psi^{(i)}\right\rangle
 \end{align}
 %
 Dies setzt man in Glg. \eqref{eq:ew_gestoert} ein:
@@ -4240,13 +4201,13 @@ Die nullte Ordnung ist trivial erfüllt. Sei nun $k\in\mathbb{N}$ mit $k\geq 1$ 
 \begin{align}
 & C_k^{(1)}\left(t\right)E_k\exp\left(-i\frac{E_k}{\hbar}t\right) + \sum_{m = 1}^{\infty}C_m^{(0)}\langle\psi_k^{(0)}\left|\newhat{v}_h\left(t\right)\right|\psi_m^{(0)}\rangle\exp\left(-i\frac{E_m}{\hbar}t\right) = \left(i\hbar\frac{\partial C_k^{(1)}}{\partial
 t} + C_k^{(1)}E_k\right)\exp\left(-i\frac{E_k}{\hbar}t\right)\nonumber\\
-&\Leftrightarrow&\frac{\partial C_k^{(1)}}{\partial t} = -\frac{i}{\hbar}\sum_{m = 1}^{\infty}C_m^{(0)}\langle\psi_k^{(0)}\left|\newhat{v}_h\left(t\right)\right|\psi_m^{(0)}\rangle\exp\left(i\frac{E_k - E_m}{\hbar}t\right).
+&\Leftrightarrow \frac{\partial C_k^{(1)}}{\partial t} = -\frac{i}{\hbar}\sum_{m = 1}^{\infty}C_m^{(0)}\langle\psi_k^{(0)}\left|\newhat{v}_h\left(t\right)\right|\psi_m^{(0)}\rangle\exp\left(i\frac{E_k - E_m}{\hbar}t\right).
 \end{align}
 %
 Also erhält man für die Beimischung der Zustände
 %
 \begin{align}
-C_k^{(1)}\left(t'\right) = C_k^{(1)}\left(t_0\right)  - \frac{i}{\hbar}\int_{t_0}^{t'}\sum_{m = 1}^{\infty}C_m^{(0)}\left\langle\psi_k^{(0)}\left|\newhat{v}_h\left(t\right)\right|\psi_m^{(0)}\right\rangle\exp\left(i\frac{E_k - E_m}{\hbar}t\right)dt.
+C_k^{(1)}\left(t'\right) = C_k^{(1)}\left(t_0\right) - \frac{i}{\hbar}\int_{t_0}^{t'}\sum_{m = 1}^{\infty}C_m^{(0)}\left\langle\psi_k^{(0)}\left|\newhat{v}_h\left(t\right)\right|\psi_m^{(0)}\right\rangle\exp\left(i\frac{E_k - E_m}{\hbar}t\right)dt.
 \end{align}
 %
 Ist das System zum Zeitpunkt $t_0$ im Zustand $n$, so ergeben sich
@@ -4350,7 +4311,7 @@ Nehme ein Vektorpotential der Form
 an mit $\omega = ck$ und $\epsilonbi\cdot\mathbf{k} = 0$, hierbei ist $\epsilonbi$ der normierte Polarisationsvektor. Dann folgt
 %
 \begin{align}
-\mathbf{B} = \nabla\times\mathbf{A}&\stackrel{\text{Glg. }\eqref{eq:diff_op_rule_2}}{=}& -A_0\epsilonbi\times\mathbf{k}\cos\left(\mathbf{k}\cdot\mathbf{r} - \omega t\right) = A_0\mathbf{k}\times\epsilonbi\cos\left(\mathbf{k}\cdot\mathbf{r} - \omega t\right).
+\mathbf{B} = \nabla\times\mathbf{A}&\stackrel{\text{Glg. }\eqref{eq:diff_op_rule_2}}{=} -A_0\epsilonbi\times\mathbf{k}\cos\left(\mathbf{k}\cdot\mathbf{r} - \omega t\right) = A_0\mathbf{k}\times\epsilonbi\cos\left(\mathbf{k}\cdot\mathbf{r} - \omega t\right).
 \end{align}
 %
 Hierdurch wird also eine elektromagnetische Welle beschrieben. Für den Hamilton-Operator folgt
@@ -4392,13 +4353,13 @@ eingesetzt. Mit der \textit{Langwellennäherung}\index{Langwellennäherung}
 erhält man
 %
 \begin{align}
-\newhat{V}_0&\approx&\frac{eA_0}{2m_ec}\epsilonbi\cdot\newhat{\mathbf{p}}.
+\newhat{V}_0 &\approx \frac{eA_0}{2m_ec}\epsilonbi\cdot\newhat{\mathbf{p}}.
 \end{align}
 %
 Dies ist hier gerechtfertigt, da man mit $\left\langle r\right\rangle\sim a_B$ rechnen kann
 %
 \begin{align}
-\frac{\left\langle r\right\rangle}{\lambda}&\sim&\frac{a_B}{\lambda} = \frac{a_B\omega}{2\pi c} = \frac{a_B\Delta E}{2\pi\hbar c}\sim\frac{a_BE_{\text{at}}}{20\pi\hbar c} = \frac{\hbar}{m_ea_B20\pi c} = \frac{e^2}{20\hbar\pi c}\to\frac{e^2}{4\pi\epsilon_020\hbar\pi c}\sim 10^{-4}.
+\frac{\left\langle r\right\rangle}{\lambda} &\sim \frac{a_B}{\lambda} = \frac{a_B\omega}{2\pi c} = \frac{a_B\Delta E}{2\pi\hbar c}\sim\frac{a_BE_{\text{at}}}{20\pi\hbar c} = \frac{\hbar}{m_ea_B20\pi c} = \frac{e^2}{20\hbar\pi c}\to\frac{e^2}{4\pi\epsilon_020\hbar\pi c}\sim 10^{-4}.
 \end{align}
 %
 Dabei wurde $\Delta E\sim\frac{E_{\text{at}}}{10}$ eingesetzt. Mit Glg. \eqref{eq:ubergangsraten_konst} erhält man
@@ -4441,13 +4402,13 @@ M_{b, a} & = im_e\frac{E_b - E_a}{3\hbar}\left\langle b\left|\epsilonbi\cdot\new
 Die Eigenzustände im H-Atom sind aus Glg. \eqref{eq:zustand_h_ortsraum} bekannt, es gilt also
 %
 \begin{align}
-M_{b, a}&\propto&\left\langle n, l, m\left|\epsilonbi\cdot\newhat{\mathbf{r}}\right|n, l, m\right\rangle.
+M_{b, a} &\propto \left\langle n, l, m\left|\epsilonbi\cdot\newhat{\mathbf{r}}\right|n, l, m\right\rangle.
 \end{align}
 %
 Auf den Spin wird hier verzichtet. Der Radialanteil liefert keine Auswahlregeln für $\Delta n$, daher ist hier nur
 %
 \begin{align}
-M_{b, a}&\propto&\int Y_{l_b, m_b}^\star\epsilonbi\cdot\newhat{\mathbf{r}}Y_{l_a, m_a}d\Omega.
+M_{b, a} &\propto \int Y_{l_b, m_b}^\star\epsilonbi\cdot\newhat{\mathbf{r}}Y_{l_a, m_a}d\Omega.
 \end{align}
 %
 relevant. Man schreibt
@@ -4459,8 +4420,7 @@ relevant. Man schreibt
 Aus den Glg.en \eqref{eq:spherical_harm_prop_2} - \eqref{eq:spherical_harm_prop_3} folgt
 %
 \begin{align}
-\cos\left(\theta\right)Y_{l, m} & = \alpha Y_{l - 1, m} + \beta Y_{l + 1, m},\\
-\sin\left(\theta\right)Y_{l, m} & = \gamma e^{-i\phi}Y_{l - 1, m + 1} + \delta e^{-i\phi}Y_{l + 1, m + 1}
+\cos\left(\theta\right)Y_{l, m} = \alpha Y_{l - 1, m} + \beta Y_{l + 1, m}, && \sin\left(\theta\right)Y_{l, m} = \gamma e^{-i\phi}Y_{l - 1, m + 1} + \delta e^{-i\phi}Y_{l + 1, m + 1}
 \end{align}
 %
 mit hier nicht relevanten Koeffizienten $\alpha, \beta, \gamma, \delta$. Somit hat man
@@ -5156,31 +5116,19 @@ dJ & = -SdT - pdV - Nd\mu.
 Hieraus lassen sich folgende Aussagen ablesen:
 %
 \begin{align}
-\left(\frac{\partial E}{\partial S}\right)_{V, N} & = T\label{eq:energy_partial_deriv_0}\\
-\left(\frac{\partial E}{\partial V}\right)_{S, N} & = -p\label{eq:energy_partial_deriv_1}\\
-\left(\frac{\partial E}{\partial N}\right)_{S, V} & = \mu\label{eq:chemisches_potential_prop_0}\\
-\left(\frac{\partial F}{\partial T}\right)_{V, N} & = -S
+\left(\frac{\partial E}{\partial S}\right)_{V, N} = T, && \left(\frac{\partial E}{\partial V}\right)_{S, N} = -p, && \left(\frac{\partial E}{\partial N}\right)_{S, V} & = \mu\label{eq:chemisches_potential_prop_0}\\
 \end{align}
 \begin{align}
-\left(\frac{\partial F}{\partial V}\right)_{T, N} & = -p\\
-\left(\frac{\partial F}{\partial N}\right)_{T, V} & = \mu\\
-\left(\frac{\partial H}{\partial S}\right)_{p, N} & = T
+\left(\frac{\partial F}{\partial T}\right)_{V, N} = -S, && \left(\frac{\partial F}{\partial V}\right)_{T, N} = -p, && \left(\frac{\partial F}{\partial N}\right)_{T, V} = \mu
 \end{align}
 \begin{align}
-\left(\frac{\partial H}{\partial p}\right)_{S, N} & = V\\
-\left(\frac{\partial H}{\partial N}\right)_{S, p} & = \mu\\
-\left(\frac{\partial G}{\partial T}\right)_{p, N} & = -S
+\left(\frac{\partial H}{\partial S}\right)_{p, N} = T, && \left(\frac{\partial H}{\partial p}\right)_{S, N} = V, && \left(\frac{\partial H}{\partial N}\right)_{S, p} = \mu
 \end{align}
 \begin{align}
-\left(\frac{\partial G}{\partial p}\right)_{T, N} & = V\\
-\left(\frac{\partial G}{\partial N}\right)_{T, p} & = \mu\label{eq:chemisches_potential_prop_2}
+\left(\frac{\partial G}{\partial T}\right)_{p, N} = -S, && \left(\frac{\partial G}{\partial p}\right)_{T, N} = V, && \left(\frac{\partial G}{\partial N}\right)_{T, p} = \mu\label{eq:chemisches_potential_prop_2}
 \end{align}
 \begin{align}
-\left(\frac{\partial J}{\partial T}\right)_{V, \mu} & = -S\\
-\left(\frac{\partial J}{\partial V}\right)_{T, \mu} & = -p
-\end{align}
-\begin{align}
-\left(\frac{\partial J}{\partial\mu}\right)_{T, V} & = -N
+\left(\frac{\partial J}{\partial T}\right)_{V, \mu} = -S, && \left(\frac{\partial J}{\partial V}\right)_{T, \mu} = -p, && \left(\frac{\partial J}{\partial\mu}\right)_{T, V} = -N
 \end{align}
 %
 Dies sind jeweils drei Aussagen für die partiellen Ableitungen von $E$, $F$, $H$, $G$ und $J$. Indem man die Gleichheit der zweiten partiellen Ableitungen anwendet, lassen sich daraus 15 nichttriviale thermodynamische Relationen ableiten, die man \index{Maxwell-Relation}\textit{Maxwell-Relationen} nennt:
@@ -5310,8 +5258,7 @@ d\mu = \left(\frac{\partial\mu}{\partial T}\right)_pdT + \left(\frac{\partial\mu
 Mit
 %
 \begin{align}
-\left(\frac{\partial S}{\partial N}\right)_{T, V} & = \frac{S}{N} =: s,\\
-\left(\frac{\partial V}{\partial N}\right)_{p, T} & = \frac{V}{N} =: v
+\left(\frac{\partial S}{\partial N}\right)_{T, V} = \frac{S}{N} =: s, && \left(\frac{\partial V}{\partial N}\right)_{p, T} = \frac{V}{N} =: v
 \end{align}
 %
 folgt
@@ -5391,8 +5338,8 @@ Das verbleibende $3N-$dimensionale Integral ist das Volumen einer $3N-$dimension
 Mit der Stirling-Formel Glg. \eqref{eq:stirling} erhält man
 %
 \begin{align}
-\Omega\left(E, V, N\right)&\approx&\sqrt{\frac{2}{\pi}}\left[\frac{2\pi m}{\left(2\pi\hbar\right)^2}\right]^{3N/2}e^{3N/2}\left(\frac{2}{3N}\right)^{\frac{3N}{2} + \frac{1}{2}}E^{3N/2}V^N\nonumber\\
-& = \frac{2}{\sqrt{3\pi N}}\left[\frac{4\pi me}{3\left(2\pi\hbar\right)^2}\right]^{3N/2}V^N\left(\frac{E}{N}\right)^{3N/2}.
+\Omega\left(E, V, N\right) &\approx \sqrt{\frac{2}{\pi}}\left[\frac{2\pi m}{\left(2\pi\hbar\right)^2}\right]^{3N/2}e^{3N/2}\left(\frac{2}{3N}\right)^{\frac{3N}{2} + \frac{1}{2}}E^{3N/2}V^N\nonumber\\
+&= \frac{2}{\sqrt{3\pi N}}\left[\frac{4\pi me}{3\left(2\pi\hbar\right)^2}\right]^{3N/2}V^N\left(\frac{E}{N}\right)^{3N/2}.
 \end{align}
 %
 Dieses Ergebnis ist noch nicht korrekt, es ist noch eine wichtige Modifikation anzubringen. Die $N$ Teilchen sind quantenmechanisch nicht unterscheidbar, was bedeutet, dass sich beim Vertauschen zweier Teilchen nichts ändert. Es sind also jeweils $N!$ Zustände gleich, weshalb man
@@ -5600,9 +5547,7 @@ r & = \frac{\rho_v}{\rho - \rho_v} = \frac{q}{1 - q} = \frac{\frac{\epsilon'}{\f
 Häufige Näherungen sind
 %
 \begin{align}
-q&\approx \frac{\epsilon'}{\frac{p}{p_v} - 1} = r,\\
-q&\approx \epsilon'\frac{p_v}{p},\\
-r&\approx \epsilon'\frac{p_v}{p}.\label{eq:mischungsverhaeltnis_vereinfacht}
+q \approx \frac{\epsilon'}{\frac{p}{p_v} - 1} = r, && q \approx \epsilon'\frac{p_v}{p}, && r \approx \epsilon'\frac{p_v}{p}.\label{eq:mischungsverhaeltnis_vereinfacht}
 \end{align}
 %
 \section{Klassische Systeme}
@@ -5774,8 +5719,7 @@ Für die Wahrscheinlichkeitsdichte $\rho\left(\mathbf{v}_1, \mathbf{v}_2\right)$
 Hieraus erhält man mit den Abkürzungen
 %
 \begin{align}
-a&\coloneqq\left(\frac{m}{2\pi k_BT}\right)^{3/2},\\
-b&\coloneqq\frac{m}{2k_BT}
+a \coloneqq \left(\frac{m}{2\pi k_BT}\right)^{3/2}, && b \coloneqq \frac{m}{2k_BT}
 \end{align}
 %
 die Relation
@@ -6603,10 +6547,10 @@ Körper mit $\epsilon\left(\vartheta, \varphi, \omega\right) = 1$ bezeichnet man
 \part{Herrschende Gleichungen}
 \label{part:herrschende_gleichungen}\index{herrschende Gleichung}\index{Gleichungen!herrschende}
 
-Die herrschenden Gleichungen bilden das die zeitliche Entwicklung der Atmosphäre festlegende Gleichungssystem. Zunächst muss jedoch ihr Zustand beschrieben werden können.
-
 \chapter{\normalfont\textsc{Zustand der Atmosphäre}}
 \label{chap:zustand_der_atmosphaere}\index{Zustand!der Atmosphäre}\index{Atmosphäre!Zustand}
+
+Die herrschenden Gleichungen bilden das die zeitliche Entwicklung der Atmosphäre festlegende Gleichungssystem. Zunächst muss jedoch ihr Zustand beschrieben werden können.
 
 Ein Teilchen ist ein kleines Luftvolumen $\Delta V$, was so groß ist, dass im langzeitlichen Mittel eine so große Anzahl Gasmoleküle darin enthalten ist, dass von einem kontinuierlichen Materiebild ausgegangen werden kann. Die Atmosphäre $A\subseteq\mathbb{R}^3$ offen ist die Gashülle der Erde. Die Offenheit ist sinnvoll, damit in jedem Punkt eine Richtungsableitung in jede Richtung möglich ist. Die Definition der Obergrenze hängt vom zu behandelnden Problem ab. An der Untergrenze wird die Atmosphäre durch die Erdoberfläche begrenzt, inklusive der dort stattfindenden Bewegungen, somit ist die Menge $A$ zeitabhängig, $A = A\left(t\right)$. Alle meteorologischen Felder werden als so oft differenzierbar vorausgesetzt, wie es für die Rechnungen benötigt wird. \textit{Luft}\index{Luft} besteht aus \textit{trockener Luft}\index{Luft!trockene}\index{trockene Luft} und \textit{Tracern}\index{Tracer}. Zu diesen zählen:
 %
@@ -6778,8 +6722,8 @@ Also ist $q - q' = 0$ für den Grenzfall $t\to 0$. Für die Phasenübergangsrate
 Die Kontinuitätsgleichung ist die Bilanzgleichung der Masse. Sei $\Omega\subseteq\mathbb{R}^3$ eine offene Teilmenge, $\rho$ eine Dichte und $\mathbf{j}$ die entsprechende Flussdichte. Dann gilt mit dem Gaußchen Satz und einer Quelldichte $Q$
 %
 \begin{align}
-\frac{\partial}{\partial t}\int_\Omega\rho d^3r& =  &-\int_{\partial \Omega}\mathbf{j}\cdot d\mathbf{n} + \int_\Omega Qd^3r = -\int_\Omega\nabla\cdot\mathbf{j} - Q d^3r\nonumber\\
-\Rightarrow \int_\Omega\frac{\partial\rho}{\partial t} + \nabla\cdot\mathbf{j} - Qd^3r& =  &0.\label{eq:deriv_cont_1}
+\frac{\partial}{\partial t}\int_\Omega\rho d^3r &= -\int_{\partial \Omega}\mathbf{j}\cdot d\mathbf{n} + \int_\Omega Qd^3r = -\int_\Omega\nabla\cdot\mathbf{j} - Q d^3r\nonumber\\
+\Rightarrow \int_\Omega\frac{\partial\rho}{\partial t} + \nabla\cdot\mathbf{j} - Qd^3r &= 0.\label{eq:deriv_cont_1}
 \end{align}
 %
 Da der Integrand stetig ist, ist selbiger bereits homogen und konstant gleich Null. Gilt nämlich $\left|\frac{\partial\rho}{\partial t} + \nabla\cdot\mathbf{j} - Q\right|>\epsilon>0$ an einer Stelle $\mathbf{r}_0\in\Omega$, so exisitiert eine offene Umgebung $\omega\subseteq\Omega$ mit $\mathbf{r}_0\in\omega$ und $\int_\omega\frac{\partial\rho}{\partial t} + \nabla\cdot\mathbf{j} - Qd^3r \not= 0$ im Widerspruch zu Glg. \eqref{eq:deriv_cont_1}. Es gilt somit
@@ -6791,8 +6735,7 @@ Da der Integrand stetig ist, ist selbiger bereits homogen und konstant gleich Nu
 In Termen des spezifischen Volumens $\alpha$ kannman dies als
 %
 \begin{align}
--\frac{1}{\alpha^2}\frac{\partial\alpha}{\partial t} - \frac{1}{\alpha^2}\mathbf{v}\cdot\nabla\alpha + \frac{1}{\alpha}\nabla\cdot\mathbf{v} & = 0\nonumber\\
-\frac{\partial\alpha}{\partial t} = \alpha\nabla\cdot\mathbf{v} - \mathbf{v}\cdot\nabla\alpha.\label{eq:cont_spec_volume}
+-\frac{1}{\alpha^2}\frac{\partial\alpha}{\partial t} - \frac{1}{\alpha^2}\mathbf{v}\cdot\nabla\alpha + \frac{1}{\alpha}\nabla\cdot\mathbf{v} = 0 && \Leftrightarrow \frac{\partial\alpha}{\partial t} = \alpha\nabla\cdot\mathbf{v} - \mathbf{v}\cdot\nabla\alpha.\label{eq:cont_spec_volume}
 \end{align}
 %
 notieren. Dies notiert man nun separat für alle Komponenten der Luft:
@@ -6812,8 +6755,7 @@ notieren. Dies notiert man nun separat für alle Komponenten der Luft:
 Dabei gelten
 %
 \begin{align}
-\mathbf{j}_d & = \rho_d\mathbf{v} - D_d\nabla\rho_d,\\
-\mathbf{j}_v & = \rho_v\mathbf{v} - D_v\nabla\rho_v.
+\mathbf{j}_d = \rho_d\mathbf{v} - D_d\nabla\rho_d, && \mathbf{j}_v = \rho_v\mathbf{v} - D_v\nabla\rho_v.
 \end{align}
 %
 Die $D_d, D_v$ sind die Diffusionskoeffizienten für trockene bzw. feuchte Luft. Man kann zunächst
@@ -6843,13 +6785,13 @@ gilt.
 Treffen sich zwei Partikel der Kondensatklassen $j$ und $k$, so kann man eine Wahrscheinlichkeit $0\leq P_{j, k}\leq 1$ dafür angeben, dass sie danach einen Partikel bilden. Dieser hat eine wohldefinierte Klasse $R_{j, k}$. Weiterhin sei $\sigma_{j, k}$ der Wirkungsquerschnitt der Kollisionen von Partikeln der Klassen $j$ und $k$. Sind $j$ beispielsweise Kugeln mit Radius $r_j$ und $k$ Kugeln mit Radius $r_k$, so gilt $\sigma_{j, k} = \pi\left(r_j + r_k\right)^2$. Die gemittelte Relativgeschwindigkeit zwischen den Teilchen der Klassen $j$ und $k$ sei $\newoverline{v_{\text{rel}}}\left(j, k\right)$. Dann durchfliegt ein Partikel der Klasse $j$ in der Zeit $t$ relativ zu den Partikeln der Klasse $k$ ein Volumen $\sigma_{j, k}\newoverline{v_{\text{rel}}}\left(j, k\right)t$. Die mittlere Stoßzeit $\tau_{j, k}$ ist dadurch definiert, dass man fordert, dass sich in diesem Volumen genau ein Teilchen der Klasse $k$ aufhält, also
 %
 \begin{align}
-n_k\sigma_{j, k}\newoverline{v_{\text{rel}}}\left(j, k\right)\tau_{j, k}&\hastobe&1.
+n_k\sigma_{j, k}\newoverline{v_{\text{rel}}}\left(j, k\right)\tau_{j, k} &\hastobe 1.
 \end{align}
 %
 Alle Teilchen der Gruppe $j$ nehmen an Stoßprozessen teil, deshalb ist die Gesamt-Stoßrate von Teilchen $j$ mit Partikeln $k$ gegeben durch
 %
 \begin{align}
-\frac{n_j}{\tau_{j, k}} & = n_jn_k\sigma_{j, k}\newoverline{v_{\text{rel}}}\left(j, k\right).
+\frac{n_j}{\tau_{j, k}} &= n_jn_k\sigma_{j, k}\newoverline{v_{\text{rel}}}\left(j, k\right).
 \end{align}
 %
 Ist $\newtilde{m}_i$ die Masse der Teilchen der Gruppe $i = R_{j, k}$, so ergibt sich eine entsprechende Quellstärke
@@ -7056,8 +6998,8 @@ der Fluss der Impulsdichte in $\mathbf{e}_i-$Richtung. Für einen allgemeinen Ei
 %
 \begin{align}
 \frac{\partial\mathbf{p}}{\partial t} & = \int_\Omega\frac{\partial\left(\rho\mathbf{v}\right)}{\partial t}d^3r = \int_\Omega-\nabla p + \rho\mathbf{g}d^3r - \int_{\partial\Omega}\Pi\cdot d\mathbf{n}\nonumber\\
-& \Rightarrow &\int_\Omega\frac{\partial\left(\rho\mathbf{v}\right)}{\partial t}d^3r = \int_\Omega-\nabla p + \rho\mathbf{g} - \nabla\cdot\Pi d^3r\nonumber\\
-&\Rightarrow\int_\Omega\frac{\partial\left(\rho\mathbf{v}\right)}{\partial t} + \nabla p + \nabla\cdot\Pi - \rho\mathbf{g}d^3r = 0.
+&\Rightarrow \int_\Omega\frac{\partial\left(\rho\mathbf{v}\right)}{\partial t}d^3r = \int_\Omega-\nabla p + \rho\mathbf{g} - \nabla\cdot\Pi d^3r\nonumber\\
+&\Rightarrow \int_\Omega\frac{\partial\left(\rho\mathbf{v}\right)}{\partial t} + \nabla p + \nabla\cdot\Pi - \rho\mathbf{g}d^3r = 0.
 \end{align}
 %
 Somit gilt bereits
@@ -7097,13 +7039,11 @@ Mit der Kontinuitätsgleichung erhält man schlussendlich
 Die Newton'schen Axiome gelten nur in Inertialsystemen. In Bezug auf die Erde betrachtet man den Erdmittelpunkt als unbeschleunigt, auch wenn er um die Sonne kreist, und betrachtet nur die Rotation der Erde. Sei durch $(\mathbf{e}_1, \mathbf{e}_2, \mathbf{e}_3)$ die Basis der ruhenden Koordinaten bezeichnet (vgl. Absch. \ref{sec:konvention_ueber_koordinatensysteme}). Wenn man Beschleunigungen in diesem KS misst, kann man sie über das Zweite Newton'sche Axiom mit den wirkenden Kräften verknüpften. Wählt man jedoch eine mit der Winkelgeschwindigkeit der Erde rotierende Basis, entstehen weitere Beschleunigungsterme, die sich nicht durch physikalische Kräfte ergeben. Für die Basis der globalen Koordinaten gilt in ruhenden Koordinaten
 %
 \begin{align}
-\mathbf{e}_x\left(t\right) & = \left( \begin{array}{c}
+\mathbf{e}_x\left(t\right) = \left( \begin{array}{c}
 \cos\left(\omega t\right) \\ \sin\left(\omega t\right) \\ 0
-\end{array}\right),\\
-\mathbf{e}_y\left(t\right) & = \left( \begin{array}{c}
+\end{array}\right), && \mathbf{e}_y\left(t\right) = \left( \begin{array}{c}
 - \sin\left(\omega t\right) \\ \cos\left(\omega t\right)\\ 0
-\end{array}\right),\\
-\mathbf{e}_z\left(t\right) & = \left( \begin{array}{c}
+\end{array}\right), && \mathbf{e}_z\left(t\right) = \left( \begin{array}{c}
 0 \\ 0 \\ 1
 \end{array}\right)
 \end{align}
@@ -7196,7 +7136,7 @@ Das Vorzeichen ergibt sich aus der Konvention, dass komprimierende Kräfte immer
 Man stelle sich ein Fluidteilchen $\left[-\frac{\Delta}{2}, \frac{\Delta}{2}\right]^3$ mit $\Delta > 0$ vor. Die z-Komponente $D_z$ des auf dieses Teilchen wirkenden Drehmomentes $\mathbf{D}$ ist proportional zu
 %
 \begin{align}
-D_z & \propto & T_{1, 2} + \frac{\Delta}{2}\frac{\partial T_{1, 2}}{\partial x} + T_{1, 2} - \frac{\Delta}{2}\frac{\partial T_{1, 2}}{\partial x} - \left(T_{2, 1} + \frac{\Delta}{2}\frac{\partial T_{2, 1}}{\partial y} + T_{2, 1} - \frac{\Delta}{2}\frac{\partial T_{2, 1}}{\partial y}\right)\nonumber\\
+D_z &\propto T_{1, 2} + \frac{\Delta}{2}\frac{\partial T_{1, 2}}{\partial x} + T_{1, 2} - \frac{\Delta}{2}\frac{\partial T_{1, 2}}{\partial x} - \left(T_{2, 1} + \frac{\Delta}{2}\frac{\partial T_{2, 1}}{\partial y} + T_{2, 1} - \frac{\Delta}{2}\frac{\partial T_{2, 1}}{\partial y}\right)\nonumber\\
 & = 2T_{1, 2} - 2T_{2, 1},
 \end{align}
 %
@@ -7216,8 +7156,7 @@ Die Größe $\frac{\partial v_i}{\partial x_j}$ bezeichnet man als \textit{Gesch
 %
 mit
 \begin{align}
-S_{i, j} &\coloneqq \frac{1}{2}\left(\frac{\partial v_i}{\partial x_j} + \frac{\partial v_j}{\partial x_i}\right),\label{eq:def_strain_rate_tensor}\\
-R_{i, j} &\coloneqq \frac{\partial v_i}{\partial x_j} - \frac{\partial v_j}{\partial x_i}.\label{eq:def_rotation_tensor}
+S_{i, j} \coloneqq \frac{1}{2}\left(\frac{\partial v_i}{\partial x_j} + \frac{\partial v_j}{\partial x_i}\right), && R_{i, j} \coloneqq \frac{\partial v_i}{\partial x_j} - \frac{\partial v_j}{\partial x_i}.\label{eq:def_rotation_tensor}
 \end{align}
 %
 $S_{i, j}$ bezeichnet man als \textit{Spannungstensor}\index{Spannungstensor}, dieser ist symmetrisch, und $R_{i, j}$ als \textit{Rotationstensor}\index{Rotationstensor}, dieser ist antisymmetrisch. Die Elemente des Rotationstensors\index{Rotationstensor} entsprechen der Rotation von Fluidteilchen, aber keiner Verformung oder Beschleunigung. Nur die Elemente des Spannungstensors\index{Spannungstensor} sind also relevant für den Stress\index{stress}. Daher kann man notieren
@@ -7252,7 +7191,7 @@ $\mu$ bezeichnet man als \textit{dynamische Viskosität}\index{dynamische Viskos
 \tau_{i, j} = \sum_{n, m}\left(\lambda\delta_{i, j}\delta_{m, n} + 2\mu\delta_{i, m}\delta_{j, n}\right)S_{m, n} = \lambda\delta_{i, j}\sum_{m}S_{m, m} + 2\mu S_{i, j}.
 \end{align}
 %
-Aus Glg. \eqref{eq:def_strain_rate_tensor} folgt
+Aus Glg. \eqref{eq:def_rotation_tensor} folgt
 %
 \begin{align}
 \sum_{m}S_{m, m} = \nabla\cdot\mathbf{v}.
@@ -7292,8 +7231,7 @@ p - \newoverline{p} = \sum_{i}T_{i, i} + \left(\frac{2}{3}\mu + \lambda\right)\n
 Man definiert nun die \textit{Bulk-Viskosität}\index{Bulk-Viskosität} $\mu_v$ durch
 %
 \begin{align}
-\mu_v &\coloneqq \frac{2}{3}\mu + \lambda\\
-\Rightarrow p - \newoverline{p} & = \sum_{i}T_{i, i} + \mu_v\nabla\cdot\mathbf{v}.
+\mu_v \coloneqq \frac{2}{3}\mu + \lambda \Rightarrow p - \newoverline{p} = \sum_{i}T_{i, i} + \mu_v\nabla\cdot\mathbf{v}.
 \end{align}
 %
 Die \index{Stokes-Annahme}\textit{Stokes-Annahme}
@@ -7475,7 +7413,7 @@ Subtrahiert man hiervon Glg. \eqref{eq:dissipation_deriv_0}, erhält man
 Man definiert somit die spezifische Dissipationsrate, oder kurz \textit{Dissipation}\index{Dissipation} $\epsilon$, durch
 %
 \begin{align}
-\epsilon \coloneqq \frac{1}{\rho}\sum_{i, j = 1}^3\tau_{i, j}\frac{\partial v_j}{\partial x_i} \stackrel{\text{Glg.en \eqref{eq:def_strain_rate_tensor} - \eqref{eq:def_rotation_tensor}}}{=} \frac{1}{\rho}\sum_{i, j = 1}^3\tau_{i, j}\left(S_{i, j} - \frac{1}{2}R_{i, j}\right) \stackrel{R_{i, j}\text{ antisymmetrisch}}{=} \frac{1}{\rho}\sum_{i, j = 1}^3\tau_{i, j}S_{i, j}.
+\epsilon \coloneqq \frac{1}{\rho}\sum_{i, j = 1}^3\tau_{i, j}\frac{\partial v_j}{\partial x_i} \stackrel{\text{Glg.en \eqref{eq:def_rotation_tensor} - \eqref{eq:def_rotation_tensor}}}{=} \frac{1}{\rho}\sum_{i, j = 1}^3\tau_{i, j}\left(S_{i, j} - \frac{1}{2}R_{i, j}\right) \stackrel{R_{i, j}\text{ antisymmetrisch}}{=} \frac{1}{\rho}\sum_{i, j = 1}^3\tau_{i, j}S_{i, j}.
 \end{align}
 %
 Es wird als Resultat dieses Abschnitts
@@ -7562,8 +7500,7 @@ Man betrachtet nun die Menge
 mit den Randbedingungen\index{Randbedingung}
 %
 \begin{align}
-\mathbf{v}\cdot\mathbf{n} & = 0,\\
-\nabla\mathbf{v}\cdot\mathbf{n} & = \mathbf{0}
+\mathbf{v}\cdot\mathbf{n} = 0, && \nabla\mathbf{v}\cdot\mathbf{n} = \mathbf{0}
 \end{align}
 %
 auf $\partial\Omega$, hierbei ist $\mathbf{n}$ ein Normalenvektor auf $\partial\Omega$. Integriert man nun Glg. \eqref{eq:fric_td_deriv_0} auf $\Omega$, erhält man
@@ -7645,12 +7582,11 @@ Es gilt nach Glg. \eqref{eq:dissipation}
 \begin{align}
 \epsilon &= \frac{1}{\rho}\sum_{i, j = 1}^3\tau_{i, j}S_{i, j} \stackrel{\text{Glg. \eqref{eq:stress-tensor}}}{=} \frac{1}{\rho}\sum_{i, j = 1}^3\left[2\mu\left(S_{i, j} - \frac{1}{3}\nabla\cdot\mathbf{v}\delta_{i, j}\right) + \mu_v\nabla\cdot\mathbf{v}\delta_{i, j}\right]S_{i, j}\nonumber\\
 &= \frac{2\mu}{\rho}\sum_{i, j = 1}^3S_{i, j}^2 - \frac{2}{3}\frac{\mu}{\rho}\sum_{i, j = 1}^3\nabla\cdot\mathbf{v}\delta_{i, j}S_{i, j} + \frac{\mu_v}{\rho}\sum_{i, j = 1}^3\nabla\cdot\mathbf{v}\delta_{i, j}S_{i, j}\nonumber\\
-&\stackrel{\text{Glg. \eqref{eq:def_strain_rate_tensor}}}{=} \frac{2\mu}{\rho}\sum_{i, j = 1}^3S_{i, j}^2 - \frac{2}{3}\frac{\mu}{\rho}\sum_{i, j = 1}^3\nabla\cdot\mathbf{v}\delta_{i, j}\frac{1}{2}\left(\frac{\partial v_i}{\partial x_j} + \frac{\partial v_j}{\partial x_i}\right) + \frac{\mu_v}{\rho}\sum_{i, j = 1}^3\nabla\cdot\mathbf{v}\delta_{i, j}\frac{1}{2}\left(\frac{\partial v_i}{\partial x_j} + \frac{\partial v_j}{\partial x_i}\right)\nonumber
+&\stackrel{\text{Glg. \eqref{eq:def_rotation_tensor}}}{=} \frac{2\mu}{\rho}\sum_{i, j = 1}^3S_{i, j}^2 - \frac{2}{3}\frac{\mu}{\rho}\sum_{i, j = 1}^3\nabla\cdot\mathbf{v}\delta_{i, j}\frac{1}{2}\left(\frac{\partial v_i}{\partial x_j} + \frac{\partial v_j}{\partial x_i}\right) + \frac{\mu_v}{\rho}\sum_{i, j = 1}^3\nabla\cdot\mathbf{v}\delta_{i, j}\frac{1}{2}\left(\frac{\partial v_i}{\partial x_j} + \frac{\partial v_j}{\partial x_i}\right)\nonumber
 \end{align}
 \begin{align}
 & = \frac{2\mu}{\rho}\sum_{i, j = 1}^3S_{i, j}^2 - \frac{2}{3}\frac{\mu}{\rho}\nabla\cdot\mathbf{v}\sum_{i, j = 1}^3\delta_{i, j}\frac{1}{2}\left(\frac{\partial v_i}{\partial x_j} + \frac{\partial v_j}{\partial x_i}\right) + \frac{\mu_v}{\rho}\nabla\cdot\mathbf{v}\sum_{i, j = 1}^3\delta_{i, j}\frac{1}{2}\left(\frac{\partial v_i}{\partial x_j} + \frac{\partial v_j}{\partial x_i}\right)\nonumber\\
-& = \frac{2\mu}{\rho}\sum_{i, j = 1}^3S_{i, j}^2 - \frac{2}{3}\frac{\mu}{\rho}\left(\nabla\cdot\mathbf{v}\right)^2 + \frac{\mu_v}{\rho}\left(\nabla\cdot\mathbf{v}\right)^2\nonumber\\
-& = \frac{2\mu}{\rho}\sum_{i, j = 1}^3S_{i, j}^2 + \left(\frac{\mu_v}{\rho} - \frac{2}{3}\frac{\mu}{\rho}\right)\left(\nabla\cdot\mathbf{v}\right)^2.
+& = \frac{2\mu}{\rho}\sum_{i, j = 1}^3S_{i, j}^2 - \frac{2}{3}\frac{\mu}{\rho}\left(\nabla\cdot\mathbf{v}\right)^2 + \frac{\mu_v}{\rho}\left(\nabla\cdot\mathbf{v}\right)^2 = \frac{2\mu}{\rho}\sum_{i, j = 1}^3S_{i, j}^2 + \left(\frac{\mu_v}{\rho} - \frac{2}{3}\frac{\mu}{\rho}\right)\left(\nabla\cdot\mathbf{v}\right)^2.
 \end{align}
 %
 Nach Glg. \eqref{eq:lame_viscosity_relation} gilt
@@ -7889,8 +7825,7 @@ Man definiert
 Üblicherweise werden die Wärme- und Massenflüsse jedoch auf das Volumen bezogen, es wird
 %
 \begin{align}
-q_\rho^{(V)} \coloneqq \rho\frac{dq_\rho}{dt},\\
-q_T^{(V)} \coloneqq \rho\frac{dq_T}{dt}
+q_\rho^{(V)} \coloneqq \rho\frac{dq_\rho}{dt}, && q_T^{(V)} \coloneqq \rho\frac{dq_T}{dt}
 \end{align}
 %
 definiert. Damit folgt
@@ -8164,8 +8099,7 @@ p & = \rho R_sT \Rightarrow \md{p} = R_s\left(T\md{\rho} + \rho\md{T}\right)
 Mit
 %
 \begin{align}
-\md{\rho} & = -\rho\nabla\cdot\mathbf{v} + q_\rho^{(V)},\\
-\md{T} & = \frac{T}{\theta}\md{\theta} + \frac{TR_s}{c^{(p)}p}\md{p}
+\md{\rho} = -\rho\nabla\cdot\mathbf{v} + q_\rho^{(V)}, && \md{T} = \frac{T}{\theta}\md{\theta} + \frac{TR_s}{c^{(p)}p}\md{p}
 \end{align}
 %
 folgt
@@ -8323,8 +8257,7 @@ S\left(E, V, N\right) & = C^{(p)}\ln\left(T\right) - Nk_B\ln\left(p\right) + Nc'
 & = C^{(p)}\ln\left(\theta\right) + R_sm\ln\left(\frac{p}{p_0}\right) - Nk_B\ln\left(p\right) + Nc'\nonumber\\
 & = C^{(p)}\ln\left(\theta\right) + k_BN\ln\left(p\right) - Nk_B\ln\left(p\right) - Nk_B\ln\left(p_0\right) + Nc'\nonumber\\
 & = C^{(p)}\ln\left(\theta\right) - Nk_B\ln\left(p_0\right) + Nk_B\ln\left[\left(\frac{k_BMe^{5/3}}{2\pi\hbar^2}\right)^\frac{3}{2}k_B\right]\nonumber\\
-& = C^{(p)}\ln\left(\theta\right) + Nk_B\ln\left[\frac{k_B}{p_0}\left(\frac{k_BMe^{5/3}}{2\pi\hbar^2}\right)^\frac{3}{2}\right]\nonumber\\
-& = C^{(p)}\ln\left(\theta\right) + \frac{2C^{(p)}}{5}\ln\left[\frac{k_B}{p_0}\left(\frac{k_BMe^{5/3}}{2\pi\hbar^2}\right)^\frac{3}{2}\right]\nonumber\\
+& = C^{(p)}\ln\left(\theta\right) + Nk_B\ln\left[\frac{k_B}{p_0}\left(\frac{k_BMe^{5/3}}{2\pi\hbar^2}\right)^\frac{3}{2}\right] = C^{(p)}\ln\left(\theta\right) + \frac{2C^{(p)}}{5}\ln\left[\frac{k_B}{p_0}\left(\frac{k_BMe^{5/3}}{2\pi\hbar^2}\right)^\frac{3}{2}\right]\nonumber\\
 & = C^{(p)}\ln\left(\theta\right) + mc''.
 \end{align}
 %
@@ -8890,7 +8823,7 @@ Setzt man dies in die Glg.en \eqref{eq:poisson_bracket_atm_gen_deriv_6} - \eqref
 \frac{\delta H}{\delta p_\mathbf{v}} &= \frac{\partial\mathbf{v}}{\partial t} =  -\frac{1}{\rho}\nabla p - \frac{\etabi}{\rho}\times\frac{\delta H}{\delta\mathbf{v}} - \nabla\phi - \nabla\frac{\delta K}{\delta\rho},\label{eq:poisson_bracket_atm_gen_deriv_12}
 \end{align}
 %
-Nun muss der Druckgradient in Termen von $H$ ausgedrückt werden. Nach Glg. \eqref{eq:energy_partial_deriv_1} gilt
+Nun muss der Druckgradient in Termen von $H$ ausgedrückt werden. Nach Glg. \eqref{eq:chemisches_potential_prop_0} gilt
 %
 \begin{align}
 p &= -\left(\frac{\partial E}{\partial V}\right)_{S, N},
@@ -9196,12 +9129,8 @@ Die Funktionalableitungen hiervon sind
 Nun sollen die Zeitentwicklungen der Größen $K$ und $I'$ untersucht werden. Dazu rechnet man vorbereitend
 %
 \begin{align}
-\frac{\delta K}{\delta\rho} & = \frac{1}{2}\mathbf{v}^2,\\
-\frac{\delta K}{\delta q_1} & = 0,\\
-\frac{\delta K}{\delta\mathbf{v}} & = \rho\mathbf{v},\\
-\frac{\delta I'}{\delta\rho} & = \phi,\\
-\frac{\delta I'}{\delta q_1} & = c_d^{(p)}\Pi,\\
-\frac{\delta I'}{\delta\mathbf{v}} & = 0.
+\frac{\delta K}{\delta\rho} = \frac{1}{2}\mathbf{v}^2, && \frac{\delta K}{\delta q_1} = 0, && \frac{\delta K}{\delta\mathbf{v}} = \rho\mathbf{v},\\
+\frac{\delta I'}{\delta\rho} = \phi, && \frac{\delta I'}{\delta q_1} = c_d^{(p)}\Pi, \frac{\delta I'}{\delta\mathbf{v}} = 0.
 \end{align}
 %
 und erhält somit
@@ -9236,20 +9165,14 @@ H &= H\left(\mathbf{v}, \rho, q_1\right) = H\left(\mathbf{v}, \rho, \newtilde{s}
 Die Funktionalableitungen hiervon sind
 %
 \begin{align}
-\frac{\delta H}{\delta\rho} & \stackrel{\text{Glg. \eqref{eq:chemisches_potential_prop_0}}}{=} \frac{1}{2}\mathbf{v}^2 + \phi + G,\\
-\frac{\delta H}{\delta q_1} & \stackrel{\text{Glg. \eqref{eq:energy_partial_deriv_0}}}{=} T,\\
-\frac{\delta H}{\delta\mathbf{v}} & = \rho\mathbf{v}.
+\frac{\delta H}{\delta\rho} \stackrel{\text{Glg. \eqref{eq:chemisches_potential_prop_0}}}{=} \frac{1}{2}\mathbf{v}^2 + \phi + G, && \frac{\delta H}{\delta q_1} \stackrel{\text{Glg. \eqref{eq:chemisches_potential_prop_0}}}{=} T, && \frac{\delta H}{\delta\mathbf{v}} = \rho\mathbf{v}.
 \end{align}
 %
 $G$ bezeichnet hierbei das spezifische Gibbs-Potential. Nun werden wieder die Zeitentwicklungen der Größen $K$ und $I'$ untersucht. Dazu rechnet man vorbereitend
 %
 \begin{align}
-\frac{\delta K}{\delta\rho} & = \frac{1}{2}\mathbf{v}^2,\\
-\frac{\delta K}{\delta q_1} & = 0,\\
-\frac{\delta K}{\delta\mathbf{v}} & = \rho\mathbf{v},\\
-\frac{\delta I'}{\delta\rho} & = \phi + G,\\
-\frac{\delta I'}{\delta q_1} & = T,\\
-\frac{\delta I'}{\delta\mathbf{v}} & = 0.
+\frac{\delta K}{\delta\rho} = \frac{1}{2}\mathbf{v}^2, && \frac{\delta K}{\delta q_1} = 0, && \frac{\delta K}{\delta\mathbf{v}} = \rho\mathbf{v},\\
+\frac{\delta I'}{\delta\rho} = \phi + G, && \frac{\delta I'}{\delta q_1} = T, && \frac{\delta I'}{\delta\mathbf{v}} = 0.
 \end{align}
 %
 und erhält somit
@@ -9474,8 +9397,7 @@ mit $\mathbf{e}\left(\vartheta, \varphi\right)$ als dem in die durch $\vartheta$
 $j\in\left\lbrace d, v, i\right\rbrace$ bezeichne eine Komponente der Luft, wobei $i$ für eine Kondensatklasse stehe. Jede Komponente hat individuelle Strahlungseigenschaften und bekommt daher einen eigene spektrale Leistungsdichte $q_j$. Man macht sich schnell klar, dass beim Durchtritt durch Materie für die Änderung der spektralen Strahldichte gilt
 %
 \begin{align}
-dL\left(\Omega\right)&\propto&\rho_j,\\
-dL\left(\Omega\right)&\propto&ds, 
+dL\left(\Omega\right) \propto \rho_j, && dL\left(\Omega\right) \propto ds, 
 \end{align}
 %
 hierbei ist $\Omega$ ein Raumwinkelelement. Hieraus kann man folgern:
@@ -9749,8 +9671,7 @@ p & = \rho R_d\theta\left(\frac{p}{p_0}\right)^{\frac{R_d}{c^{(p)}}}\nonumber\\
 \Rightarrow \left(\frac{\partial p}{\partial x}\right)_\theta & = \frac{c^{(p)}R_dT}{c^{(v)}}\left(\frac{\partial\rho}{\partial x}\right)_\theta = \frac{c^{(p)}}{c^{(v)}}T\left(\frac{\partial}{\partial x}\left(\frac{p}{T}\right)\right)_\theta\nonumber\\
 & = \frac{c^{(p)}}{c^{(v)}}T\left(\frac{1}{T}\frac{\partial p}{\partial x} - \frac{p}{T^2}\frac{\partial T}{\partial x}\right) = \frac{c^{(p)}}{c^{(v)}}\left(\frac{\partial p}{\partial x}\right)_\theta - \frac{c^{(p)}}{c^{(v)}}\frac{p}{T}\left(\frac{\partial T}{\partial x}\right)_\theta\nonumber\\
 & = \frac{c^{(p)}}{c^{(v)}}\left(\frac{\partial p}{\partial x}\right)_\theta - \frac{c^{(p)}}{c^{(v)}}\rho R_d\left(\frac{\partial T}{\partial x}\right)_\theta\nonumber\\
-\Rightarrow \frac{R_d}{c^{(v)}}\left(\frac{\partial p}{\partial x}\right)_\theta & = \frac{c^{(p)}}{c^{(v)}}\rho R_d\left(\frac{\partial T}{\partial x}\right)_\theta\nonumber\\
-\Rightarrow \left(\frac{\partial p}{\partial x}\right)_\theta & = c^{(p)}\rho\left(\frac{\partial T}{\partial x}\right)_\theta.
+\Rightarrow \frac{R_d}{c^{(v)}}\left(\frac{\partial p}{\partial x}\right)_\theta & = \frac{c^{(p)}}{c^{(v)}}\rho R_d\left(\frac{\partial T}{\partial x}\right)_\theta \Rightarrow \left(\frac{\partial p}{\partial x}\right)_\theta = c^{(p)}\rho\left(\frac{\partial T}{\partial x}\right)_\theta.
 \end{align}
 %
 Somit erhält man
@@ -10398,8 +10319,7 @@ K_m &\coloneqq \left[\frac{1}{\rho}\left(\frac{\partial\rho}{\partial p}\right)_
 eingesetzt. Für diese Größen kann man für Fluide
 %
 \begin{align}
-a_m & \ll & -\frac{1}{\rho_m}\frac{-\rho_m}{T_m} = \frac{1}{T_m},\\
-K_m & \ll & \frac{1}{\rho_m}\frac{\rho_m}{p_m} = \frac{1}{p_m}\label{eq:boussinesq_deriv_3}
+a_m \ll -\frac{1}{\rho_m}\frac{-\rho_m}{T_m} = \frac{1}{T_m}, && K_m \ll \frac{1}{\rho_m}\frac{\rho_m}{p_m} = \frac{1}{p_m}\label{eq:boussinesq_deriv_3}
 \end{align}
 %
 abschätzen. Setzt man dies in Glg. \eqref{eq:taylor_eos_boussinesq} auch für die zweiten Ableitungen ein, erhält man unter Vernachlässigung der Terme dritter und höherer Ordnung
@@ -10862,16 +10782,13 @@ N_\text{Ro} = \frac{U}{Lf} \sim10^{-1}
 auf der synoptischen Skala. In erster Ordnung liegt also ein Kräftegleichgewicht aus Coriolis-Kraft und Druckgradientkraft vor. Dies ist die geostrophische Approximation. Das entsprechende Windfeld $\mathbf{v}_h = \left(u_g, v_g\right)^T$ erhält man, indem man in den horizontalen Bewegungsgleichungen Glg.en \eqref{eq:x_momentum_simplified_simplified_p} - \eqref{eq:y_momentum_simplified_simplified_p} die Beschleunigung gleich Null setzt.
 %
 \begin{align}
-0 = -\frac{\partial\phi}{\partial x} + fv_g\\
-0 = -\frac{\partial\phi}{\partial y} - fu_g
+0 = -\frac{\partial\phi}{\partial x} + fv_g, && 0 = -\frac{\partial\phi}{\partial y} - fu_g
 \end{align}
 %
 Stellt man dies nach der Windgeschwindigkeit um, ergeben sich
 %
 \begin{align}
-v_g = \frac{1}{f}\frac{\partial\phi}{\partial x}, \label{eq:geostrophie_y}\\
-u_g = -\frac{1}{f}\frac{\partial\phi}{\partial y}.
-\label{eq:geostrophie_x}
+v_g = \frac{1}{f}\frac{\partial\phi}{\partial x}, && u_g = -\frac{1}{f}\frac{\partial\phi}{\partial y}.
 \end{align}
 %
 Der geostrophische Wind ist also
@@ -10990,8 +10907,7 @@ f\left(\varphi\right) \approx f\left(\varphi_0\right).
 Nach Glg. \eqref{eq:f_dev} ist dies gerechtfertigt, falls
 %
 \begin{align}
-B & \ll & r\tan\left(\varphi_0\right),\\
-B & \ll & \sqrt{2}r
+B \ll r\tan\left(\varphi_0\right), && B \ll \sqrt{2}r
 \end{align}
 %
 gelten. Bei der sogenannten \textit{f-Kugel}\index{f-Kugel} nimmt man einen global homogenen Coriolisparameter an, was für operationelle Vorhersagen nicht geeignet ist.
@@ -11008,8 +10924,7 @@ f\left(\varphi\right) \approx f\left(\varphi_0\right) + \beta y
 an. Nach Glg. \eqref{eq:f_dev} ist dies gerechtfertigt, falls
 %
 \begin{align}
-B & \ll & 2r\cot\left(\varphi_0\right),\\
-B & \ll & \sqrt{6}r
+B \ll 2r\cot\left(\varphi_0\right), && B \ll \sqrt{6}r
 \end{align}
 %
 gelten.
@@ -11028,7 +10943,7 @@ Im zyklonalen Fall ist der Ausdruck zwischen den äußeren Betragszeichen negati
 \begin{align}
 \frac{V^2}{R} & = \frac{1}{\rho}\left|\nabla_hp\right| - \left|f\right|V\nonumber\\
 \Leftrightarrow V^2 + \left|f\right|VR - R\frac{1}{\rho}\left|\nabla_hp\right| & = 0 \nonumber\\
-\frac{V^2}{R} & = -\frac{1}{\rho}\left|\nabla_hp\right| + \left|f\right|V\nonumber\\
+\Leftrightarrow\frac{V^2}{R} & = -\frac{1}{\rho}\left|\nabla_hp\right| + \left|f\right|V\nonumber\\
 \Leftrightarrow V & = -\frac{\left|f\right|R}{2} \pm \sqrt{\frac{f^2R^2}{4} + R\frac{1}{\rho}\left|\nabla_hp\right|}.
 \end{align}
 %
@@ -11037,7 +10952,7 @@ Wegen $V = \left|\mathbf{v}_h\right| > 0$ kommt nur das positive Vorzeichen in F
 \begin{align}
 \frac{V^2}{R} & = -\frac{1}{\rho}\left|\nabla_hp\right| + \left|f\right|V\nonumber\\
 \Leftrightarrow V^2 - \left|f\right|VR + R\frac{1}{\rho}\left|\nabla_hp\right| & = 0 \nonumber\\
-\frac{V^2}{R} & = -\frac{1}{\rho}\left|\nabla_hp\right| + \left|f\right|V\nonumber\\
+\Leftrightarrow\frac{V^2}{R} & = -\frac{1}{\rho}\left|\nabla_hp\right| + \left|f\right|V\nonumber\\
 \Leftrightarrow V & = \frac{\left|f\right|R}{2} \pm \sqrt{\frac{f^2R^2}{4} - R\frac{1}{\rho}\left|\nabla_hp\right|}.
 \end{align}
 %
@@ -11122,8 +11037,7 @@ $\mathbf{P}$ ist also nie erhalten, da mindestens durch die Oberfläche und die 
 Für den Gesamtdrehimpuls $\mathbf{L}$ der Atmosphäre\index{Gesamtdrehimpuls der Atmosphäre}\index{Atmosphäre!Gesamtdrehimpuls}\index{Drehimpuls!der Atmosphäre} gilt
 %
 \begin{align}
-\mathbf{L} & = \int_A\mathbf{r} \times \rho\mathbf{v}d^3r\nonumber\\
-\frac{d\mathbf{L}}{dt} & = \int_A\mathbf{r} \times \rho\mathbf{f}_{\text{ext}}d^3r.
+\mathbf{L} = \int_A\mathbf{r} \times \rho\mathbf{v}d^3r \Rightarrow \frac{d\mathbf{L}}{dt} = \int_A\mathbf{r} \times \rho\mathbf{f}_{\text{ext}}d^3r.
 \end{align}
 %
 Der Drehimpuls ist also genau dann erhalten, wenn alle externen Kräfte auf der radialen Achse wirken, also nur in ruhenden Koordinaten\index{Koordinaten!ruhende}\index{ruhende Koordinaten} über einem Planten mit radialsymmetrischer Massenverteilung im Inneren.
@@ -11520,7 +11434,7 @@ Nimmt man einen klimatologischen Wert $\newoverline{\Gamma} \approx \frac{2}{3}\
 Für $A$ wählt man die gesamte Erdoberfläche und setzt $T' \sim 15$ K, $\newoverline{T} \sim 270$ K an, dann folgen
 %
 \begin{align}
-\frac{\APE/A}{\KE} & \sim & \frac{3\newoverline{T'^2}c^{(p)}}{\newoverline{T}\mathbf{v}_h^2} \sim 25.
+\frac{\APE/A}{\KE} &\sim \frac{3\newoverline{T'^2}c^{(p)}}{\newoverline{T}\mathbf{v}_h^2} \sim 25.
 \end{align}
 %
 Es bleibt in diesem Abschnitt eine offene Frage, warum der größte Anteil der verfügbaren potentiellen Energie nicht in kinetische Energie umgewandelt wird.
@@ -11573,9 +11487,7 @@ als Vektorpotential, dann gilt
 Man hat also eine \textit{eindeutige} Zerlegung
 %
 \begin{align}
-\mathbf{v} & = \mathbf{v}_\text{nonrot} + \mathbf{v}_\text{nondiv},\\
-\nabla\times\mathbf{v}_\text{nonrot} & = \mathbf{0},\\
-\nabla\cdot\mathbf{v}_\text{nondiv} & = 0
+\mathbf{v} = \mathbf{v}_\text{nonrot} + \mathbf{v}_\text{nondiv}, && \nabla\times\mathbf{v}_\text{nonrot} = \mathbf{0}, && \nabla\cdot\mathbf{v}_\text{nondiv} = 0
 \end{align}
 %
 vorgenommen. Dass dies immer möglich ist, ist der \textit{Hauptsatz der Vektoranalysis}.\index{Hauptsatz der Vektoranalysis} $\chi$ und $\mathbf{A}$ haben insgesamt vier Komponenten, das Windfeld jedoch nur drei. Daher kann man eine weitere lineare Bedingung stellen, hier wird
@@ -11869,9 +11781,7 @@ Somit gilt
 Es gelten mit den Feststellungen in Absch. \ref{sec:kugelkoordinaten}
 %
 \begin{align}
-\frac{\partial\mathbf{k}}{\partial x} & = \frac{\mathbf{i}}{r},\\
-\frac{\partial\mathbf{k}}{\partial y} & = \frac{\mathbf{j}}{r},\\
-\frac{\partial\mathbf{k}}{\partial z} & = \mathbf{0}.
+\frac{\partial\mathbf{k}}{\partial x} = \frac{\mathbf{i}}{r}, && \frac{\partial\mathbf{k}}{\partial y} = \frac{\mathbf{j}}{r}, && \frac{\partial\mathbf{k}}{\partial z} = \mathbf{0}.
 \end{align}
 %
 Somit folgt
@@ -11987,9 +11897,7 @@ Man rechnet zunächst mit Glg. \eqref{eq:diff_op_rule_11}
 Es gelten mit den Feststellungen in Absch. \ref{sec:kugelkoordinaten}
 %
 \begin{align}
-\frac{\partial\mathbf{k}}{\partial x} & = \frac{\mathbf{i}}{r},\\
-\frac{\partial\mathbf{k}}{\partial y} & = \frac{\mathbf{j}}{r},\\
-\frac{\partial\mathbf{k}}{\partial z} & = \mathbf{0}.
+\frac{\partial\mathbf{k}}{\partial x} = \frac{\mathbf{i}}{r}, && \frac{\partial\mathbf{k}}{\partial y} = \frac{\mathbf{j}}{r}, && \frac{\partial\mathbf{k}}{\partial z} = \mathbf{0}.
 \end{align}
 %
 Somit folgt
@@ -12542,8 +12450,7 @@ Als Wellen bezeichnet man räumlich und zeitlich periodische Änderungen. Der ma
 Analog ist die Wellenlänge $\lambda > 0$ die Länge, nach der sich das Bewegungsmuster wiederholt. Wellenzahl $\kappa$ und Kreiswellenzahl $k$ sind anlog zu Frequenz und Kreisfrequenz definiert durch
 %
 \begin{align}
-\kappa &\coloneqq \frac{1}{\lambda},\\
-k&\coloneqq\frac{2\pi}{\lambda}.
+\kappa \coloneqq \frac{1}{\lambda}, && k \coloneqq \frac{2\pi}{\lambda}.
 \end{align}
 %
 Eine Welle der Größe $a$ wird beschrieben durch eine Gleichung der Form
@@ -12617,10 +12524,8 @@ f\left(x, t\right) & = 2\sin\left(\frac{\Delta k x - \Delta\omega t}{2}\right)\s
 mit
 %
 \begin{align}
-\Delta k &\coloneqq k_2 - k_1,\\
-\Delta\omega &\coloneqq \omega_2 - \omega_1,\\
-\newoverline{k} &\coloneqq \frac{k_1 + k_2}{2},\\
-\newoverline{\omega} &\coloneqq \frac{\omega_1 + \omega_2}{2}.
+\Delta k \coloneqq k_2 - k_1, && \Delta\omega \coloneqq \omega_2 - \omega_1,\\
+\newoverline{k} \coloneqq \frac{k_1 + k_2}{2}, && \newoverline{\omega} \coloneqq \frac{\omega_1 + \omega_2}{2}.
 \end{align}
 %
 Die Einhüllende $\sin\left(\frac{\Delta k x - \Delta\omega t}{2}\right)$ bewegt sich also mit der Geschwindigkeit
@@ -12734,15 +12639,14 @@ Ist es möglich, alle nichtlinearen Terme eines Gleichungssystems zu eliminieren
 Schallwellen sind Kompressionswellen, jedoch lassen sich dabei aufgrund der Adiabatie Drücke und Dichten eindeutig aufeinander abbilden. Es wird eine sich in x-Richtung ausbreitende Welle betrachtet. Der Störungsansatz für Geschwindigkeit und Dichte lautet
 %
 \begin{align}
-u & = U + u',\\
-\rho & = \rho_0 + \rho'.
+u = U + u', && \rho = \rho_0 + \rho'.
 \end{align}
 %
 Das Gleichungssystem lautet mit den abkürzenden Ersetzungen
 %
 \begin{align}
-\rho'&\to&\rho,\\
-u'&\to&u
+\rho' &\to \rho,\\
+u' &\to u
 \end{align}
 %
 und den im vorigen Abschnitt hergeleiteten Näherungen somit
@@ -12762,8 +12666,7 @@ Bei der ersten Gleichung handelt es sich um die Impulsgleichung, die zweite ist 
 analog für $\frac{\partial}{\partial x}$. Die Ableitung der Dichte nach dem Druck wurde dabei an der Stelle $p = p_0$ ausgewertet, weil die Druckschwankungen sehr klein sind. Nun macht man einen Ansatz
 %
 \begin{align}
-u & = u_0\exp\left[i\left(kx - \omega t\right)\right],\\
-p & = P\exp\left[i\left(kx - \omega t\right)\right]
+u = u_0\exp\left[i\left(kx - \omega t\right)\right], && p = P\exp\left[i\left(kx - \omega t\right)\right]
 \end{align}
 %
 mit eventuell komplexen Amplituden $u_0, P$. Setzt man dies in das Gleichungssystem ein, folgt
@@ -12830,8 +12733,7 @@ w\left(z = -D\right) \hastobe 0.\label{eq:deep_deriv_1}
 Es werden nun die Ansätze
 %
 \begin{align}
-u & = U\left(z\right)\exp\left(ikx - i\omega t\right),\\
-w & = W\left(z\right)\exp\left(ikx - i\omega t\right).
+u = U\left(z\right)\exp\left(ikx - i\omega t\right), && w = W\left(z\right)\exp\left(ikx - i\omega t\right).
 \end{align}
 %
 Die Oberflächenauslenkung $\eta$ und die Vertikalgeschwindigkeit $w$ hängen über
@@ -12844,8 +12746,7 @@ Die Oberflächenauslenkung $\eta$ und die Vertikalgeschwindigkeit $w$ hängen ü
 zusammen, wobei $\hat{\eta}$ die Amplitude der Oberflächenauslenkung ist. Glg. \eqref{eq:deep_1} ergibt somit bei $z = 0$
 %
 \begin{align}
--i\omega U\left(0\right) & = g\frac{k}{\omega}W\left(0\right)\nonumber\\
-\Rightarrow \omega^2 & = igk\frac{W\left(0\right)}{U\left(0\right)}.\label{eq:deep_disp_pre}
+-i\omega U\left(0\right) = g\frac{k}{\omega}W\left(0\right) \Rightarrow \omega^2 = igk\frac{W\left(0\right)}{U\left(0\right)}.\label{eq:deep_disp_pre}
 \end{align}
 %
 Aus Glg. \eqref{eq:deep_2} folgt
@@ -12977,9 +12878,7 @@ Die SWEs lauten linearisiert
 Hierbei wird von der f-Ebenen-Approximation ausgegangen. Man macht einen Ansatz
 %
 \begin{align}
-u & = u_0\exp\left[i\left(\mathbf{k}\cdot\mathbf{r} - \omega t\right)\right],\\
-v & = v_0\exp\left[i\left(\mathbf{k}\cdot\mathbf{r} - \omega t\right)\right],\\
-\eta & = \newhat{\eta}\exp\left[i\left(\mathbf{k}\cdot\mathbf{r} - \omega t\right)\right].
+u = u_0\exp\left[i\left(\mathbf{k}\cdot\mathbf{r} - \omega t\right)\right], && v = v_0\exp\left[i\left(\mathbf{k}\cdot\mathbf{r} - \omega t\right)\right], && \eta = \newhat{\eta}\exp\left[i\left(\mathbf{k}\cdot\mathbf{r} - \omega t\right)\right].
 \end{align}
 %
 mit einem horizontalen Wellenvektor $\mathbf{k} = \left(k_x, k_y\right)^T$ sowie eventuell komplexen Amplituden $u_0, v_0, \eta_0$. Setzt man dies ein, erhält man
@@ -13008,14 +12907,14 @@ v_0\\
 \end{array}\right).
 \end{align}
 %
-Hier existieren nichttriviale Lösungen, wenn gilt:
+Hier existieren nichttriviale Lösungen, wenn
 %
 \begin{align}
 & \left(-i\omega\right)\left[\left(-i\omega\right)^2 + Hgk_y^2\right] - f\left[-f\left(-i\omega\right) + Hgk_xk_y\right] + Hik_x\left[-fgik_y - \left(-i\omega\right)gik_x\right] = 0\nonumber\\
-&\Leftrightarrow& -\omega\left[-\omega^2 + Hgk_y^2\right] + f\left[-f\omega + iHgk_xk_y\right] + Hk_x\left[-fgik_y - \omega gk_x\right] = 0
+&\Leftrightarrow -\omega\left[-\omega^2 + Hgk_y^2\right] + f\left[-f\omega + iHgk_xk_y\right] + Hk_x\left[-fgik_y - \omega gk_x\right] = 0
 \end{align}
 %
-Also lautet die Dispersionsrelation der Poincaré-Wellen
+gilt. Also lautet die Dispersionsrelation der Poincaré-Wellen
 %
 \begin{align}
 \omega^2 = f^2 + Hgk^2.\label{eq:poincare_dispersion}
@@ -13061,7 +12960,7 @@ Im Fall $\eta = \hat{\eta}\exp\left(ikx - i\omega t\right)$ folgt
 Addiert man dies zur rechten Seite von Glg. $\eqref{eq:deep_1}$, erhält man
 %
 \begin{align}
--g\frac{\partial\eta}{\partial x} & \to & -g\frac{\partial\eta}{\partial x} - \frac{\sigma k^2}{\rho}\frac{\partial\eta}{\partial x} = -g\left(1 + \frac{k^2\sigma}{\rho g}\right)\frac{\partial\eta}{\partial x}, 
+-g\frac{\partial\eta}{\partial x} &\to -g\frac{\partial\eta}{\partial x} - \frac{\sigma k^2}{\rho}\frac{\partial\eta}{\partial x} = -g\left(1 + \frac{k^2\sigma}{\rho g}\right)\frac{\partial\eta}{\partial x}, 
 \end{align}
 %
 Man muss also
@@ -13102,22 +13001,19 @@ Die Oberflächensapnnung von Wasser beträgt ca. $\sigma \sim 75$ mN/m, woraus f
 Bei Inertialwellen\index{Inertialwellen}\index{Welle!Inertialwelle} geht man von einem verschwindenden horizontalen Druckgradienten aus, sodass nur die Coriolis-Kraft übrigbleibt. Die Impulsgleichungen der SWEs Glg. \eqref{eq:swe_0} werden unter Vernachlässigung der advektiven Terme zu
 %
 \begin{align}
-\frac{d u}{d t} & = f_0v,\\
-\frac{d v}{d t} & =  - f_0u.
+\frac{d u}{dt} = f_0v, && \frac{d v}{dt} = -f_0u.
 \end{align}
 %
 Für den Coriolis-Parameter wird dabei ein ortsunabhängiger Wert $f_0$ verwendet, um den $\beta-$Effekt zu umgehen. Man macht einen Ansatz
 %
 \begin{align}
-u & = U\exp\left(-i\omega t\right),\\
-v & = V\exp\left(-i\omega t\right)
+u = U\exp\left(-i\omega t\right), && v = V\exp\left(-i\omega t\right)
 \end{align}
 %
 mit eventuell komplexen Amplituden $U, V$. Setzt man dies in das Gleichungssystem ein, erhält man
 %
 \begin{align}
-- i\omega U & = f_0V,\\
-- i\omega V & = -f_0 U.
+-i\omega U = f_0V, && -i\omega V = -f_0 U.
 \end{align}
 %
 Als Matrixgleichung wird dies zu
@@ -13432,9 +13328,7 @@ v = v_0\exp\left[i\left(kx - \omega t\right)\right]
 dann gelten
 %
 \begin{align}
-\zeta & = ikv,\\
-\frac{\partial\zeta}{\partial t} & = k\omega v,\\
-\frac{\partial\zeta}{\partial x} & = -k^2v.
+\zeta = ikv, && \frac{\partial\zeta}{\partial t} = k\omega v, && \frac{\partial\zeta}{\partial x} = -k^2v.
 \end{align}
 %
 Setzt man dies in die barotrope Vorticitygleichung ein, erhält man
@@ -13630,10 +13524,8 @@ mit einer homogenen Hintergrunddichte $\rho_0$ und einer Fluktuation $\rho'$. An
 Man macht nun die Ansätze
 %
 \begin{align}
-u & = U\left(z\right)\exp\left(ikx-i\omega t\right),\\
-v & = V\left(z\right)\exp\left(ikx-i\omega t\right),\\
-p' & = P\left(z\right)\exp\left(ikx-i\omega t\right),\\
-\rho' & = \newtilde{\rho}\left(z\right)\exp\left(ikx-i\omega t\right).
+u = U\left(z\right)\exp\left(ikx-i\omega t\right), && v = V\left(z\right)\exp\left(ikx-i\omega t\right),\\
+p' = P\left(z\right)\exp\left(ikx-i\omega t\right), && \rho' = \newtilde{\rho}\left(z\right)\exp\left(ikx-i\omega t\right).
 \end{align}
 %
 Setzt man dies in des geltende Gleichungssystem ein, folgt
@@ -13904,8 +13796,7 @@ q_3 & = f + \Delta\psi_3 + \frac{f_0^2}{\sigma}\frac{\frac{\partial\psi}{\partia
 Es wird dabei $\Delta p \coloneqq500$ hPa definiert. Über die letzten Terme kann im Rahmen dieses Modell keine Aussage gemacht werden, daher nimmt man sie als konstant an und vernachlässigt sie somit. Man definiert weiter eine barotrope und eine barokline Komponente der Stromfunktion:
 %
 \begin{align}
-\psi_M& \coloneqq&\frac{\psi_1 + \psi_3}{2},\\
-\psi_T& \coloneqq&\frac{\psi_1 - \psi_3}{2}.
+\psi_M \coloneqq&\frac{\psi_1 + \psi_3}{2}, && \psi_T \coloneqq&\frac{\psi_1 - \psi_3}{2}.
 \end{align}
 %
 Außerdem definiert man eine barokline potentielle Vorticity:
@@ -13923,9 +13814,7 @@ K^2 \coloneqq\frac{2f_0^2}{\sigma\Delta p^2}
 definiert. Damit kann man notieren
 %
 \begin{align}
-q_1 & = f + \zeta_1 - K^2\psi_T,\\
-q_3 & = f + \zeta_3 + K^2\psi_T,\\
-q_T & = \zeta_T - K^2\psi_T.
+q_1 = f + \zeta_1 - K^2\psi_T, && q_3 = f + \zeta_3 + K^2\psi_T, && q_T = \zeta_T - K^2\psi_T.
 \end{align}
 %
 Nun macht man einen Störungsansatz
@@ -13949,8 +13838,7 @@ weht und um Niveau 3 der Hintergrundwind
 Dann gelten
 %
 \begin{align}
-\newoverline{\psi}_1 & = -\newoverline{u}_Ty,\\
-\newoverline{\psi}_3 & = \newoverline{u}_Ty.
+\newoverline{\psi}_1 = -\newoverline{u}_Ty, && \newoverline{\psi}_3 = \newoverline{u}_Ty.
 \end{align}
 %
 Hieraus folgt
@@ -14015,15 +13903,13 @@ v_3'
 Für die Stromfunktionen gelten
 %
 \begin{align}
-v_1' & = \frac{\partial\psi_1'}{\partial x},\\
-v_3' & = \frac{\partial\psi_3'}{\partial x}.
+v_1' = \frac{\partial\psi_1'}{\partial x}, && v_3' = \frac{\partial\psi_3'}{\partial x}.
 \end{align}
 %
 Für die potentiellen Vorticites folgt hieraus
 %
 \begin{align}
-q_1' & = \frac{\partial^2\psi_1'}{\partial x^2} - K^2\psi_T',\\
-q_3' & = \frac{\partial^2\psi_3'}{\partial x^2} + K^2\psi_T'.
+q_1' = \frac{\partial^2\psi_1'}{\partial x^2} - K^2\psi_T', && q_3' = \frac{\partial^2\psi_3'}{\partial x^2} + K^2\psi_T'.
 \end{align}
 %
 Um die Tendenzgleichungen zu untersuchen, notiert man
@@ -14115,12 +14001,8 @@ barokline Rossby-Wellen pflanzen sich also immer nach Westen fort.
 \textit{Barokline Schwerewellen}\index{Welle!Schwerewelle!barokline}\index{barokline Schwerewelle}\index{Schwerewelle!barokline} sind das barokline Analogon zu Poincaré-Wellen\index{Poincaré-Welle}. Man macht zunächst einen Störungsansatz der Form
 %
 \begin{align}
-u & = U + u',\label{eq:gw_disp_deriv_0}\\
-v & = v',\\
-w & = w',\\
-p & = p_0\left(z\right) + p',\\
-\theta & = \theta_0\left(z\right) + \theta',\\
-f & = f_0.\label{eq:gw_disp_deriv_1}
+u = U + u', && v = v', && w = w',\label{eq:gw_disp_deriv_0}\\
+p = p_0\left(z\right) + p', && \theta = \theta_0\left(z\right) + \theta', && f = f_0.\label{eq:gw_disp_deriv_1}
 \end{align}
 %
 Wegen Glg. \eqref{eq:gw_disp_deriv_1} ist Glg. \eqref{eq:gw_disp_deriv_0} keine Beschränkung des Hintergrundstroms auf die x-Richtung, durch eine Rotation des Koordinatensystems um die vertikale Achse kann der Hintergrundwind jede Richtung annehmen. Insbesondere werden alle Krümmungsterme vernachlässigt und man kann kartesische Koordinaten $\left(x, y, z\right)$ verwenden. Der Hintergrundzustand soll hydrostatisch sein, also
@@ -14132,8 +14014,7 @@ Wegen Glg. \eqref{eq:gw_disp_deriv_1} ist Glg. \eqref{eq:gw_disp_deriv_0} keine 
 erfüllen. Es wird von einem trockenadiabatischen System ausgegangen, in einem solchen wird der Erste Hauptsatz der Thermodynamik\index{Erster Hauptsatz der Thermodynamik}\index{Thermodynamik!Erster Hauptsatz} zu
 %
 \begin{align}
-\md{\theta} & = 0\\
-\Leftrightarrow \md{\theta'} + w'\frac{d\theta_0}{dz} & = 0.
+\md{\theta} = 0 && \Leftrightarrow \md{\theta'} + w'\frac{d\theta_0}{dz} = 0.
 \end{align}
 %
 Man führt nun eine genäherte materielle Ableitung $\mdtilde{}$ ein, bei der Störprodukte vernachlässigt werden. Im folgenden werden hierfür Gleichheitszeichen notiert. Damit erhält man
@@ -14231,11 +14112,8 @@ Zusammenfassend lautet das linearisierte Gleichungssystem
 Dabei wurden Terme, die mit der hydrostatischen Approximation\index{Hydrostatik}\index{hydrostatische Arpproximation}\index{Approximation!hydrostatische} wegfallen würden, \textcolor{blue}{blau} markiert, und alle Terme, die unter Vernachlässigung von Schallwellen\index{Schallwelle} verschwinden würden, \textcolor{red}{rot}. Störend ist die vertikale Abhängigkeit von $\rho_0$. Daher definiert man
 %
 \begin{align}
-u'' & = \sqrt{\frac{\rho_0}{\rho_\text{SFC}}}u',\\
-v'' & = \sqrt{\frac{\rho_0}{\rho_\text{SFC}}}v',\\
-w'' & = \sqrt{\frac{\rho_0}{\rho_\text{SFC}}}w',\\
-b'' & = \sqrt{\frac{\rho_0}{\rho_\text{SFC}}}b',\\
-p'' & = \sqrt{\frac{\rho_\text{SFC}}{\rho_0}}p'.
+u'' = \sqrt{\frac{\rho_0}{\rho_\text{SFC}}}u', && v'' = \sqrt{\frac{\rho_0}{\rho_\text{SFC}}}v', && w'' = \sqrt{\frac{\rho_0}{\rho_\text{SFC}}}w',\\
+b'' = \sqrt{\frac{\rho_0}{\rho_\text{SFC}}}b', && p'' = \sqrt{\frac{\rho_\text{SFC}}{\rho_0}}p'.
 \end{align}
 %
 was man als \textit{Bretherton-Transformation}\index{Bretherton-Transformation} bezeichnet. Dabei bezeichnet der Index SFC die Werte an der Erdoberfläche. Die Transformation erfolgt im wesentlichen durch Multiplikation des Gleichungssystem mit $\sqrt{\frac{\rho_0}{\rho_\text{SFC}}}$. Besondere Aufmerksamkeit benötigen dabei die vertikalen Ableitungen:
@@ -14453,8 +14331,8 @@ Hierbei wurde für die Vorticity geschrieben $\zeta = \newoverline{\zeta} + \zet
 an. Mit $Y\left(\pm b\right)\hastobe0$ sind die Randbedingungen an $v$ erfüllt, man erhält außerdem
 %
 \begin{align}
-v & = = \frac{\partial\psi}{\partial x} = ik\psi,\\
-\zeta' & = = \Delta \psi = -k^2\psi + Y''\psi_0e^{i(kx - \omega t)},\\
+v & = \frac{\partial\psi}{\partial x} = ik\psi,\\
+\zeta' & = \Delta \psi = -k^2\psi + Y''\psi_0e^{i(kx - \omega t)},\\
 \frac{\partial\zeta'}{\partial x} & = -ik^3\psi + Y''\psi_0ike^{i\left(kx - \omega t\right)}.\\
 \end{align}
 %
@@ -14611,12 +14489,10 @@ Die \textit{Kelvin-Helmholtz-Instabilität} bezeichnet das Brechen von Schichtun
 \subsubsection{In diskreter Schichtung}
 \label{sec:in_diskreter_schichtung}\index{Schichtung!diskrete!Kelvin-Helmholtz-Instabilität}\index{diskrete Schichtung!Kelvin-Helmholtz-Instabilität}\index{Kelvin-Helmholtz-Instabilität!in diskreter Schichtung}
 
-Die Bewegung sei y-symmetrisch, betrachtet wird also die xz-Ebene. Die xy-Ebene falle mit der Gleichgewichtslage einer Phasengrenze zusammen. Das Medium oberhalb der Grenzschicht ($z > 0$) erhält den Index 1, das Medium darutner ($z < 0$) den Index 2. Die Medien seien barotrop und inkompressibel. Zum Zeitpunkt $t = 0$ werde das Ströungsfeld durch
+Die Bewegung sei y-symmetrisch, betrachtet wird also die xz-Ebene. Die xy-Ebene falle mit der Gleichgewichtslage einer Phasengrenze zusammen. Das Medium oberhalb der Grenzschicht ($z > 0$) erhält den Index 1, das Medium darutner ($z < 0$) den Index 2. Die Medien seien barotrop und inkompressibel. Zum Zeitpunkt $t = 0$ werde das Strömungsfeld durch
 %
 \begin{align}
-U_1 & > & 0,\\
-U_2 & > & 0,\\
-V_1 = V_2 = W_1 = W_2 & = 0
+U_1 > 0, && U_2 > 0, && V_1 = V_2 = W_1 = W_2 = 0
 \end{align}
 %
 beschrieben. Die Coriolis-Kraft wird vernachlässigt. Es gilt
@@ -14628,8 +14504,7 @@ beschrieben. Die Coriolis-Kraft wird vernachlässigt. Es gilt
 Aufgrund des Zirkulationssatzes\index{Zirkulationssatz} in der Form Glg. \eqref{eq:circ_theorem_mod_1} gilt dies auch für $t > 0$, solange sich die Medien nicht durchmischen. Daher beschreibt man die Geschwindigkeitsfelder durch zwei Stromfunktionen\index{Stromfunktion}
 %
 \begin{align}
-\psi_1 & = U_1x + \psi_1',\label{eq:khi_discrete_stream_1}\\
-\psi_2 & = U_2 x + \psi_2',\label{eq:khi_discrete_stream_2}
+\psi_1 = U_1x + \psi_1', && \psi_2 = U_2 x + \psi_2',\label{eq:khi_discrete_stream}
 \end{align}
 %
 wobei die gestrichenen Größen für die Störungen stehen. Aufgrund der Divergenzfreiheit gilt
@@ -14695,7 +14570,7 @@ Subtrahieren von Glg. \eqref{eq:khi_discrete_deriv_2} von Glg. \eqref{eq:khi_dis
 \rho_1\left(-\frac{\partial\psi_1}{\partial t} + \frac{1}{2}U_1^2 - \frac{1}{2}\left|\nabla\psi_1\right|^2 - gz\right) = \rho_2\left(-\frac{\partial\psi_2}{\partial t} + \frac{1}{2}U_2^2 - \frac{1}{2}\left|\nabla\psi_2\right|^2 - gz\right),\label{eq:khi_discrete_deriv_3}
 \end{align}
 %
-was bei $z = \zeta$ gilt. Mit den Glg.en \eqref{eq:khi_discrete_stream_1} - \eqref{eq:khi_discrete_stream_2} folgt
+was bei $z = \zeta$ gilt. Mit den Glg.en \eqref{eq:khi_discrete_stream} - \eqref{eq:khi_discrete_stream} folgt
 %
 \begin{align}
 \frac{1}{2}\left|\nabla\psi_j\right|^2 & =  \frac{1}{2}\left(U_j^2 + \left(\frac{\partial\psi_j'}{\partial x}\right)^2 + 2U_j\frac{\partial\psi_j'}{\partial x} + \left(\frac{\partial\psi_j'}{\partial z}\right)^2\right)
@@ -14735,15 +14610,13 @@ A_j\left(z\right) = A_\pm\exp\left(\pm kz\right).
 Mit den Festlegungen
 %
 \begin{align}
-\lim_{z \to\infty} \psi_1' & = 0,\\
-\lim_{z \to -\infty} \psi_2' & = 0,
+\lim_{z \to\infty} \psi_1' = 0, && \lim_{z \to -\infty} \psi_2' = 0,
 \end{align}
 %
 welche bedeuten, dass die Störung in der Unendlichkeit verschwinden soll, folgen
 %
 \begin{align}
-\psi_1' & = A_-\exp\left[ikx - i\omega t - kz\right],\\
-\psi_2' & = A_+\exp\left[ikx - i\omega t + kz\right].
+\psi_1' = A_-\exp\left[ikx - i\omega t - kz\right], && \psi_2' = A_+\exp\left[ikx - i\omega t + kz\right].
 \end{align}
 %
 Für die Oberflächenauslenkung nimmt man entsprechend
@@ -14762,8 +14635,7 @@ an. Setzt man dies in die Glg.en \eqref{eq:khi_discrete_deriv_kbc} und \eqref{eq
 Glg. \eqref{eq:khi_discrete_deriv_6} impliziert
 %
 \begin{align}
-A_- & = \frac{i}{k}\zeta_0\left(\omega - U_1k\right),\\
-A_+ & = \frac{i}{k}\zeta_0\left(U_2k - \omega\right).
+A_- = \frac{i}{k}\zeta_0\left(\omega - U_1k\right), && A_+ = \frac{i}{k}\zeta_0\left(U_2k - \omega\right).
 \end{align}
 %
 Setzt man dies in Glg. \eqref{eq:khi_discrete_deriv_7} ein, folgt
@@ -14858,10 +14730,8 @@ an. Damit ist die Kontinuitätsgleichung automatisch erfüllt. Die verbleibenden
 Nun macht man weiterhin die Ansätze
 %
 \begin{align}
-\psi\left(x, z, t\right) & = \psi_0\left(z\right)\exp\left[ik\left(x - ct\right)\right],\\
-p'\left(x, z, t\right) & = p_0\left(z\right)\exp\left[ik\left(x - ct\right)\right],\\
-\rho'\left(x, z, t\right) & = \rho_0\left(z\right)\exp\left[ik\left(x - ct\right)\right],\\
-\sigma'\left(x, z, t\right) & = \sigma_0\left(z\right)\exp\left[ik\left(x - ct\right)\right].
+\psi\left(x, z, t\right) = \psi_0\left(z\right)\exp\left[ik\left(x - ct\right)\right], && p'\left(x, z, t\right) = p_0\left(z\right)\exp\left[ik\left(x - ct\right)\right],\\
+\rho'\left(x, z, t\right) = \rho_0\left(z\right)\exp\left[ik\left(x - ct\right)\right], && \sigma'\left(x, z, t\right) = \sigma_0\left(z\right)\exp\left[ik\left(x - ct\right)\right].
 \end{align}
 %
 Daraus folgt
@@ -15402,8 +15272,7 @@ Wenn die Aussagen
 mit einem beliebigen Feld $g$ gelten, bezeichnet man $\newoverline{f}$ als \index{Reynolds-Operator}\textit{Reynolds-Operator} und die entsprechende Mittelung als \index{Reynolds-Mittelung}\textit{Reynolds-Mittelung}. Man macht sich leicht klar, dass hieraus auch die beiden Aussagen
 %
 \begin{align}
-\newoverline{f'} & = 0,\\
-\newoverline{\newoverline{f}} & = \newoverline{f}
+\newoverline{f'} = 0, && \newoverline{\newoverline{f}} = \newoverline{f}
 \end{align}
 %
 folgen. Man kümmert sich an dieser Stelle nicht darum, wie ein solcher Operator konkret aussehen könnte, in Absch. \ref{sec:konkrete_mittelungsoperatoren} wird festgestellt werden, dass die üblichen Mittelungsoperatoren keine Reynolds-Operatoren sind. Von nun an wird jedoch nicht mehr Glg. \eqref{eq:simple_average} verwendet, anstattdessen wird das \textit{Hesselberg-Mittel}\index{Hesselberg-Mittel}
@@ -15681,23 +15550,19 @@ Unter der Voraussetzung $\frac{\partial}{\partial z}\left(K\rho\right) = 0$, was
 Die Glg.en \eqref{eq:friction_boundary_equilibrium_x} - \eqref{eq:friction_boundary_equilibrium_y} werden dann zu
 %
 \begin{align}
-0 & = f\newtilde{v}+ K\frac{\partial^2\newoverline{u}}{\partial z^2},\\
-0 & = -f\newtilde{u} + K\frac{\partial^2\newoverline{v}}{\partial z^2}.
+0 = f\newtilde{v}+ K\frac{\partial^2\newoverline{u}}{\partial z^2}, && 0 = -f\newtilde{u} + K\frac{\partial^2\newoverline{v}}{\partial z^2}.
 \end{align}
 %
 Es wurde die Definition
 %
 \begin{align}
-\newtilde{u} &\coloneqq \newoverline{u} - u_g,\\
-\newtilde{v} &\coloneqq \newoverline{u} - v_g
+\newtilde{u} \coloneqq \newoverline{u} - u_g, && \newtilde{v} \coloneqq \newoverline{u} - v_g
 \end{align}
 %
 mit $\mathbf{v}_{h, g} = \left(u_g, v_g\right)^T$ als geostrophischem Wind eingesetzt. Vernachlässigt man den thermischen Wind, folgt
 %
 \begin{align}
-0 & = f\newtilde{v}+ K\frac{\partial^2\newtilde{u}}{\partial z^2},\\
-0 & = -f\newtilde{u} + K\frac{\partial^2\newtilde{v}}{\partial z^2}\\
-\Rightarrow \frac{if}{K}\left(\newtilde{u} + i\newtilde{v}\right) & = \frac{\partial^2\left(\newtilde{u} + i\newtilde{v}\right)}{\partial z^2}.
+0 = f\newtilde{v}+ K\frac{\partial^2\newtilde{u}}{\partial z^2}, && 0 = -f\newtilde{u} + K\frac{\partial^2\newtilde{v}}{\partial z^2} && \Rightarrow \frac{if}{K}\left(\newtilde{u} + i\newtilde{v}\right) = \frac{\partial^2\left(\newtilde{u} + i\newtilde{v}\right)}{\partial z^2}.
 \end{align}
 %
 Dies wird gelöst durch
@@ -15770,10 +15635,8 @@ $\sign\left(f\right)\rho\newoverline{v}$ ist die Massenflussdichte ins Tief hine
 In einer isothermen Atmosphäre gilt
 %
 \begin{align}
-\alpha & = \sqrt{\frac{\left|f\right|}{2K}},\\
-\beta & = -\sqrt{\frac{\left|f\right|}{2K}} - \frac{1}{H}\\
-\Rightarrow \alpha^2 + \beta^2 & = \frac{\left|f\right|}{K} + \frac{1}{H^2} + \sqrt{\frac{2\left|f\right|}{KH^2}}\\
-\Rightarrow \frac{\alpha}{\beta^2 + \alpha^2} & = \frac{1}{\sqrt{\frac{2\left|f\right|}{K}} + \sqrt{\frac{2K}{\left|f\right|H^4}} + \frac{2}{H}} = \frac{H}{2 + H\sqrt{\frac{2\left|f\right|}{K}} + \sqrt{\frac{2K}{fH^2}}}.
+\alpha = \sqrt{\frac{\left|f\right|}{2K}}, && \beta = -\sqrt{\frac{\left|f\right|}{2K}} - \frac{1}{H}\\
+\Rightarrow \alpha^2 + \beta^2 = \frac{\left|f\right|}{K} + \frac{1}{H^2} + \sqrt{\frac{2\left|f\right|}{KH^2}} && \Rightarrow \frac{\alpha}{\beta^2 + \alpha^2} = \frac{1}{\sqrt{\frac{2\left|f\right|}{K}} + \sqrt{\frac{2K}{\left|f\right|H^4}} + \frac{2}{H}} = \frac{H}{2 + H\sqrt{\frac{2\left|f\right|}{K}} + \sqrt{\frac{2K}{fH^2}}}.
 \end{align}
 %
 mit $H \approx 8$ km als Skalenhöhe. Die Höhe $D$, in der der Wind parallel zum geostrophischen Wind ist, verwendet man häufig als eine technische Definition der \index{Dicke der Grenzschicht}\textit{Dicke der Grenzschicht}\index{Grenzschicht}. Es gilt
@@ -16043,8 +15906,7 @@ Dies hängt mit der Energieerhaltung\index{Energieerhaltung} zusammen: Der Energ
 Nun macht man die Annahme der Isotropie\index{Isotropie}, d. h. man geht geht davon aus, dass spektrale Eigenschaften nicht von den drei Komponente des Vektors $\mathbf{k}$ abhängen, sondern ausschließlich vom Betrag von $k$, also
 %
 \begin{align}
-e\left(\mathbf{k}, t\right) & \to & \frac{\newtilde{e}\left(k, t\right)}{4\pi k^2},\\
-W\left(\mathbf{k}, \mathbf{k}, t\right) & \to & \frac{W\left(k, k', t\right)}{4\pi k'^24\pi k^2}.
+e\left(\mathbf{k}, t\right) \to \frac{\newtilde{e}\left(k, t\right)}{4\pi k^2}, && W\left(\mathbf{k}, \mathbf{k}, t\right) \to \frac{W\left(k, k', t\right)}{4\pi k'^24\pi k^2}.
 \end{align}
 %
 Dabei wurde für die Geometrie der Kugelkoordinaten korrigiert. Somit wird Glg. \eqref{eq:e_kin_budget_spectral} zu
@@ -16088,10 +15950,7 @@ wobei von $k, k' \geq k^\star$ und $k' > k$ ausgegangen wird. $\kappa_H \geq 0$ 
 %
 \begin{align}
 \left[\newtilde{e}\right] & = \frac{\text{J}}{\text{kg/m}} = \frac{\text{Jm}}{\text{kg}} = \frac{\text{Nm}^2}{\text{kg}} = \frac{\text{m}^3}{\text{s}^2}\\
-\Rightarrow \left[\frac{\partial\newtilde{e}}{\partial t}\right] & = \frac{\text{m}^3}{\text{s}^3},\\
-\left[W\right] & = \frac{\text{m}^4}{\text{s}^3}\\
-\Rightarrow \left[k^2\newtilde{e}\left(k\right)\right] & = \frac{\text{m}}{\text{s}^2}\\
-\Rightarrow \left[g\left(k', \newtilde{e}\left(k'\right)\right)\right] & = \frac{\text{m}^3}{\text{s}}.
+\Rightarrow \left[\frac{\partial\newtilde{e}}{\partial t}\right] = \frac{\text{m}^3}{\text{s}^3}, && \left[W\right] = \frac{\text{m}^4}{\text{s}^3}, && \Rightarrow \left[k^2\newtilde{e}\left(k\right)\right] = \frac{\text{m}}{\text{s}^2} && \Rightarrow \left[g\left(k', \newtilde{e}\left(k'\right)\right)\right] = \frac{\text{m}^3}{\text{s}}.
 \end{align}
 %
 Als Ansatz für $g$ wählt man nun
@@ -16201,30 +16060,25 @@ hat die Dimension ener Viskosität\index{Viskosität} und wird als \textit{Heise
 Man definiert nun eine Hilfsfunktion
 %
 \begin{align}
-f\left(k\right) &\coloneqq 2\int_0^k\left(k'\right)^2\newtilde{e}\left(k'\right)dk'\nonumber\\
-\Rightarrow f'\left(k\right) & = 2k^2\newtilde{e}\left(k\right).\label{eq:heisenberg_turb_6}
+f\left(k\right) \coloneqq 2\int_0^k\left(k'\right)^2\newtilde{e}\left(k'\right)dk' \Rightarrow f'\left(k\right) = 2k^2\newtilde{e}\left(k\right).\label{eq:heisenberg_turb_6}
 \end{align}
 %
 Hiermit kann man Glg. \eqref{eq:heisenberg_turb_3} in der Form
 %
 \begin{align}
-\frac{\epsilon}{f\left(k\right)} & = \nu + \kappa_H\int_k^\infty\sqrt{\frac{\newtilde{e}\left(k'\right)}{\left(k'\right)^3}}dk'\nonumber\\
-& = \nu + \kappa_H\int_k^\infty\sqrt{\frac{f'\left(k'\right)}{2\left(k'\right)^5}}dk'\label{eq:heisenberg_turb_5}
+\frac{\epsilon}{f\left(k\right)} = \nu + \kappa_H\int_k^\infty\sqrt{\frac{\newtilde{e}\left(k'\right)}{\left(k'\right)^3}}dk' = \nu + \kappa_H\int_k^\infty\sqrt{\frac{f'\left(k'\right)}{2\left(k'\right)^5}}dk'\label{eq:heisenberg_turb_5}
 \end{align}
 %
 notieren. Differenziert man diese Gleichung, erhält man
 %
 \begin{align}
--\frac{\epsilon f'\left(k\right)}{f\left(k\right)^2} & = -\kappa_H\sqrt{\frac{f'\left(k\right)}{2k^5}}\nonumber\\
-\Rightarrow \frac{\epsilon^2f'\left(k\right)^2}{f\left(k\right)^4} & = \kappa_H^2\frac{f'\left(k\right)}{2k^5}\nonumber\\
-\Leftrightarrow \frac{\epsilon^2f'\left(k\right)}{f\left(k\right)^4} & = \frac{\kappa_H^2}{2k^5}.
+-\frac{\epsilon f'\left(k\right)}{f\left(k\right)^2} = -\kappa_H\sqrt{\frac{f'\left(k\right)}{2k^5}} \Rightarrow \frac{\epsilon^2f'\left(k\right)^2}{f\left(k\right)^4} = \kappa_H^2\frac{f'\left(k\right)}{2k^5} \Leftrightarrow \frac{\epsilon^2f'\left(k\right)}{f\left(k\right)^4} = \frac{\kappa_H^2}{2k^5}.
 \end{align}
 %
 Integriert man beide Seiten über $k$, erhält man
 %
 \begin{align}
--\frac{\epsilon^2}{3f\left(k\right)^3} + C & = -\frac{\kappa_H^2}{8k^4}\nonumber\\
-\Leftrightarrow \frac{\epsilon^2}{3f\left(k\right)^3} & = C + \frac{\kappa_H^2}{8k^4}\label{eq:heisenberg_turb_4}
+-\frac{\epsilon^2}{3f\left(k\right)^3} + C = -\frac{\kappa_H^2}{8k^4} \Leftrightarrow \frac{\epsilon^2}{3f\left(k\right)^3} = C + \frac{\kappa_H^2}{8k^4}\label{eq:heisenberg_turb_4}
 \end{align}
 %
 mit einer Integrationskonstante $C$. Um diese zu bestimmen, betrachtet man Glg. \eqref{eq:heisenberg_turb_4} für $k \to \infty$:
@@ -16324,8 +16178,7 @@ Setzt man dies in Glg. \eqref{eq:turb_iso_inc_spec_pre_1} ein, erhält man
 Hieraus lassen sich noch zwei wichtige Grenzfälle ableiten. Für $k > \sqrt{\kappa_H}k_c$ gilt
 %
 \begin{align}
-\newtilde{e}\left(k\right) & \approx \left(\frac{8}{9\kappa_H}\right)^{2/3}\epsilon^{2/3}k^{-5/3}\left(\frac{8k^4l_c^4}{3\kappa_H^2}\right)^{-4/3}\nonumber\\
-& = \left(\frac{8\epsilon}{9\kappa_H}\right)^{2/3}\left(\frac{8\nu^3}{3\epsilon\kappa_H^2}\right)^{-4/3}k^{-7}\nonumber\\
+\newtilde{e}\left(k\right) & \approx \left(\frac{8}{9\kappa_H}\right)^{2/3}\epsilon^{2/3}k^{-5/3}\left(\frac{8k^4l_c^4}{3\kappa_H^2}\right)^{-4/3} = \left(\frac{8\epsilon}{9\kappa_H}\right)^{2/3}\left(\frac{8\nu^3}{3\epsilon\kappa_H^2}\right)^{-4/3}k^{-7}\nonumber\\
 & = \left(\frac{8\epsilon}{9\kappa_H}\right)^{2/3}\left(\frac{3\epsilon\kappa_H^2}{8\nu^3}\right)^{4/3}k^{-7}\nonumber
 \end{align}
 \begin{center}
@@ -16402,8 +16255,7 @@ Als modifizierte Begründung für diesen Ansatz kann man die folgende Analogie v
 Zu bestimmen bleiben allerdings die effektiven Viskositäten. In einer Diskretisierung setzt man nun analog zu Glg. \eqref{eq:para_ansatz_0}
 %
 \begin{align}
-\nu_\Delta & = \nu + \nu_S,\\
-\mu_{v, \Delta} & = \mu_v + \mu_{v, S}
+\nu_\Delta = \nu + \nu_S, \mu_{v, \Delta} = \mu_v + \mu_{v, S}
 \end{align}
 %
 an.
@@ -16544,8 +16396,7 @@ Integration über das Höhenintervall $\left[z_B, z_T\right]$ ergibt somit
 Mit den Definitionen
 %
 \begin{align}
-D &\coloneqq z_T - z_B,\\
-\newoverline{v} &\coloneqq \frac{1}{D}\int_{z_B}^{z_T}vdz
+D \coloneqq z_T - z_B, && \newoverline{v} \coloneqq \frac{1}{D}\int_{z_B}^{z_T}vdz
 \end{align}
 %
 kann man dies kürzer als
@@ -16575,8 +16426,7 @@ Um den Reibungsterm am Grund zu parametrisieren, verwendet man das \textit{Stomm
 mit einer Konstante $r > 0$. Mit $w = 0$ gilt auch $\nabla\cdot\mathbf{v}_{h} = 0$, weshalb man den gemittelten Wind durch eine Stromfunktion $\psi$ ausdrücken kann:
 %
 \begin{align}
-\newoverline{u} & = -\frac{\partial\psi}{\partial y}\\
-\newoverline{v} & = \frac{\partial\psi}{\partial x}
+\newoverline{u} = -\frac{\partial\psi}{\partial y}, && \newoverline{v} = \frac{\partial\psi}{\partial x}
 \end{align}
 %
 Somit kann man notieren
@@ -16694,15 +16544,13 @@ Daraus folgt für die vertikal gemittelten Geschwindigkeiten
 $B$ und $C$ werden aus den Randbediungungen\index{Randbedingung} abgeleitet. Diese lauten
 %
 \begin{align}
-\newoverline{u}\left(x = 0, L\right) & = 0,\\
-\newoverline{v}\left(y = 0, L\right) & = 0.
+\newoverline{u}\left(x = 0, L\right) = 0, && \newoverline{v}\left(y = 0, L\right) = 0.
 \end{align}
 %
 Die Randbedingungen für $\newoverline{v}$ sind automatisch erfüllt. Aus denen für $\newoverline{u}$ folgt
 %
 \begin{align}
-C & = B,\\
-B - L - B\exp\left(-\pi\frac{L}{L}\right) & = 0 \Rightarrow B = \frac{L}{1 - \exp\left(-\pi\right)},
+C = B, && B - L - B\exp\left(-\pi\frac{L}{L}\right) = 0 \Rightarrow B = \frac{L}{1 - \exp\left(-\pi\right)},
 \end{align}
 %
 wobei sich willkürlich auf das negative Vorzeichen in der Exponentialfunktion\index{Exponentialfunktion} festgelegt wurde. Damit folgt
@@ -17681,8 +17529,7 @@ Es wurde stillschweigend davon ausgegangen, dass $f$ das einzige auftretende Fel
 Da $\mathbf{v}\cdot\left[\left(\nabla\times\mathbf{v}\right)\times\mathbf{v}\right] = 0$ gilt, ist der verallgemeinerte Coriolis-Term energetisch unerheblich. Für eine konsistente zeitliche Diskretisierung der Advektion von kinetischer Energie verwendet man daher das Gleichungssystem
 
 \begin{align}
-\frac{\partial\mathbf{v}}{\partial t} & = -\nabla\frac{\mathbf{v}^2}{2},\\
-\frac{\partial\rho}{\partial t} & = -\nabla\cdot\left(\rho\mathbf{v}\right).
+\frac{\partial\mathbf{v}}{\partial t} = -\nabla\frac{\mathbf{v}^2}{2}, && \frac{\partial\rho}{\partial t} = -\nabla\cdot\left(\rho\mathbf{v}\right).
 \end{align}
 %
 Im kontinuierlichen Fall gilt
@@ -17695,15 +17542,13 @@ Im kontinuierlichen Fall gilt
 für die Auswirkung der Flussdichte von kinetischer Energie auf die lokale kinetische Energiedichte. Diese Umformungsschritte müssen sich auf die Diskretisierung übertragen lassen. Man definiert nun $\delta_0, \delta_1, \delta_2, \delta_3, \delta_4, \delta_5 \in \left\{0, 1\right\}$, um die zeitliche Diskretisierung der kinetischen Energie und der Massenflussdichte in der Form
 %
 \begin{align}
-\frac{\mathbf{v}^2}{2} & = \frac{\mathbf{v}_{\delta_0}\cdot\mathbf{v}_{\delta_1}}{2},\\
-\rho\mathbf{v} & = \frac{\rho_{\delta_2}\mathbf{v}_{\delta_3} + \rho_{\delta_4}\mathbf{v}_{\delta_5}}{2}
+\frac{\mathbf{v}^2}{2}  = \frac{\mathbf{v}_{\delta_0}\cdot\mathbf{v}_{\delta_1}}{2}, && \rho\mathbf{v} = \frac{\rho_{\delta_2}\mathbf{v}_{\delta_3} + \rho_{\delta_4}\mathbf{v}_{\delta_5}}{2}
 \end{align}
 %
 zu notieren. Damit erhält man zunächst als Gleichungssystem
 %
 \begin{align}
-\frac{\mathbf{v}_1 - \mathbf{v}_0}{\Delta t} & = -\nabla\frac{\mathbf{v}^2}{2},\\
-\frac{\rho_1 - \rho_0}{\Delta t} & = -\nabla\cdot\left(\rho\mathbf{v}\right).
+\frac{\mathbf{v}_1 - \mathbf{v}_0}{\Delta t} = -\nabla\frac{\mathbf{v}^2}{2}, && \frac{\rho_1 - \rho_0}{\Delta t} = -\nabla\cdot\left(\rho\mathbf{v}\right).
 \end{align}
 %
 Hieraus folgt
@@ -17817,9 +17662,8 @@ Aus Glg. \eqref{eq:td_1_ideal_gas_partial} folgt
 Beide Male wurde dabei davon ausgegangen, dass die skalaren Variablen vom alten Zeitschritt verwendet werden, wie es z. B. bei einem Forward-backward-Verfahren\index{Forward-backward-Verfahren} der Fall ist. Setzt man diese beiden Feststellungen in Glg. \eqref{eq:deriv_temp_evol_model_1} ein, erhält man
 %
 \begin{align}
-\frac{\newtilde{I}_1 - \newtilde{I}_0}{\Delta t} & = -c^{(v)}\rho_0\frac{R_d}{c^{(v)}}T_0\nabla\cdot\mathbf{v} - c^{(v)}T_1\rho_0\nabla\cdot\mathbf{v}\nonumber\\
-& = -c^{(v)}\rho_0\nabla\cdot\mathbf{v}\left(\frac{R_d}{c^{(v)}}T_0 + T_1\right)\nonumber\\
-& = -c^{(p)}\rho_0\nabla\cdot\mathbf{v}\left(\frac{R_d}{c^{(v)}}T_0 + \frac{c^{(v)}}{c^{(p)}}T_1\right)
+\frac{\newtilde{I}_1 - \newtilde{I}_0}{\Delta t} & = -c^{(v)}\rho_0\frac{R_d}{c^{(v)}}T_0\nabla\cdot\mathbf{v} - c^{(v)}T_1\rho_0\nabla\cdot\mathbf{v} = -c^{(v)}\rho_0\nabla\cdot\mathbf{v}\left(\frac{R_d}{c^{(v)}}T_0 + T_1\right)\nonumber\\
+&= -c^{(p)}\rho_0\nabla\cdot\mathbf{v}\left(\frac{R_d}{c^{(v)}}T_0 + \frac{c^{(v)}}{c^{(p)}}T_1\right)
 \end{align}
 %
 Hieraus folgert man, dass die Temperatur in der Gewichtung
@@ -17965,34 +17809,32 @@ Diskretisiert man ein zweidimensionales Vektorfeld auf ein ebenes Gitter, so mü
 Hier werden zunächst nur das A-Gitter\index{A-Gitter} und das C-Gitter\index{C-Gitter} eindimensional untersucht. Hierzu geht man vom System der linearisierten Flachwassergleichungen\index{linearisierte Flachwassergleichungen}\index{Flachwassergleichungen!linearisierte} Glg.en \eqref{eq:flach_lin_1} - \eqref{eq:flach_lin_2} ohne Corioliskraft aus:
 %
 \begin{align}
-	\frac{\partial h}{\partial t} & = -H\frac{\partial u}{\partial x}\label{eq:arakawa_deriv_0}\\
-	\frac{\partial u}{\partial t} & = -g\frac{\partial h}{\partial x}\label{eq:arakawa_deriv_1}
+\frac{\partial h}{\partial t} & = -H\frac{\partial u}{\partial x}\label{eq:arakawa_deriv_0}\\
+\frac{\partial u}{\partial t} & = -g\frac{\partial h}{\partial x}\label{eq:arakawa_deriv_1}
 \end{align}
 %
 Als Ansatz macht man hier
 %
 \begin{align}
-	h & = \newhat{h}\exp\left(ikx - i\omega t\right),\\
-	u & = \newhat{u}\exp\left(ikx - i\omega t\right)
+h = \newhat{h}\exp\left(ikx - i\omega t\right) && u = \newhat{u}\exp\left(ikx - i\omega t\right)
 \end{align}
 %
 mit $\newhat{h}, \newhat{u} \in \mathbb{C}$. Dies führt auf
 %
 \begin{align}
-	-i\omega\newhat{h} & = -Hik\newhat{u} \Leftrightarrow \omega\newhat{h} - Hk\newhat{u} = 0,\\
-	-i\omega\newhat{u} & = -gik\newhat{h} \Leftrightarrow \omega\newhat{u} - gk\newhat{h} = 0. 
+-i\omega\newhat{h} = -Hik\newhat{u} \Leftrightarrow \omega\newhat{h} - Hk\newhat{u} = 0, && -i\omega\newhat{u} = -gik\newhat{h} \Leftrightarrow \omega\newhat{u} - gk\newhat{h} = 0. 
 \end{align}
 %
 In Matrixschreibweise wird dies zu
 %
 \begin{align}
-	\left(\begin{array}{cc}
-		\omega & -Hk\\
-		-gk & \omega
-	\end{array}\right)\left(\begin{array}{c}\newhat{h}\\
-	\newhat{u}\end{array}\right) = \left(\begin{array}{c}
-	0\\
-	0\end{array}\right)
+\left(\begin{array}{cc}
+\omega & -Hk\\
+-gk & \omega
+\end{array}\right)\left(\begin{array}{c}\newhat{h}\\
+\newhat{u}\end{array}\right) = \left(\begin{array}{c}
+0\\
+0\end{array}\right)
 \end{align}
 %
 Nichttriviale Lösungen existieren, falls die Determinante der Matrix verschwindet:
@@ -18004,8 +17846,7 @@ Nichttriviale Lösungen existieren, falls die Determinante der Matrix verschwind
 Hieraus folgt für die Geschwindigkeiten
 %
 \begin{align}
-	c_\text{ph} & = \frac{\omega}{k} = \sqrt{gH},\\
-	c_\text{gr} & = \frac{\partial\omega}{\partial k} = \sqrt{gH} = c_\text{ph}.
+c_\text{ph} = \frac{\omega}{k} = \sqrt{gH}, && c_\text{gr} = \frac{\partial\omega}{\partial k} = \sqrt{gH} = c_\text{ph}.
 \end{align}
 %
 Dies ist bereits die aus Glg. \eqref{eq:disp_rel_shallow_waves} bekannte Dispersionsrelation der Flachwasserwellen\index{Dispersionsrelation!Flachwasserwellen}\index{Flachwasserwellen!Dispersionsrelation}.
@@ -18018,63 +17859,60 @@ In der nun folgenden Herleitung der numerischen Versionen dieser Gleichungen wir
 Beim A-Gitter\index{A-Gitter} werden die Oberflächenauslenkung $h$ und die Windgeschwindigkeit $u$ an denselben Orten $j\Delta x$ mit $j\in\mathbb{N}$ definiert. Man notiert hier als Ansatz
 %
 \begin{align}
-	h_j & = \newhat{h}\exp\left(ikj\Delta x - i\omega t\right),\\
-	u_j & = \newhat{u}\exp\left(ikj\Delta x - i\omega t\right).
+h_j = \newhat{h}\exp\left(ikj\Delta x - i\omega t\right), && u_j = \newhat{u}\exp\left(ikj\Delta x - i\omega t\right).
 \end{align}
 %
 Die Gleichungen \eqref{eq:arakawa_deriv_0} - \eqref{eq:arakawa_deriv_1} diskretisiert man wie folgt:
 %
 \begin{align}
-	\frac{\partial h_j}{\partial t} & = -H\frac{u_{j + 1} - u_{j - 1}}{2\Delta x}\\
-	\frac{\partial u_j}{\partial t} & = -g\frac{h_{j + 1} - h_{j - 1}}{2\Delta x}
+\frac{\partial h_j}{\partial t} = -H\frac{u_{j + 1} - u_{j - 1}}{2\Delta x} && \frac{\partial u_j}{\partial t} = -g\frac{h_{j + 1} - h_{j - 1}}{2\Delta x}
 \end{align}
 %
 Setzt man hier den Ansatz ein, erhält man
 %
 \begin{align}
-	-i\omega\newhat{h} & = -\frac{H\newhat{u}}{2\Delta x}\left[\exp\left(ik\Delta x\right) - \exp\left(-ik\Delta x\right)\right]\nonumber\\
-	\Leftrightarrow -i\omega\newhat{h} & = -\frac{H\newhat{u}}{2\Delta x}\left[i\sin\left(k\Delta x\right) + i\sin\left(k\Delta x\right)\right]\nonumber\\
-	\Leftrightarrow -i\omega\newhat{h} & = -\frac{H\newhat{u}i}{\Delta x}\sin\left(k\Delta x\right)\nonumber\\
-	\Leftrightarrow \omega\newhat{h} - \frac{H\newhat{u}}{\Delta x}\sin\left(k\Delta x\right) & = 0\label{eq:arakawa_deriv_2}
+-i\omega\newhat{h} & = -\frac{H\newhat{u}}{2\Delta x}\left[\exp\left(ik\Delta x\right) - \exp\left(-ik\Delta x\right)\right]\nonumber\\
+\Leftrightarrow -i\omega\newhat{h} & = -\frac{H\newhat{u}}{2\Delta x}\left[i\sin\left(k\Delta x\right) + i\sin\left(k\Delta x\right)\right]\nonumber\\
+\Leftrightarrow -i\omega\newhat{h} & = -\frac{H\newhat{u}i}{\Delta x}\sin\left(k\Delta x\right)\nonumber\\
+\Leftrightarrow \omega\newhat{h} - \frac{H\newhat{u}}{\Delta x}\sin\left(k\Delta x\right) & = 0\label{eq:arakawa_deriv_2}
 \end{align}
 %
 sowie
 %
 \begin{align}
-	-i\omega\newhat{u} & = -\frac{g\newhat{h}}{2\Delta x}\left[\exp\left(ik\Delta x\right) - \exp\left(-ik\Delta x\right)\right]\nonumber\\
-	\Leftrightarrow -i\omega\newhat{u} & = -\frac{g\newhat{h}}{2\Delta x}2i\sin\left(k\Delta x\right) = -\frac{g\newhat{h}}{\Delta x}i\sin\left(k\Delta x\right)\nonumber\\
-	\Leftrightarrow \omega\newhat{u} - \frac{g\newhat{h}}{\Delta x}\sin\left(k\Delta x\right) & = 0.\label{eq:arakawa_deriv_3}
+-i\omega\newhat{u} & = -\frac{g\newhat{h}}{2\Delta x}\left[\exp\left(ik\Delta x\right) - \exp\left(-ik\Delta x\right)\right]\nonumber\\
+\Leftrightarrow -i\omega\newhat{u} & = -\frac{g\newhat{h}}{2\Delta x}2i\sin\left(k\Delta x\right) = -\frac{g\newhat{h}}{\Delta x}i\sin\left(k\Delta x\right)\nonumber\\
+\Leftrightarrow \omega\newhat{u} - \frac{g\newhat{h}}{\Delta x}\sin\left(k\Delta x\right) & = 0.\label{eq:arakawa_deriv_3}
 \end{align}
 %
 Notiert man Glg.en \eqref{eq:arakawa_deriv_2} - \eqref{eq:arakawa_deriv_3} in Matrixschreibweise, erhält man
 %
 \begin{align}
-        \left(\begin{array}{cc}
-		\omega & -\frac{H}{\Delta x}\sin\left(k\Delta x\right)\\
-		-\frac{g}{\Delta x}\sin\left(k\Delta x\right) & \omega
-        \end{array}\right)\left(\begin{array}{c}\newhat{h}\\
-        \newhat{u}\end{array}\right) = \left(\begin{array}{c}
-        0\\
-        0\end{array}\right).
+\left(\begin{array}{cc}
+\omega & -\frac{H}{\Delta x}\sin\left(k\Delta x\right)\\
+-\frac{g}{\Delta x}\sin\left(k\Delta x\right) & \omega
+\end{array}\right)\left(\begin{array}{c}\newhat{h}\\
+\newhat{u}\end{array}\right) = \left(\begin{array}{c}
+0\\
+0\end{array}\right).
 \end{align}
 %
 Nichttriviale Lösungen existieren, falls die Determinante der Matrix verschwindet, also für
 %
 \begin{align}
-	\omega^2 - gH\frac{\sin^2\left(k\Delta x\right)}{\left(\Delta x\right)^2} & = 0\nonumber\\
-	\Rightarrow\omega = \sqrt{gH}\frac{\sin\left(k\Delta x\right)}{\Delta x}.
+\omega^2 - gH\frac{\sin^2\left(k\Delta x\right)}{\left(\Delta x\right)^2} = 0, && \Rightarrow\omega = \sqrt{gH}\frac{\sin\left(k\Delta x\right)}{\Delta x}.
 \end{align}
 %
 Hieraus folgt für die Phasengeschwindigkeit\index{Phasengeschwindigkeit!A-Gitter}\index{A-Gitter!Phasengeschwindigkeit}\index{Arakawa!A-Gitter!Phasengeschwindigkeit}
 %
 \begin{align}
-	c_\text{ph} = c_\text{ph}^{\text{(real)}}\frac{\sin\left(k\Delta x\right)}{k\Delta x}\label{eq:arakawa_deriv_6}
+c_\text{ph} = c_\text{ph}^{\text{(real)}}\frac{\sin\left(k\Delta x\right)}{k\Delta x}\label{eq:arakawa_deriv_6}
 \end{align}
 %
 und für die Gruppengeschwindigkeit\index{Gruppengeschwindigkeit!A-Gitter}\index{A-Gitter!Gruppengeschwindigkeit}\index{Arakawa!A-Gitter!Gruppengeschwindigkeit}
 %
 \begin{align}
-	c_\text{gr} = \frac{\partial\omega}{\partial k} = c_\text{gr}^{\text{(real)}}\cos\left(k\Delta x\right).\label{eq:arakawa_deriv_7}
+c_\text{gr} = \frac{\partial\omega}{\partial k} = c_\text{gr}^{\text{(real)}}\cos\left(k\Delta x\right).\label{eq:arakawa_deriv_7}
 \end{align}
 %
 Führt man die dimensionslose Geschwindigkeit
@@ -18122,22 +17960,20 @@ notieren.
 Beim C-Gitter\index{C-Gitter} werden die Windgeschwindigkeit $u$ an Orten $j\Delta x$ und die Oberflächenauslenkung $h$ and Orten $\left(j + \frac{1}{2}\right)\Delta x$ mit $j\in\mathbb{N}$ definiert. Man notiert hier als Ansatz
 %
 \begin{align}
-	h_{j + \frac{1}{2}} & = \newhat{h}\exp\left(ikj\Delta x - i\omega t\right)\exp\left(\frac{ik\Delta x}{2}\right),\\
-	u_j & = \newhat{u}\exp\left(ikj\Delta x - i\omega t\right).
+h_{j + \frac{1}{2}} = \newhat{h}\exp\left(ikj\Delta x - i\omega t\right)\exp\left(\frac{ik\Delta x}{2}\right), && u_j = \newhat{u}\exp\left(ikj\Delta x - i\omega t\right).
 \end{align}
 %
 Die Gleichungen \eqref{eq:arakawa_deriv_0} - \eqref{eq:arakawa_deriv_1} diskretisiert man wie folgt:
 %
 \begin{align}
-	\frac{\partial h_{j + \frac{1}{2}}}{\partial t} & = -H\frac{u_{j + 1} - u_{j}}{2\Delta x}\\
-	\frac{\partial u_j}{\partial t} & = -g\frac{h_{j + \frac{1}{2}} - h_{j - \frac{1}{2}}}{2\Delta x}
+\frac{\partial h_{j + \frac{1}{2}}}{\partial t} = -H\frac{u_{j + 1} - u_{j}}{2\Delta x}, && \frac{\partial u_j}{\partial t} = -g\frac{h_{j + \frac{1}{2}} - h_{j - \frac{1}{2}}}{2\Delta x}
 \end{align}
 %
 Setzt man hier den Ansatz ein, erhält man
 %
 \begin{align}
-	-i\omega\newhat{h}\exp\left(\frac{ik\Delta x}{2}\right) & = -\frac{H\newhat{u}}{\Delta x}\left[\exp\left(ik\Delta x\right) - 1\right]\nonumber\\
-	\Leftrightarrow i\omega\newhat{h}\exp\left(\frac{ik\Delta x}{2}\right) - \frac{H\newhat{u}}{\Delta x}\left[\exp\left(ik\Delta x\right) - 1\right] & = 0\label{eq:arakawa_deriv_4}
+-i\omega\newhat{h}\exp\left(\frac{ik\Delta x}{2}\right) & = -\frac{H\newhat{u}}{\Delta x}\left[\exp\left(ik\Delta x\right) - 1\right]\nonumber\\
+\Leftrightarrow i\omega\newhat{h}\exp\left(\frac{ik\Delta x}{2}\right) - \frac{H\newhat{u}}{\Delta x}\left[\exp\left(ik\Delta x\right) - 1\right] & = 0\label{eq:arakawa_deriv_4}
 \end{align}
 %
 sowie
@@ -18150,33 +17986,33 @@ sowie
 Notiert man Glg.en \eqref{eq:arakawa_deriv_4} - \eqref{eq:arakawa_deriv_5} in Matrixschreibweise, erhält man
 %
 \begin{align}
-        \left(\begin{array}{cc}
-		i\omega\exp\left(\frac{ik\Delta x}{2}\right) & -\frac{H}{\Delta x}\left[\exp\left(ik\Delta x\right) - 1\right]\\
-		-\frac{g}{\Delta x}\left[1 - \exp\left(-ik\Delta x\right)\right] & i\omega
-        \end{array}\right)\left(\begin{array}{c}\newhat{h}\\
-        \newhat{u}\end{array}\right) = \left(\begin{array}{c}
-        0\\
-        0\end{array}\right).
+\left(\begin{array}{cc}
+i\omega\exp\left(\frac{ik\Delta x}{2}\right) & -\frac{H}{\Delta x}\left[\exp\left(ik\Delta x\right) - 1\right]\\
+-\frac{g}{\Delta x}\left[1 - \exp\left(-ik\Delta x\right)\right] & i\omega
+\end{array}\right)\left(\begin{array}{c}\newhat{h}\\
+\newhat{u}\end{array}\right) = \left(\begin{array}{c}
+0\\
+0\end{array}\right).
 \end{align}
 %
 Nichttriviale Lösungen existieren, falls die Determinante der Matrix verschwindet, also für
 %
 \begin{align}
-	-\omega^2 - gH\frac{\left[\exp\left(ik\Delta x\right) - 1\right]\left[1 - \exp\left(-ik\Delta x\right)\right]}{\left(\Delta x\right)^2} & = 0\nonumber\\
-	\Rightarrow \omega^2 & = gH\frac{\left[1 - \exp\left(ik\Delta x\right)\right]\left[1 - \exp\left(-ik\Delta x\right)\right]}{\left(\Delta x\right)^2}\nonumber\\
-	\Rightarrow \omega^2 & = gH\frac{2 - 2\cos\left(k\Delta x\right)}{\left(\Delta x\right)^2} = gH2\frac{1 - \cos\left(k\Delta x\right)}{\left(\Delta x\right)^2}.
+-\omega^2 - gH\frac{\left[\exp\left(ik\Delta x\right) - 1\right]\left[1 - \exp\left(-ik\Delta x\right)\right]}{\left(\Delta x\right)^2} & = 0\nonumber\\
+\Rightarrow \omega^2 & = gH\frac{\left[1 - \exp\left(ik\Delta x\right)\right]\left[1 - \exp\left(-ik\Delta x\right)\right]}{\left(\Delta x\right)^2}\nonumber\\
+\Rightarrow \omega^2 & = gH\frac{2 - 2\cos\left(k\Delta x\right)}{\left(\Delta x\right)^2} = gH2\frac{1 - \cos\left(k\Delta x\right)}{\left(\Delta x\right)^2}.
 \end{align}
 %
 Hieraus folgt für die Phasengeschwindigkeit\index{Phasengeschwindigkeit!C-Gitter}\index{C-Gitter!Phasengeschwindigkeit}\index{Arakawa!C-Gitter!Phasengeschwindigkeit}
 %
 \begin{align}
-	c_\text{ph} = c_\text{ph}^{\text{(real)}}\sqrt{2\frac{1 - \cos\left(k\Delta x\right)}{\left(k\Delta x\right)^2}}\label{eq:arakawa_deriv_12}
+c_\text{ph} = c_\text{ph}^{\text{(real)}}\sqrt{2\frac{1 - \cos\left(k\Delta x\right)}{\left(k\Delta x\right)^2}}\label{eq:arakawa_deriv_12}
 \end{align}
 %
 und für die Gruppengeschwindigkeit\index{Gruppengeschwindigkeit!C-Gitter}\index{C-Gitter!Gruppengeschwindigkeit}\index{Arakawa!C-Gitter!Gruppengeschwindigkeit}
 %
 \begin{align}
-	c_\text{gr} = \frac{\partial\omega}{\partial k} = \frac{1}{2\omega}\frac{\partial\omega^2}{\partial k} = gH2\frac{\sin\left(k\Delta x\right)}{2\omega\Delta x} = gH\frac{\sin\left(k\Delta x\right)}{\omega\Delta x} = c_\text{gr}^{\text{(real)}}\frac{\sin\left(k\Delta x\right)}{\sqrt{2 - 2\cos\left(k\Delta x\right)}}.\label{eq:arakawa_deriv_13}
+c_\text{gr} = \frac{\partial\omega}{\partial k} = \frac{1}{2\omega}\frac{\partial\omega^2}{\partial k} = gH2\frac{\sin\left(k\Delta x\right)}{2\omega\Delta x} = gH\frac{\sin\left(k\Delta x\right)}{\omega\Delta x} = c_\text{gr}^{\text{(real)}}\frac{\sin\left(k\Delta x\right)}{\sqrt{2 - 2\cos\left(k\Delta x\right)}}.\label{eq:arakawa_deriv_13}
 \end{align}
 %
 In Termen der dimensionslosen Größen Glg.en \eqref{eq:arakawa_deriv_8} - \eqref{eq:arakawa_deriv_9} kann man die Glg.en \eqref{eq:arakawa_deriv_12} - \eqref{eq:arakawa_deriv_13} in der Form
@@ -18185,8 +18021,7 @@ In Termen der dimensionslosen Größen Glg.en \eqref{eq:arakawa_deriv_8} - \eqre
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-\newtilde{c}_\text{ph} & = \sqrt{2\frac{1 - \cos\left(\kappa\right)}{\left(\kappa\right)^2}},\\
-\newtilde{c}_\text{gr} & = \frac{\sin\left(\kappa\right)}{\sqrt{2 - 2\cos\left(\kappa\right)}}
+\newtilde{c}_\text{ph} = \sqrt{2\frac{1 - \cos\left(\kappa\right)}{\left(\kappa\right)^2}}, && \newtilde{c}_\text{gr} = \frac{\sin\left(\kappa\right)}{\sqrt{2 - 2\cos\left(\kappa\right)}}
 \end{align}
 \end{center}
 }}
@@ -18573,8 +18408,7 @@ dessen Elemente jeweils um 120$^\circ$ gegeneinander rotiert sind. Weiter defini
 Man beobachtet
 %
 \begin{align}
-\mathbf{i}_1 + \mathbf{i}_2 + \mathbf{i}_3 & = \mathbf{0},\\
-\mathbf{j}_1 + \mathbf{j}_2 + \mathbf{j}_3 & = \mathbf{0}.
+\mathbf{i}_1 + \mathbf{i}_2 + \mathbf{i}_3 = \mathbf{0}, && \mathbf{j}_1 + \mathbf{j}_2 + \mathbf{j}_3 = \mathbf{0}.
 \end{align}
 %
 Für einen zweidimensionalen Vektor $\mathbf{v}$ kann man
@@ -18586,8 +18420,7 @@ Für einen zweidimensionalen Vektor $\mathbf{v}$ kann man
 schreiben, hierbei gelten
 %
 \begin{align}
-u & = \mathbf{i}\cdot\mathbf{v},\\
-v & = \mathbf{j}\cdot\mathbf{v}.
+u = \mathbf{i}\cdot\mathbf{v}, && v = \mathbf{j}\cdot\mathbf{v}.
 \end{align}
 %
 Da die $\mathbf{i}_k$, $\mathbf{j}_l$ jeweils paarweise linear unabhängig\index{lineare Unabhängigkeit}\index{Unabhängigkeit!lineare} sind, kann man notieren
@@ -18605,8 +18438,7 @@ Da die Auswahl der $k$, $l$ nicht eindeutig ist und man auch alle drei Einheitsv
 zu fordern. Dies ist mit
 %
 \begin{align}
-u_k & = \mathbf{i}_k\cdot\mathbf{v},\\
-v_k & = \mathbf{j}_k\cdot\mathbf{v} 
+u_k = \mathbf{i}_k\cdot\mathbf{v}, && v_k = \mathbf{j}_k\cdot\mathbf{v} 
 \end{align}
 %
 erfüllt, denn hieraus folgt
@@ -18621,9 +18453,7 @@ erfüllt, denn hieraus folgt
 wobei
 %
 \begin{align}
-u_1 & = u,\\
-u_2 & = -\frac{1}{2}u + \frac{\sqrt{3}}{2}v,\\
-u_3 & = -\frac{1}{2}u - \frac{\sqrt{3}}{2}v.
+u_1 & = u, && u_2 = -\frac{1}{2}u + \frac{\sqrt{3}}{2}v, && u_3 = -\frac{1}{2}u - \frac{\sqrt{3}}{2}v.
 \end{align}
 %
 verwendet wurde. Dies gilt analog für die $v_k$. Hieraus folgt
@@ -18683,8 +18513,7 @@ fest. Es gilt
 und zyklisch:
 %
 \begin{align}
-\mathbf{i}_2 & = \frac{1}{\sqrt{3}}\left(\mathbf{j}_1 - \mathbf{j}_3\right),\\
-\mathbf{i}_3 & = \frac{1}{\sqrt{3}}\left(\mathbf{j}_2 - \mathbf{j}_1\right)
+\mathbf{i}_2 = \frac{1}{\sqrt{3}}\left(\mathbf{j}_1 - \mathbf{j}_3\right), && \mathbf{i}_3 = \frac{1}{\sqrt{3}}\left(\mathbf{j}_2 - \mathbf{j}_1\right)
 \end{align}
 %
 Hieraus folgt
@@ -18778,8 +18607,7 @@ u_1 & = \mathbf{v}\cdot\mathbf{i}_1 = \frac{2}{3}\left(v_1\mathbf{j}_1\cdot\math
 Durch zyklisches Verschieben der Indizes erhält man
 %
 \begin{align}
-u_2 & = \frac{1}{\sqrt{3}}\left(v_1 - v_3\right),\\
-u_3 & = \frac{1}{\sqrt{3}}\left(v_2 - v_1\right).
+u_2 = \frac{1}{\sqrt{3}}\left(v_1 - v_3\right), && u_3 = \frac{1}{\sqrt{3}}\left(v_2 - v_1\right).
 \end{align}
 %
 Hiermit erhält man eine weitere Darstellung der Divergenz\index{Divergenz}:
@@ -18847,8 +18675,7 @@ v_1 & = \mathbf{v}\cdot\mathbf{j}_1 = \frac{2}{3}\left(u_1\mathbf{i}_1 + u_2\mat
 Durch zyklisches Verschieben der Indizes erhält man
 %
 \begin{align}
-v_2 & = \frac{1}{\sqrt{3}}\left(u_3 - u_1\right),\\
-v_3 & = \frac{1}{\sqrt{3}}\left(u_1 - u_2\right).
+v_2 = \frac{1}{\sqrt{3}}\left(u_3 - u_1\right), && v_3 = \frac{1}{\sqrt{3}}\left(u_1 - u_2\right).
 \end{align}
 %
 Hieraus folgt eine weitere Darstellung der Vorticity:
@@ -18912,8 +18739,7 @@ v_3 & = \frac{\partial\psi}{\partial x_3} + \frac{1}{\sqrt{3}}\left(\frac{\parti
 Wegen
 %
 \begin{align}
-D & = \Delta\chi,\\
-\zeta & = \Delta\psi
+D = \Delta\chi, && \zeta = \Delta\psi
 \end{align}
 %
 gelten weiter
@@ -18995,8 +18821,7 @@ notieren.
 Die linearisierten shallow water equations Glg.en \eqref{eq:flach_lin_1} - \eqref{eq:flach_lin_2} auf der f-Ebene kann man mit dem Geopotential $\Phi \coloneqq gh$ in der Form
 %
 \begin{align}
-\frac{\partial\Phi}{\partial t} + \Phi_0\nabla\cdot\mathbf{v} &= 0,\\
-\frac{\partial\mathbf{v}}{\partial t} + f_0\mathbf{k}\times\mathbf{v} - \nabla\Phi &= 0
+\frac{\partial\Phi}{\partial t} + \Phi_0\nabla\cdot\mathbf{v} = 0, && \frac{\partial\mathbf{v}}{\partial t} + f_0\mathbf{k}\times\mathbf{v} - \nabla\Phi = 0
 \end{align}
 %
 notieren. Hierbei ist $\Phi_0 \coloneqq gD$. Mit den Glg.en \eqref{eq:div_3elements2d} und \eqref{eq:turn_3elemets2d} führt dies auf die Evolutionsgleichungen für die Komponenten bezüglich des dreielementigen Erzeugendensystems:
@@ -19156,8 +18981,7 @@ Somit lautet das charakteristische Polynom schlussendlich
 Für den Fall gut aufgelöster Wellen $\left|\mathbf{k}\right| \ll \frac{1}{d}$ gelten
 %
 \begin{align}
-c_j &\approx 1,\\
-s_j &\approx \frac{k_jd}{2}.
+c_j \approx 1, && s_j \approx \frac{k_jd}{2}.
 \end{align}
 %
 Setzt man dies in Glg. \eqref{eq:disp_rel_hex_c} ein, erhält man
@@ -19197,11 +19021,10 @@ Bei einer ebenen dreieckigen oder hexagonalen C-Gitter-Diskretisierung sind die 
 mit $1 \leq i \leq 3$, wobei $u$ eine beliebige Vektorkomponente ist. Für jede Raumrichtung $i$ wird hier ein separater Mittelungsoperator zugelassen. Die Bedingungen Glg. \eqref{eq:linear_condition_trivariate} lassen sich also hier in der Form
 %
 \begin{align}
-\newtilde{u}_1^{(1)} + \newtilde{u}_2^{(2)} + \newtilde{u}_3^{3} & \stackrel{!}{=} 0,\label{eq:linear_condition_trivariate_discrete_0}\\
-\newtilde{v}_1^{(1)} + \newtilde{v}_2^{(2)} + \newtilde{v}_3^{3} & \stackrel{!}{=} 0\label{eq:linear_condition_trivariate_discrete_1}
+\newtilde{u}_1^{(1)} + \newtilde{u}_2^{(2)} + \newtilde{u}_3^{3} \hastobe 0, && \newtilde{v}_1^{(1)} + \newtilde{v}_2^{(2)} + \newtilde{v}_3^{3} \hastobe 0\label{eq:linear_condition_trivariate_discrete}
 \end{align}
 %
-notieren. Diese Gleichungen sind als Forderungen an Vektorfelder $\mathbf{v}$ zu verstehen. Sollten Gradientefelder $\nabla\alpha$ die Bedingung Glg. \eqref{eq:linear_condition_trivariate_discrete_0} nicht, so hat man ein Problem, da die Berechnung von Gradientenfeldern auf dem C-Gitter festgelegt ist. Daher verwendet man als Forderung an den zu findenden Mittelungsoperator die Mittelung von Glg. \eqref{eq:gradient_linear_condition}:
+notieren. Diese Gleichungen sind als Forderungen an Vektorfelder $\mathbf{v}$ zu verstehen. Sollten Gradientefelder $\nabla\alpha$ die Bedingung Glg. \eqref{eq:linear_condition_trivariate_discrete} nicht, so hat man ein Problem, da die Berechnung von Gradientenfeldern auf dem C-Gitter festgelegt ist. Daher verwendet man als Forderung an den zu findenden Mittelungsoperator die Mittelung von Glg. \eqref{eq:gradient_linear_condition}:
 %
 \begin{center}
 \doublebox{\parbox{0.8\textwidth}{
@@ -19227,7 +19050,7 @@ Für die Helmholtz-Aufteilung Glg.en \eqref{eq:trivariate_helmholtz_eq_0} - \eqr
 \newtilde{v}_3^{3} & = \frac{1}{\sqrt{3}}\left(\newtilde{\delta_1\chi}^{3} - \newtilde{\delta_2\chi}^{3}\right) + \newtilde{\delta_3\psi}^{3}.
 \end{align}
 %
-Hiermit sind die Glg.en \eqref{eq:linear_condition_trivariate_discrete_0} - \eqref{eq:linear_condition_trivariate_discrete_1} noch nicht erfüllt, vielmehr ist eine vorbereitende Mitttelung der Skalarfelder erforderlich:
+Hiermit sind die Glg.en \eqref{eq:linear_condition_trivariate_discrete} - \eqref{eq:linear_condition_trivariate_discrete} noch nicht erfüllt, vielmehr ist eine vorbereitende Mitttelung der Skalarfelder erforderlich:
 %
 \begin{align}
 \newtilde{u}_1^{(1)} & = \frac{1}{\sqrt{3}}\left(\newtilde{\delta_3\newtilde{\psi}^{(2)}}^{(1)} - \newtilde{\delta_2\newtilde{\psi}^{3}}^{(1)}\right) + \newtilde{\delta_1\chi}^{(1)}\\
@@ -19333,7 +19156,7 @@ Man macht nun den Ansatz
 mit $0 \leq \beta \leq 0$. Setzt man hier Glg. \eqref{eq:thuburn_op_deriv_1} ein, erhält man
 %
 \begin{align}
-\newtilde{\delta_1\alpha}^{(1)} + \newtilde{\delta_2\alpha}^{(2)} + \newtilde{\delta_3\alpha}^{3} &= \left(\beta - \frac{1}{2}\left(1 - \beta\right)\right)\left(\newoverline{\delta_1\alpha}^{(1)} + \newoverline{\delta_1\alpha}^{(2)} + \newoverline{\delta_1\alpha}^{3}\right) \stackrel{!}{=} 0.
+\newtilde{\delta_1\alpha}^{(1)} + \newtilde{\delta_2\alpha}^{(2)} + \newtilde{\delta_3\alpha}^{3} = \left(\beta - \frac{1}{2}\left(1 - \beta\right)\right)\left(\newoverline{\delta_1\alpha}^{(1)} + \newoverline{\delta_1\alpha}^{(2)} + \newoverline{\delta_1\alpha}^{3}\right) \stackrel{!}{=} 0.
 \end{align}
 %
 Dies ist erfüllt für
@@ -19384,8 +19207,7 @@ vornimmt. Dies führt auf
 Setzt man $\alpha = \exp\left(i\mathbf{k}\cdot\mathbf{r}\right)$ in Glg. \eqref{eq:linear_condition_trivariate_discrete_gradient} ein, erhält man
 %
 \begin{align}
-\frac{2i}{d}\left(a_1s_1 + a_2s_2 + a_3s_3\right)\alpha &= 0\nonumber\\
-\Leftrightarrow a_1s_1 + a_2s_2 + a_3s_3 &= 0.
+\frac{2i}{d}\left(a_1s_1 + a_2s_2 + a_3s_3\right)\alpha = 0 \Leftrightarrow a_1s_1 + a_2s_2 + a_3s_3 = 0.
 \end{align}
 %
 Somit wird Glg. \eqref{eq:disp_rel_hex_c_mod_0} zu
@@ -19524,9 +19346,7 @@ Diskretisiert man die Glg.en \eqref{eq:hex_laplace_u_1} - \eqref{eq:hex_laplace_
 Durch Vergleich stellt man fest, dass es im $\mathbf{i}-$System drei Arten von Vorticities gibt:
 %
 \begin{align}
-\zeta_1 &\coloneqq \Delta\newtilde{\psi}^{(1)}\\
-\zeta_2 &\coloneqq \Delta\newtilde{\psi}^{(2)}\\
-\zeta_3 &\coloneqq \Delta\newtilde{\psi}^{3}
+\zeta_1 \coloneqq \Delta\newtilde{\psi}^{(1)}, && \zeta_2 \coloneqq \Delta\newtilde{\psi}^{(2)}, && \zeta_3 \coloneqq \Delta\newtilde{\psi}^{3}
 \end{align}
 %
 Es gilt somit
@@ -19709,8 +19529,7 @@ Der lineare Anteil hiervon ist
 Die Vorticity- und Divergenzdynamik der SWEs kann in den Gleichungen \eqref{eq:swe_1} und \eqref{eq:pv_conservation_baro_flux} zusammenfassen:
 %
 \begin{align}
-\frac{\partial h}{\partial t} + \nabla\cdot\left(h\mathbf{v}\right) & = 0\nonumber\\
-\frac{\partial\left(hq\right)}{\partial t} + \nabla\cdot\left(hq\mathbf{v}\right) & = 0
+\frac{\partial h}{\partial t} + \nabla\cdot\left(h\mathbf{v}\right) = 0, && \frac{\partial\left(hq\right)}{\partial t} + \nabla\cdot\left(hq\mathbf{v}\right) = 0
 \end{align}
 %
 Aus der zweiten Gleichung (dies ist eine Form der barotropen Vorticitygleichung\index{barotrope Vorticitygleichung}\index{Vorticitygleichung!barotrope}) kann man
@@ -19868,10 +19687,8 @@ N_S = N_L\cdot N_S^{(H)} = N_L\left[10\left(4^n - 1\right) + 12\right].
 Auf dem dualen Gitter (dem Dreiecksgitter) gelten
 %
 \begin{align}
-\prescript{{(D)}}{}{N_S^{(H)}} & = 20\cdot 4^n,\\
-\prescript{{(D)}}{}{N_S} & = 20\cdot 4^n\left(N_L + 1\right),\\
-\prescript{{(D)}}{}{N_V^{(H)}} & = 30\cdot 4^n,\\
-\prescript{{(D)}}{}{N_V} & = 30\cdot 4^n\left(N_L + 1\right) + 20\cdot 4^n\cdot N_L.
+\prescript{{(D)}}{}{N_S^{(H)}} = 20\cdot 4^n, && \prescript{{(D)}}{}{N_S} = 20\cdot 4^n\left(N_L + 1\right),\\
+\prescript{{(D)}}{}{N_V^{(H)}} = 30\cdot 4^n, && \prescript{{(D)}}{}{N_V} = 30\cdot 4^n\left(N_L + 1\right) + 20\cdot 4^n\cdot N_L.
 \end{align}
 
 \renewcommand{\arraystretch}{1.2}
@@ -19958,28 +19775,20 @@ fest, sie ist also der Mittelwert der z-Positionen der vertikalen Vektoren der d
 Ausgangspunkt sind Kugelkoordinaten\index{Kugelkoordinaten} mit einer generalisierten Vertikalkoordinate\index{generalisierte Vertikalkoordinate}\index{Vertikalkoordinate!generalisierte} $\zeta$, die von den horizontalen Koordinaten abhängt. Die Transformation auf globale Koordinaten\index{globale Koordinaten}\index{Koordinaten!globale} lautet
 %
 \begin{align}
-x & = r\left(\zeta, \phi, \lambda\right)\cos\left(\phi\right)\cos\left(\lambda\right),\\
-y & = r\left(\zeta, \phi, \lambda\right)\cos\left(\phi\right)\sin\left(\lambda\right),\\
-z & = r\left(\zeta, \phi, \lambda\right)\sin\left(\phi\right).
+x = r\left(\zeta, \phi, \lambda\right)\cos\left(\phi\right)\cos\left(\lambda\right), && y = r\left(\zeta, \phi, \lambda\right)\cos\left(\phi\right)\sin\left(\lambda\right), && z = r\left(\zeta, \phi, \lambda\right)\sin\left(\phi\right).
 \end{align}
 %
 Die kovarianten Basiselemente\index{kovariante Basiselemente}\index{Basiselemente!kovariante} dieses Koordinatensystems\index{Koordinatensystem}
 %
 \begin{align}
-\mathbf{j}_\eta & = \frac{\partial r}{\partial\zeta}\mathbf{e}_r,\\
-\mathbf{j}_\phi & = r\mathbf{e}_\phi + \frac{\partial r}{\partial\phi}\mathbf{e}_r,\\
-\mathbf{j}_\lambda & = r\cos\left(\phi\right)\mathbf{e}_\lambda + \frac{\partial r}{\partial\lambda}\mathbf{e}_r.\\
+\mathbf{j}_\eta & = \frac{\partial r}{\partial\zeta}\mathbf{e}_r, && \mathbf{j}_\phi & = r\mathbf{e}_\phi + \frac{\partial r}{\partial\phi}\mathbf{e}_r, && \mathbf{j}_\lambda & = r\cos\left(\phi\right)\mathbf{e}_\lambda + \frac{\partial r}{\partial\lambda}\mathbf{e}_r.
 \end{align}
 %
 Hieraus folgt für die sechs relevanten Skalarprodukte der Basiselemente
 %
 \begin{align}
-\mathbf{j}_\eta\cdot\mathbf{j}_\eta & = \left(\frac{\partial r}{\partial\zeta}\right)^2,\\
-\mathbf{j}_\eta\cdot\mathbf{j}_\phi & = \frac{\partial r}{\partial\zeta}\frac{\partial r}{\partial\phi},\\
-\mathbf{j}_\eta\cdot\mathbf{j}_\lambda & = \frac{\partial r}{\partial\zeta}\frac{\partial r}{\partial\lambda},\\
-\mathbf{j}_\phi\cdot\mathbf{j}_\phi & = r^2 + \left(\frac{\partial r}{\partial\phi}\right)^2,\\
-\mathbf{j}_\phi\cdot\mathbf{j}_\lambda & = \frac{\partial r}{\partial\phi}\frac{\partial r}{\partial\lambda},\\
-\mathbf{j}_\lambda\cdot\mathbf{j}_\lambda & = r^2\cos^2\left(\phi\right) + \left(\frac{\partial r}{\partial\lambda}\right)^2.
+\mathbf{j}_\eta\cdot\mathbf{j}_\eta = \left(\frac{\partial r}{\partial\zeta}\right)^2, && \mathbf{j}_\eta\cdot\mathbf{j}_\phi = \frac{\partial r}{\partial\zeta}\frac{\partial r}{\partial\phi}, && \mathbf{j}_\eta\cdot\mathbf{j}_\lambda = \frac{\partial r}{\partial\zeta}\frac{\partial r}{\partial\lambda},\\
+\mathbf{j}_\phi\cdot\mathbf{j}_\phi = r^2 + \left(\frac{\partial r}{\partial\phi}\right)^2, && \mathbf{j}_\phi\cdot\mathbf{j}_\lambda = \frac{\partial r}{\partial\phi}\frac{\partial r}{\partial\lambda}, && \mathbf{j}_\lambda\cdot\mathbf{j}_\lambda = r^2\cos^2\left(\phi\right) + \left(\frac{\partial r}{\partial\lambda}\right)^2.
 \end{align}
 %
 Für die Determinante\index{Determinante} des metrischen Tensors\index{metrischer Tensor}\index{Tensor!metrischer} folgt durch Entwicklung nach der ersten Zeile
@@ -20388,9 +20197,7 @@ Da die Hamilton-Funktion\index{Hamilton-Funktion} nicht explizit von der Zeit ab
 Weiterhin gelten
 %
 \begin{align}
-\lbrace H, Z_a, H\rbrace &\stackrel{\text{Glg. \eqref{eq:poisson_bracket_atm_gen_deriv_5}}}{=} 0,\\
-\lbrace H, H\rbrace_\rho &\stackrel{\text{Glg. \eqref{eq:poisson_bracket_atm_gen_deriv_3}}}{=} 0,\\
-\lbrace H, H\rbrace_{\newtilde{s}} &\stackrel{\text{Glg. \eqref{eq:poisson_bracket_atm_gen_deriv_4}}}{=} 0.
+\lbrace H, Z_a, H\rbrace \stackrel{\text{Glg. \eqref{eq:poisson_bracket_atm_gen_deriv_5}}}{=} 0, && \lbrace H, H\rbrace_\rho \stackrel{\text{Glg. \eqref{eq:poisson_bracket_atm_gen_deriv_3}}}{=} 0, && \lbrace H, H\rbrace_{\newtilde{s}} \stackrel{\text{Glg. \eqref{eq:poisson_bracket_atm_gen_deriv_4}}}{=} 0.
 \end{align}
 %
 Dies impliziert Energieerhaltung\index{Energieerhaltung}
@@ -20430,8 +20237,7 @@ Druckgradient- und Schwerebeschleunigung sowie die generalisierte Corioliskraft 
 wobei Druckgradient- und Schwerebeschleunigung im Term $\mathbf{l}$ zusammengefasst wurden. Die Corioliskraft kann hier ignoriert werden. Skalare Multiplikation mit $\mathbf{v}$ ergibt
 %
 \begin{align}
-\mathbf{v}\cdot\frac{\partial\mathbf{v}}{\partial t} &= -\mathbf{v}\cdot\nabla k + \mathbf{v}\cdot\mathbf{l}\nonumber\\
-\Leftrightarrow\frac{\partial k}{\partial t} &= -\mathbf{v}\cdot\nabla k + \mathbf{v}\cdot\mathbf{l}.
+\mathbf{v}\cdot\frac{\partial\mathbf{v}}{\partial t} = -\mathbf{v}\cdot\nabla k + \mathbf{v}\cdot\mathbf{l}\nonumber && \Leftrightarrow\frac{\partial k}{\partial t} = -\mathbf{v}\cdot\nabla k + \mathbf{v}\cdot\mathbf{l}.
 \end{align}
 %
 Multipliziert man dies mit der Massendichte $\rho$, erhält man
@@ -20535,15 +20341,13 @@ als Gleichung für $\newtilde{T} \coloneqq \rho T$. Der erste Term beschreibt di
 Um zu verifizieren, dass dieses tatsächlich Schallwellen beschreibt, macht man den Ansatz
 %
 \begin{align}
-w & = w_1\exp\left(ikz - i\omega t\right),\\
-\newtilde{T} & = \newtilde{T}_0 + \newtilde{T}_1\exp\left(ikz - i\omega t\right).
+w = w_1\exp\left(ikz - i\omega t\right), && \newtilde{T} = \newtilde{T}_0 + \newtilde{T}_1\exp\left(ikz - i\omega t\right).
 \end{align}
 %
 Die Dichte wird als homogen angenommen. Setzt man dies in die Glg.en \eqref{eq:sound_entropy_0} - \eqref{eq:sound_entropy_1} ein, folgt
 %
 \begin{align}
--i\omega w_1 & = -c^{(p)}ik\frac{\newtilde{T}_1}{\rho},\\
--i\omega\newtilde{T}_1 & = -\frac{R_d}{c^{(v)}}\newtilde{T}_0ikw_1.
+-i\omega w_1 = -c^{(p)}ik\frac{\newtilde{T}_1}{\rho}, && -i\omega\newtilde{T}_1 = -\frac{R_d}{c^{(v)}}\newtilde{T}_0ikw_1.
 \end{align}
 %
 In Matrixschreibweise erhält man
@@ -20939,9 +20743,7 @@ k \coloneqq 1.
 Dadurch ist die Ladung über die Kraft und den Ort als Messgröße festgelegt. Die entsprechende Ladungseinheit bezeichnet man als $esu$ (electrostatic unit) und für sie gilt
 %
 \begin{align}
-1\:\text{dyn} & = \text{esu}^2/\text{ cm}^2\nonumber\\
-\Leftrightarrow 1\:\text{esu} & = \text{ cm}\sqrt{\text{g cm}/\text{s}^2}\nonumber\\
-\Leftrightarrow 1\:\text{esu} & = \text{cm}^{3/2}\text{g}^{1/2}/\text{s}.
+1\:\text{dyn} = \text{esu}^2/\text{ cm}^2 && \Leftrightarrow 1\:\text{esu} = \text{ cm}\sqrt{\text{g cm}/\text{s}^2} && \Leftrightarrow 1\:\text{esu} = \text{cm}^{3/2}\text{g}^{1/2}/\text{s}.
 \end{align}
 %
 Ein Vorteil des cgs-Systems ist die Tatsache, dass $\mathbf{E}$ und $\mathbf{B}$ gleiche Einheiten haben und daher addiert werden können.
@@ -21203,33 +21005,25 @@ Eine Funktion heißt analytisch, falls sie in jedem Punkt lokal analytisch ist. 
 \item Die \textit{Hyperbelfunktionen}\index{Hyperbelfunktion}
 %
 \begin{align}
-\sinh\left(x\right) &\coloneqq \frac{\exp\left(x\right) - \exp\left(-x\right)}{2},\\
-\cosh\left(x\right) &\coloneqq \frac{\exp\left(x\right) + \exp\left(-x\right)}{2},\\
-\tanh &\coloneqq \frac{\sinh}{\cosh}.
+\sinh\left(x\right) \coloneqq \frac{\exp\left(x\right) - \exp\left(-x\right)}{2} && \cosh\left(x\right) \coloneqq \frac{\exp\left(x\right) + \exp\left(-x\right)}{2} && \tanh \coloneqq \frac{\sinh}{\cosh}.
 \end{align}
 %
 \item Die entsprechend eingeschränkten Umkehrfunktionen der Hyperbelfunktionen, die sogenannten \textit{Areafunktionen}\index{Areafunktion}
 %
 \begin{align}
-\arsinh &\coloneqq \sinh^{-1},\\
-\arcosh &\coloneqq \cosh^{-1},\\
-\artanh &\coloneqq \tanh^{-1}.
+\arsinh \coloneqq \sinh^{-1}, && \arcosh \coloneqq \cosh^{-1}, && \artanh \coloneqq \tanh^{-1}.
 \end{align}
 %
 \item Die \textit{trigonometrischen Funktionen}\index{trigonometrischen Funktionen}\index{Funktion!trigonometrische}
 %
 \begin{align}
-\sin\left(x\right) &\coloneqq -i\sinh\left(ix\right),\\
-\cos\left(x\right) &\coloneqq \cosh\left(ix\right),\\
-\tan &\coloneqq \frac{\sin}{\cos}.
+\sin\left(x\right) \coloneqq -i\sinh\left(ix\right), && \cos\left(x\right) \coloneqq \cosh\left(ix\right), && \tan \coloneqq \frac{\sin}{\cos}.
 \end{align}
 %
 \item Die entsprechend eingeschränkten Umkehrfunktionen der trigonometrischen Funktionen, die sogenannten \textit{Arcusfunktionen}\index{Arcusfunktion}
 %
 \begin{align}
-\arcsin &\coloneqq \sin^{-1},\\
-\arccos &\coloneqq \cos^{-1},\\
-\arctan &\coloneqq \tan^{-1}
+\arcsin \coloneqq \sin^{-1}, && \arccos \coloneqq \cos^{-1}, && \arctan \coloneqq \tan^{-1}
 \end{align}
 %
 \end{itemize}
@@ -21247,8 +21041,7 @@ l
 Hieraus folgt weiter
 %
 \begin{align}
-1 & = \exp\left(x - x\right) = \exp\left(x\right)\exp\left(-x\right)\nonumber\\
-\Rightarrow \exp\left(-x\right) & = \frac{1}{\exp\left(x\right)}.\label{eq:exp_prop_2}
+1 = \exp\left(x - x\right) = \exp\left(x\right)\exp\left(-x\right) \Rightarrow \exp\left(-x\right) = \frac{1}{\exp\left(x\right)}.\label{eq:exp_prop_2}
 \end{align}
 %
 Es ist
@@ -21328,8 +21121,7 @@ Für die Ableitungen der Grundfunktionen gilt
 Wegen Glg. \eqref{eq:exp_prop_3} ist $\exp$ auf $\mathbb{R}$ streng monoton steigend. Wegen $\cosh\left(x\right) > 0$ für alle reellen $x$ ist $\sinh$ streng monoton steigend, außerdem gelten
 %
 \begin{align}
-\lim\limits_{x\to\infty}\sinh\left(x\right) & = \infty,\\
-\lim\limits_{x\to - \infty}\sinh\left(x\right) & = -\infty.
+\lim\limits_{x\to\infty}\sinh\left(x\right) = \infty, && \lim\limits_{x\to - \infty}\sinh\left(x\right) = -\infty.
 \end{align}
 %
 Also ist
@@ -21347,8 +21139,7 @@ definiert, weiterhin gilt
 Es gelten weiterhin
 %
 \begin{align}
-\lim\limits_{x\to\infty}\cosh\left(x\right) & = \infty,\\
-\lim\limits_{x\to - \infty}\cosh\left(x\right) & = \infty, 
+\lim\limits_{x\to\infty}\cosh\left(x\right) = \infty, && \lim\limits_{x\to - \infty}\cosh\left(x\right) = \infty, 
 \end{align}
 %
 das Minimum befindet sich bei $x = 0$, dort ist $\cosh\left(0\right) = 1$, also definiert man
@@ -21382,13 +21173,8 @@ Ihre Ableitungen berechnen sich zu
 Für die Taylor-Entwicklungen erster Ordnung der Grundfunktionen zum Entwicklungspunkt Null folgt
 %
 \begin{align}
-\exp\left(x\right) & \approx 1 + x,\\
-\sinh\left(x\right) & \approx x,\\
-\cosh\left(x\right) & \approx 1,\\
-\tanh\left(x\right) & \approx x,\\
-\sin\left(x\right) & \approx x,\\
-\cos\left(x\right) & \approx 1,\\
-\tan\left(x\right) & \approx x.
+\exp\left(x\right) \approx 1 + x, && \sinh\left(x\right) \approx x, && \cosh\left(x\right) \approx 1, && \tanh\left(x\right) \approx x,\\
+\sin\left(x\right) \approx x, && \cos\left(x\right) \approx 1, && \tan\left(x\right) \approx x.
 \end{align}
 %
 Sei $p\left(x\right) = \sum_{n = 0}^{\infty}a_nx^n$ eine Potenzreihe $\mathbb{C}\to\mathbb{C}$ mit $p\left(x\right) = 0$ für alle $x\in\mathbb{C}$, dann gilt bereits $a_n = 0$ für alle $n\in\mathbb{N}$. Dies soll zunächst per Widerspruchsbeweis für ein Polynom, also für eine abbrechende Potenzreihe, eingesehen werden. Nehme also an, dass $a_n = 0$ für alle $N < n \in \mathbb{N}$ ist und nehme weiter an, dass $a_N \not = 0$ ist. Für $\left|x\right|\to\infty$ divergiert jedes Polynom, da Polynome stetig sind existiert insbesondere ein $b \in \mathbb{R}$ mit $b > 0$ und $\left|p\left(x\right)\right| > 0$ für alle $x \in \mathbb{C}$ mit $\left|x\right| > b$ im Widerspruch zur Voraussetzung. Somit ist die Aussage für Polynome gezeigt.
@@ -21623,15 +21409,13 @@ mit
 Es gelten
 %
 \begin{align}
-\lim\limits_{t\to 0}\varphi\left(t\right) & = \infty,\\
-\lim\limits_{\to\infty}\varphi\left(t\right) & = \infty.
+\lim\limits_{t\to 0}\varphi\left(t\right) = \infty, && \lim\limits_{\to\infty}\varphi\left(t\right) = \infty.
 \end{align}
 %
 Für die ersten beiden Ableitungen gilt
 %
 \begin{align}
-\varphi'\left(t\right) & = \frac{1}{n} - \frac{1},\\
-\varphi''\left(t\right) & = \frac{1}{t^2}.
+\varphi'\left(t\right) = \frac{1}{n} - \frac{1}, && \varphi''\left(t\right) = \frac{1}{t^2}.
 \end{align}
 %
 Das eindeutige Minimum liegt also bei $t = n$. Die Taylor-Entwicklung bis zur zweiten Ordnung zum Punkt $x = n$ lautet also
@@ -21705,9 +21489,7 @@ sowie eine andere Abbildung
 Diese beiden Funktionen haben die folgenden Eigenschaften:
 %
 \begin{align}
-\left(\mathbf{x} + \mathbf{y}\right) + \mathbf{z} & = \mathbf{x} + \left(\mathbf{y} + \mathbf{z}\right),\\
-\mathbf{x} + \mathbf{y} & = \mathbf{y} + \mathbf{x},\\
-\mathbf{0} + \mathbf{x} & = \mathbf{x}.
+\left(\mathbf{x} + \mathbf{y}\right) + \mathbf{z} = \mathbf{x} + \left(\mathbf{y} + \mathbf{z}\right), && \mathbf{x} + \mathbf{y} = \mathbf{y} + \mathbf{x}, && \mathbf{0} + \mathbf{x} = \mathbf{x}.
 \end{align}
 %
 Für jedes $\mathbf{x}\in V$ existiert ein $\left(-\mathbf{x}\right)\in V$ mit
@@ -21719,10 +21501,8 @@ Für jedes $\mathbf{x}\in V$ existiert ein $\left(-\mathbf{x}\right)\in V$ mit
 Weiterhin sollen gelten
 %
 \begin{align}
-\lambda_1\cdot\left(\lambda_2\mathbf{x}\right) & = \left(\lambda_1\lambda_2\right)\cdot\mathbf{x},\\
-1\cdot\mathbf{x} & = \mathbf{x},\\
-\lambda\left(\mathbf{x} + \mathbf{y}\right) & = \lambda\mathbf{x} + \lambda\mathbf{y},\\
-\left(\lambda_1 + \lambda_2\right)\mathbf{x} & = \lambda_1\mathbf{x} + \lambda_2\mathbf{x}.
+\lambda_1\cdot\left(\lambda_2\mathbf{x}\right) = \left(\lambda_1\lambda_2\right)\cdot\mathbf{x}, && 1\cdot\mathbf{x} = \mathbf{x},\\
+\lambda\left(\mathbf{x} + \mathbf{y}\right) = \lambda\mathbf{x} + \lambda\mathbf{y}, && \left(\lambda_1 + \lambda_2\right)\mathbf{x} = \lambda_1\mathbf{x} + \lambda_2\mathbf{x}.
 \end{align}
 %
 Vektoren, die man als Pfeile im Raum verstehen kann, werden in diesem Buch $\mathbf{fettkursiv}$ notiert.
@@ -22066,7 +21846,7 @@ $I'$ sei ebenfalls ein Intervall, und definiere
 O. B. d. A. kann man den Ursprung des KS in $\mathbf{r}_1$ legen. Man sucht nun einen Punkt $\mathbf{r}_0 \coloneqq \left(x_0, y_0\right)^T$, von dem gefordert wird, dass er zu $\mathbf{r}_1$ und $\mathbf{r}_2$ möglicht den gleichen Abstand $\left|r\right|$ habe, also
 %
 \begin{align}
-\sqrt{\left(\mathbf{r}_1 - \mathbf{r}_0\right)^2} & \hastobe & \sqrt{\left(\mathbf{r}_2 - \mathbf{r}_0\right)^2},\\
+\sqrt{\left(\mathbf{r}_1 - \mathbf{r}_0\right)^2} & \hastobe \sqrt{\left(\mathbf{r}_2 - \mathbf{r}_0\right)^2},\\
 \Rightarrow r_1^2 + r_0^2 - 2\mathbf{r}_1\cdot\mathbf{r}_0 & = r_2^2 + r_0^2 - 2\mathbf{r}_2\cdot\mathbf{r}_0,\\
 \Rightarrow 0 & = r_2^2 - 2\mathbf{r}_2\cdot\mathbf{r}_0.\label{eq:deriv_curv_1}
 \end{align}
@@ -22086,8 +21866,7 @@ mit
 wobei die Terme höherer Ordnung nun nicht mehr mitnotiert werden:
 %
 \begin{align}
-x_2 & = x'\Delta\tau + \frac{1}{2}x''\Delta\tau^2\\
-y_2 & = y'\Delta\tau + \frac{1}{2}y''\Delta\tau^2
+x_2 = x'\Delta\tau + \frac{1}{2}x''\Delta\tau^2 && y_2 = y'\Delta\tau + \frac{1}{2}y''\Delta\tau^2
 \end{align}
 %
 Die Ableitungen sind an der Stelle $\tau = \tau_1$ zu berechnen. Die zweite Ordnung ist hier zu berücksichtigen, da es bei der Krümmung ja um die Änderung der Ableitung einer Trajektorie geht. Setzt man dies in Glg. \eqref{eq:deriv_curv_1} ein, folgt
@@ -22118,8 +21897,7 @@ x_0 = -\frac{y'y_0}{x'}.\label{eq:deriv_curv_4}
 In Glg. \eqref{eq:deriv_curv_3} eingestzt ergibt dies
 %
 \begin{align}
--x''y'\frac{y_0}{x'} + y''y_0 & = x'^2 + y'^2\nonumber\\
-\Rightarrow y_0 & = \frac{x'^2 + y'^2}{y''-x''\frac{y'}{x'}}.
+-x''y'\frac{y_0}{x'} + y''y_0 = x'^2 + y'^2 \Rightarrow y_0 = \frac{x'^2 + y'^2}{y''-x''\frac{y'}{x'}}.
 \end{align}
 %
 Mit Glg. \eqref{eq:deriv_curv_4} folgt
@@ -22137,15 +21915,13 @@ Somit folgt für den Betrag des Krümmungsradius
 O. B. d. A. kann man $\tau = x$ setzen, daraus folgen
 %
 \begin{align}
-x' & = 1,\\
-x'' & = 0.
+x' = 1, && x'' = 0.
 \end{align}
 %
 Somit gilt
 %
 \begin{align}
-\left|r\right| & = \sqrt{1+y'^2}\frac{1+y'^2}{\left|y''\right|}\nonumber\\
-\Rightarrow\left|r\right| & = \frac{\left(1+y'^2\right)^{3/2}}{\left|y''\right|}.
+\left|r\right| = \sqrt{1+y'^2}\frac{1+y'^2}{\left|y''\right|} && \Rightarrow\left|r\right| = \frac{\left(1+y'^2\right)^{3/2}}{\left|y''\right|}.
 \end{align}
 %
 Bezüglich des Vorzeichens von $r$ legt man fest, dass dieses positiv seins soll, falls sich die Trajektorie nach links krümmt, also
@@ -22172,12 +21948,10 @@ Seien $\mathbf{u}, \mathbf{v}, \mathbf{w}:\mathbb{R}^3\to\mathbb{R}^3$ mit $\mat
 Es gelten
 %
 \begin{align}
-\nabla\left(\psi + \chi\right) & = \nabla\psi + \nabla\chi,\\
-\nabla\times\left(\mathbf{v} + \mathbf{w}\right) & = \nabla\times\mathbf{v} + \nabla\times\mathbf{w}, 
+\nabla\left(\psi + \chi\right) = \nabla\psi + \nabla\chi, && \nabla\times\left(\mathbf{v} + \mathbf{w}\right) = \nabla\times\mathbf{v} + \nabla\times\mathbf{w}, 
 \end{align}
 \begin{align}
-\nabla\left(\lambda\psi\right) & = \lambda\nabla\psi,\\
-\nabla\times\left(\lambda\mathbf{v}\right) & = \lambda\nabla\times\mathbf{v}
+\nabla\left(\lambda\psi\right) = \lambda\nabla\psi, && \nabla\times\left(\lambda\mathbf{v}\right) = \lambda\nabla\times\mathbf{v}
 \end{align}
 %
 nach den Feststellungen in Absch. \ref{sec:vektorraeume}. Weiterhin gelten
@@ -22436,20 +22210,14 @@ Man schreibt nun für ein Vektorfeld
 Man mache sich an dieser Stelle klar, dass die Dimensionen der hier in der ersten Zeile auftretenden Komponenten von $\mathbf{v}$ nicht uniform sind, da es sich für die Bassielemente ebenso verhält. Aufgrund der Orthogonalität der Kugelkoordinaten gilt
 %
 \begin{align}
-\newtilde{v}^{(r)} & = \newtilde{v}_r,\\
-\newtilde{v}^{(\theta)} & = \newtilde{v}_\theta,\\
-\newtilde{v}^{(\phi)} & = \newtilde{v}_\phi.
+\newtilde{v}^{(r)} = \newtilde{v}_r, && \newtilde{v}^{(\theta)} = \newtilde{v}_\theta, && \newtilde{v}^{(\phi)} = \newtilde{v}_\phi.
 \end{align}
 %
 Die Umrechung der Komponenten lautet
 %
 \begin{align}
-v_r & = \newtilde{v}_r,\\
-v_\theta & = r\newtilde{v}_\theta,\\
-v_\phi & = r\sin\left(\theta\right)\newtilde{v}_\phi,\\
-v^{(r)} & = \newtilde{v}_r,\\
-v^{(\theta)} & = \frac{1}{r}\newtilde{v}_\theta,\\
-v^{(\phi)} & = \frac{1}{r\sin\left(\theta\right)}\newtilde{v}_\phi.
+v_r = \newtilde{v}_r, && v_\theta = r\newtilde{v}_\theta, && v_\phi = r\sin\left(\theta\right)\newtilde{v}_\phi,\\
+v^{(r)} = \newtilde{v}_r, && v^{(\theta)} = \frac{1}{r}\newtilde{v}_\theta, && v^{(\phi)} = \frac{1}{r\sin\left(\theta\right)}\newtilde{v}_\phi.
 \end{align}
 %
 Zunächst wird der Gradient betrachtet, mit Glg. \eqref{eq:grad_gen} erhält man
@@ -22461,9 +22229,7 @@ Zunächst wird der Gradient betrachtet, mit Glg. \eqref{eq:grad_gen} erhält man
 Nun wird die Divergenz betrachtet. Vm Glg. \eqref{eq:div_gen} anwenden zu können, rechnet man zunächst
 %
 \begin{align}
-\mathbf{q}^{(r)}\cdot\mathbf{v} & = v^{(r)},\\
-\mathbf{q}^{(\theta)}\cdot\mathbf{v} & = v^{(\theta)},\\
-\mathbf{q}^{(\phi)}\cdot\mathbf{v} & = v^{(\phi)}.
+\mathbf{q}^{(r)}\cdot\mathbf{v} = v^{(r)}, && \mathbf{q}^{(\theta)}\cdot\mathbf{v} = v^{(\theta)}, && \mathbf{q}^{(\phi)}\cdot\mathbf{v} = v^{(\phi)}.
 \end{align}
 %
 Somit gilt
@@ -23111,8 +22877,7 @@ Für $g = f$ erhält man die sogenannte \textit{Parseval-Identität}\index{Parse
 Seien $f$, $g$ zwei stetig differenzierbare Funktionen $\mathbb{R} \to \mathbb{R}$. Die Fourier-Transformationen dieser beiden Funktionen lauten
 %
 \begin{align}
-\newtilde{f}\left(k\right) & = C\int_{-\infty}^{\infty}\exp\left(-ikx\right)f\left(x\right)dx,\\
-\newtilde{g}\left(k\right) & = C\int_{-\infty}^{\infty}\exp\left(-ikx\right)g\left(x\right)dx.
+\newtilde{f}\left(k\right) = C\int_{-\infty}^{\infty}\exp\left(-ikx\right)f\left(x\right)dx, && \newtilde{g}\left(k\right) = C\int_{-\infty}^{\infty}\exp\left(-ikx\right)g\left(x\right)dx.
 \end{align}
 %
 Definiere die stetig differenzierbare Funktion $h$ durch
@@ -23130,8 +22895,7 @@ Beim sogenannten \textit{Faltungstheorem}\index{Faltungstheorem} geht es darum, 
 Drückt man $f$ und $g$ durch ihre Spektren aus, erhält man
 %
 \begin{align}
-f\left(x\right) & = \newtilde{C}\int_{-\infty}^{\infty}\exp\left(ikx\right)f\left(k\right)dk,\\
-g\left(x\right) & = \newtilde{C}\int_{-\infty}^{\infty}\exp\left(ikx\right)g\left(k\right)dk.
+f\left(x\right) = \newtilde{C}\int_{-\infty}^{\infty}\exp\left(ikx\right)f\left(k\right)dk, && g\left(x\right) = \newtilde{C}\int_{-\infty}^{\infty}\exp\left(ikx\right)g\left(k\right)dk.
 \end{align}
 %
 Setzt man dies in Glg. \eqref{eq:faltung_deriv_0} ein, erhält man
@@ -23139,13 +22903,11 @@ Setzt man dies in Glg. \eqref{eq:faltung_deriv_0} ein, erhält man
 \begin{align}
 \newtilde{h}\left(k\right) & = C^2\int_{x = -\infty}^\infty\newtilde{C}\int_{k' = -\infty}^{\infty}\exp\left(ik'x\right)f\left(k'\right)dk'\newtilde{C}\int_{k' = -\infty}^{\infty}\exp\left(ik'x\right)g\left(k'\right)dk'\exp\left(-ikx\right)dx\nonumber\\
 & = \frac{1}{4\pi^2}\int_{x = -\infty}^\infty\int_{k' = -\infty}^{\infty}\exp\left(ik'x\right)\newtilde{f}\left(k'\right)dk'\int_{k' = -\infty}^{\infty}\exp\left(ik'x\right)\newtilde{g}\left(k'\right)dk'\exp\left(-ikx\right)dx\nonumber\\
-& = \frac{1}{4\pi^2}\int_{x = -\infty}^\infty\int_{k' = -\infty}^{\infty}\exp\left(ik'x\right)\newtilde{f}\left(k'\right)dk'\int_{k'' = -\infty}^{\infty}\exp\left(ik''x\right)\newtilde{g}\left(k''\right)dk''\exp\left(-ikx\right)dx\nonumber
-\end{align}
-\begin{align}
+& = \frac{1}{4\pi^2}\int_{x = -\infty}^\infty\int_{k' = -\infty}^{\infty}\exp\left(ik'x\right)\newtilde{f}\left(k'\right)dk'\int_{k'' = -\infty}^{\infty}\exp\left(ik''x\right)\newtilde{g}\left(k''\right)dk''\exp\left(-ikx\right)dx\nonumber\\
 & = \frac{1}{4\pi^2}\int_{k' = -\infty}^\infty\int_{k'' = -\infty}^{\infty}\newtilde{f}\left(k'\right)\newtilde{g}\left(k''\right)\int_{x = -\infty}^{\infty}\exp\left(ik'x\right)\exp\left(ik''x\right)\exp\left(-ikx\right)dk''dk'dx\nonumber\\
 & = \frac{1}{4\pi^2}\int_{k' = -\infty}^\infty\int_{k'' = -\infty}^{\infty}\newtilde{f}\left(k'\right)\newtilde{g}\left(k''\right)\int_{x = -\infty}^{\infty}\exp\left[i\left(k' + k'' - k\right)x\right]dk''dk'dx\nonumber\\
 & \stackrel{\text{Glg. \eqref{eq:delta_distribution_prop_2}}}{=} \frac{1}{4\pi^2}\int_{k' = -\infty}^\infty\int_{k'' = -\infty}^{\infty}\newtilde{f}\left(k'\right)\newtilde{g}\left(k''\right)\int_{x = -\infty}^{\infty}2\pi\delta\left(k' + k'' - k\right)dk''dk'\nonumber\\
-& \stackrel{k'' = k - k'}{=} & \frac{1}{2\pi}\int_{-\infty}^\infty\newtilde{f}\left(k'\right)\newtilde{g}\left(k - k'\right)dk'.
+& \stackrel{k'' = k - k'}{=} \frac{1}{2\pi}\int_{-\infty}^\infty\newtilde{f}\left(k'\right)\newtilde{g}\left(k - k'\right)dk'.
 \end{align}
 %
 Die Aussage
@@ -23301,7 +23063,7 @@ was ebenfalls stimmt. Nun wird die Normierung der Legendre-Polynome\index{Legend
 %
 \begin{align}
 \int_{-1}^{1}P_n^2\left(x\right)dx & = \frac{1}{2^{2n}n!^2}\int_{-1}^{1}\frac{d^n}{dx^n}\left(x^2 - 1\right)^n\frac{d^n}{dx^n}\left(x^2 - 1\right)^ndx\nonumber\\
-&\stackrel{n-\text{fache p.I.}}{=}&\frac{1}{2^{2n}n!^2}\left(-1\right)^n\int_{-1}^{1}\left(x^2 - 1\right)^n\frac{d^{2n}}{dx^{2n}}\left(x^2 - 1\right)^ndx\nonumber\\
+&\stackrel{n-\text{fache p.I.}}{=} \frac{1}{2^{2n}n!^2}\left(-1\right)^n\int_{-1}^{1}\left(x^2 - 1\right)^n\frac{d^{2n}}{dx^{2n}}\left(x^2 - 1\right)^ndx\nonumber\\
 & = \frac{1}{2^{2n}n!^2}\left(-1\right)^n\left(2n\right)!\int_{-1}^{1}\left(x^2 - 1\right)^ndx
 \end{align}
 %
@@ -23481,9 +23243,7 @@ l = I + m.
 Da gilt $l, I\geq 0$, ist $m\leq l$. Da $m< - l$ auf die gleiche DGL führt wie $-m > l$ und hierfür keine Lösungen existieren, existieren auch keine Lösungen für $m< - l$. Man hat also
 %
 \begin{align}
-\lambda & = l\left(l + 1\right),\\
-l & = 0, 1, 2, 3, \dotsc,\\
-m & = 0, \pm 1, \pm 2, \pm 3, \dotsc, \pm l.
+\lambda = l\left(l + 1\right), && l = 0, 1, 2, 3, \dotsc, && m = 0, \pm 1, \pm 2, \pm 3, \dotsc, \pm l.
 \end{align}
 %
 Durch Vergleich mit Glg. \eqref{eq:ansatz_legendre_2} sieht man, dass $m + I = l$ auch der Grad von $P\left(\mu\right)$ ist. Die Lösungen $T = T_{l, m}$ sind also festgelegt durch zwei natürliche Zahlen $l, m$. 
@@ -23620,13 +23380,13 @@ Die Normierung der Legendre-Funktionen ergibt sich zu
 Des Weiteren gilt für $l\not = l'$ (o. B. d. A. kann man $l<l'$ annehmen):
 %
 \begin{align}
-\int_{-1}^{1}P_{l, m}\left(x\right)P_{l', m}\left(x\right)dx&\propto&\int_{-1}^{1}\left(1 - x^2\right)^m\frac{d^{l + m}}{dx^{l + m}}\left(1 - x^2\right)^l\frac{d^{l' + m}}{dx^{l' + m}}\left(1 - x^2\right)^{l'}dx.
+\int_{-1}^{1}P_{l, m}\left(x\right)P_{l', m}\left(x\right)dx &\propto \int_{-1}^{1}\left(1 - x^2\right)^m\frac{d^{l + m}}{dx^{l + m}}\left(1 - x^2\right)^l\frac{d^{l' + m}}{dx^{l' + m}}\left(1 - x^2\right)^{l'}dx.
 \end{align}
 %
 Dies erhält man durch $m + l-$fache partielle Integration, bei der $\left(1 - x^2\right)^m\frac{d^{l + m}}{dx^{l + m}}$ abgeleitet und $\frac{d^{l' + m}}{dx^{l' + m}}\left(1 - x^2\right)^{l'}$ integriert wird
 %
 \begin{align}
-\int_{-1}^{1}P_{l, m}\left(x\right)P_{l', m}\left(x\right)dx&\propto&\int_{-1}^{1}\frac{d^{l' - l}}{dx^{l' - l}}\left(1 - x^2\right)^{l'}dx = 0.\label{eq:ortho_ass_lgen}
+\int_{-1}^{1}P_{l, m}\left(x\right)P_{l', m}\left(x\right)dx &\propto \int_{-1}^{1}\frac{d^{l' - l}}{dx^{l' - l}}\left(1 - x^2\right)^{l'}dx = 0.\label{eq:ortho_ass_lgen}
 \end{align}
 %
 Dabei entfällt bei jedem Integrationsschritt der Term ohne Integral, da dieser an den Rändern $\pm 1$ ausgewertet wird und dort immer Terme $\propto\left(1 - x^2\right)$ als Faktoren auftreten. Es gilt also
@@ -23775,8 +23535,7 @@ P''\left(x\right) & = \sum_{i = 0}^{\infty}i\left(i + 1\right)a_{i + 1}x^{i - 1}
 Setzt man dies ein, erhält man
 %
 \begin{align}
-i\left(i + 1\right)a_{i + 1} + \left(k + 1\right)\left(i + 1\right)a_{i + 1} - ia_i + na_i & =  &0
-\Leftrightarrow a_{i + 1} = a_i\frac{i - n}{\left(i + 1\right)\left(i + k + 1\right)}.\label{eq:rek_laguerre}
+i\left(i + 1\right)a_{i + 1} + \left(k + 1\right)\left(i + 1\right)a_{i + 1} - ia_i + na_i & = 0 \Leftrightarrow a_{i + 1} = a_i\frac{i - n}{\left(i + 1\right)\left(i + k + 1\right)}.\label{eq:rek_laguerre}
 \end{align}
 %
 Der Faktor $\frac{i - n}{\left(i + 1\right)\left(i + k + 1\right)}$ geht für hohe $i$ wie $1/i$ gegen Null, die Rekursion muss folglich abbrechen. Also muss $n\in\mathbb{N}$ sein. $n$ ist der Grad des Polynoms $P$. Die Polynome
@@ -23902,8 +23661,7 @@ dementsprechend gilt
 Nach der expliziten Darstellung Glg. \eqref{eq:laguerre_polynome_explizit} gelten
 %
 \begin{align}
-a & = \frac{\left(n + k\right)!}{n!k!},\\
-b & = -\frac{\left(n + k!\right)}{\left(n - 1\right)!\left(k + 1\right)!}.
+a = \frac{\left(n + k\right)!}{n!k!}, && b = -\frac{\left(n + k!\right)}{\left(n - 1\right)!\left(k + 1\right)!}.
 \end{align}
 %
 Somit folgt
@@ -23953,7 +23711,7 @@ Weiterhin sind die Kugelflächenfunktionen orthogonal. Für $m\not = m'$ gilt n�
 %
 \begin{align}
 & \int_{\theta = 0}^{\pi}\int_{\phi = 0}^{2\pi}Y_{l, m}\left(\theta, \phi\right)^\star Y_{l', m'}\left(\theta, \phi\right)\sin\left(\theta\right) d\phi d\theta\nonumber\\
-&\propto&\int_{\theta = 0}^{\pi}\int_{\phi = 0}^{2\pi}\exp\left(i\left(m - m'\right)\phi\right)d\phi P_{l, m}^{\star}\left(\cos\left(\theta\right)\right)P_{l', m'}\left(\cos\left(\theta\right)\right)\sin\left(\theta\right) d\theta = 0.
+&\propto \int_{\theta = 0}^{\pi}\int_{\phi = 0}^{2\pi}\exp\left(i\left(m - m'\right)\phi\right)d\phi P_{l, m}^{\star}\left(\cos\left(\theta\right)\right)P_{l', m'}\left(\cos\left(\theta\right)\right)\sin\left(\theta\right) d\theta = 0.
 \end{align}
 %
 Für $l\not = l'$ erhält man
@@ -24020,7 +23778,7 @@ Damit folgt
 %
 \begin{align}
 & \exp\left(\pm i\phi\right)\left(i\cot\left(\theta\right)\frac{\partial}{\partial\phi}\pm\frac{\partial}{\partial\theta}\right)Y_{l, m}\left(\theta, \phi\right) = -m\cot\left(\theta\right)\exp\left(\pm i\phi\right)Y_{l, m}\left(\theta, \phi\right)\nonumber\\
-&\pm&\exp\left(\pm i\phi\right)m\cot\left(\theta\right) Y_{l, m}\left(\cos\left(\theta\right)\right)\pm\sqrt{l^2 - m^2 + l - m}\exp\left(\pm i\phi\right)Y_{l, m + 1}\left(\theta, \phi\right)\exp\left(-i\phi\right)\nonumber
+&\pm \exp\left(\pm i\phi\right)m\cot\left(\theta\right) Y_{l, m}\left(\cos\left(\theta\right)\right)\pm\sqrt{l^2 - m^2 + l - m}\exp\left(\pm i\phi\right)Y_{l, m + 1}\left(\theta, \phi\right)\exp\left(-i\phi\right)\nonumber
 \end{align}
 %
 Es gilt also
@@ -24295,8 +24053,7 @@ c = a\left(1 - \epsilon\right).
 In Polarkoordinaten folgen mit
 %
 \begin{align}
-x & = r\cos\left(\varphi\right),\\
-z & = r\sin\left(\varphi\right)
+x = r\cos\left(\varphi\right), && z = r\sin\left(\varphi\right)
 \end{align}
 %
 die Gleichungen
@@ -24609,7 +24366,7 @@ Die Voraussetzungen hierfür sind
 %
 \begin{align}
 A&<0,\\
-B^2>4AC\Leftrightarrow 4r^2&>&\left(1 - \frac{a^2}{c^2}\right)\left(a^2 + r^2\right)\nonumber\\
+B^2>4AC\Leftrightarrow 4r^2 &> \left(1 - \frac{a^2}{c^2}\right)\left(a^2 + r^2\right)\nonumber\\
 \Leftrightarrow r^2&>a^2 + r^2 - \frac{a^4}{c^2} - a^2\frac{r^2}{c^2}, \nonumber\\
 |2Ax + B|<\sqrt{B^2 - 4AC}\Leftrightarrow \left|2\left(1 - \frac{a^2}{c^2}\right)x - 2r\right|&<\sqrt{4r^2 + 4\left(a^2 + r^2\right)\left(\frac{a^2}{c^2} - 1\right)}\nonumber\\
 \Leftrightarrow \left|x\left(1 - \frac{a^2}{c^2}\right) - r\right|&<\sqrt{r^2 - a^2 - r^2 + \frac{a^4}{c^2} + r^2\frac{a^2}{c^2}}\nonumber\\
@@ -24776,8 +24533,7 @@ Das Ziel ist nun, $F\left(\epsilon\right)$ bis zur ersten Ordnung in $\epsilon$ 
 Wegen $h\left(0\right) = 0$ ist dies nicht direkt möglich, sondern man muss die Ersetzungen
 %
 \begin{align}
-F\left(0\right)&\to&\lim\limits_{x\downarrow 0}F\left(x\right),\\
-F'\left(0\right)&\to&\lim\limits_{x\downarrow 0}F'\left(x\right)
+F\left(0\right) \to \lim\limits_{x\downarrow 0}F\left(x\right), F'\left(0\right) \to \lim\limits_{x\downarrow 0}F'\left(x\right)
 \end{align}
 %
 vornehmen. Es ist wegen
@@ -25145,7 +24901,7 @@ Indem man Terme $\mathcal{O}\left(\epsilon^2, m^2, \epsilon m\right)$ vernachlä
 und dann weiter zu
 %
 \begin{align}
-\phi_g\left(\chi, R\right)&\approx& -\frac{GM}{r\left(\chi, R\right)} + \frac{GM}{R}\left[1 + \left\{\left(2\epsilon - m\right)\frac{a^2}{R^2} + m\frac{R^3}{a^3}\right\}\sin^2\left(\chi\right)\right]^{1/2}\nonumber\\
+\phi_g\left(\chi, R\right) &\approx -\frac{GM}{r\left(\chi, R\right)} + \frac{GM}{R}\left[1 + \left\{\left(2\epsilon - m\right)\frac{a^2}{R^2} + m\frac{R^3}{a^3}\right\}\sin^2\left(\chi\right)\right]^{1/2}\nonumber\\
 & - \frac{GM}{R}\left[1 + \left(\frac{2\epsilon - m}{6}\right)\frac{a^2}{R^2} + \frac{m}{2}\frac{R^3}{a^3}\right].
 \end{align}
 %
@@ -25163,14 +24919,14 @@ Die Konturflächen hiervon sind bereits Ellipsoide. Um dies zu zeigen, bestimmt 
 Setzt man $R = A$ und $C = A\left\{\left(2\epsilon - m\right)\frac{a^2}{R^2} + m\frac{R^3}{a^3} + 1\right\}^{-1/2}$ in Glg. \eqref{eq:defellipse_1} ein erhält man genau dieses Resultat. Leider sind die zu den Konturmengen dieses Potentials orthogonalen Trajektorien nicht analytisch bestimmbar, sodass man Glg. \eqref{eq:schwere_approx_1} weiter approximieren muss. Hierzu entwickelt man die Terme $\frac{a^2}{R^2}$ und $\frac{R^3}{a^3}$ um $R^2 = a^2$: Wegen $\frac{R - a}{a}\lesssim 10^{-2}$ ist dies gerechtfertigt.
 %
 \begin{align}
-\frac{a^2}{R^2}&\approx&1 - \frac{1}{a^2}\left(R^2 - a^2\right) = 2 - \frac{R^2}{a^2},\\
-\frac{R^3}{a^3} = \frac{\left(R^2\right)^{3/2}}{a^3}&\approx&1 + \frac{3}{2}\frac{R^2 - a^2}{a^2} = -\frac{1}{2} + \frac{3}{2}\frac{R^2}{a^2}
+\frac{a^2}{R^2} &\approx 1 - \frac{1}{a^2}\left(R^2 - a^2\right) = 2 - \frac{R^2}{a^2},\\
+\frac{R^3}{a^3} = \frac{\left(R^2\right)^{3/2}}{a^3} &\approx 1 + \frac{3}{2}\frac{R^2 - a^2}{a^2} = -\frac{1}{2} + \frac{3}{2}\frac{R^2}{a^2}
 \end{align}
 
 Setzt man dies in Glg. \eqref{eq:schwere_approx_1} ein, erhält man
 %
 \begin{align}
-\phi_g\left(\chi, R\right)&\approx& -\frac{GM}{r\left(\chi, R\right)} + \frac{GM}{R}\left[1 + \left\{\left(\frac{8\epsilon - 5m}{2}\right) + \left(\frac{5m - 4\epsilon}{2}\right)\frac{R^2}{a^2}\right\}\sin^2\left(\chi\right)\right]^{1/2}\nonumber\\
+\phi_g\left(\chi, R\right) &\approx -\frac{GM}{r\left(\chi, R\right)} + \frac{GM}{R}\left[1 + \left\{\left(\frac{8\epsilon - 5m}{2}\right) + \left(\frac{5m - 4\epsilon}{2}\right)\frac{R^2}{a^2}\right\}\sin^2\left(\chi\right)\right]^{1/2}\nonumber\\
 & - \frac{GM}{R}\left[1 + \left(\frac{8\epsilon - 7m}{12}\right) + \left(\frac{11m - 4\epsilon}{12}\right)\frac{R^2}{a^2}\right].
 \end{align}
 %
@@ -25195,8 +24951,7 @@ r\left(\chi, a\right) = a\left[1 + 2\epsilon\sin^2\left(\chi\right)\right]^{-1/2
 Dieser Ausdruck beschreibt die Erdoberfläche ohne Orographie. Man erhält
 %
 \begin{align}
-r\left(0, a\right) & = a,\\
-r\left(\pi/2, a\right) & = a\frac{1}{\sqrt{1 + 2\epsilon}}.
+r\left(0, a\right) = a, && r\left(\pi/2, a\right) = a\frac{1}{\sqrt{1 + 2\epsilon}}.
 \end{align}
 %
 Mit
@@ -25238,7 +24993,7 @@ Also ist
 Somit kann man in erster Ordnung überall $\epsilon$ durch $\newtilde{\epsilon}$ ersetzen. Man erhält
 %
 \begin{align}
-\phi_g\left(\chi, R\right)&\approx& -\frac{GM}{r\left(\chi, R\right)} + \frac{GM}{R}\left[1 + \left\{\left(\frac{8\newtilde{\epsilon} - 5m}{2}\right) + \left(\frac{5m - 4\newtilde{\epsilon}}{2}\right)\frac{R^2}{a^2}\right\}\sin^2\left(\chi\right)\right]^{1/2}\nonumber\\
+\phi_g\left(\chi, R\right) &\approx -\frac{GM}{r\left(\chi, R\right)} + \frac{GM}{R}\left[1 + \left\{\left(\frac{8\newtilde{\epsilon} - 5m}{2}\right) + \left(\frac{5m - 4\newtilde{\epsilon}}{2}\right)\frac{R^2}{a^2}\right\}\sin^2\left(\chi\right)\right]^{1/2}\nonumber\\
 & - \frac{GM}{R}\left[1 + \left(\frac{8\newtilde{\epsilon} - 7m}{12}\right) + \left(\frac{11m - 4\newtilde{\epsilon}}{12}\right)\frac{R^2}{a^2}\right].\label{eq:schwere_approx}
 \end{align}
 %
@@ -25292,7 +25047,7 @@ Daraus folgt
 %
 \begin{align}
 \frac{g_p - g_a}{g_a} & = \frac{\frac{1}{\left(1 - \epsilon\right)^2}\left[1 - \frac{2}{\left(1 - \epsilon\right)^2}\epsilon + \frac{m}{\left(1 - \epsilon\right)^2}\right] - 1 - \epsilon + 3\frac{m}{2}}{1 + \epsilon - 3\frac{m}{2}}\nonumber\\
-&\approx&\frac{1 - \frac{2}{\left(1 - \epsilon\right)^2}\epsilon + \frac{m}{\left(1 - \epsilon\right)^2} - 1 - \epsilon + 3\frac{m}{2} + 2\epsilon}{1 - \epsilon - 3\frac{m}{2}}, 
+&\approx \frac{1 - \frac{2}{\left(1 - \epsilon\right)^2}\epsilon + \frac{m}{\left(1 - \epsilon\right)^2} - 1 - \epsilon + 3\frac{m}{2} + 2\epsilon}{1 - \epsilon - 3\frac{m}{2}}, 
 \end{align}
 %
 wobei wieder Terme $\mathcal{O}\left(\epsilon^2, \epsilon m, m^2\right)$ vernachlässigt wurden. Mit
@@ -25364,8 +25119,8 @@ g_a = \frac{GM}{a^2}\left[1 + \left(\frac{8\newtilde{\epsilon} - 7m}{12}\right) 
 Am Pol gilt
 %
 \begin{align}
-\phi_g\left(\pi/2, R\right)&\approx& -\frac{GM}{r\left(\pi/2, R\right)} + \frac{GM}{R}\left[1 + \left\{\left(\frac{8\newtilde{\epsilon} - 5m}{2}\right) + \left(\frac{5m - 4\newtilde{\epsilon}}{2}\right)\frac{R^2}{a^2}\right\}\right]^{1/2}\nonumber\\
-& - \frac{GM}{R}\left[1 + \left(\frac{8\newtilde{\epsilon} - 7m}{12}\right) + \left(\frac{11m - 4\newtilde{\epsilon}}{12}\right)\frac{R^2}{a^2}\right].
+\phi_g\left(\pi/2, R\right) &\approx -\frac{GM}{r\left(\pi/2, R\right)} + \frac{GM}{R}\left[1 + \left\{\left(\frac{8\newtilde{\epsilon} - 5m}{2}\right) + \left(\frac{5m - 4\newtilde{\epsilon}}{2}\right)\frac{R^2}{a^2}\right\}\right]^{1/2}\nonumber\\
+& -\frac{GM}{R}\left[1 + \left(\frac{8\newtilde{\epsilon} - 7m}{12}\right) + \left(\frac{11m - 4\newtilde{\epsilon}}{12}\right)\frac{R^2}{a^2}\right].
 \end{align}
 %
 Es folgt
@@ -25458,8 +25213,7 @@ r\left(\chi, R\right) = R\left[1 + \sin^2\left(\chi\right)\left\{\mu + \nu \frac
 Hierbei wurde
 %
 \begin{align}
-\mu&\coloneqq\frac{8\newtilde{\epsilon} - 5m}{2},\\
-\nu&\coloneqq\frac{5m - 4\newtilde{\epsilon}}{2}
+\mu \coloneqq \frac{8\newtilde{\epsilon} - 5m}{2}, \nu \coloneqq \frac{5m - 4\newtilde{\epsilon}}{2}
 \end{align}
 %
 definiert. Dies kann man umformen zu
@@ -25580,10 +25334,7 @@ Die \textsc{Great}-Koordinaten werden in \cite{staniforth} beschrieben. Sie eign
 Zunächst werden alle Längen auf die große Halbachse der Erde $a$ skaliert:
 %
 \begin{align}
-\frac{x}{a}&\to&x, \label{eq:great_skal_1}\\
-\frac{y}{a}&\to&y, \label{eq:great_skal_2}\\
-\frac{z}{a}&\to&z, \label{eq:great_skal_3}\\
-\frac{R}{a}&\to&R\label{eq:great_skal_4}
+\frac{x}{a} \to x, && \frac{y}{a} \to y, && \frac{z}{a} \to z, && \frac{R}{a} \to R\label{eq:great_skal}
 \end{align}
 %
 Glg. \eqref{eq:great_senkr_traj} lautet dann
@@ -25631,7 +25382,7 @@ h_\varphi^2 & = \left(\frac{\partial x}{\partial\varphi}\right)^2 + \left(\frac{
 h_R^2 & = \left(\frac{\partial x}{\partial R}\right)^2 + \left(\frac{\partial y}{\partial R}\right)^2 + \left(\frac{\partial z}{\partial R}\right)^2.
 \end{align}
 %
-Um $h_R$ und $h_\varphi$ zu bestimmen, genügt eine Betrachtung in der Meridionalebene $\lambda = 0$. Wendet man die Umskalierungen Glg.en \eqref{eq:great_skal_1} - \eqref{eq:great_skal_4} auf die Gleichungen \eqref{eq:great_senkr_traj_deriv_1} und \eqref{eq:great_senkr_traj_deriv_2} an, erhält man
+Um $h_R$ und $h_\varphi$ zu bestimmen, genügt eine Betrachtung in der Meridionalebene $\lambda = 0$. Wendet man die Umskalierungen Glg.en \eqref{eq:great_skal} - \eqref{eq:great_skal} auf die Gleichungen \eqref{eq:great_senkr_traj_deriv_1} und \eqref{eq:great_senkr_traj_deriv_2} an, erhält man
 %
 \begin{align}
 x^2 + \left(1 + \mu + \nu R^2\right)z^2 & = R^2, \label{eq:great_deriv_1}\\
@@ -25739,7 +25490,7 @@ Verfährt man analog mit Glg. \eqref{eq:great_deriv_4}, erhält man
 &\Leftrightarrow\left(1 + \mu + \nu R^2\right)\frac{1}{x}\frac{\partial x}{\partial\varphi} - \frac{1}{z}\frac{\partial z}{\partial\varphi} = -\frac{1}{1 - \nu z^2}\frac{d\ln\left[D\left(\varphi\right)\right]}{d\varphi}.
 \end{align}
 %
-Dabei wurde im letzten Schritt die mit den Glg.en \eqref{eq:great_skal_1} - \eqref{eq:great_skal_4} umskalierte Version von Glg. \eqref{eq:great_senkr_traj_deriv_3} eingesetzt. Stellt man dies nach $\frac{\partial z}{\partial\varphi}$ um, erhält man
+Dabei wurde im letzten Schritt die mit den Glg.en \eqref{eq:great_skal} - \eqref{eq:great_skal} umskalierte Version von Glg. \eqref{eq:great_senkr_traj_deriv_3} eingesetzt. Stellt man dies nach $\frac{\partial z}{\partial\varphi}$ um, erhält man
 %
 \begin{align}
 \frac{\partial z}{\partial\varphi} & = z\left(1 + \mu + \nu R^2\right)\frac{1}{x}\frac{\partial x}{\partial\varphi} + \frac{z}{1 - \nu z^2}\frac{d\ln\left[D\left(\varphi\right)\right]}{d\varphi}.\label{eq:great_deriv_11}
@@ -25808,8 +25559,7 @@ h_\varphi = \frac{xz}{\left(1 - \nu z^2\right)\left(R^2 + \left(\mu + \nu R^2\ri
 Es gelten
 %
 \begin{align}
-x & = \sqrt{x^2 + y^2}\cos\lambda,\\
-y & = \sqrt{x^2 + y^2}\sin\lambda.
+x = \sqrt{x^2 + y^2}\cos\lambda, && y = \sqrt{x^2 + y^2}\sin\lambda.
 \end{align}
 %
 Somit folgt
@@ -25857,7 +25607,7 @@ erhält.
 \subsection{Transformation von globalen Koordinaten in \textsc{Great}-Koordinaten}
 \label{sec:transformation_von_globalen_Koordinaten_in_greatkoordinaten}\index{\textsc{Great}-Koordinaten!Transformation}
 
-Sei ein Punkt $\mathbf{r}$ mit den globalen Koordinaten $\left(x, y, z\right)^T$ gegeben, und man möchte die \textsc{Great}-Koordinaten $\left(R, \varphi, \lambda\right)$ von $\mathbf{r}$ bestimmen. Notiert man Glg. \eqref{eq:great_senkr_traj_deriv_5} mit den Ersetzungen Glg.en \eqref{eq:great_skal_1} - \eqref{eq:great_skal_4}, erhält man
+Sei ein Punkt $\mathbf{r}$ mit den globalen Koordinaten $\left(x, y, z\right)^T$ gegeben, und man möchte die \textsc{Great}-Koordinaten $\left(R, \varphi, \lambda\right)$ von $\mathbf{r}$ bestimmen. Notiert man Glg. \eqref{eq:great_senkr_traj_deriv_5} mit den Ersetzungen Glg.en \eqref{eq:great_skal} - \eqref{eq:great_skal}, erhält man
 %
 \begin{align}
 R^2 = \frac{x^2 + y^2 + \left(1 + \mu\right)z^2}{1 - \nu z^2}.
