@@ -194,9 +194,9 @@ Der Leser soll Antworten finden auf Fragen wie
 \item Unter welchen Voraussetzungen ist die quasigeostrophische Theorie eine ergiebige Näherung?
 \end{itemize}
 %
-und wird eine mathematisch rigorose, aber keine didaktisch heruntergebrochene Vorstellung der Inhalte vorfinden; alle Voraussetzungen und Beschränkungen eines Konzepts werden klar als solche benannt. Die Herleitungen sind so kleinschrittig, das für einen in der gymnasialen Schulmathematik souveränen Leser Nebenrechnungen nicht nötig sein sollten.
+und wird eine mathematisch rigorose, aber keine didaktisch heruntergebrochene Vorstellung der Inhalte vorfinden; alle Voraussetzungen und Beschränkungen eines Konzepts werden klar als solche benannt. Die Herleitungen sind so kleinschrittig, dass für einen in der gymnasialen Schulmathematik souveränen Leser Nebenrechnungen nicht nötig sein sollten.
 
-Abgedeckt werden Dynamik, Strahlung, Wolkenmikrophysik und Numerik. In Teil \ref{part:von_der_physik_zur_atmosphaere} werden die herrschenden Gleichungen aus den physikalischen Grundgleichungen abgeleitet. Die dabei entfaltete Theorie ist grundlegend für alle Prozesse in der Atmosphäre. In Teil \ref{part:dynamik} werden die Luftströmungen einer Planetenatmosphäre untersucht, was man als \textit{Dynamik}\index{Dynamik} bezeichnet. In Abgrenzung hierzu geht es in Teil \ref{part:strahlung_und_wolkenmikrophysik} um die darüber hinausgehenden Bereiche Strahlung und Wolkenmikrophysik. \textit{Numerische Probleme}\index{Numerik} werden im vierten Teil behandelt. Im fünften Teil wird ein \textit{dynamischer Kern}\index{Kern!dynamischer}\index{dynamischer Kern} entwickelt. Im Anhang werden mathematische Grundlagen abgearbeitet.
+Abgedeckt werden Dynamik, Strahlung, Wolkenmikrophysik und Numerik. In Teil \ref{part:physikalische_grundlagen} werden diejenigen physikalischen Grundlagen zusammengestellt, welche für das Verständnis der Atmosphäre wichtig sind. In Teil \ref{part:herrschende_gleichungen} wird versucht, ein Gleichungssystem zusammenzustellen, welches alle Prozesse in der Atmosphäre beschreibt. Anschließend werden die gesammelten Grundkenntnisse auf konkrete Teilbereiche atmosphärischer Theorie angewandt. In Teil \ref{part:dynamik} werden die Luftströmungen einer Planetenatmosphäre untersucht, was man als \textit{Dynamik}\index{Dynamik} bezeichnet. In Abgrenzung hierzu geht es in Teil \ref{part:strahlung_und_wolkenmikrophysik} um die darüber hinausgehenden Bereiche Strahlung und Wolkenmikrophysik. \textit{Numerische Probleme}\index{Numerik} werden im fünften Teil behandelt. Im sechsten Teil wird ein \textit{dynamischer Kern}\index{Kern!dynamischer}\index{dynamischer Kern} entwickelt. Im Anhang werden mathematische Grundlagen abgearbeitet.
 
 Als Einheitensystem wird das SI-System\index{SI-System} verwendet, außer in der Elektrodynamik, dort wird das cgs-System verwendet\index{cgs-System}. Bei qualitativen Betrachtungen bedeutet ein horizontaler Pfeil $\rightarrow$ neben einer Größe, dass diese konstant bleibt, ein nach oben gerichteter Pfeil $\uparrow$, dass diese wächst, ein nach unten gerichteter Pfeil $\downarrow$, dass die Größe sinkt.
 %
@@ -324,18 +324,15 @@ Das Wort \textit{Skalen} bezeichnet Größenordnungen. Ziel der Skalenanalyse is
 \end{table}
 \renewcommand{\arraystretch}{1}
 
-\part{Von der Physik zur Atmosphäre}
-\label{part:von_der_physik_zur_atmosphaere}
+\part{Physikalische Grundlagen}
+\label{part:physikalische_grundlagen}
 
-\chapter{\normalfont\textsc{Physikalische Grundlagen}}
-\label{chap:physikalische_grundlagen}
-
-\section{Klassische Mechanik}
-\label{sec:klassische_mechanik}\index{klassische Mechanik}\index{Mechanik!klassische}
+\chapter{\normalfont\textsc{Klassische Mechanik}}
+\label{chap:klassische_mechanik}\index{klassische Mechanik}\index{Mechanik!klassische}
 
 Die klassische Mechanik behandelt Massenpunkte, also Massen ohne räumliche Ausdehnung, die sich mit Ge\-schwin\-dig\-kei\-ten $\ll c$ bewegen (Übergang zur Relativitätstheorie) und nicht zu leicht sind (Übergang zur Quantenmechanik).
 
-\subsection{Newton'sche Mechanik}
+\section{Newton'sche Mechanik}
 \label{sec:newtonsche_mechanik}
 
 Die klassische Mechanik baut auf Newtons Axiomen auf \cite{fliessbach_theo_1}. Das wichtigste Axiom ist das \textit{Zweite Newton'sche Axiom}\index{Zweites Newton'sches Axiom}\index{Newton'sches Axiom!Zweites}:
@@ -792,7 +789,7 @@ Damit erhält man
 %
 Dies sind für $1\leq k\leq f$ die \textit{Lagrange-Gleichungen 2. Art}.\index{Lagrange-Gleichung!2. Art}
 
-\subsection{Hamilton-Formalismus}
+\section{Hamilton-Formalismus}
 \label{sec:hamiltonformalismus}\index{Hamilton-Formalismus}
 
 Man definiert zunächst die \index{Impuls!kanonischer}\index{kanonischer Impuls}\textit{kanonischen Impulse} durch
@@ -829,7 +826,7 @@ Die \textit{Hamilton'schen Gleichungen}\index{Bewegungsgleichung!Hamilton-Formal
 %
 Den Raum der $\left(q, p\right)$ nennt man \textit{Phasenraum}.\index{Phasenraum}
 
-\subsubsection{Poisson-Klammer}
+\subsection{Poisson-Klammer}
 \label{sec:poisson-klammer}\index{Poisson-Klammer}
 
 Zwei beliebige Größen $F$, $K$ können nur von $\left(q, p, t\right)$ abhängen. Man definiert die \textit{Poisson-Klammer} $\left\lbrace F, K\right\rbrace$ von $F$ und $K$ durch
@@ -901,8 +898,8 @@ Die Hamilton-Funktion\index{Hamilton-Funktion} ist also genau dann konstant, wen
 \newdot{q}_i & = \left\lbrace q_i, H\right\rbrace.
 \end{align}
 
-\section{Elektrodynamik}
-\label{sec:elektrodynamik}\index{Elektrodynamik}
+\chapter{\normalfont\textsc{Elektrodynamik}}
+\label{chap:elektrodynamik}\index{Elektrodynamik}
 
 In diesem Abschnitt wird das cgs-System verwendet, s. Absch. \ref{sec:cgssystem}. Für die Kraft $\mathbf{F}$ auf ein Teilchen mit der Ladung $q$, welches sich mit der Geschwindigkeit $\mathbf{v}$ durch das elektromagnetische Feld $\left(\mathbf{E}, \mathbf{B}\right)$ bewegt, gilt
 %
@@ -1054,7 +1051,7 @@ H\left(\mathbf{r}, \mathbf{p}, t\right) & = \frac{1}{m}\left(\mathbf{p} - \frac{
 & = \frac{1}{m}\left(\mathbf{p} - \frac{q}{c}\mathbf{A}\right)\left(\mathbf{p} - \frac{1}{2}\left(\mathbf{p} - \frac{q}{c}\mathbf{A}\right) - \frac{q}{c}\mathbf{A}\right) + q\phi\left(\mathbf{r}, t\right) = \frac{1}{2m}\left(\mathbf{p} - \frac{q}{c}\mathbf{A}\right)^2 + q\phi\left(\mathbf{r}, t\right).\label{eq:hamilton_funktion_teilchen_emf}
 \end{align}
 %
-\subsection{Elektromagnetische Wellen}
+\section{Elektromagnetische Wellen}
 \label{sec:elektromagnetische_wellen}\index{elektromagnetische Welle}\index{Welle!elektromagnetische}
 
 Im Vakuum lauten die MWGen
@@ -1126,7 +1123,7 @@ und somit
 E_0 & = B_0.
 \end{align}
 %
-\subsection{Energie des elektromagnetischen Feldes}
+\section{Energie des elektromagnetischen Feldes}
 \label{sec:energy_des_elektromagnetischen_feldes}\index{Energie!des elektromagnetischen Feldes}\index{elektromagnetisches Feld!Energie}
 
 Um die Energie des elektromagnetischen Feldes zu bestimmen, betrachtet man ein System aus $N$ Ladungen $q_i$ an den Orten $\mathbf{r}_i$. Die Arbeit, die das elektromagnetische Feld an diesem System leistet, ist nach Glg. \eqref{eq:f_lorentz} gegeben durch
@@ -1220,7 +1217,7 @@ die Energie desselben. Somit folgt
 \frac{dU}{dt} + \frac{dW}{dt} = -\int_{\partial V}\mathbf{S}\cdot d\mathbf{n}.
 \end{align}
 %
-\subsubsection{Strahlungsgrößen}
+\subsection{Strahlungsgrößen}
 \label{sec:strahlungsgroessen}\index{Strahlungsgröße}
 
 \textit{Strahlung}\index{Strahlung} bedeutet Energietransport durch elektromagnetische Wellen. Die physikalischen Größen, die Strahlung beschreiben, werden Strahlungsgrößen genannt.
@@ -1508,7 +1505,7 @@ z
 %
 festgelegt.
 
-\subsection{Relativistische Behandlung des elektromagnetischen Feldes}
+\section{Relativistische Behandlung des elektromagnetischen Feldes}
 \label{sec:relativistische_behandlung_des_elektromagnetischen_feldes}
 
 Die Gleichungen der Potentiale Glg.en \eqref{eq:ed_pot_1} und \eqref{eq:ed_pot_2} sowie die Lorenz-Eichung \eqref{eq:lorenz-eichung} werden hier noch einmal zusammengefasst:
@@ -1676,8 +1673,8 @@ wobei jeweils zu $\mathbf{v}$ parallele und senkrechte Komponenten gemeint sind.
 \mathbf{B}_\perp & = \gamma\left(\mathbf{B'}_\perp + \frac{\mathbf{v}}{c}\times\mathbf{E'}\right).
 \end{align}
 %
-\section{Quantenmechanik}
-\label{sec:quantenmechanik}\index{Quantenmechanik}
+\chapter{\normalfont\textsc{Quantenmechanik}}
+\label{chap:quantenmechanik}\index{Quantenmechanik}
 
 Hier werden nur die Grundlagen der Quantenmechanik (QM) erklärt, für eine ausführlichere Darstellung s. \cite{fliessbach_theo_3}. In der QM wird die Bahnkurve $\mathbf{r}\left(t\right)$ durch die Wellenfunktion $\psi\left(\mathbf{r}, t\right)$ ersetzt, um den Zustand eines Teilchens ohne Spin festzulegen. $\psi$ ist i. A. komplexwertig und $\left|\psi\left(\mathbf{r}, t\right)\right|^2$ ist die Wahrscheinlichkeitsdichte, das Teilchen zur Zeit $t$ bei $\mathbf{r}$ anzutreffen. Für Funktionen $f, g:\mathbb{R}^3\to\mathbb{C}$ definiert man das unitäre Produkt $\langle|\rangle$ durch
 %
@@ -1813,7 +1810,7 @@ Die Schrödinger-Gleichung wird dann zur \textit{stationären Schrödinger-Gleic
 %
 Dies ist ein Eigenwertproblem, wobei $E$ der Eigenwert ist und $\psi\left(\mathbf{r}, t\right)$ der Eigenvektor.
 
-\subsection{Freies Teilchen}
+\section{Freies Teilchen}
 \label{sec:freies_teilchen}\index{Schrödinger-Gleichung!freies Teilchen}\index{freies Teilchen}\index{Teilchen!freies}
 
 Ein freies Teilchen der Masse $m$ bewegt sich unter Abwesenheit eines Potentials $\newhat{v}_h = 0$ entsprechend der Gleichung
@@ -1849,7 +1846,7 @@ c_{\text{gr}} = \sum_{i = 1}^{3}\frac{\partial \omega}{\partial k_i}\mathbf{e}_i
 %
 Materiewellen sind anders als elektromagnetische Wellen im Vakuum nicht dispersionsfrei. Die Gruppengeschwindigkeit ist dabei betragsmäßig doppelt so groß wie die Phasengeschwindigkeit.
 
-\subsection{Potentialtopf}
+\section{Potentialtopf}
 \label{sec:potentialtopf}\index{Potentialtopf}\index{Schrödinger-Gleichung!Potentialtopf}
 
 Der \textit{Potentialtopf} beschreibt ein Potential $V\left(x\right)$ der Form
@@ -1958,7 +1955,7 @@ E_{n_1, n_2} = \frac{\hbar^2}{2m}\frac{\pi^2}{L^2}\left(n_1^2 + n_2^2\right).
 %
 Die Energie $E = 0$ ist nicht möglich, da $n_1$ und $n_2$ nicht gleichzeitig Null sein dürfen. Dies ist in der klassischen Mechanik anders.
 
-\subsection{Potentialstufe}
+\section{Potentialstufe}
 \label{sec:potentialstufe}\index{Tunneleffekt}\index{Schrödinger-Gleichung!Potentialstufe}\index{Potentialstufe}
 
 Gegeben sei das Potential
@@ -2063,7 +2060,7 @@ Man kann als Resultat dieses Abschnitts sowie der Absch.e \ref{sec:freies_teilch
 \item Ist die Bewegung des Teilchens beschränkt, existiert ein diskretes Energiespektrum.
 \end{itemize}
 %
-\subsection{Produktwellenfunktionen}
+\section{Produktwellenfunktionen}
 \label{sec:produktwellenfunktionen}\index{Produktwellenfunktion}
 
 Sei ein eindimensionales Potential $V_x\left(x\right)$ gegeben mit zugehörigem Hamiltonian
@@ -2111,7 +2108,7 @@ Die so konstruierten Lösungen $\psi\left(x, y, z\right)$ bilden die komplette L
 %
 Mit diesen Erkenntnissen kann man beispielsweise leicht die Schrödinger-Gleichung für ein Teilchen in einem dreidimensionalen harmonischen Oszillator oder in einem dreidimensionalen Potentialtopf lösen, wenn die eindimensionalen Lösungen bekannt sind.
 
-\subsection{Harmonischer Oszillator}
+\section{Harmonischer Oszillator}
 \label{sec:harmonischer_oszillator}\index{Oszillator!harmonischer}\index{harmonischer Oszillator}\index{Schrödinger-Gleichung!harmonischer Oszillator}
 
 Der Hamiltonian $\newhat{H}$ des harmonischen Oszillators lautet
@@ -2230,8 +2227,7 @@ a_{i + 2} = a_{i}\frac{2i - \newtilde{E} + 1}{\left(i + 2\right)\left(i + 1\righ
 \end{align}
 %
 Da die geometrische Reihe $\sum_{n = 1}^{\infty}n^{-1}$ divergiert, divergiert auch $\sum_{i = 0}^{\infty}a_iu^i$. Daher muss es ein $n\in\mathbb{N}$ geben mit
-
-
+%
 \begin{center}
 \doublebox{\parbox{\textwidth}{
 \begin{center}
@@ -2291,12 +2287,12 @@ u\psi_n\left(u\right) & = \sqrt{\frac{n}{2}}\psi_{n - 1}\left(u\right) + \sqrt{\
 \frac{d\psi_n}{du}\left(u\right) & = \sqrt{2n}\psi_{n - 1}\left(u\right) - u\psi_n\left(u\right) = \sqrt{\frac{n}{2}}\psi_{n - 1}\left(u\right) - \sqrt{\frac{n + 1}{2}}\psi_{n + 1}\left(u\right)\label{eq:harm_osz_zust_prop_2}
 \end{align}
 %
-\subsection{Hilbert-Raum und Operatoren}
+\section{Hilbert-Raum und Operatoren}
 \label{sec:hilbertraum_und_operatoren}\index{Hilbert-Raum}
 
 Ein Teilchen wird in der QM beschrieben durch seine im Allgemeinen zeitabhängige Wellenfunktion $\psi\left(t\right):\mathbb{R}^3\to\mathbb{C}$. Diese Wellenfunktion bezeichnet man auch als \textit{Zustand}\index{Zustand} des Teilchens.
 
-\subsubsection{Hilbert-Raum}
+\subsection{Hilbert-Raum}
 \label{sec:hilbertraum}
 
 Die Menge aller stetig-differenzierbaren Funktionen $\mathbb{R}^3\to\mathbb{C}$ bezeichnet man in der QM als \textit{Hilbert-Raum} $H$. Die Dimension von $H$ ist unendlich. Man kann unendlich viele verschiedene Basen $\left(f_1, f_2, \dotsc\right)$ mit $f_i\in H$ für alle $i\in\mathbb{N}$ mit $i\geq 1$ von $H$ angeben. Üblicherweise wählt man Orthonormalbasen, also Basen mit
@@ -2457,7 +2453,7 @@ p\left(x\right) \coloneqq \det\left(O - x\right)
 %
 mindestens eine komplexe Nullstelle besitzt. Da $p\left(x\right)$ nach dem Hauptsatz der Algebra \index{Hauptsatz der Algebra}\index{Algebra!Hauptsatz der}über $\mathbb{C}$ in Linearfaktoren zerfällt, ist dies der Fall.
 
-\subsubsection{Hermite'sche Operatoren}
+\subsection{Hermite'sche Operatoren}
 \label{sec:Hermite'sche_operatoren}\index{Operator!Hermite'scher}\index{Hermite'scher Operator}
 
 Man bezeichnet einen Operator $\newhat{O}$ als \textit{hermitesch}, wenn gilt
@@ -2629,7 +2625,7 @@ Somit ist der Impulsoperator $\newhat{\mathbf{p}} = \sum_{j = 1}^{3}\newhat{p}_j
 %
 hermitesch.
 
-\subsubsection{Kommutierende Operatoren}
+\subsection{Kommutierende Operatoren}
 \label{sec:kommutierende_operatoren}\index{Operatoren!kommutierende}\index{kommutierende Operatoren}
 
 Der \index{Kommutator}\textit{Kommutator} $\left[\newhat{A}, \newhat{B}\right]$ zweier Operatoren $\newhat{A}, \newhat{B}$ ist definiert durch
@@ -2690,7 +2686,7 @@ B' = U^TBU = \left(\begin{array}{cccc}
 %
 mit nicht notwendigerweise verschiedenen Eigenwerten $\lambda_1, \dotsc, \lambda_n\in\mathbb{C}$ bringen. Die transformierten Basiselemente $\left|\psi_i'\right\rangle \coloneqq U\left|e_i\right\rangle$ sind als Überlagerungen der $\left|\psi_i\right\rangle$ ebenfalls Eigenfunktionen von $\newhat{A}$. Somit hat man $n$ simultane Eigenfunktionen der beiden Operatoren $\newhat{A}, \newhat{B}$ gefunden.
 
-\subsubsection{Leiteroperatoren}
+\subsection{Leiteroperatoren}
 \label{sec:leiteroperatoren}\index{Leiteroperator}\index{Erzeugungsoperator}\index{Vernichtungsoperator}
 
 Die \textit{Leiteroperatoren} (auch: Erzeugungs- und Vernichtungsoperatoren) $\newhat{a}^+$ und $\newhat{a}$ sind definiert durch
@@ -2787,7 +2783,7 @@ Für den Hamilton-Operator $\newhat{H}$ des harmonischen Oszillators gilt
 & = \frac{\hbar\omega}{4}\left(2\newhat{a}\newhat{a}^+ + 2\newhat{a}^+\newhat{a}\right) = \frac{\hbar\omega}{2}\left(2\newhat{N} + 1\right).
 \end{align}
 %
-\subsection{Unschärferelation}
+\section{Unschärferelation}
 \label{sec:unschaerferelation}\index{Unschärferelation}
 
 Seien $\newhat{A}, \newhat{B}$ zwei Operatoren und sei ein Teilchen im Zustand $\left|\psi\right\rangle$. Definiere die Varianzen $\left\langle\left(\Delta\newhat{A}\right)^2\right\rangle$, $\left\langle\left(\Delta\newhat{B}\right)^2\right\rangle$ der Operatoren $\newhat{A}, \newhat{B}$ im Zustand $\left|\psi\right\rangle$ durch
@@ -2855,7 +2851,7 @@ Dies kann man auch schreiben als
 %
 Hieraus kann man folgern, dass man die Erwartungswerte nichtkommutierender Operatoren im Allgemeinen nicht gleichzeitig beliebig genau bestimmen kann. Die Eigenwerte Hermite'scher Operatoren sind die Messgrößen der Quantenmechanik. Sei ein gebundener Zustand gegeben, der durch $N \geq 1$ Quantenzahlen festgelegt werden kann. Man bezeichnet einen Satz Hermite'scher Operatoren $\newhat{A}_1, \dotsc, \newhat{A}_N$ als \textit{vollständige Observablen}\index{vollständige Observable}\index{Observable!vollständige}, wenn die $\newhat{A}_i$ mit $1\leq i\leq N$ paarweise kommutieren. Mit dieser Voraussetzung kann man die Quantenzahlen gleichzeitig messen.
 
-\subsection{H-Atom}
+\section{H-Atom}
 \label{sec:hatom}\index{Wasserstoff}\index{H-Atom}
 
 Die Materie auf der Erde strukturiert sich in Atome, die aus einem positiv geladenen Kern aus Protonen und Neutronen der Kernladungszahl $Z\in\mathbb{N}$ mit $Z\geq 1$ bestehen, sowie aus einer Elektronenhülle. $Z$ nennt man auch die Ordnungszahl, alle Atome der gleichen Ordnungszahl fasst man zu einem \textit{chemischen Element}\index{chemisches Element}\index{Element!chemisches} zusammen. Die \textit{Massenzahl}\index{Massenzahl} $N\in\mathbb{N}$, $N\geq Z\geq 1$ entspricht der Anzahl der Protonen und Neutronen im Kern. Protonen sind einfach (in Einheiten der Elementarladung $e$) positiv geladen, Neutronen sind neutral. Atome gleicher Ordnungszahl aber unterschiedlicher Massenzahl nennt man \textit{Isotope}.\index{Isotop} Da die Elektronen ebenfalls einfach negativ geladen sind, besteht ein neutrales Atom aus genauso vielen Protonen wie Elektronen. Fehlen Elektronen oder sind zusätzliche vorhanden, so ist dies ein \textit{Ion}\index{Ion}, das Atom wurde \textit{ionisiert}.\index{Ionisation} Jedes Element erhält ein Symbol, z. B. $A$, man schreibt $_Z^NA$, wenn $A$ die Ordnungszahl $Z$ hat und Isotope der Massenzahl $N$ gemeint sind. In der Natur treten Ordnungszahlen bis 92 auf, in Kernreaktoren kann man Elemente höherer Ordnungszahl erzeugen. Für die Atmosphärenphysik ist die genaue Struktur des Kerns irrelevant, man nimmt ihn als positiv geladene Punktmasse an.
@@ -3323,7 +3319,7 @@ N & = \sum_{l = 0}^{n - 1}\sum_{m = -l}^{l}1 = \sum_{l = 0}^{n - 1}\left(2l + 1\
 %
 Dabei wurde die Gauß'sche Summenformel Glg. \eqref{eq:kleiner_gauss} verwendet. Die Wasserstoff-Eigenfunktionen zum Energie-Eigenwert $E_n$ sind also $n^2-$fach entartet. Bei Berücksichtigung des Spins und Nicht-Berücksichtigung relativistischer Korrekturen verdoppelt sich der Entartungsgrad.
 
-\subsection{Drehimpuls}
+\section{Drehimpuls}
 \label{sec:drehmomentum}\index{Drehimpuls!quantenmechanischer}\index{quantenmechanischer Drehimpuls}
 
 Der Drehimpuls $\mathbf{L}$ einer Punktmasse mit dem Impuls $\mathbf{p} = \left(p_1, p_2, p_3\right)^T$ am Ort $\mathbf{r} = \left(x_1, x_2, x_3\right)^T$ wird in der klassischen Mechanik durch
@@ -3513,13 +3509,13 @@ Unter den vier Operatoren $\newhat{\mathbf{J}}^2, \newhat{J}_x, \newhat{J}_y, \n
 mit reellen Eigenwerten $\lambda, m\in\mathbb{R}$. Nun schaut man sich die Zustände
 %
 \begin{align}
-\newhat{J}_ + \left|\lambda, m\right\rangle
+\newhat{J}_+\left|\lambda, m\right\rangle
 \end{align}
 %
 und
 %
 \begin{align}
-\newhat{J}_ - \left|\lambda, m\right\rangle
+\newhat{J}_-\left|\lambda, m\right\rangle
 \end{align}
 %
 an. Da $\newhat{\mathbf{J}}^2$ mit $\newhat{J}_\pm$ kommutiert, gilt
@@ -3716,7 +3712,7 @@ i&0
 %
 nennt man auch \textit{Pauli-Matrizen}\index{Pauli-Matrix} oder Spinmatrizen\index{Spinmatrix}.
 
-\subsection{Spin}
+\section{Spin}
 \label{sec:spin}\index{Spin}
 
 Es stellt sich die Frage, ob die halbzahligen Zustände überhaupt physikalische Relevanz haben, oder nur rein mathematische Phänomene sind. Tatsächlich beschreiben diese Zustände die intrinsischen Eigendrehmomentume der Elementarteilchen, eben den \textit{Spin}. Experimentell kann man nur die Richtung, nicht aber den Betrag des Spins verändern, der eine Teilcheneigenschaft ist, genau wie die Ladung und die Masse. Er ist nicht an eine rotierende Massenverteilung geknüpft, also kein Drehimpuls im rein Sinn.
@@ -3795,10 +3791,10 @@ Die \textit{Pauli-Gleichung}\index{Pauli-Gleichung} lautet damit
 %
 für einen Spinor $\left|\psi\left(\mathbf{r}, t\right)\right\rangle$, s. Glg. \eqref{eq:spinor}.
 
-\subsection{Störungstheorie}
+\section{Störungstheorie}
 \label{sec:stoerungstheorie}\index{Störungstheorie}
 
-\subsubsection{Zeitunabhängiger Fall}
+\subsection{Zeitunabhängiger Fall}
 \label{sec:zeitunabhaengiger_fall}\index{Störungstheorie!zeitunabhängige}\index{zeitunabhängige Störungstheorie}
 
 Sei ein Eigenwertproblem
@@ -4008,7 +4004,7 @@ Diese Zustände sind orthonormal. Seien nämlich $k, m\in\mathbb{N}$ mit $1\leq 
 \left\langle\psi_k\newvline\psi_m\right\rangle & = \sum_{l = 1}^{\infty}C_l^{(k)\star}C_l^{(m)} = \left\langle\mathbf{C}^{(k)}\newvline\mathbf{C}^{(m)}\right\rangle = \delta_{m, n}.
 \end{align}
 %
-\subsubsection{Spin-Bahn-Kopplung im H-Atom}
+\subsection{Spin-Bahn-Kopplung im H-Atom}
 \label{sec:spinbahnkopplung_im_hatom}
 
 Die \textit{Spin-Bahn-Kopplung}\index{Spin-Bahn-Kopplung} beschreibt den Effekt der Wechselwirkung des magnetischen Moments des Elektrons mit dem Magnetfeld des Kerns; es handelt sich um einen relativistischen Effekt, da die Kernbewegung durch eine Koordinatentransformation in das Ruhesystem des Elektrons entsteht. Dieser Effekt wird hier im H-Atom in erster Ordnung Störungstheorie behandelt.
@@ -4188,7 +4184,7 @@ als Zusammenfassung
 %
 Relativistische Effekte haben also einen Einfluss auf die Eigenenergien im H-Atom und somit auch auf das Spektrum.
 
-\subsubsection{Zeitabhängiger Fall}
+\subsection{Zeitabhängiger Fall}
 \label{sec:zeitabhaengiger_fall}\index{Störungstheorie!zeitabhängige}\index{zeitabhängige Störungstheorie}
 
 Bisher wurden nur zeitlich konstante Störungen $\newhat{V}$ betrachtet, nun wird eine Zeitabhängigkeit $\newhat{V}\left(t\right)$ zugelassen. In die zeitabhängige Schrödinger-Gleichung
@@ -4342,7 +4338,7 @@ Für $E_k>E_n$ ist das Minuszeichen zu verwenden. Im Falle einer zeitunabhängig
 R_{n\to k} = \frac{2\pi}{\hbar}\left|\left\langle\psi_k^{(0)}\left|\newhat{V}_\pm\right|\psi_n^{(0)}\right\rangle\right|^2\delta\left(E_k - E_n\right).\label{eq:ubergangsraten_konst}
 \end{align}
 %
-\subsubsection{Übergänge im H-Atom}
+\subsection{Übergänge im H-Atom}
 \label{sec:uebergaenge_im_hatom}\index{Übergang im H-Atom}\index{H-Atom!Übergang}
 
 Nehme ein Vektorpotential der Form
@@ -4474,10 +4470,10 @@ mit hier nicht relevanten Koeffizienten $\alpha, \beta, \gamma, \delta$. Somit h
 \Delta m & = 0, \pm 1.
 \end{align}
 %
-\subsubsection{Relativistische Korrekturen im H-Atom}
+\subsection{Relativistische Korrekturen im H-Atom}
 \label{sec:relativistische_korrekturen_im_hatom}\index{H-Atom!relativistische Korrektur}\index{Relativistik!H-Atom}
 
-\subsection{Mehrteilchensysteme}
+\section{Mehrteilchensysteme}
 \label{sec:mehrteilchensysteme}\index{Mehrteilchensystem}
 
 Sei $N\in\mathbb{N}$ mit $N\geq1$ und seien $N$ Teilchen mit Spin gegeben. Der Zustand eines solchen Systems wird durch eine Wellenfunktion
@@ -4530,7 +4526,7 @@ gilt. Wendet man hierauf nun $\newhat{P}_{i, j}$ an, folgt
 %
 also $\psi = 0$, was ein Widerspruch zur Normierungsbedingung ist. Zwei Fermionen können also nur dann die gleiche Wellenfunktion haben (das gleiche Orbital einnehmen), wenn sie einen unterschiedlichen Spin habe. Dies ist bei Bosonen nicht der Fall. Diese Abstoßung von Fermionen beruht nicht auf einer Kraft, sondern auf Symmetrieeigenschaften ihrer Wellenfunktion, was als \textit{Pauli-Prinzip}\index{Pauli-Prinzip} bekannt ist.
 
-\subsubsection{Molekülspektren}
+\subsection{Molekülspektren}
 \label{sec:molekuelspektren}\index{Molekülspektrum}
 
 Um die Wechselwirkung von Strahlung mit in der Atmosphäre vorhandener Materie zu berechnen, reicht das Planck'sche Strahlungsgesetz nicht aus. Man braucht auch die Spektren, das heißt die Energieniveaus und Übergangswahrscheinlichkeiten von Molekülen unter Anregung durch Dipolstrahlung. Ein H$_2$O-Molekül besteht aus zehn Elektronen, um den Zustand der Elektronenhülle bei Diskretisierung jeder Achse in zehn Intervalle (was kaum ausreichen dürfte) abzuspeichern, bräuchte man also bereits
@@ -4553,7 +4549,7 @@ an Speicherplatz, was derzeit unrealistisch viel ist. Will man Spektren theoreti
 \item Dichtefunktionaltheorie
 \end{itemize}
 %
-\subsubsection{Chemische Reaktionen}
+\subsection{Chemische Reaktionen}
 \label{sec:chemische_reaktionen}\index{chemische Reaktion}\index{Reaktion!chemische}
 
 \textit{Chemische Reaktionen} sind Stoffumwandlungen. Sei ein Gemisch aus $N\in\mathbb{N}$ Komponenten gegeben mit $N\geq1$ und seien die Teilchendichten durch $n_i$ gegeben mit $1\leq i\leq N$. Definiere für $1\leq j, k\leq N$ die Zahl $U_{j, k}$ durch die Rate, mit der sich der Stoff $k$ in den Stoff $j$ umwandelt (Dimension: Teilchen pro Zeit und Volumen). Dann gilt für $1\leq i\leq N$ 
@@ -4564,8 +4560,8 @@ an Speicherplatz, was derzeit unrealistisch viel ist. Will man Spektren theoreti
 %
 Findet dies in der Atmosphäre statt, ändert sich dadurch die Zusammensetzung der Luft und somit auch die Gaskonstante $R_d=\frac{R}{M_d}$. Die Matrix $\overleftrightarrow{v}$ hängt von den thermodynamischen Größen, dem Strahlungsfeld sowie den vorhandenen Stoffdichten ab.
 
-\section{Statistische Physik}
-\label{sec:statistische_physik}\index{Physik!statistische}\index{statistische Physik}
+\chapter{\normalfont\textsc{Statistische Physik}}
+\label{chap:statistische_physik}\index{Physik!statistische}\index{statistische Physik}
 
 In der statistischen Physik geht es um makroskopische Systeme. Klassisch wird der Zustand $r$ eines Systems aus $N$ Teilchen durch $2f$ reelle Zahlen
 %
@@ -4713,7 +4709,7 @@ Die Entropie $S$ ist im Gleichgewicht maximal. Bei Nicht-Gleichgewichtsprozessen
 }}
 \end{center}
 %
-\subsection{Mikrokanonisches Ensemble}
+\section{Mikrokanonisches Ensemble}
 \label{sec:mikrokanonisches_ensemble}\index{mikrokanonisches Ensemble}\index{Ensemble!mikrokanonisches}
 
 Nach Glg. \eqref{eq:deriv_h_theorem} gilt im Gleichgewicht
@@ -4987,7 +4983,7 @@ c^{(p)} \coloneqq \frac{1}{m}C^{(p)}
 %
 und analog für $c^{(V)}$.
 
-\subsection{Kanonisches und großkanonisches Ensemble}
+\section{Kanonisches und großkanonisches Ensemble}
 \label{sec:kanonisches_und_grosskanonisches_ensemble}
 
 Das \index{kanonisches Ensemble}\index{Ensemble!kanonisches}\textit{kanonische Ensemble} besteht aus Systemen $A$, die im Wärmeaustausch mit großen, sie umgebenden Systemen $B$ stehen, sogenannten \textit{Badsystemen}\index{Badsystem}. Es besteht jedoch kein Teilchen- oder $x_i-$Austausch. Das aus $A$ und $B$ bestehende Gesamtsystem sei abgeschlossen, sodass das mikrokanonische Ensemble verwendet werden kann. Dann gilt für die Gesamtenergie
@@ -5332,7 +5328,7 @@ d\mu = -sdT + vdp,\label{eq:gibbs-duhem}
 %
 was man als \textit{Gibbs-Duhem-Relation}\index{Gibbs-Duhem-Relation} bezeichnet.
 
-\subsection{Ideales Gas}
+\section{Ideales Gas}
 \label{sec:ideales_gas}\index{Gas!ideales}\index{ideales Gas}
 
 Ein \textit{ideales Gas} ist ein Gas, in dem die Teilchen nicht miteinander wechselwirken. Der Hamilton-Operator eines idealen Gases aus $N$ Teilchen lautet
@@ -5609,7 +5605,7 @@ q&\approx \epsilon'\frac{p_v}{p},\\
 r&\approx \epsilon'\frac{p_v}{p}.\label{eq:mischungsverhaeltnis_vereinfacht}
 \end{align}
 %
-\subsection{Klassische Systeme}
+\section{Klassische Systeme}
 \label{sec:klassische_systeme}
 
 Klassische Phasenraumkoordinaten sind kontinuierlich und daher statistisch schwer zu fassen. Leichter sind halbklassische Herleitungen, bei denen man von der QM ausgeht und anschließend den klassischen Übergang $\hbar\to0$ durchführt.
@@ -6090,7 +6086,7 @@ e\left(t\right) = 6,112\exp\left(\frac{22, 46t}{272, 62 + t}\right),
 %
 wobei $t$ die Temperatur in $^\circ$C und $e$ den jeweiligen Sättigungsdampfdruck in hPa bezeichnet.
 
-\subsubsection{Osmotischer Druck}
+\subsection{Osmotischer Druck}
 \label{sec_osmotischer_druck}\index{osmotischer Druck}\index{Druck!osmotischer}
 
 Wir nehmen eine Lösung\index{Lösung} eines Stoffes $B$ in einem Stoff $A$ an, wobei die Stoffe nicht miteinander wechselwirken. Für die Zustandssumme\index{Zustandssumme} $\Omega$ des Systems gilt dann
@@ -6131,7 +6127,7 @@ p_\text{osm} = k_BTn_B\label{eq:vant_hoff_law}
 %
 mit der Konzentration $n_B\coloneqq\frac{N_B}{V}$ des gelösten Stoffes. Glg. \eqref{eq:vant_hoff_law} bezeichnet man als \textit{van't Hoff'sches Gesetz}\index{van't Hoff'sches Gesetz}\index{Gesetz!van't Hoff'sches}.
 
-\subsubsection{Dampfdruck über einer Salzlösung}
+\subsection{Dampfdruck über einer Salzlösung}
 \label{sec:dampfdruck_ueber_einer_salzloesung}\index{Dampfdruck!über einer Salzlösung}\index{Salzlösung!Dampfdruck}
 
 Bei gegebenem Druck $p$ liegt bei einer Temperatur $T_s$ der Phasenübergang zwischen der Phase $A$, welche flüssig sei (z. B. Wasser), und der Phase $C$, welche gasförmig oder fest sei, vor. Dies wird durch eine Funktion $p_S = p_S\left(T_s\right)$ beschrieben, welche Lösung der Clausius-Clapeyron-Gleichung\index{Clausius-Clapeyron-Gleichung} Glg. \eqref{eq:clausius-clapeyron} ist. Löst man nun einen Stoff $B$ in $A$ (z. B. Salz), der auf $A$ beschrämkt sei, verschiebt sich $T_s$ um $\Delta T_s$. Bezeichne
@@ -6223,7 +6219,7 @@ Hier lassen sich zwei Fälle unterscheiden:
 \item $C$ ist fest: Dies impliziert $L_{A\to C} < 0$, was wiederum auf $\Delta T_s < 0$ führt, was einer Gefrierpunkterniedrigung\index{Gefrierpunkterniedrigung} entspricht. Dies mindert den Gefrierpunkt von Ozeanwasser auf unter Null Grad Celsius.
 \end{itemize}
 
-\subsection{Kapillarität}
+\section{Kapillarität}
 \label{sec:kapillaritaet}\index{Kapillarität}
 
 Man stelle sich eine Grenzfläche $A$ vor, die mit dem $\mathbb{R}^2$ zusammenfällt. Dehnt man diese um einen Faktor $d\epsilon$ in x-Richtung aus, kann man dies als Ausführung der Abbildung
@@ -6292,7 +6288,7 @@ p_r = -\frac{2\sigma}{r}.\label{eq:capillary_pressure}
 }}
 \end{center}
 
-\subsubsection{Kelvin-Gleichung}
+\subsection{Kelvin-Gleichung}
 \label{sec:kelvin-formal}\index{Kelvin-Gleichung}
 
 Bisher wurde angenommen, dass die Phasengrenze eben ist bzw. dass die Oberflächenspannung\index{Oberflächenspannung} Null ist. Im allgemeinen ist die Gleichgewichtsbedingung Glg. \eqref{eq:cond_chemical_pot_equilibrium} vom Radius $R$ der Grenzfläche abhängig:
@@ -6392,7 +6388,7 @@ ist die Sättigungsfeuchte\index{Sättigungsfeuchte} über einer gekrümmten Obe
 \end{center}
 \end{figure}
 
-\subsection{Photonengas}
+\section{Photonengas}
 \label{sec:photonengas}\index{Photonengas}
 
 Man stelle sich einen Hohlraum der Temperatur $T$ vor, der im Gleichgewicht mit elektromagnetischer Strahlung steht. Gesucht ist die spektrale Energiedichte $u\left(\omega\right)$ im Hohlraum. Die Eigenschaften elektromagnetischer Wellen wurden in Absch. \ref{sec:elektromagnetische_wellen} besprochen. Es handelt sich um Transversalwellen. Zeigt der Wellenvektor in z-Richtung, $\mathbf{k} = k\mathbf{e}_z$, folgt im Fall stehender Wellen für das elektrische Feld
@@ -6604,13 +6600,13 @@ Dies bezeichnet man als \textit{Kirchhoff'sches Strahlungsgesetz}\index{Kirchhof
 %
 Körper mit $\epsilon\left(\vartheta, \varphi, \omega\right) = 1$ bezeichnet man als \textit{schwarze Körper}, \index{schwarzer Körper}\index{Körper!schwarzer} das Stefan-Boltzmann-Gesetz gilt also nur für schwarze Körper.
 
-\chapter{\normalfont\textsc{Herrschende Gleichungen}}
-\label{sec:herrschende_gleichungen}\index{herrschende Gleichung}\index{Gleichungen!herrschende}
+\part{Herrschende Gleichungen}
+\label{part:herrschende_gleichungen}\index{herrschende Gleichung}\index{Gleichungen!herrschende}
 
 Die herrschenden Gleichungen bilden das die zeitliche Entwicklung der Atmosphäre festlegende Gleichungssystem. Zunächst muss jedoch ihr Zustand beschrieben werden können.
 
-\section{Zustand der Atmosphäre}
-\label{sec:zustand_der_atmosphaere}\index{Zustand!der Atmosphäre}\index{Atmosphäre!Zustand}
+\chapter{\normalfont\textsc{Zustand der Atmosphäre}}
+\label{chap:zustand_der_atmosphaere}\index{Zustand!der Atmosphäre}\index{Atmosphäre!Zustand}
 
 Ein Teilchen ist ein kleines Luftvolumen $\Delta V$, was so groß ist, dass im langzeitlichen Mittel eine so große Anzahl Gasmoleküle darin enthalten ist, dass von einem kontinuierlichen Materiebild ausgegangen werden kann. Die Atmosphäre $A\subseteq\mathbb{R}^3$ offen ist die Gashülle der Erde. Die Offenheit ist sinnvoll, damit in jedem Punkt eine Richtungsableitung in jede Richtung möglich ist. Die Definition der Obergrenze hängt vom zu behandelnden Problem ab. An der Untergrenze wird die Atmosphäre durch die Erdoberfläche begrenzt, inklusive der dort stattfindenden Bewegungen, somit ist die Menge $A$ zeitabhängig, $A = A\left(t\right)$. Alle meteorologischen Felder werden als so oft differenzierbar vorausgesetzt, wie es für die Rechnungen benötigt wird. \textit{Luft}\index{Luft} besteht aus \textit{trockener Luft}\index{Luft!trockene}\index{trockene Luft} und \textit{Tracern}\index{Tracer}. Zu diesen zählen:
 %
@@ -6621,7 +6617,7 @@ Ein Teilchen ist ein kleines Luftvolumen $\Delta V$, was so groß ist, dass im l
 \item in variabler Konzentration vorhandene gasförmige Komponenten
 \end{itemize}
 %
-\subsection{Gasphase}
+\section{Gasphase}
 \label{sec:gasphase}\index{Gasphase}
 
 \textit{Feuchte Luft}\index{Luft!feuchte}\index{feuchte Luft} ist eine Mischung aus trockener Luft und Wasserdampf. Die Anzahl der berücksichtigen \textit{Tracerklassen}\index{Tracerklasse}, insbesondere der \textit{Kondensatklassen}\index{Kondensatklasse}, wird dann als genügend angesehen, wenn falsche Vorhersagen nicht mehr auf Grobheiten im für die Vorhersage verwendeten Gleichungssystem, sondern auf Fehler in den Anfangs- und/oder Randbedingungen zurückzuführen sind. Folgende Zustandsgrößen werden definiert:
@@ -6646,7 +6642,7 @@ wobei $\mathbf{v}_i^{(g)}$ die Geschwindigkeit des $i-$ten Moleküls des gasför
 
 \end{itemize}
 
-\subsection{Zweiter Kontinuumsübergang}
+\section{Zweiter Kontinuumsübergang}
 \label{sec:zweiter_kontinuumsuebergang}\index{Zweiter Kontinuumsübergang}\index{Kontinuumsübergang!Zweiter}
 
 Die Herleitung der Navier-Stokes-Gleichungen\index{Navier-Stokes-Gleichung} beruht auf einer kontinuierlichen Vorstellung von Materie, welche durch einen Kontinuumsübergang\index{Kontinuumsübergang} motiviert wurde. Der Kontinuumsübergang ist eine heuristische Idee, die auf der Annahme beruht, dass Materie irgendwann kontinuierlich wird, wenn man nur so weit herauszoomt, dass die Grobkörnigkeit der Materie in Form von Atomen und Molekülen verschwimmt. Mathematisch bedeutet dies, anstatt eine Anzahl von Bahnkurven stetig differenzierbare Felder zur Beschreibung des Systems zu verwenden.
@@ -6721,12 +6717,12 @@ p = T_gR_g\rho_g'.
 }}
 \end{center}
 
-\subsubsection{Deskriptiver Informationsverlust}
+\subsection{Deskriptiver Informationsverlust}
 \label{sec:deskriptiver_informationsverlust}\index{Wolkenmikrophysik!Informationsverlust!deskriptiver}\index{Informationsverlust!deskriptiver!Wolkenmikrophysik}
 
 In der statistischen Physik\index{statistische Physik}\index{Physik!statistische} geht man bei der Beschreibung vom Mikrozustand\index{Mikrozustand} zum Makrozustand\index{Makrozustand} über und sieht diese Beschreibung als statistisch vollständig an. In ähnlicher Weise kann man sich fragen, ob die in den vorangegangenen beiden Abschnitten entwickelte Beschreibung vollständig ist. Sie wäre dies (unter Annahme des Zweiten Kontinuumsübergangs) nur dann, wenn man unendlich viele Tracerklassen einführt und in jeder Teilchenklase wiederum eine kontinuierliche Temperaturverteilung annimmt. Bis auf die einschränkende Annahme, dass alle Teilchen einer Tracerklasse\index{Tracerklasse} die gleiche Temperatur haben, hat die obige Beschreibung also das Potential eine unter gewissen Annahmen vollständige Beschreibung zu sein.
 
-\section{Forcings und Zeitableitungen}
+\subsection{Forcings und Zeitableitungen}
 \label{sec:forcings_und_zeitableitungen}\index{Forcing}
 
 Phasenübergangsraten spielen für den Ersten Hauptsatz der Thermodynamik eine Rolle, da sie mit latenten Wärmeflüssen verbunden sind, genauso wie für die Kontinuitätsgleichungen, die sie Massenflüsse sind. Der Erste Hauptsatz wird jedoch materiell für ein bestimmtes Teilchen formuliert und nicht lokalzeitlich wie die Kontinuitätsgleichung. Es stellt sich die Frage, ob bei den Phasenübergangsraten eine Unterscheidung zwischen totaler und lokalzeitlicher Ableitung auftritt, da es sich bei diesen Größen ja auch um Zeitableitungen handelt. Um diese Frage zu beantworten, stelle man sich ein Messgerät vor, welches die Masse $m\left(t\right)$ misst, die bis zu einem Zeitpunkt $t>0$ in einem ortsfesten Kontrollvolumen $V$ die Phase gewechselt habe. Für die Phasenübergangsrate $q$ misst man
@@ -6776,8 +6772,8 @@ Nach dem Hauptsatz der Differenzial- und Integralrechnung folgt
 %
 Also ist $q - q' = 0$ für den Grenzfall $t\to 0$. Für die Phasenübergangsraten misst man also im System des Teilchens das Gleiche wie im ruhenden System, sodass hier die Unterscheidung zwischen totaler und lokalzeitlicher Zeitableitung nicht auftritt. Dies gilt analog für alle anderen Quellstärken und Forcings.
 
-\section{Kontinuitätsgleichungen}
-\label{sec:kontinuitaetsgleichungen}\index{Kontinuitätsgleichung}
+\chapter{\normalfont\textsc{Kontinuitätsgleichungen}}
+\label{chap:kontinuitätsgleichungen}\index{Kontinuitätsgleichung}
 
 Die Kontinuitätsgleichung ist die Bilanzgleichung der Masse. Sei $\Omega\subseteq\mathbb{R}^3$ eine offene Teilmenge, $\rho$ eine Dichte und $\mathbf{j}$ die entsprechende Flussdichte. Dann gilt mit dem Gaußchen Satz und einer Quelldichte $Q$
 %
@@ -6895,7 +6891,7 @@ Q_v^{\left(\pm\text{Entstehung}\right)} & = \sum_{j}^{}\newtilde{q}_{j, v}' - \n
 Q_i^{\left(\pm\text{Entstehung}\right)} & = \newtilde{q}_{v, i}' - \newtilde{q}_{i, v}'.
 \end{align}
 %
-Große Kondensationsprodukte wie Hagelkörner entstehen nicht instantan, sondern sie wachsen, u. a. durch Kondensation bzw. Resublimation von Wasserdampf an kleineren Partikeln. In umgekehrter Weise können sie auch wieder vergehen. Während eines Zeitintervalls $\Delta t$ kondensiere oder resublimiere innerhalb eines Volumens $\Delta V$ eine Masse $m_i$ an Partikeln der Klasse $i$. Diese wachsen dadurch und werden schwerer, jedoch wurde in Absch. \ref{sec:zustand_der_atmosphaere} festgelegt, dass alle Partikel der Klasse $i$ die gleiche Masse $\newtilde{m}_i$ haben sollen. Ist dies der einzige Prozess der stattfindet, gilt wegen Massenerhaltung
+Große Kondensationsprodukte wie Hagelkörner entstehen nicht instantan, sondern sie wachsen, u. a. durch Kondensation bzw. Resublimation von Wasserdampf an kleineren Partikeln. In umgekehrter Weise können sie auch wieder vergehen. Während eines Zeitintervalls $\Delta t$ kondensiere oder resublimiere innerhalb eines Volumens $\Delta V$ eine Masse $m_i$ an Partikeln der Klasse $i$. Diese wachsen dadurch und werden schwerer, jedoch wurde in Kap. \ref{chap:zustand_der_atmosphaere} festgelegt, dass alle Partikel der Klasse $i$ die gleiche Masse $\newtilde{m}_i$ haben sollen. Ist dies der einzige Prozess der stattfindet, gilt wegen Massenerhaltung
 %
 \begin{align}
 \rho_{g\left(i\right)}\left(t\right)\Delta V + m_i = \rho_{g\left(i\right)}\left(t + \Delta t\right)\Delta V.
@@ -6960,8 +6956,8 @@ Häufig wird auch die spezifische Feuchte\index{spezifische Feuchte}\index{Feuch
 %
 Die Quellterme von $q$ sind diejenigen von $\rho_i$ dividert durch die Dichte des Mediums $\rho$.
 
-\section{Impulsgleichung}
-\label{sec:impulsgleichung}\index{Impulsgleichung}
+\chapter{\normalfont\textsc{Impulsgleichung}}
+\label{chap:impulsgleichung}\index{Impulsgleichung}
 
 Der Impuls $\mathbf{p}$ eines Teilchens $\Delta V$ mit $N_h$ Gasmolekülen und $N_c$ Kondensatkernen ist durch
 %
@@ -7095,7 +7091,7 @@ Mit der Kontinuitätsgleichung erhält man schlussendlich
 \frac{\partial\mathbf{v}}{\partial t} + \left(\mathbf{v}\cdot\nabla\right)\mathbf{v} = -\frac{1}{\rho}\nabla p + \mathbf{g}.
 \end{align}
 %
-\subsection{Scheinkräfte}
+\section{Scheinkräfte}
 \label{sec:scheinkraefte}\index{Scheinkraft}
 
 Die Newton'schen Axiome gelten nur in Inertialsystemen. In Bezug auf die Erde betrachtet man den Erdmittelpunkt als unbeschleunigt, auch wenn er um die Sonne kreist, und betrachtet nur die Rotation der Erde. Sei durch $(\mathbf{e}_1, \mathbf{e}_2, \mathbf{e}_3)$ die Basis der ruhenden Koordinaten bezeichnet (vgl. Absch. \ref{sec:konvention_ueber_koordinatensysteme}). Wenn man Beschleunigungen in diesem KS misst, kann man sie über das Zweite Newton'sche Axiom mit den wirkenden Kräften verknüpften. Wählt man jedoch eine mit der Winkelgeschwindigkeit der Erde rotierende Basis, entstehen weitere Beschleunigungsterme, die sich nicht durch physikalische Kräfte ergeben. Für die Basis der globalen Koordinaten gilt in ruhenden Koordinaten
@@ -7170,7 +7166,7 @@ dabei ist $\left(\md{\mathbf{v}'}\right)'$ die im rotierenden System gemessene B
 Der ortsabhängige Term $-\omegabi\times\left(\omegabi\times 
 \mathbf{r}\right)$ ist die Zentrifugalbeschleunigung, der geschwindigkeitsabhängige Term $-2\omegabi\times\mathbf{v'}$ ist die Coriolis-Beschleunigung. Für die IS-Beschleunigung $\md{\mathbf{v}}$ sind dabei die Beschleunigungen einzusetzen, die sich nach dem Zweiten Newton'schen Axiom aus den Kräften ergeben. Insbesondere sei darauf hingewiesen, dass die Coriolis-Kraft keine Arbeit leistet, da sie senkrecht auf dem Geschwindigkeitsvektor steht.
 
-\subsection{Stress-Tensor}
+\section{Stress-Tensor}
 \label{sec:stress-tensor}\index{Stress-Tensor}
 
 Als \textit{stress}\index{Stress} bezeichnet man alle Kräfte, die ein Fluid auf sich selber ausübt. O. B. d. A. stelle man sich einen Würfel vor, dessen Seiten parallel zu den Koordinatenflächen\index{Koordinatenfläche} eines kartesichen Koordinatensystems\index{kartesisches Koordinatensystem}\index{Koordinatensystem!kartesisches} seien. Der Stress wird duch den \textit{Stress-Tensor}\index{Stress-Tensor}
@@ -7398,7 +7394,7 @@ für die Reibungsbeschleunigung mitgeführt. Dies ist trotz der relativen Kleinh
 
 Eine Skalenanalyse der Reibungsbeschleunigung für die synoptische Skala ergibt $10^{-5}10^{-11} = 10^{-16}$ m/s$^2$, die typische Beschleunigung ist $10^{-4}$ m/s$^2$, die Reibung ist also auf der synoptischen Skala zwölf Größenordnungen kleiner als die Beschleunigung und damit komplett vernachlässigbar. Sie hat nichtsdestotrotz eine wichtige thermodynamische Bedeutung, da sie für die Dissipation kinetischer Energie verantwortlich ist. Die dissipierte kinetische Energie wird in thermische Energie umgewandelt. Fluide ohne Reibung bezeichnet man als \textit{ideale Fluide}\index{ideales Fluid}\index{Fluid!ideales}.
 
-\subsubsection{Inkompressibler Grenzfall}
+\subsection{Inkompressibler Grenzfall}
 \label{sec:inkompressibler_grenzfall}\index{Stress-Tensor!Grenzfall!inkompressibler}\index{Stress-Tensor!inkompressibler Grenzfall}
 
 Im Falle von Inkompressibilität\index{Inkompressibilität} gilt wegen $S_{m, m} = \nabla\cdot\mathbf{v} = 0$ die Gleichung
@@ -7419,7 +7415,7 @@ Hieraus folgt
 }}
 \end{center}
 
-\subsubsection{Dissipation}
+\subsection{Dissipation}
 \label{sec:dissipation}\index{Dissipation}
 
 Der Reibungsterm $\mathbf{f}_R$ dissipiert spezifische kinetische Energie $k = \frac{1}{2}\mathbf{v}^2$ in innere Energie $i = c^{(v)}T$. Die Impulsgleichung in einem IS lautet
@@ -7496,7 +7492,7 @@ Es wird als Resultat dieses Abschnitts
 %
 notiert.
 
-\subsubsection{Thermodynamische Bedeutung der Reibung}
+\subsection{Thermodynamische Bedeutung der Reibung}
 \label{sec:thermodynamische_bedeutung_der_reibung}\index{Thermodynamik!Reibung}\index{Reibung!thermodynamische Bedeutung}
 
 Üblicherweise stellt man sich die Reibung\index{Reibung} als eine bremsende Kraft vor. Dies ist in Fluiden nicht immer der Fall. Um dies einzusehen, wird von dem eindimensionalen Strömungsfeld
@@ -7641,7 +7637,7 @@ Somit gilt auch im kompressiblen Fall
 }}
 \end{center}
 
-\subsubsection{Thermodynamische Bedeutung der Dissipation}
+\subsection{Thermodynamische Bedeutung der Dissipation}
 \label{sec:thermodynamische_bedeutung_der_dissipation}\index{Thermodynamik!Dissipation}\index{Dissipation!thermodynamische Bedeutung}
 
 Es gilt nach Glg. \eqref{eq:dissipation}
@@ -7721,7 +7717,7 @@ Durch zyklische Vertauschung folgt dies auch für die anderen Raumrichtungen. Es
 }}
 \end{center}
 
-\subsection{Addition der Kräfte}
+\section{Addition der Kräfte}
 \label{sec:addition_der_kraefte}\index{Impulsgleichung}
 
 Setzt man Glg. \eqref{eq:transformkraft} und Glg. \eqref{eq:friction_acceleration} in Glg. \eqref{eq:newton_II_fluid} ein, so ergibt sich
@@ -7809,7 +7805,7 @@ Setzt man dies in die Bewegungsgleichung ein, folgt
 }}
 \end{center}
 
-\subsection{Randbedingungen}
+\section{Randbedingungen}
 \label{sec:randbedingungen_impulsgleichung}\index{Randbedingung}
 
 Will man ein differenzialgleichungssystem auf eine Menge $\Omega$ anwenden, benötigt man Randbedingungen. $\Omega$ sei durch kondensierte Materie begrenzt. Sei $\mathbf{n}$ ein Normalenvektor auf $\partial\Omega$, dann gilt als Randbedingung für das Windfeld $\mathbf{v}$
@@ -7834,15 +7830,15 @@ Ist das Druckfeld stetig, so gilt an einer Phasengrenze $A$
 %
 wobei die zwei Grenzwerte für die unterschiedlichen Seiten der Phasengrenzfläche stehen. Dies gilt bis auf eine eventuell vorhandene Oberflächenspannung, bei der es sich ja gerade um eine Diskontinuität im Druckfeld an einer Grenzfläche handelt. Glg. \eqref{eq:boundary_cond_dynamic} bezeichnet man als \textit{dynamische Randbedingung}\index{dynamische Randbedingung}\index{Randbedingung!dynamische}.
 
-\section{Erster Hauptsatz in der Atmosphäre}
-\label{sec:first_theorem_in_der_atmosphaere}\index{Erster Hauptsatz der Thermodynamik!in der Atmosphäre}\index{Thermodynamik!Erster Hauptsatz!in der Atmosphäre}
+\chapter{\normalfont\textsc{Erster Hauptsatz in der Atmosphäre}}
+\label{chap:first_theorem_in_der_atmosphaere}\index{Erster Hauptsatz der Thermodynamik!in der Atmosphäre}\index{Thermodynamik!Erster Hauptsatz!in der Atmosphäre}
 
-\subsection{Ideales einatomiges Gas}
+\section{Ideales einatomiges Gas}
 \label{sec:ideales_einatomiges_gas}
 
 In diesem Abschnitt soll es um die Thermodynamik einer Atmosphäre gehen, die aus einem idealen, einatomigen Gas\index{ideales Gas!einatomiges}\index{Gas!ideales!einatomiges} mit der individuellen Gaskonstante\index{Gaskonstante!individuelle}\index{individuelle Gaskonstante} $R_s$ besteht.
 
-\subsubsection{Temperatur als prognostische Variable}
+\subsection{Temperatur als prognostische Variable}
 \label{sec:temperatur_als_prognostische_variable}
 
 Der Ausgangspunkt ist Glg. \eqref{eq:td_1_id_gas}. Durch Differenziation nach der Zeit ergibt sich
@@ -7953,7 +7949,7 @@ Mit $R_s = c^{(p)} - c^{(v)}$ kann man dies zu
 %
 umschreiben.
 
-\subsubsection{Hydrostatischer Grenzfall}
+\subsection{Hydrostatischer Grenzfall}
 \label{sec:hydrostatischer_grenzfall}
 
 Leitet man die Zustandsgleichung zeitlich ab, folgt
@@ -7987,7 +7983,7 @@ dies definiert den \text{Stabilitätsparameter}\index{Stabilitätsparameter} $S_
 }}
 \end{center}
 
-\subsubsection{Adiabatische Grenzfälle}
+\subsection{Adiabatische Grenzfälle}
 \label{sec:adiabatische_grenzfaelle}
 
 Ein Prozess ist adiabatisch, wenn keine Wärme übertragen wird, $dQ = 0$. Der Erste Hauptsatz lautet dann mit den Zustandsgrößen des idealen Gases
@@ -8035,7 +8031,7 @@ und durch Koeffizientenvergleich erhält man
 %
 $\kappa > 1$ bezeichnet man als den Adiabaten- oder Isentropenexponenten.
 
-\subsubsection{Potentielle Temperatur als prognostische Variable}
+\subsection{Potentielle Temperatur als prognostische Variable}
 \label{sec:potentielle_temperatur_als_prognostische_variable}
 
 Die \textit{potentielle Temperatur}\index{Temperatur!potentielle}\index{potentielle Temperatur} $\theta$ ist die Temperatur, die ein Gaspaket hätte, brächte man es adiabatisch auf einen willkürlichen Referenzdruck $p_0$. Ersetzt man mittels der Zustandsgleichung in der Adiabaten Glg. \eqref{eq:adiabate} das Volumen durch die Temperatur, erhält man
@@ -8149,7 +8145,7 @@ hinzu, folgt
 %
 Diese Form bezeichnet man auch als \textit{Flussform}\index{Flussform}, wohingegen Glg. \eqref{eq:td1_dry_pot} \textit{Advektionsform}\index{Advektionsform} hat. Die Flussform lässt sich als eine formale Kontinuitätsgleichung verstehen.
 
-\subsubsection{Druck als prognostische Variable}
+\subsection{Druck als prognostische Variable}
 \label{sec:druck_als_prognostische_variable}
 
 Nun soll noch die Definition der potentiellen Temperatur\index{potentielle Temperatur}\index{Temperatur!potentielle} in die Zustandsgleichung eingesetzt werden:
@@ -8217,7 +8213,7 @@ Man stellt fest:
 %
 \begin{align}
 -c^{(v)}\theta\rho\nabla\Pi + R_s\Pi\nabla\left(\rho\theta\right) & = -\left(\frac{R_s}{p_0}\right)^{R_s/c^{(v)}}c^{(v)}\theta\rho\nabla\left(\rho\theta\right)^{R_s/c^{(v)}} + R_s\Pi\nabla\left(\rho\theta\right)\nonumber\\
- & \stackrel{\text{Glg. }\eqref{eq:exner_pressure_diag}}{=} & R_s\left(\Pi - \left(\frac{R_s}{p_0}\right)^{R_s/c^{(v)}}\left(\rho\theta\right)^{R_s/c^{(v)}}\right)\nabla\left(\rho\theta\right) = 0
+&\stackrel{\text{Glg. }\eqref{eq:exner_pressure_diag}}{=} R_s\left(\Pi - \left(\frac{R_s}{p_0}\right)^{R_s/c^{(v)}}\left(\rho\theta\right)^{R_s/c^{(v)}}\right)\nabla\left(\rho\theta\right) = 0
 \end{align}
 %
 Somit kann man für die Druckgradientbeschleunigung\index{Druckgradientbeschleunigung!Exner-Druck}\index{Exner-Druck!Druckgradientbeschleunigung} schreiben
@@ -8278,7 +8274,7 @@ Mit Glg. \eqref{eq:td1_id_gas_pot_mod} folgt
 }}
 \end{center}
 
-\subsubsection{Entropie als prognostische Variable}
+\subsection{Entropie als prognostische Variable}
 \label{sec:entropie_als_prognostische_variable}
 
 Setzt man die Zustandsgleichungen Glg.en \eqref{eq:kalorisch_id_gase} und \eqref{eq:zustand_ideal} in Glg. \eqref{eq:sackur-tetrode-equation} ein, folgt unter Vernachlässigung des Ungefähr-Zeichens
@@ -8440,12 +8436,12 @@ T = \beta\rho^{R_d/c^{(v)}}\exp\left(\frac{\newtilde{s}}{c^{(v)}\rho}\right)
 %
 notieren. Dies ist die Zustandsgleichung idealer Gase in Entropieformulierung\index{Zustandsgleichung idealer Gase!Entropieformulierung}.
 
-\subsection{Ideales Gasgemisch mit homogener Zusammensetzung}
+\section{Ideales Gasgemisch mit homogener Zusammensetzung}
 \label{sec:ideales_gasgemisch_mit_homogener_zusammensetzung}
 
 N-atomige ideale Gase haben gegenüber dem einatomigen Gas zusätzlich Rotations- und Vibrationsfreiheitsgrade. Diese zusätzlichen Freiheitsgrade erhöhen die Wärmekapazitäten\index{Wärmekapazität} und ein analytischer Ausdruck für die Entropie liegt dann nicht mehr vor. Als Modell für dieses komplexe System wird ein einatomiges ideales Gas mit der gleichen fiktiven molaren Masse\index{fiktive molare Masse}\index{molare Masse!fiktive}\index{Masse!molare!fiktive} wie das Originalgas verwendet, wobei für die Wärmekapazitäten Messweret oder Produkte einer fundamentaleren Theorie verwendet. Damit lassen sich die im vorigen Abschnitt aufgeführten Ergebnisse insbesondere auch auf trockene übertragen.
 
-\subsection{Ideales Gasgemisch mit variabler Zusammensetzung}
+\section{Ideales Gasgemisch mit variabler Zusammensetzung}
 \label{sec:ideales_gasgemisch_mit_variabler_zusammensetzung}
 
 Hier geht man von einem Gasgemisch aus $N \geq 1$ idealen einatomigen Gasen aus. Glg. \eqref{eq:td_1_id_gas_density_entropy} lässt sich auf jede dieser Komponenten anwenden und überlagern. Dabei gilt
@@ -8480,7 +8476,7 @@ Somit gilt Glg. \eqref{eq:td_1_id_gas_density_entropy}
 %
 auch mit diesen Definitionen.
 
-\subsubsection{Beispiel: feuchte Luft}
+\subsection{Beispiel: feuchte Luft}
 \label{sec:beispiel:__feuchte_luft}
 
 Hier soll es zunächst um feuchte Luft\index{feuchte Luft}\index{Luft!feuchte} unter Abwesenheit von Kondensaten gehen. In solch einem System gilt
@@ -8540,7 +8536,7 @@ die in Glg. \eqref{eq:def_virtual_temperature} definierte virtuelle Temperatur\i
 %
 gelten. Die virtuelle potentielle Temperatur\index{potentielle virtuelle Temperatur}\index{Temperatur!potentielle!virtuelle}\index{Temperatur!virtuelle!potentielle} ist diejenige potentielle Temperatur\index{potentielle Temperatur}\index{Temperatur!potentielle}, die trockene Luft\index{trockene Luft}\index{Luft!trockene} haben müsste, um nach adiabatischer Kompression auf den Referenzdruck $p_0$ die gleiche Dichte zu haben wie die betrachtete feuchte Luft.
 
-\subsection{Thermodynamische Bedeutung der Wärmeleitung}
+\section{Thermodynamische Bedeutung der Wärmeleitung}
 \label{sec:thermodynamische_bedeutung_der_wärmeleitung}\index{Thermodynamik!Wärmeleitung}\index{Wärmeleitung!thermodynamische Bedeutung}
 
 Glg. \eqref{eq:td_1_2_entropy_id_gas}
@@ -8593,10 +8589,10 @@ lautet in diesem Fall also
 %
 Durch interne Prozesse in einem idealen Gas mit Viskosität kann also nur Entropie produziert werden, wie es vom Zweiten Hauptsatz der Thermodynamik\index{Zweiter Hauptsatz der Thermodynamik}\index{Thermodynamik!Zweiter Hauptsatz} gefordert wird.
 
-\subsection{Anwendungen}
+\section{Anwendungen}
 \label{sec:anwendungen}
 
-\subsubsection{Die isentrope trockene Atmosphäre}
+\subsection{Die isentrope trockene Atmosphäre}
 \label{sec:die_isentrope_trockene_atmosphaere}
 
 In einer isentropen Atmosphäre (Atmosphäre homogener spezifischer Entropie) ist nach Glg. \eqref{eq:entropy_spec_id_gas} auch die potentielle Temperatur homogen. Dies führt zu einer anderen Abhängigkeit des Drucks von der Höhe als im Fall der isothermen Atmosphäre. Ist $\Gamma_d > 0$ der trockenadiabatische Temperaturgradient, gilt für die Temperatur $T(z) = T_0 - \Gamma_d z$ mit $T_0 \coloneqq T(z = 0)$. Damit folgt
@@ -8672,7 +8668,7 @@ mit $T_T \coloneqq T_0 - kH$ als Temperatur der Tropopause.
 
 In einer stabilen Atmosphäre ist $\theta$ eine mögliche Vertikalkoordinate, man spricht von \index{isentrope Koordinate}\index{isentropes Koordinatensystem}\index{Koordinate!isentrope}\index{Koordinatensystem!isentropes}\textit{isentropen Koordinaten}, da die Flächen gleicher Vertikalkoordinate Flächen gleicher Entropie sind.
 
-\subsection{Kondensate}
+\section{Kondensate}
 \label{sec:tracer}\index{Kondensat}
 
 Es muss der Erste Hauptsatz auch noch für die Kondensatklassen $i$ formuliert werden. Hierzu geht man von Glg. \eqref{eq:td1_without_mass} aus:
@@ -8688,7 +8684,7 @@ Bei den Kondensaten nimmt man Inkompressibilität an, also $\Delta W_i = 0$. Als
 \item Sie ändern die Zusammensetzung der Bestandteile der Luft und ändern die Temperatur über Durchmischung.
 \end{itemize}
 %
-Der erste Punkt wird in Absch. \ref{sec:konkretisierung_der_waermefluesse} näher beschrieben. Alle Wärmeflüsse, die pro Volumen auf die Phase $i$ wirken, werden zu einer Quellstärke $q_i$ zusammengefasst. Hier soll es um den zweiten Punkt gehen, das heißt es soll die Einwirkung von Massenflüssen auf die Temperatur $T_i$ untersucht werden. Glg. \eqref{eq:quelle_kondensat_masse} umfasst fünf Arten von Massenflüssen, nämlich
+Der erste Punkt wird in Kap. \ref{chap:konkretisierung_der_waermeflüsse} näher beschrieben. Alle Wärmeflüsse, die pro Volumen auf die Phase $i$ wirken, werden zu einer Quellstärke $q_i$ zusammengefasst. Hier soll es um den zweiten Punkt gehen, das heißt es soll die Einwirkung von Massenflüssen auf die Temperatur $T_i$ untersucht werden. Glg. \eqref{eq:quelle_kondensat_masse} umfasst fünf Arten von Massenflüssen, nämlich
 %
 \begin{itemize}
 \item Phasenübergänge, bei denen neue Kondensatteilchen entstehen,
@@ -8745,8 +8741,8 @@ Dabei wurde in der Notation explizit berücksichtigt, dass die isochore spezifis
 }}
 \end{center}
 
-\section{Anwendung des Hamilton-Formalismus auf die Atmosphäre}
-\label{sec:anwendung_des_hamilton-formalismus_auf_die_atmosphaere}\index{Hamilton-Formalismus!Atmosphäre}\index{Atmosphäre!Hamiltonä-Formalismus}
+\chapter{\normalfont\textsc{Anwendung des Hamilton-Formalismus auf die Atmosphäre}}
+\label{chap:anwendung_des_hamilton-formalismus_auf_die_atmosphaere}\index{Hamilton-Formalismus!Atmosphäre}\index{Atmosphäre!Hamiltonä-Formalismus}
 
 Es ist sinnvoll, die Massendichte\index{Massendichte} $\rho$ als erste prognostische Variable\index{prognostische Variable}\index{Variable!prognostische} festzulegen und die Kontinuitätsgleichung\index{Kontinuitätsgleichung}
 %
@@ -8774,7 +8770,7 @@ Dies entspricht dem in der Quantenmechanik definierten unitären Produkt\index{u
 \left\langle\mathbf{f}\big|\mathbf{g}\right\rangle \coloneqq \int_A\mathbf{f}^\star\left(\mathbf{r}, t\right)\cdot\mathbf{g}\left(\mathbf{r}, t\right)d^3r.
 \end{align}
 
-\subsection{Reversible trockene Atmosphäre}
+\section{Reversible trockene Atmosphäre}
 \label{sec:reversible_trockene_atmosphaere}
 
 Sei $F$ ein beliebiges Funktional\index{Funktional} der atmosphärischen Zustandsvariablen. Die Zeitentwicklung von $F$ lässt sich laut Glg. \eqref{eq:poisson_bracket_prop_1} mittels der Poisson-Klammer\index{Poisson-Klammer} als
@@ -9143,7 +9139,7 @@ Somit kann man Glg. \eqref{eq:poisson_bracket_atm_gen_explicit} in der Form
 %
 schreiben.
 
-\subsubsection{Semi-prognostische Variable}
+\subsection{Semi-prognostische Variable}
 \label{sec:semi-prognostische_variable}\index{semi-prognostische Variable}\index{Variable!semi-prognostische}
 
 Der Poisson-Klammer-Formalismus\index{Poisson-Klammer} führt auf eine spezielle Form der Druckgradientbeschleunigung\index{Druckgradientbeschleunigung}. Darin ist neben $\rho$ und $q_1$ meist eine dritte Variable enthalten, gelegentlich sogar eine vierte oder fünfte. Eine dieser Variablen wählt man als sogenannte \textit{semi-prognostische Variable}\index{semi-prognostische Variable}\index{Variable!semi-prognostische} $q_2$. Diese ist aufgrund der thermischen Zustandsgleichung idealer Gase\index{thermische Zustandsgleichung idealer Gase}\index{Zustandsgleichung!thermische!idealer Gase}\index{ideales Gas!Zustandsgleichung!thermische} keine eigenständige prognostische Variable mehr, da der thermodynamische Zustand sonst überbestimmt wäre, jedoch ist sie gegenüber anderen diagnostischen Variablen ausgezeichnet, da sie in der Evolution der Energieformen eine Rolle spielt.
@@ -9173,7 +9169,7 @@ Addiert man beides, erhält man wie erwartet
 \lbrace K, H\rbrace + \lbrace I', H\rbrace = \lbrace H, H\rbrace = 0.
 \end{align}
 
-\subsubsection{Potentielle Temperatur als prognostische Variable}
+\subsection{Potentielle Temperatur als prognostische Variable}
 \label{sec:potentielle_temperatur_als_prognostische_variable_hamilton}
 
 Verwendet man anstatt der Temperatur die potentielle Temperatur\index{potentielle Temperatur}\index{Temperatur!potentielle} und definiert
@@ -9221,7 +9217,7 @@ und erhält somit
 &= \int_A-\phi\nabla\cdot\left(\rho\mathbf{v}\right) - c_d^{(p)}\Pi\nabla\cdot\left(q_1\mathbf{v}\right)d^3r.
 \end{align}
 
-\subsubsection{Entropiedichte als prognostische Variable}
+\subsection{Entropiedichte als prognostische Variable}
 \label{sec:entropiedichte_als_prognostische_variable_hamilton}
 
 Verwendet man anstatt der potentiellen Temperatur die Entropie\index{Entropie} und definiert
@@ -9288,7 +9284,7 @@ Dies wird auch durch
 %
 bestätigt.
 
-\subsection{Irreversible trockene Atmosphäre}
+\section{Irreversible trockene Atmosphäre}
 \label{sec:irreversible_trockene_atmosphaere}
 
 Dieser Abschnitt wird nur mit dem in Absch. \ref{sec:entropiedichte_als_prognostische_variable_hamilton} begonnenen Entropieformulismus ausformuliert. In einer irreversiblen trockenen Atmosphäre definiert man zwei irreversible Klammern:
@@ -9310,16 +9306,14 @@ Die Dynamik wird dann festgelegt durch
 \frac{dF}{dt} = \lbrace F, H\rbrace + \left(F, \mathbf{f}_R\right) + \left(F, Q\right).
 \end{align}
 
-\subsection{Heterogene Atmosphäre}
+\section{Heterogene Atmosphäre}
 \label{sec:heterogene_atmosphaere}
 
-\subsection{Ankopplung an das Strahlungsfeld}
+\section{Ankopplung an das Strahlungsfeld}
 \label{sec:ankopplung_an_das_strahlungsfeld}
 
-
-
-\section{Konkretisierung der Wärmeflüsse}
-\label{sec:konkretisierung_der_waermefluesse}\index{Wärmefluss}
+\chapter{\normalfont\textsc{Konkretisierung der Wärmeflüsse}}
+\label{chap:konkretisierung_der_waermeflüsse}\index{Wärmefluss}
 
 Diabatisch ist alles, was Adiabatie verletzt, also Wärme- und Massenflüsse über Systemgrenzen hinweg. Die Leistungsdichten der Wärme setzen sich zusammen aus
 %
@@ -9342,7 +9336,7 @@ Die Quellstärken der Masse entstehen durch
 %
 s. Glg.en \eqref{eq:quelle_trocken_masse} - \eqref{eq:quelle_kondensat_masse}.
 
-\subsection{Wärmeleitung}
+\section{Wärmeleitung}
 \label{sec:waermeleitung}\index{Wärmeleitung}
 
 Wärmeleitung tritt nur in der Gasphase und führt nach Glg. \eqref{eq:heat_conduction_equation_pre} zu einer Temperaturtendenz
@@ -9353,10 +9347,10 @@ Wärmeleitung tritt nur in der Gasphase und führt nach Glg. \eqref{eq:heat_cond
 %
 mit $\kappa_h$ als Temperaturleitfähigkeit der feuchten Luft.
 
-\subsection{Phasenübergangswärme}
+\section{Phasenübergangswärme}
 \label{sec:phasenuebergangswaerme}\index{Phasenübergangswärme}
 
-Findet Verdunstung, Schmelzen oder Sublimation statt, so wird die hierfür notwendige Wärme dem Edukt entzogen. Findet der Phasenübergang in die andere Richtung statt, wirkt die Wärme auf das Produkt. In Absch. \ref{sec:kontinuitaetsgleichungen} wurde zwischen drei Arten von Phasenübergängen unterschieden. Im ersten Fall entstehen dabei neue Partikel der Klasse $i$, es gilt
+Findet Verdunstung, Schmelzen oder Sublimation statt, so wird die hierfür notwendige Wärme dem Edukt entzogen. Findet der Phasenübergang in die andere Richtung statt, wirkt die Wärme auf das Produkt. In Kap. \ref{chap:kontinuitätsgleichungen} wurde zwischen drei Arten von Phasenübergängen unterschieden. Im ersten Fall entstehen dabei neue Partikel der Klasse $i$, es gilt
 %
 \begin{align}
 q_i' = c_{i, v}\left(\newtilde{q}_{v, i}' - \newtilde{q}_{i, v}'\right)
@@ -9384,7 +9378,7 @@ q_i = q_i' + q_i'' + q_i'''.
 %
 Es sei an dieser Stelle noch einmal hervorgehoben, dass auf die Gasphase \textit{keine} latenten Wärmeflüsse wirken, sondern nur auf die Kondensate. Über Wärmeübergang verteilt sich dann die Energie, auch auf die Gasphase.
 
-\subsection{Wärmeübergang}
+\section{Wärmeübergang}
 \label{sec:waermeuebergang}\index{Wärmeübergang}
 
 Haben die Kondensate andere Temperaturen als die feuchte Luft, geht dies mit einem \textit{Wärmeübergang} einher (diffusiver Wärmestrom durch eine Grenzfläche). Man geht von der Gleichung
@@ -9405,7 +9399,7 @@ Hierbei sind $n_i$ die Teilchendichte der Kondensate $i$, $A_i$ deren Oberfläch
 q_h = \sum_{i}^{}n_iA_i\xi_i\left(T_i - T\right).
 \end{align}
 %
-\subsection{Dissipation}
+\section{Dissipation}
 \label{sec:dissipation_konkretisierung}\index{Dissipation}
 
 In einem Medium mit Kondensationsprodukten wird angenommen, dass sich die Leistungsdichte $q_{\text{diss}}$ entsprechend der Massen auf die Komponenten aufteilt:
@@ -9422,7 +9416,7 @@ q_{\text{diss}} = q_{h} + \sum_{i}^{}q_{\text{diss}, i} = -\left[\rho_h + \sum_{
 %
 was wieder Glg. \eqref{eq:dissipation} entspricht.
 
-\subsection{Strahlungsübertragungsgleichung}
+\section{Strahlungsübertragungsgleichung}
 \label{sec:strahlungsuebertragungsgleichung}\index{Strahlungstransport}\index{Strahlungsübertragungsgleichung}
 
 Das Poynting-Theorem Glg. \eqref{eq:poynting_theorem} ist eine Kontinuitätsgleichung für die Strahlungsflussdichte $\mathbf{S}$. Die Herleitung ist klassisch, $ - \mathbf{j}\cdot\mathbf{E}$ ist die Leistung, die das Feld an beweglichen Ladungen verrichtet. Man kann die Gleichung notieren als
@@ -9509,7 +9503,7 @@ Dies ist die \index{Strahlungsübertragungsgleichung}\textit{Strahlungsübertrag
 q_j = \int_{0}^\infty\left(\nabla\cdot\mathbf{S}_\lambda\right)_jd\lambda.
 \end{align}
 %
-\subsection{Randbedingungen}
+\section{Randbedingungen}
 \label{sec:randbedingungen_diabatie}\index{Randbedingung}
 
 An der Erdoberfläche gilt
