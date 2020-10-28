@@ -12068,6 +12068,49 @@ Die \textit{Helizitätsgleichung}\index{Helizitätsgleichung} lautet somit
 \subsection{Enstrophie}
 \label{sec:enstrophie}\index{Enstrophie}
 
+Das Quadrat $\zetabi^2$ der relativen Vorticity\index{relative Vorticity}\index{Vorticity!relative} $\zetabi$ bezeichnet man als \textit{lokale Enstrophie}\index{lokale Enstrophie}\index{Enstrophie!lokale}. Es gilt
+%
+\begin{align}
+\frac{\partial\zetabi^2}{\partial t} = 2\zetabi\cdot\frac{\partial\zetabi}{\partial t}
+\end{align}
+%
+An dieser Stelle beschränkt man sich auf zweidimensionale, inkompressible Strömungen. In diesem Fall gilt
+%
+\begin{align}
+\frac{\partial\eta}{\partial t} + \mathbf{v}_h\cdot\nabla\eta \stackrel{\text{Glg. \eqref{eq:vorticit_z_baro_swes}}}{=} 0 \Rightarrow \frac{\partial\eta}{\partial t} + \mathbf{v}_h\cdot\nabla\eta + \eta\nabla\cdot\mathbf{v}_h = \frac{\partial\eta}{\partial t} + \nabla\cdot\left(\eta\mathbf{v}_h\right) = 0.\label{eq:enstropy_deriv_1}
+\end{align}
+%
+Unter kinematischen oder periodischen Randbedingungen gilt dann
+%
+\begin{align}
+\newoverline{\eta} = \newoverline{\zeta} + \newoverline{f} = \text{const.} \Rightarrow \newoverline{\zeta} = \text{const.}\label{eq:enstropy_deriv_0}
+\end{align}
+%
+Multipliziert man Glg. \eqref{eq:enstropy_deriv_1} mit $2\eta$, erhält man
+%
+\begin{align}
+&\frac{\partial\eta^2}{\partial t} + \mathbf{v}_h\cdot\nabla\eta^2 + 2\eta^2\nabla\cdot\mathbf{v}_h = \frac{\partial\eta^2}{\partial t} + \mathbf{v}_h\cdot\nabla\eta^2 + \eta^2\nabla\cdot\mathbf{v}_h = 0\nonumber\\
+&\Leftrightarrow\frac{\partial\eta^2}{\partial t} = -\nabla\cdot\left(\eta^2\mathbf{v}_h\right).
+\end{align}
+%
+Integriert man dies unter kinematischen oder periodischen Randbedingungen, erhält man auf der f-Ebene\index{f-Ebene!Enstrophie}\index{Enstrophie!f-Ebene}
+%
+\begin{align}
+\newoverline{\eta^2} = \newoverline{\zeta^2} + \newoverline{f_0^2} +  2\newoverline{f_0\zeta} = \newoverline{\zeta^2} + f_0^2 +  2f_0\newoverline{\zeta} = \text{const.}
+\end{align}
+%
+Mit Glg. \eqref{eq:enstropy_deriv_0} impliziert dies weiterhin
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\newoverline{\zeta^2} = \text{const.}
+\end{align}
+\end{center}
+}}
+\end{center}
+
 \section{Divergenz}
 \label{sec:divergenz}\index{Divergenz}
 
