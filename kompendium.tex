@@ -12110,6 +12110,8 @@ Mit Glg. \eqref{eq:enstropy_deriv_0} impliziert dies weiterhin
 \end{center}
 }}
 \end{center}
+%
+Die Größe $\newoverline{\zeta^2}$ bezeichnet man als \textit{Enstrophie}\index{Enstrophie}.
 
 \section{Divergenz}
 \label{sec:divergenz}\index{Divergenz}
@@ -15758,7 +15760,7 @@ Für die Fourier-Transformation\index{Fourier-Transformation} $\newtilde{\mathbf
 Die inverse Fourier-Transformation\index{inverse Fourier-Transformation}\index{Fourier-Transformation!inverse} lautet
 %
 \begin{align}
-\mathbf{v}\left(\mathbf{r}, t\right) = \newtilde{C}^3\int_{\mathbb{R}^3}\newtilde{\mathbf{v}}\left(\mathbf{k}, t\right)\exp\left(i\mathbf{k}\cdot\mathbf{r}\right)d^3k.
+\mathbf{v}\left(\mathbf{r}, t\right) = \newtilde{C}^3\int_{\mathbb{R}^3}\newtilde{\mathbf{v}}\left(\mathbf{k}, t\right)\exp\left(i\mathbf{k}\cdot\mathbf{r}\right)d^3k.\label{eq:velocity_field_ft_inv}
 \end{align}
 %
 Man setzt an dieser Stelle $\newtilde{C} = 1 \stackrel{\text{Glg. \eqref{eq:ft_norm}}}{\Leftrightarrow} C = \frac{1}{2\pi}$ an, um die Notation abzukürzen und vernachlässigt das $\mathbb{R}^3$ am Integral. Die inkompressible Impulsgleichung lautet
@@ -16250,6 +16252,44 @@ Diesen Bereich des Spektrums ($k^\star < k \ll k_c$) bezeichnet man als \textit{
 
 \section{Geostrophische Turbulenz}
 \label{sec:geostrophische_turbulenz}\index{geostrophische Turbulenz}\index{Turbulenz!geostrophische}
+
+Wendet man den Operator $\nabla\times$ auf Glg. \eqref{eq:velocity_field_ft_inv} in zwei Dimensionen an, erhält man
+%
+\begin{align}
+\zeta &= \mathbf{e}_z\cdot\nabla\times\mathbf{v} = \mathbf{e}_z\cdot\nabla\times\int_{\mathbb{R}^2}\newtilde{\mathbf{v}}\left(\mathbf{k}\right)\exp\left(i\mathbf{k}\cdot\mathbf{r}\right)d^2r = \mathbf{e}_z\cdot\int_{\mathbb{R}^2}\nabla\times\left[\newtilde{\mathbf{v}}\left(\mathbf{k}\right)\exp\left(i\mathbf{k}\cdot\mathbf{r}\right)\right]d^2r\nonumber\\
+&\stackrel{\text{Glg. \eqref{eq:diff_op_harmonic_rule_1}}}{=} \mathbf{e}_z\cdot\int_{\mathbb{R}^2}i\newtilde{\mathbf{v}}\left(\mathbf{k}\right)\exp\left(i\mathbf{k}\cdot\mathbf{r}\right)\times\mathbf{k}d^2r = \int_{\mathbb{R}^2}\mathbf{e}_z\cdot\left[i\newtilde{\mathbf{v}}\left(\mathbf{k}\right)\times\mathbf{k}\right]\exp\left(i\mathbf{k}\cdot\mathbf{r}\right)d^2r.
+\end{align}
+%
+Hieraus folgt
+%
+\begin{align}
+\newtilde{\zeta}\left(\mathbf{k}\right) = \mathbf{e}_z\cdot\left[i\newtilde{\mathbf{v}}\left(\mathbf{k}\right)\times\mathbf{k}\right].
+\end{align}
+%
+Aus der Parseval-Identität Glg. \eqref{eq:parseval_identity} erhält man
+%
+\begin{align}
+\newtilde{\zeta^2}\left(\mathbf{k}\right) &= -4\pi^2i\left(\newtilde{\mathbf{v}}\left(-\mathbf{k}\right)\times\mathbf{k}\right)\cdot i\left(\newtilde{\mathbf{v}}\left(\mathbf{k}\right)\times\mathbf{k}\right) = 4\pi^2\left(\newtilde{\mathbf{v}}\left(-\mathbf{k}\right)\times\mathbf{k}\right)\cdot\left(\newtilde{\mathbf{v}}\left(\mathbf{k}\right)\times\mathbf{k}\right)\nonumber\\
+&= 4\pi^2\left(\newtilde{\mathbf{v}}\left(\mathbf{k}\right)^\star\times\mathbf{k}\right)\cdot\left(\newtilde{\mathbf{v}}\left(\mathbf{k}\right)\times\mathbf{k}\right)
+\end{align}
+%
+In Polarkoordinaten ergibt dies
+%
+\begin{align}
+\newtilde{\zeta^2}\left(k, \phi\right) &= 4\pi^2\newtilde{\mathbf{v}}\left(k, \phi\right)^\star k\sin\left(\phi\right)\newtilde{\mathbf{v}}\left(k, \phi\right)k\sin\left(\phi\right) = 4\pi^2\left|\newtilde{\mathbf{v}}\left(k, \phi\right)\right|^2k^2\sin\left(\phi\right)^2.
+\end{align}
+%
+Bei Isotropie ($\newtilde{\mathbf{v}}\left(k, \phi\right) \to \newtilde{\mathbf{v}}\left(k\right)$) gilt
+%
+\begin{align}
+\int_0^{2\pi}4\pi^2\left|\newtilde{\mathbf{v}}\left(k\right)\right|^2k^2\sin\left(\phi\right)^2d\phi &= 4\pi^2\left|\newtilde{\mathbf{v}}\left(k\right)\right|^2k^2\int_0^{2\pi}\sin\left(\phi\right)^2d\phi = 4\pi^2\left|\newtilde{\mathbf{v}}\left(k\right)\right|^2k^2\pi = 4\pi^3\left|\newtilde{\mathbf{v}}\left(k\right)\right|^2k^2.
+\end{align}
+%
+Für die Enstrophie\index{Enstrophie} bedeutet dies
+%
+\begin{align}
+\left|\Omega\subseteq\mathbb{R}^2\right|\newoverline{\zeta^2} = \int_{\Omega}\zeta^2d^2r = \int_{\mathbb{R}^2}\newtilde{\zeta^2}\left(k_x, k_y\right)d^2k = \int_0^\infty 4\pi^3\left|\newtilde{\mathbf{v}}\left(k\right)\right|^2k^2dk.
+\end{align}
 
 \section{Energiekaskade}
 \label{sec:energiekaskade}\index{Energiekaskade}
@@ -22134,7 +22174,7 @@ Seien $\mathbf{k} = \left(k_1, k_2, k_3\right)^T\in\mathbb{C}^3$, $\varphi:\math
 \nabla\varphi\left(\mathbf{r}\right) & = \sum_{i = 1}^{3}\frac{\partial}{\partial x_i}\varphi\left(\mathbf{r}\right)\mathbf{e}_i = \sum_{i = 1}^{3}\frac{\partial}{\partial x_i}\exp\left(\mathbf{k}\cdot\mathbf{r}\right)\mathbf{e}_i = \sum_{i = 1}^{3}\frac{\partial}{\partial x_i}\exp\left(\sum_{j = 1}^{3}k_jx_j\right)\mathbf{e}_i\nonumber\\
 & = \sum_{i = 1}^{3}k_i\exp\left(\mathbf{k}\cdot\mathbf{r}\right)\mathbf{e}_i = \varphi\left(\mathbf{r}\right)\mathbf{k},\\
 \nabla\times\left[\mathbf{A}\varphi\left(\mathbf{r}\right)\right] & = \sum_{i, j, k = 1}^3\epsilon_{i, j, k}\frac{\partial\left[A_j\exp\left(i\mathbf{k}\cdot\mathbf{r}\right)\right]}{\partial x_i}\mathbf{e}_k = i\sum_{i, j, k = 1}^3\epsilon_{i, j, k}A_jk_i\exp\left(i\mathbf{k}\cdot\mathbf{r}\right)\mathbf{e}_k\nonumber\\
-& = i\exp\left(i\mathbf{k}\cdot\mathbf{r}\right)\sum_{i, j, k = 1}^3\epsilon_{i, j, k}A_jk_i\mathbf{e}_k = i\exp\left(i\mathbf{k}\cdot\mathbf{r}\right)\mathbf{A}\times\mathbf{k} = i\left[\mathbf{A}\varphi\left(\mathbf{r}\right)\right]\times\mathbf{k},\\
+& = i\exp\left(i\mathbf{k}\cdot\mathbf{r}\right)\sum_{i, j, k = 1}^3\epsilon_{i, j, k}A_jk_i\mathbf{e}_k = i\exp\left(i\mathbf{k}\cdot\mathbf{r}\right)\mathbf{A}\times\mathbf{k} = i\left[\mathbf{A}\varphi\left(\mathbf{r}\right)\right]\times\mathbf{k},\label{eq:diff_op_harmonic_rule_1}\\
 \Delta\varphi\left(\mathbf{r}\right) & = \nabla\cdot\nabla\varphi\left(\mathbf{r}\right) = \nabla\cdot\left(\varphi\left(\mathbf{r}\right)\mathbf{k}\right) = \mathbf{k}\cdot\nabla\varphi = \mathbf{k}^2\varphi\left(\mathbf{r}\right).
 \end{align}
 
