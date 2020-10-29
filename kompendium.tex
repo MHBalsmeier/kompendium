@@ -18315,7 +18315,7 @@ Im gekrümmten Fall, wie z. B. einer Kugeloberfläche, ist dies jedoch im Allgem
 Nun wird die Herleitung im vorherigen Abschnitt auf ein dreidimensionales Gitter verallgemeinert, dessen Schichtdickte $\Delta z_k$ nur vom vertikalen Index $k$ abhängt. Vertikale Vektorkomponenten werden mit $w$ bezeichnet, der Index $u$ bezeichnet den vektoriellen oder skalaren Gitterpunkt über der betrachteten Gitterbox, der Index $l$ den jeweiligen Gitterpunkt darunter. Dies führt auf
 %
 \begin{align}
-\nabla\cdot\left(\psi\mathbf{v}\right) &= \frac{1}{A_c\Delta z_k}\left(\sum_{e\in c}l_e\Delta z_k\frac{\psi_{o(e)} + \psi_c}{2}u_e + A_c\frac{\psi_u + \psi_c}{2}w_u - A_c\frac{\psi_l + \psi_c}{2}w_l\right),\\
+\nabla\cdot\left(\psi\mathbf{v}\right) &= \frac{1}{A_c\Delta z_k}\left(\sum_{e\in c}l_e\Delta z_k\frac{\psi_{o(e)} + \psi_c}{2}u_e + A_c\frac{\psi_u + \psi_c}{2}w_u - A_c\frac{\psi_l + \psi_c}{2}w_l\right),\label{eq:div_c-grid_shallow_no_terrain}\\
 \psi\nabla\cdot\mathbf{v} &= \frac{\psi_c}{A_c\Delta z_k}\left(\sum_{e\in c}l_e\Delta z_ku_e + A_cw_u - A_cw_l\right).
 \end{align}
 %
@@ -18331,7 +18331,7 @@ Man fordert nun wieder
 Hieraus leitet man
 %
 \begin{align}
-\mathbf{u}^{(1)}\cdot\mathbf{u}^{(2)} = \sum_{e\in c}\frac{l_ed_e}{2A_c}u_e^{(1)}u_e^{(2)} + \frac{\Delta z_{k - 1/2}}{2\Delta z_k}w_u^{(1)}w_u^{(2)} + \frac{\Delta z_{k + 1/2}}{2\Delta z_k}w_l^{(1)}w_l^{(2)}
+\mathbf{u}^{(1)}\cdot\mathbf{u}^{(2)} = \sum_{e\in c}\frac{l_ed_e}{2A_c}u_e^{(1)}u_e^{(2)} + \frac{\Delta z_{k - 1/2}}{2\Delta z_k}w_u^{(1)}w_u^{(2)} + \frac{\Delta z_{k + 1/2}}{2\Delta z_k}w_l^{(1)}w_l^{(2)}\label{eq:inner_c-grid_3d_shallow}
 \end{align}
 %
 als Diskretisierung für das Skalarprodukt ab. Im ebenen Fall ergibt sich für die Summe der Gewichtungsfaktoren
@@ -19991,15 +19991,6 @@ Die \textit{shallow-atmosphere}-Aprroximation\index{shallow atmosphere} geht von
 }}
 \end{center}
 
-\subsection{Skalarprodukt auf dem C-Gitter in geländefolgenden Koordinaten}
-\label{sec:skalare_erhaltungseigenschaften_auf_dem_c-gitter_in_gelaendefolgenden_koordinaten}
-
-\subsubsection{Shallow atmosphere}
-\label{sec:inner_c_shallow_atmosphere}\index{deep atmosphere}
-
-\subsubsection{Deep atmosphere}
-\label{sec:inner_c_deep_atmosphere}\index{shallow atmosphere}
-
 \subsection{\textsc{SLEVE}}
 \label{sec:sleve}\index{SLEVE}
 
@@ -20079,7 +20070,18 @@ Rotationsfelder sind laut Absch. \ref{sec:formulierung_der_rotation} notwendig.
 %
 In der Notation wurde nicht zwischen der Menge $V \in \mathbb{R}^3$ und dessen Volumen $\left|V\right|$ unterschieden, und dies wird auch weiterhin so gehandhabt werden, wenn eindeutig ist, was gemeint ist.
 
-\subsection{Mittelungsoperatoren}
+\subsection{Slope}
+\label{sec:slope}\index{Slope}
+
+Die Steigung einer Koordinatenfläche bezeichnet man mit
+%
+\begin{align}
+\mathbf{J} \coloneqq \nabla_hz\vline_{\zeta}.
+\end{align}
+%
+Dies ist ein horizontales Vektorfeld. $\mathbf{J}$ bezeichnet man als \textit{Slope}\index{Slope}.
+
+\section{Mittelungsoperatoren}
 \label{sec:mittelungsoperatoren}\index{Mittelungsoperator}
 
 Seien $x, a \in \lbrace c, d, e, de\rbrace$ und $\psi_{a, k}$ ein diskretisiertes Feld. Dann definiert man
@@ -20096,73 +20098,34 @@ als Mittelungsoperator. Die Gewichtungsfaktoren $\frac{\left|V_{x, k}\cap V_{y, 
 %
 Analog werden auch vertikale Mittelungen definiert. Ein einzelner Mittelungsoperator ist also entweder ausschließlich horizontal oder vertikal.
 
+\subsection{Skalarprodukt auf dem C-Gitter in geländefolgenden Koordinaten}
+\label{sec:skalarprodukt_auf_dem_c-gitter_in_gelaendefolgenden_koordinaten}
 
-\subsubsection{Rekonstruktion der vertikalen kontravarianten Maßzahl}\index{kontravariante Maßzahl!Rekonstruktion (geländefolgende Koordinaten)}\index{Maßzahl!kontravariante!Rekonstruktion (geländefolgende Koordinaten)}
+Das Skalarprodukt macht aus zwei Vektorfeldern ein Skalarfeld und sollte daher auch im Kontext der Mittelungssoperatoren betrachtet werden.
 
-In der Horizontalen sind die kontravarianten Maßzahlen prognostische Variablen\index{prognostische Variable}\index{Variable!prognostische} und müssen daher nicht rekonstruiert werden. In der Vertikalen benötigt man jedoch
-%
-\begin{align}
-\mathbf{v}\cdot\mathbf{e}^{(v)} = v^{(v)},
-\end{align}
-%
-wobei $\mathbf{e}^{(v)}$ der vertikale kontravariante Einheitsvektor ist. Um $v^{(v)}$ aus $w$ und den horizontalen kontravarianten Komponenten $u$ zu bestimmen, betrachtet man zunächst ein zweidimensionales xz-Koordinatensystem, in der y-Richtung sei das System homogen. Der Einfachheit halber geht man von einer Koordinatenfläche der Form
-%
-\begin{align}
-z\left(x\right) = Jx = \tan\left(\alpha\right)x
-\end{align}
-%
-aus, wobei $\alpha$ der Winkel zwischen der Koordinatenfläche und der x-Achse ist. In diesem Fall gilt
-%
-\begin{align}
-\mathbf{e}^{(v)} = \left(\begin{array}{c}
--\sin\left(\alpha\right)\\
-\cos\left(\alpha\right)
-\end{array}\right).
-\end{align}
-%
-Notiert man für das Vektorfeld
-%
-\begin{align}
-\mathbf{v} = \left(\begin{array}{c}
-u\\
-w
-\end{array}\right),
-\end{align}
-%
-folgt
-%
-\begin{align}
-\mathbf{v}\cdot\mathbf{e}^{(v)} = -u\sin\left(\alpha\right) + w\cos\left(\alpha\right).
-\end{align}
-%
-Eine horizontale Koordinatenfläche $A'$ vergrößert sich bei Verkippung um den Winkel $\alpha$ um den Faktor
-%
-\begin{align}
-A' = A\cos\left(\alpha\right) \Leftrightarrow A = \frac{A'}{\cos\left(\alpha\right)}.
-\end{align}
-%
-In einer numerischen Implementierung ist es häufig effizienter, diesen Vergrößerungsfaktor der horizontalen Fläche in die Vektorfeldkomponente zu absorbieren. Damit erhält man
-%
-\begin{align}
-\mathbf{v}\cdot\mathbf{e}^{(v)}\vline_\text{GK} = w - u\tan\left(\alpha\right) = w - Ju,
-\end{align}
-%
-wobei der Index GK für \textit{geometriekorrigiert} steht.
+\subsubsection{Shallow atmosphere}
+\label{sec:inner_c_shallow_atmosphere}
 
-Verallgemeinert dies auf eine dreidimensionale C-Gitter-Diskretisierung\index{C-Gitter}\index{Diskretisierung}, erhält man
+In Absch. \ref{sec:skalarprodukt_auf_dem_c-gitter} wurde davon ausgegagnegen, dass die Diskretisierungen von Gradient und Divergenz festgelegt ist, und es wurde die Diskretisierung des dreidimensionalen Skalarproduktes auf dem C-Gitter Glg. \eqref{eq:inner_c-grid_3d_shallow} hergeleitet. Hier geht man andersherum vor, und setzt die Diskretisierung des Skalarproduktes voraus. Man verallgemeinert Glg. \eqref{eq:inner_c-grid_3d_shallow} wie folgt auf geländefolgende Koordinaten:
 %
-\begin{center}
-\doublebox{\parbox{0.8\textwidth}{
-\begin{center}
 \begin{align}
-v^{(v)}_{c, k + \frac{1}{2}, \text{GK}} = w_{c, k + \frac{1}{2}} - \newoverline{\newoverline{u_{e, k}J_{n, e, k}}^{(c)}}^{(k + \frac{1}{2})}.\label{eq:contravariant_vertical_measure_number}
+\mathbf{u}^{(1)}\cdot\mathbf{u}^{(2)} = \sum_{e\in c}\frac{l_ed_e}{2A_c\Delta z_{c, k}}\Delta z_{e, k}u_e^{(1)}u_e^{(2)} + \frac{\Delta z_{k - 1/2}}{2\Delta z_k}w_u^{(1)}w_u^{(2)} + \frac{\Delta z_{k + 1/2}}{2\Delta z_k}w_l^{(1)}w_l^{(2)}\label{eq:inner_c-grid_3d_shallow_terrain}
 \end{align}
-\end{center}
-}}
-\end{center}
+%
+Dies lässt sich als Mittelungsoperator von den Kanten auf die Zellenmittelpunkte auffassen:
+%
+\begin{align}
+\newoverline{u_e^{(1)}u_e^{(2)}}^{(c)} = \sum_{e\in c}\frac{l_ed_e}{2A_c\Delta z_{c, k}}\Delta z_{e, k}u_e^{(1)}u_e^{(2)}
+\end{align}
 
-\subsubsection{Rekonstruktion der horizontalen kovarianten Maßzahl}
+\subsubsection{Deep atmosphere}
+\label{sec:inner_c_deep_atmosphere}
+
+\subsection{Rekonstruktion der horizontalen kovarianten Maßzahl}
 \label{sec:rekonstruktion_der_horizontalen_kovarianten_maßzahl}\index{kovariante Maßzahl!Rekonstruktion (geländefolgende Koordinaten)}\index{Maßzahl!kovariante!Rekonstruktion (geländefolgende Koordinaten)}
+
+\subsubsection{Shallow atmosphere}
+\label{sec:shallow_atmosphere_cov}
 
 In der Vertikalen sind die kovarianten Maßzahlen prognostische Variablen\index{prognostische Variable}\index{Variable!prognostische} und müssen daher nicht rekonstruiert werden. In der Horizontalen benötigt man jedoch
 %
@@ -20212,19 +20175,130 @@ In einer numerischen Implementierung ist es häufig effizienter, diesen Vergrö�
 \mathbf{v}\cdot\mathbf{e}_h\vline_\text{GK} = u + w\tan\left(\alpha\right) = u + Jw,
 \end{align}
 %
-wobei der Index GK für \textit{geometriekorrigiert} steht.
-
-Verallgemeinert dies auf eine dreidimensionale C-Gitter-Diskretisierung\index{C-Gitter}\index{Diskretisierung}, erhält man
+wobei der Index GK für \textit{geometriekorrigiert} steht. In drei Dimensionen ändert sich diese Relation nicht, da die horizontale Windkomponente senkrecht zu $u$ nicht mit diesen Berechnungen interferiert. Auf einem C-Gitter muss man die vertikale Windkomponente an die Kante mitteln:
+%
+\begin{align}
+v_{h, e, \text{GK}} = u_{e} + J_e\newoverline{w_{c}}^{(e)}.
+\end{align}
+%
+Im dreidimensionalen Fall ist eine weitere vertikale Interpolation des vertikalen Windes notwendig:
 %
 \begin{center}
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-v_{h, e, k, \text{GK}} = u_{e, k} + \newoverline{\newoverline{w_{c, k + \frac{1}{2}}J_{n, e, k + \frac{1}{2}}}^{(e)}}^{(k)}.
+v_{h, e, k, \text{GK}} = u_{e, k} + J_{e, k}\newoverline{\newoverline{w_{c, k - \frac{1}{2}}}^{(e)}}^{(k)}
 \end{align}
 \end{center}
 }}
 \end{center}
+
+\subsubsection{Deep atmosphere}
+\label{sec:deep_atmosphere_cov}
+
+\subsection{Rekonstruktion der vertikalen kontravarianten Maßzahl}
+\label{sec:rekonstruktion_der_vertikalen_kontravarianten_maßzahl}\index{kontravariante Maßzahl!Rekonstruktion (geländefolgende Koordinaten)}\index{Maßzahl!kontravariante!Rekonstruktion (geländefolgende Koordinaten)}
+
+\subsubsection{Shallow atmosphere}
+\label{sec:shallow_atmosphere_conv}
+
+In der Horizontalen sind die kontravarianten Maßzahlen prognostische Variablen\index{prognostische Variable}\index{Variable!prognostische} und müssen daher nicht rekonstruiert werden. In der Vertikalen benötigt man jedoch
+%
+\begin{align}
+\mathbf{v}\cdot\mathbf{e}^{(v)} = v^{(v)},
+\end{align}
+%
+wobei $\mathbf{e}^{(v)}$ der vertikale kontravariante Einheitsvektor ist. Um $v^{(v)}$ aus $w$ und den horizontalen kontravarianten Komponenten $u$ zu bestimmen, betrachtet man zunächst ein zweidimensionales xz-Koordinatensystem, in der y-Richtung sei das System homogen. Der Einfachheit halber geht man von einer Koordinatenfläche der Form
+%
+\begin{align}
+z\left(x\right) = Jx = \tan\left(\alpha\right)x
+\end{align}
+%
+aus, wobei $\alpha$ der Winkel zwischen der Koordinatenfläche und der x-Achse ist. In diesem Fall gilt
+%
+\begin{align}
+\mathbf{e}^{(v)} = \left(\begin{array}{c}
+-\sin\left(\alpha\right)\\
+\cos\left(\alpha\right)
+\end{array}\right).
+\end{align}
+%
+Notiert man für das Vektorfeld
+%
+\begin{align}
+\mathbf{v} = \left(\begin{array}{c}
+u\\
+w
+\end{array}\right),
+\end{align}
+%
+folgt
+%
+\begin{align}
+\mathbf{v}\cdot\mathbf{e}^{(v)} = -u\sin\left(\alpha\right) + w\cos\left(\alpha\right).
+\end{align}
+%
+Eine horizontale Koordinatenfläche $A'$ vergrößert sich bei Verkippung um den Winkel $\alpha$ um den Faktor
+%
+\begin{align}
+A' = A\cos\left(\alpha\right) \Leftrightarrow A = \frac{A'}{\cos\left(\alpha\right)}.
+\end{align}
+%
+In einer numerischen Implementierung ist es häufig effizienter, diesen Vergrößerungsfaktor der horizontalen Fläche in die Vektorfeldkomponente zu absorbieren. Damit erhält man
+%
+\begin{align}
+\mathbf{v}\cdot\mathbf{e}^{(v)}\vline_\text{GK} = w - u\tan\left(\alpha\right) = w - Ju,
+\end{align}
+%
+wobei der Index GK für \textit{geometriekorrigiert} steht. Im dreidimensionalen Fall verallgemeinert man das Produkt $Ju$ zu einem Skalarprodukt:
+%
+\begin{align}
+\mathbf{v}\cdot\mathbf{e}^{(v)}\vline_\text{GK} = w - \mathbf{J}\cdot\mathbf{v}_h
+\end{align}
+%
+Auf einem C-Gitter wird dies zu
+%
+\begin{align}
+v^{(v)}_{c, \text{GK}} = w_{c} - \newoverline{J_eu_e}^{(c)}.
+\end{align}
+%
+Verwendet man vertikal ein L-Gitter, ist eine weitere vertikale Interpolation notwendig.
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+v^{(v)}_{c, k - \frac{1}{2}, \text{GK}} = w_{c, k - \frac{1}{2}} - \newoverline{\newoverline{J_{e, k}u_{e, k}}^{(c)}}^{(k - \frac{1}{2})}.\label{eq:contravariant_vertical_measure_number}
+\end{align}
+\end{center}
+}}
+\end{center}
+
+\subsubsection{Deep atmosphere}
+\label{sec:deep_atmosphere_conv}
+
+\subsection{Divergenz in geländefolgenden Koordinaten}
+\label{sec:divergenz_in_geländefolgenden_koordinaten}
+
+Da man nun die vertikale kontravariante Massenflussdichte kennt, kann man Glg. \eqref{eq:div_c-grid_shallow_no_terrain} zu
+%
+\begin{align}
+\nabla\cdot\mathbf{v} &= \frac{1}{A_c\Delta z_k}\left(\sum_{e\in c}l_e\Delta z_ku_e + A_cv^{(v)}_{c, k - 1/2, \text{GK}} - A_cv^{(v)}_{c, k + 1/2, \text{GK}}\right)\label{eq:div_c-grid_shallow_terrain}
+\end{align}
+%
+verallgemeinern. Dabei wurde die Ersetzung
+%
+\begin{align}
+w_{k - 1/2} \to v^{(v)}_{c, k - 1/2, \text{GK}}
+\end{align}
+%
+vorgenommen.
+
+\subsubsection{Shallow atmosphere}
+\label{sec:shallow_atmosphere_div_c}
+
+\subsubsection{Deep atmosphere}
+\label{sec:deep_atmosphere_div_c}
 
 \section{Ellipsoidische Modifikation des Gitters}
 \label{sec:ellipsoidische_modifikation_des_gitters}\index{Gitter!ellipsoidische Modifikation}\index{ellipsoidisches Gitter}
@@ -20335,6 +20409,25 @@ Glg. \eqref{eq:def_functional_derivative} diskretisiert man in der Form
 %
 Die Funktionalableitung\index{Diskretisierung!Funktionalableitung}\index{Funktionalableitung!Diskretisierung} ist diejenige diskrete Funktion, welche dies für alle Hilfsfunktionen $\mathbf{h}_{c, k}$ erfüllt. $\mathbf{h}$ ist hierbei ein Tupel von Zustandsgrößen.
 
+\subsection{Gradient auf dem C-Gitter in geländefolgenden Koordinaten}
+\label{sec:gradient_auf_dem_c-gitter_in_gelaendefolgenden_koordinaten}
+
+In Absch. \ref{sec:skalarprodukt_auf_dem_c-gitter} wurde von der Forderung $\mathbf{v}\cdot\nabla\psi \hastobe \nabla\cdot\left(\psi\mathbf{v}\right) - \psi\nabla\cdot\mathbf{v}$ ausgegangen, um eine Diskretisierung des Skalarproduktes herzuleiten, dabei wurden die Diskretisierungen von \glqq Skalarfeld x Vektorfeld\grqq, Gradient und Divergenz vorausgesetzt. In Absch. \ref{sec:skalarprodukt_auf_dem_c-gitter_in_gelaendefolgenden_koordinaten} wurde das Skalarprodukt auf geländefolgende Koordinaten verallgemeinert. Hieraus konnte in Absch. \ref{sec:rekonstruktion_der_vertikalen_kontravarianten_maßzahl} die vertikale kontravariante Maßzahl rekonstruiert werden. Dies wurde in Absch. \ref{sec:divergenz_in_geländefolgenden_koordinaten} genutzt, um die Form der Divergenz in geländefolgenden Koordinaten abzuleiten. Nun muss noch der Gradient auf geländefolgende Koordinaten verallgemeinert werden. Hierzu verwendet man
+%
+\begin{align}
+\mathbf{v}\cdot\nabla\psi \equiv \nabla\cdot\left(\psi\mathbf{v}\right) - \psi\nabla\cdot\mathbf{v}
+\end{align}
+%
+als die den Gradienten festlegende Gleichung.
+
+\subsubsection{Shallow atmosphere}
+\label{sec:grad_c_shallow_atmosphere}
+
+
+
+\subsubsection{Deep atmosphere}
+\label{sec:grad_c_deep_atmosphere}
+
 \subsection{Überprüfung der Energieerhaltung}
 \label{sec:überprüfung_der_energieerhaltung}
 
@@ -20374,7 +20467,7 @@ Der erste Punkt entspricht der Tatsache, dass die generalisierte Coriolis-Kraft 
 Beide Tatsachen gelten auch in der Diskretisierung. Die Nachweise dafür wurden bereits erbracht:
 %
 \begin{enumerate}
-\item Die Definition des Skalarproduktes in Absch. \ref{sec:skalare_erhaltungseigenschaften_auf_dem_c-gitter_in_gelaendefolgenden_koordinaten} stellt sicher, dass $\nabla\cdot\left(\psi\mathbf{v}\right) = \mathbf{v}\cdot\nabla\psi + \psi\nabla\cdot\mathbf{v}$ auch in der Diskretisierung gilt.
+\item Die Definition des Gradienten in Absch. \ref{sec:gradient_auf_dem_c-gitter_in_gelaendefolgenden_koordinaten} stellt sicher, dass $\nabla\cdot\left(\psi\mathbf{v}\right) = \mathbf{v}\cdot\nabla\psi + \psi\nabla\cdot\mathbf{v}$ auch in der Diskretisierung gilt.
 \item Dass globale Integrale über Divergenzen verschwinden, wurde bereits in Absch. \ref{sec:skalare_erhaltungseigenschaften_auf_dem_c-gitter} nachgewiesen.
 \end{enumerate}
 %
