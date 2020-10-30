@@ -20109,7 +20109,7 @@ Das Skalarprodukt macht aus zwei Vektorfeldern ein Skalarfeld und sollte daher a
 In Absch. \ref{sec:skalarprodukt_auf_dem_c-gitter} wurde davon ausgegagnegen, dass die Diskretisierungen von Gradient und Divergenz festgelegt ist, und es wurde die Diskretisierung des dreidimensionalen Skalarproduktes auf dem C-Gitter Glg. \eqref{eq:inner_c-grid_3d_shallow} hergeleitet. Hier geht man andersherum vor, und setzt die Diskretisierung des Skalarproduktes voraus. Man verallgemeinert Glg. \eqref{eq:inner_c-grid_3d_shallow} wie folgt auf geländefolgende Koordinaten:
 %
 \begin{align}
-\mathbf{u}^{(1)}\cdot\mathbf{u}^{(2)} = \sum_{e\in c}\frac{l_ed_e}{2A_c\Delta z_{c, k}}\Delta z_{e, k}u_e^{(1)}u_e^{(2)} + \frac{\Delta z_{k - 1/2}}{2\Delta z_k}w_u^{(1)}w_u^{(2)} + \frac{\Delta z_{k + 1/2}}{2\Delta z_k}w_l^{(1)}w_l^{(2)}\label{eq:inner_c-grid_3d_shallow_terrain}
+\mathbf{u}^{(1)}\cdot\mathbf{u}^{(2)} = \sum_{e\in c}\frac{l_ed_e}{2A_c\Delta z_{c, k}}\Delta z_{e, k}u_e^{(1)}u_e^{(2)} + \frac{\Delta z_{c, k - 1/2}}{2\Delta z_{c, k}}w_u^{(1)}w_u^{(2)} + \frac{\Delta z_{c, k + 1/2}}{2\Delta z_{c, k}}w_l^{(1)}w_l^{(2)}\label{eq:inner_c-grid_3d_shallow_terrain}
 \end{align}
 %
 Dies lässt sich als Mittelungsoperator von den Kanten auf die Zellenmittelpunkte auffassen:
@@ -20192,6 +20192,15 @@ v_{h, e, k, \text{GK}} = u_{e, k} + J_{e, k}\newoverline{\newoverline{w_{c, k - 
 \end{center}
 }}
 \end{center}
+%
+Es gilt
+%
+\begin{align}
+\newoverline{\newoverline{w_{c, k - \frac{1}{2}}}^{(e)}}^{(k)} &= \newoverline{\frac{1}{2}\left(w_{c, k - \frac{1}{2}} + w_{o(e), k - \frac{1}{2}}\right)}^{(k)} = \frac{1}{2}\newoverline{\left(w_{c, k - \frac{1}{2}} + w_{o(e), k - \frac{1}{2}}\right)}^{(k)} = \frac{1}{2}\left(\newoverline{w_{c, k - \frac{1}{2}}}^{(k)} + \newoverline{w_{o(e), k - \frac{1}{2}}}^{(k)}\right)\nonumber\\
+&= \newoverline{\newoverline{w_{c, k - \frac{1}{2}}}^{(k)}}^{(e)}.
+\end{align}
+%
+Die Reihenfolge der Mittelungen spielt hier also keine Rolle.
 
 \subsubsection{Deep atmosphere}
 \label{sec:deep_atmosphere_cov}
@@ -20445,7 +20454,12 @@ In Absch. \ref{sec:skalarprodukt_auf_dem_c-gitter} wurde von der Forderung $\mat
 \mathbf{v}\cdot\nabla\psi \equiv \nabla\cdot\left(\psi\mathbf{v}\right) - \psi\nabla\cdot\mathbf{v}
 \end{align}
 %
-als die den Gradienten festlegende Gleichung. Aus Glg. \eqref{eq:div_c-grid_shallow_terrain_concrete} folgen
+als die den Gradienten festlegende Gleichung.
+
+\subsubsection{Shallow atmosphere}
+\label{sec:grad_c_shallow_atmosphere}
+
+Aus Glg. \eqref{eq:div_c-grid_shallow_terrain_concrete} folgen
 %
 \begin{align}
 \psi\nabla\cdot\mathbf{v} &= \left[\sum_{e\in c}\left(l_e\frac{\Delta z_{e, k}\psi_{c, k}u_e}{A_c\Delta z_{c, k}}\right) + \frac{\psi_{c, k}w_{c, k - 1/2} - \psi_{c, k}w_{c, k + 1/2}}{\Delta z_{c, k}}\right]\nonumber\\
@@ -20466,14 +20480,12 @@ Zieht man Glg. \eqref{eq:grad_c-grid_terrain_deriv_0} von Glg. \eqref{eq:grad_c-
 \begin{align}
 &\mathbf{v}\cdot\nabla\psi = \nabla\cdot\left(\psi\mathbf{v}\right) - \psi\nabla\cdot\mathbf{v}\nonumber\\
 &= \left[\sum_{e\in c}\left(l_e\frac{\Delta z_{e, k}\left(\psi_{o(e), k} - \psi_{c, k}\right)u_e}{2A_c\Delta z_{c, k}}\right) + \frac{\left(\psi_{c, k - 1} - \psi_{c, k}\right)w_{c, k - 1/2} - \left(\psi_{c, k + 1} - \psi_{c, k}\right)w_{c, k + 1/2}}{2\Delta z_{c, k}}\right]\nonumber\\
-&- \sum_{e\in c}\frac{l_ed_e}{A_c\Delta z_{c, k}}\Bigg[\frac{1}{\Delta z_{e, k - 1/2}}\left(\frac{\Delta z_{e, k - 1}^2}{\Delta z_{c, k - 1}}J_{e, k - 1}\frac{\psi_{c, k - 1} - \psi_{c, k} + \psi_{o(e), k - 1} - \psi_{c, k}}{2}u_{e, k - 1} + \frac{\Delta z_{e, k}^2}{\Delta z_{c, k}}J_{e, k}\frac{\psi_{o(e), k} - \psi_{c, k}}{2}u_{e, k}\right)\nonumber\\
-&- \frac{1}{\Delta z_{e, k + 1/2}}\left(\frac{\Delta z_{e, k}^2}{\Delta z_{c, k}}J_{e, k}\frac{\psi_{o(e), k} - \psi_{c, k}}{2}u_{e, k} + \frac{\Delta z_{e, k + 1}^2}{\Delta z_{c, k + 1}}J_{e, k + 1}\frac{\psi_{c, k + 1} - \psi_{c, k} + \psi_{o(e), k + 1} - \psi_{c, k}}{2}u_{e, k + 1}\right)\Bigg].
+&- \sum_{e\in c}\frac{l_ed_e}{A_c\Delta z_{c, k}}\Bigg[\frac{1}{\Delta z_{e, k - 1/2}}\left(\frac{\Delta z_{e, k - 1}^2}{\Delta z_{c, k - 1}}J_{e, k - 1}\frac{\psi_{c, k - 1} - \psi_{c, k} + \psi_{o(e), k - 1} - \psi_{c, k}}{2}\textcolor{red}{u_{e, k - 1}} + \frac{\Delta z_{e, k}^2}{\Delta z_{c, k}}J_{e, k}\frac{\psi_{o(e), k} - \psi_{c, k}}{2}u_{e, k}\right)\nonumber\\
+&- \frac{1}{\Delta z_{e, k + 1/2}}\left(\frac{\Delta z_{e, k}^2}{\Delta z_{c, k}}J_{e, k}\frac{\psi_{o(e), k} - \psi_{c, k}}{2}u_{e, k} + \frac{\Delta z_{e, k + 1}^2}{\Delta z_{c, k + 1}}J_{e, k + 1}\frac{\psi_{c, k + 1} - \psi_{c, k} + \psi_{o(e), k + 1} - \psi_{c, k}}{2}\textcolor{red}{u_{e, k + 1}}\right)\Bigg]\nonumber\\
+&\stackrel{\text{Glg. }\eqref{eq:inner_c-grid_3d_shallow_terrain}}{\hastobe} \sum_{e\in c}\frac{l_ed_e}{2A_c\Delta z_{c, k}}\Delta z_{e, k}\left(\nabla\psi\right)_eu_e + \frac{\Delta z_{c, k - 1/2}}{2\Delta z_{c, k}}\left(\nabla\psi\right)_{c, k - 1/2}w_{c, k - 1/2} + \frac{\Delta z_{c, k + 1/2}}{2\Delta z_{c, k}}\left(\nabla\psi\right)_{c, k + 1/2}w_{c, k + 1/2}.
 \end{align}
-
-\subsubsection{Shallow atmosphere}
-\label{sec:grad_c_shallow_atmosphere}
-
-
+%
+Die \textcolor{red}{rot} markierten Terme treten nur auf der linken Seite auf, jedoch nicht auf der rechten. $\nabla\psi$ lässt sich also in geländefolgenden Koordinaten nicht mehr so definieren, dass diese Gleichung erfüllt ist. Man könnte diese Terme eliminieren, indem man die kontravarianten Flussdichten nur über eine einseitige vertikale Rekonstruktion berechnet, was ein Widerspruch zur Forderung der Massenerhaltung wäre, da in diesem Fall der Fluss durch eine Fläche davon abhängen würde, von welcher Seite man die Fläche betrachtet. Das Problem kann also nicht exakt gelöst werden.
 
 \subsubsection{Deep atmosphere}
 \label{sec:grad_c_deep_atmosphere}
