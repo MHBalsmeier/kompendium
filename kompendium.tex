@@ -20434,17 +20434,34 @@ H\left(\rho, \newtilde{s}, \mathbf{v}\right) = \sum_{c, k}\left[\frac{1}{2}\rho_
 Man teilt dies auf in zwei Anteile
 %
 \begin{align}
-H_\text{kin}\left(\rho, \newtilde{s}, \mathbf{v}\right) &= \sum_{c, k}\frac{1}{2}\rho_{c, k}\left(\mathbf{v}\cdot\mathbf{v}\right)_{c, k}V_{c, k},\\
-H_{I'}\left(\rho, \newtilde{s}, \mathbf{v}\right) &= \sum_{c, k}\left(\rho_{c, k}\phi_{c, k} + \newtilde{I}_{c, k}\right)V_{c, k}.
+H_\text{kin}\left(\mathbf{v}\right) &= \sum_{c, k}\frac{1}{2}\rho_{c, k}\left(\mathbf{v}\cdot\mathbf{v}\right)_{c, k}V_{c, k},\\
+H_{I'}\left(\rho, \newtilde{s}\right) &= \sum_{c, k}\left(\rho_{c, k}\phi_{c, k} + \newtilde{I}_{c, k}\right)V_{c, k}.
 \end{align}
 %
-Für die Funktionalableitungen nach den thermodynamischen Größen erhält man
+Den Anteil der kinetischen Energie kann man noch weiter aufteilen:
 %
 \begin{align}
-\left(\frac{\delta H_\text{kin}}{\delta\rho}\right)_{c, k} &= \frac{1}{2}\left(\mathbf{v}\cdot\mathbf{v}\right)_{c, k},\\
-\left(\frac{\delta H_{I'}}{\delta\rho}\right)_{c, k} &= \phi_{c, k} + \frac{\partial\newtilde{I}_{c, k}}{\partial\rho},\\
-\left(\frac{\delta H_{I'}}{\delta\rho}\right)_{c, k} &= \frac{\partial\newtilde{I}_{c, k}}{\partial q_1}.
+H_\text{kin}^{(u)}\left(u\right) &= \sum_{c, k}\frac{1}{2}\rho_{c, k}\sum_{e\in c}\frac{l_ed_e}{2A_c\Delta z_{c, k}}\Delta z_{e, k}u_{e, k}^2V_{c, k} = \sum_{c, k}\sum_{e\in c}\frac{\rho_{c, k}l_ed_e\Delta z_{e, k}}{4}u_{e, k}^2,\label{eq:h_kin_u}\\
+H_\text{kin}^{(w)}\left(w\right) &= \sum_{c, k}\frac{1}{2}\rho_{c, k}\left(\frac{\Delta z_{c, k - 1/2}}{2\Delta z_{c, k}}w_u^2 + \frac{\Delta z_{c, k + 1/2}}{2\Delta z_{c, k}}w_l^2\right)V_{c, k}\nonumber\\
+&= \sum_{c, k}\left(\frac{\rho_{c, k}\Delta z_{c, k - 1/2}}{4}w_{c, k - 1/2}^2 + \frac{\rho_{c, k}\Delta z_{c, k + 1/2}}{4}w_{c, k + 1/2}^2\right)A_{c}\label{eq:h_kin_w}
 \end{align}
+%
+Eine alternative Formulierung der kinetischen Energie ist
+%
+\begin{align}
+H_\text{kin}^\star\left(\mathbf{v}\right) &\coloneqq \sum_{c, k}\frac{1}{2}\left(\rho\mathbf{v}\cdot\mathbf{v}\right)_{c, k}V_{c, k},\label{eq:h_kin_mod}\\
+H_\text{kin}^{(u, \star)}\left(u\right) &\coloneqq \sum_{c, k}\sum_{e\in c}\frac{l_ed_e\Delta z_{e, k}}{4}\newtilde{\rho_{c, k}}^{(e)}u_{e, k}^2,\label{eq:h_kin_u_mod}\\
+H_\text{kin}^{(w, \star)}\left(w\right) &\coloneqq \sum_{c, k}\left(\frac{\Delta z_{c, k - 1/2}}{4}\newtilde{\rho_{c, k}}^{(k - 1/2)}w_{c, k - 1/2}^2 + \frac{\Delta z_{c, k + 1/2}}{4}\newtilde{\rho_{c, k}}^{(k + 1/2)}w_{c, k + 1/2}^2\right)A_{c}.\label{eq:h_kin_w_mod}
+\end{align}
+%
+Dabei sind $\newtilde{\rho_{c, k}}^{(e)}$ ein Mittelungsoperator an die Kanten und $\newtilde{\rho_{c, k}}^{(k - 1/2)}$ ein Mittelungsoperator an die Punkte, an denen $w$ platziert ist. Diese Operatoren müssen
+%
+\begin{align}
+\sum_{e, k}\newtilde{\rho_{c, k}}^{(e)}V_{e, k} &= \sum_{c, k}\rho_{c, k}V_{c, k},\\
+\sum_{c, k}\newtilde{\rho_{c, k}}^{(k - 1/2)}V_{c, k - 1/2} &= \sum_{c, k}\rho_{c, k}V_{c, k}
+\end{align}
+%
+erfüllen, um die Massenerhaltung nicht zu gefährden.
 
 \subsection{Diskretisierung von Funktionalableitungen}
 \label{sec:diskretisierun_von_funktionalableitungen}\index{Diskretisierung!Funktionalableitung}\index{Funktionalableitung!Diskretisierung}
@@ -20455,7 +20472,93 @@ Glg. \eqref{eq:def_functional_derivative} diskretisiert man in der Form
 \lim_{\epsilon\to 0}\frac{1}{\epsilon}\sum_{c, k}\left[f\left(\mathbf{u}_{c, k} + \epsilon\mathbf{h}_{c, k}\right) - f\left(\mathbf{u}_{c, k}\right)\right]V_{c, k} \hastobe \sum_{c, k}\left(\frac{\delta F}{\delta\mathbf{u}}\right)_{c, k}\cdot\mathbf{h}_{c, k}V_{c, k}.
 \end{align}
 %
-Die Funktionalableitung\index{Diskretisierung!Funktionalableitung}\index{Funktionalableitung!Diskretisierung} ist diejenige diskrete Funktion, welche dies für alle Hilfsfunktionen $\mathbf{h}_{c, k}$ erfüllt. $\mathbf{h}$ ist hierbei ein Tupel von Zustandsgrößen.
+Die Funktionalableitung\index{Diskretisierung!Funktionalableitung}\index{Funktionalableitung!Diskretisierung} ist diejenige diskrete Funktion, welche dies für alle Hilfsfunktionen $\mathbf{h}_{c, k}$ erfüllt. $\mathbf{h}$ ist hierbei ein Tupel von Zustandsgrößen. Es kann auch über andere Volumina als $V_{c, k}$ summiert werden.
+
+Für die Funktionalableitungen nach den thermodynamischen Größen erhält man
+%
+\begin{align}
+\left(\frac{\delta H_\text{kin}}{\delta\rho}\right)_{c, k} = \frac{1}{2}\left(\mathbf{v}\cdot\mathbf{v}\right)_{c, k}, && \left(\frac{\delta H_{I'}}{\delta\rho}\right)_{c, k} = \phi_{c, k} + \frac{\partial\newtilde{I}_{c, k}}{\partial\rho}, && \left(\frac{\delta H_{I'}}{\delta\rho}\right)_{c, k} = \frac{\partial\newtilde{I}_{c, k}}{\partial q_1}.
+\end{align}
+%
+Die Glg.en \eqref{eq:h_kin_u_mod} - \eqref{eq:h_kin_w_mod} kann man in die Form
+%
+\begin{align}
+H_\text{kin}^{(u, \star)}\left(u\right) &\coloneqq \sum_{c, k}\sum_{e\in c}V_{e, k}\newtilde{\rho_{c, k}}^{(e)}\frac{u_{e, k}^2}{2},\\
+H_\text{kin}^{(w, \star)}\left(w\right) &\coloneqq \sum_{c, k}\left(\frac{\Delta z_{c, k - 1/2}}{4}\newtilde{\rho_{c, k}}^{(k - 1/2)}w_{c, k - 1/2}^2 + \frac{\Delta z_{c, k + 1/2}}{4}\newtilde{\rho_{c, k}}^{(k + 1/2)}w_{c, k + 1/2}^2\right)A_{c}\nonumber\\
+&= \sum_{c, k}\left(\frac{\Delta z_{c, k - 1/2}}{4}\newtilde{\rho_{c, k}}^{(k - 1/2)}w_{c, k - 1/2}^2 + \frac{\Delta z_{c, k - 1/2}}{4}\newtilde{\rho_{c, k}}^{(k - 1/2)}w_{c, k - 1/2}^2\right)A_{c}\nonumber\\
+&= \sum_{c, k}\newtilde{\rho_{c, k}}^{(k - 1/2)}\frac{w_{c, k - 1/2}^2}{2}V_{c, k - 1/2}
+\end{align}
+%
+umschreiben. Dabei wurden
+%
+\begin{align}
+V_{e, k} = \frac{l_ed_e\Delta z_{e, k}}{2}
+\end{align}
+und
+%
+\begin{align}
+V_{c, k - 1/2} = A_c\Delta z_{c, k - 1/2}
+\end{align}
+%
+eingesetzt. Dies impliziert
+%
+\begin{align}
+\left(\frac{\delta H_\text{kin}^\star}{\delta\rho}\right)_{c, k} = \frac{1}{2}\left(\mathbf{v}\cdot\mathbf{v}\right)_{c, k},
+\end{align}
+%
+da die Funktionalableitung auch an den Grenzen der Boxen ausgewertet und anschließend mittels Skalarproduktes auf die Mittelpunkte zurückinterpoliert werden kann.
+
+\subsubsection{Shallow atmosphere}
+\label{sec:shallow_atmosphere_funk_abl}
+
+Aus Glg. \eqref{eq:h_kin_u} folgt
+%
+\begin{align}
+\frac{H_\text{kin}^{(u)}\left(u + \epsilon h\right) - H_\text{kin}^{(u)}\left(u\right)}{\epsilon} &= \sum_{c, k}\sum_{e\in c}\frac{\rho_{c, k}l_ed_e\Delta z_{e, k}}{2}u_{e, k}h_{e, k} + O\left(h^2\right) = \sum_{c, k}\sum_{e\in c}\rho_{c, k}u_{e, k}h_{e, k}V_{e, k} + O\left(h^2\right).
+\end{align}
+%
+Die Summe über Zellen kann als eine Summe über Kanten umgeschrieben werden
+%
+\begin{align}
+\frac{H_\text{kin}^{(u)}\left(u + \epsilon h\right) - H_\text{kin}^{(u)}\left(u\right)}{\epsilon} &= \sum_{e, k}\left(\rho_{c_0(e), k} + \rho_{c_1(e), k}\right)u_{e, k}h_{e, k}V_{e, k} + O\left(h^2\right)\nonumber\\
+&= 2\sum_{e, k}\frac{\rho_{c_0(e), k} + \rho_{c_1(e), k}}{2}u_{e, k}h_{e, k}V_{e, k} + O\left(h^2\right)
+\end{align}
+%
+Der Vorfaktor Zwei steht für die beiden betrachteten Raumrichtungen. Die beiden Zellen, welche an die Kante $e$ grenzen, wurden mit $c_0$ und $c_1$ bezeichnet. Somit gilt
+%
+\begin{align}
+\left(\frac{\delta H}{\delta\mathbf{v}}\right)_{e, k} = \frac{\rho_{c_0(e), k} + \rho_{c_1(e), k}}{2}u_{e, k}.
+\end{align}
+%
+Analog folgt aus Glg. \eqref{eq:h_kin_w}
+%
+\begin{align}
+\frac{H_\text{kin}^{(w)}\left(w + \epsilon h\right) - H_\text{kin}^{(w)}\left(u\right)}{\epsilon} &= \sum_{c, k}\left(\frac{\rho_{c, k}\Delta z_{c, k - 1/2}}{2}w_{c, k - 1/2}h_{c, k - 1/2} + \frac{\rho_{c, k}\Delta z_{c, k + 1/2}}{2}w_{c, k + 1/2}h_{c, k + 1/2}\right)A_{c}\nonumber\\
+&= \sum_{c, k}\left(\frac{\rho_{c, k}}{2}w_{c, k - 1/2}h_{c, k - 1/2} + \frac{\rho_{c, k - 1}}{2}w_{c, k - 1/2}h_{c, k - 1/2}\right)\Delta z_{c, k - 1/2}A_{c}.
+\end{align}
+%
+Dabei wurde eine Indexverschiebung vorgenommen. Mit $V_{c, k - 1/2} = A_c\Delta z_{c, k - 1/2}$ erhält man
+%
+\begin{align}
+\frac{H_\text{kin}^{(w)}\left(w + \epsilon h\right) - H_\text{kin}^{(w)}\left(u\right)}{\epsilon} &= \sum_{c, k}\frac{\rho_{c, k} + \rho_{c, k - 1}}{2}w_{c, k - 1/2}h_{c, k - 1/2}V_{c, k - 1/2}.
+\end{align}
+%
+Somit folgt
+%
+\begin{align}
+\left(\frac{\delta H}{\delta\mathbf{v}}\right)_{c, k - 1/2} = \frac{\rho_{c, k} + \rho_{c, k - 1}}{2}w_{c, k - 1/2}.
+\end{align}
+%
+Verwendet man den modifizierten Operator $H_\text{kin}^\star\left(\mathbf{v}\right)$ aus Glg. \eqref{eq:h_kin_mod}, erhält man
+%
+\begin{align}
+\left(\frac{\delta H^\star}{\delta\mathbf{v}}\right)_{e, k} &= \newtilde{\rho_{c, k}}^{(e)}u_{e, k},\\
+\left(\frac{\delta H^\star}{\delta\mathbf{v}}\right)_{c, k - 1/2} &= \newtilde{\rho_{c, k}}^{(k - 1/2)}w_{c, k - 1/2}.
+\end{align}
+
+\subsubsection{Deep atmosphere}
+\label{sec:deep_atmosphere_funk_abl}
+
 
 \subsection{Gradient auf dem C-Gitter in geländefolgenden Koordinaten}
 \label{sec:gradient_auf_dem_c-gitter_in_gelaendefolgenden_koordinaten}
