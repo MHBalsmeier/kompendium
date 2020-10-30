@@ -20282,6 +20282,18 @@ v^{(v)}_{c, k - \frac{1}{2}, \text{GK}} = w_{c, k - \frac{1}{2}} - \newoverline{
 \end{center}
 }}
 \end{center}
+%
+Es gilt
+%
+\begin{align}
+&\newoverline{\newoverline{J_{e, k}u_{e, k}}^{(c)}}^{(k - \frac{1}{2})} = \newoverline{\sum_{e\in c}\frac{l_ed_e}{2A_c\Delta z_{c, k}}\Delta z_{e, k}J_{e, k}u_{e, k}}^{(k - \frac{1}{2})} = \sum_{e\in c}\frac{l_ed_e}{2A_c}\newoverline{\frac{\Delta z_{e, k}}{\Delta z_{c, k}}J_{e, k}u_{e, k}}^{(k - \frac{1}{2})}\nonumber\\
+&= \sum_{e\in c}\frac{l_ed_e}{2A_c}\frac{1}{2\Delta z_{c, k - 1/2}}\left(\Delta z_{c, k - 1}\frac{\Delta z_{e, k - 1}}{\Delta z_{c, k - 1}}J_{e, k - 1}u_{e, k - 1} + \Delta z_{c, k}\frac{\Delta z_{e, k}}{\Delta z_{c, k}}J_{e, k}u_{e, k}\right)\nonumber\\
+&= \sum_{e\in c}\frac{l_ed_e}{2A_c}\frac{1}{2\Delta z_{c, k - 1/2}}\left(\Delta z_{e, k - 1}J_{e, k - 1}u_{e, k - 1} + \Delta z_{e, k}J_{e, k}u_{e, k}\right)\nonumber\\
+&= \sum_{e\in c}\frac{l_ed_e}{2A_c}\frac{\Delta z_{e, k - 1/2}}{\Delta z_{c, k - 1/2}}\frac{\Delta z_{e, k - 1}J_{e, k - 1}u_{e, k - 1} + \Delta z_{e, k}J_{e, k}u_{e, k}}{2\Delta z_{e, k - 1/2}}\nonumber\\
+&= \sum_{e\in c}\frac{l_ed_e}{2A_c}\frac{\Delta z_{e, k - 1/2}}{\Delta z_{c, k - 1/2}}\newoverline{J_{e, k}u_{e, k}}^{(k - 1/2)} = \newoverline{\newoverline{J_{e, k}u_{e, k}}^{(k - 1/2)}}^{(c)}.
+\end{align}
+%
+Auch hier spielt die Reihenfolge der Mittelungsoperatoren also keine Rolle.
 
 \subsubsection{Deep atmosphere}
 \label{sec:deep_atmosphere_conv}
