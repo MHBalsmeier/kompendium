@@ -19751,7 +19751,7 @@ Die Bestimmung des Operators $\newhat{I}$ kann sehr kompliziert sein. Die Messun
 \left(x - \newhat{I}y\right)^2 \to \left(y - \newhat{H}x\right)^2
 \end{align}
 %
-vor, hierbei ist $\newhat{H}$ ein linearer Operator, welcher aus einem Modellzustand $\mathbf{X}$ die Messungen $\mathbf{Y}$ rekonstruiert. Hierzu muss man die Modellvariablen als Störungen auffassen,
+vor, hierbei ist $\newhat{H}$ ein linearer Operator, der sogenannte \textit{Beobachtungsoperator}\index{Beobachtungsoperator}, welcher aus einem Modellzustand $\mathbf{x}$ die Messungen $\mathbf{y}$ rekonstruiert. Hierzu muss man die Modellvariablen als Störungen auffassen,
 %
 \begin{align}
 x \to x - \newoverline{x},
@@ -19845,7 +19845,7 @@ Man erhält hieraus
 \left(\nabla J\right)_i = \frac{2\left(x_i - x_{i, B}\right)}{\sigma_{i, B}^2} - \frac{2h_i}{\sigma_y^2}\left(y - \sum_{j = 0}^{N - 1}h_jx_j\right).
 \end{align}
 %
-Dies kann man in der kompaken Form
+Dies kann man in der kompakten Form
 %
 \begin{align}
 \nabla J = 2\overleftrightarrow{A}_B\left(\mathbf{x} - \mathbf{x}_B\right) - 2\frac{\overleftrightarrow{H}^T}{\sigma_y^2}\left(y - \overleftrightarrow{H}\mathbf{x}\right).
@@ -19876,22 +19876,59 @@ J\left(\mathbf{x}\right) = \left(\mathbf{x} - \mathbf{x}_B\right)^T\overleftrigh
 %
 Es gilt
 %
+\begin{align}
+\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}\right)^T\overleftrightarrow{A}_O\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}\right) &= \mathbf{y}^T\overleftrightarrow{A}_O\mathbf{y} - \mathbf{y}^T\overleftrightarrow{A}_O\overleftrightarrow{H}\mathbf{x} - \mathbf{x}^T\overleftrightarrow{H}^T\overleftrightarrow{A}_O\mathbf{y} + \mathbf{x}^T\overleftrightarrow{H}^T\overleftrightarrow{A}_O\overleftrightarrow{H}\mathbf{x}.
+\end{align}
+%
+Man rechnet nun
+%
+\begin{align}
+\mathbf{y}^T\overleftrightarrow{A}_O\overleftrightarrow{H}\mathbf{x} &= \left(\overleftrightarrow{A}_O\overleftrightarrow{H}\mathbf{x}\right)^T\mathbf{y} = \mathbf{x}^T\overleftrightarrow{H}^T\overleftrightarrow{A}_O^T\mathbf{y} = \mathbf{x}^T\overleftrightarrow{H}^T\overleftrightarrow{A}_O\mathbf{y}.
+\end{align}
+%
+Somit gilt
+%
+\begin{align}
+\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}\right)^T\overleftrightarrow{A}_O\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}\right) &= \mathbf{y}^T\overleftrightarrow{A}_O\mathbf{y} - 2\mathbf{x}^T\overleftrightarrow{H}^T\overleftrightarrow{A}_O\mathbf{y} + \mathbf{x}^T\left(\overleftrightarrow{H}^T\overleftrightarrow{A}_O\overleftrightarrow{H}\mathbf{x}\right).
+\end{align}
+%
+Bildet man hiervon den Gradienten (in Bezug auf $\mathbf{x}$), erhält man
+%
+\begin{align}
+\nabla\left[\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}\right)^T\overleftrightarrow{A}_O\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}\right)\right] &= -2\overleftrightarrow{H}^T\overleftrightarrow{A}_O\mathbf{y} + 2\overleftrightarrow{H}^T\overleftrightarrow{A}_O\overleftrightarrow{H}\mathbf{x}.
+\end{align}
+%
+Hieraus folgt
+%
 \begin{eqnarray}
 \nabla J = 2\overleftrightarrow{A}_B\left(\mathbf{x} - \mathbf{x}_B\right) - 2\overleftrightarrow{H}^T\overleftrightarrow{A}_O\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}\right).
 \end{eqnarray}
 %
 Aus Glg. \eqref{eq:3dvar_criterion} folgt also
 %
+\begin{align}
+\left(\overleftrightarrow{A}_B + \overleftrightarrow{H}^T\overleftrightarrow{A}_O\overleftrightarrow{H}\right)\mathbf{x} &= \overleftrightarrow{A}_B\mathbf{x}_B + \overleftrightarrow{H}^T\overleftrightarrow{A}_O\mathbf{y}\nonumber\\
+\left(\overleftrightarrow{A}_B + \overleftrightarrow{H}^T\overleftrightarrow{A}_O\overleftrightarrow{H}\right)\left(\mathbf{x} - \mathbf{x}_B\right) + \overleftrightarrow{H}^T\overleftrightarrow{A}_O\overleftrightarrow{H}\mathbf{x}_B &= \overleftrightarrow{H}^T\overleftrightarrow{A}_O\mathbf{y}\nonumber\\
+\Leftrightarrow\left(\overleftrightarrow{A}_B + \overleftrightarrow{H}^T\overleftrightarrow{A}_O\overleftrightarrow{H}\right)\left(\mathbf{x} - \mathbf{x}_B\right) &= \overleftrightarrow{H}^T\overleftrightarrow{A}_O\mathbf{y} - \overleftrightarrow{H}^T\overleftrightarrow{A}_O\overleftrightarrow{H}\mathbf{x}_B\nonumber\\
+\Leftrightarrow\left(\overleftrightarrow{A}_B + \overleftrightarrow{H}^T\overleftrightarrow{A}_O\overleftrightarrow{H}\right)\left(\mathbf{x} - \mathbf{x}_B\right) &= \overleftrightarrow{H}^T\overleftrightarrow{A}_O\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}_B\right)\nonumber
+\end{align}
 \begin{center}
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-\left(\overleftrightarrow{A}_B + \overleftrightarrow{H}^T\overleftrightarrow{A}_O\overleftrightarrow{H}\right)\mathbf{x} = \overleftrightarrow{A}_B\mathbf{x}_B + \overleftrightarrow{H}^T\overleftrightarrow{A}_O\mathbf{y}
+\mathbf{x} &= \mathbf{x}_B + \left(\overleftrightarrow{A}_B + \overleftrightarrow{H}^T\overleftrightarrow{A}_O\overleftrightarrow{H}\right)^{-1}\overleftrightarrow{H}^T\overleftrightarrow{A}_O\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}_B\right).
 \end{align}
 \end{center}
-
 }}
 \end{center}
+%
+Die Matrix
+%
+\begin{align}
+\overleftrightarrow{K} \coloneqq \left(\overleftrightarrow{A}_B + \overleftrightarrow{H}^T\overleftrightarrow{A}_O\overleftrightarrow{H}\right)^{-1}\overleftrightarrow{H}^T\overleftrightarrow{A}_O
+\end{align}
+%
+bezeichnet man als \textit{Gain-Matrix}\index{Gain-Matrix}.
 
 \subsection{Berücksichtigung der Balancegleichung}
 \label{sec:berücksichtigung_der_balancegleichung}\index{Balancegleichung!Datenassimilation}\index{Datenassimilation!Balancegleichung}
