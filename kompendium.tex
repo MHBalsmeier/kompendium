@@ -21331,7 +21331,22 @@ Führt man $N \geq 1$ Tracer ein (also Anteile der Luft, die nicht zur trockenen
 \label{sec:ankopplung_an_ein_strahlungstransportmodell}
 
 \section{Model output statistics (MOS)}
-\label{sec:model_output_statistics_mos}\index{model output statistics}
+\label{sec:model_output_statistics_mos}\index{Model output statistics}
+
+Fast jede Modellvorhersage ist falsch. Es gibt statistische Fehler sowie systematische Fehler. Außerdem gibt es in der Synoptik Größen, welche keine prognostischen Variablen sind und sich auch nur schwer direkt diagnostizieren lassen, wie z. B. die Sichtweite. \textit{Model output statistics (MOS)}\index{Model output statistics} ist ein Werkzeug, welches für die beiden Problembereiche
+%
+\begin{itemize}
+\item Korrektur für systematische Modellfehler,
+\item Vorhersage von schwer zu diagnostizierenden Variablen
+\end{itemize}
+%
+verwendet wird. In gewisser Weise ist MOS eine Formalisierung dessen, was ein vorhersagender Meteorologe als \textit{Erfahrung} bezeichnen würde. Grundsätzlich kommen hierfür eine große Bandbreite an statistischen Methoden in Frage, von einfachem Korrigieren in der Form \glqq Die vom Modell vorhergesagte Windgeschwindigkeit ist im Mittel zehn Prozent zu niedrig\grqq\ bis hin zu sehr komplexen, vieldimensionalen Funktionen. Als allgemeinen Ansatz verwendet man
+%
+\begin{align}
+f = f\left(\mathbf{x}, t\right),
+\end{align}
+%
+hierbei sind $f$ die zu bestimmende Zielgröße (10-m-Böen-Windgeschwindigkeit, Sichtweite, etc.), $\mathbf{x}$ der Zustandsvektor der Modellatmosphäre und $t$ die Zeit seit Beginn des Modelllauffes.
 
 \part{Anhang}
 \label{part:anhang}
