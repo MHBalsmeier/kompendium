@@ -23,6 +23,7 @@
 \if A#1\shifthat{5.2 pt}{#1}\else
 \if B#1\shifthat{4.7 pt}{#1}\else
 \if H#1\shifthat{5.4 pt}{#1}\else
+\if I#1\shifthat{4.5 pt}{#1}\else
 \if J#1\shifthat{5.0 pt}{#1}\else
 \if N#1\shifthat{4.4 pt}{#1}\else
 \if O#1\shifthat{4.5 pt}{#1}\else
@@ -33,7 +34,7 @@
 \if r#1\shifthat{3.0 pt}{#1}\else
 \if v#1\shifthat{3.0 pt}{#1}\else
 \hat{#1}
-\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi}
+\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi}
 \newcommand\newtilde[1]{
 \if C#1\shifttilde{4.8 pt}{#1}\else
 \if E#1\shifttilde{5.0 pt}{#1}\else
@@ -8423,7 +8424,7 @@ s = \rho_d\left[c_d^{(p)}\ln\left(\theta\right) + \frac{1}{\newtilde{M}_d}\newti
 wobei $\theta_v \coloneqq T\left(\frac{p_0}{p}\right)^{R_v/c_v^{(p)}}$ die potentielle Temperatur von Wasserdampf\index{Wasserdampf!potentielle Temperatur}\index{potentielle Temperatur!Wasserdampf} ist. In jeder individuellen Phase $i$ gilt
 %
 \begin{align}
-\nabla p_i & = \rho c_i^{(p)}\nabla T - \rho_iT\nabla s_i.
+\nabla p_i & = \rho_ic_i^{(p)}\nabla T - \rho_iT\nabla s_i.
 \end{align}
 %
 Somit folgt für zwei Phasen $d, v$ durch Summation
@@ -17826,6 +17827,24 @@ T_1 & = \frac{c^{(v)}\rho_0T_0 + \left(R_dT_0 - \frac{R_d}{c^{(p)}}s_0T_0\right)
 \end{center}
 }}
 \end{center}
+%
+Indem man die Ersetzung $d \to h$ vornimmt, erhält man die entsprechende Gleichung für feuchte Luft, bzw. allgemeine Gemische idealer Gase:
+%
+\begin{align}
+T_1 & = \frac{c_h^{(v)}\rho_0T_0 + \left(R_hT_0 - \frac{R_h}{c_h^{(p)}}s_0T_0\right)\Delta\rho + \frac{R_h}{c_h^{(p)}}T_0\Delta\newtilde{s}}{c_h^{(v)}\rho_0 + \frac{c_h^{(v)}}{c_h^{(p)}}s_1\Delta\rho - \frac{c_h^{(v)}}{c_h^{(p)}}\Delta\newtilde{s}}
+\end{align}
+%
+Hierbei sind
+%
+\begin{align}
+\rho = \rho_d + \rho_v
+\end{align}
+%
+und
+%
+\begin{align}
+\newtilde{s} = \newtilde{s}_d + \newtilde{s}_v.
+\end{align}
 
 \chapter{\normalfont\textsc{Auswahl einer zukunftsfähigen horizontalen Diskretisierung}}
 \label{sec:auswahl_einer_zukunftsfaehigen_horizontalen_diskretisierung}
@@ -19674,55 +19693,205 @@ Da das Lösen der Strahlungsübertragungsgleichung\index{Strahlungsübertragungs
 \chapter{\normalfont\textsc{Datenassimilation}}
 \label{chap:datenassimilation}\index{Datenassimilation}
 
+Bei der \textit{Datenassimilation}\index{Datenassimilation} geht es um die Bestimmung eines Modellzustandes aus Beobachtungen. $\mathbf{x}$ sei der Zustandsvektor der Modellatmosphäre (die \textit{Analyse}\index{Analyse}) und $\mathbf{y}$ sei der Vektor der Messungen. Man nimmt zunächst an, dass beide zum gleichen Zeitpunkt gültig seien. Die Länge der Vektoren $\mathbf{x}$ und $\mathbf{y}$ sind i. A. unterschiedlich, und die gemessenen Größen entsprechen i. A. nicht den Modellvariablen. Der einfachste Ansatz wäre eine Interpolation
+%
+\begin{align}
+\mathbf{x} = \newhat{I}\mathbf{y}.
+\end{align}
+%
+Hierbei übernimmt der Operator $\newhat{I}$, der nicht notwendigerweise linear sein muss, zwei Aufgaben:
+%
+\begin{enumerate}
+\item Umrechnung der gemessenen Variablen in die prognostischen Variablen.
+\item Interpolation an die Gitterpunkte. Dabei können unterschiedliche Methoden verwendet werden.
+\end{enumerate}
+%
+Das Problem, welches hierbei auftritt, ist, dass bei groben Auflösungen der so bestimmte Vektor $\mathbf{x}$ weit entfernt von Hydrostatik, Divergenzfreiheit und Geostrophie ist. Dies löst zu starke Schall- und Schwerewellen aus. Daher muss man $\mathbf{x}$ in Richtung eines balancierten Zustandes $\mathbf{x}_B$ korrigieren. Hierzu verwendet man eine Kostenfunktion\index{Kostenfunktion} $J$, welche zwei Terme enthält:
+%
+\begin{itemize}
+\item Ein Anteil $J_B$, welcher die Differenz zwischen der Analyse und der Balance repräsentiert.
+\item Ein Anteil $J_y$, welcher die Differenz zwischen der Analyse und den Beobachtungen repräsentiert.
+\end{itemize}
+%
+Als Formel notiert man
+%
+\begin{align}
+J\left(\mathbf{x}\right) = J_B\left(\mathbf{x}, \mathbf{y}\right) + J_y\left(\mathbf{x}, \mathbf{x}_B\right).
+\end{align}
+
 \section{3D-Var}
 \label{sec:3d-var}\index{3D-Var}
+
+Beim \textit{3D-Var-Verfahren}\index{3D-Var-Verfahren} geht man devaon aus, dass alle Beobachtungen zum gleichen Zeitpunkt getätigt wurden.
 
 \subsection{Eine Beobachtung}
 \label{sec:eine_beobachtung}
 
-\subsection{Zwei Beobachtungen}
-\label{sec:zwei_beobachtungen}
+Zunächst stellt man sich vor, dass man nur eine Beobachtung $y$ hat und das Modell nur aus einer einzigen Zahl $x$ besteht. Als Ansatz $J'$ für $J$ orientiert man sich an der euklidischen Norm und notiert
+%
+\begin{align}
+J'\left(x\right) = \sqrt{J_B'\left(x, y\right)^2 + J_y'\left(x, x_B\right)^2} = \sqrt{\alpha_B\left(x - x_B\right)^2 + \alpha_y\left(x - \newhat{I}y\right)^2}.
+\end{align}
+%
+Hierbei sind $\alpha_B$, $\alpha_y$ zwei Gewichtungsfaktoren mit
+%
+\begin{align}
+\alpha_B + \alpha_y = 1.
+\end{align}
+%
+Da die Kostenfunktion minimert werden soll und die Wurzel streng monoton steigen ist, vereinfacht man die notation der Kostenfunktion zu
+%
+\begin{align}
+J\left(x\right) = J_B\left(x, y\right) + J_y\left(x, x_B\right) = \alpha_B\left(x - x_B\right)^2 + \alpha_y\left(x - \newhat{I}y\right)^2.
+\end{align}
+%
+Die Bestimmung des Operators $\newhat{I}$ kann sehr kompliziert sein. Die Messungen sind nämlich i. A. allgemeinen nicht einfach Messungen von $\left(p, \rho, T, \mathbf{v}\right)$, welche interpoliert und mittels der Zustandsgleichung umgerechnet werden müssen, sondern es kann sich auch um Messungen von spektralen Strahldichten an einem Satelliten oder Radarreflektivitäten handeln. Für diese Größen ist es jedoch deutlich einfacher möglich, sie aus einem Modellzustand heraus zu rekonstruieren. Daher nimmt man die Ersetzung
+%
+\begin{align}
+\left(x - \newhat{I}y\right)^2 \to \left(y - \newhat{H}x\right)^2
+\end{align}
+%
+vor, hierbei ist $\newhat{H}$ ein linearer Operator, welcher aus einem Modellzustand $\mathbf{X}$ die Messungen $\mathbf{Y}$ rekonstruiert. Hierzu muss man die Modellvariablen als Störungen auffassen,
+%
+\begin{align}
+x \to x - \newoverline{x},
+\end{align}
+%
+wobei $x_0$ ein Hintergrundwert ist. Bei nur einer Messung und einer Modellvariable ist $\newhat{H}$ einfach eine Zahl,
+%
+\begin{align}
+\newhat{H} = h.
+\end{align}
+%
+Die Kostenfunktion lautet somit
+%
+\begin{align}
+J\left(x\right) = \alpha_B\left(x - x_B\right)^2 + \alpha_y\left(y - hx\right)^2.
+\end{align}
+%
+Die Kostenfunktion soll dimensionslos sein. Aus einer Dimensionsanalyse erhält man
+%
+\begin{align}
+\left[\alpha_B\right] = \frac{1}{\left[x^2\right]}, && \left[\alpha_y\right] = \frac{1}{\left[y^2\right]}.
+\end{align}
+%
+Ein sinnvoller Ansatz für die Gewichtungsfaktoren sind die inversen Varianzen:
+%
+\begin{align}
+\alpha_B = \frac{1}{\sigma_B^2}, && \alpha_y = \frac{1}{\sigma_y^2}
+\end{align}
+%
+Hierbei ist $\sigma_B$ die Standardabweichung des Hintergrundzustandes und $\sigma_y$ die Standardabweichung der Messung $y$.
 
-\subsection{N Beobachtungen}
-\label{sec:n_beobachtungen}
+Das Minimum der Kostenfunktion erfüllt
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\nabla J = 0.\label{eq:3dvar_criterion}
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+Diese Gleichung ist auch im mehrdimensionalen Fall notwendig und hinreichend für das Minimum: Da $J$ quadratisch ist, ist $\nabla J$ linear mit konstanten Gliedern, die man durch eine Koordinatentransformation verschwinden lassen kann. Die $\nabla J$ festlegende Matrix ist weiterhin symmetrisch. Da die Einträge auf der Hauptdiagonale alle ungleich Null sind, ist diese Matrix invertierbar. Es gibt also nur ein $\mathbf{x}$ mit $\nabla J\left(\mathbf{x}\right) = \mathbf{0}$. Wegen $\lim_{\left|\mathbf{x}\right| \to \infty} J = \infty$ ist dies ein Minimum.
 
-
-Let $\mathbf{X}$ be the state vector of the model atmosphere and $\mathbf{X}_B$ be the background state vector from a previous forecast. $\mathbf{Y}$ shall denounce the vector of observations valid at the analysis time. $\mathbf{Y}$ differs from $\mathbf{X}$ in size and the elements of $\mathbf{Y}$ are not observed at model grid points nor are they the prognostic model variables. Meta data must be available about the elements of $\mathbf{Y}$ containing information about the points of observation and what has actually been measured. The procedure \textit{3D-var} is based on the minimization of a cost function $J = J\left(\mathbf{X}\right) \geq 0$ containing two terms:
+Aus Glg. \eqref{eq:3dvar_criterion} erhält man
+%
+\begin{align}
+0 = \frac{2}{\sigma_B^2}\left(x - x_B\right) - \frac{2h}{\sigma_y^2}\left(y - hx\right) \Rightarrow x = x_B + \frac{h\sigma_B^2}{\sigma_y^2}\left(y - hx\right).
+\end{align}
+%
+Hieraus folgen zwei interessante Grenzfälle:
 %
 \begin{itemize}
-\item The distance between the analysis and the background state.
-\item The distance between the analysis and the observations.
+\item Im Fall $\frac{\sigma_B^2}{\sigma_y^2} \to \infty$, was einem sehr ungenauen Hintergrundzustand $x_B$ entspricht, gilt $hx = y$. Die Analyse bestimmt sich in diesem Fall nur aus den Messungen.
+\item Im Fall $\frac{\sigma_y^2}{\sigma_B^2} \to \infty$, was sehr ungenauen Messungen $y$ entspricht, gilt $x = x_B$. Die Analyse bestimmt sich in diesem Fall nur aus dem Hintergrundzustand.
 \end{itemize}
+%
+Nun nimmt man an, dass ein Modellzustand nicht durch eine einzelne Zahl $x$, sondern durch einen Zustandsvektor $\mathbf{x}$ der Länge $N$ festgelegt wird. Für diesen Fall verallgemeinert die Kostenfunktion zu
+%
+\begin{align}
+J\left(\mathbf{x}\right) = \left(\mathbf{x} - \mathbf{x}_B\right)^T\overleftrightarrow{A}_B\left(\mathbf{x} - \mathbf{x}_B\right) + \frac{1}{\sigma_y^2}\left(y - \overleftrightarrow{H}\mathbf{x}\right)^2.\label{eq:3dvar_cost_1_obs}
+\end{align}
+%
+Hierbei ist $\overleftrightarrow{A}_B$ eine $N \times N-$Matrix in Diagonalform, auf deren Hauptdiagonalen die inversen Varianzen des Hintergrundzustandes stehen:
+%
+\begin{align}
+\overleftrightarrow{A}_B = \left(\begin{array}{cccc}
+\frac{1}{\sigma_{0, B}^2} & 0 & \dots & 0\\
+0 & \frac{1}{\sigma_{1, B}^2} & 0 & \vdots\\
+\vdots & \dots & \ddots & 0\\
+0 & \dots & 0 & \frac{1}{\sigma_{N - 1, B}^2}
+\end{array}\right)
+\end{align}
+%
+Hieraus folgt
+%
+\begin{align}
+\left(\mathbf{x} - \mathbf{x}_B\right)^T\overleftrightarrow{A}_B\left(\mathbf{x} - \mathbf{x}_B\right) = \sum_{i = 0}^{N - 1}\frac{\left(x_i - x_{i, B}\right)^2}{\sigma_{i, B}^2}.
+\end{align}
+%
+Der Operator $\overleftrightarrow{H}$ ist eine $1 \times N-$Matrix, also die Transponierte $\mathbf{h}^T$ eines Spaltenvektors $\mathbf{h}$. Somit gilt
+%
+\begin{align}
+\overleftrightarrow{H}\mathbf{x} = \sum_{i = 0}^{N - 1}h_ix_i.
+\end{align}
+%
+Man erhält hieraus
+%
+\begin{align}
+\left(\nabla J\right)_i = \frac{2\left(x_i - x_{i, B}\right)}{\sigma_{i, B}^2} - \frac{2h_i}{\sigma_y^2}\left(y - \sum_{j = 0}^{N - 1}h_jx_j\right).
+\end{align}
+%
+Dies kann man in der kompaken Form
+%
+\begin{align}
+\nabla J = 2\overleftrightarrow{A}_B\left(\mathbf{x} - \mathbf{x}_B\right) - 2\frac{\overleftrightarrow{H}^T}{\sigma_y^2}\left(y - \overleftrightarrow{H}\mathbf{x}\right).
+\end{align}
+%
+notieren. Aus Glg. \eqref{eq:3dvar_criterion} folgt in diesem Fall also
+%
+\begin{align}
+\left(\overleftrightarrow{A}_B + \frac{\overleftrightarrow{H}^T}{\sigma_y^2}\overleftrightarrow{H}\right)\mathbf{x} = \overleftrightarrow{A}_B\mathbf{x}_B + \frac{\overleftrightarrow{H}^T}{\sigma_y^2}y
+\end{align}
+%
+notieren.
 
-Thus, one arrives at
+\subsection{Beliebige Anzahl von Beobachtungen}
+\label{sec:beliebige_anzahl_von_beobachtungen}
+
+Nun nimmt man an, dass nicht eine, sondern $M$ Beobachtungen vorliegen. Die Kostenfunktion Glg. \eqref{eq:3dvar_cost_1_obs} verallgemeinert man für diesen Fall zu
 %
 \begin{center}
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{eqnarray}
-J\left(\mathbf{X}\right) = \left(\mathbf{X} - \mathbf{X}_B\right)^T\overleftrightarrow{A}_B\left(\mathbf{X} - \mathbf{X}_B\right)^T + \left(\mathbf{Y} - \overleftrightarrow{H}\mathbf{X}\right)^T\overleftrightarrow{A}_O\left(\mathbf{Y} - \overleftrightarrow{H}\mathbf{X}\right)^T\label{eq:3d-var_cost_function}
+J\left(\mathbf{x}\right) = \left(\mathbf{x} - \mathbf{x}_B\right)^T\overleftrightarrow{A}_B\left(\mathbf{x} - \mathbf{x}_B\right) + \left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}\right)^T\overleftrightarrow{A}_O\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}\right)\label{eq:3d-var_cost_function}
 \end{eqnarray}
 \end{center}
 }}
 \end{center}
 %
-Becasue of Eq. it is indeed
+Es gilt
 %
 \begin{eqnarray}
-J \geq 0.
+\nabla J = 2\overleftrightarrow{A}_B\left(\mathbf{x} - \mathbf{x}_B\right) - 2\overleftrightarrow{H}^T\overleftrightarrow{A}_O\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}\right).
 \end{eqnarray}
 %
-At the minimum of $J$,
+Aus Glg. \eqref{eq:3dvar_criterion} folgt also
 %
-\begin{eqnarray}
-\nabla J = 0
-\end{eqnarray}
-%
-holds. From Eq. one obtains
-%
-\begin{eqnarray}
-\nabla J = 2\overleftrightarrow{A}_B\left(\mathbf{X} - \mathbf{X}_B\right) + 2\overleftrightarrow{A}_O\left(\mathbf{Y} - \overleftrightarrow{H}\mathbf{X}\right).
-\end{eqnarray}
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\left(\overleftrightarrow{A}_B + \overleftrightarrow{H}^T\overleftrightarrow{A}_O\overleftrightarrow{H}\right)\mathbf{x} = \overleftrightarrow{A}_B\mathbf{x}_B + \overleftrightarrow{H}^T\overleftrightarrow{A}_O\mathbf{y}
+\end{align}
+\end{center}
+
+}}
+\end{center}
 
 \subsection{Berücksichtigung der Balancegleichung}
 \label{sec:berücksichtigung_der_balancegleichung}\index{Balancegleichung!Datenassimilation}\index{Datenassimilation!Balancegleichung}
@@ -19730,25 +19899,31 @@ holds. From Eq. one obtains
 \section{4D-Var}
 \label{sec:4d-var}\index{4D-Var}
 
-\textit{4D-Var} is based on 3D-var but also takes the time dimension into account. The cost function $J$ is generalized as
+\textit{4D-Var} basiert auf 3D-Var, berücksichtigt jedoch zusätzlich noch die Zeitdimension. Hierzu verallgemeinert man die Kostenfunktion $J$ in der Form
 %
 \begin{eqnarray}
 J = J_{\text{3D-Var}} + \sum_{n = 1}^NJ_n,
 \end{eqnarray}
 %
-where $N$ is the number of time steps involved (excluding the analysis time itself) and $J_n$ is the cost function at the time step $n$. $J_{\text{3D-Var}}$ is defined as in Eq. \eqref{eq:3d-var_cost_function}. Let $\mathbf{Y}_n$ be the vector of observations valid at the time step $n$. At every time step this vector might be of different size and of different meaning. $\mathbf{X}_n$ shall be the state vector valid at the time step $n$, which is deduced by the initial state vector $\mathbf{X}$ via
+hierbei ist $N$ die Anzahl der involvierten Zeitschritte (außer dem Analysezeitpunkt selbst) und $J_n$ ist die Kostenfunktion an Schritt $n$. $J_{\text{3D-Var}}$ ist wie in Glg. \eqref{eq:3d-var_cost_function} definiert. $\mathbf{Y}_n$ sei der Vektor der Beobachtungen am Zeitschritt $n$. An jedem Zeitschritt kann dieser Vektor eine andere Größe sowie eine andere Bedeutung haben. $\mathbf{X}_n$ sei der Zustandsvektor der Modellatmosphäre bei Zeitschritt $n$, welcher aus dem Analysezustand $\mathbf{X}$ über
 %
 \begin{eqnarray}
-\mathbf{X}_n = M_n\left(\mathbf{X}\right),
+\mathbf{X}_n = M_n\mathbf{X},
 \end{eqnarray}
 %
-where $M_n$ is the model integration to step $n$. From $M_n$ one deduces the so-called \textit{tangent linear model operator} $\overleftrightarrow{M}_n$, which is a matrix. Thus, one obtains
+ermittelt wird. Hierbei ist $M_n$ die Integration des Modells vom Analysezeitpunkt zu Zeitschritt $n$. Um diese Integration zu linearisieren, berechnet man einen sogenannten \textit{tangentialen linearen Modelloperator} $\overleftrightarrow{M}$, welcher eine Matrix ist. Es gilt dann
+%
+\begin{eqnarray}
+M_n \approx \overleftrightarrow{M}^n,
+\end{eqnarray}
+%
+was für zunehmende $n$ immer ungenauer wird. Somit gilt
 %
 \begin{center}
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{eqnarray}
-J_n = \left(\mathbf{Y}_n - \overleftrightarrow{H}_n\overleftrightarrow{M}_n\mathbf{X}\right)^T\overleftrightarrow{A}_{O, n}\left(\mathbf{Y}_n - \overleftrightarrow{H}_n\overleftrightarrow{M}_n\mathbf{X}\right).
+J_n = \left(\mathbf{Y}_n - \overleftrightarrow{H}_n\overleftrightarrow{M}^n\mathbf{X}\right)^T\overleftrightarrow{A}_{O, n}\left(\mathbf{Y}_n - \overleftrightarrow{H}_n\overleftrightarrow{M}^n\mathbf{X}\right).
 \end{eqnarray}
 \end{center}
 }}
