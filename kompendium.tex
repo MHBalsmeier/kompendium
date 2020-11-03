@@ -8413,7 +8413,7 @@ Somit gilt Glg. \eqref{eq:td_1_id_gas_density_entropy}
 auch mit diesen Definitionen.
 
 \subsection{Beispiel: feuchte Luft}
-\label{sec:beispiel:__feuchte_luft}
+\label{sec:beispiel:_feuchte_luft}
 
 Hier soll es zunächst um feuchte Luft\index{feuchte Luft}\index{Luft!feuchte} unter Abwesenheit von Kondensaten gehen. In solch einem System gilt
 %
@@ -19813,24 +19813,35 @@ Hieraus folgen zwei interessante Grenzfälle:
 Nun nimmt man an, dass ein Modellzustand nicht durch eine einzelne Zahl $x$, sondern durch einen Zustandsvektor $\mathbf{x}$ der Länge $N$ festgelegt wird. Für diesen Fall verallgemeinert die Kostenfunktion zu
 %
 \begin{align}
-J\left(\mathbf{x}\right) = \left(\mathbf{x} - \mathbf{x}_B\right)^T\overleftrightarrow{A}_B\left(\mathbf{x} - \mathbf{x}_B\right) + \frac{1}{\sigma_y^2}\left(y - \overleftrightarrow{H}\mathbf{x}\right)^2.\label{eq:3dvar_cost_1_obs}
+J\left(\mathbf{x}\right) = \left(\mathbf{x} - \mathbf{x}_B\right)^T\overleftrightarrow{B}^{-1}\left(\mathbf{x} - \mathbf{x}_B\right) + \frac{1}{\sigma_y^2}\left(y - \overleftrightarrow{H}\mathbf{x}\right)^2.\label{eq:3dvar_cost_1_obs}
 \end{align}
 %
-Hierbei ist $\overleftrightarrow{A}_B$ eine $N \times N-$Matrix in Diagonalform, auf deren Hauptdiagonalen die inversen Varianzen des Hintergrundzustandes stehen:
+Hierbei ist $\overleftrightarrow{B} \in \mathbb{R}^{N \times N}$ die Kovarianzmatrix der Fehler des Hintergrundzustandes. Diese Matrix hat Diagonalform, auf ihrer Hauptdiagonalen stehen die Varianzen des Hintergrundzustandes:
 %
 \begin{align}
-\overleftrightarrow{A}_B = \left(\begin{array}{cccc}
-\frac{1}{\sigma_{0, B}^2} & 0 & \dots & 0\\
-0 & \frac{1}{\sigma_{1, B}^2} & 0 & \vdots\\
+\overleftrightarrow{B} = \left(\begin{array}{cccc}
+\sigma_{0, B}^2 & 0 & \dots & 0\\
+0 & \sigma_{1, B}^2 & 0 & \vdots\\
 \vdots & \dots & \ddots & 0\\
-0 & \dots & 0 & \frac{1}{\sigma_{N - 1, B}^2}
+0 & \dots & 0 & \sigma_{N - 1, B}^2
 \end{array}\right)
 \end{align}
 %
 Hieraus folgt
 %
 \begin{align}
-\left(\mathbf{x} - \mathbf{x}_B\right)^T\overleftrightarrow{A}_B\left(\mathbf{x} - \mathbf{x}_B\right) = \sum_{i = 0}^{N - 1}\frac{\left(x_i - x_{i, B}\right)^2}{\sigma_{i, B}^2}.
+\overleftrightarrow{B}^{-1} = \left(\begin{array}{cccc}
+\frac{1}{\sigma_{0, B}^2} & 0 & \dots & 0\\
+0 & \frac{1}{\sigma_{1, B}^2} & 0 & \vdots\\
+\vdots & \dots & \ddots & 0\\
+0 & \dots & 0 & \frac{1}{\sigma_{N - 1, B}^2}
+\end{array}\right).
+\end{align}
+%
+Hieraus folgt
+%
+\begin{align}
+\left(\mathbf{x} - \mathbf{x}_B\right)^T\overleftrightarrow{B}^{-1}\left(\mathbf{x} - \mathbf{x}_B\right) = \sum_{i = 0}^{N - 1}\frac{\left(x_i - x_{i, B}\right)^2}{\sigma_{i, B}^2}.
 \end{align}
 %
 Der Operator $\overleftrightarrow{H}$ ist eine $1 \times N-$Matrix, also die Transponierte $\mathbf{h}^T$ eines Spaltenvektors $\mathbf{h}$. Somit gilt
@@ -19848,13 +19859,13 @@ Man erhält hieraus
 Dies kann man in der kompakten Form
 %
 \begin{align}
-\nabla J = 2\overleftrightarrow{A}_B\left(\mathbf{x} - \mathbf{x}_B\right) - 2\frac{\overleftrightarrow{H}^T}{\sigma_y^2}\left(y - \overleftrightarrow{H}\mathbf{x}\right).
+\nabla J = 2\overleftrightarrow{B}^{-1}\left(\mathbf{x} - \mathbf{x}_B\right) - 2\frac{\overleftrightarrow{H}^T}{\sigma_y^2}\left(y - \overleftrightarrow{H}\mathbf{x}\right).
 \end{align}
 %
 notieren. Aus Glg. \eqref{eq:3dvar_criterion} folgt in diesem Fall also
 %
 \begin{align}
-\left(\overleftrightarrow{A}_B + \frac{\overleftrightarrow{H}^T}{\sigma_y^2}\overleftrightarrow{H}\right)\mathbf{x} = \overleftrightarrow{A}_B\mathbf{x}_B + \frac{\overleftrightarrow{H}^T}{\sigma_y^2}y
+\left(\overleftrightarrow{B}^{-1} + \frac{\overleftrightarrow{H}^T}{\sigma_y^2}\overleftrightarrow{H}\right)\mathbf{x} = \overleftrightarrow{B}^{-1}\mathbf{x}_B + \frac{\overleftrightarrow{H}^T}{\sigma_y^2}y
 \end{align}
 %
 notieren.
@@ -19868,55 +19879,78 @@ Nun nimmt man an, dass nicht eine, sondern $M$ Beobachtungen vorliegen. Die Kost
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{eqnarray}
-J\left(\mathbf{x}\right) = \left(\mathbf{x} - \mathbf{x}_B\right)^T\overleftrightarrow{A}_B\left(\mathbf{x} - \mathbf{x}_B\right) + \left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}\right)^T\overleftrightarrow{A}_O\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}\right)\label{eq:3d-var_cost_function}
+J\left(\mathbf{x}\right) = \left(\mathbf{x} - \mathbf{x}_B\right)^T\overleftrightarrow{B}^{-1}\left(\mathbf{x} - \mathbf{x}_B\right) + \left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}\right)^T\overleftrightarrow{R}^{-1}\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}\right)\label{eq:3d-var_cost_function}
 \end{eqnarray}
 \end{center}
 }}
 \end{center}
 %
-Es gilt
+Hierbei ist $\overleftrightarrow{R}$ die Kovarianzmatrix der Fehler der Beobachtungen. Es gilt
 %
 \begin{align}
-\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}\right)^T\overleftrightarrow{A}_O\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}\right) &= \mathbf{y}^T\overleftrightarrow{A}_O\mathbf{y} - \mathbf{y}^T\overleftrightarrow{A}_O\overleftrightarrow{H}\mathbf{x} - \mathbf{x}^T\overleftrightarrow{H}^T\overleftrightarrow{A}_O\mathbf{y} + \mathbf{x}^T\overleftrightarrow{H}^T\overleftrightarrow{A}_O\overleftrightarrow{H}\mathbf{x}.
+\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}\right)^T\overleftrightarrow{R}^{-1}\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}\right) &= \mathbf{y}^T\overleftrightarrow{R}^{-1}\mathbf{y} - \mathbf{y}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H}\mathbf{x} - \mathbf{x}^T\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\mathbf{y} + \mathbf{x}^T\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H}\mathbf{x}.
 \end{align}
 %
 Man rechnet nun
 %
 \begin{align}
-\mathbf{y}^T\overleftrightarrow{A}_O\overleftrightarrow{H}\mathbf{x} &= \left(\overleftrightarrow{A}_O\overleftrightarrow{H}\mathbf{x}\right)^T\mathbf{y} = \mathbf{x}^T\overleftrightarrow{H}^T\overleftrightarrow{A}_O^T\mathbf{y} = \mathbf{x}^T\overleftrightarrow{H}^T\overleftrightarrow{A}_O\mathbf{y}.
+\mathbf{y}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H}\mathbf{x} &= \left(\overleftrightarrow{R}^{-1}\overleftrightarrow{H}\mathbf{x}\right)^T\mathbf{y} = \mathbf{x}^T\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\mathbf{y}.
 \end{align}
 %
-Somit gilt
+Dabei wurde verwendet, dass $\overleftrightarrow{R}^{-1}$ orthogonal ist. Somit gilt
 %
 \begin{align}
-\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}\right)^T\overleftrightarrow{A}_O\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}\right) &= \mathbf{y}^T\overleftrightarrow{A}_O\mathbf{y} - 2\mathbf{x}^T\overleftrightarrow{H}^T\overleftrightarrow{A}_O\mathbf{y} + \mathbf{x}^T\left(\overleftrightarrow{H}^T\overleftrightarrow{A}_O\overleftrightarrow{H}\mathbf{x}\right).
+\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}\right)^T\overleftrightarrow{R}^{-1}\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}\right) &= \mathbf{y}^T\overleftrightarrow{R}^{-1}\mathbf{y} - 2\mathbf{x}^T\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\mathbf{y} + \mathbf{x}^T\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H}\mathbf{x}\nonumber\\
+&= \mathbf{y}^T\overleftrightarrow{R}^{-1}\mathbf{y} - 2\mathbf{x}^T\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\mathbf{y} + \left(\mathbf{x}^T\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H}\right)^T\cdot\mathbf{x}\nonumber\\
+&= \mathbf{y}^T\overleftrightarrow{R}^{-1}\mathbf{y} - 2\mathbf{x}^T\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\mathbf{y} + \left(\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H}\mathbf{x}\right)\cdot\mathbf{x}.\label{eq:3d-var_deriv}
 \end{align}
 %
-Bildet man hiervon den Gradienten (in Bezug auf $\mathbf{x}$), erhält man
+Dabei wurde berücksichtigt, dass wegen
 %
 \begin{align}
-\nabla\left[\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}\right)^T\overleftrightarrow{A}_O\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}\right)\right] &= -2\overleftrightarrow{H}^T\overleftrightarrow{A}_O\mathbf{y} + 2\overleftrightarrow{H}^T\overleftrightarrow{A}_O\overleftrightarrow{H}\mathbf{x}.
+\left(\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H}\right)^T &= \overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H}
+\end{align}
+%
+die Matrix $\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H}$ orthogonal ist. Bildet man den Gradienten von Glg. \eqref{eq:3d-var_deriv} (in Bezug auf $\mathbf{x}$), erhält man
+%
+\begin{align}
+\nabla\left[\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}\right)^T\overleftrightarrow{R}^{-1}\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}\right)\right] &= -2\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\mathbf{y} + 2\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H}\mathbf{x} = - 2\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}\right).
 \end{align}
 %
 Hieraus folgt
 %
 \begin{eqnarray}
-\nabla J = 2\overleftrightarrow{A}_B\left(\mathbf{x} - \mathbf{x}_B\right) - 2\overleftrightarrow{H}^T\overleftrightarrow{A}_O\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}\right).
+\nabla J = 2\overleftrightarrow{B}^{-1}\left(\mathbf{x} - \mathbf{x}_B\right) - 2\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}\right).
 \end{eqnarray}
 %
 Aus Glg. \eqref{eq:3dvar_criterion} folgt also
 %
 \begin{align}
-\left(\overleftrightarrow{A}_B + \overleftrightarrow{H}^T\overleftrightarrow{A}_O\overleftrightarrow{H}\right)\mathbf{x} &= \overleftrightarrow{A}_B\mathbf{x}_B + \overleftrightarrow{H}^T\overleftrightarrow{A}_O\mathbf{y}\nonumber\\
-\left(\overleftrightarrow{A}_B + \overleftrightarrow{H}^T\overleftrightarrow{A}_O\overleftrightarrow{H}\right)\left(\mathbf{x} - \mathbf{x}_B\right) + \overleftrightarrow{H}^T\overleftrightarrow{A}_O\overleftrightarrow{H}\mathbf{x}_B &= \overleftrightarrow{H}^T\overleftrightarrow{A}_O\mathbf{y}\nonumber\\
-\Leftrightarrow\left(\overleftrightarrow{A}_B + \overleftrightarrow{H}^T\overleftrightarrow{A}_O\overleftrightarrow{H}\right)\left(\mathbf{x} - \mathbf{x}_B\right) &= \overleftrightarrow{H}^T\overleftrightarrow{A}_O\mathbf{y} - \overleftrightarrow{H}^T\overleftrightarrow{A}_O\overleftrightarrow{H}\mathbf{x}_B\nonumber\\
-\Leftrightarrow\left(\overleftrightarrow{A}_B + \overleftrightarrow{H}^T\overleftrightarrow{A}_O\overleftrightarrow{H}\right)\left(\mathbf{x} - \mathbf{x}_B\right) &= \overleftrightarrow{H}^T\overleftrightarrow{A}_O\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}_B\right)\nonumber
+\overleftrightarrow{B}^{-1}\left(\mathbf{x} - \mathbf{x}_B\right) - \overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}\right) &= 0\nonumber
 \end{align}
 \begin{center}
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-\mathbf{x} &= \mathbf{x}_B + \left(\overleftrightarrow{A}_B + \overleftrightarrow{H}^T\overleftrightarrow{A}_O\overleftrightarrow{H}\right)^{-1}\overleftrightarrow{H}^T\overleftrightarrow{A}_O\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}_B\right).
+\Leftrightarrow\left(\overleftrightarrow{B}^{-1} + \overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H}\right)\mathbf{x} &= \overleftrightarrow{B}^{-1}\mathbf{x}_B + \overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\mathbf{y}.\nonumber
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+Dies ist das für $\mathbf{x}$ geltende lienare Gleichungssystem. Man kann dies weiter umformen zu
+%
+\begin{align}
+\Leftrightarrow\left(\overleftrightarrow{B}^{-1} + \overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H}\right)\mathbf{x} - \overleftrightarrow{B}^{-1}\mathbf{x}_B &= \overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\mathbf{y}\nonumber\\
+\Leftrightarrow\left(\overleftrightarrow{B}^{-1} + \overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H}\right)\left(\mathbf{x} - \mathbf{x}_B\right) + \overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H}\mathbf{x}_B &= \overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\mathbf{y}\nonumber\\
+\Leftrightarrow\left(\overleftrightarrow{B}^{-1} + \overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H}\right)\left(\mathbf{x} - \mathbf{x}_B\right) &= \overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\mathbf{y} - \overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H}\mathbf{x}_B\nonumber\\
+\Leftrightarrow\left(\overleftrightarrow{B}^{-1} + \overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H}\right)\left(\mathbf{x} - \mathbf{x}_B\right) &= \overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}_B\right)\nonumber
+\end{align}
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\mathbf{x} &= \mathbf{x}_B + \left(\overleftrightarrow{B}^{-1} + \overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H}\right)^{-1}\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}_B\right).
 \end{align}
 \end{center}
 }}
@@ -19925,7 +19959,7 @@ Aus Glg. \eqref{eq:3dvar_criterion} folgt also
 Die Matrix
 %
 \begin{align}
-\overleftrightarrow{K} \coloneqq \left(\overleftrightarrow{A}_B + \overleftrightarrow{H}^T\overleftrightarrow{A}_O\overleftrightarrow{H}\right)^{-1}\overleftrightarrow{H}^T\overleftrightarrow{A}_O
+\overleftrightarrow{K} \coloneqq \left(\overleftrightarrow{B}^{-1} + \overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H}\right)^{-1}\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}
 \end{align}
 %
 bezeichnet man als \textit{Gain-Matrix}\index{Gain-Matrix}.
@@ -21340,13 +21374,13 @@ Fast jede Modellvorhersage ist falsch. Es gibt statistische Fehler sowie systema
 \item Vorhersage von schwer zu diagnostizierenden Variablen
 \end{itemize}
 %
-verwendet wird. In gewisser Weise ist MOS eine Formalisierung dessen, was ein vorhersagender Meteorologe als \textit{Erfahrung} bezeichnen würde. Grundsätzlich kommen hierfür eine große Bandbreite an statistischen Methoden in Frage, von einfachem Korrigieren in der Form \glqq Die vom Modell vorhergesagte Windgeschwindigkeit ist im Mittel zehn Prozent zu niedrig\grqq\ bis hin zu sehr komplexen, vieldimensionalen Funktionen. Als allgemeinen Ansatz verwendet man
+verwendet wird. In Abgrenzung hierzu bezeichnet man die Modellvorhersage als \textit{direct model output (DMO)}\index{direct model output (DMO)}. In gewisser Weise ist MOS eine Formalisierung dessen, was ein vorhersagender Meteorologe als \textit{Erfahrung} bezeichnen würde. Grundsätzlich kommen hierfür eine große Bandbreite an statistischen Methoden in Frage, von einfachem Korrigieren in der Form \glqq Die vom Modell vorhergesagte Windgeschwindigkeit ist im Mittel zehn Prozent zu niedrig\grqq\ bis hin zu sehr komplexen, vieldimensionalen Funktionen. Als allgemeinen Ansatz verwendet man
 %
 \begin{align}
 f = f_t\left(\mathbf{x}\right),
 \end{align}
 %
-hierbei sind $f$ die zu bestimmende Zielgröße (10-m-Böen-Windgeschwindigkeit, Sichtweite, prognostische Variable an einem Gitterpunkt etc.), $\mathbf{x} \in \mathbb{R}^M$ der Zustandsvektor der Modellatmosphäre und $t$ die Zeit seit Beginn des Modelllauffes. Es ist sinnvoll, $f_t$ als Polynom $N-$ter Ordnung darzustellen, also
+hierbei sind $f$ die zu bestimmende Zielgröße, der sogenannte \textit{Prädiktand}\index{Prädiktand} (10-m-Böen-Windgeschwindigkeit, Sichtweite, prognostische Variable an einem Gitterpunkt etc.), $\mathbf{x} \in \mathbb{R}^M$ der Zustandsvektor der Modellatmosphäre und $t$ die Zeit seit Beginn des Modelllauffes. Es ist sinnvoll, $f_t$ als Polynom $N-$ter Ordnung darzustellen, also
 %
 \begin{align}
 f_t\left(\mathbf{x}\right) = \sum_{n = 0}^N\sum_{\alpha_n}c_{\alpha_n}^{(t)}\mathbf{x}^{\alpha_n}.
@@ -21358,13 +21392,27 @@ Hierbei ist $\alpha_n = \left(k_i\right)_{0 \leq i \leq M - 1}$ ein $M-$Tupel mi
 \mathbf{x}^{\alpha_n} \coloneqq \prod_{l = 0}^{M - 1}x_l^{k_l}.
 \end{align}
 %
-Im Allgemeinen berücksichtigt man nicht alle Elemente des Zustandsvektors der Modellatmosphäre $\mathbf{x}$, sondern nur diejenigen in der Nähe der Zielgröße $f$. Die Koeffizienten $c_\alpha^{(t)} \in \mathbb{R}$ bestimmt man nun so, dass die Fehlernorm
+Im Allgemeinen berücksichtigt man nicht alle Elemente des Zustandsvektors der Modellatmosphäre $\mathbf{x}$, sondern nur diejenigen, welche einen signifikanten Einfluss auf den Prädiktanden\index{Prädiktand} $f$ haben, diese Größen bezeichnet man als \textit{Prädiktoren}\index{Prädiktor}. Die Koeffizienten $c_\alpha^{(t)} \in \mathbb{R}$ bestimmt man nun so, dass die Fehlernorm
 %
 \begin{align}
 E_t \coloneqq \sum_{i}\left[f_t\left(\mathbf{x}_i\left(t\right)\right) - f_{\text{obs}, i}\right]^2
 \end{align}
 %
 minimiert wird. Hierbei läuft $i$ über alle zur Verfügung stehenden Modellläufe. $f_{\text{obs}, i}$ ist ein als wahr betrachteter Wert, zum Beispiel ein Messwert oder ein Wert aus einer Reanalyse.
+
+\subsection{Beispiel}
+\label{sec:beispiel}
+
+Als Beispiel wird die obige Aussage \glqq Die vom Modell vorhergesagte Windgeschwindigkeit ist im Mittel zehn Prozent zu niedrig\grqq\ betrachtet. Man nehme hierfür der Einfachheit halber an, dass die Windgeschwindigkeit $v$ das $i-$te Element des Zustandsvektors der Modellatmosphäre $\mathbf{x}$ ist, also $v = x_i$. In diesem Fall ist nur ein einziger der Koeffizienten $c_\alpha$ ungleich Null,
+%
+\begin{align}
+v_\text{MOS} = \frac{1}{0,9}v_\text{Modell}.
+\end{align}
+
+\subsection{Verallgemeinerungen}
+\label{sec:verallgemeinerungen}
+
+Der Vektor $\mathbf{x}$ muss nicht zwangslöufig nur aus dem DMO eines einzigen Modells bestehen, sondern kann auch mehrere Modelle oder Beobachtungsdaten umfassen, die seit dem letzten Modelllauf gemacht wurden. Weiterhin kann man die Koeffizienten von der Jahreszeit und/oder Tageszeit des Starts des Modelllaufes sowie des Vorhersagezeitpunktes abhängig machen.
 
 \part{Anhang}
 \label{part:anhang}
