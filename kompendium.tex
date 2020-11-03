@@ -23,7 +23,7 @@
 \if A#1\shifthat{5.2 pt}{#1}\else
 \if B#1\shifthat{4.7 pt}{#1}\else
 \if H#1\shifthat{5.4 pt}{#1}\else
-\if I#1\shifthat{4.5 pt}{#1}\else
+\if I#1\shifthat{3.0 pt}{#1}\else
 \if J#1\shifthat{5.0 pt}{#1}\else
 \if N#1\shifthat{4.4 pt}{#1}\else
 \if O#1\shifthat{4.5 pt}{#1}\else
@@ -18353,7 +18353,7 @@ Hieraus leitet man
 \mathbf{u}^{(1)}\cdot\mathbf{u}^{(2)} = \sum_{e\in c}\frac{l_ed_e}{2A_c}u_e^{(1)}u_e^{(2)} + \frac{\Delta z_{k - 1/2}}{2\Delta z_k}w_u^{(1)}w_u^{(2)} + \frac{\Delta z_{k + 1/2}}{2\Delta z_k}w_l^{(1)}w_l^{(2)}\label{eq:inner_c-grid_3d_shallow}
 \end{align}
 %
-als Diskretisierung für das Skalarprodukt ab. Im ebenen Fall ergibt sich für die Summe der Gewichtungsfaktoren
+als Diskretisierung für das Skalarprodukt ab in der shallow atmosphere. Im ebenen Fall ergibt sich für die Summe der Gewichtungsfaktoren
 %
 \begin{align}
 \sum_{e\in c}\frac{l_ed_e}{2A_c} + \frac{\Delta z_{k - 1/2} + \Delta z_{k + 1/2}}{2\Delta z_k} = 3,
@@ -18370,6 +18370,33 @@ eingesetzt wurde. Im gekrümmten Fall, wie z. B. einer Kugeloberfläche, ist die
 
 \subsection{Dreidimensionales orthogonales Gitter (deep)}
 \label{sec:dreidimensionales_orthogonales_gitter_(deep)}
+
+Nun wird die Herleitung im vorherigen Abschnitt auf die deep atmosphere verallgemeinert, d. h. die shallow-Atmosphere-Approximation wird aufgehoben. Man geht wieder davon aus, dass die Schichtdickte $\Delta z_k$ nur vom vertikalen Index $k$ abhängt. Mit der gleichen Indexnotation wie im vorherigen Abschnitt erhält man
+%
+\begin{align}
+\nabla\cdot\left(\psi\mathbf{v}\right) &= \frac{1}{V_{c, k}}\left(\sum_{e\in c}A_{e, k}\frac{\psi_{o(e)} + \psi_c}{2}u_{e, k} + A_{c, k - 1/2}\frac{\psi_{c, k} + \psi_{c, k - 1}}{2}w_{c, k - 1/2} -  A_{c, k + 1/2}\frac{\psi_{c, k - 1} + \psi_{c, k}}{2}w_{c, k + 1/2}\right),\label{eq:div_c-grid_deep_no_terrain}\\
+\psi\nabla\cdot\mathbf{v} &= \frac{\psi_c}{V_{c, k}}\left(\sum_{e\in c}A_{e, k}u_{e, k} + A_{c, k - 1/2}w_{c, k - 1/2} - A_{c, k + 1/2}w_{c, k + 1/2}\right).
+\end{align}
+%
+Die Zellen-Grundfläche $A_{c, k - 1/2}$ ist nun auch vom vertikalen Index abhängig. $A_{e, k}$ ist die vertikale Fläche, deren Teilmenge die Kante $\left(e, k\right)$ ist. Man fordert nun wieder
+%
+\begin{align}
+\mathbf{v}\cdot\nabla\psi &\stackrel{!}{=} \nabla\cdot\left(\psi\mathbf{v}\right) - \psi\nabla\cdot\mathbf{v}\nonumber\\
+\Leftrightarrow\mathbf{v}\cdot\nabla\psi &= \frac{1}{V_{c, k}}\Bigg(\sum_{e\in c}A_{e, k}\frac{\psi_{o(e), k} + \psi_{c, k}}{2}u_{e, k} + A_{c, k - 1/2}\frac{\psi_{c, k} + \psi_{c, k - 1}}{2}w_{c, k - 1/2} -  A_{c, k + 1/2}\frac{\psi_{c, k - 1} + \psi_{c, k}}{2}w_{c, k + 1/2}\nonumber\\
+&- \sum_{e\in c}A_{e, k}\psi_{c, k}u_{e, k} - A_{c, k - 1/2}\psi_{c, k}w_{c, k - 1/2} + A_{c, k + 1/2}\psi_{c, k}w_{c, k + 1/2}\Bigg)\nonumber\\
+\Leftrightarrow\mathbf{v}\cdot\nabla\psi &= \frac{1}{V_{c, k}}\left(\sum_{e\in c}A_{e, k}\frac{\psi_{o(e), k} - \psi_{c, k}}{2}u_{e, k} + A_{c, k - 1/2}\frac{\psi_{c, k - 1} - \psi_{c, k}}{2}w_{c, k - 1/2} + A_{c, k + 1/2}\frac{\psi_{c, k} - \psi_{c, k + 1}}{2}w_{c, k + 1/2}\right)\nonumber\\
+\Leftrightarrow\mathbf{v}\cdot\nabla\psi &= \sum_{e\in c}\frac{A_{e, k}d_{e, k}}{2V_{c, k}}\frac{\psi_{o(e), k} - \psi_{c, k}}{d_{e, k}}u_{e, k} + \frac{A_{c, k - 1/2}\Delta z_{k - 1/2}}{2V_{c, k}}\frac{\psi_{c, k - 1} - \psi_{c, k}}{\Delta z_{k - 1/2}}w_{c, k - 1/2}\nonumber\\
+&+ \frac{A_{c, k + 1/2}\Delta z_{k + 1/2}}{2V_{c, k}}\frac{\psi_{c, k} - \psi_{c, k + 1}}{\Delta z_{k + 1/2}}w_{c, k + 1/2}.
+\end{align}
+%
+Hieraus leitet man
+%
+\begin{align}
+\mathbf{u}^{(1)}\cdot\mathbf{u}^{(2)} &= \sum_{e\in c}\frac{A_{e, k}d_{e, k}}{2V_{c, k}}u_{e, k}^{(1)}u_{e, k}^{(2)} + \frac{A_{c, k - 1/2}\Delta z_{k - 1/2}}{2V_{c, k}}w_{c, k - 1/2}^{(1)}w_{c, k - 1/2}^{(2)}\nonumber\\
+&+ \frac{A_{c, k + 1/2}\Delta z_{k + 1/2}}{2V_{c, k}}w_{c, k + 1/2}^{(1)}w_{c, k + 1/2}^{(2)}\label{eq:inner_c-grid_3d_deep}
+\end{align}
+%
+als Diskretisierung für das Skalarprodukt ab.
 
 \section{Festlegung auf das C-Gitter}
 \label{sec:festlegung_auf_das_c-gitter}\index{C-Gitter}
