@@ -5459,7 +5459,7 @@ mit der individuellen Gaskonstante $R_s \coloneqq \frac{R}{M}$.
 Die Zustandsgleichung gilt für ein Gas, nicht für ein Gasgemisch. Die Luft besteht jedoch aus verschiedenen Gasen. Nun soll die Zustandsgleichung auf solch ein Gemisch erweitert werden. Sei also ein Gas mit $N \in \mathbb{N}$ Komponenten gegeben. Für $1 \le i \le N$ sei $p_i$ der Partialdruck der $i-$ten Gaskomponente. Da keine WWen zwischen den Komponenten existieren, gilt dann:
 %
 \begin{align}
-p = \sum\limits_{i = 1}^{N}p_i = \sum\limits_{i = 1}^{N}\rho_iR_iT = \frac{TR}{v}_h\sum\limits_{i = 1}^{N}\frac{m_i}{M_i} = TR\rho \sum\limits_{i = 1}^{N}\frac{m_i}{m}\frac{1}{M_i}.
+p = \sum\limits_{i = 1}^{N}p_i = \sum\limits_{i = 1}^{N}\rho_iR_iT = \rho T\sum\limits_{i = 1}^{N}R_i\frac{\rho_i}{\rho} = TR\rho \sum\limits_{i = 1}^{N}\frac{m_i}{m}\frac{1}{M_i}.
 \end{align}
 %
 Mit der Definition
@@ -8435,20 +8435,32 @@ Somit folgt für zwei Phasen $d, v$ durch Summation
 %
 Hieraus folgt
 %
-\begin{center}
-\doublebox{\parbox{0.8\textwidth}{
-\begin{center}
 \begin{align}
-\Leftrightarrow -\frac{1}{\rho}\nabla p & = -c_h^{(p)}\nabla T + \frac{T}{\rho}\left(\rho_d\nabla s_d + \rho_v\nabla s_v\right)
+\Leftrightarrow -\frac{1}{\rho}\nabla p & = -c_h^{(p)}\nabla T + \frac{T}{\rho}\left(\rho_d\nabla s_d + \rho_v\nabla s_v\right)\label{eq:pressure_grad_sup_deriv_0}
 \end{align}
-\end{center}
-}}
-\end{center}
 %
 mit der isobaren spezifischen Wärmekapazität feuchter Luft\index{spezifische Wärmekapazität!feuchter Luft}\index{feuchter Luft!spezifische Wärmekapazität}
 %
 \begin{align}
 c_h^{(p)} = \frac{\rho_dc_d^{(p)} + \rho_vc_v^{(p)}}{\rho = \rho_d + \rho_v}.
+\end{align}
+%
+Glg. \eqref{eq:pressure_grad_sup_deriv_0} kann man auf ein Gemisch von $N \geq 1$ idealen Gasen verallgemeinern:
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\Leftrightarrow -\frac{1}{\rho}\nabla p & = -c_g^{(p)}\nabla T + \frac{T}{\rho}\nabla\sum_{i = 1}^{N}s_i\label{eq:pressure_grad_sup}
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+Hierbei bezieht sich der Index $g$ auf die Gasphase und es gelten
+%
+\begin{align}
+\rho = \sum_{i = 1}^N\rho_i, && c_g^{(p)} = \frac{1}{\rho}\sum_{i = 1}^N\rho_ic_i^{(p)}.
 \end{align}
 %
 Man definiert die sogenannte \textit{virtuelle potentielle Temperatur}\index{potentielle virtuelle Temperatur}\index{Temperatur!potentielle!virtuelle}\index{Temperatur!virtuelle!potentielle}
