@@ -21351,7 +21351,8 @@ mit einer Matrix $\overleftrightarrow{A}$ und einer rechten Seite $\mathbf{d}$. 
 %
 Für die Matrix $\overleftrightarrow{A}$ erhält man
 %
-\begin{align}\overleftrightarrow{A} & = \left(\begin{array}{cccc}
+\begin{align}
+\overleftrightarrow{A} & = \left(\begin{array}{cccc}
 1 - \Delta t\alpha_{\frac{1}{2}, 0}\frac{W_{1/2}^{(n + 1)}}{V_0} & -\Delta t\alpha_{\frac{1}{2}, 1}\frac{W_{1/2}^{(n + 1)}}{V_0}  & \dots & 0 \\
 \Delta t\frac{\alpha_{\frac{1}{2}, 0}W_{1/2}^{(n + 1)}}{V_1} & 1 + \Delta t\frac{\alpha_{\frac{1}{2}, 1}W_{1/2}^{(n + 1)} - \alpha_{\frac{3}{2}, 1}W_{3/2}^{(n + 1)}}{V_1} & -\Delta t\frac{\alpha_{N_L - \frac{3}{2}, 2}W_{3/2}^{(n + 1)}}{V_1} \hspace{2 cm}\dots &  0 \\
 \vdots & \hspace{2 cm}\ddots & \ddots & \vdots \\
@@ -21413,7 +21414,73 @@ Durch Nullsetzen der Determinante erhält man
 %
 Es ergibt sich also die gleiche Dispersionsrelation wie Glg. \eqref{eq:velocity_sound}. Hiermit ist verifiziert, dass die in den Glg.en \eqref{eq:sound_entropy_0} - \eqref{eq:sound_entropy_1} aufgeführten Terme in der Tat Schallwellen beschreiben.
 
-Alle vertikalen impliziten Solver führen auf Drei-Band-Matrizen, welche mit dem Thomas-Algorithmus\index{Thomas-Algorithmus} gelöst werden können.
+Für die numerische Behandlung vertikaler Schallwellen führt man zunächst einen Unbekanntenvektor $\mathbf{x}$ mit $2N_L - 1$ Elementen ein, nämlich
+%
+\begin{align}
+x_{2i} = w_{i + 1/2}^{(n + 1)}, && x_{2i + 1} = T_{i + 1}^{(n + 1)}
+\end{align}
+%
+für $0 \leq i \leq N_L - 1$, $n$ ist wieder der gegenwärtige Zeitschritt. Es ist sinnvoll, hier sowohl die Temperatur als auch die Vertikalgeschwindigkeit aufzunehmen, da Schallwellen durch den Zusammenhang von Druckgradient und adiabatischer Kompression entstehen. Die zu lösenden Gleichungen lauten
+%
+\begin{align}
+& w_{i + 1/2}^{(n + 1)} = w_{i + 1/2}^{(n)} + \Delta t\newdot{w}_{i + 1/2, \text{expl}}^{(n)} - \Delta t\newoverline{c_{g, k}^{(v, n)}}^{(i + 1/2)}\frac{T^{(n + 1)}_{i} - T^{(n + 1)}_{i + 1}}{z_{i} - z_{i + 1}} + \Delta t\newoverline{\frac{c_{g, k}^{(v, n)}}{c_{g, k}^{(p, n)}}T_k^{(n + 1)}}^{(i + 1/2)}\frac{s^{(n)}_{i} - s^{(n)}_{i + 1}}{z_{i} - z_{i + 1}}\\
+&= w_{i + 1/2}^{(n)} + \Delta t\newdot{w}_{i + 1/2, \text{expl}}^{(n)} - \Delta t\frac{\newoverline{c_{g, k}^{(v, n)}}^{(i + 1/2)}T^{(n + 1)}_{i} - \newoverline{c_{g, k}^{(v, n)}}^{(i + 1/2)}T^{(n + 1)}_{i + 1}}{z_{i} - z_{i + 1}} + \Delta t\newoverline{\frac{c_{g, k}^{(v, n)}}{c_{g, k}^{(p, n)}}T_k^{(n + 1)}}^{(i + 1/2)}\frac{s^{(n)}_{i} - s^{(n)}_{i + 1}}{z_{i} - z_{i + 1}}\nonumber\\
+&= w_{i + 1/2}^{(n)} + \Delta t\newdot{w}_{i + 1/2, \text{expl}}^{(n)} - \Delta t\frac{\newoverline{c_{g, k}^{(v, n)}}^{(i + 1/2)}T^{(n + 1)}_{i} - \newoverline{c_{g, k}^{(v, n)}}^{(i + 1/2)}T^{(n + 1)}_{i + 1} - \newoverline{\frac{c_{g, k}^{(v, n)}}{c_{g, k}^{(p, n)}}T_k^{(n + 1)}}^{(i + 1/2)}\left(s^{(n)}_{i} - s^{(n)}_{i + 1}\right)}{z_{i} - z_{i + 1}}\nonumber\\
+&= w_{i + 1/2}^{(n)} + \Delta t\newdot{w}_{i + 1/2, \text{expl}}^{(n)}\nonumber\\
+&- \Delta t\frac{T^{(n + 1)}_{i}\left[\newoverline{c_{g, k}^{(v, n)}}^{(i + 1/2)} - \alpha_{i + 1/2, i}\frac{c_{g, i}^{(v, n)}}{c_{g, i}^{(p, n)}}\left(s^{(n)}_{i} - s^{(n)}_{i + 1}\right)\right] - T^{(n + 1)}_{i + 1}\left[\newoverline{c_{g, k}^{(v, n)}}^{(i + 1/2)} + \alpha_{i + 1/2, i + 1}\frac{c_{g, i + 1}^{(v, n)}}{c_{g, i + 1}^{(p, n)}}\left(s^{(n)}_{i} - s^{(n)}_{i + 1}\right)\right]}{z_{i} - z_{i + 1}},
+\end{align}
+\begin{align}
+T_{i}^{(n + 1)} &= T_{i}^{(n)} + \Delta t\newdot{T}_{i, \text{expl}}^{(n)} - \Delta t\left(\frac{R_{g, i}^{(n)}}{c_{g, i}^{(v, n)}} - 1\right)T_{i}^{(n)}\frac{w^{(n + 1)}_{i - 1/2} - w^{(n + 1)}_{i + 1/2}}{z_{i - 1/2} - z_{i + 1/2}} - \Delta t\frac{\newoverline{T_{k}^{(n)}}^{(i - 1/2)}w^{(n + 1)}_{i - 1/2} - \newoverline{T_{k}^{(n)}}^{(i + 1/2)}w^{(n + 1)}_{i + 1/2}}{z_{i - 1/2} - z_{i + 1/2}}\nonumber\\
+&= T_{i}^{(n)} + \Delta t\newdot{T}_{i, \text{expl}}^{(n)} - \Delta t\left[\left(\frac{R_{g, i}^{(n)}}{c_{g, i}^{(v, n)}} - 1\right)T_{i}^{(n)} + \newoverline{T_{k}^{(n)}}^{(i - 1/2)}\right]\frac{w^{(n + 1)}_{i - 1/2}}{z_{i - 1/2} - z_{i + 1/2}}\nonumber\\
+&+ \Delta t\left[\left(\frac{R_{g, i}^{(n)}}{c_{g, i}^{(v, n)}} - 1\right)T_{i}^{(n)} + \newoverline{T_{k}^{(n)}}^{(i + 1/2)}\right]\frac{w^{(n + 1)}_{i + 1/2}}{z_{i - 1/2} - z_{i + 1/2}}.
+\end{align}
+%
+Somit führt auch dieses Problem wieder auf ein lineares Gleichungssystem
+%
+\begin{align}
+\overleftrightarrow{A}\cdot\mathbf{x} = \mathbf{d}
+\end{align}
+%
+mit einer Koeffizientenmatrix $\overleftrightarrow{A}$ in Drei-Band-Form. Für diese notiert man
+%
+\begin{align}
+\overleftrightarrow{A} & = \left(\begin{array}{cccc}
+b_0 & c_0 & \dots & 0 \\
+a_0 & b_1 & c_1 \hspace{2 cm}\dots &  0 \\
+\vdots & \hspace{2 cm}\ddots & \ddots & \vdots \\
+0 & \dots & a_{2N_L - 3} & b_{2N_L - 2}
+\end{array}\right).
+\end{align}
+%
+mit drei Vektoren $\mathbf{a} \in \mathbb{R}^{2N_L - 2}$, $\mathbf{b} \in \mathbb{R}^{2N_L - 1}$, $\mathbf{c} \in \mathbb{R}^{2N_L - 2}$. Die rechte Seite $\mathbf{b}$ enthält den expliziten Anteil:
+%
+\begin{align}
+d_{2i} = w_{i + 1/2}^{(n)} + \Delta t\newdot{w}_{i + 1/2, \text{expl}}^{(n)}, && d_{2i + 1} = T_{i + 1}^{(n)} + \Delta t\newdot{T}_{i, \text{expl}}^{(n)}
+\end{align}
+%
+Weiterhin gilt
+%
+\begin{align}
+b_i = 1
+\end{align}
+%
+für alle $0 \leq i \leq 2N_L - 2$. Für den Vektor $\mathbf{a}$ gilt
+%
+\begin{align}
+a_{2i} &= \Delta t\frac{\newoverline{c_{g, k}^{(v, n)}}^{(i + 1/2)} - \alpha_{i + 1/2, i}\frac{c_{g, i}^{(v, n)}}{c_{g, i}^{(p, n)}}\left(s^{(n)}_{i} - s^{(n)}_{i + 1}\right)}{z_{i} - z_{i + 1}}\nonumber\\
+&= \Delta t\frac{\newoverline{c_{g, k}^{(v, n)}}^{(i + 1/2)}}{z_{i} - z_{i + 1}} - \Delta t\alpha_{i + 1/2, i}\frac{c_{g, i}^{(v, n)}}{c_{g, i}^{(p, n)}}\frac{\Delta s}{\Delta z}\vline_i,\\
+a_{2i + 1} &= \Delta t\left[\left(\frac{R_{g, i + 1}^{(n)}}{c_{g, i + 1}^{(v, n)}} - 1\right)T_{i + 1}^{(n)} + \newoverline{T_{k}^{(n)}}^{(i + 1/2)}\right]\frac{1}{z_{i + 1/2} - z_{i + 3/2}}.
+\end{align}
+%
+Für $\mathbf{b}$ findet man
+%
+\begin{align}
+c_{2i} &= -\Delta t\left[\left(\frac{R_{g, i}^{(n)}}{c_{g, i}^{(v, n)}} - 1\right)T_{i}^{(n)} + \newoverline{T_{k}^{(n)}}^{(i + 1/2)}\right]\frac{1}{z_{i - 1/2} - z_{i + 1/2}},\\
+c_{2i + 1} &= -\Delta t\frac{\newoverline{c_{g, k}^{(v, n)}}^{(i + 1/2)} + \alpha_{i + 1/2, i + 1}\frac{c_{g, i + 1}^{(v, n)}}{c_{g, i + 1}^{(p, n)}}\left(s^{(n)}_{i} - s^{(n)}_{i + 1}\right)}{z_{i} - z_{i + 1}}\\
+&= -\Delta t\frac{\newoverline{c_{g, k}^{(v, n)}}^{(i + 1/2)}}{z_{i} - z_{i + 1}} - \Delta t\alpha_{i + 1/2, i + 1}\frac{c_{g, i + 1}^{(v, n)}}{c_{g, i + 1}^{(p, n)}}\frac{\Delta s}{\Delta z}\vline_i.
+\end{align}
+%
+Lineare Gleichungssysteme mit Drei-Band-Matrizen können mit dem Thomas-Algorithmus\index{Thomas-Algorithmus} gelöst werden.
 
 \subsubsection{Horizontales Forward-backward-Verfahren}
 \label{sec:horizontales_forward-backward-Verfahren}\index{Forward-Backward-Verfahren}
@@ -21437,8 +21504,6 @@ Das Zeitschrittverfahren ist das Runge-Kutta-Verfahren dritter Ordnung. Zusätzl
 \item Mittels des in Absch. \ref{sec:vertikaler_sound_wave_solver} beschriebenen Sound wave solvers werden die kontravarianten Vertikalgeschwindigkeiten ermittelt.
 \item Zuletzt werden mittels der generalisierten Kontinuitätsgleichungen die neuen Werte der Entropie- und Massendichte berechnet, wobei für die Horizontaldivergenz die in Schritt 5 und die Vertikaldivergenz die in Schritt 6 berechneten Windkomponenten verwendet werden.
 \end{enumerate}
-%
-Aus Energieerhaltungsgründen wird für den kovarianten Druckgradienten in allen drei Unterschritten ein gleicher, spezieller Wert verwendet. Die Festlegung auf genau dieses und nicht etwa ein abgewandeltes Verfahren beruht auch auf Erfahrungswerten.
 
 \section{Zeitschrittverfahren: Variante II}
 \label{sec:zeitschrittverfahren_variante_ii}\index{Zeitschrittverfahren!im dynamischen Kern}\index{dynamischer Kern!Zeitschrittverfahren}\index{Kern!dynamischer!Zeitschrittverfahren}
