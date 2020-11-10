@@ -21168,7 +21168,7 @@ Für die Matrix $\overleftrightarrow{A}$ erhält man
 \subsubsection{Vertikale Advektion des Vertikalwindes}
 \label{sec:vertikale_advektion_des_vertikalwindes}
 
-Sei $w$ eine vertikale Vektorkomponente. Vorbereitend wird das Crank-Nicolson-Verfahren\index{Crank-Nicolson-Verfahren} mit $n$ als gegenwärtigem Zeitschritt notiert:
+Sei $w$ eine vertikale Vektorkomponente. Vorbereitend wird das Crank-Nicolson-Verfahren mit $n$ als gegenwärtigem Zeitschritt notiert:
 %
 \begin{align}
 w^{(n + 1)} = w^{(n)} + \frac{\Delta t}{2}\left(\frac{\partial w^{(n)}}{\partial t} + \frac{\partial w^{(n + 1)}}{\partial t}\right)
@@ -21250,53 +21250,83 @@ Für die Matrix $\overleftrightarrow{A}$ erhält man
 \subsubsection{Vertikale Advektion einer generalisierten Dichte}
 \label{sec:vertikale_advektion_einer_generalisierten_dichte}
 
-Sei $\rho$ eine generalisierte Dichte (Massendichte, Entropiedichte, Energiedichte, etc.). Vorbereitend wird das Crank-Nicolson-Verfahren\index{Crank-Nicolson-Verfahren} mit $n$ als gegenwärtigem Zeitschritt notiert:
+Sei $\rho$ eine generalisierte Dichte (Massendichte, Entropiedichte, Energiedichte, etc.). Vorbereitend wird das implizite Euler-Verfahren mit $n$ als gegenwärtigem Zeitschritt notiert:
 %
 \begin{align}
-w^{(n + 1)} = w^{(n)} + \frac{\Delta t}{2}\left(\frac{\partial w^{(n)}}{\partial t} + \frac{\partial w^{(n + 1)}}{\partial t}\right)
+\rho^{(n + 1)} = \rho^{(n)} + \Delta t\frac{\partial\rho^{(n + 1)}}{\partial t}
 \end{align}
 %
-An dieser Stelle geht es dabei nur um vertikale Advektion\index{Advektion!vertikale}, die anderen Terme werden explizit berechnet:
+An dieser Stelle geht es dabei nur um die vertikale Konvergenz, die anderen Terme werden explizit berechnet:
 %
 \begin{align}
-w^{(n + 1)} = w^{(n)} + \Delta t\newdot{w}^{(n)}_{\text{expl}} - \frac{w^{(n)}\Delta t}{2}\left(\frac{\partial w^{(n)}}{\partial z} + \frac{\partial w^{(n + 1)}}{\partial z}\right)
+\rho^{(n + 1)} = \rho^{(n)} + \Delta t\newdot{\rho}^{(n)}_{\text{expl}} - \Delta t\frac{\partial\left(\rho^{(n + 1)}w^{(n + 1)}\right)}{\partial z}
 \end{align}
 %
-Die vertikale Diskretisierung erfordert einen halbzahligen Levelindex $-\frac{1}{2} \leq i - \frac{1}{2} \leq N_L - \frac{1}{2}$:
+Die vertikale Diskretisierung erfordert einen Levelindex $0 \leq i \leq N_L - 1$:
 %
 \begin{align}
-w^{(n + 1)}_{i - 1/2} = w^{(n)}_{i - 1/2} + \Delta t\newdot{w}^{(n)}_{i - 1/2, \text{expl}} - \frac{w^{(n)}_{i - 1/2}\Delta t}{2}\left(\frac{w^{(n)}_{i - 1 - 1/2} - w^{(n)}_{i + 1 - 1/2}}{z_{i - 1 - 1/2} - z_{i + 1 - 1/2}} + \frac{w^{(n + 1)}_{i - 1 - 1/2} - w^{(n + 1)}_{i + 1 - 1/2}}{z_{i - 1 - 1/2} - z_{i + 1 - 1/2}}\right)
+\rho_i^{(n + 1)} = \rho_i^{(n)} + \Delta t\newdot{\rho_i}^{(n)}_{\text{expl}} - \Delta t\frac{A_{i - 1/2}\newoverline{\rho_k^{(n + 1)}}^{(i - 1/2)}w_{i - 1/2}^{(n + 1)} - A_{i + 1/2}\newoverline{\rho_k^{(n + 1)}}^{(i + 1/2)}w_{i + 1/2}^{(n + 1)}}{V_i}\label{eq:adv_gen_density_deriv_0}
+\end{align}
+%
+Für die vertikalen Mittelungen der Dichte notiert man allgemein
+%
+\begin{align}
+\newoverline{\rho_k}^{(i - 1/2)} = \alpha_{i - \frac{1}{2}, i - 1}\rho_{i - 1} + \alpha_{i - \frac{1}{2}, i}\rho_i
+\end{align}
+%
+mit
+%
+\begin{align}
+\alpha_{i - \frac{1}{2}, i - 1} + \alpha_{i - \frac{1}{2}, i} = 1.
+\end{align}
+%
+Setzt man dies in Glg. \eqref{eq:adv_gen_density_deriv_0} ein, erhält man
+%
+\begin{align}
+&\rho_i^{(n + 1)} = \rho_i^{(n)} + \Delta t\newdot{\rho_i}^{(n)}_{\text{expl}}\nonumber\\
+&- \Delta t\left(\alpha_{i - \frac{1}{2}, i - 1}\rho_{i - 1}^{(n + 1)} + \alpha_{i - \frac{1}{2}, i}\rho_i^{(n + 1)}\right)\frac{A_{i - 1/2}w_{i - 1/2}^{(n + 1)}}{V_i} + \Delta t\left(\alpha_{i + \frac{1}{2}, i}\rho_i^{(n + 1)} + \alpha_{i + \frac{1}{2}, i + 1}\rho_{i + 1}^{(n + 1)}\right)\frac{A_{i + 1/2}w_{i + 1/2}^{(n + 1)}}{V_i}.
+\end{align}
+%
+Man definiert nun
+%
+\begin{align}
+W_{i + 1/2} \coloneqq A_{i + 1/2}w_{i + 1/2}^{(n + 1)},
+\end{align}
+%
+somit erhält man
+%
+\begin{align}
+&\rho_i^{(n + 1)} = \rho_i^{(n)} + \Delta t\newdot{\rho_i}^{(n)}_{\text{expl}}\nonumber\\
+&- \Delta t\left(\alpha_{i - \frac{1}{2}, i - 1}\rho_{i - 1}^{(n + 1)} + \alpha_{i - \frac{1}{2}, i}\rho_i^{(n + 1)}\right)\frac{W_{i - 1/2}^{(n + 1)}}{V_i} + \Delta t\left(\alpha_{i + \frac{1}{2}, i}\rho_i^{(n + 1)} + \alpha_{i + \frac{1}{2}, i + 1}\rho_{i + 1}^{(n + 1)}\right)\frac{W_{i + 1/2}^{(n + 1)}}{V_i}.
 \end{align}
 %
 Diese Gleichung wird noch einmal notiert, dabei werden die Unbekannten \textcolor{red}{rot} notiert, die Bekannten \textcolor{blue}{blau} und die Vorfaktoren der Unbekannten schwarz eingefärbt:
 %
 \begin{align}
-\textcolor{red}{w^{(n + 1)}_{i - 1/2}} &= \textcolor{blue}{w^{(n)}_{i - 1/2} + \Delta t\newdot{w}^{(n)}_{i - 1/2, \text{expl}} - \frac{w^{(n)}_{i - 1/2}\Delta t}{2}\frac{w^{(n)}_{i - 1 - 1/2} - w^{(n)}_{i + 1 - 1/2}}{z_{i - 1 - 1/2} - z_{i + 1 - 1/2}}}\nonumber\\
-&- \frac{w^{(n)}_{i - 1/2}\Delta t}{2\left(z_{i - 1 - 1/2} - z_{i + 1 - 1/2}\right)}\textcolor{red}{w^{(n + 1)}_{i - 1 - 1/2}} + \frac{w^{(n)}_{i - 1/2}\Delta t}{2\left(z_{i - 1 - 1/2} - z_{i + 1 - 1/2}\right)}\textcolor{red}{w^{(n + 1)}_{i + 1 - 1/2}}
+&\textcolor{red}{\rho_i^{(n + 1)}} = \textcolor{blue}{\rho_i^{(n)} + \Delta t\newdot{\rho_i}^{(n)}_{\text{expl}}}\nonumber\\
+&- \Delta t\left(\alpha_{i - \frac{1}{2}, i - 1}\textcolor{red}{\rho_{i - 1}^{(n + 1)}} + \alpha_{i - \frac{1}{2}, i}\textcolor{red}{\rho_i^{(n + 1)}}\right)\frac{W_{i - 1/2}^{(n + 1)}}{V_i} + \Delta t\left(\alpha_{i + \frac{1}{2}, i}\textcolor{red}{\rho_i^{(n + 1)}} + \alpha_{i + \frac{1}{2}, i + 1}\textcolor{red}{\rho_{i + 1}^{(n + 1)}}\right)\frac{W_{i + 1/2}^{(n + 1)}}{V_i}.
 \end{align}
 %
-Bei $i = 1$ verwendet man einen unteren einseitigen Differenzenquotienten, um die Reflexion von Wellen am oberen Rand zu minimieren:
+Bei $i = 0$ gilt $w_{i - 1/2} = 0$:
 %
 \begin{align}
-\textcolor{red}{w^{(n + 1)}_{1 - 1/2}} &= \textcolor{blue}{w^{(n)}_{1 - 1/2} + \Delta t\newdot{w}^{(n)}_{1 - 1/2, \text{expl}} - \frac{w^{(n)}_{1 - 1/2}\Delta t}{2}\frac{w^{(n)}_{1 - 1/2} - w^{(n)}_{2 - 1/2}}{z_{1 - 1/2} - z_{2 - 1/2}}}\nonumber\\
-&- \frac{w^{(n)}_{1 - 1/2}\Delta t}{2\left(z_{1 - 1/2} - z_{2 - 1/2}\right)}\textcolor{red}{w^{(n + 1)}_{1 - 1/2}} + \frac{w^{(n)}_{1 - 1/2}\Delta t}{2\left(z_{1 - 1/2} - z_{2 - 1/2}\right)}\textcolor{red}{w^{(n + 1)}_{2 - 1/2}}
+&\textcolor{red}{\rho_0^{(n + 1)}} = \textcolor{blue}{\rho_0^{(n)} + \Delta t\newdot{\rho}^{(n)}_{0, \text{expl}}} + \Delta t\left(\alpha_{\frac{1}{2}, 0}\textcolor{red}{\rho_0^{(n + 1)}} + \alpha_{\frac{1}{2}, 1}\textcolor{red}{\rho_{1}^{(n + 1)}}\right)\frac{W_{1/2}^{(n + 1)}}{V_0}
 \end{align}
 %
-Bei $i = N_L - 1$ gilt aufgrund von $w_{N_L - 1/2} = 0$ die Gleichung
+Bei $i = N_L - 1$ gilt $w_{i + 1/2} = 0$:
 %
 \begin{align}
-\textcolor{red}{w^{(n + 1)}_{N_L - 1 - 1/2}} &= \textcolor{blue}{w^{(n)}_{N_L - 1 - 1/2} + \Delta t\newdot{w}^{(n)}_{N_L - 1 - 1/2, \text{expl}} - \frac{w^{(n)}_{N_L - 1 - 1/2}\Delta t}{2}\frac{w^{(n)}_{N_L - 2 - 1/2}}{z_{N_L - 2 - 1/2} - z_{N_L - 1/2}}}\nonumber\\
-&- \frac{w^{(n)}_{N_L - 1 - 1/2}\Delta t}{2\left(z_{N_L - 2 - 1/2} - z_{N_L - 1/2}\right)}\textcolor{red}{w^{(n + 1)}_{N_L - 2 - 1/2}}.
+&\textcolor{red}{\rho_{N_L - 1}^{(n + 1)}} = \textcolor{blue}{\rho_{N_L - 1}^{(n)} + \Delta t\newdot{\rho}^{(n)}_{N_L - 1, \text{expl}}} - \Delta t\left(\alpha_{N_L - \frac{3}{2}, N_L - 2}\textcolor{red}{\rho_{N_L - 2}^{(n + 1)}} + \alpha_{N_L - \frac{3}{2}, N_L - 1}\textcolor{red}{\rho_{N_L - 1}^{(n + 1)}}\right)\frac{W_{N_L - 3/2}^{(n + 1)}}{V_{N_L - 1}}.
 \end{align}
 %
 Man definiert den Vektor $\mathbf{W}$ der Unbekannten durch
 %
 \begin{align}
 \mathbf{W} = \left(\begin{array}{c}
-w^{(n + 1)}_{1 - 1/2}\\
-w^{(n + 1)}_{2 - 1/2}\\
+\rho^{(n + 1)}_{0}\\
+\rho^{(n + 1)}_{1}\\
 \vdots\\
-w^{(n + 1)}_{N_L - 1 - 1/2}
+\rho^{(n + 1)}_{N_L - 1}
 \end{array}\right),
 \end{align}
 %
@@ -21310,22 +21340,22 @@ mit einer Matrix $\overleftrightarrow{A}$ und einer rechten Seite $\mathbf{d}$. 
 %
 \begin{align}
 \mathbf{d} = \left(\begin{array}{c}
-w^{(n)}_{1 - 1/2} + \Delta t\newdot{w}^{(n)}_{1 - 1/2, \text{expl}} - \frac{w^{(n)}_{1 - 1/2}\Delta t}{2}\frac{w^{(n)}_{1 - 1/2} - w^{(n)}_{2 - 1/2}}{z_{1 - 1/2} - z_{2 - 1/2}}\\
-w^{(n)}_{2 - 1/2} + \Delta t\newdot{w}^{(n)}_{2 - 1/2, \text{expl}} - \frac{w^{(n)}_{2 - 1/2}\Delta t}{2}\frac{w^{(n)}_{1 - 1/2} - w^{(n)}_{3 - 1/2}}{z_{1 - 1/2} - z_{3 - 1/2}}\\
-w^{(n)}_{3 - 1/2} + \Delta t\newdot{w}^{(n)}_{3 - 1/2, \text{expl}} - \frac{w^{(n)}_{3 - 1/2}\Delta t}{2}\frac{w^{(n)}_{2 - 1/2} - w^{(n)}_{4 - 1/2}}{z_{2 - 1/2} - z_{4 - 1/2}}\\
+\rho^{(n)}_{0} + \Delta t\newdot{\rho}^{(n)}_{0, \text{expl}}\\
+\rho^{(n)}_{1} + \Delta t\newdot{\rho}^{(n)}_{1, \text{expl}}\\
+\rho^{(n)}_{2} + \Delta t\newdot{\rho}^{(n)}_{2, \text{expl}}\\
 \vdots\\
-w^{(n)}_{N_L - 2 - 1/2} + \Delta t\newdot{w}^{(n)}_{N_L - 2 - 1/2, \text{expl}} - \frac{w^{(n)}_{N_L - 2 - 1/2}\Delta t}{2}\frac{w^{(n)}_{N_L - 3 - 1/2} - w^{(n)}_{N_L - 1 - 1/2}}{z_{N_L - 3 - 1/2} - z_{N_L - 1 - 1/2}}\\
-w^{(n)}_{N_L - 1 - 1/2} + \Delta t\newdot{w}^{(n)}_{N_L - 1 - 1/2, \text{expl}} - \frac{w^{(n)}_{N_L - 1 - 1/2}\Delta t}{2}\frac{w^{(n)}_{N_L - 2 - 1/2}}{z_{N_L - 2 - 1/2} - z_{N_L - 0 - 1/2}}
+\rho^{(n)}_{N_L - 2} + \Delta t\newdot{\rho}^{(n)}_{N_L - 2, \text{expl}}\\
+\rho^{(n)}_{N_L - 1} + \Delta t\newdot{\rho}^{(n)}_{N_L - 1, \text{expl}}
 \end{array}\right).
 \end{align}
 %
 Für die Matrix $\overleftrightarrow{A}$ erhält man
 %
 \begin{align}\overleftrightarrow{A} & = \left(\begin{array}{cccc}
-1 + \frac{w^{(n)}_{1 - 1/2}\Delta t}{2\left(z_{1 - 1/2} - z_{2 - 1/2}\right)} & -\frac{w^{(n)}_{1 - 1/2}\Delta t}{2\left(z_{1 - 1/2} - z_{2 - 1/2}\right)}  & \dots & 0 \\
-\frac{w^{(n)}_{2 - 1/2}\Delta t}{2\left(z_{1 - 1/2} - z_{3 - 1/2}\right)} & 1 & -\frac{w^{(n)}_{2 - 1/2}\Delta t}{2\left(z_{1 - 1/2} - z_{3 - 1/2}\right)}\hspace{2 cm}\dots &  0 \\
+1 - \Delta t\alpha_{\frac{1}{2}, 0}\frac{W_{1/2}^{(n + 1)}}{V_0} & -\Delta t\alpha_{\frac{1}{2}, 1}\frac{W_{1/2}^{(n + 1)}}{V_0}  & \dots & 0 \\
+\Delta t\frac{\alpha_{\frac{1}{2}, 0}W_{1/2}^{(n + 1)}}{V_1} & 1 + \Delta t\frac{\alpha_{\frac{1}{2}, 1}W_{1/2}^{(n + 1)} - \alpha_{\frac{3}{2}, 1}W_{3/2}^{(n + 1)}}{V_1} & -\Delta t\frac{\alpha_{N_L - \frac{3}{2}, 2}W_{3/2}^{(n + 1)}}{V_1} \hspace{2 cm}\dots &  0 \\
 \vdots & \hspace{2 cm}\ddots & \ddots & \vdots \\
-0 & \dots & \frac{w^{(n)}_{N_L - 1 - 1/2}\Delta t}{2\left(z_{N_L - 2 - 1/2} - z_{N_L - 1/2}\right)} & 1
+0 & \dots & \Delta t\frac{\alpha_{N_L - \frac{3}{2}, N_L - 2}W_{N_L - 3/2}^{(n + 1)}}{V_{N_L - 1}} & 1 + \Delta t\frac{\alpha_{N_L - \frac{3}{2}, N_L - 1}W_{N_L - 3/2}^{(n + 1)}}{V_{N_L - 1}}
 \end{array}\right).
 \end{align}
 
