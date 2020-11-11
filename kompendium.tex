@@ -17168,7 +17168,7 @@ Somit gilt laut Glg. \eqref{eq:stokes_friction_split-up} für die Reibungskraft
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-F = 6\pi a\eta U.
+F = 6\pi a\eta U.\label{eq:stokes_friction}
 \end{align}
 \end{center}
 }}
@@ -17177,7 +17177,7 @@ F = 6\pi a\eta U.
 Setzt man dies mit der Gewichtskraft
 %
 \begin{align}
-F_g = mg = \frac{4}{3}\pi a^3\rho_l'g
+F_g = mg = \frac{4}{3}\pi a^3\rho_l'g\label{eq:gravity_on_condensate}
 \end{align}
 %
 gleich, erhält man
@@ -17186,7 +17186,7 @@ gleich, erhält man
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-v_\text{sink} = \frac{F}{6\pi a\eta} = \frac{4\pi a^3\rho_l'g}{18\pi a\rho_h'\nu} = \frac{2\pi a^2\rho_l'g}{9\pi\rho_h'\nu}
+v_\text{sink} = \frac{F}{6\pi a\eta} = \frac{4\pi a^3\rho_l'g}{18\pi a\rho_h'\nu} = \frac{2\pi a^2\rho_l'g}{9\pi\rho_h'\nu}\label{eq:sink_stokes}
 \end{align}
 \end{center}
 }}
@@ -17196,6 +17196,70 @@ als Formel für die Gleichgewichts-Sinkgeschwindigkeit $v_\text{sink}$.
 
 \subsection{Turbulente Umströmung}
 \label{sec:turbulente_umstroemung}
+
+Bei turbulenter Umströmung ist die das Kondensat umgebende Zirkulation in aperiodischer Weise zeitabhängig. Hierbei ist die Reibungskraft $F$ proportional zum Quadrat der Geschwindigkeit $U$,
+%
+\begin{align}
+F = \frac{1}{2}c_w\pi a^2\rho_h'U^2,\label{eq:turbulent_friction}
+\end{align}
+%
+wobei $c_w \geq 0$ eine von der Form des umströmten Objektes abhängige Konstante, der sogenannte \textit{$c_w-$Wert}\index{$c_w-$Wert}, ist. Im Englischen bezeichnet man diese Größe als \textit{drag coefficient}\index{drag coefficient} $c_d$. Setzt man dies mit der Gewichtskraft laut Glg. \eqref{eq:gravity_on_condensate} gleich, erhält man
+%
+\begin{align}
+\frac{1}{2}c_w\pi a^2\rho_h'v_\text{sink}^2 &= \frac{4}{3}\pi a^3\rho_l'g \Leftrightarrow v_\text{sink}^2 = \frac{8a\rho_l'g}{3\rho_h'c_w}
+\end{align}
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\Leftrightarrow v_\text{sink} = \sqrt{\frac{8a\rho_l'g}{3\rho_h'c_w}}\label{eq:sink_turb}
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+als Formel für die Gleichgewichts-Sinkgeschwindigkeit $v_\text{sink}$.
+
+\subsubsection{Zusammengesetzte Formel für die Sinkgeschwindigkeit}
+\label{sec:zusammengesetzte_formel_für_die_sinkgeschwindigkeit}
+
+Kleine Kondensate werden laminar umströmt, größere turbulent. Der Parameter $\alpha\in\left[0, 1\right]$ beschreibe den Anteil von Turbulenz in der Reibungskraft $F$, also
+%
+\begin{align}
+F = \alpha F_\text{turbulent} + \left(1 - \alpha\right)F_\text{laminar}.
+\end{align}
+%
+Setzt man hier die Glg.en \eqref{eq:stokes_friction} und \eqref{eq:turbulent_friction} ein, erhält man
+%
+\begin{align}
+F = \alpha\frac{1}{2}c_w\pi a^2\rho_h'U^2 + \left(1 - \alpha\right)6\pi a\rho_h'\nu U.
+\end{align}
+%
+Setzt man dies mit der Gewichtskraft laut Glg. \eqref{eq:gravity_on_condensate} gleich, erhält man unter der Annahme $\alpha \not= 0$
+
+\begin{align}
+\left(1 - \alpha\right)6\pi a\rho_h'\nu v_\text{sink} + \alpha\frac{1}{2}c_w\pi a^2\rho_h'v_\text{sink}^2 &= \frac{4}{3}\pi a^3\rho_l'g\nonumber\\
+\Leftrightarrow\alpha\frac{1}{2}c_w\pi a\rho_h'v_\text{sink}^2 + \left(1 - \alpha\right)6\pi\rho_h'\nu v_\text{sink} - \frac{4}{3}\pi a^2\rho_l'g &= 0\nonumber\\
+\Leftrightarrow\alpha c_w\pi a\rho_h'v_\text{sink}^2 + \left(1 - \alpha\right)12\pi\rho_h'\nu v_\text{sink} - \frac{8\pi a^2\rho_l'g}{3} &= 0\nonumber\\
+\Leftrightarrow\alpha c_w\pi av_\text{sink}^2 + \left(1 - \alpha\right)12\pi\nu v_\text{sink} - \frac{8\pi a^2\rho_l'g}{3\rho_h'} &= 0\nonumber\\
+\Leftrightarrow \pi av_\text{sink}^2 + \frac{\left(1 - \alpha\right)}{\alpha c_w}12\pi \nu v_\text{sink} - \frac{8\pi a^2\rho_l'g}{3\alpha\rho_h'c_w} &= 0\nonumber\\
+\Leftrightarrow v_\text{sink}^2 + \frac{\left(1 - \alpha\right)}{a\alpha c_w}12\nu v_\text{sink} - \frac{8a\rho_l'g}{3\alpha\rho_h'c_w} &= 0.
+\end{align}
+%
+Es ist zu erwarten, dass der Übergang von laminarer zu turbulenter Reibung entscheidend von der Reynolds-Zahl
+%
+\begin{align}
+R \coloneqq \frac{U^2a^2}{\nu Ua} = \frac{Ua}{\nu}
+\end{align}
+%
+abhängt. Man nimmt nun an, dass der Übergang von laminarer zu turbulenter Reibung bei einer kritischen Reynolds-Zahl $R_k$ erfolgt. Um die Gleichgewichts-Sinkgeschindigkeit zu bestimmen, kann man wie folgt vorgehen:
+%
+\begin{enumerate}
+\item Berechne $v_\text{sink}$ aus Glg. \eqref{eq:sink_stokes}.
+\item Berechne hieraus die Reynoldszahl $R$.
+\item Wenn das Ergebnis nicht größer als $R_k$ ist, $R \leq R_k$, gilt $\alpha = 0$ und das Ergebnis liegt bereits vor. Dabei kann bei Kugeln von $R_k = 10$ ausgegangen werden.
+\item Andernfalls gilt $\alpha = 1$, dann verwende \eqref{eq:sink_turb} zur Bestimmung der Gleichgewichts-Sinkgeschwindigkeit. Dabei kann bei Kugeln von $c_w = 1$ ausgegangen werden.
+\end{enumerate}
 
 \section{Wachstum von Kondensaten}
 \label{sec:wachstum_von_kondensaten}
