@@ -21235,87 +21235,156 @@ Für die Matrix $\overleftrightarrow{A}$ erhält man
 \end{array}\right).
 \end{align}
 
-\subsubsection{Vertikale Advektion des Vertikalwindes}
-\label{sec:vertikale_advektion_des_vertikalwindes}
+\subsubsection{Vertikaler Sound wave solver}
+\label{sec:vertikaler_sound_wave_solver}
 
-Sei $w$ eine vertikale Vektorkomponente. Vorbereitend wird das Crank-Nicolson-Verfahren mit $n$ als gegenwärtigem Zeitschritt notiert:
+Um in der vertikalen Richtung nicht an das CFL-Kriterium\index{CFL-Kriterium} für Schallwellen gebunden zu sein, wird die vertikale Impulsadvektion implizit behandelt. Damit dies nicht auf ein globales nichtlineares Problem führt, muss man dies für jeden horizontalen skalaren und vektoriellen Datenpunkt separat tun.
+
+Zunächst muss festgestellt werden, welche der Terme in Entropieformulierung Schallwellen beschreiben, da diese impliizit behandelt werden müssen. Da Schallwellen adiabatisch sind, ist nicht zu erwarten, dass der Anteil des Druckgradienten, der mit dem Gradienten der Entropie zusammenhängt, nicht zu Schallwellen beiträgt. Anders ist es mit dem Gradienten der Enthalpie. Um ein geschlossenes Gleichungssystem zu erhalten, muss daher eine prognostische Gleichung für die Temperatur gefunden werden. Man notiert dazu Glg. \eqref{eq:internal_energy_prognostic} in der Form
 %
 \begin{align}
-w^{(n + 1)} = w^{(n)} + \frac{\Delta t}{2}\left(\frac{\partial w^{(n)}}{\partial t} + \frac{\partial w^{(n + 1)}}{\partial t}\right)
+\frac{\partial\newtilde{T}}{\partial t} = -\nabla\cdot\left(\newtilde{T}\mathbf{v}\right) - \frac{R_d}{c^{(v)}}\newtilde{T}\nabla\cdot\mathbf{v}
 \end{align}
 %
-An dieser Stelle geht es dabei nur um vertikale Advektion\index{Advektion!vertikale}, die anderen Terme werden explizit berechnet:
+als Gleichung für $\newtilde{T} \coloneqq \rho T$. Der erste Term beschreibt die Advektion, diese ist für Schallwellen üblicherweise nicht relevant. Man notiert daher als eindimensionales Gleichungssystem
 %
 \begin{align}
-w^{(n + 1)} = w^{(n)} + \Delta t\newdot{w}^{(n)}_{\text{expl}} - \frac{w^{(n)}\Delta t}{2}\left(\frac{\partial w^{(n)}}{\partial z} + \frac{\partial w^{(n + 1)}}{\partial z}\right)
+\frac{\partial w}{\partial t} & = -c^{(p)}\frac{\partial}{\partial z}\left(\frac{\newtilde{T}}{\rho}\right),\label{eq:sound_entropy_0}\\
+\frac{\partial\newtilde{T}}{\partial t} & = -\frac{R_d}{c^{(v)}}\newtilde{T}\frac{\partial w}{\partial z}.\label{eq:sound_entropy_1}
 \end{align}
 %
-Die vertikale Diskretisierung erfordert einen halbzahligen Levelindex $-\frac{1}{2} \leq i - \frac{1}{2} \leq N_L - \frac{1}{2}$:
+Um zu verifizieren, dass dieses tatsächlich Schallwellen beschreibt, macht man den Ansatz
 %
 \begin{align}
-w^{(n + 1)}_{i - 1/2} = w^{(n)}_{i - 1/2} + \Delta t\newdot{w}^{(n)}_{i - 1/2, \text{expl}} - \frac{w^{(n)}_{i - 1/2}\Delta t}{2}\left(\frac{w^{(n)}_{i - 1 - 1/2} - w^{(n)}_{i + 1 - 1/2}}{z_{i - 1 - 1/2} - z_{i + 1 - 1/2}} + \frac{w^{(n + 1)}_{i - 1 - 1/2} - w^{(n + 1)}_{i + 1 - 1/2}}{z_{i - 1 - 1/2} - z_{i + 1 - 1/2}}\right)
+w = w_1\exp\left(ikz - i\omega t\right), && \newtilde{T} = \newtilde{T}_0 + \newtilde{T}_1\exp\left(ikz - i\omega t\right).
 \end{align}
 %
-Diese Gleichung wird noch einmal notiert, dabei werden die Unbekannten \textcolor{red}{rot} notiert, die Bekannten \textcolor{blue}{blau} und die Vorfaktoren der Unbekannten schwarz eingefärbt:
+Die Dichte wird als homogen angenommen. Setzt man dies in die Glg.en \eqref{eq:sound_entropy_0} - \eqref{eq:sound_entropy_1} ein, folgt
 %
 \begin{align}
-\textcolor{red}{w^{(n + 1)}_{i - 1/2}} &= \textcolor{blue}{w^{(n)}_{i - 1/2} + \Delta t\newdot{w}^{(n)}_{i - 1/2, \text{expl}} - \frac{w^{(n)}_{i - 1/2}\Delta t}{2}\frac{w^{(n)}_{i - 1 - 1/2} - w^{(n)}_{i + 1 - 1/2}}{z_{i - 1 - 1/2} - z_{i + 1 - 1/2}}}\nonumber\\
-&- \frac{w^{(n)}_{i - 1/2}\Delta t}{2\left(z_{i - 1 - 1/2} - z_{i + 1 - 1/2}\right)}\textcolor{red}{w^{(n + 1)}_{i - 1 - 1/2}} + \frac{w^{(n)}_{i - 1/2}\Delta t}{2\left(z_{i - 1 - 1/2} - z_{i + 1 - 1/2}\right)}\textcolor{red}{w^{(n + 1)}_{i + 1 - 1/2}}
+-i\omega w_1 = -c^{(p)}ik\frac{\newtilde{T}_1}{\rho}, && -i\omega\newtilde{T}_1 = -\frac{R_d}{c^{(v)}}\newtilde{T}_0ikw_1.
 \end{align}
 %
-Bei $i = 1$ verwendet man einen unteren einseitigen Differenzenquotienten, um die Reflexion von Wellen am oberen Rand zu minimieren:
+In Matrixschreibweise erhält man
 %
 \begin{align}
-\textcolor{red}{w^{(n + 1)}_{1 - 1/2}} &= \textcolor{blue}{w^{(n)}_{1 - 1/2} + \Delta t\newdot{w}^{(n)}_{1 - 1/2, \text{expl}} - \frac{w^{(n)}_{1 - 1/2}\Delta t}{2}\frac{w^{(n)}_{1 - 1/2} - w^{(n)}_{2 - 1/2}}{z_{1 - 1/2} - z_{2 - 1/2}}}\nonumber\\
-&- \frac{w^{(n)}_{1 - 1/2}\Delta t}{2\left(z_{1 - 1/2} - z_{2 - 1/2}\right)}\textcolor{red}{w^{(n + 1)}_{1 - 1/2}} + \frac{w^{(n)}_{1 - 1/2}\Delta t}{2\left(z_{1 - 1/2} - z_{2 - 1/2}\right)}\textcolor{red}{w^{(n + 1)}_{2 - 1/2}}
-\end{align}
-%
-Bei $i = N_L - 1$ gilt aufgrund von $w_{N_L - 1/2} = 0$ die Gleichung
-%
-\begin{align}
-\textcolor{red}{w^{(n + 1)}_{N_L - 1 - 1/2}} &= \textcolor{blue}{w^{(n)}_{N_L - 1 - 1/2} + \Delta t\newdot{w}^{(n)}_{N_L - 1 - 1/2, \text{expl}} - \frac{w^{(n)}_{N_L - 1 - 1/2}\Delta t}{2}\frac{w^{(n)}_{N_L - 2 - 1/2}}{z_{N_L - 2 - 1/2} - z_{N_L - 1/2}}}\nonumber\\
-&- \frac{w^{(n)}_{N_L - 1 - 1/2}\Delta t}{2\left(z_{N_L - 2 - 1/2} - z_{N_L - 1/2}\right)}\textcolor{red}{w^{(n + 1)}_{N_L - 2 - 1/2}}.
-\end{align}
-%
-Man definiert den Vektor $\mathbf{W}$ der Unbekannten durch
-%
-\begin{align}
-\mathbf{W} = \left(\begin{array}{c}
-w^{(n + 1)}_{1 - 1/2}\\
-w^{(n + 1)}_{2 - 1/2}\\
-\vdots\\
-w^{(n + 1)}_{N_L - 1 - 1/2}
-\end{array}\right),
-\end{align}
-%
-für diesen gilt ein lineares Gleichungssystem\index{lineares Gleichungssystem}\index{Gleichungssystem!lineares}
-%
-\begin{align}
-\overleftrightarrow{A}\cdot\mathbf{W} = \mathbf{d}
-\end{align}
-%
-mit einer Matrix $\overleftrightarrow{A}$ und einer rechten Seite $\mathbf{d}$. Für diese rechte Seite gilt
-%
-\begin{align}
-\mathbf{d} = \left(\begin{array}{c}
-w^{(n)}_{1 - 1/2} + \Delta t\newdot{w}^{(n)}_{1 - 1/2, \text{expl}} - \frac{w^{(n)}_{1 - 1/2}\Delta t}{2}\frac{w^{(n)}_{1 - 1/2} - w^{(n)}_{2 - 1/2}}{z_{1 - 1/2} - z_{2 - 1/2}}\\
-w^{(n)}_{2 - 1/2} + \Delta t\newdot{w}^{(n)}_{2 - 1/2, \text{expl}} - \frac{w^{(n)}_{2 - 1/2}\Delta t}{2}\frac{w^{(n)}_{1 - 1/2} - w^{(n)}_{3 - 1/2}}{z_{1 - 1/2} - z_{3 - 1/2}}\\
-w^{(n)}_{3 - 1/2} + \Delta t\newdot{w}^{(n)}_{3 - 1/2, \text{expl}} - \frac{w^{(n)}_{3 - 1/2}\Delta t}{2}\frac{w^{(n)}_{2 - 1/2} - w^{(n)}_{4 - 1/2}}{z_{2 - 1/2} - z_{4 - 1/2}}\\
-\vdots\\
-w^{(n)}_{N_L - 2 - 1/2} + \Delta t\newdot{w}^{(n)}_{N_L - 2 - 1/2, \text{expl}} - \frac{w^{(n)}_{N_L - 2 - 1/2}\Delta t}{2}\frac{w^{(n)}_{N_L - 3 - 1/2} - w^{(n)}_{N_L - 1 - 1/2}}{z_{N_L - 3 - 1/2} - z_{N_L - 1 - 1/2}}\\
-w^{(n)}_{N_L - 1 - 1/2} + \Delta t\newdot{w}^{(n)}_{N_L - 1 - 1/2, \text{expl}} - \frac{w^{(n)}_{N_L - 1 - 1/2}\Delta t}{2}\frac{w^{(n)}_{N_L - 2 - 1/2}}{z_{N_L - 2 - 1/2} - z_{N_L - 0 - 1/2}}
+\left(
+\begin{array}{cc}
+-i\omega & c^{(p)}ik\frac{1}{\rho} \\
+\frac{R_d}{c^{(v)}}\newtilde{T}_0ik & -i\omega \end{array}\right)
+\left(\begin{array}{c}
+w_1 \\
+\newtilde{T}_1
+\end{array}\right) = \left(\begin{array}{c}
+0 \\
+0
 \end{array}\right).
 \end{align}
 %
-Für die Matrix $\overleftrightarrow{A}$ erhält man
+Durch Nullsetzen der Determinante erhält man
 %
-\begin{align}\overleftrightarrow{A} & = \left(\begin{array}{cccc}
-1 + \frac{w^{(n)}_{1 - 1/2}\Delta t}{2\left(z_{1 - 1/2} - z_{2 - 1/2}\right)} & -\frac{w^{(n)}_{1 - 1/2}\Delta t}{2\left(z_{1 - 1/2} - z_{2 - 1/2}\right)}  & \dots & 0 \\
-\frac{w^{(n)}_{2 - 1/2}\Delta t}{2\left(z_{1 - 1/2} - z_{3 - 1/2}\right)} & 1 & -\frac{w^{(n)}_{2 - 1/2}\Delta t}{2\left(z_{1 - 1/2} - z_{3 - 1/2}\right)}\hspace{2 cm}\dots &  0 \\
-\vdots & \hspace{2 cm}\ddots & \ddots & \vdots \\
-0 & \dots & \frac{w^{(n)}_{N_L - 1 - 1/2}\Delta t}{2\left(z_{N_L - 2 - 1/2} - z_{N_L - 1/2}\right)} & 1
+\begin{align}
+\omega^2 = \kappa R_dTk^2.
+\end{align}
+%
+Es ergibt sich also die gleiche Dispersionsrelation wie Glg. \eqref{eq:velocity_sound}. Hiermit ist verifiziert, dass die in den Glg.en \eqref{eq:sound_entropy_0} - \eqref{eq:sound_entropy_1} aufgeführten Terme in der Tat Schallwellen beschreiben.
+
+Für die numerische Behandlung vertikaler Schallwellen führt man zunächst einen Unbekanntenvektor $\mathbf{x}$ mit $2N_L - 1$ Elementen ein, nämlich
+%
+\begin{align}
+x_{2i} = w_{i + 1/2}^{(n + 1)}, && x_{2i + 1} = T_{i + 1}^{(n + 1)}
+\end{align}
+%
+für $0 \leq i \leq N_L - 1$, $n$ ist wieder der gegenwärtige Zeitschritt. Es ist sinnvoll, hier sowohl die Temperatur als auch die Vertikalgeschwindigkeit aufzunehmen, da Schallwellen durch den Zusammenhang von Druckgradient und adiabatischer Kompression entstehen. Die zu lösenden Gleichungen lauten
+%
+\begin{align}
+& w_{i + 1/2}^{(n + 1)} = w_{i + 1/2}^{(n)} + \Delta t\newdot{w}_{i + 1/2, \text{expl}}^{(n)} - \Delta t\newoverline{c_{g, k}^{(v, n)}}^{(i + 1/2)}\frac{T^{(n + 1)}_{i} - T^{(n + 1)}_{i + 1}}{z_{i} - z_{i + 1}} + \Delta t\newoverline{\frac{c_{g, k}^{(v, n)}}{c_{g, k}^{(p, n)}}T_k^{(n + 1)}}^{(i + 1/2)}\frac{s^{(n)}_{i} - s^{(n)}_{i + 1}}{z_{i} - z_{i + 1}}\nonumber\\
+& - w_{i + 1/2}^{(n)}\frac{w_{i - 1/2}^{(n + 1)} - w_{i + 3/2}^{(n + 1)}}{2\left(z_{i - 1/2} - z_{i + 3/2}\right)} - w_{i + 1/2}^{(n)}\frac{w_{i - 1/2}^{(n)} - w_{i + 3/2}^{(n)}}{2\left(z_{i - 1/2} - z_{i + 3/2}\right)}\nonumber\\
+&= w_{i + 1/2}^{(n)} + \Delta t\newdot{w}_{i + 1/2, \text{expl}}^{(n)} - \Delta t\frac{\newoverline{c_{g, k}^{(v, n)}}^{(i + 1/2)}T^{(n + 1)}_{i} - \newoverline{c_{g, k}^{(v, n)}}^{(i + 1/2)}T^{(n + 1)}_{i + 1}}{z_{i} - z_{i + 1}} + \Delta t\newoverline{\frac{c_{g, k}^{(v, n)}}{c_{g, k}^{(p, n)}}T_k^{(n + 1)}}^{(i + 1/2)}\frac{s^{(n)}_{i} - s^{(n)}_{i + 1}}{z_{i} - z_{i + 1}}\nonumber\\
+& - w_{i + 1/2}^{(n)}\frac{w_{i - 1/2}^{(n + 1)} - w_{i + 3/2}^{(n + 1)}}{2\left(z_{i - 1/2} - z_{i + 3/2}\right)} - w_{i + 1/2}^{(n)}\frac{w_{i - 1/2}^{(n)} - w_{i + 3/2}^{(n)}}{2\left(z_{i - 1/2} - z_{i + 3/2}\right)}\nonumber
+\end{align}
+\begin{align}
+&= w_{i + 1/2}^{(n)} + \Delta t\newdot{w}_{i + 1/2, \text{expl}}^{(n)} - \Delta t\frac{\newoverline{c_{g, k}^{(v, n)}}^{(i + 1/2)}T^{(n + 1)}_{i} - \newoverline{c_{g, k}^{(v, n)}}^{(i + 1/2)}T^{(n + 1)}_{i + 1} - \newoverline{\frac{c_{g, k}^{(v, n)}}{c_{g, k}^{(p, n)}}T_k^{(n + 1)}}^{(i + 1/2)}\left(s^{(n)}_{i} - s^{(n)}_{i + 1}\right)}{z_{i} - z_{i + 1}}\nonumber\\
+& - w_{i + 1/2}^{(n)}\frac{w_{i - 1/2}^{(n + 1)} - w_{i + 3/2}^{(n + 1)}}{2\left(z_{i - 1/2} - z_{i + 3/2}\right)} - w_{i + 1/2}^{(n)}\frac{w_{i - 1/2}^{(n)} - w_{i + 3/2}^{(n)}}{2\left(z_{i - 1/2} - z_{i + 3/2}\right)}\nonumber\\
+&= w_{i + 1/2}^{(n)} + \Delta t\newdot{w}_{i + 1/2, \text{expl}}^{(n)} - w_{i + 1/2}^{(n)}\frac{w_{i - 1/2}^{(n + 1)} - w_{i + 3/2}^{(n + 1)}}{2\left(z_{i - 1/2} - z_{i + 3/2}\right)} - w_{i + 1/2}^{(n)}\frac{w_{i - 1/2}^{(n)} - w_{i + 3/2}^{(n)}}{2\left(z_{i - 1/2} - z_{i + 3/2}\right)}\nonumber\\
+&- \Delta t\frac{T^{(n + 1)}_{i}\left[\newoverline{c_{g, k}^{(v, n)}}^{(i + 1/2)} - \alpha_{i + 1/2, i}\frac{c_{g, i}^{(v, n)}}{c_{g, i}^{(p, n)}}\left(s^{(n)}_{i} - s^{(n)}_{i + 1}\right)\right] - T^{(n + 1)}_{i + 1}\left[\newoverline{c_{g, k}^{(v, n)}}^{(i + 1/2)} + \alpha_{i + 1/2, i + 1}\frac{c_{g, i + 1}^{(v, n)}}{c_{g, i + 1}^{(p, n)}}\left(s^{(n)}_{i} - s^{(n)}_{i + 1}\right)\right]}{z_{i} - z_{i + 1}},
+\end{align}
+\begin{align}
+T_{i}^{(n + 1)} &= T_{i}^{(n)} + \Delta t\newdot{T}_{i, \text{expl}}^{(n)} - \Delta t\left(\frac{R_{g, i}^{(n)}}{c_{g, i}^{(v, n)}} - 1\right)T_{i}^{(n)}\frac{A_{i - 1/2}w^{(n + 1)}_{i - 1/2} - A_{i + 1/2}w^{(n + 1)}_{i + 1/2}}{V_i}\nonumber\\
+&- \Delta t\frac{\newoverline{T_{k}^{(n)}}^{(i - 1/2)}A_{i - 1/2}w^{(n + 1)}_{i - 1/2} - \newoverline{T_{k}^{(n)}}^{(i + 1/2)}A_{i + 1/2}w^{(n + 1)}_{i + 1/2}}{V_i}\nonumber\\
+&= T_{i}^{(n)} + \Delta t\newdot{T}_{i, \text{expl}}^{(n)} - \Delta t\left[\left(\frac{R_{g, i}^{(n)}}{c_{g, i}^{(v, n)}} - 1\right)T_{i}^{(n)} + \newoverline{T_{k}^{(n)}}^{(i - 1/2)}\right]\frac{A_{i - 1/2}w^{(n + 1)}_{i - 1/2}}{V_i}\nonumber\\
+&+ \Delta t\left[\left(\frac{R_{g, i}^{(n)}}{c_{g, i}^{(v, n)}} - 1\right)T_{i}^{(n)} + \newoverline{T_{k}^{(n)}}^{(i + 1/2)}\right]\frac{A_{i + 1/2}w^{(n + 1)}_{i + 1/2}}{V_i}.
+\end{align}
+%
+Somit führt dieses Problem auf ein lineares Gleichungssystem
+%
+\begin{align}
+\overleftrightarrow{A}\cdot\mathbf{x} = \mathbf{d}
+\end{align}
+%
+mit einer Koeffizientenmatrix $\overleftrightarrow{A}$ in Fünf-Band-Form. Für diese notiert man
+%
+\begin{align}
+\overleftrightarrow{A} & = \left(\begin{array}{ccccc}
+b_0 & c_0 & u_0 & \dots & 0 \\
+a_0 & b_1 & c_1 & u_1 \hspace{2 cm}\dots &  0 \\
+l_0 & a_1 & b_2 & c_1 \hspace{2 cm}\dots &  0 \\
+\vdots & \hspace{2 cm} &\ddots & \ddots & \vdots \\
+0 & \dots & b_{2N_L - 4} & c_{2N_L - 4} & u_{2N_L - 4}\\
+0 & \dots & a_{2N_L - 4} & b_{2N_L - 3} & c_{2N_L - 3}\\
+0 & \dots & l_{2N_L - 4} & a_{2N_L - 3} & b_{2N_L - 2}
 \end{array}\right).
 \end{align}
+%
+mit fünf Vektoren $\mathbf{l}, \mathbf{u} \in \mathbb{R}^{2N_L - 3}$, $\mathbf{a}, \mathbf{c} \in \mathbb{R}^{2N_L - 2}$, $\mathbf{b} \in \mathbb{R}^{2N_L - 1}$. Die rechte Seite $\mathbf{d} \in \mathbb{R}^{2N_L - 1}$ enthält den expliziten Anteil:
+%
+\begin{align}
+d_{2i} = w_{i + 1/2}^{(n)} + \Delta t\newdot{w}_{i + 1/2, \text{expl}}^{(n)} - w_{i + 1/2}^{(n)}\frac{w_{i - 1/2}^{(n)} - w_{i + 3/2}^{(n)}}{2\left(z_{i - 1/2} - z_{i + 3/2}\right)}, && d_{2i + 1} = T_{i + 1}^{(n)} + \Delta t\newdot{T}_{i, \text{expl}}^{(n)}
+\end{align}
+%
+Weiterhin gilt
+%
+\begin{align}
+b_i = 1
+\end{align}
+%
+für alle $0 \leq i \leq 2N_L - 2$. Für den Vektor $\mathbf{a}$ gilt
+%
+\begin{align}
+a_{2i} &= \Delta t\frac{\newoverline{c_{g, k}^{(v, n)}}^{(i + 1/2)} - \alpha_{i + 1/2, i}\frac{c_{g, i}^{(v, n)}}{c_{g, i}^{(p, n)}}\left(s^{(n)}_{i} - s^{(n)}_{i + 1}\right)}{z_{i} - z_{i + 1}}\nonumber\\
+&= \Delta t\frac{\newoverline{c_{g, k}^{(v, n)}}^{(i + 1/2)}}{z_{i} - z_{i + 1}} - \Delta t\alpha_{i + 1/2, i}\frac{c_{g, i}^{(v, n)}}{c_{g, i}^{(p, n)}}\frac{\Delta s}{\Delta z}\vline_{i + 1/2},\\
+a_{2i + 1} &= \Delta t\left[\left(\frac{R_{g, i + 1}^{(n)}}{c_{g, i + 1}^{(v, n)}} - 1\right)T_{i + 1}^{(n)} + \newoverline{T_{k}^{(n)}}^{(i + 1/2)}\right]\frac{A_{i + 1/2}}{V_{i + 1}}.
+\end{align}
+%
+Für $\mathbf{b}$ findet man
+%
+\begin{align}
+c_{2i} &= -\Delta t\left[\left(\frac{R_{g, i}^{(n)}}{c_{g, i}^{(v, n)}} - 1\right)T_{i}^{(n)} + \newoverline{T_{k}^{(n)}}^{(i + 1/2)}\right]\frac{A_{i + 1/2}}{V_i},\\
+c_{2i + 1} &= -\Delta t\frac{\newoverline{c_{g, k}^{(v, n)}}^{(i + 1/2)} + \alpha_{i + 1/2, i + 1}\frac{c_{g, i + 1}^{(v, n)}}{c_{g, i + 1}^{(p, n)}}\left(s^{(n)}_{i} - s^{(n)}_{i + 1}\right)}{z_{i} - z_{i + 1}}\\
+&= -\Delta t\frac{\newoverline{c_{g, k}^{(v, n)}}^{(i + 1/2)}}{z_{i} - z_{i + 1}} - \Delta t\alpha_{i + 1/2, i + 1}\frac{c_{g, i + 1}^{(v, n)}}{c_{g, i + 1}^{(p, n)}}\frac{\Delta s}{\Delta z}\vline_{i + 1/2}.
+\end{align}
+%
+Für $\mathbf{l}$ gilt
+%
+\begin{align}
+l_{2i} = 0,&& l_{2i + 1} = \frac{w_{i + 3/2}^{(n)}}{2\left(z_{i + 1/2} - z_{i + 5/2}\right)}.
+\end{align}
+%
+Für $\mathbf{u}$ findet man
+%
+\begin{align}
+u_{2i} = 0,&& u_{2i + 1} = -\frac{w_{i + 1/2}^{(n)}}{2\left(z_{i - 1/2} - z_{i + 3/2}\right)}.
+\end{align}
+%
+Im Falle des Vorhandenseins von $N \geq 1$ Gasen muss man die Ersetzung
+%
+\begin{align}
+\frac{c_{g, i}^{(v, n)}}{c_{g, i}^{(p, n)}}\frac{\Delta s}{\Delta z}\vline_{i + 1/2} \to \sum_{j = 1}^N\frac{\rho_{j, k}^{(n)}}{\rho_k^{(n)}}\frac{c_{g, i}^{(v, n)}}{c_{g, i}^{(p, n)}}\frac{\Delta s_j}{\Delta z}\vline_{i + 1/2}
+\end{align}
+%
+vornehmen.
+
+Lineare Gleichungssysteme mit Fünf-Band-Matrizen können mit der LR-Zerlegung\index{LR-Zerlegung} gelöst werden.
 
 \subsubsection{Vertikale Advektion einer generalisierten Dichte}
 \label{sec:vertikale_advektion_einer_generalisierten_dichte}
@@ -21429,136 +21498,7 @@ Für die Matrix $\overleftrightarrow{A}$ erhält man
 0 & \dots & \Delta t\frac{\alpha_{N_L - \frac{3}{2}, N_L - 2}W_{N_L - 3/2}^{(n + 1)}}{V_{N_L - 1}} & 1 + \Delta t\frac{\alpha_{N_L - \frac{3}{2}, N_L - 1}W_{N_L - 3/2}^{(n + 1)}}{V_{N_L - 1}}
 \end{array}\right).
 \end{align}
-
-\subsubsection{Vertikaler Sound wave solver}
-\label{sec:vertikaler_sound_wave_solver}
-
-Um in der vertikalen Richtung nicht an das CFL-Kriterium\index{CFL-Kriterium} für Schallwellen gebunden zu sein, wird die vertikale Impulsadvektion implizit behandelt. Damit dies nicht auf ein globales nichtlineares Problem führt, muss man dies für jeden horizontalen skalaren und vektoriellen Datenpunkt separat tun.
-
-Zunächst muss festgestellt werden, welche der Terme in Entropieformulierung Schallwellen beschreiben, da diese impliizit behandelt werden müssen. Da Schallwellen adiabatisch sind, ist nicht zu erwarten, dass der Anteil des Druckgradienten, der mit dem Gradienten der Entropie zusammenhängt, nicht zu Schallwellen beiträgt. Anders ist es mit dem Gradienten der Enthalpie. Um ein geschlossenes Gleichungssystem zu erhalten, muss daher eine prognostische Gleichung für die Temperatur gefunden werden. Man notiert dazu Glg. \eqref{eq:internal_energy_prognostic} in der Form
 %
-\begin{align}
-\frac{\partial\newtilde{T}}{\partial t} = -\nabla\cdot\left(\newtilde{T}\mathbf{v}\right) - \frac{R_d}{c^{(v)}}\newtilde{T}\nabla\cdot\mathbf{v}
-\end{align}
-%
-als Gleichung für $\newtilde{T} \coloneqq \rho T$. Der erste Term beschreibt die Advektion, diese ist für Schallwellen üblicherweise nicht relevant. Man notiert daher als eindimensionales Gleichungssystem
-%
-\begin{align}
-\frac{\partial w}{\partial t} & = -c^{(p)}\frac{\partial}{\partial z}\left(\frac{\newtilde{T}}{\rho}\right),\label{eq:sound_entropy_0}\\
-\frac{\partial\newtilde{T}}{\partial t} & = -\frac{R_d}{c^{(v)}}\newtilde{T}\frac{\partial w}{\partial z}.\label{eq:sound_entropy_1}
-\end{align}
-%
-Um zu verifizieren, dass dieses tatsächlich Schallwellen beschreibt, macht man den Ansatz
-%
-\begin{align}
-w = w_1\exp\left(ikz - i\omega t\right), && \newtilde{T} = \newtilde{T}_0 + \newtilde{T}_1\exp\left(ikz - i\omega t\right).
-\end{align}
-%
-Die Dichte wird als homogen angenommen. Setzt man dies in die Glg.en \eqref{eq:sound_entropy_0} - \eqref{eq:sound_entropy_1} ein, folgt
-%
-\begin{align}
--i\omega w_1 = -c^{(p)}ik\frac{\newtilde{T}_1}{\rho}, && -i\omega\newtilde{T}_1 = -\frac{R_d}{c^{(v)}}\newtilde{T}_0ikw_1.
-\end{align}
-%
-In Matrixschreibweise erhält man
-%
-\begin{align}
-\left(
-\begin{array}{cc}
--i\omega & c^{(p)}ik\frac{1}{\rho} \\
-\frac{R_d}{c^{(v)}}\newtilde{T}_0ik & -i\omega \end{array}\right)
-\left(\begin{array}{c}
-w_1 \\
-\newtilde{T}_1
-\end{array}\right) = \left(\begin{array}{c}
-0 \\
-0
-\end{array}\right).
-\end{align}
-%
-Durch Nullsetzen der Determinante erhält man
-%
-\begin{align}
-\omega^2 = \kappa R_dTk^2.
-\end{align}
-%
-Es ergibt sich also die gleiche Dispersionsrelation wie Glg. \eqref{eq:velocity_sound}. Hiermit ist verifiziert, dass die in den Glg.en \eqref{eq:sound_entropy_0} - \eqref{eq:sound_entropy_1} aufgeführten Terme in der Tat Schallwellen beschreiben.
-
-Für die numerische Behandlung vertikaler Schallwellen führt man zunächst einen Unbekanntenvektor $\mathbf{x}$ mit $2N_L - 1$ Elementen ein, nämlich
-%
-\begin{align}
-x_{2i} = w_{i + 1/2}^{(n + 1)}, && x_{2i + 1} = T_{i + 1}^{(n + 1)}
-\end{align}
-%
-für $0 \leq i \leq N_L - 1$, $n$ ist wieder der gegenwärtige Zeitschritt. Es ist sinnvoll, hier sowohl die Temperatur als auch die Vertikalgeschwindigkeit aufzunehmen, da Schallwellen durch den Zusammenhang von Druckgradient und adiabatischer Kompression entstehen. Die zu lösenden Gleichungen lauten
-%
-\begin{align}
-& w_{i + 1/2}^{(n + 1)} = w_{i + 1/2}^{(n)} + \Delta t\newdot{w}_{i + 1/2, \text{expl}}^{(n)} - \Delta t\newoverline{c_{g, k}^{(v, n)}}^{(i + 1/2)}\frac{T^{(n + 1)}_{i} - T^{(n + 1)}_{i + 1}}{z_{i} - z_{i + 1}} + \Delta t\newoverline{\frac{c_{g, k}^{(v, n)}}{c_{g, k}^{(p, n)}}T_k^{(n + 1)}}^{(i + 1/2)}\frac{s^{(n)}_{i} - s^{(n)}_{i + 1}}{z_{i} - z_{i + 1}}\\
-&= w_{i + 1/2}^{(n)} + \Delta t\newdot{w}_{i + 1/2, \text{expl}}^{(n)} - \Delta t\frac{\newoverline{c_{g, k}^{(v, n)}}^{(i + 1/2)}T^{(n + 1)}_{i} - \newoverline{c_{g, k}^{(v, n)}}^{(i + 1/2)}T^{(n + 1)}_{i + 1}}{z_{i} - z_{i + 1}} + \Delta t\newoverline{\frac{c_{g, k}^{(v, n)}}{c_{g, k}^{(p, n)}}T_k^{(n + 1)}}^{(i + 1/2)}\frac{s^{(n)}_{i} - s^{(n)}_{i + 1}}{z_{i} - z_{i + 1}}\nonumber\\
-&= w_{i + 1/2}^{(n)} + \Delta t\newdot{w}_{i + 1/2, \text{expl}}^{(n)} - \Delta t\frac{\newoverline{c_{g, k}^{(v, n)}}^{(i + 1/2)}T^{(n + 1)}_{i} - \newoverline{c_{g, k}^{(v, n)}}^{(i + 1/2)}T^{(n + 1)}_{i + 1} - \newoverline{\frac{c_{g, k}^{(v, n)}}{c_{g, k}^{(p, n)}}T_k^{(n + 1)}}^{(i + 1/2)}\left(s^{(n)}_{i} - s^{(n)}_{i + 1}\right)}{z_{i} - z_{i + 1}}\nonumber\\
-&= w_{i + 1/2}^{(n)} + \Delta t\newdot{w}_{i + 1/2, \text{expl}}^{(n)}\nonumber\\
-&- \Delta t\frac{T^{(n + 1)}_{i}\left[\newoverline{c_{g, k}^{(v, n)}}^{(i + 1/2)} - \alpha_{i + 1/2, i}\frac{c_{g, i}^{(v, n)}}{c_{g, i}^{(p, n)}}\left(s^{(n)}_{i} - s^{(n)}_{i + 1}\right)\right] - T^{(n + 1)}_{i + 1}\left[\newoverline{c_{g, k}^{(v, n)}}^{(i + 1/2)} + \alpha_{i + 1/2, i + 1}\frac{c_{g, i + 1}^{(v, n)}}{c_{g, i + 1}^{(p, n)}}\left(s^{(n)}_{i} - s^{(n)}_{i + 1}\right)\right]}{z_{i} - z_{i + 1}},
-\end{align}
-\begin{align}
-T_{i}^{(n + 1)} &= T_{i}^{(n)} + \Delta t\newdot{T}_{i, \text{expl}}^{(n)} - \Delta t\left(\frac{R_{g, i}^{(n)}}{c_{g, i}^{(v, n)}} - 1\right)T_{i}^{(n)}\frac{A_{i - 1/2}w^{(n + 1)}_{i - 1/2} - A_{i + 1/2}w^{(n + 1)}_{i + 1/2}}{V_i}\nonumber\\
-&- \Delta t\frac{\newoverline{T_{k}^{(n)}}^{(i - 1/2)}A_{i - 1/2}w^{(n + 1)}_{i - 1/2} - \newoverline{T_{k}^{(n)}}^{(i + 1/2)}A_{i + 1/2}w^{(n + 1)}_{i + 1/2}}{V_i}\nonumber\\
-&= T_{i}^{(n)} + \Delta t\newdot{T}_{i, \text{expl}}^{(n)} - \Delta t\left[\left(\frac{R_{g, i}^{(n)}}{c_{g, i}^{(v, n)}} - 1\right)T_{i}^{(n)} + \newoverline{T_{k}^{(n)}}^{(i - 1/2)}\right]\frac{A_{i - 1/2}w^{(n + 1)}_{i - 1/2}}{V_i}\nonumber\\
-&+ \Delta t\left[\left(\frac{R_{g, i}^{(n)}}{c_{g, i}^{(v, n)}} - 1\right)T_{i}^{(n)} + \newoverline{T_{k}^{(n)}}^{(i + 1/2)}\right]\frac{A_{i + 1/2}w^{(n + 1)}_{i + 1/2}}{V_i}.
-\end{align}
-%
-Somit führt auch dieses Problem wieder auf ein lineares Gleichungssystem
-%
-\begin{align}
-\overleftrightarrow{A}\cdot\mathbf{x} = \mathbf{d}
-\end{align}
-%
-mit einer Koeffizientenmatrix $\overleftrightarrow{A}$ in Drei-Band-Form. Für diese notiert man
-%
-\begin{align}
-\overleftrightarrow{A} & = \left(\begin{array}{cccc}
-b_0 & c_0 & \dots & 0 \\
-a_0 & b_1 & c_1 \hspace{2 cm}\dots &  0 \\
-\vdots & \hspace{2 cm}\ddots & \ddots & \vdots \\
-0 & \dots & a_{2N_L - 3} & b_{2N_L - 2}
-\end{array}\right).
-\end{align}
-%
-mit drei Vektoren $\mathbf{a} \in \mathbb{R}^{2N_L - 2}$, $\mathbf{b} \in \mathbb{R}^{2N_L - 1}$, $\mathbf{c} \in \mathbb{R}^{2N_L - 2}$. Die rechte Seite $\mathbf{b}$ enthält den expliziten Anteil:
-%
-\begin{align}
-d_{2i} = w_{i + 1/2}^{(n)} + \Delta t\newdot{w}_{i + 1/2, \text{expl}}^{(n)}, && d_{2i + 1} = T_{i + 1}^{(n)} + \Delta t\newdot{T}_{i, \text{expl}}^{(n)}
-\end{align}
-%
-Weiterhin gilt
-%
-\begin{align}
-b_i = 1
-\end{align}
-%
-für alle $0 \leq i \leq 2N_L - 2$. Für den Vektor $\mathbf{a}$ gilt
-%
-\begin{align}
-a_{2i} &= \Delta t\frac{\newoverline{c_{g, k}^{(v, n)}}^{(i + 1/2)} - \alpha_{i + 1/2, i}\frac{c_{g, i}^{(v, n)}}{c_{g, i}^{(p, n)}}\left(s^{(n)}_{i} - s^{(n)}_{i + 1}\right)}{z_{i} - z_{i + 1}}\nonumber\\
-&= \Delta t\frac{\newoverline{c_{g, k}^{(v, n)}}^{(i + 1/2)}}{z_{i} - z_{i + 1}} - \Delta t\alpha_{i + 1/2, i}\frac{c_{g, i}^{(v, n)}}{c_{g, i}^{(p, n)}}\frac{\Delta s}{\Delta z}\vline_{i + 1/2},\\
-a_{2i + 1} &= \Delta t\left[\left(\frac{R_{g, i + 1}^{(n)}}{c_{g, i + 1}^{(v, n)}} - 1\right)T_{i + 1}^{(n)} + \newoverline{T_{k}^{(n)}}^{(i + 1/2)}\right]\frac{A_{i + 1/2}}{V_{i + 1}}.
-\end{align}
-%
-Für $\mathbf{b}$ findet man
-%
-\begin{align}
-c_{2i} &= -\Delta t\left[\left(\frac{R_{g, i}^{(n)}}{c_{g, i}^{(v, n)}} - 1\right)T_{i}^{(n)} + \newoverline{T_{k}^{(n)}}^{(i + 1/2)}\right]\frac{A_{i + 1/2}}{V_i},\\
-c_{2i + 1} &= -\Delta t\frac{\newoverline{c_{g, k}^{(v, n)}}^{(i + 1/2)} + \alpha_{i + 1/2, i + 1}\frac{c_{g, i + 1}^{(v, n)}}{c_{g, i + 1}^{(p, n)}}\left(s^{(n)}_{i} - s^{(n)}_{i + 1}\right)}{z_{i} - z_{i + 1}}\\
-&= -\Delta t\frac{\newoverline{c_{g, k}^{(v, n)}}^{(i + 1/2)}}{z_{i} - z_{i + 1}} - \Delta t\alpha_{i + 1/2, i + 1}\frac{c_{g, i + 1}^{(v, n)}}{c_{g, i + 1}^{(p, n)}}\frac{\Delta s}{\Delta z}\vline_{i + 1/2}.
-\end{align}
-%
-Im Falle des Vorhandenseins von $N \geq 1$ Gasen muss man die Ersetzung
-%
-\begin{align}
-\frac{c_{g, i}^{(v, n)}}{c_{g, i}^{(p, n)}}\frac{\Delta s}{\Delta z}\vline_{i + 1/2} \to \sum_{j = 1}^N\frac{\rho_{j, k}^{(n)}}{\rho_k^{(n)}}\frac{c_{g, i}^{(v, n)}}{c_{g, i}^{(p, n)}}\frac{\Delta s_j}{\Delta z}\vline_{i + 1/2}
-\end{align}
-%
-vornehmen.
-
 Lineare Gleichungssysteme mit Drei-Band-Matrizen können mit dem Thomas-Algorithmus\index{Thomas-Algorithmus} gelöst werden.
 
 \subsubsection{Horizontales Forward-backward-Verfahren}
@@ -21577,11 +21517,10 @@ Das Zeitschrittverfahren ist das Runge-Kutta-Verfahren dritter Ordnung. Zusätzl
 \begin{enumerate}
 \item Zunächst werden die Geschwindigkeitstendenzen des expliziten Anteils berechnet.
 \item Anschließend wird die vertikale Advektion von $\mathbf{v}_h$ mittels eines impliziten Verfahrens berechnet, s. Absch. \ref{sec:vertikale_advektion_des_horizontalwindes}.
-\item Anschließend wird mittels der neuen Werte von $\mathbf{v}_h$ die Vertikalgeschwindigkeit an der Erdoberfläche aus der Bedingung $\mathbf{v}\cdot\mathbf{n} = 0$ am neuen Zeitschritt berechnet.
-\item Anschließend wird die vertikale Advektion von $w$ mittels eines impliziten Verfahrens berechnet, s. Absch. \ref{sec:vertikale_advektion_des_vertikalwindes}.
-\item Nun werden die horizontalen Divergenzen mittels der alten Werte der skalaren Variablen und der neuen Werte der horizontalen Geschwindigkeitskomponenten berechnet.
-\item Mittels des in Absch. \ref{sec:vertikaler_sound_wave_solver} beschriebenen Sound wave solvers werden die kontravarianten Vertikalgeschwindigkeiten ermittelt.
-\item Zuletzt werden mittels der generalisierten Kontinuitätsgleichungen die neuen Werte der Entropie- und Massendichte berechnet, wobei für die Horizontaldivergenz die in Schritt 5 und die Vertikaldivergenz die in Schritt 6 berechneten Windkomponenten verwendet werden.
+\item Nun werden die horizontalen Divergenzen mittels der skalaren Werte des vorherigen Runge-Kutta-Schrittes und der neuen Werte der horizontalen Geschwindigkeitskomponenten berechnet, dabei werden auch diabatische Effekte berücksichtigt bzw. addiert.
+\item Nun wird der explizite Anteil der Temperaturänderung mittels des in Absch. \ref{sec:energetisch_konsistente_zeitentwicklung_der_temperatur} vorgestellten Verfahrens berechnet, hierbei sind auch die diabatischen Terme enthalten.
+\item Mittels des in Absch. \ref{sec:vertikaler_sound_wave_solver} beschriebenen Sound wave solvers werden die neuen kovarianten Vertikalgeschwindigkeiten sowie die neue Temperatur ermittelt.
+\item Zuletzt werden mittels der generalisierten Kontinuitätsgleichungen die neuen Werte der Entropie- und Massendichte berechnet, s. Absch. \ref{sec:vertikale_advektion_einer_generalisierten_dichte}.
 \end{enumerate}
 
 \section{Zeitschrittverfahren: Variante II}
