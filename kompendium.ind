@@ -10,7 +10,6 @@
   \item $\theta-$System, \hyperpage{159}, \hyperpage{187}
     \subitem hydrostatische Stabilität, \hyperpage{205}
   \item $c_w-$Wert, \hyperpage{293}
-  \item \textsc{CAPE}, \hyperpage{248}
   \item \textsc{Great}-Koordinaten, \hyperpage{464}
     \subitem Lamb-Transformation, \hyperpage{471}
     \subitem meridionale Koordinate, \hyperpage{464}
@@ -36,7 +35,8 @@
     \subitem materielle, \hyperpage{401}, \hyperpage{414}
       \subsubitem Kugelkoordinaten, \hyperpage{413}
     \subitem mehrdimensionale, \hyperpage{401}
-    \subitem totale, \hyperpage{158}, \hyperpage{401}
+    \subitem totale, \hyperpage{401}
+      \subsubitem p-System, \hyperpage{158}
   \item absolute Feuchte, \hyperpage{83}
   \item absolute Helizität, \hyperpage{144}
   \item Absorptionskoeffizient, \hyperpage{151}, \hyperpage{285}
@@ -65,7 +65,8 @@
   \item Analysis
     \subitem Hauptsatz der, \hyperpage{393}
   \item anelastische Approximation, \hyperpage{168}
-    \subitem anelastische Approximation, \hyperpage{169}
+    \subitem Temperaturgleichung, \hyperpage{170}
+    \subitem vertikale Impulsgleichung, \hyperpage{169}
   \item anelastisches Gleichungssystem, \hyperpage{168}, 
 		\hyperpage{170}
   \item anormale Dispersion, \hyperpage{209}
@@ -74,29 +75,22 @@
   \item Antisymmetrie der Energie-Transfer-Funktion, \hyperpage{265}
   \item Antizyklogenese, \hyperpage{252}
   \item APE, \hyperpage{186}
-  \item Approximation, \hyperpage{163}, \hyperpage{285}
+  \item Approximation, \hyperpage{163}
     \subitem anelastische, \hyperpage{168}
-    \subitem hydrostatische, \hyperpage{232}
     \subitem pseudo-inkompressible, \hyperpage{167}
     \subitem traditionelle, \hyperpage{165}
-  \item Arakawa
-    \subitem A-Gitter
-      \subsubitem Gruppengeschwindigkeit, \hyperpage{314}
-      \subsubitem Phasengeschwindigkeit, \hyperpage{313}
-    \subitem C-Gitter
-      \subsubitem Gruppengeschwindigkeit, \hyperpage{315}
-      \subsubitem Phasengeschwindigkeit, \hyperpage{315}
   \item Arakawa-Gitter, \hyperpage{312}
   \item Arbeit, \hyperpage{9}, \hyperpage{72}
   \item Arcusfunktion, \hyperpage{389}, \hyperpage{391}
   \item Areafunktion, \hyperpage{389}
+  \item assoziierte Legendre-Funktion, \hyperpage{429}
   \item Atmosphäre
     \subitem als Tiefpass, \hyperpage{380}
     \subitem einphasige
       \subsubitem Integralrelation, \hyperpage{183}
     \subitem Gesamtdrehimpuls, \hyperpage{183}
     \subitem Gesamtimpuls, \hyperpage{183}
-    \subitem Hamiltonä-Formalismus, \hyperpage{139}
+    \subitem Hamilton-Formalismus, \hyperpage{139}
     \subitem Zustand, \hyperpage{101}
   \item atmosphärische Optik, \hyperpage{285}
   \item atmosphärischer Zustand, \hyperpage{102}
@@ -117,7 +111,7 @@
     \subitem Datenassimilation, \hyperpage{351}
     \subitem lineare, \hyperpage{203}
   \item barokline Instabilität, \hyperpage{236}
-  \item barokline Rossby-Wellen, \hyperpage{224}
+  \item barokline Rossby-Welle, \hyperpage{224}
   \item barokline Schwerewelle, \hyperpage{230}
     \subitem Gruppengeschwindigkeit, \hyperpage{234, 235}
     \subitem Phasengeschwindigkeit, \hyperpage{235}
@@ -137,10 +131,9 @@
   \item Beobachtungsoperator, \hyperpage{347}
   \item Bergeron-Findeisen-Prozess, \hyperpage{294}
   \item Bernoulli-Gleichung, \hyperpage{185}
-    \subitem zeitabhängige, \hyperpage{201}, \hyperpage{239}
+    \subitem zeitabhängige, \hyperpage{201}
   \item Bewegungsgleichung
     \subitem Hamilton-Formalismus, \hyperpage{14}
-  \item Bijektion, \hyperpage{386}
   \item Bilanzgleichung
     \subitem kinetische Energie, \hyperpage{264}
   \item Binomialkoeffizient, \hyperpage{386}
@@ -160,39 +153,37 @@
     \subitem mittlere, \hyperpage{251}
   \item Bretherton-Transformation, \hyperpage{232}
   \item Brunt-Väisälä-Frequenz, \hyperpage{222}, \hyperpage{243}
-  \item Bulk-Viskosität, \hyperpage{113, 114}
-  \item Buoyancy, \hyperpage{169, 170}
-  \item buoyancy, \hyperpage{231}
+  \item Bulk-Viskosität, \hyperpage{113}
+  \item Buoyancy, \hyperpage{169}, \hyperpage{231}
   \item Burgers-Gleichung, \hyperpage{258}
 
   \indexspace
 
-  \item C-Gitter, \hyperpage{312}, \hyperpage{314}, \hyperpage{316}, 
-		\hyperpage{321}, \hyperpage{343}
+  \item C-Gitter, \hyperpage{312}, \hyperpage{314}, \hyperpage{321}, 
+		\hyperpage{343}
     \subitem Dispersionsrelation, \hyperpage{315}
     \subitem Gradientenfeld, \hyperpage{316}
     \subitem Gruppengeschwindigkeit, \hyperpage{315}
     \subitem Phasengeschwindigkeit, \hyperpage{315}
     \subitem Produktregel, \hyperpage{321}
     \subitem Skalarprodukt, \hyperpage{317}
+  \item CAPE, \hyperpage{248}
   \item CCL, \hyperpage{249}
   \item CFL-Kriterium, \hyperpage{303}, \hyperpage{311}, 
 		\hyperpage{371}, \hyperpage{373}
     \subitem Schallwelle, \hyperpage{371}
   \item CFL-Zahl, \hyperpage{303}
-  \item cgs-System, \hyperpage{1}, \hyperpage{385}
+  \item cgs-System, \hyperpage{385}
   \item charakteristische Länge, \hyperpage{269}
   \item charakteristische Zeit, \hyperpage{269}
   \item Checkerboard-Pattern, \hyperpage{337, 338}
   \item chemische Reaktion, \hyperpage{68}
   \item chemisches Element, \hyperpage{43}
-  \item chemisches Potential, \hyperpage{76}, \hyperpage{80}, 
-		\hyperpage{92}
+  \item chemisches Potential, \hyperpage{76}, \hyperpage{80}
     \subitem ideales Gas, \hyperpage{82}
   \item CIN, \hyperpage{249}
   \item Clausius-Clapeyron-Gleichung, \hyperpage{89--91}
-  \item convective available potential Energy (\textsc{CAPE}), 
-		\hyperpage{248}
+  \item convective available potential Energy (CAPE), \hyperpage{248}
   \item convective condensation level (CCL), \hyperpage{249}
   \item convective inhibition (CIN), \hyperpage{249}
   \item Coriolis-Beschleunigung, \hyperpage{168}
@@ -200,7 +191,7 @@
     \subitem generalisierte, \hyperpage{343}
   \item Coriolis-Parameter, \hyperpage{120}
   \item Coriolis-Term
-    \subitem generalisierte, \hyperpage{343, 344}
+    \subitem generalisierter, \hyperpage{343, 344}
   \item Coriolis-Vektor, \hyperpage{120}
   \item Coulomb'sches Gesetz, \hyperpage{17}
   \item Courant-Friedrichs-Lewy-Kriterium, \hyperpage{303}
@@ -217,10 +208,8 @@
     \subitem Balancegleichung, \hyperpage{351}
   \item de-Broglie-Relation, \hyperpage{27}
   \item Deltadistribution, \hyperpage{392}
-  \item der Coriolis-Parameter, \hyperpage{343}
   \item Determinante, \hyperpage{358}, \hyperpage{388}
   \item diabatisch, \hyperpage{245}
-  \item Diagnostik, \hyperpage{132}
   \item diagnostische Variable
     \subitem Seegangsvorhersage, \hyperpage{281}
   \item Dichte
@@ -273,8 +262,6 @@
     \subitem einer Schwerewelle, \hyperpage{234}
     \subitem Flachwasserwellen, \hyperpage{313}
     \subitem globale Mode, \hyperpage{344}
-    \subitem Mode
-      \subsubitem globale, \hyperpage{344}
     \subitem Quantenmechanik
       \subsubitem freies Teilchen, \hyperpage{28}
     \subitem Sub-Poincaré-Welle, \hyperpage{280}
@@ -287,7 +274,7 @@
     \subitem turbulente, \hyperpage{256}
   \item dissipative range, \hyperpage{270}
   \item divergent mode, \hyperpage{371}
-  \item Divergenz, \hyperpage{165}, \hyperpage{191}, \hyperpage{200}, 
+  \item Divergenz, \hyperpage{191}, \hyperpage{200}, 
 		\hyperpage{325, 326}, \hyperpage{401}
     \subitem eines Vektorfeldes, \hyperpage{401}
   \item Divergenzgleichung, \hyperpage{201}
@@ -309,25 +296,24 @@
     \subitem osmotischer, \hyperpage{91}
     \subitem prognostische Gleichung, \hyperpage{128}
   \item Druck mittlerer, \hyperpage{113}
-  \item Druckgradient, \hyperpage{147}, \hyperpage{365}
-  \item Druckgradientbeschleunigung, \hyperpage{145}, \hyperpage{147}
+  \item Druckgradient, \hyperpage{365}
+  \item Druckgradientbeschleunigung, \hyperpage{147}
     \subitem Exner-Druck, \hyperpage{129}
   \item Druckgradientkraft, \hyperpage{110}
   \item duales Gitter, \hyperpage{321}
   \item duales Vektorfeld
     \subitem horizontales, \hyperpage{359}
     \subitem vertikales, \hyperpage{359}
-  \item Dynamik, \hyperpage{1}, \hyperpage{157}
+  \item Dynamik, \hyperpage{157}
     \subitem irreversible, \hyperpage{379}
     \subitem reversible, \hyperpage{365}
     \subitem tropische, \hyperpage{253}
   \item dynamische Kern, \hyperpage{321}
-  \item dynamische Randbedingung, \hyperpage{121}, \hyperpage{238, 239}
+  \item dynamische Randbedingung, \hyperpage{121}, \hyperpage{238}
   \item dynamische Topographie, \hyperpage{280}
   \item dynamische Viskosität, \hyperpage{88}, \hyperpage{113}
-  \item dynamischer Kern, \hyperpage{1}, \hyperpage{311}, 
-		\hyperpage{321}, \hyperpage{345}, \hyperpage{355}, 
-		\hyperpage{377}
+  \item dynamischer Kern, \hyperpage{311}, \hyperpage{321}, 
+		\hyperpage{345}, \hyperpage{355}, \hyperpage{377}
     \subitem erweiterter, \hyperpage{355}
     \subitem irreversibler Teil, \hyperpage{355}
     \subitem primärer Teil, \hyperpage{355}
@@ -374,15 +360,11 @@
   \item Energie, \hyperpage{9}
     \subitem des elektromagnetischen Feldes, \hyperpage{20}
     \subitem freie, \hyperpage{77}
-    \subitem innere, \hyperpage{184--186}, \hyperpage{380}
     \subitem kinetische, \hyperpage{10}, \hyperpage{116, 117}, 
-		\hyperpage{120}, \hyperpage{186}, \hyperpage{264}, 
-		\hyperpage{344}, \hyperpage{380}, \hyperpage{422}
+		\hyperpage{120}
       \subsubitem Bilanzgleichung, \hyperpage{264}
       \subsubitem Reibung, \hyperpage{116}
-      \subsubitem spezifische, \hyperpage{140}, \hyperpage{183}, 
-		\hyperpage{471}
-    \subitem potentielle, \hyperpage{187}
+    \subitem potentielle
       \subsubitem konvektiv verfügbare, \hyperpage{248}
       \subsubitem totale, \hyperpage{187}
       \subsubitem verfügbare, \hyperpage{186, 187}
@@ -391,10 +373,7 @@
     \subitem Antisymmetrie, \hyperpage{265}
     \subitem isotrope Form, \hyperpage{265}
   \item Energiedichte, \hyperpage{21}, \hyperpage{184}
-    \subitem innere, \hyperpage{89}, \hyperpage{139}
-    \subitem kinetische, \hyperpage{184}
-  \item Energieerhaltung, \hyperpage{265}, \hyperpage{281}, 
-		\hyperpage{369}
+  \item Energieerhaltung, \hyperpage{281}, \hyperpage{369}
   \item Energiekaskade, \hyperpage{270}
   \item Energiespektrum
     \subitem kinetisches, \hyperpage{422}
@@ -406,17 +385,15 @@
     \subitem f-Ebene, \hyperpage{200}
     \subitem lokale, \hyperpage{200}
   \item Entartung, \hyperpage{49}
-  \item Enthalpie, \hyperpage{77}, \hyperpage{186, 187}
+  \item Enthalpie, \hyperpage{77}
     \subitem freie, \hyperpage{77}
-    \subitem spezifische, \hyperpage{129}
-  \item Entropie, \hyperpage{131}, \hyperpage{146}, \hyperpage{183}
-    \subitem spezifische, \hyperpage{123}
+  \item Entropie
+    \subitem globales Integral, \hyperpage{183}
   \item Entropiedichte, \hyperpage{365}
   \item Erde
     \subitem Schwerefeld, \hyperpage{441}
-  \item Erdrotation, \hyperpage{165}
   \item Ereignis, \hyperpage{22}
-  \item Erster Hauptsatz der Thermodynamik, \hyperpage{231}
+  \item Erster Hauptsatz der Thermodynamik
     \subitem in der Atmosphäre, \hyperpage{123}
   \item Erster Hauptsatz der Thermodynamik\index{Thermodynamik
     \subitem Erster Hauptsatz}, \hyperpage{72}
@@ -439,7 +416,7 @@
   \item explizites Eueler-Verfahren, \hyperpage{301}
   \item explizites Euler-Verfahren, \hyperpage{301, 302}
   \item explizites Zeitschrittverfahren, \hyperpage{371}
-  \item Exponentialfunktion, \hyperpage{279}, \hyperpage{389}
+  \item Exponentialfunktion, \hyperpage{389}
     \subitem komplexe, \hyperpage{419}
   \item extensive Größe, \hyperpage{82}
   \item externe Kraft, \hyperpage{183}
@@ -463,8 +440,8 @@
   \item Feldstärketensor, \hyperpage{25}
   \item Fermion, \hyperpage{54}
   \item Feuchtadiabate
-    \subitem irreversible, \hyperpage{245}, \hyperpage{248}
-    \subitem reversible, \hyperpage{244}, \hyperpage{248}
+    \subitem irreversible, \hyperpage{245}
+    \subitem reversible, \hyperpage{244}
   \item feuchtadiabatischer Temperaturgradient, \hyperpage{246}
   \item Feuchte
     \subitem absolute, \hyperpage{83}
@@ -476,17 +453,14 @@
   \item Feuchtemaß, \hyperpage{83}
   \item feuchter Luft
     \subitem spezifische Wärmekapazität, \hyperpage{133}
-  \item fiktive molare Masse, \hyperpage{132}
   \item Filter
     \subitem Zeitschrittverfahren, \hyperpage{371}
   \item Filterung, \hyperpage{163}
   \item finite Differenz, \hyperpage{297}
-  \item Flachwassergleichung, \hyperpage{177}, \hyperpage{280}
-  \item Flachwassergleichungen
+  \item Flachwassergleichungen, \hyperpage{177}
     \subitem linearisierte, \hyperpage{312}
     \subitem Linearisierung, \hyperpage{178}
   \item Flachwasserwelle, \hyperpage{212}
-  \item Flachwasserwellen
     \subitem Dispersionsrelation, \hyperpage{313}
   \item Fluid
     \subitem ideales, \hyperpage{115}
@@ -498,14 +472,9 @@
     \subitem magnetische, \hyperpage{102}
   \item Flussform, \hyperpage{127}
   \item Forcing, \hyperpage{103}
-  \item Formel
-    \subitem binomische
-      \subsubitem allgenmeine, \hyperpage{387}
   \item Forward-Backward-Verfahren, \hyperpage{377}
-  \item Forward-backward-Verfahren, \hyperpage{307}
-  \item Fourier-Transformation, \hyperpage{257}, \hyperpage{262}, 
-		\hyperpage{419}
-    \subitem inverse, \hyperpage{257}, \hyperpage{262}, \hyperpage{419}
+  \item Fourier-Transformation, \hyperpage{257}, \hyperpage{419}
+    \subitem inverse, \hyperpage{419}
   \item Fourier-Transformierte, \hyperpage{422}
   \item freie Energie, \hyperpage{77}
   \item freie Enthalpie, \hyperpage{77}
@@ -519,54 +488,47 @@
   \item Funktion
     \subitem rationale, \hyperpage{389}
     \subitem trigonometrische, \hyperpage{389}
-  \item Funktional, \hyperpage{139}
   \item Funktionalableitung, \hyperpage{140}, \hyperpage{395}
     \subitem Diskretisierung, \hyperpage{366, 367}
-  \item Funktionaldeterminante, \hyperpage{164}, \hyperpage{358}, 
-		\hyperpage{415}
+  \item Funktionaldeterminante, \hyperpage{358}, \hyperpage{415}
     \subitem generalisierte Vertikalkoordinate, \hyperpage{357}
-  \item Funktionensysteme
-    \subitem orthogonale, \hyperpage{419}
+  \item Funktionensystem
+    \subitem orthogonales, \hyperpage{419}
 
   \indexspace
 
   \item Gain-Matrix, \hyperpage{350}
   \item Gammafunktion, \hyperpage{394}
   \item Gas
-    \subitem ideales, \hyperpage{80}, \hyperpage{170}, \hyperpage{175}
+    \subitem ideales, \hyperpage{80}
       \subsubitem chemisches Potential, \hyperpage{82}
       \subsubitem einatomiges, \hyperpage{123}
-      \subsubitem thermische Zustandsgleichung, \hyperpage{246}
   \item Gaskonstante
     \subitem individuelle, \hyperpage{123}
   \item Gasmodell
     \subitem kinetisches, \hyperpage{87}
   \item Gasphase, \hyperpage{101}
   \item Gauß'sche Summenformel, \hyperpage{385}
-  \item Gauß'scher Satz, \hyperpage{17}, \hyperpage{143, 144}, 
-		\hyperpage{176}, \hyperpage{272}, \hyperpage{337}, 
-		\hyperpage{340}, \hyperpage{370}, \hyperpage{416}
+  \item Gauß'scher Satz, \hyperpage{337}, \hyperpage{416}
   \item Gefrierpunkterniedrigung, \hyperpage{93}
   \item gemischter Zustand, \hyperpage{70}
   \item generalisierte Coriolis-Kraft, \hyperpage{343}
-  \item generalisierte Coriolis-Term, \hyperpage{343, 344}
   \item generalisierte Geschwindigkeit, \hyperpage{12}
   \item generalisierte Koordinaten, \hyperpage{11}
     \subitem Skalarprodukt, \hyperpage{408}
     \subitem Vektorprodukt, \hyperpage{408}
   \item generalisierte Vertikalkoordinate, \hyperpage{157}, 
-		\hyperpage{176}, \hyperpage{357}
+		\hyperpage{357}
     \subitem Funktionaldeterminante, \hyperpage{357}
+  \item generalisierter Coriolis-Term, \hyperpage{343, 344}
   \item Geodäsie, \hyperpage{439}
   \item Geodäte, \hyperpage{439}
   \item geographische Koordinaten, \hyperpage{298}, \hyperpage{439}
-  \item geographischen Koordinaten, \hyperpage{164}
   \item Geoid, \hyperpage{280}
   \item Geometrie
     \subitem ellipsoidische, \hyperpage{471}
     \subitem sphärische, \hyperpage{439}
   \item geometrische Reihe, \hyperpage{385}
-  \item Geopotential, \hyperpage{140}, \hyperpage{184}
   \item Geopotentialtendenz, \hyperpage{251}
   \item geopotentielle Höhe, \hyperpage{176}
   \item Geostrophie, \hyperpage{178}
@@ -604,19 +566,16 @@
   \item Gitteroptimierung, \hyperpage{356}
   \item Gleichgewichtsniveau, \hyperpage{249}
   \item Gleichung
-    \subitem herrschende, \hyperpage{153}, \hyperpage{163}
+    \subitem herrschende, \hyperpage{153}
     \subitem kanonische, \hyperpage{14}
-    \subitem prognostische, \hyperpage{139}, \hyperpage{280}, 
-		\hyperpage{321}, \hyperpage{365}
+    \subitem prognostische, \hyperpage{321}, \hyperpage{365}
       \subsubitem Druck, \hyperpage{128}
   \item Gleichungen
     \subitem herrschende, \hyperpage{101}
     \subitem zonal gemittelte, \hyperpage{275}
   \item Gleichungssystem
     \subitem anelastisches, \hyperpage{168}, \hyperpage{170}
-    \subitem inkompressibles, \hyperpage{168}
     \subitem lineares, \hyperpage{372}, \hyperpage{377}
-  \item gleitendes Mittel, \hyperpage{256, 257}
   \item gleitendes Zeitmittel, \hyperpage{256, 257}
   \item globale Koordinaten, \hyperpage{357}, \hyperpage{439}
   \item globale Mode, \hyperpage{219}
@@ -630,7 +589,8 @@
   \item Gravitationskonstante
     \subitem Newton'sche, \hyperpage{176}
   \item Graßmann-Identität, \hyperpage{398}
-  \item Grenzschicht, \hyperpage{261}
+  \item Grenzschicht
+    \subitem Dicke, \hyperpage{261}
     \subitem planetarische, \hyperpage{258}
   \item grid imprinting, \hyperpage{311}
   \item große Halbachse, \hyperpage{441}
@@ -662,18 +622,16 @@
     \subitem große, \hyperpage{441}
     \subitem kleine, \hyperpage{441}
   \item Hamilton'sche Bewegungsgleichung, \hyperpage{14}
-  \item Hamilton-Formalismus, \hyperpage{10}, \hyperpage{14}
+  \item Hamilton-Formalismus, \hyperpage{14}
     \subitem Atmosphäre, \hyperpage{139}
-  \item Hamilton-Funktion, \hyperpage{14, 15}, \hyperpage{139}, 
-		\hyperpage{365}, \hyperpage{369}
+  \item Hamilton-Funktion, \hyperpage{14, 15}, \hyperpage{365}
   \item Hamilton-Operator, \hyperpage{27}
   \item harmonischer Oszillator, \hyperpage{32}
   \item Hauptquantenzahl, \hyperpage{48}
   \item Hauptsatz der Algebra, \hyperpage{37}, \hyperpage{321}
   \item Hauptsatz der Analysis, \hyperpage{393}
   \item Hauptsatz der Vektoranalysis, \hyperpage{191}, \hyperpage{327}
-  \item Hebungskondensationsniveau (HKN), \hyperpage{244}, 
-		\hyperpage{248}
+  \item Hebungskondensationsniveau (HKN), \hyperpage{244}
   \item Hebungskurve, \hyperpage{126}
   \item Heisenberg'scher Austauschkoeffizient, \hyperpage{268}
   \item Heisenberg-Ansatz, \hyperpage{265, 266}
@@ -688,21 +646,22 @@
   \item Hermite-Polynom, \hyperpage{33}, \hyperpage{431}
   \item Hermitezität
     \subitem Impulsoperator, \hyperpage{38}
-  \item herrschende Gleichung, \hyperpage{101}, \hyperpage{153}, 
-		\hyperpage{163}
+  \item herrschende Gleichung, \hyperpage{101}, \hyperpage{153}
   \item Hesselberg-Mittel, \hyperpage{255}, \hyperpage{257}
   \item HEVI-Konzept, \hyperpage{371}
   \item hexagonales Gitter
     \subitem Helmholtz-Aufteilung, \hyperpage{333}
   \item Hilbert-Raum, \hyperpage{34}
-  \item HKN, \hyperpage{244}, \hyperpage{248}
+  \item HKN, \hyperpage{244}
   \item hohe Breiten, \hyperpage{251}
   \item holonome Zwangsbedingung, \hyperpage{11}
-  \item homogenes System, \hyperpage{171}
   \item horizontale Diffusion, \hyperpage{379}
   \item horizontale Entkopplung, \hyperpage{285}
-  \item horizontale Impulsgleichung, \hyperpage{168}
+  \item horizontale Impulsdiffusion, \hyperpage{379}
+  \item horizontale Impulsgleichung
     \subitem anelastische Approximation, \hyperpage{168}
+  \item horizontale Massendiffusion, \hyperpage{379}
+  \item horizontale Temperaturdiffusion, \hyperpage{379}
   \item horizontaler Laplace-Operator, \hyperpage{402}
   \item horizontaler Nabla-Operator, \hyperpage{402}
   \item horizontales duales Vektorfeld, \hyperpage{359}
@@ -713,9 +672,7 @@
   \item Horizontalgeschwindigkeit, \hyperpage{365}
   \item horizontally explicit, vertically implicit (HEVI), 
 		\hyperpage{371}
-  \item Hydrostatik, \hyperpage{159}, \hyperpage{168}, \hyperpage{175}, 
-		\hyperpage{232}
-  \item hydrostatische Arpproximation, \hyperpage{232}
+  \item Hydrostatik, \hyperpage{159}, \hyperpage{175}
   \item hydrostatische Grundgleichung, \hyperpage{172}, \hyperpage{175}
   \item hydrostatische Stabilität im $\theta-$System, \hyperpage{205}
   \item Hyperbelfunktion, \hyperpage{389}
@@ -725,15 +682,10 @@
   \indexspace
 
   \item ideales Fluid, \hyperpage{115}
-  \item ideales Gas, \hyperpage{80}, \hyperpage{170}, \hyperpage{175}
+  \item ideales Gas, \hyperpage{80}
     \subitem chemisches Potential, \hyperpage{82}
     \subitem einatomiges, \hyperpage{123}
-    \subitem thermische Zustandgleichung, \hyperpage{169}
-    \subitem thermische Zustandsgleichung, \hyperpage{246}, 
-		\hyperpage{365}
-    \subitem Zustandsgleichung, \hyperpage{123}
-      \subsubitem thermische, \hyperpage{139}, \hyperpage{145}, 
-		\hyperpage{167}, \hyperpage{365}
+    \subitem Gibbs-Potential, \hyperpage{82}
   \item Ikosaeder, \hyperpage{356}
   \item Ikosaedergitter, \hyperpage{322}
   \item implizites Eueler-Verfahren, \hyperpage{301}
@@ -742,9 +694,7 @@
   \item Impuls, \hyperpage{183}
     \subitem der Atmosphäre, \hyperpage{183}
     \subitem kanonischer, \hyperpage{14}
-  \item Impulsadvektion, \hyperpage{163}, \hyperpage{165}, 
-		\hyperpage{263}, \hyperpage{343}, \hyperpage{415}, 
-		\hyperpage{471}
+  \item Impulsadvektion, \hyperpage{163}, \hyperpage{471}
     \subitem energetische Konsistenz, \hyperpage{305}
     \subitem Parametrisierung, \hyperpage{271}
   \item Impulsdiffusion, \hyperpage{379, 380}
@@ -752,11 +702,10 @@
     \subitem vertikale, \hyperpage{379}
   \item Impulserhaltungssatz, \hyperpage{9}
   \item Impulsflussdichtetensor, \hyperpage{110}
-  \item Impulsgleichung, \hyperpage{109}, \hyperpage{119}, 
-		\hyperpage{172}
+  \item Impulsgleichung, \hyperpage{109}, \hyperpage{119}
     \subitem Boussinesq-Approximation, \hyperpage{172, 173}
     \subitem Entwicklung nach ebenen Wellen, \hyperpage{263}
-    \subitem horizontale, \hyperpage{168}
+    \subitem horizontale
       \subsubitem anelastische Approximation, \hyperpage{168}
     \subitem SWEs, \hyperpage{343}
     \subitem vertikale
@@ -769,19 +718,12 @@
   \item Induktionsgesetz
     \subitem Faraday'sches, \hyperpage{17}
   \item inertial subrange, \hyperpage{270}
-  \item Inertialsystem, \hyperpage{144}
   \item Inertialwelle, \hyperpage{215}
   \item Inertialwellen, \hyperpage{215}
   \item Informationsverlust
     \subitem deskriptiver
       \subsubitem Wolkenmikrophysik, \hyperpage{103}
   \item Inkompressibilität, \hyperpage{115}
-  \item inkompressible
-    \subitem Kontinuitätsgleichung, \hyperpage{173}
-  \item inkompressiblen Kontinuitätsgleichung, \hyperpage{263}
-  \item inkompressibles Gleichungssystem, \hyperpage{168}
-  \item innere Energie, \hyperpage{184--186}, \hyperpage{380}
-  \item innere Energiedichte, \hyperpage{89}, \hyperpage{139}
   \item Instabilität, \hyperpage{163}, \hyperpage{207}, 
 		\hyperpage{235}
     \subitem barokline, \hyperpage{236}
@@ -794,22 +736,18 @@
   \item Integralrelation
     \subitem einer einphasigen Atmosphäre, \hyperpage{183}
   \item Integration
-    \subitem partielle, \hyperpage{116, 117}, \hyperpage{187}, 
-		\hyperpage{392}
+    \subitem partielle, \hyperpage{392}
   \item intrinsische Frequenz, \hyperpage{233}
-  \item inverse Fourier-Transformation, \hyperpage{257}, 
-		\hyperpage{262}, \hyperpage{419}
+  \item inverse Fourier-Transformation, \hyperpage{419}
   \item inverse Matrix, \hyperpage{35}
   \item Inversion, \hyperpage{244}
   \item Ion, \hyperpage{43}
   \item Ionisation, \hyperpage{43}
   \item Ionosphäre, \hyperpage{102}
   \item irreversible Dynamik, \hyperpage{379}
-  \item irreversible Feuchtadiabate, \hyperpage{245}, \hyperpage{248}
-  \item iseentrope Koordinate, \hyperpage{205}
+  \item irreversible Feuchtadiabate, \hyperpage{245}
   \item isentrope Koordinate, \hyperpage{135}, \hyperpage{159}
   \item Isentropenexponent, \hyperpage{211}
-  \item isentropes Koordinatensystem, \hyperpage{135}
   \item Isotop, \hyperpage{43}
   \item isotrope Form der Energie-Transfer-Funktion, \hyperpage{265}
   \item isotrope Turbulenz, \hyperpage{262}
@@ -828,23 +766,21 @@
   \item kanonische Gleichung, \hyperpage{14}
   \item kanonischer Impuls, \hyperpage{14}
   \item kanonisches Ensemble, \hyperpage{75}
-  \item Kapilardruck, \hyperpage{93}
+  \item Kapillardruck, \hyperpage{93}
   \item Kapillarität, \hyperpage{93}
-  \item Kapillarwellen, \hyperpage{214}
+  \item Kapillarwelle, \hyperpage{214}
   \item kartesisches Koordinatensystem, \hyperpage{112}
   \item Kelvin-Gleichung, \hyperpage{93, 94}
-  \item Kelvin-Helmholtz-Instabilität
+  \item Kelvin-Helmholtz-Instabilität, \hyperpage{238}
     \subitem in diskreter Schichtung, \hyperpage{238}
     \subitem in kontinuierlicher Schichtung, \hyperpage{241}
   \item Kelvin-Welle, \hyperpage{216}
     \subitem äquatoriale, \hyperpage{217}
-  \item Kelvon-Helmholtz-Instabilität, \hyperpage{238}
   \item Kennzahl
     \subitem dimensionslose, \hyperpage{163}
   \item Kern
-    \subitem dynamischer, \hyperpage{1}, \hyperpage{311}, 
-		\hyperpage{321}, \hyperpage{345}, \hyperpage{355}, 
-		\hyperpage{377}
+    \subitem dynamischer, \hyperpage{311}, \hyperpage{321}, 
+		\hyperpage{345}, \hyperpage{355}, \hyperpage{377}
       \subsubitem erweiterter, \hyperpage{355}
       \subsubitem irreversibler Teil, \hyperpage{355}
       \subsubitem primärer Teil, \hyperpage{355}
@@ -853,23 +789,18 @@
       \subsubitem trockener, \hyperpage{355}
       \subsubitem Zeitschrittverfahren, \hyperpage{371}, 
 		\hyperpage{378}
-  \item Kettenregel, \hyperpage{167}
+  \item Kettenregel
     \subitem mehrdimensionale, \hyperpage{393}
   \item Ketzustand, \hyperpage{35}
   \item Kinematik
     \subitem des Modells, \hyperpage{355}
     \subitem Welle, \hyperpage{207}
-  \item kinematische Randbedingung, \hyperpage{118}, \hyperpage{120}, 
-		\hyperpage{185}, \hyperpage{238, 239}, \hyperpage{370}
+  \item kinematische Randbedingung, \hyperpage{120}, \hyperpage{370}
   \item kinematische Viskosität, \hyperpage{380}
-  \item kinetische Energie, \hyperpage{10}, \hyperpage{116, 117}, 
-		\hyperpage{186}, \hyperpage{264}, \hyperpage{344}, 
-		\hyperpage{380}, \hyperpage{422}
+  \item kinetische Energie, \hyperpage{10}, \hyperpage{116, 117}
     \subitem Bilanzgleichung, \hyperpage{264}
     \subitem Reibung, \hyperpage{116}
-    \subitem spezifische, \hyperpage{120}, \hyperpage{140}, 
-		\hyperpage{183}, \hyperpage{471}
-  \item kinetische Energiedichte, \hyperpage{184}
+    \subitem spezifische, \hyperpage{120}
   \item kinetisches Energiespektrum, \hyperpage{422}
   \item kinetisches Gasmodell, \hyperpage{87}
   \item Kirchhoff'sches Strahlungsgesetz, \hyperpage{98}
@@ -883,29 +814,24 @@
   \item Koaleszenz, \hyperpage{294}
   \item Kollision, \hyperpage{149}
   \item Kolmogorov-Konstante, \hyperpage{269}
+  \item Kombinatorik, \hyperpage{386}
   \item Kommutator, \hyperpage{39}
   \item kommutierende Operatoren, \hyperpage{39}
-  \item Komnbinatorik, \hyperpage{386}
   \item komplexe Exponentialfunktion, \hyperpage{419}
   \item komplexe Zahl, \hyperpage{392}
   \item Kompressibilität, \hyperpage{171}
   \item Kondensat, \hyperpage{136}
     \subitem laminare Umströmung, \hyperpage{287}
   \item Kondensatklasse, \hyperpage{101}
-  \item konkrete Mittelungsoperatoren, \hyperpage{256}
   \item konservatives Kraftfeld, \hyperpage{10}
   \item Konsistenz
     \subitem eines numerischen Verfahrens, \hyperpage{297}
   \item kontinuierliche Schichtung
     \subitem Kelvin-Helmholtz-Instabilität, \hyperpage{241}
-  \item Kontinuitätsgleichung, \hyperpage{105}, \hyperpage{127}, 
-		\hyperpage{131}, \hyperpage{139}, \hyperpage{170}
+  \item Kontinuitätsgleichung, \hyperpage{105}
     \subitem anelastische Approximation, \hyperpage{170}
-    \subitem inkompressible, \hyperpage{173}, \hyperpage{263}
     \subitem vertikale
       \subsubitem anelastische Approximation, \hyperpage{170}
-  \item Kontinuitätsleichung, \hyperpage{379}
-  \item Kontinuumshypothese, \hyperpage{380}
   \item Kontinuumsübergang, \hyperpage{101}
     \subitem Zweiter, \hyperpage{101}
   \item kontravariante Maßzahl
@@ -923,21 +849,17 @@
     \subitem adiabatische, \hyperpage{186}
   \item Koordinate
     \subitem generalisierte, \hyperpage{11}
-    \subitem isentrope, \hyperpage{135}, \hyperpage{205}
+    \subitem isentrope, \hyperpage{135}
     \subitem orographische, \hyperpage{160, 161}
   \item Koordinaten
-    \subitem ellipsoidische
-      \subsubitem Notwendigkeit, \hyperpage{455}
-    \subitem geographische, \hyperpage{164}, \hyperpage{298}
+    \subitem geographische, \hyperpage{298}
     \subitem globale, \hyperpage{357}
     \subitem orthogonale, \hyperpage{407}
-    \subitem ruhende, \hyperpage{183}
   \item Koordinatenfläche, \hyperpage{112}
-  \item Koordinatensystem, \hyperpage{233}, \hyperpage{357}
+  \item Koordinatensystem
     \subitem \textsc{Great}, \hyperpage{464}
     \subitem geographisches, \hyperpage{439}
     \subitem globales, \hyperpage{439}
-    \subitem isentropes, \hyperpage{135}
     \subitem kartesisches, \hyperpage{112}
     \subitem Konvention, \hyperpage{439}
     \subitem Kugel, \hyperpage{408}
@@ -963,7 +885,8 @@
   \item Kugelflächenfunktion, \hyperpage{298}, \hyperpage{312}, 
 		\hyperpage{435}
     \subitem Produkte, \hyperpage{438}
-  \item Kugelkoordinaten, \hyperpage{357}, \hyperpage{408}
+  \item Kugelkoordinate, \hyperpage{357}
+  \item Kugelkoordinaten, \hyperpage{408}
     \subitem Geschwindigkeitsadvektion, \hyperpage{411}
     \subitem Laplace-Operator, \hyperpage{410}
     \subitem materielle Ableitung, \hyperpage{413}
@@ -990,22 +913,20 @@
   \item laminare Umströmung
     \subitem von Kondensaten, \hyperpage{287}
   \item laminare Unterschicht, \hyperpage{259}
-  \item Lamé-Konstante, \hyperpage{113}, \hyperpage{119}
-  \item Landéfaktor, \hyperpage{56}
+  \item Lamé-Konstante, \hyperpage{113}
+  \item Landé-Faktor, \hyperpage{56}
   \item Langwellennäherung, \hyperpage{66}
-  \item Laplace-Gleichung, \hyperpage{240}
   \item Laplace-Operator, \hyperpage{339}, \hyperpage{402}
     \subitem horizontaler, \hyperpage{402}
     \subitem Kugelkoordinaten, \hyperpage{410}
   \item latente Wärme, \hyperpage{149}, \hyperpage{245}
   \item Layer, \hyperpage{356}
-  \item LCL, \hyperpage{244}, \hyperpage{248}
+  \item LCL, \hyperpage{244}
   \item Leapfrog-Verfahren, \hyperpage{303}
   \item Legendre'sche Differenzialgleichung, \hyperpage{423}
   \item Legendre-Funktion
     \subitem assoziierte, \hyperpage{429}
   \item Legendre-Polynom, \hyperpage{423}
-  \item Legendre-Polynome
     \subitem Normierung, \hyperpage{425}
     \subitem Orthogonalität, \hyperpage{425}
   \item Legendre-Transformation, \hyperpage{312}
@@ -1018,8 +939,7 @@
   \item level of free convection, \hyperpage{249}
   \item Levi-Civita-Symbol, \hyperpage{387}
   \item LFC, \hyperpage{249}
-  \item lifted condensation level (LCL), \hyperpage{244}, 
-		\hyperpage{248}
+  \item lifted condensation level (LCL), \hyperpage{244}
   \item Limiter, \hyperpage{381}
   \item lineare Balancegleichung, \hyperpage{203}
   \item lineare Instabilität, \hyperpage{302}
@@ -1042,22 +962,18 @@
   \item Luft, \hyperpage{101}
     \subitem feuchte, \hyperpage{101}, \hyperpage{133}, \hyperpage{248}
     \subitem trockene, \hyperpage{101}, \hyperpage{134}, 
-		\hyperpage{248}, \hyperpage{365}, \hyperpage{379}
-  \item Luftmasse, \hyperpage{248}
+		\hyperpage{365}, \hyperpage{379}
   \item Länge
     \subitem charakteristische, \hyperpage{269}
-  \item Länge-Breite-Gitter, \hyperpage{311}, \hyperpage{322}
+  \item Länge-Breite-Gitter, \hyperpage{311}
   \item Lösung, \hyperpage{91}
 
   \indexspace
 
   \item magnetische Flussdichte, \hyperpage{102}
   \item Magnetquantenzahl, \hyperpage{53}
-  \item Makrozustand, \hyperpage{69}, \hyperpage{103}
-  \item Masse
-    \subitem molare
-      \subsubitem fiktive, \hyperpage{132}
-  \item Massendichte, \hyperpage{139}, \hyperpage{365}
+  \item Makrozustand, \hyperpage{69}
+  \item Massendichte, \hyperpage{365}
   \item Massendiffusion, \hyperpage{379, 380}
     \subitem horizontale, \hyperpage{379}
     \subitem vertikale, \hyperpage{379}
@@ -1073,18 +989,11 @@
     \subitem unitäre, \hyperpage{35}
   \item maximale Wolkenobergrenze, \hyperpage{249}
   \item Maxwell'scher Verschiebungsstrom, \hyperpage{17}
-  \item Maxwell-Gleichung, \hyperpage{17}, \hyperpage{102}
+  \item Maxwell-Gleichung, \hyperpage{17}
   \item Maxwell-Gleichungen
     \subitem Eichinvarianz, \hyperpage{18}
   \item Maxwell-Relation, \hyperpage{78}
-  \item Maxwell-Verteilung, \hyperpage{85}, \hyperpage{271}
-  \item Maßzahl
-    \subitem kontravariante
-      \subsubitem Rekonstruktion (geländefolgende Koordinaten), 
-		\hyperpage{361}
-    \subitem kovariante
-      \subsubitem Rekonstruktion (geländefolgende Koordinaten), 
-		\hyperpage{360}
+  \item Maxwell-Verteilung, \hyperpage{85}
   \item Mechanik
     \subitem klassische, \hyperpage{7}
   \item mechanische Oberflächenspannung, \hyperpage{93}
@@ -1103,7 +1012,7 @@
   \item Mikroskala, \hyperpage{1}
   \item mikroskopische Dichte, \hyperpage{102}
   \item mikroskopische Feuchte, \hyperpage{103}
-  \item Mikrozustand, \hyperpage{69}, \hyperpage{103}
+  \item Mikrozustand, \hyperpage{69}
   \item mimetische Eigenschaft
     \subitem einer Diskretisierung, \hyperpage{371}
   \item Mischungsverhältnis, \hyperpage{84}
@@ -1113,16 +1022,9 @@
   \item Mittel
     \subitem gleitendes, \hyperpage{256, 257}
   \item Mittelungsoperator, \hyperpage{257}, \hyperpage{360}
-    \subitem konkreter, \hyperpage{256}
   \item mittlere Breiten, \hyperpage{251}
-  \item mittlere freie Weglänge, \hyperpage{380}
   \item mittlere Stoßzeit, \hyperpage{87}
   \item mittlerer Druck, \hyperpage{113}
-  \item Mode
-    \subitem geostrophische, \hyperpage{234}
-    \subitem globale, \hyperpage{219}
-      \subsubitem Dispersionsrelation, \hyperpage{344}
-    \subitem vertikale, \hyperpage{223}
   \item Model output statistics, \hyperpage{381}
   \item Modell
     \subitem Kinematik, \hyperpage{355}
@@ -1133,8 +1035,6 @@
       \subsubitem vertikale, \hyperpage{356}
     \subitem Generierung auf der Einheitskugel, \hyperpage{356}
     \subitem vertikale Erweiterung, \hyperpage{356}
-  \item molare Masse
-    \subitem fiktive, \hyperpage{132}
   \item molekulare Diffusion, \hyperpage{271}
   \item molekulare Skala, \hyperpage{1}
   \item Molekülspektrum, \hyperpage{67}
@@ -1164,7 +1064,7 @@
   \item Normierung
     \subitem Legendre-Polynome, \hyperpage{425}
   \item Notwendigkeit ellipsoidischer Koordinaten, \hyperpage{455}
-  \item Numerik, \hyperpage{1}, \hyperpage{297}
+  \item Numerik, \hyperpage{297}
     \subitem Dissipation, \hyperpage{380}
     \subitem Grundkonzepte, \hyperpage{297}
   \item numerische Viskosität, \hyperpage{380}
@@ -1187,11 +1087,10 @@
   \item Optik
     \subitem atmosphärische, \hyperpage{285}
   \item Orbital, \hyperpage{49}
-  \item Orographie, \hyperpage{187}
-  \item orographie, \hyperpage{160}
+  \item Orographie, \hyperpage{160}
   \item orographische Koordinate, \hyperpage{160, 161}
   \item orographischer $\beta-$Effekt, \hyperpage{198}
-  \item orthogonale Funktionensysteme, \hyperpage{419}
+  \item orthogonales Funktionensystem, \hyperpage{419}
   \item orthogonales Gitter, \hyperpage{321}
   \item Orthogonalität
     \subitem eines Koordinatensystems, \hyperpage{407}
@@ -1207,18 +1106,15 @@
 
   \indexspace
 
-  \item p-System, \hyperpage{158}, \hyperpage{188}, \hyperpage{205}
+  \item p-System, \hyperpage{158}
   \item Parametrisierung, \hyperpage{258}, \hyperpage{270}, 
 		\hyperpage{380}
-    \subitem Advektion
-      \subsubitem skalare, \hyperpage{270, 271}
     \subitem der Reibung durch Stommel, \hyperpage{278}
     \subitem Impulsadvektion, \hyperpage{271}
     \subitem Phasenübergänge, \hyperpage{271}, \hyperpage{381}
     \subitem skalare Advektion, \hyperpage{270, 271}
   \item Parseval-Identität, \hyperpage{264}, \hyperpage{421, 422}
-  \item partielle Integration, \hyperpage{116, 117}, \hyperpage{187}, 
-		\hyperpage{392}
+  \item partielle Integration, \hyperpage{392}
   \item Pauli-Gleichung, \hyperpage{56}
   \item Pauli-Matrix, \hyperpage{55}
   \item Pauli-Prinzip, \hyperpage{67}
@@ -1240,8 +1136,7 @@
   \item Phasenübergangswärme, \hyperpage{149}
   \item Photonengas, \hyperpage{95}
   \item Physik
-    \subitem statistische, \hyperpage{69}, \hyperpage{103}, 
-		\hyperpage{112}
+    \subitem statistische, \hyperpage{69}
   \item Phäsenübergangsenthalpie, \hyperpage{248}
   \item plan-parallele Atmosphäre, \hyperpage{285}
   \item Planck'sches Strahlungsgesetz, \hyperpage{97}
@@ -1251,27 +1146,23 @@
   \item planetarische Grenzschicht, \hyperpage{258}
   \item Poincaré-Welle, \hyperpage{213}, \hyperpage{230}
   \item Poisson-Gleichung, \hyperpage{191}
-  \item Poisson-Klammer, \hyperpage{14}, \hyperpage{139}, 
-		\hyperpage{145}
+  \item Poisson-Klammer, \hyperpage{14}, \hyperpage{145}
     \subitem Diskretisierung, \hyperpage{365}
   \item Polarkreis, \hyperpage{251}
   \item Polynom, \hyperpage{389}
   \item Potential, \hyperpage{10}
-    \subitem chemisches, \hyperpage{76}, \hyperpage{80}, \hyperpage{92}
+    \subitem chemisches, \hyperpage{76}, \hyperpage{80}
     \subitem großkanonisches, \hyperpage{77}
     \subitem skalares, \hyperpage{18}
     \subitem thermodynamisches, \hyperpage{77}
-  \item potential
-    \subitem chemisches, \hyperpage{92}
   \item Potentialstufe, \hyperpage{30}
   \item Potentialtopf, \hyperpage{29}
   \item potentielle barotrope Vorticity, \hyperpage{344}
-  \item potentielle Energie, \hyperpage{187}
+  \item potentielle Energie
     \subitem konvektiv verfügbare, \hyperpage{248}
     \subitem verfügbare, \hyperpage{186}
-  \item potentielle Temperatur, \hyperpage{125}, \hyperpage{127, 128}, 
-		\hyperpage{134}, \hyperpage{145}, \hyperpage{170}, 
-		\hyperpage{248}
+  \item potentielle Temperatur, \hyperpage{125}, \hyperpage{127}, 
+		\hyperpage{134}
     \subitem Wasserdampf, \hyperpage{133}
   \item potentielle virtuelle Temperatur, \hyperpage{133, 134}
   \item potentielle Vorticitiy, \hyperpage{252}
@@ -1282,16 +1173,14 @@
   \item Prandtl-Frequenz, \hyperpage{244}
   \item Prandtl-Schicht, \hyperpage{259}
   \item Produkt
-    \subitem unitäres, \hyperpage{139}
     \subitem von Kugelflächenfunktionen, \hyperpage{438}
   \item Produktregel
     \subitem C-Gitter, \hyperpage{321}
   \item Produktwellenfunktion, \hyperpage{31}
-  \item prognostische Gleichung, \hyperpage{139}, \hyperpage{280}, 
-		\hyperpage{321}, \hyperpage{365}
+  \item prognostische Gleichung, \hyperpage{321}, \hyperpage{365}
     \subitem Druck, \hyperpage{128}
-  \item prognostische Variable, \hyperpage{139}, \hyperpage{280, 281}, 
-		\hyperpage{321}, \hyperpage{360, 361}, \hyperpage{365}
+  \item prognostische Variable, \hyperpage{321}, \hyperpage{360, 361}, 
+		\hyperpage{365}
     \subitem Seegangsvorhersage, \hyperpage{280}
   \item Prozess
     \subitem quasistatischer, \hyperpage{72}
@@ -1315,7 +1204,6 @@
   \item quasigeostrophische Vorticitygleichung, \hyperpage{226}
   \item quasigeostrophisches Zweischichtmodell, \hyperpage{227}
   \item quasistationärer Zustand, \hyperpage{102}
-  \item quasistatische Zunstandsänderung, \hyperpage{112}
   \item quasistatischer Prozess, \hyperpage{72}
   \item Quellterm, \hyperpage{281}
 
@@ -1323,11 +1211,10 @@
 
   \item radiale Schrödinger-Gleichung, \hyperpage{46}
   \item radiative transfer equation (\textsc{RTE}), \hyperpage{280}
-  \item Randbedingung, \hyperpage{116, 117}, \hyperpage{120}, 
-		\hyperpage{152}, \hyperpage{279}, \hyperpage{365}
-    \subitem dynamische, \hyperpage{121}, \hyperpage{238, 239}
-    \subitem kinematische, \hyperpage{118}, \hyperpage{120}, 
-		\hyperpage{185}, \hyperpage{238, 239}, \hyperpage{370}
+  \item Randbedingung, \hyperpage{120}, \hyperpage{152}, 
+		\hyperpage{365}
+    \subitem dynamische, \hyperpage{121}, \hyperpage{238}
+    \subitem kinematische, \hyperpage{120}, \hyperpage{370}
     \subitem obere, \hyperpage{380}
       \subsubitem im Modell, \hyperpage{370}
     \subitem untere
@@ -1352,31 +1239,29 @@
     \subitem geometrische, \hyperpage{385}
   \item reiner Zustand, \hyperpage{70}
   \item relative Feuchte, \hyperpage{84}
-  \item relative Vorticity, \hyperpage{192}, \hyperpage{200}, 
-		\hyperpage{337, 338}, \hyperpage{343}
+  \item relative Vorticity, \hyperpage{192}, \hyperpage{337}
   \item Relativistik
     \subitem H-Atom, \hyperpage{67}
   \item Relativitätstheorie
     \subitem Spezielle, \hyperpage{22}
   \item Residuensatz, \hyperpage{396}
-  \item reversibel, \hyperpage{183}
   \item reversibeläquivalentpotentielle Temperatur, \hyperpage{248}
   \item reversible Dynamik, \hyperpage{365}
-  \item reversible Feuchtadiabate, \hyperpage{244}, \hyperpage{248}
+  \item reversible Feuchtadiabate, \hyperpage{244}
   \item Reynolds'sches Transporttheorem, \hyperpage{417}
   \item Reynolds-Mittelung, \hyperpage{255}
-  \item Reynolds-Operator, \hyperpage{255}, \hyperpage{257}
+  \item Reynolds-Operator, \hyperpage{255}
   \item Reynolds-Zahl, \hyperpage{163}
   \item rheonome Zwangsbedingung, \hyperpage{11}
   \item Richardson-Zahl, \hyperpage{244}
   \item Richtungsdivergenz, \hyperpage{201}
   \item Rodrigues-Formel, \hyperpage{419}
   \item Rossby-Parameter, \hyperpage{180}
-  \item Rossby-Welle, \hyperpage{219}
+  \item Rossby-Welle
     \subitem barokline, \hyperpage{224}
     \subitem barotrope, \hyperpage{219}
   \item Rossby-Zahl, \hyperpage{163}, \hyperpage{178}
-  \item Rotation, \hyperpage{415}
+  \item Rotation
     \subitem \textsc{Great}-Koordinaten, \hyperpage{471}
   \item Rotationsellipsoid, \hyperpage{441, 442}
   \item Rotationsfeld
@@ -1384,7 +1269,7 @@
     \subitem vertikales, \hyperpage{359}
   \item Rotationstensor, \hyperpage{112}
   \item RTE (radiative transfer equation), \hyperpage{280}
-  \item ruhende Koordinaten, \hyperpage{183}, \hyperpage{439}
+  \item ruhende Koordinaten, \hyperpage{439}
   \item Runge-Kutta-Verfahren, \hyperpage{303}, \hyperpage{379}
 
   \indexspace
@@ -1393,29 +1278,22 @@
   \item Salzlösung
     \subitem Dampfdruck, \hyperpage{91}
   \item Satz
-    \subitem Gauß'scher, \hyperpage{176}, \hyperpage{272}, 
-		\hyperpage{337}, \hyperpage{340}, \hyperpage{370}
-    \subitem Stokes'scher, \hyperpage{316}, \hyperpage{337}, 
-		\hyperpage{340}
+    \subitem Gauß'scher, \hyperpage{337}
   \item Satz von Clairaut, \hyperpage{459}
-  \item Satz von Gauß, \hyperpage{17}, \hyperpage{143, 144}, 
-		\hyperpage{416}
-  \item Satz von Stokes, \hyperpage{17}, \hyperpage{193, 194}
-  \item Schallgeschwindigkeit, \hyperpage{231}
-  \item Schallwelle, \hyperpage{210}, \hyperpage{232}
+  \item Satz von Gauß, \hyperpage{416}
+  \item Satz von Stokes, \hyperpage{193}
+  \item Schallwelle, \hyperpage{210}
     \subitem CFL-Kriterium, \hyperpage{371}
   \item Scheinkraft, \hyperpage{111}
   \item Scherungsvorticity, \hyperpage{193}
   \item Schichtung
     \subitem diskrete
       \subsubitem Kelvin-Helmholtz-Instabilität, \hyperpage{238}
-    \subitem kontinuierliche
-      \subsubitem Kelvin-Helmholtz-Instabilität, \hyperpage{241}
   \item Schichtungswelle, \hyperpage{221}, \hyperpage{249}
   \item Schließungsproblem, \hyperpage{256}
   \item Schranke
     \subitem konvektive, \hyperpage{249}
-  \item Schrödinger-Gleichung, \hyperpage{27}, \hyperpage{45}
+  \item Schrödinger-Gleichung, \hyperpage{27}
     \subitem freies Teilchen, \hyperpage{28}
     \subitem harmonischer Oszillator, \hyperpage{32}
     \subitem Potentialstufe, \hyperpage{30}
@@ -1445,12 +1323,10 @@
   \item senkrechte Trajektorie, \hyperpage{462}
   \item SGA (spherical geopotential approximation), 
 		\hyperpage{163--165}
-  \item shallow atmosphere, \hyperpage{164, 165}, \hyperpage{167}, 
-		\hyperpage{358}
+  \item shallow atmosphere, \hyperpage{164, 165}, \hyperpage{168}, 
+		\hyperpage{358}, \hyperpage{415}
   \item shallow water equations (SWEs), \hyperpage{343, 344}
-  \item shallow-atmosphere-Approximation, \hyperpage{168}, 
-		\hyperpage{415}
-  \item SI-System, \hyperpage{1}, \hyperpage{385}
+  \item SI-System, \hyperpage{385}
   \item Siedepunkterhöhung, \hyperpage{93}
   \item Skala
     \subitem große, \hyperpage{1}
@@ -1460,9 +1336,7 @@
     \subitem Mesoskala, \hyperpage{1}, \hyperpage{251}
     \subitem Mikroskala, \hyperpage{1}
     \subitem molekulare, \hyperpage{1}
-    \subitem synoptische, \hyperpage{1}
-  \item skalare Advektion
-    \subitem Parametrisierung, \hyperpage{270, 271}
+    \subitem synoptische, \hyperpage{1}, \hyperpage{163}
   \item skalares Potential, \hyperpage{18}
   \item Skalarfeld, \hyperpage{324}, \hyperpage{359}
     \subitem horizontales, \hyperpage{357}
@@ -1485,12 +1359,9 @@
   \item Spektralform der Navier-Stokes-Gleichungen, \hyperpage{262}
   \item Spektrum, \hyperpage{419}, \hyperpage{422}
   \item Spezielle Relativitätstheorie, \hyperpage{22}
-  \item spezifische Enthalpie, \hyperpage{129}
-  \item spezifische Entropie, \hyperpage{123}
   \item spezifische Feuchte, \hyperpage{84}, \hyperpage{107}
-  \item spezifische kinetische Energie, \hyperpage{120}, 
-		\hyperpage{140}, \hyperpage{183}, \hyperpage{471}
-  \item spezifische Wärmekapazität, \hyperpage{75}, \hyperpage{89}
+  \item spezifische kinetische Energie, \hyperpage{120}
+  \item spezifische Wärmekapazität, \hyperpage{75}
     \subitem feuchter Luft, \hyperpage{133}
   \item spherical geopotential approximation (SGA), 
 		\hyperpage{163--165}
@@ -1513,8 +1384,7 @@
   \item stationäre Schrödinger-Gleichung, \hyperpage{28}, 
 		\hyperpage{32}
   \item statischer Stabilitätsparameter, \hyperpage{225}
-  \item statistische Physik, \hyperpage{69}, \hyperpage{103}, 
-		\hyperpage{112}
+  \item statistische Physik, \hyperpage{69}
   \item statistischer Operator, \hyperpage{69}
   \item Staubteufel, \hyperpage{182}
   \item Stefan-Boltzmann-Gesetz, \hyperpage{97}
@@ -1522,8 +1392,7 @@
   \item Steilheit, \hyperpage{209}
   \item Stirling-Formel, \hyperpage{395}
   \item Stokes'sche Reibung, \hyperpage{287}
-  \item Stokes'scher Satz, \hyperpage{17}, \hyperpage{193, 194}, 
-		\hyperpage{316}, \hyperpage{337}, \hyperpage{340}
+  \item Stokes'scher Satz, \hyperpage{193}
   \item Stokes-Annahme, \hyperpage{113}
   \item Stokes-Drift, \hyperpage{212}
   \item Stommel-Modell, \hyperpage{278}
@@ -1537,7 +1406,6 @@
   \item Strahlungsenergie, \hyperpage{21}
   \item Strahlungsfluss, \hyperpage{21}
   \item Strahlungsflussdichte, \hyperpage{21}, \hyperpage{345}
-  \item Strahlungsflussdicte
     \subitem spektrale, \hyperpage{281}
   \item Strahlungsgesetz
     \subitem Kirchhoff'sches, \hyperpage{98}
@@ -1556,7 +1424,7 @@
   \item Streukoeffizient, \hyperpage{285}
   \item Streuquerschnitt, \hyperpage{98}, \hyperpage{151}
   \item Stromdichte, \hyperpage{17}
-  \item Stromfunktion, \hyperpage{191}, \hyperpage{238}
+  \item Stromfunktion, \hyperpage{191}
   \item Strömung
     \subitem laminare, \hyperpage{255}
   \item Störungstheorie, \hyperpage{56}
@@ -1582,30 +1450,24 @@
     \subitem der Wellenfunktion, \hyperpage{67}
   \item Synoptik, \hyperpage{163}
     \subitem der Extratropen, \hyperpage{251}
-  \item synoptische Skala, \hyperpage{1}
+  \item synoptische Skala, \hyperpage{1}, \hyperpage{163}
   \item Synotpik, \hyperpage{163}
-  \item System
-    \subitem homogenes, \hyperpage{171}
   \item Sättigungsfeuchte, \hyperpage{95}
 
   \indexspace
 
   \item Taylor-Goldstein-Gleichung, \hyperpage{243}
-  \item Taylor-Reihe, \hyperpage{171}
   \item Teilchen
     \subitem freies, \hyperpage{28}
   \item Teilchenzahloperator, \hyperpage{39}, \hyperpage{41}
-  \item Temperatur, \hyperpage{73}, \hyperpage{101}, \hyperpage{248}, 
-		\hyperpage{365}
-    \subitem potentielle, \hyperpage{125}, \hyperpage{127, 128}, 
-		\hyperpage{134}, \hyperpage{145}, \hyperpage{170}, 
-		\hyperpage{248}
+  \item Temperatur, \hyperpage{73}, \hyperpage{101}, \hyperpage{365}
+    \subitem potentielle, \hyperpage{125}, \hyperpage{127}, 
+		\hyperpage{134}
       \subsubitem virtuelle, \hyperpage{133, 134}
     \subitem pseudopotentielle, \hyperpage{248}
     \subitem pseudoäquivalentpotentielle, \hyperpage{248}
     \subitem reversibeläquivalentpotentielle, \hyperpage{248}
-    \subitem virtuelle, \hyperpage{83}, \hyperpage{134}, 
-		\hyperpage{248}
+    \subitem virtuelle, \hyperpage{83}, \hyperpage{134}
       \subsubitem potentielle, \hyperpage{133, 134}
     \subitem äquivalentpotentielle, \hyperpage{248}
   \item Temperaturadvektion
@@ -1616,11 +1478,9 @@
   \item Temperaturgleichung
     \subitem anelastische Approximation, \hyperpage{170}
     \subitem Boussinesq-Approximation, \hyperpage{173, 174}
-    \subitem vertikale
-      \subsubitem anelastische Approximation, \hyperpage{170}
   \item Temperaturgradient
     \subitem feuchtadiabatischer, \hyperpage{246}
-    \subitem trockenadiabatischer, \hyperpage{126}, \hyperpage{244}
+    \subitem trockenadiabatischer, \hyperpage{126}
   \item Temperaturleitfähigkeit, \hyperpage{89}
   \item Temperaturzuschlag
     \subitem virtueller, \hyperpage{83}
@@ -1633,19 +1493,15 @@
   \item Term
     \subitem metrischer, \hyperpage{415}
   \item thermische Instabilität, \hyperpage{244}
-  \item thermische Zustandsgleichung, \hyperpage{74}, \hyperpage{171}
-  \item thermische Zustandsgleichung idealer Gase, \hyperpage{139}, 
-		\hyperpage{145}, \hyperpage{167}, \hyperpage{169}, 
-		\hyperpage{246}, \hyperpage{365}
+  \item thermische Zustandsgleichung, \hyperpage{74}
   \item thermischer Expansionskoeffizient, \hyperpage{171}
   \item thermischer Wind, \hyperpage{179}
   \item Thermodynamik
     \subitem Dissipation, \hyperpage{118}
-    \subitem Erster Hauptsatz, \hyperpage{231}
+    \subitem Erster Hauptsatz
       \subsubitem in der Atmosphäre, \hyperpage{123}
     \subitem Reibung, \hyperpage{116, 117}
     \subitem Wärmeleitung, \hyperpage{134}
-    \subitem Zweiter Hauptsatz, \hyperpage{134}
   \item Thermodynamik     \subitem Erster Hauptsatz, \hyperpage{477}
   \item thermodynamisches Potential, \hyperpage{77}
   \item thermohaline Zirkulation, \hyperpage{280}
@@ -1659,7 +1515,8 @@
   \item Topographie
     \subitem dynamische, \hyperpage{280}
   \item Tornado, \hyperpage{182}
-  \item totale Ableitung, \hyperpage{158}, \hyperpage{401}
+  \item totale Ableitung, \hyperpage{401}
+    \subitem p-System, \hyperpage{158}
   \item totale potentielle Energie, \hyperpage{187}
   \item totale Zeitableitung, \hyperpage{15}
   \item Tracer, \hyperpage{101, 102}
@@ -1670,12 +1527,11 @@
   \item Transporttheorem, \hyperpage{416, 417}
   \item Transversalwelle, \hyperpage{209}
   \item Trennung der Variablen, \hyperpage{392}
-  \item trigonometrischen Funktionen, \hyperpage{389}
+  \item trigonometrische Funktion, \hyperpage{389}
   \item Trockenadiabate, \hyperpage{126}
-  \item trockenadiabatischer Temperaturgradient, \hyperpage{126}, 
-		\hyperpage{244}
+  \item trockenadiabatischer Temperaturgradient, \hyperpage{126}
   \item trockene Luft, \hyperpage{101}, \hyperpage{134}, 
-		\hyperpage{248}, \hyperpage{365}, \hyperpage{379}
+		\hyperpage{365}, \hyperpage{379}
   \item Tropen, \hyperpage{251}
   \item Tropopausenhöhe, \hyperpage{248}
   \item Tunneleffekt, \hyperpage{30}
@@ -1697,7 +1553,6 @@
   \item Uniformität
     \subitem eines Gitters, \hyperpage{311}
   \item unitäre Matrix, \hyperpage{35}
-  \item unitäres Produkt, \hyperpage{139}
   \item universality region, \hyperpage{266}
   \item Unschärferelation, \hyperpage{42}
   \item untere Randbedingung
@@ -1712,20 +1567,22 @@
   \item Variable
     \subitem diagnostische
       \subsubitem Seegangsvorhersage, \hyperpage{281}
-    \subitem prognostische, \hyperpage{139}, \hyperpage{280, 281}, 
-		\hyperpage{321}, \hyperpage{360, 361}, \hyperpage{365}
+    \subitem prognostische, \hyperpage{321}, \hyperpage{360, 361}, 
+		\hyperpage{365}
       \subsubitem Seegangsvorhersage, \hyperpage{280}
     \subitem semi-prognostische, \hyperpage{145}, \hyperpage{365}
   \item Vektoranalysis, \hyperpage{401}
     \subitem Hauptsatz, \hyperpage{327}
   \item Vektorfeld
     \subitem Divergenz, \hyperpage{401}
-  \item Vektorfelder
     \subitem duales
       \subsubitem horizontales, \hyperpage{359}
       \subsubitem vertikales, \hyperpage{359}
     \subitem horizontales, \hyperpage{359}
     \subitem vertikales, \hyperpage{359}
+  \item Vektorfelder
+    \subitem duales
+      \subsubitem horizontales, \hyperpage{359}
   \item Vektorpotential, \hyperpage{17}
   \item Vektorprodukt, \hyperpage{398}
     \subitem generalisierte Koordinaten, \hyperpage{408}
@@ -1740,20 +1597,20 @@
   \item vertikale Impulsdiffusion, \hyperpage{379}
   \item vertikale Impulsgleichung
     \subitem anelastische Approximation, \hyperpage{169}
+  \item vertikale Massendiffusion, \hyperpage{379}
   \item vertikale Mode, \hyperpage{223}
+  \item vertikale Temperaturdiffusion, \hyperpage{379}
   \item vertikales duales Vektorfeld, \hyperpage{359}
   \item vertikales Rotationsfeld, \hyperpage{359}
   \item vertikales Vektorfeld, \hyperpage{359}
   \item Vertikalgeschwindigkeit, \hyperpage{365}
   \item Vertikalkoordinate
-    \subitem generalisierte, \hyperpage{157}, \hyperpage{176}, 
-		\hyperpage{357}
+    \subitem generalisierte, \hyperpage{157}, \hyperpage{357}
       \subsubitem Funktionaldeterminante, \hyperpage{357}
-  \item virtuelle Temperatur, \hyperpage{83}, \hyperpage{134}, 
-		\hyperpage{248}
+  \item virtuelle Temperatur, \hyperpage{83}, \hyperpage{134}
   \item virtueller Temperaturzuschlag, \hyperpage{83}
-  \item Viskosität, \hyperpage{114}, \hyperpage{118}, \hyperpage{266}, 
-		\hyperpage{268}, \hyperpage{270}, \hyperpage{281}
+  \item Viskosität, \hyperpage{266}, \hyperpage{268}, \hyperpage{270}, 
+		\hyperpage{281}
     \subitem dynamische, \hyperpage{88}, \hyperpage{113}
     \subitem kinematische, \hyperpage{380}
     \subitem numerische, \hyperpage{380}
@@ -1769,8 +1626,7 @@
     \subitem ellipsoidisches, \hyperpage{471}
     \subitem sphärisches, \hyperpage{441}
   \item Voronoi-Zentrum, \hyperpage{311}
-  \item Vorticity, \hyperpage{165}, \hyperpage{191, 192}, 
-		\hyperpage{326}
+  \item Vorticity, \hyperpage{191, 192}, \hyperpage{326}
     \subitem barotrope potentielle, \hyperpage{344}
     \subitem planetare, \hyperpage{192}
     \subitem potentielle, \hyperpage{203, 204}, \hyperpage{252}, 
@@ -1778,8 +1634,7 @@
       \subsubitem barotrope, \hyperpage{198}
     \subitem quasigeostrophische
       \subsubitem potentielle, \hyperpage{226}
-    \subitem relative, \hyperpage{192}, \hyperpage{200}, 
-		\hyperpage{337, 338}, \hyperpage{343}
+    \subitem relative, \hyperpage{192}, \hyperpage{337}
   \item Vorticityflussdichte
     \subitem barotrope, \hyperpage{344}
   \item Vorticitygleichung, \hyperpage{195}
@@ -1798,25 +1653,14 @@
   \item Wassserstoff
     \subitem Drehimpuls, \hyperpage{52}
   \item wave action equation, \hyperpage{281}
-  \item Weglänge
-    \subitem freie mittlere, \hyperpage{380}
   \item Welle, \hyperpage{207}
     \subitem barokline, \hyperpage{221}
     \subitem barotrope, \hyperpage{211}
     \subitem elektromagnetische, \hyperpage{19}
     \subitem evaneszente, \hyperpage{207}
     \subitem Flachwasser, \hyperpage{212}
-    \subitem Inertialwelle, \hyperpage{215}
     \subitem Instabilität, \hyperpage{235}
-    \subitem Kelvin-Welle, \hyperpage{216}
     \subitem Kinematik, \hyperpage{207}
-    \subitem Poincaré-Welle, \hyperpage{213}
-    \subitem Rossby-Welle
-      \subsubitem barokline, \hyperpage{224}
-      \subsubitem barotrope, \hyperpage{219}
-    \subitem Schichtungswelle, \hyperpage{221}
-    \subitem Schwerewelle
-      \subsubitem barokline, \hyperpage{230}
     \subitem Sub-Poincaré, \hyperpage{211}
     \subitem Tiefwasser, \hyperpage{212}
   \item Wellenfeld, \hyperpage{280}
@@ -1824,7 +1668,6 @@
     \subitem Antisymmetrie, \hyperpage{67}
     \subitem Symmetrie, \hyperpage{67}
   \item Wellenhöhe, \hyperpage{209}
-  \item Wellenlänge, \hyperpage{235}
   \item Wendekreis, \hyperpage{251}
   \item whitecapping, \hyperpage{281}
   \item Wind
@@ -1843,15 +1686,14 @@
       \subsubitem deskriptiver, \hyperpage{103}
   \item Wolkenobergrenze
     \subitem maximale, \hyperpage{249}
-  \item Wärme, \hyperpage{72}, \hyperpage{245}
+  \item Wärme, \hyperpage{72}
     \subitem latente, \hyperpage{149}, \hyperpage{245}
   \item Wärmedurchgangszahl, \hyperpage{150}
   \item Wärmefluss, \hyperpage{149}
   \item Wärmeflussdichte, \hyperpage{379}
-  \item Wärmekapazität, \hyperpage{74}, \hyperpage{132}
-    \subitem spezifische, \hyperpage{75}, \hyperpage{89}
-  \item Wärmeleistungsdichte, \hyperpage{117}, \hyperpage{174}, 
-		\hyperpage{285}, \hyperpage{379}
+  \item Wärmekapazität, \hyperpage{74}
+    \subitem spezifische, \hyperpage{75}
+  \item Wärmeleistungsdichte, \hyperpage{285}
   \item Wärmeleistungsdichten, \hyperpage{345}
   \item Wärmeleitung, \hyperpage{134}, \hyperpage{149}
     \subitem thermodynamische Bedeutung, \hyperpage{134}
@@ -1864,13 +1706,10 @@
     \subitem komplexe, \hyperpage{392}
   \item Zeit
     \subitem charakteristische, \hyperpage{269}
-  \item zeitabhängige Bernoulli-Gleichung, \hyperpage{201}, 
-		\hyperpage{239}
+  \item zeitabhängige Bernoulli-Gleichung, \hyperpage{201}
   \item zeitabhängige Störungstheorie, \hyperpage{63}
   \item Zeitableitung
     \subitem totale, \hyperpage{15}
-  \item Zeitmittel
-    \subitem gleitendes, \hyperpage{256, 257}
   \item Zeitschrittverfahren, \hyperpage{301}
     \subitem explizites, \hyperpage{371}
     \subitem Filter, \hyperpage{371}
@@ -1881,10 +1720,8 @@
   \item Zirkulation
     \subitem thermohaline, \hyperpage{280}
     \subitem windgetriebene, \hyperpage{277}
-  \item Zirkulationssatz, \hyperpage{194}, \hyperpage{238}
+  \item Zirkulationssatz, \hyperpage{194}
   \item zonal gemittelte Gleichungen, \hyperpage{275}
-  \item Zunstandsänderung
-    \subitem quasistatische, \hyperpage{112}
   \item Zusatz
     \subitem zu den Newton'schen Axiomen, \hyperpage{7}
   \item Zustand, \hyperpage{34}
@@ -1896,13 +1733,10 @@
   \item Zustandsgleichung
     \subitem kalorische, \hyperpage{74}
       \subsubitem idealer Gase, \hyperpage{82}
-    \subitem thermische, \hyperpage{74}, \hyperpage{171}
-      \subsubitem idealer Gase, \hyperpage{139}, \hyperpage{145}, 
-		\hyperpage{167}, \hyperpage{246}, \hyperpage{365}
-  \item Zustandsgleichung idealer Gase, \hyperpage{123}
+    \subitem thermische, \hyperpage{74}
+  \item Zustandsgleichung idealer Gase
     \subitem Entropieformulierung, \hyperpage{132}
-    \subitem thermische, \hyperpage{169}
-  \item Zustandssumme, \hyperpage{91}
+  \item Zustandssumme
     \subitem mikrokanonische, \hyperpage{71}
   \item Zwangsbedingung, \hyperpage{10}
     \subitem holonome, \hyperpage{11}
@@ -1910,14 +1744,13 @@
     \subitem skleronome, \hyperpage{11}
   \item Zweischichtmodell
     \subitem quasigeostrophisches, \hyperpage{227}
-  \item Zweiter Hauptsatz der Thermodynamik, \hyperpage{134}
   \item Zweiter Kontinuumsübergang, \hyperpage{101}
   \item Zweiter Phasenübergang, \hyperpage{101}
   \item Zweites Newton'sches Axiom, \hyperpage{7}, \hyperpage{183}
     \subitem der Rotation, \hyperpage{9}
   \item Zyklogenese, \hyperpage{163}, \hyperpage{227}, \hyperpage{251}, 
 		\hyperpage{253}
-  \item Zyklostrophischer Wind, \hyperpage{182}
+  \item zyklostrophischer Wind, \hyperpage{182}
 
   \indexspace
 
