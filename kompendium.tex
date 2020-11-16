@@ -21310,13 +21310,31 @@ für $0 \leq i \leq N_L - 1$, $n$ ist wieder der gegenwärtige Zeitschritt. Es i
 &- \Delta t\frac{T^{(n + 1)}_{i}\left[\newoverline{c_{g, k}^{(v, n)}}^{(i + 1/2)} - \alpha_{i + 1/2, i}\frac{c_{g, i}^{(v, n)}}{c_{g, i}^{(p, n)}}\left(s^{(n)}_{i} - s^{(n)}_{i + 1}\right)\right] - T^{(n + 1)}_{i + 1}\left[\newoverline{c_{g, k}^{(v, n)}}^{(i + 1/2)} + \alpha_{i + 1/2, i + 1}\frac{c_{g, i + 1}^{(v, n)}}{c_{g, i + 1}^{(p, n)}}\left(s^{(n)}_{i} - s^{(n)}_{i + 1}\right)\right]}{z_{i} - z_{i + 1}},
 \end{align}
 \begin{align}
-T_{i}^{(n + 1)} &= T_{i}^{(n)} + \Delta t\newdot{T}_{i, \text{expl}}^{(n)} - \Delta t\left(\frac{R_{g, i}^{(n)}}{c_{g, i}^{(v, n)}} - 1\right)T_{i}^{(n)}\frac{A_{i - 1/2}w^{(n + 1)}_{i - 1/2} - A_{i + 1/2}w^{(n + 1)}_{i + 1/2}}{V_i}\nonumber\\
-&- \Delta t\frac{\newoverline{T_{k}^{(n)}}^{(i - 1/2)}A_{i - 1/2}w^{(n + 1)}_{i - 1/2} - \newoverline{T_{k}^{(n)}}^{(i + 1/2)}A_{i + 1/2}w^{(n + 1)}_{i + 1/2}}{V_i}\nonumber\\
-&= T_{i}^{(n)} + \Delta t\newdot{T}_{i, \text{expl}}^{(n)} - \Delta t\left[\left(\frac{R_{g, i}^{(n)}}{c_{g, i}^{(v, n)}} - 1\right)T_{i}^{(n)} + \newoverline{T_{k}^{(n)}}^{(i - 1/2)}\right]\frac{A_{i - 1/2}w^{(n + 1)}_{i - 1/2}}{V_i}\nonumber\\
-&+ \Delta t\left[\left(\frac{R_{g, i}^{(n)}}{c_{g, i}^{(v, n)}} - 1\right)T_{i}^{(n)} + \newoverline{T_{k}^{(n)}}^{(i + 1/2)}\right]\frac{A_{i + 1/2}w^{(n + 1)}_{i + 1/2}}{V_i}.
+T_{i}^{(n + 1)} &= T_{i}^{(n)} + \Delta t\newdot{T}_{i, \text{expl}}^{(n)} - \Delta t\left(\frac{R_{g, i}^{(n)}}{c_{g, i}^{(v, n)}} - \beta\right)T_{i}^{(n)}\frac{A_{i - 1/2}w^{(n + 1)}_{i - 1/2} - A_{i + 1/2}w^{(n + 1)}_{i + 1/2}}{V_i}\nonumber\\
+&- \Delta t\beta\frac{\newoverline{T_{k}^{(n)}}^{(i - 1/2)}A_{i - 1/2}w^{(n + 1)}_{i - 1/2} - \newoverline{T_{k}^{(n)}}^{(i + 1/2)}A_{i + 1/2}w^{(n + 1)}_{i + 1/2}}{V_i}\nonumber\\
+&+ \Delta t\left(1 - \beta\right)T_{i}^{(n + 1)}\frac{A_{i - 1/2}w^{(n)}_{i - 1/2} - A_{i + 1/2}w^{(n)}_{i + 1/2}}{V_i}\nonumber\\
+&- \Delta t\left(1 - \beta\right)\frac{\newoverline{T_{k}^{(n + 1)}}^{(i - 1/2)}A_{i - 1/2}w^{(n)}_{i - 1/2} - \newoverline{T_{k}^{(n + 1)}}^{(i + 1/2)}A_{i + 1/2}w^{(n)}_{i + 1/2}}{V_i}\nonumber\\
+&= T_{i}^{(n)} + \Delta t\newdot{T}_{i, \text{expl}}^{(n)} - \Delta t\left[\left(\frac{R_{g, i}^{(n)}}{c_{g, i}^{(v, n)}} - \beta\right)T_{i}^{(n)} + \beta\newoverline{T_{k}^{(n)}}^{(i - 1/2)}\right]\frac{A_{i - 1/2}w^{(n + 1)}_{i - 1/2}}{V_i}\nonumber\\
+&+ \Delta t\left[\left(\frac{R_{g, i}^{(n)}}{c_{g, i}^{(v, n)}} - \beta\right)T_{i}^{(n)} + \beta\newoverline{T_{k}^{(n)}}^{(i + 1/2)}\right]\frac{A_{i + 1/2}w^{(n + 1)}_{i + 1/2}}{V_i}\nonumber\\
+&+ \Delta t\left(1 - \beta\right)T_{i}^{(n + 1)}\frac{A_{i - 1/2}w^{(n)}_{i - 1/2} - A_{i + 1/2}w^{(n)}_{i + 1/2}}{V_i}\nonumber\\
+&- \Delta t\left(1 - \beta\right)\frac{\left(\alpha_{i - 1/2, i - 1}T_{i - 1}^{(n + 1)} + \alpha_{i - 1/2, i}T_{i}^{(n + 1)}\right)A_{i - 1/2}w^{(n)}_{i - 1/2} - \left(\alpha_{i + 1/2, i}T_{i}^{(n + 1)} + \alpha_{i + 1/2, i + 1}T_{i + 1}^{(n + 1)}\right)A_{i + 1/2}w^{(n)}_{i + 1/2}}{V_i}
+\end{align}
+\begin{align}
+&= T_{i}^{(n)} + \Delta t\newdot{T}_{i, \text{expl}}^{(n)} - \Delta t\left[\left(\frac{R_{g, i}^{(n)}}{c_{g, i}^{(v, n)}} - \beta\right)T_{i}^{(n)} + \beta\newoverline{T_{k}^{(n)}}^{(i - 1/2)}\right]\frac{A_{i - 1/2}w^{(n + 1)}_{i - 1/2}}{V_i}\nonumber\\
+&+ \Delta t\left[\left(\frac{R_{g, i}^{(n)}}{c_{g, i}^{(v, n)}} - \beta\right)T_{i}^{(n)} + \beta\newoverline{T_{k}^{(n)}}^{(i + 1/2)}\right]\frac{A_{i + 1/2}w^{(n + 1)}_{i + 1/2}}{V_i}\nonumber\\
+&+ \Delta t\left(1 - \beta\right)T_{i}^{(n + 1)}\frac{A_{i - 1/2}w^{(n)}_{i - 1/2} - A_{i + 1/2}w^{(n)}_{i + 1/2}}{V_i}\nonumber\\
+&+ \Delta t\left(1 - \beta\right)\frac{\left(-\alpha_{i - 1/2, i - 1}T_{i - 1}^{(n + 1)} - \alpha_{i - 1/2, i}T_{i}^{(n + 1)}\right)A_{i - 1/2}w^{(n)}_{i - 1/2} + \left(\alpha_{i + 1/2, i}T_{i}^{(n + 1)} + \alpha_{i + 1/2, i + 1}T_{i + 1}^{(n + 1)}\right)A_{i + 1/2}w^{(n)}_{i + 1/2}}{V_i}\nonumber\\
+&= T_{i}^{(n)} + \Delta t\newdot{T}_{i, \text{expl}}^{(n)} - \Delta t\left[\left(\frac{R_{g, i}^{(n)}}{c_{g, i}^{(v, n)}} - \beta\right)T_{i}^{(n)} + \beta\newoverline{T_{k}^{(n)}}^{(i - 1/2)}\right]\frac{A_{i - 1/2}w^{(n + 1)}_{i - 1/2}}{V_i}\nonumber\\
+&+ \Delta t\left[\left(\frac{R_{g, i}^{(n)}}{c_{g, i}^{(v, n)}} - \beta\right)T_{i}^{(n)} + \beta\newoverline{T_{k}^{(n)}}^{(i + 1/2)}\right]\frac{A_{i + 1/2}w^{(n + 1)}_{i + 1/2}}{V_i}\nonumber\\
+&+ \Delta t\left(1 - \beta\right)T_{i}^{(n + 1)}\frac{A_{i - 1/2}w^{(n)}_{i - 1/2}\left(1 - \alpha_{i - 1/2, i}\right) - A_{i + 1/2}w^{(n)}_{i + 1/2}\left(1 - \alpha_{i + 1/2, i}\right)}{V_i}\nonumber\\
+&+ \Delta t\left(1 - \beta\right)\frac{-\alpha_{i - 1/2, i - 1}T_{i - 1}^{(n + 1)}A_{i - 1/2}w^{(n)}_{i - 1/2} + \alpha_{i + 1/2, i + 1}T_{i + 1}^{(n + 1)}A_{i + 1/2}w^{(n)}_{i + 1/2}}{V_i}\nonumber\\
+&= T_{i}^{(n)} + \Delta t\newdot{T}_{i, \text{expl}}^{(n)} - \Delta t\left[\left(\frac{R_{g, i}^{(n)}}{c_{g, i}^{(v, n)}} - \beta\right)T_{i}^{(n)} + \beta\newoverline{T_{k}^{(n)}}^{(i - 1/2)}\right]\frac{A_{i - 1/2}w^{(n + 1)}_{i - 1/2}}{V_i}\nonumber\\
+&+ \Delta t\left[\left(\frac{R_{g, i}^{(n)}}{c_{g, i}^{(v, n)}} - \beta\right)T_{i}^{(n)} + \beta\newoverline{T_{k}^{(n)}}^{(i + 1/2)}\right]\frac{A_{i + 1/2}w^{(n + 1)}_{i + 1/2}}{V_i}\nonumber\\
+&+ \Delta t\left(1 - \beta\right)T_{i}^{(n + 1)}\frac{A_{i - 1/2}w^{(n)}_{i - 1/2}\left(1 - \alpha_{i - 1/2, i}\right) - A_{i + 1/2}w^{(n)}_{i + 1/2}\left(1 - \alpha_{i + 1/2, i}\right)}{V_i}\nonumber\\
+&- \Delta t\left(1 - \beta\right)T_{i - 1}^{(n + 1)}\frac{\alpha_{i - 1/2, i - 1}A_{i - 1/2}w^{(n)}_{i - 1/2}}{V_i} + \Delta t\left(1 - \beta\right)T_{i + 1}^{(n + 1)}\frac{\alpha_{i + 1/2, i + 1}A_{i + 1/2}w^{(n)}_{i + 1/2}}{V_i},
 \end{align}
 %
-Somit führt dieses Problem auf ein lineares Gleichungssystem
+hierbei ist $0 \leq \beta \leq 1$ ein Parameter. Somit führt dieses Problem auf ein lineares Gleichungssystem
 %
 \begin{align}
 \overleftrightarrow{A}\cdot\mathbf{x} = \mathbf{d}
@@ -21345,7 +21363,7 @@ d_{2i} = w_{i + 1/2}^{(n)} + \Delta t\newdot{w}_{i + 1/2, \text{expl}}^{(n)} - w
 Weiterhin gilt
 %
 \begin{align}
-b_i = 1
+b_{2i} = 1 - \Delta t\left(1 - \beta\right)\frac{A_{i - 1/2}w^{(n)}_{i - 1/2}\left(1 - \alpha_{i - 1/2, i}\right) - A_{i + 1/2}w^{(n)}_{i + 1/2}\left(1 - \alpha_{i + 1/2, i}\right)}{V_i}, && b_{2i + 1} = 1
 \end{align}
 %
 für alle $0 \leq i \leq 2N_L - 2$. Für den Vektor $\mathbf{a}$ gilt
@@ -21353,13 +21371,13 @@ für alle $0 \leq i \leq 2N_L - 2$. Für den Vektor $\mathbf{a}$ gilt
 \begin{align}
 a_{2i} &= \Delta t\frac{\newoverline{c_{g, k}^{(v, n)}}^{(i + 1/2)} - \alpha_{i + 1/2, i}\frac{c_{g, i}^{(v, n)}}{c_{g, i}^{(p, n)}}\left(s^{(n)}_{i} - s^{(n)}_{i + 1}\right)}{z_{i} - z_{i + 1}}\nonumber\\
 &= \Delta t\frac{\newoverline{c_{g, k}^{(v, n)}}^{(i + 1/2)}}{z_{i} - z_{i + 1}} - \Delta t\alpha_{i + 1/2, i}\frac{c_{g, i}^{(v, n)}}{c_{g, i}^{(p, n)}}\frac{\Delta s}{\Delta z}\vline_{i + 1/2},\\
-a_{2i + 1} &= \Delta t\left[\left(\frac{R_{g, i + 1}^{(n)}}{c_{g, i + 1}^{(v, n)}} - 1\right)T_{i + 1}^{(n)} + \newoverline{T_{k}^{(n)}}^{(i + 1/2)}\right]\frac{A_{i + 1/2}}{V_{i + 1}}.
+a_{2i + 1} &= \Delta t\left[\left(\frac{R_{g, i + 1}^{(n)}}{c_{g, i + 1}^{(v, n)}} - \beta\right)T_{i + 1}^{(n)} + \beta\newoverline{T_{k}^{(n)}}^{(i + 1/2)}\right]\frac{A_{i + 1/2}}{V_{i + 1}}.
 \end{align}
 %
 Für $\mathbf{b}$ findet man
 %
 \begin{align}
-c_{2i} &= -\Delta t\left[\left(\frac{R_{g, i}^{(n)}}{c_{g, i}^{(v, n)}} - 1\right)T_{i}^{(n)} + \newoverline{T_{k}^{(n)}}^{(i + 1/2)}\right]\frac{A_{i + 1/2}}{V_i},\\
+c_{2i} &= -\Delta t\left[\left(\frac{R_{g, i}^{(n)}}{c_{g, i}^{(v, n)}} - \beta\right)T_{i}^{(n)} + \beta\newoverline{T_{k}^{(n)}}^{(i + 1/2)}\right]\frac{A_{i + 1/2}}{V_i},\\
 c_{2i + 1} &= -\Delta t\frac{\newoverline{c_{g, k}^{(v, n)}}^{(i + 1/2)} + \alpha_{i + 1/2, i + 1}\frac{c_{g, i + 1}^{(v, n)}}{c_{g, i + 1}^{(p, n)}}\left(s^{(n)}_{i} - s^{(n)}_{i + 1}\right)}{z_{i} - z_{i + 1}}\\
 &= -\Delta t\frac{\newoverline{c_{g, k}^{(v, n)}}^{(i + 1/2)}}{z_{i} - z_{i + 1}} - \Delta t\alpha_{i + 1/2, i + 1}\frac{c_{g, i + 1}^{(v, n)}}{c_{g, i + 1}^{(p, n)}}\frac{\Delta s}{\Delta z}\vline_{i + 1/2}.
 \end{align}
@@ -21367,13 +21385,13 @@ c_{2i + 1} &= -\Delta t\frac{\newoverline{c_{g, k}^{(v, n)}}^{(i + 1/2)} + \alph
 Für $\mathbf{l}$ gilt
 %
 \begin{align}
-l_{2i} = 0,&& l_{2i + 1} = \frac{w_{i + 3/2}^{(n)}}{2\left(z_{i + 1/2} - z_{i + 5/2}\right)}.
+l_{2i} = \Delta t\left(1 - \beta\right)\frac{\alpha_{i + 1/2, i}A_{i + 1/2}w^{(n)}_{i + 1/2}}{V_{i + 1}}, && l_{2i + 1} = \frac{w_{i + 3/2}^{(n)}}{2\left(z_{i + 1/2} - z_{i + 5/2}\right)}.
 \end{align}
 %
 Für $\mathbf{u}$ findet man
 %
 \begin{align}
-u_{2i} = 0,&& u_{2i + 1} = -\frac{w_{i + 1/2}^{(n)}}{2\left(z_{i - 1/2} - z_{i + 3/2}\right)}.
+u_{2i} = -\Delta t\left(1 - \beta\right)\frac{\alpha_{i + 1/2, i + 1}A_{i + 1/2}w^{(n)}_{i + 1/2}}{V_i}, && u_{2i + 1} = -\frac{w_{i + 1/2}^{(n)}}{2\left(z_{i - 1/2} - z_{i + 3/2}\right)}.
 \end{align}
 %
 Im Falle des Vorhandenseins von $N \geq 1$ Gasen muss man die Ersetzung
