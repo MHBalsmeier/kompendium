@@ -21357,7 +21357,7 @@ l_0 & a_1 & b_2 & c_1 \hspace{2 cm}\dots &  0 \\
 mit fünf Vektoren $\mathbf{l}, \mathbf{u} \in \mathbb{R}^{2N_L - 3}$, $\mathbf{a}, \mathbf{c} \in \mathbb{R}^{2N_L - 2}$, $\mathbf{b} \in \mathbb{R}^{2N_L - 1}$. Die rechte Seite $\mathbf{d} \in \mathbb{R}^{2N_L - 1}$ enthält den expliziten Anteil:
 %
 \begin{align}
-d_{2i} = w_{i + 1/2}^{(n)} + \Delta t\newdot{w}_{i + 1/2, \text{expl}}^{(n)} - w_{i + 1/2}^{(n)}\frac{w_{i - 1/2}^{(n)} - w_{i + 3/2}^{(n)}}{2\left(z_{i - 1/2} - z_{i + 3/2}\right)}, && d_{2i + 1} = T_{i + 1}^{(n)} + \Delta t\newdot{T}_{i, \text{expl}}^{(n)}
+d_{2i} = T_{i + 1}^{(n)} + \Delta t\newdot{T}_{i, \text{expl}}^{(n)}, && d_{2i + 1} = w_{i + 1/2}^{(n)} + \Delta t\newdot{w}_{i + 1/2, \text{expl}}^{(n)} - w_{i + 1/2}^{(n)}\frac{w_{i - 1/2}^{(n)} - w_{i + 3/2}^{(n)}}{2\left(z_{i - 1/2} - z_{i + 3/2}\right)}
 \end{align}
 %
 Weiterhin gilt
