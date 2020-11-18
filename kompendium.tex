@@ -12310,7 +12310,7 @@ Setzt man hier $\delta = \omega = 0$ ein, folgt die \index{Balancegleichung}\tex
 Vernachlässigt man den letzten Term, erhält man die \textit{lineare Balancegleichung}\index{Balancegleichung!lineare}\index{lineare Balancegleichung}
 %
 \begin{align}
-\Delta\phi = -u\beta + f\zeta.
+\Delta\phi = -u\beta + f\zeta.\label{eq:balance_equation_linear}
 \end{align}
 %
 Verwendet man eine Stromfunktion $\psi$, folgt
@@ -20130,8 +20130,31 @@ Die Matrix
 %
 bezeichnet man als \textit{Gain-Matrix}\index{Gain-Matrix}.
 
+\subsection{Berücksichtigung von Hydrostatik}
+\label{sec:berücksichtigung_von_hydrostatik}\index{Hydrostatik!Datenassimilation}\index{Datenassimilation!Hydrostatik}
+
+\subsubsection{Als exakte Einschränkung}
+\label{sec:als_exakte_einschraenkung}
+
+Geht man von Hydrostatik aus, also von Gültigkeit der hydrostatischen Grundgleichung Glg. \eqref{eq:hydrostatic}, vereinfacht sich der thermodynamische Zustand der Atmosphäre erheblich: Üblicherweise reichen zwei thermodynamische Größen $q_1$, $q_2$ aus, um diesen festzulegen. Bei Gültigkeit einer Gleichung der Form
+%
+\begin{align}
+\frac{\partial q_1}{\partial z} = f\left(q_2\right)
+\end{align}
+%
+kann man jedoch die Festlegung der Größe $q_1$ in der gesamten Atmosphäre durch ihre Festlegung auf einer Fläche ersetzen, zum Beispiel der Erdoberfläche oder einer Druckfläche.
+
+\subsubsection{Als Teil der Kostenfunktion}
+\label{sec:als_teil_der_kostenfunktion}
+
+Eine abgeschwächte Variante des im vorherigen Abschnitts dargelegten Verfahrens besteht darin, die Gültigkeit der hydrostatischen Grundgleichung nicht exakt zu fordern, sondern selbige nur in die Kostenfunktion $J$ aufzunehmen.
+
 \subsection{Berücksichtigung der Balancegleichung}
 \label{sec:berücksichtigung_der_balancegleichung}\index{Balancegleichung!Datenassimilation}\index{Datenassimilation!Balancegleichung}
+
+Der Horizontalwind ist auf der synoptischen Skala aufgrund der näherungsweisen Gültigkeit des geostrophischen Gleichgewichts sowie der Balancegleichung eng mit den thermodynamischen Größen verknüpft. Daher kann man ihn als diagnostische Größe betrachten. Ihn direkt aus der Geostrophie in Form von Glg. \eqref{eq:geostr_wind} zu berechnen ist aufgrund des in Absch. \eqref{eq:geostrophie} dargestellten Divergenzproblems in den Tropen nicht möglich. Daher kann man anstattdessen die Balancegleichung \eqref{eq:balance_equation} oder die linearisierte Balancegleichung Glg. \eqref{eq:balance_equation_inear} verwenden.
+
+Analog zum Fall der Hydrostatik ist es auch hier wieder möglich, die Gültigkeit der Balancegleichung entweder exakt zu fordern, oder sie in die Kostenfunktion aufzunehmen.
 
 \section{4D-Var}
 \label{sec:4d-var}\index{4D-Var}
