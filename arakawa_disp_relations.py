@@ -26,4 +26,4 @@ plt.ylim([np.min(velocitys_array), np.max(velocitys_array)]);
 plt.legend([r"$c_{ph}$ A-Gitter", r"$c_{gr}$ A-Gitter", r"$c_{ph}$ C-Gitter", r"$c_{gr}$ C-Gitter"]);
 plt.xlabel(r"$\kappa$");
 plt.ylabel(r"$\tilde{c}$");
-fig.savefig("figs/arakawa_disp_relations.png");
+fig.savefig("figs/arakawa_disp_relations.png", dpi = 500);

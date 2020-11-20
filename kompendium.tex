@@ -742,7 +742,8 @@ Q_k \coloneqq \sum_{n = 1}^{3N}F_n\frac{\partial x_n}{\partial q_k}
 Diese Definition setzt man zusammen mit Glg. \eqref{eq:lagrange_deriv_1} und Glg. \eqref{eq:lagrange_deriv_2} in Glg. \eqref{eq:lagrange_deriv_3} ein:
 %
 \begin{align}
-\frac{d}{dt}\left(\frac{\partial T}{\partial\newdot{q}_k}\right) - \frac{\partial T}{\partial q_k} = Q_k
+\sum_{n = 1}^{3N}m_n\frac{d^2x_n}{dt^2}\frac{\partial x_n}{\partial q_k} = \sum_{n = 1}^{3N}F_n\frac{\partial x_n}{\partial q_k} && \Leftrightarrow \sum_{n = 1}^{3N}m_n\frac{d^2x_n}{dt^2}\frac{\partial x_n}{\partial q_k} = Q_k\nonumber\\
+\frac{d}{dt}\frac{\partial T}{\partial\newdot{q}_k} - \sum_{n = 1}^{3N}m_n\newdot{x}_n\frac{\partial\newdot{x}_n}{\partial q_k} = Q_k && \Leftrightarrow \frac{d}{dt}\frac{\partial T}{\partial\newdot{q}_k} - \frac{\partial T}{\partial q_k} = Q_k
 \end{align}
 %
 Man setzt für die Kräfte
@@ -853,16 +854,13 @@ Im Hamilton-Formalismus gelten
 Weiterhin sind
 %
 \begin{align}
-\left\lbrace F, q_j\right\rbrace & = -\frac{\partial F}{\partial p_j},\\
-\left\lbrace F, p_j\right\rbrace & = \frac{\partial F}{\partial q_j}.
+\left\lbrace F, q_j\right\rbrace = -\frac{\partial F}{\partial p_j}, && \left\lbrace F, p_j\right\rbrace = \frac{\partial F}{\partial q_j}.
 \end{align}
 %
 Hieraus folgen weiter
 %
 \begin{align}
-\left\lbrace q_i, q_j\right\rbrace & = 0,\\
-\left\lbrace p_i, p_j\right\rbrace & = 0,\\
-\left\lbrace p_i, q_j\right\rbrace & = -\delta_{i, j}.
+\left\lbrace q_i, q_j\right\rbrace = 0, && \left\lbrace p_i, p_j\right\rbrace = 0, && \left\lbrace p_i, q_j\right\rbrace = -\delta_{i, j}.
 \end{align}
 %
 Für die totale Zeitableitung\index{totale Zeitableitung}\index{Zeitableitung!totale} von $F$ erhält man nun
@@ -890,8 +888,7 @@ Dies impliziert
 Die Hamilton-Funktion\index{Hamilton-Funktion} ist also genau dann konstant, wenn sie nicht explizit von der Zeit abhängt. Aus Glg. \eqref{eq:poisson_bracket_prop_0} folgen die Glg.en \eqref{eq:hamilton_0} - \eqref{eq:hamilton_1} in der Form
 %
 \begin{align}
-\newdot{p}_i & = \left\lbrace p_i, H\right\rbrace,\\
-\newdot{q}_i & = \left\lbrace q_i, H\right\rbrace.
+\newdot{p}_i = \left\lbrace p_i, H\right\rbrace, && \newdot{q}_i = \left\lbrace q_i, H\right\rbrace.
 \end{align}
 
 \chapter{\normalfont\textsc{Elektrodynamik}}
