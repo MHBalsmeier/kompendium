@@ -5534,14 +5534,20 @@ fest. Das \index{Mischungsverhältnis}\textit{Mischungsverhältnis} $r$ wird dur
 r \coloneqq\frac{\rho_v}{\rho_d}
 \end{align}
 %
-definiert. Ein hochgestelltes $S$ an den Symbolen bedeutet, dass von Sättigung ausgegangen wird. Einige nützliche Umrechnungen lauten
+definiert. Weiterhin wird das \index{Volumenmischungverhältnis}\textit{Volumenmischungverhältnis} $r_V$ durch
+%
+\begin{align}
+r_V \coloneqq\frac{n_v}{n_d}
+\end{align}
+%
+definiert. Diese Größe wird häufig in chemischen und Strahlungsbetrachtungen verwendet, wo es eher auf die Teilchendichte als auf die Massendichte ankommt. Ein hochgestelltes $S$ an den Symbolen bedeutet, dass von Sättigung ausgegangen wird. Einige nützliche Umrechnungen lauten
 %
 \begin{align}
 q & = \frac{p_vR_hT}{R_vT p} = \frac{p_vR_h}{pR_v} = \frac{p_v}{p}\frac{R_d}{R_v}\left[1 - \frac{\rho_v}{\rho_h} + \frac{\rho_v}{\rho_h}\frac{M_d}{M_v}\right]\nonumber\\
 & = \frac{p_v}{p}\left(\epsilon\left(1 - q\right) + q\right) = \frac{p_v}{p}\left(q\left(1 - \epsilon'\right) + \epsilon'\right)\nonumber\\
 \Rightarrow q\left(1 + \left(\epsilon' - 1\right)\frac{p_v}{p}\right) & = \epsilon'\frac{p_v}{p}\Rightarrow q = \frac{\epsilon'}{\frac{p}{p_v} + \epsilon' - 1},\\
-r & = \frac{\rho_v}{\rho_d} = \frac{p_vR_dT}{R_vTp_d} = \frac{p_v}{p_d}\epsilon', \nonumber\\
-r & = \frac{\rho_v}{\rho - \rho_v} = \frac{q}{1 - q} = \frac{\frac{\epsilon'}{\frac{p}{p_v} + \epsilon' - 1}}{1 - \frac{\epsilon'}{\frac{p}{p_v} + \epsilon' - 1}} = \frac{1}{\frac{p}{p_v\epsilon'} + 1 - \frac{1}{\epsilon'} - 1} = \frac{\epsilon'}{\frac{p}{p_v} - 1}.
+r & = \frac{\rho_v}{\rho_d} = \frac{p_vR_dT}{R_vTp_d} = \frac{p_v}{p_d}\epsilon' = \frac{p_v}{p - p_v}\epsilon' = \frac{\epsilon'}{\frac{p}{p_v} - 1}, \nonumber\\
+r_V & = \frac{n_v}{n_d} = \frac{p_v}{p_d} = \frac{\rho_vR_v}{\rho_dR_d}.
 \end{align}
 %
 Häufige Näherungen sind
