@@ -21045,7 +21045,63 @@ Nichtsdestotrotz kann Erhaltung der Gesamtenergie immernoch erreicht werden. Hie
 \int_A\psi\nabla\cdot\mathbf{v}d^3r = -\int_A\mathbf{v}\cdot\nabla\psi d^3r
 \end{align}
 %
-auf die Diskretisierung überträgt.
+auf die Diskretisierung überträgt. Für diese Rechnung müssen auch die Orientierungen $\gamma_{e(c)}$ der Vektoren berücksichtigt werden. Es wird
+%
+\begin{align}
+\gamma_{e(c)} \coloneqq \begin{cases}
+1,\text{ falls der Vektor bei }e\text{ in Bezug auf }c\text{ nach außen zeigt,}\\
+-1,\text{ sonst}
+\end{cases}
+\end{align}
+%
+definiert. Somit erhält
+%
+\begin{align}
+&\int_A\psi\nabla\cdot\mathbf{v}d^3r \to \sum_{c, k}\left(\psi\nabla\cdot\mathbf{v}\right)_{c, k}A_c\Delta z_{c, k}\nonumber\\
+&= \sum_{c, k}\Bigg[\sum_{e\in c}\left(l_e\Delta z_{e, k}\psi_{c, k}\gamma_{e(c)}u_e\right) + A_c\left(\psi_{c, k}w_{c, k - 1/2} - \psi_{c, k}w_{c, k + 1/2}\right)\nonumber\\
+&- \sum_{e\in c}\frac{l_ed_e}{4}\left(\frac{\Delta z_{e, k - 1}}{\Delta z_{c, k - 1}}J_{e, k - 1}\psi_{c, k}u_{e, k - 1} - \frac{\Delta z_{e, k + 1}}{\Delta z_{c, k + 1}}J_{e, k + 1}\psi_{c, k}u_{e, k + 1}\right)\Bigg]
+\end{align}
+%
+Mit einer Indexverschiebung folgt
+%
+\begin{align}
+&\sum_{c, k}\left(\psi\nabla\cdot\mathbf{v}\right)_{c, k}A_c\Delta z_{c, k} = \sum_{c, k}\Bigg[\sum_{e\in c}\left(l_e\Delta z_{e, k}\psi_{c, k}\gamma_{e(c)}u_e\right) + A_c\left(\psi_{c, k}w_{c, k - 1/2} - \psi_{c, k}w_{c, k + 1/2}\right)\nonumber\\
+&- \sum_{e\in c}\frac{l_ed_e}{4}\left(\frac{\Delta z_{e, k}}{\Delta z_{c, k}}J_{e, k}\psi_{c, k + 1}u_{e, k} - \frac{\Delta z_{e, k}}{\Delta z_{c, k}}J_{e, k}\psi_{c, k - 1}u_{e, k}\right)\Bigg]\nonumber\\
+&= \sum_{c, k}\Bigg[\sum_{e\in c}\left(l_e\Delta z_{e, k}\psi_{c, k}\gamma_{e(c)}u_e\right) + A_c\left(\psi_{c, k}w_{c, k - 1/2} - \psi_{c, k}w_{c, k + 1/2}\right)\nonumber\\
+&- \sum_{e\in c}\frac{l_ed_e}{4}\left(\frac{\Delta z_{e, k}}{\Delta z_{c, k}}J_{e, k}\psi_{c, k + 1}u_{e, k} - \frac{\Delta z_{e, k}}{\Delta z_{c, k}}J_{e, k}\psi_{c, k}u_{e, k} - \frac{\Delta z_{e, k}}{\Delta z_{c, k}}J_{e, k}\psi_{c, k - 1}u_{e, k} + \frac{\Delta z_{e, k}}{\Delta z_{c, k}}J_{e, k}\psi_{c, k}u_{e, k}\right)\Bigg]\nonumber
+\end{align}
+\begin{align}
+&= \sum_{c, k}\sum_{e\in c}l_e\Delta z_{e, k}\psi_{c, k}\gamma_{e(c)}u_e + \sum_{c, k - 1/2}A_c\left(\psi_{c, k}w_{c, k - 1/2} - \psi_{c, k}w_{c, k + 1/2}\right)\nonumber\\
+&- \sum_{e, k}\sum_{c\in e}\frac{l_ed_e}{4}\left(\frac{\Delta z_{e, k}}{\Delta z_{c, k}}J_{e, k}\psi_{c, k + 1}u_{e, k} - \frac{\Delta z_{e, k}}{\Delta z_{c, k}}J_{e, k}\psi_{c, k}u_{e, k} - \frac{\Delta z_{e, k}}{\Delta z_{c, k}}J_{e, k}\psi_{c, k - 1}u_{e, k} + \frac{\Delta z_{e, k}}{\Delta z_{c, k}}J_{e, k}\psi_{c, k}u_{e, k}\right)\nonumber\\
+&= \sum_{e, k}\sum_{c\in e}l_e\Delta z_{e, k}\psi_{c, k}\gamma_{e(c)}u_e - \sum_{c, k - 1/2}A_c\Delta z_{c, k - 1/2}w_{c, k - 1/2}\frac{\psi_{c, k - 1} - \psi_{c, k}}{\Delta z_{c, k - 1/2}}\nonumber\\
+&- \sum_{e, k}\sum_{c\in e}\frac{l_ed_e}{4}\left(\frac{\Delta z_{e, k}}{\Delta z_{c, k}}\Delta z_{c, k + 1/2}J_{e, k}\frac{\psi_{c, k + 1} - \psi_{c, k}}{\Delta z_{c, k + 1/2}}u_{e, k} + \frac{\Delta z_{e, k}}{\Delta z_{c, k}}\Delta z_{c, k - 1/2}J_{e, k}u_{e, k}\frac{\psi_{c, k} - \psi_{c, k - 1}}{\Delta z_{c, k - 1/2}}\right)\nonumber\\
+&= \sum_{e, k}-l_ed_e\Delta z_{e, k}u_e\sum_{c\in e}-\frac{\psi_{c, k}\gamma_{e(c)}}{d_e} - \sum_{c, k - 1/2}A_c\Delta z_{c, k - 1/2}w_{c, k - 1/2}\frac{\psi_{c, k - 1} - \psi_{c, k}}{\Delta z_{c, k - 1/2}}\nonumber
+\end{align}
+\begin{align}
+&- \sum_{e, k}l_ed_e\Delta z_{e, k}u_{e, k}J_{e, k}\sum_{c\in e}\frac{1}{4}\left(\frac{\Delta z_{c, k + 1/2}}{\Delta z_{c, k}}\frac{\psi_{c, k + 1} - \psi_{c, k}}{\Delta z_{c, k + 1/2}} + \frac{\Delta z_{c, k - 1/2}}{\Delta z_{c, k}}\frac{\psi_{c, k} - \psi_{c, k - 1}}{\Delta z_{c, k - 1/2}}\right)\nonumber\\
+&= \sum_{e, k}-l_ed_e\Delta z_{e, k}u_e\sum_{c\in e}-\frac{\psi_{c, k}\gamma_{e(c)}}{d_e} - \sum_{c, k - 1/2}A_c\Delta z_{c, k - 1/2}w_{c, k - 1/2}\left(\nabla_z\psi\right)_{c, k - 1/2}\nonumber\\
+&+ \sum_{e, k}l_ed_e\Delta z_{e, k}u_{e, k}J_{e, k}\frac{1}{2}\newoverline{\left(\frac{\Delta z_{c, k + 1/2}}{\Delta z_{c, k}}\left(\nabla_z\psi\right)_{c, k + 1/2} + \frac{\Delta z_{c, k - 1/2}}{\Delta z_{c, k}}\left(\nabla_z\psi\right)_{c, k - 1/2}\right)}^{(e)}\nonumber
+\end{align}
+\begin{align}
+&= \sum_{e, k}-l_ed_e\Delta z_{e, k}u_e\sum_{c\in e}-\frac{\psi_{c, k}\gamma_{e(c)}}{d_e} - \sum_{c, k - 1/2}A_c\Delta z_{c, k - 1/2}w_{c, k - 1/2}\left(\nabla_z\psi\right)_{c, k - 1/2}\nonumber\\
+&+ \sum_{e, k}l_ed_e\Delta z_{e, k}u_{e, k}J_{e, k}\newoverline{\newoverline{\left(\nabla_z\psi\right)_{c, k - 1/2}}^{(k)}}^{(e)}\nonumber\\
+&= \sum_{e, k}-l_ed_e\Delta z_{e, k}u_e\left(\sum_{c\in e}-\frac{\psi_{c, k}\gamma_{e(c)}}{d_e} - J_{e, k}\newoverline{\newoverline{\left(\nabla_z\psi\right)_{c, k - 1/2}}^{(k)}}^{(e)}\right) - \sum_{c, k - 1/2}A_c\Delta z_{c, k - 1/2}w_{c, k - 1/2}\left(\nabla_z\psi\right)_{c, k - 1/2}\nonumber\\
+&= -\left[\sum_{e, k}V_{e, k}u_e\left(\sum_{c\in e}-\frac{\psi_{c, k}\gamma_{e(c)}}{d_e} - J_{e, k}\newoverline{\newoverline{\left(\nabla_z\psi\right)_{c, k - 1/2}}^{(k)}}^{(e)}\right) + \sum_{c, k - 1/2}V_{c, k - 1/2}w_{c, k - 1/2}\left(\nabla_z\psi\right)_{c, k - 1/2}\right].
+\end{align}
+%
+Hieraus ergibt sich die Diskretisierung
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\left(\nabla\psi\right)_{e, k} = \frac{1}{d_e}\sum_{c\in e}-\psi_{c, k}\gamma_{e(c)} - J_{e, k}\newoverline{\newoverline{\left(\nabla_z\psi\right)_{c, k - 1/2}}^{(k)}}^{(e)}
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+des Gradienten in geländefolgenden Koordinaten.
 
 \subsubsection{Deep atmosphere}
 \label{sec:grad_c_deep_atmosphere}
