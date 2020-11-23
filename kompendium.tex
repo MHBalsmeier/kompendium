@@ -18353,7 +18353,13 @@ sich auf die Diskretisierung 체bertragen soll.
 \subsection{Eindimensionaler Fall}
 \label{sec:eindimensionaler_fall}
 
-Die Notation wird aus Absch. \ref{sec:c-gitter} mit der Ersetzung $h \to \psi$ 체bernommen.
+Die Notation wird aus Absch. \ref{sec:c-gitter} mit der Ersetzung $h \to \psi$ 체bernommen. Die Mittelung von Zellen auf Kanten ist einfach das arithmetische Mittel
+%
+\begin{align}
+\newtilde{\psi}_{j} = \frac{\psi_{j - 1/2} + \psi_{j + 1/2}}{2},
+\end{align}
+%
+da die Kante $j$ sich mittig zwischen den zwei Zellen $j - 1/2$ und $j + 1/2$ befindet. Man rechnet nun
 %
 \begin{align}
 \nabla\cdot\left(\psi u\right) &= \frac{\newtilde{\psi}_{j + 1}u_{j + 1} - \newtilde{\psi}_{j}u_{j}}{\Delta x} = \frac{\left(\psi_{j + 3/2} + \psi_{j + 1/2}\right)u_{j + 1} - \left(\psi_{j + 1/2} + \psi_{j - 1/2}\right)u_{j}}{2\Delta x}\nonumber\\
@@ -18361,7 +18367,7 @@ Die Notation wird aus Absch. \ref{sec:c-gitter} mit der Ersetzung $h \to \psi$ �
 &= \frac{\psi_{j + 3/2}u_{j + 1} - \psi_{j - 1/2}u_{j} - \psi_{j + 1/2}\left(u_{j + 1} - u_{j}\right) + 2\psi_{j + 1/2}\left(u_{j + 1} - u_{j}\right)}{2\Delta x}\nonumber\\
 &= \frac{\left(\psi_{j + 3/2} - \psi_{j + 1/2}\right)u_{j + 1} - \left(\psi_{j - 1/2} - \psi_{j + 1/2}\right)u_{j} + 2\psi_{j + 1/2}\left(u_{j + 1} - u_{j}\right)}{2\Delta x}\nonumber\\
 &= \frac{1}{2}\left[\frac{\psi_{j + 3/2} - \psi_{j + 1/2}}{\Delta x}u_{j + 1} + \frac{\psi_{j + 1/2} - \psi_{j - 1/2}}{\Delta x}u_{j}\right]+ \psi_{j + 1/2}\frac{u_{j + 1} - u_{j}}{\Delta x}\nonumber\\
-&\stackrel{!}{=} \psi\nabla\cdot\left(u\right) + u\frac{\partial\psi}{\partial x}
+&\stackrel{!}{=} \psi\nabla\cdot\left(u\right) + u\frac{\partial\psi}{\partial x}.
 \end{align}
 %
 Die Produktregel 체bertr채gt sich also, falls man das Skalarprodukt $uv$ zweier Vektorfelder $u$, $v$ durch
