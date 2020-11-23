@@ -18552,7 +18552,7 @@ Das C-Gitter\index{C-Gitter} hat gegenüber den anderen Gittern zusammenfassend 
 \item Die Produktregel\index{Produktregel!C-Gitter}\index{C-Gitter!Produktregel} $\nabla\cdot\left(\psi\mathbf{v}\right) = \mathbf{v}\cdot\nabla\psi + \psi\nabla\cdot\mathbf{v}$ reproduziert sich bei passender Diskretisierung des Skalarproduktes.
 \end{enumerate}
 %
-Daher wird an dieser Stelle die Entscheidung getroffen, ein C-Gitter\index{C-Gitter} für den in Teil \ref{part:entwicklung_eines_dynamischen_kerns} zu entwickelnden dynamischen Kern\index{dynamischer Kern}\index{Kern!dynamischer}.
+Daher wird an dieser Stelle die Entscheidung getroffen, ein C-Gitter\index{C-Gitter} für den in Teil \ref{part:entwicklung_eines_dynamischen_kerns} zu entwickelnden dynamischen Kern\index{dynamischer Kern}\index{Kern!dynamischer} zu verwenden.
 
 \subsection{Folgerungen}
 \label{sec:folgerungen_c-gitter}\index{C-Gitter}
@@ -20538,30 +20538,6 @@ als Mittelungsoperator. Die Gewichtungsfaktoren $\frac{\left|V_{x, k}\cap V_{y, 
 \end{align}
 %
 Analog werden auch vertikale Mittelungen definiert. Ein einzelner Mittelungsoperator ist also entweder ausschließlich horizontal oder vertikal.
-
-\subsection{Skalarprodukt auf dem C-Gitter in geländefolgenden Koordinaten}
-\label{sec:skalarprodukt_auf_dem_c-gitter_in_gelaendefolgenden_koordinaten}
-
-Das Skalarprodukt macht aus zwei Vektorfeldern ein Skalarfeld und sollte daher auch im Kontext der Mittelungssoperatoren betrachtet werden.
-
-\subsubsection{Shallow atmosphere}
-\label{sec:inner_c_shallow_atmosphere}
-
-In Absch. \ref{sec:skalarprodukt_auf_dem_c-gitter} wurde davon ausgegagnegen, dass die Diskretisierungen von Gradient und Divergenz festgelegt ist, und es wurde die Diskretisierung des dreidimensionalen Skalarproduktes auf dem C-Gitter Glg. \eqref{eq:inner_c-grid_3d_shallow} hergeleitet. Hier geht man andersherum vor, und setzt die Diskretisierung des Skalarproduktes voraus. Man verallgemeinert Glg. \eqref{eq:inner_c-grid_3d_shallow} wie folgt auf geländefolgende Koordinaten:
-%
-\begin{align}
-\mathbf{u}^{(1)}\cdot\mathbf{u}^{(2)} = \sum_{e\in c}\frac{l_ed_e}{2A_c\Delta z_{c, k}}\Delta z_{e, k}u_e^{(1)}u_e^{(2)} + \frac{\Delta z_{c, k - 1/2}}{2\Delta z_{c, k}}w_u^{(1)}w_u^{(2)} + \frac{\Delta z_{c, k + 1/2}}{2\Delta z_{c, k}}w_l^{(1)}w_l^{(2)}\label{eq:inner_c-grid_3d_shallow_terrain}
-\end{align}
-%
-Dies lässt sich als Mittelungsoperator von den Kanten auf die Zellenmittelpunkte auffassen:
-%
-\begin{align}
-\newoverline{u_e^{(1)}u_e^{(2)}}^{(c)} = \sum_{e\in c}\frac{l_ed_e}{2A_c\Delta z_{c, k}}\Delta z_{e, k}u_e^{(1)}u_e^{(2)}\label{eq:edge_to_cell_shallow}
-\end{align}
-
-\subsubsection{Deep atmosphere}
-\label{sec:inner_c_deep_atmosphere}
-
 \subsection{Rekonstruktion der horizontalen kovarianten Maßzahl}
 \label{sec:rekonstruktion_der_horizontalen_kovarianten_maßzahl}\index{kovariante Maßzahl!Rekonstruktion (geländefolgende Koordinaten)}
 
@@ -20645,6 +20621,29 @@ Die Reihenfolge der Mittelungen spielt hier also keine Rolle.
 
 \subsubsection{Deep atmosphere}
 \label{sec:deep_atmosphere_cov}
+
+\subsection{Skalarprodukt auf dem C-Gitter in geländefolgenden Koordinaten}
+\label{sec:skalarprodukt_auf_dem_c-gitter_in_gelaendefolgenden_koordinaten}
+
+Das Skalarprodukt macht aus zwei Vektorfeldern ein Skalarfeld und sollte daher auch im Kontext der Mittelungssoperatoren betrachtet werden.
+
+\subsubsection{Shallow atmosphere}
+\label{sec:inner_c_shallow_atmosphere}
+
+In Absch. \ref{sec:skalarprodukt_auf_dem_c-gitter} wurde davon ausgegagnegen, dass die Diskretisierungen von Gradient und Divergenz festgelegt ist, und es wurde die Diskretisierung des dreidimensionalen Skalarproduktes auf dem C-Gitter Glg. \eqref{eq:inner_c-grid_3d_shallow} hergeleitet. Hier geht man andersherum vor, und setzt die Diskretisierung des Skalarproduktes voraus. Man verallgemeinert Glg. \eqref{eq:inner_c-grid_3d_shallow} wie folgt auf geländefolgende Koordinaten:
+%
+\begin{align}
+\mathbf{u}^{(1)}\cdot\mathbf{u}^{(2)} = \sum_{e\in c}\frac{l_ed_e}{2A_c\Delta z_{c, k}}\Delta z_{e, k}u_e^{(1)}u_e^{(2)} + \frac{\Delta z_{c, k - 1/2}}{2\Delta z_{c, k}}w_u^{(1)}w_u^{(2)} + \frac{\Delta z_{c, k + 1/2}}{2\Delta z_{c, k}}w_l^{(1)}w_l^{(2)}\label{eq:inner_c-grid_3d_shallow_terrain}
+\end{align}
+%
+Dies lässt sich als Mittelungsoperator von den Kanten auf die Zellenmittelpunkte auffassen:
+%
+\begin{align}
+\newoverline{u_e^{(1)}u_e^{(2)}}^{(c)} = \sum_{e\in c}\frac{l_ed_e}{2A_c\Delta z_{c, k}}\Delta z_{e, k}u_e^{(1)}u_e^{(2)}\label{eq:edge_to_cell_shallow}
+\end{align}
+
+\subsubsection{Deep atmosphere}
+\label{sec:inner_c_deep_atmosphere}
 
 \subsection{Rekonstruktion der vertikalen kontravarianten Maßzahl}
 \label{sec:rekonstruktion_der_vertikalen_kontravarianten_maßzahl}\index{kontravariante Maßzahl!Rekonstruktion (geländefolgende Koordinaten)}
@@ -20770,21 +20769,21 @@ vorgenommen und die Schichtdicke wurde von der horizontalen Position abhängig g
 &= \frac{w_{c, k - 1/2} - w_{c, k + 1/2}}{\Delta z_{c, k}} + \sum_{e\in c}\frac{l_e\Delta z_{e, k}u_e - \frac{l_ed_e}{2}\newoverline{\frac{\Delta z_{e, k}}{\Delta z_{c, k}}J_{e, k}u_{e, k}}^{(k - \frac{1}{2})} + \frac{l_ed_e}{2}\newoverline{\frac{\Delta z_{e, k}}{\Delta z_{c, k}}J_{e, k}u_{e, k}}^{(k + \frac{1}{2})}}{A_c\Delta z_{c, k}}\nonumber\\
 &= \frac{w_{c, k - 1/2} - w_{c, k + 1/2}}{\Delta z_{c, k}} + \sum_{e\in c}l_e\frac{\Delta z_{e, k}u_e - \frac{d_e}{2}\newoverline{\frac{\Delta z_{e, k}}{\Delta z_{c, k}}J_{e, k}u_{e, k}}^{(k - \frac{1}{2})} + \frac{d_e}{2}\newoverline{\frac{\Delta z_{e, k}}{\Delta z_{c, k}}J_{e, k}u_{e, k}}^{(k + \frac{1}{2})}}{A_c\Delta z_{c, k}}\nonumber\\
 &= \frac{w_{c, k - 1/2} - w_{c, k + 1/2}}{\Delta z_{c, k}}\nonumber\\
-& + \sum_{e\in c}l_e\frac{\Delta z_{e, k}u_e - \frac{d_e}{4\Delta z_{e, k - 1/2}}\left(\frac{\Delta z_{e, k - 1}^2}{\Delta z_{c, k - 1}}J_{e, k - 1}u_{e, k - 1} + \frac{\Delta z_{e, k}^2}{\Delta z_{c, k}}J_{e, k}u_{e, k}\right) + \frac{d_e}{4\Delta z_{e, k + 1/2}}\left(\frac{\Delta z_{e, k}^2}{\Delta z_{c, k}}J_{e, k}u_{e, k} + \frac{\Delta z_{e, k + 1}^2}{\Delta z_{c, k + 1}}J_{e, k + 1}u_{e, k + 1}\right)}{A_c\Delta z_{c, k}}\nonumber
+& + \sum_{e\in c}l_e\frac{\Delta z_{e, k}u_e - \frac{d_e}{4}\left(\frac{\Delta z_{e, k - 1}}{\Delta z_{c, k - 1}}J_{e, k - 1}u_{e, k - 1} + \frac{\Delta z_{e, k}}{\Delta z_{c, k}}J_{e, k}u_{e, k}\right) + \frac{d_e}{4}\left(\frac{\Delta z_{e, k}}{\Delta z_{c, k}}J_{e, k}u_{e, k} + \frac{\Delta z_{e, k + 1}}{\Delta z_{c, k + 1}}J_{e, k + 1}u_{e, k + 1}\right)}{A_c\Delta z_{c, k}}\nonumber
 \end{align}
 \begin{center}
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
 \Rightarrow\nabla\cdot\mathbf{v}&= \left[\sum_{e\in c}\left(l_e\frac{\Delta z_{e, k}u_e}{A_c\Delta z_{c, k}}\right) + \frac{w_{c, k - 1/2} - w_{c, k + 1/2}}{\Delta z_{c, k}}\right]\nonumber\\
-&- \sum_{e\in c}\frac{l_ed_e}{4A_c\Delta z_{c, k}}\Bigg[\frac{1}{\Delta z_{e, k - 1/2}}\left(\frac{\Delta z_{e, k - 1}^2}{\Delta z_{c, k - 1}}J_{e, k - 1}u_{e, k - 1} + \frac{\Delta z_{e, k}^2}{\Delta z_{c, k}}J_{e, k}u_{e, k}\right)\nonumber\\
-&- \frac{1}{\Delta z_{e, k + 1/2}}\left(\frac{\Delta z_{e, k}^2}{\Delta z_{c, k}}J_{e, k}u_{e, k} + \frac{\Delta z_{e, k + 1}^2}{\Delta z_{c, k + 1}}J_{e, k + 1}u_{e, k + 1}\right)\Bigg].\label{eq:div_c-grid_shallow_terrain_concrete}
+&- \frac{1}{2}\sum_{e\in c}\frac{l_ed_e}{2A_c\Delta z_{c, k}}\Bigg[\left(\frac{\Delta z_{e, k - 1}}{\Delta z_{c, k - 1}}J_{e, k - 1}u_{e, k - 1} + \textcolor{blue}{\frac{\Delta z_{e, k}}{\Delta z_{c, k}}J_{e, k}u_{e, k}}\right)\nonumber\\
+&- \left(\textcolor{blue}{\frac{\Delta z_{e, k}}{\Delta z_{c, k}}J_{e, k}u_{e, k}} + \frac{\Delta z_{e, k + 1}}{\Delta z_{c, k + 1}}J_{e, k + 1}u_{e, k + 1}\right)\Bigg].\label{eq:div_c-grid_shallow_terrain_concrete}
 \end{align}
 \end{center}
 }}
 \end{center}
 %
-Die Terme in der ersten Zeile entsprechen Glg. \eqref{eq:div_c-grid_shallow_no_terrain}, die Terme in den letzten beiden Gleichungen sind die orographischen Korrekturterme. Diese verschwinden m Fall $\mathbf{J} = \mathbf{0}$.
+Die Terme in der ersten Zeile entsprechen Glg. \eqref{eq:div_c-grid_shallow_no_terrain}, die Terme in den letzten beiden Gleichungen sind die orographischen Korrekturterme. Diese verschwinden m Fall $\mathbf{J} = \mathbf{0}$. Die \textcolor{blue}{blau} markierten Terme heben sich gegenseitig auf und können ignoriert werden.
 
 \subsubsection{Deep atmosphere}
 \label{sec:deep_atmosphere_div_c}
@@ -21019,16 +21018,14 @@ Aus Glg. \eqref{eq:div_c-grid_shallow_terrain_concrete} folgen
 %
 \begin{align}
 \psi\nabla\cdot\mathbf{v} &= \left[\sum_{e\in c}\left(l_e\frac{\Delta z_{e, k}\psi_{c, k}u_e}{A_c\Delta z_{c, k}}\right) + \frac{\psi_{c, k}w_{c, k - 1/2} - \psi_{c, k}w_{c, k + 1/2}}{\Delta z_{c, k}}\right]\nonumber\\
-&- \sum_{e\in c}\frac{l_ed_e}{4A_c\Delta z_{c, k}}\Bigg[\frac{1}{\Delta z_{e, k - 1/2}}\left(\frac{\Delta z_{e, k - 1}^2}{\Delta z_{c, k - 1}}J_{e, k - 1}\psi_{c, k}u_{e, k - 1} + \frac{\Delta z_{e, k}^2}{\Delta z_{c, k}}J_{e, k}\psi_{c, k}u_{e, k}\right)\nonumber\\
-&- \frac{1}{\Delta z_{e, k + 1/2}}\left(\frac{\Delta z_{e, k}^2}{\Delta z_{c, k}}J_{e, k}\psi_{c, k}u_{e, k} + \frac{\Delta z_{e, k + 1}^2}{\Delta z_{c, k + 1}}J_{e, k + 1}\psi_{c, k}u_{e, k + 1}\right)\Bigg].\label{eq:grad_c-grid_terrain_deriv_0}
+&- \sum_{e\in c}\frac{l_ed_e}{4A_c\Delta z_{c, k}}\left(\frac{\Delta z_{e, k - 1}}{\Delta z_{c, k - 1}}J_{e, k - 1}\psi_{c, k}u_{e, k - 1} - \frac{\Delta z_{e, k + 1}}{\Delta z_{c, k + 1}}J_{e, k + 1}\psi_{c, k}u_{e, k + 1}\right).\label{eq:grad_c-grid_terrain_deriv_0}
 \end{align}
 %
 und
 %
 \begin{align}
 \nabla\cdot\left(\psi\mathbf{v}\right) &= \left[\sum_{e\in c}\left(l_e\frac{\Delta z_{e, k}\left(\psi_{o(e), k} + \psi_{c, k}\right)u_e}{2A_c\Delta z_{c, k}}\right) + \frac{\left(\psi_{c, k - 1} + \psi_{c, k}\right)w_{c, k - 1/2} - \left(\psi_{c, k + 1} + \psi_{c, k}\right)w_{c, k + 1/2}}{2\Delta z_{c, k}}\right]\nonumber\\
-&- \sum_{e\in c}\frac{l_ed_e}{A_c\Delta z_{c, k}}\Bigg[\frac{1}{\Delta z_{e, k - 1/2}}\left(\frac{\Delta z_{e, k - 1}^2}{\Delta z_{c, k - 1}}J_{e, k - 1}\frac{\psi_{c, k - 1} + \psi_{o(e), k - 1}}{2}u_{e, k - 1} + \frac{\Delta z_{e, k}^2}{\Delta z_{c, k}}J_{e, k}\frac{\psi_{o(e), k} + \psi_{c, k}}{2}u_{e, k}\right)\nonumber\\
-&- \frac{1}{\Delta z_{e, k + 1/2}}\left(\frac{\Delta z_{e, k}^2}{\Delta z_{c, k}}J_{e, k}\frac{\psi_{o(e), k} + \psi_{c, k}}{2}u_{e, k} + \frac{\Delta z_{e, k + 1}^2}{\Delta z_{c, k + 1}}J_{e, k + 1}\frac{\psi_{c, k + 1} + \psi_{o(e), k + 1}}{2}u_{e, k + 1}\right)\Bigg].\label{eq:grad_c-grid_terrain_deriv_1}
+&- \sum_{e\in c}\frac{l_ed_e}{4A_c\Delta z_{c, k}}\left(\frac{\Delta z_{e, k - 1}}{\Delta z_{c, k - 1}}J_{e, k - 1}\frac{\psi_{c, k - 1} + \psi_{o(e), k - 1}}{2}u_{e, k - 1} - \frac{\Delta z_{e, k + 1}}{\Delta z_{c, k + 1}}J_{e, k + 1}\frac{\psi_{c, k + 1} + \psi_{o(e), k + 1}}{2}u_{e, k + 1}\right).\label{eq:grad_c-grid_terrain_deriv_1}
 \end{align}
 %
 Zieht man Glg. \eqref{eq:grad_c-grid_terrain_deriv_0} von Glg. \eqref{eq:grad_c-grid_terrain_deriv_1} ab, erhält man
@@ -21036,12 +21033,19 @@ Zieht man Glg. \eqref{eq:grad_c-grid_terrain_deriv_0} von Glg. \eqref{eq:grad_c-
 \begin{align}
 &\mathbf{v}\cdot\nabla\psi = \nabla\cdot\left(\psi\mathbf{v}\right) - \psi\nabla\cdot\mathbf{v}\nonumber\\
 &= \left[\sum_{e\in c}\left(l_e\frac{\Delta z_{e, k}\left(\psi_{o(e), k} - \psi_{c, k}\right)u_e}{2A_c\Delta z_{c, k}}\right) + \frac{\left(\psi_{c, k - 1} - \psi_{c, k}\right)w_{c, k - 1/2} - \left(\psi_{c, k + 1} - \psi_{c, k}\right)w_{c, k + 1/2}}{2\Delta z_{c, k}}\right]\nonumber\\
-&- \sum_{e\in c}\frac{l_ed_e}{A_c\Delta z_{c, k}}\Bigg[\frac{1}{\Delta z_{e, k - 1/2}}\left(\frac{\Delta z_{e, k - 1}^2}{\Delta z_{c, k - 1}}J_{e, k - 1}\frac{\psi_{c, k - 1} - \psi_{c, k} + \psi_{o(e), k - 1} - \psi_{c, k}}{2}\textcolor{red}{u_{e, k - 1}} + \frac{\Delta z_{e, k}^2}{\Delta z_{c, k}}J_{e, k}\frac{\psi_{o(e), k} - \psi_{c, k}}{2}u_{e, k}\right)\nonumber\\
-&- \frac{1}{\Delta z_{e, k + 1/2}}\left(\frac{\Delta z_{e, k}^2}{\Delta z_{c, k}}J_{e, k}\frac{\psi_{o(e), k} - \psi_{c, k}}{2}u_{e, k} + \frac{\Delta z_{e, k + 1}^2}{\Delta z_{c, k + 1}}J_{e, k + 1}\frac{\psi_{c, k + 1} - \psi_{c, k} + \psi_{o(e), k + 1} - \psi_{c, k}}{2}\textcolor{red}{u_{e, k + 1}}\right)\Bigg]\nonumber\\
+&- \sum_{e\in c}\frac{l_ed_e}{A_c\Delta z_{c, k}}\left(\frac{\Delta z_{e, k - 1}}{\Delta z_{c, k - 1}}J_{e, k - 1}\frac{\psi_{c, k - 1} + \psi_{o(e), k - 1} - 2\psi_{c, k}}{2}\textcolor{red}{u_{e, k - 1}} - \frac{\Delta z_{e, k + 1}}{\Delta z_{c, k + 1}}J_{e, k + 1}\frac{\psi_{c, k + 1} + \psi_{o(e), k + 1} - 2\psi_{c, k}}{2}\textcolor{red}{u_{e, k + 1}}\right)\nonumber\\
 &\stackrel{\text{Glg. }\eqref{eq:inner_c-grid_3d_shallow_terrain}}{\hastobe} \sum_{e\in c}\frac{l_ed_e}{2A_c\Delta z_{c, k}}\Delta z_{e, k}\left(\nabla\psi\right)_eu_e + \frac{\Delta z_{c, k - 1/2}}{2\Delta z_{c, k}}\left(\nabla\psi\right)_{c, k - 1/2}w_{c, k - 1/2} + \frac{\Delta z_{c, k + 1/2}}{2\Delta z_{c, k}}\left(\nabla\psi\right)_{c, k + 1/2}w_{c, k + 1/2}.
 \end{align}
 %
 Die \textcolor{red}{rot} markierten Terme treten nur auf der linken Seite auf, jedoch nicht auf der rechten. $\nabla\psi$ lässt sich also in geländefolgenden Koordinaten nicht mehr so definieren, dass diese Gleichung erfüllt ist. Man könnte diese Terme eliminieren, indem man die kontravarianten Flussdichten nur über eine einseitige vertikale Rekonstruktion berechnet, was ein Widerspruch zur Forderung der Massenerhaltung wäre, da in diesem Fall der Fluss durch eine Fläche davon abhängen würde, von welcher Seite man die Fläche betrachtet. Das Problem kann also nicht exakt gelöst werden.
+
+Nichtsdestotrotz kann Erhaltung der Gesamtenergie immernoch erreicht werden. Hierfür ist es notwendig, dass sich die Identität
+%
+\begin{align}
+\int_A\psi\nabla\cdot\mathbf{v}d^3r = -\int_A\mathbf{v}\nabla\cdot\psi d^3r
+\end{align}
+%
+auf die Diskretisierung überträgt.
 
 \subsubsection{Deep atmosphere}
 \label{sec:grad_c_deep_atmosphere}
