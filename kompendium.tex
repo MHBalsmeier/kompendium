@@ -17856,82 +17856,67 @@ Nach Glg. \eqref{eq:poisson_entropy_potential_internal} gilt
 \frac{\newtilde{I}_1 - \newtilde{I}_0}{\Delta t} = G^\star\frac{\rho_1 - \rho_0}{\Delta t} + T^\star\frac{\newtilde{s}_1 - \newtilde{s}_0}{\Delta t} = G^\star\frac{\rho_1 - \rho_0}{\Delta t} + T^\star\frac{\rho_1s_1 - \rho_0s_0}{\Delta t},\label{eq:deriv_temp_evol_model_0}
 \end{align}
 %
-wobei aufgrund der Feststellungen im vorigen Abschnitt
+wobei
 %
 \begin{align}
-T^\star &\coloneqq \frac{R_d}{c^{(p)}}T_0 + \frac{c^{(v)}}{c^{(p)}}T_1,\\
-G^\star &\coloneqq \frac{R_d}{c^{(p)}}G_0 + \frac{c^{(v)}}{c^{(p)}}G_1 = R_dT_0 + c^{(v)}T_1 - \frac{R_d}{c^{(p)}}s_0T_0 - \frac{c^{(v)}}{c^{(p)}}s_1T_1
+T^\star &\coloneqq \alpha T_0 + \beta T_1,\\
+G^\star &\coloneqq \alpha G_0 + \beta G_1 = \alpha c^{(p)}T_0 + \beta c^{(p)}T_1 - \alpha s_0T_0 - \beta s_1T_1
 \end{align}
 %
-definiert wurde. Setzt man dies in Glg. \eqref{eq:deriv_temp_evol_model_0} ein, erhält man
+mit $\alpha +\beta = 1$ definiert wurde. Mit den Feststellungen im vorigen Abschnitt kann man beispielsweise
 %
 \begin{align}
-&  \frac{\newtilde{I}_1 - \newtilde{I}_0}{\Delta t} = G^\star\frac{\rho_1 - \rho_0}{\Delta t} + T^\star\frac{\newtilde{s}_1 - \newtilde{s}_0}{\Delta t}\nonumber\\
-& = \left( R_dT_0 + c^{(v)}T_1 - \frac{R_d}{c^{(p)}}s_0T_0 - \frac{c^{(v)}}{c^{(p)}}s_1T_1\right)\frac{\rho_1 - \rho_0}{\Delta t} + \left(\frac{R_d}{c^{(p)}}T_0 + \frac{c^{(v)}}{c^{(p)}}T_1\right)\frac{\rho_1s_1 - \rho_0s_0}{\Delta t}.
+\alpha\coloneqq \frac{R_d}{c^{(p)}}, && \beta\coloneqq \frac{c^{(v)}}{c^{(p)}}
+\end{align}
+%
+ansetzen. Setzt man dies in Glg. \eqref{eq:deriv_temp_evol_model_0} ein, erhält man
+%
+\begin{align}
+&\frac{\newtilde{I}_1 - \newtilde{I}_0}{\Delta t} = G^\star\frac{\rho_1 - \rho_0}{\Delta t} + T^\star\frac{\newtilde{s}_1 - \newtilde{s}_0}{\Delta t}\nonumber\\
+&= \left(\alpha c^{(p)}T_0 + \beta c^{(p)}T_1 - \alpha s_0T_0 - \beta s_1T_1\right)\frac{\rho_1 - \rho_0}{\Delta t} + \left(\alpha T_0 + \beta T_1\right)\frac{\rho_1s_1 - \rho_0s_0}{\Delta t}.
 \end{align}
 %
 Dies kann man nun mit Glg. \eqref{eq:deriv_temp_evol_model_1} gleichsetzen:
 %
 \begin{align}
-& c^{(v)}\rho_0\frac{T_1 - T_0}{\Delta t} + \textcolor{red}{c^{(v)}T_1\frac{\rho_1 - \rho_0}{\Delta t}}\nonumber\\
-& = \left( R_dT_0 + \textcolor{red}{c^{(v)}T_1} - \frac{R_d}{c^{(p)}}s_0T_0 - \frac{c^{(v)}}{c^{(p)}}s_1T_1\right)\frac{\rho_1 - \rho_0}{\Delta t} + \left(\frac{R_d}{c^{(p)}}T_0 + \frac{c^{(v)}}{c^{(p)}}T_1\right)\frac{\rho_1s_1 - \rho_0s_0}{\Delta t}
-\end{align}
-%
-Die rot markierten Terme heben sich auf, somit erhält man
-%
-\begin{align}
-c^{(v)}\rho_0\frac{T_1 - T_0}{\Delta t} = \left(R_dT_0 - \frac{R_d}{c^{(p)}}s_0T_0 - \frac{c^{(v)}}{c^{(p)}}s_1T_1\right)\frac{\rho_1 - \rho_0}{\Delta t} + \left(\frac{R_d}{c^{(p)}}T_0 + \frac{c^{(v)}}{c^{(p)}}T_1\right)\frac{\rho_1s_1 - \rho_0s_0}{\Delta t}.
-\end{align}
-%
-Alle Terme, die die Temperatur am neuen Zeitschritt $T_1$ enthalten, schreibt man nun auf die linke Seite:
-%
-\begin{align}
-&  c^{(v)}\rho_0\frac{T_1}{\Delta t} + \frac{c^{(v)}}{c^{(p)}}s_1T_1\frac{\rho_1 - \rho_0}{\Delta t} - \frac{c^{(v)}}{c^{(p)}}T_1\frac{\rho_1s_1 - \rho_0s_0}{\Delta t}\nonumber\\
-& = c^{(v)}\rho_0\frac{T_0}{\Delta t} + \left(R_dT_0 - \frac{R_d}{c^{(p)}}s_0T_0\right)\frac{\rho_1 - \rho_0}{\Delta t} + \frac{R_d}{c^{(p)}}T_0\frac{\rho_1s_1 - \rho_0s_0}{\Delta t}.
+&c^{(v)}\rho_0\frac{T_1 - T_0}{\Delta t} + c^{(v)}T_1\frac{\rho_1 - \rho_0}{\Delta t}\nonumber\\
+&=  \left(\alpha c^{(p)}T_0 + \beta c^{(p)}T_1 - \alpha s_0T_0 - \beta s_1T_1\right)\frac{\rho_1 - \rho_0}{\Delta t} + \left(\alpha T_0 + \beta T_1\right)\frac{\rho_1s_1 - \rho_0s_0}{\Delta t}
 \end{align}
 %
 Die Zeitdifferenz lässt sich herauskürzen:
 %
 \begin{align}
-&  c^{(v)}\rho_0T_1 + \frac{c^{(v)}}{c^{(p)}}s_1T_1\left(\rho_1 - \rho_0\right) - \frac{c^{(v)}}{c^{(p)}}T_1\left(\rho_1s_1 - \rho_0s_0\right)\nonumber\\
-& = c^{(v)}\rho_0T_0 + \left(R_dT_0 - \frac{R_d}{c^{(p)}}s_0T_0\right)\left(\rho_1 - \rho_0\right) + \frac{R_d}{c^{(p)}}T_0\left(\rho_1s_1 - \rho_0s_0\right).
+&c^{(v)}\rho_0\left(T_1 - T_0\right) + c^{(v)}T_1\left(\rho_1 - \rho_0\right)\nonumber\\
+&= \left(\alpha c^{(p)}T_0 + \beta c^{(p)}T_1 - \alpha s_0T_0 - \beta s_1T_1\right)\left(\rho_1 - \rho_0\right) + \left(\alpha T_0 + \beta T_1\right)\left(\rho_1s_1 - \rho_0s_0\right)
 \end{align}
 %
-Ausklammern von $T_1$ und Einsetzen von $\Delta\psi\ \coloneqq \psi_1 - \psi_0$ ergibt
+Alle Terme, die die Temperatur am neuen Zeitschritt $T_1$ enthalten, schreibt man nun auf die linke Seite:
 %
 \begin{align}
-T_1\left(c^{(v)}\rho_0 + \frac{c^{(v)}}{c^{(p)}}s_1\Delta\rho - \frac{c^{(v)}}{c^{(p)}}\Delta\newtilde{s}\right) = c^{(v)}\rho_0T_0 + \left(R_dT_0 - \frac{R_d}{c^{(p)}}s_0T_0\right)\Delta\rho + \frac{R_d}{c^{(p)}}T_0\Delta\newtilde{s}
+&c^{(v)}\rho_0T_1 + c^{(v)}T_1\left(\rho_1 - \rho_0\right) + \left(\beta s_1T_1 - \beta c^{(p)}T_1\right)\left(\rho_1 - \rho_0\right) - \beta T_1\left(\rho_1s_1 - \rho_0s_0\right)\nonumber\\
+&= c^{(v)}\rho_0T_0 + \left(\alpha c^{(p)}T_0 - \alpha s_0T_0\right)\left(\rho_1 - \rho_0\right) + \alpha T_0\left(\rho_1s_1 - \rho_0s_0\right)
 \end{align}
 %
-Umstellen ergibt die energetisch konsistente Evolutionsgleichung für die Temperatur:
+Ausklammern von $T_1$ und Einsetzen von $\Delta\psi\ \coloneqq \psi_1 - \psi_0$ für $\psi = \rho, \newtilde{s}$ ergibt
+%
+\begin{align}
+&T_1\left[c^{(v)}\rho_0 + \left(c^{(v)} + \beta s_1 - \beta c^{(p)}\right)\Delta\rho - \beta\Delta\newtilde{s}\right]\nonumber\\
+&= c^{(v)}\rho_0T_0 + \left(\alpha c^{(p)}T_0 - \alpha s_0T_0\right)\Delta\rho + \alpha T_0\Delta\newtilde{s}
+\end{align}
+%
+Umstellen ergibt eine Evolutionsgleichung für die Temperatur:
 %
 \begin{center}
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-T_1 & = \frac{c^{(v)}\rho_0T_0 + \left(R_dT_0 - \frac{R_d}{c^{(p)}}s_0T_0\right)\Delta\rho + \frac{R_d}{c^{(p)}}T_0\Delta\newtilde{s}}{c^{(v)}\rho_0 + \frac{c^{(v)}}{c^{(p)}}s_1\Delta\rho - \frac{c^{(v)}}{c^{(p)}}\Delta\newtilde{s}}
+T_1 & = \frac{c^{(v)}\rho_0T_0 + \left(\alpha c^{(p)}T_0 - \alpha s_0T_0\right)\Delta\rho + \alpha T_0\Delta\newtilde{s}}{c^{(v)}\rho_0 + \left(\textcolor{red}{c^{(v)}} + \beta s_1\textcolor{red}{- \beta c^{(p)}}\right)\Delta\rho - \beta\Delta\newtilde{s}}
 \end{align}
 \end{center}
 }}
 \end{center}
 %
-Indem man die Ersetzung $d \to h$ vornimmt, erhält man die entsprechende Gleichung für feuchte Luft, bzw. allgemeine Gemische idealer Gase:
-%
-\begin{align}
-T_1 & = \frac{c_h^{(v)}\rho_0T_0 + \left(R_hT_0 - \frac{R_h}{c_h^{(p)}}s_0T_0\right)\Delta\rho + \frac{R_h}{c_h^{(p)}}T_0\Delta\newtilde{s}}{c_h^{(v)}\rho_0 + \frac{c_h^{(v)}}{c_h^{(p)}}s_1\Delta\rho - \frac{c_h^{(v)}}{c_h^{(p)}}\Delta\newtilde{s}}
-\end{align}
-%
-Hierbei sind
-%
-\begin{align}
-\rho = \rho_d + \rho_v
-\end{align}
-%
-und
-%
-\begin{align}
-\newtilde{s} = \newtilde{s}_d + \newtilde{s}_v.
-\end{align}
+Im Fall $\beta = \frac{c^{(v)}}{c^{(p)}}$ heben sich die \textcolor{red}{rot} markierten Terme gegenseitig auf.
 
 \chapter{\normalfont\textsc{Auswahl einer zukunftsfähigen horizontalen Diskretisierung}}
 \label{sec:auswahl_einer_zukunftsfaehigen_horizontalen_diskretisierung}
