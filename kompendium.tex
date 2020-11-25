@@ -19451,9 +19451,15 @@ Die Anwendung des Thuburn-Operators in den linearisierten shallow water equation
 %
 \begin{align}
 \frac{\partial\Phi}{\partial t} + \frac{2}{3}\Phi_0\left(\delta_1u_1 + \delta_2u_2 + \delta_3u_3\right) &= 0,\\
-\frac{\partial u_1}{\partial t} - \frac{f_0}{\sqrt{3}}\left(\newtilde{u_2}^{3} - \newtilde{u_3}^{(2)}\right) + \delta_1\Phi &= 0,\\
-\frac{\partial u_2}{\partial t} - \frac{f_0}{\sqrt{3}}\left(\newtilde{u_3}^{(1)} - \newtilde{u_1}^{3}\right) + \delta_2\Phi &= 0,\\
-\frac{\partial u_3}{\partial t} - \frac{f_0}{\sqrt{3}}\left(\newtilde{u_1}^{(2)} - \newtilde{u_2}^{(1)}\right) + \delta_3\Phi &= 0.
+\frac{\partial u_1}{\partial t} - \frac{f_0}{\sqrt{3}}\left(\newtilde{u}_2^{(3)} - \newtilde{u}_3^{(2)}\right) + \delta_1\Phi &= 0,\\
+\frac{\partial u_2}{\partial t} - \frac{f_0}{\sqrt{3}}\left(\newtilde{u}_3^{(1)} - \newtilde{u}_1^{(3)}\right) + \delta_2\Phi &= 0,\\
+\frac{\partial u_3}{\partial t} - \frac{f_0}{\sqrt{3}}\left(\newtilde{u}_1^{(2)} - \newtilde{u}_2^{(1)}\right) + \delta_3\Phi &= 0.
+\end{align}
+%
+Hieraus folgt unmittelbar
+%
+\begin{align}
+\frac{\partial}{\partial t}\left(\newtilde{u}_1^{(1)} + \newtilde{u}_2^{(2)} + \newtilde{u}_3^{(3)}\right) = 0.
 \end{align}
 %
 Die Dispersionsrelation dieses Gleichungssystems kann man analog zur Herleitung von Glg. \eqref{eq:disp_rel_hex_c} berechnen, indem man die Ersetzung
@@ -19599,6 +19605,12 @@ Wendet man den Laplace-Operator\index{Laplace-Operator} auf Glg.en \eqref{eq:hex
 \Delta u_3 & = \frac{1}{\sqrt{3}}\left(\delta_2\Delta\newtilde{\psi}^{(1)} - \delta_1\Delta \newtilde{\psi}^{(2)}\right) + \delta_3\Delta\chi.\label{eq:rhombus_curl_deriv_2}
 \end{align}
 %
+Da diskretisierte partielle Ableitungen und Mittelungsoperatoren vertauchen, folgt hieraus unmittelbar
+%
+\begin{align}
+\newtilde{\Delta u_1}^{(1)} + \newtilde{\Delta u_2}^{(2)} + \newtilde{\Delta u_3}^{(3)} = 0.
+\end{align}
+%
 Diskretisiert man die Glg.en \eqref{eq:hex_laplace_u_1} - \eqref{eq:hex_laplace_u_3}, erhält man
 %
 \begin{align}
@@ -19643,7 +19655,7 @@ Für die Vorticities $\zeta_i$ macht man, motiviert durch die Glg.en \eqref{eq:h
 \zeta_3 &= \frac{2}{\sqrt{3}}\left(\delta_1u_2 - \delta_2u_1\right).\label{eq:hex_curl_rhombus_2}
 \end{align}
 %
-Setzt man Glg. \eqref{eq:hex_curl_rhombus_0} in Glg \eqref{eq:hex_laplace_vec_0} ein, erhält man
+Setzt man Glg. \eqref{eq:hex_curl_rhombus_0} in Glg. \eqref{eq:hex_laplace_vec_0} ein, erhält man
 %
 \begin{align}
 \Delta u_1 & = \frac{2}{3}\left(\delta_3\delta_3u_1 - \delta_3\delta_1u_3 - \delta_2\delta_1u_2 + \delta_2\delta_2u_1\right) + \frac{2}{3}\left(\delta_1\delta_1u_1 + \delta_1\delta_2u_2 + \delta_1\delta_3u_3\right) = \frac{2}{3}\left(\delta_1\delta_1u_1 + \delta_2\delta_2u_1 + \delta_3\delta_3u_1\right).
@@ -19674,7 +19686,7 @@ D_3 &= \frac{2}{\sqrt{3}}\left(\delta_2v_1 - \delta_1v_2\right)
 Dies wird auch durch die Diskretisierung des vektoriellen Laplace-Operators gemäß Glg. \eqref{eq:diff_op_rule_8} unterstrichen, welche
 %
 \begin{align}
-\Delta\mathbf{v} = \nabla\left(\nabla\cdot\mathbf{v}\right) - \nabla\times\left(\nabla\times\mathbf{v}\right)s
+\Delta\mathbf{v} = \nabla\left(\nabla\cdot\mathbf{v}\right) - \nabla\times\left(\nabla\times\mathbf{v}\right)
 \end{align}
 %
 lautet. Wendet man dies auf die Vektorkomponente $u_1$ an, erhält man
@@ -19686,7 +19698,7 @@ lautet. Wendet man dies auf die Vektorkomponente $u_1$ an, erhält man
 Hierbei ist $D_h$ die Divergenz auf Hexagonen und $\zeta_t$ die Vorticity auf Dreicken. $\delta_{i, \perp}$ bezeichnet den zentralen Differenzenquotienten in $\mathbf{j}_1-$Richtung. Für diesen gilt
 %
 \begin{align}
--\delta_{i, \perp} &= \frac{\sqrt{3}}{d}\left(\zeta_{t, l} - \zeta_{t, u}\right).
+-\delta_{i, \perp}\zeta_t &= \frac{\sqrt{3}}{d}\left(\zeta_{t, l} - \zeta_{t, u}\right).
 \end{align}
 %
 Aus Glg. \eqref{eq:rhombus_curl_deriv_6} folgt
