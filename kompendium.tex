@@ -19451,7 +19451,7 @@ Die Anwendung des Thuburn-Operators in den linearisierten shallow water equation
 %
 \begin{align}
 \frac{\partial\Phi}{\partial t} + \frac{2}{3}\Phi_0\left(\delta_1u_1 + \delta_2u_2 + \delta_3u_3\right) &= 0,\\
-\frac{\partial u_1}{\partial t} - \frac{f_0}{\sqrt{3}}\left(\newtilde{u}_2^{(3)} - \newtilde{u}_3^{(2)}\right) + \delta_1\Phi &= 0,\\
+\frac{\partial u_1}{\partial t} - \frac{f_0}{\sqrt{3}}\left(\newtilde{u}_2^{(3)} - \newtilde{u}_3^{(2)}\right) + \delta_1\Phi &= 0,\label{eq:x_1_momentum_thuburn_c-grid}\\
 \frac{\partial u_2}{\partial t} - \frac{f_0}{\sqrt{3}}\left(\newtilde{u}_3^{(1)} - \newtilde{u}_1^{(3)}\right) + \delta_2\Phi &= 0,\\
 \frac{\partial u_3}{\partial t} - \frac{f_0}{\sqrt{3}}\left(\newtilde{u}_1^{(2)} - \newtilde{u}_2^{(1)}\right) + \delta_3\Phi &= 0.
 \end{align}
@@ -19459,7 +19459,7 @@ Die Anwendung des Thuburn-Operators in den linearisierten shallow water equation
 Hieraus folgt unmittelbar
 %
 \begin{align}
-\frac{\partial}{\partial t}\left(\newtilde{u}_1^{(1)} + \newtilde{u}_2^{(2)} + \newtilde{u}_3^{(3)}\right) = 0.
+\frac{\partial}{\partial t}\left(\newtilde{u}_1^{(1)} + \newtilde{u}_2^{(2)} + \newtilde{u}_3^{(3)}\right) = 0.\label{eq:thuburn_con_swe_c-grid}
 \end{align}
 %
 Die Dispersionsrelation dieses Gleichungssystems kann man analog zur Herleitung von Glg. \eqref{eq:disp_rel_hex_c} berechnen, indem man die Ersetzung
@@ -19781,7 +19781,7 @@ v_n \coloneqq \mathbf{n}\cdot\mathbf{v}
 die normale Geschwindigkeitskomponente an der Kante. Mit $\partial/\partial n$ werden partielle Ableitungen senkrecht zur Kante bezeichnet. Mit Glg. \eqref{eq:spat_prod_prop_0} erhält man
 %
 \begin{align}
-\mathbf{n}\cdot\left(\mathbf{k}\times\mathbf{v}\right) & = \mathbf{v}\cdot\left(\mathbf{n}\times\mathbf{k}\right) \stackrel{\text{Glg. \eqref{eq:cross_product_anticommutative}}}{=} -\mathbf{v}\cdot\left(\mathbf{k}\times\mathbf{n}\right) = -\mathbf{v}\cdot\mathbf{t} = -v_t,
+\mathbf{n}\cdot\left(\mathbf{k}\times\mathbf{v}\right) & = \mathbf{v}\cdot\left(\mathbf{n}\times\mathbf{k}\right) \stackrel{\text{Glg. \eqref{eq:cross_product_anticommutative}}}{=} -\mathbf{v}\cdot\left(\mathbf{k}\times\mathbf{n}\right) = -\mathbf{v}\cdot\mathbf{t} = -v_t,\label{eq:v_t_c-grid}
 \end{align}
 %
 dabei sind $\mathbf{t} \coloneqq \mathbf{k}\times\mathbf{n}$ der tangentiale Einheitsvektor an der Kante und
@@ -19844,6 +19844,83 @@ Außerdem fordert man, dass
 
 \subsection{Linearisierung}
 \label{sec:linearisierung}
+
+Der Vorticityflussterm der shallow water equtions lautet
+%
+\begin{align}
+-\left(f + \zeta\right)\mathbf{k}\times\mathbf{v}.
+\end{align}
+%
+Projziert man diesen auf den Normalenvektor $\mathbf{n}$ einer Kante, erhält man laut Glg. \eqref{eq:v_t_c-grid}
+%
+\begin{align}
+-\left[\left(f + \zeta\right)\mathbf{k}\times\mathbf{v}\right]\cdot\mathbf{n} &= \left(f + \zeta\right)v_t.
+\end{align}
+%
+Man linearisiert diesen Term nun in der Form
+%
+\begin{align}
+\left(f + \zeta\right)v_t \to f_0v_t + \zeta U_t,
+\end{align}
+%
+hierbei ist
+%
+\begin{align}
+U_t \coloneqq \left(\mathbf{k}\times\mathbf{n}\right)\cdot U\mathbf{i}
+\end{align}
+%
+die Projektion eines homogenen zonalen Grundstroms $U$ auf die tangentiale Richtung. Man orientiert sich nun an den Notationen aus Kap. \ref{chap:probleme_eines_dreielementigen_erzeugendensystems_einer_zweidimensionalen_menge}. Dort wurde für den Term $fv_t$ laut Glg. \eqref{eq:x_1_momentum_thuburn_c-grid} die Diskretisierung
+%
+\begin{align}
+f_0v_t \to \frac{f_0}{\sqrt{3}}\left(\newtilde{u}_2^{(3)} - \newtilde{u}_3^{(2)}\right)
+\end{align}
+%
+hergeleitet. Dies erfüllt laut Glg. \eqref{eq:thuburn_con_swe_c-grid} die Thuburn-Bedingung Glg. \eqref{eq:linear_condition_trivariate_discrete}. Für den Term $\zeta U_t$ setzt man mit
+%
+\begin{align}
+U_{t,1} &= 0,\label{eq:vorticity_flux_c-grid_ansatz_0_0}\\
+U_{t,2} &= -\zeta_2\frac{\sqrt{3}}{2}U,\label{eq:vorticity_flux_c-grid_ansatz_0_1}\\
+U_{t,3} &= -\zeta_3\frac{\sqrt{3}}{2}U\label{eq:vorticity_flux_c-grid_ansatz_0_2}
+\end{align}
+%
+an den Kanten in $x_i-$Richtung zunächst
+%
+\begin{align}
+\left(\zeta U_t\right)_1 &= 0,\\
+\left(\zeta U_t\right)_2 &= -\zeta_2\frac{\sqrt{3}}{2}U,\\
+\left(\zeta U_t\right)_3 &= -\zeta_3\frac{\sqrt{3}}{2}U
+\end{align}
+%
+an. Auch diese Terme müssen die Thuburn-Bedingung erfüllen. Man rechnet zur Überprüfung
+%
+\begin{align}
+\newtilde{\left(\zeta U_t\right)_1}^{(1)} + \newtilde{\left(\zeta U_t\right)_2}^{(2)} + \newtilde{\left(\zeta U_t\right)_3}^{(3)} &= -\frac{\sqrt{3}}{2}U\left(\newtilde{\zeta_2}^{(2)} + \newtilde{\zeta_3}^{(3)}\right) \stackrel{\text{i. A.}}{\not=} 0.
+\end{align}
+%
+Inspiriert durch Glg. \eqref{eq:x_1_momentum_thuburn_c-grid} modifizert man den Ansatz der Glg.en \eqref{eq:vorticity_flux_c-grid_ansatz_0_0} - \eqref{eq:vorticity_flux_c-grid_ansatz_0_2} zu
+%
+\begin{align}
+\left(\zeta U_t\right)_1 &= \frac{1}{\sqrt{3}}\left(-\zeta_2\frac{U}{2} + \zeta_3\frac{U}{2}\right),\\
+\left(\zeta U_t\right)_2 &= \frac{1}{\sqrt{3}}\left(-\zeta_3\frac{U}{2} + \zeta_1U\right),\\
+\left(\zeta U_t\right)_3 &= \frac{1}{\sqrt{3}}\left(-\zeta_1U + \zeta_2\frac{U}{2}\right).
+\end{align}
+%
+Hieraus folgt
+%
+\begin{align}
+\newtilde{\left(\zeta U_t\right)_1}^{(1)} + \newtilde{\left(\zeta U_t\right)_2}^{(2)} + \newtilde{\left(\zeta U_t\right)_3}^{(3)} &\propto \newtilde{\zeta_3 - \zeta_2}^{(1)} + \newtilde{2\zeta_1 - \zeta_3}^{(2)} + \newtilde{\zeta_2 - 2\zeta_1}^{(3)}\stackrel{\text{i. A.}}{\not=} 0\nonumber\\
+= -\newtilde{\zeta_2}^{(1)} + \newtilde{\zeta_3}^{(1)} - \newtilde{\zeta_3}^{(2)} + 2\newtilde{\zeta_1}^{(2)} - 2\newtilde{\zeta_1}^{(3)} + \newtilde{\zeta_2}^{(3)} &\stackrel{\text{i. A.}}{\not=} 0.
+\end{align}
+%
+Auch dieser Ansatz erfüllt die Thuburn-Bedingung also nicht. Es ist vielmehr eine vorbereitende Mittelung der Vorticities erforderlich, dies führt auf den Ansatz
+%
+\begin{align}
+\left(\zeta U_t\right)_1 &= \frac{1}{\sqrt{3}}\left(-\newoverline{\zeta_2}^{(3)}\frac{U}{2} + \newoverline{\zeta_3}^{(2)}\frac{U}{2}\right),\\
+\left(\zeta U_t\right)_2 &= \frac{1}{\sqrt{3}}\left(-\newoverline{\zeta_3}^{(1)}\frac{U}{2} + \newoverline{\zeta_1}^{(3)}U\right),\\
+\left(\zeta U_t\right)_3 &= \frac{1}{\sqrt{3}}\left(-\newoverline{\zeta_1}^{(2)}U + \newoverline{\zeta_2}^{(1)}\frac{U}{2}\right).
+\end{align}
+%
+Dies erfüllt die Thuburn-Bedingung, da Mittelungsoperatoren kommutieren. Es kann auch ein anderer als der einfache Mittelungsoperator $\newoverline{\zeta_i}^{(j)}$ verwendet werden.
 
 \subsection{Vollständiger Term}
 \label{sec:vollständiger_term}
