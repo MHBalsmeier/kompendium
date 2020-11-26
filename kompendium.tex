@@ -19736,8 +19736,8 @@ Auf dem dreieckigen C-Gitter hat ein Gradientenfeld $\mathbf{v} = \nabla\psi$ na
 %
 nicht, wie man sich leicht klarmachen kann. Daher produzieren Gradientenfelder auf dem dreieckigen C-Gitter nach Glg. \eqref{eq:checkerboard_triangular} ein Checkerboard-Pattern in der Divergenz, was unphysikalische numerische Stabilisatoren, wie zum Beispiel eine Divergenzdämpfung erfordern würde. Daher wurde dieses Gitter in Absch. \ref{sec:folgerungen_freiheitsgrade} zu Recht ausgeschlossen. Diese Erkenntnis wurde erstmals von Gassmann in \cite{gassmann_inspection} vorgebracht.
 
-\chapter{\normalfont\textsc{Generalisierte Coriolis-Kraft auf dem C-Gitter}}
-\label{chap:generalisierte_coriolis-kraft_auf_dem_c-gitter}\index{generalisierte Coriolis-Kraft}\index{Coriolis-Kraft!generalisierte}
+\chapter{\normalfont\textsc{Vorticityfluss auf dem C-Gitter}}
+\label{chap:vorticityfluss_auf_dem_c-gitter}\index{Vorticityfluss!C-Gitter}
 
 Der generalisierte Coriolis-Term\index{generalisierter Coriolis-Term}\index{Coriolis-Term!generalisierter}
 %
@@ -19839,14 +19839,35 @@ Außerdem fordert man, dass
 \item dass die global integrierte potentielle Vorticity $\int_{4\pi}h\frac{\zeta + f}{h}d\omega$ konstant ist.
 \end{enumerate}
 
-\section{Lineare SWEs auf der f-Kugel}
-\label{sec:lineare_swes_auf_der_f-kugel_geostrophie}\index{f-Kugel}
+\section{Reguläres Gitter}
+\label{sec:reguläres_gitter}
 
-\section{Nichtlineare SWEs}
-\label{sec:nichtlineare_swes_geostrophie}
+\subsection{Linearisierung}
+\label{sec:linearisierung}
+
+\subsection{Vollständiger Term}
+\label{sec:vollständiger_term}
+
+\section{Deformiertes Gitter}
+\label{sec:deformiertes_gitter}
 
 \section{Barokline Aspekte}
 \label{sec:barokline_aspekte}
+
+\chapter{\normalfont\textsc{Impulsdiffusion und Dissipation auf dem C-Gitter}}
+\label{chap:impulsdiffusion_und_dissipation_auf_dem_c-gitter}\index{Impulsdiffusion!C-Gitter}\index{Dissipation!C-Gitter}
+
+\section{Reguläres Gitter}
+\label{sec:reguläres_gitter_diff}
+
+\subsection{Linearisierung}
+\label{sec:linearisierung_diff}
+
+\subsection{Vollständiger Term}
+\label{sec:vollständiger_term_diff}
+
+\section{Deformiertes Gitter}
+\label{sec:deformiertes_gitter_diff}
 
 \chapter{\normalfont\textsc{Strahlungstransportalgorithmen}}
 \label{chap:strahlungstransportalgorithmen}\index{Strahlung!in Modellen}
@@ -21138,7 +21159,7 @@ Um Energieerhaltung\index{Energieerhaltung} auf die räumliche Diskretisierung z
 \item Es gilt $\lbrace H, H\rbrace_{\newtilde{s}} = \lbrace K, H\rbrace_{\newtilde{s}} + \lbrace I', H\rbrace_{\newtilde{s}} = 0$.
 \end{enumerate}
 %
-Der erste Punkt entspricht der Tatsache, dass die generalisierte Coriolis-Kraft keine Arbeit leistet, was bereits in Kap. \ref{chap:generalisierte_coriolis-kraft_auf_dem_c-gitter} nachgewiesen wurde. Die zweite und dritte Aussage haben rechnerisch die gleiche Voraussetzung. Hierzu addiere man die Glg.en \eqref{eq:poisson_entropy_kinetic} - \eqref{eq:poisson_entropy_potential_internal}, was auf $\lbrace H, H\rbrace = 0$ führt. Dabei wurden die folgenden beiden Tatsachen benutzt:
+Der erste Punkt entspricht der Tatsache, dass die generalisierte Coriolis-Kraft keine Arbeit leistet, was bereits in Kap. \ref{chap:vorticityfluss_auf_dem_c-gitter} nachgewiesen wurde. Die zweite und dritte Aussage haben rechnerisch die gleiche Voraussetzung. Hierzu addiere man die Glg.en \eqref{eq:poisson_entropy_kinetic} - \eqref{eq:poisson_entropy_potential_internal}, was auf $\lbrace H, H\rbrace = 0$ führt. Dabei wurden die folgenden beiden Tatsachen benutzt:
 %
 \begin{enumerate}
 \item Die Rechenregel $\nabla\cdot\left(\psi\mathbf{v}\right) = \mathbf{v}\cdot\nabla\psi + \psi\nabla\cdot\mathbf{v}$.
