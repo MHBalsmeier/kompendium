@@ -23726,7 +23726,7 @@ Im letzten Schritt wurde
 \begin{array}{c}
 u\\
 v\\0
-\end{array}\right) = -\left(u\frac{\partial u}{\partial z} + v\frac{\partial v}{\partial z}\right)\mathbf{k}  = -\frac{1}{2}\mathbf{k}\frac{\partial\mathbf{v}_h^2}{\partial z}
+\end{array}\right) = -\left(u\frac{\partial u}{\partial z} + v\frac{\partial v}{\partial z}\right)\mathbf{k}  = -\mathbf{k}\frac{\partial\mathbf{v}_h^2}{\partial z}
 \end{align}
 %
 verwendet. Glg. \eqref{eq:2dvector_invariant_u_advection} bezeichnet man als \textit{2D-vektorinvariante Form der Geschwindigkeitsadvektion}\index{2D-vektorinvariante Form der Geschwindigkeitsadvektion}\index{Geschwindigkeitsadvektion!2D-vektorinvariante Form}. Eine weitere nützliche Form hiervon  ist
@@ -23740,7 +23740,8 @@ Wegen
 %
 \begin{align}
 \left(\nabla\times\mathbf{v}\right)\times\mathbf{v}_h & = \left[\nabla\times\left(\mathbf{v}_h + w\mathbf{k}\right)\right]\times\mathbf{v}_h = \left(\nabla\times\mathbf{v}_h\right)\times\mathbf{v}_h + \left(\nabla\times w\mathbf{k}\right)\times\mathbf{v}_h\nonumber\\
-& \stackrel{\text{Glg. }\eqref{eq:rot_local}}{=} \left(\nabla\times\mathbf{v}_h\right)\times\mathbf{v}_h + \left(\frac{\partial w}{\partial y}\mathbf{i} - \frac{\partial w}{\partial x}\mathbf{j}\right)\times\mathbf{v}_h = \left(\nabla\times\mathbf{v}_h\right)\times\mathbf{v}_h + \mathbf{k}\left(\mathbf{v}_h\cdot\nabla w\right)
+& \stackrel{\text{Glg. }\eqref{eq:rot_local}}{=} \left(\nabla\times\mathbf{v}_h\right)\times\mathbf{v}_h + \left(\frac{\partial w}{\partial y}\mathbf{i} - \frac{\partial w}{\partial x}\mathbf{j}\right)\times\mathbf{v}_h = \left(\nabla\times\mathbf{v}_h\right)\times\mathbf{v}_h + \mathbf{k}\left(\mathbf{v}_h\cdot\nabla w\right)\nonumber\\
+\Rightarrow\left(\nabla\times\mathbf{v}_h\right)\times\mathbf{v}_h &= \left(\nabla\times\mathbf{v}\right)\times\mathbf{v}_h - \mathbf{k}\left(\mathbf{v}_h\cdot\nabla w\right)
 \end{align}
 %
 und
