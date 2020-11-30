@@ -16350,19 +16350,18 @@ Um einen Ansatz für die Parametrisierung von Impulsadvektion\index{Impulsadvekt
 &= \left(\frac{\mu_v}{\rho} + \frac{4\nu}{3}\right)\nabla D - \nu\nabla\times\zetabi
 \end{align}
 %
-
 Als modifizierte Begründung für diesen Ansatz kann man die folgende Analogie verwenden: Die Maxwell-Verteilung Glg. \eqref{eq:maxwellverteilung} ist isotrop. Atome und Moleküle sind im Rahmen der Navier-Stokes-Gleichungen\index{Navier-Stokes-Gleichung} subskalig. Ihre isotrope Impulsverteilung ist der Windgeschwindigkeit $\mathbf{v}$ überlagert. Dies hat die physikalische Auswirkung der Existenz der Reibungsbeschleunigung Glg. \eqref{eq:friction_acceleration} und der Dissipation Glg. \eqref{eq:dissipation}. Ist die turbulente (subskalige) Bewegung isotrop, so kann man davon ausgehen, dass die Turbulenz ähnliche Auswirkungen auf die gemittelten Größen hat. Diese Analogie gilt auch für die diffusiven Ansätze des subskaligen Transportes skalarer Größen.
 
 Zu bestimmen bleiben allerdings die effektiven Viskositäten. In einer Diskretisierung setzt man nun analog zu Glg. \eqref{eq:para_ansatz_0}
 %
 \begin{align}
-\nu_\Delta = \nu + \nu_S, \mu_{v, \Delta} = \mu_v + \mu_{v, S}
+\nu_\Delta = \nu + \nu_S,&& \mu_{v, \Delta} = \mu_v + \mu_{v, S}
 \end{align}
 %
-an.
-
+an. Hieraus folgt für die effektive Reibungsbeschleunigung
+%
 \begin{align}
-\mathbf{f}_R &= \left(\frac{\mu_{v, \Delta}}{\rho} + \frac{4\nu_{v, \Delta}}{3}\right)\nabla D - \nu_{v, \Delta}\nabla\times\zetabi\label{eq:friction_acceleration_for_discrete}
+\mathbf{f}_R &= \left(\frac{\mu_{v, \Delta}}{\rho} + \frac{4\nu_{v, \Delta}}{3}\right)\nabla D - \nu_{v, \Delta}\nabla\times\zetabi.\label{eq:friction_acceleration_for_discrete}
 \end{align}
 
 \subsection{Beispiel: Phasenübergänge}
