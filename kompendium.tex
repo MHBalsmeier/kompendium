@@ -12461,13 +12461,13 @@ Hier macht man nun folgende Näherungen:
 \item Vernachlässigung der Vertikalgeschwindigkeit bei der Berechnung der Rotation des Windfeldes
 \end{itemize}
 %
-Die so erhaltene Größe bezeichnet man mit $P_a$. Dann erhält man
+Die so erhaltene Größe bezeichnet man mit $P_i$. Dann erhält man
 %
 \begin{center}
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-P_a & = \alpha\eta\frac{\partial\theta}{\partial z} + \alpha\left[-\frac{\partial v}{\partial z}\frac{\partial\theta}{\partial x} + \frac{\partial u}{\partial z}\frac{\partial\theta}{\partial y}\right].\label{eq:pot_vort_approx}
+P_i & = \alpha\eta\frac{\partial\theta}{\partial z} + \alpha\left[-\frac{\partial v}{\partial z}\frac{\partial\theta}{\partial x} + \frac{\partial u}{\partial z}\frac{\partial\theta}{\partial y}\right].\label{eq:pot_vort_approx}
 \end{align}
 \end{center}
 }}
@@ -12476,13 +12476,13 @@ P_a & = \alpha\eta\frac{\partial\theta}{\partial z} + \alpha\left[-\frac{\partia
 In einer hydrostatischen Atmosphäre kann man in Glg. \eqref{eq:pot_vort_approx} die vertikalen Ableitungen ins p-System transformieren:
 %
 \begin{align}
-P_a & = -gf\frac{\partial\theta}{\partial p} - g\left(\frac{\partial v}{\partial x} - \frac{\partial u}{\partial y} - \frac{u\tan\left(\varphi\right)}{a}\right)\frac{\partial\theta}{\partial p} + g\left[\frac{\partial v}{\partial p}\frac{\partial\theta}{\partial x} - \frac{\partial u}{\partial p}\frac{\partial\theta}{\partial y}\right]\label{eq:pot_vort_approx_hydrostat}
+P_i & = -gf\frac{\partial\theta}{\partial p} - g\left(\frac{\partial v}{\partial x} - \frac{\partial u}{\partial y} - \frac{u\tan\left(\varphi\right)}{a}\right)\frac{\partial\theta}{\partial p} + g\left[\frac{\partial v}{\partial p}\frac{\partial\theta}{\partial x} - \frac{\partial u}{\partial p}\frac{\partial\theta}{\partial y}\right]\label{eq:pot_vort_approx_hydrostat}
 \end{align}
 %
 Transformiert man hier die horizontalen Ableitungen mit Glg. \eqref{eq:trans_gen_2} auf eine generalisierte Vertikalkoordinte $\mu$, folgt
 %
 \begin{align}
-\frac{P}{g} & = \dotsc\newvline_\mu - \left(\frac{\partial\mu}{\partial x}\right)_z\frac{\partial v}{\partial \mu}\frac{\partial\theta}{\partial p} + \left(\frac{\partial\mu}{\partial y}\right)_z\frac{\partial u}{\partial \mu}\frac{\partial\theta}{\partial p} + \frac{\partial v}{\partial p}\frac{\partial\theta}{\partial\mu}\left(\frac{\partial\mu}{\partial x}\right)_z - \frac{\partial u}{\partial p}\frac{\partial\theta}{\partial \mu}\left(\frac{\partial\mu}{\partial y}\right)_z, 
+\frac{P_i}{g} & = \dotsc\newvline_\mu - \left(\frac{\partial\mu}{\partial x}\right)_z\frac{\partial v}{\partial \mu}\frac{\partial\theta}{\partial p} + \left(\frac{\partial\mu}{\partial y}\right)_z\frac{\partial u}{\partial \mu}\frac{\partial\theta}{\partial p} + \frac{\partial v}{\partial p}\frac{\partial\theta}{\partial\mu}\left(\frac{\partial\mu}{\partial x}\right)_z - \frac{\partial u}{\partial p}\frac{\partial\theta}{\partial \mu}\left(\frac{\partial\mu}{\partial y}\right)_z, 
 \end{align}
 %
 wobei die formal zu Glg. \eqref{eq:pot_vort_approx_hydrostat} gleichen Terme abgekürzt wurden. Die formal neuen Terme verschwinden in den beiden Fällen $\mu = p, \theta$. Somit kann man für die potentielle Vorticity notieren
@@ -12491,7 +12491,7 @@ wobei die formal zu Glg. \eqref{eq:pot_vort_approx_hydrostat} gleichen Terme abg
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-P_a & = -g\eta_p\frac{\partial\theta}{\partial p} + g\left[\frac{\partial v}{\partial p}\left(\frac{\partial\theta}{\partial x}\right)_p - \frac{\partial u}{\partial p}\left(\frac{\partial\theta}{\partial y}\right)_p\right],\label{eq:pv_a_trans}
+P_i & = -g\eta_p\frac{\partial\theta}{\partial p} + g\left[\frac{\partial v}{\partial p}\left(\frac{\partial\theta}{\partial x}\right)_p - \frac{\partial u}{\partial p}\left(\frac{\partial\theta}{\partial y}\right)_p\right],\label{eq:pv_a_trans}
 \end{align}
 \end{center}
 }}
@@ -12503,7 +12503,7 @@ wobei der Index $p$ bedeutet, dass partielle Ableitungen im p-System zu bilden s
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-P_a & = -g\eta_\theta\left(\frac{\partial p}{\partial\theta}\right)^{-1} \equiv \frac{\eta_\theta}{\sigma_\theta}, 
+P_i & = -g\eta_\theta\left(\frac{\partial p}{\partial\theta}\right)^{-1} \equiv \frac{\eta_\theta}{\sigma_\theta},\label{eq:ipv}
 \end{align}
 \end{center}
 }}
@@ -12521,19 +12521,19 @@ wobei die \textit{hydrostatische Stabilität im $\theta-$System}\index{hydrostat
 }}
 \end{center}
 %
-eingeführt wurde. Im barotropen Fall verschwinden in Glg. \eqref{eq:pv_a_trans} die Terme zwischen den eckigen Klammern, man erhält
+eingeführt wurde. Aufgrund der einfachen Form der Glg. \eqref{eq:ipv} bezeichet man $P_i$ auch als \textit{isentrope potentielle Vorticity}\index{isentrope potentielle Vorticity}\index{Vorticity!potentielle!isentrope}. Im barotropen Fall verschwinden in Glg. \eqref{eq:pv_a_trans} die Terme zwischen den eckigen Klammern, man erhält
 %
 \begin{center}
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-P_{a, b} & = -g\eta_p\frac{\partial\theta}{\partial p}
+P_{i, b} & = -g\eta_p\frac{\partial\theta}{\partial p}
 \end{align}
 \end{center}
 }}
 \end{center}
 %
-für die sogenannte \textit{barotrope potentielle Vorticity}\index{barotrope potentielle Vorticity}\index{Vorticity!barotrope potentielle} $P_{a, b}$.
+für die sogenannte \textit{barotrope potentielle Vorticity}\index{barotrope potentielle Vorticity}\index{Vorticity!barotrope potentielle} $P_{i, b}$.
 
 \chapter{\normalfont\textsc{Wellen und Instabilitäten}}
 \label{chap:wellen_und_instabilitaeten}\index{Welle}\index{Instabilität}
