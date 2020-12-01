@@ -11950,10 +11950,10 @@ Für den ersten Term gilt
 %
 Der Term des $\beta-$Effekts hat in mittleren Breiten eine Größenordnung von $10^{-6}$ 1/s. Daher kann man in den Extratropen die Vorticity durch die geostrophische Vorticity nähern und den Term des $\beta-$Effektes vernachlässigen.
 
-\subsection{Barotrope potentielle Vorticity}
-\label{sec:barotrope_potentielle_vorticity}\index{Vorticity!potentielle!barotrope}\index{barotrope potentielle Vorticity}
+\subsection{Inkompressible potentielle Vorticity}
+\label{sec:inkompressible_potentielle_vorticity}\index{Vorticity!potentielle!barotrope}\index{inkompressible potentielle Vorticity}
 
-In der Dynamik der SWEs ist die \textit{barotrope potentielle Vorticity} (barotrope PV) $q$ definiert durch
+In der Dynamik der SWEs ist die \textit{inkompressible potentielle Vorticity} (inkompressible PV) $q$ definiert durch
 %
 \begin{align}
 q \coloneqq\frac{\eta}{h} = \frac{\zeta + f}{h} = \frac{\mathbf{k}\cdot\left(\nabla\times\mathbf{v}\right) + f}{h}, 
@@ -11990,13 +11990,13 @@ Es gilt
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-\md{q} & = \frac{1}{h}\md{\eta} - \frac{\eta}{h^2}\md{h}\stackrel{\text{Glg. \eqref{eq:swe_1}}}{=} - \frac{\eta}{h}\nabla\cdot\mathbf{v} - \frac{\eta}{h^2}\left(-h\nabla\cdot\mathbf{v}\right) = 0.\label{eq:pv_conservation_baro}
+\md{q} & = \frac{1}{h}\md{\eta} - \frac{\eta}{h^2}\md{h}\stackrel{\text{Glg. \eqref{eq:swe_1}}}{=} - \frac{\eta}{h}\nabla\cdot\mathbf{v} - \frac{\eta}{h^2}\left(-h\nabla\cdot\mathbf{v}\right) = 0.\label{eq:pv_conservation_incompress}
 \end{align}
 \end{center}
 }}
 \end{center}
 %
-Die barotrope PV ist also eine Erhaltungsgröße. In den mittleren Breiten ist die planetare Vorticity eine Größenordnung größer als die relative, somit folgt aus der Tatsache, dass die barotrope potentielle Vorticity erhalten ist
+Die inkompressible PV ist also eine Erhaltungsgröße. In den mittleren Breiten ist die planetare Vorticity eine Größenordnung größer als die relative, somit folgt aus der Tatsache, dass die inkompressible potentielle Vorticity erhalten ist
 %
 \begin{align}
 h\downarrow \Rightarrow \left(\zeta + f\right)\downarrow \Rightarrow \zeta\downarrow, 
@@ -12004,7 +12004,7 @@ h\downarrow \Rightarrow \left(\zeta + f\right)\downarrow \Rightarrow \zeta\downa
 %
 wobei von einem postiven Vorzeichen von $f$ und somit auch von $\eta$ ausgegangen wurde. Bei negativem $f$ gilt analog, dass $\zeta$ wachsen muss. Trifft eine Westströmung also auf ein orographisches Hindernis, so entsteht antizyklonale relative Vorticity. Dies bezeichnet man als \textit{orographischen $\beta-$Effekt}\index{$\beta-$Effekt!orographischer}\index{orographischer $\beta-$Effekt}. Ein wichtiges Beispiel ist das Entstehen planetarer Wellen an den Rocky Mountains.
 
-Glg. \eqref{eq:pv_conservation_baro} kann man in der Form
+Glg. \eqref{eq:pv_conservation_incompress} kann man in der Form
 %
 \begin{align}
 \frac{\partial q}{\partial t} + \mathbf{v}\cdot\nabla h = 0
@@ -12019,7 +12019,7 @@ h\frac{\partial q}{\partial t} + h\mathbf{v}\cdot\nabla q + q\frac{\partial h}{\
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-\Leftrightarrow \frac{\partial\left(hq\right)}{\partial t} + \nabla\cdot\left(hq\mathbf{v}\right) = 0.\label{eq:pv_conservation_baro_flux}
+\Leftrightarrow \frac{\partial\left(hq\right)}{\partial t} + \nabla\cdot\left(hq\mathbf{v}\right) = 0.\label{eq:pv_conservation_incompress_flux}
 \end{align}
 \end{center}
 }}
@@ -13783,7 +13783,7 @@ Die Größe
 q_g \coloneqq f + \Delta\psi + \frac{f_0^2}{\sigma}\frac{\partial^2\psi}{\partial p^2}
 \end{align}
 %
-bezeichnet man als \textit{quasigeostrophische potentielle Vorticity}, \index{Vorticity!quasigeostrophische!potentielle}\index{quasigeostrophische potentielle Vorticity} damit lässt sich Glg. \eqref{eq:tendency_eq_pre} als
+bezeichnet man als \textit{quasigeostrophische potentielle Vorticity}\index{Vorticity!quasigeostrophische!potentielle}\index{quasigeostrophische potentielle Vorticity} oder auch \textit{pseudopotentielle Vorticity}\index{pseudopotentielle Vorticity}\index{Vorticity!pseudopotentielle}, damit lässt sich Glg. \eqref{eq:tendency_eq_pre} als
 %
 \begin{center}
 \doublebox{\parbox{0.8\textwidth}{
@@ -19801,7 +19801,7 @@ Der lineare Anteil hiervon ist
 \frac{\partial v_n}{\partial t} = -g\frac{\partial\left(h + b\right)}{\partial n} + fv_t.
 \end{align}
 %
-Die Vorticity- und Divergenzdynamik der SWEs kann in den Gleichungen \eqref{eq:swe_1} und \eqref{eq:pv_conservation_baro_flux} zusammenfassen:
+Die Vorticity- und Divergenzdynamik der SWEs kann in den Gleichungen \eqref{eq:swe_1} und \eqref{eq:pv_conservation_incompress_flux} zusammenfassen:
 %
 \begin{align}
 \frac{\partial h}{\partial t} + \nabla\cdot\left(h\mathbf{v}\right) = 0, && \frac{\partial\left(hq\right)}{\partial t} + \nabla\cdot\left(hq\mathbf{v}\right) = 0
@@ -19819,7 +19819,7 @@ folgern. Das Integral über die Divergenz der potentiellen Vorticityflussdichte\
 \frac{d}{dt}\int_{4\pi}hqd\omega & = 0.
 \end{align}
 %
-Das globale Integral der barotropen potentiellen Vorticity\index{barotrope potentielle Vorticity}\index{potentielle barotrope Vorticity}\index{Vorticity!barotrope potentielle} $q$ ist also konstant.
+Das globale Integral der inkompressible potentielle Vorticity\index{inkompressible potentielle Vorticity}\index{inkompressible potentielle Vorticity}\index{Vorticity!inkompressible potentielle} $q$ ist also konstant.
 
 Um die obigen Eingangsfragen dieses Kapitels zu beantworten, muss man sich fragen, was man damit meint, zu sagen \glqq Die Größe $x$ muss auf \textit{diese Weise} berechnet werden\grqq. Hierbei wird in diesem Kapitel von folgender Grundforderungen ausgegangen:
 %
