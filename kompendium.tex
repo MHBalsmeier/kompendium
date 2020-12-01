@@ -12420,13 +12420,16 @@ Die \textit{potentielle Vorticity} $P$ ist definiert durch
 P \coloneqq\alpha\etabi\cdot\nabla\theta, 
 \end{align}
 %
-sie entsteht also, indem man in Glg. \eqref{eq:def_pot_vorticity_gen} für $\psi$ die potentielle Temperatur $\theta$ einsetzt. Diese ist eine Funktion von Druck and spezifischem Volumen, also verschindet in Glg. \eqref{eq:ertel_vorticity_theorem} der Term mit dem Vektorprodukt. Bei adiabatischen Prozessen gilt also, 
-
+sie entsteht also, indem man in Glg. \eqref{eq:def_pot_vorticity_gen} für $\psi$ die potentielle Temperatur $\theta$ einsetzt. Diese ist eine Funktion von Druck and spezifischem Volumen, also verschindet in Glg. \eqref{eq:ertel_vorticity_theorem} der Term mit dem Vektorprodukt. Bei adiabatischen Prozessen gilt also
+%
+\begin{align}
+\frac{\partial P}{\partial t} & = -\alpha\left(\mathbf{v}\cdot\nabla\right)\left(\etabi\cdot\nabla\psi\right) - \left(\etabi\cdot\nabla\psi\right)\left(\mathbf{v}\cdot\nabla\alpha\right) + \alpha\mathbf{f}_R\cdot\nabla\theta
+\end{align}
 \begin{center}
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-\frac{\partial P}{\partial t} & = -\alpha\left(\mathbf{v}\cdot\nabla\right)\left(\etabi\cdot\nabla\psi\right) - \left(\etabi\cdot\nabla\psi\right)\left(\mathbf{v}\cdot\nabla\alpha\right) + \alpha\mathbf{f}_R\cdot\nabla\theta.
+\Leftrightarrow\frac{\partial P}{\partial t} & = -\left(\mathbf{v}\cdot\nabla\right)\left(\alpha\etabi\cdot\nabla\psi\right) + \alpha\mathbf{f}_R\cdot\nabla\theta,
 \end{align}
 \end{center}
 }}
@@ -12448,7 +12451,7 @@ Für die potentielle Vorticity gilt mit Glg. \eqref{eq:rot_local}
 %
 \begin{align}
 P & = \alpha\etabi\cdot\nabla\theta = \alpha\mathbf{f}\cdot\nabla\theta\nonumber\\
-&  + \alpha\left[\left(\frac{\partial w}{\partial y} - \frac{\partial v}{\partial z} - \frac{v}{r}\right)\frac{\partial\theta}{\partial x} + \left(\frac{\partial u}{\partial z} - \frac{\partial w}{\partial x} + \frac{u}{r}\right)\frac{\partial\theta}{\partial y} + \left(\frac{\partial v}{\partial x} - \frac{\partial u}{\partial y} - \frac{u\tan\left(\varphi\right)}{r}\right)\frac{\partial\theta}{\partial z}\right].
+&+ \alpha\left[\left(\frac{\partial w}{\partial y} - \frac{\partial v}{\partial z} - \frac{v}{r}\right)\frac{\partial\theta}{\partial x} + \left(\frac{\partial u}{\partial z} - \frac{\partial w}{\partial x} + \frac{u}{r}\right)\frac{\partial\theta}{\partial y} + \left(\frac{\partial v}{\partial x} - \frac{\partial u}{\partial y} - \frac{u\tan\left(\varphi\right)}{r}\right)\frac{\partial\theta}{\partial z}\right].
 \end{align}
 %
 Hier macht man nun folgende Näherungen:
@@ -12458,16 +12461,22 @@ Hier macht man nun folgende Näherungen:
 \item Vernachlässigung der Vertikalgeschwindigkeit bei der Berechnung der Rotation des Windfeldes
 \end{itemize}
 %
-Dann erhält man
+Die so erhaltene Größe bezeichnet man mit $P_a$. Dann erhält man
 %
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 \begin{align}
-P & = \alpha\eta\frac{\partial\theta}{\partial z} + \alpha\left[-\frac{\partial v}{\partial z}\frac{\partial\theta}{\partial x} + \frac{\partial u}{\partial z}\frac{\partial\theta}{\partial y}\right].\label{eq:pot_vort_approx}
+P_a & = \alpha\eta\frac{\partial\theta}{\partial z} + \alpha\left[-\frac{\partial v}{\partial z}\frac{\partial\theta}{\partial x} + \frac{\partial u}{\partial z}\frac{\partial\theta}{\partial y}\right].\label{eq:pot_vort_approx}
 \end{align}
+\end{center}
+}}
+\end{center}
 %
 In einer hydrostatischen Atmosphäre kann man in Glg. \eqref{eq:pot_vort_approx} die vertikalen Ableitungen ins p-System transformieren:
 %
 \begin{align}
-P & = -gf\frac{\partial\theta}{\partial p} - g\left(\frac{\partial v}{\partial x} - \frac{\partial u}{\partial y} - \frac{u\tan\left(\varphi\right)}{a}\right)\frac{\partial\theta}{\partial p} + g\left[\frac{\partial v}{\partial p}\frac{\partial\theta}{\partial x} - \frac{\partial u}{\partial p}\frac{\partial\theta}{\partial y}\right]\label{eq:pot_vort_approx_hydrostat}
+P_a & = -gf\frac{\partial\theta}{\partial p} - g\left(\frac{\partial v}{\partial x} - \frac{\partial u}{\partial y} - \frac{u\tan\left(\varphi\right)}{a}\right)\frac{\partial\theta}{\partial p} + g\left[\frac{\partial v}{\partial p}\frac{\partial\theta}{\partial x} - \frac{\partial u}{\partial p}\frac{\partial\theta}{\partial y}\right]\label{eq:pot_vort_approx_hydrostat}
 \end{align}
 %
 Transformiert man hier die horizontalen Ableitungen mit Glg. \eqref{eq:trans_gen_2} auf eine generalisierte Vertikalkoordinte $\mu$, folgt
@@ -12478,23 +12487,53 @@ Transformiert man hier die horizontalen Ableitungen mit Glg. \eqref{eq:trans_gen
 %
 wobei die formal zu Glg. \eqref{eq:pot_vort_approx_hydrostat} gleichen Terme abgekürzt wurden. Die formal neuen Terme verschwinden in den beiden Fällen $\mu = p, \theta$. Somit kann man für die potentielle Vorticity notieren
 %
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 \begin{align}
-P & = -g\eta_p\frac{\partial\theta}{\partial p} + g\left[\frac{\partial v}{\partial p}\left(\frac{\partial\theta}{\partial x}\right)_p - \frac{\partial u}{\partial p}\left(\frac{\partial\theta}{\partial y}\right)_p\right], 
+P_a & = -g\eta_p\frac{\partial\theta}{\partial p} + g\left[\frac{\partial v}{\partial p}\left(\frac{\partial\theta}{\partial x}\right)_p - \frac{\partial u}{\partial p}\left(\frac{\partial\theta}{\partial y}\right)_p\right],\label{eq:pv_a_trans}
 \end{align}
+\end{center}
+}}
+\end{center}
 %
 wobei der Index $p$ bedeutet, dass partielle Ableitungen im p-System zu bilden sind. In isentropen Koordinaten bleibt nur der erste Term bestehen, 
 %
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 \begin{align}
-P & = -g\eta_\theta\left(\frac{\partial p}{\partial\theta}\right)^{-1} \equiv \frac{\eta_\theta}{\sigma_\theta}, 
+P_a & = -g\eta_\theta\left(\frac{\partial p}{\partial\theta}\right)^{-1} \equiv \frac{\eta_\theta}{\sigma_\theta}, 
 \end{align}
+\end{center}
+}}
+\end{center}
 %
 wobei die \textit{hydrostatische Stabilität im $\theta-$System}\index{hydrostatische Stabilität im $\theta-$System}\index{$\theta-$System!hydrostatische Stabilität}, definiert durch
 %
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 \begin{align}
 \sigma_\theta \coloneqq -\frac{1}{g}\frac{\partial p}{\partial\theta}, 
 \end{align}
+\end{center}
+}}
+\end{center}
 %
-eingeführt wurde.
+eingeführt wurde. Im barotropen Fall verschwinden in Glg. \eqref{eq:pv_a_trans} die Terme zwischen den eckigen Klammern, man erhält
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+P_{a, b} & = -g\eta_p\frac{\partial\theta}{\partial p}
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+für die sogenannte \textit{barotrope potentielle Vorticity}\index{barotrope potentielle Vorticity}\index{Vorticity!barotrope potentielle} $P_{a, b}$.
 
 \chapter{\normalfont\textsc{Wellen und Instabilitäten}}
 \label{chap:wellen_und_instabilitaeten}\index{Welle}\index{Instabilität}
