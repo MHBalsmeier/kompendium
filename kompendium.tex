@@ -17599,6 +17599,41 @@ also eine andere Dispersionsrelation als im expliziten Fall. Allgemein scheint d
 \subsection{Runge-Kutta-Verfahren}
 \label{sec:runge-kutta-verfahren}\index{Runge-Kutta-Verfahren}
 
+Sei $f: \mathbb{R}^l\times\mathbb{R} \to \mathbb{R}^m$ mit $l, m \geq 1$ eine unendlich oft stetig differenzierbare Funktion, welche das Anfangswertproblem
+%
+\begin{align}
+\frac{df}{dt} = F\left[f\left(t\right)\right], && f_0 = f_0
+\end{align}
+%
+erfüllt. Sogenannte \textit{Runge-Kutta-Verfahren}\index{Runge-Kutta-Verfahren} basieren darauf, mehrere Werte für $df/dt$ zu berechnen und so zu so überlagern, dass möglich viele Glieder der Taylor-Reihe\index{Taylor-Reihe} abgedeckt werden.
+
+\subsubsection{Linearer Fall}
+\label{sec:linearer_fall}
+
+Die Taylor-Entweicklung\index{Taylor-Entweicklung} von $f$ lautet
+%
+\begin{align}
+f\left(t\right) = \sum_{k = 0}^\infty\frac{f^{(k)}\left(0\right)}{k!}t^k.
+\end{align}
+%
+Die Funktion $F$ macht aus einer Funktion $f$ deren zeitliche Ableitung, somit folgt
+%
+\begin{align}
+f\left(t\right) = \sum_{k = 0}^\infty\frac{F^k\left(0\right)}{k!}t^k
+\end{align}
+%
+mit $F^0 = f$. Unter der Annahme, dass $F$ weiterhin linear ist, kann man dies zu
+%
+\begin{align}
+f\left(t\right) &= \sum_{k = 0}^n\frac{F^k\left(0\right)}{k!}t^k + \sum_{k = n + 1}^\infty\frac{F^k\left(0\right)}{k!}t^k\nonumber\\
+&= f_0 + tF\left\{f_0 + \frac{t}{2}F\left[f_0 + \dots + \frac{t}{n}F\left(f_0\right)\right]\right\} + O\left(t^{n + 1}\right)
+\end{align}
+%
+umformulieren. Es werden also die ersten $n$ Ableitungen von $f$ durch dieses Verfahren approximiert, was man als \textit{lineares Runge-Kutta-Verfahren dritter Ordnung}\index{Runge-Kutta-Verfahren!dritter Ordnung} bezeichnet.
+
+\subsubsection{Nichtinearer Fall}
+\label{sec:nichtlinearer_fall}
+
 \section{CFL-Kriterium}
 \label{sec:cfl-kriterium}\index{CFL-Kriterium}\index{Courant-Friedrichs-Lewy-Kriterium}
 
