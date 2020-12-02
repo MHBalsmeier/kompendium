@@ -19809,8 +19809,8 @@ Auf dem dreieckigen C-Gitter hat ein Gradientenfeld $\mathbf{v} = \nabla\psi$ na
 %
 nicht, wie man sich leicht klarmachen kann. Daher produzieren Gradientenfelder auf dem dreieckigen C-Gitter nach Glg. \eqref{eq:checkerboard_triangular} ein Checkerboard-Pattern in der Divergenz, was unphysikalische numerische Stabilisatoren, wie zum Beispiel eine Divergenzdämpfung erfordern würde. Daher wurde dieses Gitter in Absch. \ref{sec:folgerungen_freiheitsgrade} zu Recht ausgeschlossen. Diese Erkenntnis wurde erstmals von Gassmann in \cite{gassmann_inspection} vorgebracht.
 
-\chapter{\normalfont\textsc{Vorticityfluss auf dem C-Gitter}}
-\label{chap:vorticityfluss_auf_dem_c-gitter}\index{Vorticityfluss!C-Gitter}
+\chapter{\normalfont\textsc{Vorticityfluss auf dem hexagonalen C-Gitter}}
+\label{chap:vorticityfluss_auf_dem_hexagonalen_c-gitter}\index{Vorticityfluss!hexagonales C-Gitter}
 
 Der generalisierte Coriolis-Term\index{generalisierter Coriolis-Term}\index{Coriolis-Term!generalisierter}
 %
@@ -20031,26 +20031,169 @@ Dies erfüllt die Thuburn-Bedingung, da Mittelungsoperatoren kommutieren. Es kan
 
 
 
-\chapter{\normalfont\textsc{Impulsdiffusion und Dissipation auf dem C-Gitter}}
-\label{chap:impulsdiffusion_und_dissipation_auf_dem_c-gitter}\index{Impulsdiffusion!C-Gitter}\index{Dissipation!C-Gitter}
+\chapter{\normalfont\textsc{Impulsdiffusion und Dissipation auf dem hexagonalen C-Gitter}}
+\label{chap:impulsdiffusion_und_dissipation_auf_dem_hexagonalen_c-gitter}\index{Impulsdiffusion!hexagonales C-Gitter}\index{Dissipation!hexagonales C-Gitter}
+
+Ziel dieses Kapitels ist, die Impulsdiffusion und Dissipation auf dem dreidimensionalen deformierten C-Gitter zu diskretisieren.
 
 \section{Reguläres Gitter}
 \label{sec:reguläres_gitter_diff}
 
-\subsection{Linearisierung}
-\label{sec:linearisierung_diff}
-
-
-
-\subsection{Vollständiger Term}
-\label{sec:vollständiger_term_diff}
-
-
+Zunächst geht es darum, die Impulsdiffusion im Rahmen der shallow water equations auf dem zweidimensionalen regulären hexagonalen Gitter zu diskretisieren. Im zweidimensionalen Fall kann man laut Glg. \eqref{eq:stress-tensor} für die Reibungsbeschleunigung schreiben
+%
+\begin{align}
+\frac{\partial\mathbf{v}_\text{diff}}{\partial t} = \frac{1}{h}\nabla\cdot\left[2K\left(\begin{array}{cc}
+S_{1, 1} & S_{1, 2}\\
+S_{2, 1} & S_{2, 2}
+\end{array}\right)\right] = \frac{1}{h}\nabla\cdot\left[K\left(\begin{array}{cc}
+2\frac{\partial v_1}{\partial x_1} & \frac{\partial v_1}{\partial x_2} + \frac{\partial v_2}{\partial x_1}\\
+\frac{\partial v_2}{\partial x_1} + \frac{\partial v_1}{\partial x_2} & 2\frac{\partial v_2}{\partial x_2}
+\end{array}\right)\right].\label{eq:momentum_diff_hex_deriv_0}
+\end{align}
+%
+Hierbei wurde die Dichte $\rho$ durch die Schichtdicke $h$ ersetzt, $K$ ist ein allgemeiner massengewichteter Diffusionskoeffizient. Die dreidimensionale Divergenz $\nabla\cdot\mathbf{v}$ verschwindet im inkompressiblen Fall. Als Ansatz für die Diskretisierung verwendet man
+%
+\begin{align}
+\frac{\partial\mathbf{v}^T_\text{diff}}{\partial t} = \left(\delta_1, \delta_2, \delta_3\right)\cdot\overleftrightarrow{\tau} = \left(\delta_1, \delta_2, \delta_3\right)\cdot\left(
+\begin{array}{ccc}
+\tau_{1, 1} & \tau_{1, 2} & \tau_{1, 3}\\
+\tau_{2, 1} & \tau_{2, 2} & \tau_{2, 3} \\
+\tau_{3, 1} & \tau_{3, 2} & \tau_{3, 3}
+\end{array}\right)
+\end{align}
+%
+Ziel dieses Abschnittes ist es, die $\tau_{i, j}$ eindeutig zu bestimmen. Motiviert durch Glg. \eqref{eq:momentum_diff_hex_deriv_0} fordert man die Symmetrie von $\overleftrightarrow{\tau}$, also
+%
+\begin{align}
+\tau_{i, j} = \tau_{j, i}.
+\end{align}
+%
+Der Tensor $\overleftrightarrow{\tau}$ wird in mehreren modifizierenden Interationen entwickelt. Man setzt zunächst an
+%
+\begin{align}
+\overleftrightarrow{\tau} = K\left(
+\begin{array}{ccc}
+2\delta_1u_1 & \delta_2u_1 + \delta_1u_2 & \delta_3u_1 + \delta_1u_3\\
+\delta_2u_1 + \delta_1u_2 & 2\delta_2u_2 & \delta_3u_2 + \delta_2u_3 \\
+\delta_3u_1 + \delta_1u_3 & \delta_3u_2 + \delta_2u_3 & 2\delta_3u_3
+\end{array}\right).
+\end{align}
+%
+Hieraus folgt
+%
+\begin{align}
+\frac{\partial u_{1, \text{diff}}}{\partial t} &= K\left[\delta_1\left(2\delta_1u_1\right) + \delta_2\left(\delta_2u_1 + \delta_1u_2\right) + \delta_3\left(\delta_3u_1 + \delta_1u_3\right)\right]\nonumber\\
+&= K\left(\delta_{1, 1}u_1 + \delta_{1, 1}u_1 + \delta_{2, 2}u_1 + \delta_{3, 3}u_1 + \delta_{2, 1}u_2 + \delta_{3, 1}u_3\right)\nonumber\\
+&= K\left[\delta_{1, 1}u_1 + \delta_{2, 2}u_1 + \delta_{3, 3}u_1 + \delta_1\left(\delta_1u_1 + \delta_2u_2 + \delta_3u_3\right)\right] = K\left(\frac{3}{2}\Delta u_1 + \frac{3}{2}\delta_1D\right).
+\end{align}
+%
+Somit folgt aus
+%
+\begin{align}
+\overleftrightarrow{\tau} = K\left(
+\begin{array}{ccc}
+\frac{4}{3}\delta_1u_1 & \frac{2}{3}\left(\delta_2u_1 + \delta_1u_2\right) & \frac{2}{3}\left(\delta_3u_1 + \delta_1u_3\right)\\
+\frac{2}{3}\left(\delta_2u_1 + \delta_1u_2\right) & \frac{4}{3}\delta_2u_2 & \frac{2}{3}\left(\delta_3u_2 + \delta_2u_3\right) \\
+\frac{2}{3}\left(\delta_3u_1 + \delta_1u_3\right) & \frac{2}{3}\left(\delta_3u_2 + \delta_2u_3\right) & \frac{4}{3}\delta_3u_3
+\end{array}\right)
+\end{align}
+%
+für die Reibungsbeschleunigung
+%
+\begin{align}
+\frac{\partial u_{1, \text{diff}}}{\partial t} &= K\left(\Delta u_1 + \delta_1D\right).
+\end{align}
+%
+Der Term proportional zu $\delta_1D$ tritt im Rahmen der shallow water equations, da diese ein inkompressibles Medium beschreiben, nicht auf und ist daher möglichst zu eliminieren oder wenigstens zu reduzieren. Die Terme welche nicht auf der Diagonalen stehen dürfen nicht modifiziert werden, um die Symmetrie des Tensors nicht zu zerstören. Daher setzt man mit einem Parameter $0 \leq \alpha \leq 1$ an
+%
+\begin{align}
+\overleftrightarrow{\tau} &= K\left(
+\begin{array}{ccc}
+\frac{4}{3}\delta_1u_1 - \alpha D & \frac{2}{3}\left(\delta_2u_1 + \delta_1u_2\right) & \frac{2}{3}\left(\delta_3u_1 + \delta_1u_3\right)\\
+\frac{2}{3}\left(\delta_2u_1 + \delta_1u_2\right) & \frac{4}{3}\delta_2u_2 - \alpha D & \frac{2}{3}\left(\delta_3u_2 + \delta_2u_3\right) \\
+\frac{2}{3}\left(\delta_3u_1 + \delta_1u_3\right) & \frac{2}{3}\left(\delta_3u_2 + \delta_2u_3\right) & \frac{4}{3}\delta_3u_3 - \alpha D
+\end{array}\right).\nonumber\\
+&= K\left(
+\begin{array}{ccc}
+\frac{2}{3}\left(2 - \alpha\right)\delta_1u_1 - \alpha\frac{2}{3}\left(\delta_2u_2 + \delta_3u_3\right) & \frac{2}{3}\left(\delta_2u_1 + \delta_1u_2\right) & \frac{2}{3}\left(\delta_3u_1 + \delta_1u_3\right)\\
+\frac{2}{3}\left(\delta_2u_1 + \delta_1u_2\right) & \frac{2}{3}\left(2 - \alpha\right)\delta_2u_2 - \alpha\frac{2}{3}\left(\delta_1u_1 + \delta_3u_3\right) & \frac{2}{3}\left(\delta_3u_2 + \delta_2u_3\right) \\
+\frac{2}{3}\left(\delta_3u_1 + \delta_1u_3\right) & \frac{2}{3}\left(\delta_3u_2 + \delta_2u_3\right) & \frac{2}{3}\left(2 - \alpha\right)\delta_3u_3 - \alpha\frac{2}{3}\left(\delta_1u_1 + \delta_2u_2\right)
+\end{array}\right).
+\end{align}
+%
+Hieraus folgt nun
+%
+\begin{align}
+\frac{\partial u_{1, \text{diff}}}{\partial t} &= K\left[\Delta u_1 + \left(1 - \alpha\right)\delta_1D\right].
+\end{align}
+%
+Der Faktor $1 - \alpha$ sollte möglichst nahe an Null sein, also sollte $\alpha$ möglichst nah bei Eins sein. Nach Glg. \eqref{eq:dissipation} gilt für die Dissipationsrate
+%
+\begin{align}
+\frac{3}{2}h\epsilon &= \frac{2}{3}\left(2 - \alpha\right)\left(\delta_1u_1\right)^2 - \alpha\frac{2}{3}\left(\delta_1u_1\delta_2u_2 + \delta_1u_1\delta_3u_3\right) + \frac{2}{3}\left(\delta_1u_2\delta_2u_1 + \delta_1u_2\delta_1u_2\right) + \frac{2}{3}\left(\delta_1u_3\delta_3u_1 + \delta_1u_3\delta_1u_3\right)\nonumber\\
+&+ \frac{2}{3}\left(\delta_2u_1\delta_2u_1 + \delta_2u_1\delta_1u_2\right) + \frac{2}{3}\left(2 - \alpha\right)\left(\delta_2u_2\right)^2 - \alpha\frac{2}{3}\left(\delta_2u_2\delta_1u_1 + \delta_2u_2\delta_3u_3\right) + \frac{2}{3}\left(\delta_2u_3\delta_3u_2 + \delta_2u_3\delta_2u_3\right)\nonumber\\
+&+ \frac{2}{3}\left(\delta_3u_1\delta_3u_1 + \delta_3u_1\delta_1u_3\right) + \frac{2}{3}\left(\delta_3u_2\delta_3u_2 + \delta_3u_2\delta_2u_3\right) + \frac{2}{3}\left(2 - \alpha\right)\left(\delta_3u_3\right)^2 - \alpha\frac{2}{3}\left(\delta_3u_3\delta_1u_1 + \delta_3u_3\delta_2u_2\right)\nonumber\\
+&= \frac{2}{3}\left(2 - \alpha\right)\left(\delta_1u_1\right)^2 - \alpha\frac{2}{3}\left(\delta_1u_1\delta_2u_2 + \delta_1u_1\delta_3u_3\right) + \textcolor{red}{\frac{2}{3}\left(\delta_2u_1 + \delta_1u_2\right)^2} + \textcolor{red}{\frac{2}{3}\left(\delta_3u_1 + \delta_1u_3\right)^2}\nonumber\\
+&+ \frac{2}{3}\left(2 - \alpha\right)\left(\delta_2u_2\right)^2 - \alpha\frac{2}{3}\left(\delta_2u_2\delta_1u_1 + \delta_2u_2\delta_3u_3\right) + \textcolor{red}{\frac{2}{3}\left(\delta_3u_2 + \delta_2u_3\right)^2}\nonumber\\
+&+ \frac{2}{3}\left(2 - \alpha\right)\left(\delta_3u_3\right)^2 - \alpha\frac{2}{3}\left(\delta_3u_3\delta_1u_1 + \delta_3u_3\delta_2u_2\right).
+\end{align}
+%
+Die \textcolor{red}{rot} markierten Terme entstehen aus den Nicht-Diagonalelementen und sind alle quadratisch und somit nichtnegativ. Für die verbleibenden Terme gilt
+%
+\begin{align}
+&\frac{2}{3}\left(2 - \alpha\right)\left(\delta_1u_1\right)^2 - \alpha\frac{2}{3}\left(\delta_1u_1\delta_2u_2 + \delta_1u_1\delta_3u_3\right) + \frac{2}{3}\left(2 - \alpha\right)\left(\delta_2u_2\right)^2 - \alpha\frac{2}{3}\left(\delta_2u_2\delta_1u_1 + \delta_2u_2\delta_3u_3\right)\nonumber\\
+&+ \frac{2}{3}\left(2 - \alpha\right)\left(\delta_3u_3\right)^2 - \alpha\frac{2}{3}\left(\delta_3u_3\delta_1u_1 + \delta_3u_3\delta_2u_2\right)\nonumber\\
+&= \frac{2}{3}\left(2 - \alpha\right)\left(\delta_1u_1\right)^2 + \frac{2}{3}\left(2 - \alpha\right)\left(\delta_2u_2\right)^2 + \frac{2}{3}\left(2 - \alpha\right)\left(\delta_3u_3\right)^2 - \alpha\frac{4}{3}\left(\delta_1u_1\delta_2u_2 + \delta_1u_1\delta_3u_3 + \delta_2u_2\delta_3u_3\right)\nonumber\\
+&\hastobe \alpha\frac{2}{3}\left(\delta_1u_1 - \delta_2u_2\right)^2 + \alpha\frac{2}{3}\left(\delta_1u_1 - \delta_3u_3\right)^2 + \alpha\frac{2}{3}\left(\delta_2u_2 - \delta_3u_3\right)^2.
+\end{align}
+%
+Die Forderung im letzten Schritt begründet sich darauf, eine nichtnegative Dissipationsrate erhalten zu wollen. Es ergibt sich
+%
+\begin{align}
+\frac{2}{3}\left(2 - \alpha\right) = \frac{4}{3}\alpha \Leftrightarrow \frac{4}{3} - \alpha\frac{2}{3} = \frac{4}{3}\alpha \Rightarrow \frac{4}{3} = \frac{6}{3}\alpha \Leftrightarrow\alpha = \frac{2}{3}.
+\end{align}
+%
+Mit dieser Wahl von $\alpha$ tragen auch die Terme auf der Hauptdiagonalen nichtnegativ zur Dissipationsrate\index{Dissipation!hexagonales Gitter} bei und es gilt
+%
+\begin{align}
+\epsilon \geq 0.
+\end{align}
+%
+Das Ergebnis für den Reibungstensor lautet somit
+%
+\begin{align}
+\overleftrightarrow{\tau} &= K\left(
+\begin{array}{ccc}
+\frac{4}{9}\left[2\delta_1u_1 - \left(\delta_2u_2 + \delta_3u_3\right)\right] & \frac{2}{3}\left(\delta_2u_1 + \delta_1u_2\right) & \frac{2}{3}\left(\delta_3u_1 + \delta_1u_3\right)\\
+\frac{2}{3}\left(\delta_2u_1 + \delta_1u_2\right) & \frac{4}{9}\left[2\delta_2u_2 - \left(\delta_1u_1 + \delta_3u_3\right)\right] & \frac{2}{3}\left(\delta_3u_2 + \delta_2u_3\right)\\
+\frac{2}{3}\left(\delta_3u_1 + \delta_1u_3\right) & \frac{2}{3}\left(\delta_3u_2 + \delta_2u_3\right) & \frac{4}{9}\left[2\delta_3u_3 - \left(\delta_1u_1 + \delta_2u_2\right)\right]
+\end{array}\right).
+\end{align}
+%
+Die Verallgemeinerung
+%
+\begin{align}
+\overleftrightarrow{\tau} &= \left(
+\begin{array}{ccc}
+K_c\frac{4}{9}\left[2\delta_1u_1 - \left(\delta_2u_2 + \delta_3u_3\right)\right] & K_1\frac{2}{3}\left(\delta_2u_1 + \delta_1u_2\right) & K_2\frac{2}{3}\left(\delta_3u_1 + \delta_1u_3\right)\\
+K_1\frac{2}{3}\left(\delta_2u_1 + \delta_1u_2\right) & K_c\frac{4}{9}\left[2\delta_2u_2 - \left(\delta_1u_1 + \delta_3u_3\right)\right] & K_3\frac{2}{3}\left(\delta_3u_2 + \delta_2u_3\right)\\
+K_2\frac{2}{3}\left(\delta_3u_1 + \delta_1u_3\right) & K_3\frac{2}{3}\left(\delta_3u_2 + \delta_2u_3\right) & K_c\frac{4}{9}\left[2\delta_3u_3 - \left(\delta_1u_1 + \delta_2u_2\right)\right]
+\end{array}\right)
+\end{align}
+%
+zerstört keine der überprüften Aussagen.
 
 \section{Deformiertes Gitter}
 \label{sec:deformiertes_gitter_diff}
 
+\subsection{Dissipation}
+\label{sec:dissipation_hex_deformed}
 
+\section{Dreidimensionale Erweiterung}
+\label{sec:dreidimensionale_erweiterung}
+
+\subsection{Dissipation}
+\label{sec:dissipation_hex_3d}
 
 \chapter{\normalfont\textsc{Strahlungstransportalgorithmen}}
 \label{chap:strahlungstransportalgorithmen}\index{Strahlung!in Modellen}
@@ -21342,7 +21485,7 @@ Um Energieerhaltung\index{Energieerhaltung} auf die räumliche Diskretisierung z
 \item Es gilt $\lbrace H, H\rbrace_{\newtilde{s}} = \lbrace K, H\rbrace_{\newtilde{s}} + \lbrace I', H\rbrace_{\newtilde{s}} = 0$.
 \end{enumerate}
 %
-Der erste Punkt entspricht der Tatsache, dass die generalisierte Coriolis-Kraft keine Arbeit leistet, was bereits in Kap. \ref{chap:vorticityfluss_auf_dem_c-gitter} nachgewiesen wurde. Die zweite und dritte Aussage haben rechnerisch die gleiche Voraussetzung. Hierzu addiere man die Glg.en \eqref{eq:poisson_entropy_kinetic} - \eqref{eq:poisson_entropy_potential_internal}, was auf $\lbrace H, H\rbrace = 0$ führt. Dabei wurden die folgenden beiden Tatsachen benutzt:
+Der erste Punkt entspricht der Tatsache, dass die generalisierte Coriolis-Kraft keine Arbeit leistet, was bereits in Kap. \ref{chap:vorticityfluss_auf_dem_hexagonalen_c-gitter} nachgewiesen wurde. Die zweite und dritte Aussage haben rechnerisch die gleiche Voraussetzung. Hierzu addiere man die Glg.en \eqref{eq:poisson_entropy_kinetic} - \eqref{eq:poisson_entropy_potential_internal}, was auf $\lbrace H, H\rbrace = 0$ führt. Dabei wurden die folgenden beiden Tatsachen benutzt:
 %
 \begin{enumerate}
 \item Die Rechenregel $\nabla\cdot\left(\psi\mathbf{v}\right) = \mathbf{v}\cdot\nabla\psi + \psi\nabla\cdot\mathbf{v}$.
