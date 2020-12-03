@@ -11950,81 +11950,6 @@ Für den ersten Term gilt
 %
 Der Term des $\beta-$Effekts hat in mittleren Breiten eine Größenordnung von $10^{-6}$ 1/s. Daher kann man in den Extratropen die Vorticity durch die geostrophische Vorticity nähern und den Term des $\beta-$Effektes vernachlässigen.
 
-\subsection{Inkompressible potentielle Vorticity}
-\label{sec:inkompressible_potentielle_vorticity}\index{Vorticity!potentielle!barotrope}\index{inkompressible potentielle Vorticity}
-
-In der Dynamik der SWEs ist die \textit{inkompressible potentielle Vorticity} (inkompressible PV) $q$ definiert durch
-%
-\begin{align}
-q \coloneqq\frac{\eta}{h} = \frac{\zeta + f}{h} = \frac{\mathbf{k}\cdot\left(\nabla\times\mathbf{v}\right) + f}{h}, 
-\end{align}
-%
-hierbei ist $h$ die Tiefe. Nach Glg. \eqref{eq:diff_op_rule_10} gilt
-%
-\begin{align}
-\left(\mathbf{v}\cdot\nabla\right)\mathbf{v} & = \nabla k - \mathbf{v}\times\left(\nabla\times\mathbf{v}\right)
-\end{align}
-%
-mit der spezifischen kinetischen Energie $k = \frac{1}{2}\mathbf{v}^2$. Für den zweiten Term gilt mit Glg. \eqref{eq:rot_shallow}
-%
-\begin{align}
-\mathbf{v}\times\left(\nabla\times\mathbf{v}\right) & = \mathbf{v}\times\left[\frac{u\tan\left(\varphi\right)}{r}\mathbf{k} + \mathbf{k}\left(\frac{\partial v}{\partial x} - \frac{\partial u}{\partial y}\right) + \mathbf{j}\frac{\partial u}{\partial z} - \mathbf{i}\frac{\partial v}{\partial z}\right].
-\end{align}
-%
-Aufgrund des Verschwindens vertikaler Scherung im barotropen Fall gilt
-%
-\begin{align}
-\mathbf{v}\times\left(\nabla\times\mathbf{v}\right) & = \mathbf{v}\times\left[\frac{u\tan\left(\varphi\right)}{r}\mathbf{k} + \mathbf{k}\left(\frac{\partial v}{\partial x} - \frac{\partial u}{\partial y}\right)\right] = \mathbf{v}\times\mathbf{k}\left(\frac{\partial v}{\partial x} - \frac{\partial u}{\partial y} + \frac{u\tan\left(\varphi\right)}{r}\right) = \mathbf{v}\times\mathbf{k}\zeta = -\mathbf{k}\times\zeta\mathbf{v}.
-\end{align}
-%
-Die Vertikalkomponente interessiert hier nicht weiter. Nun kann man für die Impulsgleichung der Flachwassergleichungen Glg. \eqref{eq:swe_0} unter Vernachlässigung der Reibung schreiben
-%
-\begin{align}
-\frac{\partial\mathbf{v}}{\partial t} + \mathbf{k}\times\zeta\mathbf{v} & = -g\nabla\left(h + b\right) - \nabla k - f\mathbf{k}\times\mathbf{v}\nonumber\\
-\Leftrightarrow\frac{\partial\mathbf{v}}{\partial t} + qh\mathbf{k}\times\mathbf{v} & = -g\nabla\left(h + b\right) - \nabla k.
-\end{align}
-%
-Es gilt
-%
-\begin{center}
-\doublebox{\parbox{0.8\textwidth}{
-\begin{center}
-\begin{align}
-\md{q} & = \frac{1}{h}\md{\eta} - \frac{\eta}{h^2}\md{h}\stackrel{\text{Glg. \eqref{eq:swe_1}}}{=} - \frac{\eta}{h}\nabla\cdot\mathbf{v} - \frac{\eta}{h^2}\left(-h\nabla\cdot\mathbf{v}\right) = 0.\label{eq:pv_conservation_incompress}
-\end{align}
-\end{center}
-}}
-\end{center}
-%
-Die inkompressible PV ist also eine Erhaltungsgröße. In den mittleren Breiten ist die planetare Vorticity eine Größenordnung größer als die relative, somit folgt aus der Tatsache, dass die inkompressible potentielle Vorticity erhalten ist
-%
-\begin{align}
-h\text{ nimmt ab} \Rightarrow \left(\zeta + f\right)\text{ nimmt ab} \Rightarrow \zeta\text{ nimmt ab},
-\end{align}
-%
-wobei von einem positiven Vorzeichen von $f$ und somit auch von $\eta$ ausgegangen wurde. Bei negativem $f$ gilt analog, dass $\zeta$ wachsen muss. Trifft eine Westströmung also auf ein orographisches Hindernis, so entsteht antizyklonale relative Vorticity. Dies bezeichnet man als \textit{orographischen $\beta-$Effekt}\index{$\beta-$Effekt!orographischer}\index{orographischer $\beta-$Effekt}. Ein wichtiges Beispiel ist das Entstehen planetarer Wellen an den Rocky Mountains.
-
-Glg. \eqref{eq:pv_conservation_incompress} kann man in der Form
-%
-\begin{align}
-\frac{\partial q}{\partial t} + \mathbf{v}\cdot\nabla h = 0
-\end{align}
-%
-notieren. Kombiniert man dies mit Glg. \eqref{eq:swe_1}, erhält man
-%
-\begin{align}
-h\frac{\partial q}{\partial t} + h\mathbf{v}\cdot\nabla q + q\frac{\partial h}{\partial t} + qh\nabla\cdot\mathbf{v} + q\mathbf{v}\cdot\nabla h = 0\nonumber
-\end{align}
-\begin{center}
-\doublebox{\parbox{0.8\textwidth}{
-\begin{center}
-\begin{align}
-\Leftrightarrow \frac{\partial\left(hq\right)}{\partial t} + \nabla\cdot\left(hq\mathbf{v}\right) = 0.\label{eq:pv_conservation_incompress_flux}
-\end{align}
-\end{center}
-}}
-\end{center}
-
 \subsection{Helizität}
 \label{sec:helizität}\index{Helizität}
 
@@ -12534,6 +12459,81 @@ P_{i, b} & = -g\eta_p\frac{\partial\theta}{\partial p}
 \end{center}
 %
 für die sogenannte \textit{barotrope potentielle Vorticity}\index{barotrope potentielle Vorticity}\index{Vorticity!barotrope potentielle} $P_{i, b}$.
+
+\subsection{Inkompressible potentielle Vorticity}
+\label{sec:inkompressible_potentielle_vorticity}\index{Vorticity!potentielle!barotrope}\index{inkompressible potentielle Vorticity}
+
+In der Dynamik der SWEs ist die \textit{inkompressible potentielle Vorticity} (inkompressible PV) $q$ definiert durch
+%
+\begin{align}
+q \coloneqq\frac{\eta}{h} = \frac{\zeta + f}{h} = \frac{\mathbf{k}\cdot\left(\nabla\times\mathbf{v}\right) + f}{h}, 
+\end{align}
+%
+hierbei ist $h$ die Tiefe. Nach Glg. \eqref{eq:diff_op_rule_10} gilt
+%
+\begin{align}
+\left(\mathbf{v}\cdot\nabla\right)\mathbf{v} & = \nabla k - \mathbf{v}\times\left(\nabla\times\mathbf{v}\right)
+\end{align}
+%
+mit der spezifischen kinetischen Energie $k = \frac{1}{2}\mathbf{v}^2$. Für den zweiten Term gilt mit Glg. \eqref{eq:rot_shallow}
+%
+\begin{align}
+\mathbf{v}\times\left(\nabla\times\mathbf{v}\right) & = \mathbf{v}\times\left[\frac{u\tan\left(\varphi\right)}{r}\mathbf{k} + \mathbf{k}\left(\frac{\partial v}{\partial x} - \frac{\partial u}{\partial y}\right) + \mathbf{j}\frac{\partial u}{\partial z} - \mathbf{i}\frac{\partial v}{\partial z}\right].
+\end{align}
+%
+Aufgrund des Verschwindens vertikaler Scherung im barotropen Fall gilt
+%
+\begin{align}
+\mathbf{v}\times\left(\nabla\times\mathbf{v}\right) & = \mathbf{v}\times\left[\frac{u\tan\left(\varphi\right)}{r}\mathbf{k} + \mathbf{k}\left(\frac{\partial v}{\partial x} - \frac{\partial u}{\partial y}\right)\right] = \mathbf{v}\times\mathbf{k}\left(\frac{\partial v}{\partial x} - \frac{\partial u}{\partial y} + \frac{u\tan\left(\varphi\right)}{r}\right) = \mathbf{v}\times\mathbf{k}\zeta = -\mathbf{k}\times\zeta\mathbf{v}.
+\end{align}
+%
+Die Vertikalkomponente interessiert hier nicht weiter. Nun kann man für die Impulsgleichung der Flachwassergleichungen Glg. \eqref{eq:swe_0} unter Vernachlässigung der Reibung schreiben
+%
+\begin{align}
+\frac{\partial\mathbf{v}}{\partial t} + \mathbf{k}\times\zeta\mathbf{v} & = -g\nabla\left(h + b\right) - \nabla k - f\mathbf{k}\times\mathbf{v}\nonumber\\
+\Leftrightarrow\frac{\partial\mathbf{v}}{\partial t} + qh\mathbf{k}\times\mathbf{v} & = -g\nabla\left(h + b\right) - \nabla k.
+\end{align}
+%
+Es gilt
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\md{q} & = \frac{1}{h}\md{\eta} - \frac{\eta}{h^2}\md{h}\stackrel{\text{Glg. \eqref{eq:swe_1}}}{=} - \frac{\eta}{h}\nabla\cdot\mathbf{v} - \frac{\eta}{h^2}\left(-h\nabla\cdot\mathbf{v}\right) = 0.\label{eq:pv_conservation_incompress}
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+Die inkompressible PV ist also eine Erhaltungsgröße. In den mittleren Breiten ist die planetare Vorticity eine Größenordnung größer als die relative, somit folgt aus der Tatsache, dass die inkompressible potentielle Vorticity erhalten ist
+%
+\begin{align}
+h\text{ nimmt ab} \Rightarrow \left(\zeta + f\right)\text{ nimmt ab} \Rightarrow \zeta\text{ nimmt ab},
+\end{align}
+%
+wobei von einem positiven Vorzeichen von $f$ und somit auch von $\eta$ ausgegangen wurde. Bei negativem $f$ gilt analog, dass $\zeta$ wachsen muss. Trifft eine Westströmung also auf ein orographisches Hindernis, so entsteht antizyklonale relative Vorticity. Dies bezeichnet man als \textit{orographischen $\beta-$Effekt}\index{$\beta-$Effekt!orographischer}\index{orographischer $\beta-$Effekt}. Ein wichtiges Beispiel ist das Entstehen planetarer Wellen an den Rocky Mountains.
+
+Glg. \eqref{eq:pv_conservation_incompress} kann man in der Form
+%
+\begin{align}
+\frac{\partial q}{\partial t} + \mathbf{v}\cdot\nabla h = 0
+\end{align}
+%
+notieren. Kombiniert man dies mit Glg. \eqref{eq:swe_1}, erhält man
+%
+\begin{align}
+h\frac{\partial q}{\partial t} + h\mathbf{v}\cdot\nabla q + q\frac{\partial h}{\partial t} + qh\nabla\cdot\mathbf{v} + q\mathbf{v}\cdot\nabla h = 0\nonumber
+\end{align}
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\Leftrightarrow \frac{\partial\left(hq\right)}{\partial t} + \nabla\cdot\left(hq\mathbf{v}\right) = 0.\label{eq:pv_conservation_incompress_flux}
+\end{align}
+\end{center}
+}}
+\end{center}
 
 \chapter{\normalfont\textsc{Wellen und Instabilitäten}}
 \label{chap:wellen_und_instabilitaeten}\index{Welle}\index{Instabilität}
@@ -17595,6 +17595,9 @@ Daraus folgt
 \end{align}
 %
 also eine andere Dispersionsrelation als im expliziten Fall. Allgemein scheint die Stabilität der Lösung aus dem Realteil ersichtlich zu sein, während die Dispersion aus dem Imaginärteil zu folgen scheint. Schemata sind weiterhin entweder stabil ($C \leq 0$), labil ($C > 0$) oder bedingt stabil (stabil für hinreichend kleine $\Delta t$). Dies wird vom Zeitschrittverfahren beeinflusst. Der Optimalfall ist $C = 0$, er ergibt sich für das Leapfrogverfahren, daher ist dieses Verfahren das geeignetste.
+
+\subsection{Allgemeine Multischritt-Verfahren}
+\label{sec:allgemeine_multischritt-verfahren}\index{Multischritt-Verfahren}
 
 \subsection{Runge-Kutta-Verfahren}
 \label{sec:runge-kutta-verfahren}\index{Runge-Kutta-Verfahren}
