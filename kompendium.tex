@@ -17626,13 +17626,45 @@ mit $F^0 = f$. Unter der Annahme, dass $F$ weiterhin linear ist, kann man dies z
 %
 \begin{align}
 f\left(t\right) &= \sum_{k = 0}^n\frac{F^k\left(0\right)}{k!}t^k + \sum_{k = n + 1}^\infty\frac{F^k\left(0\right)}{k!}t^k\nonumber\\
-&= f_0 + tF\left\{f_0 + \frac{t}{2}F\left[f_0 + \dots + \frac{t}{n}F\left(f_0\right)\right]\right\} + O\left(t^{n + 1}\right)
+&= f_0 + tF\left\{f_0 + \frac{t}{2}F\left[f_0 + \dots + \frac{t}{n}F\left(f_0\right)\right]\right\} + O\left(t^{n + 1}\right)\label{eq:rk_lin}
 \end{align}
 %
 umformulieren. Es werden also die ersten $n$ Ableitungen von $f$ durch dieses Verfahren approximiert, was man als \textit{lineares Runge-Kutta-Verfahren dritter Ordnung}\index{Runge-Kutta-Verfahren!dritter Ordnung} bezeichnet.
 
 \subsubsection{Nichtinearer Fall}
 \label{sec:nichtlinearer_fall}
+
+Definiert man
+%
+\begin{align}
+f_1 \coloneqq \frac{t}{2}F\left[f_0 + \dots + \frac{t}{n}F\left(f_0\right)\right],
+\end{align}
+%
+kann man Glg. \eqref{eq:rk_lin} in der Form
+%
+\begin{align}
+f\left(t\right) &= f_0 + tF\left(f_0 + f_1\right) + O\left(t^{n + 1}\right)
+\end{align}
+%
+notieren. Ist die Funktion $F$, welche die Zeitentwicklung des Systems festlegt, nichtlinear, gilt nicht mehr
+%
+\begin{align}
+tF\left(f_0 + f_1\right) = tF\left(f_0\right) + tF\left(f_1\right),
+\end{align}
+%
+sondern
+%
+\begin{align}
+tF\left(f_0 + f_1\right) = tF\left(f_0\right) + tF'\left(f_0\right)f_1 + tO\left(f_1^2\right).
+\end{align}
+%
+modifizieren. Somit gilt in diesem Fall
+%
+\begin{align}
+f\left(t\right) &= f_0 + tF\left(f_0 + f_1\right) + O\left(t^3\right).
+\end{align}
+%
+Im nichtlinearen Fall ist eine Diskretisierung in Form von Glg. \eqref{eq:rk_lin} also immer zweiter Ordnung.
 
 \section{CFL-Kriterium}
 \label{sec:cfl-kriterium}\index{CFL-Kriterium}\index{Courant-Friedrichs-Lewy-Kriterium}
