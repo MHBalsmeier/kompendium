@@ -20322,10 +20322,10 @@ Hierbei sind $\alpha_B$, $\alpha_y$ zwei Gewichtungsfaktoren mit
 Da die Kostenfunktion minimert werden soll und die Wurzel streng monoton steigen ist, vereinfacht man die notation der Kostenfunktion zu
 %
 \begin{align}
-J\left(x\right) = J_B\left(x, y\right) + J_y\left(x, x_B\right) = \alpha_B\left(x - x_B\right)^2 + \alpha_y\left(x - \newhat{I}y\right)^2.
+J\left(x\right) = J_B\left(x, y\right) + J_y\left(x, x_B\right) = \frac{1}{2}\alpha_B\left(x - x_B\right)^2 + \frac{1}{2}\alpha_y\left(x - \newhat{I}y\right)^2.
 \end{align}
 %
-Die Bestimmung des Operators $\newhat{I}$ kann sehr kompliziert sein. Die Messungen sind nämlich i. A. allgemeinen nicht einfach Messungen von $\left(p, \rho, T, \mathbf{v}\right)$, welche interpoliert und mittels der Zustandsgleichung umgerechnet werden müssen, sondern es kann sich auch um Messungen von spektralen Strahldichten an einem Satelliten oder Radarreflektivitäten handeln. Für diese Größen ist es jedoch deutlich einfacher möglich, sie aus einem Modellzustand heraus zu rekonstruieren. Daher nimmt man die Ersetzung
+Der Faktor $\frac{1}{2}$ ist Konvention und ändert das Minimum der Kostenfunktion nicht. Die Bestimmung des Operators $\newhat{I}$ kann sehr kompliziert sein. Die Messungen sind nämlich i. A. allgemeinen nicht einfach Messungen von $\left(p, \rho, T, \mathbf{v}\right)$, welche interpoliert und mittels der Zustandsgleichung umgerechnet werden müssen, sondern es kann sich auch um Messungen von spektralen Strahldichten an einem Satelliten oder Radarreflektivitäten handeln. Für diese Größen ist es jedoch deutlich einfacher möglich, sie aus einem Modellzustand heraus zu rekonstruieren. Daher nimmt man die Ersetzung
 %
 \begin{align}
 \left(x - \newhat{I}y\right)^2 \to \left(y - \newhat{H}x\right)^2
@@ -20346,7 +20346,7 @@ wobei $x_0$ ein Hintergrundwert ist. Bei nur einer Messung und einer Modellvaria
 Die Kostenfunktion lautet somit
 %
 \begin{align}
-J\left(x\right) = \alpha_B\left(x - x_B\right)^2 + \alpha_y\left(y - hx\right)^2.
+J\left(x\right) = \frac{1}{2}\alpha_B\left(x - x_B\right)^2 + \frac{1}{2}\alpha_y\left(y - hx\right)^2.
 \end{align}
 %
 Die Kostenfunktion soll dimensionslos sein. Aus einer Dimensionsanalyse erhält man
@@ -20380,7 +20380,7 @@ Diese Gleichung ist auch im mehrdimensionalen Fall notwendig und hinreichend fü
 Aus Glg. \eqref{eq:3dvar_criterion} erhält man
 %
 \begin{align}
-0 = \frac{2}{\sigma_B^2}\left(x - x_B\right) - \frac{2h}{\sigma_y^2}\left(y - hx\right) \Rightarrow x = x_B + \frac{h\sigma_B^2}{\sigma_y^2}\left(y - hx\right).
+0 = \frac{1}{\sigma_B^2}\left(x - x_B\right) - \frac{h}{\sigma_y^2}\left(y - hx\right) \Rightarrow x = x_B + \frac{h\sigma_B^2}{\sigma_y^2}\left(y - hx\right).
 \end{align}
 %
 Hieraus folgen zwei interessante Grenzfälle:
@@ -20393,7 +20393,7 @@ Hieraus folgen zwei interessante Grenzfälle:
 Nun nimmt man an, dass ein Modellzustand nicht durch eine einzelne Zahl $x$, sondern durch einen Zustandsvektor $\mathbf{x}$ der Länge $N$ festgelegt wird. Für diesen Fall verallgemeinert die Kostenfunktion zu
 %
 \begin{align}
-J\left(\mathbf{x}\right) = \left(\mathbf{x} - \mathbf{x}_B\right)^T\overleftrightarrow{B}^{-1}\left(\mathbf{x} - \mathbf{x}_B\right) + \frac{1}{\sigma_y^2}\left(y - \overleftrightarrow{H}\mathbf{x}\right)^2.\label{eq:3dvar_cost_1_obs}
+J\left(\mathbf{x}\right) = \frac{1}{2}\left(\mathbf{x} - \mathbf{x}_B\right)^T\overleftrightarrow{B}^{-1}\left(\mathbf{x} - \mathbf{x}_B\right) + \frac{1}{2}\frac{1}{\sigma_y^2}\left(y - \overleftrightarrow{H}\mathbf{x}\right)^2.\label{eq:3dvar_cost_1_obs}
 \end{align}
 %
 Hierbei ist $\overleftrightarrow{B} \in \mathbb{R}^{N \times N}$ die Kovarianzmatrix der Fehler des Hintergrundzustandes. Diese Matrix hat Diagonalform, auf ihrer Hauptdiagonalen stehen die Varianzen des Hintergrundzustandes:
@@ -20433,13 +20433,13 @@ Der Operator $\overleftrightarrow{H}$ ist eine $1 \times N-$Matrix, also die Tra
 Man erhält hieraus
 %
 \begin{align}
-\left(\nabla J\right)_i = \frac{2\left(x_i - x_{i, B}\right)}{\sigma_{i, B}^2} - \frac{2h_i}{\sigma_y^2}\left(y - \sum_{j = 0}^{N - 1}h_jx_j\right).
+\left(\nabla J\right)_i = \frac{\left(x_i - x_{i, B}\right)}{\sigma_{i, B}^2} - \frac{h_i}{\sigma_y^2}\left(y - \sum_{j = 0}^{N - 1}h_jx_j\right).
 \end{align}
 %
 Dies kann man in der kompakten Form
 %
 \begin{align}
-\nabla J = 2\overleftrightarrow{B}^{-1}\left(\mathbf{x} - \mathbf{x}_B\right) - 2\frac{\overleftrightarrow{H}^T}{\sigma_y^2}\left(y - \overleftrightarrow{H}\mathbf{x}\right).
+\nabla J = \overleftrightarrow{B}^{-1}\left(\mathbf{x} - \mathbf{x}_B\right) - \frac{\overleftrightarrow{H}^T}{\sigma_y^2}\left(y - \overleftrightarrow{H}\mathbf{x}\right).
 \end{align}
 %
 notieren. Aus Glg. \eqref{eq:3dvar_criterion} folgt in diesem Fall also
@@ -20459,7 +20459,7 @@ Nun nimmt man an, dass nicht eine, sondern $M$ Beobachtungen vorliegen. Die Kost
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{eqnarray}
-J\left(\mathbf{x}\right) = \left(\mathbf{x} - \mathbf{x}_B\right)^T\overleftrightarrow{B}^{-1}\left(\mathbf{x} - \mathbf{x}_B\right) + \left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}\right)^T\overleftrightarrow{R}^{-1}\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}\right)\label{eq:3d-var_cost_function}
+J\left(\mathbf{x}\right) = \frac{1}{2}\left(\mathbf{x} - \mathbf{x}_B\right)^T\overleftrightarrow{B}^{-1}\left(\mathbf{x} - \mathbf{x}_B\right) + \frac{1}{2}\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}\right)^T\overleftrightarrow{R}^{-1}\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}\right)\label{eq:3d-var_cost_function}
 \end{eqnarray}
 \end{center}
 }}
@@ -20494,13 +20494,13 @@ Dabei wurde berücksichtigt, dass wegen
 die Matrix $\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H}$ orthogonal ist. Bildet man den Gradienten von Glg. \eqref{eq:3d-var_deriv} (in Bezug auf $\mathbf{x}$), erhält man
 %
 \begin{align}
-\nabla\left[\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}\right)^T\overleftrightarrow{R}^{-1}\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}\right)\right] &= -2\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\mathbf{y} + 2\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H}\mathbf{x} = - 2\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}\right).
+\nabla\left[\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}\right)^T\overleftrightarrow{R}^{-1}\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}\right)\right] &= -\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\mathbf{y} + \overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H}\mathbf{x} = -\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}\right).
 \end{align}
 %
 Hieraus folgt
 %
 \begin{eqnarray}
-\nabla J = 2\overleftrightarrow{B}^{-1}\left(\mathbf{x} - \mathbf{x}_B\right) - 2\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}\right).
+\nabla J = \overleftrightarrow{B}^{-1}\left(\mathbf{x} - \mathbf{x}_B\right) - \overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}\right).
 \end{eqnarray}
 %
 Aus Glg. \eqref{eq:3dvar_criterion} folgt also
