@@ -7872,17 +7872,11 @@ c^{(v)}\frac{\partial T}{\partial t} + c^{(v)}\mathbf{v}\cdot\nabla T + \frac{p}
 %
 umformen. Mit $p = \rho R_sT$ folgt
 %
-\begin{align}
-\frac{\partial T}{\partial t} + \mathbf{v}\cdot\nabla T + \frac{R_sT}{c^{(v)}}\nabla\cdot\mathbf{v} = \frac{\partial T}{\partial t} + \nabla\cdot\left(T\mathbf{v}\right) + \left(\frac{R_s}{c^{(v)}} - 1\right)T\nabla\cdot\mathbf{v} = \frac{q_T^{(V)}}{c^{(v)}\rho} - \frac{sT}{c^{(v)}\rho}q_\rho^{(V)}.
-\end{align}
-%
-Mit $R_s = c^{(p)} - c^{(v)}$ kann man dies zu
-%
 \begin{center}
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-\frac{\partial T}{\partial t} = - \nabla\cdot\left(T\mathbf{v}\right) + \left(2 - \kappa\right)T\nabla\cdot\mathbf{v} + \frac{q_T^{(V)}}{c^{(v)}\rho} - \frac{sT}{c^{(v)}\rho}q_\rho^{(V)}\label{eq:td_1_ideal_gas_partial}
+\frac{\partial T}{\partial t} + \mathbf{v}\cdot\nabla T + \frac{R_sT}{c^{(v)}}\nabla\cdot\mathbf{v} = \frac{\partial T}{\partial t} + \nabla\cdot\left(T\mathbf{v}\right) + \left(\frac{R_s}{c^{(v)}} - 1\right)T\nabla\cdot\mathbf{v} = \frac{q_T^{(V)}}{c^{(v)}\rho} - \frac{sT}{c^{(v)}\rho}q_\rho^{(V)}.\label{eq:td_1_ideal_gas_partial}
 \end{align}
 \end{center}
 }}
@@ -21752,29 +21746,29 @@ Für die Matrix $\overleftrightarrow{A}$ erhält man
 
 Um in der vertikalen Richtung nicht an das CFL-Kriterium\index{CFL-Kriterium} für Schallwellen gebunden zu sein, wird die vertikale Impulsadvektion implizit behandelt. Damit dies nicht auf ein globales nichtlineares Problem führt, muss man dies für jeden horizontalen skalaren und vektoriellen Datenpunkt separat tun.
 
-Zunächst muss festgestellt werden, welche der Terme in Entropieformulierung Schallwellen beschreiben, da diese impliizit behandelt werden müssen. Da Schallwellen adiabatisch sind, ist nicht zu erwarten, dass der Anteil des Druckgradienten, der mit dem Gradienten der Entropie zusammenhängt, nicht zu Schallwellen beiträgt. Anders ist es mit dem Gradienten der Enthalpie. Um ein geschlossenes Gleichungssystem zu erhalten, muss daher eine prognostische Gleichung für die Temperatur gefunden werden. Man notiert dazu Glg. \eqref{eq:internal_energy_prognostic} in der Form
+Zunächst muss festgestellt werden, welche der Terme in Entropieformulierung Schallwellen beschreiben, da diese impliizit behandelt werden müssen. Da Schallwellen adiabatisch sind, ist nicht zu erwarten, dass der Anteil des Druckgradienten, der mit dem Gradienten der Entropie zusammenhängt, nicht zu Schallwellen beiträgt. Anders ist es mit dem Gradienten der Enthalpie. Um ein geschlossenes Gleichungssystem zu erhalten, muss daher eine prognostische Gleichung für die Temperatur gefunden werden. Die adiabatische Form von Glg. \eqref{eq:td_1_ideal_gas_partial} lautet
 %
 \begin{align}
-\frac{\partial\newtilde{T}}{\partial t} = -\nabla\cdot\left(\newtilde{T}\mathbf{v}\right) - \frac{R_d}{c^{(v)}}\newtilde{T}\nabla\cdot\mathbf{v}
+\frac{\partial T}{\partial t} = -\nabla\cdot\left(T\mathbf{v}\right) - \left(\frac{R_d}{c^{(v)}} - 1\right)T\nabla\cdot\mathbf{v}.
 \end{align}
 %
-als Gleichung für $\newtilde{T} \coloneqq \rho T$. Der erste Term beschreibt die Advektion, diese ist für Schallwellen üblicherweise nicht relevant. Man notiert daher als eindimensionales Gleichungssystem
+Man notiert daher als eindimensionales Gleichungssystem unter Vernachlässigung von Advektion
 %
 \begin{align}
-\frac{\partial w}{\partial t} & = -c^{(p)}\frac{\partial}{\partial z}\left(\frac{\newtilde{T}}{\rho}\right),\label{eq:sound_entropy_0}\\
-\frac{\partial\newtilde{T}}{\partial t} & = -\frac{R_d}{c^{(v)}}\newtilde{T}\frac{\partial w}{\partial z}.\label{eq:sound_entropy_1}
+\frac{\partial w}{\partial t} & = -c^{(p)}\frac{\partial T}{\partial z},\label{eq:sound_entropy_0}\\
+\frac{\partial T}{\partial t} & = -\frac{R_d}{c^{(v)}}T\frac{\partial w}{\partial z}.\label{eq:sound_entropy_1}
 \end{align}
 %
 Um zu verifizieren, dass dieses tatsächlich Schallwellen beschreibt, macht man den Ansatz
 %
 \begin{align}
-w = w_1\exp\left(ikz - i\omega t\right), && \newtilde{T} = \newtilde{T}_0 + \newtilde{T}_1\exp\left(ikz - i\omega t\right).
+w = w_1\exp\left(ikz - i\omega t\right), && T = T_0 + T_1\exp\left(ikz - i\omega t\right).
 \end{align}
 %
 Die Dichte wird als homogen angenommen. Setzt man dies in die Glg.en \eqref{eq:sound_entropy_0} - \eqref{eq:sound_entropy_1} ein, folgt
 %
 \begin{align}
--i\omega w_1 = -c^{(p)}ik\frac{\newtilde{T}_1}{\rho}, && -i\omega\newtilde{T}_1 = -\frac{R_d}{c^{(v)}}\newtilde{T}_0ikw_1.
+-i\omega w_1 = -c^{(p)}ik\frac{T_1}{\rho}, && -i\omega T_1 = -\frac{R_d}{c^{(v)}}T_0ikw_1.
 \end{align}
 %
 In Matrixschreibweise erhält man
