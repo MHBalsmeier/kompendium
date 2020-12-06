@@ -12511,7 +12511,7 @@ wobei von einem positiven Vorzeichen von $f$ und somit auch von $\eta$ ausgegang
 Glg. \eqref{eq:pv_conservation_incompress} kann man in der Form
 %
 \begin{align}
-\frac{\partial q}{\partial t} + \mathbf{v}\cdot\nabla h = 0
+\frac{\partial q}{\partial t} + \mathbf{v}\cdot\nabla q = 0
 \end{align}
 %
 notieren. Kombiniert man dies mit Glg. \eqref{eq:swe_1}, erhält man
@@ -15705,8 +15705,8 @@ Man kann o. B. d. A. $u_g > 0, v_g = 0$ annehmen, dann gilt
 \doublebox{\parbox{\textwidth}{
 \begin{center}
 \begin{align}
-\newoverline{u} & = u_g - u_g\cos\left(\sqrt{\frac{\left|f\right|}{2K}}z\right)\exp\left(-\sqrt{\frac{\left|f\right|}{2K}}z\right),\\
-\newoverline{v} & = \sign\left(f\right)u_g\sin\left(\sqrt{\frac{\left|f\right|}{2K}}z\right)\exp\left(-\sqrt{\frac{\left|f\right|}{2K}}z\right).
+\newoverline{u} & = u_g - u_g\cos\left(\sqrt{\frac{\left|f\right|}{2K}}z\right)\exp\left(-\sqrt{\frac{\left|f\right|}{2K}}z\right),\label{eq:ekman_wind_u}\\
+\newoverline{v} & = \sign\left(f\right)u_g\sin\left(\sqrt{\frac{\left|f\right|}{2K}}z\right)\exp\left(-\sqrt{\frac{\left|f\right|}{2K}}z\right).\label{eq:ekman_wind_v}
 \end{align}
 \end{center}
 }}
@@ -15730,11 +15730,17 @@ $\sign\left(f\right)\rho\newoverline{v}$ ist die Massenflussdichte ins Tief hine
 In einer isothermen Atmosphäre gilt
 %
 \begin{align}
-\alpha = \sqrt{\frac{\left|f\right|}{2K}}, && \beta = -\sqrt{\frac{\left|f\right|}{2K}} - \frac{1}{H}\\
-\Rightarrow \alpha^2 + \beta^2 = \frac{\left|f\right|}{K} + \frac{1}{H^2} + \sqrt{\frac{2\left|f\right|}{KH^2}} && \Rightarrow \frac{\alpha}{\beta^2 + \alpha^2} = \frac{1}{\sqrt{\frac{2\left|f\right|}{K}} + \sqrt{\frac{2K}{\left|f\right|H^4}} + \frac{2}{H}} = \frac{H}{2 + H\sqrt{\frac{2\left|f\right|}{K}} + \sqrt{\frac{2K}{fH^2}}}.
+\alpha = \sqrt{\frac{\left|f\right|}{2K}},&& \beta = -\sqrt{\frac{\left|f\right|}{2K}} - \frac{1}{H}\\
+\Rightarrow \alpha^2 + \beta^2 = \frac{\left|f\right|}{K} + \frac{1}{H^2} + \sqrt{\frac{2\left|f\right|}{KH^2}} && \Rightarrow \frac{\alpha}{\beta^2 + \alpha^2} = \frac{1}{\sqrt{\frac{2\left|f\right|}{K}} + \sqrt{\frac{2K}{\left|f\right|H^4}} + \frac{2}{H}} = \frac{H}{2 + H\sqrt{\frac{2\left|f\right|}{K}} + \sqrt{\frac{2K}{fH^2}}}
 \end{align}
 %
-mit $H \approx 8$ km als Skalenhöhe. Die Höhe $D$, in der der Wind parallel zum geostrophischen Wind ist, verwendet man häufig als eine technische Definition der \textit{Dicke der Grenzschicht}\index{Dicke der Grenzschicht}\index{Grenzschicht!Dicke}. Es gilt
+mit $H \approx 8$ km als Skalenhöhe. Hieraus folgt
+%
+\begin{align}
+\sign\left(f\right)\int_0^\infty\rho\newoverline{v}dz = \frac{H}{2 + H\sqrt{\frac{2\left|f\right|}{K}} + \sqrt{\frac{2K}{fH^2}}}
+\end{align}
+%
+für die Massenflussdichte ins Tief hinein. Die Höhe $D$, in der der Wind parallel zum geostrophischen Wind ist, verwendet man häufig als eine technische Definition der \textit{Dicke der Grenzschicht}\index{Dicke der Grenzschicht}\index{Grenzschicht!Dicke}. Es gilt
 %
 \begin{center}
 \doublebox{\parbox{\textwidth}{
@@ -15746,7 +15752,22 @@ D & = \sqrt{\frac{2K}{\left|f\right|}}\pi
 }}
 \end{center}
 %
-Dort ist die Windgeschwindigkeit etwas höher als die geostrophische Geschwindigkeit, weshalb diese Höhe auch als \index{Gradientenwindhöhe}\textit{Gradientenwindhöhe} bezeichnet wird. Aus Beobachtungen weiß man, dass in ca. 1 km Höhe der Wind seinen geostrophischen Wert anstrebt, daraus folgt
+Dort ist die Windgeschwindigkeit etwas höher als die geostrophische Geschwindigkeit, weshalb diese Höhe auch als \index{Gradientenwindhöhe}\textit{Gradientenwindhöhe} bezeichnet wird.
+%
+Hiermit lääst sich das Gleichungssystem der Glg.en \eqref{eq:ekman_wind_u} - \eqref{eq:ekman_wind_v} in der Form
+%
+\begin{center}
+\doublebox{\parbox{\textwidth}{
+\begin{center}
+\begin{align}
+\newoverline{u} & = u_g - u_g\cos\left(\frac{\pi}{D}z\right)\exp\left(-\frac{\pi}{D}z\right),\label{eq:ekman_wind_u_mod}\\
+\newoverline{v} & = \sign\left(f\right)u_g\sin\left(\frac{\pi}{D}z\right)\exp\left(-\frac{\pi}{D}z\right).\label{eq:ekman_wind_v_mod}
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+notieren. Aus Beobachtungen weiß man, dass in ca. 1 km Höhe der Wind seinen geostrophischen Wert anstrebt, daraus folgt
 %
 \begin{align}
 K \approx \frac{\left|f\right|D^2}{2\pi^2} \approx 5\text{ m}^2/\text{s}.
@@ -15794,6 +15815,111 @@ Dies ist deutlich geringer als der in Absch. \ref{sec:reibungswind} abgeschätzt
 
 \subsection{Spin-down}
 \label{sec:spin-down}\index{Spin-down}
+
+Nimmt man Zeitunabhängigkeit der Dichte an, folgt aus der Kontinuitätsgleichung
+%
+\begin{align}
+\frac{\partial}{\partial z}\left(\rho w\right) = -\frac{\partial}{\partial x}\left(\rho u\right) - \frac{\partial}{\partial y}\left(\rho v\right).
+\end{align}
+%
+Integriert man dies unter der Annahme $w\left(z = 0\right) = 0$ von $z = 0$ bis $z = D$, erhält man
+%
+\begin{align}
+\left(\rho w\right)_D = -\int_0^D\frac{\partial}{\partial x}\left(\rho u\right) + \frac{\partial}{\partial y}\left(\rho v\right)dz.
+\end{align}
+%
+Setzt man hier Glg. \eqref{eq:ekman_wind_v_mod} ein, erhält man
+%
+\begin{align}
+\left(\rho w\right)_D = -\sign\left(f\right)\frac{\partial}{\partial y}\int_0^D\rho u_g\sin\left(\frac{\pi}{D}z\right)\exp\left(-\frac{\pi}{D}z\right)dz.
+\end{align}
+%
+Nimmt man eine homogene Dichte an, erhält man hieraus
+%
+\begin{align}
+w\left(D\right) = -\sign\left(f\right)\frac{\partial u_g}{\partial y}\int_0^D\sin\left(\frac{\pi}{D}z\right)\exp\left(-\frac{\pi}{D}z\right)dz.
+\end{align}
+%
+$\zeta_g = -\frac{\partial u_g}{\partial y}$ ist die geostrophische Vorticity, somit folgt
+%
+\begin{align}
+w\left(D\right) = \sign\left(f\right)\zeta_g\int_0^D\sin\left(\frac{\pi}{D}z\right)\exp\left(-\frac{\pi}{D}z\right)dz.
+\end{align}
+%
+Wiederum mittels partieller Integration erhält man
+%
+\begin{align}
+&\int_0^D\sin\left(\frac{\pi}{D}z\right)\exp\left(-\frac{\pi}{D}z\right)dz = -\left[\frac{D}{\pi}\cos\left(\frac{\pi}{D}z\right)\exp\left(-\frac{\pi}{D}z\right)\right]_0^D - \int_0^D\cos\left(\frac{\pi}{D}z\right)\exp\left(-\frac{\pi}{D}z\right)dz\nonumber\\
+&= \frac{D}{\pi}\left(1 + e^{-\pi}\right) - \int_0^D\cos\left(\frac{\pi}{D}z\right)\exp\left(-\frac{\pi}{D}z\right)dz\nonumber\\
+&= \frac{D}{\pi}\left(1 + e^{-\pi}\right) - \left[\frac{D}{\pi}\sin\left(\frac{\pi}{D}z\right)\exp\left(-\frac{\pi}{D}z\right)\right]_0^D - \int_0^D\sin\left(\frac{\pi}{D}z\right)\exp\left(-\frac{\pi}{D}z\right)dz\nonumber\\
+&\Rightarrow \int_0^D\sin\left(\frac{\pi}{D}z\right)\exp\left(-\frac{\pi}{D}z\right)dz = \frac{D}{2\pi}\left(1 + e^{-\pi}\right) \approx \frac{D}{2\pi} = \sqrt{\frac{K}{2f}}.
+\end{align}
+%
+Dies impliziert unter Vernachlässigung des Ungefähr-Zeichens
+%
+\begin{center}
+\doublebox{\parbox{\textwidth}{
+\begin{center}
+\begin{align}
+w\left(D\right) = \sign\left(f\right)\zeta_g\sqrt{\frac{K}{2\left|f\right|}}.\label{eq:spin-down_w}
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+Setzt man hier in SI-Einheiten $\zeta_g \sim 10^{-5}$, $f \sim 10^{-4}, K \sim 2$ ein, erhält man
+%
+\begin{align}
+w \sim 0,1 \text{ cm/s}.
+\end{align}
+%
+Die quasigeostrophische Vorticitygleichung Glg. \eqref{eq:vorticity_p_qg} lautet mit einer Transformation ins z-System unter Vernachlässigung von Advektion
+%
+\begin{align}
+\frac{\partial\zeta_g}{\partial t} = f\frac{\partial w}{\partial z}.
+\end{align}
+%
+Integriert man dies von $D$ bis zur Tropopausenhöhe $z_T$ erhält man unter der Annahme $w\left(z = z_T\right) = 0$
+%
+\begin{align}
+\int_D^{z_T}\frac{\partial\zeta_g}{\partial t}dz = -fw\left(D\right).
+\end{align}
+%
+Unter der Annahme, dass die geostrophische relative Vorticity höhenunabhängig ist, gilt
+%
+\begin{align}
+\frac{\partial\zeta_g}{\partial t} = -\frac{f}{z_T - D}w\left(D\right).
+\end{align}
+%
+Setzt man hier Glg. \eqref{eq:spin-down_w} ein, erhält man
+%
+\begin{align}
+\frac{\partial\zeta_g}{\partial t} = -\frac{\zeta_g}{z_T - D}\sqrt{\frac{K\left|f\right|}{2}} \approx -\zeta_g\sqrt{\frac{K\left|f\right|}{2z_T^2}}.
+\end{align}
+%
+Hieraus folgt, wiederum unter Vernachlässigung des Ungefähr-Zeichens,
+%
+\begin{align}
+\zeta_g\left(t\right) = \zeta_g\left(0\right)\exp\left(-\sqrt{\frac{K\left|f\right|}{2z_T^2}}t\right) = \zeta_g\left(0\right)\exp\left(-\frac{t}{\tau}\right)
+\end{align}
+%
+mit der \textit{Spin-down-Zeit}\index{Spin-down-Zeit}
+%
+\begin{center}
+\doublebox{\parbox{\textwidth}{
+\begin{center}
+\begin{align}
+\tau \coloneqq z_T\sqrt{\frac{2}{K\left|f\right|}}.
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+Setzt man hier in SI-Einheiten $z_T \sim 10^4$, $f \sim 10^{-4}, K \sim 2$ ein, erhält man
+%
+\begin{align}
+\tau \sim 10^6\text{ s} \sim 10\text{ d}.
+\end{align}
 
 \section{Isotrope Turbulenz}
 \label{sec:isotrope_turbulenz}\index{isotrope Turbulenz}\index{Turbulenz!isotrope}
