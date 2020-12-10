@@ -16971,6 +16971,44 @@ als \textit{planetarische Albedo}\index{planetarische Albedo}\index{Albedo!plane
 \subsection{Ein-Schicht-Atmosphäre}
 \label{sec:ein-schicht-atmosphäre}
 
+Nun nimmt man eine homogene Atmosphäre, welche aus nur einer einzigen Schicht besteht, in das Modell auf. Atmosphärische Eigenschaften werden mit dem Index $A$ bezeichnet, während Oberflächeneigenschaften mit dem Index $S$ bezeichnet werden. Jede Teilkomponente des Systems (Atmosphäre, Oberfläche) befindet sich im thermischen Gleichgewicht. Somit lautet das geltende Gleichungssystem
+%
+\begin{align}
+S_A^{(\text{in})} &= S_A^{(\text{out})} \Leftrightarrow S_{A, \text{SW}}^{(\text{in})} + S_{A, \text{LW}}^{(\text{in})} = S_{A, \text{SW}}^{(\text{out})} + S_{A, \text{LW}}^{(\text{out})},\\
+S_S^{(\text{in})} &= S_S^{(\text{out})} \Leftrightarrow S_{S, \text{SW}}^{(\text{in})} + S_{S, \text{LW}}^{(\text{in})} = S_{S, \text{SW}}^{(\text{out})} + S_{S, \text{LW}}^{(\text{out})}.
+\end{align}
+%
+Setzt man die Strahlungsflussdichten ein, erhält man
+%
+\begin{align}
+0 + \epsilon_{A, \text{LW}}\epsilon_{S, \text{LW}}\sigma T_S^4 &= 0 + 2\epsilon_{A, \text{LW}}\sigma T_A^4,\\
+\left(1 - \alpha_{S, \text{SW}}\right)\frac{S_0}{4\pi} + \epsilon_{A, \text{LW}}\sigma T_A^4 &= \epsilon_{S, \text{LW}}\sigma T_S^4.
+\end{align}
+%
+Dabei wurde angenommen, dass die Atmosphäre nicht mit der kurzwelligen Strahlung wechselwirkt, sondern die kurzwellige Strahlung an der Erdoberfläche relektiert wird. Äquivalenzumformungen ergeben
+%
+\begin{align}
+T_A^4 &= \frac{\epsilon_{S, \text{LW}}}{2}T_S^4,\label{eq:rad_single_layer_deriv_0}\\
+\epsilon_{S, \text{LW}}\sigma T_S^4 - \epsilon_{A, \text{LW}}\sigma T_A^4 &= \left(1 - \alpha_{S, \text{SW}}\right)\frac{S_0}{4\pi}.\label{eq:rad_single_layer_deriv_1}
+\end{align}
+%
+Setzt man Glg. \eqref{eq:rad_single_layer_deriv_0} in Glg. \eqref{eq:rad_single_layer_deriv_1} ein, erhält man
+%
+\begin{align}
+\epsilon_{S, \text{LW}}\sigma T_S^4 - \epsilon_{A, \text{LW}}\sigma\frac{\epsilon_{S, \text{LW}}}{2}T_S^4 &= \left(1 - \alpha_{S, \text{SW}}\right)\frac{S_0}{4\pi}\nonumber\\
+\Leftrightarrow\left(1 - \frac{\epsilon_{A, \text{LW}}}{2}\right)\epsilon_{S, \text{LW}}\sigma T_S^4 &= \left(1 - \alpha_{S, \text{SW}}\right)\frac{S_0}{4\pi}\nonumber\\
+\Leftrightarrow\left(1 - \frac{\epsilon_{A, \text{LW}}}{2}\right)T_S^4 &= \frac{S_0}{4\sigma\epsilon_{S, \text{LW}}\pi}\left(1 - \alpha_{S, \text{SW}}\right)\nonumber\\
+\Leftrightarrow T_S &= \left[\frac{S_0}{4\sigma\epsilon_{S, \text{LW}}\pi\left(1 - \frac{\epsilon_{A, \text{LW}}}{2}\right)}\left(1 - \alpha_{S, \text{SW}}\right)\right]^{1/4} = T_\text{rad}\left(1 - \frac{\epsilon_{A, \text{LW}}}{2}\right)^{-1/4}.
+\end{align}
+%
+Die Ungleichung
+%
+\begin{align}
+T_{S} > T_\text{rad}
+\end{align}
+%
+bezeichnet man als \textit{Treibhauseffekt}\index{Treibhauseffekt}. Dies basiert auf den Annahmen $\epsilon_{A, \text{LW}} > 0$ und $\alpha_{A, \text{SW}} = 0$. Die einfachste anschauliche Begründung für den Treibhauseffekt ist, dass die langwellige Strahlung nicht entsprechend der Temperatur $T_S$, sondern entsprechend der Temperatur $T_A < T_S$ emittiert wird.
+
 \section{Berechnung der Streu- und Absorptionskoeffizienten}
 \label{sec:berechnung_der_streu-_und_absorptionskoeffizienten}\index{Streukoeffizient}\index{Absorptionskoeffizient}
 
