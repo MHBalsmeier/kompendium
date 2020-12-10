@@ -16369,7 +16369,7 @@ Weiterhin definiert man die \textit{Kolmogorov-Konstante}\index{Kolmogorov-Konst
 die \textit{charakteristische Länge}\index{charakteristische Länge}\index{Länge!charakteristische} $l_c$ durch
 %
 \begin{align}
-l_c \coloneqq \left(\frac{\nu^3}{\epsilon}\right)^{1/4}
+l_c \coloneqq \left(\frac{\nu^3}{\epsilon}\right)^{1/4}\label{eq:characteristic_length}
 \end{align}
 %
 sowie die \textit{charakteristische Zeit}\index{charakteristische Zeit}\index{Zeit!charakteristische} $t_c$ durch
@@ -22323,24 +22323,24 @@ Die mit der vertikalen Diffusion von Impuls\index{Impulsdiffusion!vertikale}\ind
 \section{Parametrisierungen}
 \label{sec:parametrisierungen_modell_irreversibel}\index{Parametrisierung}
 
-Die diffusiven (irreversiblen) Terme stellen eine Ankopplung der kontinuierlichen Welt der Navier-Stokes-Gleichungen\index{Navier-Stokes-Gleichung} and die molekulare Skala dar. Wie in Absch. \ref{sec:thermodynamische_bedeutung_der_reibung} festgestellt wurde, vernichtet (dissipiert\index{Dissipation}) die Impulsdiffusion\index{Impulsdiffusion} kinetische Energie zugunsten der inneren Energie. Die Atmosphäre kann konzeptionell als Tiefpass\index{Tiefpass}\index{Atmosphäre!als Tiefpass} aufgefasst werden, wobei Wellenlängen  $< 100 \lambda$ gefiltert werden, wobei $\lambda$ die mittlere freie Weglänge bezeichnet. Der Faktor 100 ist in gewissen Grenzen willkürlich, er berücksichtigt, dass die Kontinuumshypothese nicht erst auf der Größenordnung $\lambda$ ihre Gültigkeit verliert.
+Die diffusiven (irreversiblen) Terme stellen eine Ankopplung der kontinuierlichen Welt der Navier-Stokes-Gleichungen\index{Navier-Stokes-Gleichung} and die molekulare Skala dar. Wie in Absch. \ref{sec:thermodynamische_bedeutung_der_reibung} festgestellt wurde, vernichtet (dissipiert\index{Dissipation}) die Impulsdiffusion\index{Impulsdiffusion} kinetische Energie zugunsten der inneren Energie. Die Atmosphäre kann konzeptionell als Tiefpass\index{Tiefpass}\index{Atmosphäre!als Tiefpass} aufgefasst werden, wobei Wellenlängen  $< l_c$ gefiltert werden, wobei $l_c$ die charakteristische Länge laut Glg. \eqref{eq:characteristic_length} bezeichnet.
 
 Bisher wurden nur tatsächliche physikalische Gleichungen diskretisiert, dies bezeichnet man als \textit{direkte numerische Simulation (DNS)}\index{direkte numerische Simulation (DNS)}\index{DNS (direkte numerische Simulation)}. Dieses Vorgehen ist jedoch problematisch falls für die Auflösung $\Delta r$ gilt
 %
 \begin{align}
-\Delta r \gg \lambda,
+2\Delta r \gg l_c,
 \end{align}
 %
 eine solche Diskretisierung\index{Diskretisierung} ist nämlich ein Tiefpass\index{Tiefpass}\index{Diskretisierung!als Tiefpass} mit der Grenzwellenlänge $2\Delta r$. Dementsprechend muss in einem numerischen Modell die Dissipation\index{Dissipation!numerische}\index{Numerik!Dissipation} schon eher einsetzen. Laut Glg. \eqref{eq:dyn_viscosity_kinetic_model} gilt für die kinematische Viskosität\index{kinematische Viskosität}\index{Viskosität!kinematische} $\nu$ die Gleichung
 %
 \begin{align}
-\nu \propto \lambda.
+\nu = \left(l_c^4\epsilon\right)^{1/3}.
 \end{align}
 %
 Dementsprechend erwartet man, dass
 %
 \begin{align}
-	\frac{\nu_\text{numerisch}}{\nu_\text{molekular}} \sim \frac{2\Delta r}{\lambda}
+\frac{\nu_\text{numerisch}}{\nu_\text{molekular}} \sim \left(\frac{\text{min}\left(l_m, 2\Delta r\right)}{l_c}\right)^{4/3}
 \end{align}
 %
 eine sinnvolle Abschätzung für die numerische Viskosität\index{numerische Viskosität}\index{Viskosität!numerische} ist.
