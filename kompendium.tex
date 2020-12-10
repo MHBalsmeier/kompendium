@@ -18203,7 +18203,22 @@ r = \frac{\phi}{\phi\sin\left(\phi\right)} = \frac{1}{\sin\left(\phi\right)}.
 %
 Das Länge-Breite-Gitter muss an dieser Stelle also ausgeschlossen werden. 
 
-Es ist also notwendig, dass das in Teil \ref{part:entwicklung_eines_dynamischen_kerns} zu entwickelnde Atmosphärenmodell auf einem quasi-uniformen Gitter formuliert wird. Von tatsächlicher \textit{Uniformität}\index{Uniformität!eines Gitters}\index{Gitter!Uniformität} spricht man, wenn alle Ecken, Kanten und Flächen des Gitters kongruent sind. Es gibt nur fünf platonische Körper (Tetraeder, Würfel, Oktaeder, Dodekaeder, Ikosaeder). Dementsprechend existieren nur fünf uniforme Gitter auf der Kugel. Diese entstehen aus den platonischen Körpern, indem man ihre Ecken vom Mittelpunkt auf die Kugeloberfläche projiziert. All diese Gitter sind zu grob für ein Atmosphärenmodell und können daher nicht direkt verwendet werden. Darüber hinus folgt aus dieser Tatsache, dass alle verwendbaren Gitter irgendwo Punkte, Linien oder Flächen haben, an denen die lokale Gitterstruktur von der allgemeinen Struktur abweicht. An diesen Stellen sind die Fehler der Diskretisierung ebenfalls anders, was zu einer Sichtbarkeit des Gitters in der Lösung führen kann oder Wellen erzeugen kann, die als Lärm durch die Lösung propagieren. Dies bezeichnet man als \textit{grid imprinting}\index{grid imprinting}.
+\subsection{Platonische Körper}
+\label{sec:platonische_körper}\index{platonischer Körper}\index{Körper!platonischer}
+
+Es ist also notwendig, dass das in Teil \ref{part:entwicklung_eines_dynamischen_kerns} zu entwickelnde Atmosphärenmodell auf einem quasi-uniformen Gitter formuliert wird. Von tatsächlicher \textit{Uniformität}\index{Uniformität!eines Gitters}\index{Gitter!Uniformität} spricht man, wenn jeweils zwei Flächen paarweise kongruent sind. Die Körper, welche durch diese Gitter aufgespannt werden, bezeichnet man als \textit{platonische Körper}\index{platonischer Körper}\index{Körper!platonischer}. Die Anzahl der Ecken eines solchen Körpers bezeichne man mit $V$, die Anzahl der Kanten mit $E$ und die Anzahl der Flächen mit $F$. Nun geht man davon aus, dass alle Flächen $v$ Ecken und somit auch Kanten haben. Dann gelten
+%
+\begin{align}
+V &= \frac{Fv}{f},\label{eq:platon_0}\\
+E &= \frac{Fv}{2},\label{eq:platon_1}\\
+2E &= fV,\label{eq:platon_2}\\
+\end{align}
+%
+mit $f$ als Anzahl der Kanten bzw. Flächen, welche sich an einer Ecke treffen. Glg. \eqref{eq:platon_2} kann man auch erhalten, indem man die Glg.en \eqref{eq:platon_0} und \eqref{eq:platon_1} durcheinander dividiert, Glg. \eqref{eq:platon_2} enthält daher keine neue Information. Dies gilt soweit noch für alle Gitter, welche nur aus v-Ecken aufgebaut sind. Nun muss man noch eine Gleichung aufstellen, welche das Gitter auf Uniformität festlegt.
+
+(Tetraeder, Würfel, Oktaeder, Dodekaeder, Ikosaeder)
+
+Es existieren also nur fünf uniforme Gitter auf der Kugel. Diese entstehen aus den platonischen Körpern, indem man ihre Ecken vom Mittelpunkt auf die Kugeloberfläche projiziert. All diese Gitter sind zu grob für ein Atmosphärenmodell und können daher nicht direkt verwendet werden. Darüber hinus folgt aus dieser Tatsache, dass alle verwendbaren Gitter irgendwo Punkte, Linien oder Flächen haben, an denen die lokale Gitterstruktur von der allgemeinen Struktur abweicht. An diesen Stellen sind die Fehler der Diskretisierung ebenfalls anders, was zu einer Sichtbarkeit des Gitters in der Lösung führen kann oder Wellen erzeugen kann, die als Lärm durch die Lösung propagieren. Dies bezeichnet man als \textit{grid imprinting}\index{grid imprinting}.
 
 \subsection{Grid imprinting}
 \label{sec:grid_imprinting}\index{grid imprinting}
