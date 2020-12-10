@@ -6459,7 +6459,7 @@ Integriert man dies über das gesamte Spektrum, folgt für die abgestrahlte Leis
 Mit Glg. \eqref{eq:stefanboltzmann_help} folgt
 %
 \begin{align}
-P = P\left(T\right) = \frac{k_B^4\pi^2}{60c^2\hbar^3}T^4.
+P = P\left(T\right) = \frac{k_B^4\pi^2}{60c^2\hbar^3}T^4.\label{eq:stefan-boltzmann}
 \end{align}
 %
 Dies ist das \textit{Stefan-Boltzmann-Gesetz}, \index{Stefan-Boltzmann-Gesetz} man definiert
@@ -16934,6 +16934,36 @@ Das gebräuchlichste Seegangsvorhersagemodell\index{Seegangsvorhersagemodell} is
 \label{chap:strahlungstransport}
 
 Die zentrale Größe beim Strahlungstransport\index{Strahlungstransport} ist die spektrale Strahldichte\index{spektrale Strahldichte}\index{Strahldichte!spektrale} $L_\kappa\left(\mathbf{r}, \mathbf{n}, t\right)$, hierbei ist $\kappa$ die Wellenzahl und $\mathbf{n}$ ein Richtungsvektor. Aus ihr können u. a. Wärmeleistungsdichten\index{Wärmeleistungsdichte} abgeleitet werden.
+
+\section{Einfache Modelle}
+\label{sec:einfache_modelle}
+
+Die Solarkonstante $S_0$ ist die Strahlungsflussdichte der solaren Strahlung, welche auf die Erde trifft. Da bei einer Kugel das Verhältnis der Oberfläche zur Querschnittsfläche $4\pi$ beträgt, trifft im Mittel am Oberrand der Atmosphäre die Strahlungsflussdichte $\frac{S_0}{4\pi}$ auf. Unter der Annahme, dass die Erde ein schwarzer Körper ist, gilt im Gleichgewichtsfall mit dem Stefan-Boltzmann-Gesetzt Glg. \eqref{eq:stefan-boltzmann}
+%
+\begin{align}
+\frac{S_0}{4} = \sigma T_\text{rad}^4,
+\end{align}
+%
+hierbei ist $T_\text{rad}$ die sogenannten \textit{Strahlungstemperatur}\index{Strahlungstemperatur}. Dies kann man erweitern, indem man von einer wellenlängenunabhängigen Emissivität $\epsilon$ und einer Albedo $\alpha \coloneqq 1 - \epsilon$ ausgeht:
+%
+\begin{align}
+\frac{S_0}{4}\left(1 - \alpha\right) = \epsilon\sigma T_\text{rad}^4
+\end{align}
+%
+Unter der vereinfachenden Annahme, dass der langwellige (LW) und der kurzwellgie (SW) Spektralbereich voneinander getrennt sind, kann man Größen $\epsilon_\text{SW}$, $\alpha_\text{SW}$, $\epsilon_\text{LW}$, $\alpha_\text{LW}$ verwenden:
+%
+\begin{align}
+\frac{S_0}{4}\left(1 - \alpha_\text{SW}\right) &= \epsilon_\text{LW}\sigma T_\text{rad}^4\nonumber\\
+T_\text{rad} &= \left[\frac{S_0}{4\epsilon_\text{LW}\sigma}\left(1 - \alpha_\text{SW}\right)\right]^{1/4}
+\end{align}
+%
+Hierbei bezeichnet man
+%
+\begin{align}
+\alpha_p \coloneqq \alpha_\text{SW}
+\end{align}
+%
+als \textit{planetarische Albedo}\index{planetarische Albedo}\index{Albedo!planetarische}.
 
 \section{Berechnung der Streu- und Absorptionskoeffizienten}
 \label{sec:berechnung_der_streu-_und_absorptionskoeffizienten}\index{Streukoeffizient}\index{Absorptionskoeffizient}
