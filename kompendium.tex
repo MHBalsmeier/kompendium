@@ -13892,7 +13892,7 @@ q_3 & = f + \Delta\psi_3 + \frac{f_0^2}{\sigma}\frac{\frac{\partial\psi}{\partia
 Es wird dabei $\Delta p \coloneqq500$ hPa definiert. Über die letzten Terme kann im Rahmen dieses Modell keine Aussage gemacht werden, daher nimmt man sie als konstant an und vernachlässigt sie somit. Man definiert weiter eine barotrope und eine barokline Komponente der Stromfunktion:
 %
 \begin{align}
-\psi_M \coloneqq&\frac{\psi_1 + \psi_3}{2}, && \psi_T \coloneqq&\frac{\psi_1 - \psi_3}{2}.
+\psi_M \coloneqq&\frac{\psi_1 + \psi_3}{2}, && \psi_T \coloneqq \frac{\psi_1 - \psi_3}{2}.
 \end{align}
 %
 Außerdem definiert man eine barokline potentielle Vorticity:
@@ -15004,13 +15004,13 @@ definiert. Im Fall
 %
 ist die Schichtung \textit{lokal instabil}, solange die Luft dabei ungesättigt bleibt.
 
-Ist die Luft jedoch gesättigt, findet bei der Abkühlung, die infolge der Hebung stattfindet, Kondensation oder Resublimation statt, wobei Phasenübergangswärme frei wird. Lenkt man das Teilchen bei $z$ vertikal aus, ergibt sich das \textit{lifted condensation level (LCL)}\index{lifted condensation level (LCL)}\index{Hebungskondensationsniveau (HKN)}\index{HKN}\index{LCL} $z_L$ als die Höhe $z_{\text{LCL}}$, in der es gesättigt wäre, also erfüllt es die Gleichung
+Ist die Luft jedoch gesättigt, findet bei der Abkühlung, die infolge der Hebung stattfindet, Kondensation oder Resublimation statt, wobei Phasenübergangswärme frei wird. Lenkt man das Teilchen bei $z$ vertikal aus, ergibt sich das \textit{lifted condensation level (LCL)}\index{lifted condensation level (LCL)}\index{Hebungskondensationsniveau (HKN)}\index{HKN}\index{LCL} $z_\text{LCL}$ als die Höhe, in der es gesättigt wäre, also erfüllt es die Gleichung
 %
 \begin{align}
 p_v^{(S)}\left(T\left(z\right) - \Gamma_d\left(z_{\text{LCL}} - z\right)\right) \equiv p_v\left(z\right)\left(1 - \frac{\Gamma_d\left(z_{\text{LCL}} - z\right)}{T\left(z\right)}\right)^{\frac{g}{R_d\Gamma_d}}
 \end{align}
 %
-Man geht bei der anschließenden weiteren Hebung zunächst davon aus, dass das komplette Wasser in der Wolke verbleibt, was man als \textit{reversible Feuchtadiabate}\index{reversible Feuchtadiabate}\index{Feuchtadiabate!reversible} bezeichnet; gelegentlich wird statt feuchtadiabatisch auch das Wort pseudoadiabatisch\index{pseudoadiabatisch} verwendet, da die Frage, ob dieser Prozess adiabatisch ist oder nicht davon abhängt, welches System man betrachtet: betrachtet man die Luft inklusive der Kondensate als System, ist der Prozess adiabatisch\index{adiabatisch}, da es keine Wärme mit seiner Umgebung austauscht; betrachtet man hingegen nur die Gasphase, so ist der Prozess diabatisch\index{diabatisch}, da latente Wärme\index{latente Wärme}\index{Wärme!latente} austauscht. Bei der \textit{irreversiblen Feuchtadiabate}\index{irreversible Feuchtadiabate}\index{Feuchtadiabate!irreversible}, worauf in Absch. \ref{sec:cape} näher eingegangen wird, wird hingegen davon ausgegangen, dass das gesamte Wasser ausregnet. Dies soll nun betrachtet werden. Nehme also an, dass die Luft in einem Teilchen mit dem Volumen $V$ und der konstanten Masse $m$ aus einem Gemisch aus feuchter Luft und Kondensationsprodukten einer Phase besteht, wobei alle Komponenten die gleiche Temperatur $T$ haben sollen. Mit dem Ersten Hauptsatz der Thermodynamik Glg. \eqref{eq:td1_ideal_gas} erhält man
+Man geht bei der anschließenden weiteren Hebung zunächst davon aus, dass das komplette Wasser in der Wolke verbleibt, was man als \textit{reversible Feuchtadiabate}\index{reversible Feuchtadiabate}\index{Feuchtadiabate!reversible} bezeichnet; gelegentlich wird statt feuchtadiabatisch auch das Wort pseudoadiabatisch\index{pseudoadiabatisch} verwendet, da die Frage, ob dieser Prozess adiabatisch ist oder nicht davon abhängt, welches System man betrachtet: betrachtet man die Luft inklusive der Kondensate als System, ist der Prozess adiabatisch\index{adiabatisch}, da es keine Wärme mit seiner Umgebung austauscht; betrachtet man hingegen nur die Gasphase, so ist der Prozess hingegen diabatisch\index{diabatisch}. Bei der \textit{irreversiblen Feuchtadiabate}\index{irreversible Feuchtadiabate}\index{Feuchtadiabate!irreversible}, worauf in Absch. \ref{sec:cape} näher eingegangen wird, wird hingegen davon ausgegangen, dass das gesamte Wasser ausregnet. Dies soll nun betrachtet werden. Nehme also an, dass die Luft in einem Teilchen mit dem Volumen $V$ und der konstanten Masse $m$ aus einem Gemisch aus feuchter Luft und Kondensationsprodukten einer Phase besteht, wobei alle Komponenten die gleiche Temperatur $T$ haben sollen. Mit dem Ersten Hauptsatz der Thermodynamik Glg. \eqref{eq:td1_ideal_gas} erhält man
 %
 \begin{align}
 & c^{(v)}\frac{dT}{dz} + p\frac{d}{dz}\frac{1}{\rho} = \frac{1}{\rho}\frac{dq}{dz}\nonumber\\
@@ -15172,7 +15172,7 @@ wobei $\rho'\left(z, z'\right)$ die Dichte des Teilchens bei $z$ ist, nachdem ma
 \newtilde{F}\left(z, z'\right) \coloneqq g\int_{z}^{z'}\frac{\rho\left(z''\right) - \rho'\left(z, z''\right)}{\rho'\left(z, z''\right)}dz''
 \end{align}
 %
-als die Arbeit, die die Schichtung an einem Teilchen geleistet hat, welches adiabatisch von $z$ nach $z'$ ausgelenkt wurde. Üblicherweise wählt man $z = z_{\text{2m}} \coloneqq Z_{\text{SFC}} + 2$ m, man definiert
+als die Arbeit, die die Schichtung an einem Teilchen geleistet hat, welches adiabatisch von $z$ nach $z'$ ausgelenkt wurde. Üblicherweise wählt man $z = z_{\text{2m}} \coloneqq z_{\text{SFC}} + 2$ m, man definiert
 %
 \begin{align}
 F\left(z\right) \coloneqq g\int_{z_{\text{2m}}}^{z}\frac{\rho\left(z'\right) - \rho'\left(z'\right)}{\rho'\left(z'\right)}dz'
@@ -15202,7 +15202,7 @@ wobei $\Theta$ die $\Theta-$Funktion bezeichnet\index{$\Theta-$Funktion}. Im Fal
 f\left(z'\right) \coloneqq g\frac{\frac{1}{T} - \frac{1}{T'}}{\frac{1}{T'}} = g\frac{T' - T}{T} = g\frac{\theta' - \theta}{\theta}.
 \end{align}
 %
-Im Fall feuchter Luft kann man $T \to T_v$ ersetzen, hierbei ist $T_v$ die in Glg. \eqref{eq:def_virtual_temperature} definierte virtuelle Temperatur, da bei dieser Temperatur die trockene Luft die gleiche Dichte hätte wie die vorhandene feuchte Luft\index{feuchte Luft}\index{Luft!feuchte}. Das \textit{level of free convection}\index{level of free convection}\index{LFC} $z_{\text{LFC}}$ ist die Höhe, in der das adiabatisch aufstegende Teilchen zum ersten mal leichter ist als die Umgebung
+Im Fall feuchter Luft kann man $T \to T_v$ ersetzen, hierbei ist $T_v$ die in Glg. \eqref{eq:def_virtual_temperature} definierte virtuelle Temperatur, da bei dieser Temperatur die trockene Luft die gleiche Dichte hätte wie die vorhandene feuchte Luft\index{feuchte Luft}\index{Luft!feuchte}. Das \textit{level of free convection}\index{level of free convection}\index{LFC} $z_{\text{LFC}}$ ist die Höhe, in der das adiabatisch aufsteigende Teilchen zum ersten mal leichter ist als die Umgebung
 %
 \begin{align}
 z_{\text{LFC}} \coloneqq\inf\{z\newvline f\left(z\right) > 0\}.
@@ -15220,7 +15220,7 @@ als \index{Gleichgewichtsniveau}\textit{Gleichgewichtsniveau} \textit{(equilibri
 z_{\text{MCT}} \coloneqq\inf\{z\newvline \newtilde{F}\left(z_{\text{LFC}}, z\right) < 0\}.
 \end{align}
 %
-Das Phänomen $z_{\text{MCT}} > z_{\text{EL}}$ führt bei hochreichender Konvektion zur Ausprägung von Schichtungswellen\index{Schichtungswelle} an der Tropopause \textit{(overshooting tops)}\index{overshooting top}, was generell überall dort der Fall ist, wo ein stabil auf ein labil geschichtetes Höhenintervall folgt.
+Das Phänomen $z_{\text{MCT}} > z_{\text{EL}}$ führt bei hochreichender Konvektion zur Ausprägung von Schwerewellen an der Tropopause \textit{(overshooting tops)}\index{overshooting top}, was generell überall dort der Fall ist, wo ein stabil auf ein labil geschichtetes Höhenintervall folgt.
 
 Hat ein Teilchen in zwei Metern Höhe die sogenannte \index{Auslösetemperatur}\textit{Auslösetemperatur} erreicht, kann es auch ohne dynamischen Antrieb in das LFC aufsteigen, also
 %
