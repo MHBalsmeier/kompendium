@@ -11817,10 +11817,69 @@ Die Vorticitygleichung lautet schlussendlich
 Geht man von einem Flachgeofluid aus, vernachlässigt die Reibung und führt einen horizontalen Windvektor $\mathbf{v}_h$ ein, folgt
 %
 \begin{align}
-\frac{\partial\zeta}{\partial t} = -\mathbf{v}_h\cdot\nabla\eta - w\frac{\partial\zeta}{\partial z} - \eta\nabla\cdot\mathbf{v} + \etabi\cdot\nabla w + \frac{1}{\rho ^2}\mathbf{k}\cdot\left(\nabla\rho\times\nabla p\right).
+\frac{\partial\zeta}{\partial t} &= -\mathbf{v}\cdot\nabla\eta - \eta\nabla\cdot\mathbf{v} + \etabi\cdot\nabla w + \frac{1}{\rho ^2}\mathbf{k}\cdot\left(\nabla\rho\times\nabla p\right)\nonumber\\
+&= \underbrace{-\mathbf{v}\cdot\nabla\eta - \eta\nabla\cdot\mathbf{v}_h + \etabi_h\cdot\nabla_hw}_\text{Advektion} + \underbrace{\frac{1}{\rho^2}\mathbf{k}\cdot\left(\nabla\rho\times\nabla p\right)}_\text{Solenoidterm}.
 \end{align}
 %
-Im barotropen Fall fällt hier der sogenannte \textit{Solenoidterm}\index{Solenoidterm}, der $\nabla\rho\times\nabla p$ enthält, weg, vernachlässigt man außerdem die vertikale Scherung des Horizontalwindes (s. Absch. \ref{sec:barotropie}), folgt
+Der sogenannte \textit{Solenoidterm}\index{Solenoidterm} entsteht aus der Rotation der Druckgradientbeschleunigung. Die Rotation von $\nabla p$ ist Null. Ein geschlossenes Linienintegral über $-\nabla p\cdot d\mathbf{n}$ verschwindet also. Durch die Ortsabhängigkeit der Dichte kann jedoch $\int_{\partial\Omega\subseteq\mathbb{R}^2}-\frac{1}{\rho}\nabla p\cdot d\mathbf{n} \not= 0$ gelten. Ein Teilchen, welches sich auf einer geschlossenen Bahn, beispielsweise einer Kreisbahn bewegt, kann also durch den Druckgradienten beschleunigt oder abgebremst werden, was die Vorticity ändert.
+
+Abgesehen vom Solenoidterm wird Vorticity also nur durch die Impulsadvektion generiert. Diese lässt sich noch wie folgt aufteilen:
+%
+\begin{align}
+\frac{\partial\zeta}{\partial t} &= \underbrace{-\mathbf{v}\cdot\nabla\eta}_\text{Vorticityadvektion} \underbrace{- \eta\nabla\cdot\mathbf{v}_h}_\text{Divergenzterm} \underbrace{+ \etabi_h\cdot\nabla_hw}_\text{Drehterm} + \underbrace{\frac{1}{\rho^2}\mathbf{k}\cdot\left(\nabla\rho\times\nabla p\right)}_\text{Solenoidterm}
+\end{align}
+%
+\index{Vorticityadvektion}\index{Vorticitygleichung!Divergenzterm}\index{Vorticitygleichung!Drehterm}Der \textit{Drehterm}\index{Vorticitygleichung!Drehterm} beschreibt die Generierung vertikaler Vorticity durch horizontale Vorticity und einen horizontalen Gradienten der Vertikalgeschwindigkeit. Es gilt
+%
+\begin{align}
+\etabi_h\cdot\nabla_hw = \zeta_x\frac{\partial w}{\partial x} + \zeta_y\frac{\partial w}{\partial y}.
+\end{align}
+%
+O. B. d. A. wird die y-Achse des KS an $\zetabi_h$ ausgerichtet, was zu
+%
+\begin{align}
+\etabi_h\cdot\nabla_hw = \zeta_y\frac{\partial w}{\partial y}
+\end{align}
+%
+führt. Nun gehe man von einem konvektiven Schlauch der Amplitude $W$ und Varianz $\sigma^2$ aus, also
+%
+\begin{align}
+w = w\left(x, y\right) = W\exp\left(-\frac{x^2 + y^2}{2\sigma^2}\right).
+\end{align}
+%
+Das KS wurde wiederum in das Zentrum des Schlauches gelegt. Hieraus folgt
+%
+\begin{align}
+\frac{\partial w}{\partial y} = -\frac{Wy}{\sigma^2}\exp\left(-\frac{x^2 + y^2}{2\sigma^2}\right).
+\end{align}
+%
+Für die x-Komponente der relativen Vorticity gilt
+%
+\begin{align}
+\zeta_y = \frac{\partial u}{\partial z} - \frac{\partial w}{\partial x}
+\end{align}
+%
+Hieraus folgt
+%
+\begin{align}
+\etabi_h\cdot\nabla_hw &= \left(\frac{\partial u}{\partial z} - \frac{\partial w}{\partial x}\right)\frac{\partial w}{\partial y} = -\frac{Wy}{\sigma^2}\left(\frac{\partial u}{\partial z} + \frac{Wx}{\sigma^2}\exp\left(-\frac{x^2 + y^2}{2\sigma^2}\right)\right)\exp\left(-\frac{x^2 + y^2}{2\sigma^2}\right).
+\end{align}
+%
+Setzt man hier $x = 0$, $y = \pm\sigma$ ein und nähert alle Exponentialterme durch 1/2, folgt
+%
+\begin{align}
+\etabi_h\cdot\nabla_hw &= \mp\frac{W}{2\sigma}\frac{\partial u}{\partial z}.
+\end{align}
+%
+Meistens gilt $\frac{\partial u}{\partial z} > 0$. Somit produziert der Drehterm südlich des konvektiven Schlauches zyklonale Vorticity und nördlich des Schlauches antizyklonale Vorticity. Als Skalenanalyse erhält man für den Fall sehr starker Konvektion mit $\sigma \sim 50$ m, $W \sim 10 $m/s und $\frac{\partial u}{\partial z} \sim \frac{20\text{ m/s}}{2\text{ km}} = 1\cdot 10^{-2}$ 1/s
+%
+\begin{align}
+\etabi_h\cdot\nabla_hw \sim \frac{10}{100}10^{-2}\text{ 1/s}^2 = 10^{-3}\text{ 1/s}^2.
+\end{align}
+%
+Dies ist sieben Größenordnungen stärker als die synoptischskalige Vorticitytendenz. Dieser Mechanismus ist wichtig für die Entstehung von Tornados\index{Tornado}.
+
+Im barotropen Fall fällt der Solenoidterm weg, vernachlässigt man außerdem die vertikale Scherung des Horizontalwindes (s. Absch. \ref{sec:barotropie}), folgt
 %
 \begin{center}
 \doublebox{\parbox{\textwidth}{
