@@ -11853,7 +11853,7 @@ Das KS wurde wiederum in das Zentrum des Schlauches gelegt. Hieraus folgt
 \frac{\partial w}{\partial y} = -\frac{Wy}{\sigma^2}\exp\left(-\frac{x^2 + y^2}{2\sigma^2}\right).
 \end{align}
 %
-Für die x-Komponente der relativen Vorticity gilt
+Für die y-Komponente der relativen Vorticity gilt
 %
 \begin{align}
 \zeta_y = \frac{\partial u}{\partial z} - \frac{\partial w}{\partial x}
@@ -11862,7 +11862,7 @@ Für die x-Komponente der relativen Vorticity gilt
 Hieraus folgt
 %
 \begin{align}
-\etabi_h\cdot\nabla_hw &= \left(\frac{\partial u}{\partial z} - \frac{\partial w}{\partial x}\right)\frac{\partial w}{\partial y} = -\frac{Wy}{\sigma^2}\left(\frac{\partial u}{\partial z} + \frac{Wx}{\sigma^2}\exp\left(-\frac{x^2 + y^2}{2\sigma^2}\right)\right)\exp\left(-\frac{x^2 + y^2}{2\sigma^2}\right).
+\etabi_h\cdot\nabla_hw &= \left(\frac{\partial u}{\partial z} - \frac{\partial w}{\partial x}\right)\frac{\partial w}{\partial y} = -\frac{Wy}{\sigma^2}\left[\frac{\partial u}{\partial z} + \frac{Wx}{\sigma^2}\exp\left(-\frac{x^2 + y^2}{2\sigma^2}\right)\right]\exp\left(-\frac{x^2 + y^2}{2\sigma^2}\right).
 \end{align}
 %
 Setzt man hier $x = 0$, $y = \pm\sigma$ ein und nähert alle Exponentialterme durch 1/2, folgt
@@ -11877,7 +11877,12 @@ Meistens gilt $\frac{\partial u}{\partial z} > 0$. Somit produziert der Drehterm
 \etabi_h\cdot\nabla_hw \sim \frac{10}{100}10^{-2}\text{ 1/s}^2 = 10^{-3}\text{ 1/s}^2.
 \end{align}
 %
-Dies ist sieben Größenordnungen stärker als die synoptischskalige Vorticitytendenz. Dieser Mechanismus ist wichtig für die Entstehung von Tornados\index{Tornado}.
+Dies ist sieben Größenordnungen stärker als die synoptischskalige Vorticitytendenz. Dieser Mechanismus ist wichtig für die Entstehung von Tornados\index{Tornado}. Der Drehterm\index{Vorticitygleichung!Drehterm} ist um so wirksamer,
+%
+\begin{itemize}
+\item um so stärker die vertikale Scherung des Horizontalwindes ist, und
+\item um so stärker die Konvektion ist.
+\end{itemize}
 
 Im barotropen Fall fällt der Solenoidterm weg, vernachlässigt man außerdem die vertikale Scherung des Horizontalwindes (s. Absch. \ref{sec:barotropie}), folgt
 %
