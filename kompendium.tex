@@ -9204,7 +9204,7 @@ Hieraus erhält man als Ausdruck für die Druckgradientbeschleunigung\index{Druc
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
--\frac{1}{\rho}\nabla p = -\nabla G - s\nabla T.
+-\frac{1}{\rho}\nabla p = -\nabla G - s\nabla T.\label{eq:entropy_form_of_pressure_gradient}
 \end{align}
 \end{center}
 }}
@@ -12869,6 +12869,64 @@ c = U\pm \sqrt{R_dT\kappa}.\label{eq:velocity_sound}
 %
 Hierbei wurde die Zustandsgleichung eingesetzt, $T$ ist die Gleichgewichtstemperatur und $\kappa = c_p/c_v>1$ der Adiabatenexponent\index{Adiabatenexponent}\index{Isentropenexponent}. Der Wert von $c$ ist jedoch auch von der Feuchte abhängig. Man könnte also über eine Messung der Schallgeschwindigkeit durch Kombination mit einer Temperaturmessung die Feuchte bestimmen. Anzumerken ist, dass Schallwellen dispersionsfrei sind, die Phasengeschwindigkeit jedoch orts- und zeitabhängig ist, da sie von der Temperatur und der Feuchte abhängt.
 
+\subsubsection{Entropie-Form des Druckgradienten}
+\label{sec:entropie-form_des_druckgradienten}
+
+Verwendet man die mit Glg. \eqref{eq:entropy_form_of_pressure_gradient} erhaltene Formulierung
+%
+\begin{align}
+-\frac{1}{\rho}\nabla p = -c^{(p)}T + T\nabla s = -c^{(p)}T + c^{(p)}\frac{T}{\theta}\nabla\theta 
+\end{align}
+%
+für die Druckgradientbeschleunigung, erhält man weitere Erkenntnisse über Schallwellen. Da Schallwellen adiabatisch sind, ist nicht zu erwarten, dass der Anteil des Druckgradienten, der mit dem Gradienten der Entropie zusammenhängt, zu Schallwellen beiträgt. Anders ist es mit dem Gradienten der Temperatur. Um ein geschlossenes Gleichungssystem zu erhalten, muss daher eine prognostische Gleichung für die Temperatur gefunden werden. Die adiabatische Form von Glg. \eqref{eq:td_1_ideal_gas_partial} lautet
+%
+\begin{align}
+\frac{\partial T}{\partial t} = -\nabla\cdot\left(T\mathbf{v}\right) - \left(\frac{R_d}{c^{(v)}} - 1\right)T\nabla\cdot\mathbf{v}.
+\end{align}
+%
+Man notiert daher als eindimensionales Gleichungssystem unter Vernachlässigung von Advektion
+%
+\begin{align}
+\frac{\partial w}{\partial t} & = -c^{(p)}\frac{\partial T}{\partial z},\label{eq:sound_entropy_0}\\
+\frac{\partial T}{\partial t} & = -\frac{R_d}{c^{(v)}}T\frac{\partial w}{\partial z}.\label{eq:sound_entropy_1}
+\end{align}
+%
+Um zu verifizieren, dass dieses tatsächlich Schallwellen beschreibt, macht man den Ansatz
+%
+\begin{align}
+w = w_1\exp\left(ikz - i\omega t\right), && T = T_0 + T_1\exp\left(ikz - i\omega t\right).
+\end{align}
+%
+Die Dichte wird als homogen angenommen. Setzt man dies in die Glg.en \eqref{eq:sound_entropy_0} - \eqref{eq:sound_entropy_1} ein, folgt
+%
+\begin{align}
+-i\omega w_1 = -c^{(p)}ik\frac{T_1}{\rho}, && -i\omega T_1 = -\frac{R_d}{c^{(v)}}T_0ikw_1.
+\end{align}
+%
+In Matrixschreibweise erhält man
+%
+\begin{align}
+\left(
+\begin{array}{cc}
+-i\omega & c^{(p)}ik\frac{1}{\rho} \\
+\frac{R_d}{c^{(v)}}\newtilde{T}_0ik & -i\omega \end{array}\right)
+\left(\begin{array}{c}
+w_1 \\
+\newtilde{T}_1
+\end{array}\right) = \left(\begin{array}{c}
+0 \\
+0
+\end{array}\right).
+\end{align}
+%
+Durch Nullsetzen der Determinante erhält man
+%
+\begin{align}
+\omega^2 = \kappa R_dTk^2.
+\end{align}
+%
+Es ergibt sich also die gleiche Dispersionsrelation wie Glg. \eqref{eq:velocity_sound}. Hiermit ist verifiziert, dass die in den Glg.en \eqref{eq:sound_entropy_0} - \eqref{eq:sound_entropy_1} aufgeführten Terme in der Tat Schallwellen beschreiben.
+
 \section{Barotrope Wellen}
 \label{sec:barotrope_wellen}\index{barotrope Welle}\index{Welle!barotrope}
 
@@ -14168,13 +14226,13 @@ p = p_0\left(z\right) + p', && \theta = \theta_0\left(z\right) + \theta', && f =
 Wegen Glg. \eqref{eq:gw_disp_deriv_1} ist Glg. \eqref{eq:gw_disp_deriv_0} keine Beschränkung des Hintergrundstroms auf die x-Richtung, durch eine Rotation des Koordinatensystems um die vertikale Achse kann der Hintergrundwind jede Richtung annehmen. Insbesondere werden alle Krümmungsterme vernachlässigt und man kann kartesische Koordinaten $\left(x, y, z\right)$ verwenden. Der Hintergrundzustand soll hydrostatisch sein, also
 %
 \begin{align}
-\frac{\partial p_0}{\partial z} = -g\rho_0\left(z\right)
+\frac{\partial p_0}{\partial z} = -g\rho_0\left(z\right)\label{eq:hydrostatic_gravity_wave}
 \end{align}
 %
 erfüllen. Es wird von einem trockenadiabatischen System ausgegangen, in einem solchen wird der Erste Hauptsatz der Thermodynamik zu
 %
 \begin{align}
-\md{\theta} = 0 && \Leftrightarrow \md{\theta'} + w'\frac{d\theta_0}{dz} = 0.
+\md{\theta} = 0 && \Leftrightarrow && \md{\theta} + \md{\theta'} = 0 && \Leftrightarrow \md{\theta'} + w'\frac{d\theta_0}{dz} = 0.
 \end{align}
 %
 Man führt nun eine genäherte materielle Ableitung $\mdtilde{}$ ein, bei der Störprodukte vernachlässigt werden. Im folgenden werden hierfür Gleichheitszeichen notiert. Damit erhält man
@@ -14276,7 +14334,7 @@ u'' = \sqrt{\frac{\rho_0}{\rho_\text{SFC}}}u', && v'' = \sqrt{\frac{\rho_0}{\rho
 b'' = \sqrt{\frac{\rho_0}{\rho_\text{SFC}}}b', && p'' = \sqrt{\frac{\rho_\text{SFC}}{\rho_0}}p'.
 \end{align}
 %
-was man als \textit{Bretherton-Transformation}\index{Bretherton-Transformation} bezeichnet. Dabei bezeichnet der Index SFC die Werte an der Erdoberfläche. Die Transformation erfolgt im wesentlichen durch Multiplikation des Gleichungssystem mit $\sqrt{\frac{\rho_0}{\rho_\text{SFC}}}$. Besondere Aufmerksamkeit benötigen dabei die vertikalen Ableitungen:
+was man als \textit{Bretherton-Transformation}\index{Bretherton-Transformation} bezeichnet. Dabei bezeichnet der Index SFC die Werte an der Erdoberfläche. Die Transformation erfolgt im Wesentlichen durch Multiplikation des Gleichungssystem mit $\sqrt{\frac{\rho_0}{\rho_\text{SFC}}}$. Besondere Aufmerksamkeit benötigen dabei die vertikalen Ableitungen:
 %
 \begin{align}
 \frac{dw'}{dz} & = \sqrt{\frac{\rho_\text{SFC}}{\rho_0}}\frac{dw''}{dz} - \frac{1}{2}\sqrt{\frac{\rho_\text{SFC}}{\rho_0}}w''\frac{1}{\rho_0}\frac{d\rho_0}{dz} = \sqrt{\frac{\rho_\text{SFC}}{\rho_0}}\frac{dw''}{dz} + \frac{H}{2}w'\\
@@ -14372,26 +14430,32 @@ Hierbei heben sich die \textcolor{magenta}{magenta} eingefärbten Terme gegensei
 \Leftrightarrow \omega_I^2 & = \frac{f^2\left(m^2 + \frac{1}{4H^2}\right) + N^2\left(l^2 + k^2\right)}{\textcolor{blue}{k^2 + l^2} + m^2 + \frac{1}{4H^2}}\nonumber\\
 \end{align}
 %
-Dies kan man auch in der Form
+Dies kann man auch in der Form
 %
 \begin{center}
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-\omega^2 & = \omega_I^2 + 2kU - U^2k^2\nonumber\\
-& = 2kU - U^2k^2 + \left(f^2 + \frac{N^2\left(k^2 + l^2\right)}{m^2 + \frac{1}{4H^2}}\right)\frac{m^2 + \frac{1}{4H^2}}{\textcolor{blue}{k^2 + l^2} + m^2 + \frac{1}{4H^2}}
+\omega_I^2 &= \left(f^2 + \frac{N^2\left(k^2 + l^2\right)}{m^2 + \frac{1}{4H^2}}\right)\frac{m^2 + \frac{1}{4H^2}}{\textcolor{blue}{k^2 + l^2} + m^2 + \frac{1}{4H^2}}\label{eq:disp_gravity_waves}
 \end{align}
 \end{center}
 }}
 \end{center}
 %
-notieren. Dies ist die \textit{Dispersionsrelation von Schwerewellen.}\index{Dispersionsrelation!einer Schwerewelle}\index{Schwerewelle!Dispersionsrelation} Hieraus ergibt sich, dass der rechte Bruch nichthydrostatische Effekte beschreibt. Vernachlässigung der \textcolor{blue}{blauen} Terme liefert die \textit{Dispersionsrelation von hydrostatischen Schwerewellen}\index{Dispersionsrelation!einer hydrostatischen Schwerewelle}\index{Schwerewelle!hydrostatische!Dispersionsrelation}:
+\begin{figure}
+\centering
+\includegraphics[width = .65\textwidth]{figs/gravity_wave_dispersion.png}
+\caption{Dispersionsrelation von Schwerewellen.}
+\label{fig:gravity_wave_dispersion}
+\end{figure}
+%
+notieren. Dies ist die \textit{Dispersionsrelation von Schwerewellen}\index{Dispersionsrelation!einer Schwerewelle}\index{Schwerewelle!Dispersionsrelation}, diese ist außerdem in Abb. \ref{fig:gravity_wave_dispersion} visualisiert. Hieraus ergibt sich, dass der rechte Bruch nichthydrostatische Effekte beschreibt. Vernachlässigung der \textcolor{blue}{blauen} Terme liefert die \textit{Dispersionsrelation von hydrostatischen Schwerewellen}\index{Dispersionsrelation!einer hydrostatischen Schwerewelle}\index{Schwerewelle!hydrostatische!Dispersionsrelation}:
 %
 \begin{center}
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-\omega^2 & = 2kU - U^2k^2 + \left(f^2 + \frac{N^2\left(k^2 + l^2\right)}{m^2 + \frac{1}{4H^2}}\right)
+\omega^2 & = \left(f^2 + \frac{N^2\left(k^2 + l^2\right)}{m^2 + \frac{1}{4H^2}}\right)
 \end{align}
 \end{center}
 }}
@@ -14449,6 +14513,285 @@ l\\
 \end{align}
 %
 Phasengeschwindigkeit\index{Phasengeschwindigkeit!barokline Schwerewelle}\index{barokline Schwerewelle!Phasengeschwindigkeit}\index{Schwerewelle!barokline!Phasengeschwindigkeit} und Gruppengeschwindigkeit\index{Gruppengeschwindigkeit!barokline Schwerewelle}\index{barokline Schwerewelle!Gruppengeschwindigkeit}\index{Schwerewelle!barokline!Gruppengeschwindigkeit} stehen also senkrecht aufeinander.
+
+\subsubsection{Entropie-Form des Druckgradienten}
+\label{sec:entropie-form_des_druckgradienten_schwere}
+
+Verwendet man die mit Glg. \eqref{eq:entropy_form_of_pressure_gradient} erhaltene Formulierung
+%
+\begin{align}
+-\frac{1}{\rho}\nabla p &= -c^{(p)}\nabla T + T\nabla s = -c^{(p)}\nabla T + c^{(p)}\frac{T}{\theta}\nabla\theta\nonumber\\
+\Leftrightarrow -\frac{1}{\rho}\frac{\partial p}{\partial z} &= -c^{(p)}\frac{\partial T}{\partial z} + T\frac{c^{(p)}}{g}\frac{g}{\theta}\frac{\partial\theta}{\partial z} = -c^{(p)}\frac{\partial T}{\partial z} + T\frac{c^{(p)}}{g}N^2
+\end{align}
+%
+für die Druckgradientbeschleunigung, erhält man weitere Erkenntnisse über Schwerewellen. In Absch. \ref{sec:entropie-form_des_druckgradienten} wurde bereits gezeigt, dass für Schallwellen nur der term $-c^{(p)}\nabla T$ relevant ist.
+
+Glg. \eqref{eq:gw_disp_deriv_1} modifiziert man zu
+%
+\begin{align}
+T = T_0\left(z\right) + T', && s = s_0\left(z\right) + s'.
+\end{align}
+%
+Die hydrostatische Grundgleichung Glg. \eqref{eq:hydrostatic_gravity_wave} wird zu
+%
+\begin{align}
+c^{(p)}\frac{dT_0}{dz} - T\frac{ds_0}{dz} = -g.
+\end{align}
+%
+Der Erste Hauptsatz der Thermodynamik kann somit in der Form
+%
+\begin{align}
+\mdtilde{s'} &= -w'\frac{ds_0}{dz} = -w'c^{(p)}\frac{d\ln\left(\theta_0\right)}{dz} = -w'c^{(p)}\frac{1}{\theta_0}\frac{d\theta_0}{dz} = -w'\frac{c^{(p)}}{g}\frac{g}{\theta_0}\frac{d\theta_0}{dz}\nonumber\\
+\mdtilde{s'} &= -w'\frac{c^{(p)}}{g}N^2
+\end{align}
+%
+notiert werden, hierbei werden bei $N^2$ die gestrichenen Größen nicht berücksichtigt, also
+%
+\begin{align}
+N^2 = \frac{g}{\theta_0}\frac{d\theta_0}{dz}
+\end{align}
+%
+Unter der Annahme $T' = 0$ lautet das zu lösende Gleichungssystem
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\mdtilde{u'} & = fv' + T_0\frac{\partial s'}{\partial x},\\
+\mdtilde{v'} & = -fu' + T_0\frac{\partial s'}{\partial y},\\
+\textcolor{blue}{\mdtilde{w'}} & = T_0\frac{\partial s'}{\partial z},\\
+\mdtilde{s'} & = -w'\frac{c^{(p)}}{g}N^2.
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+Die Bretherton-Transformation notiert man hier in der Form
+%
+\begin{align}
+u'' \coloneqq\sqrt{\frac{T_\text{SFC}}{T_0}}u',&& v'' \coloneqq\sqrt{\frac{T_\text{SFC}}{T_0}}v',&& w'' \coloneqq\sqrt{\frac{T_\text{SFC}}{T_0}}w',&& s'' \coloneqq\sqrt{\frac{T_0}{T_\text{SFC}}}s'.
+\end{align}
+%
+Hieraus folgt
+%
+\begin{align}
+\frac{\partial s'}{\partial z} = \frac{\partial}{\partial z}\left(\sqrt{\frac{T_\text{SFC}}{T_0}}s''\right) = \sqrt{\frac{T_\text{SFC}}{T_0}}\frac{\partial s''}{\partial z} - s''\sqrt{\frac{T_\text{SFC}}{T_0}}\frac{1}{2T_0}\frac{dT_0}{dz}.
+\end{align}
+%
+Die thermische Skalenhöhe $H_T$ wird hier durch
+%
+\begin{align}
+\frac{1}{H_T} \coloneqq -\frac{1}{T_0}\frac{dT_0}{dz}
+\end{align}
+%
+definiert. Hieraus folgt
+%
+\begin{align}
+\frac{\partial s'}{\partial z} = \sqrt{\frac{T_\text{SFC}}{T_0}}\frac{\partial s''}{\partial z} + s''\sqrt{\frac{T_\text{SFC}}{T_0}}\frac{1}{2H_T}.
+\end{align}
+%
+Das Gleichungssystem wird damit zu
+%
+\begin{align}
+\mdtilde{u''} & = fv'' + T_\text{SFC}\frac{\partial s''}{\partial x},\\
+\mdtilde{v''} & = -fu'' + T_\text{SFC}\frac{\partial s''}{\partial y},\\
+\textcolor{blue}{\mdtilde{w''}} & = T_\text{SFC}\frac{\partial s''}{\partial z} + \frac{T_\text{SFC}}{2H_T}s'',\\
+\mdtilde{s''} & = -w''\frac{c^{(p)}}{g}N^2.
+\end{align}
+%
+Mit der Definition
+%
+\begin{align}
+s''' \coloneqq T_\text{SFC}s'' \Rightarrow s'' = \frac{1}{T_\text{SFC}}s'''
+\end{align}
+%
+erhält man
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\mdtilde{u''} & = fv'' + \frac{\partial s'''}{\partial x},\\
+\mdtilde{v''} & = -fu'' + \frac{\partial s'''}{\partial y},\\
+\textcolor{blue}{\mdtilde{w''}} & = \frac{\partial s'''}{\partial z} + \frac{1}{2H_T}s''',\\
+\mdtilde{s'''} & = -w''\frac{T_\text{SFC}c^{(p)}}{g}N^2.
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+Mit dem gleichen Ansatz wie im vorigen Abschnitt erhält man
+%
+\begin{align}
+\left(\begin{array}{ccccc}
+-i\omega_I & -f & 0 & -ik\\
+f & -i\omega_I & 0 & -il\\
+0 & 0 & \textcolor{blue}{-i\omega_I} & -im - \frac{1}{2H_T}\\
+0 & 0 & \frac{c^{(p)}T_\text{SFC}}{g}N^2 & -i\omega_I\\
+\end{array}\right)\cdot\left(\begin{array}{c}
+A_u\\
+A_v\\
+A_w\\
+A_s\\
+\end{array}\right) = 0.
+\end{align}
+%
+Nullsetzen der Determinante der Koeffizientenmatrix ergibt
+%
+\begin{align}
+0 &\hastobe -i\omega_I\left[-i^3\omega_I^3 - \frac{c^{(p)}T_\text{SFC}}{g}N^2i\omega_I\left(im + \frac{1}{2H_T}\right)\right] - f\left[-fi^2\omega_I^2 - \frac{c^{(p)}T_\text{SFC}}{g}N^2f\left(im + \frac{1}{2H_T}\right)\right]\nonumber\\
+\Leftrightarrow 0 &= -i\omega_I\left[i\omega_I^3 - \frac{c^{(p)}T_\text{SFC}}{g}N^2i\omega_I\left(im + \frac{1}{2H_T}\right)\right] + f^2\left[i^2\omega_I^2 + \frac{c^{(p)}T_\text{SFC}}{g}N^2\left(im + \frac{1}{2H_T}\right)\right]\nonumber\\
+\Leftrightarrow 0 &= -\omega_I\left[-\omega_I^3 + \frac{c^{(p)}T_\text{SFC}}{g}N^2\omega_I\left(im + \frac{1}{2H_T}\right)\right] + f^2\left[-\omega_I^2 + \frac{c^{(p)}T_\text{SFC}}{g}N^2\left(im + \frac{1}{2H_T}\right)\right]\nonumber
+\end{align}
+\begin{align}
+\Leftrightarrow 0 &= \omega_I\left[\omega_I^3 - \frac{c^{(p)}T_\text{SFC}}{g}N^2\omega_I\left(im + \frac{1}{2H_T}\right)\right] + f^2\left[-\omega_I^2 + \frac{c^{(p)}T_\text{SFC}}{g}N^2\left(im + \frac{1}{2H_T}\right)\right]\nonumber\\
+\Leftrightarrow 0 &= \omega_I^2\left[\omega_I^2 - \frac{c^{(p)}T_\text{SFC}}{g}N^2\left(im + \frac{1}{2H_T}\right)\right] - \omega_I^2f^2 + \frac{c^{(p)}T_\text{SFC}}{g}N^2f^2\left(im + \frac{1}{2H_T}\right)\nonumber\\
+\Leftrightarrow 0 &= \omega_I^4 - \omega_I^2\frac{c^{(p)}T_\text{SFC}}{g}N^2\left(im + \frac{1}{2H_T}\right) - \omega_I^2f^2 + \frac{c^{(p)}T_\text{SFC}}{g}N^2f^2\left(im + \frac{1}{2H_T}\right)\nonumber\\
+\Leftrightarrow 0 &= \omega_I^4 + \omega_I^2\left[-\frac{c^{(p)}T_\text{SFC}}{g}N^2\left(im + \frac{1}{2H_T}\right) - f^2\right] + \frac{c^{(p)}T_\text{SFC}}{g}N^2f^2\left(im + \frac{1}{2H_T}\right).
+\end{align}
+%
+Hieraus folgt
+%
+\begin{align}
+\omega_I^2 &= \frac{c^{(p)}}{2g}N^2\left(im + \frac{1}{2H_T}\right) + \frac{f^2}{2} \pm \sqrt{\left(\frac{c^{(p)}T_\text{SFC}}{2g}N^2\left(im + \frac{1}{2H_T}\right) + \frac{f^2}{2}\right)^2 - \frac{c^{(p)}T_\text{SFC}}{g}N^2f^2\left(im + \frac{1}{2H_T}\right)}\nonumber\\
+\Leftrightarrow\omega_I^2 &= \frac{c^{(p)}T_\text{SFC}}{2g}N^2\left(im + \frac{1}{2H_T}\right) + \frac{f^2}{2} \pm \sqrt{\frac{c^{(p)2}T^2_\text{SFC}}{4g^2}N^4\left(im + \frac{1}{2H_T}\right)^2 + \frac{f^4}{4} - \frac{c^{(p)}T_\text{SFC}}{2g}N^2f^2\left(im + \frac{1}{2H_T}\right)}.
+\end{align}
+%
+Dies ist nicht identisch mit Glg. \eqref{eq:disp_gravity_waves}. Die Temperaturschwankung $T'$ ist also durchaus für Schwerewellen relevant.
+
+\subsubsection{$\theta-$Form des Druckgradienten}
+\label{sec:theta-form_des_druckgradienten}
+
+Nun soll noch eine Abwandlung der Rechnung im vorigen Abschnitt vorgestellt werden. Man verwendet hier
+%
+\begin{align}
+-\frac{1}{\rho}\nabla p &= -c^{(p)}\nabla T + c^{(p)}\frac{T}{\theta}\nabla\theta
+\end{align}
+%
+für die Druckgradientbeschleunigung. Glg. \eqref{eq:gw_disp_deriv_1} modifiziert man zu
+%
+\begin{align}
+T = T_0\left(z\right) + T', && \theta = \theta_0\left(z\right) + \theta'.
+\end{align}
+%
+Die hydrostatische Grundgleichung Glg. \eqref{eq:hydrostatic_gravity_wave} wird zu
+%
+\begin{align}
+c^{(p)}\frac{dT_0}{dz} - c^{(p)}\pi_0\frac{d\theta_0}{dz} = -g
+\end{align}
+%
+mit dem Exner-Druck $\pi \coloneqq \frac{T}{\theta}$. Der Erste Hauptsatz der Thermodynamik kann somit in der Form
+%
+\begin{align}
+\mdtilde{\theta'} &= -w'\frac{d\theta_0}{dz} = -w'\frac{\theta_0}{g}\frac{g}{\theta_0}\frac{d\theta_0}{dz} = -w'\frac{\theta_0}{g}N^2
+\end{align}
+%
+notiert werden, wobei in $N^2$ wieder die gestrichenen Größen nicht mit eingehen. Durch Multplikation mit $\frac{g}{\theta_0}$ erhält man
+%
+\begin{align}
+\mdtilde{b'} &= -w'N^2
+\end{align}
+%
+für die Buoyancy $b' = g\frac{\theta'}{\theta_0}$. Unter der Annahme $T' = 0$ lautet das zu lösende Gleichungssystem
+%
+\begin{align}
+\mdtilde{u'} & = fv' + c^{(p)}\pi_0\frac{\partial\theta'}{\partial x},\\
+\mdtilde{v'} & = -fu' + c^{(p)}\pi_0\frac{\partial\theta'}{\partial y},\\
+\textcolor{blue}{\mdtilde{w'}} & = c^{(p)}\pi_0\frac{\partial\theta'}{\partial z},\\
+\mdtilde{b'} & = -w'N^2.
+\end{align}
+%
+Mit
+%
+\begin{align}
+\theta' = b'\frac{\theta_0}{g}
+\end{align}
+%
+folgt
+%
+\begin{align}
+\mdtilde{u'} & = fv' + c^{(p)}\pi_0\frac{\theta_0}{g}\frac{\partial b'}{\partial x},\\
+\mdtilde{v'} & = -fu' + c^{(p)}\pi_0\frac{\theta_0}{g}\frac{\partial b'}{\partial y},\\
+\textcolor{blue}{\mdtilde{w'}} & = c^{(p)}\pi_0\frac{\theta_0}{g}\frac{\partial b'}{\partial z} + c^{(p)}\pi_0\frac{1}{g}\frac{\partial\theta_0}{\partial z}b',\\
+\mdtilde{b'} & = -w'N^2.
+\end{align}
+%
+Mit $\pi_0\theta_0 = T_0$ wird dies zu
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\mdtilde{u'} & = fv' + c^{(p)}\frac{T_0}{g}\frac{\partial b'}{\partial x},\\
+\mdtilde{v'} & = -fu' + c^{(p)}\frac{T_0}{g}\frac{\partial b'}{\partial y},\\
+\textcolor{blue}{\mdtilde{w'}} & = c^{(p)}\frac{T_0}{g}\frac{\partial b'}{\partial z} + T_0\frac{c^{(p)}}{g^2}N^2b',\\
+\mdtilde{b'} & = -w'N^2.
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+Die Bretherton-Transformation notiert man hier in der Form
+%
+\begin{align}
+u'' \coloneqq\sqrt{\frac{T_\text{SFC}}{T_0}}u',&& v'' \coloneqq\sqrt{\frac{T_\text{SFC}}{T_0}}v',&& w'' \coloneqq\sqrt{\frac{T_\text{SFC}}{T_0}}w',&& b'' \coloneqq\sqrt{\frac{T_0}{T_\text{SFC}}}b'.
+\end{align}
+%
+Hieraus folgt
+%
+\begin{align}
+\frac{\partial b'}{\partial z} = \frac{\partial}{\partial z}\left(\sqrt{\frac{T_\text{SFC}}{T_0}}b''\right) = \sqrt{\frac{T_\text{SFC}}{T_0}}\frac{\partial b''}{\partial z} - b''\sqrt{\frac{T_\text{SFC}}{T_0}}\frac{1}{2T_0}\frac{dT_0}{dz}.
+\end{align}
+%
+Mit der thermischen Skalenhöhe $H_T$ folgt hieraus
+%
+\begin{align}
+\frac{\partial b'}{\partial z} = \sqrt{\frac{T_\text{SFC}}{T_0}}\frac{\partial b''}{\partial z} + b''\sqrt{\frac{T_\text{SFC}}{T_0}}\frac{1}{2H_T}.
+\end{align}
+%
+Das Gleichungssystem wird damit zu
+%
+\begin{align}
+\mdtilde{u''} & = fv'' + \frac{c^{(p)}}{g}T_\text{SFC}\frac{\partial b''}{\partial x},\\
+\mdtilde{v''} & = -fu'' + \frac{c^{(p)}}{g}T_\text{SFC}\frac{\partial b''}{\partial y},\\
+\textcolor{blue}{\mdtilde{w''}} & = \frac{c^{(p)}}{g}T_\text{SFC}\frac{\partial b''}{\partial z} + \frac{c^{(p)}}{g}\frac{T_\text{SFC}}{2H_T}b'' + \frac{c^{(p)}}{g^2}N^2T_\text{SFC}b'',\\
+\mdtilde{b''} & = -w''\frac{T_0}{T_\text{SFC}}N^2.
+\end{align}
+%
+Mit der Definition
+%
+\begin{align}
+b''' \coloneqq \frac{c^{(p)}}{g}T_\text{SFC}b'' \Rightarrow b'' = \frac{g}{c^{(p)}T_\text{SFC}}b'''
+\end{align}
+%
+erhält man
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\mdtilde{u''} & = fv'' + \frac{\partial b'''}{\partial x},\\
+\mdtilde{v''} & = -fu'' + \frac{\partial b'''}{\partial y},\\
+\textcolor{blue}{\mdtilde{w''}} & = \frac{\partial b'''}{\partial z} + \frac{1}{2H_T}b''' + \frac{1}{g}N^2b''',\\
+\mdtilde{b'''} & = -w''\frac{c^{(p)}T_0}{g}N^2.
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+Die Dispersionsrelation erhält man wie im vorigen Abschnitt, nur diesmal mit den Ersetzungen
+%
+\begin{align}
+\frac{1}{2H_T} &\to \frac{1}{2H_T} + \frac{N^2}{g},\\
+N^2 &\to \frac{T_0}{T_\text{SFC}}N^2.
+\end{align}
+%
+Dies führt auf
+%
+\begin{align}
+\omega_I^2 &= \frac{c^{(p)}T_0}{2g}N^2\left(im + \frac{1}{2H_T} + \frac{N^2}{g}\right) + \frac{f^2}{2}\nonumber\\
+&\pm\sqrt{\frac{c^{(p)2}T^2_0}{4g^2}N^4\left(im + \frac{1}{2H_T} + \frac{N^2}{g}\right)^2 + \frac{f^4}{4} - \frac{c^{(p)}T_0}{2g}N^2f^2\left(im + \frac{1}{2H_T} + \frac{N^2}{g}\right)}.
+\end{align}
 
 \section{Instabilitäten}
 \label{sec:instabilitaeten}\index{Instabilität}\index{Welle!Instabilität}
@@ -17005,7 +17348,7 @@ Die zentrale Größe beim Strahlungstransport\index{Strahlungstransport} ist die
 \subsection{Planet ohne Atmosphäre}
 \label{sec:planet_ohne_atmosphäre}
 
-Die Solarkonstante $S_0$ ist die Strahlungsflussdichte der solaren Strahlung, welche auf die Erde trifft. Da bei einer Kugel das Verhältnis der Oberfläche zur Querschnittsfläche $4\pi$ beträgt, trifft im Mittel am Oberrand der Atmosphäre die Strahlungsflussdichte $\frac{S_0}{4\pi}$ auf. Unter der Annahme, dass die Erde ein schwarzer Körper ist, gilt im Gleichgewichtsfall mit dem Stefan-Boltzmann-Gesetz Glg. \eqref{eq:stefan-boltzmann}
+Die Solarkonstante $S_0$ ist die Strahlungsflussdichte der solaren Strahlung, welche auf die Erde trifft. Da bei einer Kugel das Verhältnis der Oberfläche zur Querschnittsfläche $4$ beträgt, trifft im Mittel am Oberrand der Atmosphäre die Strahlungsflussdichte $\frac{S_0}{4}$ auf. Unter der Annahme, dass die Erde ein schwarzer Körper ist, gilt im Gleichgewichtsfall mit dem Stefan-Boltzmann-Gesetz Glg. \eqref{eq:stefan-boltzmann}
 %
 \begin{align}
 \frac{S_0}{4} = \sigma T_\text{rad}^4,
@@ -17046,23 +17389,23 @@ Setzt man die Strahlungsflussdichten ein, erhält man
 %
 \begin{align}
 0 + \epsilon_{A, \text{LW}}\epsilon_{S, \text{LW}}\sigma T_S^4 &= 0 + 2\epsilon_{A, \text{LW}}\sigma T_A^4,\\
-\left(1 - \alpha_{S, \text{SW}}\right)\frac{S_0}{4\pi} + \epsilon_{A, \text{LW}}\sigma T_A^4 &= \epsilon_{S, \text{LW}}\sigma T_S^4.
+\left(1 - \alpha_{S, \text{SW}}\right)\frac{S_0}{4} + \epsilon_{A, \text{LW}}\sigma T_A^4 &= \epsilon_{S, \text{LW}}\sigma T_S^4.
 \end{align}
 %
 Dabei wurde angenommen, dass die Atmosphäre nicht mit der kurzwelligen Strahlung wechselwirkt, sondern die kurzwellige Strahlung an der Erdoberfläche relektiert wird. Äquivalenzumformungen ergeben
 %
 \begin{align}
 T_A^4 &= \frac{\epsilon_{S, \text{LW}}}{2}T_S^4,\label{eq:rad_single_layer_deriv_0}\\
-\epsilon_{S, \text{LW}}\sigma T_S^4 - \epsilon_{A, \text{LW}}\sigma T_A^4 &= \left(1 - \alpha_{S, \text{SW}}\right)\frac{S_0}{4\pi}.\label{eq:rad_single_layer_deriv_1}
+\epsilon_{S, \text{LW}}\sigma T_S^4 - \epsilon_{A, \text{LW}}\sigma T_A^4 &= \left(1 - \alpha_{S, \text{SW}}\right)\frac{S_0}{4}.\label{eq:rad_single_layer_deriv_1}
 \end{align}
 %
 Setzt man Glg. \eqref{eq:rad_single_layer_deriv_0} in Glg. \eqref{eq:rad_single_layer_deriv_1} ein, erhält man
 %
 \begin{align}
-\epsilon_{S, \text{LW}}\sigma T_S^4 - \epsilon_{A, \text{LW}}\sigma\frac{\epsilon_{S, \text{LW}}}{2}T_S^4 &= \left(1 - \alpha_{S, \text{SW}}\right)\frac{S_0}{4\pi}\nonumber\\
-\Leftrightarrow\left(1 - \frac{\epsilon_{A, \text{LW}}}{2}\right)\epsilon_{S, \text{LW}}\sigma T_S^4 &= \left(1 - \alpha_{S, \text{SW}}\right)\frac{S_0}{4\pi}\nonumber\\
-\Leftrightarrow\left(1 - \frac{\epsilon_{A, \text{LW}}}{2}\right)T_S^4 &= \frac{S_0}{4\sigma\epsilon_{S, \text{LW}}\pi}\left(1 - \alpha_{S, \text{SW}}\right)\nonumber\\
-\Leftrightarrow T_S &= \left[\frac{S_0}{4\sigma\epsilon_{S, \text{LW}}\pi\left(1 - \frac{\epsilon_{A, \text{LW}}}{2}\right)}\left(1 - \alpha_{S, \text{SW}}\right)\right]^{1/4} = T_\text{rad}\left(1 - \frac{\epsilon_{A, \text{LW}}}{2}\right)^{-1/4}.
+\epsilon_{S, \text{LW}}\sigma T_S^4 - \epsilon_{A, \text{LW}}\sigma\frac{\epsilon_{S, \text{LW}}}{2}T_S^4 &= \left(1 - \alpha_{S, \text{SW}}\right)\frac{S_0}{4}\nonumber\\
+\Leftrightarrow\left(1 - \frac{\epsilon_{A, \text{LW}}}{2}\right)\epsilon_{S, \text{LW}}\sigma T_S^4 &= \left(1 - \alpha_{S, \text{SW}}\right)\frac{S_0}{4}\nonumber\\
+\Leftrightarrow\left(1 - \frac{\epsilon_{A, \text{LW}}}{2}\right)T_S^4 &= \frac{S_0}{4\sigma\epsilon_{S, \text{LW}}}\left(1 - \alpha_{S, \text{SW}}\right)\nonumber\\
+\Leftrightarrow T_S &= \left[\frac{S_0}{4\sigma\epsilon_{S, \text{LW}}\left(1 - \frac{\epsilon_{A, \text{LW}}}{2}\right)}\left(1 - \alpha_{S, \text{SW}}\right)\right]^{1/4} = T_\text{rad}\left(1 - \frac{\epsilon_{A, \text{LW}}}{2}\right)^{-1/4}.
 \end{align}
 %
 Die Ungleichung
@@ -21930,12 +22273,14 @@ Hieraus folgt, dass ein schnelles implizites Verfahren ideal für einen dynamisc
 
 Das grundlegende Zeitschrittverfahren des Modells soll explizit sein. Das explizite Euler-Verfahren ist nur erster Ordnung und daher nicht genau genug. Ein Multi-Schritt-Verfahren erzeugt unphysikalische Moden, was ebenfalls unvorteilhaft ist. Daher verwendet man ein Runge-Kutta-Verfahren. Als Konvergenzordnung ist Drei ein guter Kompromiss aus Genauigkeit und Effizienz. Dabei muss man beachten, dass aufgrund der Nichtlinearität das Gleichungssystems die tatsächliche Konvergenzordnung nur Zwei ist.
 
-\subsection{Ausschluss von Split-explicit-Techniken}
-\label{sec:ausschluss_von_split-explicit-techniken}\index{Split-explicit-Technik}
+\subsection{Split-explicit-Techniken}
+\label{sec:split-explicit-techniken}\index{Split-explicit-Technik}
 
 Eine wesentliche Einschränkung in Bezug auf den Zeitschritt und somit auch in Bezug auf die Effizienz eines Modells ist das mit Schallwellen verbundene CFL-Kriterium\index{CFL-Kriterium!Schallwelle}\index{Schallwelle!CFL-Kriterium}. Daher teilt man das Gleichungssystem häufig in sogenannte \textit{fast modes}\index{fast mode} oder \textit{divergent modes}\index{divergent mode} einerseits und die \textit{slow modes}\index{slow mode}, \textit{advective modes}\index{advective mode} oder \textit{non-divergent modes}\index{non-divergent mode} andererseits ein. Die fast modes umfassen dabei alle mit Schallwellen verbundenen Terme, während die slow modes die restlichen Terme umfassen. Bei Split-explicit-Techniken\index{Split-explicit-Technik} integriert man nun die fast modes mit einem ca. dreimal kleineren Zeitschritt. Im Falle des Gleichungssystems Glg.en \eqref{eq:prog_rev_0} - \eqref{eq:prog_rev_3} käme nur die Advektion des Impulses für den größeren Zeitschritt in Frage. Die Advektionen von Dichte und Entropie sollten hingegen zu den fast modes gezählt werden, um die Divergenzen der Flussidchten nicht in Advektions- und Kompressionsanteile zerlegen zu müssen. Wenn man hohe Anforderungen an die energetische Konsistenz eines Zeitschrittverfahrens stellt, ist jedoch auch die Abspaltung der Impulsadvektion nicht sinnvoll.
 
 Um dies einzusehen, muss man sich zunächst einmal klarmachen, dass die Advektion kinetischer Energie mit der Kontinuitätsgleichung in Verbindung steht und daher auch zu den fast modes zählt. Dies wurde bereits in Absch. \ref{sec:überprüfung_der_energieerhaltung} eingesehen. Somit müssen auch beide Terme bzw. Gleichungen mit dem gleichen Zeitschritt integriert werden. Zur Wahrung des diskretisierten Analogons der Lamb-Transformation $-\left(\mathbf{v}\cdot\nabla\right)\mathbf{v} = -\nabla k - \left(\nabla\times\mathbf{v}\right)\times\mathbf{v}$ muss dann auch der generalisierte Coriolis-Term und somit das komplette Gleichungssystem mit dem kleineren Zeitschritt integriert werden.
+
+Da das Zeitschrittverfahren jedoch ohnehin niemals vollständig energetisch konsistent ist, ist es durchaus angebracht, ein Split-explicit-Verfahren als Option in den dynamischen Kern einzubauen.
 
 \subsection{Modifikationen zur Stabilisierung}
 \label{sec:modifikationen_zur_stabilisierung}
@@ -22025,56 +22370,7 @@ Für die Matrix $\overleftrightarrow{A}$ erhält man
 
 Um in der vertikalen Richtung nicht an das CFL-Kriterium\index{CFL-Kriterium} für Schallwellen gebunden zu sein, wird die vertikale Impulsadvektion implizit behandelt. Damit dies nicht auf ein globales nichtlineares Problem führt, muss man dies für jeden horizontalen skalaren und vektoriellen Datenpunkt separat tun.
 
-Zunächst muss festgestellt werden, welche der Terme in Entropieformulierung Schallwellen beschreiben, da diese impliizit behandelt werden müssen. Da Schallwellen adiabatisch sind, ist nicht zu erwarten, dass der Anteil des Druckgradienten, der mit dem Gradienten der Entropie zusammenhängt, nicht zu Schallwellen beiträgt. Anders ist es mit dem Gradienten der Enthalpie. Um ein geschlossenes Gleichungssystem zu erhalten, muss daher eine prognostische Gleichung für die Temperatur gefunden werden. Die adiabatische Form von Glg. \eqref{eq:td_1_ideal_gas_partial} lautet
-%
-\begin{align}
-\frac{\partial T}{\partial t} = -\nabla\cdot\left(T\mathbf{v}\right) - \left(\frac{R_d}{c^{(v)}} - 1\right)T\nabla\cdot\mathbf{v}.
-\end{align}
-%
-Man notiert daher als eindimensionales Gleichungssystem unter Vernachlässigung von Advektion
-%
-\begin{align}
-\frac{\partial w}{\partial t} & = -c^{(p)}\frac{\partial T}{\partial z},\label{eq:sound_entropy_0}\\
-\frac{\partial T}{\partial t} & = -\frac{R_d}{c^{(v)}}T\frac{\partial w}{\partial z}.\label{eq:sound_entropy_1}
-\end{align}
-%
-Um zu verifizieren, dass dieses tatsächlich Schallwellen beschreibt, macht man den Ansatz
-%
-\begin{align}
-w = w_1\exp\left(ikz - i\omega t\right), && T = T_0 + T_1\exp\left(ikz - i\omega t\right).
-\end{align}
-%
-Die Dichte wird als homogen angenommen. Setzt man dies in die Glg.en \eqref{eq:sound_entropy_0} - \eqref{eq:sound_entropy_1} ein, folgt
-%
-\begin{align}
--i\omega w_1 = -c^{(p)}ik\frac{T_1}{\rho}, && -i\omega T_1 = -\frac{R_d}{c^{(v)}}T_0ikw_1.
-\end{align}
-%
-In Matrixschreibweise erhält man
-%
-\begin{align}
-\left(
-\begin{array}{cc}
--i\omega & c^{(p)}ik\frac{1}{\rho} \\
-\frac{R_d}{c^{(v)}}\newtilde{T}_0ik & -i\omega \end{array}\right)
-\left(\begin{array}{c}
-w_1 \\
-\newtilde{T}_1
-\end{array}\right) = \left(\begin{array}{c}
-0 \\
-0
-\end{array}\right).
-\end{align}
-%
-Durch Nullsetzen der Determinante erhält man
-%
-\begin{align}
-\omega^2 = \kappa R_dTk^2.
-\end{align}
-%
-Es ergibt sich also die gleiche Dispersionsrelation wie Glg. \eqref{eq:velocity_sound}. Hiermit ist verifiziert, dass die in den Glg.en \eqref{eq:sound_entropy_0} - \eqref{eq:sound_entropy_1} aufgeführten Terme in der Tat Schallwellen beschreiben.
-
-Für die numerische Behandlung vertikaler Schallwellen führt man zunächst einen Unbekanntenvektor $\mathbf{x}$ mit $2N_L - 1$ Elementen ein, nämlich
+Laut Absch. \ref{sec:entropie-form_des_druckgradienten} trägt nur der Temperaturgradient zur Druckgradientbeschleunigung bei, daher muss nur dieser implizit behandelt werden, während der Gradient der Entropie weiterhin explizit behandelt werden kann. Für die numerische Behandlung vertikaler Schallwellen führt man zunächst einen Unbekanntenvektor $\mathbf{x}$ mit $2N_L - 1$ Elementen ein, nämlich
 %
 \begin{align}
 x_{2i} = w_{i + 1/2}^{(n + 1)}, && x_{2i + 1} = T_{i + 1}^{(n + 1)}
