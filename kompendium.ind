@@ -142,7 +142,9 @@
     \subitem allgemeine, \hyperpage{407}
   \item binomischer Lehrsatz, \hyperpage{407}
   \item Bodenreibung, \hyperpage{123}, \hyperpage{266}
-  \item Bose-Verteilung, \hyperpage{96}
+  \item Boltzmann-Gleichung, \hyperpage{93}
+    \subitem stoßfreie, \hyperpage{93}
+  \item Bose-Verteilung, \hyperpage{98}
   \item Boson, \hyperpage{54}
   \item bottom drag, \hyperpage{291}
   \item Boussinesq-Approximation, \hyperpage{172, 173}, \hyperpage{175}
@@ -331,6 +333,7 @@
 
   \item Eddy-Austauschkoeffizient, \hyperpage{266}
   \item Eddy-Stress-Term, \hyperpage{264}
+  \item Eddy-Viskosität, \hyperpage{270}
   \item Eddy-Viskositäts-Koeffizient, \hyperpage{267}
   \item Eichinvarianz der Maxwell-Gleichungen, \hyperpage{18}
   \item Einheitskugel, \hyperpage{374}
@@ -358,7 +361,7 @@
     \subitem Notwendigkeit, \hyperpage{475}
   \item ellipsoidisches Gitter, \hyperpage{381}
   \item ellipsoidisches Voronoi-Gitter, \hyperpage{491}
-  \item Emissivität, \hyperpage{98}
+  \item Emissivität, \hyperpage{99}
   \item energetische Konsistenz
     \subitem Impulsadvektion, \hyperpage{316}
   \item Energie, \hyperpage{9}
@@ -372,8 +375,8 @@
       \subsubitem konvektiv verfügbare, \hyperpage{256, 257}
       \subsubitem totale, \hyperpage{189}
       \subsubitem verfügbare, \hyperpage{188, 189}
-  \item Energie-Transfer-Funktion, \hyperpage{273, 274}, 
-		\hyperpage{276}
+  \item Energie-Transfer-Funktion, \hyperpage{274, 275}, 
+		\hyperpage{277}
     \subitem Antisymmetrie, \hyperpage{275}
     \subitem isotrope Form, \hyperpage{275}
   \item Energiedichte, \hyperpage{21}, \hyperpage{186}
@@ -636,7 +639,7 @@
   \item Hauptsatz der Vektoranalysis, \hyperpage{193}, \hyperpage{337}
   \item Hebungskondensationsniveau (HKN), \hyperpage{253}
   \item Hebungskurve, \hyperpage{128}
-  \item Heisenberg'scher Austauschkoeffizient, \hyperpage{277}
+  \item Heisenberg'scher Austauschkoeffizient, \hyperpage{278}
   \item Heisenberg-Ansatz, \hyperpage{275, 276}
   \item Heisenberg-Konstante, \hyperpage{276}
   \item Helizität, \hyperpage{146}, \hyperpage{201}
@@ -774,11 +777,11 @@
   \item kanonische Gleichung, \hyperpage{14}
   \item kanonischer Impuls, \hyperpage{14}
   \item kanonisches Ensemble, \hyperpage{75}
-  \item Kapillardruck, \hyperpage{93}
-  \item Kapillarität, \hyperpage{93}
+  \item Kapillardruck, \hyperpage{94}
+  \item Kapillarität, \hyperpage{94}
   \item Kapillarwelle, \hyperpage{219}
   \item kartesisches Koordinatensystem, \hyperpage{114}
-  \item Kelvin-Gleichung, \hyperpage{94, 95}
+  \item Kelvin-Gleichung, \hyperpage{95, 96}
   \item Kelvin-Helmholtz-Instabilität, \hyperpage{246}
     \subitem in diskreter Schichtung, \hyperpage{246}
     \subitem in kontinuierlicher Schichtung, \hyperpage{249}
@@ -811,7 +814,7 @@
     \subitem spezifische, \hyperpage{122}
   \item kinetisches Energiespektrum, \hyperpage{442}
   \item kinetisches Gasmodell, \hyperpage{87}
-  \item Kirchhoff'sches Strahlungsgesetz, \hyperpage{98}
+  \item Kirchhoff'sches Strahlungsgesetz, \hyperpage{100}
   \item kite grid, \hyperpage{332}
   \item KKN, \hyperpage{258}
   \item klassische Mechanik, \hyperpage{7}
@@ -902,7 +905,7 @@
   \item Köhler-Gleichung, \hyperpage{297}
   \item Körper
     \subitem platonischer, \hyperpage{321}
-    \subitem schwarzer, \hyperpage{99}
+    \subitem schwarzer, \hyperpage{100}
 
   \indexspace
 
@@ -1007,7 +1010,7 @@
   \item Maxwell-Verteilung, \hyperpage{85}
   \item Mechanik
     \subitem klassische, \hyperpage{7}
-  \item mechanische Oberflächenspannung, \hyperpage{93}
+  \item mechanische Oberflächenspannung, \hyperpage{94}
   \item mehrdimensionale Ableitung, \hyperpage{421}
   \item mehrdimensionale Integralrechnung, \hyperpage{435}
   \item mehrdimensionale Kettenregel, \hyperpage{413}
@@ -1087,8 +1090,8 @@
   \item obere Randbedingung, \hyperpage{400}
     \subitem im Modell, \hyperpage{390}
   \item Oberflächenschicht, \hyperpage{267}
-  \item Oberflächenspannung, \hyperpage{94}
-    \subitem mechanische, \hyperpage{93}
+  \item Oberflächenspannung, \hyperpage{95}
+    \subitem mechanische, \hyperpage{94}
   \item Obliquität, \hyperpage{2}
   \item Observable
     \subitem vollständige, \hyperpage{43}
@@ -1126,7 +1129,7 @@
     \subitem Impulsadvektion, \hyperpage{281}
     \subitem Phasenübergänge, \hyperpage{281}, \hyperpage{401}
     \subitem skalare Advektion, \hyperpage{280, 281}
-  \item Parseval-Identität, \hyperpage{273}, \hyperpage{441, 442}
+  \item Parseval-Identität, \hyperpage{274}, \hyperpage{441, 442}
   \item partielle Integration, \hyperpage{412}
   \item Pauli-Gleichung, \hyperpage{56}
   \item Pauli-Matrix, \hyperpage{55}
@@ -1147,12 +1150,12 @@
     \subitem Zweiter, \hyperpage{103}
   \item Phasenübergangsenthalpie, \hyperpage{93}
   \item Phasenübergangswärme, \hyperpage{151}
-  \item Photonengas, \hyperpage{95}
+  \item Photonengas, \hyperpage{96}
   \item Physik
     \subitem statistische, \hyperpage{69}
   \item Phäsenübergangsenthalpie, \hyperpage{256}
   \item plan-parallele Atmosphäre, \hyperpage{296}
-  \item Planck'sches Strahlungsgesetz, \hyperpage{97}
+  \item Planck'sches Strahlungsgesetz, \hyperpage{98}
   \item Planck'sches Wirkungsquantum, \hyperpage{27}
   \item Planck-Einstein-Relation, \hyperpage{27}
   \item planetare Vorticity, \hyperpage{194}
@@ -1316,7 +1319,7 @@
     \subitem Potentialtopf, \hyperpage{29}
     \subitem radiale, \hyperpage{46}
     \subitem stationäre, \hyperpage{28}, \hyperpage{32}
-  \item schwarzer Körper, \hyperpage{99}
+  \item schwarzer Körper, \hyperpage{100}
   \item Schwerefeld der Erde, \hyperpage{461}
   \item Schwerefeld eines Ellipsoids, \hyperpage{462}
   \item Schwerewelle
@@ -1386,7 +1389,7 @@
   \item Spin, \hyperpage{54, 55}
   \item Spin-Bahn-Kopplung, \hyperpage{60}
   \item Spin-down, \hyperpage{270}
-  \item Spin-down-Zeit, \hyperpage{271}
+  \item Spin-down-Zeit, \hyperpage{272}
   \item Spin-down-Zustand, \hyperpage{55}
   \item Spin-up-Zustand, \hyperpage{55}
   \item Spinmatrix, \hyperpage{55}
@@ -1404,8 +1407,8 @@
   \item statistische Physik, \hyperpage{69}
   \item statistischer Operator, \hyperpage{69}
   \item Staubteufel, \hyperpage{184}
-  \item Stefan-Boltzmann-Gesetz, \hyperpage{97}
-  \item Stefan-Boltzmann-Konstante, \hyperpage{97}
+  \item Stefan-Boltzmann-Gesetz, \hyperpage{99}
+  \item Stefan-Boltzmann-Konstante, \hyperpage{99}
   \item Steilheit, \hyperpage{213}
   \item Stirling-Formel, \hyperpage{415}
   \item Stokes'sche Reibung, \hyperpage{297}
@@ -1425,8 +1428,8 @@
   \item Strahlungsflussdichte, \hyperpage{21}, \hyperpage{363}
     \subitem spektrale, \hyperpage{291}
   \item Strahlungsgesetz
-    \subitem Kirchhoff'sches, \hyperpage{98}
-    \subitem Planck'sches, \hyperpage{97}
+    \subitem Kirchhoff'sches, \hyperpage{100}
+    \subitem Planck'sches, \hyperpage{98}
   \item Strahlungsgröße, \hyperpage{21}
   \item Strahlungstemperatur, \hyperpage{295}
   \item Strahlungstransport, \hyperpage{152}, \hyperpage{295}
@@ -1440,7 +1443,7 @@
       \subsubitem inkompressibler, \hyperpage{117}
     \subitem inkompressibler Grenzfall, \hyperpage{117}
   \item Streukoeffizient, \hyperpage{296}
-  \item Streuquerschnitt, \hyperpage{98}, \hyperpage{153}
+  \item Streuquerschnitt, \hyperpage{100}, \hyperpage{153}
   \item Stromdichte, \hyperpage{17}
   \item Stromfunktion, \hyperpage{193}
   \item Strömung
@@ -1470,7 +1473,7 @@
     \subitem der Extratropen, \hyperpage{259}
   \item synoptische Skala, \hyperpage{1}, \hyperpage{165}
   \item Synotpik, \hyperpage{165}
-  \item Sättigungsfeuchte, \hyperpage{95}
+  \item Sättigungsfeuchte, \hyperpage{96, 97}
 
   \indexspace
 
@@ -1574,7 +1577,7 @@
   \item Uniformität
     \subitem eines Gitters, \hyperpage{321}
   \item unitäre Matrix, \hyperpage{35}
-  \item universality region, \hyperpage{275, 276}
+  \item universality region, \hyperpage{276}
   \item Unschärferelation, \hyperpage{42}
   \item untere Randbedingung
     \subitem im Modell, \hyperpage{390}
@@ -1630,7 +1633,7 @@
       \subsubitem Funktionaldeterminante, \hyperpage{375}
   \item virtuelle Temperatur, \hyperpage{83}, \hyperpage{136}
   \item virtueller Temperaturzuschlag, \hyperpage{83}
-  \item Viskosität, \hyperpage{275--277}, \hyperpage{280}, 
+  \item Viskosität, \hyperpage{276}, \hyperpage{278}, \hyperpage{280}, 
 		\hyperpage{291}
     \subitem dynamische, \hyperpage{89}, \hyperpage{115}
     \subitem kinematische, \hyperpage{400}

@@ -6169,6 +6169,103 @@ Hier lassen sich zwei Fälle unterscheiden:
 \item $C$ ist fest: Dies impliziert $L_{A\to C} < 0$, was wiederum auf $\Delta T_s < 0$ führt, was einer Gefrierpunkterniedrigung\index{Gefrierpunkterniedrigung} entspricht. Dies mindert den Gefrierpunkt von Ozeanwasser auf unter Null Grad Celsius.
 \end{itemize}
 
+\subsection{Boltzmann-Gleichung}
+\label{sec:boltzmann-gleichung}\index{Boltzmann-Gleichung}
+
+In diesem Abschnitt soll eine Verbindung zwischen der statistischen Physik und der Hydrodynamik hergestellt werden. Zentrale Größe hierbei ist die Funktion
+%
+\begin{align}
+f = f\left(\mathbf{r}, \mathbf{v}, t\right),
+\end{align}
+%
+dies ist die Wahrscheinlichkeitsdichte dafür, Teilchen zu Zeit $t$ im Phasenraumvolumen bei $\mathbf{r}$, $\mathbf{v}$ anzutreffen, dabei gilt
+%
+\begin{align}
+\int_{\mathbb{R}^6}f\left(\mathbf{r}, \mathbf{v}, t\right)d^3rd^3v = N
+\end{align}
+%
+mit $N$ als Teilchenzahl. Die totale Ableitung von $f$ lautet $\left(\frac{\partial}{\partial t} + \mathbf{v}\cdot\nabla_\mathbf{r} + \frac{\mathbf{F}}{m}\cdot\nabla_\mathbf{v}\right)f\left(\mathbf{r}, \mathbf{v}, t\right)$, die Gleichung
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\left(\frac{\partial}{\partial t} + \mathbf{v}\cdot\nabla_\mathbf{r} + \frac{\mathbf{F}}{m}\cdot\nabla_\mathbf{v}\right)f\left(\mathbf{r}, \mathbf{v}, t\right) = 0\label{eq:boltzmann-eq_no_internal}
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+bezeichnet man als \textit{stoßfreie Boltzmann-Gleichung}\index{Boltzmann-Gleichung!stoßfreie}. Hierbei wurde $\md{\mathbf{v}} = \frac{\mathbf{F}}{m}$ mit $\mathbf{F}$ als Summe externer Kräfte (elektromagnetisches Feld, Gravitation, Scheinkräfte) eingesetzt. Interne Wechselwrikungen, welche durch Teilchenstöße entstehen (Druckgradientbeschleunigung, Viskosität), wurden dabei noch nicht berücksichtigt, man setzt für sie einen Term $F_\text{int}$ an. Dieser Term wird nun Schritt für Schritt entwickelt. Er soll beschreiben, wie
+%
+\begin{enumerate}
+\item Teilchen in ein kleines Phasenraumvolumen bei $\left(\mathbf{r}, \mathbf{v}\right)$ hineingestreut werden,
+\item Teilchen aus einem kleinen Phasenraumvolumen bei $\left(\mathbf{r}, \mathbf{v}\right)$ herausgestreut werden.
+\end{enumerate}
+%
+Zunächst ist zu erwarten, dass $F_\text{int}$ ein Integral über alle Geschwindigkeiten ist:
+%
+\begin{align}
+F_\text{int} = \int_{\mathbb{R}^3}\dots d^3v_1
+\end{align}
+%
+Ein Ortsintegral ist nicht sinnoll, da Stöße nur lokal stattfinden. Weiterhin ist zu erwarten, dass der Verlust an Teilchen im Phasenraumvolumen $\left(\mathbf{r}, \mathbf{v}\right)$ proportional zu $f\left(\mathbf{r}, \mathbf{v}, t\right)$ ist, also
+%
+\begin{align}
+F_\text{int} = \int_{\mathbb{R}^3}-f\left(\mathbf{r}, \mathbf{v}, t\right) + \dots d^3v_1
+\end{align}
+%
+An der Sttelle $\mathbf{v}_1$ werden Stöße mit Teilchen in einem kleinen Phasenraumvolumen bei $\left(\mathbf{r}, \mathbf{v}_1\right)$ betrachtet, daher setzt man weiterhin an
+%
+\begin{align}
+F_\text{int} = \int_{\mathbb{R}^3}-f\left(\mathbf{r}, \mathbf{v}, t\right)f\left(\mathbf{r}, \mathbf{v}_1, t\right) + \dots d^3v_1.
+\end{align}
+%
+Die Anzahl der Stöße pro Zeit ist proportional zur Relativgeschwindigkeit $\mathbf{V}\coloneqq\mathbf{v} - \mathbf{v}_1$, man erhält
+%
+\begin{align}
+F_\text{int} = \int_{\mathbb{R}^3}-f\left(\mathbf{r}, \mathbf{v}, t\right)f\left(\mathbf{r}, \mathbf{v}_1, t\right)\left|\mathbf{V}\right| + \dots d^3v_1.
+\end{align}
+%
+Die Stromdichte an sich reicht noch nicht, um die Anzahl an Streuprozessen pro Zeit festzulegen: Sind alle Teilchen ideale Massenpunkte, finden beispielweise überhaupt keine Stöße steht. Dies wird durch den Wirkungsquerschnitt $\sigma$ beschrieben, daher setzt man an
+%
+\begin{align}
+F_\text{int} = \int_{\mathbb{R}^3}-f\left(\mathbf{r}, \mathbf{v}, t\right)f\left(\mathbf{r}, \mathbf{v}_1, t\right)\left|\mathbf{V}\right|\sigma + \dots d^3v_1.
+\end{align}
+%
+Die Geschwindigkeiten der Teilchen vor dem Stoß sind $\mathbf{v}$ und $\mathbf{v}_1$, diejenigen nach dem Stoß werden mit $\mathbf{v}'$ und $\mathbf{v}_1'$ bezeichnet. Man definiert weiter die Relativgeschwindigkeit nach dem Stoß durch $\mathbf{V}' \coloneqq \mathbf{v}_1' - \mathbf{v}'$, dabei gilt $\left|\mathbf{V}\right| = \left|\mathbf{V}'\right|$. Bezeichne mit $\Omega$ den Raumwinkel zwischen $\mathbf{V}$ und $\mathbf{V}'$. In das Raumwinkelelement $d\Omega$ werden Teilchen proportional zu $\frac{d\sigma}{d\Omega}d\Omega$ hineingestreut, dies führt auf
+%
+\begin{align}
+F_\text{int} = \int_{\mathbb{R}^3}\int_\Omega-f\left(\mathbf{r}, \mathbf{v}, t\right)f\left(\mathbf{r}, \mathbf{v}_1, t\right)\left|\mathbf{V}\right|\frac{d\sigma}{d\Omega}d\Omega + \dots d^3v_1.
+\end{align}
+%
+Analog findet ein Streuprozess von $\mathbf{v}'$ und $\mathbf{v}_1'$ zu $\mathbf{v}$ und $\mathbf{v}_1$ statt, dies führt auf
+%
+\begin{align}
+F_\text{int} = \int_{\mathbb{R}^3}\int_\Omega\left[f\left(\mathbf{r}, \mathbf{v}', t\right)f\left(\mathbf{r}, \mathbf{v}_1', t\right) - f\left(\mathbf{r}, \mathbf{v}, t\right)f\left(\mathbf{r}, \mathbf{v}_1, t\right)\right]\left|\mathbf{V}\right|\frac{d\sigma}{d\Omega}d\Omega d^3v_1.
+\end{align}
+%
+Die Größen $\mathbf{v}'$ und $\mathbf{v}_1'$ sind durch das Streuproblem ($\mathbf{v}$, $\mathbf{v}_1$, $\Omega$ sowie Impulserhaltung und Energieerhaltung) festgelegt. Schreibt man dies auf die rechte Seite von Glg. \eqref{eq:boltzmann-eq_no_internal}, erhält man
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+&\left(\frac{\partial}{\partial t} + \mathbf{v}\cdot\nabla_\mathbf{r} + \frac{\mathbf{F}}{m}\cdot\nabla_\mathbf{v}\right)f\left(\mathbf{r}, \mathbf{v}, t\right)\nonumber\\
+&= \int_{\mathbb{R}^3}\int_\Omega\left[f\left(\mathbf{r}, \mathbf{v}', t\right)f\left(\mathbf{r}, \mathbf{v}_1', t\right) - f\left(\mathbf{r}, \mathbf{v}, t\right)f\left(\mathbf{r}, \mathbf{v}_1, t\right)\right]\left|\mathbf{V}\right|\frac{d\sigma}{d\Omega}d\Omega d^3v_1.
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+Dies ist die Boltzmann-Gleichung.
+
+Die Strömungsgeschwindigkeit $\mathbf{v} = \mathbf{v}\left(\mathbf{r}, t\right)$ kann in Termen der Funktion $f$ definiert werden:
+%
+\begin{align}
+\mathbf{v}\left(\mathbf{r}, t\right) \coloneqq \frac{\int_{\mathbb{R}^3}f\left(\mathbf{r}, \mathbf{v}', t\right)\mathbf{v}'d^3v'}{\int_{\mathbb{R}^6}f\left(\mathbf{r}, \mathbf{v}', t\right)d^3v'}
+\end{align}
+
 \section{Kapillarität}
 \label{sec:kapillaritaet}\index{Kapillarität}
 
