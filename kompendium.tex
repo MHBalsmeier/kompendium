@@ -14330,8 +14330,8 @@ Zusammenfassend lautet das linearisierte Gleichungssystem
 Dabei wurden Terme, die mit der hydrostatischen Approximation wegfallen würden, \textcolor{blue}{blau} markiert, und alle Terme, die unter Vernachlässigung von Schallwellen verschwinden würden, \textcolor{red}{rot}. Störend ist die vertikale Abhängigkeit von $\rho_0$. Daher definiert man
 %
 \begin{align}
-u'' = \sqrt{\frac{\rho_0}{\rho_\text{SFC}}}u', && v'' = \sqrt{\frac{\rho_0}{\rho_\text{SFC}}}v', && w'' = \sqrt{\frac{\rho_0}{\rho_\text{SFC}}}w',\\
-b'' = \sqrt{\frac{\rho_0}{\rho_\text{SFC}}}b', && p'' = \sqrt{\frac{\rho_\text{SFC}}{\rho_0}}p'.
+u'' \coloneqq \sqrt{\frac{\rho_0}{\rho_\text{SFC}}}u', && v'' \coloneqq \sqrt{\frac{\rho_0}{\rho_\text{SFC}}}v', && w'' \coloneqq \sqrt{\frac{\rho_0}{\rho_\text{SFC}}}w',\label{eq:bretherton_0}\\
+b'' \coloneqq \sqrt{\frac{\rho_0}{\rho_\text{SFC}}}b', && p'' \coloneqq \sqrt{\frac{\rho_\text{SFC}}{\rho_0}}p'.\label{eq:bretherton_1}
 \end{align}
 %
 was man als \textit{Bretherton-Transformation}\index{Bretherton-Transformation} bezeichnet. Dabei bezeichnet der Index SFC die Werte an der Erdoberfläche. Die Transformation erfolgt im Wesentlichen durch Multiplikation des Gleichungssystem mit $\sqrt{\frac{\rho_0}{\rho_\text{SFC}}}$. Besondere Aufmerksamkeit benötigen dabei die vertikalen Ableitungen:
@@ -14344,7 +14344,7 @@ was man als \textit{Bretherton-Transformation}\index{Bretherton-Transformation} 
 Dabei wurde
 %
 \begin{align}
-\frac{1}{\rho_0}\frac{d\rho_0}{dz} = -\frac{1}{H}
+\frac{1}{\rho_0}\frac{d\rho_0}{dz} = -\frac{1}{H}\label{eq:scale_h_density}
 \end{align}
 %
 mit der Skalenhöhe $H$ eingesetzt. Hieraus folgt
@@ -14426,41 +14426,51 @@ Hierbei heben sich die \textcolor{magenta}{magenta} eingefärbten Terme gegensei
 %
 \begin{align}
 0 & = \left(f^2 - \omega_I^2\right)\left(-m^2 - \frac{1}{4H^2}\right) + \textcolor{blue}{\omega_I^2l^2} - N^2l^2 + k^2\left(\textcolor{blue}{\omega_I^2} - N^2\right)\nonumber\\
-\Leftrightarrow \omega_I^2\left(\textcolor{blue}{k^2 + l^2} + m^2 + \frac{1}{4H^2}\right) & = f^2\left(m^2 + \frac{1}{4H^2}\right) + N^2\left(l^2 + k^2\right)\nonumber\\
-\Leftrightarrow \omega_I^2 & = \frac{f^2\left(m^2 + \frac{1}{4H^2}\right) + N^2\left(l^2 + k^2\right)}{\textcolor{blue}{k^2 + l^2} + m^2 + \frac{1}{4H^2}}\nonumber\\
+\Leftrightarrow \omega_I^2\left(\textcolor{blue}{k^2 + l^2} + m^2 + \frac{1}{4H^2}\right) & = f^2\left(m^2 + \frac{1}{4H^2}\right) + N^2\left(l^2 + k^2\right)\nonumber
 \end{align}
-%
-Dies kann man auch in der Form
-%
 \begin{center}
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-\omega_I^2 &= \left(f^2 + \frac{N^2\left(k^2 + l^2\right)}{m^2 + \frac{1}{4H^2}}\right)\frac{m^2 + \frac{1}{4H^2}}{\textcolor{blue}{k^2 + l^2} + m^2 + \frac{1}{4H^2}}\label{eq:disp_gravity_waves}
+\Leftrightarrow \omega_I^2 & = \frac{f^2\left(m^2 + \frac{1}{4H^2}\right) + N^2\left(k^2 + l^2\right)}{m^2 + \frac{1}{4H^2} + \textcolor{blue}{k^2 + l^2}}\label{eq:disp_gravity_waves}
 \end{align}
 \end{center}
 }}
 \end{center}
 %
+Dies ist die \textit{Dispersionsrelation von Schwerewellen}\index{Dispersionsrelation!einer Schwerewelle}\index{Schwerewelle!Dispersionsrelation}, diese ist außerdem in Abb. \ref{fig:gravity_wave_dispersion} visualisiert. $\omega_I^2$ ist ein gewichtetes Mittel aus den Anteilen $f^2$ und $N^2$ mit den Gewichtungsfaktoren $m^2 + \frac{1}{4H^2}$ und $k^2 + l^2$. $\omega_I^2$ liegt also immer zwischen $f^2$ und $N^2$.
+
 \begin{figure}
 \centering
 \includegraphics[width = .65\textwidth]{figs/gravity_wave_dispersion.png}
 \caption{Dispersionsrelation von Schwerewellen.}
 \label{fig:gravity_wave_dispersion}
 \end{figure}
+
+\subsubsection{Hydrostatischer Grenzfall}
+\label{sec:hydrostatischer_grenzfall_schwerewellen}
+
+Glg. \eqref{eq:disp_gravity_waves} kann man auch in der Form
 %
-notieren. Dies ist die \textit{Dispersionsrelation von Schwerewellen}\index{Dispersionsrelation!einer Schwerewelle}\index{Schwerewelle!Dispersionsrelation}, diese ist außerdem in Abb. \ref{fig:gravity_wave_dispersion} visualisiert. Hieraus ergibt sich, dass der rechte Bruch nichthydrostatische Effekte beschreibt. Vernachlässigung der \textcolor{blue}{blauen} Terme liefert die \textit{Dispersionsrelation von hydrostatischen Schwerewellen}\index{Dispersionsrelation!einer hydrostatischen Schwerewelle}\index{Schwerewelle!hydrostatische!Dispersionsrelation}:
+\begin{align}
+\omega_I^2 &= \left(f^2 + \frac{N^2\left(k^2 + l^2\right)}{m^2 + \frac{1}{4H^2}}\right)\frac{m^2 + \frac{1}{4H^2}}{\textcolor{blue}{k^2 + l^2} + m^2 + \frac{1}{4H^2}}
+\end{align}
+%
+notieren. Hieraus ergibt sich, dass der rechte Bruch nichthydrostatische Effekte beschreibt. Vernachlässigung der \textcolor{blue}{blauen} Terme liefert die \textit{Dispersionsrelation von hydrostatischen Schwerewellen}\index{Dispersionsrelation!einer hydrostatischen Schwerewelle}\index{Schwerewelle!hydrostatische!Dispersionsrelation}:
 %
 \begin{center}
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-\omega^2 & = \left(f^2 + \frac{N^2\left(k^2 + l^2\right)}{m^2 + \frac{1}{4H^2}}\right)
+\omega_I^2 & = f^2 + \frac{N^2\left(k^2 + l^2\right)}{m^2 + \frac{1}{4H^2}}\label{eq:disp_gravity_hydrostat}
 \end{align}
 \end{center}
 }}
 \end{center}
-%
+
+\subsubsection{Gruppengeschwindigkeit}
+\label{sec:gruppengeschwindigkeit}
+
 Aus dieser Gleichung folgt
 %
 \begin{align}
@@ -14471,7 +14481,7 @@ Aus dieser Gleichung folgt
 \end{array}\right).
 \end{align}
 %
-Mit $\omega' = \sqrt{\omega^2}' = \frac{1}{2\omega}\left(\omega^2\right)'$ erhält man für die Gruppengeschwindigkeit hydrostatischer barokliner Schwerewellen\index{Gruppengeschwindigkeit!barokline Schwerewelle}\index{barokline Schwerewelle!Gruppengeschwindigkeit}\index{Schwerewelle!barokline!Gruppengeschwindigkeit}
+Mit $\omega' = \sign\left(\omega\right)\sqrt{\omega^2}' = \frac{1}{2\omega}\left(\omega^2\right)'$ erhält man für die Gruppengeschwindigkeit hydrostatischer barokliner Schwerewellen\index{Gruppengeschwindigkeit!barokline Schwerewelle}\index{barokline Schwerewelle!Gruppengeschwindigkeit}\index{Schwerewelle!barokline!Gruppengeschwindigkeit}
 %
 \begin{align}
 \mathbf{c}_\text{gr} = \frac{1}{\omega_I}\left(\begin{array}{c}
@@ -14488,7 +14498,7 @@ l\\
 Horizontal zeigt die Gruppengeschwindigkeit also in die gleiche Richtung wie die Phasengeschwindigkeit\index{Phasengeschwindigkeit!barokline Schwerewelle}\index{barokline Schwerewelle!Phasengeschwindigkeit}\index{Schwerewelle!barokline!Phasengeschwindigkeit}. Vertikal haben die beiden Geschwindigkeiten entgegengesetzte Vorzeichen. Für die vertikale Wellenlänge $l_z$ gilt
 %
 \begin{align}
-m^2 = \frac{4\pi^2}{l_z^2} \Rightarrow \frac{m^2}{\frac{1}{4H^2}} = \frac{16\pi^2H^2}{l_z^2}. 
+m^2 = \frac{4\pi^2}{l_z^2} \Rightarrow \frac{m^2}{\frac{1}{4H^2}} = \frac{16\pi^2H^2}{l_z^2} \approx 158\frac{H^2}{l_z^2}. 
 \end{align}
 %
 Häufig gilt
@@ -14500,19 +14510,95 @@ Häufig gilt
 Unter dieser Voraussetzung gilt
 %
 \begin{align}
-\mathbf{c}_\text{gr} & = \frac{1}{\sqrt{f^2 + \frac{N^2}{m^2}\left(k^2 + l^2\right)}}\frac{N^2}{m^2}\left(\begin{array}{c}
+\mathbf{c}_\text{gr} & = \frac{\sign\left(\omega_I\right)}{\sqrt{f^2 + \frac{N^2}{m^2}\left(k^2 + l^2\right)}}\frac{N^2}{m^2}\left(\begin{array}{c}
 k\\
 l\\
 -\frac{k^2 + l^2}{m}
-\end{array}\right) = \frac{1}{\sqrt{f^2m^2 + N^2\left(k^2 + l^2\right)}}\frac{N^2}{m}\left(\begin{array}{c}
+\end{array}\right) = \frac{\sign\left(\omega_I\right)}{\sqrt{f^2m^2 + N^2\left(k^2 + l^2\right)}}\frac{N^2}{m}\left(\begin{array}{c}
 k\\
 l\\
 -\frac{k^2 + l^2}{m}
 \end{array}\right)\\
-\Rightarrow\mathbf{c}_\text{gr}\cdot\mathbf{k} & = k^2 + l^2 - \left(k^2 + l^2\right) = 0.
+\Rightarrow\mathbf{c}_\text{gr}\cdot\mathbf{k} &\propto k^2 + l^2 - \left(k^2 + l^2\right) = 0.
 \end{align}
 %
 Phasengeschwindigkeit\index{Phasengeschwindigkeit!barokline Schwerewelle}\index{barokline Schwerewelle!Phasengeschwindigkeit}\index{Schwerewelle!barokline!Phasengeschwindigkeit} und Gruppengeschwindigkeit\index{Gruppengeschwindigkeit!barokline Schwerewelle}\index{barokline Schwerewelle!Gruppengeschwindigkeit}\index{Schwerewelle!barokline!Gruppengeschwindigkeit} stehen also senkrecht aufeinander.
+
+\subsubsection{Amplitudenverhalten}
+\label{sec:amplitudenverhalten}
+
+Aus der Bretherton-Transformation Glg.en \eqref{eq:bretherton_0} - \eqref{eq:bretherton_1} und Glg. \eqref{eq:scale_h_density} folgt
+%
+\begin{align}
+u' \coloneqq \sqrt{\frac{\rho_\text{SFC}}{\rho_0}}u'' = \exp\left(\frac{z}{2H}\right)u'', && v' \coloneqq \sqrt{\frac{\rho_\text{SFC}}{\rho_0}}v'' = \exp\left(\frac{z}{2H}\right)v'',\\
+w' \coloneqq \sqrt{\frac{\rho_\text{SFC}}{\rho_0}}w'' = \exp\left(\frac{z}{2H}\right)w'', && p' \coloneqq \sqrt{\frac{\rho_0}{\rho_\text{SFC}}}p'' = \exp\left(-\frac{z}{2H}\right)p''.
+\end{align}
+%
+Die Amplitude der Bewegungen nimmt also mit der Höhe exponentiell zu, die Höhe der Druckschwankungen nimmt exponentiell ab.
+
+\subsubsection{Leewellen}
+\label{sec:leewellen}\index{Leewelle}
+
+\textit{Leewellen}\index{Leewelle} sind stationär, d. h. es gilt $\omega = 0$. Hieraus folgt
+%
+\begin{align}
+\omega_I = \omega - Uk = -Uk\Rightarrow \omega_I^2 = U^2k^2.
+\end{align}
+%
+Geht man von hydrostatischen Schwerewellen aus, kann man dies mit Glg. \eqref{eq:disp_gravity_hydrostat} gleichsetzen, hieraus folgt
+%
+\begin{align}
+\omega_I^2 = U^2k^2 & = f^2 + \frac{N^2\left(k^2 + l^2\right)}{m^2 + \frac{1}{4H^2}}.
+\end{align}
+%
+Geht man von $m^2 \gg \frac{1}{4H^2}$, $f = 0$ und $l = 0$ aus, folgt
+%
+\begin{align}
+\omega_I^2  = U^2k^2 = \frac{N^2k^2}{m^2}\Rightarrow U^2 & = \frac{N^2}{m^2} \Rightarrow m^2 = \frac{N^2}{U^2}.
+\end{align}
+%
+Hieraus folgt für die intrinsische Phasengeschwindigkeit
+%
+\begin{align}
+\mathbf{c}_{I, \text{ph}} = \frac{\omega_I}{\sqrt{k^2 + m^2}}\frac{\mathbf{k}}{\left|\mathbf{k}\right|} = -\frac{Uk}{k^2 + m^2}\left(
+\begin{array}{c}
+k\\
+0\\
+m
+\end{array}
+\right)
+\end{align}
+%
+sowie für die intrinsische Gruppengeschwindigkeit
+%
+\begin{align}
+\mathbf{c}_{I, \text{gr}} = \nabla_\mathbf{k}\omega_I = \left(
+\begin{array}{c}
+-\frac{N}{m}\\
+0\\
+\frac{Nk}{m^2}
+\end{array}
+\right).
+\end{align}
+%
+Die intrinsische Phasengeschwindigkeit ist also nach unten und entgegen der Windrichtung ausgerichtet, die intrinsische Gruppengeschwindigkeit ist ebenfalls negativ in x-Richtung, jedoch nach oben gerichtet.
+
+Im Fall nicht-hydrostatischer Schwerewellen gilt mit Glg. \eqref{eq:disp_gravity_waves}, ebenfalls unter den Annahmen $f = 0$  und $l = 0$,
+%
+\begin{align}
+U^2k^2 &= \frac{N^2k^2}{m^2 + \frac{1}{4H^2} + k^2} \Leftrightarrow U^2\left(k^2 + m^2 + \frac{1}{4H^2}\right) = N^2\nonumber\\
+\Leftrightarrow m^2 &= \frac{N^2}{U^2} - k^2 - \frac{1}{4H^2}.
+\end{align}
+%
+Im Fall $m^2 < 0$ sind die Wellen vertikal evaneszent, können also vertikal nicht propagieren. Dies ist der Fall für
+%
+\begin{align}
+\frac{N^2}{U^2} - k^2 - \frac{1}{4H^2} < 0 && \Leftrightarrow k^2 > \frac{N^2}{U^2} - \frac{1}{4H^2}\nonumber\\
+\Leftrightarrow \frac{4\pi^2}{l_x^2} > \frac{N^2}{U^2} - \frac{1}{4H^2} && \Leftrightarrow \frac{l_x^2}{4\pi^2} < \frac{1}{\frac{N^2}{U^2} - \frac{1}{4H^2}}\nonumber\\
+\Leftrightarrow l_x < \frac{2\pi}{\sqrt{\frac{N^2}{U^2} - \frac{1}{4H^2}}}.&&
+\end{align}
+%
+Diejenigen Spektralanteile der Orographie, welche diese Ungleichung erfüllen, können also keine nach oben propagierenden Wellen erzeugen. Einsetzen typischer Werte von $N = 0,02$ Hz, $U = 8$ m/s und $H = 8$ km ergibt $l_x \approx 2,5$ km. Bei höherer Windgeschwindigkeit nimmt $l_x$ zu.
 
 \subsubsection{Entropie-Form des Druckgradienten}
 \label{sec:entropie-form_des_druckgradienten_schwere}
