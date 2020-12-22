@@ -16129,13 +16129,13 @@ Hiermit lääst sich das Gleichungssystem der Glg.en \eqref{eq:ekman_wind_u} - \
 notieren. Aus Beobachtungen weiß man, dass in ca. 1 km Höhe der Wind seinen geostrophischen Wert anstrebt, daraus folgt
 %
 \begin{align}
-K \approx \frac{\left|f\right|D^2}{2\pi^2} \approx 5\text{ m}^2/\text{s}.
+K \approx \frac{\left|f\right|D^2}{2\pi^2} \approx 5\text{ m}^2/\text{s}.\label{sec:eddy_viscosity_vert_estimate}
 \end{align}
 %
 Dies ist über fünf Größenordnungen über dem Wert der kinematischen Viskosität von $1, 5\cdot 10^{-5}$ m$^2$/s. Mit Glg. \eqref{eq:def_eddy_exchange_coeff} folgt für die Mischungsweglänge
 %
 \begin{align}
-l = \sqrt{\frac{K}{\left|\frac{\partial\newoverline{\mathbf{v}_h}}{\partial z}\right|}} \sim \sqrt{\frac{KD}{u_g}} \sim 2\cdot 10^1\text{ m}.
+l = \sqrt{\frac{K}{\left|\frac{\partial\newoverline{\mathbf{v}_h}}{\partial z}\right|}} \sim \sqrt{\frac{KD}{u_g}} \sim 2\cdot 10^1\text{ m}.\label{eq:estimate_mix_len}
 \end{align}
 %
 Dies entspricht der Erwartung, dass $l \ll D$ sein muss, damit das Mischungswegkonzept in der planetarischen Grenzschicht sinnvoll ist. Es ergibt sich mit Glg. \eqref{eq:karman_eq} eine Höhe $D_P$ der Prandtl-Schicht von ca.
@@ -16171,6 +16171,13 @@ Man erhält mit $u_g \sim 10$ m/s, $\rho_0 \approx 1, 2$ kg/m$^3$ und $R \sim 50
 \end{align}
 %
 Dies ist deutlich geringer als der in Absch. \ref{sec:reibungswind} abgeschätzte Wert. Die Obergrenze der Grenzschicht ist gleichzeitig die Obergrenze der Ekman-Schicht.
+
+\subsection{Die Bedeutung der Eddy-Viskosität}
+\label{sec:die_bedeutung_der_eddy_viskosität}\index{Eddy-Viskosität}
+
+Es wurden Eddy-Austausch-Koeffizienten $A_{i, j}$ sowie Mischungsweglängen $l_x$, $l_y$, $l_z$ eingeführt, um die Auswirkungen der Turbulenz, d. h. der subskaligen Variabilität, auf die aufgelösten (gemittelten) Felder zu beschreiben. Fraglich ist, wie fundamental diese Größen sind, d. h., ob es sich um Materialeigenschaften oder eher um Hilfsgrößen handelt.
+
+Zunächst lässt sich festhalten, dass bei sehr feiner Auflösung die Diffusionskoeffizienten die molekularen Flüsse beschreiben, also gegen die molekularen physikalischen Diffusionskoeffizienten konvergieren. Bei gröberer Auflösung hingegen enthalten die diffusiven Terme auch turbulente Anteile. In diesem Kapitel wurden jedoch keine expliziten Annahmen an den räumlichen oder zeitlichen Umfang der Mittelungsoperatoren gemacht. Hingegen wurde implizit davon ausgegangen, dass der Mittelungsoperator ein Reynolds-Operator ist. Dies ist nur dann eine realistische Annahme, wenn die turbulenten Schwankungen klein gegenüber der Größe der Mittelung sind, die Mittelung jedoch nicht so umfangreich ist, dass synoptisch-skalige Prozesse beeinflusst werden. Solch eine Mittelung ist gewissermaßen vor anderen ausgezeichnet, und somit auch die mit ihnen erhaltenen Eddy-Austausch-Koeffizienten und Mischungsweglängen.
 
 \subsection{Spin-down}
 \label{sec:spin-down}\index{Spin-down}
@@ -22693,7 +22700,15 @@ Dementsprechend erwartet man, dass
 \frac{\nu_\text{numerisch}}{\nu_\text{molekular}} \sim \left(\frac{\text{min}\left(l_m, 2\Delta r\right)}{l_c}\right)^{4/3}
 \end{align}
 %
-eine sinnvolle Abschätzung für die numerische Viskosität\index{numerische Viskosität}\index{Viskosität!numerische} ist.
+eine sinnvolle Abschätzung für die numerische Viskosität\index{numerische Viskosität}\index{Viskosität!numerische} ist, hierbei ist $l_m$ die Mischungsweglänge. Die Beschränkung auf die Mischungsweglänge im Zähler ist sinnvoll, da das Fluid im Modell niemals zäher (viskoser) sein darf als das natürliche Medium, da sonst keine realistischen Simulationen der Dynamik zu erwarten sind. Für die vertikale Mischungsweglänge wurde mit Glg. \eqref{eq:estimate_mix_len} innerhalb der Ekman-Schicht ein Wert von ca. 20 m abgeschätzt, damit und der Abschätzungen $l_c = 5$ mm erhält man
+%
+\begin{align}
+\text{log}_{10}\left(\frac{\nu_\text{numerisch}}{\nu_\text{molekular}}\right) = 4,8.
+\end{align}
+%
+Dies entspricht grob dem in Glg. \eqref{sec:eddy_viscosity_vert_estimate} erhaltenen Wert.
+
+Außerhalb der planetarischen Grenzschicht kann von einem Wert für die vertikale Mischungsweglänge von ca. 100 m ausgegangen werden, da dort größere Wirbel existieren. Die horizontale Mischungsweglänge kann außerhalb der planetarischen Grenzschicht mit ca. 10 km abgeschätzt werden (zwei Größenordnungen über der horizontalen Mischungsweglänge). Simulationen, deren Auflösung die Mischungsweglänge unterschreiten, bezeichnet man als \textit{large eddy simulations (LES)}\index{large eddy simulation (LES)}. Bei weiterer Erhöhung der Auflösung findet eine Konvergenz der numerischen gegen die molekularen Diffusionskoeffizienten statt.
 
 \subsection{Masse}
 \label{sec:masse}\index{Massendiffusion}\index{Diffusion!Masse}
