@@ -1,27 +1,27 @@
 [0] Config.pm:304> INFO - This is Biber 2.14 (beta)
 [0] Config.pm:307> INFO - Logfile is 'kompendium.blg'
-[61] biber:322> INFO - === Wed Dec 23, 2020, 08:26:49
-[82] Biber.pm:415> INFO - Reading 'kompendium.bcf'
-[139] Biber.pm:943> INFO - Found 28 citekeys in bib section 0
-[149] Biber.pm:4256> INFO - Processing section 0
-[149] Utils.pm:75> INFO - Globbing data source 'references.bib'
-[149] Utils.pm:91> INFO - Globbed data source 'references.bib' to references.bib
-[160] Biber.pm:4455> INFO - Looking for bibtex format file 'references.bib' for section 0
-[171] bibtex.pm:1653> INFO - LaTeX decoding ...
-[290] bibtex.pm:1471> INFO - Found BibTeX data source 'references.bib'
-[420] Utils.pm:293> WARN - month field 'mar' in entry '1960ApJ...131..442S' is not an integer - this will probably not sort properly.
-[441] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
-[441] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
-[441] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
-[442] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
-[442] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
-[442] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
-[442] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
-[442] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
-[468] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
-[469] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[469] Biber.pm:4084> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'de-DE'
-[469] Biber.pm:4090> INFO - No sort tailoring available for locale 'de-DE'
-[499] bbl.pm:652> INFO - Writing 'kompendium.bbl' with encoding 'UTF-8'
-[510] bbl.pm:755> INFO - Output to kompendium.bbl
-[512] Biber.pm:128> INFO - WARNINGS: 9
+[56] biber:322> INFO - === Wed Dec 23, 2020, 08:50:49
+[67] Biber.pm:415> INFO - Reading 'kompendium.bcf'
+[121] Biber.pm:943> INFO - Found 28 citekeys in bib section 0
+[130] Biber.pm:4256> INFO - Processing section 0
+[130] Utils.pm:75> INFO - Globbing data source 'references.bib'
+[131] Utils.pm:91> INFO - Globbed data source 'references.bib' to references.bib
+[138] Biber.pm:4455> INFO - Looking for bibtex format file 'references.bib' for section 0
+[145] bibtex.pm:1653> INFO - LaTeX decoding ...
+[260] bibtex.pm:1471> INFO - Found BibTeX data source 'references.bib'
+[371] Utils.pm:293> WARN - month field 'mar' in entry '1960ApJ...131..442S' is not an integer - this will probably not sort properly.
+[391] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
+[391] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
+[391] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
+[391] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
+[391] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
+[391] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
+[391] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
+[391] Utils.pm:293> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
+[417] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[417] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
+[417] Biber.pm:4084> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'de-DE'
+[417] Biber.pm:4090> INFO - No sort tailoring available for locale 'de-DE'
+[438] bbl.pm:652> INFO - Writing 'kompendium.bbl' with encoding 'UTF-8'
+[448] bbl.pm:755> INFO - Output to kompendium.bbl
+[449] Biber.pm:128> INFO - WARNINGS: 9
