@@ -702,6 +702,46 @@
       \field{year}{2016}
       \field{dateera}{ce}
     \endentry
+    \entry{phillips_shallow}{article}{}
+      \name{author}{1}{}{%
+        {{hash=702e1ec621cb867d79548fbfb8fa6dd4}{%
+           family={Phillips},
+           familyi={P\bibinitperiod},
+           given={Norman\bibnamedelima A.},
+           giveni={N\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \strng{namehash}{702e1ec621cb867d79548fbfb8fa6dd4}
+      \strng{fullhash}{702e1ec621cb867d79548fbfb8fa6dd4}
+      \strng{bibnamehash}{702e1ec621cb867d79548fbfb8fa6dd4}
+      \strng{authorbibnamehash}{702e1ec621cb867d79548fbfb8fa6dd4}
+      \strng{authornamehash}{702e1ec621cb867d79548fbfb8fa6dd4}
+      \strng{authorfullhash}{702e1ec621cb867d79548fbfb8fa6dd4}
+      \field{sortinit}{P}
+      \field{sortinithash}{bb5b15f2db90f7aef79bb9e83defefcb}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0022-4928}
+      \field{journaltitle}{Journal of the Atmospheric Sciences}
+      \field{month}{09}
+      \field{number}{5}
+      \field{title}{The Equations of Motion for a Shallow Rotating Atmosphere and the “Traditional Approximation”}
+      \field{volume}{23}
+      \field{year}{1966}
+      \field{pages}{626\bibrangedash 628}
+      \range{pages}{3}
+      \verb{doi}
+      \verb 10.1175/1520-0469(1966)023<0626:TEOMFA>2.0.CO;2
+      \endverb
+      \verb{eprint}
+      \verb https://journals.ametsoc.org/jas/article-pdf/23/5/626/3905650/1520-0469(1966)023\_0626\_teomfa\_2\_0\_co\_2.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1175/1520-0469(1966)023<0626:TEOMFA>2.0.CO;2
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1175/1520-0469(1966)023%3C0626:TEOMFA%3E2.0.CO;2
+      \endverb
+    \endentry
     \entry{iapws}{manual}{}
       \name{author}{2}{}{%
         {{hash=47a88535863154b4d3820ee35068a19a}{%
@@ -827,6 +867,61 @@
       \verb{doi}
       \verb 10.1016/j.jcp.2008.02.010
       \endverb
+    \endentry
+    \entry{doi:10.1256/qj.04.49}{article}{}
+      \name{author}{4}{}{%
+        {{hash=2cc214e9a76c6c13144ddf9342547e51}{%
+           family={White},
+           familyi={W\bibinitperiod},
+           given={A.\bibnamedelimi A.},
+           giveni={A\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=14ad9931121c1ecd0f9a588d4646ff10}{%
+           family={Hoskins},
+           familyi={H\bibinitperiod},
+           given={B.\bibnamedelimi J.},
+           giveni={B\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=20521c7915e9b8672929d75cc610bff7}{%
+           family={Roulstone},
+           familyi={R\bibinitperiod},
+           given={I.},
+           giveni={I\bibinitperiod}}}%
+        {{hash=b8d0e74ae58993023b008a14d0f1e48e}{%
+           family={Staniforth},
+           familyi={S\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{484c9b72c55961b8827bb50be2b4d910}
+      \strng{fullhash}{8234b0db1b6f7588138cbf84eb05c16b}
+      \strng{bibnamehash}{484c9b72c55961b8827bb50be2b4d910}
+      \strng{authorbibnamehash}{484c9b72c55961b8827bb50be2b4d910}
+      \strng{authornamehash}{484c9b72c55961b8827bb50be2b4d910}
+      \strng{authorfullhash}{8234b0db1b6f7588138cbf84eb05c16b}
+      \field{sortinit}{W}
+      \field{sortinithash}{1af34bd8c148ffb32de1494636b49713}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Abstract We study global atmosphere models that are at least as accurate as the hydrostatic primitive equations (HPEs), reviewing known results and reporting some new ones. The HPEs make spherical geopotential and shallow atmosphere approximations in addition to the hydrostatic approximation. As is well known, a consistent application of the shallow atmosphere approximation requires omission of those Coriolis terms that vary as the cosine of latitude and of certain other terms in the components of the momentum equation. An approximate model is here regarded as consistent if it formally preserves conservation principles for axial angular momentum, energy and potential vorticity, and (following R. Müller) if its momentum component equations have Lagrange's form. Within these criteria, four consistent approximate global models, including the HPEs themselves, are identified in a height-coordinate framework. The four models, each of which includes the spherical geopotential approximation, correspond to whether the shallow atmosphere and hydrostatic (or quasi-hydrostatic) approximations are individually made or not made. Restrictions on representing the spatial variation of apparent gravity occur. Solution methods and the situation in a pressure-coordinate framework are discussed. © Crown copyright 2005.}
+      \field{journaltitle}{Quarterly Journal of the Royal Meteorological Society}
+      \field{number}{609}
+      \field{title}{Consistent approximate models of the global atmosphere: shallow, deep, hydrostatic, quasi-hydrostatic and non-hydrostatic}
+      \field{volume}{131}
+      \field{year}{2005}
+      \field{pages}{2081\bibrangedash 2107}
+      \range{pages}{27}
+      \verb{doi}
+      \verb 10.1256/qj.04.49
+      \endverb
+      \verb{eprint}
+      \verb https://rmets.onlinelibrary.wiley.com/doi/pdf/10.1256/qj.04.49
+      \endverb
+      \verb{urlraw}
+      \verb https://rmets.onlinelibrary.wiley.com/doi/abs/10.1256/qj.04.49
+      \endverb
+      \verb{url}
+      \verb https://rmets.onlinelibrary.wiley.com/doi/abs/10.1256/qj.04.49
+      \endverb
+      \keyw{Apparent gravity,Conservation properties,Coriolis force,Lagrange's equations,Primitive equations}
     \endentry
   \enddatalist
 \endrefsection

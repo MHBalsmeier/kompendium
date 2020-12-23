@@ -4625,8 +4625,18 @@ R_{r, r'} = \frac{2\pi}{\hbar}\left|\left\langle\psi_{r}\left|\newhat{v}_h\right
 Für die Zeitableitung der Wahrscheinlichkeiten $P_r\left(t\right)$ folgt somit
 %
 \begin{align}
-\frac{dP_r\left(t\right)}{dt} = -\sum_{r'}^{}R_{r, r'}P_r + \sum_{r'}^{}R_{r', r}P_{r'} = \sum_{r'}^{}R_{r, r'}\left(P_{r'} - P_{r}\right).\label{eq:mastergleichung}
+\frac{dP_r\left(t\right)}{dt} = -\sum_{r'}^{}R_{r, r'}P_r + \sum_{r'}^{}R_{r', r}P_{r'}
 \end{align}
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\Leftrightarrow\frac{dP_r\left(t\right)}{dt} = \sum_{r'}^{}R_{r, r'}\left(P_{r'} - P_{r}\right).\label{eq:mastergleichung}
+\end{align}
+\end{center}
+}}
+\end{center}
+%
 Glg. \eqref{eq:mastergleichung} nennt man \index{Mastergleichung}\textit{Mastergleichung}. Definiere
 %
 \begin{align}
@@ -6181,7 +6191,7 @@ f = f\left(\mathbf{r}, \mathbf{v}, t\right),
 dies ist die Wahrscheinlichkeitsdichte dafür, Teilchen zu Zeit $t$ im Phasenraumvolumen bei $\mathbf{r}$, $\mathbf{v}$ anzutreffen, dabei gilt
 %
 \begin{align}
-\int_{\mathbb{R}^6}f\left(\mathbf{r}, \mathbf{v}, t\right)d^3rd^3v = N
+N = \int_{\mathbb{R}^6}f\left(\mathbf{r}, \mathbf{v}, t\right)d^3vd^3r
 \end{align}
 %
 mit $N$ als Teilchenzahl. Die totale Ableitung von $f$ lautet $\left(\frac{\partial}{\partial t} + \mathbf{v}\cdot\nabla_\mathbf{r} + \frac{\mathbf{F}}{m}\cdot\nabla_\mathbf{v}\right)f\left(\mathbf{r}, \mathbf{v}, t\right)$, die Gleichung
@@ -6245,7 +6255,7 @@ Analog findet ein Streuprozess von $\mathbf{v}'$ und $\mathbf{v}_1'$ zu $\mathbf
 F_\text{int} = \int_{\mathbb{R}^3}\int_\Omega\left[f\left(\mathbf{r}, \mathbf{v}', t\right)f\left(\mathbf{r}, \mathbf{v}_1', t\right) - f\left(\mathbf{r}, \mathbf{v}, t\right)f\left(\mathbf{r}, \mathbf{v}_1, t\right)\right]\left|\mathbf{V}\right|\frac{d\sigma}{d\Omega}d\Omega d^3v_1.
 \end{align}
 %
-Die Größen $\mathbf{v}'$ und $\mathbf{v}_1'$ sind durch das Streuproblem ($\mathbf{v}$, $\mathbf{v}_1$, $\Omega$ sowie Impulserhaltung und Energieerhaltung) festgelegt. Schreibt man dies auf die rechte Seite von Glg. \eqref{eq:boltzmann-eq_no_internal}, erhält man
+Die Größen $\mathbf{v}'$ und $\mathbf{v}_1'$ sind durch das Streuproblem ($\mathbf{v}$, $\mathbf{v}_1$, $\Omega$ sowie Impuls- und Energieerhaltung) festgelegt. Schreibt man dies auf die rechte Seite von Glg. \eqref{eq:boltzmann-eq_no_internal}, erhält man
 %
 \begin{center}
 \doublebox{\parbox{0.8\textwidth}{
@@ -6258,12 +6268,15 @@ Die Größen $\mathbf{v}'$ und $\mathbf{v}_1'$ sind durch das Streuproblem ($\ma
 }}
 \end{center}
 %
-Dies ist die Boltzmann-Gleichung.
+Dies ist die Boltzmann-Gleichung\index{Boltzmann-Gleichung}. Diese kann als klassisches Analogon der Mastergleichung Glg. \eqref{eq:mastergleichung} aufgefasst werden.
 
-Die Strömungsgeschwindigkeit $\mathbf{v} = \mathbf{v}\left(\mathbf{r}, t\right)$ kann in Termen der Funktion $f$ definiert werden:
+Die zentralen Größen der Hydrodynamik können in Termen von $f$ notiert werden:
 %
 \begin{align}
-\mathbf{v}\left(\mathbf{r}, t\right) \coloneqq \frac{\int_{\mathbb{R}^3}f\left(\mathbf{r}, \mathbf{v}', t\right)\mathbf{v}'d^3v'}{\int_{\mathbb{R}^6}f\left(\mathbf{r}, \mathbf{v}', t\right)d^3v'}
+N &= \int_{\mathbb{R}^6}f\left(\mathbf{r}, \mathbf{v}', t\right)d^3v'd^3r \hastobe \int_{\mathbb{R}^3}n\left(\mathbf{r}, t\right)d^3v' \Rightarrow n\left(\mathbf{r}, t\right) = \int_{\mathbb{R}^3}f\left(\mathbf{r}, \mathbf{v}', t\right)d^3v',\nonumber\\
+\rho\left(\mathbf{r}, t\right) &= mn\left(\mathbf{r}, t\right) = \int_{\mathbb{R}^3}mf\left(\mathbf{r}, \mathbf{v}', t\right)d^3v',\nonumber\\
+\rho\left(\mathbf{r}, t\right)\mathbf{v}\left(\mathbf{r}, t\right) &= \int_{\mathbb{R}^3}mf\left(\mathbf{r}, \mathbf{v}', t\right)\mathbf{v}'d^3v',\nonumber\\
+\mathbf{v}\left(\mathbf{r}, t\right) &= \frac{\rho\left(\mathbf{r}, t\right)\mathbf{v}\left(\mathbf{r}, t\right)}{\rho\left(\mathbf{r}, t\right)} = \frac{\int_{\mathbb{R}^3}mf\left(\mathbf{r}, \mathbf{v}', t\right)\mathbf{v}'d^3v'}{\int_{\mathbb{R}^3}mf\left(\mathbf{r}, \mathbf{v}', t\right)d^3v'} = \frac{\int_{\mathbb{R}^3}f\left(\mathbf{r}, \mathbf{v}', t\right)\mathbf{v}'d^3v'}{\int_{\mathbb{R}^3}f\left(\mathbf{r}, \mathbf{v}', t\right)d^3v'}
 \end{align}
 
 \section{Kapillarität}
@@ -9936,7 +9949,7 @@ g = g\left(z\right).
 \section{Shallow atmosphere}
 \label{sec:shallow_atmosphere}\index{shallow atmosphere}
 
-Die sogenannte \textit{shallow-atmosphere-}Approximation lautet
+Die sogenannte \textit{shallow-atmosphere-}Approximation lautet \cite{phillips_shallow, doi:10.1256/qj.04.49}
 %
 \begin{center}
 \doublebox{\parbox{0.9\textwidth}{
