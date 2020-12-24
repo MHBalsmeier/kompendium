@@ -10824,8 +10824,8 @@ h\nabla\cdot\mathbf{v} = \int_{b}^{b + h}\nabla\cdot\mathbf{v}dz = -\int_{b}^{b 
 Die Annahme, dass die Horizontalgeschwindigkeit nicht geschert ist und die die Integration Glg. \eqref{eq:swe_deriv_1} ermöglicht hat, gibt den Flachwassergleichungen ihren Namen. Bei großen Tiefen kann hiervon nämlich anschaulicherweise nicht mehr ausgegangen werden. In Absch. \ref{sec:sub-poincare-wellen} wird über diese Annahme hinausgegangen. Behandelt man Wellen, so kann man die Flachwassergleichungen verwenden, falls
 %
 \begin{align}
-\text{Wellenlänge} & \gg & \text{Tiefe},\\
-\text{Wellenhöhe} & \ll & \text{Tiefe}
+\text{Wellenlänge} &\gg \text{Tiefe},\\
+\text{Wellenhöhe} &\ll \text{Tiefe}
 \end{align}
 %
 gelten, was für die Tide (außer in Randmeeren) sowie die Dünung auf offener See der Fall sein kann.
@@ -10867,7 +10867,7 @@ Somit erhält man folgendes Gleichungssystem:
 Nimmt man einen homogenen Untergrund $b$ an, sowie eine mittlere Tiefe $D$, der eine Störung $d$ überlagert ist, und vernachlässigt alle nichtlinearen Terme, folgt
 %
 \begin{align}
-\frac{\partial\mathbf{v}}{\partial t} & = -g\nabla d - f\mathbf{k}\times\mathbf{v}, \label{eq:flach_lin_1}\\
+\frac{\partial\mathbf{v}}{\partial t} & = -g\nabla d - f\mathbf{k}\times\mathbf{v},\label{eq:flach_lin_1}\\
 \frac{\partial d}{\partial t} + D\nabla\cdot\mathbf{v} & = 0.\label{eq:flach_lin_2}
 \end{align}
 
@@ -12659,7 +12659,7 @@ Die Vertikalkomponente interessiert hier nicht weiter. Nun kann man für die Imp
 %
 \begin{align}
 \frac{\partial\mathbf{v}}{\partial t} + \mathbf{k}\times\zeta\mathbf{v} & = -g\nabla\left(h + b\right) - \nabla k - f\mathbf{k}\times\mathbf{v}\nonumber\\
-\Leftrightarrow\frac{\partial\mathbf{v}}{\partial t} + qh\mathbf{k}\times\mathbf{v} & = -g\nabla\left(h + b\right) - \nabla k.
+\Leftrightarrow\frac{\partial\mathbf{v}}{\partial t} + qh\mathbf{k}\times\mathbf{v} & = -g\nabla\left(h + b\right) - \nabla k.\label{eq:momentum_eq_shallow_nonl}
 \end{align}
 %
 Es gilt
@@ -13730,6 +13730,9 @@ f + \zeta = \text{const}.
 Wird ein Teilchen von seiner Ruhelage auf der Nordhalbkugel bei vorhandenem westlichen Grundstrom nach Norden ausgelenkt, so nimmt $f$ zu. Daher muss $\zeta$ abnehmen und das Teilchen erhält antizyklonale relative Vorticity. Anschließend schwingt es über seine Ruhelage hinaus nach Süden, wobei $f$ abnimmt. Daher erhält das Teilchen zyklonale relative Vorticity und schwenkt wieder nach Norden. Der Mechanismus der barotropen Rossby-Wellen ist also die Erhaltung der absoluten Vorticity, s. auch Abb. \ref{fig:rossby_wellen_barotrop}.
 
 Barotrope Rossby-Wellen sind trotz der umfassenden Vereinfachungen (Barotropie und Divergenzfreiheit) in der Atmosphäre und im Ozean relevant. In der Atmosphäre sind sie aufgrund ihrer Divergenzfreiheit am ehesten auf die mittlere Troposphäre anwendbar, sie liefern eine einfache Betrachtung des meandernden Polarjets. Hierbei wird häufig der Begriff der Wellenzahl verwendet, eine Welle der Wellenzahl $n$ hat eine zonale räumliche Periode von $\frac{2\pi}{n}$ als Winkel. Rossby-Wellen breiten sich im Ozean aufgrund des geringen östlichen (nach Osten gerichteten) Grundstroms immer nach Westen aus (es ist $\beta\geq0$ auf der gesamten Erde).
+
+\subsection{Ozeanische Tide}
+\label{sec:ozeanische_tide}\index{Tide!ozeanische}
 
 \section{Barokline Wellen}
 \label{sec:barokline_wellen}\index{barokline Welle}\index{Welle!barokline}
@@ -14869,6 +14872,9 @@ Hieraus folgt
 \end{align}
 %
 Dies ist nicht identisch mit Glg. \eqref{eq:disp_gravity_waves}. Die Temperaturschwankung $T'$ ist also durchaus für Schwerewellen relevant.
+
+\subsection{Atmosphärische Tide}
+\label{sec:atmosphärische_tide}\index{Tide!atmosphärische}
 
 \section{Instabilitäten}
 \label{sec:instabilitaeten}\index{Instabilität}\index{Welle!Instabilität}
@@ -17090,17 +17096,78 @@ Nichtsdestotrotz veranschaulicht dieser Abschnitt, dass alle Arten von Parametri
 \chapter{\normalfont\textsc{Klimatologie der Atmosphäre}}
 \label{chap:klimatologie_der_atmosphaere}\index{Klimatologie!der Atmosphäre}
 
+Statistische Größen des Erdsystems bezeichnet man als \textit{Klima}\index{Klima}, Zusammenstellungen derartiger Charakteristika nennt man \textit{Kliamtologien}\index{Klimatologie}. Üblicherweise bildet man dabei 30-jährige Mittel. In diesem Kapitel soll es um zonale Mittel
+%
+\begin{align}
+\newoverline{\psi}\left(\phi, z\right) \coloneqq \frac{1}{2\pi}\int_{\lambda = 0}^{2\pi}\psi\left(\phi, \lambda, t\right)d\lambda
+\end{align}
+%
+von Größen $\psi$ gehen, hierbei ist $\lambda$ die geographische Länge. Diese Mittel werden als zeitunabhängig angenommen. Für Abweichungen notiert man $\psi' \coloneqq \psi - \newoverline{\psi}$, für das vollständige Feld gilt somit
+%
+\begin{align}
+\psi\left(\phi, \lambda, z, t\right) = \newoverline{\psi}\left(\phi, \lambda\right) + \psi'\left(\phi, \lambda, z, t\right).
+\end{align}
+%
+Man beschränkt sich hier auf $\psi = p, T, u, v, w$. Asymmetrien in den Eigenschaften der Erdoberfläche (Orographie, Rauhigkeit, Strahlungseigenschaften) führen dabei zu Asymmetrien der Klimatologie, solche Effekte werden hier nicht mit berücksichtigt.
+
 \section{Zonal gemittelte Gleichungen}
 \label{sec:zonal_gemittelte_gleichungen}\index{Gleichungen!zonal gemittelte}\index{zonal gemittelte Gleichungen}
+
+\subsection{Lineare Flachwassergleichungen}
+\label{sec:lineare_flachwassergleichungen}
+
+Zunächst wird von den linearisierten Flachwassergleichungen Glg.en \eqref{eq:flach_lin_1} - \eqref{eq:flach_lin_2} ausgegangen. Diese lauten in Komponenten
+%
+\begin{align}
+\frac{\partial u}{\partial t} &= -\frac{\partial d}{\partial x} + fv,\\
+\frac{\partial v}{\partial t} &= -\frac{\partial d}{\partial y} - fu,\\
+\frac{\partial d}{\partial t} &= -D\left(\frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} - v\frac{\tan\left(\phi\right)}{a}\right).
+\end{align}
+%
+Zonale Mittel zonaler Gradienten verschwinden, somit erhält man
+%
+\begin{align}
+\frac{\partial\newoverline{u}}{\partial t} &= f\newoverline{v},\\
+\frac{\partial\newoverline{v}}{\partial t} &= -\frac{\partial\newoverline{d}}{\partial y} - f\newoverline{u},\\
+\frac{\partial\newoverline{d}}{\partial t} &= -D\left(\frac{\partial\newoverline{v}}{\partial y} - \newoverline{v}\frac{\tan\left(\phi\right)}{a}\right).
+\end{align}
+%
+Geht man von konstanten gemittelten Größen aus, folgt
+%
+\begin{align}
+0 &= f\newoverline{v},\label{eq:clim_deriv_0}\\
+0 &= -\frac{\partial\newoverline{d}}{\partial y} - f\newoverline{u},\\
+0 &= -D\left(\frac{\partial\newoverline{v}}{\partial y} - \newoverline{v}\frac{\tan\left(\phi\right)}{a}\right).
+\end{align}
+%
+Aus Glg. \eqref{eq:clim_deriv_0} folgt $\newoverline{v} = 0$, vom ganzen Gleichungssystem bleibt also nur
+%
+\begin{align}
+f\newoverline{u} &= -\frac{\partial\newoverline{d}}{\partial y}.
+\end{align}
+%
+übrig, $\newoverline{u}$ ist also geostrophisch balanciert.
+
+\subsection{Nichtlineare Flachwassergleichungen}
+\label{sec:nichtlineare_flachwassergleichungen}
+
+Notiert man die x-Komponente der Impulsgleichung der nichtlinearen Flachwassergleichungen Glg. \eqref{eq:momentum_eq_shallow_nonl}, erhält man
+%
+\begin{align}
+\frac{\partial u}{\partial t} & = -g\nabla\left(h + b\right) - \nabla k + qhv = -g\nabla\left(h + b\right) - \nabla k + \left(f + \zeta\right)v.
+\end{align}
+%
+Zonale Mittelung führt auf
+%
+\begin{align}
+\frac{\partial\newoverline{u}}{\partial t} & = -f\newoverline{v} - \newoverline{\zeta v} = -f\newoverline{v} - \newoverline{\zeta}\newoverline{v} - \newoverline{\zeta'v'}.
+\end{align}
 
 \section{Frontalzonen und Jets}
 \label{sec:frontalzonen_und_jets}\index{Frontalzone}\index{Jet}
 
 \chapter{\normalfont\textsc{Ozeanzirkulation}}
 \label{chap:ozeanzirkulation}\index{Ozeanzirkulation}
-
-\section{Tide}
-\label{sec:tide}\index{Tide}
 
 \section{Windgetriebene Zirkulation}
 \label{sec:windgetriebene_zirkulation}\index{windgetriebene Zirkulation}\index{Zirkulation!windgetriebene}
