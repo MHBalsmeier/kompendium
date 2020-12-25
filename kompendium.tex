@@ -13734,6 +13734,16 @@ Barotrope Rossby-Wellen sind trotz der umfassenden Vereinfachungen (Barotropie u
 \subsection{Ozeanische Tide}
 \label{sec:ozeanische_tide}\index{Tide!ozeanische}
 
+Die ozeanische Tide ist ein globales Phänomen, daher kann die Advektion ($\propto 1/\lambda$)vernachlässigt werden. Weiterhin kann von Barotropie ausgegangen werden. Daher verwendet man als Gleichugnssystem die linearen Flachwassergleichungen Glg.en \eqref{eq:flach_lin_1} - \eqref{eq:flach_lin_2}. Diese lauten in Komponenten
+%
+\begin{align}
+\frac{\partial u}{\partial t} &= -\frac{\partial d}{a\cos\left(\phi\right)\partial\lambda} + fv,\\
+\frac{\partial v}{\partial t} &= -\frac{\partial d}{a\partial\phi} - fu,\\
+\frac{\partial d}{\partial t} &= -D\left(\frac{\partial u}{a\cos\left(\phi\right)\partial x} + \frac{\partial v}{a\partial\phi} - v\frac{\tan\left(\phi\right)}{a}\right).
+\end{align}
+%
+Diese Gleichungen bezeichnet man auch als Laplace'sche Tidengleichungen \textit{Laplace's tidal equations (LTE)}\index{Laplace's tidal equations (LTE)}.
+
 \section{Barokline Wellen}
 \label{sec:barokline_wellen}\index{barokline Welle}\index{Welle!barokline}
 
@@ -14559,6 +14569,15 @@ Dies ist die \textit{Dispersionsrelation von Schwerewellen}\index{Dispersionsrel
 \caption{Dispersionsrelation von Schwerewellen. Es wurde von einer vertikalen Wellenlänge von 2 km ausgegangen.}
 \label{fig:gravity_wave_dispersion}
 \end{figure}
+%
+Häufig möchte man die Periodendauer der zu erwartenden Oszillation als Funktion des atmosphärischen Hintergrundzustandes $\left(U, N\right)$ wissen. Die Periode unter der Annahme, dass der Wellenvektor parallel zum Hintergrundwind ist, ist in Abb. \ref{fig:gravity_wave_period} dargestellt.
+%
+\begin{figure}
+\centering
+\includegraphics[width = .65\textwidth]{figs/gravity_wave_period.png}
+\caption{Periodendauern von Schwerewellen in Abhänigkeit vom atmosphärischen Hintergrundzustand. Es wurde von einer vertikalen Wellenlänge von 2 km und $k_y = 0$ ausgegangen.}
+\label{fig:gravity_wave_period}
+\end{figure}
 
 \subsubsection{Grenzfälle}
 \label{sec:grenzfälle}
@@ -14569,7 +14588,7 @@ Für $k^2 + l^2 \to 0$ (sehr lange Wellen) erhält man aus Glg. \eqref{eq:disp_g
 \lim_{k^2 + l^2 \to 0}\omega^2 = f^2
 \end{align}
 %
-Für $k^2 + l^2 \to \infty$ (sehr kurze Wellen) erhält man aus Glg. \eqref{eq:disp_gravity_waves} Brunt-Väisälä-Oszillationen:
+Für $k^2 + l^2 \to \infty$ (sehr kurze Wellen) erhält man aus Glg. \eqref{eq:disp_gravity_waves} die Schichtungswellen aus Absch. \ref{sec:schichtungswellen}:
 %
 \begin{align}
 \lim_{k^2 + l^2 \to \infty}\omega^2 = N^2
@@ -14875,6 +14894,16 @@ Dies ist nicht identisch mit Glg. \eqref{eq:disp_gravity_waves}. Die Temperaturs
 
 \subsection{Atmosphärische Tide}
 \label{sec:atmosphärische_tide}\index{Tide!atmosphärische}
+
+Wichtige Unterschiede zwischen der atmosphärischen und der ozeanischen Tide (s. Absch. \ref{sec:ozeanische_tide}) sind folgende:
+%
+\begin{itemize}
+\item Die ozeanische Tide kann als barotrop angesehen werden, Effekte der Baroklinität des Ozeans spielen eine untergeordnete Rolle.
+\item In der Atmosphäre ist die Baroklinität sehr viel relevanter, die barotrope Näherung würde wesentliche Strukturelemente der atmosphärischen Tide filtern.
+\item Die ozeanische Tide wird vorwiegend durch Schwankungen der Schwere erzeugt, was durch den Mond hervorgerufen wird. Dies führt zu einer Grundperiode von knapp 25 Stunden.
+\item Die atmosphärische Tide wird vor allem durch die Strahlung angetrieben sowie durch von der Strahlung ausgelöste Prozesse (chemische Reaktionen und Konvektion).
+\item Aufgrund der Barotropie ist die ozeanische Tide quasi höhenunabhängig, während die Amplitude der atmosphärischen Tide exponentiell mit der Höhe zunimmt. Dadurch spielt die Tide in der Atmosphäre vor allem in der Mesosphäre (50 - 80 km) eine Rolle, wo sie große Amplituden erreichen kann. In der Troposphäre ist ihre Amplitude klein.
+\end{itemize}
 
 \section{Instabilitäten}
 \label{sec:instabilitaeten}\index{Instabilität}\index{Welle!Instabilität}
