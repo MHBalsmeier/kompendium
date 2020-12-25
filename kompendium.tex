@@ -13737,12 +13737,12 @@ Barotrope Rossby-Wellen sind trotz der umfassenden Vereinfachungen (Barotropie u
 Die ozeanische Tide ist ein globales Phänomen, daher kann die Advektion ($\propto 1/\lambda$)vernachlässigt werden. Weiterhin kann von Barotropie ausgegangen werden. Daher verwendet man als Gleichugnssystem die linearen Flachwassergleichungen Glg.en \eqref{eq:flach_lin_1} - \eqref{eq:flach_lin_2}. Diese lauten in Komponenten
 %
 \begin{align}
-\frac{\partial u}{\partial t} &= -\frac{\partial d}{a\cos\left(\phi\right)\partial\lambda} + fv,\\
-\frac{\partial v}{\partial t} &= -\frac{\partial d}{a\partial\phi} - fu,\\
+\frac{\partial u}{\partial t} &= -\frac{\partial\left(gd + U\right)}{a\cos\left(\phi\right)\partial\lambda} + fv,\\
+\frac{\partial v}{\partial t} &= -\frac{\partial\left(gd + U\right)}{a\partial\phi} - fu,\\
 \frac{\partial d}{\partial t} &= -D\left(\frac{\partial u}{a\cos\left(\phi\right)\partial x} + \frac{\partial v}{a\partial\phi} - v\frac{\tan\left(\phi\right)}{a}\right).
 \end{align}
 %
-Diese Gleichungen bezeichnet man auch als Laplace'sche Tidengleichungen \textit{Laplace's tidal equations (LTE)}\index{Laplace's tidal equations (LTE)}.
+Hierbei ist $U = U\left(\phi, \lambda, t\right)$ das \textit{Tidenpotential}. Diese Gleichungen bezeichnet man auch als Laplace'sche Tidengleichungen \textit{Laplace's tidal equations (LTE)}\index{Laplace's tidal equations (LTE)}.
 
 \section{Barokline Wellen}
 \label{sec:barokline_wellen}\index{barokline Welle}\index{Welle!barokline}
@@ -17148,8 +17148,8 @@ Man beschränkt sich hier auf $\psi = p, T, u, v, w$. Asymmetrien in den Eigensc
 Zunächst wird von den linearisierten Flachwassergleichungen Glg.en \eqref{eq:flach_lin_1} - \eqref{eq:flach_lin_2} ausgegangen. Diese lauten in Komponenten
 %
 \begin{align}
-\frac{\partial u}{\partial t} &= -\frac{\partial d}{\partial x} + fv,\\
-\frac{\partial v}{\partial t} &= -\frac{\partial d}{\partial y} - fu,\\
+\frac{\partial u}{\partial t} &= -g\frac{\partial d}{\partial x} + fv,\\
+\frac{\partial v}{\partial t} &= -g\frac{\partial d}{\partial y} - fu,\\
 \frac{\partial d}{\partial t} &= -D\left(\frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} - v\frac{\tan\left(\phi\right)}{a}\right).
 \end{align}
 %
@@ -17157,7 +17157,7 @@ Zonale Mittel zonaler Gradienten verschwinden, somit erhält man
 %
 \begin{align}
 \frac{\partial\newoverline{u}}{\partial t} &= f\newoverline{v},\\
-\frac{\partial\newoverline{v}}{\partial t} &= -\frac{\partial\newoverline{d}}{\partial y} - f\newoverline{u},\\
+\frac{\partial\newoverline{v}}{\partial t} &= -g\frac{\partial\newoverline{d}}{\partial y} - f\newoverline{u},\\
 \frac{\partial\newoverline{d}}{\partial t} &= -D\left(\frac{\partial\newoverline{v}}{\partial y} - \newoverline{v}\frac{\tan\left(\phi\right)}{a}\right).
 \end{align}
 %
@@ -17165,14 +17165,14 @@ Geht man von konstanten gemittelten Größen aus, folgt
 %
 \begin{align}
 0 &= f\newoverline{v},\label{eq:clim_deriv_0}\\
-0 &= -\frac{\partial\newoverline{d}}{\partial y} - f\newoverline{u},\\
+0 &= -g\frac{\partial\newoverline{d}}{\partial y} - f\newoverline{u},\\
 0 &= -D\left(\frac{\partial\newoverline{v}}{\partial y} - \newoverline{v}\frac{\tan\left(\phi\right)}{a}\right).
 \end{align}
 %
 Aus Glg. \eqref{eq:clim_deriv_0} folgt $\newoverline{v} = 0$, vom ganzen Gleichungssystem bleibt also nur
 %
 \begin{align}
-f\newoverline{u} &= -\frac{\partial\newoverline{d}}{\partial y}.
+f\newoverline{u} &= -g\frac{\partial\newoverline{d}}{\partial y}.
 \end{align}
 %
 übrig, $\newoverline{u}$ ist also geostrophisch balanciert.
