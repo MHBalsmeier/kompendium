@@ -11426,10 +11426,13 @@ vornehmen.
 \section{APE}
 \label{sec:ape}\index{available potential Energy (APE)}\index{APE}\index{Energie!potentielle!verfügbare}\index{potentielle Energie!verfügbare}\index{verfügbare potentielle Energie}
 
+\subsection{Energieformen in einer hydrostatischen Atmosphäre}
+\label{sec:energieformen_in_einer_hydrostatischen_atmosphäre}
+
 Die kinetische Energie $\KE$ einer Luftsäule in einer hydrostatischen Atmosphäre ist durch
 %
 \begin{align}
-\KE = \int_0^{\infty}\frac{1}{2}\rho\mathbf{v}_h^2dz = -\frac{1}{g}\int_{p_S}^0\frac{1}{2}\mathbf{v}_h^2dp = \frac{1}{g}\int_0^{p_S}\frac{1}{2}\mathbf{v}_h^2dp
+\KE = \int_0^{\infty}\frac{1}{2}\rho\mathbf{v}_h^2dz \stackrel{\partial z/\partial\rho = -1/\left(g\rho\right)}{=} -\frac{1}{g}\int_{p_S}^0\frac{1}{2}\mathbf{v}_h^2dp = \frac{1}{g}\int_0^{p_S}\frac{1}{2}\mathbf{v}_h^2dp
 \end{align}
 %
 gegeben, hierbei ist $p_S$ der Druck an der Erdoberfläche. Analog gilt für die innere Energie
@@ -11441,23 +11444,44 @@ gegeben, hierbei ist $p_S$ der Druck an der Erdoberfläche. Analog gilt für die
 Für die potentielle Energie $\PE$ erhält man mit partieller Integration
 %
 \begin{align}
-\PE = \int_0^\infty\rho gzdz = \int_0^{p_S}z\left(p\right)dp = p_Sz_S + \frac{1}{g}\int_0^{p_S}R_dTdp
+\PE = \int_0^\infty\rho gzdz = \int_0^{p_S}z\left(p\right)dp = \int_0^{p_S}1\cdot z\left(p\right)dp = \left[pz\left(p\right)\right]_0^{p_S} - \int_0^{p_S}p\frac{\partial z}{\partial p}dp = p_Sz_S + \frac{1}{g}\int_0^{p_S}R_dTdp
 \end{align}
 %
-mit $z_S$ als Orographie. Man definiert die \textit{totale potentielle Energie}\index{Energie!potentielle!totale}\index{totale potentielle Energie} oder auch kurz potentielle Energie $\TPE$ durch
+mit $z_S$ als Orographie. Man definiert die \textit{totale potentielle Energie}\index{Energie!potentielle!totale}\index{totale potentielle Energie} $\TPE$ durch
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\TPE &\coloneqq \PE + \IE
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+Häufig wird diese Energieform auch einfach als \glqq potentielle Energie\grqq\ bezeichnet. Es gilt
 %
 \begin{align}
-\TPE &\coloneqq \PE + \IE = p_Sz_S + g^{-1}\int_0^{p_S}\left(c^{(v)} + R_d\right)dp = p_Sz_S + g^{-1}\int_0^{p_S}hdp\nonumber\\
+\TPE &= p_Sz_S + g^{-1}\int_0^{p_S}\left(c^{(v)} + R_d\right)dp = p_Sz_S + g^{-1}\int_0^{p_S}hdp\nonumber\\
 &= p_Sz_S + \frac{c^{(p)}}{g}\int_0^{p_S}\theta\left(\frac{p}{p_0}\right)^{R_d/c^{(p)}}dp\label{eq:tpe_id_1}
 \end{align}
 %
-mit $h = c^{(p)}T$ als Enthalpie.Man schätzt ab
+mit $h = c^{(p)}T$ als Enthalpie. Man schätzt ab
 %
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 \begin{align}
 \frac{\KE}{\IE} \sim \frac{\newoverline{v}_h^2}{2c^{(v)}\newoverline{T}} \sim 0, 03\text{ \%}.
 \end{align}
+\end{center}
+}}
+\end{center}
 %
 Es ist also viel mehr innere als kinetische Energie in der Atmosphäre vorhanden.
+
+\subsection{Definition und Eigenschaften der APE}
+\label{sec:definition_und_eigenschaften_der_ape}
 
 Da man das Schwerepotential auch um eine beliebige Konstante verschieben könnte, führt man das Konzept der \textit{verfügbaren potentiellen Energie}\index{Energie!potentielle!verfügbare}\index{verfügbare potentielle Energie} $\APE$ ein. Hierfür transformiert man zunächst Glg. \eqref{eq:tpe_id_1} ins $\theta-$System\index{$\theta-$System}:
 %
@@ -11471,15 +11495,14 @@ Mittels partieller Integration erhält man
 \int_\infty^{\theta_S}\theta p\left(\theta\right)^{R_d/c^{(p)}}\frac{\partial p}{\partial\theta}d\theta &= \theta_Sp_S^{1 + \frac{R_d}{c^{(p)}}} - \int_\infty^{\theta_S}p\left(\theta\right)^{1 + \frac{R_d}{c^{(p)}}} + \frac{R_d}{c^{(p)}}\theta p\left(\theta\right)^{R_d/c^{(p)}}\frac{\partial p}{\partial\theta}d\theta\nonumber\\
 \Rightarrow\int_\infty^{\theta_S}\theta p\left(\theta\right)^{R_d/c^{(p)}}\frac{\partial p}{\partial\theta}d\theta &= 
 \frac{c^{(p)}}{c^{(p)} + R_d}\theta_Sp_S^{1 + \frac{R_d}{c^{(p)}}} + \frac{c^{(p)}}{c^{(p)} + R_d}\int_{\theta_S}^\infty p\left(\theta\right)^{1 + \frac{R_d}{c^{(p)}}}d\theta\nonumber\\
-\Rightarrow\TPE &= p_Sz_S + \frac{c^{(p)2}\theta_Sp_S^{1 + \frac{R_d}{c^{(p)}}}}{gp_0^{R_d/c^{(p)}}\left(c^{(p)} + R_d\right)}\nonumber\\
-&  + \frac{c^{(p)2}}{gp_0^{R_d/c^{(p)}}\left(c^{(p)} + R_d\right)}\int_{\theta_S}^\infty p\left(\theta\right)^{1 + \frac{R_d}{c^{(p)}}}d\theta.
+\Rightarrow\TPE &= p_Sz_S + \frac{c^{(p)2}\theta_Sp_S^{1 + \frac{R_d}{c^{(p)}}}}{gp_0^{R_d/c^{(p)}}\left(c^{(p)} + R_d\right)} + \frac{c^{(p)2}}{gp_0^{R_d/c^{(p)}}\left(c^{(p)} + R_d\right)}\int_{\theta_S}^\infty p\left(\theta\right)^{1 + \frac{R_d}{c^{(p)}}}d\theta.
 \end{align}
 %
 Um die potentielle Energie zu erhalten, die in einer Atmosphäre über einer Fläche $A$ enthalten ist, rechnet man
 %
 \begin{align}
 \int_A\TPE dA &= \int_Ap_Sz_SdA + \frac{c^{(p)2}}{gp_0^{R_d/c^{(p)}}\left(c^{(p)} + R_d\right)}\int_A\theta_Sp_S^{1 + \frac{R_d}{c^{(p)}}}dA + \frac{c^{(p)2}}{gp_0^{R_d/c^{(p)}}\left(c^{(p)} + R_d\right)}\int_A\int_{\theta_S}^\infty p\left(\theta\right)^{1 + \frac{R_d}{c^{(p)}}}d\theta dA\nonumber\\
-& \approx A\newoverline{p_Sz_S} + \frac{Ac^{(p)2}}{gp_0^{R_d/c^{(p)}}\left(c^{(p)} + R_d\right)}\newoverline{\theta_Sp_S^{1 + \frac{R_d}{c^{(p)}}}} + \frac{Ac^{(p)2}}{gp_0^{R_d/c^{(p)}}\left(c^{(p)} + R_d\right)}\int_{\newoverline{\theta_S}}^\infty\newoverline{p\left(\theta\right)^{1 + \frac{R_d}{c^{(p)}}}}d\theta.\label{eq:ape_deriv_1}
+&\approx A\newoverline{p_Sz_S} + \frac{Ac^{(p)2}}{gp_0^{R_d/c^{(p)}}\left(c^{(p)} + R_d\right)}\newoverline{\theta_Sp_S^{1 + \frac{R_d}{c^{(p)}}}} + \frac{Ac^{(p)2}}{gp_0^{R_d/c^{(p)}}\left(c^{(p)} + R_d\right)}\int_{\newoverline{\theta_S}}^\infty\newoverline{p\left(\theta\right)^{1 + \frac{R_d}{c^{(p)}}}}d\theta.\label{eq:ape_deriv_1}
 \end{align}
 %
 Nach Ggl. \eqref{eq:tpe_id_1} ist
@@ -11490,9 +11513,15 @@ Nach Ggl. \eqref{eq:tpe_id_1} ist
 %
 konservativ, wenn kein Massenfluss über die lateralen Ränder von $A$ erfolgt. Die $\APE$ ist der Anteil der $\TPE$, die in kinetische Energie umgewandelt werden könnte, also
 %
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 \begin{align}
 \APE \coloneqq \int_A\TPE - \TPE_{\text{min}}dA,
 \end{align}
+\end{center}
+}}
+\end{center}
 %
 wobei das Minimum der potentiellen Energie aller hydrostatischer Zustände gemeint ist, die aus dem Anfangszustand durch adiabatische Umsortierung erreicht werden können, ohne überadiabatische Gradienten zu produzieren. Hierbei bewegen sich die Teilchen entlang der Isentropen und nach einer solchen Umordnung sind alle Zustandsgrößen nur noch von der Vertikalkoordinate abhängig, da sonst Druckgradienten existieren würden, die genau darauf hinarbeiten würden (die Coriolis-Kraft leistet keine Arbeit, hat somit keine energetische Relevanz und muss daher für diese Betrachtung nicht berücksichtigt werden). Bezeichnet man die Felder des Zustands minimaler potentieller Energie durch gestrichene Größen, kann man notieren
 %
@@ -11519,7 +11548,7 @@ woraus folgt
 %
 \begin{align}
 \APE & \approx C + \frac{Ac^{(p)2}}{gp_0^{R_d/c^{(p)}}\left(c^{(p)} + R_d\right)}\int_{\newoverline{\theta_S}}^\infty\newoverline{p\left(\theta\right)^{1 + \frac{R_d}{c^{(p)}}}} - \newoverline{p\left(\theta\right)}^{1 + \frac{R_d}{c^{(p)}}}d\theta\nonumber\\
-&= \approx C + \frac{A}{\Gamma_dp_0^{\chi}\left(1 + \chi\right)}\int_{\newoverline{\theta_S}}^\infty\newoverline{p\left(\theta\right)^{1 + \chi}} - \newoverline{p\left(\theta\right)}^{1 + \chi}d\theta
+&\approx C + \frac{A}{\Gamma_dp_0^{\chi}\left(1 + \chi\right)}\int_{\newoverline{\theta_S}}^\infty\newoverline{p\left(\theta\right)^{1 + \chi}} - \newoverline{p\left(\theta\right)}^{1 + \chi}d\theta
 \end{align}
 %
 mit dem trockenadiabatischen Temperaturgradienten $\Gamma_d = g/c^{(p)}$ und der Abkürzung $\chi \coloneqq \frac{R_d}{c^{(p)}}$. Man notiert $p = \newoverline{p} + p'$, damit gilt die Taylor-Entwicklung
@@ -11556,10 +11585,19 @@ Nach Glg. \eqref{eq:vert_temp_gradient} gilt
 %
 also
 %
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 \begin{align}
 \APE \approx C + \frac{A}{2}\int_{\newoverline{p_S}}^0\frac{\newoverline{T}}{\Gamma_d - \newoverline{\Gamma}}\newoverline{\left(\frac{T'}{\newoverline{T}}\right)^2}dp.
 \end{align}
-%
+\end{center}
+}}
+\end{center}
+
+\subsection{Abschätzung}
+\label{sec:abschätzung}
+
 Nimmt man einen klimatologischen Wert $\newoverline{\Gamma} \approx \frac{2}{3}\Gamma_d$ und vernachlässigt $C$, um eine Abschätzung vorzunehmen, folgt
 %
 \begin{align}
@@ -11568,9 +11606,15 @@ Nimmt man einen klimatologischen Wert $\newoverline{\Gamma} \approx \frac{2}{3}\
 %
 Für $A$ wählt man die gesamte Erdoberfläche und setzt $T' \sim 15$ K, $\newoverline{T} \sim 270$ K an, dann folgen
 %
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 \begin{align}
 \frac{\APE/A}{\KE} &\sim \frac{3\newoverline{T'^2}c^{(p)}}{\newoverline{T}\mathbf{v}_h^2} \sim 25.
 \end{align}
+\end{center}
+}}
+\end{center}
 %
 Es bleibt in diesem Abschnitt eine offene Frage, warum der größte Anteil der verfügbaren potentiellen Energie nicht in kinetische Energie umgewandelt wird.
 
