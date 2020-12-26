@@ -5333,7 +5333,7 @@ Um die mikrokanonische Zustandssume des idealen Gases zu bestimmen, geht man von
 \Omega\left(E, V, N\right) &= \sum_{E_r<E}1 = \underbrace{\sum_{n_1 = 1, 2, \dotsc}\dotsc\sum_{n_{3N} = 1, 2, \dotsc}}_{E_r < E} 1 \approx \frac{1}{2^{3N}}\underbrace{\int\dotsc\int}_{E_r < E}dn_1\dotsc dn_{3N}.
 \end{align}
 %
-Wegen $\newoverline{n_i}\gg 1$ wurden im letztem Schritt die Summen durch Integrale ersetzt. Der Faktor $1/2^{3N}$ entsteht durch die Einbeziehung negativer Werte bei der Integration (es sind $3N$ Koordinatenachsen vorhanden, die halbiert werden müssen). Glg. \eqref{eq:deriv_ideal_gas_bc} impliziert
+Wegen $\newoverline{n_i}\gg 1$ wurden im letzten Schritt die Summen durch Integrale ersetzt. Der Faktor $1/2^{3N}$ entsteht durch die Einbeziehung negativer Werte bei der Integration (es sind $3N$ Koordinatenachsen vorhanden, die halbiert werden müssen). Glg. \eqref{eq:deriv_ideal_gas_bc} impliziert
 %
 \begin{align}
 dn_i = \frac{L}{\hbar\pi}dp_i.
@@ -5348,14 +5348,15 @@ Daraus folgt
 Das verbleibende $3N-$dimensionale Integral ist das Volumen einer $3N-$dimensionalen Kugel mit Radius $\sqrt{2mE}$, sodass man Glg. \eqref{eq:volumen_n_dim_kugel} einsetzen kann:
 %
 \begin{align}
-\Omega\left(E, V, N\right) &= \frac{V^N}{\left(2\pi\hbar\right)^{3N}}\frac{2\pi^{3N/2}}{\left(3N/2\right)!}\left(2m\right)^{3N/2}E^{3N/2} = 2\left[\frac{2\pi m}{\left(2\pi\hbar\right)^2}\right]^{3N/2}\frac{E^{3N/2}}{\left(3N/2\right)!}V^N.
+\Omega\left(E, V, N\right) &= \frac{V^N}{\left(2\hbar\pi\right)^{3N}}\frac{\pi^{3N/2}}{\Gamma\left(\frac{3N}{2} + 1\right)}\sqrt{2mE}^{3N} \stackrel{\text{Glg. \eqref{eq:gamma_prop_1}}}{=} \frac{V^N}{\left(2\pi\hbar\right)^{3N}}\frac{\pi^{3N/2}}{\left(3N/2\right)!}\left(2m\right)^{3N/2}E^{3N/2}\nonumber\\
+&= \frac{V^N}{\left(2\pi\hbar\right)^{3N}}\frac{1}{\left(3N/2\right)!}\left(2m\pi\right)^{3N/2}E^{3N/2} = \left[\frac{2\pi m}{\left(2\pi\hbar\right)^2}\right]^{3N/2}\frac{E^{3N/2}}{\left(3N/2\right)!}V^N
 \end{align}
 %
 Mit der Stirling-Formel Glg. \eqref{eq:stirling} erhält man
 %
 \begin{align}
-\Omega\left(E, V, N\right) &\approx \sqrt{\frac{2}{\pi}}\left[\frac{2\pi m}{\left(2\pi\hbar\right)^2}\right]^{3N/2}e^{3N/2}\left(\frac{2}{3N}\right)^{\frac{3N}{2} + \frac{1}{2}}E^{3N/2}V^N\nonumber\\
-&= \frac{2}{\sqrt{3\pi N}}\left[\frac{4\pi me}{3\left(2\pi\hbar\right)^2}\right]^{3N/2}V^N\left(\frac{E}{N}\right)^{3N/2}.
+\Omega\left(E, V, N\right) &= \left[\frac{2\pi m}{\left(2\pi\hbar\right)^2}\right]^{3N/2}E^{3N/2}V^N\frac{1}{\left(3N/2\right)!} \approx \sqrt{\frac{1}{2\pi}}\left[\frac{2\pi m}{\left(2\pi\hbar\right)^2}\right]^{3N/2}e^{3N/2}\left(\frac{2}{3N}\right)^{\frac{3N}{2} + \frac{1}{2}}E^{3N/2}V^N\nonumber\\
+&= \frac{1}{\sqrt{3N\pi}}\left[\frac{2\pi me}{\left(2\pi\hbar\right)^2}\right]^{3N/2}\left(\frac{2}{3N}\right)^{\frac{3N}{2}}E^{3N/2}V^N = \frac{1}{\sqrt{3\pi N}}\left[\frac{4\pi me}{3\left(2\pi\hbar\right)^2}\right]^{3N/2}V^N\left(\frac{E}{N}\right)^{3N/2}.
 \end{align}
 %
 Dieses Ergebnis ist noch nicht korrekt, es ist noch eine wichtige Modifikation anzubringen. Die $N$ Teilchen sind quantenmechanisch nicht unterscheidbar, was bedeutet, dass sich beim Vertauschen zweier Teilchen nichts ändert. Es sind also jeweils $N!$ Zustände gleich, weshalb man
@@ -5364,17 +5365,17 @@ Dieses Ergebnis ist noch nicht korrekt, es ist noch eine wichtige Modifikation a
 \Omega\to\frac{\Omega}{N!}
 \end{align}
 %
-ersetzen muss. Es gilt damit
+ersetzen muss. Hieraus folgt, wiederum mit der Stirling-Formel,
 %
 \begin{align}
-\Omega\left(E, V, N\right) &= \sqrt{\frac{2}{3\pi^2}}\frac{1}{N}\left[\frac{4\pi me^{5/3}}{3\left(2\pi\hbar\right)^2}\right]^{3N/2}\left(\frac{V}{N}\right)^N\left(\frac{E}{N}\right)^{3N/2}\nonumber\\
-&= \sqrt{\frac{2}{3\pi^2}}\frac{1}{N}\left[\frac{me^{5/3}}{3\pi\hbar^2}\right]^{3N/2}\left(\frac{V}{N}\right)^N\left(\frac{E}{N}\right)^{3N/2}.
+\Omega\left(E, V, N\right) &= \frac{1}{\sqrt{6\pi^2}}\frac{1}{N}\left[\frac{4\pi me^{5/3}}{3\left(2\pi\hbar\right)^2}\right]^{3N/2}\left(\frac{V}{N}\right)^N\left(\frac{E}{N}\right)^{3N/2}\nonumber\\
+&= \frac{1}{\sqrt{6\pi^2}}\frac{1}{N}\left[\frac{me^{5/3}}{3\pi\hbar^2}\right]^{3N/2}\left(\frac{V}{N}\right)^N\left(\frac{E}{N}\right)^{3N/2}.
 \end{align}
 %
 Für die Entropie folgt
 %
 \begin{align}
-\frac{S\left(E, V, N\right)}{k_B} &= \frac{1}{2}\ln\left(\frac{2}{3\pi^2}\right) - \ln\left(N\right) + \frac{3N}{2}\ln\left(c\right) + N\ln\left(\frac{V}{N}\right) + \frac{3N}{2}\ln\left(\frac{E}{N}\right)\nonumber\\
+\frac{S\left(E, V, N\right)}{k_B} &= \frac{1}{2}\ln\left(\frac{1}{6\pi^2}\right) - \ln\left(N\right) + \frac{3N}{2}\ln\left(c\right) + N\ln\left(\frac{V}{N}\right) + \frac{3N}{2}\ln\left(\frac{E}{N}\right)\nonumber\\
 &\approx \frac{3N}{2}\ln\left(c\right) + N\ln\left(\frac{V}{N}\right) + \frac{3N}{2}\ln\left(\frac{E}{N}\right) - \ln\left(N\right)\nonumber\\
 &\approx \frac{3N}{2}\ln\left(c\right) + N\ln\left(\frac{V}{N}\right) + \frac{3N}{2}\ln\left(\frac{E}{N}\right)\nonumber
 \end{align}
@@ -23853,7 +23854,7 @@ Man definiert die \textit{Gammafunktion}\index{Gammafunktion} für $x>0$ durch
 Für $n\in\mathbb{N}$ gilt wegen Glg. \eqref{eq:int_prop_1}
 %
 \begin{align}
-\Gamma\left(n + 1\right) = \int_{0}^{\infty}t^{n}e^{-t}dt = n!.
+\Gamma\left(n + 1\right) = \int_{0}^{\infty}t^{n}e^{-t}dt = n!.\label{eq:gamma_prop_0}
 \end{align}
 %
 Damit folgt insbesondere
@@ -23871,31 +23872,31 @@ n! = \Gamma\left(n + 1\right) = \int_{0}^{\infty}t^ne^{-t}dt = \int_{0}^{\infty}
 mit
 %
 \begin{align}
-\varphi\left(t\right) = \frac{n} - \ln\left(t\right).
+\varphi\left(t\right) \coloneqq \frac{t}{n} - \ln\left(t\right).
 \end{align}
 %
 Es gelten
 %
 \begin{align}
-\lim\limits_{t\to 0}\varphi\left(t\right) = \infty, && \lim\limits_{\to\infty}\varphi\left(t\right) = \infty.
+\lim\limits_{t \to 0}\varphi\left(t\right) = \infty, && \lim\limits_{t \to \infty}\varphi\left(t\right) = \infty.
 \end{align}
 %
 Für die ersten beiden Ableitungen gilt
 %
 \begin{align}
-\varphi'\left(t\right) = \frac{1}{n} - \frac{1}, && \varphi''\left(t\right) = \frac{1}{t^2}.
+\varphi'\left(t\right) = \frac{1}{n} - \frac{1}{t}, && \varphi''\left(t\right) = \frac{1}{t^2}.
 \end{align}
 %
 Das eindeutige Minimum liegt also bei $t = n$. Die Taylor-Entwicklung bis zur zweiten Ordnung zum Punkt $x = n$ lautet also
 %
 \begin{align}
-\varphi\left(t\right) = 1 - \ln\left(n\right) + \frac{1}{2}\frac{\left(t - n\right)^2}{n^2} + \mathcal{O}\left(\left(t - n\right)^3\right).
+\varphi\left(t\right) = 1 - \ln\left(n\right) + \frac{1}{2}\frac{\left(t - n\right)^2}{n^2} + \mathcal{O}\left[\left(t - n\right)^3\right].
 \end{align}
 %
 Der Ausdruck $e^{-n\varphi}$ ist nur für negative und kleine $\varphi$ relevant, daher ist die Taylor-Entwicklung zum Minimum eine gute Approximation im Integral der Gammafunktion:
 %
 \begin{align}
-n!\approx \int_{0}^{\infty}e^{-n + n\ln\left(n\right) - \frac{1}{2}\frac{\left(t - n\right)^2}{n}}dt = n^ne^{-n}\int_{0}^{\infty}e^{-\frac{t^2}{2n}}dt = n^ne^{-n}\sqrt{2\pi n}.\label{eq:stirling}
+n!\approx \int_{0}^{\infty}e^{-n + n\ln\left(n\right) - \frac{1}{2}\frac{\left(t - n\right)^2}{n}}dt = n^ne^{-n}\int_{0}^{\infty}e^{-\frac{t^2}{2n}}dt = n^{n}e^{-n}\sqrt{2\pi n} = \sqrt{2\pi}n^{n + 1/2}e^{-n}\label{eq:stirling}
 \end{align}
 %
 Im letzten Schritt wurde Glg. \eqref{eq:integral_fehlerfunktion} verwendet. Glg. \eqref{eq:stirling} ist die Stirling-Formel.
@@ -26024,8 +26025,7 @@ a_i &= \frac{\left(n + k\right)!}{\left(n - i\right)!\left(k + i\right)!i!}\left
 Daher kann man Glg. \eqref{eq:laguerre_polynome_explizit} als Definition der Laguerre-Polynome ansehen. All dies kann man mit
 %
 \begin{align}
-n&\to&n_r,\\
-k&\to&2l + 1
+n \to n_r,&& k \to 2l + 1
 \end{align}
 %
 umschreiben zu
