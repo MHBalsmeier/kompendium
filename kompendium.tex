@@ -9854,7 +9854,7 @@ daraus folgen
 \chapter{\normalfont\textsc{Wichtige Approximationen}}
 \label{chap:important_approximations}\index{Approximation}
 
-In der Meteorologie und Ozeanographie\index{Ozeanographie} gibt es viele diffizile Approximationen mit detaillierten und komplexen Annahmen. In diesem Kapitel werden die gebräuchlisten von ihnen hergeleitet, dabei wird bei den weniger rigorosen begonnen.
+In der Meteorologie und Ozeanographie\index{Ozeanographie} gibt es viele diffizile Approximationen mit detaillierten und komplexen Annahmen. In diesem Kapitel werden die gebräuchlisten von ihnen erläutert, dabei wird bei den weniger rigorosen begonnen.
 
 \section{Allgemeines}
 \label{sec:allgemeines}
@@ -9892,7 +9892,15 @@ N_\text{Ro} \coloneqq \frac{U^2}{LfU} = \frac{U}{Lf}.
 \section{Spherical geopotential approximation}
 \label{sec:spherical_geopotential_approximation}\index{spherical geopotential approximation (SGA)}\index{SGA (spherical geopotential approximation)}
 
-Bezieht man die Fliehbeschleunigung $-\omegabi\times\left(\omegabi\times\mathbf{r}\right)$ und/oder die eher ellipsoidische Form der Erde mit ein, sind die Äquipotentialflächen keine Kugelschalen mehr, s. Absch. \ref{sec:schwerefeld_eines_ellipsoides}. Rechnet man diese Effekte betragsmäßig approximativ in $g_z$ hinein und verwendet eine sphärische Approximation des Schwerefeldes, spricht man von der \textit{spherical geopotential approximation (SGA)}\index{spherical geopotential approximation (SGA)}\index{SGA (spherical geopotential approximation)}. Dies bedeutet
+Horizontale Druckgradienten sind vier Größenordnungen kleiner als vertikale (s. Absch. \ref{sec:hydrostatik}), deshalb ist es praktisch, eine Achse des Koordinatensystems an der Schwere auszurichten, sodass diese die horizontalen Bewegungsgleichungen nicht beeinfusst. Zunächst kann man hierfür einfach Kugelkoordinaten verwenden, die Orographie kann man dabei als Höhe der Erdoberfläche über der Kugel interpretieren. Die Erde ist jedoch eher ein Ellipsoid als eine Kugel. Ein erster Ansatz hierfür könnte sein, die eher ellipsoidische Form der Erde in die Orographie zu absorbieren und weiterhin Kugelkoordinaten zu verwenden. Für den Winkel $\varphi$, den das Ellipsoid mit einer Kugeloberfläche einschließt, gilt
+%
+\begin{align}
+\tan\left(\varphi\right) \approx \frac{\newtilde{f}}{\pi/2}\approx 0,2\:\%.
+\end{align}
+%
+Nimmt man an, dass die Schwere senkrecht auf dem Ellipsoid steht, hat sie in Kugelkoordinaten eine Horizontalkomponente von der Größenordnung $10^{-2}$ m/s$^2$, dies ist eine Größenordnung größer als der horizontale Druckgradient. Die horizontale Dynamik mit einer derart großen Kraft zu überlagerm ist unvorteilhaft. Will man also die Exzentrizität des Schwerefeldes berücksichtigen, sollte man nicht-kugelförmige Koordinaten wählen.
+
+Rechnet man diese Effekte jedoch betragsmäßig approximativ in $g_z$ hinein und verwendet eine sphärische Approximation des Schwerefeldes, spricht man von der \textit{spherical geopotential approximation (SGA)}\index{spherical geopotential approximation (SGA)}\index{SGA (spherical geopotential approximation)}. Dies bedeutet
 %
 \begin{align}
 g_x &= 0,\\
@@ -9952,6 +9960,8 @@ g = g\left(z\right).
 \end{center}
 }}
 \end{center}
+%
+Die SGA ist eine relativ schwache Approximation, welche das Gleichungssystem jedoch stark vereinfacht. Sie ist daher bei analytischen Betrachtungen fast immer angebracht. Für Modelle kann man sie aufgeben, s. Absch. \ref{sec:ellipsoidische_approximation des_schwerefeldes}.
 
 \section{Shallow atmosphere}
 \label{sec:shallow_atmosphere}\index{shallow atmosphere}
@@ -27326,27 +27336,18 @@ aus, um den Ausdruck für das Schwerepotential zu vereinfachen:
 %
 Dies ist die Formel mit der von nun an gearbeitet wird. Da sie erster Ordnung in $\epsilon$ und $m$ ist, werden alle noch folgenden Approximationen ebenfalls nur in erster Ordnung in $\epsilon$ und $m$ gemacht.
 
-\subsection{Notwendigkeit ellipsoidischer Koordinaten}
-\label{sec:notwendigkeit_ellipsoidischer_Koordinaten}\index{Notwendigkeit ellipsoidischer Koordinaten}\index{ellipsoidische Koordinaten!Notwendigkeit}
+\subsection{Forderungen an nicht-kugelförmige Koordinaten}
+\label{sec:forderungen_an_nicht-kugelförmige_koordinaten}
 
-Horizontale Druckgradienten sind vier Größenordnungen kleiner als vertikale (s. Kapitel \ref{chap:important_approximations}), deshalb ist es praktisch, eine Achse des Koordinatensystems an der Schwere auszurichten, sodass diese die horizontalen Bewegungsgleichungen nicht beeinfusst. Zunächst kann man hierfür einfach Kugelkoordinaten verwenden, die Orographie kann man dabei als Höhe der Erdoberfläche über der Kugel interpretieren. Die Erde ist jedoch ein Ellipsoid. Ein erster Ansatz hierfür könnte sein, die ellipsoidische Form der Erde in die Orographie zu absorbieren und weiterhin Kugelkoordinaten zu verwenden. Für den Winkel $\varphi$, den das Ellipsoid mit einer Kugeloberfläche einschließt, gilt
-%
-\begin{align}
-\tan\left(\varphi\right) \approx \frac{\newtilde{f}}{\pi/2}\approx 0,2\:\%.
-\end{align}
-%
-Nimmt man an, dass die Schwere senkrecht auf dem Ellipsoid steht, hat sie in Kugelkoordinaten eine Horizontalkomponente von der Größenordnung $10^{-2}$ m/s$^2$, dies ist eine Größenordnung größer als der horizontale Druckgradient. Will man also die Exzentrizität des Schwerefeldes berücksichtigen, muss man ellipsoidische Koordinaten wählen.
+Für die Entwicklung eines meteorologischen Koordinatensystems ist es praktisch, wenn die Flächen gleicher Vertikalkoordinate Äquipotentialflächen im Schwerefeld sind (s. Absch. \ref{sec:spherical_geopotential_approximation}). Es wird erwartet, dass es außerdem vorteilhaft ist, wenn diese Flächen ellipsoidisch sind. Für die Entwicklung eines nicht-kugelförmigen Koordinatensystems ist es außerdem wichtig, die zu allen Potentialflächen senkrechten Trajektorien in Termen der Grundfunktionen angeben zu können. Außerdem muss die verwendete Approximation des Geopotentials möglichst konsistent mit der realen Physik sein und gleichzeitig analytisch behandelbar. Damit ist gemeint, dass sich wieder das korrekte Clairaut-Verhältnis ergibt, und dass gilt $c = a\left(1 - \epsilon\right)$.
 
-Für die Entwicklung eines meteorologischen Koordinatensystems ist es notwendig, dass die Flächen gleicher Vertikalkoordinate Äquipotentialflächen im Schwerefeld sind. Weiterhin sollten diese Flächen ellipsoidisch sein, um eine analytische Formulierung der herrschenden Gleichungen sowie numerische Stabilität zu erleichtern.
-
-Für die Entwicklung eines nicht-kugelförmigen Koordinatensystems ist es außerdem wichtig, die zu allen Potentialflächen senkrechten Trajektorien in Termen der Grundfunktionen angeben zu können. Außerdem muss die verwendete Approximation des Geopotentials möglichst konsistent mit der realen Physik sein und gleichzeitig analytisch behandelbar. Damit ist gemeint, dass sich wieder das korrekte Clairaut-Verhältnis ergibt, und dass gilt $c = a\left(1 - \epsilon\right)$.
-
-Die drei Forderungen an eine Approximation des Schwerefeldes sind also:
+Die Forderungen an eine Approximation des Schwerefeldes sind also:
 %
 \begin{enumerate}
-\item analytische Angabe der senkrechten Trajektorien möglich
+\item Möglichkeit der analytischen Angabe der senkrechten Trajektorien
 \item ellipsoidische Konturflächen
-\item Konsistenz
+\item korrektes Clairaut-Verhältnis
+\item korrektes Halbachsen-Verhältnis
 \end{enumerate}
 
 \subsection{Ellipsoidische Approximation des Schwerefeldes}
