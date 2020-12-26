@@ -5318,7 +5318,7 @@ wobei $V$ das Volumen ist, auf das die Teilchen beschränkt sind. Hier sei $V = 
 Hierbei gilt für $k_{3i - 2}, k_{3i - 1}, k_{3i}$ die Randbedingung
 %
 \begin{align}
-\frac{Lp_i}{\hbar} = k_iL = n_i\pi
+\frac{Lp_i}{\hbar} = k_iL = n_i\pi\label{eq:deriv_ideal_gas_bc}
 \end{align}
 %
 mit $n_i\in\mathbb{N}$ mit $n\geq 1$. $p_i = \hbar k_i$ ist der Impuls. Die Teilchen dringen nicht in die Wand ein, haben also keine potentielle Energie. Somit gilt für die Gesamtenergie des Systems
@@ -5330,13 +5330,19 @@ E = \frac{1}{2m}\sum_{i = 1}^{3N}p_i^2.
 Um die mikrokanonische Zustandssume des idealen Gases zu bestimmen, geht man von $\delta E = E$ aus:
 %
 \begin{align}
-\Omega\left(E, V, N\right) &= \sum_{E_r<E}1 = \sum_{\substack{n_1 = 1, 2, \dotsc,\\E_r< E}}\dotsc\sum_{\substack{n_{3N} = 1, 2, \dotsc,\\E_r< E}}1\approx\frac{1}{2^{3N}}\int_{E_r < E}\dotsc\int_{E_r < E} dn_1\dotsc dn_{3N}.
+\Omega\left(E, V, N\right) &= \sum_{E_r<E}1 = \underbrace{\sum_{n_1 = 1, 2, \dotsc}\dotsc\sum_{n_{3N} = 1, 2, \dotsc}}_{E_r < E} 1 \approx \frac{1}{2^{3N}}\underbrace{\int\dotsc\int}_{E_r < E}dn_1\dotsc dn_{3N}.
 \end{align}
 %
-Wegen $\newoverline{n_i}\gg 1$ wurden im letztem Schritt die Summen durch Integrale ersetzt. Der Faktor $1/2^{3N}$ entsteht durch die Einbeziehung negativer Werte bei der Integration. Man kann weiter umformen
+Wegen $\newoverline{n_i}\gg 1$ wurden im letztem Schritt die Summen durch Integrale ersetzt. Der Faktor $1/2^{3N}$ entsteht durch die Einbeziehung negativer Werte bei der Integration (es sind $3N$ Koordinatenachsen vorhanden, die halbiert werden müssen). Glg. \eqref{eq:deriv_ideal_gas_bc} impliziert
 %
 \begin{align}
-\Omega\left(E, V, N\right) &= \frac{V^N}{\left(2\hbar\pi\right)^{3N}}\int_{\sum p_i^2< 2mE}\dotsc\int_{\sum p_i^2<2mE} dp_1\dotsc dp_{3N}.
+dn_i = \frac{L}{\hbar\pi}dp_i.
+\end{align}
+%
+Daraus folgt
+%
+\begin{align}
+\Omega\left(E, V, N\right) &= \left(\frac{L}{2\hbar\pi}\right)^{3N}\underbrace{\int\dotsc\int}_{\sum p_i^2< 2mE}dp_1\dotsc dp_{3N} = \frac{V^N}{\left(2\hbar\pi\right)^{3N}}\underbrace{\int\dotsc\int}_{\sum p_i^2< 2mE}dp_1\dotsc dp_{3N}.
 \end{align}
 %
 Das verbleibende $3N-$dimensionale Integral ist das Volumen einer $3N-$dimensionalen Kugel mit Radius $\sqrt{2mE}$, sodass man Glg. \eqref{eq:volumen_n_dim_kugel} einsetzen kann:
@@ -6472,7 +6478,7 @@ mit $i\in\mathbb{N}$ und $i\geq 1$, negative Werte von $i$ müssen vernachlässi
 Für eine Summe über alle Moden im Hohlraum gilt
 %
 \begin{align}
-\sum_{m = 1}^{2}\sum_{\mathbf{k}}^{}\dotsc = \frac{2V}{\left(2\pi\right)^3}\int\dotsc d^3k.
+\sum_{m = 1}^{2}\sum_{\mathbf{k}}^{}\dotsc = 2\sum_{\mathbf{k}}^{}\dotsc = 2\left(\frac{L}{2\pi}\right)^3\int\dotsc d^3k = \frac{2V}{\left(2\pi\right)^3}\int\dotsc d^3k.
 \end{align}
 %
 $m$ läuft dabei über die zwei möglichen Polarisationsrichtungen. Für die Energien $E = E\left(\mathbf{k}, m\right)$ gilt nach Glg. \eqref{eq:energy_photon}
@@ -17303,8 +17309,16 @@ g\frac{\partial\left(\newoverline{h} + \newoverline{b}\right)}{\partial y} &= -f
 %
 Die \textcolor{red}{rot} markierten Terme enthalten die geostrophische Balance, die \textcolor{blue}{blau} markieren Anteile sind metrische Terme. Die schwarzen Terme sind die turbulente Impulsadvektion.
 
+\subsection{Boussinesq-Gleichungen}
+\label{sec:boussinesq-gleichungen}
+
+Die Flachwassergleichungen haben eine triviale vertikale Struktur: vertikale Schwerungen sind konstant. Dementsprechend waren die bisher in diesem Kapitel gefundenen Aussagen eher trivial.
+
 \section{Frontalzonen und Jets}
 \label{sec:frontalzonen_und_jets}\index{Frontalzone}\index{Jet}
+
+\section{Konvektiv-radiatives Gleichgewicht}
+\label{sec:konvektiv-radiatives_gleichgewicht}\index{konvektiv-radiatives Gleichgewicht}\index{Gleichgewicht!konvektiv-radiatives}
 
 \chapter{\normalfont\textsc{Ozeanzirkulation}}
 \label{chap:ozeanzirkulation}\index{Ozeanzirkulation}
@@ -17672,18 +17686,36 @@ als \textit{planetarische Albedo}\index{planetarische Albedo}\index{Albedo!plane
 Nun nimmt man eine homogene Atmosphäre, welche aus nur einer einzigen Schicht besteht, in das Modell auf. Atmosphärische Eigenschaften werden mit dem Index $A$ bezeichnet, während Oberflächeneigenschaften mit dem Index $S$ bezeichnet werden. Jede Teilkomponente des Systems (Atmosphäre, Oberfläche) befindet sich im thermischen Gleichgewicht. Somit lautet das geltende Gleichungssystem
 %
 \begin{align}
-S_A^{(\text{in})} &= S_A^{(\text{out})} \Leftrightarrow S_{A, \text{SW}}^{(\text{in})} + S_{A, \text{LW}}^{(\text{in})} = S_{A, \text{SW}}^{(\text{out})} + S_{A, \text{LW}}^{(\text{out})},\\
-S_S^{(\text{in})} &= S_S^{(\text{out})} \Leftrightarrow S_{S, \text{SW}}^{(\text{in})} + S_{S, \text{LW}}^{(\text{in})} = S_{S, \text{SW}}^{(\text{out})} + S_{S, \text{LW}}^{(\text{out})}.
+S_A^{(\text{in})} &= S_A^{(\text{out})} \Leftrightarrow S_{A, \text{SW}}^{(\text{in})} + S_{A, \text{LW}}^{(\text{in})} = S_{A, \text{SW}}^{(\text{out})} + S_{A, \text{LW}}^{(\text{out})},\label{eq:rad_atmos_single_layer_0}\\
+S_S^{(\text{in})} &= S_S^{(\text{out})} \Leftrightarrow S_{S, \text{SW}}^{(\text{in})} + S_{S, \text{LW}}^{(\text{in})} = S_{S, \text{SW}}^{(\text{out})} + S_{S, \text{LW}}^{(\text{out})}.\label{eq:rad_atmos_single_layer_1}
 \end{align}
 %
-Setzt man die Strahlungsflussdichten ein, erhält man
+Nun macht man folgende Annahmen:
+%
+\begin{itemize}
+\item Die Atmosphäre wechselwirkt nicht mit kurzwelliger Strahlung, sie transmittiert diese also zu 100 \%.
+\item Die Erdoberfläche reflektiert einen Anteil $\alpha_{S, \text{SW}}$ der kurzwelligen Strahlung, der Rest wird absorbiert. Da der reflektierte Anteil nicht mit der Atmosphäre wechselwirkt, propagiert diese Energie zurück ins All.
+\item Die Atmosphäre stellt man sich als einen einzigen Balken mit homogener Temperatur vor, der eine untere und eine obere Oberfläche hat. Die Atmosphäre hat in diesem Modell also zwei Oberflächen, von denen sie langwellige Strahlung abstrahlen kann.
+\item Innerhalb des kurzwelligen bzw. langwelligen Strahlungsbereichs werden die Strahlungseigenschaften als temperatur- und wellenlängenunabhängig angenommen.
+\end{itemize}
+%
+Heraus ergeben sich die Strahlungsflussdichten
+%
+\begin{align}
+S_{A, \text{SW}}^{(\text{in})} = 0,&& S_{A, \text{LW}}^{(\text{in})} = \epsilon_{A, \text{LW}}\epsilon_{S, \text{LW}}\sigma T_S^4,\\
+S_{A, \text{SW}}^{(\text{out})} = 0,&& S_{A, \text{LW}}^{(\text{out})} = 2\epsilon_{A, \text{LW}}\sigma T_A^4,\\
+S_{S, \text{SW}}^{(\text{in})} = \left(1 - \alpha_{S, \text{SW}}\right)\frac{S_0}{4},&& S_{S, \text{LW}}^{(\text{in})} = \epsilon_{A, \text{LW}}\sigma T_A^4,\\
+S_{S, \text{SW}}^{(\text{out})} = 0,&& S_{S, \text{LW}}^{(\text{out})} = \epsilon_{S, \text{LW}}\sigma T_S^4.
+\end{align}
+%
+Setzt man dies in die Glg.en \eqref{eq:rad_atmos_single_layer_0} - \eqref{eq:rad_atmos_single_layer_1} ein, erhält man
 %
 \begin{align}
 0 + \epsilon_{A, \text{LW}}\epsilon_{S, \text{LW}}\sigma T_S^4 &= 0 + 2\epsilon_{A, \text{LW}}\sigma T_A^4,\\
-\left(1 - \alpha_{S, \text{SW}}\right)\frac{S_0}{4} + \epsilon_{A, \text{LW}}\sigma T_A^4 &= \epsilon_{S, \text{LW}}\sigma T_S^4.
+\left(1 - \alpha_{S, \text{SW}}\right)\frac{S_0}{4} + \epsilon_{A, \text{LW}}\sigma T_A^4 &= 0 + \epsilon_{S, \text{LW}}\sigma T_S^4.
 \end{align}
 %
-Dabei wurde angenommen, dass die Atmosphäre nicht mit der kurzwelligen Strahlung wechselwirkt, sondern die kurzwellige Strahlung an der Erdoberfläche relektiert wird. Äquivalenzumformungen ergeben
+Äquivalenzumformungen ergeben
 %
 \begin{align}
 T_A^4 &= \frac{\epsilon_{S, \text{LW}}}{2}T_S^4,\label{eq:rad_single_layer_deriv_0}\\

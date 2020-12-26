@@ -236,274 +236,276 @@
 \BOOKMARK [1][-]{section.20.1}{Zonal\040gemittelte\040Gleichungen}{chapter.20}% 236
 \BOOKMARK [2][-]{subsection.20.1.1}{Lineare\040Flachwassergleichungen}{section.20.1}% 237
 \BOOKMARK [2][-]{subsection.20.1.2}{Nichtlineare\040Flachwassergleichungen}{section.20.1}% 238
-\BOOKMARK [1][-]{section.20.2}{Frontalzonen\040und\040Jets}{chapter.20}% 239
-\BOOKMARK [0][-]{chapter.21}{Ozeanzirkulation}{part.3}% 240
-\BOOKMARK [1][-]{section.21.1}{Windgetriebene\040Zirkulation}{chapter.21}% 241
-\BOOKMARK [1][-]{section.21.2}{Thermohaline\040Zirkulation}{chapter.21}% 242
-\BOOKMARK [1][-]{section.21.3}{Seegangsvorhersage}{chapter.21}% 243
-\BOOKMARK [2][-]{subsection.21.3.1}{Prognostische\040Variablen}{section.21.3}% 244
-\BOOKMARK [2][-]{subsection.21.3.2}{Wave\040action\040equation}{section.21.3}% 245
-\BOOKMARK [2][-]{subsection.21.3.3}{Diagnostische\040Variablen}{section.21.3}% 246
-\BOOKMARK [2][-]{subsection.21.3.4}{Seegangsvorhersagemodelle}{section.21.3}% 247
-\BOOKMARK [-1][-]{part.4}{IV\040Strahlung\040und\040Wolkenmikrophysik}{}% 248
-\BOOKMARK [0][-]{chapter.22}{Strahlungstransport}{part.4}% 249
-\BOOKMARK [1][-]{section.22.1}{Einfache\040Modelle}{chapter.22}% 250
-\BOOKMARK [2][-]{subsection.22.1.1}{Planet ohne Atmosphäre}{section.22.1}% 251
-\BOOKMARK [2][-]{subsection.22.1.2}{Ein-Schicht-Atmosphäre}{section.22.1}% 252
-\BOOKMARK [1][-]{section.22.2}{Berechnung\040der\040Streu-\040und\040Absorptionskoeffizienten}{chapter.22}% 253
-\BOOKMARK [1][-]{section.22.3}{Approximationen}{chapter.22}% 254
-\BOOKMARK [2][-]{subsection.22.3.1}{Plan-parallele Atmosphäre}{section.22.3}% 255
-\BOOKMARK [2][-]{subsection.22.3.2}{Horizontale\040Entkopplung}{section.22.3}% 256
-\BOOKMARK [1][-]{section.22.4}{Atmosphärische Optik}{chapter.22}% 257
-\BOOKMARK [0][-]{chapter.23}{Wolkenmikrophysik}{part.4}% 258
-\BOOKMARK [1][-]{section.23.1}{Köhler-Gleichung}{chapter.23}% 259
-\BOOKMARK [1][-]{section.23.2}{Zirkulation\040um\040Kondensate}{chapter.23}% 260
-\BOOKMARK [2][-]{subsection.23.2.1}{Laminare Umströmung}{section.23.2}% 261
-\BOOKMARK [2][-]{subsection.23.2.2}{Turbulente Umströmung}{section.23.2}% 262
-\BOOKMARK [3][-]{subsubsection.23.2.2.1}{Zusammengesetzte Formel für die Sinkgeschwindigkeit}{subsection.23.2.2}% 263
-\BOOKMARK [1][-]{section.23.3}{Wachstum\040von\040Kondensaten}{chapter.23}% 264
-\BOOKMARK [2][-]{subsection.23.3.1}{Koagulation}{section.23.3}% 265
-\BOOKMARK [3][-]{subsubsection.23.3.1.1}{Bergeron-Findeisen-Prozess}{subsection.23.3.1}% 266
-\BOOKMARK [2][-]{subsection.23.3.2}{Koaleszenz}{section.23.3}% 267
-\BOOKMARK [1][-]{section.23.4}{Zerbrechen\040von\040Wassertropfen}{chapter.23}% 268
-\BOOKMARK [2][-]{subsection.23.4.1}{Innere\040Zirkulation}{section.23.4}% 269
-\BOOKMARK [2][-]{subsection.23.4.2}{Oszillationen}{section.23.4}% 270
-\BOOKMARK [2][-]{subsection.23.4.3}{Instabilitäten}{section.23.4}% 271
-\BOOKMARK [-1][-]{part.5}{V\040Numerik}{}% 272
-\BOOKMARK [0][-]{chapter.24}{Grundkonzepte\040der\040Numerik}{part.5}% 273
-\BOOKMARK [1][-]{section.24.1}{Grundbegriffe\040von\040Diskretisierungen}{chapter.24}% 274
-\BOOKMARK [1][-]{section.24.2}{Finite\040Differenzen}{chapter.24}% 275
-\BOOKMARK [1][-]{section.24.3}{Ebene\040Spektralmethode}{chapter.24}% 276
-\BOOKMARK [1][-]{section.24.4}{Sphärische Spektralmethode}{chapter.24}% 277
-\BOOKMARK [0][-]{chapter.25}{Zeitschrittverfahren}{part.5}% 278
-\BOOKMARK [1][-]{section.25.1}{Rein\040explizite\040Verfahren}{chapter.25}% 279
-\BOOKMARK [2][-]{subsection.25.1.1}{Explizites\040Euler-Verfahren}{section.25.1}% 280
-\BOOKMARK [2][-]{subsection.25.1.2}{Leapfrog-Verfahren}{section.25.1}% 281
-\BOOKMARK [2][-]{subsection.25.1.3}{Allgemeine\040Multischritt-Verfahren}{section.25.1}% 282
-\BOOKMARK [2][-]{subsection.25.1.4}{Runge-Kutta-Verfahren}{section.25.1}% 283
-\BOOKMARK [3][-]{subsubsection.25.1.4.1}{Linearer\040Fall}{subsection.25.1.4}% 284
-\BOOKMARK [3][-]{subsubsection.25.1.4.2}{Nichtinearer\040Fall}{subsection.25.1.4}% 285
-\BOOKMARK [1][-]{section.25.2}{CFL-Kriterium}{chapter.25}% 286
-\BOOKMARK [1][-]{section.25.3}{Verfahren\040mit\040impliziten\040Anteilen}{chapter.25}% 287
-\BOOKMARK [2][-]{subsection.25.3.1}{Implizites\040Euler-Verfahren}{section.25.3}% 288
-\BOOKMARK [2][-]{subsection.25.3.2}{Crank-Nicolson-Verfahren}{section.25.3}% 289
-\BOOKMARK [1][-]{section.25.4}{Mischung\040von\040Zeitschrittverfahren}{chapter.25}% 290
-\BOOKMARK [1][-]{section.25.5}{Aspekte\040partieller\040Differenzialgleichungen}{chapter.25}% 291
-\BOOKMARK [2][-]{subsection.25.5.1}{Forward-backward-Verfahren}{section.25.5}% 292
-\BOOKMARK [1][-]{section.25.6}{Energetische\040Konsistenz\040im\040idealen\040Gas}{chapter.25}% 293
-\BOOKMARK [2][-]{subsection.25.6.1}{Advektion\040von\040Impuls}{section.25.6}% 294
-\BOOKMARK [3][-]{subsubsection.25.6.1.1}{Advektion\040kinetischer\040Energie}{subsection.25.6.1}% 295
-\BOOKMARK [3][-]{subsubsection.25.6.1.2}{Generalisierte\040Coriolis-Terme}{subsection.25.6.1}% 296
-\BOOKMARK [2][-]{subsection.25.6.2}{Evolution\040der\040Temperatur}{section.25.6}% 297
-\BOOKMARK [3][-]{subsubsection.25.6.2.1}{Zeitentwicklung\040der\040inneren\040Energie}{subsection.25.6.2}% 298
-\BOOKMARK [3][-]{subsubsection.25.6.2.2}{Energetisch\040konsistente\040Zeitentwicklung\040der\040Temperatur}{subsection.25.6.2}% 299
-\BOOKMARK [0][-]{chapter.26}{Auswahl einer zukunftsfähigen horizontalen Diskretisierung}{part.5}% 300
-\BOOKMARK [1][-]{section.26.1}{Aus dem CFL-Kriterium folgende Beschränkungen}{chapter.26}% 301
-\BOOKMARK [2][-]{subsection.26.1.1}{Platonische Körper}{section.26.1}% 302
-\BOOKMARK [2][-]{subsection.26.1.2}{Grid\040imprinting}{section.26.1}% 303
-\BOOKMARK [1][-]{section.26.2}{Aus Rotationssymmetrie folgende Beschränkungen}{chapter.26}% 304
-\BOOKMARK [1][-]{section.26.3}{Ausschluss\040spektraler\040Formulierungen}{chapter.26}% 305
-\BOOKMARK [1][-]{section.26.4}{Arakawa-Gitter}{chapter.26}% 306
-\BOOKMARK [2][-]{subsection.26.4.1}{A-Gitter}{section.26.4}% 307
-\BOOKMARK [2][-]{subsection.26.4.2}{C-Gitter}{section.26.4}% 308
-\BOOKMARK [1][-]{section.26.5}{Skalare\040Erhaltungseigenschaften\040auf\040dem\040C-Gitter}{chapter.26}% 309
-\BOOKMARK [1][-]{section.26.6}{Gradientenfelder\040auf\040dem\040C-Gitter}{chapter.26}% 310
-\BOOKMARK [1][-]{section.26.7}{Skalarprodukt\040auf\040dem\040C-Gitter}{chapter.26}% 311
-\BOOKMARK [2][-]{subsection.26.7.1}{Eindimensionaler\040Fall}{section.26.7}% 312
-\BOOKMARK [2][-]{subsection.26.7.2}{Dreidimensionaler\040rechteckiger\040Fall}{section.26.7}% 313
-\BOOKMARK [2][-]{subsection.26.7.3}{Zweidimensionales\040orthogonales\040Gitter}{section.26.7}% 314
-\BOOKMARK [2][-]{subsection.26.7.4}{Dreidimensionales\040orthogonales\040Gitter\040\(shallow\)}{section.26.7}% 315
-\BOOKMARK [2][-]{subsection.26.7.5}{Dreidimensionales\040orthogonales\040Gitter\040\(deep\)}{section.26.7}% 316
-\BOOKMARK [1][-]{section.26.8}{Festlegung\040auf\040das\040C-Gitter}{chapter.26}% 317
-\BOOKMARK [2][-]{subsection.26.8.1}{Folgerungen}{section.26.8}% 318
-\BOOKMARK [1][-]{section.26.9}{Das Problem des Verhältnisses der Freiheitsgrade}{chapter.26}% 319
-\BOOKMARK [2][-]{subsection.26.9.1}{Folgerungen}{section.26.9}% 320
-\BOOKMARK [1][-]{section.26.10}{Ausschluss\040viereckiger\040Gitter}{chapter.26}% 321
-\BOOKMARK [1][-]{section.26.11}{Festlegung\040auf\040das\040sechseckige\040Ikosaedergitter}{chapter.26}% 322
-\BOOKMARK [0][-]{chapter.27}{Probleme\040eines\040dreielementigen\040Erzeugendensystems\040einer\040zweidimensionalen\040Menge}{part.5}% 323
-\BOOKMARK [1][-]{section.27.1}{Differenzialoperatoren}{chapter.27}% 324
-\BOOKMARK [1][-]{section.27.2}{Hauptsatz\040der\040Vektoranalysis}{chapter.27}% 325
-\BOOKMARK [1][-]{section.27.3}{Dispersionsrelation}{chapter.27}% 326
-\BOOKMARK [1][-]{section.27.4}{Thuburn-Mittelung}{chapter.27}% 327
-\BOOKMARK [2][-]{subsection.27.4.1}{Anforderungen}{section.27.4}% 328
-\BOOKMARK [2][-]{subsection.27.4.2}{Folgerungen für die Helmholtz-Aufteilung}{section.27.4}% 329
-\BOOKMARK [2][-]{subsection.27.4.3}{Herleitung\040des\040Mittelungsoperators}{section.27.4}% 330
-\BOOKMARK [2][-]{subsection.27.4.4}{Folgerungen für die Dispersionsrelation}{section.27.4}% 331
-\BOOKMARK [1][-]{section.27.5}{Checkerboard-Pattern}{chapter.27}% 332
-\BOOKMARK [2][-]{subsection.27.5.1}{Gründe}{section.27.5}% 333
-\BOOKMARK [2][-]{subsection.27.5.2}{Eliminierung}{section.27.5}% 334
-\BOOKMARK [1][-]{section.27.6}{Folgerungen}{chapter.27}% 335
-\BOOKMARK [2][-]{subsection.27.6.1}{Formulierung\040der\040Rotation}{section.27.6}% 336
-\BOOKMARK [2][-]{subsection.27.6.2}{Eine weitere Perspektive auf die Überlegenheit des sechseckigen Gitters gegenüber dem dreieckigen}{section.27.6}% 337
-\BOOKMARK [0][-]{chapter.28}{Vorticityfluss\040auf\040dem\040hexagonalen\040C-Gitter}{part.5}% 338
-\BOOKMARK [1][-]{section.28.1}{Reguläres Gitter}{chapter.28}% 339
-\BOOKMARK [2][-]{subsection.28.1.1}{Linearisierung}{section.28.1}% 340
-\BOOKMARK [2][-]{subsection.28.1.2}{Vollständiger Term}{section.28.1}% 341
-\BOOKMARK [1][-]{section.28.2}{Deformiertes\040Gitter}{chapter.28}% 342
-\BOOKMARK [2][-]{subsection.28.2.1}{Coriolisbeschleunigung}{section.28.2}% 343
-\BOOKMARK [3][-]{subsubsection.28.2.1.1}{Homogener\040Coriolisparameter}{subsection.28.2.1}% 344
-\BOOKMARK [3][-]{subsubsection.28.2.1.2}{Inhomogener\040Coriolisparameter}{subsection.28.2.1}% 345
-\BOOKMARK [2][-]{subsection.28.2.2}{Verwendung der vollständigen Vorticity}{section.28.2}% 346
-\BOOKMARK [3][-]{subsubsection.28.2.2.1}{Modifikation\040zur\040Einhaltung\040der\040Thuburn-Bedingung}{subsection.28.2.2}% 347
-\BOOKMARK [1][-]{section.28.3}{Barokline\040Aspekte}{chapter.28}% 348
-\BOOKMARK [0][-]{chapter.29}{Impulsdiffusion\040und\040Dissipation\040auf\040dem\040hexagonalen\040C-Gitter}{part.5}% 349
-\BOOKMARK [1][-]{section.29.1}{Reguläres Gitter}{chapter.29}% 350
-\BOOKMARK [1][-]{section.29.2}{Deformiertes\040Gitter}{chapter.29}% 351
-\BOOKMARK [2][-]{subsection.29.2.1}{Dissipation}{section.29.2}% 352
-\BOOKMARK [1][-]{section.29.3}{Dreidimensionale\040Erweiterung}{chapter.29}% 353
-\BOOKMARK [2][-]{subsection.29.3.1}{Dissipation}{section.29.3}% 354
-\BOOKMARK [0][-]{chapter.30}{Multi-Moment-finite-Volumen-Verfahren}{part.5}% 355
-\BOOKMARK [0][-]{chapter.31}{Strahlungstransportalgorithmen}{part.5}% 356
-\BOOKMARK [0][-]{chapter.32}{Datenassimilation}{part.5}% 357
-\BOOKMARK [1][-]{section.32.1}{3D-Var}{chapter.32}% 358
-\BOOKMARK [2][-]{subsection.32.1.1}{Eine\040Beobachtung}{section.32.1}% 359
-\BOOKMARK [2][-]{subsection.32.1.2}{Beliebige\040Anzahl\040von\040Beobachtungen}{section.32.1}% 360
-\BOOKMARK [2][-]{subsection.32.1.3}{Berücksichtigung von Hydrostatik}{section.32.1}% 361
-\BOOKMARK [3][-]{subsubsection.32.1.3.1}{Als exakte Einschränkung}{subsection.32.1.3}% 362
-\BOOKMARK [3][-]{subsubsection.32.1.3.2}{Als\040Teil\040der\040Kostenfunktion}{subsection.32.1.3}% 363
-\BOOKMARK [2][-]{subsection.32.1.4}{Berücksichtigung der Balancegleichung}{section.32.1}% 364
-\BOOKMARK [1][-]{section.32.2}{4D-Var}{chapter.32}% 365
-\BOOKMARK [-1][-]{part.6}{VI\040Entwicklung\040eines\040dynamischen\040Kerns}{}% 366
-\BOOKMARK [0][-]{chapter.33}{Kinematik}{part.6}% 367
-\BOOKMARK [1][-]{section.33.1}{Horizontales\040Gitter}{chapter.33}% 368
-\BOOKMARK [2][-]{subsection.33.1.1}{Konstanten\040des\040hexagonalen\040Gitters}{section.33.1}% 369
-\BOOKMARK [2][-]{subsection.33.1.2}{Gittergenerierung\040auf\040der\040Einheitskugel}{section.33.1}% 370
-\BOOKMARK [2][-]{subsection.33.1.3}{Gitteroptimierung}{section.33.1}% 371
-\BOOKMARK [1][-]{section.33.2}{Vertikales\040Gitter}{chapter.33}% 372
-\BOOKMARK [2][-]{subsection.33.2.1}{Funktionaldeterminante\040einer\040generalisierten\040Vertikalkoordinate}{section.33.2}% 373
-\BOOKMARK [2][-]{subsection.33.2.2}{SLEVE}{section.33.2}% 374
-\BOOKMARK [2][-]{subsection.33.2.3}{Alternative zu geländefolgenden Koordinaten}{section.33.2}% 375
-\BOOKMARK [1][-]{section.33.3}{Felder}{chapter.33}% 376
-\BOOKMARK [2][-]{subsection.33.3.1}{Nomenklatur}{section.33.3}% 377
-\BOOKMARK [2][-]{subsection.33.3.2}{Ausgezeichnete\040Punkte}{section.33.3}% 378
-\BOOKMARK [2][-]{subsection.33.3.3}{Arten\040von\040Feldern}{section.33.3}% 379
-\BOOKMARK [2][-]{subsection.33.3.4}{Slope}{section.33.3}% 380
-\BOOKMARK [1][-]{section.33.4}{Mittelungsoperatoren}{chapter.33}% 381
-\BOOKMARK [2][-]{subsection.33.4.1}{Rekonstruktion der horizontalen kovarianten Maßzahl}{section.33.4}% 382
-\BOOKMARK [3][-]{subsubsection.33.4.1.1}{Shallow\040atmosphere}{subsection.33.4.1}% 383
-\BOOKMARK [3][-]{subsubsection.33.4.1.2}{Deep\040atmosphere}{subsection.33.4.1}% 384
-\BOOKMARK [2][-]{subsection.33.4.2}{Skalarprodukt auf dem C-Gitter in geländefolgenden Koordinaten}{section.33.4}% 385
-\BOOKMARK [3][-]{subsubsection.33.4.2.1}{Shallow\040atmosphere}{subsection.33.4.2}% 386
-\BOOKMARK [3][-]{subsubsection.33.4.2.2}{Deep\040atmosphere}{subsection.33.4.2}% 387
-\BOOKMARK [2][-]{subsection.33.4.3}{Rekonstruktion der vertikalen kontravarianten Maßzahl}{section.33.4}% 388
-\BOOKMARK [3][-]{subsubsection.33.4.3.1}{Shallow\040atmosphere}{subsection.33.4.3}% 389
-\BOOKMARK [3][-]{subsubsection.33.4.3.2}{Deep\040atmosphere}{subsection.33.4.3}% 390
-\BOOKMARK [2][-]{subsection.33.4.4}{Divergenz in geländefolgenden Koordinaten}{section.33.4}% 391
-\BOOKMARK [3][-]{subsubsection.33.4.4.1}{Shallow\040atmosphere}{subsection.33.4.4}% 392
-\BOOKMARK [3][-]{subsubsection.33.4.4.2}{Deep\040atmosphere}{subsection.33.4.4}% 393
-\BOOKMARK [1][-]{section.33.5}{Ellipsoidische\040Modifikation\040des\040Gitters}{chapter.33}% 394
-\BOOKMARK [0][-]{chapter.34}{Reversible\040Dynamik}{part.6}% 395
-\BOOKMARK [1][-]{section.34.1}{Prognostische\040Variablen\040und\040Gleichungen}{chapter.34}% 396
-\BOOKMARK [1][-]{section.34.2}{Diskretisierung\040der\040Poisson-Klammern}{chapter.34}% 397
-\BOOKMARK [2][-]{subsection.34.2.1}{Diskretisierung\040von\040Funktionalableitungen}{section.34.2}% 398
-\BOOKMARK [3][-]{subsubsection.34.2.1.1}{Shallow\040atmosphere}{subsection.34.2.1}% 399
-\BOOKMARK [3][-]{subsubsection.34.2.1.2}{Deep\040atmosphere}{subsection.34.2.1}% 400
-\BOOKMARK [2][-]{subsection.34.2.2}{Gradient auf dem C-Gitter in geländefolgenden Koordinaten}{section.34.2}% 401
-\BOOKMARK [3][-]{subsubsection.34.2.2.1}{Shallow\040atmosphere}{subsection.34.2.2}% 402
-\BOOKMARK [3][-]{subsubsection.34.2.2.2}{Deep\040atmosphere}{subsection.34.2.2}% 403
-\BOOKMARK [2][-]{subsection.34.2.3}{Überprüfung der Energieerhaltung}{section.34.2}% 404
-\BOOKMARK [1][-]{section.34.3}{Randbedingungen}{chapter.34}% 405
-\BOOKMARK [2][-]{subsection.34.3.1}{Obere\040Randbedingung}{section.34.3}% 406
-\BOOKMARK [2][-]{subsection.34.3.2}{Untere\040Randbedingung}{section.34.3}% 407
-\BOOKMARK [1][-]{section.34.4}{Möglichkeiten zur Erhöhung der Ordnung}{chapter.34}% 408
-\BOOKMARK [1][-]{section.34.5}{Zeitschrittverfahren:\040Variante\040I}{chapter.34}% 409
-\BOOKMARK [2][-]{subsection.34.5.1}{Festlegung\040auf\040ein\040Runge-Kutta-Verfahren}{section.34.5}% 410
-\BOOKMARK [2][-]{subsection.34.5.2}{Split-explicit-Techniken}{section.34.5}% 411
-\BOOKMARK [2][-]{subsection.34.5.3}{Modifikationen\040zur\040Stabilisierung}{section.34.5}% 412
-\BOOKMARK [3][-]{subsubsection.34.5.3.1}{Vertikale\040Advektion\040des\040Horizontalwindes}{subsection.34.5.3}% 413
-\BOOKMARK [3][-]{subsubsection.34.5.3.2}{Vertikaler\040Sound\040wave\040solver}{subsection.34.5.3}% 414
-\BOOKMARK [3][-]{subsubsection.34.5.3.3}{Vertikale\040Advektion\040einer\040generalisierten\040Dichte}{subsection.34.5.3}% 415
-\BOOKMARK [3][-]{subsubsection.34.5.3.4}{Horizontales\040Forward-backward-Verfahren}{subsection.34.5.3}% 416
-\BOOKMARK [3][-]{subsubsection.34.5.3.5}{Konstanthalten\040des\040horizontalen\040Druckgradienten}{subsection.34.5.3}% 417
-\BOOKMARK [2][-]{subsection.34.5.4}{Zusammenfassung}{section.34.5}% 418
-\BOOKMARK [1][-]{section.34.6}{Zeitschrittverfahren:\040Variante\040II}{chapter.34}% 419
-\BOOKMARK [1][-]{section.34.7}{Regionaler\040Modus}{chapter.34}% 420
-\BOOKMARK [0][-]{chapter.35}{Irreversible\040Dynamik}{part.6}% 421
-\BOOKMARK [1][-]{section.35.1}{Horizontale\040Diffusion}{chapter.35}% 422
-\BOOKMARK [2][-]{subsection.35.1.1}{Massendiffuson}{section.35.1}% 423
-\BOOKMARK [2][-]{subsection.35.1.2}{Temperaturdiffuson}{section.35.1}% 424
-\BOOKMARK [2][-]{subsection.35.1.3}{Impulsdiffusion}{section.35.1}% 425
-\BOOKMARK [3][-]{subsubsection.35.1.3.1}{Dissipation}{subsection.35.1.3}% 426
-\BOOKMARK [1][-]{section.35.2}{Vertikale\040Diffusion}{chapter.35}% 427
-\BOOKMARK [2][-]{subsection.35.2.1}{Massendiffuson}{section.35.2}% 428
-\BOOKMARK [2][-]{subsection.35.2.2}{Temperaturdiffuson}{section.35.2}% 429
-\BOOKMARK [2][-]{subsection.35.2.3}{Impulsdiffusion}{section.35.2}% 430
-\BOOKMARK [2][-]{subsection.35.2.4}{Obere\040Randbedingung}{section.35.2}% 431
-\BOOKMARK [1][-]{section.35.3}{Parametrisierungen}{chapter.35}% 432
-\BOOKMARK [2][-]{subsection.35.3.1}{Masse}{section.35.3}% 433
-\BOOKMARK [2][-]{subsection.35.3.2}{Temperatur}{section.35.3}% 434
-\BOOKMARK [2][-]{subsection.35.3.3}{Impuls}{section.35.3}% 435
-\BOOKMARK [0][-]{chapter.36}{Weiterführende Aspekte}{part.6}% 436
-\BOOKMARK [1][-]{section.36.1}{Framework für die Berücksichtigung von Tracern}{chapter.36}% 437
-\BOOKMARK [2][-]{subsection.36.1.1}{Limiter}{section.36.1}% 438
-\BOOKMARK [2][-]{subsection.36.1.2}{Parametrisierungen}{section.36.1}% 439
-\BOOKMARK [1][-]{section.36.2}{Ankopplung\040an\040ein\040Strahlungstransportmodell}{chapter.36}% 440
-\BOOKMARK [1][-]{section.36.3}{Verbleibende\040Approximationen}{chapter.36}% 441
-\BOOKMARK [1][-]{section.36.4}{Model\040output\040statistics\040\(MOS\)}{chapter.36}% 442
-\BOOKMARK [2][-]{subsection.36.4.1}{Beispiel}{section.36.4}% 443
-\BOOKMARK [2][-]{subsection.36.4.2}{Verallgemeinerungen}{section.36.4}% 444
-\BOOKMARK [-1][-]{part.7}{VII\040Anhang}{}% 445
-\BOOKMARK [0][-]{appendix.A}{Grundlagen}{part.7}% 446
-\BOOKMARK [1][-]{section.A.1}{cgs-System}{appendix.A}% 447
-\BOOKMARK [1][-]{section.A.2}{Summen\040und\040Reihen}{appendix.A}% 448
-\BOOKMARK [1][-]{section.A.3}{Kombinatorik}{appendix.A}% 449
-\BOOKMARK [1][-]{section.A.4}{Determinanten}{appendix.A}% 450
-\BOOKMARK [1][-]{section.A.5}{Grundfunktionen}{appendix.A}% 451
-\BOOKMARK [1][-]{section.A.6}{Deltadistribution}{appendix.A}% 452
-\BOOKMARK [1][-]{section.A.7}{Integralformeln}{appendix.A}% 453
-\BOOKMARK [2][-]{subsection.A.7.1}{Partielle\040Integration}{section.A.7}% 454
-\BOOKMARK [2][-]{subsection.A.7.2}{Substitutionsregel}{section.A.7}% 455
-\BOOKMARK [2][-]{subsection.A.7.3}{Trennung\040der\040Variablen}{section.A.7}% 456
-\BOOKMARK [2][-]{subsection.A.7.4}{Leibniz-Regel}{section.A.7}% 457
-\BOOKMARK [2][-]{subsection.A.7.5}{Weitere\040Formeln}{section.A.7}% 458
-\BOOKMARK [2][-]{subsection.A.7.6}{Funktionalableitungen}{section.A.7}% 459
-\BOOKMARK [2][-]{subsection.A.7.7}{Residuensatz}{section.A.7}% 460
-\BOOKMARK [1][-]{section.A.8}{Vektorräume}{appendix.A}% 461
-\BOOKMARK [2][-]{subsection.A.8.1}{Vektorprodukt}{section.A.8}% 462
-\BOOKMARK [0][-]{appendix.B}{Vektoranalysis}{part.7}% 463
-\BOOKMARK [1][-]{section.B.1}{Mehrdimensionale\040Ableitungen}{appendix.B}% 464
-\BOOKMARK [2][-]{subsection.B.1.1}{Krümmungradius}{section.B.1}% 465
-\BOOKMARK [2][-]{subsection.B.1.2}{Rechenregeln für Differenzialoperatoren}{section.B.1}% 466
-\BOOKMARK [1][-]{section.B.2}{Differenzialoperatoren\040unter\040Koordinatentransformationen}{appendix.B}% 467
-\BOOKMARK [2][-]{subsection.B.2.1}{Kugelkoordinaten}{section.B.2}% 468
-\BOOKMARK [3][-]{subsubsection.B.2.1.1}{Transformation\040auf\040geographische\040Koordinaten}{subsection.B.2.1}% 469
-\BOOKMARK [1][-]{section.B.3}{Mehrdimensionale\040Integralrechnung}{appendix.B}% 470
-\BOOKMARK [2][-]{subsection.B.3.1}{Transporttheorem}{section.B.3}% 471
-\BOOKMARK [0][-]{appendix.C}{Orthogonale\040Funktionensysteme}{part.7}% 472
-\BOOKMARK [1][-]{section.C.1}{Komplexe\040Exponentialfunktionen}{appendix.C}% 473
-\BOOKMARK [2][-]{subsection.C.1.1}{Faltungstheorem}{section.C.1}% 474
-\BOOKMARK [1][-]{section.C.2}{Legendre-Polynome}{appendix.C}% 475
-\BOOKMARK [1][-]{section.C.3}{Hermite-Polynome}{appendix.C}% 476
-\BOOKMARK [1][-]{section.C.4}{Laguerre-Polynome}{appendix.C}% 477
-\BOOKMARK [1][-]{section.C.5}{Kugelflächenfunktionen}{appendix.C}% 478
-\BOOKMARK [2][-]{subsection.C.5.1}{Produkte}{section.C.5}% 479
-\BOOKMARK [0][-]{appendix.D}{Geodäsie}{part.7}% 480
-\BOOKMARK [1][-]{section.D.1}{Konvention über Koordinatensysteme}{appendix.D}% 481
-\BOOKMARK [2][-]{subsection.D.1.1}{Ruhende\040Koordinaten}{section.D.1}% 482
-\BOOKMARK [2][-]{subsection.D.1.2}{Globale\040Koordinaten}{section.D.1}% 483
-\BOOKMARK [2][-]{subsection.D.1.3}{Geographische\040Koordinaten}{section.D.1}% 484
-\BOOKMARK [1][-]{section.D.2}{Sphärische Geometrie}{appendix.D}% 485
-\BOOKMARK [2][-]{subsection.D.2.1}{Geodäten}{section.D.2}% 486
-\BOOKMARK [2][-]{subsection.D.2.2}{Vertikale Flächen}{section.D.2}% 487
-\BOOKMARK [2][-]{subsection.D.2.3}{Volumina}{section.D.2}% 488
-\BOOKMARK [2][-]{subsection.D.2.4}{Sphärische Dreiecke}{section.D.2}% 489
-\BOOKMARK [2][-]{subsection.D.2.5}{Sphärische Voronoi-Gitter}{section.D.2}% 490
-\BOOKMARK [1][-]{section.D.3}{Schwerefeld\040der\040Erde}{appendix.D}% 491
-\BOOKMARK [2][-]{subsection.D.3.1}{Eigenschaften\040von\040Ellipsen\040und\040Ellipsoiden}{section.D.3}% 492
-\BOOKMARK [2][-]{subsection.D.3.2}{Schwerefeld\040eines\040Ellipsoides}{section.D.3}% 493
-\BOOKMARK [2][-]{subsection.D.3.3}{Notwendigkeit\040ellipsoidischer\040Koordinaten}{section.D.3}% 494
-\BOOKMARK [2][-]{subsection.D.3.4}{Ellipsoidische\040Approximation\040des\040Schwerefeldes}{section.D.3}% 495
-\BOOKMARK [2][-]{subsection.D.3.5}{Senkrechte\040Trajektorien}{section.D.3}% 496
-\BOOKMARK [1][-]{section.D.4}{Great-Koordinaten}{appendix.D}% 497
-\BOOKMARK [2][-]{subsection.D.4.1}{Vertikalkoordinate}{section.D.4}% 498
-\BOOKMARK [2][-]{subsection.D.4.2}{Zonale\040Koordinate}{section.D.4}% 499
-\BOOKMARK [2][-]{subsection.D.4.3}{Meridionale\040Koordinate}{section.D.4}% 500
-\BOOKMARK [2][-]{subsection.D.4.4}{Metrischer\040Tensor}{section.D.4}% 501
-\BOOKMARK [2][-]{subsection.D.4.5}{Transformation\040von\040Great-Koordinaten\040in\040globale\040Koordinaten}{section.D.4}% 502
-\BOOKMARK [2][-]{subsection.D.4.6}{Transformation\040von\040globalen\040Koordinaten\040in\040Great-Koordinaten}{section.D.4}% 503
-\BOOKMARK [2][-]{subsection.D.4.7}{Rotation\040in\040Great-Koordinaten}{section.D.4}% 504
-\BOOKMARK [3][-]{subsubsection.D.4.7.1}{Lamb-Transformation\040in\040Great-Koordinaten}{subsection.D.4.7}% 505
-\BOOKMARK [1][-]{section.D.5}{Ellipsoidische\040Geometrie}{appendix.D}% 506
-\BOOKMARK [2][-]{subsection.D.5.1}{Ellipsoidische Geodäten}{section.D.5}% 507
-\BOOKMARK [2][-]{subsection.D.5.2}{Ellipsoidische\040Dreiecke}{section.D.5}% 508
-\BOOKMARK [2][-]{subsection.D.5.3}{Ellipsoidische\040Voronoi-Gitter}{section.D.5}% 509
+\BOOKMARK [2][-]{subsection.20.1.3}{Boussinesq-Gleichungen}{section.20.1}% 239
+\BOOKMARK [1][-]{section.20.2}{Frontalzonen\040und\040Jets}{chapter.20}% 240
+\BOOKMARK [1][-]{section.20.3}{Konvektiv-radiatives\040Gleichgewicht}{chapter.20}% 241
+\BOOKMARK [0][-]{chapter.21}{Ozeanzirkulation}{part.3}% 242
+\BOOKMARK [1][-]{section.21.1}{Windgetriebene\040Zirkulation}{chapter.21}% 243
+\BOOKMARK [1][-]{section.21.2}{Thermohaline\040Zirkulation}{chapter.21}% 244
+\BOOKMARK [1][-]{section.21.3}{Seegangsvorhersage}{chapter.21}% 245
+\BOOKMARK [2][-]{subsection.21.3.1}{Prognostische\040Variablen}{section.21.3}% 246
+\BOOKMARK [2][-]{subsection.21.3.2}{Wave\040action\040equation}{section.21.3}% 247
+\BOOKMARK [2][-]{subsection.21.3.3}{Diagnostische\040Variablen}{section.21.3}% 248
+\BOOKMARK [2][-]{subsection.21.3.4}{Seegangsvorhersagemodelle}{section.21.3}% 249
+\BOOKMARK [-1][-]{part.4}{IV\040Strahlung\040und\040Wolkenmikrophysik}{}% 250
+\BOOKMARK [0][-]{chapter.22}{Strahlungstransport}{part.4}% 251
+\BOOKMARK [1][-]{section.22.1}{Einfache\040Modelle}{chapter.22}% 252
+\BOOKMARK [2][-]{subsection.22.1.1}{Planet ohne Atmosphäre}{section.22.1}% 253
+\BOOKMARK [2][-]{subsection.22.1.2}{Ein-Schicht-Atmosphäre}{section.22.1}% 254
+\BOOKMARK [1][-]{section.22.2}{Berechnung\040der\040Streu-\040und\040Absorptionskoeffizienten}{chapter.22}% 255
+\BOOKMARK [1][-]{section.22.3}{Approximationen}{chapter.22}% 256
+\BOOKMARK [2][-]{subsection.22.3.1}{Plan-parallele Atmosphäre}{section.22.3}% 257
+\BOOKMARK [2][-]{subsection.22.3.2}{Horizontale\040Entkopplung}{section.22.3}% 258
+\BOOKMARK [1][-]{section.22.4}{Atmosphärische Optik}{chapter.22}% 259
+\BOOKMARK [0][-]{chapter.23}{Wolkenmikrophysik}{part.4}% 260
+\BOOKMARK [1][-]{section.23.1}{Köhler-Gleichung}{chapter.23}% 261
+\BOOKMARK [1][-]{section.23.2}{Zirkulation\040um\040Kondensate}{chapter.23}% 262
+\BOOKMARK [2][-]{subsection.23.2.1}{Laminare Umströmung}{section.23.2}% 263
+\BOOKMARK [2][-]{subsection.23.2.2}{Turbulente Umströmung}{section.23.2}% 264
+\BOOKMARK [3][-]{subsubsection.23.2.2.1}{Zusammengesetzte Formel für die Sinkgeschwindigkeit}{subsection.23.2.2}% 265
+\BOOKMARK [1][-]{section.23.3}{Wachstum\040von\040Kondensaten}{chapter.23}% 266
+\BOOKMARK [2][-]{subsection.23.3.1}{Koagulation}{section.23.3}% 267
+\BOOKMARK [3][-]{subsubsection.23.3.1.1}{Bergeron-Findeisen-Prozess}{subsection.23.3.1}% 268
+\BOOKMARK [2][-]{subsection.23.3.2}{Koaleszenz}{section.23.3}% 269
+\BOOKMARK [1][-]{section.23.4}{Zerbrechen\040von\040Wassertropfen}{chapter.23}% 270
+\BOOKMARK [2][-]{subsection.23.4.1}{Innere\040Zirkulation}{section.23.4}% 271
+\BOOKMARK [2][-]{subsection.23.4.2}{Oszillationen}{section.23.4}% 272
+\BOOKMARK [2][-]{subsection.23.4.3}{Instabilitäten}{section.23.4}% 273
+\BOOKMARK [-1][-]{part.5}{V\040Numerik}{}% 274
+\BOOKMARK [0][-]{chapter.24}{Grundkonzepte\040der\040Numerik}{part.5}% 275
+\BOOKMARK [1][-]{section.24.1}{Grundbegriffe\040von\040Diskretisierungen}{chapter.24}% 276
+\BOOKMARK [1][-]{section.24.2}{Finite\040Differenzen}{chapter.24}% 277
+\BOOKMARK [1][-]{section.24.3}{Ebene\040Spektralmethode}{chapter.24}% 278
+\BOOKMARK [1][-]{section.24.4}{Sphärische Spektralmethode}{chapter.24}% 279
+\BOOKMARK [0][-]{chapter.25}{Zeitschrittverfahren}{part.5}% 280
+\BOOKMARK [1][-]{section.25.1}{Rein\040explizite\040Verfahren}{chapter.25}% 281
+\BOOKMARK [2][-]{subsection.25.1.1}{Explizites\040Euler-Verfahren}{section.25.1}% 282
+\BOOKMARK [2][-]{subsection.25.1.2}{Leapfrog-Verfahren}{section.25.1}% 283
+\BOOKMARK [2][-]{subsection.25.1.3}{Allgemeine\040Multischritt-Verfahren}{section.25.1}% 284
+\BOOKMARK [2][-]{subsection.25.1.4}{Runge-Kutta-Verfahren}{section.25.1}% 285
+\BOOKMARK [3][-]{subsubsection.25.1.4.1}{Linearer\040Fall}{subsection.25.1.4}% 286
+\BOOKMARK [3][-]{subsubsection.25.1.4.2}{Nichtinearer\040Fall}{subsection.25.1.4}% 287
+\BOOKMARK [1][-]{section.25.2}{CFL-Kriterium}{chapter.25}% 288
+\BOOKMARK [1][-]{section.25.3}{Verfahren\040mit\040impliziten\040Anteilen}{chapter.25}% 289
+\BOOKMARK [2][-]{subsection.25.3.1}{Implizites\040Euler-Verfahren}{section.25.3}% 290
+\BOOKMARK [2][-]{subsection.25.3.2}{Crank-Nicolson-Verfahren}{section.25.3}% 291
+\BOOKMARK [1][-]{section.25.4}{Mischung\040von\040Zeitschrittverfahren}{chapter.25}% 292
+\BOOKMARK [1][-]{section.25.5}{Aspekte\040partieller\040Differenzialgleichungen}{chapter.25}% 293
+\BOOKMARK [2][-]{subsection.25.5.1}{Forward-backward-Verfahren}{section.25.5}% 294
+\BOOKMARK [1][-]{section.25.6}{Energetische\040Konsistenz\040im\040idealen\040Gas}{chapter.25}% 295
+\BOOKMARK [2][-]{subsection.25.6.1}{Advektion\040von\040Impuls}{section.25.6}% 296
+\BOOKMARK [3][-]{subsubsection.25.6.1.1}{Advektion\040kinetischer\040Energie}{subsection.25.6.1}% 297
+\BOOKMARK [3][-]{subsubsection.25.6.1.2}{Generalisierte\040Coriolis-Terme}{subsection.25.6.1}% 298
+\BOOKMARK [2][-]{subsection.25.6.2}{Evolution\040der\040Temperatur}{section.25.6}% 299
+\BOOKMARK [3][-]{subsubsection.25.6.2.1}{Zeitentwicklung\040der\040inneren\040Energie}{subsection.25.6.2}% 300
+\BOOKMARK [3][-]{subsubsection.25.6.2.2}{Energetisch\040konsistente\040Zeitentwicklung\040der\040Temperatur}{subsection.25.6.2}% 301
+\BOOKMARK [0][-]{chapter.26}{Auswahl einer zukunftsfähigen horizontalen Diskretisierung}{part.5}% 302
+\BOOKMARK [1][-]{section.26.1}{Aus dem CFL-Kriterium folgende Beschränkungen}{chapter.26}% 303
+\BOOKMARK [2][-]{subsection.26.1.1}{Platonische Körper}{section.26.1}% 304
+\BOOKMARK [2][-]{subsection.26.1.2}{Grid\040imprinting}{section.26.1}% 305
+\BOOKMARK [1][-]{section.26.2}{Aus Rotationssymmetrie folgende Beschränkungen}{chapter.26}% 306
+\BOOKMARK [1][-]{section.26.3}{Ausschluss\040spektraler\040Formulierungen}{chapter.26}% 307
+\BOOKMARK [1][-]{section.26.4}{Arakawa-Gitter}{chapter.26}% 308
+\BOOKMARK [2][-]{subsection.26.4.1}{A-Gitter}{section.26.4}% 309
+\BOOKMARK [2][-]{subsection.26.4.2}{C-Gitter}{section.26.4}% 310
+\BOOKMARK [1][-]{section.26.5}{Skalare\040Erhaltungseigenschaften\040auf\040dem\040C-Gitter}{chapter.26}% 311
+\BOOKMARK [1][-]{section.26.6}{Gradientenfelder\040auf\040dem\040C-Gitter}{chapter.26}% 312
+\BOOKMARK [1][-]{section.26.7}{Skalarprodukt\040auf\040dem\040C-Gitter}{chapter.26}% 313
+\BOOKMARK [2][-]{subsection.26.7.1}{Eindimensionaler\040Fall}{section.26.7}% 314
+\BOOKMARK [2][-]{subsection.26.7.2}{Dreidimensionaler\040rechteckiger\040Fall}{section.26.7}% 315
+\BOOKMARK [2][-]{subsection.26.7.3}{Zweidimensionales\040orthogonales\040Gitter}{section.26.7}% 316
+\BOOKMARK [2][-]{subsection.26.7.4}{Dreidimensionales\040orthogonales\040Gitter\040\(shallow\)}{section.26.7}% 317
+\BOOKMARK [2][-]{subsection.26.7.5}{Dreidimensionales\040orthogonales\040Gitter\040\(deep\)}{section.26.7}% 318
+\BOOKMARK [1][-]{section.26.8}{Festlegung\040auf\040das\040C-Gitter}{chapter.26}% 319
+\BOOKMARK [2][-]{subsection.26.8.1}{Folgerungen}{section.26.8}% 320
+\BOOKMARK [1][-]{section.26.9}{Das Problem des Verhältnisses der Freiheitsgrade}{chapter.26}% 321
+\BOOKMARK [2][-]{subsection.26.9.1}{Folgerungen}{section.26.9}% 322
+\BOOKMARK [1][-]{section.26.10}{Ausschluss\040viereckiger\040Gitter}{chapter.26}% 323
+\BOOKMARK [1][-]{section.26.11}{Festlegung\040auf\040das\040sechseckige\040Ikosaedergitter}{chapter.26}% 324
+\BOOKMARK [0][-]{chapter.27}{Probleme\040eines\040dreielementigen\040Erzeugendensystems\040einer\040zweidimensionalen\040Menge}{part.5}% 325
+\BOOKMARK [1][-]{section.27.1}{Differenzialoperatoren}{chapter.27}% 326
+\BOOKMARK [1][-]{section.27.2}{Hauptsatz\040der\040Vektoranalysis}{chapter.27}% 327
+\BOOKMARK [1][-]{section.27.3}{Dispersionsrelation}{chapter.27}% 328
+\BOOKMARK [1][-]{section.27.4}{Thuburn-Mittelung}{chapter.27}% 329
+\BOOKMARK [2][-]{subsection.27.4.1}{Anforderungen}{section.27.4}% 330
+\BOOKMARK [2][-]{subsection.27.4.2}{Folgerungen für die Helmholtz-Aufteilung}{section.27.4}% 331
+\BOOKMARK [2][-]{subsection.27.4.3}{Herleitung\040des\040Mittelungsoperators}{section.27.4}% 332
+\BOOKMARK [2][-]{subsection.27.4.4}{Folgerungen für die Dispersionsrelation}{section.27.4}% 333
+\BOOKMARK [1][-]{section.27.5}{Checkerboard-Pattern}{chapter.27}% 334
+\BOOKMARK [2][-]{subsection.27.5.1}{Gründe}{section.27.5}% 335
+\BOOKMARK [2][-]{subsection.27.5.2}{Eliminierung}{section.27.5}% 336
+\BOOKMARK [1][-]{section.27.6}{Folgerungen}{chapter.27}% 337
+\BOOKMARK [2][-]{subsection.27.6.1}{Formulierung\040der\040Rotation}{section.27.6}% 338
+\BOOKMARK [2][-]{subsection.27.6.2}{Eine weitere Perspektive auf die Überlegenheit des sechseckigen Gitters gegenüber dem dreieckigen}{section.27.6}% 339
+\BOOKMARK [0][-]{chapter.28}{Vorticityfluss\040auf\040dem\040hexagonalen\040C-Gitter}{part.5}% 340
+\BOOKMARK [1][-]{section.28.1}{Reguläres Gitter}{chapter.28}% 341
+\BOOKMARK [2][-]{subsection.28.1.1}{Linearisierung}{section.28.1}% 342
+\BOOKMARK [2][-]{subsection.28.1.2}{Vollständiger Term}{section.28.1}% 343
+\BOOKMARK [1][-]{section.28.2}{Deformiertes\040Gitter}{chapter.28}% 344
+\BOOKMARK [2][-]{subsection.28.2.1}{Coriolisbeschleunigung}{section.28.2}% 345
+\BOOKMARK [3][-]{subsubsection.28.2.1.1}{Homogener\040Coriolisparameter}{subsection.28.2.1}% 346
+\BOOKMARK [3][-]{subsubsection.28.2.1.2}{Inhomogener\040Coriolisparameter}{subsection.28.2.1}% 347
+\BOOKMARK [2][-]{subsection.28.2.2}{Verwendung der vollständigen Vorticity}{section.28.2}% 348
+\BOOKMARK [3][-]{subsubsection.28.2.2.1}{Modifikation\040zur\040Einhaltung\040der\040Thuburn-Bedingung}{subsection.28.2.2}% 349
+\BOOKMARK [1][-]{section.28.3}{Barokline\040Aspekte}{chapter.28}% 350
+\BOOKMARK [0][-]{chapter.29}{Impulsdiffusion\040und\040Dissipation\040auf\040dem\040hexagonalen\040C-Gitter}{part.5}% 351
+\BOOKMARK [1][-]{section.29.1}{Reguläres Gitter}{chapter.29}% 352
+\BOOKMARK [1][-]{section.29.2}{Deformiertes\040Gitter}{chapter.29}% 353
+\BOOKMARK [2][-]{subsection.29.2.1}{Dissipation}{section.29.2}% 354
+\BOOKMARK [1][-]{section.29.3}{Dreidimensionale\040Erweiterung}{chapter.29}% 355
+\BOOKMARK [2][-]{subsection.29.3.1}{Dissipation}{section.29.3}% 356
+\BOOKMARK [0][-]{chapter.30}{Multi-Moment-finite-Volumen-Verfahren}{part.5}% 357
+\BOOKMARK [0][-]{chapter.31}{Strahlungstransportalgorithmen}{part.5}% 358
+\BOOKMARK [0][-]{chapter.32}{Datenassimilation}{part.5}% 359
+\BOOKMARK [1][-]{section.32.1}{3D-Var}{chapter.32}% 360
+\BOOKMARK [2][-]{subsection.32.1.1}{Eine\040Beobachtung}{section.32.1}% 361
+\BOOKMARK [2][-]{subsection.32.1.2}{Beliebige\040Anzahl\040von\040Beobachtungen}{section.32.1}% 362
+\BOOKMARK [2][-]{subsection.32.1.3}{Berücksichtigung von Hydrostatik}{section.32.1}% 363
+\BOOKMARK [3][-]{subsubsection.32.1.3.1}{Als exakte Einschränkung}{subsection.32.1.3}% 364
+\BOOKMARK [3][-]{subsubsection.32.1.3.2}{Als\040Teil\040der\040Kostenfunktion}{subsection.32.1.3}% 365
+\BOOKMARK [2][-]{subsection.32.1.4}{Berücksichtigung der Balancegleichung}{section.32.1}% 366
+\BOOKMARK [1][-]{section.32.2}{4D-Var}{chapter.32}% 367
+\BOOKMARK [-1][-]{part.6}{VI\040Entwicklung\040eines\040dynamischen\040Kerns}{}% 368
+\BOOKMARK [0][-]{chapter.33}{Kinematik}{part.6}% 369
+\BOOKMARK [1][-]{section.33.1}{Horizontales\040Gitter}{chapter.33}% 370
+\BOOKMARK [2][-]{subsection.33.1.1}{Konstanten\040des\040hexagonalen\040Gitters}{section.33.1}% 371
+\BOOKMARK [2][-]{subsection.33.1.2}{Gittergenerierung\040auf\040der\040Einheitskugel}{section.33.1}% 372
+\BOOKMARK [2][-]{subsection.33.1.3}{Gitteroptimierung}{section.33.1}% 373
+\BOOKMARK [1][-]{section.33.2}{Vertikales\040Gitter}{chapter.33}% 374
+\BOOKMARK [2][-]{subsection.33.2.1}{Funktionaldeterminante\040einer\040generalisierten\040Vertikalkoordinate}{section.33.2}% 375
+\BOOKMARK [2][-]{subsection.33.2.2}{SLEVE}{section.33.2}% 376
+\BOOKMARK [2][-]{subsection.33.2.3}{Alternative zu geländefolgenden Koordinaten}{section.33.2}% 377
+\BOOKMARK [1][-]{section.33.3}{Felder}{chapter.33}% 378
+\BOOKMARK [2][-]{subsection.33.3.1}{Nomenklatur}{section.33.3}% 379
+\BOOKMARK [2][-]{subsection.33.3.2}{Ausgezeichnete\040Punkte}{section.33.3}% 380
+\BOOKMARK [2][-]{subsection.33.3.3}{Arten\040von\040Feldern}{section.33.3}% 381
+\BOOKMARK [2][-]{subsection.33.3.4}{Slope}{section.33.3}% 382
+\BOOKMARK [1][-]{section.33.4}{Mittelungsoperatoren}{chapter.33}% 383
+\BOOKMARK [2][-]{subsection.33.4.1}{Rekonstruktion der horizontalen kovarianten Maßzahl}{section.33.4}% 384
+\BOOKMARK [3][-]{subsubsection.33.4.1.1}{Shallow\040atmosphere}{subsection.33.4.1}% 385
+\BOOKMARK [3][-]{subsubsection.33.4.1.2}{Deep\040atmosphere}{subsection.33.4.1}% 386
+\BOOKMARK [2][-]{subsection.33.4.2}{Skalarprodukt auf dem C-Gitter in geländefolgenden Koordinaten}{section.33.4}% 387
+\BOOKMARK [3][-]{subsubsection.33.4.2.1}{Shallow\040atmosphere}{subsection.33.4.2}% 388
+\BOOKMARK [3][-]{subsubsection.33.4.2.2}{Deep\040atmosphere}{subsection.33.4.2}% 389
+\BOOKMARK [2][-]{subsection.33.4.3}{Rekonstruktion der vertikalen kontravarianten Maßzahl}{section.33.4}% 390
+\BOOKMARK [3][-]{subsubsection.33.4.3.1}{Shallow\040atmosphere}{subsection.33.4.3}% 391
+\BOOKMARK [3][-]{subsubsection.33.4.3.2}{Deep\040atmosphere}{subsection.33.4.3}% 392
+\BOOKMARK [2][-]{subsection.33.4.4}{Divergenz in geländefolgenden Koordinaten}{section.33.4}% 393
+\BOOKMARK [3][-]{subsubsection.33.4.4.1}{Shallow\040atmosphere}{subsection.33.4.4}% 394
+\BOOKMARK [3][-]{subsubsection.33.4.4.2}{Deep\040atmosphere}{subsection.33.4.4}% 395
+\BOOKMARK [1][-]{section.33.5}{Ellipsoidische\040Modifikation\040des\040Gitters}{chapter.33}% 396
+\BOOKMARK [0][-]{chapter.34}{Reversible\040Dynamik}{part.6}% 397
+\BOOKMARK [1][-]{section.34.1}{Prognostische\040Variablen\040und\040Gleichungen}{chapter.34}% 398
+\BOOKMARK [1][-]{section.34.2}{Diskretisierung\040der\040Poisson-Klammern}{chapter.34}% 399
+\BOOKMARK [2][-]{subsection.34.2.1}{Diskretisierung\040von\040Funktionalableitungen}{section.34.2}% 400
+\BOOKMARK [3][-]{subsubsection.34.2.1.1}{Shallow\040atmosphere}{subsection.34.2.1}% 401
+\BOOKMARK [3][-]{subsubsection.34.2.1.2}{Deep\040atmosphere}{subsection.34.2.1}% 402
+\BOOKMARK [2][-]{subsection.34.2.2}{Gradient auf dem C-Gitter in geländefolgenden Koordinaten}{section.34.2}% 403
+\BOOKMARK [3][-]{subsubsection.34.2.2.1}{Shallow\040atmosphere}{subsection.34.2.2}% 404
+\BOOKMARK [3][-]{subsubsection.34.2.2.2}{Deep\040atmosphere}{subsection.34.2.2}% 405
+\BOOKMARK [2][-]{subsection.34.2.3}{Überprüfung der Energieerhaltung}{section.34.2}% 406
+\BOOKMARK [1][-]{section.34.3}{Randbedingungen}{chapter.34}% 407
+\BOOKMARK [2][-]{subsection.34.3.1}{Obere\040Randbedingung}{section.34.3}% 408
+\BOOKMARK [2][-]{subsection.34.3.2}{Untere\040Randbedingung}{section.34.3}% 409
+\BOOKMARK [1][-]{section.34.4}{Möglichkeiten zur Erhöhung der Ordnung}{chapter.34}% 410
+\BOOKMARK [1][-]{section.34.5}{Zeitschrittverfahren:\040Variante\040I}{chapter.34}% 411
+\BOOKMARK [2][-]{subsection.34.5.1}{Festlegung\040auf\040ein\040Runge-Kutta-Verfahren}{section.34.5}% 412
+\BOOKMARK [2][-]{subsection.34.5.2}{Split-explicit-Techniken}{section.34.5}% 413
+\BOOKMARK [2][-]{subsection.34.5.3}{Modifikationen\040zur\040Stabilisierung}{section.34.5}% 414
+\BOOKMARK [3][-]{subsubsection.34.5.3.1}{Vertikale\040Advektion\040des\040Horizontalwindes}{subsection.34.5.3}% 415
+\BOOKMARK [3][-]{subsubsection.34.5.3.2}{Vertikaler\040Sound\040wave\040solver}{subsection.34.5.3}% 416
+\BOOKMARK [3][-]{subsubsection.34.5.3.3}{Vertikale\040Advektion\040einer\040generalisierten\040Dichte}{subsection.34.5.3}% 417
+\BOOKMARK [3][-]{subsubsection.34.5.3.4}{Horizontales\040Forward-backward-Verfahren}{subsection.34.5.3}% 418
+\BOOKMARK [3][-]{subsubsection.34.5.3.5}{Konstanthalten\040des\040horizontalen\040Druckgradienten}{subsection.34.5.3}% 419
+\BOOKMARK [2][-]{subsection.34.5.4}{Zusammenfassung}{section.34.5}% 420
+\BOOKMARK [1][-]{section.34.6}{Zeitschrittverfahren:\040Variante\040II}{chapter.34}% 421
+\BOOKMARK [1][-]{section.34.7}{Regionaler\040Modus}{chapter.34}% 422
+\BOOKMARK [0][-]{chapter.35}{Irreversible\040Dynamik}{part.6}% 423
+\BOOKMARK [1][-]{section.35.1}{Horizontale\040Diffusion}{chapter.35}% 424
+\BOOKMARK [2][-]{subsection.35.1.1}{Massendiffuson}{section.35.1}% 425
+\BOOKMARK [2][-]{subsection.35.1.2}{Temperaturdiffuson}{section.35.1}% 426
+\BOOKMARK [2][-]{subsection.35.1.3}{Impulsdiffusion}{section.35.1}% 427
+\BOOKMARK [3][-]{subsubsection.35.1.3.1}{Dissipation}{subsection.35.1.3}% 428
+\BOOKMARK [1][-]{section.35.2}{Vertikale\040Diffusion}{chapter.35}% 429
+\BOOKMARK [2][-]{subsection.35.2.1}{Massendiffuson}{section.35.2}% 430
+\BOOKMARK [2][-]{subsection.35.2.2}{Temperaturdiffuson}{section.35.2}% 431
+\BOOKMARK [2][-]{subsection.35.2.3}{Impulsdiffusion}{section.35.2}% 432
+\BOOKMARK [2][-]{subsection.35.2.4}{Obere\040Randbedingung}{section.35.2}% 433
+\BOOKMARK [1][-]{section.35.3}{Parametrisierungen}{chapter.35}% 434
+\BOOKMARK [2][-]{subsection.35.3.1}{Masse}{section.35.3}% 435
+\BOOKMARK [2][-]{subsection.35.3.2}{Temperatur}{section.35.3}% 436
+\BOOKMARK [2][-]{subsection.35.3.3}{Impuls}{section.35.3}% 437
+\BOOKMARK [0][-]{chapter.36}{Weiterführende Aspekte}{part.6}% 438
+\BOOKMARK [1][-]{section.36.1}{Framework für die Berücksichtigung von Tracern}{chapter.36}% 439
+\BOOKMARK [2][-]{subsection.36.1.1}{Limiter}{section.36.1}% 440
+\BOOKMARK [2][-]{subsection.36.1.2}{Parametrisierungen}{section.36.1}% 441
+\BOOKMARK [1][-]{section.36.2}{Ankopplung\040an\040ein\040Strahlungstransportmodell}{chapter.36}% 442
+\BOOKMARK [1][-]{section.36.3}{Verbleibende\040Approximationen}{chapter.36}% 443
+\BOOKMARK [1][-]{section.36.4}{Model\040output\040statistics\040\(MOS\)}{chapter.36}% 444
+\BOOKMARK [2][-]{subsection.36.4.1}{Beispiel}{section.36.4}% 445
+\BOOKMARK [2][-]{subsection.36.4.2}{Verallgemeinerungen}{section.36.4}% 446
+\BOOKMARK [-1][-]{part.7}{VII\040Anhang}{}% 447
+\BOOKMARK [0][-]{appendix.A}{Grundlagen}{part.7}% 448
+\BOOKMARK [1][-]{section.A.1}{cgs-System}{appendix.A}% 449
+\BOOKMARK [1][-]{section.A.2}{Summen\040und\040Reihen}{appendix.A}% 450
+\BOOKMARK [1][-]{section.A.3}{Kombinatorik}{appendix.A}% 451
+\BOOKMARK [1][-]{section.A.4}{Determinanten}{appendix.A}% 452
+\BOOKMARK [1][-]{section.A.5}{Grundfunktionen}{appendix.A}% 453
+\BOOKMARK [1][-]{section.A.6}{Deltadistribution}{appendix.A}% 454
+\BOOKMARK [1][-]{section.A.7}{Integralformeln}{appendix.A}% 455
+\BOOKMARK [2][-]{subsection.A.7.1}{Partielle\040Integration}{section.A.7}% 456
+\BOOKMARK [2][-]{subsection.A.7.2}{Substitutionsregel}{section.A.7}% 457
+\BOOKMARK [2][-]{subsection.A.7.3}{Trennung\040der\040Variablen}{section.A.7}% 458
+\BOOKMARK [2][-]{subsection.A.7.4}{Leibniz-Regel}{section.A.7}% 459
+\BOOKMARK [2][-]{subsection.A.7.5}{Weitere\040Formeln}{section.A.7}% 460
+\BOOKMARK [2][-]{subsection.A.7.6}{Funktionalableitungen}{section.A.7}% 461
+\BOOKMARK [2][-]{subsection.A.7.7}{Residuensatz}{section.A.7}% 462
+\BOOKMARK [1][-]{section.A.8}{Vektorräume}{appendix.A}% 463
+\BOOKMARK [2][-]{subsection.A.8.1}{Vektorprodukt}{section.A.8}% 464
+\BOOKMARK [0][-]{appendix.B}{Vektoranalysis}{part.7}% 465
+\BOOKMARK [1][-]{section.B.1}{Mehrdimensionale\040Ableitungen}{appendix.B}% 466
+\BOOKMARK [2][-]{subsection.B.1.1}{Krümmungradius}{section.B.1}% 467
+\BOOKMARK [2][-]{subsection.B.1.2}{Rechenregeln für Differenzialoperatoren}{section.B.1}% 468
+\BOOKMARK [1][-]{section.B.2}{Differenzialoperatoren\040unter\040Koordinatentransformationen}{appendix.B}% 469
+\BOOKMARK [2][-]{subsection.B.2.1}{Kugelkoordinaten}{section.B.2}% 470
+\BOOKMARK [3][-]{subsubsection.B.2.1.1}{Transformation\040auf\040geographische\040Koordinaten}{subsection.B.2.1}% 471
+\BOOKMARK [1][-]{section.B.3}{Mehrdimensionale\040Integralrechnung}{appendix.B}% 472
+\BOOKMARK [2][-]{subsection.B.3.1}{Transporttheorem}{section.B.3}% 473
+\BOOKMARK [0][-]{appendix.C}{Orthogonale\040Funktionensysteme}{part.7}% 474
+\BOOKMARK [1][-]{section.C.1}{Komplexe\040Exponentialfunktionen}{appendix.C}% 475
+\BOOKMARK [2][-]{subsection.C.1.1}{Faltungstheorem}{section.C.1}% 476
+\BOOKMARK [1][-]{section.C.2}{Legendre-Polynome}{appendix.C}% 477
+\BOOKMARK [1][-]{section.C.3}{Hermite-Polynome}{appendix.C}% 478
+\BOOKMARK [1][-]{section.C.4}{Laguerre-Polynome}{appendix.C}% 479
+\BOOKMARK [1][-]{section.C.5}{Kugelflächenfunktionen}{appendix.C}% 480
+\BOOKMARK [2][-]{subsection.C.5.1}{Produkte}{section.C.5}% 481
+\BOOKMARK [0][-]{appendix.D}{Geodäsie}{part.7}% 482
+\BOOKMARK [1][-]{section.D.1}{Konvention über Koordinatensysteme}{appendix.D}% 483
+\BOOKMARK [2][-]{subsection.D.1.1}{Ruhende\040Koordinaten}{section.D.1}% 484
+\BOOKMARK [2][-]{subsection.D.1.2}{Globale\040Koordinaten}{section.D.1}% 485
+\BOOKMARK [2][-]{subsection.D.1.3}{Geographische\040Koordinaten}{section.D.1}% 486
+\BOOKMARK [1][-]{section.D.2}{Sphärische Geometrie}{appendix.D}% 487
+\BOOKMARK [2][-]{subsection.D.2.1}{Geodäten}{section.D.2}% 488
+\BOOKMARK [2][-]{subsection.D.2.2}{Vertikale Flächen}{section.D.2}% 489
+\BOOKMARK [2][-]{subsection.D.2.3}{Volumina}{section.D.2}% 490
+\BOOKMARK [2][-]{subsection.D.2.4}{Sphärische Dreiecke}{section.D.2}% 491
+\BOOKMARK [2][-]{subsection.D.2.5}{Sphärische Voronoi-Gitter}{section.D.2}% 492
+\BOOKMARK [1][-]{section.D.3}{Schwerefeld\040der\040Erde}{appendix.D}% 493
+\BOOKMARK [2][-]{subsection.D.3.1}{Eigenschaften\040von\040Ellipsen\040und\040Ellipsoiden}{section.D.3}% 494
+\BOOKMARK [2][-]{subsection.D.3.2}{Schwerefeld\040eines\040Ellipsoides}{section.D.3}% 495
+\BOOKMARK [2][-]{subsection.D.3.3}{Notwendigkeit\040ellipsoidischer\040Koordinaten}{section.D.3}% 496
+\BOOKMARK [2][-]{subsection.D.3.4}{Ellipsoidische\040Approximation\040des\040Schwerefeldes}{section.D.3}% 497
+\BOOKMARK [2][-]{subsection.D.3.5}{Senkrechte\040Trajektorien}{section.D.3}% 498
+\BOOKMARK [1][-]{section.D.4}{Great-Koordinaten}{appendix.D}% 499
+\BOOKMARK [2][-]{subsection.D.4.1}{Vertikalkoordinate}{section.D.4}% 500
+\BOOKMARK [2][-]{subsection.D.4.2}{Zonale\040Koordinate}{section.D.4}% 501
+\BOOKMARK [2][-]{subsection.D.4.3}{Meridionale\040Koordinate}{section.D.4}% 502
+\BOOKMARK [2][-]{subsection.D.4.4}{Metrischer\040Tensor}{section.D.4}% 503
+\BOOKMARK [2][-]{subsection.D.4.5}{Transformation\040von\040Great-Koordinaten\040in\040globale\040Koordinaten}{section.D.4}% 504
+\BOOKMARK [2][-]{subsection.D.4.6}{Transformation\040von\040globalen\040Koordinaten\040in\040Great-Koordinaten}{section.D.4}% 505
+\BOOKMARK [2][-]{subsection.D.4.7}{Rotation\040in\040Great-Koordinaten}{section.D.4}% 506
+\BOOKMARK [3][-]{subsubsection.D.4.7.1}{Lamb-Transformation\040in\040Great-Koordinaten}{subsection.D.4.7}% 507
+\BOOKMARK [1][-]{section.D.5}{Ellipsoidische\040Geometrie}{appendix.D}% 508
+\BOOKMARK [2][-]{subsection.D.5.1}{Ellipsoidische Geodäten}{section.D.5}% 509
+\BOOKMARK [2][-]{subsection.D.5.2}{Ellipsoidische\040Dreiecke}{section.D.5}% 510
+\BOOKMARK [2][-]{subsection.D.5.3}{Ellipsoidische\040Voronoi-Gitter}{section.D.5}% 511
