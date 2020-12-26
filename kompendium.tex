@@ -10445,7 +10445,14 @@ a_m &\coloneqq -\left[\frac{1}{\rho}\left(\frac{\partial\rho}{\partial T}\right)
 K_m &\coloneqq \left[\frac{1}{\rho}\left(\frac{\partial\rho}{\partial p}\right)_T\right]_m\text{(Kompressibilität)}
 \end{align}
 %
-eingesetzt. Für diese Größen kann man für Fluide
+eingesetzt. Für ideale Gase gilt mit $\rho = \frac{p}{R_sT}$
+%
+\begin{align}
+a_m &= -\left[\frac{1}{\rho}\left(\frac{\partial\rho}{\partial T}\right)_p\right]_m = \frac{p_m}{R_s\rho T_m^2} = \frac{\rho_mR_sT_m}{R_s\rho_mT_m^2} = \frac{1}{T_m},\label{eq:therm_exp_id}\\
+K_m &= \left[\frac{1}{\rho}\left(\frac{\partial\rho}{\partial p}\right)_T\right]_m = \frac{1}{\rho_m}\frac{1}{R_sT_m} = \frac{1}{p_m}.\label{eq:compress_id}
+\end{align}
+%
+Für Fluide kann man
 %
 \begin{align}
 a_m \ll -\frac{1}{\rho_m}\frac{-\rho_m}{T_m} = \frac{1}{T_m}, && K_m \ll \frac{1}{\rho_m}\frac{\rho_m}{p_m} = \frac{1}{p_m}\label{eq:boussinesq_deriv_3}
@@ -10597,6 +10604,12 @@ nähern kann. Dies führt auf eine vereinfachte Form von Glg. \eqref{eq:boussine
 \end{center}
 }}
 \end{center}
+%
+Im idealen Gas mit Glg. \eqref{eq:therm_exp_id}
+%
+\begin{align}
+\left(\frac{\partial}{\partial t} + \mathbf{v}\cdot\nabla\right)\mathbf{v} &= -\frac{1}{\rho_m}\nabla p' + g\frac{T'}{T_m}\mathbf{k} - \mathbf{f}\times\mathbf{v} + \mathbf{f}_R.
+\end{align}
 
 \subsection{Temperaturgleichung}
 \label{sec:temperaturgleichung}\index{Boussinesq-Approximation!Temperaturgleichung}\index{Temperaturgleichung!Boussinesq-Approximation}
@@ -10672,14 +10685,7 @@ Dies ist die Temperaturgleichung\index{Boussinesq-Approximation!Temperaturgleich
 }}
 \end{center}
 %
-Im idealen Gas gelten
-%
-\begin{align}
-a_m &= -\left[\frac{1}{\rho}\left(\frac{\partial\rho}{\partial T}\right)_p\right]_m = \frac{p_m}{R_s\rho T_m^2} = \frac{\rho_mR_sT_m}{R_s\rho_mT_m^2} = \frac{1}{T_m},\\
-K_m &= \left[\frac{1}{\rho}\left(\frac{\partial\rho}{\partial p}\right)_T\right]_m = \frac{1}{\rho_m}\frac{1}{R_sT_m} = \frac{1}{p_m}.
-\end{align}
-%
-Hieraus folgt
+Fürs ideale Gas gilt mit den Glg.en \eqref{eq:therm_exp_id} - \eqref{eq:compress_id}
 %
 \begin{align}
 \left(c^{(v)} + R_s\right)\left(\frac{\partial T'}{\partial t} + \mathbf{v}\cdot\nabla T'\right) + w\left[\left(R_s + c^{(v)}\right)\frac{dT_0}{dz} + g\right] &= \frac{q^{(V)}}{\rho_m}\nonumber\\
