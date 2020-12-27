@@ -592,7 +592,7 @@ Die Energie eines Teilchens, welches sich unter der Wirkung einer konservativen 
 
 Es existieren zwei weitere Formulierungen der klassischen Mechanik, der Lagrange-Formalismus\textit{Lagrange-Formalismus} sowie der Hamilton-Formalismus. Beide lassen sich aus den Newton'schen Axiomen herleiten.
 
-\subsection{Lagrange-Formalismus}
+\section{Lagrange-Formalismus}
 \label{sec:lagrangeformalismus}\index{Lagrange-Formalismus}
 
 Die Newton'sche Mechanik ist praktisch bei umherfliegenden Massenpunkten (Atome in einem Gas, Planeten in einem Sonnensystem) oder starren Körpern (Schiffe, Flugzeuge). Diese können sich prinzipiell frei in jede Richtung bewegen. Häufig sind jedoch solche Situationen, in denen ein Massenpunkt in seiner Bewegungsfreiheit eingeschränkt ist, beispielsweise eine Murmel in einer Murmelbahn, eine Billardkugel auf einem Tisch oder ein Zug in einem Gleis. Solche Systeme unterliegen \textit{Zwangsbedingungen}.\index{Zwangsbedingung} Besteht das System aus genau einem Teilchen mit der Trajektorie $\mathbf{r} = \mathbf{r}\left(t\right)$, so kann man eine Zwangsbedingung in der Form
@@ -890,6 +890,313 @@ Die Hamilton-Funktion\index{Hamilton-Funktion} ist also genau dann konstant, wen
 \begin{align}
 \newdot{p}_i = \left\lbrace p_i, H\right\rbrace, && \newdot{q}_i = \left\lbrace q_i, H\right\rbrace.
 \end{align}
+
+\section{Harmonischer Oszillator}
+\label{sec:harmonischer_oszillator}\index{harmonischer Oszillator}\index{Oszillator!harmonischer}
+
+Als Beispiel für die Anwendung der Theorie der klassischen Mechanik wird der sogenannte \textit{harmonische Oszillator}\index{harmonischer Oszillator}\index{Oszillator!harmonischer} verwendet. Dabei geht es um die Evolution einer generalisierten Koordinaten $x = x\left(t\right)$ entsprechend der Differenzialgleichung
+%
+\begin{align}
+x'' = -kx.\label{eq:harm_osz_base}
+\end{align}
+%
+Ist $x$ die kartesische Koordinate eines Massenpunktes mit der Masse $m$ und $k$ der Quotient aus Federkonstante und Masse, so handelt es sich um eine ungedämpften Feder, es gibt jedoch auch andere Beispiele.
+
+\subsection{Ungedämpfter Fall}
+\label{sec:ungedämpfter_fall}
+
+Setzt man in Glg. \eqref{eq:harm_osz_base} eine Lösung $x = x_0e^{-i\omega_0t}$ ein, folgt
+%
+\begin{center}
+\doublebox{\parbox{\textwidth}{
+\begin{center}
+\begin{align}
+-\omega_0^2 = -k \Rightarrow \omega_0 = \pm\sqrt{k}.\label{eq:eigenfrequency}
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+$\omega$ bezeichnet man als \textit{Eigenfrequenz}\index{Eigenfrequenz}.
+
+\subsection{Gedämpfter Fall}
+\label{sec:gedämpfter_fall}
+
+Nun dämpft man den Oszillator linear, modifiziert Glg. \eqref{eq:harm_osz_base} also entsprechend
+%
+\begin{align}
+x'' = -kx - 2dx'\label{eq:harm_osz_dampened}
+\end{align}
+%
+mit einer \textit{Dämpfung}\index{Dämpfung} $d \geq 0$. Setzt man hier wieder eine Lösung der Form $x = x_0e^{-i\omega t}$ ein, erhält man
+%
+\begin{align}
+-\omega^2 = -k + 2id\omega \Leftrightarrow  \omega^2 + id\omega - k = 0.
+\end{align}
+%
+Hieraus folgt mittels der pq-Formel Glg. \eqref{eq:pq}
+%
+\begin{align}
+\omega = -id \pm \sqrt{-d^2 + k}.
+\end{align}
+%
+Im Fall $d = 0$ ergibt sich wieder Glg. \eqref{eq:eigenfrequency}.
+
+\subsubsection{Schwingfall}
+\label{sec:schwingfall}\index{Schwingfall}
+
+Im Fall 
+%
+\begin{align}
+-d^2 + k > 0 \Leftrightarrow d^2 < k
+\end{align}
+%
+gilt
+%
+\begin{align}
+x\left(t\right) = \underbrace{x_0}_{\text{Anfangsamplitude}}\cdot\underbrace{\exp\left(-dt\right)}_{\text{Einhüllende}}\cdot\underbrace{\exp\left(\mp it\sqrt{-d^2 + k}\right)}_{\text{Oszillation}}
+\end{align}
+%
+bzw.
+%
+\begin{align}
+x\left(t\right) = x_0\exp\left(-dt\right)\exp\left(-it\sqrt{-d^2 + k}\right) + x_1\exp\left(-dt\right)\exp\left(it\sqrt{-d^2 + k}\right).
+\end{align}
+%
+$x_0$ und $x_1$ ergeben such aus den Anfangsbedingungen. Die Dämpfung hat in diesem Fall also zwei Konsequenzen:
+%
+\begin{enumerate}
+\item Die Eigenfrequenz lautet nun
+%
+\begin{center}
+\doublebox{\parbox{\textwidth}{
+\begin{center}
+\begin{align}
+\omega = \pm\sqrt{k - d^2}.\label{eq:eigenfrequency_damp}
+\end{align}
+\end{center}
+}}
+\end{center}
+\item Die Anfangsamplitude nimmt mit der Zerfallszeit $\tau = \frac{1}{d}$ exponentiell mit der Zeit ab.
+\end{enumerate}
+%
+Diesen Fall bezeichnet man als \textit{Schwingfall}\index{Schwingfall}.
+
+\subsubsection{Kriechfall}
+\label{sec:Kriechfall}\index{Kriechfall}
+
+Im Fall
+%
+\begin{align}
+-d^2 + k < 0 \Leftrightarrow d^2 > k
+\end{align}
+%
+gilt
+%
+\begin{align}
+\omega = -id \pm \sqrt{-d^2 + k} = -id \pm \sqrt{\left(-1\right)\cdot\left(d^2 - k\right)} = -id \pm \sqrt{-1}\sqrt{\underbrace{d^2 - k}_{> 0}} = -id \pm i\sqrt{d^2 - k} = i\left(\underbrace{-d \pm \sqrt{d^2 - k}}_{< 0}\right).
+\end{align}
+%
+Hieraus folgt
+%
+\begin{align}
+x\left(t\right) = x_0\exp\left[-i^2\left(-d \pm \sqrt{d^2 - k}\right)t\right] = x_0\exp\left[\left(-d \pm \sqrt{d^2 - k}\right)t\right].
+\end{align}
+%
+bzw.
+%
+\begin{align}
+x\left(t\right) = x_0\exp\left[\left(-d + \sqrt{d^2 - k}\right)t\right] + x_1\exp\left[\left(-d - \sqrt{d^2 - k}\right)t\right].
+\end{align}
+%
+Es findet also keine Oszillation mehr statt. Diesen Fall bezeichnet man als \textit{Kriechfall}\index{Kriechfall}.
+
+\subsubsection{Aperiodischer Grenzfall}
+\label{sec:aperiodischer_grenzfall}\index{aperiodischer Grenzfall}\index{Grenzfall!aperiodischer}
+
+Im Grenzfall
+%
+\begin{align}
+-d^2 + k = 0 \Leftrightarrow d^2 = k\label{eq:cond_ap}
+\end{align}
+%
+schrumpfen die zwei linear unabhängigen Lösungen, welche im Schwingfall und im aperiodischen Grenzfall gefunden wurden, auf eine zusammen. Da eine Differenzialgleichung zweiter Ordnung zugrunde liegt muss es in diesem Fall noch eine weitere Lösung geben. Hierzu macht man den Ansatz
+%
+\begin{align}
+x\left(t\right) = x_1t\exp\left(-dt\right).\label{eq:harm_osz_ap_ansatz}
+\end{align}
+%
+Dies impliziert
+%
+\begin{align}
+x'\left(t\right) &= x_1\exp\left(-dt\right) - dx_1t\exp\left(-dt\right),\\
+x''\left(t\right) &= -dx_1\exp\left(-dt\right) - dx_1\exp\left(-dt\right) + d^2x_1t\exp\left(-dt\right) = -2dx_1\exp\left(-dt\right) + d^2x_1t\exp\left(-dt\right).
+\end{align}
+%
+Hieraus folgt durch Einsetzen in Glg. \eqref{eq:harm_osz_dampened}
+%
+\begin{align}
+-2dx_1\exp\left(-dt\right) + d^2x_1t\exp\left(-dt\right) &= -kx_1t\exp\left(-dt\right) - x_12d\exp\left(-dt\right) + 2d^2x_1t\exp\left(-dt\right)\nonumber\\
+\Leftrightarrow-2dx_1 + d^2x_1t &= -kx_1t - 2x_1d + 2d^2x_1t\nonumber\\
+\Leftrightarrow-2d + d^2t &= -kt - 2d + 2d^2t\nonumber\\
+\Leftrightarrow d^2t &= -kt + 2d^2t\nonumber\\
+\Leftrightarrow d^2 &= -k + 2d^2\nonumber\\
+\Leftrightarrow-d^2 &= -k\nonumber.
+\end{align}
+%
+Dies ist laut Glg. \eqref{eq:cond_ap} erfüllt. Glg. \eqref{eq:harm_osz_ap_ansatz} löst also Glg \eqref{eq:harm_osz_dampened}. Die allgemeine Lösung lautet in diesem Fall also
+%
+\begin{align}
+x\left(t\right) = x_0\exp\left(-dt\right) + x_1t\exp\left(-dt\right) = \left(x_0 + x_1t\right)\exp\left(-dt\right).
+\end{align}
+%
+Diesen Fall bezeichnet man als \textit{aperiodischen Grenzfall}\index{aperiodischer Grenzfall}\index{Grenzfall!aperiodischer}. Die vier Fälle des harmonischen Oszillators werden in Abb. \ref{fig:harm_osc_cases} dargestellt.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width = 0.8\textwidth]{figs/harm_osc_cases.png}
+\caption{Lösungen des nicht angetriebenen harmonischen Oszillators.}
+\label{fig:harm_osc_cases}
+\end{center}
+\end{figure}
+
+\subsection{Angetriebener Fall}
+\label{sec:angetriebener_fall}
+
+Nun treibt man das System mit der Kreisrequenz $\omega$ an, modifiziert Glg. \eqref{eq:harm_osz_dampened} also zu
+%
+\begin{align}
+x'' + kx + 2dx' = y_0\exp\left(-i\omega t\right)
+\end{align}
+%
+mit einer reellen Anregungsamplitude $y_0 > 0$. Setzt man hier wiederum den Ansatz $x = x_0e^{-i\omega t}$ ein, erhält man
+%
+\begin{align}
+-\omega^2x_0 + kx_0 - 2id\omega x_0 &= y_0\nonumber\\
+\Leftrightarrow -\omega^2 + k - 2id\omega &= \frac{y_0}{x_0}\\
+\Leftrightarrow \omega^2 - k + 2id\omega &= -\frac{y_0}{x_0}\\
+\Leftrightarrow \omega^2 + 2id\omega + \left(\frac{y_0}{x_0} - k\right) &= 0.\label{eq_harm_osz_force_deriv_0}
+\end{align}
+%
+Die Amplitude ist zeitunabhängig, daher ist $\omega$ reell. Für $x_0$ notiert man nun in Polarkkordinaten
+%
+\begin{align}
+x_0 = \left|x_0\right|\exp\left(i\phi\right),
+\end{align}
+%
+die reelle Zahl $\phi$ wird als Phase bezeichnet. Ist sie positiv, läuft der Oszillator der Anregung voraus, ist sie negativ, läuft der Oszillator der Anregung hinterher. Setzt man dies in Glg. \eqref{eq_harm_osz_force_deriv_0} ein, erhält man
+%
+\begin{align}
+\omega^2 + 2id\omega + \left(\frac{y_0}{\left|x_0\right|}e^{-i\phi} - k\right) &= \omega^2 + 2id\omega + \left(\frac{y_0}{\left|x_0\right|}\cos\left(\phi\right) - \frac{y_0}{\left|x_0\right|}i\sin\left(\phi\right) - k\right) = 0.\label{eq_harm_osz_force_deriv_1}
+\end{align}
+%
+$\omega$ ist hierbei keine Unbekannte, sie ist durch die Anregung gegeben. Die Unbekannten sind die Reaktion des Systems $\left|x_0\right|, \phi$. Um diese zu bestimmen notiert man Real- und Imaginärteil von Glg. \eqref{eq_harm_osz_force_deriv_1}:
+%
+\begin{align}
+\omega^2 + \left(\frac{y_0}{\left|x_0\right|}\cos\left(\phi\right) - k\right) &= 0,\label{eq_harm_osz_force_deriv_2}\\
+2d\omega - \frac{y_0}{\left|x_0\right|}\sin\left(\phi\right) &= 0 \Rightarrow 2d\omega = \frac{y_0}{\left|x_0\right|}\sin\left(\phi\right) \Rightarrow \left|x_0\right| = \frac{y_0}{2d\omega}\sin\left(\phi\right).\label{eq_harm_osz_force_deriv_3}
+\end{align}
+%
+Setzt man Glg. \eqref{eq_harm_osz_force_deriv_3} in Glg. \eqref{eq_harm_osz_force_deriv_2} ein, erhält man
+%
+\begin{align}
+\omega^2 + \left(\frac{y_0}{\frac{y_0}{2d\omega}\sin\left(\phi\right)}\cos\left(\phi\right) - k\right) &= 0\nonumber\\
+\Leftrightarrow\omega^2 + \left(\frac{2d\omega}{\tan\left(\phi\right)} - k\right) &= 0\nonumber\\
+\Leftrightarrow\omega^2\tan\left(\phi\right) + 2d\omega - k\tan\left(\phi\right) &= 0\nonumber\\
+\Leftrightarrow\tan\left(\phi\right)\left(k - \omega^2\right) &= 2d\omega\nonumber\\
+\Leftrightarrow\tan\left(\phi\right) &= \frac{2d\omega}{k - \omega^2}.
+\end{align}
+%
+Die Funktion
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\phi\left(\omega\right) = \arctan\left(\frac{2d\omega}{k - \omega^2}\right)\label{eq:harm_osz_phase}
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+bezeichnet man als \textit{Phasenspektrum}\index{Phasenspektrum}. Wegen $-\pi/2 < \phi < \pi/2$ gilt
+%
+\begin{align}
+\sin = \tan\cdot\cos = \tan\sqrt{1 - \sin^2} \Rightarrow \sin^2 = \tan^2 - \tan^2\sin^2 \Rightarrow \sin^2\left(1 + \tan^2\right) = \tan^2 \Rightarrow \sin = \frac{\tan}{\sqrt{1 + \tan^2}}.
+\end{align}
+%
+Setzt man nun Glg. \eqref{eq:harm_osz_phase} in Glg. \eqref{eq_harm_osz_force_deriv_3} ein, erhält man
+%
+\begin{align}
+\left|x_0\right| = \frac{y_0}{2d\omega}\sin\left(\phi\right) = \frac{y_0}{2d\omega}\frac{\tan\left(\phi\right)}{\sqrt{1 + \tan\left(\phi\right)^2}} = \frac{y_0}{2d\omega}\frac{\frac{2d\omega}{k - \omega^2}}{\sqrt{1 + \frac{4d^2\omega^2}{\left(k - \omega^2\right)^2}}} = \frac{y_0}{\left(k - \omega^2\right)\sqrt{1 + \frac{4d^2\omega^2}{\left(k - \omega^2\right)^2}}}.
+\end{align}
+%
+Hieraus folgt
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\left|x_0\right| = \frac{y_0}{\sqrt{\left(k - \omega^2\right)^2 + 4d^2\omega^2}}.
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+Diese Funktion bezeichnet man als \textit{Amplitudenspektrum}\index{Amplitudenspektrum}. Man definiert die Hilfsfunktion $h$ durch
+%
+\begin{align}
+h\left(\omega\right) \coloneqq \left(k - \omega^2\right)^2 + 4d^2\omega^2 \Rightarrow h'\left(\omega\right) = -4\omega\left(k - \omega^2\right) + 8d^2\omega = -4\omega k +  4\omega^3 + 8d^2\omega.
+\end{align}
+%
+Nullsetzen der Ableitung ergibt
+%
+\begin{align}
+-4\omega k +  4\omega^3 + 8d^2\omega &\hastobe 0 \Rightarrow -4k + 4\omega^2 + 8d^2 = 0 \Rightarrow -k + \omega^2 + 2d^2 = 0\nonumber\\
+\Rightarrow \omega^2 &= k - 2d^2.
+\end{align}
+%
+Man beschränkt sich hier auf den Fall
+%
+\begin{align}
+k - 2d^2 > 0 \Leftrightarrow d < \sqrt{\frac{k}{2}}.
+\end{align}
+%
+Die Frequenz
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\omega_\text{res} \coloneqq \sqrt{k - 2d^2}\label{eq:resonancefrequency_damp}
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+bezeichnet man als \textit{Resonanzfrequenz}\index{Resonanzfrequenz}. Für die zweite Ableitung von $h$ erhält man
+%
+\begin{align}
+h''\left(\omega\right) = -4k +  12\omega^2 + 8d^2.
+\end{align}
+%
+Hieraus folgt
+%
+\begin{align}
+h''\left(\omega_\text{res}\right) = -4k + 12\left(k - 2d^2\right) + 8d^2 = -4k + 12k - 24d^2 + 8d^2 = 8k - 16d^2 = 8\left(k - 2d^2\right) > 0.
+\end{align}
+%
+$\omega_\text{res}$ ist also die Frequenz maximaler Amplitude. Man beachte den Unterschied zwischen Eigenfrequenz Glg. \eqref{eq:eigenfrequency_damp} und Resonanzfrequenz Glg. \eqref{eq:resonancefrequency_damp}. Das Resonanzverhalten ist in Abb. \ref{fig:harm_osc_resonance} dargestellt.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width = 0.6\textwidth]{figs/harm_osc_resonance.png}
+\caption{Das Resonanzverhalten des angetriebenen harmonischen Oszillators.}
+\label{fig:harm_osc_resonance}
+\end{center}
+\end{figure}
+
+Das bisher in diesem Abschnitt betrachtete System hat genau einen Freiheitsgrad, nämlich die generalisierte Auslenkung $x$. Konzeptionell lassen sich jedoch viele der Erkenntnisse auf Systeme mit sehr vielen Freiheitsgraden verallgemeinern. Auch solche komplexen Systeme (Häuser, Schaltkreise, das Klima) haben Eigenmoden.
 
 \chapter{\normalfont\textsc{Elektrodynamik}}
 \label{chap:elektrodynamik}\index{Elektrodynamik}
@@ -2089,7 +2396,7 @@ Die so konstruierten Lösungen $\psi\left(x, y, z\right)$ bilden die komplette L
 Mit diesen Erkenntnissen kann man beispielsweise leicht die Schrödinger-Gleichung für ein Teilchen in einem dreidimensionalen harmonischen Oszillator oder in einem dreidimensionalen Potentialtopf lösen, wenn die eindimensionalen Lösungen bekannt sind.
 
 \section{Harmonischer Oszillator}
-\label{sec:harmonischer_oszillator}\index{Oszillator!harmonischer}\index{harmonischer Oszillator}\index{Schrödinger-Gleichung!harmonischer Oszillator}
+\label{sec:harmonischer_oszillator_qm}\index{Oszillator!harmonischer}\index{harmonischer Oszillator}\index{Schrödinger-Gleichung!harmonischer Oszillator}
 
 Der Hamiltonian $\newhat{H}$ des harmonischen Oszillators lautet
 %
@@ -17800,6 +18107,27 @@ T_{S} > T_\text{rad}
 %
 bezeichnet man als \textit{Treibhauseffekt}\index{Treibhauseffekt}. Dies basiert auf den Annahmen $\epsilon_{A, \text{LW}} > 0$ und $\alpha_{A, \text{SW}} = 0$. Die einfachste anschauliche Begründung für den Treibhauseffekt ist, dass die langwellige Strahlung nicht entsprechend der Temperatur $T_S$, sondern entsprechend der Temperatur $T_A < T_S$ emittiert wird.
 
+\section{Rückkopplungen}
+\label{sec:rückkopplungen}\index{Rückkopplung}
+
+Wechselwirkungen zwischen Teilmengen des Erdsystems bezeichnet man als \textit{Rückkopplungen}\index{Rückkopplung}. Dabei unterscheidet man zwischen \textit{positiven Rückkopplungen}\index{Rückkopplung!positive}, die sich selbst verstärken, und \textit{negativen Rückkopplungen}\index{Rückkopplung!negative}, die sich selbst dämpfen.
+
+\subsection{Temperatur-Strahlungs-Rückkopplung}
+\label{sec:temperatur-strahlungs-rückkopplung}\index{Temperatur-Strahlungs-Rückkopplung}
+
+Laut dem Stefan-Boltzmann-Gesetz ist die Abstrahlung eines Körpers proportional zur vierten Potenz der Temperatur. Hieraus erhält man folgende negative Rückkopplung:
+%
+\begin{center}
+Temperatur steigt $\rightarrow$ Abstrahlung nimmt zu $\rightarrow$ Temperatur sinkt $\rightarrow$ Abstrahlung nimmt ab $\rightarrow$ Temperatur steigt 
+\end{center}
+%
+Schlussendlich beschreibt dieser Prozess die Einpendelung auf eine Temperatur, bei der der betrachtete Körper im Gleichgewicht mit dem Strahlungsfeld steht. Solche Betrachtungen sind immer konzeptionell zu verstehen, womit gemeint ist, dass die hier angedeutete Oszillation nicht unbedingt stattfinden muss.
+
+\subsection{Temperatur-Eis-Albedo-Rückkopplung}
+\label{sec:temperatur-eis-albedo-rückkopplung}\index{Temperatur-Eis-Albedo-Rückkopplung}
+
+
+
 \section{Berechnung der Streu- und Absorptionskoeffizienten}
 \label{sec:berechnung_der_streu-_und_absorptionskoeffizienten}\index{Streukoeffizient}\index{Absorptionskoeffizient}
 
@@ -23278,6 +23606,49 @@ Dadurch ist die Ladung über die Kraft und den Ort als Messgröße festgelegt. D
 Ein Vorteil des cgs-Systems ist die Tatsache, dass $\mathbf{E}$ und $\mathbf{B}$ gleiche Einheiten haben und daher addiert werden können.
 
 Das cgs-System wird vorwiegend in der Theoretischen Physik verwendet. Rechnungen sollten im SI-System gemacht werden, da dies das System ist, in dem üblicherweise Messergebnisse angegeben werden.
+
+\section{Quadratische Ergänzung}
+\label{sec:quadratische_ergänzung}\index{quadratische Ergänzung}\index{Ergänzung!quadratische}
+
+Die sogenannte \textit{quadratische Ergänzung}\index{quadratische Ergänzung}\index{Ergänzung!quadratische} ist ein Verfahren zum Lösen quadratischer Gleichungen der Form
+%
+\begin{align}
+ax^2 + bx + c = 0
+\end{align}
+%
+mit $a \not= 0$. Mit den Definitionen
+%
+\begin{align}
+p \coloneqq \frac{b}{a},&& q \coloneqq \frac{c}{a}
+\end{align}
+%
+kann man dies in der Form
+%
+\begin{align}
+x^2 + px + q = 0
+\end{align}
+%
+notieren. Die quadratische Ergänzung erhält ihren Namen aufgrund der Tatsache, dass nun in dieser Gleichung ein quadratischer Term hinzugefügt und gleich wieder abgezogen wird:
+%
+\begin{align}
+x^2 + px + \left(\frac{p}{2}\right)^2 - \left(\frac{p}{2}\right)^2 + q &= 0\nonumber\\
+\Leftrightarrow\left(x + \frac{p}{2}\right)^2 - \left(\frac{p}{2}\right)^2 + q &= 0\nonumber\\
+\Leftrightarrow\left(x + \frac{p}{2}\right)^2 &= \left(\frac{p}{2}\right)^2 - q
+\end{align}
+%
+Hieraus folgt
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+x_{1, 2} = -\frac{p}{2} \pm \sqrt{\frac{p^2}{4} - q}.\label{eq:pq}
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+Diese Formel bezeichnet man als \textit{pq-Formel}\index{pq-Formel}.
 
 \section{Summen und Reihen}
 \label{sec:summen_und_reihen}\index{Summe}\index{Reihe}
