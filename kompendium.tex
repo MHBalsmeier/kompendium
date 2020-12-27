@@ -18140,6 +18140,57 @@ Temperatur sinkt $\rightarrow$ Wasser gefriert $\rightarrow$ planetare Albedo ni
 %
 formulieren. Es handelt sich also um eine positive Rückkopplung.
 
+Um dies zu quantifizieren führt man zwei Temperaturen $T_0 < T_1$ ein und setzt für die temperaturabhängige planetare Albedo
+%
+\begin{align}
+\alpha_p\left(T\right) = \begin{cases}
+\alpha_\text{max}, T < T_0\\
+\alpha_\text{max} + \left(T - T_0\right)\frac{\alpha_\text{min} - \alpha_\text{max}}{T_1 - T_0}, T_0 \leq T \leq T_1\\
+\alpha_\text{min}, T > T_1
+\end{cases}
+\end{align}
+%
+mit $0 \leq \alpha_\text{min} < \alpha_\text{max} \leq 1$ an. Für die temperaturabhängige Ausstrahlung $S = S\left(T\right)$ des Planeten setzt man weiter
+%
+\begin{align}
+S\left(T\right) = a + b\left(T - \newoverline{T}\right)
+\end{align}
+%
+an, dies entspricht einer linearen Entwicklung des Stefan-Boltzmann-Gesetzes, es gilt also
+%
+\begin{align}
+a &= \sigma T_\text{rad}^4,\\
+b &= 4\sigma T_\text{rad}^3.
+\end{align}
+%
+Hierbei sind
+%
+\begin{align}
+\newoverline{T} \coloneqq \frac{T_0 + T_1}{2}
+\end{align}
+%
+die ungefähre Temperatur der Erde sowie
+%
+\begin{align}
+T_\text{rad} \coloneqq 0,9\newoverline{T}
+\end{align}
+%
+eine Strahlungstemperatur. Im Gleichgewicht gilt nun
+%
+\begin{align}
+\frac{S_0}{4}\left(1 - \alpha_p\left(T\right)\right) &= a + b\left(T - \newoverline{T}\right).
+\end{align}
+%
+mit der Solarkonstanten $S_0$. Diese Gleichung hat in Abhängigkeit von $T_0, T_1, \alpha_\text{min}$ und $\alpha_\text{max}$ zwischen eine und drei Lösungen, wie in Abb. \ref{fig_temp_ice_albedo} dargestellt wird. Die Gleichgewichte in den Fällen 2 und 3 sind stabil, während in Fall 1 das mittlere Gleichgewicht labil ist und die äußeren beiden stabil sind.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width = 0.7\textwidth]{figs/temp_ice_albedo.png}
+\caption{Möglichkeiten für Gleichgewichte in der Temperatur-Eis-Albedo-Rückkopplung. Alle Kurven wurden mit $T_0 = 260$ K und $T_1 = 283$ K berechnet. Die Parameter für die Fälle sind $\left(\alpha_\text{min}, \alpha_\text{max}\right) = \left(0,2; 0,6\right)$ (Fall 1), $\left(\alpha_\text{min}, \alpha_\text{max}\right) = \left(0,4; 0,6\right)$ (Fall 2), $\left(\alpha_\text{min}, \alpha_\text{max}\right) = \left(0,2; 0,4\right)$ (Fall 3).}
+\label{fig_temp_ice_albedo}
+\end{center}
+\end{figure}
+
 \section{Berechnung der Streu- und Absorptionskoeffizienten}
 \label{sec:berechnung_der_streu-_und_absorptionskoeffizienten}\index{Streukoeffizient}\index{Absorptionskoeffizient}
 
