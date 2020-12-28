@@ -14187,6 +14187,31 @@ notieren. Setzt man all dies in die LTEs ein, erhält man
 &= -\frac{D}{a}\sum_{l = 0}^\infty\sum_{m = -l}^lim\frac{\newtilde{u}_{l, m}}{\cos\left(\phi\right)}Y_{l, m} - \newtilde{v}_{l, m}\left[\left(m + 1\right)\tan\left(\phi\right) Y_{l, m} + f_{l, m}Y_{l, m + 1}\exp\left(-i\lambda\right)\right].
 \end{align}
 
+Küstenlinien, die Bathymetrie sowie die Bodenreibung modifizieren dies wesentlich.
+
+\subsubsection{Anschauliches Verständnis}
+\label{sec:anschauliches_verständnis}
+
+Anders als in vielen anschaulichen Abbildungen ist weniger die vertikale, sondern vorwiegend die horizontale Komponente von $-\nabla U$ für die ozeanische Tide releavant. Etwas unintuitiv ist jedoch die Tatsache, dass an den meisten Orten nicht die Periode $\sim$ 25 Stunden überwiegt, sondern eher die erste harmonische der lunaren Tide mit einer Peiode von $\sim$ 12,5 Stunden. Um dies anschaulich zu verstehen, legt man ein KS in den Erdmittekpunkt und richtet die negative x-Achse auf den Mond aus. Lunare (auf den Mond bezogene) Größen werden mit dem Index $l$ bezeichnet und terrestrische Größen mit dem Index $t$. Für die x-Koordinate $x_S$ des Schwerpunktes erhält man
+%
+\begin{align}
+x_S = \frac{m_lx_l + m_tx_t}{m_l + m_t} = \frac{m_lx_l}{m_l + m_t} = \frac{1}{1 + \frac{m_t}{m_l}}x_l = -0,73 a.
+\end{align}
+%
+Der Schwerpunkt von Mond und Erde befindet sich also innerhalb der Erde. Am Punkt $x = -a$ ist die Tidenkraft $\mathbf{f}_T$ also auf den Mond hin gerichtet. Bei $x = a$ gilt
+%
+\begin{align}
+f_{T, x} = \omega_l^2\left(a - x_S\right) - \frac{Gm_l}{\left(a - x_l\right)^2} = 1,73\omega_l^2a - \frac{Gm_l}{\left(a - x_l\right)^2}.
+\end{align}
+%
+$\omega_l$ ist hierbei die Winkelgeschwindigkeit der Rotation des Mondes um die Erde. Es lääst sich leicht verifizieren, dass
+%
+\begin{align}
+f_{T, x} > 0
+\end{align}
+%
+gilt. An den beiden bisher betrachteten Punkten hat die Tidenkraft also keine horizontale Komponente. Bewegt man sich von diesen Punkten weg, ist die horizontale Tidenkraft auf diese Punkte hin gerichtet. Dies impliziert, dass es auf jedem Halbkreis zwischen $x = -a$ und $x = a$ einen weiteren Punkt geben muss, an dem $\mathbf{F}_T = -\nabla U$ keine Horizontalkomponente hat. Dies legt nahe, dass die Periode $\sim$ 12,5 Stunden dominanter ist also die lunare Grundperiode.
+
 \section{Barokline Wellen}
 \label{sec:barokline_wellen}\index{barokline Welle}\index{Welle!barokline}
 
