@@ -8441,7 +8441,7 @@ Der trockenadiabatische Temperaturgradient ist kein Temperaturgradient im eigent
 %
 \begin{align}
 \frac{\partial T}{\partial z} &= \theta\frac{\partial p}{\partial z}\frac{R_s}{c^{(p)}}\frac{1}{p_0}\left(\frac{p}{p_0}\right)^{\frac{R_s}{c^{(p)}} - 1} + \frac{\partial\theta}{\partial z}\left(\frac{p}{p_0}\right)^{\frac{R_s}{c^{(p)}}} = -\frac{g}{c^{(p)}} - g\frac{p}{R_sT}\frac{\partial\theta}{\partial p}\left(\frac{p}{p_0}\right)^{\frac{R_s}{c^{(p)}}}\nonumber\\
-\Rightarrow g\frac{p}{R_s\theta}\frac{\partial\theta}{\partial p} &= -\left(\Gamma_d - \Gamma\right), \label{eq:vert_temp_gradient}
+\Rightarrow g\frac{p}{R_s\theta}\frac{\partial\theta}{\partial p} &= -\left(\Gamma_d - \Gamma\right)\label{eq:vert_temp_gradient}
 \end{align}
 %
 mit
@@ -11749,7 +11749,7 @@ vornehmen.
 Die kinetische Energie $\KE$ einer Luftsäule in einer hydrostatischen Atmosphäre ist durch
 %
 \begin{align}
-\KE = \int_0^{\infty}\frac{1}{2}\rho\mathbf{v}_h^2dz \stackrel{\partial z/\partial\rho = -1/\left(g\rho\right)}{=} -\frac{1}{g}\int_{p_S}^0\frac{1}{2}\mathbf{v}_h^2dp = \frac{1}{g}\int_0^{p_S}\frac{1}{2}\mathbf{v}_h^2dp
+\KE = \int_0^{\infty}\frac{1}{2}\rho\mathbf{v}_h^2dz = \int_{p\left(0\right)}^{p\left(\infty\right)}\frac{1}{2}\rho\mathbf{v}_h^2\frac{\partial z}{\partial\rho}dp \stackrel{\partial z/\partial\rho = -1/\left(g\rho\right)}{=} -\frac{1}{g}\int_{p_S}^0\frac{1}{2}\mathbf{v}_h^2dp = \frac{1}{g}\int_0^{p_S}\frac{1}{2}\mathbf{v}_h^2dp
 \end{align}
 %
 gegeben, hierbei ist $p_S$ der Druck an der Erdoberfläche. Analog gilt für die innere Energie
@@ -11761,7 +11761,8 @@ gegeben, hierbei ist $p_S$ der Druck an der Erdoberfläche. Analog gilt für die
 Für die potentielle Energie $\PE$ erhält man mit partieller Integration
 %
 \begin{align}
-\PE = \int_0^\infty\rho gzdz = \int_0^{p_S}z\left(p\right)dp = \int_0^{p_S}1\cdot z\left(p\right)dp = \left[pz\left(p\right)\right]_0^{p_S} - \int_0^{p_S}p\frac{\partial z}{\partial p}dp = p_Sz_S + \frac{1}{g}\int_0^{p_S}R_dTdp
+\PE &= \int_0^\infty\rho gzdz = \int_0^{p_S}z\left(p\right)dp = \int_0^{p_S}1\cdot z\left(p\right)dp = \left[pz\left(p\right)\right]_0^{p_S} - \int_0^{p_S}p\frac{\partial z}{\partial p}dp\nonumber\\
+&= p_Sz_S + \frac{1}{g}\int_0^{p_S}\frac{p}{\rho}dp = p_Sz_S + \frac{1}{g}\int_0^{p_S}R_dTdp
 \end{align}
 %
 mit $z_S$ als Orographie. Man definiert die \textit{totale potentielle Energie}\index{Energie!potentielle!totale}\index{totale potentielle Energie} $\TPE$ durch
@@ -11770,7 +11771,7 @@ mit $z_S$ als Orographie. Man definiert die \textit{totale potentielle Energie}\
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-\TPE &\coloneqq \PE + \IE
+\TPE &\coloneqq \PE + \IE.
 \end{align}
 \end{center}
 }}
@@ -11779,7 +11780,7 @@ mit $z_S$ als Orographie. Man definiert die \textit{totale potentielle Energie}\
 Häufig wird diese Energieform auch einfach als \glqq potentielle Energie\grqq\ bezeichnet. Es gilt
 %
 \begin{align}
-\TPE &= p_Sz_S + g^{-1}\int_0^{p_S}\left(c^{(v)} + R_d\right)dp = p_Sz_S + g^{-1}\int_0^{p_S}hdp\nonumber\\
+\TPE &= p_Sz_S + g^{-1}\int_0^{p_S}\left(c^{(v)} + R_d\right)Tdp = p_Sz_S + g^{-1}\int_0^{p_S}hdp\nonumber\\
 &= p_Sz_S + \frac{c^{(p)}}{g}\int_0^{p_S}\theta\left(\frac{p}{p_0}\right)^{R_d/c^{(p)}}dp\label{eq:tpe_id_1}
 \end{align}
 %
@@ -11809,23 +11810,29 @@ Da man das Schwerepotential auch um eine beliebige Konstante verschieben könnte
 Mittels partieller Integration erhält man
 %
 \begin{align}
-\int_\infty^{\theta_S}\theta p\left(\theta\right)^{R_d/c^{(p)}}\frac{\partial p}{\partial\theta}d\theta &= \theta_Sp_S^{1 + \frac{R_d}{c^{(p)}}} - \int_\infty^{\theta_S}p\left(\theta\right)^{1 + \frac{R_d}{c^{(p)}}} + \frac{R_d}{c^{(p)}}\theta p\left(\theta\right)^{R_d/c^{(p)}}\frac{\partial p}{\partial\theta}d\theta\nonumber\\
+\int_\infty^{\theta_S}\theta p\left(\theta\right)^{R_d/c^{(p)}}\frac{\partial p}{\partial\theta}d\theta &= \left[\theta p^{1 + \frac{R_d}{c^{(p)}}}\right]_\infty^{\theta_S} - \int_\infty^{\theta_S}p\left(\theta\right)\frac{d}{d\theta}\left(\theta p\left(\theta\right)^{R_d/c^{(p)}}\right)d\theta\nonumber\\
+\Rightarrow\int_\infty^{\theta_S}\theta p\left(\theta\right)^{R_d/c^{(p)}}\frac{\partial p}{\partial\theta}d\theta &= \theta_Sp_S^{1 + \frac{R_d}{c^{(p)}}} - \int_\infty^{\theta_S}p\left(\theta\right)\left(p\left(\theta\right)^{R_d/c^{(p)}} + \theta\frac{R_d}{c^{(p)}}\frac{\partial p}{\partial\theta}p\left(\theta\right)^{R_d/c^{(p)} - 1}\right)d\theta\nonumber\\
+\Rightarrow\int_\infty^{\theta_S}\theta p\left(\theta\right)^{R_d/c^{(p)}}\frac{\partial p}{\partial\theta}d\theta &= \theta_Sp_S^{1 + \frac{R_d}{c^{(p)}}} - \int_\infty^{\theta_S}p\left(\theta\right)^{1 + \frac{R_d}{c^{(p)}}} + \frac{R_d}{c^{(p)}}\theta p\left(\theta\right)^{R_d/c^{(p)}}\frac{\partial p}{\partial\theta}d\theta\nonumber
+\end{align}
+\begin{align}
+\Rightarrow\frac{c^{(p)} + R_d}{c^{(p)}}\int_\infty^{\theta_S}\theta p\left(\theta\right)^{R_d/c^{(p)}}\frac{\partial p}{\partial\theta}d\theta &= \theta_Sp_S^{1 + \frac{R_d}{c^{(p)}}} - \int_\infty^{\theta_S}p\left(\theta\right)^{1 + \frac{R_d}{c^{(p)}}}d\theta\nonumber\\
 \Rightarrow\int_\infty^{\theta_S}\theta p\left(\theta\right)^{R_d/c^{(p)}}\frac{\partial p}{\partial\theta}d\theta &= 
 \frac{c^{(p)}}{c^{(p)} + R_d}\theta_Sp_S^{1 + \frac{R_d}{c^{(p)}}} + \frac{c^{(p)}}{c^{(p)} + R_d}\int_{\theta_S}^\infty p\left(\theta\right)^{1 + \frac{R_d}{c^{(p)}}}d\theta\nonumber\\
 \Rightarrow\TPE &= p_Sz_S + \frac{c^{(p)2}\theta_Sp_S^{1 + \frac{R_d}{c^{(p)}}}}{gp_0^{R_d/c^{(p)}}\left(c^{(p)} + R_d\right)} + \frac{c^{(p)2}}{gp_0^{R_d/c^{(p)}}\left(c^{(p)} + R_d\right)}\int_{\theta_S}^\infty p\left(\theta\right)^{1 + \frac{R_d}{c^{(p)}}}d\theta.
 \end{align}
 %
-Um die potentielle Energie zu erhalten, die in einer Atmosphäre über einer Fläche $A$ enthalten ist, rechnet man
+Um die totale potentielle Energie zu erhalten, die in einer Atmosphäre über einer Fläche $A$ enthalten ist, rechnet man
 %
 \begin{align}
 \int_A\TPE dA &= \int_Ap_Sz_SdA + \frac{c^{(p)2}}{gp_0^{R_d/c^{(p)}}\left(c^{(p)} + R_d\right)}\int_A\theta_Sp_S^{1 + \frac{R_d}{c^{(p)}}}dA + \frac{c^{(p)2}}{gp_0^{R_d/c^{(p)}}\left(c^{(p)} + R_d\right)}\int_A\int_{\theta_S}^\infty p\left(\theta\right)^{1 + \frac{R_d}{c^{(p)}}}d\theta dA\nonumber\\
+&= A\newoverline{p_Sz_S} + \frac{Ac^{(p)2}}{gp_0^{R_d/c^{(p)}}\left(c^{(p)} + R_d\right)}\newoverline{\theta_Sp_S^{1 + \frac{R_d}{c^{(p)}}}} + \frac{c^{(p)2}}{gp_0^{R_d/c^{(p)}}\left(c^{(p)} + R_d\right)}\newoverline{\int_{\theta_S}^\infty p\left(\theta\right)^{1 + \frac{R_d}{c^{(p)}}}d\theta}\nonumber\\
 &\approx A\newoverline{p_Sz_S} + \frac{Ac^{(p)2}}{gp_0^{R_d/c^{(p)}}\left(c^{(p)} + R_d\right)}\newoverline{\theta_Sp_S^{1 + \frac{R_d}{c^{(p)}}}} + \frac{Ac^{(p)2}}{gp_0^{R_d/c^{(p)}}\left(c^{(p)} + R_d\right)}\int_{\newoverline{\theta_S}}^\infty\newoverline{p\left(\theta\right)^{1 + \frac{R_d}{c^{(p)}}}}d\theta.\label{eq:ape_deriv_1}
 \end{align}
 %
-Nach Ggl. \eqref{eq:tpe_id_1} ist
+Nach Glg. \eqref{eq:tpe_id_1} ist
 %
 \begin{align}
-\int_A\TPE + KEdA
+\int_A\TPE + \KE dA
 \end{align}
 %
 konservativ, wenn kein Massenfluss über die lateralen Ränder von $A$ erfolgt. Die $\APE$ ist der Anteil der $\TPE$, die in kinetische Energie umgewandelt werden könnte, also
@@ -11840,16 +11847,13 @@ konservativ, wenn kein Massenfluss über die lateralen Ränder von $A$ erfolgt. 
 }}
 \end{center}
 %
-wobei das Minimum der potentiellen Energie aller hydrostatischer Zustände gemeint ist, die aus dem Anfangszustand durch adiabatische Umsortierung erreicht werden können, ohne überadiabatische Gradienten zu produzieren. Hierbei bewegen sich die Teilchen entlang der Isentropen und nach einer solchen Umordnung sind alle Zustandsgrößen nur noch von der Vertikalkoordinate abhängig, da sonst Druckgradienten existieren würden, die genau darauf hinarbeiten würden (die Coriolis-Kraft leistet keine Arbeit, hat somit keine energetische Relevanz und muss daher für diese Betrachtung nicht berücksichtigt werden). Bezeichnet man die Felder des Zustands minimaler potentieller Energie durch gestrichene Größen, kann man notieren
+wobei das Minimum der potentiellen Energie aller hydrostatischen Zustände gemeint ist, die aus dem Anfangszustand durch adiabatische Umsortierung erreicht werden können, ohne überadiabatische Gradienten zu produzieren. Hierbei bewegen sich die Teilchen entlang der Isentropen und nach einer solchen Umordnung sind alle Zustandsgrößen nur noch von der Vertikalkoordinate abhängig, da sonst Druckgradienten existieren würden, die genau darauf hinarbeiten würden (die Coriolis-Kraft leistet keine Arbeit, hat somit keine energetische Relevanz und muss daher für diese Betrachtung nicht berücksichtigt werden). Bezeichnet man die Felder des Zustands minimaler potentieller Energie durch gestrichene Größen, kann man notieren
 %
 \begin{align}
-\int_A\TPE dA &= \int_Ap'\left(z_S\right)z_SdA + \frac{c^{(p)2}}{gp_0^{R_d/c^{(p)}}\left(c^{(p)} + R_d\right)}\int_A\theta'\left(z_S\right)p'\left(z_S\right)^{1 + \frac{R_d}{c^{(p)}}}dA \nonumber\\
-& +\frac{c^{(p)2}}{gp_0^{R_d/c^{(p)}}\left(c^{(p)} + R_d\right)}\int_A\int_{\theta_S}^\infty p'\left(\theta\right)^{1 + \frac{R_d}{c^{(p)}}}d\theta dA\nonumber\\
-& \approx A\newoverline{p'\left(z_S\right)z_S} + \frac{Ac^{(p)2}}{gp_0^{R_d/c^{(p)}}\left(c^{(p)} + R_d\right)}\newoverline{\theta'\left(z_S\right)p'\left(z_S\right)^{1 + \frac{R_d}{c^{(p)}}}} \nonumber\\
-& + \frac{Ac^{(p)2}}{gp_0^{R_d/c^{(p)}}\left(c^{(p)} + R_d\right)}\int_{\newoverline{\theta_S}}^\infty\newoverline{p'\left(\theta\right)^{1 + \frac{R_d}{c^{(p)}}}}d\theta.\label{eq:ape_deriv_2}
+\int_A\TPE_\text{min}dA &\approx A\newoverline{p'\left(z_S\right)z_S} + \frac{Ac^{(p)2}}{gp_0^{R_d/c^{(p)}}\left(c^{(p)} + R_d\right)}\newoverline{\theta'\left(z_S\right)p'\left(z_S\right)^{1 + \frac{R_d}{c^{(p)}}}} + \frac{Ac^{(p)2}}{gp_0^{R_d/c^{(p)}}\left(c^{(p)} + R_d\right)}\int_{\newoverline{\theta_S}}^\infty\newoverline{p'\left(\theta\right)^{1 + \frac{R_d}{c^{(p)}}}}d\theta.\label{eq:ape_deriv_2}
 \end{align}
 %
-Die ersten beiden Terme auf den rechten Seiten der Glg.en \eqref{eq:ape_deriv_1} und \eqref{eq:ape_deriv_2} sind analytisch wenig ergiebig, ihre Differenz wird mit $C$ abgekürzt, damit erhält man
+Die ersten beiden Terme auf den rechten Seiten der Glg.en \eqref{eq:ape_deriv_1} und \eqref{eq:ape_deriv_2} beziehen sich ausschließlich auf die Oberfläche, ihre Differenz wird mit $C$ abgekürzt. Damit erhält man
 %
 \begin{align}
 \APE \approx C + \frac{Ac^{(p)2}}{gp_0^{R_d/c^{(p)}}\left(c^{(p)} + R_d\right)}\int_{\newoverline{\theta_S}}^\infty\newoverline{p\left(\theta\right)^{1 + \frac{R_d}{c^{(p)}}}} - \newoverline{p'\left(\theta\right)^{1 + \frac{R_d}{c^{(p)}}}}d\theta.
@@ -11858,20 +11862,29 @@ Die ersten beiden Terme auf den rechten Seiten der Glg.en \eqref{eq:ape_deriv_1}
 Die Masse $M$ über der Isentrope $\theta$ ist konservativ, daher gilt
 %
 \begin{align}
-p'\left(\theta\right) = \newoverline{p\left(\theta\right)} \Rightarrow \newoverline{p'\left(\theta\right)^{1 + \frac{R_d}{c^{(p)}}}} = \newoverline{p\left(\theta\right)}^{1 + \frac{R_d}{c^{(p)}}}
+\newoverline{p'\left(\theta\right)} = p'\left(\theta\right) = \newoverline{p\left(\theta\right)} \Rightarrow \newoverline{p'\left(\theta\right)^{1 + \frac{R_d}{c^{(p)}}}} = \newoverline{p\left(\theta\right)}^{1 + \frac{R_d}{c^{(p)}}},
 \end{align}
 %
 woraus folgt
 %
 \begin{align}
-\APE & \approx C + \frac{Ac^{(p)2}}{gp_0^{R_d/c^{(p)}}\left(c^{(p)} + R_d\right)}\int_{\newoverline{\theta_S}}^\infty\newoverline{p\left(\theta\right)^{1 + \frac{R_d}{c^{(p)}}}} - \newoverline{p\left(\theta\right)}^{1 + \frac{R_d}{c^{(p)}}}d\theta\nonumber\\
-&\approx C + \frac{A}{\Gamma_dp_0^{\chi}\left(1 + \chi\right)}\int_{\newoverline{\theta_S}}^\infty\newoverline{p\left(\theta\right)^{1 + \chi}} - \newoverline{p\left(\theta\right)}^{1 + \chi}d\theta
+\APE &\approx C + \frac{Ac^{(p)2}}{gp_0^{R_d/c^{(p)}}\left(c^{(p)} + R_d\right)}\int_{\newoverline{\theta_S}}^\infty\newoverline{p\left(\theta\right)^{1 + \frac{R_d}{c^{(p)}}}} - \newoverline{p\left(\theta\right)}^{1 + \frac{R_d}{c^{(p)}}}d\theta\nonumber\\
+&= C + \frac{Ac^{(p)}}{gp_0^{R_d/c^{(p)}}\left(1 + \frac{R_d}{c^{(p)}}\right)}\int_{\newoverline{\theta_S}}^\infty\newoverline{p\left(\theta\right)^{1 + \frac{R_d}{c^{(p)}}}} - \newoverline{p\left(\theta\right)}^{1 + \frac{R_d}{c^{(p)}}}d\theta\nonumber\\
+&= C + \frac{A}{\Gamma_dp_0^{\chi}\left(1 + \chi\right)}\int_{\newoverline{\theta_S}}^\infty\newoverline{p\left(\theta\right)^{1 + \chi}} - \newoverline{p\left(\theta\right)}^{1 + \chi}d\theta
 \end{align}
 %
 mit dem trockenadiabatischen Temperaturgradienten $\Gamma_d = g/c^{(p)}$ und der Abkürzung $\chi \coloneqq \frac{R_d}{c^{(p)}}$. Man notiert $p = \newoverline{p} + p'$, damit gilt die Taylor-Entwicklung
 %
 \begin{align}
 p^{1 + \chi} = \newoverline{p}^{1 + \chi} + \left(1 + \chi\right)\newoverline{p}^{\chi}p' + \frac{1}{2}\chi\left(1 + \chi\right)\newoverline{p}^{\chi-1}p'^2 + \dotsc
+\end{align}
+%
+Hieraus folgt
+%
+\begin{align}
+p^{1 + \chi} - \newoverline{p}^{1 + \chi} &= \left(1 + \chi\right)\newoverline{p}^{\chi}p' + \frac{1}{2}\chi\left(1 + \chi\right)\newoverline{p}^{\chi-1}p'^2 + \dotsc\nonumber\\
+\Leftrightarrow \newoverline{p^{1 + \chi}} - \newoverline{p}^{1 + \chi} &= \left(1 + \chi\right)\newoverline{p}^{\chi}\newoverline{p'} + \frac{1}{2}\chi\left(1 + \chi\right)\newoverline{p}^{\chi - 1}\newoverline{p'^2} + \dotsc\nonumber\\
+\Leftrightarrow \newoverline{p^{1 + \chi}} - \newoverline{p}^{1 + \chi} &= \frac{1}{2}\chi\left(1 + \chi\right)\newoverline{p}^{\chi - 1}\newoverline{p'^2} + \dotsc
 \end{align}
 %
 Man erhält somit
@@ -11883,15 +11896,32 @@ Man erhält somit
 Nun wird dies wieder ins p-System rücktransformiert. Hierzu verwendet man
 %
 \begin{align}
-p & \approx \newoverline{p}\left(\theta\left(p\right)\right) \Rightarrow p' \approx \theta'\frac{\partial\newoverline{p}}{\partial\theta}.
+p = p\left(\theta\left(p\right)\right) & \approx \newoverline{p}\left(\theta\left(p\right)\right) \Rightarrow p' \approx \theta'\frac{\partial\newoverline{p}}{\partial\theta}.
 \end{align}
 %
 Somit erhält man
 %
 \begin{align}
-\APE & \approx C + \frac{A\chi}{2\Gamma_dp_0^{\chi}}\int_{\newoverline{\theta_S}}^\infty\newoverline{p}^{\chi - 1}\newoverline{\left(\theta'\frac{\partial\newoverline{p}}{\partial\theta}\right)^2}d\theta = C + \frac{A\chi}{2\Gamma_dp_0^{\chi}}\int_{\newoverline{\theta_S}}^\infty\newoverline{p}^{\chi - 1}\newoverline{\theta'^2}\left(\frac{\partial\newoverline{p}}{\partial\theta}\right)^2d\theta\nonumber\\
-& \approx C - \frac{A\chi}{2\Gamma_dp_0^{\chi}}\int_{\newoverline{p_S}}^0\newoverline{p}^{\chi - 1}\newoverline{\theta}^2\newoverline{\left(\frac{\theta'}{\newoverline{\theta}}\right)^2}\left(\frac{\partial\newoverline{\theta}}{\partial p}\right)^{-1}dp = C - \frac{A\chi}{2\Gamma_d}\int_{\newoverline{p_S}}^0\frac{1}{\newoverline{p}}\newoverline{\theta}\newoverline{T}\newoverline{\left(\frac{T'}{\newoverline{T}}\right)^2}\left(\frac{\partial\newoverline{\theta}}{\partial p}\right)^{-1}dp\nonumber\\
-&= C - \frac{A}{2}\int_{\newoverline{p_S}}^0\frac{\chi\newoverline{\theta}}{\Gamma_d\newoverline{p}}\left(\frac{\partial\newoverline{\theta}}{\partial p}\right)^{-1}\newoverline{T}\newoverline{\left(\frac{T'}{\newoverline{T}}\right)^2}dp.
+\APE & \approx C + \frac{A\chi}{2\Gamma_dp_0^{\chi}}\int_{\newoverline{\theta_S}}^\infty\newoverline{p}^{\chi - 1}\newoverline{\left(\theta'\frac{\partial\newoverline{p}}{\partial\theta}\right)^2}d\theta = C + \frac{A\chi}{2\Gamma_dp_0^{\chi}}\int_{\newoverline{\theta_S}}^\infty\newoverline{p}^{\chi - 1}\newoverline{\theta'^2}\left(\frac{\partial\newoverline{p}}{\partial\theta}\right)^2dp\nonumber\\
+&= C + \frac{A\chi}{2\Gamma_dp_0^{\chi}}\int_{\newoverline{p}\left(\newoverline{\theta_S}\right)}^{\newoverline{p}\left(\newoverline{\infty}\right)}\newoverline{p}^{\chi - 1}\newoverline{\theta'^2}\left(\frac{\partial\newoverline{p}}{\partial\theta}\right)^2\frac{\partial\theta}{\partial\newoverline{p}}dp = C + \frac{A\chi}{2\Gamma_dp_0^{\chi}}\int_{\newoverline{p_S}}^0\newoverline{p}^{\chi - 1}\newoverline{\theta}^2\frac{\newoverline{\theta'^2}}{\newoverline{\theta}^2}\left(\frac{\partial\newoverline{p}}{\partial\theta}\right)^2\frac{\partial\theta}{\partial\newoverline{p}}dp\nonumber\\
+&= C + \frac{A\chi}{2\Gamma_dp_0^{\chi}}\int_{\newoverline{p_S}}^0\newoverline{p}^{\chi - 1}\newoverline{\theta}^2\frac{\newoverline{\theta'^2}}{\newoverline{\theta}^2}\frac{\partial\newoverline{p}}{\partial\theta}dp \approx C + \frac{A\chi}{2\Gamma_dp_0^{\chi}}\int_{\newoverline{p_S}}^0\newoverline{p}^{\chi - 1}\newoverline{\theta}^2\newoverline{\left(\frac{\theta'}{\newoverline{\theta}}\right)^2}\left(\frac{\partial\newoverline{\theta}}{\partial p}\right)^{-1}dp\nonumber
+\end{align}
+\begin{align}
+&= C + \frac{A\chi}{2\Gamma_dp_0^{\chi}}\int_{\newoverline{p_S}}^0\newoverline{p}^{\chi}\frac{1}{\newoverline{p}}\newoverline{\theta}^2\newoverline{\left(\frac{\theta'}{\newoverline{\theta}}\right)^2}\left(\frac{\partial\newoverline{\theta}}{\partial p}\right)^{-1}dp = C + \frac{A\chi}{2\Gamma_d}\int_{\newoverline{p_S}}^0\left(\frac{\newoverline{p}}{p_0}\right)^{\chi}\frac{1}{\newoverline{p}}\newoverline{\theta}^2\newoverline{\left(\frac{\theta'}{\newoverline{\theta}}\right)^2}\left(\frac{\partial\newoverline{\theta}}{\partial p}\right)^{-1}dp\nonumber\\
+&\approx C + \frac{A\chi}{2\Gamma_d}\int_{\newoverline{p_S}}^0\frac{\newoverline{T}}{\newoverline{\theta}}\frac{1}{\newoverline{p}}\newoverline{\theta}^2\newoverline{\left(\frac{\theta'}{\newoverline{\theta}}\right)^2}\left(\frac{\partial\newoverline{\theta}}{\partial p}\right)^{-1}dp = C + \frac{A\chi}{2\Gamma_d}\int_{\newoverline{p_S}}^0\frac{\newoverline{T}}{\newoverline{p}}\newoverline{\theta}\newoverline{\left(\frac{\theta'}{\newoverline{\theta}}\right)^2}\left(\frac{\partial\newoverline{\theta}}{\partial p}\right)^{-1}dp.
+\end{align}
+%
+Mit
+%
+\begin{align}
+\theta' = \frac{\partial\theta}{\partial T}T' = \frac{\theta}{T}T' \approx \frac{\newoverline{\theta}}{\newoverline{T}}T'
+\end{align}
+%
+kann man dies weiter umformen zu
+%
+\begin{align}
+\APE &\approx C + \frac{A\chi}{2\Gamma_d}\int_{\newoverline{p_S}}^0\frac{1}{\newoverline{p}}\newoverline{\theta}\newoverline{T}\newoverline{\left(\frac{T'}{\newoverline{T}}\right)^2}\left(\frac{\partial\newoverline{\theta}}{\partial p}\right)^{-1}dp\nonumber\\
+&= C + \frac{A}{2}\int_{\newoverline{p_S}}^0\frac{\chi\newoverline{\theta}}{\Gamma_d\newoverline{p}}\left(\frac{\partial\newoverline{\theta}}{\partial p}\right)^{-1}\newoverline{T}\newoverline{\left(\frac{T'}{\newoverline{T}}\right)^2}dp = C - \frac{A}{2}\int_0^{\newoverline{p_S}}\frac{\chi\newoverline{\theta}}{\Gamma_d\newoverline{p}}\left(\frac{\partial\newoverline{\theta}}{\partial p}\right)^{-1}\newoverline{T}\newoverline{\left(\frac{T'}{\newoverline{T}}\right)^2}dp.
 \end{align}
 %
 Nach Glg. \eqref{eq:vert_temp_gradient} gilt
@@ -11900,13 +11930,13 @@ Nach Glg. \eqref{eq:vert_temp_gradient} gilt
 \frac{\Gamma_d\newoverline{p}}{\chi\newoverline{\theta}}\frac{\partial\newoverline{\theta}}{\partial p} \approx \newoverline{\frac{\Gamma_dp}{\chi\theta}\frac{\partial\theta}{\partial p}} = -\left(\Gamma_d - \newoverline{\Gamma}\right), 
 \end{align}
 %
-also
+hieraus folgt
 %
 \begin{center}
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-\APE \approx C + \frac{A}{2}\int_{\newoverline{p_S}}^0\frac{\newoverline{T}}{\Gamma_d - \newoverline{\Gamma}}\newoverline{\left(\frac{T'}{\newoverline{T}}\right)^2}dp.
+\APE \approx C + \frac{A}{2}\int_0^{\newoverline{p_S}}\frac{\newoverline{T}}{\Gamma_d - \newoverline{\Gamma}}\newoverline{\left(\frac{T'}{\newoverline{T}}\right)^2}dp.
 \end{align}
 \end{center}
 }}
