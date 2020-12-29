@@ -11170,7 +11170,7 @@ und analog in y-Richtung. Verschwindet die vertikale Scherung der Horizontalbewe
 h\nabla\cdot\mathbf{v} = \int_{b}^{b + h}\nabla\cdot\mathbf{v}dz = -\int_{b}^{b + h}\frac{\partial w}{\partial z}dz = -w\left(b + h\right) + w\left(b\right)\label{eq:swe_deriv_1}
 \end{align}
 %
-Die Annahme, dass die Horizontalgeschwindigkeit nicht geschert ist und die die Integration Glg. \eqref{eq:swe_deriv_1} ermöglicht hat, gibt den Flachwassergleichungen ihren Namen. Bei großen Tiefen kann hiervon nämlich anschaulicherweise nicht mehr ausgegangen werden. In Absch. \ref{sec:wasseroberflächenwelle} wird über diese Annahme hinausgegangen. Behandelt man Wellen, so kann man die Flachwassergleichungen verwenden, falls
+Die Annahme, dass die Horizontalgeschwindigkeit nicht geschert ist und die die Integration Glg. \eqref{eq:swe_deriv_1} ermöglicht hat, gibt den Flachwassergleichungen ihren Namen. Bei großen Tiefen kann hiervon nämlich anschaulicherweise nicht mehr ausgegangen werden. In Absch. \ref{sec:wasseroberflächenwellen} wird über diese Annahme hinausgegangen. Behandelt man Wellen, so kann man die Flachwassergleichungen verwenden, falls
 %
 \begin{align}
 \text{Wellenlänge} &\gg \text{Tiefe},\\
@@ -13615,7 +13615,7 @@ Setzt man typische Werte ein, folgt $R_o \approx 2000$ km.
 Poincaré-Wellen werden im Englischen auch als \textit{inertia-gravity waves}\index{inertial gravity wave} bezeichnet. Dies rührt daher, dass die rückstellende Kräfte bei dieser Wellenmode die Schwere sowie die Coriolis-Kraft sind. Die deutsche Übersetzung \glqq Inertial-Schwerewelle\grqq\ ist eher unüblich. Eine weitere Bezeichnung ist \textit{Sverdrup-Welle}\index{Sverdrup-Welle}.
 
 \subsubsection{Wasseroberflächenwellen}
-\label{sec:wasseroberflächenwelle}\index{Wasseroberflächenwelle}\index{Welle!Wasseroberfläche}
+\label{sec:wasseroberflächenwellen}\index{Wasseroberflächenwelle}\index{Welle!Wasseroberfläche}
 
 Man geht an dieser Stelle von der Abwesenheit eines zonalen Grundstroms $U = 0$ aus, o. B. d. A. richtet man außerdem die x-Richtung am Wellenvektor aus, sodass das linearisierte Gleichungssystem hier
 %
@@ -14114,7 +14114,7 @@ Die ozeanische Tide ist ein globales Phänomen, daher kann die Advektion ($\prop
 \frac{\partial d}{\partial t} &= -D\left(\frac{\partial u}{a\cos\left(\phi\right)\partial\lambda} + \frac{\partial v}{a\partial\phi} - v\frac{\tan\left(\phi\right)}{a}\right).
 \end{align}
 %
-Hierbei ist $U = U\left(\phi, \lambda, t\right)$ das \textit{Tidenpotential}. $\Omega$ ist die Winkelgeschwindigkeit der Erdrotation. Diese Gleichungen bezeichnet man auch als Laplace'sche Tidengleichungen \textit{Laplace's tidal equations (LTE)}\index{Laplace's tidal equations (LTEs)}. Man macht hier den Ansatz
+Hierbei ist $U = U\left(\phi, \lambda, t\right)$ das \textit{Tidenpotential}. $\Omega$ ist die Winkelgeschwindigkeit der Erdrotation. Diese Gleichungen bezeichnet man auch als Laplace'sche Tidengleichungen \textit{(Laplace's tidal equations (LTEs))}\index{Laplace's tidal equations (LTEs)}. Man macht hier den Ansatz
 %
 \begin{align}
 u = \sum_{l = 0}^\infty\sum_{m = -l}^l\newtilde{u}_{l, m}Y_{l, m}\left(\phi, \lambda\right)e^{-i\omega t}, && v = \sum_{l = 0}^\infty\sum_{m = -l}^l\newtilde{v}_{l, m}Y_{l, m}\left(\phi, \lambda\right)e^{-i\omega t},\\
@@ -14178,14 +14178,14 @@ $\omega_l$ ist hierbei die Winkelgeschwindigkeit der Rotation des Mondes um die 
 f_{T, x} > 0
 \end{align}
 %
-gilt. An den beiden bisher betrachteten Punkten hat die Tidenkraft also keine horizontale Komponente. Bewegt man sich von diesen Punkten weg, ist die horizontale Tidenkraft auf diese Punkte hin gerichtet. Dies impliziert, dass es auf jedem Halbkreis zwischen $x = -a$ und $x = a$ einen weiteren Punkt geben muss, an dem $\mathbf{F}_T = -\nabla U$ keine Horizontalkomponente hat. Dies legt nahe, dass die Periode $\sim$ 12,5 Stunden dominanter ist also die lunare Grundperiode.
+gilt. An den beiden bisher betrachteten Punkten hat die Tidenkraft also keine horizontale Komponente. Bewegt man sich von diesen Punkten weg, ist die horizontale Tidenkraft auf diese Punkte hin gerichtet. Dies impliziert, dass es auf jedem Halbkreis zwischen $x = -a$ und $x = a$ einen weiteren Punkt geben muss, an dem $\mathbf{f}_T = -\nabla U$ keine Horizontalkomponente hat. Dies legt nahe, dass die Periode $\sim$ 12,5 Stunden dominanter ist also die lunare Grundperiode.
 
 \section{Barokline Wellen}
 \label{sec:barokline_wellen}\index{barokline Welle}\index{Welle!barokline}
 
 Barotrope Wellen benötigen Grenzflächen und haben an dieser ihr Amplitudenmaximum. Daher bezeichnet man sie auch als \textit{externe Wellen}\index{Welle!externe} oder Oberflächenwellen. \textit{Interne Wellen}\index{Welle!interne} existieren hingegen im Inneren eines Mediums und benötigen Baroklinität, da in barotropen Medien die vertikale Scherungen konstant sind (s. Absch. \ref{sec:barotropie}).
 
-Ein Grenzfall sind hierbei Wellen an einer scharfen Grenzfläche ($N \gg 0$) im Inneren eines Mediums, wie z. B. an einer Inversion. Sie lassen sich häufig mathematisch mit den Formeln für Oberflächenwellen beschreiben, werden jedoch meist zu den internen Wellen gezählt.
+Ein Grenzfall sind hierbei Wellen an einer scharfen Grenzfläche ($N \gg 0$) im Inneren eines Mediums, wie z. B. an einer Inversion oder an einem Dichtesprung (siehe z. B. die Darstellung am Ende von Absch. \ref{sec:wasseroberflächenwellen}). Sie lassen sich häufig mathematisch mit den Formeln für Oberflächenwellen beschreiben, werden jedoch meist zu den internen Wellen gezählt.
 
 \subsection{Vertikale Moden}
 \label{sec:vertikale_moden}\index{vertikale Mode}

@@ -13,4 +13,9 @@ print("x- coordinate of barycenter / Earth radius: " + str(x_S/a));
 
 f_tx = omega_l**2*(a - x_S) - G*m_l/((a - x_l)**2);
 
-print("Force at x point / N/kg: " + str(f_tx));
+print("Force at point x = a / N/kg: " + str(f_tx));
+
+centrifugal_difference = omega_l**2*(a - x_S) - omega_l**2*(-a - x_S);
+gravity_difference = G*m_l/((a - x_l)**2) - G*m_l/((-a - x_l)**2);
+
+print("ratio of centrifugal difference / gravity difference: " + str(abs(centrifugal_difference/gravity_difference)));
