@@ -8204,8 +8204,8 @@ wobei die zwei Grenzwerte für die unterschiedlichen Seiten der Phasengrenzfläc
 
 In diesem Abschnitt soll es um die Thermodynamik einer Atmosphäre gehen, die aus einem idealen, einatomigen Gas\index{ideales Gas!einatomiges}\index{Gas!ideales!einatomiges} mit der individuellen Gaskonstante\index{Gaskonstante!individuelle}\index{individuelle Gaskonstante} $R_s$ besteht.
 
-\subsection{Temperatur als prognostische Variable}
-\label{sec:temperatur_als_prognostische_variable}
+\subsection{Erster Hauptsatz als Temperaturgleichung}
+\label{sec:erster_hauptsatz_als_temperaturgleichung}
 
 Der Ausgangspunkt ist Glg. \eqref{eq:td_1_id_gas}. Durch Differenziation nach der Zeit ergibt sich
 %
@@ -8649,6 +8649,81 @@ hinzu, folgt
 %
 Diese Form bezeichnet man auch als \textit{Flussform}\index{Flussform}, wohingegen Glg. \eqref{eq:td1_dry_pot} \textit{Advektionsform}\index{Advektionsform} hat. Die Flussform lässt sich als eine formale Kontinuitätsgleichung verstehen.
 
+\section{Die isentrope trockene Atmosphäre}
+\label{sec:die_isentrope_trockene_atmosphaere}
+
+In einer isentropen Atmosphäre (Atmosphäre homogener spezifischer Entropie) ist nach Glg. \eqref{eq:entropy_spec_id_gas} auch die potentielle Temperatur homogen. Dies führt zu einer anderen Abhängigkeit des Drucks von der Höhe als im Fall der isothermen Atmosphäre. Ist $\Gamma_d > 0$ der trockenadiabatische Temperaturgradient, gilt für die Temperatur $T(z) = T_0 - \Gamma_d z$ mit $T_0 \coloneqq T(z = 0)$. Damit folgt
+%
+\begin{align}
+\frac{\partial p}{\partial z} = -g\rho = -g\frac{p}{R_dT} = -\frac{g}{R_d}\frac{p}{T_0 - \Gamma_d z} = \frac{gp}{R_d(\Gamma_d z - T_0)}
+\end{align}
+%
+als zu lösende Differenzialgleichung für $p = p(z)$. Macht man den Ansatz
+%
+\begin{align}
+p(z) = C\exp\left[f(z)\right]
+\end{align}
+%
+mit einer stetig-differenzierbaren Funktion $f = f(z)$ und einer Konstanten $C > 0$, so folgt
+%
+\begin{align}
+\frac{\partial p}{\partial z} = \frac{\partial f}{\partial z}p, 
+\end{align}
+%
+man erhält also für $f$
+%
+\begin{align}
+\frac{\partial f}{\partial z} = \frac{g}{R_d\left(\Gamma_d z - T_0\right)}, 
+\end{align}
+%
+dies ist gelöst für
+%
+\begin{align}
+f = \frac{g}{R_d\Gamma_d}\ln\left(T_0 - \Gamma_d z\right).
+\end{align}
+%
+Damit folgt für den Druck
+%
+\begin{align}
+p(z) = C\exp\left(\frac{g}{R_d\Gamma_d}\ln\left(T_0 - \Gamma_d z\right)\right) = C\left(T_0 - \Gamma_d z\right)^{\frac{g}{R_d\Gamma_d}}, 
+\end{align}
+%
+mit $p(0) = p_0$ folgt $C = \frac{p_0}{T_0^{\frac{g}{\Gamma_d R_d}}}$. Es gilt also
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+p(z) = p_0\left(1 - \frac{\Gamma_d z}{T_0}\right)^{\frac{g}{R_d\Gamma_d}}\label{eq:isentrop_atmo}.
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+In der Troposphäre ist eine mit der Höhe lineare Temperaturabnahme realistischer als Isothermie. Allerdings ist der trockenadiabatische Gradient klimatologisch zu extrem. Man nimmt als \textit{Standardatmosphäre}\index{Standardatmosphäre} eine Atmosphäre mit einer auf die Geopotentialfläche Null reduzierten Temperatur von $T_0 = 290$ K $ = 16, 85^\circ$ C an und einer bis in eine Höhe $H = 12$ km linearen Temperaturabnahme $k = 0, 65$ K/100m. Darüber geht man von Isothermie aus. Ersetzt man in der Formel der isentropen Atmosphäre \eqref{eq:isentrop_atmo} den trockenadiabatischen Gradienten $\Gamma_d$ durch $k$ und verwendet darüber die barometrische Höhenformel, so folgt
+%
+\begin{align}
+p(z) &= \left\lbrace\begin{array}{c}
+p_0\left(1 - \frac{kz}{T_0}\right)^\frac{g}{R_dk}, \:z < H\\
+p(H)\exp\left(-g\frac{z - H}{R_dT_T}\right) , \:z\geq H
+\end{array}\right.
+\end{align}
+%
+mit $T_T \coloneqq T_0 - kH$ als Temperatur der Tropopause.
+
+\begin{figure}
+\centering
+\begin{subfigure}[c]{.49\textwidth}
+\centering
+\includegraphics[height = 5cm]{figs/standard_atmosphere_pressure.png}
+\end{subfigure}
+\begin{subfigure}[c]{.49\textwidth}
+\centering
+\includegraphics[height = 5cm]{figs/standard_atmosphere_density.png}
+\end{subfigure}
+\end{figure}
+
+In einer stabilen Atmosphäre ist $\theta$ eine mögliche Vertikalkoordinate, man spricht von \index{isentrope Koordinate}\index{Koordinate!isentrope}\textit{isentropen Koordinaten}, da die Flächen gleicher Vertikalkoordinate Flächen gleicher Entropie sind.
 
 \subsection{Weitere Formen des Ersten Hauptsatzes in der Atmosphäre}
 \label{sec:weitere_formen_des_ersten_hauptsatzes_in_der_atmosphäre}
@@ -8945,85 +9020,6 @@ lautet in diesem Fall also
 \end{center}
 %
 Durch interne Prozesse in einem idealen Gas mit Viskosität kann also nur Entropie produziert werden, wie es vom Zweiten Hauptsatz der Thermodynamik gefordert wird.
-
-\section{Anwendungen}
-\label{sec:anwendungen}
-
-\subsection{Die isentrope trockene Atmosphäre}
-\label{sec:die_isentrope_trockene_atmosphaere}
-
-In einer isentropen Atmosphäre (Atmosphäre homogener spezifischer Entropie) ist nach Glg. \eqref{eq:entropy_spec_id_gas} auch die potentielle Temperatur homogen. Dies führt zu einer anderen Abhängigkeit des Drucks von der Höhe als im Fall der isothermen Atmosphäre. Ist $\Gamma_d > 0$ der trockenadiabatische Temperaturgradient, gilt für die Temperatur $T(z) = T_0 - \Gamma_d z$ mit $T_0 \coloneqq T(z = 0)$. Damit folgt
-%
-\begin{align}
-\frac{\partial p}{\partial z} = -g\rho = -g\frac{p}{R_dT} = -\frac{g}{R_d}\frac{p}{T_0 - \Gamma_d z} = \frac{gp}{R_d(\Gamma_d z - T_0)}
-\end{align}
-%
-als zu lösende Differenzialgleichung für $p = p(z)$. Macht man den Ansatz
-%
-\begin{align}
-p(z) = C\exp\left[f(z)\right]
-\end{align}
-%
-mit einer stetig-differenzierbaren Funktion $f = f(z)$ und einer Konstanten $C > 0$, so folgt
-%
-\begin{align}
-\frac{\partial p}{\partial z} = \frac{\partial f}{\partial z}p, 
-\end{align}
-%
-man erhält also für $f$
-%
-\begin{align}
-\frac{\partial f}{\partial z} = \frac{g}{R_d\left(\Gamma_d z - T_0\right)}, 
-\end{align}
-%
-dies ist gelöst für
-%
-\begin{align}
-f = \frac{g}{R_d\Gamma_d}\ln\left(T_0 - \Gamma_d z\right).
-\end{align}
-%
-Damit folgt für den Druck
-%
-\begin{align}
-p(z) = C\exp\left(\frac{g}{R_d\Gamma_d}\ln\left(T_0 - \Gamma_d z\right)\right) = C\left(T_0 - \Gamma_d z\right)^{\frac{g}{R_d\Gamma_d}}, 
-\end{align}
-%
-mit $p(0) = p_0$ folgt $C = \frac{p_0}{T_0^{\frac{g}{\Gamma_d R_d}}}$. Es gilt also
-%
-\begin{center}
-\doublebox{\parbox{0.8\textwidth}{
-\begin{center}
-\begin{align}
-p(z) = p_0\left(1 - \frac{\Gamma_d z}{T_0}\right)^{\frac{g}{R_d\Gamma_d}}\label{eq:isentrop_atmo}.
-\end{align}
-\end{center}
-}}
-\end{center}
-%
-In der Troposphäre ist eine mit der Höhe lineare Temperaturabnahme realistischer als Isothermie. Allerdings ist der trockenadiabatische Gradient klimatologisch zu extrem. Man nimmt als \textit{Standardatmosphäre}\index{Standardatmosphäre} eine Atmosphäre mit einer auf die Geopotentialfläche Null reduzierten Temperatur von $T_0 = 290$ K $ = 16, 85^\circ$ C an und einer bis in eine Höhe $H = 12$ km linearen Temperaturabnahme $k = 0, 65$ K/100m. Darüber geht man von Isothermie aus. Ersetzt man in der Formel der isentropen Atmosphäre \eqref{eq:isentrop_atmo} den trockenadiabatischen Gradienten $\Gamma_d$ durch $k$ und verwendet darüber die barometrische Höhenformel, so folgt
-%
-\begin{align}
-p(z) &= \left\lbrace\begin{array}{c}
-p_0\left(1 - \frac{kz}{T_0}\right)^\frac{g}{R_dk}, \:z < H\\
-p(H)\exp\left(-g\frac{z - H}{R_dT_T}\right) , \:z\geq H
-\end{array}\right.
-\end{align}
-%
-mit $T_T \coloneqq T_0 - kH$ als Temperatur der Tropopause.
-
-\begin{figure}
-\centering
-\begin{subfigure}[c]{.49\textwidth}
-\centering
-\includegraphics[height = 5cm]{figs/standard_atmosphere_pressure.png}
-\end{subfigure}
-\begin{subfigure}[c]{.49\textwidth}
-\centering
-\includegraphics[height = 5cm]{figs/standard_atmosphere_density.png}
-\end{subfigure}
-\end{figure}
-
-In einer stabilen Atmosphäre ist $\theta$ eine mögliche Vertikalkoordinate, man spricht von \index{isentrope Koordinate}\index{Koordinate!isentrope}\textit{isentropen Koordinaten}, da die Flächen gleicher Vertikalkoordinate Flächen gleicher Entropie sind.
 
 \section{Kondensate}
 \label{sec:tracer}\index{Kondensat}
@@ -13616,7 +13612,7 @@ R_o = \frac{\sqrt{gH}}{\left|f\right|}.\label{eq:def_baro_ro_r}
 %
 Setzt man typische Werte ein, folgt $R_o \approx 2000$ km.
 
-Poincaré-Wellen werden im Englischen auch als \textit{inertia-gravity waves}\index{inertial gravity wave} bezeichnet, die deutsche Übersetzung \glqq Inertial-Schwerewelle\grqq\ ist eher unüblich. Eine weitere Bezeichnung ist \textit{Sverdrup-Welle}\index{Sverdrup-Welle}.
+Poincaré-Wellen werden im Englischen auch als \textit{inertia-gravity waves}\index{inertial gravity wave} bezeichnet. Dies rührt daher, dass die rückstellende Kräfte bei dieser Wellenmode die Schwere sowie die Coriolis-Kraft sind. Die deutsche Übersetzung \glqq Inertial-Schwerewelle\grqq\ ist eher unüblich. Eine weitere Bezeichnung ist \textit{Sverdrup-Welle}\index{Sverdrup-Welle}.
 
 \subsubsection{Wasseroberflächenwellen}
 \label{sec:wasseroberflächenwelle}\index{Wasseroberflächenwelle}\index{Welle!Wasseroberfläche}
@@ -13678,19 +13674,6 @@ erfüllt. Somit folgt aus Glg. \eqref{eq:deep_disp_pre} die Disperionsrelation
 }}
 \end{center}
 %
-Im Falle einer Dichtediskontinuität $\rho_1 < \rho_2$ mit einem leichteren Fluid über einem schwereren Fluid lautet der Druckgradientterm unterhalb der Welle
-%
-\begin{align}
-\frac{1}{\rho_2}\frac{\partial p}{\partial x} = \frac{1}{\rho_2}\frac{\partial\left(g\rho_2\eta - g\rho_1\eta\right)}{\partial x} = g\frac{\Delta\rho}{\rho_2}\frac{\partial \eta}{\partial x}
-\end{align}
-%
-mit $\Delta\rho \coloneqq \rho_2 - \rho_1$, wobei $\eta$ als Auslenkung der Dichtediskontinuität zu verstehen ist. Der Rest der Herleitung überträgt sich, wobei die Ersetzung $g \to g' \coloneqq g\frac{\Delta\rho}{\rho_2}$ vorzunehmen ist. Für die Dispersionsrelation\index{Dispersionsrelation} erhält man
-%
-\begin{align}
-\omega^2 &= g'k\tanh\left(k\left(z_w - z_0\right)\right).
-\end{align}
-%
-wobei $z_w$ die Position der Dichtediskontinuität und $z_0$ die Tiefenkoordinate des Grunds bezeichnet.
 Im Fall $\lambda \gg D$ folgt hieraus
 %
 \begin{center}
@@ -13714,6 +13697,21 @@ als Dispersionsrelation der sogenannten \textit{Flachwasserwellen}\index{Flachwa
 \end{center}
 }}
 \end{center}
+%
+Im Falle einer Dichtediskontinuität $\rho_1 < \rho_2$ mit einem leichteren Fluid über einem schwereren Fluid lautet der Druckgradientterm unterhalb der Welle
+%
+\begin{align}
+-\frac{1}{\rho_2}\frac{\partial p}{\partial x} &= -\frac{1}{\rho_2}\frac{\partial\left(g\rho_2\eta - g\rho_1\eta\right)}{\partial x} = -\frac{g}{\rho_2}\frac{\partial\left(\rho_2\eta - \rho_1\eta\right)}{\partial x} = -\frac{g}{\rho_2}\frac{\partial\left[\eta\left(\rho_2 - \rho_1\right)\right]}{\partial x}\nonumber\\
+&= -\frac{g\left(\rho_2 - \rho_1\right)}{\rho_2}\frac{\partial\eta}{\partial x} = -g\frac{\Delta\rho}{\rho_2}\frac{\partial \eta}{\partial x}
+\end{align}
+%
+mit $\Delta\rho \coloneqq \rho_2 - \rho_1$, wobei $\eta$ als Auslenkung der Dichtediskontinuität zu verstehen ist. Der Rest der Herleitung überträgt sich, wobei die Ersetzung $g \to g' \coloneqq g\frac{\Delta\rho}{\rho_2}$ vorzunehmen ist. Für die Dispersionsrelation\index{Dispersionsrelation} erhält man
+%
+\begin{align}
+\omega^2 &= g'k\tanh\left(k\left(z_w - z_0\right)\right),
+\end{align}
+%
+wobei $z_w$ die Position der Dichtediskontinuität und $z_0$ die Tiefenkoordinate des Grunds bezeichnet.
 
 \subsubsection{Stokes-Drift}
 \label{sec:stokes-drift}\index{Stokes-Drift}
@@ -14184,7 +14182,11 @@ gilt. An den beiden bisher betrachteten Punkten hat die Tidenkraft also keine ho
 
 \section{Barokline Wellen}
 \label{sec:barokline_wellen}\index{barokline Welle}\index{Welle!barokline}
-%
+
+Barotrope Wellen benötigen Grenzflächen und haben an dieser ihr Amplitudenmaximum. Daher bezeichnet man sie auch als \textit{externe Wellen}\index{Welle!externe} oder Oberflächenwellen. \textit{Interne Wellen}\index{Welle!interne} existieren hingegen im Inneren eines Mediums und benötigen Baroklinität, da in barotropen Medien die vertikale Scherungen konstant sind (s. Absch. \ref{sec:barotropie}).
+
+Ein Grenzfall sind hierbei Wellen an einer scharfen Grenzfläche ($N \gg 0$) im Inneren eines Mediums, wie z. B. an einer Inversion. Sie lassen sich häufig mathematisch mit den Formeln für Oberflächenwellen beschreiben, werden jedoch meist zu den internen Wellen gezählt.
+
 \subsection{Vertikale Moden}
 \label{sec:vertikale_moden}\index{vertikale Mode}
 
@@ -14258,6 +14260,9 @@ Es gilt also
 %
 \begin{align}
 u\left(x, z, t\right) &= \frac{Dk\newhat{w}}{n\pi}\cos\left(n\pi\frac{z}{D}\right)\exp\left[i\left(kx - \omega t - \frac{\pi}{2}\right)\right]\nonumber\\
+\Rightarrow u\left(x, z, t\right) &= -i\frac{Dk\newhat{w}}{n\pi}\cos\left(n\pi\frac{z}{D}\right)\exp\left[i\left(kx - \omega t\right)\right]\nonumber\\
+\Rightarrow u\left(x, z, t\right) &= -i\frac{Dk\newhat{w}}{n\pi}\cos\left(n\pi\frac{z}{D}\right)\left[\cos\left(kx - \omega t\right) + i\sin\left(kx - \omega t\right)\right]\nonumber\\
+\Rightarrow u\left(x, z, t\right) &= \frac{Dk\newhat{w}}{n\pi}\cos\left(n\pi\frac{z}{D}\right)\left[-i\cos\left(kx - \omega t\right) + \sin\left(kx - \omega t\right)\right]\nonumber\\
 \Rightarrow\Re\left(u\left(x, z, t\right)\right) &= \frac{Dk\newhat{w}}{n\pi}\cos\left(n\pi\frac{z}{D}\right)\sin\left(kx - \omega t\right).
 \end{align}
 %
@@ -14268,6 +14273,8 @@ Dier Horizontaldivergenz $\delta$ an der Oberfläche ergibt sich zu
 \end{align}
 %
 Vertikale Moden führen also an der Oberfläche zu alternierenden Streifen von Divergenz und Konvergenz. Im Bereich der Konvergenz werden die Oberflächenwellen horizontal komprimiert, was das Wellenfeld destabilisiert, andersherum wird das Wellenfeld im Bereich der Divergenz stabilisiert, wozu auch beiträgt, dass in diesem Bereich das Wasser aus der Tiefe an die Oberfläche kommt und dieses Wasser noch keiner Windeinwirkung ausgesetzt war.
+
+Die Mode $n = 0$ bezeichnet man auch als externe Mode, da diese keine interne vertikale Struktur hat.
 
 \subsection{Barokline Rossby-Wellen}
 \label{sec:barokline_rossbywellen}\index{Rossby-Welle!barokline}\index{barokline Rossby-Welle}
@@ -14989,7 +14996,7 @@ $N$ ist die \textit{Brunt-Väisälä-Frequenz}\index{Brunt-Väisälä-Frequenz},
 \frac{d^2z}{dt^2} = -N^2z.
 \end{align}
 %
-Hieran sieht man, dass im Fall $N^2 > 0$ eine Sinusschwingung als Lösung folgt, während im Fall $N^2 < 0$ eine reelle Exponentialfunktion die Lösung ist, da das Teilchen von seinem Ursprungsort wegbeschleunigt wird. Im Fall $N^2> 0$ ist die Schichtung also stabil, während sie im Fall $N^2<0$ labil ist. Eine stabile Schichtung bezeichnet man auch als starke Schichtung. Im Fall $N^2 = 0$ ist die Schichtung neutral.
+Hieran sieht man, dass im Fall $N^2 > 0$ eine Sinusschwingung als Lösung folgt, während im Fall $N^2 < 0$ eine reelle Exponentialfunktion die Lösung ist, da das Teilchen von seinem Ursprungsort wegbeschleunigt wird. Im Fall $N^2> 0$ ist die Schichtung also \textit{stabil}\index{Schichtung!stabil}, während sie im Fall $N^2<0$ \textit{labil}\index{Schichtung!labil} ist. Eine stabile Schichtung bezeichnet man auch als starke Schichtung. Im Fall $N^2 = 0$ ist die Schichtung \textit{neutral}\index{Schichtung!neutrale}.
 
 Die obige Herleitung ist noch nicht ganz vollständig, da Inkompressibilität angenommen wurde. Streng genommen bleibt bei der Auslenkung nicht die Dichte, sondern die potentielle Dichte bezogen auf das Referenzniveau erhalten. Bezeichnet $\newtilde{\rho}(z)$ die Dichte des Teilchens bei einer Auslenkung $z$, so wird damit Gleichung \eqref{eq:momentum_schichtung} zu
 %
@@ -15006,7 +15013,7 @@ Der Ausdruck $\rho\left(z\right) - \newtilde{\rho}\left(z\right)$ ist die Dichte
 Hierbei sind $p \coloneqq p\left(z\right)$ und $p_0 \coloneqq p\left(0\right)$. In erster Ordnung ist $p = p_0$, $\Delta\rho$ ist dann die Differenz der potentiellen Dichten in Bezug aufs Referenzniveau $z = 0$. Deshalb kann man auch die potentiellen Dichten $\rho_\theta$ (bezogen auf $z = 0$) einsetzen. Man erhält in erster Ordnung
 %
 \begin{align}
-\frac{d^2z}{dt^2} = \frac{g}{\newtilde{\rho}(z)}\left(\rho_\theta(z) - \rho_\theta(0)\right) = \frac{g}{\newtilde{\rho}(z)}\frac{\partial\rho_\theta}{\partial z}z.
+\frac{d^2z}{dt^2} = \frac{g}{\newtilde{\rho}(z)}\left(\rho_\theta(z) - \rho_\theta\left(0\right)\right) = \frac{g}{\newtilde{\rho}(z)}\frac{\partial\rho_\theta}{\partial z}z.
 \end{align}
 %
 Für die Brunt-Väisälä-Frequenz folgt
@@ -15209,7 +15216,7 @@ Findet man beim Einbringen einer ebenen Welle als Störung in ein Gleichungssyst
 \subsection{Schichtungsinstabilität}
 \label{sec:schichtungsinstabilitaet}\index{Schichtungsinstabilität}
 
-Die Atmosphäre habe an einem gegebenen Punkt die Schichtung $T = T\left(z\right)$. Üblicherweise ist
+Die Atmosphäre habe über einem gegebenen Punkt auf der Erdoberfläche die Schichtung $T = T\left(z\right)$. Üblicherweise ist
 %
 \begin{align}
 \frac{\partial T}{\partial z} < 0, 
@@ -15369,7 +15376,19 @@ ist die Schichtung ebenfalls \textit{labil}. Im Fall
 -\Gamma_d \leq \frac{\partial T}{\partial z} < -\Gamma_h
 \end{align}
 %
-ist die Schichtung \textit{bedingt labil}, da nur ein gesättigtes Teilchen bei Auslenkung aus seiner Ruhelage nicht in diese zurückkehrt, die Labilität also von der Feuchte abhängt.
+ist die Schichtung \textit{bedingt labil}, da nur ein gesättigtes Teilchen bei Auslenkung aus seiner Ruhelage nicht in diese zurückkehrt, die Labilität also von der Feuchte abhängt. Im Falle ungesättigter Luft und
+%
+\begin{align}
+\frac{\partial T}{\partial z} = -\Gamma_d
+\end{align}
+%
+bzw. gesättigter Luft und
+%
+\begin{align}
+\frac{\partial T}{\partial z} = -\Gamma_h
+\end{align}
+%
+spticht man von \textit{neutraler Schichtung}\index{Schichtung!neutrale}.
 
 \subsubsection{Aquivalentpotentielle Temperatur}
 \label{sec:äquivalentpotentielle_temperatur}\index{äquivalentpotentielle Temperatur}\index{Temperatur!äquivalentpotentielle}
