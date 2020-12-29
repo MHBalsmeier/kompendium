@@ -8308,42 +8308,8 @@ umformen. Mit $p = \rho R_sT$ folgt
 %
 umschreiben.
 
-\subsection{Hydrostatischer Grenzfall}
-\label{sec:hydrostatischer_grenzfall}
-
-Leitet man die Zustandsgleichung zeitlich ab, folgt
-%
-\begin{align}
-\omega\alpha + p \md{\alpha} = R_s\md{T}.
-\end{align}
-%
-Mit den Glg.en \eqref{eq:td1_ideal_gas} und \eqref{eq:diff_spez_heat_id_gase} erhält man unter Vernachlässigung der Massenquelldichte
-%
-\begin{align}
-\omega\alpha + \alpha q_T^{(V)} - c^{(v)}\md{T} = R_s\md{T}\Leftrightarrow - \omega\alpha + \left(R_s + c^{(v)}\right)\md{T} &= c^{(p)}\md{T} - \alpha\omega = \alpha q_T^{(V)}\nonumber\\
-\md{_hT} - \omega\left(\frac{\alpha}{c^{(p)}} - \frac{\partial T}{\partial p}\right) &= \frac{\alpha}{c^{(p)}}q_T^{(V)}.
-\end{align}
-%
-Mit der Zustandsgleichung folgt
-%
-\begin{align}
-\frac{\alpha}{c^{(p)}} - \frac{\partial T}{\partial p} &= \frac{R_sT}{c^{(p)}p} - \frac{\partial T}{\partial p}\eqqcolon S_p, \label{eq:def_stabilitaetsparameter}
-\end{align}
-%
-dies definiert den \text{Stabilitätsparameter}\index{Stabilitätsparameter} $S_p$. Man erhält
-%
-\begin{center}
-\doublebox{\parbox{0.8\textwidth}{
-\begin{center}
-\begin{align}
-\md{_hT} - S_p\omega &= \frac{\alpha}{c^{(p)}}q_T^{(V)}.\label{eq:td1_ideal_gas_p}
-\end{align}
-\end{center}
-}}
-\end{center}
-
-\subsection{Adiabatische Grenzfälle}
-\label{sec:adiabatische_grenzfaelle}
+\subsection{Adiabate}
+\label{sec:adiabate}\index{Adiabate}
 
 Ein Prozess ist adiabatisch, wenn keine Wärme übertragen wird, $dQ = 0$. Der Erste Hauptsatz lautet dann mit den Zustandsgrößen des idealen Gases
 %
@@ -8372,14 +8338,20 @@ c^{(v)}m\frac{dp}{dV}\left(\frac{V}{nR} + \frac{p}{nR}\frac{dV}{dp}\right) &= -p
 %
 Macht man mit einem $\kappa > 0$ den Ansatz
 %
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 \begin{align}
-p\left(V\right) = p_0\left(\frac{V_0}{V}\right)^\kappa, \label{eq:adiabate}
+p\left(V\right) = p_0\left(\frac{V_0}{V}\right)^\kappa,\label{eq:adiabate}
 \end{align}
+\end{center}
+}}
+\end{center}
 %
 folgt
 %
 \begin{align}
-\frac{dp}{dV} = -\kappa p_0V_0^\kappa V^{-\kappa - 1} = -\kappa p_0\left(\frac{V_0}{V}\right)^\kappa \frac{1}{V} = -\kappa \frac{p}{V}
+\frac{dp}{dV} = -\kappa p_0V_0^\kappa V^{-\kappa - 1} = -\kappa p_0\left(\frac{V_0}{V}\right)^\kappa \frac{1}{V} = -\kappa\frac{p}{V}
 \end{align}
 %
 und durch Koeffizientenvergleich erhält man
@@ -8388,249 +8360,19 @@ und durch Koeffizientenvergleich erhält man
 -\kappa p &= -p\left(1 + \frac{R_s}{c^{(v)}}\right)\Leftrightarrow\kappa = 1 + \frac{R_s}{c^{(v)}} = \frac{c^{(p)}}{c^{(v)}}.
 \end{align}
 %
-$\kappa > 1$ bezeichnet man als den Adiabaten- oder Isentropenexponenten.
-
-\subsection{Potentielle Temperatur als prognostische Variable}
-\label{sec:potentielle_temperatur_als_prognostische_variable}
-
-Die \textit{potentielle Temperatur}\index{Temperatur!potentielle}\index{potentielle Temperatur} $\theta$ ist die Temperatur, die ein Gaspaket hätte, brächte man es adiabatisch auf einen willkürlichen Referenzdruck $p_0$. Ersetzt man mittels der Zustandsgleichung in der Adiabaten Glg. \eqref{eq:adiabate} das Volumen durch die Temperatur, erhält man
-%
-\begin{align}
-p_0 = p\left(\frac{V}{V_0}\right)^\kappa = p\left(\frac{Tp_0}{p\theta}\right)^\kappa\Leftrightarrow T_0^\kappa = T^\kappa\left(\frac{p_0}{p}\right)^{\kappa - 1}\Leftrightarrow \theta = T\left(\frac{p_0}{p}\right)^\frac{R_s}{c^{(p)}}\label{eq:pot_temp}
-\end{align}
-%
-Dies kann man nutzen, um die Definition des Stabilitätsparameters $S_p$ Glg. \eqref{eq:def_stabilitaetsparameter} zu vereinfachen:
-%
-\begin{align}
-- \frac{T}{\theta}\frac{\partial \theta}{\partial p} &= -\frac{T}{\theta}\left(\frac{\partial T}{\partial p} - T\frac{1}{p}\frac{R_s}{c^{(p)}}\right)\left(\frac{p_0}{p}\right)^{\frac{R_s}{c^{(p)}}} = \frac{R_sT}{c^{(p)}p} - \frac{\partial T}{\partial p} = S_p\label{eq:stabilitaetspara_vereinfacht}
-\end{align}
-%
-Man erhält für die potentielle Dichte $\rho_0$ den Ausdruck
-%
-\begin{align}
-\rho_0 = \rho\left(\frac{p_0}{p}\right)^\frac{1}{\kappa}.\label{eq:pot_dichte}
-\end{align}
-%
-In der Meteorologie ist $p_0 \coloneqq 1000\:\text{hPa}$. Der \textit{trockenadiabatische Temperaturgradient}\index{trockenadiabatischer Temperaturgradient}\index{Temperaturgradient!trockenadiabatischer} bezeichnet die Abnahme der Temperatur mit der Höhe bei adiabatischem Aufstieg eines trockenen Luftteilchens. Mithilfe der potentiellen Temperatur kann man sich den Wert leicht herleiten. Es gilt ja
-%
-\begin{align}
-\frac{dT}{dz} = \theta\frac{dp}{dz}\frac{R_s}{c^{(p)}}\frac{1}{p_0}\left(\frac{p}{p_0}\right)^{\frac{R_s}{c^{(p)}} - 1}, 
-\end{align}
-%
-da man von einem adiabatischen Prozess ausgeht und sich die potentielle Temperatur dabei nicht ändert. $p_0$ ist dabei der Referenzdruck, dies soll hier gleichzeitig das Niveau bezeichnen, in dem abgeleitet wird. Setzt man die hydrostatische Approximation und die Zustandsgleichung idealer Gase ein, folgt
-%
-\begin{align}
-\frac{dT}{dz} = -\theta g\rho _0\frac{R_s}{c^{(p)}}\frac{1}{p_0} = -\frac{g}{c^{(p)}} \approx - 0, 98\:\frac{\text{K}}{100\:\text{m}}, 
-\end{align}
-%
-man definiert den trockenadiabatischen Gradienten $\Gamma_d$ als den Betrag der Abnahme
-%
-\begin{align}
-\Gamma_d \coloneqq \frac{g}{c^{(p)}} \approx 0, 98\:\frac{\text{K}}{100\:\text{m}}.\label{eq:trockenad_tempgradient}
-\end{align}
-%
-\begin{figure}
-\begin{center}
-\includegraphics[width = .6\textwidth]{figs/lifting_dry.png}
-\caption{Die adiabatische Hebung eines trockenen Luftteilchens, diese Kurve bezeichnet man auch als Hebungskurve\index{Hebungskurve}.}
-\label{fig:trocken_hebung}
-\end{center}
-\end{figure}
-
-Der trockenadiabatische Temperaturgradient ist kein Temperaturgradient im eigentlichen Sinne, er ist die Ableitung der Funktion $T = T(z)$, die die adiabatische Hebung eines Teilchens beschreibt. Diese Funktion nennt man auch Trockenadiabate\index{Trockenadiabate}. Er ist nicht die Vertikalkomponente des atmosphärischen Temperaturgradienten $\nabla T$. Diese muss überhaupt nicht, auch nicht näherungsweise, mit der Trockenadiabaten übereinstimmen. Es gilt nämlich
-%
-\begin{align}
-\frac{\partial T}{\partial z} &= \theta\frac{\partial p}{\partial z}\frac{R_s}{c^{(p)}}\frac{1}{p_0}\left(\frac{p}{p_0}\right)^{\frac{R_s}{c^{(p)}} - 1} + \frac{\partial\theta}{\partial z}\left(\frac{p}{p_0}\right)^{\frac{R_s}{c^{(p)}}} = -\frac{g}{c^{(p)}} - g\frac{p}{R_sT}\frac{\partial\theta}{\partial p}\left(\frac{p}{p_0}\right)^{\frac{R_s}{c^{(p)}}}\nonumber\\
-\Rightarrow g\frac{p}{R_s\theta}\frac{\partial\theta}{\partial p} &= -\left(\Gamma_d - \Gamma\right)\label{eq:vert_temp_gradient}
-\end{align}
-%
-mit
-%
-\begin{align}
-\Gamma \coloneqq -\frac{\partial T}{\partial z}.
-\end{align}
-
-Die materielle Ableitung von Glg. \eqref{eq:pot_temp} ist
-%
-\begin{align}
-\md{T} &= \md{\theta}\left(\frac{p}{p_0}\right)^{R_s/c^{(p)}} + \theta\frac{dp}{dt}\frac{1}{p_0}\frac{R_s}{c^{(p)}}\left(\frac{p}{p_0}\right)^{R_s/c^{(p)} - 1} = \frac{T}{\theta}\md{\theta} + \frac{T}{p}\omega\frac{R_s}{c^{(p)}} = \frac{T}{\theta}\md{\theta} + \frac{\omega}{\rho c^{(p)}}.
-\end{align}
-%
 Hieraus folgt
 %
-\begin{align}
-c^{(v)}\frac{T}{\theta}\md{\theta} + \frac{T}{p}\omega\frac{R_s}{c^{(p)}}c^{(v)} + p\md{}\frac{R_sT}{p} &= \frac{q_T^{(V)}}{\rho} - \frac{sT}{\rho}q_\rho^{(V)}\nonumber\\
-\Leftrightarrow \md{\theta}\frac{T}{\theta} + \frac{\omega T}{p}\frac{R_s}{c^{(p)}} - \frac{R_sT}{pc^{(v)}}\omega + \frac{R_s}{c^{(v)}}\md{T} &= \frac{q_T^{(V)}}{c^{(v)}\rho} - \frac{sT}{c^{(v)}\rho}q_\rho^{(V)}\nonumber\\
-\Leftrightarrow \frac{T}{\theta}\md{\theta} + \frac{\omega R_sT}{p}\left(\frac{1}{c^{(p)}} - \frac{1}{c^{(v)}}\right)\nonumber\\
-+ \frac{R_s}{c^{(v)}}\left(\frac{T}{\theta}\md{\theta} + \frac{T}{p}\omega\frac{R_s}{c^{(p)}}\right) &= \frac{q_T^{(V)}}{c^{(v)}\rho} - \frac{sT}{c^{(v)}\rho}q_\rho^{(V)}\nonumber\\
-\Leftrightarrow \frac{T}{\theta}\md{\theta}\frac{c^{(p)}}{c^{(v)}} + \frac{\omega R_sT}{p}\frac{c^{(v)} - c^{(p)} + R_s}{c^{(v)}c^{(p)}} &= \frac{q_T^{(V)}}{c^{(v)}\rho} - \frac{sT}{c^{(v)}\rho}q_\rho^{(V)}.
-\end{align}
-%
-Damit lautet Erste Hauptsatz für Thermodynamik für ein Gas in Termen der potentiellen Temperatur
-%
 \begin{center}
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-\md{\theta} = \frac{\theta}{T\rho c^{(p)}}\left(q_T^{(V)} - sTq_\rho^{(V)}\right).\label{eq:td1_dry_pot}
+\kappa = \frac{c^{(p)}}{c^{(v)}}.
 \end{align}
 \end{center}
 }}
 \end{center}
 %
-Multipliziert man diese Gleichung mit $\rho$, erhält man
-%
-\begin{align}
-\rho\frac{\partial\theta}{\partial t} + \rho\mathbf{v}\cdot\nabla\theta = \frac{\theta}{Tc^{(p)}}\left(q_T^{(V)} - sTq_\rho^{(V)}\right).
-\end{align}
-%
-Addiert man das Produkt der potentiellen Temperatur\index{potentielle Temperatur}\index{Temperatur!potentielle} mit der Kontinuitätsgleichung
-%
-\begin{align}
-\theta\frac{\partial\rho}{\partial t} + \theta\mathbf{v}\cdot\nabla\rho + \theta\rho\nabla\cdot\mathbf{v} = \theta q_\rho^{(V)} = \frac{\theta}{Tc^{(p)}}Tc^{(p)}q_\rho^{(V)}
-\end{align}
-%
-hinzu, folgt
-%
-\begin{center}
-\doublebox{\parbox{0.8\textwidth}{
-\begin{center}
-\begin{align}
-\frac{\partial\left(\rho\theta\right)}{\partial t} + \nabla\cdot\left(\rho\theta\mathbf{v}\right) = \frac{\theta}{Tc^{(p)}}\left(q_T^{(V)} + T\left(c^{(p)} - s\right)q_\rho^{(V)}\right).\label{eq:td1_id_gas_pot_mod}
-\end{align}
-\end{center}
-}}
-\end{center}
-%
-Diese Form bezeichnet man auch als \textit{Flussform}\index{Flussform}, wohingegen Glg. \eqref{eq:td1_dry_pot} \textit{Advektionsform}\index{Advektionsform} hat. Die Flussform lässt sich als eine formale Kontinuitätsgleichung verstehen.
-
-\subsection{Druck als prognostische Variable}
-\label{sec:druck_als_prognostische_variable}
-
-Nun soll noch die Definition der potentiellen Temperatur in die Zustandsgleichung eingesetzt werden:
-%
-\begin{align}
-p &= \rho R_s\theta\left(\frac{p}{p_0}\right)^{R_s/c^{(p)}}\Rightarrow p^{1 - R_s/c^{(p)}} = \rho R_s\theta\frac{1}{p_0^{R_s/c^{(p)}}}\label{eq:state_theta_deriv_0}\\
-\Rightarrow p^{1/\kappa} &= \rho R_s\theta\frac{1}{p_0^{R_s/c^{(p)}}}\Rightarrow p = \left(\rho R_s\theta\right)^\kappa\left(\frac{1}{p_0}\right)^{\kappa - 1}\label{eq:state_theta}
-\end{align}
-%
-Auch für $p$ kann eine prognostiosche Gleichung\index{prognostische Gleichung!Druck}\index{Druck!prognostische Gleichung}\index{Druck!Gleichung!prognostische}\index{Gleichung!prognostische!Druck} hergeleitet werden:
-%
-\begin{align}
-p &= \rho R_sT \Rightarrow \md{p} = R_s\left(T\md{\rho} + \rho\md{T}\right)
-\end{align}
-%
-Mit
-%
-\begin{align}
-\md{\rho} = -\rho\nabla\cdot\mathbf{v} + q_\rho^{(V)}, && \md{T} = \frac{T}{\theta}\md{\theta} + \frac{TR_s}{c^{(p)}p}\md{p}
-\end{align}
-%
-folgt
-%
-\begin{align}
-\md{p} &= R_sT\left(-\rho\nabla\cdot\mathbf{v} + q_{\rho}\right) + R_s\rho\left(\frac{T}{\theta}\md{\theta} + \frac{TR_s}{c^{(p)}p}\md{p}\right)\nonumber\\
-&= -p\nabla\cdot\mathbf{v} + R_sTq_\rho^{(V)} + \frac{p}{\theta}\md{\theta} + \frac{R_s}{c^{(p)}}\md{p}\nonumber\\
-\Leftrightarrow \frac{c^{(v)}}{c^{(p)}}\md{p} &= -p\nabla\cdot\mathbf{v} + R_sTq_\rho^{(V)} + \frac{p}{\theta}\md{\theta}\nonumber\\
-\Leftrightarrow \frac{\partial p}{\partial t} &= -\mathbf{v}\cdot\nabla p - \frac{c^{(p)}}{c^{(v)}}p\nabla\cdot\mathbf{v} + \frac{c^{(p)}}{c^{(v)}}R_sTq_\rho^{(V)} + \frac{p}{T\rho c^{(v)}}\left(q_T^{(V)} - sTq_\rho^{(V)}\right)
-\end{align}
-%
-\begin{center}
-\doublebox{\parbox{0.8\textwidth}{
-\begin{center}
-\begin{align}
-\Leftrightarrow \frac{\partial p}{\partial t} = -\mathbf{v}\cdot\nabla p - \frac{c^{(p)}}{c^{(v)}}p\nabla\cdot\mathbf{v} + \frac{c^{(p)}}{c^{(v)}}R_sTq_\rho^{(V)} + \frac{R_s}{c^{(v)}}\left(q_T^{(V)} - sTq_\rho^{(V)}\right).\label{eq:pressure_prognostic_equation}
-\end{align}
-\end{center}
-}}
-\end{center}
-
-\subsubsection{Exner-Druck als prognostische Variable}
-\label{sec:exner-druck_als_prognostische_variable}
-
-Definiert man den \textit{Exner-Druck}\index{Exner-Druck} $\Pi$ durch
-%
-\begin{align}
-\Pi \coloneqq \frac{T}{\theta} = \left(\frac{p}{p_0}\right)^{R_s/c^{(p)}} \Leftrightarrow p = \Pi^{c^{(p)}/R_s}p_0,\label{eq:def_exner-druck}
-\end{align}
-%
-gilt der Zusammenhang
-%
-\begin{align}
-p &= \rho R_s\theta\Pi \Leftrightarrow \Pi^{c^{(p)}/R_s} = \frac{\rho R_s\theta}{p_0}\Pi \Leftrightarrow \Pi^{c^{(v)}/R_s} = \frac{\rho R_s\theta}{p_0}\nonumber\\
-\Pi &= \left(\frac{\rho R_s\theta}{p_0}\right)^{R_s/c^{(v)}}.\label{eq:exner_pressure_diag}
-\end{align}
-%
-Hieraus folgt
-%
-\begin{align}
-\nabla p = R_s \theta\rho\nabla\Pi + R_s\Pi\nabla\left(\rho\theta\right) = c^{(p)}\theta\rho\nabla\Pi - c^{(v)}\theta\rho\nabla\Pi + R_s\Pi\nabla\left(\rho\theta\right).
-\end{align}
-%
-Man stellt fest:
-%
-\begin{align}
--c^{(v)}\theta\rho\nabla\Pi + R_s\Pi\nabla\left(\rho\theta\right) &= -\left(\frac{R_s}{p_0}\right)^{R_s/c^{(v)}}c^{(v)}\theta\rho\nabla\left(\rho\theta\right)^{R_s/c^{(v)}} + R_s\Pi\nabla\left(\rho\theta\right)\nonumber\\
-&\stackrel{\text{Glg. }\eqref{eq:exner_pressure_diag}}{=} R_s\left(\Pi - \left(\frac{R_s}{p_0}\right)^{R_s/c^{(v)}}\left(\rho\theta\right)^{R_s/c^{(v)}}\right)\nabla\left(\rho\theta\right) = 0
-\end{align}
-%
-Somit kann man für die Druckgradientbeschleunigung\index{Druckgradientbeschleunigung!Exner-Druck}\index{Exner-Druck!Druckgradientbeschleunigung} schreiben
-%
-\begin{align}
--\frac{1}{\rho}\nabla p = -c^{(p)}\theta\nabla\Pi.\label{eq:exner_pressure_gradient_acc}
-\end{align}
-%
-Mit Glg. \eqref{eq:diff_op_rule_3} folgt
-%
-\begin{align}
-\nabla\cdot\left(\rho c^{(p)}\Pi\theta\mathbf{v}\right) &= \rho c^{(p)}\theta\mathbf{v}\cdot\nabla\Pi + \Pi\nabla\cdot\left(\rho c^{(p)}\theta\mathbf{v}\right)\nonumber\\
-\Leftrightarrow -\rho\mathbf{v}\cdot c^{(p)}\theta\nabla\Pi &= -\nabla\cdot\left(\rho c^{(p)}T\mathbf{v}\right) +  c^{(p)}\Pi\nabla\cdot\left(\rho\theta\mathbf{v}\right)\nonumber\\
-\Leftrightarrow -\rho\mathbf{v}\cdot c^{(p)}\theta\nabla\Pi &= -\nabla\cdot\left(\rho h\mathbf{v}\right) + c^{(p)}\Pi\nabla\cdot\left(\rho\theta\mathbf{v}\right)\
-\end{align}
-%
-mit der spezifischen Enthalpie $h$. Hieraus kann man ablsesen:
-%
-\begin{itemize}
-\item Wirkt der Druckgradient beschleunigend, so divergiert der Fluss der potentiellen Temperatur stärker als der Fluss der Enthalpie.
-\item Wirk der Druckgradient bremsend, so divergiert der Fluss der Enthalpie stärker als der Fluss der potentiellen Temperatur.
-\end{itemize}
-%
-Nun werden noch zwei prognostische Gleichungen für $\Pi$ hergeleitet. Die lokalzeitliche Ableitung von Glg. \eqref{eq:exner_pressure_diag} lautet im adiabatischen Fall
-%
-\begin{align}
-\frac{\partial\Pi}{\partial t} &= \frac{R_s}{c^{(v)}}\left(\frac{\rho R_s\theta}{p_0}\right)^{\frac{R_s}{c^{(v)}} - 1}\frac{\rho R_s\theta}{p_0}\left(\frac{1}{\theta}\frac{\partial\theta}{\partial t} + \frac{1}{\rho}\frac{\partial\rho}{\partial t}\right) = \frac{R_s}{c^{(v)}\theta\rho}\left(\frac{\rho R_s\theta}{p_0}\right)^{\frac{R_s}{c^{(v)}}}\left(\rho\frac{\partial\theta}{\partial t} + \theta\frac{\partial\rho}{\partial t}\right)\nonumber\\
-&= \frac{R_s\Pi}{c^{(v)}\theta\rho}\left(\rho\frac{\partial\theta}{\partial t} + \theta\frac{\partial\rho}{\partial t}\right) = \frac{R_s\Pi}{c^{(v)}\theta\rho}\left(-\rho\mathbf{v}\cdot\nabla\theta - \theta\nabla\cdot\left(\rho\mathbf{v}\right)\right) = -\frac{R_s\Pi}{c^{(v)}\theta\rho}\nabla\cdot\left(\rho\theta\mathbf{v}\right).
-\end{align}
-%
-Fügt man die diabatischen Terme hinzu, folgt
-%
-\begin{center}
-\doublebox{\parbox{0.8\textwidth}{
-\begin{center}
-\begin{align}
-\frac{\partial\Pi}{\partial t} &= -\frac{R_s\Pi}{c^{(v)}\theta\rho}\left[\nabla\cdot\left(\rho\theta\mathbf{v}\right) - \frac{\theta}{Tc^{(p)}}\left(q_T^{(V)} + T\left(c^{(p)} - s\right)q_\rho^{(V)}\right)\right].\label{eq:def_exner-pressure_local_derivative}
-\end{align}
-\end{center}
-}}
-\end{center}
-%
-Für die materielle Ableitung von Glg. \eqref{eq:exner_pressure_diag} erhält man
-%
-\begin{align}
-\md{\Pi} = \frac{R_s}{c^{(v)}}\left(\frac{\rho R_s\theta}{p_0}\right)^{R_s/c^{(v)} - 1}\frac{R_s}{p_0}\md{\left(\rho\theta\right)} = \frac{R_s}{c^{(v)}\rho\theta}\left(\frac{\rho R_s\theta}{p_0}\right)^{R_s/c^{(v)}}\md{\left(\rho\theta\right)} = \frac{R_s\Pi}{c^{(v)}\rho\theta}\md{\left(\rho\theta\right)}.
-\end{align}
-%
-Mit Glg. \eqref{eq:td1_id_gas_pot_mod} folgt
-%
-\begin{center}
-\doublebox{\parbox{0.8\textwidth}{
-\begin{center}
-\begin{align}
-\md{\Pi} = \frac{R_s\Pi}{c^{(v)}}\left[-\nabla\cdot\mathbf{v} + \frac{1}{\rho Tc^{(p)}}\left(q_T^{(V)} + T\left(c^{(p)} - s\right)q_\rho^{(V)}\right)\right].\label{eq:exner-pressure_material_derivative}
-\end{align}
-\end{center}
-}}
-\end{center}
+$\kappa > 1$ bezeichnet man als den \textit{Adiabaten-}\index{Adiabatenexponenten} oder \textit{Isentropenexponenten}\index{Isentropenexponent}. Glg. \eqref{eq:adiabate} bezeichnet man als \textit{Adiabate}\index{Adiabate}.
 
 \subsection{Entropie als prognostische Variable}
 \label{sec:entropie_als_prognostische_variable}
@@ -8792,6 +8534,252 @@ T = \beta\rho^{R_s/c^{(v)}}\exp\left(\frac{\newtilde{s}}{c^{(v)}\rho}\right)
 \end{center}
 %
 notieren. Dies ist die Zustandsgleichung idealer Gase in Entropieformulierung\index{Zustandsgleichung idealer Gase!Entropieformulierung}.
+
+\subsubsection{Potentielle Temperatur als prognostische Variable}
+\label{sec:potentielle_temperatur_als_prognostische_variable}
+
+Die \textit{potentielle Temperatur}\index{Temperatur!potentielle}\index{potentielle Temperatur} $\theta$ ist die Temperatur, die ein Gaspaket hätte, brächte man es adiabatisch auf einen willkürlichen Referenzdruck $p_0$. Ersetzt man mittels der Zustandsgleichung in der Adiabaten Glg. \eqref{eq:adiabate} das Volumen durch die Temperatur, erhält man
+%
+\begin{align}
+p_0 = p\left(\frac{V}{V_0}\right)^\kappa = p\left(\frac{Tp_0}{p\theta}\right)^\kappa\Leftrightarrow T_0^\kappa = T^\kappa\left(\frac{p_0}{p}\right)^{\kappa - 1}\Leftrightarrow \theta = T\left(\frac{p_0}{p}\right)^\frac{R_s}{c^{(p)}}\label{eq:pot_temp}
+\end{align}
+%
+Dies kann man nutzen, um die Definition des Stabilitätsparameters $S_p$ Glg. \eqref{eq:def_stabilitaetsparameter} zu vereinfachen:
+%
+\begin{align}
+- \frac{T}{\theta}\frac{\partial \theta}{\partial p} &= -\frac{T}{\theta}\left(\frac{\partial T}{\partial p} - T\frac{1}{p}\frac{R_s}{c^{(p)}}\right)\left(\frac{p_0}{p}\right)^{\frac{R_s}{c^{(p)}}} = \frac{R_sT}{c^{(p)}p} - \frac{\partial T}{\partial p} = S_p\label{eq:stabilitaetspara_vereinfacht}
+\end{align}
+%
+Man erhält für die potentielle Dichte $\rho_\theta$ den Ausdruck
+%
+\begin{align}
+\rho_\theta = \rho\left(\frac{p_0}{p}\right)^\frac{1}{\kappa}.\label{eq:pot_dichte}
+\end{align}
+%
+In der Meteorologie ist $p_0 \coloneqq 1000\:\text{hPa}$. Der \textit{trockenadiabatische Temperaturgradient}\index{trockenadiabatischer Temperaturgradient}\index{Temperaturgradient!trockenadiabatischer} bezeichnet die Abnahme der Temperatur mit der Höhe bei adiabatischem Aufstieg eines trockenen Luftteilchens. Mithilfe der potentiellen Temperatur kann man sich den Wert leicht herleiten. Es gilt ja
+%
+\begin{align}
+\frac{dT}{dz} = \theta\frac{dp}{dz}\frac{R_s}{c^{(p)}}\frac{1}{p_0}\left(\frac{p}{p_0}\right)^{\frac{R_s}{c^{(p)}} - 1}, 
+\end{align}
+%
+da man von einem adiabatischen Prozess ausgeht und sich die potentielle Temperatur dabei nicht ändert. $p_0$ ist dabei der Referenzdruck, dies soll hier gleichzeitig das Niveau bezeichnen, in dem abgeleitet wird. Setzt man die hydrostatische Approximation und die Zustandsgleichung idealer Gase ein, folgt
+%
+\begin{align}
+\frac{dT}{dz} = -\theta g\rho _0\frac{R_s}{c^{(p)}}\frac{1}{p_0} = -\frac{g}{c^{(p)}} \approx - 0, 98\:\frac{\text{K}}{100\:\text{m}}, 
+\end{align}
+%
+man definiert den trockenadiabatischen Gradienten $\Gamma_d$ als den Betrag der Abnahme
+%
+\begin{align}
+\Gamma_d \coloneqq \frac{g}{c^{(p)}} \approx 0, 98\:\frac{\text{K}}{100\:\text{m}}.\label{eq:trockenad_tempgradient}
+\end{align}
+%
+\begin{figure}
+\begin{center}
+\includegraphics[width = .6\textwidth]{figs/lifting_dry.png}
+\caption{Die adiabatische Hebung eines trockenen Luftteilchens, diese Kurve bezeichnet man auch als Hebungskurve\index{Hebungskurve}.}
+\label{fig:trocken_hebung}
+\end{center}
+\end{figure}
+
+Der trockenadiabatische Temperaturgradient ist kein Temperaturgradient im eigentlichen Sinne, er ist die Ableitung der Funktion $T = T(z)$, die die adiabatische Hebung eines Teilchens beschreibt. Diese Funktion nennt man auch Trockenadiabate\index{Trockenadiabate}. Er ist nicht die Vertikalkomponente des atmosphärischen Temperaturgradienten $\nabla T$. Diese muss überhaupt nicht, auch nicht näherungsweise, mit der Trockenadiabaten übereinstimmen. Es gilt nämlich
+%
+\begin{align}
+\frac{\partial T}{\partial z} &= \theta\frac{\partial p}{\partial z}\frac{R_s}{c^{(p)}}\frac{1}{p_0}\left(\frac{p}{p_0}\right)^{\frac{R_s}{c^{(p)}} - 1} + \frac{\partial\theta}{\partial z}\left(\frac{p}{p_0}\right)^{\frac{R_s}{c^{(p)}}} = -\frac{g}{c^{(p)}} - g\frac{p}{R_sT}\frac{\partial\theta}{\partial p}\left(\frac{p}{p_0}\right)^{\frac{R_s}{c^{(p)}}}\nonumber\\
+\Rightarrow g\frac{p}{R_s\theta}\frac{\partial\theta}{\partial p} &= -\left(\Gamma_d - \Gamma\right)\label{eq:vert_temp_gradient}
+\end{align}
+%
+mit
+%
+\begin{align}
+\Gamma \coloneqq -\frac{\partial T}{\partial z}.
+\end{align}
+
+Die materielle Ableitung von Glg. \eqref{eq:pot_temp} ist
+%
+\begin{align}
+\md{T} &= \md{\theta}\left(\frac{p}{p_0}\right)^{R_s/c^{(p)}} + \theta\frac{dp}{dt}\frac{1}{p_0}\frac{R_s}{c^{(p)}}\left(\frac{p}{p_0}\right)^{R_s/c^{(p)} - 1} = \frac{T}{\theta}\md{\theta} + \frac{T}{p}\omega\frac{R_s}{c^{(p)}} = \frac{T}{\theta}\md{\theta} + \frac{\omega}{\rho c^{(p)}}.
+\end{align}
+%
+Hieraus folgt
+%
+\begin{align}
+c^{(v)}\frac{T}{\theta}\md{\theta} + \frac{T}{p}\omega\frac{R_s}{c^{(p)}}c^{(v)} + p\md{}\frac{R_sT}{p} &= \frac{q_T^{(V)}}{\rho} - \frac{sT}{\rho}q_\rho^{(V)}\nonumber\\
+\Leftrightarrow \md{\theta}\frac{T}{\theta} + \frac{\omega T}{p}\frac{R_s}{c^{(p)}} - \frac{R_sT}{pc^{(v)}}\omega + \frac{R_s}{c^{(v)}}\md{T} &= \frac{q_T^{(V)}}{c^{(v)}\rho} - \frac{sT}{c^{(v)}\rho}q_\rho^{(V)}\nonumber\\
+\Leftrightarrow \frac{T}{\theta}\md{\theta} + \frac{\omega R_sT}{p}\left(\frac{1}{c^{(p)}} - \frac{1}{c^{(v)}}\right)\nonumber\\
++ \frac{R_s}{c^{(v)}}\left(\frac{T}{\theta}\md{\theta} + \frac{T}{p}\omega\frac{R_s}{c^{(p)}}\right) &= \frac{q_T^{(V)}}{c^{(v)}\rho} - \frac{sT}{c^{(v)}\rho}q_\rho^{(V)}\nonumber\\
+\Leftrightarrow \frac{T}{\theta}\md{\theta}\frac{c^{(p)}}{c^{(v)}} + \frac{\omega R_sT}{p}\frac{c^{(v)} - c^{(p)} + R_s}{c^{(v)}c^{(p)}} &= \frac{q_T^{(V)}}{c^{(v)}\rho} - \frac{sT}{c^{(v)}\rho}q_\rho^{(V)}.
+\end{align}
+%
+Damit lautet Erste Hauptsatz für Thermodynamik für ein Gas in Termen der potentiellen Temperatur
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\md{\theta} = \frac{\theta}{T\rho c^{(p)}}\left(q_T^{(V)} - sTq_\rho^{(V)}\right).\label{eq:td1_dry_pot}
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+Multipliziert man diese Gleichung mit $\rho$, erhält man
+%
+\begin{align}
+\rho\frac{\partial\theta}{\partial t} + \rho\mathbf{v}\cdot\nabla\theta = \frac{\theta}{Tc^{(p)}}\left(q_T^{(V)} - sTq_\rho^{(V)}\right).
+\end{align}
+%
+Addiert man das Produkt der potentiellen Temperatur\index{potentielle Temperatur}\index{Temperatur!potentielle} mit der Kontinuitätsgleichung
+%
+\begin{align}
+\theta\frac{\partial\rho}{\partial t} + \theta\mathbf{v}\cdot\nabla\rho + \theta\rho\nabla\cdot\mathbf{v} = \theta q_\rho^{(V)} = \frac{\theta}{Tc^{(p)}}Tc^{(p)}q_\rho^{(V)}
+\end{align}
+%
+hinzu, folgt
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\frac{\partial\left(\rho\theta\right)}{\partial t} + \nabla\cdot\left(\rho\theta\mathbf{v}\right) = \frac{\theta}{Tc^{(p)}}\left(q_T^{(V)} + T\left(c^{(p)} - s\right)q_\rho^{(V)}\right).\label{eq:td1_id_gas_pot_mod}
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+Diese Form bezeichnet man auch als \textit{Flussform}\index{Flussform}, wohingegen Glg. \eqref{eq:td1_dry_pot} \textit{Advektionsform}\index{Advektionsform} hat. Die Flussform lässt sich als eine formale Kontinuitätsgleichung verstehen.
+
+
+\subsection{Weitere Formen des Ersten Hauptsatzes in der Atmosphäre}
+\label{sec:weitere_formen_des_ersten_hauptsatzes_in_der_atmosphäre}
+
+\subsubsection{Druck als prognostische Variable}
+\label{sec:druck_als_prognostische_variable}
+
+Nun soll noch die Definition der potentiellen Temperatur in die Zustandsgleichung eingesetzt werden:
+%
+\begin{align}
+p &= \rho R_s\theta\left(\frac{p}{p_0}\right)^{R_s/c^{(p)}}\Rightarrow p^{1 - R_s/c^{(p)}} = \rho R_s\theta\frac{1}{p_0^{R_s/c^{(p)}}}\label{eq:state_theta_deriv_0}\\
+\Rightarrow p^{1/\kappa} &= \rho R_s\theta\frac{1}{p_0^{R_s/c^{(p)}}}\Rightarrow p = \left(\rho R_s\theta\right)^\kappa\left(\frac{1}{p_0}\right)^{\kappa - 1}\label{eq:state_theta}
+\end{align}
+%
+Auch für $p$ kann eine prognostiosche Gleichung\index{prognostische Gleichung!Druck}\index{Druck!prognostische Gleichung}\index{Druck!Gleichung!prognostische}\index{Gleichung!prognostische!Druck} hergeleitet werden:
+%
+\begin{align}
+p &= \rho R_sT \Rightarrow \md{p} = R_s\left(T\md{\rho} + \rho\md{T}\right)
+\end{align}
+%
+Mit
+%
+\begin{align}
+\md{\rho} = -\rho\nabla\cdot\mathbf{v} + q_\rho^{(V)}, && \md{T} = \frac{T}{\theta}\md{\theta} + \frac{TR_s}{c^{(p)}p}\md{p}
+\end{align}
+%
+folgt
+%
+\begin{align}
+\md{p} &= R_sT\left(-\rho\nabla\cdot\mathbf{v} + q_{\rho}\right) + R_s\rho\left(\frac{T}{\theta}\md{\theta} + \frac{TR_s}{c^{(p)}p}\md{p}\right)\nonumber\\
+&= -p\nabla\cdot\mathbf{v} + R_sTq_\rho^{(V)} + \frac{p}{\theta}\md{\theta} + \frac{R_s}{c^{(p)}}\md{p}\nonumber\\
+\Leftrightarrow \frac{c^{(v)}}{c^{(p)}}\md{p} &= -p\nabla\cdot\mathbf{v} + R_sTq_\rho^{(V)} + \frac{p}{\theta}\md{\theta}\nonumber\\
+\Leftrightarrow \frac{\partial p}{\partial t} &= -\mathbf{v}\cdot\nabla p - \frac{c^{(p)}}{c^{(v)}}p\nabla\cdot\mathbf{v} + \frac{c^{(p)}}{c^{(v)}}R_sTq_\rho^{(V)} + \frac{p}{T\rho c^{(v)}}\left(q_T^{(V)} - sTq_\rho^{(V)}\right)
+\end{align}
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\Leftrightarrow \frac{\partial p}{\partial t} = -\mathbf{v}\cdot\nabla p - \frac{c^{(p)}}{c^{(v)}}p\nabla\cdot\mathbf{v} + \frac{c^{(p)}}{c^{(v)}}R_sTq_\rho^{(V)} + \frac{R_s}{c^{(v)}}\left(q_T^{(V)} - sTq_\rho^{(V)}\right).\label{eq:pressure_prognostic_equation}
+\end{align}
+\end{center}
+}}
+\end{center}
+
+\subsubsection{Exner-Druck als prognostische Variable}
+\label{sec:exner-druck_als_prognostische_variable}
+
+Definiert man den \textit{Exner-Druck}\index{Exner-Druck} $\Pi$ durch
+%
+\begin{align}
+\Pi \coloneqq \frac{T}{\theta} = \left(\frac{p}{p_0}\right)^{R_s/c^{(p)}} \Leftrightarrow p = \Pi^{c^{(p)}/R_s}p_0,\label{eq:def_exner-druck}
+\end{align}
+%
+gilt der Zusammenhang
+%
+\begin{align}
+p &= \rho R_s\theta\Pi \Leftrightarrow \Pi^{c^{(p)}/R_s} = \frac{\rho R_s\theta}{p_0}\Pi \Leftrightarrow \Pi^{c^{(v)}/R_s} = \frac{\rho R_s\theta}{p_0}\nonumber\\
+\Pi &= \left(\frac{\rho R_s\theta}{p_0}\right)^{R_s/c^{(v)}}.\label{eq:exner_pressure_diag}
+\end{align}
+%
+Hieraus folgt
+%
+\begin{align}
+\nabla p = R_s \theta\rho\nabla\Pi + R_s\Pi\nabla\left(\rho\theta\right) = c^{(p)}\theta\rho\nabla\Pi - c^{(v)}\theta\rho\nabla\Pi + R_s\Pi\nabla\left(\rho\theta\right).
+\end{align}
+%
+Man stellt fest:
+%
+\begin{align}
+-c^{(v)}\theta\rho\nabla\Pi + R_s\Pi\nabla\left(\rho\theta\right) &= -\left(\frac{R_s}{p_0}\right)^{R_s/c^{(v)}}c^{(v)}\theta\rho\nabla\left(\rho\theta\right)^{R_s/c^{(v)}} + R_s\Pi\nabla\left(\rho\theta\right)\nonumber\\
+&\stackrel{\text{Glg. }\eqref{eq:exner_pressure_diag}}{=} R_s\left(\Pi - \left(\frac{R_s}{p_0}\right)^{R_s/c^{(v)}}\left(\rho\theta\right)^{R_s/c^{(v)}}\right)\nabla\left(\rho\theta\right) = 0
+\end{align}
+%
+Somit kann man für die Druckgradientbeschleunigung\index{Druckgradientbeschleunigung!Exner-Druck}\index{Exner-Druck!Druckgradientbeschleunigung} schreiben
+%
+\begin{align}
+-\frac{1}{\rho}\nabla p = -c^{(p)}\theta\nabla\Pi.\label{eq:exner_pressure_gradient_acc}
+\end{align}
+%
+Mit Glg. \eqref{eq:diff_op_rule_3} folgt
+%
+\begin{align}
+\nabla\cdot\left(\rho c^{(p)}\Pi\theta\mathbf{v}\right) &= \rho c^{(p)}\theta\mathbf{v}\cdot\nabla\Pi + \Pi\nabla\cdot\left(\rho c^{(p)}\theta\mathbf{v}\right)\nonumber\\
+\Leftrightarrow -\rho\mathbf{v}\cdot c^{(p)}\theta\nabla\Pi &= -\nabla\cdot\left(\rho c^{(p)}T\mathbf{v}\right) +  c^{(p)}\Pi\nabla\cdot\left(\rho\theta\mathbf{v}\right)\nonumber\\
+\Leftrightarrow -\rho\mathbf{v}\cdot c^{(p)}\theta\nabla\Pi &= -\nabla\cdot\left(\rho h\mathbf{v}\right) + c^{(p)}\Pi\nabla\cdot\left(\rho\theta\mathbf{v}\right)\
+\end{align}
+%
+mit der spezifischen Enthalpie $h$. Hieraus kann man ablsesen:
+%
+\begin{itemize}
+\item Wirkt der Druckgradient beschleunigend, so divergiert der Fluss der potentiellen Temperatur stärker als der Fluss der Enthalpie.
+\item Wirk der Druckgradient bremsend, so divergiert der Fluss der Enthalpie stärker als der Fluss der potentiellen Temperatur.
+\end{itemize}
+%
+Nun werden noch zwei prognostische Gleichungen für $\Pi$ hergeleitet. Die lokalzeitliche Ableitung von Glg. \eqref{eq:exner_pressure_diag} lautet im adiabatischen Fall
+%
+\begin{align}
+\frac{\partial\Pi}{\partial t} &= \frac{R_s}{c^{(v)}}\left(\frac{\rho R_s\theta}{p_0}\right)^{\frac{R_s}{c^{(v)}} - 1}\frac{\rho R_s\theta}{p_0}\left(\frac{1}{\theta}\frac{\partial\theta}{\partial t} + \frac{1}{\rho}\frac{\partial\rho}{\partial t}\right) = \frac{R_s}{c^{(v)}\theta\rho}\left(\frac{\rho R_s\theta}{p_0}\right)^{\frac{R_s}{c^{(v)}}}\left(\rho\frac{\partial\theta}{\partial t} + \theta\frac{\partial\rho}{\partial t}\right)\nonumber\\
+&= \frac{R_s\Pi}{c^{(v)}\theta\rho}\left(\rho\frac{\partial\theta}{\partial t} + \theta\frac{\partial\rho}{\partial t}\right) = \frac{R_s\Pi}{c^{(v)}\theta\rho}\left(-\rho\mathbf{v}\cdot\nabla\theta - \theta\nabla\cdot\left(\rho\mathbf{v}\right)\right) = -\frac{R_s\Pi}{c^{(v)}\theta\rho}\nabla\cdot\left(\rho\theta\mathbf{v}\right).
+\end{align}
+%
+Fügt man die diabatischen Terme hinzu, folgt
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\frac{\partial\Pi}{\partial t} &= -\frac{R_s\Pi}{c^{(v)}\theta\rho}\left[\nabla\cdot\left(\rho\theta\mathbf{v}\right) - \frac{\theta}{Tc^{(p)}}\left(q_T^{(V)} + T\left(c^{(p)} - s\right)q_\rho^{(V)}\right)\right].\label{eq:def_exner-pressure_local_derivative}
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+Für die materielle Ableitung von Glg. \eqref{eq:exner_pressure_diag} erhält man
+%
+\begin{align}
+\md{\Pi} = \frac{R_s}{c^{(v)}}\left(\frac{\rho R_s\theta}{p_0}\right)^{R_s/c^{(v)} - 1}\frac{R_s}{p_0}\md{\left(\rho\theta\right)} = \frac{R_s}{c^{(v)}\rho\theta}\left(\frac{\rho R_s\theta}{p_0}\right)^{R_s/c^{(v)}}\md{\left(\rho\theta\right)} = \frac{R_s\Pi}{c^{(v)}\rho\theta}\md{\left(\rho\theta\right)}.
+\end{align}
+%
+Mit Glg. \eqref{eq:td1_id_gas_pot_mod} folgt
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\md{\Pi} = \frac{R_s\Pi}{c^{(v)}}\left[-\nabla\cdot\mathbf{v} + \frac{1}{\rho Tc^{(p)}}\left(q_T^{(V)} + T\left(c^{(p)} - s\right)q_\rho^{(V)}\right)\right].\label{eq:exner-pressure_material_derivative}
+\end{align}
+\end{center}
+}}
+\end{center}
 
 \section{Ideales Gasgemisch mit homogener Zusammensetzung}
 \label{sec:ideales_gasgemisch_mit_homogener_zusammensetzung}
@@ -11099,6 +11087,41 @@ Verwendet man den Druck als Höhenkoordinate und das Geopotential als die abhän
 %
 mit $\alpha \coloneqq \frac{1}{\rho}$ als dem spezifischen Volumen. Mit der Zustandsgleichung folgt $\alpha = \frac{R_dT}{p}$ in einer trockenen Atmosphäre. Deshalb bezeichnet man $\frac{\partial\phi}{\partial p}$ häufig auch einfach als »Temperatur«.\ Man sieht, dass die Schichtdicke proportional zur Temperatur der Schicht ist. Das dreidimensionale Geopotentialfeld ist also Ausdruck des Bodendrucks und der Temperatur der Luftmassen.
 
+\subsection{Temperaturgleichung}
+\label{sec:temperaturgleichung_hydrostat}
+
+Leitet man die Zustandsgleichung zeitlich ab, folgt
+%
+\begin{align}
+\omega\alpha + p \md{\alpha} = R_s\md{T}.
+\end{align}
+%
+Mit den Glg.en \eqref{eq:td1_ideal_gas} und \eqref{eq:diff_spez_heat_id_gase} erhält man unter Vernachlässigung der Massenquelldichte
+%
+\begin{align}
+\omega\alpha + \alpha q_T^{(V)} - c^{(v)}\md{T} = R_s\md{T}\Leftrightarrow - \omega\alpha + \left(R_s + c^{(v)}\right)\md{T} &= c^{(p)}\md{T} - \alpha\omega = \alpha q_T^{(V)}\nonumber\\
+\md{_hT} - \omega\left(\frac{\alpha}{c^{(p)}} - \frac{\partial T}{\partial p}\right) &= \frac{\alpha}{c^{(p)}}q_T^{(V)}.
+\end{align}
+%
+Mit der Zustandsgleichung folgt
+%
+\begin{align}
+\frac{\alpha}{c^{(p)}} - \frac{\partial T}{\partial p} &= \frac{R_sT}{c^{(p)}p} - \frac{\partial T}{\partial p}\eqqcolon S_p, \label{eq:def_stabilitaetsparameter}
+\end{align}
+%
+dies definiert den \text{Stabilitätsparameter}\index{Stabilitätsparameter} $S_p$. Man erhält
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\md{_hT} - S_p\omega &= \frac{\alpha}{c^{(p)}}q_T^{(V)}.\label{eq:td1_ideal_gas_p}
+\end{align}
+\end{center}
+}}
+\end{center}
+
+
 \section{Barotropie}
 \label{sec:barotropie}\index{Barotropie}
 
@@ -11151,7 +11174,7 @@ und analog in y-Richtung. Verschwindet die vertikale Scherung der Horizontalbewe
 h\nabla\cdot\mathbf{v} = \int_{b}^{b + h}\nabla\cdot\mathbf{v}dz = -\int_{b}^{b + h}\frac{\partial w}{\partial z}dz = -w\left(b + h\right) + w\left(b\right)\label{eq:swe_deriv_1}
 \end{align}
 %
-Die Annahme, dass die Horizontalgeschwindigkeit nicht geschert ist und die die Integration Glg. \eqref{eq:swe_deriv_1} ermöglicht hat, gibt den Flachwassergleichungen ihren Namen. Bei großen Tiefen kann hiervon nämlich anschaulicherweise nicht mehr ausgegangen werden. In Absch. \ref{sec:sub-poincare-wellen} wird über diese Annahme hinausgegangen. Behandelt man Wellen, so kann man die Flachwassergleichungen verwenden, falls
+Die Annahme, dass die Horizontalgeschwindigkeit nicht geschert ist und die die Integration Glg. \eqref{eq:swe_deriv_1} ermöglicht hat, gibt den Flachwassergleichungen ihren Namen. Bei großen Tiefen kann hiervon nämlich anschaulicherweise nicht mehr ausgegangen werden. In Absch. \ref{sec:wasseroberflächenwelle} wird über diese Annahme hinausgegangen. Behandelt man Wellen, so kann man die Flachwassergleichungen verwenden, falls
 %
 \begin{align}
 \text{Wellenlänge} &\gg \text{Tiefe},\\
@@ -13328,13 +13351,13 @@ und den im vorigen Abschnitt hergeleiteten Näherungen somit
 \begin{align}
 \frac{\partial u}{\partial t} + U\frac{\partial u}{\partial x} &= -\frac{1}{\rho _0}\frac{\partial p}{\partial x}\label{eq:schall_1}\\
 \frac{\partial\rho}{\partial t} + U\frac{\partial \rho}{\partial x} &=  - \rho _0\frac{\partial u}{\partial x}\label{eq:schall_2}\\
-\rho(p) &= \rho _0\left(\frac{p}{p_0}\right)^{c_v/c_p}
+\rho(p) &= \rho_\theta\left(\frac{p}{p_0}\right)^{c_v/c_p}
 \end{align}
 %
 Bei der ersten Gleichung handelt es sich um die Impulsgleichung, die zweite ist die Kontinuitätsgleichung und die dritte ist die Gleichung für die potentielle Dichte Glg. \eqref{eq:pot_dichte}. Um in Glg. \eqref{eq:schall_2} die Dichteänderung durch den Druck auszudrücken, benutzt man die Kettenregel:
 %
 \begin{align}
-\frac{\partial\rho}{\partial t} = \frac{\partial\rho}{\partial p}\frac{\partial p}{\partial t} = \frac{\rho_0c_v}{p_0c_p}\left(\frac{p}{p_0}\right)^{c_v/c_p - 1}\frac{\partial p}{\partial t} = \frac{\rho_0c_v}{p_0c_p}\frac{\partial p}{\partial t}, 
+\frac{\partial\rho}{\partial t} = \frac{\partial\rho}{\partial p}\frac{\partial p}{\partial t} = \frac{\rho_\theta c_v}{p_0c_p}\left(\frac{p}{p_0}\right)^{c_v/c_p - 1}\frac{\partial p}{\partial t} = \frac{\rho_\theta c_v}{p_0c_p}\frac{\partial p}{\partial t}, 
 \end{align}
 %
 analog für $\frac{\partial}{\partial x}$. Die Ableitung der Dichte nach dem Druck wurde dabei an der Stelle $p = p_0$ ausgewertet, weil die Druckschwankungen sehr klein sind. Nun macht man einen Ansatz
@@ -13346,8 +13369,8 @@ u = u_0\exp\left[i\left(kx - \omega t\right)\right], && p = P\exp\left[i\left(kx
 mit eventuell komplexen Amplituden $u_0, P$. Setzt man dies in das Gleichungssystem ein, folgt
 %
 \begin{align}
-- i\omega u_0 + Uiku_0 &= -\frac{1}{\rho_0}ikP,\\
-- \frac{\rho_0c_v}{p_0c_p}i\omega P + Uik\frac{\rho_0c_v}{p_0c_p}P &= -\rho_0 iku_0\nonumber\\
+-i\omega u_0 + Uiku_0 &= -\frac{1}{\rho_\theta}ikP,\\
+-\frac{\rho_\theta c_v}{p_0c_p}i\omega P + Uik\frac{\rho_\theta c_v}{p_0c_p}P &= -\rho_\theta iku_0\nonumber\\
 \Leftrightarrow - i\omega P + UikP &= -\frac{p_0c_p}{c_v}iku_0.
 \end{align}
 %
@@ -13355,7 +13378,7 @@ Als Matrixgleichung wird dies zu
 %
 \begin{align}
 \left(\begin{array}{cc}
-- i\omega + Uik&\frac{1}{\rho_0}ik\\
+- i\omega + Uik&\frac{1}{\rho_\theta}ik\\
 ik\frac{p_0c_p}{c_v}& -i\omega + Uik
 \end{array}\right)\left(\begin{array}{c}
 u_0\\
@@ -13366,7 +13389,7 @@ P
 Nichttriviale Lösungen existieren für
 %
 \begin{align}
-\left(\omega - Uk\right)^2 - k^2\frac{p_0c_p}{\rho_0c_v} = 0\Leftrightarrow \omega = Uk\pm k\sqrt{\frac{p_0c_p}{\rho_0c_v}}.
+\left(\omega - Uk\right)^2 - k^2\frac{p_0c_p}{\rho_\theta c_v} = 0\Leftrightarrow \omega = Uk\pm k\sqrt{\frac{p_0c_p}{\rho_\theta c_v}}.
 \end{align}
 %
 Für die Phasengeschwindigkeit $c$ folgt also
@@ -13441,13 +13464,162 @@ Durch Nullsetzen der Determinante erhält man
 %
 Es ergibt sich also die gleiche Dispersionsrelation wie Glg. \eqref{eq:velocity_sound}. Hiermit ist verifiziert, dass die in den Glg.en \eqref{eq:sound_entropy_0} - \eqref{eq:sound_entropy_1} aufgeführten Terme in der Tat Schallwellen beschreiben.
 
+\section{Kapillarwellen}
+\label{sec:kapillarwellen}\index{Kapillarwelle}
+
+Im Fall $\eta = \hat{\eta}\exp\left(ikx - i\omega t\right)$ folgt
+%
+\begin{align}
+-\frac{1}{\rho}\frac{\partial p_k}{\partial x} &= -\frac{k^2\sigma}{\rho}\frac{\partial\eta}{\partial x}.
+\end{align}
+%
+Addiert man dies zur rechten Seite von Glg. $\eqref{eq:deep_1}$, erhält man
+%
+\begin{align}
+-g\frac{\partial\eta}{\partial x} &\to -g\frac{\partial\eta}{\partial x} - \frac{\sigma k^2}{\rho}\frac{\partial\eta}{\partial x} = -g\left(1 + \frac{k^2\sigma}{\rho g}\right)\frac{\partial\eta}{\partial x}, 
+\end{align}
+%
+Man muss also
+%
+\begin{align}
+g \to g\left(1 + \frac{k^2\sigma}{\rho g}\right)
+\end{align}
+%
+ersetzen, der Rest der Herleitung überträgt sich. Man erhält also die Dispersionsrelation der Kapillarwellen
+%
+\begin{align}
+\omega^2 = kg\left(1 + \frac{k^2\sigma}{\rho g}\right)\tanh\left(kD\right).
+\end{align}
+%
+Im Fall sehr kurzer Wellen erhält man den Grenzfall
+%
+\begin{align}
+\omega^2 &= \frac{k^3\sigma}{\rho} \Rightarrow c = \sqrt{\frac{2\pi\sigma}{\rho\lambda}}.
+\end{align}
+%
+In diesem Grenzfall sind Kapillarwellen also anormal dispergiert.
+
+Um eine Grenzwällenlänge $\lambda_K$ herzuleiten, ab der kapillare Effekte wichtig werden, rechnet man
+%
+\begin{align}
+\frac{k_K^2\sigma}{\rho g} \stackrel{!}{\geq} \frac{1}{10} \Leftrightarrow \lambda_K \leq \sqrt{\frac{40\pi^2\sigma}{\rho g}}.
+\end{align}
+%
+Die Oberflächensapnnung von Wasser beträgt ca. $\sigma \sim 75$ mN/m, woraus folgt
+%
+\begin{align}
+\lambda_K \sim 5,5\text{ cm}.
+\end{align}
+
 \section{Barotrope Wellen}
 \label{sec:barotrope_wellen}\index{barotrope Welle}\index{Welle!barotrope}
 
 Die SWEs bilden das einfachst mögliche dynamische Gleichungssystem, deshalb werden zunächst die Wellenlösungen dieses Systems untersucht.
 
-\subsection{Sub-Poincaré-Wellen}
-\label{sec:sub-poincare-wellen}\index{Sub-Poincaré-Welle}\index{Welle!Sub-Poincaré}
+\subsection{Poincaré-Wellen}
+\label{sec:poincare-wellen}\index{Poincaré-Welle}
+
+Die SWEs lauten linearisiert
+%
+\begin{align}
+\frac{\partial u}{\partial t} &= fv - g\frac{\partial\eta}{\partial x}, \label{eq:dyn_in_grav_1}\\
+\frac{\partial v}{\partial t} &= -fu - g\frac{\partial\eta}{\partial y}, \label{eq:dyn_in_grav_2}\\
+\frac{\partial\eta}{\partial t} &= -H\left(\frac{\partial u}{\partial x} + \frac{\partial v}{\partial y}\right).\label{eq:dyn_in_grav_3}
+\end{align}
+%
+Hierbei wird von der f-Ebenen-Approximation ausgegangen. Man macht einen Ansatz
+%
+\begin{align}
+u = u_0\exp\left[i\left(\mathbf{k}\cdot\mathbf{r} - \omega t\right)\right], && v = v_0\exp\left[i\left(\mathbf{k}\cdot\mathbf{r} - \omega t\right)\right], && \eta = \newhat{\eta}\exp\left[i\left(\mathbf{k}\cdot\mathbf{r} - \omega t\right)\right].
+\end{align}
+%
+mit einem horizontalen Wellenvektor $\mathbf{k} = \left(k_x, k_y\right)^T$ sowie eventuell komplexen Amplituden $u_0, v_0, \eta_0$. Setzt man dies ein, erhält man
+%
+\begin{align}
+-i\omega u_0 &= fv_0 - gik_x\newhat{\eta}, \label{eq:deriv_in_grav_1}\\
+-i\omega v_0 &= -fu_0 - gik_y\newhat{\eta}, \label{eq:deriv_in_grav_2}\\
+-i\omega\newhat{\eta} &= -Hik_xu_0 - Hik_yv_0.\label{eq:deriv_in_grav_3}
+\end{align}
+%
+In Matrixschreibweise lautet dies
+%
+\begin{align}
+\left(\begin{array}{ccc}
+- i\omega& -f&gik_x\\
+f& -i\omega&gik_y\\
+Hik_x&Hik_y& -i\omega
+\end{array}\right)\left(\begin{array}{c}
+u_0\\
+v_0\\
+\newhat{\eta}
+\end{array}\right) &= \left(\begin{array}{c}
+0\\
+0\\
+0
+\end{array}\right).
+\end{align}
+%
+Hier existieren nichttriviale Lösungen, wenn
+%
+\begin{align}
+& \left(-i\omega\right)\left[\left(-i\omega\right)^2 + Hgk_y^2\right] - f\left[-f\left(-i\omega\right) + Hgk_xk_y\right] + Hik_x\left[-fgik_y - \left(-i\omega\right)gik_x\right] = 0\nonumber\\
+&\Leftrightarrow -\omega\left[-\omega^2 + Hgk_y^2\right] + f\left[-f\omega + iHgk_xk_y\right] + Hk_x\left[-fgik_y - \omega gk_x\right] = 0\nonumber\\
+&\Leftrightarrow -\omega\left[-\omega^2 + Hgk_y^2\right] - f^2\omega - Hk_x\omega gk_x = 0\nonumber\\
+&\Leftrightarrow \omega\left(\omega^2 - Hgk_y^2\right) - f^2\omega - Hk_x\omega gk_x = 0\nonumber\\
+&\Leftrightarrow \omega\left(\omega^2 - Hgk_y^2 - f^2 - Hk_xgk_x\right) = 0
+\end{align}
+%
+gilt. Also lautet die Dispersionsrelation der Poincaré-Wellen
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\omega\left(\omega^2 - f^2 - Hgk^2\right) = 0.\label{eq:poincare_dispersion}
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+Diese Gleichung hat die drei Lösungen
+\begin{align}
+\omega &= 0,\label{eq:poincare_geos_mode}\\
+\omega &= \sqrt{f^2 + Hgk^2},\label{eq:poincare_grav_mode_0}\\
+\omega &= -\sqrt{f^2 + Hgk^2}.\label{eq:poincare_geos_mode_1}
+\end{align}
+%
+Glg. \eqref{eq:poincare_geos_mode} ist die geostrophische Mode, die anderen beiden Gleichungen beschreiben Poincaré-Wellen im eigentlichn Sinne. Glg. \eqref{eq:poincare_geos_mode_1} beschreibt eine in Richtung $-\mathbf{k}$ propagierende Welle, ist also keine physikalisch neue Wellenmode. Für diese propagierenden Lösungen gilt $\omega^2\geq f^2$, der Betrag des Coriolis-Parameters ist also eine untere Schranke der Kreisfrequenz. Für die Phasengeschwindigkeit gilt
+
+\begin{figure}
+\begin{center}
+\includegraphics[width = 0.6\textwidth]{figs/inertio_gravity_dispersion.png}
+\caption{Die Dispersionsrelation von Poincaré-Wellen im Vergleich zur Dispersion von Flachwasserwellen ohne Coriolis-Beschleunigung. Es wurde mit $f = 10^{-4}$ 1/s und $H = 10$ km gerechnet.}
+\label{fig:poincare_dispersion}
+\end{center}
+\end{figure}
+%
+\begin{align}
+c^2 = \frac{\omega^2}{k^2} = gH + \frac{f^2}{k^2} = gH + f^2L^2\frac{1}{4\pi^2}
+\end{align}
+%
+mit $L$ als Wellenlänge. Die Poincaré-Wellen haben also eine höhere Phasengeschwindigkeit als die Schwerewellen ohne Erdrotation. Desto kürzer die Wellen werden, desto geringer wird der Einfluss der Coriolis-Kraft, für lange Wellen jedoch geht $\omega$ gegen $f$. Der Ausdruck für $c^2$ der Poincaré-Wellen ist gegenüber dem der Schwerewellen ohne Coriolis-Kraft um den Ausdruck $f^2L^2\frac{1}{4\pi^2}$ höher. Um eine Grenzwellenlänge $R_o$ zu bestimmen, ab der die Wirkung der Coriolis-Kraft deutlich wird, setzt man
+%
+\begin{align}
+f_0^2R_o^2\frac{1}{4\pi^2} = \frac{gH}{4\pi^2}\approx 0, 025gH.
+\end{align}
+%
+Daraus erhält man für den barotropen Rossby-Radius
+%
+\begin{align}
+R_o = \frac{\sqrt{gH}}{\left|f\right|}.\label{eq:def_baro_ro_r}
+\end{align}
+%
+Setzt man typische Werte ein, folgt $R_o \approx 2000$ km.
+
+Poincaré-Wellen werden im Englischen auch als \textit{inertia-gravity waves}\index{inertial gravity wave} bezeichnet, die deutsche Übersetzung \glqq Inertial-Schwerewelle\grqq\ ist eher unüblich. Eine weitere Bezeichnung ist \textit{Sverdrup-Welle}\index{Sverdrup-Welle}.
+
+\subsubsection{Wasseroberflächenwellen}
+\label{sec:wasseroberflächenwelle}\index{Wasseroberflächenwelle}\index{Welle!Wasseroberfläche}
 
 Man geht an dieser Stelle von der Abwesenheit eines zonalen Grundstroms $U = 0$ aus, o. B. d. A. richtet man außerdem die x-Richtung am Wellenvektor aus, sodass das linearisierte Gleichungssystem hier
 %
@@ -13525,7 +13697,7 @@ Im Fall $\lambda \gg D$ folgt hieraus
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-	\omega^2 = k^2gD\label{eq:disp_rel_shallow_waves}
+\omega^2 = k^2gD\label{eq:disp_rel_shallow_waves}
 \end{align}
 \end{center}
 }}
@@ -13596,144 +13768,13 @@ Diesen Volumenstrom in Richtung des Wellenvektors bezeichnet man als \textit{Sto
 %
 für $z < -\newhat{\eta}$ entsteht dieser Volumenstrom ausschließlich im Bereich der Oberflächenwelle selbst durch das Wachsen der Amplitude der Horizontalgeschwindigkeit mit der Höhe.
 
-\subsection{Poincaré-Wellen}
-\label{sec:poincare-wellen}\index{Poincaré-Welle}
-
-Die SWEs lauten linearisiert
-%
-\begin{align}
-\frac{\partial u}{\partial t} &= fv - g\frac{\partial\eta}{\partial x}, \label{eq:dyn_in_grav_1}\\
-\frac{\partial v}{\partial t} &= -fu - g\frac{\partial\eta}{\partial y}, \label{eq:dyn_in_grav_2}\\
-\frac{\partial\eta}{\partial t} &= -H\left(\frac{\partial u}{\partial x} + \frac{\partial v}{\partial y}\right).\label{eq:dyn_in_grav_3}
-\end{align}
-%
-Hierbei wird von der f-Ebenen-Approximation ausgegangen. Man macht einen Ansatz
-%
-\begin{align}
-u = u_0\exp\left[i\left(\mathbf{k}\cdot\mathbf{r} - \omega t\right)\right], && v = v_0\exp\left[i\left(\mathbf{k}\cdot\mathbf{r} - \omega t\right)\right], && \eta = \newhat{\eta}\exp\left[i\left(\mathbf{k}\cdot\mathbf{r} - \omega t\right)\right].
-\end{align}
-%
-mit einem horizontalen Wellenvektor $\mathbf{k} = \left(k_x, k_y\right)^T$ sowie eventuell komplexen Amplituden $u_0, v_0, \eta_0$. Setzt man dies ein, erhält man
-%
-\begin{align}
-- i\omega u_0 &= fv_0 - gik_x\newhat{\eta}, \label{eq:deriv_in_grav_1}\\
-- i\omega v_0 &= -fu_0 - gik_y\newhat{\eta}, \label{eq:deriv_in_grav_2}\\
-- i\omega\newhat{\eta} &= -Hik_xu_0 - Hik_yv_0.\label{eq:deriv_in_grav_3}
-\end{align}
-%
-In Matrixschreibweise lautet dies
-%
-\begin{align}
-\left(\begin{array}{ccc}
-- i\omega& -f&gik_x\\
-f& -i\omega&gik_y\\
-Hik_x&Hik_y& -i\omega
-\end{array}\right)\left(\begin{array}{c}
-u_0\\
-v_0\\
-\newhat{\eta}
-\end{array}\right) &= \left(\begin{array}{c}
-0\\
-0\\
-0
-\end{array}\right).
-\end{align}
-%
-Hier existieren nichttriviale Lösungen, wenn
-%
-\begin{align}
-& \left(-i\omega\right)\left[\left(-i\omega\right)^2 + Hgk_y^2\right] - f\left[-f\left(-i\omega\right) + Hgk_xk_y\right] + Hik_x\left[-fgik_y - \left(-i\omega\right)gik_x\right] = 0\nonumber\\
-&\Leftrightarrow -\omega\left[-\omega^2 + Hgk_y^2\right] + f\left[-f\omega + iHgk_xk_y\right] + Hk_x\left[-fgik_y - \omega gk_x\right] = 0
-\end{align}
-%
-gilt. Also lautet die Dispersionsrelation der Poincaré-Wellen
-%
-\begin{align}
-\omega^2 = f^2 + Hgk^2.\label{eq:poincare_dispersion}
-\end{align}
-%
-Es ist $\omega^2\geq f^2$, der Betrag des Coriolis-Parameters ist eine untere Schranke der Kreisfrequenz. Für die Phasengeschwindigkeit gilt
-
-\begin{figure}
-\begin{center}
-\includegraphics[width = 0.6\textwidth]{figs/inertio_gravity_dispersion.png}
-\caption{Die Dispersionsrelation von Poincaré-Wellen im Vergleich zur Dispersion von Flachwasserwellen ohne Coriolis-Beschleunigung. Es wurde mit $f = 10^{-4}$ 1/s und $H = 10$ km gerechnet.}
-\label{fig:poincare_dispersion}
-\end{center}
-\end{figure}
-%
-\begin{align}
-c^2 = \frac{\omega^2}{k^2} = gH + \frac{f^2}{k^2} = gH + f^2L^2\frac{1}{4\pi^2}
-\end{align}
-%
-mit $L$ als Wellenlänge. Die Poincaré-Wellen haben also eine höhere Phasengeschwindigkeit als die Schwerewellen ohne Erdrotation. Desto kürzer die Wellen werden, desto geringer wird der Einfluss der Coriolis-Kraft, für lange Wellen jedoch geht $\omega$ gegen $f$. Der Ausdruck für $c^2$ der Poincaré-Wellen ist gegenüber dem der Schwerewellen ohne Coriolis-Kraft um den Ausdruck $f^2L^2\frac{1}{4\pi^2}$ höher. Um eine Grenzwellenlänge $R_o$ zu bestimmen, ab der die Wirkung der Coriolis-Kraft deutlich wird, setzt man
-%
-\begin{align}
-f_0^2R_o^2\frac{1}{4\pi^2} = \frac{gH}{4\pi^2}\approx 0, 025gH.
-\end{align}
-%
-Daraus erhält man für den barotropen Rossby-Radius
-%
-\begin{align}
-R_o = \frac{\sqrt{gH}}{\left|f\right|}.\label{eq:def_baro_ro_r}
-\end{align}
-%
-Setzt man typische Werte ein, folgt $R_o \approx2000$ km.
-
-\subsection{Kapillarwellen}
-\label{sec:kapillarwellen}\index{Kapillarwelle}
-
-Im Fall $\eta = \hat{\eta}\exp\left(ikx - i\omega t\right)$ folgt
-%
-\begin{align}
--\frac{1}{\rho}\frac{\partial p_k}{\partial x} &= -\frac{k^2\sigma}{\rho}\frac{\partial\eta}{\partial x}.
-\end{align}
-%
-Addiert man dies zur rechten Seite von Glg. $\eqref{eq:deep_1}$, erhält man
-%
-\begin{align}
--g\frac{\partial\eta}{\partial x} &\to -g\frac{\partial\eta}{\partial x} - \frac{\sigma k^2}{\rho}\frac{\partial\eta}{\partial x} = -g\left(1 + \frac{k^2\sigma}{\rho g}\right)\frac{\partial\eta}{\partial x}, 
-\end{align}
-%
-Man muss also
-%
-\begin{align}
-g \to g\left(1 + \frac{k^2\sigma}{\rho g}\right)
-\end{align}
-%
-ersetzen, der Rest der Herleitung überträgt sich. Man erhält also die Dispersionsrelation der Kapillarwellen
-%
-\begin{align}
-\omega^2 = kg\left(1 + \frac{k^2\sigma}{\rho g}\right)\tanh\left(kD\right).
-\end{align}
-%
-Im Fall sehr kurzer Wellen erhält man den Grenzfall
-%
-\begin{align}
-\omega^2 &= \frac{k^3\sigma}{\rho} \Rightarrow c = \sqrt{\frac{2\pi\sigma}{\rho\lambda}}.
-\end{align}
-%
-In diesem Grenzfall sind Kapillarwellen also anormal dispergiert.
-
-Um eine Grenzwällenlänge $\lambda_K$ herzuleiten, ab der kapillare Effekte wichtig werden, rechnet man
-%
-\begin{align}
-\frac{k_K^2\sigma}{\rho g} \stackrel{!}{\geq} \frac{1}{10} \Leftrightarrow \lambda_K \leq \sqrt{\frac{40\pi^2\sigma}{\rho g}}.
-\end{align}
-%
-Die Oberflächensapnnung von Wasser beträgt ca. $\sigma \sim 75$ mN/m, woraus folgt
-%
-\begin{align}
-\lambda_K \sim 5,5\text{ cm}.
-\end{align}
-
-\subsection{Inertialwellen}
+\subsubsection{Inertialwellen}
 \label{sec:inertialwellen}\index{Inertialwelle}
 
 Bei Inertialwellen\index{Inertialwellen} geht man von einem verschwindenden horizontalen Druckgradienten aus, sodass nur die Coriolis-Kraft übrigbleibt. Die Impulsgleichungen der SWEs Glg. \eqref{eq:swe_0} werden unter Vernachlässigung der advektiven Terme zu
 %
 \begin{align}
-\frac{d u}{dt} = f_0v, && \frac{d v}{dt} = -f_0u.
+\frac{du}{dt} = f_0v,&& \frac{dv}{dt} = -f_0u.
 \end{align}
 %
 Für den Coriolis-Parameter wird dabei ein ortsunabhängiger Wert $f_0$ verwendet, um den $\beta-$Effekt zu umgehen. Man macht einen Ansatz
@@ -13763,7 +13804,7 @@ V
 Nichttriviale Lösungen existieren für
 %
 \begin{align}
-- \omega^2 + f_0^2 &= 0, 
+-\omega^2 + f_0^2 &= 0, 
 \end{align}
 %
 also für
@@ -13880,7 +13921,7 @@ mit dem in Glg. \eqref{eq:def_baro_ro_r} definierten Rossby-Radius $R_o$.
 
 Abb. \ref{fig:kelvin_pen} zeigt die typischen Penetrationslängen von Kelvin-Wellen, diese liegen schnell im Bereich von $1000$ - $10000$ km, also durchaus im Bereich von zehn bis mehreren hundert Prozent eines Viertels des Erdumfangs. Diese Ausdehnung übersteigt die Gültigkeit der f-Ebene bei weitem.
 
-\subsection{Äquatoriale Kelvin-Wellen}
+\subsubsection{Äquatoriale Kelvin-Wellen}
 \label{sec:aequatoriale_kelvin-wellen}\index{Kelvin-Welle!äquatoriale}\index{äquatoriale Kelvin-Welle}
 
 Am Äquator kann man nicht $f = f_0$ setzen, man setzt stattdessen die $\beta-$Ebene
@@ -13968,77 +14009,6 @@ y_0 =\sqrt{R\frac{\sqrt{gH}}{2\omega}} = 2071\text{ km}
 \end{align}
 %
 mit $R$ als Äquatorradius und $H = 1$ km.
-
-\subsection{Globale Moden}
-\label{sec:globale_moden}\index{globale Mode}
-
-Nimmt man eine \text{f-Kugel}\index{f-Kugel} an, also eine Kugel mit homogenem Coriolis-Parameter $f$ (dies ist ein rein mathematisches Konzept), haben die linearisierten SWEs Glg.en \eqref{eq:flach_lin_1} - \eqref{eq:flach_lin_2} globale analytische Lösungen. Zunächst rechnet man
-%
-\begin{align}
-\frac{\partial^2d}{\partial t^2} &= -D\nabla\cdot\frac{\partial\mathbf{v}_h}{\partial t}.
-\end{align}
-%
-Bildet man die Divergenz von Glg. \eqref{eq:flach_lin_1}, folgt mit Glg. \eqref{eq:diff_op_rule_9}
-%
-\begin{align}
-\nabla\cdot\frac{\partial\mathbf{v}_h}{\partial t} &= f\zeta - g\Delta d\Rightarrow\frac{\partial^2d}{\partial t^2} = -D\left(f\zeta - g\Delta d\right)\nonumber\\
-\Rightarrow\frac{\partial^3d}{\partial t^3}&= -D\left[f\frac{\partial\zeta}{\partial t} - g\Delta\frac{\partial d}{\partial t}\right].
-\end{align}
-%
-Mit Glg. \eqref{eq:vorticit_z_baro_swes_pre} folgt näherungsweise
-%
-\begin{align}
-\frac{\partial\zeta}{\partial t} &= \frac{f}{D}\frac{\partial d}{\partial t}\Rightarrow\frac{\partial^3 d}{\partial t^3} = -f^2\frac{\partial d}{\partial t} + Dg\Delta\frac{\partial d}{\partial t}.
-\end{align}
-%
-Man macht den Ansatz
-%
-\begin{align}
-d = Y_{l, m}e^{-i\omega t}
-\end{align}
-%
-mit einer Kugelflächenfunktion $Y_{l, m}$. Somit folgt
-%
-\begin{align}
-i\omega^3d &= f^2i\omega d + i\omega\frac{gD}{a^2}l\left(l + 1\right)d\nonumber\\
-\Rightarrow\omega\left(\omega^2 - f^2 - l\left(l + 1\right)\frac{gD}{a^2}\right) &= 0.\label{eq:disprel_global_modes}
-\end{align}
-%
-Für die Kreisfrequenzen gilt $\omega_0 = 0$ und
-%
-\begin{align}
-\omega_l = \pm\sqrt{f^2 + l\left(l + 1\right)\frac{gD}{a^2}}
-\end{align}
-%
-bzw. für die Periodendauern $T_0 = \infty$ und
-%
-\begin{align}
-T_l = \frac{2\pi}{\sqrt{f^2 + l\left(l + 1\right)\frac{gD}{a^2}}}.
-\end{align}
-%
-\renewcommand{\arraystretch}{1.2}
-\begin{table}
-\centering
-\begin{tabular}{|c|c|}
-\hline \textbf{Wellenzahl $l$} & \textbf{Periodendauer / hr} \\
-\hline\hline
-1 & 14, 8 \\
-\hline 
-2 & 11, 8 \\
-\hline 
-3 & 9, 5 \\
-\hline 
-4 & 7, 8 \\
-\hline 
-5 & 6, 6 \\
-\hline 
-\end{tabular}
-\caption{Periodendauern der gloablen Moden für $D = 8$ km und $f = 10^{-4}$ s$^{-1}$.}
-\label{tab:perioden_glob}
-\end{table}
-\renewcommand{\arraystretch}{1.0}
-%
-Tab. \ref{tab:perioden_glob} gibt eine Vorstellung von den Periodendauern.
 
 \subsection{Rossby-Wellen}
 \label{sec:rossbywellen}\index{barotrope Rossby-Welle}\index{Rossby-Welle!barotrope}
@@ -14214,91 +14184,6 @@ gilt. An den beiden bisher betrachteten Punkten hat die Tidenkraft also keine ho
 
 \section{Barokline Wellen}
 \label{sec:barokline_wellen}\index{barokline Welle}\index{Welle!barokline}
-
-\subsection{Schichtungswellen}
-\label{sec:schichtungswellen}\index{Schichtungswelle}
-
-Diese Wellen entstehen im kontinuierlichen, hydrostatischen, thermisch stabilen Medium bei vertikaler Auslenkung eines Teilchens. Von einer kontinuierlichen Schichtung spricht man, falls die Dichte eine kontinuierliche (stetig-differenzierbare) Funktion der Vertikalkoordinate ist: $\rho = \rho (z)$. Ein Teilchen der Dichte $\rho _0 = \rho (z_0)$ habe seine Ruhelage in der Höhe $z_0$, die hier o. B. d. A. zu $z_0 = 0$ festgelegt sei. Lenkt man das Teilchen vertikal aus, lautet die Bewegungsgleichung
-%
-\begin{align}
-\frac{d^2z}{dt^2} = -\frac{1}{\rho_0}\frac{\partial p}{\partial z} - g = g\frac{\rho}{\rho_0} - g = \frac{g}{\rho_0}\left(\rho - \rho_0\right), \label{eq:momentum_schichtung}
-\end{align}
-%
-$z(t)$ sei die Auslenkung. Hierbei wurde angenommen, dass das Teilchen seine Dichte während der Auslenkung nicht ändert. Nähert man die Abweichung $\rho (z) - \rho _0$ mittels einer Taylor-Entwicklung zu
-%
-\begin{align}
-\rho (z) - \rho_0 = \frac{\partial\rho}{\partial z}(z = 0)z, 
-\end{align}
-%
-so folgt für die Schwingungsgleichung
-%
-\begin{align}
-\frac{d^2z}{dt^2}(t) = \frac{g}{\rho_0}\frac{\partial\rho}{\partial z}z(t)\label{eq:schichtungs_dg}.
-\end{align}
-%
-Setzt man $z = Z_1\exp\left(iNt\right) + Z_2\exp\left(-iNt\right)$ an, so folgt für die Kreisfrequenz
-%
-\begin{align}
-N^2 = -\frac{g}{\rho}\frac{\partial\rho}{\partial z}, 
-\end{align}
-%
-$N$ ist die \textit{Brunt-Väisälä-Frequenz}\index{Brunt-Väisälä-Frequenz}, sie ist ein Maß für die Stabilität. Setzt man $N$ in \eqref{eq:schichtungs_dg} ein, erhält man
-%
-\begin{align}
-\frac{d^2z}{dt^2} = -N^2z.
-\end{align}
-%
-Hieran sieht man, dass im Fall $N^2 > 0$ eine Sinusschwingung als Lösung folgt, während im Fall $N^2 < 0$ eine reelle Exponentialfunktion die Lösung ist, da das Teilchen von seinem Ursprungsort wegbeschleunigt wird. Im Fall $N^2> 0$ ist die Schichtung also stabil, während sie im Fall $N^2<0$ labil ist. Eine stabile Schichtung bezeichnet man auch als starke Schichtung. Im Fall $N^2 = 0$ ist die Schichtung neutral.
-
-Die obige Herleitung ist noch nicht ganz vollständig, da Inkompressibilität angenommen wurde. Streng genommen bleibt bei der Auslenkung nicht die Dichte, sondern die potentielle Dichte bezogen auf das Referenzniveau erhalten. Bezeichnet $\newtilde{\rho}(z)$ die Dichte des Teilchens bei einer Auslenkung $z$, so wird damit Gleichung \eqref{eq:momentum_schichtung} zu
-%
-\begin{align}
-\frac{d^2z}{dt^2} = \frac{1}{\newtilde{\rho}\left(z\right)}g\rho\left(z\right) - g = \frac{g}{\newtilde{\rho}\left(z\right)} \left(\rho\left(z\right) - \newtilde{\rho}\left(z\right)\right).
-\end{align}
-%
-Der Ausdruck $\rho\left(z\right) - \newtilde{\rho}\left(z\right)$ ist die Dichtedifferenz zwischen dem umgebenden Fluid und dem betrachteten Teilchen. Bringt man beide Systeme nun adiabatisch auf $z = 0$, so gilt nach Glg. \eqref{eq:pot_dichte} für ihre Dichtedifferenz
-%
-\begin{align}
-\Delta\rho = \left(\rho\left(z\right) - \newtilde{\rho}\left(z\right)\right)\left(\frac{p_0}{p}\right)^{1/\kappa}.
-\end{align}
-%
-Hierbei sind $p \coloneqq p\left(z\right)$ und $p_0 \coloneqq p\left(0\right)$. In erster Ordnung ist $p = p_0$, $\Delta\rho$ ist dann die Differenz der potentiellen Dichten in Bezug aufs Referenzniveau $z = 0$. Deshalb kann man auch die potentiellen Dichten $\rho _\theta$ (bezogen auf $z = 0$) einsetzen. Man erhält in erster Ordnung
-%
-\begin{align}
-\frac{d^2z}{dt^2} = \frac{g}{\newtilde{\rho}(z)}\left(\rho_\theta(z) - \rho_\theta(0)\right) = \frac{g}{\newtilde{\rho}(z)}\frac{\partial\rho_\theta}{\partial z}z.
-\end{align}
-%
-Für die Brunt-Väisälä-Frequenz folgt
-%
-\begin{center}
-\doublebox{\parbox{0.8\textwidth}{
-\begin{center}
-\begin{align}
-N^2 = -\frac{g}{\rho_\theta}\frac{\partial\rho_\theta}{\partial z}.\label{eq:brunt_v_frequency_prop_0}
-\end{align}
-\end{center}
-}}
-\end{center}
-%
-Dies ist der allgemeine Ausdruck für die Brunt-Väisälä-Frequenz in einem kompressiblen Medium. $N^2$ ist ein Feld, was von allen drei Koordinaten und der Zeit abhängen kann. Die potentielle Dichte muss dabei immer auf das Niveau bezogen werden, auf dem man sich befindet. In einer trockenen Atmosphäre kann man $N^2$ auch über die potentielle Temperatur $\theta$ ausdrücken:
-%
-\begin{align}
-\rho_\theta = \frac{p_0}{R_d\theta}
-\end{align}
-%
-Somit folgt
-%
-\begin{align}
-\frac{\partial\rho_\theta}{\partial z} = -\frac{p_0}{R_d\theta^2}\frac{\partial\theta}{\partial z}.
-\end{align}
-%
-Für die Brunt-Väisälä-Frequenz bedeutet dies
-%
-\begin{align}
-N^2 &= \frac{g}{\theta}\frac{\partial\theta}{\partial z}.\label{eq:bv_freq_theta}
-\end{align}
-%
-Schichtungswellen entstehen zum Beispielen als Leewellen hinter Orographie, in diesem Fall ergeben sich sinusförmige Trajektorien $(ut, z_0\sin\left(Nt\right))^T$. Wird dabei Sättigung erreicht, entstehen in den Wellenbergen Oszillationswolken.
 %
 \subsection{Vertikale Moden}
 \label{sec:vertikale_moden}\index{vertikale Mode}
@@ -15050,34 +14935,122 @@ Häufig möchte man die Periodendauer der zu erwartenden Oszillation als Funktio
 \subsubsection{Grenzfälle}
 \label{sec:grenzfälle}
 
-Für $k^2 + l^2 \to 0$ (sehr lange Wellen) erhält man aus Glg. \eqref{eq:disp_gravity_waves} Inertialwellen:
-%
-\begin{align}
-\lim_{k^2 + l^2 \to 0}\omega^2 = f^2
-\end{align}
-%
-Für $k^2 + l^2 \to \infty$ (sehr kurze Wellen) erhält man aus Glg. \eqref{eq:disp_gravity_waves} die Schichtungswellen aus Absch. \ref{sec:schichtungswellen}:
-%
-\begin{align}
-\lim_{k^2 + l^2 \to \infty}\omega^2 = N^2
-\end{align}
-
-\subsubsection{Hydrostatischer Grenzfall}
-\label{sec:hydrostatischer_grenzfall_schwerewellen}
-
-Glg. \eqref{eq:disp_gravity_waves} kann man auch in der Form
-%
-\begin{align}
-\omega_I^2 &= \left(f^2 + \frac{N^2\left(k^2 + l^2\right)}{m^2 + \frac{1}{4H^2}}\right)\frac{m^2 + \frac{1}{4H^2}}{\textcolor{blue}{k^2 + l^2} + m^2 + \frac{1}{4H^2}}
-\end{align}
-%
-notieren. Hieraus ergibt sich, dass der rechte Bruch nichthydrostatische Effekte beschreibt. Vernachlässigung der \textcolor{blue}{blauen} Terme liefert die \textit{Dispersionsrelation von hydrostatischen Schwerewellen}\index{Dispersionsrelation!einer hydrostatischen Schwerewelle}\index{Schwerewelle!hydrostatische!Dispersionsrelation}:
+Für $k^2 + l^2 \to 0$ (horizontal relativ zum Grundstrum nicht propagierende Wellen) erhält man aus Glg. \eqref{eq:disp_gravity_waves} Inertialwellen:
 %
 \begin{center}
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-\omega_I^2 &= f^2 + \frac{N^2\left(k^2 + l^2\right)}{m^2 + \frac{1}{4H^2}}\label{eq:disp_gravity_hydrostat}
+\lim_{k^2 + l^2 \to 0}\omega^2 = f^2
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+Für $m^2 + \frac{1}{4H^2} \to \infty$ erhält man aus Glg. \eqref{eq:disp_gravity_waves} Schwingungen mit der Frequenz $N$:
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\lim_{m^2 + \frac{1}{4H^2} \to 0}\omega^2 = N^2
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+$H \to \infty$ kann als Vernachlässigung vertikaler Dichtefluktuationen interpretiert werden. $m \to 0$ bedeutet, dass der Wellenvektor rein horizontal ausgerichtet ist. Diese Wellen entstehen im kontinuierlichen, thermisch stabilen Medium bei vertikaler Auslenkung eines Teilchens. Ein Teilchen der Dichte $\rho _0 = \rho (z_0)$ habe seine Ruhelage in der Höhe $z_0$, die hier o. B. d. A. zu $z_0 = 0$ festgelegt sei. Lenkt man das Teilchen vertikal aus, lautet die Bewegungsgleichung
+%
+\begin{align}
+\frac{d^2z}{dt^2} = -\frac{1}{\rho_0}\frac{\partial p}{\partial z} - g = g\frac{\rho}{\rho_0} - g = \frac{g}{\rho_0}\left(\rho - \rho_0\right), \label{eq:momentum_schichtung}
+\end{align}
+%
+$z(t)$ sei die Auslenkung. Hierbei wurde angenommen, dass das Teilchen seine Dichte während der Auslenkung nicht ändert. Nähert man die Abweichung $\rho (z) - \rho _0$ mittels einer Taylor-Entwicklung zu
+%
+\begin{align}
+\rho\left(t\right) - \rho_0 = \frac{\partial\rho}{\partial z}(z = 0)z, 
+\end{align}
+%
+so folgt für die Schwingungsgleichung
+%
+\begin{align}
+\frac{d^2z}{dt^2}(t) = \frac{g}{\rho_0}\frac{\partial\rho}{\partial z}z(t)\label{eq:schichtungs_dg}.
+\end{align}
+%
+Setzt man $z = Z_1\exp\left(iNt\right) + Z_2\exp\left(-iNt\right)$ an, so folgt für die Kreisfrequenz
+%
+\begin{align}
+N^2 = -\frac{g}{\rho}\frac{\partial\rho}{\partial z}, 
+\end{align}
+%
+$N$ ist die \textit{Brunt-Väisälä-Frequenz}\index{Brunt-Väisälä-Frequenz}, sie ist ein Maß für die Stabilität. Setzt man $N$ in \eqref{eq:schichtungs_dg} ein, erhält man
+%
+\begin{align}
+\frac{d^2z}{dt^2} = -N^2z.
+\end{align}
+%
+Hieran sieht man, dass im Fall $N^2 > 0$ eine Sinusschwingung als Lösung folgt, während im Fall $N^2 < 0$ eine reelle Exponentialfunktion die Lösung ist, da das Teilchen von seinem Ursprungsort wegbeschleunigt wird. Im Fall $N^2> 0$ ist die Schichtung also stabil, während sie im Fall $N^2<0$ labil ist. Eine stabile Schichtung bezeichnet man auch als starke Schichtung. Im Fall $N^2 = 0$ ist die Schichtung neutral.
+
+Die obige Herleitung ist noch nicht ganz vollständig, da Inkompressibilität angenommen wurde. Streng genommen bleibt bei der Auslenkung nicht die Dichte, sondern die potentielle Dichte bezogen auf das Referenzniveau erhalten. Bezeichnet $\newtilde{\rho}(z)$ die Dichte des Teilchens bei einer Auslenkung $z$, so wird damit Gleichung \eqref{eq:momentum_schichtung} zu
+%
+\begin{align}
+\frac{d^2z}{dt^2} = \frac{1}{\newtilde{\rho}\left(z\right)}g\rho\left(z\right) - g = \frac{g}{\newtilde{\rho}\left(z\right)} \left(\rho\left(z\right) - \newtilde{\rho}\left(z\right)\right).
+\end{align}
+%
+Der Ausdruck $\rho\left(z\right) - \newtilde{\rho}\left(z\right)$ ist die Dichtedifferenz zwischen dem umgebenden Fluid und dem betrachteten Teilchen. Bringt man beide Systeme nun adiabatisch auf $z = 0$, so gilt nach Glg. \eqref{eq:pot_dichte} für ihre Dichtedifferenz
+%
+\begin{align}
+\Delta\rho = \left(\rho\left(z\right) - \newtilde{\rho}\left(z\right)\right)\left(\frac{p_0}{p}\right)^{1/\kappa}.
+\end{align}
+%
+Hierbei sind $p \coloneqq p\left(z\right)$ und $p_0 \coloneqq p\left(0\right)$. In erster Ordnung ist $p = p_0$, $\Delta\rho$ ist dann die Differenz der potentiellen Dichten in Bezug aufs Referenzniveau $z = 0$. Deshalb kann man auch die potentiellen Dichten $\rho_\theta$ (bezogen auf $z = 0$) einsetzen. Man erhält in erster Ordnung
+%
+\begin{align}
+\frac{d^2z}{dt^2} = \frac{g}{\newtilde{\rho}(z)}\left(\rho_\theta(z) - \rho_\theta(0)\right) = \frac{g}{\newtilde{\rho}(z)}\frac{\partial\rho_\theta}{\partial z}z.
+\end{align}
+%
+Für die Brunt-Väisälä-Frequenz folgt
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+N^2 = -\frac{g}{\rho_\theta}\frac{\partial\rho_\theta}{\partial z}.\label{eq:brunt_v_frequency_prop_0}
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+Dies ist der allgemeine Ausdruck für die Brunt-Väisälä-Frequenz in einem kompressiblen Medium. $N^2$ ist ein Feld, was von allen drei Koordinaten und der Zeit abhängen kann. Die potentielle Dichte muss dabei immer auf das Niveau bezogen werden, auf dem man sich befindet. In einer trockenen Atmosphäre kann man $N^2$ auch über die potentielle Temperatur $\theta$ ausdrücken:
+%
+\begin{align}
+\rho_\theta = \frac{p_0}{R_d\theta}
+\end{align}
+%
+Somit folgt
+%
+\begin{align}
+\frac{\partial\rho_\theta}{\partial z} = -\frac{p_0}{R_d\theta^2}\frac{\partial\theta}{\partial z}.
+\end{align}
+%
+Für die Brunt-Väisälä-Frequenz bedeutet dies
+%
+\begin{align}
+N^2 &= \frac{g}{\theta}\frac{\partial\theta}{\partial z}.\label{eq:bv_freq_theta}
+\end{align}
+%
+Solche Wellen, die im Englischen auch als \textit{buoyancy oscillations}\index{buoyancy oscillations} bezeichnet werden (die deutsche Übersetzung \glqq Schichtungswelle\grqq\ ist eher unüblich) entstehen zum Beispielen als Leewellen hinter Orographie, in diesem Fall ergeben sich sinusförmige Trajektorien $(ut, z_0\sin\left(Nt\right))^T$. Wird dabei Sättigung erreicht, entstehen in den Wellenbergen Wolken.
+
+\subsubsection{Hydrostatische Schwerewellen}
+\label{sec:hydrostatische_schwerewellen}
+
+Vernachlässigung der \textcolor{blue}{blauen} Terme in Glg. \eqref{eq:disp_gravity_waves} liefert die \textit{Dispersionsrelation von hydrostatischen Schwerewellen}\index{Dispersionsrelation!einer hydrostatischen Schwerewelle}\index{Schwerewelle!hydrostatische!Dispersionsrelation}:
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\omega_I^2 &= f^2 + N^2\frac{k^2 + l^2}{m^2 + \frac{1}{4H^2}}\label{eq:disp_gravity_hydrostat}
 \end{align}
 \end{center}
 }}
@@ -15215,151 +15188,6 @@ Im Fall $m^2 < 0$ sind die Wellen vertikal evaneszent, können also vertikal nic
 %
 Diejenigen Spektralanteile der Orographie, welche diese Ungleichung erfüllen, können also keine nach oben propagierenden Wellen erzeugen. Einsetzen typischer Werte von $N = 0,02$ Hz, $U = 8$ m/s und $H = 8$ km ergibt $l_x \approx 2,5$ km. Bei höherer Windgeschwindigkeit nimmt $l_x$ zu.
 
-\subsubsection{Entropie-Form des Druckgradienten}
-\label{sec:entropie-form_des_druckgradienten_schwere}
-
-Verwendet man die mit Glg. \eqref{eq:entropy_form_of_pressure_gradient} erhaltene Formulierung
-%
-\begin{align}
--\frac{1}{\rho}\nabla p &= -c^{(p)}\nabla T + T\nabla s = -c^{(p)}\nabla T + c^{(p)}\frac{T}{\theta}\nabla\theta\nonumber\\
-\Leftrightarrow -\frac{1}{\rho}\frac{\partial p}{\partial z} &= -c^{(p)}\frac{\partial T}{\partial z} + T\frac{c^{(p)}}{g}\frac{g}{\theta}\frac{\partial\theta}{\partial z} = -c^{(p)}\frac{\partial T}{\partial z} + T\frac{c^{(p)}}{g}N^2
-\end{align}
-%
-für die Druckgradientbeschleunigung, erhält man weitere Erkenntnisse über Schwerewellen. In Absch. \ref{sec:entropie-form_des_druckgradienten} wurde bereits gezeigt, dass für Schallwellen nur der term $-c^{(p)}\nabla T$ relevant ist.
-
-Glg. \eqref{eq:gw_disp_deriv_1} modifiziert man zu
-%
-\begin{align}
-T = T_0\left(z\right) + T', && s = s_0\left(z\right) + s'.
-\end{align}
-%
-Die hydrostatische Grundgleichung Glg. \eqref{eq:hydrostatic_gravity_wave} wird zu
-%
-\begin{align}
-c^{(p)}\frac{dT_0}{dz} - T\frac{ds_0}{dz} = -g.
-\end{align}
-%
-Der Erste Hauptsatz der Thermodynamik kann somit in der Form
-%
-\begin{align}
-\mdtilde{s'} &= -w'\frac{ds_0}{dz} = -w'c^{(p)}\frac{d\ln\left(\theta_0\right)}{dz} = -w'c^{(p)}\frac{1}{\theta_0}\frac{d\theta_0}{dz} = -w'\frac{c^{(p)}}{g}\frac{g}{\theta_0}\frac{d\theta_0}{dz}\nonumber\\
-\mdtilde{s'} &= -w'\frac{c^{(p)}}{g}N^2
-\end{align}
-%
-notiert werden, hierbei werden bei $N^2$ die gestrichenen Größen nicht berücksichtigt, also
-%
-\begin{align}
-N^2 = \frac{g}{\theta_0}\frac{d\theta_0}{dz}
-\end{align}
-%
-Unter der Annahme $T' = 0$ lautet das zu lösende Gleichungssystem
-%
-\begin{center}
-\doublebox{\parbox{0.8\textwidth}{
-\begin{center}
-\begin{align}
-\mdtilde{u'} &= fv' + T_0\frac{\partial s'}{\partial x},\\
-\mdtilde{v'} &= -fu' + T_0\frac{\partial s'}{\partial y},\\
-\textcolor{blue}{\mdtilde{w'}} &= T_0\frac{\partial s'}{\partial z},\\
-\mdtilde{s'} &= -w'\frac{c^{(p)}}{g}N^2.
-\end{align}
-\end{center}
-}}
-\end{center}
-%
-Die Bretherton-Transformation notiert man hier in der Form
-%
-\begin{align}
-u'' \coloneqq\sqrt{\frac{T_\text{SFC}}{T_0}}u',&& v'' \coloneqq\sqrt{\frac{T_\text{SFC}}{T_0}}v',&& w'' \coloneqq\sqrt{\frac{T_\text{SFC}}{T_0}}w',&& s'' \coloneqq\sqrt{\frac{T_0}{T_\text{SFC}}}s'.
-\end{align}
-%
-Hieraus folgt
-%
-\begin{align}
-\frac{\partial s'}{\partial z} = \frac{\partial}{\partial z}\left(\sqrt{\frac{T_\text{SFC}}{T_0}}s''\right) = \sqrt{\frac{T_\text{SFC}}{T_0}}\frac{\partial s''}{\partial z} - s''\sqrt{\frac{T_\text{SFC}}{T_0}}\frac{1}{2T_0}\frac{dT_0}{dz}.
-\end{align}
-%
-Die thermische Skalenhöhe $H_T$ wird hier durch
-%
-\begin{align}
-\frac{1}{H_T} \coloneqq -\frac{1}{T_0}\frac{dT_0}{dz}
-\end{align}
-%
-definiert. Hieraus folgt
-%
-\begin{align}
-\frac{\partial s'}{\partial z} = \sqrt{\frac{T_\text{SFC}}{T_0}}\frac{\partial s''}{\partial z} + s''\sqrt{\frac{T_\text{SFC}}{T_0}}\frac{1}{2H_T}.
-\end{align}
-%
-Das Gleichungssystem wird damit zu
-%
-\begin{align}
-\mdtilde{u''} &= fv'' + T_\text{SFC}\frac{\partial s''}{\partial x},\\
-\mdtilde{v''} &= -fu'' + T_\text{SFC}\frac{\partial s''}{\partial y},\\
-\textcolor{blue}{\mdtilde{w''}} &= T_\text{SFC}\frac{\partial s''}{\partial z} + \frac{T_\text{SFC}}{2H_T}s'',\\
-\mdtilde{s''} &= -w''\frac{c^{(p)}}{g}N^2.
-\end{align}
-%
-Mit der Definition
-%
-\begin{align}
-s''' \coloneqq T_\text{SFC}s'' \Rightarrow s'' = \frac{1}{T_\text{SFC}}s'''
-\end{align}
-%
-erhält man
-%
-\begin{center}
-\doublebox{\parbox{0.8\textwidth}{
-\begin{center}
-\begin{align}
-\mdtilde{u''} &= fv'' + \frac{\partial s'''}{\partial x},\\
-\mdtilde{v''} &= -fu'' + \frac{\partial s'''}{\partial y},\\
-\textcolor{blue}{\mdtilde{w''}} &= \frac{\partial s'''}{\partial z} + \frac{1}{2H_T}s''',\\
-\mdtilde{s'''} &= -w''\frac{T_\text{SFC}c^{(p)}}{g}N^2.
-\end{align}
-\end{center}
-}}
-\end{center}
-%
-Mit dem gleichen Ansatz wie im vorigen Abschnitt erhält man
-%
-\begin{align}
-\left(\begin{array}{ccccc}
--i\omega_I & -f & 0 & -ik\\
-f & -i\omega_I & 0 & -il\\
-0 & 0 & \textcolor{blue}{-i\omega_I} & -im - \frac{1}{2H_T}\\
-0 & 0 & \frac{c^{(p)}T_\text{SFC}}{g}N^2 & -i\omega_I\\
-\end{array}\right)\cdot\left(\begin{array}{c}
-A_u\\
-A_v\\
-A_w\\
-A_s\\
-\end{array}\right) = 0.
-\end{align}
-%
-Nullsetzen der Determinante der Koeffizientenmatrix ergibt
-%
-\begin{align}
-0 &\hastobe -i\omega_I\left[-i^3\omega_I^3 - \frac{c^{(p)}T_\text{SFC}}{g}N^2i\omega_I\left(im + \frac{1}{2H_T}\right)\right] - f\left[-fi^2\omega_I^2 - \frac{c^{(p)}T_\text{SFC}}{g}N^2f\left(im + \frac{1}{2H_T}\right)\right]\nonumber\\
-\Leftrightarrow 0 &= -i\omega_I\left[i\omega_I^3 - \frac{c^{(p)}T_\text{SFC}}{g}N^2i\omega_I\left(im + \frac{1}{2H_T}\right)\right] + f^2\left[i^2\omega_I^2 + \frac{c^{(p)}T_\text{SFC}}{g}N^2\left(im + \frac{1}{2H_T}\right)\right]\nonumber\\
-\Leftrightarrow 0 &= -\omega_I\left[-\omega_I^3 + \frac{c^{(p)}T_\text{SFC}}{g}N^2\omega_I\left(im + \frac{1}{2H_T}\right)\right] + f^2\left[-\omega_I^2 + \frac{c^{(p)}T_\text{SFC}}{g}N^2\left(im + \frac{1}{2H_T}\right)\right]\nonumber
-\end{align}
-\begin{align}
-\Leftrightarrow 0 &= \omega_I\left[\omega_I^3 - \frac{c^{(p)}T_\text{SFC}}{g}N^2\omega_I\left(im + \frac{1}{2H_T}\right)\right] + f^2\left[-\omega_I^2 + \frac{c^{(p)}T_\text{SFC}}{g}N^2\left(im + \frac{1}{2H_T}\right)\right]\nonumber\\
-\Leftrightarrow 0 &= \omega_I^2\left[\omega_I^2 - \frac{c^{(p)}T_\text{SFC}}{g}N^2\left(im + \frac{1}{2H_T}\right)\right] - \omega_I^2f^2 + \frac{c^{(p)}T_\text{SFC}}{g}N^2f^2\left(im + \frac{1}{2H_T}\right)\nonumber\\
-\Leftrightarrow 0 &= \omega_I^4 - \omega_I^2\frac{c^{(p)}T_\text{SFC}}{g}N^2\left(im + \frac{1}{2H_T}\right) - \omega_I^2f^2 + \frac{c^{(p)}T_\text{SFC}}{g}N^2f^2\left(im + \frac{1}{2H_T}\right)\nonumber\\
-\Leftrightarrow 0 &= \omega_I^4 + \omega_I^2\left[-\frac{c^{(p)}T_\text{SFC}}{g}N^2\left(im + \frac{1}{2H_T}\right) - f^2\right] + \frac{c^{(p)}T_\text{SFC}}{g}N^2f^2\left(im + \frac{1}{2H_T}\right).
-\end{align}
-%
-Hieraus folgt
-%
-\begin{align}
-\omega_I^2 &= \frac{c^{(p)}}{2g}N^2\left(im + \frac{1}{2H_T}\right) + \frac{f^2}{2} \pm \sqrt{\left(\frac{c^{(p)}T_\text{SFC}}{2g}N^2\left(im + \frac{1}{2H_T}\right) + \frac{f^2}{2}\right)^2 - \frac{c^{(p)}T_\text{SFC}}{g}N^2f^2\left(im + \frac{1}{2H_T}\right)}\nonumber\\
-\Leftrightarrow\omega_I^2 &= \frac{c^{(p)}T_\text{SFC}}{2g}N^2\left(im + \frac{1}{2H_T}\right) + \frac{f^2}{2} \pm \sqrt{\frac{c^{(p)2}T^2_\text{SFC}}{4g^2}N^4\left(im + \frac{1}{2H_T}\right)^2 + \frac{f^4}{4} - \frac{c^{(p)}T_\text{SFC}}{2g}N^2f^2\left(im + \frac{1}{2H_T}\right)}.
-\end{align}
-%
-Dies ist nicht identisch mit Glg. \eqref{eq:disp_gravity_waves}. Die Temperaturschwankung $T'$ ist also durchaus für Schwerewellen relevant.
-
 \subsection{Atmosphärische Tide}
 \label{sec:atmosphärische_tide}\index{Tide!atmosphärische}
 
@@ -15378,196 +15206,275 @@ Wichtige Unterschiede zwischen der atmosphärischen und der ozeanischen Tide (s.
 
 Findet man beim Einbringen einer ebenen Welle als Störung in ein Gleichungssystem und anschließender Linearisierung (gerechtfertigt für kleine Amplituden) Kreisfrequenzen mit positivem Imaginärteil, liegt eine \textit{Instabilität}\index{Instabilität}\index{Welle!Instabilität} vor. Die Amplitude der Welle wächst in dieser linearen Anfangszeit exponentiell, bevor nichtlineare Effekte dominant werden und ein Brechen der Welle mit anschließender Dissipation der kinetischen Energie bewirken.
 
-\subsection{Barotrope Instabilität}
-\label{sec:barotrope_instabilitaet}\index{Instabilität!barotrope}\index{barotrope Instabilität}
+\subsection{Schichtungsinstabilität}
+\label{sec:schichtungsinstabilitaet}\index{Schichtungsinstabilität}
 
-Nehme einen westlichen Grundstrom $U>0$ an, der nur von $y$ abhängt
+Die Atmosphäre habe an einem gegebenen Punkt die Schichtung $T = T\left(z\right)$. Üblicherweise ist
 %
 \begin{align}
-U = U\left(y\right)
+\frac{\partial T}{\partial z} < 0, 
 \end{align}
 %
-und eine Störung
+bei $\frac{\partial T}{\partial z}>0$ spricht man von einer \index{Inversion}\textit{Inversion}. Der trockenadiabatische Temperaturgradient ist nach Glg. \eqref{eq:trockenad_tempgradient} durch
 %
 \begin{align}
-\mathbf{v}_h' = \left(u, v\right)^T = \mathbf{k}\times\nabla\psi
+\Gamma_d = \frac{g}{c^{(p)}}
 \end{align}
 %
-mit einer Stromfunktion $\psi$. Man betrachte einen zonalen Kanal der Ausdehnung $2b$ mit $b>0$, die Gerade $y = 0$ liege in der Mitte dieses Kanals. Die Randbedingungen seien $\omega = 0$ bei $p = 0$ und $p = p_0$ und $v = 0$ bei $y = \pm b$. Dann ist der Horizontalwind divergenzfrei und es kann die \textit{barotrope Vorticitygleichung}\index{Vorticitygleichung!barotrope}\index{barotrope Vorticitygleichung} angewandt werden, 
+definiert. Im Fall
 %
 \begin{align}
-\frac{\partial\zeta}{\partial t} + \beta v + u\frac{\partial\zeta}{\partial x} + v\frac{\partial\zeta}{\partial y} = 0.
+\frac{\partial T}{\partial z} < -\Gamma_d
 \end{align}
 %
-Hierbei sei $\beta$ homogen, s. Absch. \ref{sec:betaebene}. Macht man hier einen Störungsansatz nach Absch. \ref{sec:begruendung_der_linearisierung}, so erhält man
-%
-\begin{align}
-\frac{\partial\zeta'}{\partial t} + \beta v + U\frac{\partial\zeta'}{\partial x} + v\frac{\partial\newoverline{\zeta}}{\partial y} = 0.
-\end{align}
-%
-Hierbei wurde für die Vorticity geschrieben $\zeta = \newoverline{\zeta} + \zeta'$ mit $\newoverline{\zeta}$ als Vorticity von $U$ und $\zeta'$ als Vorticity von $\mathbf{v}_h'$. Setze für die Störung $\psi$
-%
-\begin{align}
-\psi\left(x, y, t\right) = Y\left(y\right)\psi_0e^{i\left(kx - \omega t\right)}
-\end{align}
-%
-an. Mit $Y\left(\pm b\right)\hastobe0$ sind die Randbedingungen an $v$ erfüllt, man erhält außerdem
-%
-\begin{align}
-v &= \frac{\partial\psi}{\partial x} = ik\psi,\\
-\zeta' &= \Delta \psi = -k^2\psi + Y''\psi_0e^{i(kx - \omega t)},\\
-\frac{\partial\zeta'}{\partial x} &= -ik^3\psi + Y''\psi_0ike^{i\left(kx - \omega t\right)}.\\
-\end{align}
-%
-Setzt man dies in die barotrope Vorticitygleichung ein und streicht $\psi_0e^{i\left(kx - \omega t\right)}$, erhält man
-%
-\begin{align}
-i\omega k^2Y - i\omega Y'' + \beta ikY - Uik^3Y + Y''ikU - ikY\frac{d^2U}{dy^2} &= 0\nonumber\\
-\Leftrightarrow \omega k^2Y - \omega Y'' + \beta kY - Uk^3Y + Y''kU - kY\frac{d^2U}{dy^2} &= 0\label{eq:baro_inst_deriv_1}.
-\end{align}
-%
-Instabilität bedeutet, dass $\omega$ nicht rein reell ist, 
-%
-\begin{align}
-\omega = \omega_r + i\omega _c, 
-\end{align}
-%
-mit $\omega_r, \omega_c\in\mathbb{R}\setminus\{0\}$. Einsetzen in Glg. \eqref{eq:baro_inst_deriv_1} liefert
-%
-\begin{align}
-k^2Y\left(\omega_r + i\omega_c\right) - Y''\left(\omega_r + i\omega_c\right) + \beta kY - Uk^3Y + Y''kU = 0.
-\end{align}
-%
-Der Imaginärteil hiervon ist
-%
-\begin{align}
-k^2Y\omega_c - Y''\omega_c = 0\Leftrightarrow Y'' = k^2Y.
-\end{align}
-%
-Setzt man dies in den Realteil ein, erhält man
-%
-\begin{align}
-k^2Y\omega_r& - k^2Y\omega_r + \beta kY - Uk^3Y + Uk^3Y - kY\frac{d^2U}{dy^2} = 0\Rightarrow\frac{d^2U}{dy^2} = \beta.\label{eq:notw_baro_inst}
-\end{align}
-%
-dies ist eine notwendige Bedingung. Setzt man umgekehrt Glg. \eqref{eq:notw_baro_inst} voraus, wird Glg. \eqref{eq:baro_inst_deriv_1} zu (man weiß hier noch nicht, ob $\omega$ reell ist)
-%
-\begin{align}
-\omega k^2Y - \omega Y'' - Uk^3Y + Y''kU = 0.\label{eq:baro_inst_deriv_2}
-\end{align}
-%
-Geht man von einem jetförmigen\index{Jet} Hintergrundwind
-%
-\begin{align}
-U\left(y\right) = U_{\text{min}} + \frac{1}{2}\left(U_{\text{max}} - U_{\text{min}}\right)\left(1 + e^{i
-\frac{y\pi}{b}}\right)
-\end{align}
-%
-mit $U_{\text{min}}, U_{\text{max}}>0$ aus, erhält man im Imaginärteil von Glg. \eqref{eq:baro_inst_deriv_2}
-%
-\begin{align}
-k^3Y\frac{1}{2}\left(U_{\text{max}} - U_{\text{min}}\right)\sin\left(\frac{y\pi}{b}\right) = Y''k\frac{1}{2}\left(U_{\text{max}} - U_{\text{min}}\right)\sin\left(\frac{y\pi}{b}\right), 
-\end{align}
-%
-also ist
-%
-\begin{align}
-Y'' = k^2Y.
-\end{align}
-%
-Dass ein Zustand labil ist, heißt nicht zwangsläufig, dass er zusammenbricht. Es genügt aber eine beliebig kleine Anfangsauslenkung $v$, um eine exponentiell anwachsende Störung zu erzeugen. Man kann in der Realität von der Existenz einer solchen sehr kleinen Anfangsstörung ausgehen, sodass Instabilität in der Realität immer zum Zusammenbruch des Grundzustandes führt.
+ist die Schichtung \textit{labil}, darüber hinaus sogar \textit{unbedingt labil}, da sowohl ein gesättigtes wie auch ein ungesättigtes Luftteilchen, welches aus seiner Ruhelage ausgelenkt wird, nicht in diese zurückkehrt.
 
-\subsection{Barokline Instabilität}
-\label{sec:barokline_instabilitaet}\index{Instabilität!barokline}\index{barokline Instabilität}
-
-Für den Ausdruck unter der Wurzel in Glg. \eqref{eq:disp_rel_baroklin} wird nun eine Abkürzung
+Ist die Luft jedoch gesättigt, findet bei der Abkühlung, die infolge der Hebung stattfindet, Kondensation oder Resublimation statt, wobei Phasenübergangswärme frei wird. Lenkt man das Teilchen bei $z$ vertikal aus, ergibt sich das \textit{lifted condensation level (LCL)}\index{lifted condensation level (LCL)}\index{Hebungskondensationsniveau (HKN)}\index{HKN}\index{LCL} $z_\text{LCL}$ als die Höhe, in der es gesättigt wäre, also erfüllt es die Gleichung
 %
 \begin{align}
-g = g\left(\newoverline{u}_T, k\right) \coloneqq\frac{\beta^2K^4}{4k^2} + \newoverline{u}_T^2k^2\left(k^4 - K^4\right)
+p_v^{(S)}\left(T\left(z\right) - \Gamma_d\left(z_{\text{LCL}} - z\right)\right) \equiv p_v\left(z\right)\left(1 - \frac{\Gamma_d\left(z_{\text{LCL}} - z\right)}{T\left(z\right)}\right)^{\frac{g}{R_d\Gamma_d}}
 \end{align}
 %
-definiert. Im Fall $g<0$ gilt
+Man geht bei der anschließenden weiteren Hebung zunächst davon aus, dass das komplette Wasser in der Wolke verbleibt, was man als \textit{reversible Feuchtadiabate}\index{reversible Feuchtadiabate}\index{Feuchtadiabate!reversible} bezeichnet; gelegentlich wird statt feuchtadiabatisch auch das Wort pseudoadiabatisch\index{pseudoadiabatisch} verwendet, da die Frage, ob dieser Prozess adiabatisch ist oder nicht davon abhängt, welches System man betrachtet: betrachtet man die Luft inklusive der Kondensate als System, ist der Prozess adiabatisch\index{adiabatisch}, da es keine Wärme mit seiner Umgebung austauscht; betrachtet man hingegen nur die Gasphase, so ist der Prozess hingegen diabatisch\index{diabatisch}. Bei der \textit{irreversiblen Feuchtadiabate}\index{irreversible Feuchtadiabate}\index{Feuchtadiabate!irreversible}, worauf in Absch. \ref{sec:cape} näher eingegangen wird, wird hingegen davon ausgegangen, dass das gesamte Wasser ausregnet. Dies soll nun betrachtet werden. Nehme also an, dass die Luft in einem Teilchen mit dem Volumen $V$ und der konstanten Masse $m$ aus einem Gemisch aus feuchter Luft und Kondensationsprodukten einer Phase besteht, wobei alle Komponenten die gleiche Temperatur $T$ haben sollen. Mit dem Ersten Hauptsatz der Thermodynamik Glg. \eqref{eq:td1_ideal_gas} erhält man
 %
 \begin{align}
-\omega = \omega_r + i\frac{1}{k^2 + K^2}\omega_i'
+&c^{(v)}\frac{dT}{dz} + p\frac{d}{dz}\frac{1}{\rho} = \frac{1}{\rho}\frac{dq}{dz}\nonumber\\
+\Rightarrow\frac{dT}{dz} &= \frac{1}{c^{(v)}}\left[\frac{1}{\rho}\frac{dq}{dz} - p\frac{d}{dz}\frac{1}{\rho}\right] = \frac{1}{\rho c^{(v)}}\left[\frac{dq}{dz} + \frac{p}{\rho}\frac{d\rho}{dz}\right] = -\frac{g}{c^{(v)}}\left[\frac{dq}{dp} + \frac{p}{\rho}\frac{d\rho}{dp}\right].\label{eq:feuchtad_deriv_1}
 \end{align}
 %
-mit
+Hierbei wurde die hydrostatische Grundgleichung eingesetzt. Für die Wärmeleistung pro Volumen infolge des Phasenübergangs $dq$ gilt
 %
 \begin{align}
-\omega_i' \coloneqq\pm\sqrt{\left|g\left(\newoverline{u}_T, k\right)\right|}.
+dq = \frac{c_{c}}{v}_hdm_c
 \end{align}
 %
-Dies führt dazu, dass im Fall des negativen Vorzeichens die Amplitude exponentiell anwächst, es liegt also eine Instabilität vor. Definiere
+mit $m_c$ als kondensiertet oder resublimierter Masse und $c_{c}$ als Phasenübergangswärme. Mit der Zustandsgleichung für Wasserdampf gilt
 %
 \begin{align}
-N \coloneqq\frac{\omega_i'}{k^2 + K^2} = \frac{\sqrt{\left|g\left(\newoverline{u}_T, k\right)\right|}}{k^2 + K^2}, 
+p_v &= \rho_vR_vT\Rightarrow m_v = \frac{V_vp_v}{R_vT} = \frac{V_hp_v}{R_vT} = \frac{m_hR_hp_v^{(S)}\left(T\right)}{pR_v}\nonumber\\
+\Rightarrow dm_c &= -dm_v = \frac{m_hR_hp_v^{(S)}\left(T\right)}{pR_v}\left(\frac{dp}{p} - \frac{dp_v^{(S)}}{p_v^{(S)}} + \frac{dm_c}{m_h}\right)\nonumber\\
+\Rightarrow dm_c\left(1 - \frac{R_hp_v^{(S)}\left(T\right)}{pR_v}\right) &= \frac{m_hR_hp_v^{(S)}\left(T\right)}{pR_v}\left(\frac{dp}{p} - \frac{dp_v^{(S)}}{p_v^{(S)}}\right)\nonumber\\
+\Rightarrow dm_c &= m_h\frac{\frac{dp}{p} - \frac{dp_v^{(S)}}{p_v^{(S)}}}{\frac{pR_v}{R_hp_v^{(S)}} - 1}.
 \end{align}
 %
-dies ist die Wachstumskonstante der Störung. Es gilt also im instabilen Fall
+Hierbei ist $p_v^{(S)} = p_v^{(S)}\left(T\right)$ der Sättigungsdampfdruck. Daraus folgt
 %
 \begin{align}
-N^2 + \frac{g}{\left(k^2 + K^2\right)} &= N^2 + \frac{\frac{\beta^2K^4}{4k^2} + \newoverline{u}_T^2k^2\left(k^4 - K^4\right)}{\left(k^2 + K^2\right)^2} = 0.
+dq &= \frac{c_c}{T}\frac{dp - \frac{p}{p_v^{(S)}}dp_v^{(S)}}{\frac{pR_v}{p_v^{(S)}} - R_h}\nonumber\\
+\Rightarrow\frac{dq}{dp} &= \frac{c_c}{\frac{pR_vT}{p_v^{(S)}} - R_hT}\left(1 - \frac{p}{p_v^{(S)}}\frac{dp_v^{(S)}}{dp}\right) = \frac{c_c}{\frac{pR_vT}{p_v^{(S)}} - TR_h}\left(1 + \frac{1}{g\rho}\frac{dT}{dz}\frac{p}{p_v^{(S)}}\frac{dp_v^{(S)}}{dT}\right)\nonumber\\
+&= \frac{c_c}{TpR_v - Tp_v^{(S)}R_h}\left(p_v^{(S)} + \frac{p}{g\rho}\frac{dT}{dz}\frac{dp_v^{(S)}}{dT}\right)\nonumber\\
+&= \frac{c_cp_v^{(S)}}{TpR_v - Tp_v^{(S)}R_h} + \frac{p}{Tg\rho}\frac{c_c}{pR_v - p_v^{(S)}R_h}\frac{dp_v^{(S)}}{dT}\frac{dT}{dz}.
 \end{align}
 %
-An dieser Stelle definiert man eine dimensionslose Kreiswellenzahl
+Setzt man dies in Glg. \eqref{eq:feuchtad_deriv_1} ein und wendet ein weiteres Mal die Kettenregel an, erhält man
 %
 \begin{align}
-\kappa \coloneqq\frac{k}{K}, 
+\frac{dT}{dz} &= -\frac{g}{c^{(v)}}\Bigg[\frac{c_cp_v^{(S)}}{TpR_v - Tp_v^{(S)}R_h}\nonumber\\
+& + \frac{p}{Tg\rho}\frac{c_c}{pR_v - p_v^{(S)}R_h}\frac{dp_v^{(S)}}{dT}\frac{dT}{dz} + \frac{p}{\rho}\frac{\partial\rho}{\partial p} - \frac{p}{g\rho^2}\frac{\partial\rho}{\partial T}\frac{dT}{dz}\Bigg].
 \end{align}
 %
-damit folgt
+Nun braucht man eine Zustandsgleichung. Für die Dichte gilt
 %
 \begin{align}
-N^2 + \frac{\frac{\beta^2}{4k^2} + \newoverline{u}_T^2k^2\left(\kappa^2 + 1\right)\left(\kappa^2 - 1\right)}{\left(\kappa^2 + 1\right)^2} &= N^2 + \frac{\beta^2}{4k^2\left(\kappa^2 + 1\right)^2} + \newoverline{u}_T^2k^2\frac{\kappa^2 - 1}{\kappa^2 + 1} = 0\nonumber\\
-\Rightarrow N^2 + \frac{\beta^2}{4k^2\left(\kappa^2 + 1\right)^2} + \frac{\beta^2}{K^2}\newoverline{u}^{\star2}_T\kappa^2\frac{\kappa^2 - 1}{\kappa^2 + 1} &= 0
+\rho = \rho_h + \rho_c = \frac{p}{R_hT} + \rho_c.
 \end{align}
 %
-mit einem dimensionslosen thermischen Wind
+Man erhält damit
 %
 \begin{align}
-\newoverline{u}_T^\star \coloneqq\frac{\newoverline{u}_TK^2}{\beta}.
+\frac{dT}{dz} &= \frac{g}{c^{(v)}}\Bigg[ - \frac{c_cp_v^{(S)}}{TpR_v - Tp_v^{(S)}R_h}\nonumber\\
+& - \frac{p}{Tg\rho}\frac{c_c}{pR_v - p_v^{(S)}R_h}\frac{dp_v^{(S)}}{dT}\frac{dT}{dz} - \frac{p}{\rho R_hT} - \frac{p^2}{R_hg\rho^2T^2}\frac{dT}{dz}\Bigg]\nonumber\\
+&= \frac{g}{c^{(v)}}\Bigg[ - \frac{c_cp_v^{(S)}}{TpR_v - Tp_v^{(S)}R_h} - \frac{p}{Tg\rho}\frac{c_c}{pR_v - p_v^{(S)}R_h}\frac{dp_v^{(S)}}{dT}\frac{dT}{dz}\nonumber\\
+& - 1 + \frac{\rho
+_c}{\rho} - \frac{1}{g}\left(1 - \frac{\rho_c}{\rho}\right)\frac{p}{\rho T}\frac{dT}{dz}\Bigg].
 \end{align}
 %
-Hieraus folgt weiter
+Dies stellt man nun nach $\frac{dT}{dz}$ um:
 %
 \begin{align}
-\frac{N^2K^2}{\kappa^2\beta^2} + \frac{1}{4\kappa^4\left(\kappa^2 + 1\right)^2} + \newoverline{u}^{\star2}_T\frac{\kappa^2 - 1}{\kappa^2 + 1} &= 0
+& \frac{dT}{dz}\left(1 + \frac{p}{Tc^{(v)}\rho}\frac{c_c}{pR_v - p_v^{(S)}R_h}\frac{dp_v^{(S)}}{dT} + \frac{1}{c^{(v)}}\left(1 - \frac{\rho_c}{\rho}\right)\frac{p}{\rho T}\right)\nonumber\\
+&= \frac{g}{c^{(v)}}\left(\frac{\rho_c}{\rho} - 1\right) - \frac{gc_cp_v^{(S)}\left(T\right)}{c^{(v)}T\left(R_vp - p_v^{(S)}R_h\right)}\nonumber\\
+\Rightarrow\frac{dT}{dz} &= -\frac{g}{c^{(p)}}\frac{1 - \frac{\rho_c}{\rho} + \frac{c_cp_v^{(S)}}{T\left(R_vp - p_v^{(S)}R_h\right)}}{\frac{c^{(v)}}{c^{(p)}} + \frac{p}{T\rho c^{(p)}}\frac{c_c}{pR_v - p_v^{(S)}R_h}\frac{dp_v^{(S)}}{dT} + \left(1 - \frac{\rho_c}{\rho}\right)\frac{p}{c^{(p)}T\rho}}\nonumber\\
+&= -\Gamma_d\beta
 \end{align}
 %
-Mit der dimensionslosen Wachstumsrate
+Hierbei ist
+%
+\begin{center}
+\doublebox{\parbox{\textwidth}{
+\begin{center}
+\begin{align}
+\beta = \beta\left(p, T, \rho_c\right) \coloneqq\frac{1 - \frac{\rho_c}{\rho} + \frac{c_cp_v^{(S)}}{T\left(R_vp - p_v^{(S)}R_h\right)}}{\frac{c^{(v)}}{c^{(p)}} + \frac{p}{T\rho c^{(p)}}\frac{c_c}{pR_v - p_v^{(S)}R_h}\frac{dp_v^{(S)}}{dT} + \left(1 - \frac{\rho_c}{\rho}\right)\frac{p}{c^{(p)}T\rho}}.\label{eq:beta_malr}
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+Für die Ableitung $\frac{dp_v^{(S)}}{dT}$ kann die Clausius-Clapeyron-Gleichung eingesetzt werden. Der sogenannte \textit{feuchtadiabatische Temperaturgradient}\index{feuchtadiabatischer Temperaturgradient}\index{Temperaturgradient!feuchtadiabatischer} wird nun durch
 %
 \begin{align}
-n \coloneqq\frac{NK}{\kappa\beta}
+\Gamma_h\coloneqq\Gamma_d\beta
 \end{align}
 %
-kann man dies als
+definiert. Setzt man in Glg. \eqref{eq:beta_malr} $\rho_c = 0$ und $p_v \ll p$ ein, behält aber Terme mit $\frac{dp_v^{(S)}}{dT}$, folgt
 %
 \begin{align}
-n^2 + \frac{1}{4\kappa^4\left(\kappa^2 + 1\right)^2} + \newoverline{u}^{\star2}_T\frac{\kappa^2 - 1}{\kappa^2 + 1} &= 0
+\frac{dT}{dz} &= -\frac{g}{c^{(p)}}\frac{1 + \frac{c_cp_v^{(S)}}{TR_vp}}{\frac{c^{(v)}}{c^{(p)}} + \frac{p}{T\rho c^{(p)}}\frac{c_c}{pR_v}\frac{dp_v^{(S)}}{dT} + \frac{p}{c^{(p)}T\rho}}.
 \end{align}
 %
-notieren. Stellt man dies nach $\newoverline{u}^{\star2}_T$ um, folgt
+Setzt man hier die Zustandsgleichung idealer Gase $p = \rho R_dT$ ein, erhält man den in der Literatur häufig angetroffene Ausdruck
 %
 \begin{align}
-\newoverline{u}^{\star2}_T = n^2\frac{1 + \kappa^2}{1 - \kappa^2} + \frac{1}{4\kappa^4\left(1 - \kappa^4\right)}.
+\frac{dT}{dz} &= -\frac{g}{c^{(p)}}\frac{1 + \frac{c_cp_v^{(S)}}{TR_vp}}{\frac{c^{(v)}}{c^{(p)}} + \frac{R_d}{c^{(p)}}\frac{c_c}{pR_v}\frac{dp_v^{(S)}}{dT} + \frac{c^{(p)} - c^{(v)}}{c^{(p)}}}\nonumber\\
+\Leftrightarrow\frac{dT}{dz} &= -\frac{g}{c^{(p)}}\frac{1 + \frac{c_cp_v^{(S)}}{TR_vp}}{1 + \frac{R_dc_c}{R_vc^{(p)}p}\frac{dp_v^{(S)}}{dT}} \equiv -\Gamma_d\beta'
+\end{align}
+%
+mit einem vereinfachten Faktor
+%
+\begin{align}
+\beta'&= \beta'\left(p, T\right) \coloneqq\frac{1 + \frac{c_cp_v^{(S)}}{TR_vp}}{1 + \frac{\epsilon'c_c}{pc^{(p)}}\frac{dp_v^{(S)}}{dT}}\stackrel{\text{Glg. \eqref{eq:clausius-clapeyron_vereinfacht}}}{\approx}\frac{1 + \frac{c_cp_v^{(S)}}{TR_vp}}{1 + \frac{\epsilon'c_c^2p_v^{(S)}}{R_vc^{(p)}T^2p}}\nonumber
+\end{align}
+\begin{center}
+\doublebox{\parbox{\textwidth}{
+\begin{center}
+\begin{align}
+\Leftrightarrow\beta'&\stackrel{\text{Glg. \eqref{eq:mischungsverhaeltnis_vereinfacht}}}{\approx}\frac{1 + \frac{c_cr^{(S)}}{TR_d}}{1 + \frac{c_c^2r^{(s)}}{R_vc^{(p)}T^2}}, \label{eq:beta_malr_approx}
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+welcher nicht mehr von der Dichte des bereits auskondensierten Wassers abhängt. Im Fall $\frac{dp_v^{(S)}}{dT} = p_v^{(S)} = 0$ folgt
+%
+\begin{align}
+\Gamma_h = \Gamma_d.
 \end{align}
 %
 \begin{figure}
 \centering
-\includegraphics[width = .65\textwidth]{figs/baro_inst.png}
-\caption{Die für gewisse Wachstumsraten notwendigen Windscherungen als Funktion der Wellenzahl.}
-\label{fig:barokline_instabilitaet}
+\includegraphics[width = .8\textwidth]{figs/beta_malr.png}
+\caption{Approximation von $\beta$ gemäß Glg. \eqref{eq:beta_malr_approx}.}
+\label{fig:beta_malr}
 \end{figure}
+%
+Im Fall gesättigter Luft und
+%
+\begin{align}
+\frac{\partial T}{\partial z} < -\Gamma_h
+\end{align}
+%
+ist die Schichtung ebenfalls \textit{labil}. Im Fall
+%
+\begin{align}
+-\Gamma_d \leq \frac{\partial T}{\partial z} < -\Gamma_h
+\end{align}
+%
+ist die Schichtung \textit{bedingt labil}, da nur ein gesättigtes Teilchen bei Auslenkung aus seiner Ruhelage nicht in diese zurückkehrt, die Labilität also von der Feuchte abhängt.
 
-Abb. \ref{fig:barokline_instabilitaet} zeigt die für unterschiedliche Wellenzahlen und Wachstumsraten notwendigen thermischen Windscherungen. Aus den Definitionen von $\kappa$ und $\newoverline{u}^\star_T$ wird klar, dass man sich bei abnehmender thermischer Stabilität in dieser Darstellung nach links oben bewegt, also in Richtung barokliner Labilität.
+\subsubsection{Aquivalentpotentielle Temperatur}
+\label{sec:äquivalentpotentielle_temperatur}\index{äquivalentpotentielle Temperatur}\index{Temperatur!äquivalentpotentielle}
 
-Bei der baroklinen Instabilität wird potentielle Energie der Schichtung, welche durch das Strahlungsfeld immer wieder neu erzeugt wird, in kinetische Energie des Horizontalwindes umgewandelt, bevor sie dissipiert wird.
+Um die sogenannte \textit{äquivalentpotentielle Temperatur}\index{äquivalentpotentielle Temperatur}\index{Temperatur!äquivalentpotentielle} $\theta_e$ (auch: pseudoäquivalentpotentielle Temperatur\index{pseudoäquivalentpotentielle Temperatur}\index{Temperatur!pseudoäquivalentpotentielle} oder seltener pseudopotentielle Temperatur\index{pseudopotentielle Temperatur}\index{Temperatur!pseudopotentielle}) eines Teilchens zu erhalten, sind zwei Schritte notwendig:
+%
+\begin{enumerate}
+\item Hebe das Teilchen trockenadiabatisch auf sein LCL.
+\item Hebe das Teilchen irreversibel-feuchtadiabatisch in eine unendliche Höhe. Die dann erhaltene potentielle Temperatur ist $\theta_e$.
+\end{enumerate}
+%
+Diese Größe ist also nicht nur um den Druckunterschied, sondern auch um die vorhandene Feuchte, welche in Form von Phäsenübergangsenthalpie\index{Phäsenübergangsenthalpie} zu einer Temperaturerhöhung führen könnte, bereinigt. Sie eignet sich daher gut, um die Temperaturen verschiedener Luftmassen zu vergleichen.
+
+\subsubsection{Reversibeläquivalentpotentielle Temperatur}
+\label{sec:reversibeläquivalentpotentielle_temperatur}\index{reversibeläquivalentpotentielle Temperatur}\index{Temperatur!reversibeläquivalentpotentielle}
+
+Die reversibeläquivalentpotentielle Temperatur\index{reversibeläquivalentpotentielle Temperatur}\index{Temperatur!reversibeläquivalentpotentielle} ist analog zur äquivalentpotentiellen Temperatur definiert, nur dass bei Schritt 2. aus Absch. \ref{sec:äquivalentpotentielle_temperatur} eine reversible Feuchtadiabate verfolgt wird.
+
+\subsubsection{CAPE}
+\label{sec:cape}\index{convective available potential Energy (CAPE)}\index{CAPE}\index{Energie!potentielle!konvektiv verfügbare}\index{potentielle Energie!konvektiv verfügbare}\index{konvektiv verfügbare potentielle Energie}
+
+Die in diesem Abschnitt durchgeführten Herleitungen beziehen sich auf eine vertikale Luftsäule, wobei dynamische, d. h. durch das Geschwindigkeitsfeld entstehende Effekte, nicht berücksichtigt werden. Man definiert eine Funktion $f\left(z, z'\right)$ als die spezifische Kraft, also die Beschleunigung, die auf das Teilchen bei $z$ wirkt, wenn man es adiabatisch auf das Niveau $z'$ bringt und von einer hydrostatischen Atmosphäre ausgeht, also
+%
+\begin{align}
+f\left(z, z'\right) \coloneqq -\frac{1}{\rho'\left(z, z'\right)}\frac{\partial p\left(z'\right)}{\partial z} - g = \frac{g\rho\left(z'\right)}{\rho'\left(z, z'\right)} - g = g\frac{\rho\left(z'\right) - \rho'\left(z, z'\right)}{\rho'\left(z, z'\right)}, 
+\end{align}
+%
+wobei $\rho'\left(z, z'\right)$ die Dichte des Teilchens bei $z$ ist, nachdem man es adiabatisch nach $z'$ verschoben hat. Man definiert außerdem eine Funktion $\newtilde{F}\left(z, z'\right)$ durch
+%
+\begin{align}
+\newtilde{F}\left(z, z'\right) \coloneqq g\int_{z}^{z'}\frac{\rho\left(z''\right) - \rho'\left(z, z''\right)}{\rho'\left(z, z''\right)}dz''
+\end{align}
+%
+als die Arbeit, die die Schichtung an einem Teilchen geleistet hat, welches adiabatisch von $z$ nach $z'$ ausgelenkt wurde. Üblicherweise wählt man $z = z_{\text{2m}} \coloneqq z_{\text{SFC}} + 2$ m, man definiert
+%
+\begin{align}
+F\left(z\right) \coloneqq g\int_{z_{\text{2m}}}^{z}\frac{\rho\left(z'\right) - \rho'\left(z'\right)}{\rho'\left(z'\right)}dz'
+\end{align}
+%
+mit dem Bezeichnungsmissbrauch
+%
+\begin{align}
+\rho'\left(z'\right) \coloneqq \rho'\left(z_{\text{2m}}, z'\right).
+\end{align}
+%
+Für den Integranden wird ebenso
+%
+\begin{align}
+f\left(z'\right) \coloneqq g\frac{\rho\left(z'\right) - \rho'\left(z'\right)}{\rho'\left(z'\right)}\label{eq:uplift}
+\end{align}
+%
+definiert. In Termen der Funktionen $F$ und $f$ lassen sich viele der üblicherweise im Zusammenhang mit Konvektion verwendeten Größen definieren. $z_T$ sei die als bekannt vorausgesetzte Tropopausenhöhe\index{Tropopausenhöhe}. Man definiert die sogenannte \textit{konvektiv verfügbare potentielle Energie}\index{convective available potential Energy (CAPE)}\index{CAPE}\index{Energie!potentielle!konvektiv verfügbare}\index{potentielle Energie!konvektiv verfügbare}\index{konvektiv verfügbare potentielle Energie} \textit{CAPE} durch
+%
+\begin{align}
+\CAPE \coloneqq \int_{z_{\text{2m}}}^{z_T}\Theta\left(f\left(z'\right)\right)dz', \label{eq:def_cape}
+\end{align}
+%
+wobei $\Theta$ die $\Theta-$Funktion bezeichnet\index{$\Theta-$Funktion}. Im Falle eines idealen Gases kann man für $f$ notieren
+%
+\begin{align}
+f\left(z'\right) \coloneqq g\frac{\frac{1}{T} - \frac{1}{T'}}{\frac{1}{T'}} = g\frac{T' - T}{T} = g\frac{\theta' - \theta}{\theta}.
+\end{align}
+%
+Im Fall feuchter Luft kann man $T \to T_v$ ersetzen, hierbei ist $T_v$ die in Glg. \eqref{eq:def_virtual_temperature} definierte virtuelle Temperatur, da bei dieser Temperatur die trockene Luft die gleiche Dichte hätte wie die vorhandene feuchte Luft\index{feuchte Luft}\index{Luft!feuchte}. Das \textit{level of free convection}\index{level of free convection}\index{LFC} $z_{\text{LFC}}$ ist die Höhe, in der das adiabatisch aufsteigende Teilchen zum ersten mal leichter ist als die Umgebung
+%
+\begin{align}
+z_{\text{LFC}} \coloneqq\inf\{z\newvline f\left(z\right) > 0\}.
+\end{align}
+%
+Wenn das Teilchen diese Höhe erreicht, wird es weiter aufsteigen, was man als \index{freie Konvektion}\index{Konvektion!freie}\textit{freie Kovektion} bezeichnet, also Konvektion, die auch ohne dynamischen Antrieb stattfinden würde. Analog bezeichnet man
+%
+\begin{align}
+z_{\text{EL}} \coloneqq\sup\{z\newvline f\left(z\right) > 0, z < 2z_T\}
+\end{align}
+%
+als \index{Gleichgewichtsniveau}\textit{Gleichgewichtsniveau} \textit{(equilibrium level)}. Die tiefe Stratosphäre wurde sicherheitshalber ausgeklammert. Dies ist die Höhe, in der ein frei aufsteigendes Teilchen wieder schwerer wäre als seine Umgebung. Häufig wird in Glg. \eqref{eq:def_cape} die $\Theta-$Funktion weggelassen und nur von $z_{\text{LFC}}$ bist $z_{\text{EL}}$ integriert, was genau dann richtig ist, wenn in genau einem Höhenintervall thermische Labilität vorliegt, was häufig der Fall ist. Die \index{maximale Wolkenobergrenze}\index{Wolkenobergrenze!maximale}\textit{maximale Wolkenobergrenze} ist definiert als die Höhe, in der ein solches Teilchen seine kinetische Energie wieder verloren hätte, also
+%
+\begin{align}
+z_{\text{MCT}} \coloneqq\inf\{z\newvline \newtilde{F}\left(z_{\text{LFC}}, z\right) < 0\}.
+\end{align}
+%
+Das Phänomen $z_{\text{MCT}} > z_{\text{EL}}$ führt bei hochreichender Konvektion zur Ausprägung von Schwerewellen an der Tropopause \textit{(overshooting tops)}\index{overshooting top}, was generell überall dort der Fall ist, wo ein stabil auf ein labil geschichtetes Höhenintervall folgt.
+
+Hat ein Teilchen in zwei Metern Höhe die sogenannte \index{Auslösetemperatur}\textit{Auslösetemperatur} erreicht, kann es auch ohne dynamischen Antrieb in das LFC aufsteigen, also
+%
+\begin{align}
+0 \equiv g\int_{z_{\text{2m}}}^{z_{\text{LFC}}}\frac{\rho\left(z'\right) - \newtilde{\rho}'\left(z'\right)}{\newtilde{\rho}'\left(z'\right)}, 
+\end{align}
+%
+wobei $\newtilde{\rho}'\left(z'\right)$ die Dichte des adiabatisch von $z_{\text{2m}}$ nach $z'$ gehobenen Teilchens ist, was in zwei Metern Höhe die Auslösetemperatur hätte. Die Energie $\CIN$, die dabei überwunden werden muss, also
+%
+\begin{align}
+\CIN \coloneqq \newtilde{F}\left(z_{\text{2m}}, z_{\text{LFC}}\right).
+\end{align}
+%
+bezeichnet man als \textit{konvektive Schranke}\index{konvektive Schranke}\index{Schranke!konvektive} oder \textit{convective inhibition}\index{convective inhibition (CIN)}\index{CIN}. Die Höhe, in der ein auf die Auslösetemperatur aufgeheiztes Teilchen beim adiabatischen Aufstieg gesättigt wäre, bezeichnet man als \textit{convective condensation level (CCL)}\index{convective condensation level (CCL)}\index{Konvektionskondensationsniveau (KKN)}\index{KKN}\index{CCL}. Dies ist mindestens so groß wie das LCL, also
+%
+\begin{align}
+z_{\text{CCL}} \geq z_{\text{LCL}}.
+\end{align}
 
 \subsection{Kelvin-Helmholtz-Instabilität}
 \label{sec:kelvin-helmholtz-instabilitaet}\index{Kelvin-Helmholtz-Instabilität}
 
-Die \textit{Kelvin-Helmholtz-Instabilität} bezeichnet das Brechen von Schichtungswellen in einer vertikal gescherten Horizontalströmung.
+Die \textit{Kelvin-Helmholtz-Instabilität} bezeichnet das Brechen von Schwerewellen in einer vertikal gescherten Horizontalströmung.
 
 \subsubsection{In diskreter Schichtung}
 \label{sec:in_diskreter_schichtung}\index{Schichtung!diskrete!Kelvin-Helmholtz-Instabilität}\index{diskrete Schichtung!Kelvin-Helmholtz-Instabilität}\index{Kelvin-Helmholtz-Instabilität!in diskreter Schichtung}
@@ -15768,8 +15675,8 @@ also wenn
 %
 Ein Beispiel ist das Entstehen von Wasseroberflächenwellen unter Windeinwirkung. Man kann davon ausgehen, dass fast immer spektrale Komponenten im Windfeld vorhanden sind, die die Bedingung Glg. \eqref{eq:khi_discrete_cond} erfüllen. Die weitere zeitliche Entwicklung des Systems kann unterschiedlich aussehen, z. B. ist diese abhängig davon, ob sich die Medien durchmischen können oder nicht.
 
-\subsubsection{Schichtung}
-\label{sec:schichtung}\index{kontinuierliche Schichtung!Kelvin-Helmholtz-Instabilität}\index{Kelvin-Helmholtz-Instabilität!in kontinuierlicher Schichtung}
+\subsubsection{In kontinuierlicher Schichtung}
+\label{sec:in_kontinuierlicher_schichtung}\index{kontinuierliche Schichtung!Kelvin-Helmholtz-Instabilität}\index{Kelvin-Helmholtz-Instabilität!in kontinuierlicher Schichtung}
 
 Man betrachtet wieder die xz-Ebene und vernachlässigt die Coriolis-Beschleunigung. Außerdem macht man die Boussinesq-Approximation (s. Absch. \ref{sec:boussinesq-approximation}). Impuls-, Kontinuitätsgleichung und Erster Hauptsatz der Thermodynamik lauten mit $\sigma$ als potentieller Dichte
 %
@@ -15968,264 +15875,191 @@ R_i > \frac{1}{4}\text{ überall in }\left(0, H\right)
 %
 ist hinreichend für Stabiilität.
 
-\subsection{Thermische Instabilität}
-\label{sec:thermische_instabilitaet}\index{thermische Instabilität}\index{Instabilität!thermische}
+\subsection{Barotrope Instabilität}
+\label{sec:barotrope_instabilitaet}\index{Instabilität!barotrope}\index{barotrope Instabilität}
 
-Die Atmosphäre habe an einem gegebenen Punkt die Schichtung $T = T\left(z\right)$. Üblicherweise ist
+Nehme einen westlichen Grundstrom $U>0$ an, der nur von $y$ abhängt
 %
 \begin{align}
-\frac{\partial T}{\partial z}<0, 
+U = U\left(y\right)
 \end{align}
 %
-bei $\frac{\partial T}{\partial z}>0$ spricht man von einer \index{Inversion}\textit{Inversion}. Der trockenadiabatische Temperaturgradient ist nach Glg. \eqref{eq:trockenad_tempgradient} durch
+und eine Störung
 %
 \begin{align}
-\Gamma_d = \frac{g}{c^{(p)}}
+\mathbf{v}_h' = \left(u, v\right)^T = \mathbf{k}\times\nabla\psi
 \end{align}
 %
-definiert. Im Fall
+mit einer Stromfunktion $\psi$. Man betrachte einen zonalen Kanal der Ausdehnung $2b$ mit $b>0$, die Gerade $y = 0$ liege in der Mitte dieses Kanals. Die Randbedingungen seien $\omega = 0$ bei $p = 0$ und $p = p_0$ und $v = 0$ bei $y = \pm b$. Dann ist der Horizontalwind divergenzfrei und es kann die \textit{barotrope Vorticitygleichung}\index{Vorticitygleichung!barotrope}\index{barotrope Vorticitygleichung} angewandt werden, 
 %
 \begin{align}
-\frac{\partial T}{\partial z}< - \Gamma_d
+\frac{\partial\zeta}{\partial t} + \beta v + u\frac{\partial\zeta}{\partial x} + v\frac{\partial\zeta}{\partial y} = 0.
 \end{align}
 %
-ist die Schichtung \textit{lokal instabil}, solange die Luft dabei ungesättigt bleibt.
+Hierbei sei $\beta$ homogen, s. Absch. \ref{sec:betaebene}. Macht man hier einen Störungsansatz nach Absch. \ref{sec:begruendung_der_linearisierung}, so erhält man
+%
+\begin{align}
+\frac{\partial\zeta'}{\partial t} + \beta v + U\frac{\partial\zeta'}{\partial x} + v\frac{\partial\newoverline{\zeta}}{\partial y} = 0.
+\end{align}
+%
+Hierbei wurde für die Vorticity geschrieben $\zeta = \newoverline{\zeta} + \zeta'$ mit $\newoverline{\zeta}$ als Vorticity von $U$ und $\zeta'$ als Vorticity von $\mathbf{v}_h'$. Setze für die Störung $\psi$
+%
+\begin{align}
+\psi\left(x, y, t\right) = Y\left(y\right)\psi_0e^{i\left(kx - \omega t\right)}
+\end{align}
+%
+an. Mit $Y\left(\pm b\right)\hastobe0$ sind die Randbedingungen an $v$ erfüllt, man erhält außerdem
+%
+\begin{align}
+v &= \frac{\partial\psi}{\partial x} = ik\psi,\\
+\zeta' &= \Delta \psi = -k^2\psi + Y''\psi_0e^{i(kx - \omega t)},\\
+\frac{\partial\zeta'}{\partial x} &= -ik^3\psi + Y''\psi_0ike^{i\left(kx - \omega t\right)}.\\
+\end{align}
+%
+Setzt man dies in die barotrope Vorticitygleichung ein und streicht $\psi_0e^{i\left(kx - \omega t\right)}$, erhält man
+%
+\begin{align}
+i\omega k^2Y - i\omega Y'' + \beta ikY - Uik^3Y + Y''ikU - ikY\frac{d^2U}{dy^2} &= 0\nonumber\\
+\Leftrightarrow \omega k^2Y - \omega Y'' + \beta kY - Uk^3Y + Y''kU - kY\frac{d^2U}{dy^2} &= 0\label{eq:baro_inst_deriv_1}.
+\end{align}
+%
+Instabilität bedeutet, dass $\omega$ nicht rein reell ist, 
+%
+\begin{align}
+\omega = \omega_r + i\omega _c, 
+\end{align}
+%
+mit $\omega_r, \omega_c\in\mathbb{R}\setminus\{0\}$. Einsetzen in Glg. \eqref{eq:baro_inst_deriv_1} liefert
+%
+\begin{align}
+k^2Y\left(\omega_r + i\omega_c\right) - Y''\left(\omega_r + i\omega_c\right) + \beta kY - Uk^3Y + Y''kU = 0.
+\end{align}
+%
+Der Imaginärteil hiervon ist
+%
+\begin{align}
+k^2Y\omega_c - Y''\omega_c = 0\Leftrightarrow Y'' = k^2Y.
+\end{align}
+%
+Setzt man dies in den Realteil ein, erhält man
+%
+\begin{align}
+k^2Y\omega_r& - k^2Y\omega_r + \beta kY - Uk^3Y + Uk^3Y - kY\frac{d^2U}{dy^2} = 0\Rightarrow\frac{d^2U}{dy^2} = \beta.\label{eq:notw_baro_inst}
+\end{align}
+%
+dies ist eine notwendige Bedingung. Setzt man umgekehrt Glg. \eqref{eq:notw_baro_inst} voraus, wird Glg. \eqref{eq:baro_inst_deriv_1} zu (man weiß hier noch nicht, ob $\omega$ reell ist)
+%
+\begin{align}
+\omega k^2Y - \omega Y'' - Uk^3Y + Y''kU = 0.\label{eq:baro_inst_deriv_2}
+\end{align}
+%
+Geht man von einem jetförmigen\index{Jet} Hintergrundwind
+%
+\begin{align}
+U\left(y\right) = U_{\text{min}} + \frac{1}{2}\left(U_{\text{max}} - U_{\text{min}}\right)\left(1 + e^{i
+\frac{y\pi}{b}}\right)
+\end{align}
+%
+mit $U_{\text{min}}, U_{\text{max}}>0$ aus, erhält man im Imaginärteil von Glg. \eqref{eq:baro_inst_deriv_2}
+%
+\begin{align}
+k^3Y\frac{1}{2}\left(U_{\text{max}} - U_{\text{min}}\right)\sin\left(\frac{y\pi}{b}\right) = Y''k\frac{1}{2}\left(U_{\text{max}} - U_{\text{min}}\right)\sin\left(\frac{y\pi}{b}\right), 
+\end{align}
+%
+also ist
+%
+\begin{align}
+Y'' = k^2Y.
+\end{align}
+%
+Dass ein Zustand labil ist, heißt nicht zwangsläufig, dass er zusammenbricht. Es genügt aber eine beliebig kleine Anfangsauslenkung $v$, um eine exponentiell anwachsende Störung zu erzeugen. Man kann in der Realität von der Existenz einer solchen sehr kleinen Anfangsstörung ausgehen, sodass Instabilität in der Realität immer zum Zusammenbruch des Grundzustandes führt.
 
-Ist die Luft jedoch gesättigt, findet bei der Abkühlung, die infolge der Hebung stattfindet, Kondensation oder Resublimation statt, wobei Phasenübergangswärme frei wird. Lenkt man das Teilchen bei $z$ vertikal aus, ergibt sich das \textit{lifted condensation level (LCL)}\index{lifted condensation level (LCL)}\index{Hebungskondensationsniveau (HKN)}\index{HKN}\index{LCL} $z_\text{LCL}$ als die Höhe, in der es gesättigt wäre, also erfüllt es die Gleichung
+\subsection{Barokline Instabilität}
+\label{sec:barokline_instabilitaet}\index{Instabilität!barokline}\index{barokline Instabilität}
+
+Für den Ausdruck unter der Wurzel in Glg. \eqref{eq:disp_rel_baroklin} wird nun eine Abkürzung
 %
 \begin{align}
-p_v^{(S)}\left(T\left(z\right) - \Gamma_d\left(z_{\text{LCL}} - z\right)\right) \equiv p_v\left(z\right)\left(1 - \frac{\Gamma_d\left(z_{\text{LCL}} - z\right)}{T\left(z\right)}\right)^{\frac{g}{R_d\Gamma_d}}
+g = g\left(\newoverline{u}_T, k\right) \coloneqq\frac{\beta^2K^4}{4k^2} + \newoverline{u}_T^2k^2\left(k^4 - K^4\right)
 \end{align}
 %
-Man geht bei der anschließenden weiteren Hebung zunächst davon aus, dass das komplette Wasser in der Wolke verbleibt, was man als \textit{reversible Feuchtadiabate}\index{reversible Feuchtadiabate}\index{Feuchtadiabate!reversible} bezeichnet; gelegentlich wird statt feuchtadiabatisch auch das Wort pseudoadiabatisch\index{pseudoadiabatisch} verwendet, da die Frage, ob dieser Prozess adiabatisch ist oder nicht davon abhängt, welches System man betrachtet: betrachtet man die Luft inklusive der Kondensate als System, ist der Prozess adiabatisch\index{adiabatisch}, da es keine Wärme mit seiner Umgebung austauscht; betrachtet man hingegen nur die Gasphase, so ist der Prozess hingegen diabatisch\index{diabatisch}. Bei der \textit{irreversiblen Feuchtadiabate}\index{irreversible Feuchtadiabate}\index{Feuchtadiabate!irreversible}, worauf in Absch. \ref{sec:cape} näher eingegangen wird, wird hingegen davon ausgegangen, dass das gesamte Wasser ausregnet. Dies soll nun betrachtet werden. Nehme also an, dass die Luft in einem Teilchen mit dem Volumen $V$ und der konstanten Masse $m$ aus einem Gemisch aus feuchter Luft und Kondensationsprodukten einer Phase besteht, wobei alle Komponenten die gleiche Temperatur $T$ haben sollen. Mit dem Ersten Hauptsatz der Thermodynamik Glg. \eqref{eq:td1_ideal_gas} erhält man
+definiert. Im Fall $g<0$ gilt
 %
 \begin{align}
-& c^{(v)}\frac{dT}{dz} + p\frac{d}{dz}\frac{1}{\rho} = \frac{1}{\rho}\frac{dq}{dz}\nonumber\\
-\Rightarrow\frac{dT}{dz} &= \frac{1}{c^{(v)}}\left[\frac{1}{\rho}\frac{dq}{dz} - p\frac{d}{dz}\frac{1}{\rho}\right] = \frac{1}{\rho c^{(v)}}\left[\frac{dq}{dz} + \frac{p}{\rho}\frac{d\rho}{dz}\right] = -\frac{g}{c^{(v)}}\left[\frac{dq}{dp} + \frac{p}{\rho}\frac{d\rho}{dp}\right].\label{eq:feuchtad_deriv_1}
+\omega = \omega_r + i\frac{1}{k^2 + K^2}\omega_i'
 \end{align}
 %
-Hierbei wurde die hydrostatische Grundgleichung eingesetzt. Für die Wärmeleistung pro Volumen infolge des Phasenübergangs $dq$ gilt
+mit
 %
 \begin{align}
-dq = \frac{c_{c}}{v}_hdm_c
+\omega_i' \coloneqq\pm\sqrt{\left|g\left(\newoverline{u}_T, k\right)\right|}.
 \end{align}
 %
-mit $m_c$ als kondensiertet oder resublimierter Masse und $c_{c}$ als Phasenübergangswärme. Mit der Zustandsgleichung für Wasserdampf gilt
+Dies führt dazu, dass im Fall des negativen Vorzeichens die Amplitude exponentiell anwächst, es liegt also eine Instabilität vor. Definiere
 %
 \begin{align}
-p_v &= \rho_vR_vT\Rightarrow m_v = \frac{V_vp_v}{R_vT} = \frac{V_hp_v}{R_vT} = \frac{m_hR_hp_v^{(S)}\left(T\right)}{pR_v}\nonumber\\
-\Rightarrow dm_c &= -dm_v = \frac{m_hR_hp_v^{(S)}\left(T\right)}{pR_v}\left(\frac{dp}{p} - \frac{dp_v^{(S)}}{p_v^{(S)}} + \frac{dm_c}{m_h}\right)\nonumber\\
-\Rightarrow dm_c\left(1 - \frac{R_hp_v^{(S)}\left(T\right)}{pR_v}\right) &= \frac{m_hR_hp_v^{(S)}\left(T\right)}{pR_v}\left(\frac{dp}{p} - \frac{dp_v^{(S)}}{p_v^{(S)}}\right)\nonumber\\
-\Rightarrow dm_c &= m_h\frac{\frac{dp}{p} - \frac{dp_v^{(S)}}{p_v^{(S)}}}{\frac{pR_v}{R_hp_v^{(S)}} - 1}.
+N \coloneqq\frac{\omega_i'}{k^2 + K^2} = \frac{\sqrt{\left|g\left(\newoverline{u}_T, k\right)\right|}}{k^2 + K^2}, 
 \end{align}
 %
-Hierbei ist $p_v^{(S)} = p_v^{(S)}\left(T\right)$ der Sättigungsdampfdruck. Daraus folgt
+dies ist die Wachstumskonstante der Störung. Es gilt also im instabilen Fall
 %
 \begin{align}
-dq &= \frac{c_c}{T}\frac{dp - \frac{p}{p_v^{(S)}}dp_v^{(S)}}{\frac{pR_v}{p_v^{(S)}} - R_h}\nonumber\\
-\Rightarrow\frac{dq}{dp} &= \frac{c_c}{\frac{pR_vT}{p_v^{(S)}} - R_hT}\left(1 - \frac{p}{p_v^{(S)}}\frac{dp_v^{(S)}}{dp}\right) = \frac{c_c}{\frac{pR_vT}{p_v^{(S)}} - TR_h}\left(1 + \frac{1}{g\rho}\frac{dT}{dz}\frac{p}{p_v^{(S)}}\frac{dp_v^{(S)}}{dT}\right)\nonumber\\
-&= \frac{c_c}{TpR_v - Tp_v^{(S)}R_h}\left(p_v^{(S)} + \frac{p}{g\rho}\frac{dT}{dz}\frac{dp_v^{(S)}}{dT}\right)\nonumber\\
-&= \frac{c_cp_v^{(S)}}{TpR_v - Tp_v^{(S)}R_h} + \frac{p}{Tg\rho}\frac{c_c}{pR_v - p_v^{(S)}R_h}\frac{dp_v^{(S)}}{dT}\frac{dT}{dz}.
+N^2 + \frac{g}{\left(k^2 + K^2\right)} &= N^2 + \frac{\frac{\beta^2K^4}{4k^2} + \newoverline{u}_T^2k^2\left(k^4 - K^4\right)}{\left(k^2 + K^2\right)^2} = 0.
 \end{align}
 %
-Setzt man dies in Glg. \eqref{eq:feuchtad_deriv_1} ein und wendet ein weiteres Mal die Kettenregel an, erhält man
+An dieser Stelle definiert man eine dimensionslose Kreiswellenzahl
 %
 \begin{align}
-\frac{dT}{dz} &= -\frac{g}{c^{(v)}}\Bigg[\frac{c_cp_v^{(S)}}{TpR_v - Tp_v^{(S)}R_h}\nonumber\\
-& + \frac{p}{Tg\rho}\frac{c_c}{pR_v - p_v^{(S)}R_h}\frac{dp_v^{(S)}}{dT}\frac{dT}{dz} + \frac{p}{\rho}\frac{\partial\rho}{\partial p} - \frac{p}{g\rho^2}\frac{\partial\rho}{\partial T}\frac{dT}{dz}\Bigg].
+\kappa \coloneqq\frac{k}{K}, 
 \end{align}
 %
-Nun braucht man eine Zustandsgleichung. Für die Dichte gilt
+damit folgt
 %
 \begin{align}
-\rho = \rho_h + \rho_c = \frac{p}{R_hT} + \rho_c.
+N^2 + \frac{\frac{\beta^2}{4k^2} + \newoverline{u}_T^2k^2\left(\kappa^2 + 1\right)\left(\kappa^2 - 1\right)}{\left(\kappa^2 + 1\right)^2} &= N^2 + \frac{\beta^2}{4k^2\left(\kappa^2 + 1\right)^2} + \newoverline{u}_T^2k^2\frac{\kappa^2 - 1}{\kappa^2 + 1} = 0\nonumber\\
+\Rightarrow N^2 + \frac{\beta^2}{4k^2\left(\kappa^2 + 1\right)^2} + \frac{\beta^2}{K^2}\newoverline{u}^{\star2}_T\kappa^2\frac{\kappa^2 - 1}{\kappa^2 + 1} &= 0
 \end{align}
 %
-Man erhält damit
+mit einem dimensionslosen thermischen Wind
 %
 \begin{align}
-\frac{dT}{dz} &= \frac{g}{c^{(v)}}\Bigg[ - \frac{c_cp_v^{(S)}}{TpR_v - Tp_v^{(S)}R_h}\nonumber\\
-& - \frac{p}{Tg\rho}\frac{c_c}{pR_v - p_v^{(S)}R_h}\frac{dp_v^{(S)}}{dT}\frac{dT}{dz} - \frac{p}{\rho R_hT} - \frac{p^2}{R_hg\rho^2T^2}\frac{dT}{dz}\Bigg]\nonumber\\
-&= \frac{g}{c^{(v)}}\Bigg[ - \frac{c_cp_v^{(S)}}{TpR_v - Tp_v^{(S)}R_h} - \frac{p}{Tg\rho}\frac{c_c}{pR_v - p_v^{(S)}R_h}\frac{dp_v^{(S)}}{dT}\frac{dT}{dz}\nonumber\\
-& - 1 + \frac{\rho
-_c}{\rho} - \frac{1}{g}\left(1 - \frac{\rho_c}{\rho}\right)\frac{p}{\rho T}\frac{dT}{dz}\Bigg].
+\newoverline{u}_T^\star \coloneqq\frac{\newoverline{u}_TK^2}{\beta}.
 \end{align}
 %
-Dies stellt man nun nach $\frac{dT}{dz}$ um:
+Hieraus folgt weiter
 %
 \begin{align}
-& \frac{dT}{dz}\left(1 + \frac{p}{Tc^{(v)}\rho}\frac{c_c}{pR_v - p_v^{(S)}R_h}\frac{dp_v^{(S)}}{dT} + \frac{1}{c^{(v)}}\left(1 - \frac{\rho_c}{\rho}\right)\frac{p}{\rho T}\right)\nonumber\\
-&= \frac{g}{c^{(v)}}\left(\frac{\rho_c}{\rho} - 1\right) - \frac{gc_cp_v^{(S)}\left(T\right)}{c^{(v)}T\left(R_vp - p_v^{(S)}R_h\right)}\nonumber\\
-\Rightarrow\frac{dT}{dz} &= -\frac{g}{c^{(p)}}\frac{1 - \frac{\rho_c}{\rho} + \frac{c_cp_v^{(S)}}{T\left(R_vp - p_v^{(S)}R_h\right)}}{\frac{c^{(v)}}{c^{(p)}} + \frac{p}{T\rho c^{(p)}}\frac{c_c}{pR_v - p_v^{(S)}R_h}\frac{dp_v^{(S)}}{dT} + \left(1 - \frac{\rho_c}{\rho}\right)\frac{p}{c^{(p)}T\rho}}\nonumber\\
-&= -\Gamma_d\beta
+\frac{N^2K^2}{\kappa^2\beta^2} + \frac{1}{4\kappa^4\left(\kappa^2 + 1\right)^2} + \newoverline{u}^{\star2}_T\frac{\kappa^2 - 1}{\kappa^2 + 1} &= 0
 \end{align}
 %
-Hierbei ist
-%
-\begin{center}
-\doublebox{\parbox{\textwidth}{
-\begin{center}
-\begin{align}
-\beta = \beta\left(p, T, \rho_c\right) \coloneqq\frac{1 - \frac{\rho_c}{\rho} + \frac{c_cp_v^{(S)}}{T\left(R_vp - p_v^{(S)}R_h\right)}}{\frac{c^{(v)}}{c^{(p)}} + \frac{p}{T\rho c^{(p)}}\frac{c_c}{pR_v - p_v^{(S)}R_h}\frac{dp_v^{(S)}}{dT} + \left(1 - \frac{\rho_c}{\rho}\right)\frac{p}{c^{(p)}T\rho}}.\label{eq:beta_malr}
-\end{align}
-\end{center}
-}}
-\end{center}
-%
-Für die Ableitung $\frac{dp_v^{(S)}}{dT}$ kann die Clausius-Clapeyron-Gleichung eingesetzt werden. Der sogenannte \textit{feuchtadiabatische Temperaturgradient}\index{feuchtadiabatischer Temperaturgradient}\index{Temperaturgradient!feuchtadiabatischer} wird nun durch
+Mit der dimensionslosen Wachstumsrate
 %
 \begin{align}
-\Gamma_h\coloneqq\Gamma_d\beta
+n \coloneqq\frac{NK}{\kappa\beta}
 \end{align}
 %
-definiert. Setzt man in Glg. \eqref{eq:beta_malr} $\rho_c = 0$ und $p_v \ll p$ ein, behält aber Terme mit $\frac{dp_v^{(S)}}{dT}$, folgt
+kann man dies als
 %
 \begin{align}
-\frac{dT}{dz} &= -\frac{g}{c^{(p)}}\frac{1 + \frac{c_cp_v^{(S)}}{TR_vp}}{\frac{c^{(v)}}{c^{(p)}} + \frac{p}{T\rho c^{(p)}}\frac{c_c}{pR_v}\frac{dp_v^{(S)}}{dT} + \frac{p}{c^{(p)}T\rho}}.
+n^2 + \frac{1}{4\kappa^4\left(\kappa^2 + 1\right)^2} + \newoverline{u}^{\star2}_T\frac{\kappa^2 - 1}{\kappa^2 + 1} &= 0
 \end{align}
 %
-Setzt man hier die Zustandsgleichung idealer Gase $p = \rho R_dT$ ein, erhält man den in der Literatur häufig angetroffene Ausdruck
+notieren. Stellt man dies nach $\newoverline{u}^{\star2}_T$ um, folgt
 %
 \begin{align}
-\frac{dT}{dz} &= -\frac{g}{c^{(p)}}\frac{1 + \frac{c_cp_v^{(S)}}{TR_vp}}{\frac{c^{(v)}}{c^{(p)}} + \frac{R_d}{c^{(p)}}\frac{c_c}{pR_v}\frac{dp_v^{(S)}}{dT} + \frac{c^{(p)} - c^{(v)}}{c^{(p)}}}\nonumber\\
-\Leftrightarrow\frac{dT}{dz} &= -\frac{g}{c^{(p)}}\frac{1 + \frac{c_cp_v^{(S)}}{TR_vp}}{1 + \frac{R_dc_c}{R_vc^{(p)}p}\frac{dp_v^{(S)}}{dT}} \equiv -\Gamma_d\beta'
-\end{align}
-%
-mit einem vereinfachten Faktor
-%
-\begin{align}
-\beta'&= \beta'\left(p, T\right) \coloneqq\frac{1 + \frac{c_cp_v^{(S)}}{TR_vp}}{1 + \frac{\epsilon'c_c}{pc^{(p)}}\frac{dp_v^{(S)}}{dT}}\stackrel{\text{Glg. \eqref{eq:clausius-clapeyron_vereinfacht}}}{\approx}\frac{1 + \frac{c_cp_v^{(S)}}{TR_vp}}{1 + \frac{\epsilon'c_c^2p_v^{(S)}}{R_vc^{(p)}T^2p}}\nonumber
-\end{align}
-\begin{center}
-\doublebox{\parbox{\textwidth}{
-\begin{center}
-\begin{align}
-\Leftrightarrow\beta'&\stackrel{\text{Glg. \eqref{eq:mischungsverhaeltnis_vereinfacht}}}{\approx}\frac{1 + \frac{c_cr^{(S)}}{TR_d}}{1 + \frac{c_c^2r^{(s)}}{R_vc^{(p)}T^2}}, \label{eq:beta_malr_approx}
-\end{align}
-\end{center}
-}}
-\end{center}
-%
-welcher nicht mehr von der Dichte des bereits auskondensierten Wassers abhängt. Im Fall $\frac{dp_v^{(S)}}{dT} = p_v^{(S)} = 0$ folgt
-%
-\begin{align}
-\Gamma_h = \Gamma_d.
+\newoverline{u}^{\star2}_T = n^2\frac{1 + \kappa^2}{1 - \kappa^2} + \frac{1}{4\kappa^4\left(1 - \kappa^4\right)}.
 \end{align}
 %
 \begin{figure}
 \centering
-\includegraphics[width = .8\textwidth]{figs/beta_malr.png}
-\caption{Approximation von $\beta$ gemäß Glg. \eqref{eq:beta_malr_approx}.}
-\label{fig:beta_malr}
+\includegraphics[width = .65\textwidth]{figs/baro_inst.png}
+\caption{Die für gewisse Wachstumsraten notwendigen Windscherungen als Funktion der Wellenzahl.}
+\label{fig:barokline_instabilitaet}
 \end{figure}
-%
-Im Fall gesättigter Luft und
-%
-\begin{align}
-\frac{\partial T}{\partial z}< - \Gamma_h
-\end{align}
-%
-ist die Schichtung ebenfalls \textit{lokal instabil}.
 
-\subsubsection{Aquivalentpotentielle Temperatur}
-\label{sec:äquivalentpotentielle_temperatur}\index{äquivalentpotentielle Temperatur}\index{Temperatur!äquivalentpotentielle}
+Abb. \ref{fig:barokline_instabilitaet} zeigt die für unterschiedliche Wellenzahlen und Wachstumsraten notwendigen thermischen Windscherungen. Aus den Definitionen von $\kappa$ und $\newoverline{u}^\star_T$ wird klar, dass man sich bei abnehmender thermischer Stabilität in dieser Darstellung nach links oben bewegt, also in Richtung barokliner Labilität.
 
-Um die sogenannte \textit{äquivalentpotentielle Temperatur}\index{äquivalentpotentielle Temperatur}\index{Temperatur!äquivalentpotentielle} $\theta_e$ (auch: pseudoäquivalentpotentielle Temperatur\index{pseudoäquivalentpotentielle Temperatur}\index{Temperatur!pseudoäquivalentpotentielle} oder seltener pseudopotentielle Temperatur\index{pseudopotentielle Temperatur}\index{Temperatur!pseudopotentielle}) eines Teilchens zu erhalten, sind zwei Schritte notwendig:
-%
-\begin{enumerate}
-\item Hebe das Teilchen trockenadiabatisch auf sein LCL.
-\item Hebe das Teilchen irreversibel-feuchtadiabatisch in eine unendliche Höhe. Die dann erhaltene potentielle Temperatur ist $\theta_e$.
-\end{enumerate}
-%
-Diese Größe ist also nicht nur um den Druckunterschied, sondern auch um die vorhandene Feuchte, welche in Form von Phäsenübergangsenthalpie\index{Phäsenübergangsenthalpie} zu einer Temperaturerhöhung führen könnte, bereinigt. Sie eignet sich daher gut, um die Temperaturen verschiedener Luftmassen zu vergleichen.
-
-\subsubsection{Reversibeläquivalentpotentielle Temperatur}
-\label{sec:reversibeläquivalentpotentielle_temperatur}\index{reversibeläquivalentpotentielle Temperatur}\index{Temperatur!reversibeläquivalentpotentielle}
-
-Die reversibeläquivalentpotentielle Temperatur\index{reversibeläquivalentpotentielle Temperatur}\index{Temperatur!reversibeläquivalentpotentielle} ist analog zur äquivalentpotentiellen Temperatur definiert, nur dass bei Schritt 2. aus Absch. \ref{sec:äquivalentpotentielle_temperatur} eine reversible Feuchtadiabate verfolgt wird.
-
-\subsubsection{CAPE}
-\label{sec:cape}\index{convective available potential Energy (CAPE)}\index{CAPE}\index{Energie!potentielle!konvektiv verfügbare}\index{potentielle Energie!konvektiv verfügbare}\index{konvektiv verfügbare potentielle Energie}
-
-Die in diesem Abschnitt durchgeführten Herleitungen beziehen sich auf eine vertikale Luftsäule, wobei dynamische, d. h. durch das Geschwindigkeitsfeld entstehende Effekte, nicht berücksichtigt werden. Man definiert eine Funktion $f\left(z, z'\right)$ als die spezifische Kraft, also die Beschleunigung, die auf das Teilchen bei $z$ wirkt, wenn man es adiabatisch auf das Niveau $z'$ bringt und von einer hydrostatischen Atmosphäre ausgeht, also
-%
-\begin{align}
-f\left(z, z'\right) \coloneqq -\frac{1}{\rho'\left(z, z'\right)}\frac{\partial p\left(z'\right)}{\partial z} - g = \frac{g\rho\left(z'\right)}{\rho'\left(z, z'\right)} - g = g\frac{\rho\left(z'\right) - \rho'\left(z, z'\right)}{\rho'\left(z, z'\right)}, 
-\end{align}
-%
-wobei $\rho'\left(z, z'\right)$ die Dichte des Teilchens bei $z$ ist, nachdem man es adiabatisch nach $z'$ verschoben hat. Man definiert außerdem eine Funktion $\newtilde{F}\left(z, z'\right)$ durch
-%
-\begin{align}
-\newtilde{F}\left(z, z'\right) \coloneqq g\int_{z}^{z'}\frac{\rho\left(z''\right) - \rho'\left(z, z''\right)}{\rho'\left(z, z''\right)}dz''
-\end{align}
-%
-als die Arbeit, die die Schichtung an einem Teilchen geleistet hat, welches adiabatisch von $z$ nach $z'$ ausgelenkt wurde. Üblicherweise wählt man $z = z_{\text{2m}} \coloneqq z_{\text{SFC}} + 2$ m, man definiert
-%
-\begin{align}
-F\left(z\right) \coloneqq g\int_{z_{\text{2m}}}^{z}\frac{\rho\left(z'\right) - \rho'\left(z'\right)}{\rho'\left(z'\right)}dz'
-\end{align}
-%
-mit dem Bezeichnungsmissbrauch
-%
-\begin{align}
-\rho'\left(z'\right) \coloneqq \rho'\left(z_{\text{2m}}, z'\right).
-\end{align}
-%
-Für den Integranden wird ebenso
-%
-\begin{align}
-f\left(z'\right) \coloneqq g\frac{\rho\left(z'\right) - \rho'\left(z'\right)}{\rho'\left(z'\right)}\label{eq:uplift}
-\end{align}
-%
-definiert. In Termen der Funktionen $F$ und $f$ lassen sich viele der üblicherweise im Zusammenhang mit Konvektion verwendeten Größen definieren. $z_T$ sei die als bekannt vorausgesetzte Tropopausenhöhe\index{Tropopausenhöhe}. Man definiert die sogenannte \textit{konvektiv verfügbare potentielle Energie}\index{convective available potential Energy (CAPE)}\index{CAPE}\index{Energie!potentielle!konvektiv verfügbare}\index{potentielle Energie!konvektiv verfügbare}\index{konvektiv verfügbare potentielle Energie} \textit{CAPE} durch
-%
-\begin{align}
-\CAPE \coloneqq \int_{z_{\text{2m}}}^{z_T}\Theta\left(f\left(z'\right)\right)dz', \label{eq:def_cape}
-\end{align}
-%
-wobei $\Theta$ die $\Theta-$Funktion bezeichnet\index{$\Theta-$Funktion}. Im Falle eines idealen Gases kann man für $f$ notieren
-%
-\begin{align}
-f\left(z'\right) \coloneqq g\frac{\frac{1}{T} - \frac{1}{T'}}{\frac{1}{T'}} = g\frac{T' - T}{T} = g\frac{\theta' - \theta}{\theta}.
-\end{align}
-%
-Im Fall feuchter Luft kann man $T \to T_v$ ersetzen, hierbei ist $T_v$ die in Glg. \eqref{eq:def_virtual_temperature} definierte virtuelle Temperatur, da bei dieser Temperatur die trockene Luft die gleiche Dichte hätte wie die vorhandene feuchte Luft\index{feuchte Luft}\index{Luft!feuchte}. Das \textit{level of free convection}\index{level of free convection}\index{LFC} $z_{\text{LFC}}$ ist die Höhe, in der das adiabatisch aufsteigende Teilchen zum ersten mal leichter ist als die Umgebung
-%
-\begin{align}
-z_{\text{LFC}} \coloneqq\inf\{z\newvline f\left(z\right) > 0\}.
-\end{align}
-%
-Wenn das Teilchen diese Höhe erreicht, wird es weiter aufsteigen, was man als \index{freie Konvektion}\index{Konvektion!freie}\textit{freie Kovektion} bezeichnet, also Konvektion, die auch ohne dynamischen Antrieb stattfinden würde. Analog bezeichnet man
-%
-\begin{align}
-z_{\text{EL}} \coloneqq\sup\{z\newvline f\left(z\right) > 0, z < 2z_T\}
-\end{align}
-%
-als \index{Gleichgewichtsniveau}\textit{Gleichgewichtsniveau} \textit{(equilibrium level)}. Die tiefe Stratosphäre wurde sicherheitshalber ausgeklammert. Dies ist die Höhe, in der ein frei aufsteigendes Teilchen wieder schwerer wäre als seine Umgebung. Häufig wird in Glg. \eqref{eq:def_cape} die $\Theta-$Funktion weggelassen und nur von $z_{\text{LFC}}$ bist $z_{\text{EL}}$ integriert, was genau dann richtig ist, wenn in genau einem Höhenintervall thermische Labilität vorliegt, was häufig der Fall ist. Die \index{maximale Wolkenobergrenze}\index{Wolkenobergrenze!maximale}\textit{maximale Wolkenobergrenze} ist definiert als die Höhe, in der ein solches Teilchen seine kinetische Energie wieder verloren hätte, also
-%
-\begin{align}
-z_{\text{MCT}} \coloneqq\inf\{z\newvline \newtilde{F}\left(z_{\text{LFC}}, z\right) < 0\}.
-\end{align}
-%
-Das Phänomen $z_{\text{MCT}} > z_{\text{EL}}$ führt bei hochreichender Konvektion zur Ausprägung von Schwerewellen an der Tropopause \textit{(overshooting tops)}\index{overshooting top}, was generell überall dort der Fall ist, wo ein stabil auf ein labil geschichtetes Höhenintervall folgt.
-
-Hat ein Teilchen in zwei Metern Höhe die sogenannte \index{Auslösetemperatur}\textit{Auslösetemperatur} erreicht, kann es auch ohne dynamischen Antrieb in das LFC aufsteigen, also
-%
-\begin{align}
-0 \equiv g\int_{z_{\text{2m}}}^{z_{\text{LFC}}}\frac{\rho\left(z'\right) - \newtilde{\rho}'\left(z'\right)}{\newtilde{\rho}'\left(z'\right)}, 
-\end{align}
-%
-wobei $\newtilde{\rho}'\left(z'\right)$ die Dichte des adiabatisch von $z_{\text{2m}}$ nach $z'$ gehobenen Teilchens ist, was in zwei Metern Höhe die Auslösetemperatur hätte. Die Energie $\CIN$, die dabei überwunden werden muss, also
-%
-\begin{align}
-\CIN \coloneqq \newtilde{F}\left(z_{\text{2m}}, z_{\text{LFC}}\right).
-\end{align}
-%
-bezeichnet man als \textit{konvektive Schranke}\index{konvektive Schranke}\index{Schranke!konvektive} oder \textit{convective inhibition}\index{convective inhibition (CIN)}\index{CIN}. Die Höhe, in der ein auf die Auslösetemperatur aufgeheiztes Teilchen beim adiabatischen Aufstieg gesättigt wäre, bezeichnet man als \textit{convective condensation level (CCL)}\index{convective condensation level (CCL)}\index{Konvektionskondensationsniveau (KKN)}\index{KKN}\index{CCL}. Dies ist mindestens so groß wie das LCL, also
-%
-\begin{align}
-z_{\text{CCL}} \geq z_{\text{LCL}}.
-\end{align}
+Bei der baroklinen Instabilität wird potentielle Energie der Schichtung, welche durch das Strahlungsfeld immer wieder neu erzeugt wird, in kinetische Energie des Horizontalwindes umgewandelt, bevor sie dissipiert wird.
 
 \chapter{\normalfont\textsc{Synoptik und Meso$-\alpha-$Sakla der Extratropen}}
 \label{chap:synoptik_und_meso-alpha-skala_der_extratropen}\index{Synoptik!der Extratropen}\index{Skala!Mesoskala}\index{Mesoskala}\index{Skala!Meso$-\alpha-$Skala}\index{Meso$-\alpha-$Skala}
@@ -17593,6 +17427,8 @@ Nichtsdestotrotz veranschaulicht dieser Abschnitt, dass alle Arten von Parametri
 \chapter{\normalfont\textsc{Klimatologie der Atmosphäre}}
 \label{chap:klimatologie_der_atmosphaere}\index{Klimatologie!der Atmosphäre}
 
+In Absch. \ref{sec:barokline_instabilitaet} wurde gezeigt, dass ein starker thermischer Wind eine Voraussetzung für die Entstehung synoptischer Störungen in den mittleren Breiten ist. In der Realität stellt man fest, dass es Breiten besonders starker Baroklinität gibt, in denen in der Tropopausenregion ein Jet existiert. Diese Frontalzonen sind dementsprechend klassische Entstehungsgebiete von Tiefdruckgebieten (s. Kap. \ref{chap:synoptik_und_meso-alpha-skala_der_extratropen}). Unklar ist jedoch, warum diese Luftmassengrenzen überhaupt existieren. Aus der Intuition heraus wäre es naheliegender, anzunehmen, dass solche Zonen starker Gradienten durch irgendwelche Mechanismen abgebaut werden, spätestens durch Diffusion. Diese Unklarheit auszuräumen ist Ziel dieses Kapitels.
+
 Statistische Größen des Erdsystems bezeichnet man als \textit{Klima}\index{Klima}, Zusammenstellungen derartiger Charakteristika nennt man \textit{Klimatologien}\index{Klimatologie}. Üblicherweise bildet man dabei 30-jährige Mittel. In diesem Kapitel soll es um zonale Mittel
 %
 \begin{align}
@@ -17996,7 +17832,7 @@ Daher verwendet man zur Beschreibung von Wasseroberflächenwellen\index{Wasserob
 N = N\left(\mathbf{r}, \mathbf{k}, t\right)
 \end{align}
 %
-verwendet. Hierbei sind $\mathbf{r}$ ein zweidimensionaler Ortsvektor und $\mathbf{k}$ ein zweidimensionaler Wellenvektor. Als Dispersionsrelation\index{Dispersionsrelation} $\omega = \omega\left(\mathbf{k}\right)$ wird diejenige der Sub-Poincaré-Wellen\index{Sub-Poincaré-Welle!Dispersionsrelation}\index{Dispersionsrelation!Sub-Poincaré-Welle}
+verwendet. Hierbei sind $\mathbf{r}$ ein zweidimensionaler Ortsvektor und $\mathbf{k}$ ein zweidimensionaler Wellenvektor. Als Dispersionsrelation\index{Dispersionsrelation} $\omega = \omega\left(\mathbf{k}\right)$ wird diejenige der Wasseroberflächenwellen\index{Wasseroberflächenwelle!Dispersionsrelation}\index{Dispersionsrelation!Wasseroberflächenwelle}
 %
 \begin{align}
 \omega^2 &= gk\tanh\left(kD\right) \Rightarrow \omega = \sqrt{gk\tanh\left(kD\right)},
@@ -21380,7 +21216,7 @@ Um die obigen Eingangsfragen dieses Kapitels zu beantworten, muss man sich frage
 \begin{center}
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
-Das diskretisierte Analogon der Dispersionrelation\index{Dispersionsrelation!globale Mode}\index{globale Mode!Dispersionsrelation} Glg. \eqref{eq:disprel_global_modes} soll eine geostrophische Mode $\omega = 0$ haben.
+Das diskretisierte Analogon der Dispersionrelation der Poincaré-Wellen Glg. \eqref{eq:poincare_dispersion} soll eine geostrophische Mode $\omega = 0$ haben.
 \end{center}
 }}
 \end{center}
