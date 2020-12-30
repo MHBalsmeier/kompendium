@@ -10023,9 +10023,15 @@ Verwendet man Glg. \eqref{eq:trans_gen_2}, erhält man
 %
 und analog für $v$. Nicht näher bezeichnete partielle Ableitungen sind bisher Ableitungen im z-System. Nun werden Ableitungen im p-System verwendet:
 %
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 \begin{align}
 \frac{\partial\omega}{\partial p} + \nabla\cdot\mathbf{v}_h = 0.\label{eq:kont_p}
 \end{align}
+\end{center}
+}}
+\end{center}
 %
 Im p-System reduziert sich die Kontinuitätsgleichung also auf eine rein diagnostische Gleichung, die formal der Kontinuitätsgleichung für ein inkompressibles Fluid im z-System entspricht. Skaliert man diese Gleichung mit den Werten aus Tab. \ref{tab:scales}, folgt in SI-Einheiten
 %
@@ -12417,6 +12423,9 @@ Dies ist sieben Größenordnungen stärker als die synoptischskalige Vorticityte
 \item um so stärker die Konvektion ist.
 \end{itemize}
 
+\subsubsection{Barotrope Vorticity-Gleichung}
+\label{sec:barotrope_vorticity-gleichung}\index{barotrope Vorticitygleichung}\index{Vorticitygleichung!barotrope}
+
 Im barotropen Fall fällt der Solenoidterm weg, vernachlässigt man außerdem die vertikale Scherung des Horizontalwindes (s. Absch. \ref{sec:barotropie}), folgt
 %
 \begin{center}
@@ -12438,7 +12447,7 @@ Dies ist die sogenannte \textit{barotrope Vorticitygleichung}\index{barotrope Vo
 Vernachlässigt man die horizontalen Gradienten von $w$, folgt
 %
 \begin{align}
-\frac{d\eta}{dt} = \eta\frac{\partial w}{\partial z}.\label{eq:vorticit_z_baro_swes_pre}
+\md{\eta} = \eta\frac{\partial w}{\partial z}.\label{eq:vorticit_z_baro_swes_pre}
 \end{align}
 %
 Setzt man
@@ -12449,9 +12458,15 @@ Setzt man
 %
 ein, wobei ein breitenunabhängiger Krümmungsterm $\propto\frac{w}{r}$ vernachlässigt wurde, folgt
 %
+\begin{center}
+\doublebox{\parbox{\textwidth}{
+\begin{center}
 \begin{align}
-\frac{d\eta}{dt} = -\eta\nabla\cdot\mathbf{v}_h.\label{eq:vorticit_z_baro_swes}
+\md{\eta} = -\eta\nabla\cdot\mathbf{v}_h.\label{eq:vorticit_z_baro_swes}
 \end{align}
+\end{center}
+}}
+\end{center}
 %
 Im inkompressiblen, horizontaldivergenzfreien, barotropen Fall (außerdem wurde die vertikale Scherung des Horizontalwindes unterschlagen) ist die absolute Vorticity also eine Erhaltungsgröße.
 
@@ -12539,7 +12554,54 @@ Für den ersten Term gilt
 \mathcal{O}\left(\frac{1}{f}\Delta\phi\right) = \mathcal{O}\left(\frac{1}{f}\frac{\Delta p}{\rho L^2}\right) = 10^{-5}\:\frac{1}{\text{s}}.
 \end{align}
 %
-Der Term des $\beta-$Effekts hat in mittleren Breiten eine Größenordnung von $10^{-6}$ 1/s. Daher kann man in den Extratropen die Vorticity durch die geostrophische Vorticity nähern und den Term des $\beta-$Effektes vernachlässigen.
+Der Term des $\beta-$Effekts hat in mittleren Breiten eine Größenordnung von $10^{-6}$ 1/s. Daher ist eine häufig anzutreffende Näherung, in den Extratropen die Vorticity durch die geostrophische Vorticity zu nähern und den Term des $\beta-$Effektes zu vernachlässigen.
+
+\subsubsection{Barotrope Vorticity-Gleichung im p-System}
+\label{sec:barotrope_vorticity-gleichung_im_p-system}\index{barotrope Vorticitygleichung}\index{Vorticitygleichung!barotrope}
+
+Streicht man in Glg. \eqref{eq:vorticity_p} die Reibung weg sowie alle Terme, die vertikale Gradienten beinhalten, erhält man 
+%
+\begin{align}
+\frac{\partial\zeta}{\partial t} &= -v\beta - \left(f + \zeta\right)\nabla\cdot\mathbf{v}_h - \mathbf{v}_h\cdot\nabla\zeta.
+\end{align}
+%
+Im barotropen Medium ist nun $\partial w/\partial z \sim \partial\omega/\partial p$ höhenkonstant. Unter kinematischen Randbedingungen
+%
+\begin{align}
+\omega\left(p = 0\right) = \omega\left(p_\text{surface}\right) = 0
+\end{align}
+%
+folgt somit
+%
+\begin{align}
+\frac{\partial\omega}{\partial p} = \frac{\omega\left(p_\text{surface}\right) - \omega\left(p = 0\right)}{p_\text{surface}} = 0.
+\end{align}
+%
+Aufgrund von Glg. \eqref{eq:kont_p} gilt nun auch
+%
+\begin{align}
+\nabla\cdot\mathbf{v}_h = -\frac{\partial\omega}{\partial p} =  0.
+\end{align}
+%
+Hieraus erhält man die \textit{barotrope Vorticity-Gleichung im p-System}\index{barotrope Vorticitygleichung}\index{Vorticitygleichung!barotrope}
+%
+\begin{center}
+\doublebox{\parbox{\textwidth}{
+\begin{center}
+\begin{align}
+\frac{\partial\zeta}{\partial t} &= -v\beta - \mathbf{v}_h\cdot\nabla\zeta.\label{eq:baro_vort_p}
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+Weitere Formen dieser Gleichung sind
+%
+\begin{align}
+\frac{\partial\eta}{\partial t} &= -v\beta - \mathbf{v}_h\cdot\nabla\zeta,\\
+\frac{D_h\zeta}{Dt} &= -v\beta,\\
+\frac{D_h\eta}{Dt} &= 0.
+\end{align}
 
 \subsection{Helizität}
 \label{sec:helizität}\index{Helizität}
