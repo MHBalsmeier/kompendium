@@ -13746,7 +13746,68 @@ Setzt man typische Werte ein, folgt $R_o \approx 2000$ km.
 
 Poincaré-Wellen werden im Englischen auch als \textit{inertia-gravity waves}\index{inertial gravity wave} bezeichnet. Dies rührt daher, dass die rückstellende Kräfte bei dieser Wellenmode die Schwere sowie die Coriolis-Kraft sind. Die deutsche Übersetzung \glqq Inertial-Schwerewelle\grqq\ ist eher unüblich. Eine weitere Bezeichnung ist \textit{Sverdrup-Welle}\index{Sverdrup-Welle}.
 
-\subsubsection{Wasseroberflächenwellen}
+\subsubsection{Inertialwellen}
+\label{sec:inertialwellen}\index{Inertialwelle}
+
+Bei Inertialwellen\index{Inertialwellen} geht man von einem verschwindenden horizontalen Druckgradienten aus, sodass nur die Coriolis-Kraft übrigbleibt. Die Impulsgleichungen der SWEs Glg. \eqref{eq:swe_0} werden unter Vernachlässigung der advektiven Terme zu
+%
+\begin{align}
+\frac{du}{dt} = f_0v,&& \frac{dv}{dt} = -f_0u.
+\end{align}
+%
+Für den Coriolis-Parameter wird dabei ein ortsunabhängiger Wert $f_0$ verwendet, um den $\beta-$Effekt zu umgehen. Man macht einen Ansatz
+%
+\begin{align}
+u = U\exp\left(-i\omega t\right), && v = V\exp\left(-i\omega t\right)
+\end{align}
+%
+mit eventuell komplexen Amplituden $U, V$. Setzt man dies in das Gleichungssystem ein, erhält man
+%
+\begin{align}
+-i\omega U = f_0V, && -i\omega V = -f_0 U.
+\end{align}
+%
+Als Matrixgleichung wird dies zu
+%
+\begin{align}
+\left(\begin{array}{cc}
+- i\omega& -f_0\\
+f_0& -i\omega
+\end{array}\right)\left(\begin{array}{c}
+U\\
+V
+\end{array}\right) = \mathbf{0}.
+\end{align}
+%
+Nichttriviale Lösungen existieren für
+%
+\begin{align}
+-\omega^2 + f_0^2 &= 0, 
+\end{align}
+%
+also für
+%
+\begin{align}
+\omega = \pm f.
+\end{align}
+%
+Die Teilchen bewegen sich also auf einer Kreisbahn mit Radius
+%
+\begin{align}
+R_I = \frac{V}{f_0}.
+\end{align}
+%
+Setzt man eine Geschwindigkeit von $1$ $\frac{\text{m}}{\text{s}}$ ein, so folgt beispielsweise $R_I = 10$ km mit $f_0 = 10^{-4}\:\text{s}^{-1}$. Für die Periode gilt
+%
+\begin{align}
+T = \frac{2\pi}{f_0} \approx \frac{1\:\text{d}}{2\sin\left(\varphi\right)}, 
+\end{align}
+%
+d = $24$ h ist die Dauer eines Tages. Typische Inertialperioden liegen also im Größenordnungsbereich von einem Tag.
+
+Da die totalen Ableitungen $\md{}$ verwendet wurden, wurde implizit eine Trajektorie ausgerechnet. Diese Trajektorie ist eine Kreisbahn, jedoch nur unter Annahme eines ortsunabhängigen Coriolis-Parameters. Im Allgemeinen sind die Teilchentrajektorien jedoch aufgrund des $\beta-$Effektes keine geschlossenen Kreisbahnen. Ebenso wurde \underline{kein} Windfeld $\mathbf{v}_h\left(\mathbf{r}, t\right)$ bestimmt.
+
+\subsection{Wasseroberflächenwellen}
 \label{sec:wasseroberflächenwellen}\index{Wasseroberflächenwelle}\index{Welle!Wasseroberfläche}
 
 Man geht an dieser Stelle von der Abwesenheit eines zonalen Grundstroms $U = 0$ aus, o. B. d. A. richtet man außerdem die x-Richtung am Wellenvektor aus, sodass das linearisierte Gleichungssystem hier
@@ -13897,67 +13958,6 @@ Diesen Volumenstrom in Richtung des Wellenvektors bezeichnet man als \textit{Sto
 \end{align}
 %
 für $z < -\newhat{\eta}$ entsteht dieser Volumenstrom ausschließlich im Bereich der Oberflächenwelle selbst durch das Wachsen der Amplitude der Horizontalgeschwindigkeit mit der Höhe.
-
-\subsubsection{Inertialwellen}
-\label{sec:inertialwellen}\index{Inertialwelle}
-
-Bei Inertialwellen\index{Inertialwellen} geht man von einem verschwindenden horizontalen Druckgradienten aus, sodass nur die Coriolis-Kraft übrigbleibt. Die Impulsgleichungen der SWEs Glg. \eqref{eq:swe_0} werden unter Vernachlässigung der advektiven Terme zu
-%
-\begin{align}
-\frac{du}{dt} = f_0v,&& \frac{dv}{dt} = -f_0u.
-\end{align}
-%
-Für den Coriolis-Parameter wird dabei ein ortsunabhängiger Wert $f_0$ verwendet, um den $\beta-$Effekt zu umgehen. Man macht einen Ansatz
-%
-\begin{align}
-u = U\exp\left(-i\omega t\right), && v = V\exp\left(-i\omega t\right)
-\end{align}
-%
-mit eventuell komplexen Amplituden $U, V$. Setzt man dies in das Gleichungssystem ein, erhält man
-%
-\begin{align}
--i\omega U = f_0V, && -i\omega V = -f_0 U.
-\end{align}
-%
-Als Matrixgleichung wird dies zu
-%
-\begin{align}
-\left(\begin{array}{cc}
-- i\omega& -f_0\\
-f_0& -i\omega
-\end{array}\right)\left(\begin{array}{c}
-U\\
-V
-\end{array}\right) = \mathbf{0}.
-\end{align}
-%
-Nichttriviale Lösungen existieren für
-%
-\begin{align}
--\omega^2 + f_0^2 &= 0, 
-\end{align}
-%
-also für
-%
-\begin{align}
-\omega = \pm f.
-\end{align}
-%
-Die Teilchen bewegen sich also auf einer Kreisbahn mit Radius
-%
-\begin{align}
-R_I = \frac{V}{f_0}.
-\end{align}
-%
-Setzt man eine Geschwindigkeit von $1$ $\frac{\text{m}}{\text{s}}$ ein, so folgt beispielsweise $R_I = 10$ km mit $f_0 = 10^{-4}\:\text{s}^{-1}$. Für die Periode gilt
-%
-\begin{align}
-T = \frac{2\pi}{f_0} \approx \frac{1\:\text{d}}{2\sin\left(\varphi\right)}, 
-\end{align}
-%
-d = $24$ h ist die Dauer eines Tages. Typische Inertialperioden liegen also im Größenordnungsbereich von einem Tag.
-
-Da die totalen Ableitungen $\md{}$ verwendet wurden, wurde implizit eine Trajektorie ausgerechnet. Diese Trajektorie ist eine Kreisbahn, jedoch nur unter Annahme eines ortsunabhängigen Coriolis-Parameters. Im Allgemeinen sind die Teilchentrajektorien jedoch aufgrund des $\beta-$Effektes keine geschlossenen Kreisbahnen. Ebenso wurde \underline{kein} Windfeld $\mathbf{v}_h\left(\mathbf{r}, t\right)$ bestimmt.
 
 \subsection{Rossby-Wellen}
 \label{sec:rossbywellen}\index{barotrope Rossby-Welle}\index{Rossby-Welle!barotrope}
