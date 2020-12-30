@@ -13394,22 +13394,19 @@ S \coloneqq \frac{H}{\lambda}
 %
 definiert ist und somit dimensionslos ist.
 
+\section{Kategorisierung von Wellen in Geofluiden}
+\label{sec:kategorisierung_von_wellen_in_geofluiden}
+
+\textit{Barotrope Wellen}\index{Welle!barotrope} (s. Absch. \ref{sec:barotrope_wellen}) benötigen Grenzflächen und haben an dieser ihr Amplitudenmaximum. Daher bezeichnet man sie auch als \textit{externe Wellen}\index{Welle!externe} oder Oberflächenwellen. Die Flachwassergleichungen sind meist ausreichend, um solche Wellen zu beschreiben.
+
+\textit{Barokline Wellen}\index{Welle!barokline} (s. Absch. \ref{sec:barokline_wellen}) existieren hingegen im Inneren eines Mediums, sie werden daher auch als \textit{interne Wellen}\index{Welle!interne} bezeichnet.
+
+Ein Grenzfall sind hierbei Wellen an einer scharfen Grenzfläche ($N \gg 0$) im Inneren eines Mediums, wie z. B. an einer Inversion oder an einem Dichtesprung (siehe z. B. die Darstellung am Ende von Absch. \ref{sec:wasseroberflächenwellen}). Sie lassen sich häufig mathematisch mit den Formeln für Oberflächenwellen beschreiben, werden jedoch meist zu den internen Wellen gezählt. Kapillarwellen (s. Absch. \ref{sec:kapillarwellen}) sind Oberflächenwellen, allerdings spielt die Barotropie dabei keine Rolle und die Flachwassergleichungen sind auch nicht ausreichend, um sie zu beschreiben. Daher stellen sie eine Sonderkategorie dar.
+
 \section{Begründung der Linearisierung}
 \label{sec:begruendung_der_linearisierung}\index{Linearisierung!Wellengleichung}
 
-Man kann sich die Bewegungen in der Atmosphäre als in sechs Anteile aufgeteilt denken:
-%
-\begin{itemize}
-\item quasigeostrophische, quasidivergenzfreie Bewegungen inkl. Rossby-Wellen
-\item Schwerellen
-\item Konvektion
-\item Reibungswind
-\item Frontenzirkulation
-\item mikroskalige Turbulenz
-\item (Schallwellen, wobei diese keine meteorologische Relevanz haben, aber in Modellen als Lärm auftreten können)
-\end{itemize}
-%
-Zu einem gegebenen Zeitpunkt ist diese Aufteilung konzeptionell meist möglich. Leider gilt dies nicht für die Vorhersage, da zwischen all diesen Bereichen Wechselwirkungen existieren. Man spricht in so einem Fall auch von Nichtlinearität. Sind $A, B$ zwei Phänomene und ist $f\left(A + B\right)$ beispielsweise eine Vorhersage, so gilt im Allgemeinen
+Sind $A, B$ zwei Phänomene und ist $f\left(A + B\right)$ beispielsweise eine Vorhersage, so gilt im Allgemeinen
 %
 \begin{align}
 f\left(A + B\right) \not = f\left(A\right) + f\left(B\right), 
@@ -13637,20 +13634,18 @@ Die Oberflächensapnnung von Wasser beträgt ca. $\sigma \sim 75$ mN/m, woraus f
 \section{Barotrope Wellen}
 \label{sec:barotrope_wellen}\index{barotrope Welle}\index{Welle!barotrope}
 
-Die SWEs bilden das einfachst mögliche dynamische Gleichungssystem, deshalb werden zunächst die Wellenlösungen dieses Systems untersucht.
-
 \subsection{Poincaré-Wellen}
 \label{sec:poincare-wellen}\index{Poincaré-Welle}
 
-Die SWEs lauten linearisiert
+\textit{Poincaré-Wellen}\index{Poincaré-Welle} sind die Wellen der linearisierten Flachwassergleichungen auf der f-Ebene, somit bilden die Glg.en \eqref{eq:flach_lin_1} - \eqref{eq:flach_lin_2} das zugrundeliegende Gleichungssystem. Diese Gleichungen lauten in ebener Geometrie in Komponenten
 %
 \begin{align}
-\frac{\partial u}{\partial t} &= fv - g\frac{\partial\eta}{\partial x}, \label{eq:dyn_in_grav_1}\\
-\frac{\partial v}{\partial t} &= -fu - g\frac{\partial\eta}{\partial y}, \label{eq:dyn_in_grav_2}\\
+\frac{\partial u}{\partial t} &= fv - g\frac{\partial\eta}{\partial x},\label{eq:dyn_in_grav_1}\\
+\frac{\partial v}{\partial t} &= -fu - g\frac{\partial\eta}{\partial y},\label{eq:dyn_in_grav_2}\\
 \frac{\partial\eta}{\partial t} &= -H\left(\frac{\partial u}{\partial x} + \frac{\partial v}{\partial y}\right).\label{eq:dyn_in_grav_3}
 \end{align}
 %
-Hierbei wird von der f-Ebenen-Approximation ausgegangen. Man macht einen Ansatz
+Hierbei ist $\eta$ die Oberflächenauslenkung und $H$ die mittlere Tiefe. Man macht einen Ansatz
 %
 \begin{align}
 u = u_0\exp\left[i\left(\mathbf{k}\cdot\mathbf{r} - \omega t\right)\right], && v = v_0\exp\left[i\left(\mathbf{k}\cdot\mathbf{r} - \omega t\right)\right], && \eta = \newhat{\eta}\exp\left[i\left(\mathbf{k}\cdot\mathbf{r} - \omega t\right)\right].
@@ -13659,9 +13654,12 @@ u = u_0\exp\left[i\left(\mathbf{k}\cdot\mathbf{r} - \omega t\right)\right], && v
 mit einem horizontalen Wellenvektor $\mathbf{k} = \left(k_x, k_y\right)^T$ sowie eventuell komplexen Amplituden $u_0, v_0, \eta_0$. Setzt man dies ein, erhält man
 %
 \begin{align}
--i\omega u_0 &= fv_0 - gik_x\newhat{\eta}, \label{eq:deriv_in_grav_1}\\
--i\omega v_0 &= -fu_0 - gik_y\newhat{\eta}, \label{eq:deriv_in_grav_2}\\
--i\omega\newhat{\eta} &= -Hik_xu_0 - Hik_yv_0.\label{eq:deriv_in_grav_3}
+-i\omega u_0 &= fv_0 - gik_x\newhat{\eta},\\
+-i\omega v_0 &= -fu_0 - gik_y\newhat{\eta},\\
+-i\omega\newhat{\eta} &= -Hik_xu_0 - Hik_yv_0\\
+\Leftrightarrow-i\omega u_0 - fv_0 + gik_x\newhat{\eta} &= 0,\label{eq:deriv_in_grav_1}\\
+-i\omega v_0 + fu_0 + gik_y\newhat{\eta} &= 0,\label{eq:deriv_in_grav_2}\\
+-i\omega\newhat{\eta} + Hik_xu_0 + Hik_yv_0 &= 0.\label{eq:deriv_in_grav_3}
 \end{align}
 %
 In Matrixschreibweise lautet dies
@@ -13682,14 +13680,21 @@ v_0\\
 \end{array}\right).
 \end{align}
 %
-Hier existieren nichttriviale Lösungen, wenn
+Hier existieren genau dann nichttriviale Lösungen, wenn
 %
 \begin{align}
-& \left(-i\omega\right)\left[\left(-i\omega\right)^2 + Hgk_y^2\right] - f\left[-f\left(-i\omega\right) + Hgk_xk_y\right] + Hik_x\left[-fgik_y - \left(-i\omega\right)gik_x\right] = 0\nonumber\\
-&\Leftrightarrow -\omega\left[-\omega^2 + Hgk_y^2\right] + f\left[-f\omega + iHgk_xk_y\right] + Hk_x\left[-fgik_y - \omega gk_x\right] = 0\nonumber\\
-&\Leftrightarrow -\omega\left[-\omega^2 + Hgk_y^2\right] - f^2\omega - Hk_x\omega gk_x = 0\nonumber\\
-&\Leftrightarrow \omega\left(\omega^2 - Hgk_y^2\right) - f^2\omega - Hk_x\omega gk_x = 0\nonumber\\
-&\Leftrightarrow \omega\left(\omega^2 - Hgk_y^2 - f^2 - Hk_xgk_x\right) = 0
+&\Leftrightarrow\left(-i\omega\right)\left[\left(-i\omega\right)^2 - i^2Hgk_y^2\right] - f\left[-f\left(-i\omega\right) - i^2Hgk_xk_y\right] + Hik_x\left[-fgik_y - \left(-i\omega\right)gik_x\right] = 0\nonumber\\
+&\Leftrightarrow\left(-i\omega\right)\left[\left(-i\omega\right)^2 + Hgk_y^2\right] - f\left[-f\left(-i\omega\right) + Hgk_xk_y\right] + Hik_x\left[-fgik_y - \left(-i\omega\right)gik_x\right] = 0\nonumber\\
+&\Leftrightarrow i\omega\left[-\left(-i\omega\right)^2 - Hgk_y^2\right] + f\left[f\left(-i\omega\right) - Hgk_xk_y\right] + Hik_x\left(-fgik_y + i\omega gik_x\right) = 0\nonumber\\
+&\Leftrightarrow i\omega\left[-\left(i\omega\right)^2 - Hgk_y^2\right] + f\left(-fi\omega - Hgk_xk_y\right) + Hik_x\left(-fgik_y - \omega gk_x\right) = 0\nonumber
+\end{align}
+\begin{align}
+&\Leftrightarrow i\omega\left(\omega^2 - Hgk_y^2\right) + f\left(-fi\omega - Hgk_xk_y\right) + Hik_x\left(-fgik_y - \omega gk_x\right) = 0\nonumber\\
+&\Leftrightarrow\omega\left(\omega^2 - Hgk_y^2\right) + f\left(-f\omega + iHgk_xk_y\right) + Hk_x\left(-fgik_y - \omega gk_x\right) = 0\nonumber\\
+&\Leftrightarrow\omega\left(\omega^2 - Hgk_y^2\right) - f^2\omega + fiHgk_xk_y - Hk_xfgik_y - Hk_x\omega gk_x = 0\nonumber\\
+&\Leftrightarrow\omega\left(\omega^2 - Hgk_y^2\right) - f^2\omega - Hk_x\omega gk_x = 0\nonumber\\
+&\Leftrightarrow\omega\left(\omega^2 - Hgk_y^2 - f^2 - Hgk_x^2\right) = 0\nonumber\\
+&\Leftrightarrow\omega\left[\omega^2 - f^2 - Hg\left(k_x^2 + k_y^2\right)\right] = 0
 \end{align}
 %
 gilt. Also lautet die Dispersionsrelation der Poincaré-Wellen
@@ -14387,10 +14392,6 @@ gilt. An den beiden bisher betrachteten Punkten hat die Tidenkraft also keine ho
 
 \section{Barokline Wellen}
 \label{sec:barokline_wellen}\index{barokline Welle}\index{Welle!barokline}
-
-Barotrope Wellen benötigen Grenzflächen und haben an dieser ihr Amplitudenmaximum. Daher bezeichnet man sie auch als \textit{externe Wellen}\index{Welle!externe} oder Oberflächenwellen. \textit{Interne Wellen}\index{Welle!interne} existieren hingegen im Inneren eines Mediums und benötigen Baroklinität, da in barotropen Medien die vertikale Scherungen konstant sind (s. Absch. \ref{sec:barotropie}).
-
-Ein Grenzfall sind hierbei Wellen an einer scharfen Grenzfläche ($N \gg 0$) im Inneren eines Mediums, wie z. B. an einer Inversion oder an einem Dichtesprung (siehe z. B. die Darstellung am Ende von Absch. \ref{sec:wasseroberflächenwellen}). Sie lassen sich häufig mathematisch mit den Formeln für Oberflächenwellen beschreiben, werden jedoch meist zu den internen Wellen gezählt.
 
 \subsection{Vertikale Moden}
 \label{sec:vertikale_moden}\index{vertikale Mode}
@@ -15698,7 +15699,7 @@ z_{\text{CCL}} \geq z_{\text{LCL}}.
 \subsection{Kelvin-Helmholtz-Instabilität}
 \label{sec:kelvin-helmholtz-instabilitaet}\index{Kelvin-Helmholtz-Instabilität}
 
-Die \textit{Kelvin-Helmholtz-Instabilität} bezeichnet das Brechen von Schwerewellen in einer vertikal gescherten Horizontalströmung.
+Die \textit{Kelvin-Helmholtz-Instabilität} ist die Instabilität einer vertikal gescherten Horizontalströmung.
 
 \subsubsection{In diskreter Schichtung}
 \label{sec:in_diskreter_schichtung}\index{Schichtung!diskrete!Kelvin-Helmholtz-Instabilität}\index{diskrete Schichtung!Kelvin-Helmholtz-Instabilität}\index{Kelvin-Helmholtz-Instabilität!in diskreter Schichtung}
