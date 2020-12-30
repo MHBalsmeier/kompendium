@@ -10051,7 +10051,7 @@ Will man die Bewegungsgleichungen für Flachgeofluide Glg.en \eqref{eq:x_momentu
 Es gilt also
 %
 \begin{align}
-\frac{1}{\rho}\left(\frac{\partial p}{\partial x}\right)_z = g\left(\frac{\partial z}{\partial x}\right)_p = \left(\frac{\partial\phi}{\partial x}\right)_p
+\frac{1}{\rho}\left(\frac{\partial p}{\partial x}\right)_z = g\left(\frac{\partial z}{\partial x}\right)_p = \left(\frac{\partial\Phi}{\partial x}\right)_p
 \end{align}
 %
 und analog in y-Richtung. Damit werden die horizontalen Impulsgleichungen im p-System zu
@@ -10060,9 +10060,9 @@ und analog in y-Richtung. Damit werden die horizontalen Impulsgleichungen im p-S
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-\frac{\partial u}{\partial t} + u\frac{\partial u}{\partial x} + v\frac{\partial u}{\partial y} + \omega\frac{\partial u}{\partial p} &= -\frac{\partial\phi}{\partial x} + fv + F_{R,x}, 
+\frac{\partial u}{\partial t} + u\frac{\partial u}{\partial x} + v\frac{\partial u}{\partial y} + \omega\frac{\partial u}{\partial p} &= -\frac{\partial\Phi}{\partial x} + fv + F_{R,x}, 
 \label{eq:x_momentum_simplified_simplified_p}\\
-\frac{\partial v}{\partial t} + u\frac{\partial v}{\partial x} + v\frac{\partial v}{\partial y} + \omega\frac{\partial v}{\partial p} &= -\frac{\partial \phi}{\partial y} - fu + F_{R,y}.
+\frac{\partial v}{\partial t} + u\frac{\partial v}{\partial x} + v\frac{\partial v}{\partial y} + \omega\frac{\partial v}{\partial p} &= -\frac{\partial\Phi}{\partial y} - fu + F_{R,y}.
 \label{eq:y_momentum_simplified_simplified_p}
 \end{align}
 \end{center}
@@ -11035,13 +11035,13 @@ p &= \newoverline{p} + p'.
 Dann gilt
 %
 \begin{align}
--\alpha\nabla p + \mathbf{g} = -\alpha'\nabla\newoverline{p} - \newoverline{\alpha}\nabla p' - \alpha'\nabla p' = -\alpha'\nabla p - \newoverline{\alpha}\nabla p' = -\alpha\nabla p' - ´\alpha'\nabla\newoverline{p}.\label{eq:background_state_prop_0}
+-\alpha\nabla p + \mathbf{g} = -\alpha'\nabla\newoverline{p} - \newoverline{\alpha}\nabla p' - \alpha'\nabla p' = -\alpha'\nabla p - \newoverline{\alpha}\nabla p' = -\alpha\nabla p' - \alpha'\nabla\newoverline{p}.\label{eq:background_state_prop_0}
 \end{align}
 %
-Das Schwerefeld der Erde hat eine komplizierte Form, der man sich in verschiedenen Stufen annähert. Zunächst geht man davon aus, dass das Schwerefeld radialsymmetrisch ist mit homogenem Betrag des Schwerevektors. Verwendet man anstatt der geometrischen Höhe $z$ die geopotentielle Höhe $\phi = gz$ (dies ist die Energie pro Masse, die nötig ist, um ein Teilchen vom Meeresspiegel auf die Höhe $z$ zu bringen), lautet die hydrostatische Grundgleichung mit der Kettenregel
+Das Schwerefeld der Erde hat eine komplizierte Form, der man sich in verschiedenen Stufen annähert. Zunächst geht man davon aus, dass das Schwerefeld radialsymmetrisch ist mit homogenem Betrag des Schwerevektors. Verwendet man anstatt der geometrischen Höhe $z$ die geopotentielle Höhe $\Phi = gz$ (dies ist die Energie pro Masse, die nötig ist, um ein Teilchen vom Meeresspiegel auf die Höhe $z$ zu bringen), lautet die hydrostatische Grundgleichung mit der Kettenregel
 %
 \begin{align}
-\frac{\partial p}{\partial\phi} = \frac{\partial p}{\partial z}\frac{\partial z}{\partial\phi} = -\rho.
+\frac{\partial p}{\partial\Phi} = \frac{\partial p}{\partial z}\frac{\partial z}{\partial\Phi} = -\rho.
 \end{align}
 %
 Die SI-Einheit des Geopotentials ist m$^2$/s$^2$. Ein Geopotentialmeter gpm ist definiert durch
@@ -11059,19 +11059,19 @@ sodass
 gilt. Möchte man die Höhenabhängigkeit der Schwerebeschleunigung berücksichtigen, so verwendet man hierfür als Formel für das Gravitationspotential zunächst
 %
 \begin{align}
-\phi_g\left(r\right) = -\frac{\phi_0a}{r} + \phi_0
+\Phi_g\left(r\right) = -\frac{\Phi_0a}{r} + \Phi_0
 \end{align}
 %
-mit $\phi_0 \coloneqq GM/a$ mit $G$ als Newton'scher Gravitationskonstante\index{Newton'sche Gravitationskonstante}\index{Gravitationskonstante!Newton'sche} und $M$ als Erdmasse. Dies ist die Formel für das Schwerefeld eines Planeten mit radialsymmatrischer Massenverteilung, sie ergibt sich aus der Formel für eine Punktmasse mit dem Gauß'schen Satz. Bei $r = a$ ist das Potential zu Null normiert. Hieraus folgt
+mit $\Phi_0 \coloneqq GM/a$ mit $G$ als Newton'scher Gravitationskonstante\index{Newton'sche Gravitationskonstante}\index{Gravitationskonstante!Newton'sche} und $M$ als Erdmasse. Dies ist die Formel für das Schwerefeld eines Planeten mit radialsymmatrischer Massenverteilung, sie ergibt sich aus der Formel für eine Punktmasse mit dem Gauß'schen Satz. Bei $r = a$ ist das Potential zu Null normiert. Hieraus folgt
 %
 \begin{align}
-g = \frac{\phi_0a}{r^2} = g_0\frac{a^2}{r^2}
+g = \frac{\Phi_0a}{r^2} = g_0\frac{a^2}{r^2}
 \end{align}
 %
-mit $g_0 \coloneqq \frac{\phi_0}{a}$. In dieser Approximation fordert man für die generalisierte Vertikalkoordinate geopotentielle Höhe\index{geopotentielle Höhe}\index{Höhe!geopotentielle} $z_g$, dass gilt
+mit $g_0 \coloneqq \frac{\Phi_0}{a}$. In dieser Approximation fordert man für die generalisierte Vertikalkoordinate geopotentielle Höhe\index{geopotentielle Höhe}\index{Höhe!geopotentielle} $z_g$, dass gilt
 %
 \begin{align}
-g_0z_g\hastobe\phi_g\left(a + z\right) = -\frac{\phi_0a}{a + z} + \phi_0 \Rightarrow z_g = -\frac{a^2}{a + z} + a = \frac{-a^2 + a^2 + za}{a + z} = \frac{z}{1 + \frac{z}{a}}.
+g_0z_g\hastobe\Phi_g\left(a + z\right) = -\frac{\Phi_0a}{a + z} + \Phi_0 \Rightarrow z_g = -\frac{a^2}{a + z} + a = \frac{-a^2 + a^2 + za}{a + z} = \frac{z}{1 + \frac{z}{a}}.
 \end{align}
 %
 Hieraus folgt weiterhin
@@ -11081,13 +11081,13 @@ Hieraus folgt weiterhin
 \Rightarrow \frac{\partial p}{\partial z_g} &= -g_0\rho.
 \end{align}
 %
-Verwendet man den Druck als Höhenkoordinate und das Geopotential als die abhängige Koordinate, transformiert man also $p\left(\phi\right)$ auf $\phi\left(p\right)$, so lautet die hydrostatische Grundgleichung
+Verwendet man den Druck als Höhenkoordinate und das Geopotential als die abhängige Koordinate, transformiert man also $p\left(\Phi\right)$ auf $\Phi\left(p\right)$, so lautet die hydrostatische Grundgleichung
 %
 \begin{align}
-\frac{\partial\phi}{\partial p} = -\alpha\label{eq:hydrostatic_p}
+\frac{\partial\Phi}{\partial p} = -\alpha\label{eq:hydrostatic_p}
 \end{align}
 %
-mit $\alpha \coloneqq \frac{1}{\rho}$ als dem spezifischen Volumen. Mit der Zustandsgleichung folgt $\alpha = \frac{R_dT}{p}$ in einer trockenen Atmosphäre. Deshalb bezeichnet man $\frac{\partial\phi}{\partial p}$ häufig auch einfach als »Temperatur«.\ Man sieht, dass die Schichtdicke proportional zur Temperatur der Schicht ist. Das dreidimensionale Geopotentialfeld ist also Ausdruck des Bodendrucks und der Temperatur der Luftmassen.
+mit $\alpha \coloneqq \frac{1}{\rho}$ als dem spezifischen Volumen. Mit der Zustandsgleichung folgt $\alpha = \frac{R_dT}{p}$ in einer trockenen Atmosphäre. Deshalb bezeichnet man $\frac{\partial\Phi}{\partial p}$ häufig auch einfach als »Temperatur«.\ Man sieht, dass die Schichtdicke proportional zur Temperatur der Schicht ist. Das dreidimensionale Geopotentialfeld ist also Ausdruck des Bodendrucks und der Temperatur der Luftmassen.
 
 \subsection{Temperaturgleichung}
 \label{sec:temperaturgleichung_hydrostat}
@@ -11132,7 +11132,7 @@ Von Barotropie spricht man, wenn die Konturflächen des Druckfeldes und des Dich
 Leitet man die x-Komponente von Glg. \eqref{eq:x_momentum_simplified_simplified_p} unter Annahme von Barotropie nach $p$ ab, erhält man
 %
 \begin{align}
-\frac{\partial}{\partial p}\md{u} = -\frac{\partial }{\partial p}\frac{\partial\phi}{\partial x} + f\frac{\partial v}{\partial p} = -\frac{\partial }{\partial x}\frac{\partial\phi}{\partial p} + f\frac{\partial v}{\partial p} = f\frac{\partial v}{\partial p}.
+\frac{\partial}{\partial p}\md{u} = -\frac{\partial }{\partial p}\frac{\partial\Phi}{\partial x} + f\frac{\partial v}{\partial p} = -\frac{\partial }{\partial x}\frac{\partial\Phi}{\partial p} + f\frac{\partial v}{\partial p} = f\frac{\partial v}{\partial p}.
 \end{align}
 %
 Es gilt außerdem
@@ -12884,14 +12884,14 @@ Dies führt auf eine weitere Form der Divergenzgleichung:
 Die Impulsgleichungen Glg.en \eqref{eq:x_momentum_simplified_simplified_p} - \eqref{eq:y_momentum_simplified_simplified_p} im p-System lauten vektoriell
 %
 \begin{align}
-\frac{\partial\mathbf{v}_h}{\partial t} &= -\nabla\phi - f\mathbf{k}\times\mathbf{v}_h - \left(\mathbf{v}_h\cdot\nabla\right)\mathbf{v}_h - \omega\frac{\partial\mathbf{v}_h}{\partial p} + \nabla\cdot\mathbf{f}_R^{(H)}.
+\frac{\partial\mathbf{v}_h}{\partial t} &= -\nabla\Phi - f\mathbf{k}\times\mathbf{v}_h - \left(\mathbf{v}_h\cdot\nabla\right)\mathbf{v}_h - \omega\frac{\partial\mathbf{v}_h}{\partial p} + \nabla\cdot\mathbf{f}_R^{(H)}.
 \end{align}
 %
-Es ist für die Hereitung sinnvoll, hier ein $\mathbf{g}$ zu addieren und $-\nabla\phi$ als dreidimensionalen Vektor zu interpretieren mit $-g$ in der z-Komponente. Somit ergibt eine Anwendung von $\nabla\cdot $ auf $-\nabla\phi + \mathbf{g} = -\Delta_h\phi$, wofür aber in der weiteren Herleitung einfach $\Delta\phi$ notiert wird. Durch Applizieren des Operators $\nabla\cdot $ auf die einzelnen Terme erhält man somit
+Es ist für die Hereitung sinnvoll, hier ein $\mathbf{g}$ zu addieren und $-\nabla\Phi$ als dreidimensionalen Vektor zu interpretieren mit $-g$ in der z-Komponente. Somit ergibt eine Anwendung von $\nabla\cdot $ auf $-\nabla\Phi + \mathbf{g} = -\Delta_h\Phi$, wofür aber in der weiteren Herleitung einfach $\Delta\Phi$ notiert wird. Durch Applizieren des Operators $\nabla\cdot $ auf die einzelnen Terme erhält man somit
 %
 \begin{align}
 \nabla\cdot\frac{\partial\mathbf{v}_h}{\partial t}&\stackrel{\text{Glg. \eqref{eq:diff_op_rule_4}}}{=} \frac{\partial\delta}{\partial t}, \nonumber\\
-- \nabla\cdot\nabla\phi &= -\Delta\phi, \nonumber\\
+- \nabla\cdot\nabla\Phi &= -\Delta\Phi, \nonumber\\
 - \nabla\cdot\left(f\mathbf{k}\times\mathbf{v}_h\right)&\stackrel{\text{Glg. \eqref{eq:diff_op_rule_9}}}{=} -\mathbf{v}_h\cdot\left[\nabla\times\left(f\mathbf{k}\right)\right] + f\mathbf{k}\cdot\left(\nabla\times\mathbf{v}_h\right)\stackrel{\text{Glg. \eqref{eq:diff_op_rule_5}}}{=} - \mathbf{v}_h\cdot\left[-\mathbf{k}\times\nabla f + f\nabla\times\mathbf{k}\right] + f\zeta\nonumber\\
 &= \mathbf{v}_h\cdot\left(\mathbf{k}\times\beta\mathbf{j}\right) + f\zeta = -u\beta + f\zeta, \nonumber\\
 \nabla\cdot\left(-\omega\frac{\partial\mathbf{v}_h}{\partial p}\right)&\stackrel{\text{Glg. \eqref{eq:diff_op_rule_3}}}{=} -\omega\frac{\partial\delta}{\partial p} - \frac{\partial\mathbf{v}_h}{\partial p}\cdot\nabla\omega.
@@ -12903,7 +12903,7 @@ Somit folgt
 \doublebox{\parbox{\textwidth}{
 \begin{center}
 \begin{align}
-\frac{\partial\delta}{\partial t} &= -\Delta\phi - u\beta + f\zeta - \nabla\cdot\left[\left(\mathbf{v}_h\cdot\nabla\right)\mathbf{v}_h\right] - \omega\frac{\partial\delta}{\partial p} - \frac{\partial\mathbf{v}_h}{\partial p}\cdot\nabla\omega + \nabla\cdot\mathbf{f}_R^{(H)}.\label{eq:divergence_equation_p_1}
+\frac{\partial\delta}{\partial t} &= -\Delta\Phi - u\beta + f\zeta - \nabla\cdot\left[\left(\mathbf{v}_h\cdot\nabla\right)\mathbf{v}_h\right] - \omega\frac{\partial\delta}{\partial p} - \frac{\partial\mathbf{v}_h}{\partial p}\cdot\nabla\omega + \nabla\cdot\mathbf{f}_R^{(H)}.\label{eq:divergence_equation_p_1}
 \end{align}
 \end{center}
 }}
@@ -12922,42 +12922,39 @@ Dies führt auf eine weitere Form der Divergenzgleichung:
 \doublebox{\parbox{\textwidth}{
 \begin{center}
 \begin{align}
-\frac{\partial\delta}{\partial t} &= -\Delta\phi - u\beta + f\zeta - \Delta k + \left(\nabla\times\mathbf{v}_h\right)^2 + \mathbf{v}_h\cdot\left(\Delta\mathbf{v}_h\right) - \mathbf{v}_h\cdot\nabla\delta\nonumber\\
+\frac{\partial\delta}{\partial t} &= -\Delta\Phi - u\beta + f\zeta - \Delta k + \left(\nabla\times\mathbf{v}_h\right)^2 + \mathbf{v}_h\cdot\left(\Delta\mathbf{v}_h\right) - \mathbf{v}_h\cdot\nabla\delta\nonumber\\
 & - \omega\frac{\partial\delta}{\partial p} - \frac{\partial\mathbf{v}_h}{\partial p}\cdot\nabla\omega + \nabla\cdot\mathbf{f}_R^{(H)}\label{eq:divergence_equation_p_2}
 \end{align}
 \end{center}
 }}
 \end{center}
-%
+
+\subsubsection{Balancegleichung}
+\label{sec:balancegleichung}\index{Balancegleichung}
+
 Setzt man hier $\delta = \omega = 0$ ein, folgt die \index{Balancegleichung}\textit{Balancegleichung}
 %
 \begin{center}
 \doublebox{\parbox{\textwidth}{
 \begin{center}
 \begin{align}
-\Delta\phi &= - u\beta + f\zeta - \Delta k + \left(\nabla\times\mathbf{v}_h\right)^2 + \mathbf{v}_h\cdot\left(\Delta\mathbf{v}_h\right).\label{eq:balance_equation}
+\Delta\Phi &= - u\beta + f\zeta - \Delta k + \left(\nabla\times\mathbf{v}_h\right)^2 + \mathbf{v}_h\cdot\left(\Delta\mathbf{v}_h\right).\label{eq:balance_equation}
 \end{align}
 \end{center}
 }}
 \end{center}
 %
-Vernachlässigt man den letzten Term, erhält man die \textit{lineare Balancegleichung}\index{Balancegleichung!lineare}\index{lineare Balancegleichung}
+Vernachlässigt man die nichtlinearen Terme, erhält man die \textit{lineare Balancegleichung}\index{Balancegleichung!lineare}\index{lineare Balancegleichung}
 %
 \begin{align}
-\Delta\phi = -u\beta + f\zeta.\label{eq:balance_equation_linear}
+\Delta\Phi = -u\beta + f\zeta.\label{eq:balance_equation_linear}
 \end{align}
 %
 Verwendet man eine Stromfunktion $\psi$, folgt
 %
 \begin{align}
-\Delta\phi = \beta\frac{\partial\psi}{\partial y} + f\Delta\psi.
+\Delta\Phi = \beta\frac{\partial\psi}{\partial y} + f\Delta\psi.\label{eq:balance_equation_linear_stream}
 \end{align}
-%
-Die Balancegleichung ermöglicht die Transformation $\psi\leftrightarrow\phi$.
-
-Ein globales Einschichtmodell enthielte als einzige prognostische Variable die Stromfunktion, die prognostische Gleichung für diese wäre die Vorticitygleichung, der Wind wäre divergenuzfrei. Das Geopotential könnte bei Bedarf mittels Lösung der Balancegleichung diagnostiziert werden.
-
-Es gibt also bei einem globalen Horizontalwindfeld immer einen Kompromiss aus Divergenzfreiheit und Geostrophie, ein realistisches synoptisch-skaliges Windfeld ist entweder divergenzfrei oder geostrophisch oder keins von beidem, jedoch nicht beides zugleich. Möchte man Schallwellen (enthalten Divergenz) und Schwerewellen (sind ageostrophisch) filtern (z. B. bei der Initialisierung), muss man daher ein Windfeld finden, was möglichst geostrophisch ist (und somit zum gemessenen Geopotential passt und keine Schwerewellen auslöst), und gleichzeitig möglichst divergenzfrei ist (und somit keine Schallwellen auslöst).
 
 \section{Potentielle Vorticity}
 \label{sec:potentielle_vorticity}\index{potentielle Vorticity}\index{Vorticity!potentielle}
@@ -13634,119 +13631,7 @@ Die Oberflächensapnnung von Wasser beträgt ca. $\sigma \sim 75$ mN/m, woraus f
 \section{Barotrope Wellen}
 \label{sec:barotrope_wellen}\index{barotrope Welle}\index{Welle!barotrope}
 
-\subsection{Poincaré-Wellen}
-\label{sec:poincare-wellen}\index{Poincaré-Welle}
-
-\textit{Poincaré-Wellen}\index{Poincaré-Welle} sind die Wellen der linearisierten Flachwassergleichungen auf der f-Ebene, somit bilden die Glg.en \eqref{eq:flach_lin_1} - \eqref{eq:flach_lin_2} das zugrundeliegende Gleichungssystem. Diese Gleichungen lauten in ebener Geometrie in Komponenten
-%
-\begin{align}
-\frac{\partial u}{\partial t} &= fv - g\frac{\partial\eta}{\partial x},\label{eq:dyn_in_grav_1}\\
-\frac{\partial v}{\partial t} &= -fu - g\frac{\partial\eta}{\partial y},\label{eq:dyn_in_grav_2}\\
-\frac{\partial\eta}{\partial t} &= -H\left(\frac{\partial u}{\partial x} + \frac{\partial v}{\partial y}\right).\label{eq:dyn_in_grav_3}
-\end{align}
-%
-Hierbei ist $\eta$ die Oberflächenauslenkung und $H$ die mittlere Tiefe. Man macht einen Ansatz
-%
-\begin{align}
-u = u_0\exp\left[i\left(\mathbf{k}\cdot\mathbf{r} - \omega t\right)\right], && v = v_0\exp\left[i\left(\mathbf{k}\cdot\mathbf{r} - \omega t\right)\right], && \eta = \newhat{\eta}\exp\left[i\left(\mathbf{k}\cdot\mathbf{r} - \omega t\right)\right].
-\end{align}
-%
-mit einem horizontalen Wellenvektor $\mathbf{k} = \left(k_x, k_y\right)^T$ sowie eventuell komplexen Amplituden $u_0, v_0, \eta_0$. Setzt man dies ein, erhält man
-%
-\begin{align}
--i\omega u_0 &= fv_0 - gik_x\newhat{\eta},\\
--i\omega v_0 &= -fu_0 - gik_y\newhat{\eta},\\
--i\omega\newhat{\eta} &= -Hik_xu_0 - Hik_yv_0\\
-\Leftrightarrow-i\omega u_0 - fv_0 + gik_x\newhat{\eta} &= 0,\label{eq:deriv_in_grav_1}\\
--i\omega v_0 + fu_0 + gik_y\newhat{\eta} &= 0,\label{eq:deriv_in_grav_2}\\
--i\omega\newhat{\eta} + Hik_xu_0 + Hik_yv_0 &= 0.\label{eq:deriv_in_grav_3}
-\end{align}
-%
-In Matrixschreibweise lautet dies
-%
-\begin{align}
-\left(\begin{array}{ccc}
-- i\omega& -f&gik_x\\
-f& -i\omega&gik_y\\
-Hik_x&Hik_y& -i\omega
-\end{array}\right)\left(\begin{array}{c}
-u_0\\
-v_0\\
-\newhat{\eta}
-\end{array}\right) &= \left(\begin{array}{c}
-0\\
-0\\
-0
-\end{array}\right).
-\end{align}
-%
-Hier existieren genau dann nichttriviale Lösungen, wenn
-%
-\begin{align}
-&\Leftrightarrow\left(-i\omega\right)\left[\left(-i\omega\right)^2 - i^2Hgk_y^2\right] - f\left[-f\left(-i\omega\right) - i^2Hgk_xk_y\right] + Hik_x\left[-fgik_y - \left(-i\omega\right)gik_x\right] = 0\nonumber\\
-&\Leftrightarrow\left(-i\omega\right)\left[\left(-i\omega\right)^2 + Hgk_y^2\right] - f\left[-f\left(-i\omega\right) + Hgk_xk_y\right] + Hik_x\left[-fgik_y - \left(-i\omega\right)gik_x\right] = 0\nonumber\\
-&\Leftrightarrow i\omega\left[-\left(-i\omega\right)^2 - Hgk_y^2\right] + f\left[f\left(-i\omega\right) - Hgk_xk_y\right] + Hik_x\left(-fgik_y + i\omega gik_x\right) = 0\nonumber\\
-&\Leftrightarrow i\omega\left[-\left(i\omega\right)^2 - Hgk_y^2\right] + f\left(-fi\omega - Hgk_xk_y\right) + Hik_x\left(-fgik_y - \omega gk_x\right) = 0\nonumber
-\end{align}
-\begin{align}
-&\Leftrightarrow i\omega\left(\omega^2 - Hgk_y^2\right) + f\left(-fi\omega - Hgk_xk_y\right) + Hik_x\left(-fgik_y - \omega gk_x\right) = 0\nonumber\\
-&\Leftrightarrow\omega\left(\omega^2 - Hgk_y^2\right) + f\left(-f\omega + iHgk_xk_y\right) + Hk_x\left(-fgik_y - \omega gk_x\right) = 0\nonumber\\
-&\Leftrightarrow\omega\left(\omega^2 - Hgk_y^2\right) - f^2\omega + fiHgk_xk_y - Hk_xfgik_y - Hk_x\omega gk_x = 0\nonumber\\
-&\Leftrightarrow\omega\left(\omega^2 - Hgk_y^2\right) - f^2\omega - Hk_x\omega gk_x = 0\nonumber\\
-&\Leftrightarrow\omega\left(\omega^2 - Hgk_y^2 - f^2 - Hgk_x^2\right) = 0\nonumber\\
-&\Leftrightarrow\omega\left[\omega^2 - f^2 - Hg\left(k_x^2 + k_y^2\right)\right] = 0
-\end{align}
-%
-gilt. Also lautet die Dispersionsrelation der Poincaré-Wellen
-%
-\begin{center}
-\doublebox{\parbox{0.8\textwidth}{
-\begin{center}
-\begin{align}
-\omega\left(\omega^2 - f^2 - Hgk^2\right) = 0.\label{eq:poincare_dispersion}
-\end{align}
-\end{center}
-}}
-\end{center}
-%
-Diese Gleichung hat die drei Lösungen
-\begin{align}
-\omega &= 0,\label{eq:poincare_geos_mode}\\
-\omega &= \sqrt{f^2 + Hgk^2},\label{eq:poincare_grav_mode_0}\\
-\omega &= -\sqrt{f^2 + Hgk^2}.\label{eq:poincare_geos_mode_1}
-\end{align}
-%
-Glg. \eqref{eq:poincare_geos_mode} ist die geostrophische Mode, die anderen beiden Gleichungen beschreiben Poincaré-Wellen im eigentlichn Sinne. Glg. \eqref{eq:poincare_geos_mode_1} beschreibt eine in Richtung $-\mathbf{k}$ propagierende Welle, ist also keine physikalisch neue Wellenmode. Für diese propagierenden Lösungen gilt $\omega^2\geq f^2$, der Betrag des Coriolis-Parameters ist also eine untere Schranke der Kreisfrequenz. Für die Phasengeschwindigkeit gilt
-
-\begin{figure}
-\begin{center}
-\includegraphics[width = 0.6\textwidth]{figs/inertio_gravity_dispersion.png}
-\caption{Die Dispersionsrelation von Poincaré-Wellen im Vergleich zur Dispersion von Flachwasserwellen ohne Coriolis-Beschleunigung. Es wurde mit $f = 10^{-4}$ 1/s und $H = 10$ km gerechnet.}
-\label{fig:poincare_dispersion}
-\end{center}
-\end{figure}
-%
-\begin{align}
-c^2 = \frac{\omega^2}{k^2} = gH + \frac{f^2}{k^2} = gH + f^2L^2\frac{1}{4\pi^2}
-\end{align}
-%
-mit $L$ als Wellenlänge. Die Poincaré-Wellen haben also eine höhere Phasengeschwindigkeit als die Schwerewellen ohne Erdrotation. Desto kürzer die Wellen werden, desto geringer wird der Einfluss der Coriolis-Kraft, für lange Wellen jedoch geht $\omega$ gegen $f$. Der Ausdruck für $c^2$ der Poincaré-Wellen ist gegenüber dem der Schwerewellen ohne Coriolis-Kraft um den Ausdruck $f^2L^2\frac{1}{4\pi^2}$ höher. Um eine Grenzwellenlänge $R_o$ zu bestimmen, ab der die Wirkung der Coriolis-Kraft deutlich wird, setzt man
-%
-\begin{align}
-f_0^2R_o^2\frac{1}{4\pi^2} = \frac{gH}{4\pi^2}\approx 0, 025gH.
-\end{align}
-%
-Daraus erhält man für den barotropen Rossby-Radius
-%
-\begin{align}
-R_o = \frac{\sqrt{gH}}{\left|f\right|}.\label{eq:def_baro_ro_r}
-\end{align}
-%
-Setzt man typische Werte ein, folgt $R_o \approx 2000$ km.
-
-Poincaré-Wellen werden im Englischen auch als \textit{inertia-gravity waves}\index{inertial gravity wave} bezeichnet. Dies rührt daher, dass die rückstellende Kräfte bei dieser Wellenmode die Schwere sowie die Coriolis-Kraft sind. Die deutsche Übersetzung \glqq Inertial-Schwerewelle\grqq\ ist eher unüblich. Eine weitere Bezeichnung ist \textit{Sverdrup-Welle}\index{Sverdrup-Welle}.
-
-\subsubsection{Inertialwellen}
+\subsection{Inertialwellen}
 \label{sec:inertialwellen}\index{Inertialwelle}
 
 Bei Inertialwellen\index{Inertialwellen} geht man von einem verschwindenden horizontalen Druckgradienten aus, sodass nur die Coriolis-Kraft übrigbleibt. Die Impulsgleichungen der SWEs Glg. \eqref{eq:swe_0} werden unter Vernachlässigung der advektiven Terme zu
@@ -13959,106 +13844,117 @@ Diesen Volumenstrom in Richtung des Wellenvektors bezeichnet man als \textit{Sto
 %
 für $z < -\newhat{\eta}$ entsteht dieser Volumenstrom ausschließlich im Bereich der Oberflächenwelle selbst durch das Wachsen der Amplitude der Horizontalgeschwindigkeit mit der Höhe.
 
-\subsection{Rossby-Wellen}
-\label{sec:rossbywellen}\index{barotrope Rossby-Welle}\index{Rossby-Welle!barotrope}
+\subsection{Poincaré-Wellen}
+\label{sec:poincare-wellen}\index{Poincaré-Welle}
 
-Im vorigen Abschnitt \ref{sec:poincare-wellen} wurde von $\beta = 0$ ausgegangen. In diesem Fall sind die dort hergeleiteten Poincaré-Wellen die allgemeinsten Wellenlösungen. Eine neue Art der Wellen entsteht, wenn man die Breitenabhängigkeit von $f$ berücksichtigt.
-
-Man geht aus von einem homogenen zonalen Grundstrom $U$. Man nimmt $u_0 = 0$ an, außerdem geht man von $k_y = 0$ aus, die Störungen sollen nur x-abhängig sein. Man weiß schon jetzt:
-%
-\begin{itemize}
-\item Da $U$ homogen ist und $u_0 = 0$, $v = v\left(x, t\right)$ gelten, sind die Lösungen divergenzfrei.
-\end{itemize}
-%
-Daher kann man die barotrope Vorticitygleichung verwenden. Macht man den Ansatz
+\textit{Poincaré-Wellen}\index{Poincaré-Welle} sind die Wellen der linearisierten Flachwassergleichungen auf der f-Ebene, somit bilden die Glg.en \eqref{eq:flach_lin_1} - \eqref{eq:flach_lin_2} das zugrundeliegende Gleichungssystem. Diese Gleichungen lauten in ebener Geometrie in Komponenten
 %
 \begin{align}
-v = v_0\exp\left[i\left(kx - \omega t\right)\right]
+\frac{\partial u}{\partial t} &= fv - g\frac{\partial\eta}{\partial x},\label{eq:dyn_in_grav_1}\\
+\frac{\partial v}{\partial t} &= -fu - g\frac{\partial\eta}{\partial y},\label{eq:dyn_in_grav_2}\\
+\frac{\partial\eta}{\partial t} &= -H\left(\frac{\partial u}{\partial x} + \frac{\partial v}{\partial y}\right).\label{eq:dyn_in_grav_3}
 \end{align}
 %
-dann gelten
+Hierbei ist $\eta$ die Oberflächenauslenkung und $H$ die mittlere Tiefe. Man macht einen Ansatz
 %
 \begin{align}
-\zeta = ikv, && \frac{\partial\zeta}{\partial t} = k\omega v, && \frac{\partial\zeta}{\partial x} = -k^2v.
+u = u_0\exp\left[i\left(\mathbf{k}\cdot\mathbf{r} - \omega t\right)\right], && v = v_0\exp\left[i\left(\mathbf{k}\cdot\mathbf{r} - \omega t\right)\right], && \eta = \newhat{\eta}\exp\left[i\left(\mathbf{k}\cdot\mathbf{r} - \omega t\right)\right].
 \end{align}
 %
-Setzt man dies in die barotrope Vorticitygleichung ein, erhält man
+mit einem horizontalen Wellenvektor $\mathbf{k} = \left(k_x, k_y\right)^T$ sowie eventuell komplexen Amplituden $u_0, v_0, \eta_0$. Setzt man dies ein, erhält man
 %
 \begin{align}
-k\omega v_0 &= Uk^2v_0 - v_0\beta\Leftrightarrow\omega = Uk - \frac{\beta}{k}.\label{eq:rossby_welle_barotrop_disp}
+-i\omega u_0 &= fv_0 - gik_x\newhat{\eta},\\
+-i\omega v_0 &= -fu_0 - gik_y\newhat{\eta},\\
+-i\omega\newhat{\eta} &= -Hik_xu_0 - Hik_yv_0\\
+\Leftrightarrow-i\omega u_0 - fv_0 + gik_x\newhat{\eta} &= 0,\label{eq:deriv_in_grav_1}\\
+-i\omega v_0 + fu_0 + gik_y\newhat{\eta} &= 0,\label{eq:deriv_in_grav_2}\\
+-i\omega\newhat{\eta} + Hik_xu_0 + Hik_yv_0 &= 0.\label{eq:deriv_in_grav_3}
 \end{align}
 %
-Glg. \eqref{eq:rossby_welle_barotrop_disp} ist die Dispersionsrelation der Rossby-Wellen. Für ihre Phasengeschwindigkeit gilt
+In Matrixschreibweise lautet dies
+%
+\begin{align}
+\left(\begin{array}{ccc}
+- i\omega& -f&gik_x\\
+f& -i\omega&gik_y\\
+Hik_x&Hik_y& -i\omega
+\end{array}\right)\left(\begin{array}{c}
+u_0\\
+v_0\\
+\newhat{\eta}
+\end{array}\right) &= \left(\begin{array}{c}
+0\\
+0\\
+0
+\end{array}\right).
+\end{align}
+%
+Hier existieren genau dann nichttriviale Lösungen, wenn
+%
+\begin{align}
+&\Leftrightarrow\left(-i\omega\right)\left[\left(-i\omega\right)^2 - i^2Hgk_y^2\right] - f\left[-f\left(-i\omega\right) - i^2Hgk_xk_y\right] + Hik_x\left[-fgik_y - \left(-i\omega\right)gik_x\right] = 0\nonumber\\
+&\Leftrightarrow\left(-i\omega\right)\left[\left(-i\omega\right)^2 + Hgk_y^2\right] - f\left[-f\left(-i\omega\right) + Hgk_xk_y\right] + Hik_x\left[-fgik_y - \left(-i\omega\right)gik_x\right] = 0\nonumber\\
+&\Leftrightarrow i\omega\left[-\left(-i\omega\right)^2 - Hgk_y^2\right] + f\left[f\left(-i\omega\right) - Hgk_xk_y\right] + Hik_x\left(-fgik_y + i\omega gik_x\right) = 0\nonumber\\
+&\Leftrightarrow i\omega\left[-\left(i\omega\right)^2 - Hgk_y^2\right] + f\left(-fi\omega - Hgk_xk_y\right) + Hik_x\left(-fgik_y - \omega gk_x\right) = 0\nonumber
+\end{align}
+\begin{align}
+&\Leftrightarrow i\omega\left(\omega^2 - Hgk_y^2\right) + f\left(-fi\omega - Hgk_xk_y\right) + Hik_x\left(-fgik_y - \omega gk_x\right) = 0\nonumber\\
+&\Leftrightarrow\omega\left(\omega^2 - Hgk_y^2\right) + f\left(-f\omega + iHgk_xk_y\right) + Hk_x\left(-fgik_y - \omega gk_x\right) = 0\nonumber\\
+&\Leftrightarrow\omega\left(\omega^2 - Hgk_y^2\right) - f^2\omega + fiHgk_xk_y - Hk_xfgik_y - Hk_x\omega gk_x = 0\nonumber\\
+&\Leftrightarrow\omega\left(\omega^2 - Hgk_y^2\right) - f^2\omega - Hk_x\omega gk_x = 0\nonumber\\
+&\Leftrightarrow\omega\left(\omega^2 - Hgk_y^2 - f^2 - Hgk_x^2\right) = 0\nonumber\\
+&\Leftrightarrow\omega\left[\omega^2 - f^2 - Hg\left(k_x^2 + k_y^2\right)\right] = 0
+\end{align}
+%
+gilt. Also lautet die Dispersionsrelation der Poincaré-Wellen
 %
 \begin{center}
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-c = U - \frac{\beta}{k^2}.
+\omega\left(\omega^2 - f^2 - Hgk^2\right) = 0.\label{eq:poincare_dispersion}
 \end{align}
 \end{center}
 }}
 \end{center}
 %
-Im hypothetischen Fall $U\to0$, $L = 2\pi a$ und $\varphi = 0$ gilt
-%
+Diese Gleichung hat die drei Lösungen
 \begin{align}
-\left|c\right| = 2\omega\frac{1}{a}\frac{4\pi^2 a^2}{4\pi^2} = 2\omega a = 930\:\frac{\text{m}}{\text{s}}.
+\omega &= 0,\label{eq:poincare_geos_mode}\\
+\omega &= \sqrt{f^2 + Hgk^2},\label{eq:poincare_grav_mode_0}\\
+\omega &= -\sqrt{f^2 + Hgk^2}.\label{eq:poincare_geos_mode_1}
 \end{align}
 %
-Dies ist eine betragsmäßige Beschränkung von $c$. Keine Welle kann sich schneller fortpflanzen als mit der Geschwindigkeit $2\omega a$, und schneller kann das System der herrschenden Gleichungen keine Information übertragen.
-
-\subsubsection{Anschauliches Verständnis}
-\label{sec:anschauliches_verstaendnis}
+Glg. \eqref{eq:poincare_geos_mode} ist die geostrophische Mode, die anderen beiden Gleichungen beschreiben Poincaré-Wellen im eigentlichn Sinne. Glg. \eqref{eq:poincare_geos_mode_1} beschreibt eine in Richtung $-\mathbf{k}$ propagierende Welle, ist also keine physikalisch neue Wellenmode. Für diese propagierenden Lösungen gilt $\omega^2\geq f^2$, der Betrag des Coriolis-Parameters ist also eine untere Schranke der Kreisfrequenz. Für die Phasengeschwindigkeit gilt
 
 \begin{figure}
-\centering
-\includegraphics[width = .6\textwidth]{figs/rossby_waves_vorticity.png}
-\caption{Veranschaulichung des Prinzips der Erhaltung der absoluten Vorticity. 1: $f$ maximal, $\zeta$ minimal, 2: $f = f_0$, $\zeta = 0$, 3: $f$ minimal, $\zeta$ maximal, 4: $f = f_0$, $\zeta = 0$. Man beachte auch, dass die Wellenlänge der Teilchentrajektorie größer ist, als die der Welle.}
-\label{fig:rossby_wellen_barotrop}
+\begin{center}
+\includegraphics[width = 0.6\textwidth]{figs/inertio_gravity_dispersion.png}
+\caption{Die Dispersionsrelation von Poincaré-Wellen im Vergleich zur Dispersion von Flachwasserwellen ohne Coriolis-Beschleunigung. Es wurde mit $f = 10^{-4}$ 1/s und $H = 10$ km gerechnet.}
+\label{fig:poincare_dispersion}
+\end{center}
 \end{figure}
+%
+\begin{align}
+c^2 = \frac{\omega^2}{k^2} = gH + \frac{f^2}{k^2} = gH + f^2L^2\frac{1}{4\pi^2}
+\end{align}
+%
+mit $L$ als Wellenlänge. Die Poincaré-Wellen haben also eine höhere Phasengeschwindigkeit als die Schwerewellen ohne Erdrotation. Desto kürzer die Wellen werden, desto geringer wird der Einfluss der Coriolis-Kraft, für lange Wellen jedoch geht $\omega$ gegen $f$. Der Ausdruck für $c^2$ der Poincaré-Wellen ist gegenüber dem der Schwerewellen ohne Coriolis-Kraft um den Ausdruck $f^2L^2\frac{1}{4\pi^2}$ höher. Um eine Grenzwellenlänge $R_o$ zu bestimmen, ab der die Wirkung der Coriolis-Kraft deutlich wird, setzt man
+%
+\begin{align}
+f_0^2R_o^2\frac{1}{4\pi^2} = \frac{gH}{4\pi^2}\approx 0, 025gH.
+\end{align}
+%
+Daraus erhält man für den barotropen Rossby-Radius
+%
+\begin{align}
+R_o = \frac{\sqrt{gH}}{\left|f\right|}.\label{eq:def_baro_ro_r}
+\end{align}
+%
+Setzt man typische Werte ein, folgt $R_o \approx 2000$ km.
 
-Die y-Komponente der Impulsgleichung im Flachwassermodell lautet
-%
-\begin{align}
-\md{v} = -fu - g\frac{\partial\eta}{\partial y}.\label{eq:momentum_swe_y}
-\end{align}
-%
-Mache für $f$ eine lineare Taylor-Entwicklung
-%
-\begin{align}
-f = f_0 + \beta y.
-\end{align}
-%
-Ein homogener zonaler Grundstrom $U$ kann geostrophisch balanciert werden durch eine Oberflächenauslenkung
-%
-\begin{align}
-0 = -f_0U - g\frac{\partial\eta}{\partial y}.
-\end{align}
-%
-In diesem Fall wird Glg. \eqref{eq:momentum_swe_y} zu
-%
-\begin{align}
-\md{^2y}{t^2} = -\beta U y.
-\end{align}
-%
-Dies entspricht einem harmonischen Oszillator mit der Eigenfrequenz
-%
-\begin{align}
-\omega_{\text{ind}} = \sqrt{\beta U}.
-\end{align}
-%
-Daher muss $U>0$ westlich sein. Die Eigenfrequenz wurde mit einem Index $\text{ind}$ gekennzeichnet, da es sich um die individuelle Schwingungsfrequenz der Teilchen und nicht um die Frequenz $\omega$ der Welle handelt.
-
-Eine weitere anschauliche Erklärung ergibt sich aus der barotropen Vorticitygleichung, diese lautet
-%
-\begin{align}
-f + \zeta = \text{const}.
-\end{align}
-%
-Wird ein Teilchen von seiner Ruhelage auf der Nordhalbkugel bei vorhandenem westlichen Grundstrom nach Norden ausgelenkt, so nimmt $f$ zu. Daher muss $\zeta$ abnehmen und das Teilchen erhält antizyklonale relative Vorticity. Anschließend schwingt es über seine Ruhelage hinaus nach Süden, wobei $f$ abnimmt. Daher erhält das Teilchen zyklonale relative Vorticity und schwenkt wieder nach Norden. Der Mechanismus der barotropen Rossby-Wellen ist also die Erhaltung der absoluten Vorticity, s. auch Abb. \ref{fig:rossby_wellen_barotrop}.
-
-Barotrope Rossby-Wellen sind trotz der umfassenden Vereinfachungen (Barotropie und Divergenzfreiheit) in der Atmosphäre und im Ozean relevant. In der Atmosphäre sind sie aufgrund ihrer Divergenzfreiheit am ehesten auf die mittlere Troposphäre anwendbar, sie liefern eine einfache Betrachtung des meandernden Polarjets. Hierbei wird häufig der Begriff der Wellenzahl verwendet, eine Welle der Wellenzahl $n$ hat eine zonale räumliche Periode von $\frac{2\pi}{n}$ als Winkel. Rossby-Wellen breiten sich im Ozean aufgrund des geringen östlichen (nach Osten gerichteten) Grundstroms immer nach Westen aus (es ist $\beta\geq0$ auf der gesamten Erde).
+Poincaré-Wellen werden im Englischen auch als \textit{inertia-gravity waves}\index{inertial gravity wave} bezeichnet. Dies rührt daher, dass die rückstellende Kräfte bei dieser Wellenmode die Schwere sowie die Coriolis-Kraft sind. Die deutsche Übersetzung \glqq Inertial-Schwerewelle\grqq\ ist eher unüblich. Eine weitere Bezeichnung ist \textit{Sverdrup-Welle}\index{Sverdrup-Welle}.
 
 \subsection{Kelvin-Wellen}
 \label{sec:kelvin-wellen}\index{Kelvin-Welle}
@@ -14312,6 +14208,151 @@ Im Fall $l = 0$ ist $m = 0$ und Glg. \eqref{eq:rossby-haurwitz_disprel_deriv} is
 \begin{align}
 -\frac{1}{\left(l + 1\right)}2\Omega \leq \omega\left(l, m\right) \leq \frac{1}{\left(l + 1\right)}2\Omega.
 \end{align}
+%
+Mittels Glg. \eqref{eq:balance_equation_linear_stream}, welche lautet
+%
+\begin{align}
+\Delta\Phi = \beta\frac{\partial\psi}{\partial y} + f\Delta\psi,
+\end{align}
+%
+kann aus $\psi$ das Geopotential $\Phi$ bestimmt werden. Zunächst setzt man eine Rossby-Haurwitz-Mode
+%
+\begin{align}
+\psi = \psi_0Y_{l, m}e^{-i\omega t}
+\end{align}
+%
+ein, dies impliziert
+%
+\begin{align}
+\Delta\Phi &= \frac{2\Omega\cos\left(\phi\right)}{a^2\cos\left(\phi\right)}\frac{\partial\psi}{\partial\phi} - \frac{2\Omega\sin\left(\phi\right)}{a^2}l\left(l + 1\right)\psi_0Y_{l, m}e^{-i\omega t}\nonumber\\
+\Rightarrow\Delta\Phi &= \frac{2\Omega}{a^2}\frac{\partial\psi}{\partial\phi} - \frac{2\Omega\sin\left(\phi\right)}{a^2}l\left(l + 1\right)\psi_0Y_{l, m}e^{-i\omega t}
+\end{align}
+%
+Für das Geopotential $\Phi$ macht man nun den Ansatz
+%
+\begin{align}
+\Phi = \sum_{l' = 0}^\infty\sum_{m' = -l'}^{l'}\Phi_{l', m'}Y_{l', m'}.
+\end{align}
+%
+Setzt man dies ein, erhält man
+%
+\begin{align}
+\sum_{l' = 0}^\infty\sum_{m' = -l'}^{l'}-\frac{l'\left(l' + 1\right)}{a^2}\Phi_{l', m'}Y_{l', m'} &= \frac{2\Omega}{a^2}\frac{\partial\psi}{\partial\phi} - \frac{2\Omega\sin\left(\phi\right)}{a^2}l\left(l + 1\right)\psi_0Y_{l, m}e^{-i\omega t}\nonumber\\
+\Rightarrow\sum_{l' = 0}^\infty\sum_{m' = -l'}^{l'}-l'\left(l' + 1\right)\Phi_{l', m'}Y_{l', m'} &= 2\Omega\frac{\partial\psi}{\partial\phi} - 2\Omega\sin\left(\phi\right)l\left(l + 1\right)\psi_0Y_{l, m}e^{-i\omega t}.
+\end{align}
+%
+Glg. \eqref{eq:spherical_harm_prop_2_geo} lautet
+%
+\begin{align}
+\sin\left(\phi\right)Y_{l, m} = \sqrt{\frac{l^2 - m^2}{4l^2 - 1}}Y_{l - 1, m} + \sqrt{\frac{\left(l + 1\right)^2 - m^2}{4\left(l + 1\right)^2 - 1}}Y_{l + 1, m}.
+\end{align}
+%
+Dies impliziert
+%
+\begin{align}
+\sum_{l' = 0}^\infty\sum_{m' = -l'}^{l'}-l'\left(l' + 1\right)\Phi_{l', m'}Y_{l', m'} &= 2\Omega\frac{\partial\psi}{\partial\phi} - 2\Omega l\left(l + 1\right)\psi_0\left[\sqrt{\frac{l^2 - m^2}{4l^2 - 1}}Y_{l - 1, m} + \sqrt{\frac{\left(l + 1\right)^2 - m^2}{4\left(l + 1\right)^2 - 1}}Y_{l + 1, m}\right]e^{-i\omega t}.
+\end{align}
+
+\subsection{Rossby-Wellen}
+\label{sec:rossbywellen}\index{barotrope Rossby-Welle}\index{Rossby-Welle!barotrope}
+
+In Absch. \ref{sec:poincare-wellen} wurde von $\beta = 0$ ausgegangen. In diesem Fall sind die dort hergeleiteten Poincaré-Wellen die allgemeinsten Wellenlösungen. Eine neue Art der Wellen entsteht, wenn man die Breitenabhängigkeit von $f$ berücksichtigt.
+
+Man geht aus von einem homogenen zonalen Grundstrom $U$. Man nimmt $u_0 = 0$ an, außerdem geht man von $k_y = 0$ aus, die Störungen sollen nur x-abhängig sein. Man weiß schon jetzt:
+%
+\begin{itemize}
+\item Da $U$ homogen ist und $u_0 = 0$, $v = v\left(x, t\right)$ gelten, sind die Lösungen divergenzfrei.
+\end{itemize}
+%
+Daher kann man die barotrope Vorticitygleichung verwenden. Macht man den Ansatz
+%
+\begin{align}
+v = v_0\exp\left[i\left(kx - \omega t\right)\right]
+\end{align}
+%
+dann gelten
+%
+\begin{align}
+\zeta = ikv, && \frac{\partial\zeta}{\partial t} = k\omega v, && \frac{\partial\zeta}{\partial x} = -k^2v.
+\end{align}
+%
+Setzt man dies in die barotrope Vorticitygleichung ein, erhält man
+%
+\begin{align}
+k\omega v_0 &= Uk^2v_0 - v_0\beta\Leftrightarrow\omega = Uk - \frac{\beta}{k}.\label{eq:rossby_welle_barotrop_disp}
+\end{align}
+%
+Glg. \eqref{eq:rossby_welle_barotrop_disp} ist die Dispersionsrelation der Rossby-Wellen. Für ihre Phasengeschwindigkeit gilt
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+c = U - \frac{\beta}{k^2}.
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+Im hypothetischen Fall $U\to0$, $L = 2\pi a$ und $\varphi = 0$ gilt
+%
+\begin{align}
+\left|c\right| = 2\omega\frac{1}{a}\frac{4\pi^2 a^2}{4\pi^2} = 2\omega a = 930\:\frac{\text{m}}{\text{s}}.
+\end{align}
+%
+Dies ist eine betragsmäßige Beschränkung von $c$. Keine Welle kann sich schneller fortpflanzen als mit der Geschwindigkeit $2\omega a$, und schneller kann das System der herrschenden Gleichungen keine Information übertragen.
+
+\subsubsection{Anschauliches Verständnis}
+\label{sec:anschauliches_verstaendnis}
+
+\begin{figure}
+\centering
+\includegraphics[width = .6\textwidth]{figs/rossby_waves_vorticity.png}
+\caption{Veranschaulichung des Prinzips der Erhaltung der absoluten Vorticity. 1: $f$ maximal, $\zeta$ minimal, 2: $f = f_0$, $\zeta = 0$, 3: $f$ minimal, $\zeta$ maximal, 4: $f = f_0$, $\zeta = 0$. Man beachte auch, dass die Wellenlänge der Teilchentrajektorie größer ist, als die der Welle.}
+\label{fig:rossby_wellen_barotrop}
+\end{figure}
+
+Die y-Komponente der Impulsgleichung im Flachwassermodell lautet
+%
+\begin{align}
+\md{v} = -fu - g\frac{\partial\eta}{\partial y}.\label{eq:momentum_swe_y}
+\end{align}
+%
+Mache für $f$ eine lineare Taylor-Entwicklung
+%
+\begin{align}
+f = f_0 + \beta y.
+\end{align}
+%
+Ein homogener zonaler Grundstrom $U$ kann geostrophisch balanciert werden durch eine Oberflächenauslenkung
+%
+\begin{align}
+0 = -f_0U - g\frac{\partial\eta}{\partial y}.
+\end{align}
+%
+In diesem Fall wird Glg. \eqref{eq:momentum_swe_y} zu
+%
+\begin{align}
+\md{^2y}{t^2} = -\beta U y.
+\end{align}
+%
+Dies entspricht einem harmonischen Oszillator mit der Eigenfrequenz
+%
+\begin{align}
+\omega_{\text{ind}} = \sqrt{\beta U}.
+\end{align}
+%
+Daher muss $U>0$ westlich sein. Die Eigenfrequenz wurde mit einem Index $\text{ind}$ gekennzeichnet, da es sich um die individuelle Schwingungsfrequenz der Teilchen und nicht um die Frequenz $\omega$ der Welle handelt.
+
+Eine weitere anschauliche Erklärung ergibt sich aus der barotropen Vorticitygleichung, diese lautet
+%
+\begin{align}
+f + \zeta = \text{const}.
+\end{align}
+%
+Wird ein Teilchen von seiner Ruhelage auf der Nordhalbkugel bei vorhandenem westlichen Grundstrom nach Norden ausgelenkt, so nimmt $f$ zu. Daher muss $\zeta$ abnehmen und das Teilchen erhält antizyklonale relative Vorticity. Anschließend schwingt es über seine Ruhelage hinaus nach Süden, wobei $f$ abnimmt. Daher erhält das Teilchen zyklonale relative Vorticity und schwenkt wieder nach Norden. Der Mechanismus der barotropen Rossby-Wellen ist also die Erhaltung der absoluten Vorticity, s. auch Abb. \ref{fig:rossby_wellen_barotrop}.
+
+Barotrope Rossby-Wellen sind trotz der umfassenden Vereinfachungen (Barotropie und Divergenzfreiheit) in der Atmosphäre und im Ozean relevant. In der Atmosphäre sind sie aufgrund ihrer Divergenzfreiheit am ehesten auf die mittlere Troposphäre anwendbar, sie liefern eine einfache Betrachtung des meandernden Polarjets. Hierbei wird häufig der Begriff der Wellenzahl verwendet, eine Welle der Wellenzahl $n$ hat eine zonale räumliche Periode von $\frac{2\pi}{n}$ als Winkel. Rossby-Wellen breiten sich im Ozean aufgrund des geringen östlichen (nach Osten gerichteten) Grundstroms immer nach Westen aus (es ist $\beta\geq0$ auf der gesamten Erde).
 
 \subsection{Ozeanische Tide}
 \label{sec:ozeanische_tide}\index{Tide!ozeanische}
@@ -14331,7 +14372,7 @@ u = \sum_{l = 0}^\infty\sum_{m = -l}^l\newtilde{u}_{l, m}Y_{l, m}\left(\phi, \la
 d = \sum_{l = 0}^\infty\sum_{m = -l}^l\newtilde{d}_{l, m}Y_{l, m}\left(\phi, \lambda\right)e^{-i\omega t}, && U = \sum_{l = 0}^\infty\sum_{m = -l}^l\newtilde{U}_{l, m}Y_{l, m}\left(\phi, \lambda\right)e^{-i\omega t},
 \end{align}
 %
-hierbei sind $Y_{l, m}\left(\phi, \lambda\right)$ Kugelflächenfunktionen, s. Absch. \ref{sec:kugelflächenfunktionen}.\footnote{In Absch. \ref{sec:kugelflächenfunktionen} wird $\theta = \pi/2 - \phi$ anstelle von $\phi$ verwendet. Es gelten also $\cos\left(\theta\right) = \cos\left(\pi/2 - \phi\right) = \sin\left(\phi\right)$, $\sin\left(\theta\right) = \sin\left(\pi/2 - \phi\right) = \cos\left(\phi\right)$, $\cot\left(\theta\right) = \tan\left(\phi\right)$ sowie $\partial/\partial\phi = \partial\theta/\partial\phi\cdot\partial/\partial\theta = -\partial/\partial\theta$.} Es gelten
+hierbei sind $Y_{l, m}\left(\phi, \lambda\right)$ Kugelflächenfunktionen, s. Absch. \ref{sec:kugelflächenfunktionen}. Es gelten
 %
 \begin{align}
 \frac{\partial Y_{l, m}}{\partial\phi} &\stackrel{\text{Glg. \eqref{eq:spherical_harmonic_deriv_theta}}}{=} -m\tan\left(\phi\right) Y_{l, m} - \sqrt{l^2 - m^2 + l - m}Y_{l, m + 1}\exp\left(-i\lambda\right),\\
@@ -14348,9 +14389,9 @@ f_{l, m} = \sqrt{l^2 - m^2 + l - m},&& g_{l, m} = \sqrt{\frac{l^2 - m^2}{4l^2 - 
 kann man dies in der Form
 %
 \begin{align}
-\frac{\partial Y_{l, m}}{\partial\phi} &\stackrel{\text{Glg. \eqref{eq:spherical_harmonic_deriv_theta}}}{=} -m\tan\left(\phi\right) Y_{l, m} - f_{l, m}Y_{l, m + 1}\exp\left(-i\lambda\right),\\
-\frac{\partial Y_{l, m}}{\partial\lambda} &\stackrel{\text{Glg. \eqref{eq:spherical_harmonic_deriv_phi}}}{=} imY_{l, m},\\
-\sin\left(\phi\right)Y_{l, m} &\stackrel{\text{Glg. \eqref{eq:spherical_harm_prop_2}}}{=} g_{l, m}Y_{l - 1, m} + h_{l, m}Y_{l + 1, m}
+\frac{\partial Y_{l, m}}{\partial\phi} &\stackrel{\text{Glg. \eqref{eq:spherical_harmonic_deriv_theta_geo}}}{=} -m\tan\left(\phi\right) Y_{l, m} - f_{l, m}Y_{l, m + 1}\exp\left(-i\lambda\right),\\
+\frac{\partial Y_{l, m}}{\partial\lambda} &\stackrel{\text{Glg. \eqref{eq:spherical_harmonic_deriv_phi_geo}}}{=} imY_{l, m},\\
+\sin\left(\phi\right)Y_{l, m} &\stackrel{\text{Glg. \eqref{eq:spherical_harm_prop_2_geo}}}{=} g_{l, m}Y_{l - 1, m} + h_{l, m}Y_{l + 1, m}
 \end{align}
 %
 notieren. Setzt man all dies in die LTEs ein, erhält man
@@ -14482,8 +14523,507 @@ Vertikale Moden führen also an der Oberfläche zu alternierenden Streifen von D
 
 Die Mode $n = 0$ bezeichnet man auch als externe Mode, da diese keine interne vertikale Struktur hat.
 
-\subsection{Barokline Rossby-Wellen}
-\label{sec:barokline_rossbywellen}\index{Rossby-Welle!barokline}\index{barokline Rossby-Welle}
+\subsection{Schwerewellen}
+\label{sec:schwerewellen}\index{Schwerewelle}
+
+\textit{Barokline Schwerewellen}\index{barokline Schwerewelle}\index{Schwerewelle!barokline} sind das barokline Analogon zu Poincaré-Wellen\index{Poincaré-Welle}. Man macht zunächst einen Störungsansatz der Form
+%
+\begin{align}
+u = U + u', && v = v', && w = w',\label{eq:gw_disp_deriv_0}\\
+p = p_0\left(z\right) + p', && \theta = \theta_0\left(z\right) + \theta', && f = f_0.\label{eq:gw_disp_deriv_1}
+\end{align}
+%
+Wegen Glg. \eqref{eq:gw_disp_deriv_1} ist Glg. \eqref{eq:gw_disp_deriv_0} keine Beschränkung des Hintergrundstroms auf die x-Richtung, durch eine Rotation des Koordinatensystems um die vertikale Achse kann der Hintergrundwind jede Richtung annehmen. Insbesondere werden alle Krümmungsterme vernachlässigt und man kann kartesische Koordinaten $\left(x, y, z\right)$ verwenden. Der Hintergrundzustand soll hydrostatisch sein, also
+%
+\begin{align}
+\frac{\partial p_0}{\partial z} = -g\rho_0\left(z\right)\label{eq:hydrostatic_gravity_wave}
+\end{align}
+%
+erfüllen. Es wird von einem trockenadiabatischen System ausgegangen, in einem solchen wird der Erste Hauptsatz der Thermodynamik zu
+%
+\begin{align}
+\md{\theta} = 0 && \Leftrightarrow && \md{\theta} + \md{\theta'} = 0 && \Leftrightarrow \md{\theta'} + w'\frac{d\theta_0}{dz} = 0.
+\end{align}
+%
+Man führt nun eine genäherte materielle Ableitung $\mdtilde{}$ ein, bei der Störprodukte vernachlässigt werden. Im folgenden werden hierfür Gleichheitszeichen notiert. Damit erhält man
+%
+\begin{align}
+\mdtilde{\theta'} + w'\frac{d\theta_0}{dz} &= 0.
+\end{align}
+%
+Multipliziert man diese Gleichung mit $\frac{g}{\theta_0}$, folgt
+%
+\begin{align}
+\mdtilde{b'} + w'\frac{g}{\theta_0}\frac{d\theta_0}{dz} = 0,
+\end{align}
+%
+wobei die Definition der sogenannten \textit{buoyancy}\index{Buoyancy}
+%
+\begin{align}
+b' \coloneqq g\frac{\theta'}{\theta_0}
+\end{align}
+%
+eingesetzt wurde. Aus Glg. \eqref{eq:brunt_v_frequency_prop_0} entnimmt man
+%
+\begin{align}
+\frac{g}{\theta_0}\frac{d\theta_0}{dz} = N^2,
+\end{align}
+%
+was auf
+%
+\begin{align}
+\mdtilde{b'} + w'N^2 = 0
+\end{align}
+%
+führt. Mit Glg. \eqref{eq:pressure_prognostic_equation} erhält man
+%
+\begin{align}
+\md{p} + \frac{c^{(p)}}{c^{(v)}}p\nabla\cdot\mathbf{v} &= 0\nonumber\\
+\Leftrightarrow \frac{1}{\kappa p}\md{p} + \nabla\cdot\mathbf{v} &= 0\nonumber\\
+\Leftrightarrow \frac{1}{\kappa\rho R_dT}\md{p} + \nabla\cdot\mathbf{v} &= 0.
+\end{align}
+%
+Mit Glg. \eqref{eq:velocity_sound} kann man dies in Termen der Schallgeschwindigkeit ausdrücken:
+%
+\begin{align}
+\frac{1}{c_s^2\rho}\md{p} + \nabla\cdot\mathbf{v} &= 0
+\end{align}
+%
+Linearisiert man diese Gleichung, erhält man
+%
+\begin{align}
+\frac{1}{c_s^2\rho}\mdtilde{p} + \nabla\cdot\mathbf{v}' &= 0\nonumber\\
+\Leftrightarrow \frac{1}{c_s^2\rho_0}\mdtilde{p}' + \frac{1}{c_s^2\rho_0}w'\frac{dp_0}{dz} + \nabla\cdot\mathbf{v}' &= 0\nonumber\\
+\Leftrightarrow \frac{1}{c_s^2\rho_0}\mdtilde{p}' - \frac{g}{c_s^2}w' + \nabla\cdot\mathbf{v}' &= 0.
+\end{align}
+%
+Für die vertikale Bewegungsgleichung erhält man mit Glg. \eqref{eq:background_state_prop_0}
+%
+\begin{align}
+\mdtilde{w'} = -g - \frac{1}{\rho}\frac{\partial p}{\partial z} = -\frac{1}{\rho}\frac{\partial p'}{\partial z} - \left(\frac{1}{\rho}\right)'\frac{\partial p_0}{\partial z} \approx - \frac{1}{\rho_0}\frac{\partial p'}{\partial z} + \frac{\rho'}{\rho_0^2}\frac{\partial p_0}{\partial z} = -\frac{1}{\rho_0}\frac{\partial p'}{\partial z} - \frac{g\rho'}{\rho_0}.
+\end{align}
+%
+Um die Störung in der Dichte durch Störungen in der potentiellen Temperatur und im Druck auszudrücken, notiert man Glg. \eqref{eq:state_theta} in der Form
+%
+\begin{align}
+\rho = \frac{p_\text{ref}^{R_d/c^{(p)}}}{R_d}\frac{p^{1/\kappa}}{\theta}.
+\end{align}
+%
+In erster Ordnung gilt somit
+%
+\begin{align}
+\rho' &= \frac{1}{\kappa}\frac{\rho_0}{p_0}p' - \frac{\rho_0}{\theta}\theta' \approx \frac{p'}{c_s^2} - \frac{\rho_0}{\theta_0}\theta'
+\end{align}
+%
+Hieraus folgt
+%
+\begin{align}
+\mdtilde{w'} = -\frac{1}{\rho_0}\frac{\partial p'}{\partial z} - \frac{gp'}{\rho_0c_s^2} + \frac{g}{\theta_0}\theta' = -\frac{1}{\rho_0}\frac{\partial p'}{\partial z} - \frac{gp'}{\rho_0c_s^2} + b'.
+\end{align}
+%
+Zusammenfassend lautet das linearisierte Gleichungssystem
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\mdtilde{u'} &= fv' - \frac{1}{\rho_0}\frac{\partial p'}{\partial x},\\
+\mdtilde{v'} &= -fu' - \frac{1}{\rho_0}\frac{\partial p'}{\partial y},\\
+\textcolor{blue}{\mdtilde{w'}} &= b' - \frac{1}{\rho_0}\frac{\partial p'}{\partial z} \textcolor{red}{- \frac{g}{c_s^2}\frac{p'}{\rho_0}},\\
+\mdtilde{b'} &= -w'N^2,\\
+\textcolor{red}{\frac{1}{c_s^2\rho_0}\mdtilde{p'}} &= \textcolor{red}{\frac{g}{c_s^2}w'} - \nabla\cdot\mathbf{v}'.
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+Dabei wurden Terme, die mit der hydrostatischen Approximation wegfallen würden, \textcolor{blue}{blau} markiert, und alle Terme, die unter Vernachlässigung von Schallwellen verschwinden würden, \textcolor{red}{rot}. Störend ist die vertikale Abhängigkeit von $\rho_0$. Daher definiert man
+%
+\begin{align}
+u'' \coloneqq \sqrt{\frac{\rho_0}{\rho_\text{SFC}}}u', && v'' \coloneqq \sqrt{\frac{\rho_0}{\rho_\text{SFC}}}v', && w'' \coloneqq \sqrt{\frac{\rho_0}{\rho_\text{SFC}}}w',\label{eq:bretherton_0}\\
+b'' \coloneqq \sqrt{\frac{\rho_0}{\rho_\text{SFC}}}b', && p'' \coloneqq \sqrt{\frac{\rho_\text{SFC}}{\rho_0}}p'.\label{eq:bretherton_1}
+\end{align}
+%
+was man als \textit{Bretherton-Transformation}\index{Bretherton-Transformation} bezeichnet. Dabei bezeichnet der Index SFC die Werte an der Erdoberfläche. Die Transformation erfolgt im Wesentlichen durch Multiplikation des Gleichungssystem mit $\sqrt{\frac{\rho_0}{\rho_\text{SFC}}}$. Besondere Aufmerksamkeit benötigen dabei die vertikalen Ableitungen:
+%
+\begin{align}
+\frac{dw'}{dz} &= \sqrt{\frac{\rho_\text{SFC}}{\rho_0}}\frac{dw''}{dz} - \frac{1}{2}\sqrt{\frac{\rho_\text{SFC}}{\rho_0}}w''\frac{1}{\rho_0}\frac{d\rho_0}{dz} = \sqrt{\frac{\rho_\text{SFC}}{\rho_0}}\frac{dw''}{dz} + \frac{H}{2}w'\\
+\frac{dp'}{dz} &= \sqrt{\frac{\rho_0}{\rho_\text{SFC}}}\frac{dp''}{dz} + \frac{1}{2}\sqrt{\frac{\rho_0}{\rho_\text{SFC}}}p''\frac{1}{\rho_0}\frac{d\rho_0}{dz} = \sqrt{\frac{\rho_0}{\rho_\text{SFC}}}\frac{dp''}{dz} + \frac{1}{2}p'\frac{1}{\rho_0}\frac{d\rho_0}{dz} = \sqrt{\frac{\rho_0}{\rho_\text{SFC}}}\frac{dp''}{dz} - \frac{H}{2}p'
+\end{align}
+%
+Dabei wurde
+%
+\begin{align}
+\frac{1}{\rho_0}\frac{d\rho_0}{dz} = -\frac{1}{H}\label{eq:scale_h_density}
+\end{align}
+%
+mit der Skalenhöhe $H$ eingesetzt. Hieraus folgt
+%
+\begin{align}
+-\frac{1}{\rho_0}\frac{\partial p'}{\partial z} &= -\sqrt{\frac{1}{\rho_0\rho_\text{SFC}}}\frac{dp''}{dz} + \frac{H}{2\rho_0}p' = -\sqrt{\frac{1}{\rho_0\rho_\text{SFC}}}\frac{dp''}{dz} + \frac{H}{2\sqrt{\rho_0\rho_\text{SFC}}}p'',\\
+-\frac{\partial w'}{\partial z} &= -\sqrt{\frac{\rho_\text{SFC}}{\rho_0}}\frac{dw''}{dz} - \frac{H}{2}w' = -\sqrt{\frac{\rho_\text{SFC}}{\rho_0}}\frac{dw''}{dz} - \frac{H}{2}\sqrt{\frac{\rho_\text{SFC}}{\rho_0}}w''.
+\end{align}
+%
+Dies führt zusammenfassend auf folgendes Gleichungssystem:
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\mdtilde{u''} &= fv'' - \frac{1}{\rho_\text{SFC}}\frac{\partial p''}{\partial x}\\
+\mdtilde{v''} &= -fu'' - \frac{1}{\rho_\text{SFC}}\frac{\partial p''}{\partial y}\\
+\textcolor{blue}{\mdtilde{w''}} &= b'' - \frac{1}{\rho_\text{SFC}}\frac{\partial p''}{\partial z} + \left(\frac{1}{2H}\textcolor{red}{-\frac{g}{c_s^2}}\right)\frac{p''}{\rho_\text{SFC}},\\
+\mdtilde{b''} &= -w''N^2\\
+\textcolor{red}{\frac{1}{c_s^2\rho_\text{SFC}}\mdtilde{p''}} &= \left(\textcolor{red}{\frac{g}{c_s^2}} - \frac{1}{2H}\right)w'' - \nabla_h\cdot\mathbf{v}_h'' - \frac{\partial w''}{\partial z}
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+Für jede der fünf auftretenden Variablen macht man nun einen Ansatz
+%
+\begin{align}
+\psi'' = A_\psi\exp\left[i\left(kx + ly + mz - \omega t\right)\right],
+\end{align}
+%
+wobei $A_\psi$ komplex sein kann. Es gilt
+%
+\begin{align}
+\mdtilde{A_\psi} = i\left(Uk - \omega\right)A_\psi = -i\omega_IA_\psi,
+\end{align}
+%
+wobei die Definition der sogenannten \textit{intrinsischen Frequenz}\index{intrinsische Frequenz}\index{Frequenz!intrinsiche}
+%
+\begin{align}
+\omega_I \coloneqq \omega - kU 
+\end{align}
+%
+eingesetzt wurde. Dies ist die Frequenz, die im mit der Geschwindigkeit $U$ mitbewegten Koordinatensystem gemessen werden würde. Notiert man das hergeleitete Gleichungssystem als Matrix $\overleftrightarrow{A}$ und vernachlässigt dabei die Schallwellenterme (rote Terme), erhält man
+%
+\begin{align}
+\overleftrightarrow{A}\cdot\left(\begin{array}{c}
+A_u\\
+A_v\\
+A_w\\
+A_b\\
+A_{p/\rho_\text{SFC}}
+\end{array}\right) = \left(\begin{array}{ccccc}
+-i\omega_I & -f & 0 & 0 & ik \\
+f & -i\omega_I & 0 & 0 & il \\
+0 & 0 & \textcolor{blue}{-i\omega_I} & -1 & im - \frac{1}{2H}\\
+0 & 0 & N^2 & -i\omega_I & 0\\
+ik & il & im + \frac{1}{2H} & 0 & 0\\
+\end{array}\right)\cdot\left(\begin{array}{c}
+A_u\\
+A_v\\
+A_w\\
+A_b\\
+A_{p/\rho_\text{SFC}}
+\end{array}\right) = 0.
+\end{align}
+%
+Nichttriviale Lösungen existieren, falls die Determinante $A$ von $\overleftrightarrow{A}$ verschwindet:
+%
+\begin{align}
+A &\hastobe 0\nonumber\\
+\Leftrightarrow 0 &= -i\omega_I\left\{-i\omega_I\left[i\omega_I\left(-m^2 - \frac{1}{4H^2}\right)\right] - il\left[\textcolor{blue}{-i\omega_I^2l} + N^2il\right]\right\}\nonumber\\
+&+f\left\{f\left[i\omega_I\left(-m^2 - \frac{1}{4H^2}\right)\right] \textcolor{magenta}{- il\left[-\omega_I^2ik + ikN^2\right]}\right\}\nonumber\\
+&+ik\left[\textcolor{magenta}{f\left(-\omega_I^2il + ilN^2\right)} - ik\left(\textcolor{blue}{i\omega_I^3} - N^2i\omega_I\right)\right]\nonumber\\
+\Leftrightarrow 0 &= \left(f^2 - \omega_I^2\right)i\omega_I\left(-m^2 - \frac{1}{4H^2}\right) - \omega_Il\left[\textcolor{blue}{-i\omega_I^2l} + N^2il\right] + k^2\left(\textcolor{blue}{i\omega_I^3} - N^2i\omega_I\right)\nonumber\\
+\end{align}
+%
+Hierbei heben sich die \textcolor{magenta}{magenta} eingefärbten Terme gegenseitig auf. Die geostrophische Mode\index{geostrophische Mode} $\omega_I = 0$ interssiert hier nicht weiter, weshalb Division durch $i\omega_I$ erfolgen kann:
+%
+\begin{align}
+0 &= \left(f^2 - \omega_I^2\right)\left(-m^2 - \frac{1}{4H^2}\right) + \textcolor{blue}{\omega_I^2l^2} - N^2l^2 + k^2\left(\textcolor{blue}{\omega_I^2} - N^2\right)\nonumber\\
+\Leftrightarrow \omega_I^2\left(\textcolor{blue}{k^2 + l^2} + m^2 + \frac{1}{4H^2}\right) &= f^2\left(m^2 + \frac{1}{4H^2}\right) + N^2\left(l^2 + k^2\right)\nonumber
+\end{align}
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\Leftrightarrow \omega_I^2 &= \frac{f^2\left(m^2 + \frac{1}{4H^2}\right) + N^2\left(k^2 + l^2\right)}{m^2 + \frac{1}{4H^2} + \textcolor{blue}{k^2 + l^2}}\label{eq:disp_gravity_waves}
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+Dies ist die \textit{Dispersionsrelation von Schwerewellen}\index{Dispersionsrelation!einer Schwerewelle}\index{Schwerewelle!Dispersionsrelation}, diese ist außerdem in Abb. \ref{fig:gravity_wave_dispersion} visualisiert. $\omega_I^2$ ist ein gewichtetes Mittel aus den Anteilen $f^2$ und $N^2$ mit den Gewichtungsfaktoren $m^2 + \frac{1}{4H^2}$ und $k^2 + l^2$. $\omega_I^2$ liegt also immer zwischen $f^2$ und $N^2$.
+
+\begin{figure}
+\centering
+\includegraphics[width = .65\textwidth]{figs/gravity_wave_dispersion.png}
+\caption{Dispersionsrelation von Schwerewellen. Es wurde von einer vertikalen Wellenlänge von 2 km ausgegangen.}
+\label{fig:gravity_wave_dispersion}
+\end{figure}
+%
+Häufig möchte man die Periodendauer der zu erwartenden Oszillation als Funktion des atmosphärischen Hintergrundzustandes $\left(U, N\right)$ wissen. Die Periode unter der Annahme, dass der Wellenvektor parallel zum Hintergrundwind ist, ist in Abb. \ref{fig:gravity_wave_period} dargestellt.
+%
+\begin{figure}
+\centering
+\includegraphics[width = .65\textwidth]{figs/gravity_wave_period.png}
+\caption{Periodendauern von Schwerewellen in Abhänigkeit vom atmosphärischen Hintergrundzustand. Es wurde von einer vertikalen Wellenlänge von 2 km und $k_y = 0$ ausgegangen.}
+\label{fig:gravity_wave_period}
+\end{figure}
+
+\subsubsection{Grenzfälle}
+\label{sec:grenzfälle}
+
+Für $k^2 + l^2 \to 0$ (horizontal relativ zum Grundstrum nicht propagierende Wellen) erhält man aus Glg. \eqref{eq:disp_gravity_waves} Inertialwellen:
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\lim_{k^2 + l^2 \to 0}\omega^2 = f^2
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+Für $m^2 + \frac{1}{4H^2} \to \infty$ erhält man aus Glg. \eqref{eq:disp_gravity_waves} Schwingungen mit der Frequenz $N$:
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\lim_{m^2 + \frac{1}{4H^2} \to 0}\omega^2 = N^2
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+$H \to \infty$ kann als Vernachlässigung vertikaler Dichtefluktuationen interpretiert werden. $m \to 0$ bedeutet, dass der Wellenvektor rein horizontal ausgerichtet ist. Diese Wellen entstehen im kontinuierlichen, thermisch stabilen Medium bei vertikaler Auslenkung eines Teilchens. Ein Teilchen der Dichte $\rho _0 = \rho (z_0)$ habe seine Ruhelage in der Höhe $z_0$, die hier o. B. d. A. zu $z_0 = 0$ festgelegt sei. Lenkt man das Teilchen vertikal aus, lautet die Bewegungsgleichung
+%
+\begin{align}
+\frac{d^2z}{dt^2} = -\frac{1}{\rho_0}\frac{\partial p}{\partial z} - g = g\frac{\rho}{\rho_0} - g = \frac{g}{\rho_0}\left(\rho - \rho_0\right), \label{eq:momentum_schichtung}
+\end{align}
+%
+$z(t)$ sei die Auslenkung. Hierbei wurde angenommen, dass das Teilchen seine Dichte während der Auslenkung nicht ändert. Nähert man die Abweichung $\rho (z) - \rho _0$ mittels einer Taylor-Entwicklung zu
+%
+\begin{align}
+\rho\left(t\right) - \rho_0 = \frac{\partial\rho}{\partial z}(z = 0)z, 
+\end{align}
+%
+so folgt für die Schwingungsgleichung
+%
+\begin{align}
+\frac{d^2z}{dt^2}(t) = \frac{g}{\rho_0}\frac{\partial\rho}{\partial z}z(t)\label{eq:schichtungs_dg}.
+\end{align}
+%
+Setzt man $z = Z_1\exp\left(iNt\right) + Z_2\exp\left(-iNt\right)$ an, so folgt für die Kreisfrequenz
+%
+\begin{align}
+N^2 = -\frac{g}{\rho}\frac{\partial\rho}{\partial z}, 
+\end{align}
+%
+$N$ ist die \textit{Brunt-Väisälä-Frequenz}\index{Brunt-Väisälä-Frequenz}, sie ist ein Maß für die Stabilität. Setzt man $N$ in \eqref{eq:schichtungs_dg} ein, erhält man
+%
+\begin{align}
+\frac{d^2z}{dt^2} = -N^2z.
+\end{align}
+%
+Hieran sieht man, dass im Fall $N^2 > 0$ eine Sinusschwingung als Lösung folgt, während im Fall $N^2 < 0$ eine reelle Exponentialfunktion die Lösung ist, da das Teilchen von seinem Ursprungsort wegbeschleunigt wird. Im Fall $N^2> 0$ ist die Schichtung also \textit{stabil}\index{Schichtung!stabil}, während sie im Fall $N^2<0$ \textit{labil}\index{Schichtung!labil} ist. Eine stabile Schichtung bezeichnet man auch als starke Schichtung. Im Fall $N^2 = 0$ ist die Schichtung \textit{neutral}\index{Schichtung!neutrale}.
+
+Die obige Herleitung ist noch nicht ganz vollständig, da Inkompressibilität angenommen wurde. Streng genommen bleibt bei der Auslenkung nicht die Dichte, sondern die potentielle Dichte bezogen auf das Referenzniveau erhalten. Bezeichnet $\newtilde{\rho}(z)$ die Dichte des Teilchens bei einer Auslenkung $z$, so wird damit Gleichung \eqref{eq:momentum_schichtung} zu
+%
+\begin{align}
+\frac{d^2z}{dt^2} = \frac{1}{\newtilde{\rho}\left(z\right)}g\rho\left(z\right) - g = \frac{g}{\newtilde{\rho}\left(z\right)} \left(\rho\left(z\right) - \newtilde{\rho}\left(z\right)\right).
+\end{align}
+%
+Der Ausdruck $\rho\left(z\right) - \newtilde{\rho}\left(z\right)$ ist die Dichtedifferenz zwischen dem umgebenden Fluid und dem betrachteten Teilchen. Bringt man beide Systeme nun adiabatisch auf $z = 0$, so gilt nach Glg. \eqref{eq:pot_dichte} für ihre Dichtedifferenz
+%
+\begin{align}
+\Delta\rho = \left(\rho\left(z\right) - \newtilde{\rho}\left(z\right)\right)\left(\frac{p_0}{p}\right)^{1/\kappa}.
+\end{align}
+%
+Hierbei sind $p \coloneqq p\left(z\right)$ und $p_0 \coloneqq p\left(0\right)$. In erster Ordnung ist $p = p_0$, $\Delta\rho$ ist dann die Differenz der potentiellen Dichten in Bezug aufs Referenzniveau $z = 0$. Deshalb kann man auch die potentiellen Dichten $\rho_\theta$ (bezogen auf $z = 0$) einsetzen. Man erhält in erster Ordnung
+%
+\begin{align}
+\frac{d^2z}{dt^2} = \frac{g}{\newtilde{\rho}(z)}\left(\rho_\theta(z) - \rho_\theta\left(0\right)\right) = \frac{g}{\newtilde{\rho}(z)}\frac{\partial\rho_\theta}{\partial z}z.
+\end{align}
+%
+Für die Brunt-Väisälä-Frequenz folgt
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+N^2 = -\frac{g}{\rho_\theta}\frac{\partial\rho_\theta}{\partial z}.\label{eq:brunt_v_frequency_prop_0}
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+Dies ist der allgemeine Ausdruck für die Brunt-Väisälä-Frequenz in einem kompressiblen Medium. $N^2$ ist ein Feld, was von allen drei Koordinaten und der Zeit abhängen kann. Die potentielle Dichte muss dabei immer auf das Niveau bezogen werden, auf dem man sich befindet. In einer trockenen Atmosphäre kann man $N^2$ auch über die potentielle Temperatur $\theta$ ausdrücken:
+%
+\begin{align}
+\rho_\theta = \frac{p_0}{R_d\theta}
+\end{align}
+%
+Somit folgt
+%
+\begin{align}
+\frac{\partial\rho_\theta}{\partial z} = -\frac{p_0}{R_d\theta^2}\frac{\partial\theta}{\partial z}.
+\end{align}
+%
+Für die Brunt-Väisälä-Frequenz bedeutet dies
+%
+\begin{align}
+N^2 &= \frac{g}{\theta}\frac{\partial\theta}{\partial z}.\label{eq:bv_freq_theta}
+\end{align}
+%
+Solche Wellen, die im Englischen auch als \textit{buoyancy oscillations}\index{buoyancy oscillations} bezeichnet werden (die deutsche Übersetzung \glqq Schichtungswelle\grqq\ ist eher unüblich) entstehen zum Beispielen als Leewellen hinter Orographie, in diesem Fall ergeben sich sinusförmige Trajektorien $(ut, z_0\sin\left(Nt\right))^T$. Wird dabei Sättigung erreicht, entstehen in den Wellenbergen Wolken.
+
+\subsubsection{Hydrostatische Schwerewellen}
+\label{sec:hydrostatische_schwerewellen}
+
+Vernachlässigung der \textcolor{blue}{blauen} Terme in Glg. \eqref{eq:disp_gravity_waves} liefert die \textit{Dispersionsrelation von hydrostatischen Schwerewellen}\index{Dispersionsrelation!einer hydrostatischen Schwerewelle}\index{Schwerewelle!hydrostatische!Dispersionsrelation}:
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\omega_I^2 &= f^2 + N^2\frac{k^2 + l^2}{m^2 + \frac{1}{4H^2}}\label{eq:disp_gravity_hydrostat}
+\end{align}
+\end{center}
+}}
+\end{center}
+
+\subsubsection{Gruppengeschwindigkeit}
+\label{sec:gruppengeschwindigkeit}
+
+Aus dieser Gleichung folgt
+%
+\begin{align}
+\nabla_\mathbf{k}\omega_I^2 = \left(\begin{array}{c}
+\frac{2N^2k}{m^2 + \frac{1}{4H^2}}\\
+\frac{2N^2l}{m^2 + \frac{1}{4H^2}}\\
+-2m\frac{N^2\left(k^2 + l^2\right)}{\left(m^2 + \frac{1}{4H^2}\right)^2}
+\end{array}\right).
+\end{align}
+%
+Mit $\omega' = \sign\left(\omega\right)\sqrt{\omega^2}' = \frac{1}{2\omega}\left(\omega^2\right)'$ erhält man für die Gruppengeschwindigkeit hydrostatischer barokliner Schwerewellen\index{Gruppengeschwindigkeit!barokline Schwerewelle}\index{barokline Schwerewelle!Gruppengeschwindigkeit}\index{Schwerewelle!barokline!Gruppengeschwindigkeit}
+%
+\begin{align}
+\mathbf{c}_\text{gr} = \frac{1}{\omega_I}\left(\begin{array}{c}
+\frac{N^2k}{m^2 + \frac{1}{4H^2}}\\
+\frac{N^2l}{m^2 + \frac{1}{4H^2}}\\
+-m\frac{N^2\left(k^2 + l^2\right)}{\left(m^2 + \frac{1}{4H^2}\right)^2}
+\end{array}\right) = \frac{1}{\omega_I}\frac{N^2}{m^2 + \frac{1}{4H^2}}\left(\begin{array}{c}
+k\\
+l\\
+-m\frac{k^2 + l^2}{m^2 + \frac{1}{4H^2}}
+\end{array}\right).
+\end{align}
+%
+Horizontal zeigt die Gruppengeschwindigkeit also in die gleiche Richtung wie die Phasengeschwindigkeit\index{Phasengeschwindigkeit!barokline Schwerewelle}\index{barokline Schwerewelle!Phasengeschwindigkeit}\index{Schwerewelle!barokline!Phasengeschwindigkeit}. Vertikal haben die beiden Geschwindigkeiten entgegengesetzte Vorzeichen. Für die vertikale Wellenlänge $l_z$ gilt
+%
+\begin{align}
+m^2 = \frac{4\pi^2}{l_z^2} \Rightarrow \frac{m^2}{\frac{1}{4H^2}} = \frac{16\pi^2H^2}{l_z^2} \approx 158\frac{H^2}{l_z^2}. 
+\end{align}
+%
+Häufig gilt
+%
+\begin{align}
+\frac{m^2}{\frac{1}{4H^2}} \gg 1.
+\end{align}
+%
+Unter dieser Voraussetzung gilt
+%
+\begin{align}
+\mathbf{c}_\text{gr} &= \frac{\sign\left(\omega_I\right)}{\sqrt{f^2 + \frac{N^2}{m^2}\left(k^2 + l^2\right)}}\frac{N^2}{m^2}\left(\begin{array}{c}
+k\\
+l\\
+-\frac{k^2 + l^2}{m}
+\end{array}\right) = \frac{\sign\left(\omega_I\right)}{\sqrt{f^2m^2 + N^2\left(k^2 + l^2\right)}}\frac{N^2}{m}\left(\begin{array}{c}
+k\\
+l\\
+-\frac{k^2 + l^2}{m}
+\end{array}\right)\\
+\Rightarrow\mathbf{c}_\text{gr}\cdot\mathbf{k} &\propto k^2 + l^2 - \left(k^2 + l^2\right) = 0.
+\end{align}
+%
+Phasengeschwindigkeit\index{Phasengeschwindigkeit!barokline Schwerewelle}\index{barokline Schwerewelle!Phasengeschwindigkeit}\index{Schwerewelle!barokline!Phasengeschwindigkeit} und Gruppengeschwindigkeit\index{Gruppengeschwindigkeit!barokline Schwerewelle}\index{barokline Schwerewelle!Gruppengeschwindigkeit}\index{Schwerewelle!barokline!Gruppengeschwindigkeit} stehen also senkrecht aufeinander.
+
+\subsubsection{Amplitudenverhalten}
+\label{sec:amplitudenverhalten}
+
+Aus der Bretherton-Transformation Glg.en \eqref{eq:bretherton_0} - \eqref{eq:bretherton_1} und Glg. \eqref{eq:scale_h_density} folgt
+%
+\begin{align}
+u' \coloneqq \sqrt{\frac{\rho_\text{SFC}}{\rho_0}}u'' = \exp\left(\frac{z}{2H}\right)u'', && v' \coloneqq \sqrt{\frac{\rho_\text{SFC}}{\rho_0}}v'' = \exp\left(\frac{z}{2H}\right)v'',\\
+w' \coloneqq \sqrt{\frac{\rho_\text{SFC}}{\rho_0}}w'' = \exp\left(\frac{z}{2H}\right)w'', && p' \coloneqq \sqrt{\frac{\rho_0}{\rho_\text{SFC}}}p'' = \exp\left(-\frac{z}{2H}\right)p''.
+\end{align}
+%
+Die Amplitude der Bewegungen nimmt also mit der Höhe exponentiell zu, die Höhe der Druckschwankungen nimmt exponentiell ab.
+
+\subsubsection{Leewellen}
+\label{sec:leewellen}\index{Leewelle}
+
+\textit{Leewellen}\index{Leewelle} sind stationär, d. h. es gilt $\omega = 0$. Hieraus folgt
+%
+\begin{align}
+\omega_I = \omega - Uk = -Uk\Rightarrow \omega_I^2 = U^2k^2.
+\end{align}
+%
+Geht man von hydrostatischen Schwerewellen aus, kann man dies mit Glg. \eqref{eq:disp_gravity_hydrostat} gleichsetzen, hieraus folgt
+%
+\begin{align}
+\omega_I^2 = U^2k^2 &= f^2 + \frac{N^2\left(k^2 + l^2\right)}{m^2 + \frac{1}{4H^2}}.
+\end{align}
+%
+Geht man von $m^2 \gg \frac{1}{4H^2}$, $f = 0$ und $l = 0$ aus, folgt
+%
+\begin{align}
+\omega_I^2  = U^2k^2 = \frac{N^2k^2}{m^2}\Rightarrow U^2 &= \frac{N^2}{m^2} \Rightarrow m^2 = \frac{N^2}{U^2}.
+\end{align}
+%
+Hieraus folgt für die intrinsische Phasengeschwindigkeit
+%
+\begin{align}
+\mathbf{c}_{I, \text{ph}} = \frac{\omega_I}{\sqrt{k^2 + m^2}}\frac{\mathbf{k}}{\left|\mathbf{k}\right|} = -\frac{Uk}{k^2 + m^2}\left(
+\begin{array}{c}
+k\\
+0\\
+m
+\end{array}
+\right)
+\end{align}
+%
+sowie für die intrinsische Gruppengeschwindigkeit
+%
+\begin{align}
+\mathbf{c}_{I, \text{gr}} = \nabla_\mathbf{k}\omega_I = \left(
+\begin{array}{c}
+-\frac{N}{m}\\
+0\\
+\frac{Nk}{m^2}
+\end{array}
+\right).
+\end{align}
+%
+Die intrinsische Phasengeschwindigkeit ist also nach unten und entgegen der Windrichtung ausgerichtet, die intrinsische Gruppengeschwindigkeit ist ebenfalls negativ in x-Richtung, jedoch nach oben gerichtet.
+
+Im Fall nicht-hydrostatischer Schwerewellen gilt mit Glg. \eqref{eq:disp_gravity_waves}, ebenfalls unter den Annahmen $f = 0$  und $l = 0$,
+%
+\begin{align}
+U^2k^2 &= \frac{N^2k^2}{m^2 + \frac{1}{4H^2} + k^2} \Leftrightarrow U^2\left(k^2 + m^2 + \frac{1}{4H^2}\right) = N^2\nonumber\\
+\Leftrightarrow m^2 &= \frac{N^2}{U^2} - k^2 - \frac{1}{4H^2}.
+\end{align}
+%
+Im Fall $m^2 < 0$ sind die Wellen vertikal evaneszent, können also vertikal nicht propagieren. Dies ist der Fall für
+%
+\begin{align}
+\frac{N^2}{U^2} - k^2 - \frac{1}{4H^2} < 0 && \Leftrightarrow k^2 > \frac{N^2}{U^2} - \frac{1}{4H^2}\nonumber\\
+\Leftrightarrow \frac{4\pi^2}{l_x^2} > \frac{N^2}{U^2} - \frac{1}{4H^2} && \Leftrightarrow \frac{l_x^2}{4\pi^2} < \frac{1}{\frac{N^2}{U^2} - \frac{1}{4H^2}}\nonumber\\
+\Leftrightarrow l_x < \frac{2\pi}{\sqrt{\frac{N^2}{U^2} - \frac{1}{4H^2}}}.&&
+\end{align}
+%
+Diejenigen Spektralanteile der Orographie, welche diese Ungleichung erfüllen, können also keine nach oben propagierenden Wellen erzeugen. Einsetzen typischer Werte von $N = 0,02$ Hz, $U = 8$ m/s und $H = 8$ km ergibt $l_x \approx 2,5$ km. Bei höherer Windgeschwindigkeit nimmt $l_x$ zu.
+
+\subsection{Rossby-Wellen}
+\label{sec:rossby-wellen}\index{Rossby-Welle!barokline}\index{barokline Rossby-Welle}
 %
 Hier geht man aus vom hydrostatischen adiabatischen Gleichungssystem.
 %
@@ -14896,510 +15436,17 @@ Nullsetzen der Determinante ergibt
 %
 Unter der Annahme $k < K$ maximiert man den Ausdruck unter der Wurzel, indem man $\newoverline{u}_T = 0$ setzt, hieraus folgt
 %
+\begin{center}
+\doublebox{\parbox{\textwidth}{
+\begin{center}
 \begin{align}
 c = \frac{\omega}{k}\leq - \frac{\beta}{k^2 + K^2}, 
 \end{align}
+\end{center}
+}}
+\end{center}
 %
 barokline Rossby-Wellen pflanzen sich also immer nach Westen fort.
-
-\subsection{Barokline Schwerewellen}
-\label{sec:barokline_schwerewellen}\index{Schwerewelle!barokline}\index{barokline Schwerewelle}
-
-\textit{Barokline Schwerewellen}\index{barokline Schwerewelle}\index{Schwerewelle!barokline} sind das barokline Analogon zu Poincaré-Wellen\index{Poincaré-Welle}. Man macht zunächst einen Störungsansatz der Form
-%
-\begin{align}
-u = U + u', && v = v', && w = w',\label{eq:gw_disp_deriv_0}\\
-p = p_0\left(z\right) + p', && \theta = \theta_0\left(z\right) + \theta', && f = f_0.\label{eq:gw_disp_deriv_1}
-\end{align}
-%
-Wegen Glg. \eqref{eq:gw_disp_deriv_1} ist Glg. \eqref{eq:gw_disp_deriv_0} keine Beschränkung des Hintergrundstroms auf die x-Richtung, durch eine Rotation des Koordinatensystems um die vertikale Achse kann der Hintergrundwind jede Richtung annehmen. Insbesondere werden alle Krümmungsterme vernachlässigt und man kann kartesische Koordinaten $\left(x, y, z\right)$ verwenden. Der Hintergrundzustand soll hydrostatisch sein, also
-%
-\begin{align}
-\frac{\partial p_0}{\partial z} = -g\rho_0\left(z\right)\label{eq:hydrostatic_gravity_wave}
-\end{align}
-%
-erfüllen. Es wird von einem trockenadiabatischen System ausgegangen, in einem solchen wird der Erste Hauptsatz der Thermodynamik zu
-%
-\begin{align}
-\md{\theta} = 0 && \Leftrightarrow && \md{\theta} + \md{\theta'} = 0 && \Leftrightarrow \md{\theta'} + w'\frac{d\theta_0}{dz} = 0.
-\end{align}
-%
-Man führt nun eine genäherte materielle Ableitung $\mdtilde{}$ ein, bei der Störprodukte vernachlässigt werden. Im folgenden werden hierfür Gleichheitszeichen notiert. Damit erhält man
-%
-\begin{align}
-\mdtilde{\theta'} + w'\frac{d\theta_0}{dz} &= 0.
-\end{align}
-%
-Multipliziert man diese Gleichung mit $\frac{g}{\theta_0}$, folgt
-%
-\begin{align}
-\mdtilde{b'} + w'\frac{g}{\theta_0}\frac{d\theta_0}{dz} = 0,
-\end{align}
-%
-wobei die Definition der sogenannten \textit{buoyancy}\index{Buoyancy}
-%
-\begin{align}
-b' \coloneqq g\frac{\theta'}{\theta_0}
-\end{align}
-%
-eingesetzt wurde. Aus Glg. \eqref{eq:brunt_v_frequency_prop_0} entnimmt man
-%
-\begin{align}
-\frac{g}{\theta_0}\frac{d\theta_0}{dz} = N^2,
-\end{align}
-%
-was auf
-%
-\begin{align}
-\mdtilde{b'} + w'N^2 = 0
-\end{align}
-%
-führt. Mit Glg. \eqref{eq:pressure_prognostic_equation} erhält man
-%
-\begin{align}
-\md{p} + \frac{c^{(p)}}{c^{(v)}}p\nabla\cdot\mathbf{v} &= 0\nonumber\\
-\Leftrightarrow \frac{1}{\kappa p}\md{p} + \nabla\cdot\mathbf{v} &= 0\nonumber\\
-\Leftrightarrow \frac{1}{\kappa\rho R_dT}\md{p} + \nabla\cdot\mathbf{v} &= 0.
-\end{align}
-%
-Mit Glg. \eqref{eq:velocity_sound} kann man dies in Termen der Schallgeschwindigkeit ausdrücken:
-%
-\begin{align}
-\frac{1}{c_s^2\rho}\md{p} + \nabla\cdot\mathbf{v} &= 0
-\end{align}
-%
-Linearisiert man diese Gleichung, erhält man
-%
-\begin{align}
-\frac{1}{c_s^2\rho}\mdtilde{p} + \nabla\cdot\mathbf{v}' &= 0\nonumber\\
-\Leftrightarrow \frac{1}{c_s^2\rho_0}\mdtilde{p}' + \frac{1}{c_s^2\rho_0}w'\frac{dp_0}{dz} + \nabla\cdot\mathbf{v}' &= 0\nonumber\\
-\Leftrightarrow \frac{1}{c_s^2\rho_0}\mdtilde{p}' - \frac{g}{c_s^2}w' + \nabla\cdot\mathbf{v}' &= 0.
-\end{align}
-%
-Für die vertikale Bewegungsgleichung erhält man mit Glg. \eqref{eq:background_state_prop_0}
-%
-\begin{align}
-\mdtilde{w'} = -g - \frac{1}{\rho}\frac{\partial p}{\partial z} = -\frac{1}{\rho}\frac{\partial p'}{\partial z} - \left(\frac{1}{\rho}\right)'\frac{\partial p_0}{\partial z} \approx - \frac{1}{\rho_0}\frac{\partial p'}{\partial z} + \frac{\rho'}{\rho_0^2}\frac{\partial p_0}{\partial z} = -\frac{1}{\rho_0}\frac{\partial p'}{\partial z} - \frac{g\rho'}{\rho_0}.
-\end{align}
-%
-Um die Störung in der Dichte durch Störungen in der potentiellen Temperatur und im Druck auszudrücken, notiert man Glg. \eqref{eq:state_theta} in der Form
-%
-\begin{align}
-\rho = \frac{p_\text{ref}^{R_d/c^{(p)}}}{R_d}\frac{p^{1/\kappa}}{\theta}.
-\end{align}
-%
-In erster Ordnung gilt somit
-%
-\begin{align}
-\rho' &= \frac{1}{\kappa}\frac{\rho_0}{p_0}p' - \frac{\rho_0}{\theta}\theta' \approx \frac{p'}{c_s^2} - \frac{\rho_0}{\theta_0}\theta'
-\end{align}
-%
-Hieraus folgt
-%
-\begin{align}
-\mdtilde{w'} = -\frac{1}{\rho_0}\frac{\partial p'}{\partial z} - \frac{gp'}{\rho_0c_s^2} + \frac{g}{\theta_0}\theta' = -\frac{1}{\rho_0}\frac{\partial p'}{\partial z} - \frac{gp'}{\rho_0c_s^2} + b'.
-\end{align}
-%
-Zusammenfassend lautet das linearisierte Gleichungssystem
-%
-\begin{center}
-\doublebox{\parbox{0.8\textwidth}{
-\begin{center}
-\begin{align}
-\mdtilde{u'} &= fv' - \frac{1}{\rho_0}\frac{\partial p'}{\partial x},\\
-\mdtilde{v'} &= -fu' - \frac{1}{\rho_0}\frac{\partial p'}{\partial y},\\
-\textcolor{blue}{\mdtilde{w'}} &= b' - \frac{1}{\rho_0}\frac{\partial p'}{\partial z} \textcolor{red}{- \frac{g}{c_s^2}\frac{p'}{\rho_0}},\\
-\mdtilde{b'} &= -w'N^2,\\
-\textcolor{red}{\frac{1}{c_s^2\rho_0}\mdtilde{p'}} &= \textcolor{red}{\frac{g}{c_s^2}w'} - \nabla\cdot\mathbf{v}'.
-\end{align}
-\end{center}
-}}
-\end{center}
-%
-Dabei wurden Terme, die mit der hydrostatischen Approximation wegfallen würden, \textcolor{blue}{blau} markiert, und alle Terme, die unter Vernachlässigung von Schallwellen verschwinden würden, \textcolor{red}{rot}. Störend ist die vertikale Abhängigkeit von $\rho_0$. Daher definiert man
-%
-\begin{align}
-u'' \coloneqq \sqrt{\frac{\rho_0}{\rho_\text{SFC}}}u', && v'' \coloneqq \sqrt{\frac{\rho_0}{\rho_\text{SFC}}}v', && w'' \coloneqq \sqrt{\frac{\rho_0}{\rho_\text{SFC}}}w',\label{eq:bretherton_0}\\
-b'' \coloneqq \sqrt{\frac{\rho_0}{\rho_\text{SFC}}}b', && p'' \coloneqq \sqrt{\frac{\rho_\text{SFC}}{\rho_0}}p'.\label{eq:bretherton_1}
-\end{align}
-%
-was man als \textit{Bretherton-Transformation}\index{Bretherton-Transformation} bezeichnet. Dabei bezeichnet der Index SFC die Werte an der Erdoberfläche. Die Transformation erfolgt im Wesentlichen durch Multiplikation des Gleichungssystem mit $\sqrt{\frac{\rho_0}{\rho_\text{SFC}}}$. Besondere Aufmerksamkeit benötigen dabei die vertikalen Ableitungen:
-%
-\begin{align}
-\frac{dw'}{dz} &= \sqrt{\frac{\rho_\text{SFC}}{\rho_0}}\frac{dw''}{dz} - \frac{1}{2}\sqrt{\frac{\rho_\text{SFC}}{\rho_0}}w''\frac{1}{\rho_0}\frac{d\rho_0}{dz} = \sqrt{\frac{\rho_\text{SFC}}{\rho_0}}\frac{dw''}{dz} + \frac{H}{2}w'\\
-\frac{dp'}{dz} &= \sqrt{\frac{\rho_0}{\rho_\text{SFC}}}\frac{dp''}{dz} + \frac{1}{2}\sqrt{\frac{\rho_0}{\rho_\text{SFC}}}p''\frac{1}{\rho_0}\frac{d\rho_0}{dz} = \sqrt{\frac{\rho_0}{\rho_\text{SFC}}}\frac{dp''}{dz} + \frac{1}{2}p'\frac{1}{\rho_0}\frac{d\rho_0}{dz} = \sqrt{\frac{\rho_0}{\rho_\text{SFC}}}\frac{dp''}{dz} - \frac{H}{2}p'
-\end{align}
-%
-Dabei wurde
-%
-\begin{align}
-\frac{1}{\rho_0}\frac{d\rho_0}{dz} = -\frac{1}{H}\label{eq:scale_h_density}
-\end{align}
-%
-mit der Skalenhöhe $H$ eingesetzt. Hieraus folgt
-%
-\begin{align}
--\frac{1}{\rho_0}\frac{\partial p'}{\partial z} &= -\sqrt{\frac{1}{\rho_0\rho_\text{SFC}}}\frac{dp''}{dz} + \frac{H}{2\rho_0}p' = -\sqrt{\frac{1}{\rho_0\rho_\text{SFC}}}\frac{dp''}{dz} + \frac{H}{2\sqrt{\rho_0\rho_\text{SFC}}}p'',\\
--\frac{\partial w'}{\partial z} &= -\sqrt{\frac{\rho_\text{SFC}}{\rho_0}}\frac{dw''}{dz} - \frac{H}{2}w' = -\sqrt{\frac{\rho_\text{SFC}}{\rho_0}}\frac{dw''}{dz} - \frac{H}{2}\sqrt{\frac{\rho_\text{SFC}}{\rho_0}}w''.
-\end{align}
-%
-Dies führt zusammenfassend auf folgendes Gleichungssystem:
-%
-\begin{center}
-\doublebox{\parbox{0.8\textwidth}{
-\begin{center}
-\begin{align}
-\mdtilde{u''} &= fv'' - \frac{1}{\rho_\text{SFC}}\frac{\partial p''}{\partial x}\\
-\mdtilde{v''} &= -fu'' - \frac{1}{\rho_\text{SFC}}\frac{\partial p''}{\partial y}\\
-\textcolor{blue}{\mdtilde{w''}} &= b'' - \frac{1}{\rho_\text{SFC}}\frac{\partial p''}{\partial z} + \left(\frac{1}{2H}\textcolor{red}{-\frac{g}{c_s^2}}\right)\frac{p''}{\rho_\text{SFC}},\\
-\mdtilde{b''} &= -w''N^2\\
-\textcolor{red}{\frac{1}{c_s^2\rho_\text{SFC}}\mdtilde{p''}} &= \left(\textcolor{red}{\frac{g}{c_s^2}} - \frac{1}{2H}\right)w'' - \nabla_h\cdot\mathbf{v}_h'' - \frac{\partial w''}{\partial z}
-\end{align}
-\end{center}
-}}
-\end{center}
-%
-Für jede der fünf auftretenden Variablen macht man nun einen Ansatz
-%
-\begin{align}
-\psi'' = A_\psi\exp\left[i\left(kx + ly + mz - \omega t\right)\right],
-\end{align}
-%
-wobei $A_\psi$ komplex sein kann. Es gilt
-%
-\begin{align}
-\mdtilde{A_\psi} = i\left(Uk - \omega\right)A_\psi = -i\omega_IA_\psi,
-\end{align}
-%
-wobei die Definition der sogenannten \textit{intrinsischen Frequenz}\index{intrinsische Frequenz}\index{Frequenz!intrinsiche}
-%
-\begin{align}
-\omega_I \coloneqq \omega - kU 
-\end{align}
-%
-eingesetzt wurde. Dies ist die Frequenz, die im mit der Geschwindigkeit $U$ mitbewegten Koordinatensystem gemessen werden würde. Notiert man das hergeleitete Gleichungssystem als Matrix $\overleftrightarrow{A}$ und vernachlässigt dabei die Schallwellenterme (rote Terme), erhält man
-%
-\begin{align}
-\overleftrightarrow{A}\cdot\left(\begin{array}{c}
-A_u\\
-A_v\\
-A_w\\
-A_b\\
-A_{p/\rho_\text{SFC}}
-\end{array}\right) = \left(\begin{array}{ccccc}
--i\omega_I & -f & 0 & 0 & ik \\
-f & -i\omega_I & 0 & 0 & il \\
-0 & 0 & \textcolor{blue}{-i\omega_I} & -1 & im - \frac{1}{2H}\\
-0 & 0 & N^2 & -i\omega_I & 0\\
-ik & il & im + \frac{1}{2H} & 0 & 0\\
-\end{array}\right)\cdot\left(\begin{array}{c}
-A_u\\
-A_v\\
-A_w\\
-A_b\\
-A_{p/\rho_\text{SFC}}
-\end{array}\right) = 0.
-\end{align}
-%
-Nichttriviale Lösungen existieren, falls die Determinante $A$ von $\overleftrightarrow{A}$ verschwindet:
-%
-\begin{align}
-A & \hastobe & 0\nonumber\\
-\Leftrightarrow 0 &= -i\omega_I\left\{-i\omega_I\left[i\omega_I\left(-m^2 - \frac{1}{4H^2}\right)\right] - il\left[\textcolor{blue}{-i\omega_I^2l} + N^2il\right]\right\}\nonumber\\
-&  +f\left\{f\left[i\omega_I\left(-m^2 - \frac{1}{4H^2}\right)\right] \textcolor{magenta}{- il\left[-\omega_I^2ik + ikN^2\right]}\right\}\nonumber\\
-&  +ik\left[\textcolor{magenta}{f\left(-\omega_I^2il + ilN^2\right)} - ik\left(\textcolor{blue}{i\omega_I^3} - N^2i\omega_I\right)\right]\nonumber\\
-\Leftrightarrow 0 &= \left(f^2 - \omega_I^2\right)i\omega_I\left(-m^2 - \frac{1}{4H^2}\right) - \omega_Il\left[\textcolor{blue}{-i\omega_I^2l} + N^2il\right] + k^2\left(\textcolor{blue}{i\omega_I^3} - N^2i\omega_I\right)\nonumber\\
-\end{align}
-%
-Hierbei heben sich die \textcolor{magenta}{magenta} eingefärbten Terme gegenseitig auf. Die geostrophische Mode\index{geostrophische Mode} $\omega_I = 0$ interssiert hier nicht weiter, weshalb Division durch $i\omega_I$ erfolgen kann:
-%
-\begin{align}
-0 &= \left(f^2 - \omega_I^2\right)\left(-m^2 - \frac{1}{4H^2}\right) + \textcolor{blue}{\omega_I^2l^2} - N^2l^2 + k^2\left(\textcolor{blue}{\omega_I^2} - N^2\right)\nonumber\\
-\Leftrightarrow \omega_I^2\left(\textcolor{blue}{k^2 + l^2} + m^2 + \frac{1}{4H^2}\right) &= f^2\left(m^2 + \frac{1}{4H^2}\right) + N^2\left(l^2 + k^2\right)\nonumber
-\end{align}
-\begin{center}
-\doublebox{\parbox{0.8\textwidth}{
-\begin{center}
-\begin{align}
-\Leftrightarrow \omega_I^2 &= \frac{f^2\left(m^2 + \frac{1}{4H^2}\right) + N^2\left(k^2 + l^2\right)}{m^2 + \frac{1}{4H^2} + \textcolor{blue}{k^2 + l^2}}\label{eq:disp_gravity_waves}
-\end{align}
-\end{center}
-}}
-\end{center}
-%
-Dies ist die \textit{Dispersionsrelation von Schwerewellen}\index{Dispersionsrelation!einer Schwerewelle}\index{Schwerewelle!Dispersionsrelation}, diese ist außerdem in Abb. \ref{fig:gravity_wave_dispersion} visualisiert. $\omega_I^2$ ist ein gewichtetes Mittel aus den Anteilen $f^2$ und $N^2$ mit den Gewichtungsfaktoren $m^2 + \frac{1}{4H^2}$ und $k^2 + l^2$. $\omega_I^2$ liegt also immer zwischen $f^2$ und $N^2$.
-
-\begin{figure}
-\centering
-\includegraphics[width = .65\textwidth]{figs/gravity_wave_dispersion.png}
-\caption{Dispersionsrelation von Schwerewellen. Es wurde von einer vertikalen Wellenlänge von 2 km ausgegangen.}
-\label{fig:gravity_wave_dispersion}
-\end{figure}
-%
-Häufig möchte man die Periodendauer der zu erwartenden Oszillation als Funktion des atmosphärischen Hintergrundzustandes $\left(U, N\right)$ wissen. Die Periode unter der Annahme, dass der Wellenvektor parallel zum Hintergrundwind ist, ist in Abb. \ref{fig:gravity_wave_period} dargestellt.
-%
-\begin{figure}
-\centering
-\includegraphics[width = .65\textwidth]{figs/gravity_wave_period.png}
-\caption{Periodendauern von Schwerewellen in Abhänigkeit vom atmosphärischen Hintergrundzustand. Es wurde von einer vertikalen Wellenlänge von 2 km und $k_y = 0$ ausgegangen.}
-\label{fig:gravity_wave_period}
-\end{figure}
-
-\subsubsection{Grenzfälle}
-\label{sec:grenzfälle}
-
-Für $k^2 + l^2 \to 0$ (horizontal relativ zum Grundstrum nicht propagierende Wellen) erhält man aus Glg. \eqref{eq:disp_gravity_waves} Inertialwellen:
-%
-\begin{center}
-\doublebox{\parbox{0.8\textwidth}{
-\begin{center}
-\begin{align}
-\lim_{k^2 + l^2 \to 0}\omega^2 = f^2
-\end{align}
-\end{center}
-}}
-\end{center}
-%
-Für $m^2 + \frac{1}{4H^2} \to \infty$ erhält man aus Glg. \eqref{eq:disp_gravity_waves} Schwingungen mit der Frequenz $N$:
-%
-\begin{center}
-\doublebox{\parbox{0.8\textwidth}{
-\begin{center}
-\begin{align}
-\lim_{m^2 + \frac{1}{4H^2} \to 0}\omega^2 = N^2
-\end{align}
-\end{center}
-}}
-\end{center}
-%
-$H \to \infty$ kann als Vernachlässigung vertikaler Dichtefluktuationen interpretiert werden. $m \to 0$ bedeutet, dass der Wellenvektor rein horizontal ausgerichtet ist. Diese Wellen entstehen im kontinuierlichen, thermisch stabilen Medium bei vertikaler Auslenkung eines Teilchens. Ein Teilchen der Dichte $\rho _0 = \rho (z_0)$ habe seine Ruhelage in der Höhe $z_0$, die hier o. B. d. A. zu $z_0 = 0$ festgelegt sei. Lenkt man das Teilchen vertikal aus, lautet die Bewegungsgleichung
-%
-\begin{align}
-\frac{d^2z}{dt^2} = -\frac{1}{\rho_0}\frac{\partial p}{\partial z} - g = g\frac{\rho}{\rho_0} - g = \frac{g}{\rho_0}\left(\rho - \rho_0\right), \label{eq:momentum_schichtung}
-\end{align}
-%
-$z(t)$ sei die Auslenkung. Hierbei wurde angenommen, dass das Teilchen seine Dichte während der Auslenkung nicht ändert. Nähert man die Abweichung $\rho (z) - \rho _0$ mittels einer Taylor-Entwicklung zu
-%
-\begin{align}
-\rho\left(t\right) - \rho_0 = \frac{\partial\rho}{\partial z}(z = 0)z, 
-\end{align}
-%
-so folgt für die Schwingungsgleichung
-%
-\begin{align}
-\frac{d^2z}{dt^2}(t) = \frac{g}{\rho_0}\frac{\partial\rho}{\partial z}z(t)\label{eq:schichtungs_dg}.
-\end{align}
-%
-Setzt man $z = Z_1\exp\left(iNt\right) + Z_2\exp\left(-iNt\right)$ an, so folgt für die Kreisfrequenz
-%
-\begin{align}
-N^2 = -\frac{g}{\rho}\frac{\partial\rho}{\partial z}, 
-\end{align}
-%
-$N$ ist die \textit{Brunt-Väisälä-Frequenz}\index{Brunt-Väisälä-Frequenz}, sie ist ein Maß für die Stabilität. Setzt man $N$ in \eqref{eq:schichtungs_dg} ein, erhält man
-%
-\begin{align}
-\frac{d^2z}{dt^2} = -N^2z.
-\end{align}
-%
-Hieran sieht man, dass im Fall $N^2 > 0$ eine Sinusschwingung als Lösung folgt, während im Fall $N^2 < 0$ eine reelle Exponentialfunktion die Lösung ist, da das Teilchen von seinem Ursprungsort wegbeschleunigt wird. Im Fall $N^2> 0$ ist die Schichtung also \textit{stabil}\index{Schichtung!stabil}, während sie im Fall $N^2<0$ \textit{labil}\index{Schichtung!labil} ist. Eine stabile Schichtung bezeichnet man auch als starke Schichtung. Im Fall $N^2 = 0$ ist die Schichtung \textit{neutral}\index{Schichtung!neutrale}.
-
-Die obige Herleitung ist noch nicht ganz vollständig, da Inkompressibilität angenommen wurde. Streng genommen bleibt bei der Auslenkung nicht die Dichte, sondern die potentielle Dichte bezogen auf das Referenzniveau erhalten. Bezeichnet $\newtilde{\rho}(z)$ die Dichte des Teilchens bei einer Auslenkung $z$, so wird damit Gleichung \eqref{eq:momentum_schichtung} zu
-%
-\begin{align}
-\frac{d^2z}{dt^2} = \frac{1}{\newtilde{\rho}\left(z\right)}g\rho\left(z\right) - g = \frac{g}{\newtilde{\rho}\left(z\right)} \left(\rho\left(z\right) - \newtilde{\rho}\left(z\right)\right).
-\end{align}
-%
-Der Ausdruck $\rho\left(z\right) - \newtilde{\rho}\left(z\right)$ ist die Dichtedifferenz zwischen dem umgebenden Fluid und dem betrachteten Teilchen. Bringt man beide Systeme nun adiabatisch auf $z = 0$, so gilt nach Glg. \eqref{eq:pot_dichte} für ihre Dichtedifferenz
-%
-\begin{align}
-\Delta\rho = \left(\rho\left(z\right) - \newtilde{\rho}\left(z\right)\right)\left(\frac{p_0}{p}\right)^{1/\kappa}.
-\end{align}
-%
-Hierbei sind $p \coloneqq p\left(z\right)$ und $p_0 \coloneqq p\left(0\right)$. In erster Ordnung ist $p = p_0$, $\Delta\rho$ ist dann die Differenz der potentiellen Dichten in Bezug aufs Referenzniveau $z = 0$. Deshalb kann man auch die potentiellen Dichten $\rho_\theta$ (bezogen auf $z = 0$) einsetzen. Man erhält in erster Ordnung
-%
-\begin{align}
-\frac{d^2z}{dt^2} = \frac{g}{\newtilde{\rho}(z)}\left(\rho_\theta(z) - \rho_\theta\left(0\right)\right) = \frac{g}{\newtilde{\rho}(z)}\frac{\partial\rho_\theta}{\partial z}z.
-\end{align}
-%
-Für die Brunt-Väisälä-Frequenz folgt
-%
-\begin{center}
-\doublebox{\parbox{0.8\textwidth}{
-\begin{center}
-\begin{align}
-N^2 = -\frac{g}{\rho_\theta}\frac{\partial\rho_\theta}{\partial z}.\label{eq:brunt_v_frequency_prop_0}
-\end{align}
-\end{center}
-}}
-\end{center}
-%
-Dies ist der allgemeine Ausdruck für die Brunt-Väisälä-Frequenz in einem kompressiblen Medium. $N^2$ ist ein Feld, was von allen drei Koordinaten und der Zeit abhängen kann. Die potentielle Dichte muss dabei immer auf das Niveau bezogen werden, auf dem man sich befindet. In einer trockenen Atmosphäre kann man $N^2$ auch über die potentielle Temperatur $\theta$ ausdrücken:
-%
-\begin{align}
-\rho_\theta = \frac{p_0}{R_d\theta}
-\end{align}
-%
-Somit folgt
-%
-\begin{align}
-\frac{\partial\rho_\theta}{\partial z} = -\frac{p_0}{R_d\theta^2}\frac{\partial\theta}{\partial z}.
-\end{align}
-%
-Für die Brunt-Väisälä-Frequenz bedeutet dies
-%
-\begin{align}
-N^2 &= \frac{g}{\theta}\frac{\partial\theta}{\partial z}.\label{eq:bv_freq_theta}
-\end{align}
-%
-Solche Wellen, die im Englischen auch als \textit{buoyancy oscillations}\index{buoyancy oscillations} bezeichnet werden (die deutsche Übersetzung \glqq Schichtungswelle\grqq\ ist eher unüblich) entstehen zum Beispielen als Leewellen hinter Orographie, in diesem Fall ergeben sich sinusförmige Trajektorien $(ut, z_0\sin\left(Nt\right))^T$. Wird dabei Sättigung erreicht, entstehen in den Wellenbergen Wolken.
-
-\subsubsection{Hydrostatische Schwerewellen}
-\label{sec:hydrostatische_schwerewellen}
-
-Vernachlässigung der \textcolor{blue}{blauen} Terme in Glg. \eqref{eq:disp_gravity_waves} liefert die \textit{Dispersionsrelation von hydrostatischen Schwerewellen}\index{Dispersionsrelation!einer hydrostatischen Schwerewelle}\index{Schwerewelle!hydrostatische!Dispersionsrelation}:
-%
-\begin{center}
-\doublebox{\parbox{0.8\textwidth}{
-\begin{center}
-\begin{align}
-\omega_I^2 &= f^2 + N^2\frac{k^2 + l^2}{m^2 + \frac{1}{4H^2}}\label{eq:disp_gravity_hydrostat}
-\end{align}
-\end{center}
-}}
-\end{center}
-
-\subsubsection{Gruppengeschwindigkeit}
-\label{sec:gruppengeschwindigkeit}
-
-Aus dieser Gleichung folgt
-%
-\begin{align}
-\nabla_\mathbf{k}\omega_I^2 = \left(\begin{array}{c}
-\frac{2N^2k}{m^2 + \frac{1}{4H^2}}\\
-\frac{2N^2l}{m^2 + \frac{1}{4H^2}}\\
--2m\frac{N^2\left(k^2 + l^2\right)}{\left(m^2 + \frac{1}{4H^2}\right)^2}
-\end{array}\right).
-\end{align}
-%
-Mit $\omega' = \sign\left(\omega\right)\sqrt{\omega^2}' = \frac{1}{2\omega}\left(\omega^2\right)'$ erhält man für die Gruppengeschwindigkeit hydrostatischer barokliner Schwerewellen\index{Gruppengeschwindigkeit!barokline Schwerewelle}\index{barokline Schwerewelle!Gruppengeschwindigkeit}\index{Schwerewelle!barokline!Gruppengeschwindigkeit}
-%
-\begin{align}
-\mathbf{c}_\text{gr} = \frac{1}{\omega_I}\left(\begin{array}{c}
-\frac{N^2k}{m^2 + \frac{1}{4H^2}}\\
-\frac{N^2l}{m^2 + \frac{1}{4H^2}}\\
--m\frac{N^2\left(k^2 + l^2\right)}{\left(m^2 + \frac{1}{4H^2}\right)^2}
-\end{array}\right) = \frac{1}{\omega_I}\frac{N^2}{m^2 + \frac{1}{4H^2}}\left(\begin{array}{c}
-k\\
-l\\
--m\frac{k^2 + l^2}{m^2 + \frac{1}{4H^2}}
-\end{array}\right).
-\end{align}
-%
-Horizontal zeigt die Gruppengeschwindigkeit also in die gleiche Richtung wie die Phasengeschwindigkeit\index{Phasengeschwindigkeit!barokline Schwerewelle}\index{barokline Schwerewelle!Phasengeschwindigkeit}\index{Schwerewelle!barokline!Phasengeschwindigkeit}. Vertikal haben die beiden Geschwindigkeiten entgegengesetzte Vorzeichen. Für die vertikale Wellenlänge $l_z$ gilt
-%
-\begin{align}
-m^2 = \frac{4\pi^2}{l_z^2} \Rightarrow \frac{m^2}{\frac{1}{4H^2}} = \frac{16\pi^2H^2}{l_z^2} \approx 158\frac{H^2}{l_z^2}. 
-\end{align}
-%
-Häufig gilt
-%
-\begin{align}
-\frac{m^2}{\frac{1}{4H^2}} \gg 1.
-\end{align}
-%
-Unter dieser Voraussetzung gilt
-%
-\begin{align}
-\mathbf{c}_\text{gr} &= \frac{\sign\left(\omega_I\right)}{\sqrt{f^2 + \frac{N^2}{m^2}\left(k^2 + l^2\right)}}\frac{N^2}{m^2}\left(\begin{array}{c}
-k\\
-l\\
--\frac{k^2 + l^2}{m}
-\end{array}\right) = \frac{\sign\left(\omega_I\right)}{\sqrt{f^2m^2 + N^2\left(k^2 + l^2\right)}}\frac{N^2}{m}\left(\begin{array}{c}
-k\\
-l\\
--\frac{k^2 + l^2}{m}
-\end{array}\right)\\
-\Rightarrow\mathbf{c}_\text{gr}\cdot\mathbf{k} &\propto k^2 + l^2 - \left(k^2 + l^2\right) = 0.
-\end{align}
-%
-Phasengeschwindigkeit\index{Phasengeschwindigkeit!barokline Schwerewelle}\index{barokline Schwerewelle!Phasengeschwindigkeit}\index{Schwerewelle!barokline!Phasengeschwindigkeit} und Gruppengeschwindigkeit\index{Gruppengeschwindigkeit!barokline Schwerewelle}\index{barokline Schwerewelle!Gruppengeschwindigkeit}\index{Schwerewelle!barokline!Gruppengeschwindigkeit} stehen also senkrecht aufeinander.
-
-\subsubsection{Amplitudenverhalten}
-\label{sec:amplitudenverhalten}
-
-Aus der Bretherton-Transformation Glg.en \eqref{eq:bretherton_0} - \eqref{eq:bretherton_1} und Glg. \eqref{eq:scale_h_density} folgt
-%
-\begin{align}
-u' \coloneqq \sqrt{\frac{\rho_\text{SFC}}{\rho_0}}u'' = \exp\left(\frac{z}{2H}\right)u'', && v' \coloneqq \sqrt{\frac{\rho_\text{SFC}}{\rho_0}}v'' = \exp\left(\frac{z}{2H}\right)v'',\\
-w' \coloneqq \sqrt{\frac{\rho_\text{SFC}}{\rho_0}}w'' = \exp\left(\frac{z}{2H}\right)w'', && p' \coloneqq \sqrt{\frac{\rho_0}{\rho_\text{SFC}}}p'' = \exp\left(-\frac{z}{2H}\right)p''.
-\end{align}
-%
-Die Amplitude der Bewegungen nimmt also mit der Höhe exponentiell zu, die Höhe der Druckschwankungen nimmt exponentiell ab.
-
-\subsubsection{Leewellen}
-\label{sec:leewellen}\index{Leewelle}
-
-\textit{Leewellen}\index{Leewelle} sind stationär, d. h. es gilt $\omega = 0$. Hieraus folgt
-%
-\begin{align}
-\omega_I = \omega - Uk = -Uk\Rightarrow \omega_I^2 = U^2k^2.
-\end{align}
-%
-Geht man von hydrostatischen Schwerewellen aus, kann man dies mit Glg. \eqref{eq:disp_gravity_hydrostat} gleichsetzen, hieraus folgt
-%
-\begin{align}
-\omega_I^2 = U^2k^2 &= f^2 + \frac{N^2\left(k^2 + l^2\right)}{m^2 + \frac{1}{4H^2}}.
-\end{align}
-%
-Geht man von $m^2 \gg \frac{1}{4H^2}$, $f = 0$ und $l = 0$ aus, folgt
-%
-\begin{align}
-\omega_I^2  = U^2k^2 = \frac{N^2k^2}{m^2}\Rightarrow U^2 &= \frac{N^2}{m^2} \Rightarrow m^2 = \frac{N^2}{U^2}.
-\end{align}
-%
-Hieraus folgt für die intrinsische Phasengeschwindigkeit
-%
-\begin{align}
-\mathbf{c}_{I, \text{ph}} = \frac{\omega_I}{\sqrt{k^2 + m^2}}\frac{\mathbf{k}}{\left|\mathbf{k}\right|} = -\frac{Uk}{k^2 + m^2}\left(
-\begin{array}{c}
-k\\
-0\\
-m
-\end{array}
-\right)
-\end{align}
-%
-sowie für die intrinsische Gruppengeschwindigkeit
-%
-\begin{align}
-\mathbf{c}_{I, \text{gr}} = \nabla_\mathbf{k}\omega_I = \left(
-\begin{array}{c}
--\frac{N}{m}\\
-0\\
-\frac{Nk}{m^2}
-\end{array}
-\right).
-\end{align}
-%
-Die intrinsische Phasengeschwindigkeit ist also nach unten und entgegen der Windrichtung ausgerichtet, die intrinsische Gruppengeschwindigkeit ist ebenfalls negativ in x-Richtung, jedoch nach oben gerichtet.
-
-Im Fall nicht-hydrostatischer Schwerewellen gilt mit Glg. \eqref{eq:disp_gravity_waves}, ebenfalls unter den Annahmen $f = 0$  und $l = 0$,
-%
-\begin{align}
-U^2k^2 &= \frac{N^2k^2}{m^2 + \frac{1}{4H^2} + k^2} \Leftrightarrow U^2\left(k^2 + m^2 + \frac{1}{4H^2}\right) = N^2\nonumber\\
-\Leftrightarrow m^2 &= \frac{N^2}{U^2} - k^2 - \frac{1}{4H^2}.
-\end{align}
-%
-Im Fall $m^2 < 0$ sind die Wellen vertikal evaneszent, können also vertikal nicht propagieren. Dies ist der Fall für
-%
-\begin{align}
-\frac{N^2}{U^2} - k^2 - \frac{1}{4H^2} < 0 && \Leftrightarrow k^2 > \frac{N^2}{U^2} - \frac{1}{4H^2}\nonumber\\
-\Leftrightarrow \frac{4\pi^2}{l_x^2} > \frac{N^2}{U^2} - \frac{1}{4H^2} && \Leftrightarrow \frac{l_x^2}{4\pi^2} < \frac{1}{\frac{N^2}{U^2} - \frac{1}{4H^2}}\nonumber\\
-\Leftrightarrow l_x < \frac{2\pi}{\sqrt{\frac{N^2}{U^2} - \frac{1}{4H^2}}}.&&
-\end{align}
-%
-Diejenigen Spektralanteile der Orographie, welche diese Ungleichung erfüllen, können also keine nach oben propagierenden Wellen erzeugen. Einsetzen typischer Werte von $N = 0,02$ Hz, $U = 8$ m/s und $H = 8$ km ergibt $l_x \approx 2,5$ km. Bei höherer Windgeschwindigkeit nimmt $l_x$ zu.
 
 \subsection{Atmosphärische Tide}
 \label{sec:atmosphärische_tide}\index{Tide!atmosphärische}
@@ -22080,7 +22127,7 @@ Eine abgeschwächte Variante des im vorherigen Abschnitts dargelegten Verfahrens
 \subsection{Berücksichtigung der Balancegleichung}
 \label{sec:berücksichtigung_der_balancegleichung}\index{Balancegleichung!Datenassimilation}\index{Datenassimilation!Balancegleichung}
 
-Der Horizontalwind ist auf der synoptischen Skala aufgrund der näherungsweisen Gültigkeit des geostrophischen Gleichgewichts sowie der Balancegleichung eng mit den thermodynamischen Größen verknüpft. Daher kann man ihn als diagnostische Größe betrachten. Ihn direkt aus der Geostrophie in Form von Glg. \eqref{eq:geostr_wind} zu berechnen ist aufgrund des in Absch. \ref{sec:geostrophie} dargestellten Divergenzproblems in den Tropen nicht möglich. Daher kann man anstattdessen die Balancegleichung \eqref{eq:balance_equation} oder die linearisierte Balancegleichung Glg. \eqref{eq:balance_equation_linear} verwenden.
+Der Horizontalwind ist auf der synoptischen Skala aufgrund der näherungsweisen Gültigkeit des geostrophischen Gleichgewichts sowie der Balancegleichung eng mit den thermodynamischen Größen verknüpft. Daher kann man ihn als diagnostische Größe betrachten. Ihn direkt aus der Geostrophie in Form von Glg. \eqref{eq:geostr_wind} zu berechnen ist aufgrund des in Absch. \ref{sec:geostrophie} dargestellten Divergenzproblems in den Tropen nicht möglich. Daher kann man anstattdessen die Balancegleichung \eqref{eq:balance_equation} oder die linearisierte Balancegleichung Glg. \eqref{eq:balance_equation_linear} verwenden. Diese filtert sowohl Schall- als auch Schwerewellen, da beide mit Divergenzen verbunden sind.
 
 Analog zum Fall der Hydrostatik ist es auch hier wieder möglich, die Gültigkeit der Balancegleichung entweder exakt zu fordern, oder sie in die Kostenfunktion aufzunehmen.
 
@@ -26840,21 +26887,39 @@ Für die assoziierten Legendre-Polynome $P_{l, m}\left(\mu\right)$ gilt die DGL 
 %
 Somit folgt
 %
+\begin{center}
+\doublebox{\parbox{\textwidth}{
+\begin{center}
 \begin{align}
 \Delta_{\theta, \phi} Y_{l, m}\left(\theta, \phi\right) &= -l\left(l + 1\right)Y_{l, m}\left(\theta, \phi\right).\label{eq:spherical_harm_prop_1}
 \end{align}
+\end{center}
+}}
+\end{center}
 %
 Aus Glg. \eqref{eq:legendre_ass_prop_2} folgt
 %
+\begin{center}
+\doublebox{\parbox{\textwidth}{
+\begin{center}
 \begin{align}
 \frac{\partial}{\partial\theta}Y_{l, m}\left(\theta, \phi\right) &= m\cot\left(\theta\right)Y_{l, m}\left(\theta, \phi\right) + \sqrt{l^2 - m^2 + l - m}Y_{l, m + 1}\left(\theta, \phi\right)\exp\left(-i\phi\right).\label{eq:spherical_harmonic_deriv_theta}
 \end{align}
+\end{center}
+}}
+\end{center}
 %
 Weiterhin gilt
 %
+\begin{center}
+\doublebox{\parbox{\textwidth}{
+\begin{center}
 \begin{align}
 \frac{\partial}{\partial\phi}Y_{l, m}\left(\theta, \phi\right) &= imY_{l, m}\left(\theta, \phi\right).\label{eq:spherical_harmonic_deriv_phi}
 \end{align}
+\end{center}
+}}
+\end{center}
 %
 Damit folgt
 %
@@ -26883,9 +26948,20 @@ Aus Glg. \eqref{eq:legendre_ass_prop_1} folgt
 &= \sqrt{\frac{2l + 1}{4\pi}\frac{\left(l - m\right)!}{\left(l + m\right)!}}\frac{l + m}{2l + 1}P_{l - 1, m}\exp\left(im\phi\right) + \sqrt{\frac{2l + 1}{4\pi}\frac{\left(l - m\right)!}{\left(l + m\right)!}}\frac{l - m + 1}{2l + 1}P_{l + 1, m}\exp\left(im\phi\right)\nonumber\\
 &= \frac{l + m}{2l + 1}\sqrt{\frac{2l + 1}{2l - 1}\frac{l - m}{l + m}}\sqrt{\frac{2l - 1}{4\pi}\frac{\left(l - 1 - m\right)!}{\left(l - 1 + m\right)!}}P_{l - 1, m}\exp\left(im\phi\right)\nonumber\\
 &  + \frac{l - m + 1}{2l + 1}\sqrt{\frac{2l + 1}{2l + 3}\frac{l + 1 + m}{l + 1 - m}}\sqrt{\frac{2l + 3}{4\pi}\frac{\left(l + 1 - m\right)!}{\left(l + 1 + m\right)!}}P_{l + 1, m}\exp\left(im\phi\right)\nonumber\\
-&= \frac{l + m}{2l + 1}\sqrt{\frac{2l + 1}{2l - 1}\frac{l - m}{l + m}}Y_{l - 1, m} + \frac{l - m + 1}{2l + 1}\sqrt{\frac{2l + 1}{2l + 3}\frac{l + 1 + m}{l + 1 - m}}Y_{l + 1, m}\nonumber\\
-&= \sqrt{\frac{l^2 - m^2}{4l^2 - 1}}Y_{l - 1, m} + \sqrt{\frac{\left(l + 1\right)^2 - m^2}{4\left(l + 1\right)^2 - 1}}Y_{l + 1, m}.\label{eq:spherical_harm_prop_2}
+&= \frac{l + m}{2l + 1}\sqrt{\frac{2l + 1}{2l - 1}\frac{l - m}{l + m}}Y_{l - 1, m} + \frac{l - m + 1}{2l + 1}\sqrt{\frac{2l + 1}{2l + 3}\frac{l + 1 + m}{l + 1 - m}}Y_{l + 1, m}.\nonumber
 \end{align}
+%
+Somit gilt
+%
+\begin{center}
+\doublebox{\parbox{\textwidth}{
+\begin{center}
+\begin{align}
+\cos\left(\theta\right)Y_{l, m} &= \sqrt{\frac{l^2 - m^2}{4l^2 - 1}}Y_{l - 1, m} + \sqrt{\frac{\left(l + 1\right)^2 - m^2}{4\left(l + 1\right)^2 - 1}}Y_{l + 1, m}.\label{eq:spherical_harm_prop_2}
+\end{align}
+\end{center}
+}}
+\end{center}
 %
 Aus Glg. \eqref{eq:legendre_ass_prop_3} folgt
 %
@@ -26895,15 +26971,62 @@ Aus Glg. \eqref{eq:legendre_ass_prop_3} folgt
 &= \frac{1}{2l + 1}\sqrt{\frac{2l + 1}{4\pi}\frac{\left(l - m\right)!}{\left(l + m\right)!}}P_{l - 1, m + 1}\left(\cos\left(\theta\right)\right)\exp\left(im\phi\right)\nonumber\\
 &  -\frac{1}{2l + 1}\sqrt{\frac{2l + 1}{4\pi}\frac{\left(l - m\right)!}{\left(l + m\right)!}}P_{l + 1, m + 1}\left(\cos\left(\theta\right)\right)\exp\left(im\phi\right)\nonumber\\
 &= \frac{1}{2l + 1}\sqrt{\frac{2l + 1}{2l - 1}\left(l - m - 1\right)\left(l - m\right)}\sqrt{\frac{2l - 1}{4\pi}\frac{\left(l - m - 2\right)!}{\left(l + m\right)!}}P_{l - 1, m + 1}\left(\cos\left(\theta\right)\right)\exp\left(im\phi\right)\nonumber\\
-&  -\frac{1}{2l + 1}\sqrt{\frac{2l + 1}{2l + 3}\left(l + m + 1\right)\left(l + m + 2\right)}\sqrt{\frac{2l + 3}{4\pi}\frac{\left(l - m\right)!}{\left(l + m + 2\right)!}}P_{l + 1, m + 1}\left(\cos\left(\theta\right)\right)\exp\left(im\phi\right)\nonumber\\
-&= \sqrt{\frac{1}{4l^2 - 1}\left(l - m - 1\right)\left(l - m\right)}e^{-i\phi}Y_{l - 1, m + 1}\nonumber\\
-&  -\sqrt{\frac{1}{4l^2 + 8l + 3}\left(l + m + 1\right)\left(l + m + 2\right)}e^{-i\phi}Y_{l + 1, m + 1}.\label{eq:spherical_harm_prop_3}
+&  -\frac{1}{2l + 1}\sqrt{\frac{2l + 1}{2l + 3}\left(l + m + 1\right)\left(l + m + 2\right)}\sqrt{\frac{2l + 3}{4\pi}\frac{\left(l - m\right)!}{\left(l + m + 2\right)!}}P_{l + 1, m + 1}\left(\cos\left(\theta\right)\right)\exp\left(im\phi\right).\nonumber
 \end{align}
+%
+Somit gilt
+%
+\begin{center}
+\doublebox{\parbox{\textwidth}{
+\begin{center}
+\begin{align}
+\sin\left(\theta\right)Y_{l, m} &= \sqrt{\frac{1}{4l^2 - 1}\left(l - m - 1\right)\left(l - m\right)}e^{-i\phi}Y_{l - 1, m + 1}\nonumber\\
+&- \sqrt{\frac{1}{4l^2 + 8l + 3}\left(l + m + 1\right)\left(l + m + 2\right)}e^{-i\phi}Y_{l + 1, m + 1}.\label{eq:spherical_harm_prop_3}
+\end{align}
+\end{center}
+}}
+\end{center}
 
 \subsection{Produkte}
 \label{sec:proukte}\index{Kugelflächenfunktion!Produkte}\index{Produkt!von Kugelflächenfunktionen}
 
+\subsection{Transformation auf geographische Koordinaten}
+\label{sec:transformation_auf_geographische_koordinaten_sp_harmonics}
 
+Nun sollen die hergeleiteten Gleichungen noch auf geographische Koordinaten $\left(\phi, \lambda\right)$ transformiert werden. Bisher wurde $\theta = \pi/2 - \phi$ anstelle der geographischen Breite $\phi$ verwendet. Es gelten also
+%
+\begin{align}
+\cos\left(\theta\right) &= \cos\left(\frac{\pi}{2} - \phi\right) = \sin\left(\phi\right),\\
+\sin\left(\theta\right) &= \sin\left(\frac{\pi}{2} - \phi\right) = \cos\left(\phi\right),\\
+\cot\left(\theta\right) &= \tan\left(\phi\right),\\
+\frac{\partial}{\partial\phi} &= \frac{\partial\theta}{\partial\phi}\frac{\partial}{\partial\theta} = -\frac{\partial}{\partial\theta},\\
+\phi_\text{sph. coord.} &= \lambda.
+\end{align}
+%
+Aus Glg. \eqref{eq:spherical_harmonic_deriv_theta} folgt
+%
+\begin{align}
+\frac{\partial}{\partial\phi}Y_{l, m}\left(\theta, \phi\right) &= -m\tan\left(\phi\right)Y_{l, m} - \sqrt{l^2 - m^2 + l - m}Y_{l, m + 1}\exp\left(-i\lambda\right).\label{eq:spherical_harmonic_deriv_theta_geo}
+\end{align}
+%
+Aus Glg. \eqref{eq:spherical_harmonic_deriv_phi} folgt
+%
+\begin{align}
+\frac{\partial}{\partial\lambda}Y_{l, m} &= imY_{l, m}.\label{eq:spherical_harmonic_deriv_phi_geo}
+\end{align}
+%
+Aus Glg. \eqref{eq:spherical_harm_prop_2} wird
+%
+\begin{align}
+\sin\left(\phi\right)Y_{l, m} &= \sqrt{\frac{l^2 - m^2}{4l^2 - 1}}Y_{l - 1, m} + \sqrt{\frac{\left(l + 1\right)^2 - m^2}{4\left(l + 1\right)^2 - 1}}Y_{l + 1, m}.\label{eq:spherical_harm_prop_2_geo}
+\end{align}
+%
+Aus Glg. \eqref{eq:spherical_harm_prop_3} wird
+%
+\begin{align}
+\cos\left(\phi\right)Y_{l, m} &= \sqrt{\frac{1}{4l^2 - 1}\left(l - m - 1\right)\left(l - m\right)}e^{-i\lambda}Y_{l - 1, m + 1}\nonumber\\
+&- \sqrt{\frac{1}{4l^2 + 8l + 3}\left(l + m + 1\right)\left(l + m + 2\right)}e^{-i\lambda}Y_{l + 1, m + 1}.\label{eq:spherical_harm_prop_3_geo}
+\end{align}
 
 \chapter{\normalfont\textsc{Geodäsie}}
 \label{chap:geodaesie}\index{Geodäsie}
