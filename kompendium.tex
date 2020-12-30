@@ -199,7 +199,7 @@ Der Leser soll Antworten finden auf Fragen wie
 %
 und wird eine mathematisch rigorose, aber keine didaktisch heruntergebrochene Vorstellung der Inhalte vorfinden; alle Voraussetzungen und Beschränkungen eines Konzepts werden klar als solche benannt. Die Herleitungen sind so kleinschrittig, dass für einen in der gymnasialen Schulmathematik souveränen Leser Nebenrechnungen nicht nötig sein sollten.
 
-Abgedeckt werden Dynamik, Strahlung, Wolkenmikrophysik und Numerik. In Teil \ref{part:physikalische_grundlagen} werden diejenigen physikalischen Grundlagen zusammengestellt, welche für das Verständnis der Atmosphäre wichtig sind. In Teil \ref{part:herrschende_gleichungen} wird versucht, ein Gleichungssystem zusammenzustellen, welches alle Prozesse in der Atmosphäre beschreibt. Anschließend werden die gesammelten Grundkenntnisse auf konkrete Teilbereiche atmosphärischer Theorie angewandt. In Teil \ref{part:dynamik} werden die Luftströmungen einer Planetenatmosphäre untersucht, was man als \textit{Dynamik} bezeichnet. In Abgrenzung hierzu geht es in Teil \ref{part:strahlung_und_wolkenmikrophysik} um die darüber hinausgehenden Bereiche Strahlung und Wolkenmikrophysik. \textit{Numerische Probleme} werden im fünften Teil behandelt. Im sechsten Teil wird ein \textit{dynamischer Kern} entwickelt. Im Anhang werden mathematische Grundlagen abgearbeitet.
+Abgedeckt werden Dynamik, Strahlung, Wolkenmikrophysik und Numerik. In Teil \ref{part:physikalische_grundlagen} werden diejenigen physikalischen Grundlagen zusammengestellt, welche für das Verständnis der Atmosphäre wichtig sind. In Teil \ref{part:herrschende_gleichungen} wird versucht, ein Gleichungssystem zusammenzustellen, welches alle Prozesse in der Atmosphäre beschreibt. Anschließend werden die gesammelten Grundkenntnisse auf konkrete Teilbereiche atmosphärischer Theorie angewandt. In Teil \ref{part:dynamik} werden theroretische Werkzeuge für die Behandlung von Luftströmungen einer Planetenatmosphäre zurechtgelegt, was man als \textit{Dynamik} bezeichnet. Im darauffolgenden Teil \ref{part:anwendungen_der_dynamik} wird diese Theorie auf konrete atmosphärische und auch ozeanische Probleme angewandt. In Abgrenzung hierzu geht es in Teil \ref{part:strahlung_und_wolkenmikrophysik} um die darüber hinausgehenden Bereiche Strahlung und Wolkenmikrophysik. \textit{Numerische Probleme} werden im sechsten Teil behandelt. Im siebten Teil wird ein \textit{dynamischer Kern} entwickelt. Im Anhang werden mathematische Grundlagen abgearbeitet.
 
 Als Einheitensystem wird das SI-System verwendet, außer in der Elektrodynamik, dort wird das cgs-System verwendet.
 %
@@ -13244,7 +13244,7 @@ h\frac{\partial q}{\partial t} + h\mathbf{v}\cdot\nabla q + q\frac{\partial h}{\
 \chapter{\normalfont\textsc{Wellen und Instabilitäten}}
 \label{chap:wellen_und_instabilitaeten}\index{Welle}\index{Instabilität}
 
-Die Bewegungsgleichungen haben Wellenlösungen. Diese erhält man durch Einsetzen eines komplexen harmonischen Ansatzes in das jeweilige Gleichungssystem und Suchen nach nichttrivialen Lösungen. Es findet eine Unterscheidung in barotrope und barokline Wellen statt. In diesem Kapitel werden die advektiven Terme linearisiert, um die Gleichungen leichter behandeln zu können, dabei wird gelegentlich aufgrund der klimatologischen Relevanz ein zonaler Grundstrom aufgenommen.
+Die Bewegungsgleichungen haben Wellenlösungen. Diese erhält man durch Einsetzen eines komplexen harmonischen Ansatzes $\mathbf{\psi}_0e^{-i\omega t}$ in das jeweilige Gleichungssystem und Suchen nach nichttrivialen Lösungen, hierbei ist $\mathbf{\psi}_0$ ein komplexer Amplitudenvektor. Gelegentlich wird aufgrund der klimatologischen Relevanz ein zonaler Grundstrom aufgenommen. Eine Lösung ist eine Instabilität, falls $\Im\left(\omega\right) > 0$ gilt, die Amplitude also exponentiell anwächst.
 
 \section{Kinematik}
 \label{sec:kinematik}\index{Kinematik!Welle}\index{Welle!Kinematik}
@@ -13267,7 +13267,7 @@ Eine Welle der Größe $a$ wird beschrieben durch eine Gleichung der Form
 a\left(x, t\right) = Af\left(kx - \omega t + \varphi\right).
 \end{align}
 %
-Dabei ist $f$ eine reell- oder komplexwertige, $2\pi-$periodische Funktion, d. h. $f\left(\xi + 2\pi\right) = f\left(\xi\right)$ für jedes $\xi\in\mathbb{R}$. Dies kann, muss aber keine trigonometrische Funktion sein. $f$ wird häufig komplexwertig gewählt, z. B. $f(x) = \exp(ix)$, falls dies die mathematische Beschreibung abkürzt oder anschaulicher macht. Bevor man jedoch Größen berechnet, die man mit Messgrößen vergleichen möchte, muss man allerdings alles auf die reelle Achse projizieren. Das Argument $kx - \omega t + \varphi$ nennt man auch die \textit{Phase} der Welle, in der komplexen Ebene ist dies der Winkel, den die Zahl mit der Realachse einschließt. $\varphi$ ist dabei die Phasenverschiebung, die ermöglicht, dass die Phase der Welle bei $x, t = 0$ nicht gleich Null ist. Man kann bei Herleitungen häufig auf $\varphi$ verzichten, indem man die Zeit- oder Ortskoordinate entsprechend verschiebt. $k$ und $\omega$ können auch imaginäre Anteile haben, so z. B. bei Wellen, die exponentiell in ein Medium hineinpropagieren (sog. \textit{evaneszente Wellen}\index{Welle!evaneszente}\index{evaneszente Welle}), oder bei Instabilitäten, bei denen die Amplitude über einen gewissen hinweg Zeitraum exponentiell anwächst. Genauso kann auch der Vorfaktor $A$ komplex sein, und so eine Phasenverschiebung beinhalten.
+Dabei ist $f$ eine reell- oder komplexwertige, $2\pi-$periodische Funktion, d. h. $f\left(\xi + 2\pi\right) = f\left(\xi\right)$ für jedes $\xi\in\mathbb{R}$. Dies kann, muss aber keine trigonometrische Funktion sein. $f$ wird häufig komplexwertig gewählt, z. B. $f(x) = \exp(ix)$, falls dies die mathematische Beschreibung abkürzt oder anschaulicher macht. Bevor man jedoch Größen berechnet, die man mit Messgrößen vergleichen möchte, muss man allerdings alles auf die reelle Achse projizieren. Das Argument $kx - \omega t + \varphi$ nennt man auch die \textit{Phase} der Welle, in der komplexen Ebene ist dies der Winkel, den die Zahl mit der Realachse einschließt. $\varphi$ ist dabei die Phasenverschiebung, die ermöglicht, dass die Phase der Welle bei $x, t = 0$ nicht gleich Null ist. Man kann bei Herleitungen häufig auf $\varphi$ verzichten, indem man die Zeit- oder Ortskoordinate entsprechend verschiebt. $k$ und $\omega$ können auch imaginäre Anteile haben, so z. B. bei Wellen, die exponentiell in ein Medium hineinpropagieren (sog. \textit{evaneszente Wellen}\index{Welle!evaneszente}\index{evaneszente Welle}), oder bei Instabilitäten, bei denen die Amplitude über einen gewissen Zeitraum hinweg exponentiell anwächst. Genauso kann auch der Vorfaktor $A$ komplex sein und so eine Phasenverschiebung beinhalten.
 
 Im Allgemeinen kann sich eine Welle auch in einem dreidimensionalen Raum fortpflanzen, in diesem Fall schreibt man zunächst allgemein
 %
@@ -16286,96 +16286,6 @@ Abb. \ref{fig:barokline_instabilitaet} zeigt die für unterschiedliche Wellenzah
 
 Bei der baroklinen Instabilität wird potentielle Energie der Schichtung, welche durch das Strahlungsfeld immer wieder neu erzeugt wird, in kinetische Energie des Horizontalwindes umgewandelt, bevor sie dissipiert wird.
 
-\chapter{\normalfont\textsc{Synoptik und Meso$-\alpha-$Sakla der Extratropen}}
-\label{chap:synoptik_und_meso-alpha-skala_der_extratropen}\index{Synoptik!der Extratropen}\index{Skala!Mesoskala}\index{Mesoskala}\index{Skala!Meso$-\alpha-$Skala}\index{Meso$-\alpha-$Skala}
-
-Die Gebiete zwischen den \index{Wendekreis}\textit{Wendekreisen}, die bei Breiten $\pm\beta$ liegen, werden als \index{Tropen}\textit{Tropen} bezeichnet, die Bereiche außerhalb dieses Streifens als \index{Extratropen}\textit{Extratropen}. Die Gebiete bei Breiten jenseits der \textit{Polarkreise}\index{Polarkreis}, die sich bei Breiten $\pm\left(\frac{\pi}{2} - \beta\right)$ befinden, werden als \index{Breiten!hohe}\index{hohe Breiten}\textit{hohe Breiten} bezeichnet. Die Bereiche zwischen den Tropen und den hohen Breiten bezeichnet man als \textit{mittlere Breiten}\index{mittlere Breiten}\index{Breiten!mittlere}. Die Dynamik der Extratropen unterscheidet sich wesentlich von der der Tropen, da in ersteren die diabatischen Flüsse durch die schwächere Konvektion und Strahlung kleiner sind und die geostrophische Annahme gerechtfertigter ist. Die Dynamik der Tropen enthält also gewisse Schwierigkeiten und wird daher separat in Kap. \ref{chap:tropische_dynamik} untersucht.
-
-\section{Quasigeostrophie}
-\label{sec:quasigeostrophie}\index{Quasigeostrophie}
-
-Die Geostrophie gilt in nullter Ordnung auf der synoptischen Skala in den Extratropen, Folgerungen daraus wurden in Absch. \ref{sec:geostrophie} besprochen. In Absch. \ref{sec:barokline_instabilitaet} wurde bereits das quasigeostrophische Gleichungssystem, bestehend aus Tendenzgleichung Glg. \eqref{eq:tendency_eq_pre} und $\omega-$Gleichung Ggl. \eqref{eq:omega_eq}, abgeleitet, welches auf zonale Kanäle in den Extratropen angewandt werden kann, deren meridionale Ausdehnung eine Anwendung der $\beta-$Ebenen-Approximation erlaubt. Es wurde gezeigt, dass die baroklinen Wellen, die man als Lösungen eines quasigeostrophischen linearisierten Zweischichtmodells findet, instabil sind. Der hierdurch angestoßene Prozess ist die Zyklogenese, was hier näher behandelt werden soll. Man definiert zunächst die \index{Geopotentialtendenz}\textit{Geopotentialtendenz}\index{Tendenz!des Geopotentials} durch
-%
-\begin{align}
-\chi \coloneqq \frac{\partial\phi}{\partial t}, \label{sec:tendency_def}
-\end{align}
-%
-\subsection{Tendenzgleichung}
-\label{sec:tendenzgleichung}\index{Tendenzgleichung}
-
-Mit Glg. \eqref{sec:tendency_def} kann man Glg. \eqref{eq:tendency_eq_pre} wie folgt umschreiben:
-%
-\begin{align}
-\underbrace{\vphantom{\left[\Delta + \frac{f_0^2}{\sigma}\frac{\partial^2}{\partial p^2}\right]\chi = -f_0v_g\beta - \mathbf{v}_{h, g}\cdot\nabla\left(\Delta\phi\right) - \frac{f_0^2}{\sigma}\frac{\partial}{\partial p}\left[\mathbf{v}_{h, g}\cdot\nabla\frac{\partial\phi}{\partial p}\right]}\left[\Delta + \frac{f_0^2}{\sigma}\frac{\partial^2}{\partial p^2}\right]\chi}_{=:A} = \underbrace{\vphantom{\left[\Delta + \frac{f_0^2}{\sigma}\frac{\partial^2}{\partial p^2}\right]\chi = -f_0v_g\beta - \mathbf{v}_{h, g}\cdot\nabla\left(\Delta\phi\right) - \frac{f_0^2}{\sigma}\frac{\partial}{\partial p}\left[\mathbf{v}_{h, g}\cdot\nabla\frac{\partial\phi}{\partial p}\right]} -f_0v_g\beta}_{=:B}\underbrace{\vphantom{\left[\Delta + \frac{f_0^2}{\sigma}\frac{\partial^2}{\partial p^2}\right]\chi = -f_0v_g\beta - \mathbf{v}_{h, g}\cdot\nabla\left(\Delta\phi\right) - \frac{f_0^2}{\sigma}\frac{\partial}{\partial p}\left[\mathbf{v}_{h, g}\cdot\nabla\frac{\partial\phi}{\partial p}\right]} -\mathbf{v}_{h, g}\cdot\nabla\left(\Delta\phi\right)}_{=:C} \underbrace{\vphantom{\left[\Delta + \frac{f_0^2}{\sigma}\frac{\partial^2}{\partial p^2}\right]\chi = -f_0v_g\beta - \mathbf{v}_{h, g}\cdot\nabla\left(\Delta\phi\right) - \frac{f_0^2}{\sigma}\frac{\partial}{\partial p}\left[\mathbf{v}_{h, g}\cdot\nabla\frac{\partial\phi}{\partial p}\right]} -\frac{f_0^2}{\sigma}\frac{\partial}{\partial p}\left[\mathbf{v}_h\cdot\nabla\frac{\partial\phi}{\partial p}\right]}_{=:D}\label{eq:tendency_eq_cyclogen}
-\end{align}
-%
-Dabei wurde im Term D eine Ableitung nach $p$ herausgezogen, wobei Glg. \eqref{eq:therm_wind} ausgenutzt wurde, da dies den Term anschaulicher macht. Diese Gleichung soll nun konzeptionell untersucht werden. Geht man davon aus, dass $\chi$ aus nur einer einzigen Fourier-Komponente im dreidimensionalen Raum besteht, folgt
-%
-\begin{align}
-\text{A} \sim -\chi \sim \text{Zyklogenese}, 
-\end{align}
-%
-\index{Zyklogenese} wobei mit Zyklogenese hier ein Absinken der Druckfläche gemeint ist. In den Extratropen findet man häufig meridionale Wellen, die einem zonalen Grundstrom $U$ überlagert sind, daher macht man für das Geopotential $\phi$ den Ansatz
-%
-\begin{align}
-\phi\left(x, y, p\right) = -Uf_0y + \frac{\newhat{v}f_0L}{2\pi}\sin\left(\frac{2\pi}{L}x\right)\sin\left(ap + b\right) + \phi_0\left(p\right), 
-\end{align}
-%
-wobei $\newhat{v}$ die Geschwindigkeitsamplitude der meridionalen Schwingung bezeichnet. Die linere Funktion $ap + b$ ermöglicht eine Phasenverschiebung der Störung mit der Höhe; $\varphi_0$ steht für einen Hintergrundzustand. Für den Term $B$ findet man in diesem Fall
-%
-\begin{align}
-B = -f_0\beta\newhat{v}\cos\left(\frac{2\pi}{L}x\right).
-\end{align}
-%
-Dieser Term führt also überall dort zu Zyklogenese, wo $v_g$ negativ ist, also stromaufwärts des Troges und stromabwärts des Rückens. Er trägt also zu retrograder Progression bei. Term $B$ ist die Advektion planetarer Vorticity. Für den Ausdruck C, welcher die Advektion relativer Vorticity ist, berechnet man zunächst
-%
-\begin{align}
-\Delta\phi = -\frac{2\pi}{L}\newhat{v}f_0\sin\left(\frac{2\pi}{L}x\right), 
-\end{align}
-%
-wobei daran erinnert sei, dass $\Delta\phi$ sich hier nur auf die Horizontale bezieht. Hieraus folgt
-%
-\begin{align}
-C = U\frac{4\pi^2}{L^2}\newhat{v}f_0\cos\left(\frac{2\pi}{L}x\right) = -\frac{2\pi U}{L\beta}B.
-\end{align}
-%
-Dieser Term führt also stromabwärts des Troges und stromaufwärts des Rückens zu Zyklogenese, anderswo zu Antizyklogenese\index{Antizyklogenese}. Er trägt also zu normaler Progression bei und nimmt mit der Wellenlänge ab. Bei einer Grenzwellenlänge
-%
-\begin{align}
-\newtilde{L} = \frac{2\pi U}{\beta}
-\end{align}
-%
-kompensieren sich $B$ und $C$, die Welle ist stationär. Noch längere Wellen propagieren retrograd. Beide Terme $B$ und $C$ verschwinden an den Achsen der Druckgebilde, also tragen sie ausschließlich zu deren Verlagerung bei, nicht jedoch zu ihrer Vertiefung. Hierfür ist der Term $D$ zuständig. Das Skalarprodukt $\mathbf{v}_h\cdot\nabla\frac{\partial\phi}{\partial p}$ ist die horizontale Temperaturadvektion, wie sich aus der hydrostatischen Grundgleichung in der Form Glg. \eqref{eq:hydrostatic_p} ergibt. Daher bezeichnet man $D$ auch als negative \textit{differenzielle Temperaturadvektion}\index{differenzielle Temperaturadvektion}\index{Temperaturadvektion!differenzielle}. Es gilt
-%
-\begin{align}
-D = \begin{cases}
-\text{postiv, falls Kaltluftadvektion mit der Tiefe zunimmt, }\\
-\text{negativ, falls Warmluftadvektion mit der Tiefe zunimmt.}
-\end{cases}
-\end{align}
-%
-Warmluftadvektion in der Höhe und Kaltluftadvektion in der Tiefe führt also zu Zyklogenese, während Kaltluftadvektion in der Höhe und Warmluftadvektion in der Tiefe zu Antizyklogenese führt. Dies ist anschaulich, da wärmere Luft ein größeres spezifisches Volumen hat.
-
-\subsection{$\omega-$Gleichung}
-\label{sec:omegagleichung}\index{$\omega-$Gleichung}
-
-\section{Semigeostrophie}
-\label{sec:semigeostrophie}\index{Semigeostrophie}
-
-Die semigeostrophische Annahme ist eine Relaxation der quasigeostrophischen Annahme. Als Teil des Lösungsspektrums erhält man Flächen im Raum besonderer Baroklinität, sogenannte \textit{Fronten}\index{Front}.
-
-\section{PV-Denken}
-\label{sec:pv-denken}\index{PV-Denken}\index{potentielle Vorticitiy}\index{Vorticity!potentielle}
-
-\chapter{\normalfont\textsc{Tropische Dynamik}}
-\label{chap:tropische_dynamik}\index{Dynamik!tropische}
-
-\section{Skalenanalyse}
-\label{sec:skalenanalyse}\index{Skalenanalyse!Tropen}
-
-\section{Zyklogenese}
-\label{sec:zyklogenese}\index{Zyklogenese}
-
 \chapter{\normalfont\textsc{Turbulenz}}
 \label{chap:turbulenz}\index{Turbulenz}
 
@@ -16569,7 +16479,6 @@ f'\left(x\right) &\coloneqq f\left(x\right) - \newoverline{f}\left(x\right) = \n
 &= \newtilde{C}\int_{-\infty}^{-k^\star}f\left(x\right)\exp\left(ikx\right)dk + \newtilde{C}\int_{k^\star}^{\infty}f\left(x\right)\exp\left(ikx\right)dk.
 \end{align}
 
-
 \section{Mischungswegansatz}
 \label{sec:mischungswegansatz}\index{Mischungswegansatz}
 
@@ -16604,6 +16513,7 @@ Daraus folgt
 \end{align}
 %
 Den Koeffizienten
+%
 \begin{align}
 A_z \coloneqq \rho\newoverline{l^2}\left|\frac{\partial\newoverline{\mathbf{v}_h}}{\partial z}\right|\label{eq:def_eddy_exchange_coeff}
 \end{align}
@@ -17616,7 +17526,7 @@ Definiere nun
 %
 \begin{align}
 \newtilde{Q}_v &\coloneqq -\Theta\left\{\newoverline{\rho_v}\left(t + \Delta t\right) - \rho_v^{(\text{sat})}\left[\newoverline{T}\left(t + \Delta t\right), \newoverline{p}\left(t + \Delta t\right)\right]\right\}\left\{\rho_v\left(t + \Delta t\right) - \rho_v^{(\text{sat})}\left[\newoverline{T}\left(t + \Delta t\right), \newoverline{p}\left(t + \Delta t\right)\right]\right\} \leq 0\nonumber\\
-& 
+&
 \end{align}
 %
 Dies ist der Quellterm, der sich ergeben würde, wenn man den Phasenübergang aus den gemittelten thermodynamischen Größen (in einem Modell wären dies die Werte in den Gitterboxen) heraus berechnen würde. Es gilt
@@ -17649,10 +17559,13 @@ Ein Modell hätte zunächst nur Kenntnis vom aufgelösten Anteil $\newtilde{Q}_v
 
 Nichtsdestotrotz veranschaulicht dieser Abschnitt, dass alle Arten von Parametrisierungen letzten Endes mit subskaliger Variabilität zu tun haben.  Im Fall $\Omega, \Delta t \to 0$ geht $\Delta Q_v$ gegen Null, was ebenfalls für alle Parametrisierungen der Fall ist.
 
+\part{Anwendungen der Dynamik}
+\label{part:anwendungen_der_dynamik}
+
 \chapter{\normalfont\textsc{Klimatologie der Atmosphäre}}
 \label{chap:klimatologie_der_atmosphaere}\index{Klimatologie!der Atmosphäre}
 
-In Absch. \ref{sec:barokline_instabilitaet} wurde gezeigt, dass ein starker thermischer Wind eine Voraussetzung für die Entstehung synoptischer Störungen in den mittleren Breiten ist. In der Realität stellt man fest, dass es Breiten besonders starker Baroklinität gibt, in denen in der Tropopausenregion ein Jet existiert. Diese Frontalzonen sind dementsprechend klassische Entstehungsgebiete von Tiefdruckgebieten (s. Kap. \ref{chap:synoptik_und_meso-alpha-skala_der_extratropen}). Unklar ist jedoch, warum diese Luftmassengrenzen überhaupt existieren. Aus der Intuition heraus wäre es naheliegender, anzunehmen, dass solche Zonen starker Gradienten durch irgendwelche Mechanismen abgebaut werden, spätestens durch Diffusion. Diese Unklarheit auszuräumen ist Ziel dieses Kapitels.
+In Absch. \ref{sec:barokline_instabilitaet} wird gezeigt, dass ein starker thermischer Wind eine Voraussetzung für die Entstehung synoptischer Störungen in den mittleren Breiten ist. In der Realität stellt man fest, dass es Breiten besonders starker Baroklinität gibt, in denen in der Tropopausenregion ein Jet existiert. Diese Frontalzonen sind dementsprechend klassische Entstehungsgebiete von Tiefdruckgebieten (s. Kap. \ref{chap:extratropische_dynamik}). Unklar ist jedoch, warum diese Luftmassengrenzen überhaupt existieren. Aus der Intuition heraus wäre es naheliegender, anzunehmen, dass solche Zonen starker Gradienten durch irgendwelche Mechanismen abgebaut werden, spätestens durch Diffusion. Diese Unklarheit auszuräumen ist Ziel dieses Kapitels.
 
 Statistische Größen des Erdsystems bezeichnet man als \textit{Klima}\index{Klima}, Zusammenstellungen derartiger Charakteristika nennt man \textit{Klimatologien}\index{Klimatologie}. Üblicherweise bildet man dabei 30-jährige Mittel. In diesem Kapitel soll es um zonale Mittel
 %
@@ -17803,6 +17716,98 @@ Die Flachwassergleichungen haben eine triviale vertikale Struktur: vertikale Sch
 
 \section{Konvektiv-radiatives Gleichgewicht}
 \label{sec:konvektiv-radiatives_gleichgewicht}\index{konvektiv-radiatives Gleichgewicht}\index{Gleichgewicht!konvektiv-radiatives}
+
+\chapter{\normalfont\textsc{Extratropische Dynamik}}
+\label{chap:extratropische_dynamik}\index{Dynamik!extratropische}
+
+Die Gebiete zwischen den \index{Wendekreis}\textit{Wendekreisen}, die bei Breiten $\pm\beta$ liegen, werden als \index{Tropen}\textit{Tropen} bezeichnet, die Bereiche außerhalb dieses Streifens als \index{Extratropen}\textit{Extratropen}. Die Gebiete bei Breiten jenseits der \textit{Polarkreise}\index{Polarkreis}, die sich bei Breiten $\pm\left(\frac{\pi}{2} - \beta\right)$ befinden, werden als \index{Breiten!hohe}\index{hohe Breiten}\textit{hohe Breiten} bezeichnet. Die Bereiche zwischen den Tropen und den hohen Breiten bezeichnet man als \textit{mittlere Breiten}\index{mittlere Breiten}\index{Breiten!mittlere}. Die Dynamik der Extratropen unterscheidet sich wesentlich von der der Tropen, da in ersteren die diabatischen Flüsse durch die schwächere Konvektion und Strahlung kleiner sind und die geostrophische Annahme gerechtfertigter ist. Die Dynamik der Tropen enthält also gewisse Schwierigkeiten und wird daher separat in Kap. \ref{chap:tropische_dynamik} untersucht.
+
+\section{Quasigeostrophie}
+\label{sec:quasigeostrophie}\index{Quasigeostrophie}
+
+Die Geostrophie gilt in nullter Ordnung auf der synoptischen Skala in den Extratropen, Folgerungen daraus wurden in Absch. \ref{sec:geostrophie} besprochen. In Absch. \ref{sec:barokline_instabilitaet} wurde bereits das quasigeostrophische Gleichungssystem, bestehend aus Tendenzgleichung Glg. \eqref{eq:tendency_eq_pre} und $\omega-$Gleichung Ggl. \eqref{eq:omega_eq}, abgeleitet, welches auf zonale Kanäle in den Extratropen angewandt werden kann, deren meridionale Ausdehnung eine Anwendung der $\beta-$Ebenen-Approximation erlaubt. Es wurde gezeigt, dass die baroklinen Wellen, die man als Lösungen eines quasigeostrophischen linearisierten Zweischichtmodells findet, instabil sind. Der hierdurch angestoßene Prozess ist die Zyklogenese, was hier näher behandelt werden soll. Man definiert zunächst die \index{Geopotentialtendenz}\textit{Geopotentialtendenz}\index{Tendenz!des Geopotentials} durch
+%
+\begin{align}
+\chi \coloneqq \frac{\partial\phi}{\partial t}, \label{sec:tendency_def}
+\end{align}
+%
+\subsection{Tendenzgleichung}
+\label{sec:tendenzgleichung}\index{Tendenzgleichung}
+
+Mit Glg. \eqref{sec:tendency_def} kann man Glg. \eqref{eq:tendency_eq_pre} wie folgt umschreiben:
+%
+\begin{align}
+\underbrace{\vphantom{\left[\Delta + \frac{f_0^2}{\sigma}\frac{\partial^2}{\partial p^2}\right]\chi = -f_0v_g\beta - \mathbf{v}_{h, g}\cdot\nabla\left(\Delta\phi\right) - \frac{f_0^2}{\sigma}\frac{\partial}{\partial p}\left[\mathbf{v}_{h, g}\cdot\nabla\frac{\partial\phi}{\partial p}\right]}\left[\Delta + \frac{f_0^2}{\sigma}\frac{\partial^2}{\partial p^2}\right]\chi}_{=:A} = \underbrace{\vphantom{\left[\Delta + \frac{f_0^2}{\sigma}\frac{\partial^2}{\partial p^2}\right]\chi = -f_0v_g\beta - \mathbf{v}_{h, g}\cdot\nabla\left(\Delta\phi\right) - \frac{f_0^2}{\sigma}\frac{\partial}{\partial p}\left[\mathbf{v}_{h, g}\cdot\nabla\frac{\partial\phi}{\partial p}\right]} -f_0v_g\beta}_{=:B}\underbrace{\vphantom{\left[\Delta + \frac{f_0^2}{\sigma}\frac{\partial^2}{\partial p^2}\right]\chi = -f_0v_g\beta - \mathbf{v}_{h, g}\cdot\nabla\left(\Delta\phi\right) - \frac{f_0^2}{\sigma}\frac{\partial}{\partial p}\left[\mathbf{v}_{h, g}\cdot\nabla\frac{\partial\phi}{\partial p}\right]} -\mathbf{v}_{h, g}\cdot\nabla\left(\Delta\phi\right)}_{=:C} \underbrace{\vphantom{\left[\Delta + \frac{f_0^2}{\sigma}\frac{\partial^2}{\partial p^2}\right]\chi = -f_0v_g\beta - \mathbf{v}_{h, g}\cdot\nabla\left(\Delta\phi\right) - \frac{f_0^2}{\sigma}\frac{\partial}{\partial p}\left[\mathbf{v}_{h, g}\cdot\nabla\frac{\partial\phi}{\partial p}\right]} -\frac{f_0^2}{\sigma}\frac{\partial}{\partial p}\left[\mathbf{v}_h\cdot\nabla\frac{\partial\phi}{\partial p}\right]}_{=:D}\label{eq:tendency_eq_cyclogen}
+\end{align}
+%
+Dabei wurde im Term D eine Ableitung nach $p$ herausgezogen, wobei Glg. \eqref{eq:therm_wind} ausgenutzt wurde, da dies den Term anschaulicher macht. Diese Gleichung soll nun konzeptionell untersucht werden. Geht man davon aus, dass $\chi$ aus nur einer einzigen Fourier-Komponente im dreidimensionalen Raum besteht, folgt
+%
+\begin{align}
+\text{A} \sim -\chi \sim \text{Zyklogenese}, 
+\end{align}
+%
+\index{Zyklogenese} wobei mit Zyklogenese hier ein Absinken der Druckfläche gemeint ist. In den Extratropen findet man häufig meridionale Wellen, die einem zonalen Grundstrom $U$ überlagert sind, daher macht man für das Geopotential $\phi$ den Ansatz
+%
+\begin{align}
+\phi\left(x, y, p\right) = -Uf_0y + \frac{\newhat{v}f_0L}{2\pi}\sin\left(\frac{2\pi}{L}x\right)\sin\left(ap + b\right) + \phi_0\left(p\right), 
+\end{align}
+%
+wobei $\newhat{v}$ die Geschwindigkeitsamplitude der meridionalen Schwingung bezeichnet. Die linere Funktion $ap + b$ ermöglicht eine Phasenverschiebung der Störung mit der Höhe; $\varphi_0$ steht für einen Hintergrundzustand. Für den Term $B$ findet man in diesem Fall
+%
+\begin{align}
+B = -f_0\beta\newhat{v}\cos\left(\frac{2\pi}{L}x\right).
+\end{align}
+%
+Dieser Term führt also überall dort zu Zyklogenese, wo $v_g$ negativ ist, also stromaufwärts des Troges und stromabwärts des Rückens. Er trägt also zu retrograder Progression bei. Term $B$ ist die Advektion planetarer Vorticity. Für den Ausdruck C, welcher die Advektion relativer Vorticity ist, berechnet man zunächst
+%
+\begin{align}
+\Delta\phi = -\frac{2\pi}{L}\newhat{v}f_0\sin\left(\frac{2\pi}{L}x\right), 
+\end{align}
+%
+wobei daran erinnert sei, dass $\Delta\phi$ sich hier nur auf die Horizontale bezieht. Hieraus folgt
+%
+\begin{align}
+C = U\frac{4\pi^2}{L^2}\newhat{v}f_0\cos\left(\frac{2\pi}{L}x\right) = -\frac{2\pi U}{L\beta}B.
+\end{align}
+%
+Dieser Term führt also stromabwärts des Troges und stromaufwärts des Rückens zu Zyklogenese, anderswo zu Antizyklogenese\index{Antizyklogenese}. Er trägt also zu normaler Progression bei und nimmt mit der Wellenlänge ab. Bei einer Grenzwellenlänge
+%
+\begin{align}
+\newtilde{L} = \frac{2\pi U}{\beta}
+\end{align}
+%
+kompensieren sich $B$ und $C$, die Welle ist stationär. Noch längere Wellen propagieren retrograd. Beide Terme $B$ und $C$ verschwinden an den Achsen der Druckgebilde, also tragen sie ausschließlich zu deren Verlagerung bei, nicht jedoch zu ihrer Vertiefung. Hierfür ist der Term $D$ zuständig. Das Skalarprodukt $\mathbf{v}_h\cdot\nabla\frac{\partial\phi}{\partial p}$ ist die horizontale Temperaturadvektion, wie sich aus der hydrostatischen Grundgleichung in der Form Glg. \eqref{eq:hydrostatic_p} ergibt. Daher bezeichnet man $D$ auch als negative \textit{differenzielle Temperaturadvektion}\index{differenzielle Temperaturadvektion}\index{Temperaturadvektion!differenzielle}. Es gilt
+%
+\begin{align}
+D = \begin{cases}
+\text{postiv, falls Kaltluftadvektion mit der Tiefe zunimmt, }\\
+\text{negativ, falls Warmluftadvektion mit der Tiefe zunimmt.}
+\end{cases}
+\end{align}
+%
+Warmluftadvektion in der Höhe und Kaltluftadvektion in der Tiefe führt also zu Zyklogenese, während Kaltluftadvektion in der Höhe und Warmluftadvektion in der Tiefe zu Antizyklogenese führt. Dies ist anschaulich, da wärmere Luft ein größeres spezifisches Volumen hat.
+
+\subsection{$\omega-$Gleichung}
+\label{sec:omegagleichung}\index{$\omega-$Gleichung}
+
+\section{Semigeostrophie}
+\label{sec:semigeostrophie}\index{Semigeostrophie}
+
+Die semigeostrophische Annahme ist eine Relaxation der quasigeostrophischen Annahme. Als Teil des Lösungsspektrums erhält man Flächen im Raum besonderer Baroklinität, sogenannte \textit{Fronten}\index{Front}.
+
+\section{PV-Denken}
+\label{sec:pv-denken}\index{PV-Denken}\index{potentielle Vorticitiy}\index{Vorticity!potentielle}
+
+\chapter{\normalfont\textsc{Tropische Dynamik}}
+\label{chap:tropische_dynamik}\index{Dynamik!tropische}
+
+Zwischen den Wendekreisen ist die Baroklinität im Allgemeinen deutlich kleiner als in den mittleren Breiten. Der Tagesgang ist stark ausgeprägt und wird von Konvektion dominiert.
+
+\section{Skalenanalyse}
+\label{sec:skalenanalyse}\index{Skalenanalyse!Tropen}
+
+\section{Zyklogenese}
+\label{sec:zyklogenese}\index{Zyklogenese}
 
 \chapter{\normalfont\textsc{Ozeanzirkulation}}
 \label{chap:ozeanzirkulation}\index{Ozeanzirkulation}
