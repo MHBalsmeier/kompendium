@@ -12068,7 +12068,7 @@ so gilt dies natürlich auch. An das Vektorpotential stellt man nun statt der Be
 und definiert eine \textit{Stromfunktion}\index{Stromfunktion} $\psi = \psi\left(\varphi, \lambda\right) \coloneqq - \mathbf{k}\cdot\mathbf{A}$. Dann gilt
 %
 \begin{align}
-\mathbf{v}_{h,{\text{nondiv}}} &= \nabla\times\left[-\mathbf{k}\psi\right]\stackrel{\text{ Glg. \eqref{eq:diff_op_rule_5}}}{=}\mathbf{k}\times\nabla\psi.
+\mathbf{v}_{h,{\text{nondiv}}} &= \nabla\times\left[-\mathbf{k}\psi\right]\stackrel{\text{ Glg. \eqref{eq:diff_op_rule_5}}}{=} \mathbf{k}\times\nabla\psi.\label{eq:v_h_streamf}
 \end{align}
 %
 Zur Überprüfung rechnet man
@@ -12423,8 +12423,8 @@ Dies ist sieben Größenordnungen stärker als die synoptischskalige Vorticityte
 \item um so stärker die Konvektion ist.
 \end{itemize}
 
-\subsubsection{Barotrope Vorticity-Gleichung}
-\label{sec:barotrope_vorticity-gleichung}\index{barotrope Vorticitygleichung}\index{Vorticitygleichung!barotrope}
+\subsubsection{Barotrope Vorticitygleichung}
+\label{sec:barotrope_vorticitygleichung}\index{barotrope Vorticitygleichung}\index{Vorticitygleichung!barotrope}
 
 Im barotropen Fall fällt der Solenoidterm weg, vernachlässigt man außerdem die vertikale Scherung des Horizontalwindes (s. Absch. \ref{sec:barotropie}), folgt
 %
@@ -12556,8 +12556,8 @@ Für den ersten Term gilt
 %
 Der Term des $\beta-$Effekts hat in mittleren Breiten eine Größenordnung von $10^{-6}$ 1/s. Daher ist eine häufig anzutreffende Näherung, in den Extratropen die Vorticity durch die geostrophische Vorticity zu nähern und den Term des $\beta-$Effektes zu vernachlässigen.
 
-\subsubsection{Barotrope Vorticity-Gleichung im p-System}
-\label{sec:barotrope_vorticity-gleichung_im_p-system}\index{barotrope Vorticitygleichung}\index{Vorticitygleichung!barotrope}
+\subsubsection{Barotrope Vorticitygleichung im p-System}
+\label{sec:barotrope_vorticitygleichung_im_p-system}\index{barotrope Vorticitygleichung}\index{Vorticitygleichung!barotrope}
 
 Streicht man in Glg. \eqref{eq:vorticity_p} die Reibung weg sowie alle Terme, die vertikale Gradienten beinhalten, erhält man 
 %
@@ -12580,10 +12580,10 @@ folgt somit
 Aufgrund von Glg. \eqref{eq:kont_p} gilt nun auch
 %
 \begin{align}
-\nabla\cdot\mathbf{v}_h = -\frac{\partial\omega}{\partial p} =  0.
+\nabla\cdot\mathbf{v}_h = -\frac{\partial\omega}{\partial p} =  0.\label{eq:div_free_baro_vort}
 \end{align}
 %
-Hieraus erhält man die \textit{barotrope Vorticity-Gleichung im p-System}\index{barotrope Vorticitygleichung}\index{Vorticitygleichung!barotrope}
+Hieraus erhält man die \textit{barotrope Vorticitygleichung im p-System}\index{barotrope Vorticitygleichung}\index{Vorticitygleichung!barotrope}
 %
 \begin{center}
 \doublebox{\parbox{\textwidth}{
@@ -12602,6 +12602,59 @@ Weitere Formen dieser Gleichung sind
 \frac{D_h\zeta}{Dt} &= -v\beta,\\
 \frac{D_h\eta}{Dt} &= 0.
 \end{align}
+%
+Aufgrund von Glg. \eqref{eq:div_free_baro_vort} kann man $\mathbf{v}_h$ durch eine Stromfunktion $\psi = \psi\left(\phi, \lambda\right)$ darstellen, also
+%
+\begin{align}
+\mathbf{v}_h &\stackrel{\text{Glg. \eqref{eq:v_h_streamf}}}{=} \mathbf{k}\times\nabla\psi = -\frac{\partial\psi}{\partial y}\mathbf{i} + \frac{\partial\psi}{\partial x}\mathbf{j} = -\frac{\partial\psi}{a\partial\phi}\mathbf{i} + \frac{\partial\psi}{a\cos\left(\phi\right)\partial\lambda}\mathbf{j}\nonumber\\
+\Rightarrow u &= -\frac{\partial\psi}{a\partial\phi},\\
+v &= \frac{\partial\psi}{a\cos\left(\phi\right)\partial\lambda}.
+\end{align}
+%
+Hieraus folgt
+%
+\begin{align}
+\zeta = \Delta\psi.
+\end{align}
+%
+Setzt man dies in Glg. \eqref{eq:baro_vort_p} ein, erhält man
+%
+\begin{align}
+\frac{\partial\zeta}{\partial t} &= -v\beta - u\frac{\partial\zeta}{a\cos\left(\phi\right)\partial\lambda} - v\frac{\partial\zeta}{a\partial\phi}\nonumber\\
+\Leftrightarrow\Delta\frac{\partial\psi}{\partial t} &= -\frac{\partial\psi}{a\cos\left(\phi\right)\partial\lambda}\beta + \frac{\partial\psi}{a\partial\phi}\frac{\partial\zeta}{a\cos\left(\phi\right)\partial\lambda} - \frac{\partial\psi}{a\cos\left(\phi\right)\partial\lambda}\frac{\partial\zeta}{a\partial\phi}\nonumber\\
+\Leftrightarrow\Delta\frac{\partial\psi}{\partial t} &= -\frac{\partial\psi}{a\cos\left(\phi\right)\partial\lambda}\beta + \frac{1}{a^2\cos\left(\phi\right)}\left(\frac{\partial\psi}{\partial\phi}\frac{\partial\zeta}{\partial\lambda} - \frac{\partial\psi}{\partial\lambda}\frac{\partial\zeta}{\partial\phi}\right)\nonumber\\
+\Leftrightarrow\Delta\frac{\partial\psi}{\partial t} &= -\frac{\partial\psi}{a\cos\left(\phi\right)\partial\lambda}\beta + \frac{1}{a^2\cos\left(\phi\right)}\left(\frac{\partial\psi}{\partial\phi}\Delta\frac{\partial\psi}{\partial\lambda} - \frac{\partial\psi}{\partial\lambda}\Delta\frac{\partial\psi}{\partial\phi}\right).
+\end{align}
+%
+Den Operator
+%
+\begin{align}
+J\left(\zeta, \psi\right) \coloneqq \frac{\partial\zeta}{\partial\lambda}\frac{\partial\psi}{\partial\phi} - \frac{\partial\zeta}{\partial\phi}\frac{\partial\psi}{\partial\lambda}
+\end{align}
+%
+bezeichnet man als \textit{Jacobi-Operator}\index{Jacobi-Operator}. Damit kann man die barotrope Vorticitygleichung in der Form
+%
+\begin{align}
+\Delta\frac{\partial\psi}{\partial t} &= -\frac{\partial\psi}{a\cos\left(\phi\right)\partial\lambda}\beta + \frac{1}{a^2\cos\left(\phi\right)}J\left(\Delta\psi, \psi\right)\label{eq:baro_vort_p_mod}
+\end{align}
+%
+notieren. Dies kann man noch vereinfachen, indem man es als Gleichung für die absolute Vorticity
+%
+\begin{align}
+\eta = \zeta + f = \Delta\psi + f
+\end{align}
+%
+formuliert. Dann erhält man
+%
+\begin{center}
+\doublebox{\parbox{\textwidth}{
+\begin{center}
+\begin{align}
+\frac{\partial\eta}{\partial t} &= \frac{1}{a^2\cos\left(\phi\right)}J\left(\eta, \psi\right).
+\end{align}
+\end{center}
+}}
+\end{center}
 
 \subsection{Helizität}
 \label{sec:helizität}\index{Helizität}
@@ -13545,15 +13598,27 @@ g \to g\left(1 + \frac{k^2\sigma}{\rho g}\right)
 %
 ersetzen, der Rest der Herleitung überträgt sich. Man erhält also die Dispersionsrelation der Kapillarwellen
 %
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 \begin{align}
 \omega^2 = kg\left(1 + \frac{k^2\sigma}{\rho g}\right)\tanh\left(kD\right).
 \end{align}
+\end{center}
+}}
+\end{center}
 %
 Im Fall sehr kurzer Wellen erhält man den Grenzfall
 %
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 \begin{align}
 \omega^2 &= \frac{k^3\sigma}{\rho} \Rightarrow c = \sqrt{\frac{2\pi\sigma}{\rho\lambda}}.
 \end{align}
+\end{center}
+}}
+\end{center}
 %
 In diesem Grenzfall sind Kapillarwellen also anormal dispergiert.
 
@@ -13889,6 +13954,107 @@ d = $24$ h ist die Dauer eines Tages. Typische Inertialperioden liegen also im G
 
 Da die totalen Ableitungen $\md{}$ verwendet wurden, wurde implizit eine Trajektorie ausgerechnet. Diese Trajektorie ist eine Kreisbahn, jedoch nur unter Annahme eines ortsunabhängigen Coriolis-Parameters. Im Allgemeinen sind die Teilchentrajektorien jedoch aufgrund des $\beta-$Effektes keine geschlossenen Kreisbahnen. Ebenso wurde \underline{kein} Windfeld $\mathbf{v}_h\left(\mathbf{r}, t\right)$ bestimmt.
 
+\subsection{Rossby-Wellen}
+\label{sec:rossbywellen}\index{barotrope Rossby-Welle}\index{Rossby-Welle!barotrope}
+
+Im vorigen Abschnitt \ref{sec:poincare-wellen} wurde von $\beta = 0$ ausgegangen. In diesem Fall sind die dort hergeleiteten Poincaré-Wellen die allgemeinsten Wellenlösungen. Eine neue Art der Wellen entsteht, wenn man die Breitenabhängigkeit von $f$ berücksichtigt.
+
+Man geht aus von einem homogenen zonalen Grundstrom $U$. Man nimmt $u_0 = 0$ an, außerdem geht man von $k_y = 0$ aus, die Störungen sollen nur x-abhängig sein. Man weiß schon jetzt:
+%
+\begin{itemize}
+\item Da $U$ homogen ist und $u_0 = 0$, $v = v\left(x, t\right)$ gelten, sind die Lösungen divergenzfrei.
+\end{itemize}
+%
+Daher kann man die barotrope Vorticitygleichung verwenden. Macht man den Ansatz
+%
+\begin{align}
+v = v_0\exp\left[i\left(kx - \omega t\right)\right]
+\end{align}
+%
+dann gelten
+%
+\begin{align}
+\zeta = ikv, && \frac{\partial\zeta}{\partial t} = k\omega v, && \frac{\partial\zeta}{\partial x} = -k^2v.
+\end{align}
+%
+Setzt man dies in die barotrope Vorticitygleichung ein, erhält man
+%
+\begin{align}
+k\omega v_0 &= Uk^2v_0 - v_0\beta\Leftrightarrow\omega = Uk - \frac{\beta}{k}.\label{eq:rossby_welle_barotrop_disp}
+\end{align}
+%
+Glg. \eqref{eq:rossby_welle_barotrop_disp} ist die Dispersionsrelation der Rossby-Wellen. Für ihre Phasengeschwindigkeit gilt
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+c = U - \frac{\beta}{k^2}.
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+Im hypothetischen Fall $U\to0$, $L = 2\pi a$ und $\varphi = 0$ gilt
+%
+\begin{align}
+\left|c\right| = 2\omega\frac{1}{a}\frac{4\pi^2 a^2}{4\pi^2} = 2\omega a = 930\:\frac{\text{m}}{\text{s}}.
+\end{align}
+%
+Dies ist eine betragsmäßige Beschränkung von $c$. Keine Welle kann sich schneller fortpflanzen als mit der Geschwindigkeit $2\omega a$, und schneller kann das System der herrschenden Gleichungen keine Information übertragen.
+
+\subsubsection{Anschauliches Verständnis}
+\label{sec:anschauliches_verstaendnis}
+
+\begin{figure}
+\centering
+\includegraphics[width = .6\textwidth]{figs/rossby_waves_vorticity.png}
+\caption{Veranschaulichung des Prinzips der Erhaltung der absoluten Vorticity. 1: $f$ maximal, $\zeta$ minimal, 2: $f = f_0$, $\zeta = 0$, 3: $f$ minimal, $\zeta$ maximal, 4: $f = f_0$, $\zeta = 0$. Man beachte auch, dass die Wellenlänge der Teilchentrajektorie größer ist, als die der Welle.}
+\label{fig:rossby_wellen_barotrop}
+\end{figure}
+
+Die y-Komponente der Impulsgleichung im Flachwassermodell lautet
+%
+\begin{align}
+\md{v} = -fu - g\frac{\partial\eta}{\partial y}.\label{eq:momentum_swe_y}
+\end{align}
+%
+Mache für $f$ eine lineare Taylor-Entwicklung
+%
+\begin{align}
+f = f_0 + \beta y.
+\end{align}
+%
+Ein homogener zonaler Grundstrom $U$ kann geostrophisch balanciert werden durch eine Oberflächenauslenkung
+%
+\begin{align}
+0 = -f_0U - g\frac{\partial\eta}{\partial y}.
+\end{align}
+%
+In diesem Fall wird Glg. \eqref{eq:momentum_swe_y} zu
+%
+\begin{align}
+\md{^2y}{t^2} = -\beta U y.
+\end{align}
+%
+Dies entspricht einem harmonischen Oszillator mit der Eigenfrequenz
+%
+\begin{align}
+\omega_{\text{ind}} = \sqrt{\beta U}.
+\end{align}
+%
+Daher muss $U>0$ westlich sein. Die Eigenfrequenz wurde mit einem Index $\text{ind}$ gekennzeichnet, da es sich um die individuelle Schwingungsfrequenz der Teilchen und nicht um die Frequenz $\omega$ der Welle handelt.
+
+Eine weitere anschauliche Erklärung ergibt sich aus der barotropen Vorticitygleichung, diese lautet
+%
+\begin{align}
+f + \zeta = \text{const}.
+\end{align}
+%
+Wird ein Teilchen von seiner Ruhelage auf der Nordhalbkugel bei vorhandenem westlichen Grundstrom nach Norden ausgelenkt, so nimmt $f$ zu. Daher muss $\zeta$ abnehmen und das Teilchen erhält antizyklonale relative Vorticity. Anschließend schwingt es über seine Ruhelage hinaus nach Süden, wobei $f$ abnimmt. Daher erhält das Teilchen zyklonale relative Vorticity und schwenkt wieder nach Norden. Der Mechanismus der barotropen Rossby-Wellen ist also die Erhaltung der absoluten Vorticity, s. auch Abb. \ref{fig:rossby_wellen_barotrop}.
+
+Barotrope Rossby-Wellen sind trotz der umfassenden Vereinfachungen (Barotropie und Divergenzfreiheit) in der Atmosphäre und im Ozean relevant. In der Atmosphäre sind sie aufgrund ihrer Divergenzfreiheit am ehesten auf die mittlere Troposphäre anwendbar, sie liefern eine einfache Betrachtung des meandernden Polarjets. Hierbei wird häufig der Begriff der Wellenzahl verwendet, eine Welle der Wellenzahl $n$ hat eine zonale räumliche Periode von $\frac{2\pi}{n}$ als Winkel. Rossby-Wellen breiten sich im Ozean aufgrund des geringen östlichen (nach Osten gerichteten) Grundstroms immer nach Westen aus (es ist $\beta\geq0$ auf der gesamten Erde).
+
 \subsection{Kelvin-Wellen}
 \label{sec:kelvin-wellen}\index{Kelvin-Welle}
 
@@ -13952,23 +14118,41 @@ k_y = \pm\kappa.\label{eq:kelvin_deriv_3}
 %
 Dies ergibt umgeformt
 %
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 \begin{align}
 \omega = \pm k_y\sqrt{gH}.
 \end{align}
+\end{center}
+}}
+\end{center}
 %
 Mit Glg. \eqref{eq:kelvin_deriv_1} folgt
 %
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 \begin{align}
 k_x = \mp if\frac{1}{\sqrt{gH}}.
 \end{align}
+\end{center}
+}}
+\end{center}
 %
 $\eta$ darf als Funktion des Abstands von der Küste nicht exponentiell ansteigen, daher gilt bei $f > 0$ das negative Vorzeichen in Glg. \eqref{eq:kelvin_deriv_3}, bei $f < 0$ das positive. Auf der Nordhalbkugel hat die Kelvin-Welle die Küste also rechts von der Ausbreitungsrichtung, auf der Südhalbkugel links.
 
 Die Penetrationslängen $l$ der Kelvin-Wellen ergeben sich zu
 %
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 \begin{align}
 l = l\left(f, H\right) = \frac{2\pi\sqrt{gH}}{\left|f\right|} = 2\pi R_o
 \end{align}
+\end{center}
+}}
+\end{center}
 %
 mit dem in Glg. \eqref{eq:def_baro_ro_r} definierten Rossby-Radius $R_o$.
 
@@ -14052,9 +14236,15 @@ k_y = \frac{1}{\omega}\beta yik_x = \pm i\frac{\beta y}{\sqrt{gH}}.
 %
 Nur das Pluszeichen kommt in Frage. Die Lösung lautet also
 %
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 \begin{align}
 \eta = \newhat{\eta}\exp\left[i\left(k_xx + i\frac{\beta y^2}{\sqrt{gH}} - \sqrt{gH}k_xt\right)\right].
 \end{align}
+\end{center}
+}}
+\end{center}
 %
 Um die meridionale Ausdehnung $y_0$ dieser Wellen abzuschätzen, setzt man
 %
@@ -14070,100 +14260,53 @@ y_0 =\sqrt{R\frac{\sqrt{gH}}{2\omega}} = 2071\text{ km}
 %
 mit $R$ als Äquatorradius und $H = 1$ km.
 
-\subsection{Rossby-Wellen}
-\label{sec:rossbywellen}\index{barotrope Rossby-Welle}\index{Rossby-Welle!barotrope}
+\subsection{Rossby-Haurwitz-Moden}
+\label{sec:rossby-haurwitz-moden}\index{Rossby-Haurwitz-Mode}
 
-Im vorigen Abschnitt \ref{sec:poincare-wellen} wurde von $\beta = 0$ ausgegangen. In diesem Fall sind die dort hergeleiteten Poincaré-Wellen die allgemeinsten Wellenlösungen. Eine neue Art der Wellen entsteht, wenn man die Breitenabhängigkeit von $f$ berücksichtigt.
-
-Man geht aus von einem homogenen zonalen Grundstrom $U$. Man nimmt $u_0 = 0$ an, außerdem geht man von $k_y = 0$ aus, die Störungen sollen nur x-abhängig sein. Man weiß schon jetzt:
-%
-\begin{itemize}
-\item Da $U$ homogen ist und $u_0 = 0$, $v = v\left(x, t\right)$ gelten, sind die Lösungen divergenzfrei.
-\end{itemize}
-%
-Daher kann man die barotrope Vorticitygleichung verwenden. Macht man den Ansatz
+\textit{Rossby-Haurwitz-Moden} sind die Eigenmoden der barotropen Vorticitygleichung Glg. \eqref{eq:baro_vort_p} auf der Kugel. Daher wird in diesem Abschnitt die Notation aus Absch. \ref{sec:barotrope_vorticitygleichung_im_p-system} übernommen. Kugelflächenfunktionen $Y_{l, m}\left(\phi, \lambda\right)$ mit $l \geq 0$ und $-l \leq m \leq l$ erfüllen
 %
 \begin{align}
-v = v_0\exp\left[i\left(kx - \omega t\right)\right]
+\Delta Y_{l, m} \stackrel{\text{Glg. \eqref{eq:spherical_harm_prop_1}}}{=} -\frac{l\left(l + 1\right)}{a^2}Y_{l, m}.
 \end{align}
 %
-dann gelten
+Macht man für die Stromfunktion $\psi = \psi\left(\phi, \lambda, t\right)$ den Ansatz
 %
 \begin{align}
-\zeta = ikv, && \frac{\partial\zeta}{\partial t} = k\omega v, && \frac{\partial\zeta}{\partial x} = -k^2v.
+\psi = Y_{l, m}e^{-i\omega t},\label{eq:rossby-haurwitz_ansatz}
 \end{align}
 %
-Setzt man dies in die barotrope Vorticitygleichung ein, erhält man
+folgt daraus
 %
 \begin{align}
-k\omega v_0 &= Uk^2v_0 - v_0\beta\Leftrightarrow\omega = Uk - \frac{\beta}{k}.\label{eq:rossby_welle_barotrop_disp}
+J\left(\zeta, \psi\right) = J\left(\Delta\psi, \psi\right) \propto \frac{\partial\psi}{\partial\lambda}\frac{\partial\psi}{\partial\phi} - \frac{\partial\psi}{\partial\phi}\frac{\partial\psi}{\partial\lambda} = 0.
 \end{align}
 %
-Glg. \eqref{eq:rossby_welle_barotrop_disp} ist die Dispersionsrelation der Rossby-Wellen. Für ihre Phasengeschwindigkeit gilt
+Setzt man Glg. \eqref{eq:rossby-haurwitz_ansatz} in die barotrope Vorticitygleichung in der Form Glg. \eqref{eq:baro_vort_p_mod} ein, erhält man somit
 %
 \begin{align}
-c = U - \frac{\beta}{k^2}.
+\Delta\frac{\partial\psi}{\partial t} &= -\frac{\partial\psi}{a\cos\left(\phi\right)\partial\lambda}\beta + \frac{1}{a^2\cos\left(\phi\right)}J\left(\Delta\psi, \psi\right) = -\frac{\partial\psi}{a\cos\left(\phi\right)\partial\lambda}\beta\nonumber\\
+\Delta\frac{\partial\psi}{\partial t} &= -\frac{\partial\psi}{a^2\cos\left(\phi\right)\partial\lambda}2\omega\cos\left(\phi\right) = -\frac{\partial\psi}{a^2\partial\lambda}2\Omega\nonumber\\
+\Rightarrow-i\omega l\frac{l\left(l + 1\right)}{a^2} &= -\frac{2\Omega}{a^2}im\nonumber\\
+\Rightarrow\omega\frac{l\left(l + 1\right)}{a^2} &= \frac{2\Omega}{a^2}m\label{eq:rossby-haurwitz_disprel_deriv}
 \end{align}
 %
-Im hypothetischen Fall $U\to0$, $L = 2\pi a$ und $\varphi = 0$ gilt
+Hieraus folgt die Dispersionsrelation der Rossby-Haurwitz-Moden:
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\omega\left(l, m\right) = \frac{m}{l\left(l + 1\right)}2\Omega\label{eq:rossby-haurwitz_disprel}
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+Im Fall $l = 0$ ist $m = 0$ und Glg. \eqref{eq:rossby-haurwitz_disprel_deriv} ist für jedes $\omega$ erfüllt. Aus Glg. \eqref{eq:rossby-haurwitz_disprel} folgt
 %
 \begin{align}
-\left|c\right| = 2\omega\frac{1}{a}\frac{4\pi^2 a^2}{4\pi^2} = 2\omega a = 930\:\frac{\text{m}}{\text{s}}.
+-\frac{1}{\left(l + 1\right)}2\Omega \leq \omega\left(l, m\right) \leq \frac{1}{\left(l + 1\right)}2\Omega.
 \end{align}
-%
-Dies ist eine betragsmäßige Beschränkung von $c$. Keine Welle kann sich schneller fortpflanzen als mit der Geschwindigkeit $2\omega a$, und schneller kann das System der herrschenden Gleichungen keine Information übertragen.
-
-\subsubsection{Anschauliches Verständnis}
-\label{sec:anschauliches_verstaendnis}
-
-\begin{figure}
-\centering
-\includegraphics[width = .6\textwidth]{figs/rossby_waves_vorticity.png}
-\caption{Veranschaulichung des Prinzips der Erhaltung der absoluten Vorticity. 1: $f$ maximal, $\zeta$ minimal, 2: $f = f_0$, $\zeta = 0$, 3: $f$ minimal, $\zeta$ maximal, 4: $f = f_0$, $\zeta = 0$. Man beachte auch, dass die Wellenlänge der Teilchentrajektorie größer ist, als die der Welle.}
-\label{fig:rossby_wellen_barotrop}
-\end{figure}
-
-Die y-Komponente der Impulsgleichung im Flachwassermodell lautet
-%
-\begin{align}
-\md{v} = -fu - g\frac{\partial\eta}{\partial y}.\label{eq:momentum_swe_y}
-\end{align}
-%
-Mache für $f$ eine lineare Taylor-Entwicklung
-%
-\begin{align}
-f = f_0 + \beta y.
-\end{align}
-%
-Ein homogener zonaler Grundstrom $U$ kann geostrophisch balanciert werden durch eine Oberflächenauslenkung
-%
-\begin{align}
-0 = -f_0U - g\frac{\partial\eta}{\partial y}.
-\end{align}
-%
-In diesem Fall wird Glg. \eqref{eq:momentum_swe_y} zu
-%
-\begin{align}
-\md{^2y}{t^2} = -\beta U y.
-\end{align}
-%
-Dies entspricht einem harmonischen Oszillator mit der Eigenfrequenz
-%
-\begin{align}
-\omega_{\text{ind}} = \sqrt{\beta U}.
-\end{align}
-%
-Daher muss $U>0$ westlich sein. Die Eigenfrequenz wurde mit einem Index $\text{ind}$ gekennzeichnet, da es sich um die individuelle Schwingungsfrequenz der Teilchen und nicht um die Frequenz $\omega$ der Welle handelt.
-
-Eine weitere anschauliche Erklärung ergibt sich aus der barotropen Vorticitygleichung, diese lautet
-%
-\begin{align}
-f + \zeta = \text{const}.
-\end{align}
-%
-Wird ein Teilchen von seiner Ruhelage auf der Nordhalbkugel bei vorhandenem westlichen Grundstrom nach Norden ausgelenkt, so nimmt $f$ zu. Daher muss $\zeta$ abnehmen und das Teilchen erhält antizyklonale relative Vorticity. Anschließend schwingt es über seine Ruhelage hinaus nach Süden, wobei $f$ abnimmt. Daher erhält das Teilchen zyklonale relative Vorticity und schwenkt wieder nach Norden. Der Mechanismus der barotropen Rossby-Wellen ist also die Erhaltung der absoluten Vorticity, s. auch Abb. \ref{fig:rossby_wellen_barotrop}.
-
-Barotrope Rossby-Wellen sind trotz der umfassenden Vereinfachungen (Barotropie und Divergenzfreiheit) in der Atmosphäre und im Ozean relevant. In der Atmosphäre sind sie aufgrund ihrer Divergenzfreiheit am ehesten auf die mittlere Troposphäre anwendbar, sie liefern eine einfache Betrachtung des meandernden Polarjets. Hierbei wird häufig der Begriff der Wellenzahl verwendet, eine Welle der Wellenzahl $n$ hat eine zonale räumliche Periode von $\frac{2\pi}{n}$ als Winkel. Rossby-Wellen breiten sich im Ozean aufgrund des geringen östlichen (nach Osten gerichteten) Grundstroms immer nach Westen aus (es ist $\beta\geq0$ auf der gesamten Erde).
 
 \subsection{Ozeanische Tide}
 \label{sec:ozeanische_tide}\index{Tide!ozeanische}
