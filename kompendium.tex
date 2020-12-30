@@ -7149,6 +7149,9 @@ Also ist $q - q' = 0$ für den Grenzfall $t\to 0$. Für die Phasenübergangsrate
 \chapter{\normalfont\textsc{Kontinuitätsgleichungen}}
 \label{chap:kontinuitätsgleichungen}\index{Kontinuitätsgleichung}
 
+\section{Grundlagen}
+\label{sec:grundlagen_kont}
+
 Die Kontinuitätsgleichung ist die Bilanzgleichung der Masse. Sei $\Omega\subseteq\mathbb{R}^3$ eine offene Teilmenge, $\rho$ eine Dichte und $\mathbf{j}$ die entsprechende Flussdichte. Dann gilt mit dem Gauß'schen Satz und einer Quelldichte $Q$
 %
 \begin{align}
@@ -7194,7 +7197,12 @@ Die $D_d, D_v$ sind die Diffusionskoeffizienten für trockene bzw. feuchte Luft.
 Q_d = 0
 \end{align}
 %
-festhalten. Nun sollen die $Q_x$ in den Glg.en \eqref{eq:kont_d_pre} - \eqref{eq:kont_i_pre} genauer angegeben werden. Es gibt fünf Prozesse, die zu ihnen beitragen:
+festhalten.
+
+\section{Spezifizierung der Quelterme}
+\label{sec:spezifizierung_der_quellterme}
+
+Nun sollen die $Q_x$ in den Glg.en \eqref{eq:kont_d_pre} - \eqref{eq:kont_i_pre} genauer angegeben werden. Es gibt fünf Prozesse, die zu ihnen beitragen:
 %
 \begin{itemize}
 \item Diffusion
@@ -7211,6 +7219,9 @@ Q_d = D_d\Delta\rho_d
 \end{align}
 %
 gilt.
+
+\subsection{Kollisionen}
+\label{sec:kollisionen}
 
 Treffen sich zwei Partikel der Kondensatklassen $j$ und $k$, so kann man eine Wahrscheinlichkeit $0\leq P_{j, k}\leq 1$ dafür angeben, dass sie danach einen Partikel bilden. Dieser hat eine wohldefinierte Klasse $R_{j, k}$. Weiterhin sei $\sigma_{j, k}$ der Wirkungsquerschnitt der Kollisionen von Partikeln der Klassen $j$ und $k$. Sind $j$ beispielsweise Kugeln mit Radius $r_j$ und $k$ Kugeln mit Radius $r_k$, so gilt $\sigma_{j, k} = \pi\left(r_j + r_k\right)^2$. Die gemittelte Relativgeschwindigkeit zwischen den Teilchen der Klassen $j$ und $k$ sei $\newoverline{v_{\text{rel}}}\left(j, k\right)$. Dann durchfliegt ein Partikel der Klasse $j$ in der Zeit $t$ relativ zu den Partikeln der Klasse $k$ ein Volumen $\sigma_{j, k}\newoverline{v_{\text{rel}}}\left(j, k\right)t$. Die mittlere Stoßzeit $\tau_{j, k}$ ist dadurch definiert, dass man fordert, dass sich in diesem Volumen genau ein Teilchen der Klasse $k$ aufhält, also
 %
@@ -7238,6 +7249,9 @@ Q_i^{(\text{Kollisionen})} = \newtilde{m}_i\sum_{j}\sum_{k\leq j}^{}\sigma_{j, k
 %
 Dies erfordert wegen Massenerhaltung, dass die Teilchenmassen $\newtilde{m}_i$ ganzzahlige Vielfache einer minimalen Masse sind, damit bei Kollisionen keine Masse artifiziell verschwindet oder entsteht.
 
+\subsection{Zerfälle}
+\label{sec:zerfälle}
+
 Nun werden Zerfallsprozesse untersucht. Für die Änderung einer Teilchendichte $n_j$ durch Zerfälle gilt
 %
 \begin{align}
@@ -7255,14 +7269,25 @@ wobei $Z_{j, j, l} = Z_{j, k, j} = 0$ sein soll, das heißt das Produkt eines Ze
 \begin{align}
 Q_i^{\left(\text{Zerfälle}\right)} = \newtilde{m}_i\sum_{j}\sum_{k}\sum_{l\leq k}^{}\lambda_j n_j Z_{j, k, l}\left(\delta_{i, k} + \delta_{i, l} - \delta_{j, i}\right).
 \end{align}
-%
-Abschließend werden Phasenübergänge behandelt. Diese können auf drei Arten stattfinden. Erstens können Kondensation und Resublimation direkt zum Entstehen neuer Teilchen der Klasse $i$ führen bzw. können Verdampfung und Sublimation zu deren Zerstörung führen. Die entsprechenden Massenflussdichten werden mit $\newtilde{q}_{v, i}'$ im ersten und $\newtilde{q}_{i, v}'$ im zweiten Fall bezeichnet. Durch diesen Prozess erhält man Terme
+
+\section{Phasenübergänge}
+\label{sec:phasenübergänge}
+
+Abschließend werden Phasenübergänge behandelt. Diese können auf zwei Arten stattfinden.
+
+\subsection{Kondensation und Resublimation}
+\label{sec:kondensation_und_resublimation}
+
+Erstens können Kondensation und Resublimation direkt zum Entstehen neuer Teilchen der Klasse $i$ führen bzw. können Verdampfung und Sublimation zu deren Zerstörung führen. Die entsprechenden Massenflussdichten werden mit $\newtilde{q}_{v, i}'$ im ersten und $\newtilde{q}_{i, v}'$ im zweiten Fall bezeichnet. Durch diesen Prozess erhält man Terme
 %
 \begin{align}
 Q_v^{\left(\pm\text{Entstehung}\right)} &= \sum_{j}^{}\newtilde{q}_{j, v}' - \newtilde{q}_{v, j}',\\
 Q_i^{\left(\pm\text{Entstehung}\right)} &= \newtilde{q}_{v, i}' - \newtilde{q}_{i, v}'.
 \end{align}
-%
+
+\subsection{Wachstum}
+\label{sec:wachstum}
+
 Große Kondensationsprodukte wie Hagelkörner entstehen nicht instantan, sondern sie wachsen, u. a. durch Kondensation bzw. Resublimation von Wasserdampf an kleineren Partikeln. In umgekehrter Weise können sie auch wieder vergehen. Während eines Zeitintervalls $\Delta t$ kondensiere oder resublimiere innerhalb eines Volumens $\Delta V$ eine Masse $m_i$ an Partikeln der Klasse $i$. Diese wachsen dadurch und werden schwerer, jedoch wurde in Kap. \ref{chap:zustand_der_atmosphaere} festgelegt, dass alle Partikel der Klasse $i$ die gleiche Masse $\newtilde{m}_i$ haben sollen. Ist dies der einzige Prozess der stattfindet, gilt wegen Massenerhaltung
 %
 \begin{align}
@@ -7283,12 +7308,18 @@ Dies ist zunächst verwirrend, weil durch Kondensation an Partikeln $i$ die Dich
 %
 wobei $d\left(i\right)$ die Kondensatklasse ist, die aus $i$ durch Schrumpfung entsteht.
 
+\subsection{Gefrieren und Schmelzen}
+\label{sec:gefrieren_und_schmelzen}
+
 Drittens können sich Kondensate durch Gefrieren oder Schmelzen ineinander Umwandeln, die entsprechenden Quellstärken seien mit $\newtilde{q}_{j, k}'''$ bezeichnet. Man erhält
 %
 \begin{align}
 Q_i^{\left(\text{Umwandlung}\right)} = \sum_{j}\newtilde{q}_{j, i}''' - \newtilde{q}_{i, j}'''.
 \end{align}
-%
+
+\section{Zusammenfassung}
+\label{sec:zusammenfassung_kont}
+
 Die Quellstärken stellen sich zusammenfassend folgendermaßen dar:
 %
 \begin{center}
@@ -7319,6 +7350,9 @@ P_i = -j_i\left(z_{\text{SFC}}\right),
 \end{align}
 %
 wobei sich SFC auf die Erdoberfläche bezieht. Diese Gleichungen sind auch auf Aerosole anwendbar.
+
+\subsection{Umrechnung auf spezifische Größen}
+\label{sec:umrechnung_auf_spezifische_größen}
 
 Häufig wird auch die spezifische Feuchte\index{spezifische Feuchte}\index{Feuchte!spezfische} $q = \rho_i/\rho$ verwendet (Def. s. Glg. \eqref{eq:def_spec_humidity}), da sie im Falle einer mit dem Windfeld advehierten Komponente $i$ eine Erhaltungsgröße ist:
 %
@@ -8534,6 +8568,8 @@ T = \beta\rho^{R_s/c^{(v)}}\exp\left(\frac{\newtilde{s}}{c^{(v)}\rho}\right)
 \end{center}
 %
 notieren. Dies ist die Zustandsgleichung idealer Gase in Entropieformulierung\index{Zustandsgleichung idealer Gase!Entropieformulierung}.
+
+Die in diesem Abschnitt hergeleiteten Formen des Ersten Hauptsatzes der Thermodynamik sind Evolutionsgleichungen für die Entropie und sehen daher eher aus wie eine Formulierung des Zweiten Hauptsatzes. Sie wurden jedoch rein aus dem Ersten Hauptsatz und der thermischen Zustandsgleichung idealer Gase hergeleitet. Die Zustandsgleichung selber ist jedoch aus der Zustandsfunktion heraus abgeleitet worden, welche dieselbe Information enthält wie die Entropie. Dementsprechend ist es zu erwarten, dass die in diesem Abschnitt hergeleiteten Gleichungen eng mit dem Zweiten Hauptsatz zusammenhängen. Dies darf jedoch nicht darüber hinwegtäuschen, dass der Erste und Zweite Hauptsatz unabhängige Aussagen sind, und nicht die eine aus der anderen heraus beweisbar ist. In Absch. \ref{sec:reversible_trockene_atmosphaere} wird gezeigt werden, dass eine thermodynamische Größe, welche bei adiabatischen Vorgängen im idealen Gas erhalten ist, eine Bijektion der spezifischen Entropie ist.
 
 \subsubsection{Potentielle Temperatur als prognostische Variable}
 \label{sec:potentielle_temperatur_als_prognostische_variable}
