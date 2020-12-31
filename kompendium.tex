@@ -8310,6 +8310,12 @@ c^{(v)}\md{T} - \frac{p}{\rho^2}\md{\rho} = \frac{q_T^{(V)}}{\rho} - \frac{sT}{\
 }}
 \end{center}
 %
+Eine andere Form dieser Gleichung ist
+%
+\begin{align}
+p\md{\alpha} = -c^{(v)}\md{T} + \frac{q_T^{(V)}}{\rho} - \frac{sT}{\rho}q_\rho^{(V)}.\label{eq:td1_ideal_gas_alpha}
+\end{align}
+%
 Mittels der Kontinuitätsgleichung in der Form
 %
 \begin{align}
@@ -8578,12 +8584,6 @@ Die \textit{potentielle Temperatur}\index{Temperatur!potentielle}\index{potentie
 %
 \begin{align}
 p_0 = p\left(\frac{V}{V_0}\right)^\kappa = p\left(\frac{Tp_0}{p\theta}\right)^\kappa\Leftrightarrow T_0^\kappa = T^\kappa\left(\frac{p_0}{p}\right)^{\kappa - 1}\Leftrightarrow \theta = T\left(\frac{p_0}{p}\right)^\frac{R_s}{c^{(p)}}\label{eq:pot_temp}
-\end{align}
-%
-Dies kann man nutzen, um die Definition des Stabilitätsparameters $S_p$ Glg. \eqref{eq:def_stabilitaetsparameter} zu vereinfachen:
-%
-\begin{align}
-- \frac{T}{\theta}\frac{\partial \theta}{\partial p} &= -\frac{T}{\theta}\left(\frac{\partial T}{\partial p} - T\frac{1}{p}\frac{R_s}{c^{(p)}}\right)\left(\frac{p_0}{p}\right)^{\frac{R_s}{c^{(p)}}} = \frac{R_sT}{c^{(p)}p} - \frac{\partial T}{\partial p} = S_p\label{eq:stabilitaetspara_vereinfacht}
 \end{align}
 %
 Man erhält für die potentielle Dichte $\rho_\theta$ den Ausdruck
@@ -10031,80 +10031,8 @@ Im p-System verwendet man den Druck $p$ als Vertikalkoordinate, was bei Hydrosta
 \md{\psi} = \frac{\partial\psi}{\partial t} + u\frac{\partial\psi}{\partial x} + v\frac{\partial\psi}{\partial y} + \omega\frac{\partial\psi}{\partial p}.
 \end{align}
 %
-Hierbei ist $\omega \coloneqq\md{p}$ die Vertikalgeschwindigkeit im p-System. Nun sollen die herrschenden Gleichungen ins p-System transformiert werden. Die Kontinuitätsgleichung lautet allgemein
-%
-\begin{align}
-\frac{\partial\rho}{\partial t} + \nabla\cdot\left(\rho\mathbf{v}\right) = 0.
-\end{align}
-%
-Setzt man die hydrostatische Grundgleichung $\rho = -\frac{1}{g}\frac{\partial p}{\partial z}$ ein, so folgt
-%
-\begin{align}
-\frac{\partial^2p}{\partial z\partial t} + \nabla\cdot\left(\frac{\partial p}{\partial z}\mathbf{v}\right) &= 0\nonumber\\
-\Leftrightarrow\frac{\partial^2p}{\partial z\partial t} + \mathbf{v}\cdot\nabla\left(\frac{\partial p}{\partial z}\right) + \frac{\partial p}{\partial z}\nabla\cdot\mathbf{v} &= \frac{\partial^2p}{\partial z\partial t} + \frac{\partial}{\partial z}\left(\mathbf{v}\cdot\nabla p\right) - \nabla p\cdot\frac{\partial\mathbf{v}}{\partial z} + \frac{\partial p}{\partial z}\nabla\cdot\mathbf{v}\nonumber\\
-= \frac{\partial\omega}{\partial z} - \nabla_hp\cdot\frac{\partial\mathbf{v}_h}{\partial z} + \frac{\partial p}{\partial z}\nabla\cdot\mathbf{v}_h &= 0.
-\end{align}
-%
-Hierbei wurde ein kleiner Transformationsterm vernachlässigt, s. Glg. \eqref{eq:div_geo}. Nach der Kettenregel ist $\frac{\partial}{\partial z} = \frac{\partial p}{\partial z}\frac{\partial }{\partial p}$. Damit folgt
-%
-\begin{align}
-\frac{\partial\omega}{\partial p} + \nabla\cdot\mathbf{v}_h - \nabla_hp\cdot\frac{\partial\mathbf{v}_h}{\partial p} = 0.
-\end{align}
-%
-Verwendet man Glg. \eqref{eq:trans_gen_2}, erhält man
-%
-\begin{align}
-\left(\frac{\partial u}{\partial x}\right)_z &= \left(\frac{\partial u}{\partial x}\right)_p + \frac{\partial u}{\partial p}\left(\frac{\partial p}{\partial x}\right)_z\Leftrightarrow\left(\frac{\partial u}{\partial x}\right)_z - \frac{\partial u}{\partial p}\left(\frac{\partial p}{\partial x}\right)_z = \left(\frac{\partial u}{\partial x}\right)_p
-\end{align}
-%
-und analog für $v$. Nicht näher bezeichnete partielle Ableitungen sind bisher Ableitungen im z-System. Nun werden Ableitungen im p-System verwendet:
-%
-\begin{center}
-\doublebox{\parbox{0.8\textwidth}{
-\begin{center}
-\begin{align}
-\frac{\partial\omega}{\partial p} + \nabla\cdot\mathbf{v}_h = 0.\label{eq:kont_p}
-\end{align}
-\end{center}
-}}
-\end{center}
-%
-Im p-System reduziert sich die Kontinuitätsgleichung also auf eine rein diagnostische Gleichung, die formal der Kontinuitätsgleichung für ein inkompressibles Fluid im z-System entspricht. Skaliert man diese Gleichung mit den Werten aus Tab. \ref{tab:scales}, folgt in SI-Einheiten
-%
-\begin{itemize}
-\item $\nabla\cdot\mathbf{v}_h\sim10^{-5}$
-\item $\frac{\partial\omega}{\partial p}\sim10^{-6}$.
-\end{itemize}
-%
-Die Divergenz des Horizontalwindes ist also in Wirklichkeit eine Größenordnung kleiner als die synoptisch-skalige Vorticity.
+Hierbei ist $\omega \coloneqq\md{p}$ die Vertikalgeschwindigkeit im p-System. In Absch. \ref{sec:hydrostatik} werden die herrschenden Gleichungen ins p-System transformiert.
 
-Will man die Bewegungsgleichungen für Flachgeofluide Glg.en \eqref{eq:x_momentum_simplified_simplified} - \eqref{eq:y_momentum_simplified_simplified} transformieren, so müssen auf der linken Seite nur die totalen Ableitungen im p-System notiert werden. Der Druckgradient macht etwas mehr Arbeit. Mit Glg. \eqref{eq:trans_gen_2} sowie der hydrostatischen Approximation folgt
-%
-\begin{align}
-\left(\frac{\partial p}{\partial x}\right)_p = 0 = \left(\frac{\partial p}{\partial x}\right)_z + \left(\frac{\partial z}{\partial x}\right)_p\frac{\partial p}{\partial z} = \left(\frac{\partial p}{\partial x}\right)_z - g\rho\left(\frac{\partial z}{\partial x}\right)_p.
-\end{align}
-%
-Es gilt also
-%
-\begin{align}
-\frac{1}{\rho}\left(\frac{\partial p}{\partial x}\right)_z = g\left(\frac{\partial z}{\partial x}\right)_p = \left(\frac{\partial\Phi}{\partial x}\right)_p
-\end{align}
-%
-und analog in y-Richtung. Damit werden die horizontalen Impulsgleichungen im p-System zu
-%
-\begin{center}
-\doublebox{\parbox{0.8\textwidth}{
-\begin{center}
-\begin{align}
-\frac{\partial u}{\partial t} + u\frac{\partial u}{\partial x} + v\frac{\partial u}{\partial y} + \omega\frac{\partial u}{\partial p} &= -\frac{\partial\Phi}{\partial x} + fv + F_{R,x}, 
-\label{eq:x_momentum_simplified_simplified_p}\\
-\frac{\partial v}{\partial t} + u\frac{\partial v}{\partial x} + v\frac{\partial v}{\partial y} + \omega\frac{\partial v}{\partial p} &= -\frac{\partial\Phi}{\partial y} - fu + F_{R,y}.
-\label{eq:y_momentum_simplified_simplified_p}
-\end{align}
-\end{center}
-}}
-\end{center}
-%
 \section{$\theta-$System}
 \label{sec:theta-system}\index{$\theta-$System}
 
@@ -11063,6 +10991,215 @@ Eine andere Formulierung dieser Gleichung ist $\md{w} = 0$. Die Teilchen haben a
 %
 Trotzdem ist es sinnvoll, auch in hydrostatischen Gleichungssystemen eine Vertikalgeschwindigkeit zuzulassen. Dies ist zwar physikalisch widersprüchlich, jedoch nicht mathematisch, da das Gleichungssystem nichts von obiger Folgerung wissen kann. Die Vertikalbewegungen eines solchen Systems entstehen aus der Kontinuitätsgleichung.
 
+Die hydrostatische Grundgleichung ermöglicht, den Druck p nicht als abhängige, sondern als unabhängige Koordinate (Vertikalkoordinate) zu verwenden. Transformiert man also von $p\left(\Phi\right)$ auf $\Phi\left(p\right)$, so lautet die hydrostatische Grundgleichung
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\frac{\partial\Phi}{\partial p} = -\alpha\label{eq:hydrostatic_p}
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+mit $\alpha \coloneqq \frac{1}{\rho}$ als dem spezifischen Volumen. Mit der Zustandsgleichung folgt $\alpha = \frac{R_dT}{p}$ in einer trockenen Atmosphäre. Deshalb bezeichnet man $\frac{\partial\Phi}{\partial p}$ häufig auch einfach als \glqq Temperatur\grqq. Man sieht, dass die Schichtdicke proportional zur Temperatur der Schicht ist. Das dreidimensionale Geopotentialfeld ist also Ausdruck des Bodendrucks und der Temperatur der Luftmassen.
+
+\subsection{Kontinuitätsgleichung}
+\label{sec:kontinuitätsgleichung_hydrostat}\index{Kontinuitätsgleichung!hydrostatische Form}
+
+Die Kontinuitätsgleichung lautet allgemein
+%
+\begin{align}
+\frac{\partial\rho}{\partial t} + \nabla\cdot\left(\rho\mathbf{v}\right) = 0.
+\end{align}
+%
+Setzt man die hydrostatische Grundgleichung $\rho = -\frac{1}{g}\frac{\partial p}{\partial z}$ ein, so folgt
+%
+\begin{align}
+\frac{\partial^2p}{\partial z\partial t} + \nabla\cdot\left(\frac{\partial p}{\partial z}\mathbf{v}\right) &= 0\nonumber\\
+\Leftrightarrow\frac{\partial^2p}{\partial z\partial t} + \mathbf{v}\cdot\nabla\left(\frac{\partial p}{\partial z}\right) + \frac{\partial p}{\partial z}\nabla\cdot\mathbf{v} &= \frac{\partial^2p}{\partial z\partial t} + \frac{\partial}{\partial z}\left(\mathbf{v}\cdot\nabla p\right) - \nabla p\cdot\frac{\partial\mathbf{v}}{\partial z} + \frac{\partial p}{\partial z}\nabla\cdot\mathbf{v}\nonumber\\
+= \frac{\partial\omega}{\partial z} - \nabla_hp\cdot\frac{\partial\mathbf{v}_h}{\partial z} + \frac{\partial p}{\partial z}\nabla\cdot\mathbf{v}_h &= 0.
+\end{align}
+%
+Hierbei wurde ein kleiner Transformationsterm vernachlässigt, s. Glg. \eqref{eq:div_geo}. Nach der Kettenregel ist $\frac{\partial}{\partial z} = \frac{\partial p}{\partial z}\frac{\partial }{\partial p}$. Damit folgt
+%
+\begin{align}
+\frac{\partial\omega}{\partial p} + \nabla\cdot\mathbf{v}_h - \nabla_hp\cdot\frac{\partial\mathbf{v}_h}{\partial p} = 0.
+\end{align}
+%
+Verwendet man Glg. \eqref{eq:trans_gen_2}, erhält man
+%
+\begin{align}
+\left(\frac{\partial u}{\partial x}\right)_z &= \left(\frac{\partial u}{\partial x}\right)_p + \frac{\partial u}{\partial p}\left(\frac{\partial p}{\partial x}\right)_z\Leftrightarrow\left(\frac{\partial u}{\partial x}\right)_z - \frac{\partial u}{\partial p}\left(\frac{\partial p}{\partial x}\right)_z = \left(\frac{\partial u}{\partial x}\right)_p
+\end{align}
+%
+und analog für $v$. Nicht näher bezeichnete partielle Ableitungen sind bisher Ableitungen im z-System. Nun werden Ableitungen im p-System verwendet:
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\frac{\partial\omega}{\partial p} + \nabla\cdot\mathbf{v}_h = 0.\label{eq:kont_p}
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+Im p-System reduziert sich die Kontinuitätsgleichung also auf eine rein diagnostische Gleichung, die formal der Kontinuitätsgleichung für ein inkompressibles Fluid im z-System entspricht. Skaliert man diese Gleichung mit den Werten aus Tab. \ref{tab:scales}, folgt in SI-Einheiten
+%
+\begin{itemize}
+\item $\nabla\cdot\mathbf{v}_h\sim10^{-5}$
+\item $\frac{\partial\omega}{\partial p}\sim10^{-6}$.
+\end{itemize}
+%
+Die Divergenz des Horizontalwindes ist also in Wirklichkeit eine Größenordnung kleiner als die synoptisch-skalige Vorticity.
+
+\subsection{Horizontale Impulsgleichung}
+\label{sec:horizontale_impulsgleichung_hydrostat}\index{Impulsgleichung!hydrostatische Form}
+
+Will man die Bewegungsgleichungen für Flachgeofluide Glg.en \eqref{eq:x_momentum_simplified_simplified} - \eqref{eq:y_momentum_simplified_simplified} transformieren, so müssen auf der linken Seite nur die totalen Ableitungen im p-System notiert werden. Der Druckgradient macht etwas mehr Arbeit. Mit Glg. \eqref{eq:trans_gen_2} sowie der hydrostatischen Approximation folgt
+%
+\begin{align}
+\left(\frac{\partial p}{\partial x}\right)_p = 0 = \left(\frac{\partial p}{\partial x}\right)_z + \left(\frac{\partial z}{\partial x}\right)_p\frac{\partial p}{\partial z} = \left(\frac{\partial p}{\partial x}\right)_z - g\rho\left(\frac{\partial z}{\partial x}\right)_p.
+\end{align}
+%
+Es gilt also
+%
+\begin{align}
+\frac{1}{\rho}\left(\frac{\partial p}{\partial x}\right)_z = g\left(\frac{\partial z}{\partial x}\right)_p = \left(\frac{\partial\Phi}{\partial x}\right)_p
+\end{align}
+%
+und analog in y-Richtung. Damit werden die horizontalen Impulsgleichungen im p-System zu
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\frac{\partial u}{\partial t} + u\frac{\partial u}{\partial x} + v\frac{\partial u}{\partial y} + \omega\frac{\partial u}{\partial p} &= -\frac{\partial\Phi}{\partial x} + fv + F_{R,x}, 
+\label{eq:x_momentum_simplified_simplified_p}\\
+\frac{\partial v}{\partial t} + u\frac{\partial v}{\partial x} + v\frac{\partial v}{\partial y} + \omega\frac{\partial v}{\partial p} &= -\frac{\partial\Phi}{\partial y} - fu + F_{R,y}.
+\label{eq:y_momentum_simplified_simplified_p}
+\end{align}
+\end{center}
+}}
+\end{center}
+
+\subsection{Temperaturgleichung}
+\label{sec:temperaturgleichung_hydrostat}\index{Temperaturgleichung!hydrostatische Form}
+
+Leitet man die Zustandsgleichung $p\alpha = R_dT$ zeitlich ab, folgt
+%
+\begin{align}
+\md{\left(p\alpha\right)} &= \md{\left(R_dT\right)}\nonumber\\
+\Rightarrow\omega\alpha + p\md{\alpha} &= R_d\md{T}.
+\end{align}
+%
+Aus Glg. \eqref{eq:td1_ideal_gas_alpha} folgt unter Vernachlässigung der Massenquelldichte
+%
+\begin{align}
+p\md{\alpha} = -c^{(v)}\md{T} + \alpha q_T^{(V)}.
+\end{align}
+%
+Somit erhält man
+%
+\begin{align}
+\omega\alpha - c^{(v)}\md{T} + \alpha q_T^{(V)} = R_d\md{T}\Leftrightarrow - \omega\alpha + \left(R_d + c^{(v)}\right)\md{T} &= c^{(p)}\md{T} - \alpha\omega = \alpha q_T^{(V)}\nonumber\\
+\md{_hT} - \omega\left(\frac{\alpha}{c^{(p)}} - \frac{\partial T}{\partial p}\right) &= \frac{\alpha}{c^{(p)}}q_T^{(V)}.
+\end{align}
+%
+Mit der Zustandsgleichung folgt
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\frac{\alpha}{c^{(p)}} - \frac{\partial T}{\partial p} &= \frac{R_dT}{c^{(p)}p} - \frac{\partial T}{\partial p}\eqqcolon S_p,\label{eq:def_stabilitaetsparameter}
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+dies definiert den \text{Stabilitätsparameter}\index{Stabilitätsparameter} $S_p$. Man erhält
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\md{_hT} - S_p\omega &= \frac{\alpha}{c^{(p)}}q_T^{(V)}\label{eq:td1_ideal_gas_p_pre}
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+Dies soll nun als Gleichung für die Evolution von $\Phi = \Phi\left(\phi, \lambda, p, t\right)$ umgeschrieben werden. Aus Glg. \eqref{eq:hydrostatic_p} folgt
+%
+\begin{align}
+\frac{\partial\Phi}{\partial p} = -\frac{R_dT}{p}\Rightarrow T = -\frac{p}{R_d}\frac{\partial\Phi}{\partial p}.
+\end{align}
+%
+Dies setzt man nun in Glg. \eqref{eq:td1_ideal_gas_p_pre} ein, daraus folgt
+%
+\begin{align}
+\md{_h}\left(-\frac{p}{R_d}\frac{\partial\Phi}{\partial p}\right) - S_p\omega &= \frac{\alpha}{c^{(p)}}q_T^{(V)}\nonumber\\
+\Rightarrow\md{_h}\left(\frac{p}{R_d}\frac{\partial\Phi}{\partial p}\right) + S_p\omega &= -\frac{\alpha}{c^{(p)}}q_T^{(V)}\nonumber\\
+\Rightarrow\md{_h}\left(\frac{\partial\Phi}{\partial p}\right) + \frac{R_dS_p}{p}\omega &= -\frac{R_d\alpha}{pc^{(p)}}q_T^{(V)}\nonumber\\
+\Rightarrow\left(\frac{\partial}{\partial t} + u\frac{\partial}{\partial x} + v\frac{\partial}{\partial y}\right)\left(\frac{\partial\Phi}{\partial p}\right) + \frac{R_dS_p}{p}\omega &= -\frac{R_d\alpha}{pc^{(p)}}q_T^{(V)}.
+\end{align}
+%
+Der Stabilitätsparameter $S_p$ hängt mit dem vertikalen Gradienten der potentiellen Temperatur zusammen:
+%
+\begin{align}
+S_p = \frac{R_dT}{c^{(p)}p} - \frac{\partial T}{\partial p} = -\frac{T}{\theta}\left(\frac{\partial T}{\partial p} - T\frac{1}{p}\frac{R_d}{c^{(p)}}\right)\left(\frac{p_0}{p}\right)^{\frac{R_d}{c^{(p)}}} = -\frac{T}{\theta}\frac{\partial}{\partial p}\left[T\left(\frac{p_0}{p}\right)^{\frac{R_d}{c^{(p)}}}\right] = -\frac{T}{\theta}\frac{\partial\theta}{\partial p}\label{eq:stabilitaetspara_vereinfacht}
+\end{align}
+%
+Man definiert nun den \textit{statischen Stabilitätsparameter}\index{Stabilitätsparameter!statischer}\index{statischer Stabilitätsparameter} $\sigma$ durch
+%
+\begin{align}
+\sigma \coloneqq\frac{R_dS_p}{p}\stackrel{\text{Glg. }\eqref{eq:stabilitaetspara_vereinfacht}}{=} - \frac{R_d}{p}\frac{T}{\theta}\frac{\partial\theta}{\partial p} = -\frac{\alpha}{\theta}\frac{\partial\theta}{\partial p}.
+\end{align}
+%
+Dies hängt nach Glg. \eqref{eq:hydrostatic} über
+%
+\begin{align}
+\sigma = -\frac{\alpha}{\theta}\frac{\partial z}{\partial p}\frac{\partial\theta}{\partial z} = \frac{\alpha^2}{g\theta}\frac{\partial\theta}{\partial z} = \frac{\alpha^2}{g^2}\frac{g}{\theta}\frac{\partial\theta}{\partial z} = \left(\frac{\alpha}{g}N\right)^2
+\end{align}
+%
+mit der Brunt-Väisälä-Frequenz $N$ zusammen. Man erhält
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\Rightarrow\left(\frac{\partial}{\partial t} + u\frac{\partial}{\partial x} + v\frac{\partial}{\partial y}\right)\frac{\partial\Phi}{\partial p} + \frac{\alpha^2}{g^2}N^2\omega &= \frac{\alpha}{c^{(p)}}q_T^{(V)}.\label{eq:td1_ideal_gas_p}
+\end{align}
+\end{center}
+}}
+\end{center}
+
+\subsection{Zusammenfassung}
+\label{sec:zusammenfassung_hydrostat}
+
+Der Zustand einer trockenen hydrostatischen Atmosphäre wird durch die Felder $\left(u, v, \Phi\right)^T$ festgelegt, dabei sind alle Felder von $\left(\phi, \lambda, p, t\right)^T$ abhängig. Die herrschenden Gleichungen lauten zusammenfassend
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\frac{\partial u}{\partial t} + u\frac{\partial u}{\partial x} + v\frac{\partial u}{\partial y} + \omega\frac{\partial u}{\partial p} &= -\frac{\partial\Phi}{\partial x} + fv + F_{R, x},\label{eq:hydrostatic_0}\\
+\frac{\partial v}{\partial t} + u\frac{\partial v}{\partial x} + v\frac{\partial v}{\partial y} + \omega\frac{\partial v}{\partial p} &= -\frac{\partial\Phi}{\partial y} - fu + F_{R, y},\label{eq:hydrostatic_1}\\
+\frac{\partial^2\Phi}{\partial p\partial t} + \left(u\frac{\partial}{\partial x} + v\frac{\partial}{\partial y}\right)\frac{\partial\Phi}{\partial p} + \frac{\alpha^2}{g^2}N^2\omega &= -\frac{R_d\alpha}{pc^{(p)}}q_T^{(V)},\label{eq:hydrostatic_2}\\
+\frac{\partial\omega}{\partial p} &= -\nabla\cdot\mathbf{v}_h.\label{eq:hydrostatic_3}
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+Wie man sieht, ist $\omega$ eine diagnostische Größe. $\alpha$ kann aus $\Phi$ mittels Glg. \eqref{eq:hydrostatic_p} bestimmt werden, anschließend kann auch die Temperatur über $T = \frac{p\alpha}{R_d}$ diagnostisch berechnet werden.
+
+\subsection{Hydrostatischer Hintergrundzustand}
+\label{sec:hydrostatischer_hintergrundzustand}\index{Hintergrundzustand!hydrostatischer}
+
 Auch wenn man die hydrostatische Annahme nicht macht, kann man einen Grundzustand $\{\newoverline{\alpha}, \newoverline{p}\}$ einführen mit $\alpha \coloneqq \frac{1}{\rho}$ als spezifischem Volumen, der Glg. \eqref{eq:hydrostatic} erfüllt, und die tatsächlichen Größen $\{\alpha, p\}$ als Übelagerung des Grundzustandes mit Abweichungen $\{\alpha', p'\}$ zu notieren, also
 %
 \begin{align}
@@ -11118,49 +11255,6 @@ Hieraus folgt weiterhin
 \frac{\partial p}{\partial z} &= \frac{z_g}{z}\frac{\partial p}{\partial z_g} = \left(\frac{1}{1 + \frac{z}{a}} - \frac{z}{a}\frac{1}{\left(1 + \frac{z}{a}\right)^2}\right)\frac{\partial p}{\partial z_g} = \frac{1}{\left(1 + \frac{z}{a}\right)^2}\frac{\partial p}{\partial z_g} = \frac{a^2}{r^2}\frac{\partial p}{\partial z_g} = -g\rho  = -g_0\frac{a^2}{r^2}\rho\nonumber\\
 \Rightarrow \frac{\partial p}{\partial z_g} &= -g_0\rho.
 \end{align}
-%
-Verwendet man den Druck als Höhenkoordinate und das Geopotential als die abhängige Koordinate, transformiert man also $p\left(\Phi\right)$ auf $\Phi\left(p\right)$, so lautet die hydrostatische Grundgleichung
-%
-\begin{align}
-\frac{\partial\Phi}{\partial p} = -\alpha\label{eq:hydrostatic_p}
-\end{align}
-%
-mit $\alpha \coloneqq \frac{1}{\rho}$ als dem spezifischen Volumen. Mit der Zustandsgleichung folgt $\alpha = \frac{R_dT}{p}$ in einer trockenen Atmosphäre. Deshalb bezeichnet man $\frac{\partial\Phi}{\partial p}$ häufig auch einfach als »Temperatur«.\ Man sieht, dass die Schichtdicke proportional zur Temperatur der Schicht ist. Das dreidimensionale Geopotentialfeld ist also Ausdruck des Bodendrucks und der Temperatur der Luftmassen.
-
-\subsection{Temperaturgleichung}
-\label{sec:temperaturgleichung_hydrostat}
-
-Leitet man die Zustandsgleichung zeitlich ab, folgt
-%
-\begin{align}
-\omega\alpha + p \md{\alpha} = R_s\md{T}.
-\end{align}
-%
-Mit den Glg.en \eqref{eq:td1_ideal_gas} und \eqref{eq:diff_spez_heat_id_gase} erhält man unter Vernachlässigung der Massenquelldichte
-%
-\begin{align}
-\omega\alpha + \alpha q_T^{(V)} - c^{(v)}\md{T} = R_s\md{T}\Leftrightarrow - \omega\alpha + \left(R_s + c^{(v)}\right)\md{T} &= c^{(p)}\md{T} - \alpha\omega = \alpha q_T^{(V)}\nonumber\\
-\md{_hT} - \omega\left(\frac{\alpha}{c^{(p)}} - \frac{\partial T}{\partial p}\right) &= \frac{\alpha}{c^{(p)}}q_T^{(V)}.
-\end{align}
-%
-Mit der Zustandsgleichung folgt
-%
-\begin{align}
-\frac{\alpha}{c^{(p)}} - \frac{\partial T}{\partial p} &= \frac{R_sT}{c^{(p)}p} - \frac{\partial T}{\partial p}\eqqcolon S_p, \label{eq:def_stabilitaetsparameter}
-\end{align}
-%
-dies definiert den \text{Stabilitätsparameter}\index{Stabilitätsparameter} $S_p$. Man erhält
-%
-\begin{center}
-\doublebox{\parbox{0.8\textwidth}{
-\begin{center}
-\begin{align}
-\md{_hT} - S_p\omega &= \frac{\alpha}{c^{(p)}}q_T^{(V)}.\label{eq:td1_ideal_gas_p}
-\end{align}
-\end{center}
-}}
-\end{center}
-
 
 \section{Barotropie}
 \label{sec:barotropie}\index{Barotropie}
@@ -14291,8 +14385,8 @@ Dies impliziert
 \sum_{l' = 0}^\infty\sum_{m' = -l'}^{l'}-l'\left(l' + 1\right)\Phi_{l', m'}Y_{l', m'} &= 2\Omega\frac{\partial\psi}{\partial\phi} - 2\Omega l\left(l + 1\right)\psi_0\left[\sqrt{\frac{l^2 - m^2}{4l^2 - 1}}Y_{l - 1, m} + \sqrt{\frac{\left(l + 1\right)^2 - m^2}{4\left(l + 1\right)^2 - 1}}Y_{l + 1, m}\right]e^{-i\omega t}.
 \end{align}
 
-\subsection{Rossby-Wellen}
-\label{sec:rossbywellen}\index{barotrope Rossby-Welle}\index{Rossby-Welle!barotrope}
+\subsection{Barotrope Rossby-Wellen}
+\label{sec:barotrope_rossby-wellen}\index{barotrope Rossby-Welle}\index{Rossby-Welle!barotrope}
 
 In Absch. \ref{sec:poincare-wellen} wurde von $\beta = 0$ ausgegangen. In diesem Fall sind die dort hergeleiteten Poincaré-Wellen die allgemeinsten Wellenlösungen. Eine neue Art der Wellen entsteht, wenn man die Breitenabhängigkeit von $f$ berücksichtigt.
 
@@ -15062,42 +15156,18 @@ Diejenigen Spektralanteile der Orographie, welche diese Ungleichung erfüllen, k
 
 \subsection{Rossby-Wellen}
 \label{sec:rossby-wellen}\index{Rossby-Welle!barokline}\index{barokline Rossby-Welle}
-%
-Hier geht man aus vom hydrostatischen adiabatischen Gleichungssystem.
-%
-\begin{align}
-\md{_h\mathbf{v}_h} + \omega\frac{\partial\mathbf{v}_h}{\partial p}&\stackrel{\text{Glg.en }\eqref{eq:x_momentum_simplified_simplified_p}\text {, }\eqref{eq:y_momentum_simplified_simplified_p}}{=} -f\mathbf{k}\times\mathbf{v}_h - \nabla\phi, \label{eq:hydrostat_1}\\
-\frac{\partial\phi}{\partial p}&\stackrel{\text{Glg. }\eqref{eq:hydrostatic_p}}{=} -\alpha, \label{eq:hydrostat_2}\\
-\md{_hT} - S_p\omega&\stackrel{\text{Glg. }\eqref{eq:td1_ideal_gas_p}}{=} 0, \label{eq:hydrostat_3}\\
-\nabla\cdot\mathbf{v}_h + \frac{\partial\omega}{\partial p}&\stackrel{\text{Glg. }\eqref{eq:kont_p}}{=} 0, \label{eq:hydrostat_4}\\
-p\alpha&\stackrel{\text{Glg. }\eqref{eq:zustand_ideal_alt}}{=} R_dT.\label{eq:hydrostat_5}
-\end{align}
-%
-Nun müssen zunächst einige Vereinfachungen vorgenommen werden. Ziel ist das \textit{quasigeostrophische Gleichungssystem}.\index{Quasigeostrophie} Dieses Konzept wendet man ausschließlich auf Kanäle in den Extratropen an, die schmal genug für die $\beta-$Ebene sind. Setzt man Glg. \eqref{eq:hydrostat_5} in Glg. \eqref{eq:hydrostat_2} ein, folgt
+
+Hier geht man aus vom hydrostatischen adiabatischen Gleichungssystem, welches in Absch. \ref{sec:zusammenfassung_hydrostat} zusammengefasst wurde:
 %
 \begin{align}
-\frac{\partial\phi}{\partial p} = -\frac{R_dT}{p}\Rightarrow T = -\frac{p}{R_d}\frac{\partial\phi}{\partial p}.
+\md{_h\mathbf{v}_h} + \omega\frac{\partial\mathbf{v}_h}{\partial p} &= -f\mathbf{k}\times\mathbf{v}_h - \nabla\Phi,\label{eq:hydrostat_1}\\
+\frac{\partial\Phi}{\partial p} &= -\alpha,\label{eq:hydrostat_2}\\
+\frac{\partial^2\Phi}{\partial p\partial t} + \left(u\frac{\partial}{\partial x} + v\frac{\partial}{\partial y}\right)\frac{\partial\Phi}{\partial p} + \sigma\omega &= 0,\label{eq:hydrostat_3}\\
+\nabla\cdot\mathbf{v}_h + \frac{\partial\omega}{\partial p} &= 0,\label{eq:hydrostat_4}\\
+p\alpha &= R_dT.\label{eq:hydrostat_5}
 \end{align}
 %
-Dies setzt man nun in Glg. \eqref{eq:hydrostat_3} ein, es folgt
-%
-\begin{align}
-\md{_h}\left(\frac{\partial\phi}{\partial p}\right) + \frac{R_dS_p}{p}\omega = 0.
-\end{align}
-%
-Man definiert nun den \textit{statischen Stabilitätsparameter}\index{Stabilitätsparameter!statischer}\index{statischer Stabilitätsparameter} $\sigma$ durch
-%
-\begin{align}
-\sigma \coloneqq\frac{R_dS_p}{p}\stackrel{\text{Glg. }\eqref{eq:stabilitaetspara_vereinfacht}}{=} - \frac{R_dT}{p}\frac{1}{\theta}\frac{\partial\theta}{\partial p} = -\frac{\alpha}{\theta}\frac{\partial\theta}{\partial p}.
-\end{align}
-%
-Dies hängt nach Glg. \eqref{eq:bv_freq_theta} über
-%
-\begin{align}
-\sigma = -\frac{\alpha}{\theta}\frac{\partial z}{\partial p}\frac{\partial\theta}{\partial z} = \frac{\alpha^2}{g\theta}\frac{\partial\theta}{\partial z} = \frac{\alpha^2}{g^2}\frac{g}{\theta}\frac{\partial\theta}{\partial z} = \left(\frac{\alpha}{g}N\right)^2
-\end{align}
-%
-mit der Brunt-Väisälä-Frequenz $N$ zusammen. Man nähert außerdem den Coriolis-Parameter $f$ zu
+Nun müssen zunächst einige Vereinfachungen vorgenommen werden. Ziel ist das \textit{quasigeostrophische Gleichungssystem}.\index{Quasigeostrophie} Dieses Konzept wendet man ausschließlich auf Kanäle in den Extratropen an, die schmal genug für die $\beta-$Ebene sind. Man nähert außerdem den Coriolis-Parameter $f$ zu
 %
 \begin{align}
 f = f_0 + \beta\left(y - y_0\right)\stackrel{y_0 \equiv 0}{=}f_0 + \beta y, 
@@ -15106,7 +15176,7 @@ f = f_0 + \beta\left(y - y_0\right)\stackrel{y_0 \equiv 0}{=}f_0 + \beta y,
 vgl. Absch. \ref{sec:entwicklungen_des_coriolisparameters_in_ebener_geometrie}. Dann gilt für den geostrophischen Wind Glg. \eqref{eq:geostr_wind}
 %
 \begin{align}
-\mathbf{v}_{h, g} = \mathbf{k}\times\frac{1}{f}\nabla\phi = \mathbf{k}\times\frac{1}{f_0}\nabla\phi - \mathbf{k}\times\frac{\beta y}{f_0^2}\nabla\phi + \mathcal{O}\left(f''\right)\stackrel{\text{in 0. Ordnung}}{\to}\mathbf{v}_{h, g} = \mathbf{k}\times\frac{1}{f_0}\nabla\phi.\label{eq:geostr_wind_vereinfacht}
+\mathbf{v}_{h, g} = \mathbf{k}\times\frac{1}{f}\nabla\Phi = \mathbf{k}\times\frac{1}{f_0}\nabla\Phi - \mathbf{k}\times\frac{\beta y}{f_0^2}\nabla\Phi + \mathcal{O}\left(f''\right)\stackrel{\text{in 0. Ordnung}}{\to}\mathbf{v}_{h, g} = \mathbf{k}\times\frac{1}{f_0}\nabla\Phi.\label{eq:geostr_wind_vereinfacht}
 \end{align}
 %
 Hieraus kann man für den thermischen Wind ableiten
@@ -15137,7 +15207,7 @@ Mit Glg. \eqref{eq:geostr_wind_vereinfacht} vereinfacht man nun die materielle A
 Hiermit folgt für den Ersten Hauptsatz
 %
 \begin{align}
-\frac{\partial}{\partial t}\left(\frac{\partial\phi}{\partial p}\right) = -\mathbf{v}_{h, g}\cdot\nabla_h\left(\frac{\partial\phi}{\partial p}\right) - \sigma\omega.\label{eq:first_theorem_qg}
+\frac{\partial}{\partial t}\left(\frac{\partial\Phi}{\partial p}\right) = -\mathbf{v}_{h, g}\cdot\nabla_h\left(\frac{\partial\Phi}{\partial p}\right) - \sigma\omega.\label{eq:first_theorem_qg}
 \end{align}
 %
 Die Vorticitygleichung Glg. \eqref{eq:vorticity_p} wird hier noch einmal wiederholt:
@@ -15169,7 +15239,7 @@ Folglich können auch der Drehterm und die vertikale Advektion vernachlässigt w
 An dieser Stelle führt man zur Vereinfachung eine Stromfunktion
 %
 \begin{align}
-\psi \coloneqq\frac{\phi}{f_0}
+\psi \coloneqq\frac{\Phi}{f_0}
 \end{align}
 %
 ein, damit folgen
@@ -15486,7 +15556,109 @@ c = \frac{\omega}{k}\leq - \frac{\beta}{k^2 + K^2},
 %
 barokline Rossby-Wellen pflanzen sich also immer nach Westen fort.
 
-\subsection{Atmosphärische Tide}
+\subsection{Eigenschwingungen einer hydrostatischen Atmosphäre}
+\label{sec:eigenschwingungen_einer_hydrostatischen_atmosphäre}\index{Hydrostatik}\index{Atmosphäre!Eigenschwingung}
+
+Man notiert die in Absch. \ref{sec:zusammenfassung_hydrostat} zusammengefassten Gleichungen in ihrer adiabatischen Form:
+%
+\begin{align}
+\frac{\partial u}{\partial t} + u\frac{\partial u}{\partial x} + v\frac{\partial u}{\partial y} + \omega\frac{\partial u}{\partial p} &= -\frac{\partial\Phi}{\partial x} + fv,\\
+\frac{\partial v}{\partial t} + u\frac{\partial v}{\partial x} + v\frac{\partial v}{\partial y} + \omega\frac{\partial v}{\partial p} &= -\frac{\partial\Phi}{\partial y} - fu,\\
+\frac{\partial^2\Phi}{\partial p\partial t} + \left(u\frac{\partial}{\partial x} + v\frac{\partial}{\partial y}\right)\frac{\partial\Phi}{\partial p} + \frac{\alpha^2}{g^2}N^2\omega &= 0,\\
+\frac{\partial\omega}{\partial p} &= -\nabla\cdot\mathbf{v}_h.
+\end{align}
+%
+Vernachlässigt man Advektion, erhält man
+%
+\begin{align}
+\frac{\partial u}{\partial t} &= -\frac{\partial\Phi}{\partial x} + fv,\\
+\frac{\partial v}{\partial t} &= -\frac{\partial\Phi}{\partial y} - fu,\\
+\frac{\partial^2\Phi}{\partial p\partial t} + \sigma\omega &= 0,\\
+\frac{\partial\omega}{\partial p} &= -\nabla\cdot\mathbf{v}_h.
+\end{align}
+%
+mit dem statischen Stabilitätsparameter $\sigma = \frac{\alpha^2}{g^2}N^2$. Dies ist das zugrundeliegende Gleichungssystem dieses Abschnitts. Notiert man die Ableitungen und Differenzialoperatoren in geographischen Koordinaten, erhält man.
+%
+\begin{align}
+\frac{\partial u}{\partial t} &= -\frac{1}{a\cos\left(\phi\right)}\frac{\partial\Phi}{\partial\lambda} + fv,\label{eq:hydrostatic_normal_0}\\
+\frac{\partial v}{\partial t} &= -\frac{1}{a}\frac{\partial\Phi}{\partial\phi} - fu,\label{eq:hydrostatic_normal_1}\\
+\frac{\partial^2\Phi}{\partial p\partial t} + \sigma\omega &= 0,\label{eq:hydrostatic_normal_2}\\
+\frac{\partial\omega}{\partial p} &= -\frac{1}{a\cos\left(\phi\right)}\frac{\partial u}{\partial\lambda} - \frac{1}{a}\frac{\partial v}{\partial\phi} - \frac{v}{a}\tan\left(\phi\right).\label{eq:hydrostatic_normal_3}
+\end{align}
+%
+Nun nimmt man eine Aufteilung in einen Hintergrundzustand $\newoverline{\mathbf{\psi}}$ und Abweichungen $\mathbf{\psi}'$ vor, $\sigma$ sei hierbei eine Eigenschaft des Hintergrundzustandes. Man geht von $\newoverline{u} = \newoverline{v} = \newoverline{\omega} = 0$ aus. Als Ansätze für Felder $\psi$ verwendet man
+%
+\begin{align}
+\psi' = \psi_0\left(\frac{p}{p_0}\right)^\chi h\left(\phi\right)\exp\left(im\lambda - i\gamma t\right)
+\end{align}
+%
+mit einer komplexen Amplitude $\psi_0$, einer zonalen Wellenzahl $m \in \mathbb{N}$ und einer stetig differenzierbaren Funktion $h\left(\phi\right)$. $p_0$ ist ein Referenzdruck und $\chi > 0$ ist ein Parameter. Setzt man dies sowie die Definition von $f$ in die Glg.en \eqref{eq:hydrostatic_normal_0} - \eqref{eq:hydrostatic_normal_3} ein, erhält man
+%
+\begin{align}
+-i\gamma u_0 &= -\frac{im\Phi_0}{a\cos\left(\phi\right)} + 2\Omega\sin\left(\phi\right)v_0,\\
+-i\gamma hv_0 &= -\frac{\Phi_0 h'}{a} - 2\Omega\sin\left(\phi\right)u_0h,\\
+-i\gamma\frac{\chi}{p}\Phi_0 &= -\sigma\omega_0,\\
+\frac{\chi}{p}h\omega_0 &= -\frac{imh}{a\cos\left(\phi\right)}u_0 - \frac{v_0h'}{a} - \frac{v_0}{a}h\tan\left(\phi\right).
+\end{align}
+%
+Die Brüche werden wegmultipliziert:
+%
+\begin{align}
+-i\gamma a\cos\left(\phi\right)u_0 &= -im\Phi_0 + 2\Omega a\cos\left(\phi\right)\sin\left(\phi\right)v_0 = -im\Phi_0 + \Omega a\sin\left(2\phi\right)v_0,\\
+-i\gamma ahv_0 &= -h'\Phi_0 - 2\Omega a\sin\left(\phi\right)hu_0,\\
+-i\gamma\chi\Phi_0 &= -\sigma p\omega_0,\\
+\chi ha\cos\left(\phi\right)\omega_0 &= -imhpu_0 - ph'\cos\left(\phi\right)v_0 - ph\sin\left(\phi\right)v_0
+\end{align}
+%
+Bringt man alles auf die linke Seite, erhält man
+%
+\begin{align}
+-i\gamma a\cos\left(\phi\right)u_0 + im\Phi_0 - \Omega a\sin\left(2\phi\right)v_0 &= 0,\\
+-i\gamma ahv_0 + h'\Phi_0 + 2\Omega a\sin\left(\phi\right)hu_0 &= 0,\\
+-i\gamma\chi\Phi_0 + \sigma p\omega_0 &= 0,\\
+\chi ha\cos\left(\phi\right)\omega_0 + imhpu_0 + ph'\cos\left(\phi\right)v_0 + ph\sin\left(\phi\right)v_0 &= 0.
+\end{align}
+%
+Die Terme sortiert man nun in der Reihenfolge $u_0$, $v_0$, $\Phi_0$, $\omega_0$:
+%
+\begin{align}
+\begin{array}{ccccc}
+-i\gamma a\cos\left(\phi\right)u_0 &- \Omega a\sin\left(2\phi\right)v_0 &+ im\Phi_0 &+ 0 &= 0,\\
+2\Omega a\sin\left(\phi\right)hu_0 &- i\gamma ahv_0 &+ h'\Phi_0 &+ 0 &= 0,\\
+0 &+ 0 &-i\gamma\chi\Phi_0 &+ \sigma p\omega_0 &= 0,\\
+imhpu_0 &+ \left[ph'\cos\left(\phi\right) + ph\sin\left(\phi\right)\right]v_0 &+ 0 &+ \chi ha\cos\left(\phi\right)\omega_0 &= 0.
+\end{array}
+\end{align}
+%
+Dies führt direkt zur Matrixnotation
+%
+\begin{align}
+\overleftrightarrow{M}\cdot\mathbf{x} = \mathbf{0}
+\end{align}
+%
+mit
+%
+\begin{align}
+\overleftrightarrow{M} \coloneqq \left(
+\begin{array}{cccc}
+-i\gamma a\cos\left(\phi\right) & -\Omega a\sin\left(2\phi\right) & im & 0,\\
+2\Omega a\sin\left(\phi\right)h & -i\gamma ah & h' & 0,\\
+0 & 0 & -i\gamma\chi & \sigma p,\\
+imhp & ph'\cos\left(\phi\right) + ph\sin\left(\phi\right) & 0 & \chi ha\cos\left(\phi\right)
+\end{array}\right)
+\end{align}
+%
+und
+%
+\begin{align}
+\mathbf{v} \coloneqq \left(\begin{array}{c}
+u_0\\
+v_0\\
+\Phi_0\\
+\omega_0\end{array}\right).
+\end{align}
+
+\subsubsection{Atmosphärische Tide}
 \label{sec:atmosphärische_tide}\index{Tide!atmosphärische}
 
 Wichtige Unterschiede zwischen der atmosphärischen und der ozeanischen Tide (s. Absch. \ref{sec:ozeanische_tide}) sind folgende:
@@ -15498,6 +15670,15 @@ Wichtige Unterschiede zwischen der atmosphärischen und der ozeanischen Tide (s.
 \item Die atmosphärische Tide wird vor allem durch die Strahlung angetrieben sowie durch von der Strahlung ausgelöste Prozesse (chemische Reaktionen und Konvektion).
 \item Aufgrund der Barotropie ist die ozeanische Tide quasi höhenunabhängig, während die Amplitude der atmosphärischen Tide exponentiell mit der Höhe zunimmt. Dadurch spielt die Tide in der Atmosphäre vor allem in der Mesosphäre (50 - 80 km) eine Rolle, wo sie große Amplituden erreichen kann. In der Troposphäre ist ihre Amplitude klein.
 \end{itemize}
+
+\subsection{Eigenschwingungen einer flachen Atmosphäre}
+\label{sec:eigenschwingungen_einer_flachen_atmosphäre}\index{Atmosphäre!flache}\index{Atmosphäre!Eigenschwingung}
+
+\subsection{Eigenschwingungen einer tiefen Atmosphäre}
+\label{sec:eigenschwingungen_einer_tiefen_atmosphäre}\index{Atmosphäre!tiefe}\index{Atmosphäre!Eigenschwingung}
+
+\subsection{Eigenschwingungen einer ellipsoidischen Atmosphäre}
+\label{sec:eigenschwingungen_einer_ellipsoidischen_atmosphäre}\index{Atmosphäre!ellipsoidischen}\index{Atmosphäre!Eigenschwingung}
 
 \section{Instabilitäten}
 \label{sec:instabilitaeten}\index{Instabilität}\index{Welle!Instabilität}
