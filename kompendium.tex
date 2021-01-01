@@ -12425,24 +12425,29 @@ Die Impulsgleichung Glg. \eqref{eq:momentum_mod} lautet
 Nun wendet man auf die einzelnen Terme den Operator $\nabla\times $ an:
 %
 \begin{align}
-\nabla\times\frac{\partial\mathbf{v}}{\partial t}&\stackrel{\text{Glg. \eqref{eq:diff_op_rule_4}}}{=} \frac{\partial}{\partial t}\nabla\times\mathbf{v}\\
-\nabla\times\left(-\frac{1}{\rho}\nabla p\right)&\stackrel{\text{Glg. \eqref{eq:diff_op_rule_5}}}{=} -\frac{1}{\rho^2}\nabla p\times\nabla\rho\\
-\nabla\times\left(\mathbf{v}\times\etabi\right)&\stackrel{\text{Glg. \eqref{eq:diff_op_rule_7}}}{=} -\left(\mathbf{v}\cdot\nabla\right)\etabi - \etabi\nabla\cdot\mathbf{v} + \left(\etabi\cdot\nabla\right)\mathbf{v}\\
-\nabla\times\mathbf{g}&\stackrel{\text{Glg. \eqref{eq:diff_op_rule_1}}}{=} \mathbf{0}\\
-\nabla\times\nabla k&\stackrel{\text{Glg. \eqref{eq:diff_op_rule_1}}}{=} \mathbf{0}.
+\nabla\times\frac{\partial\mathbf{v}}{\partial t} &\stackrel{\text{Glg. \eqref{eq:diff_op_rule_4}}}{=} \frac{\partial}{\partial t}\left(\nabla\times\mathbf{v}\right)\\
+\nabla\times\left(-\frac{1}{\rho}\nabla p\right) &= -\nabla\times\left(\frac{1}{\rho}\nabla p\right) \stackrel{\text{Glg. \eqref{eq:diff_op_rule_5}}}{=} -\frac{1}{\rho^2}\nabla p\times\nabla\rho\\
+\nabla\times\left(\mathbf{v}\times\etabi\right) &\stackrel{\text{Glg. \eqref{eq:diff_op_rule_7}}}{=} -\left(\mathbf{v}\cdot\nabla\right)\etabi - \etabi\nabla\cdot\mathbf{v} + \left(\etabi\cdot\nabla\right)\mathbf{v}\\
+\nabla\times\nabla k &\stackrel{\text{Glg. \eqref{eq:diff_op_rule_1}}}{=} \mathbf{0}\\
+\nabla\times\mathbf{g} &= \nabla\times\left(-\nabla\Phi\right) \stackrel{\text{Glg. \eqref{eq:diff_op_rule_1}}}{=} \mathbf{0}
 \end{align}
 %
 Somit gilt
 %
 \begin{align}
-\frac{\partial}{\partial t}\text{rot}\left(\mathbf{v}\right) &= \frac{1}{\rho^2}\nabla\rho\times\nabla p - \left(\mathbf{v}\cdot\nabla\right)\etabi - \etabi\nabla\cdot\mathbf{v} + \left(\etabi\cdot\nabla\right)\mathbf{v} + \nabla\times\mathbf{f}_R.\label{eq:vorticity_eq_3d}
+\frac{\partial}{\partial t}\left(\nabla\times\mathbf{v}\right) &= \frac{1}{\rho^2}\nabla\rho\times\nabla p - \left(\mathbf{v}\cdot\nabla\right)\etabi - \etabi\nabla\cdot\mathbf{v} + \left(\etabi\cdot\nabla\right)\mathbf{v} + \nabla\times\mathbf{f}_R.\label{eq:vorticity_eq_3d}
 \end{align}
-%
+
+\subsubsection{Formulierung in geographischen Koordinaten}
+\label{sec:formulierung_in_geographischen_koordinaten}
+
 Durch Projektion auf die lokale Senkrechte erhält man
 %
 \begin{align}
-\frac{\partial\zeta}{\partial t} &= \frac{1}{\rho^2}\mathbf{k}\cdot\left(\nabla\rho\times\nabla p\right) - \eta\nabla\cdot\mathbf{v}\nonumber\\
-&  + \mathbf{k}\cdot\left[\left(\etabi\cdot\nabla\right)\mathbf{v}\right] - \mathbf{k}\cdot\left[\left(\mathbf{v}\cdot\nabla\right)\etabi\right] + \mathbf{k}\cdot\nabla\times\mathbf{f}_R.
+\frac{\partial\zeta}{\partial t} &= \mathbf{k}\cdot\left[\frac{1}{\rho^2}\nabla\rho\times\nabla p - \left(\mathbf{v}\cdot\nabla\right)\etabi - \etabi\nabla\cdot\mathbf{v} + \left(\etabi\cdot\nabla\right)\mathbf{v} + \nabla\times\mathbf{f}_R\right]\nonumber\\
+\Leftrightarrow\frac{\partial\zeta}{\partial t} &= \mathbf{k}\cdot\left[\frac{1}{\rho^2}\nabla\rho\times\nabla p - \etabi\nabla\cdot\mathbf{v} - \left(\mathbf{v}\cdot\nabla\right)\etabi + \left(\etabi\cdot\nabla\right)\mathbf{v} + \nabla\times\mathbf{f}_R\right]\nonumber\\
+\Leftrightarrow\frac{\partial\zeta}{\partial t} &= \mathbf{k}\cdot\left[\frac{1}{\rho^2}\nabla\rho\times\nabla p - \etabi\nabla\cdot\mathbf{v} + \left(\etabi\cdot\nabla\right)\mathbf{v} - \left(\mathbf{v}\cdot\nabla\right)\etabi + \nabla\times\mathbf{f}_R\right]\nonumber\\
+\Rightarrow\frac{\partial\zeta}{\partial t} &= \frac{1}{\rho^2}\mathbf{k}\cdot\left(\nabla\rho\times\nabla p\right) - \eta\nabla\cdot\mathbf{v} + \mathbf{k}\cdot\left[\left(\etabi\cdot\nabla\right)\mathbf{v}\right] - \mathbf{k}\cdot\left[\left(\mathbf{v}\cdot\nabla\right)\etabi\right] + \mathbf{k}\cdot\nabla\times\mathbf{f}_R.
 \end{align}
 %
 Man rechnet zunächst mit Glg. \eqref{eq:diff_op_rule_11}
@@ -12457,8 +12462,7 @@ Man rechnet zunächst mit Glg. \eqref{eq:diff_op_rule_11}
 Somit gilt
 %
 \begin{align}
-\frac{\partial\zeta}{\partial t} &= \frac{1}{\rho ^2}\mathbf{k}\cdot\left(\nabla\rho\times\nabla p\right) - \eta\nabla\cdot\mathbf{v} + \left(\etabi\cdot\nabla\right)w - \mathbf{v}\cdot\left[\left(\etabi\cdot\nabla\right)\mathbf{k}\right] - \mathbf{v}\cdot\nabla\eta\nonumber\\
-&  + \etabi\cdot\left[\left(\mathbf{v}\cdot\nabla\right)\mathbf{k}\right] + \mathbf{k}\cdot\nabla\times\mathbf{f}_R.
+\frac{\partial\zeta}{\partial t} &= \frac{1}{\rho ^2}\mathbf{k}\cdot\left(\nabla\rho\times\nabla p\right) - \eta\nabla\cdot\mathbf{v} + \left(\etabi\cdot\nabla\right)w - \mathbf{v}\cdot\left[\left(\etabi\cdot\nabla\right)\mathbf{k}\right] - \mathbf{v}\cdot\nabla\eta + \etabi\cdot\left[\left(\mathbf{v}\cdot\nabla\right)\mathbf{k}\right] + \mathbf{k}\cdot\nabla\times\mathbf{f}_R.
 \end{align}
 %
 Es gelten mit den Feststellungen in Absch. \ref{sec:kugelkoordinaten}
@@ -12470,7 +12474,14 @@ Es gelten mit den Feststellungen in Absch. \ref{sec:kugelkoordinaten}
 Somit folgt
 %
 \begin{align}
-\frac{\partial\zeta}{\partial t} &= \frac{1}{\rho ^2}\mathbf{k}\cdot\left(\nabla\rho\times\nabla p\right) - \eta\nabla\cdot\mathbf{v} + \etabi\cdot\nabla w - \frac{u\eta_x}{r} - \frac{v\eta_y}{r} - \mathbf{v}\cdot\nabla\eta + \frac{\eta_xu}{r} + \frac{\eta_yv}{r} + \mathbf{k}\cdot\nabla\times\mathbf{f}_R.
+\frac{\partial\zeta}{\partial t} &= \frac{1}{\rho ^2}\mathbf{k}\cdot\left(\nabla\rho\times\nabla p\right) - \eta\nabla\cdot\mathbf{v} + \etabi\cdot\nabla w - \mathbf{v}\cdot\left(\eta_x\frac{\partial\mathbf{k}}{\partial x} + \eta_y\frac{\partial\mathbf{k}}{\partial y}\right) - \mathbf{v}\cdot\nabla\eta + \etabi\cdot\left(u\frac{\partial\mathbf{k}}{\partial x} + v\frac{\partial\mathbf{k}}{\partial y}\right) + \mathbf{k}\cdot\nabla\times\mathbf{f}_R\nonumber\\
+\Leftrightarrow\frac{\partial\zeta}{\partial t} &= \frac{1}{\rho ^2}\mathbf{k}\cdot\left(\nabla\rho\times\nabla p\right) - \eta\nabla\cdot\mathbf{v} + \etabi\cdot\nabla w \textcolor{blue}{- \frac{u\eta_x}{r}} \textcolor{red}{- \frac{v\eta_y}{r}} - \mathbf{v}\cdot\nabla\eta \textcolor{blue}{+ \frac{\eta_xu}{r}} \textcolor{red}{+ \frac{\eta_yv}{r}} + \mathbf{k}\cdot\nabla\times\mathbf{f}_R.
+\end{align}
+%
+Die farblich markierten Terme heben sich jeweils gegenseitig weg. Somit gilt
+%
+\begin{align}
+\frac{\partial\zeta}{\partial t} &= \frac{1}{\rho ^2}\mathbf{k}\cdot\left(\nabla\rho\times\nabla p\right) - \eta\nabla\cdot\mathbf{v} + \etabi\cdot\nabla w - \mathbf{v}\cdot\nabla\eta + \mathbf{k}\cdot\nabla\times\mathbf{f}_R.
 \end{align}
 %
 Die Vorticitygleichung lautet schlussendlich
@@ -12484,11 +12495,20 @@ Die Vorticitygleichung lautet schlussendlich
 \end{center}
 }}
 \end{center}
-%
-Geht man von einem Flachgeofluid aus, vernachlässigt die Reibung und führt einen horizontalen Windvektor $\mathbf{v}_h$ ein, folgt
+
+\subsubsection{Interpretation der Terme}
+\label{sec:nterpretation_der_terme}
+
+Vernachlässigt man die Reibung, erhält man
 %
 \begin{align}
-\frac{\partial\zeta}{\partial t} &= -\mathbf{v}\cdot\nabla\eta - \eta\nabla\cdot\mathbf{v} + \etabi\cdot\nabla w + \frac{1}{\rho ^2}\mathbf{k}\cdot\left(\nabla\rho\times\nabla p\right)\nonumber\\
+\frac{\partial\zeta}{\partial t} = -\mathbf{v}\cdot\nabla\eta - \eta\nabla\cdot\mathbf{v} + \etabi\cdot\nabla w + \frac{1}{\rho ^2}\mathbf{k}\cdot\left(\nabla\rho\times\nabla p\right).
+\end{align}
+%
+Geht man von einem Flachgeofluid aus und führt einen horizontalen Windvektor $\mathbf{v}_h$ ein, folgt
+%
+\begin{align}
+\frac{\partial\zeta}{\partial t} &= -\mathbf{v}\cdot\nabla\eta - \eta\nabla\cdot\mathbf{v}_h - \eta\frac{\partial w}{\partial z} + \etabi_h\cdot\nabla_hw + \eta\frac{\partial w}{\partial z} + \frac{1}{\rho ^2}\mathbf{k}\cdot\left(\nabla\rho\times\nabla p\right)\nonumber\\
 &= \underbrace{-\mathbf{v}\cdot\nabla\eta - \eta\nabla\cdot\mathbf{v}_h + \etabi_h\cdot\nabla_hw}_\text{Advektion} + \underbrace{\frac{1}{\rho^2}\mathbf{k}\cdot\left(\nabla\rho\times\nabla p\right)}_\text{Solenoidterm}.
 \end{align}
 %
@@ -12497,7 +12517,7 @@ Der sogenannte \textit{Solenoidterm}\index{Solenoidterm} entsteht aus der Rotati
 Abgesehen vom Solenoidterm wird Vorticity also nur durch die Impulsadvektion generiert. Diese lässt sich noch wie folgt aufteilen:
 %
 \begin{align}
-\frac{\partial\zeta}{\partial t} &= \underbrace{-\mathbf{v}\cdot\nabla\eta}_\text{Vorticityadvektion} \underbrace{- \eta\nabla\cdot\mathbf{v}_h}_\text{Divergenzterm} \underbrace{+ \etabi_h\cdot\nabla_hw}_\text{Drehterm} + \underbrace{\frac{1}{\rho^2}\mathbf{k}\cdot\left(\nabla\rho\times\nabla p\right)}_\text{Solenoidterm}
+\frac{\partial\zeta}{\partial t}_\text{adv} &= \underbrace{-\mathbf{v}\cdot\nabla\eta}_\text{Vorticityadvektion} \underbrace{- \eta\nabla\cdot\mathbf{v}_h}_\text{Divergenzterm} \underbrace{+ \etabi_h\cdot\nabla_hw}_\text{Drehterm}
 \end{align}
 %
 \index{Vorticityadvektion}\index{Vorticitygleichung!Divergenzterm}\index{Vorticitygleichung!Drehterm}Der \textit{Drehterm}\index{Vorticitygleichung!Drehterm} beschreibt die Generierung vertikaler Vorticity durch horizontale Vorticity und einen horizontalen Gradienten der Vertikalgeschwindigkeit. Es gilt
@@ -12633,7 +12653,10 @@ Somit gilt
 \begin{align}
 \frac{\partial}{\partial t}\nabla\times\mathbf{v}_h &= -\left(\mathbf{v}_h\cdot\nabla\right)\etabi' - \etabi'\nabla\cdot\mathbf{v}_h + \left(\etabi'\cdot\nabla\right)\mathbf{v}_h + \omega\nabla\times\frac{\partial\mathbf{v}_h}{\partial p} - \frac{\partial\mathbf{v}_h}{\partial p}\times\nabla\omega + \nabla\times\mathbf{f}_R^{(H)}.
 \end{align}
-%
+
+\subsubsection{Formulierung in geographischen Koordinaten}
+\label{sec:formulierung_in_geographischen_koordinaten_p}
+
 Durch Projektion auf die lokale Senkrechte $\mathbf{k}$ erhält man
 %
 \begin{align}
@@ -14341,7 +14364,13 @@ Im Fall $l = 0$ ist $m = 0$ und Glg. \eqref{eq:rossby-haurwitz_disprel_deriv} is
 -\frac{1}{\left(l + 1\right)}2\Omega \leq \omega\left(l, m\right) \leq \frac{1}{\left(l + 1\right)}2\Omega.
 \end{align}
 %
-Mittels Glg. \eqref{eq:balance_equation_linear_stream}, welche lautet
+Für die Phasengeschwindigkeit (ausgedrückt als zonale Winkelgeschwindigkeit) erhält man
+%
+\begin{align}
+\frac{\omega}{\frac{2\pi}{\Delta\lambda}} = \frac{\omega\Delta\lambda}{2\pi} = \frac{\omega 2\pi}{2\pi m} = \frac{\omega}{m} = \frac{1}{l\left(l + 1\right)}2\Omega > 0.
+\end{align}
+%
+Rossby-Haurwitz-Moden propagieren also immer nach Osten. Mittels Glg. \eqref{eq:balance_equation_linear_stream}, welche lautet
 %
 \begin{align}
 \Delta\Phi = \beta\frac{\partial\psi}{\partial y} + f\Delta\psi,
@@ -14357,7 +14386,7 @@ ein, dies impliziert
 %
 \begin{align}
 \Delta\Phi &= \frac{2\Omega\cos\left(\phi\right)}{a^2\cos\left(\phi\right)}\frac{\partial\psi}{\partial\phi} - \frac{2\Omega\sin\left(\phi\right)}{a^2}l\left(l + 1\right)\psi_0Y_{l, m}e^{-i\omega t}\nonumber\\
-\Rightarrow\Delta\Phi &= \frac{2\Omega}{a^2}\frac{\partial\psi}{\partial\phi} - \frac{2\Omega\sin\left(\phi\right)}{a^2}l\left(l + 1\right)\psi_0Y_{l, m}e^{-i\omega t}
+\Rightarrow\Delta\Phi &= \frac{2\Omega}{a^2}\frac{\partial\psi}{\partial\phi} - \frac{2\Omega\sin\left(\phi\right)}{a^2}l\left(l + 1\right)\psi_0Y_{l, m}e^{-i\omega t}.
 \end{align}
 %
 Für das Geopotential $\Phi$ macht man nun den Ansatz
