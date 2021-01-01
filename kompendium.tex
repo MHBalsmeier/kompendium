@@ -609,6 +609,9 @@ g_\alpha\left(\mathbf{r}_1, \dotsc, \mathbf{r}_N, t\right) = 0
 %
 mit $1\leq\alpha\leq R$ und $R\leq 3N - 1$. Bei $R = 3N$ könnte keine Bewegung mehr stattfinden, da jede Zwangsbedingung einen Freiheitsgrad eliminiert.
 
+\subsection{Langrange-Gleichungen 1. Art}
+\label{sec:langrange-Gleichungen_1._art}\index{Lagrange-Gleichung!1. Art}
+
 Die Einhaltung der Zwangsbedingungen wird durch die sogenannten Zwangskräfte sichergestellt. Diese sind senkrecht auf der durch die Zwangsbedingung vorgegebenen Fläche - dies kann man sich beispielsweise bei einer Bewegung auf einem Tisch leicht klarmachen. Die Reibungskraft wirkt zwar tangential zum Tisch, jedoch hat die Reibungskraft nichts mit der Einhaltung der Zwangsbedingung zu tun und ist daher auch keine Zwangskraft. Für eine Zwangskraft $\mathbf{Z}$ kann man also ansetzen
 %
 \begin{align}
@@ -639,7 +642,12 @@ m_n\frac{d^2x_n}{dt^2} = F_n + \sum_{\alpha = 1}^{R}\lambda_\alpha\left(t\right)
 }}
 \end{center}
 %
-Hierbei ist $m_1 = m_2 = m_3$ die Masse des ersten Teilchens usw. Zusammen mit den Zwangsbedingungen erhält man $3N + R$ Gleichungen an die $3N + R$ zu bestimmenden Funktionen $x_n\left(t\right), \lambda_\alpha\left(t\right)$. Diese $3N + R$ Gleichungen bezeichnet man als \textit{Lagrange-Gleichungen 1. Art}.\index{Lagrange-Gleichung!1. Art} Ist man an der Berechnung der Zwangskräfte nicht interessiert, bietet sich deren Eliminierung an. Dies wird nun durchgeführt.
+Hierbei ist $m_1 = m_2 = m_3$ die Masse des ersten Teilchens usw. Zusammen mit den Zwangsbedingungen erhält man $3N + R$ Gleichungen an die $3N + R$ zu bestimmenden Funktionen $x_n\left(t\right), \lambda_\alpha\left(t\right)$. Diese $3N + R$ Gleichungen bezeichnet man als \textit{Lagrange-Gleichungen 1. Art}.\index{Lagrange-Gleichung!1. Art}
+
+\subsection{Langrange-Gleichungen 2. Art}
+\label{sec:langrange-Gleichungen_2._art}\index{Lagrange-Gleichung!2. Art}
+
+Ist man an der Berechnung der Zwangskräfte nicht interessiert, bietet sich deren Eliminierung an. Dies wird nun durchgeführt.
 
 Wie bereits angemerkt, eliminiert jede der Zwangsbedingungen $g_\alpha$ einen Freiheitsgrad. Die Anzahl der Freiheitsgrade
 %
@@ -1201,7 +1209,12 @@ Das bisher in diesem Abschnitt betrachtete System hat genau einen Freiheitsgrad,
 \chapter{\normalfont\textsc{Elektrodynamik}}
 \label{chap:elektrodynamik}\index{Elektrodynamik}
 
-In diesem Abschnitt wird das cgs-System verwendet, s. Absch. \ref{sec:cgssystem}. Für die Kraft $\mathbf{F}$ auf ein Teilchen mit der Ladung $q$, welches sich mit der Geschwindigkeit $\mathbf{v}$ durch das elektromagnetische Feld $\left(\mathbf{E}, \mathbf{B}\right)$ bewegt, gilt
+In diesem Abschnitt wird das cgs-System verwendet, s. Absch. \ref{sec:cgssystem}.
+
+\section{Lorentz-Kraft}
+\label{sec:lorentz-kraft}\index{Lorentz-Kraft}
+
+Für die Kraft $\mathbf{F}$ auf ein Teilchen mit der Ladung $q$, welches sich mit der Geschwindigkeit $\mathbf{v}$ durch das elektromagnetische Feld $\left(\mathbf{E}, \mathbf{B}\right)$ bewegt, gilt
 %
 \begin{center}
 \doublebox{\parbox{0.8\textwidth}{
@@ -1213,7 +1226,12 @@ In diesem Abschnitt wird das cgs-System verwendet, s. Absch. \ref{sec:cgssystem}
 }}
 \end{center}
 %
-Diese Kraft bezeichnet man als \textit{Lorentz-Kraft}.\index{Lorentz-Kraft} Die \textit{Maxwell-Gleichungen}\index{Maxwell-Gleichung} (MWGen) für das elektromagnetische Feld (EMF) $\left(\mathbf{E}, \mathbf{B}\right)$ ($\rho$ ist die Ladungsdichte\index{Ladungsdichte} und $\mathbf{j}$ die Stromdichte\index{Stromdichte}) lauten
+Diese Kraft bezeichnet man als \textit{Lorentz-Kraft}\index{Lorentz-Kraft}.
+
+\section{Maxwell-Gleichungen}
+\label{sec:maxwell-gleichungen}\index{Maxwell-Gleichungen}
+
+Die \textit{Maxwell-Gleichungen}\index{Maxwell-Gleichungen} (MWGen) für das elektromagnetische Feld (EMF) $\left(\mathbf{E}, \mathbf{B}\right)$ ($\rho$ ist die Ladungsdichte\index{Ladungsdichte} und $\mathbf{j}$ die Stromdichte\index{Stromdichte}) lauten
 %
 \begin{center}
 \doublebox{\parbox{0.8\textwidth}{
@@ -1251,7 +1269,12 @@ Hierbei sind $Q$ die Ladung in $V$ und $I$ der durch $A$ tretende Strom. Die ent
 \item Faraday'sches Induktionsgesetz\index{Faraday'sches Induktionsgesetz}\index{Induktionsgesetz!Faraday'sches}
 \item Amp\`{e}re'sches Gesetz und Maxwell'scher Verschiebungsstrom\index{Ampère'sches Gesetz}\index{Maxwell'scher Verschiebungsstrom}\index{Verschiebungsstrom}
 \end{itemize}
-%
+
+\subsection{Formulierung über Potentiale}
+\label{sec:formulierung_über_potentiale}
+
+Schreibt man die MWGen komponentenweise auf, erhält man acht Gleichungen für die sechs Komponenten des elektromagnetischen Feldes. Daher stellt sich die Frage, ob die MWGen überbestimmt sind und keine nichttrivialen Lösungen haben. In diesem Abschnitt wird gezeigt, dass dies nicht der Fall ist.
+
 Wegen Glg. \eqref{eq:mwg_2} existiert ein Vektorfeld $\mathbf{A}$ mit
 %
 \begin{align}
@@ -1273,16 +1296,22 @@ Es existiert also ein Potential $\phi$ mit
 $\phi$ nennt man \textit{das skalare Potential}.\index{skalares Potential}\index{Potential!skalares} Damit ist Glg. \eqref{eq:mwg_3} erfüllt. Die Definitionen der Potentiale erhält man also aus den homogenen Maxwell-Gleichungen. Setzt man die bisherigen Festlegungen in Glg. \eqref{eq:mwg_4} ein, erhält man mit Glg. \eqref{eq:diff_op_rule_8}
 %
 \begin{align}
-- \Delta\mathbf{A} + \nabla\left(\nabla\cdot\mathbf{A}\right) + \frac{1}{c}\nabla\frac{\partial\phi}{\partial t} + \frac{1}{c^2}\frac{\partial^2\mathbf{A}}{\partial t^2} = \frac{4\pi}{c}\mathbf{j}.
+-\Delta\mathbf{A} + \nabla\left(\nabla\cdot\mathbf{A}\right) + \frac{1}{c}\nabla\frac{\partial\phi}{\partial t} + \frac{1}{c^2}\frac{\partial^2\mathbf{A}}{\partial t^2} = \frac{4\pi}{c}\mathbf{j}.
 \end{align}
 %
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 Addiert man ein konservatives Feld $\nabla\phi'$ zu $\mathbf{A}$ hinzu, so ändert sich $\mathbf{B}$ nicht. Mit der Ersetzung 
-%
 \begin{align}
 \phi\to\phi - \frac{1}{c}\frac{\partial\phi'}{\partial t}
 \end{align}
+ändert sich auch $\mathbf{E}$ nicht.
+\end{center}
+}}
+\end{center}
 %
-ändert sich auch $\mathbf{E}$ nicht. Dies nennt man die Eichinvarianz der MWGen\index{Eichinvarianz der Maxwell-Gleichungen}\index{Maxwell-Gleichungen!Eichinvarianz}. Die Eichung kann durch einen beliebigen linearen Zusammenhang der Potentiale festgelegt werden, mit der \textit{Lorenz-Eichung}\index{Lorenz-Eichung}
+Dies nennt man die Eichinvarianz der MWGen\index{Eichinvarianz der Maxwell-Gleichungen}\index{Maxwell-Gleichungen!Eichinvarianz}. Die Eichung kann durch einen beliebigen linearen Zusammenhang der Potentiale festgelegt werden, mit der \textit{Lorenz-Eichung}\index{Lorenz-Eichung}
 %
 \begin{align}
 \nabla\cdot\mathbf{A} + \frac{1}{c}\frac{\partial\phi}{\partial t} = 0\label{eq:lorenz-eichung}
@@ -1297,10 +1326,13 @@ wird die vierte MWG zu
 Die erste MWG wird zu
 %
 \begin{align}
-- \Delta\phi - \frac{1}{c}\frac{\partial}{\partial t}\nabla\cdot\mathbf{A} = 4\pi\rho\Leftrightarrow\Delta\phi - \frac{1}{c^2}\frac{\partial^2\phi}{\partial t^2} = -4\pi\rho.\label{eq:ed_pot_2}
+-\Delta\phi - \frac{1}{c}\frac{\partial}{\partial t}\nabla\cdot\mathbf{A} = 4\pi\rho\Leftrightarrow\Delta\phi - \frac{1}{c^2}\frac{\partial^2\phi}{\partial t^2} = -4\pi\rho.\label{eq:ed_pot_2}
 \end{align}
 %
 Damit sind vier lineare, unabhängige Differenzialgleichungen für $\phi$, $\mathbf{A}$ gegeben, die die Maxwell-Gleichungen ersetzen. Über die Glg.en \eqref{eq:e_vom_pot} und \eqref{eq:b_vom_pot} kann hieraus das EMF $\left(\mathbf{E}, \mathbf{B}\right)$ bestimmt werden.
+
+\subsection{Kontinuitätsgleichung der Ladung}
+\label{sec:kontinuitätsgleichung_der_ladung}\index{Kontinuitätsgleichung!der Ladung}
 
 Bildet man die partielle Zeitableitung von Glg. \eqref{eq:mwg_1}, multipliziert die Divergenz von Glg. \eqref{eq:mwg_4} mit $c$ und addiert die beiden resultierenden Gleichungen, erhält man
 %
@@ -1319,7 +1351,12 @@ E}{\partial t} &= 4\pi\frac{\partial\rho}{\partial t} + 4\pi\nabla\cdot\mathbf{j
 }}
 \end{center}
 %
-Dies ist die Kontinuitätsgleichung der Ladung. Nun sollen noch die Lagrange- und die Hamilton-Funktion eines Teilchens der Massen $m$ und Ladung $q$ im elektromagnetischen Feld $\left(\mathbf{E}, \mathbf{B}\right)$ hergeleitet werden. Setzt man für das Potential $U = U\left(\mathbf{r}, \newdot{\mathbf{r}}, t\right)$ an
+Dies ist die Kontinuitätsgleichung der Ladung.
+
+\subsection{Lagrange- und Hamilton-Funktion eines Teilchens im EMF}
+\label{sec:lagrange-_und_hamilton-funktion_eines_teilchens_im_emf}
+
+Nun sollen noch die Lagrange- und die Hamilton-Funktion eines Teilchens der Massen $m$ und Ladung $q$ im elektromagnetischen Feld $\left(\mathbf{E}, \mathbf{B}\right)$ hergeleitet werden. Setzt man für das Potential $U = U\left(\mathbf{r}, \newdot{\mathbf{r}}, t\right)$ an
 %
 \begin{align}
 U\left(\mathbf{r}, \newdot{\mathbf{r}}, t\right) = q\phi\left(\mathbf{r}, t\right) - \frac{q}{c}\mathbf{A}\left(\mathbf{r}, t\right)\cdot\newdot{\mathbf{r}}, \label{eq:ed_ansatz_kraft}
@@ -1548,7 +1585,7 @@ _\lambda \coloneqq \frac{d\varphi}{d\lambda}$ nach $\lambda$ nennt man \textit{s
 %
 Man kann spektrale Strahlungsgrößen auch durch Ableitung nach der Frequenz definieren. Das Wort \textit{spektral} wird manchmal unterschlagen werden.
 
-\subsection{Spezielle Relativitätstheorie}
+\section{Spezielle Relativitätstheorie}
 \label{sec:spezielle_relativitätstheorie}\index{Spezielle Relativitätstheorie}\index{Relativitätstheorie!Spezielle}
 
 Die MWGen ergeben für elektromagnetische Wellen im Vakuum in jedem IS die Phasengeschwindigkeit $c$. Dies ist ein Widerspruch zur Galileitransformation. Diese ist daher falsch und durch die \textit{Lorentz-Transformation}\index{Lorentz-Transformation} zu ersetzen, welche für Geschwindigkeiten $v\ll c$ die Galileitransformation als Grenzfall enthalten muss. Dies ist die Aussage der \textit{Speziellen Relativitätstheorie}.
