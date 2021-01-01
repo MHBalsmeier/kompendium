@@ -11391,13 +11391,13 @@ N_\text{Ro} = \frac{U}{Lf} \sim10^{-1}
 auf der synoptischen Skala. In erster Ordnung liegt also ein Kräftegleichgewicht aus Coriolis-Kraft und Druckgradientkraft vor. Dies ist die geostrophische Approximation. Das entsprechende Windfeld $\mathbf{v}_h = \left(u_g, v_g\right)^T$ erhält man, indem man in den horizontalen Bewegungsgleichungen Glg.en \eqref{eq:x_momentum_simplified_simplified_p} - \eqref{eq:y_momentum_simplified_simplified_p} die Beschleunigung gleich Null setzt.
 %
 \begin{align}
-0 = -\frac{\partial\phi}{\partial x} + fv_g, && 0 = -\frac{\partial\phi}{\partial y} - fu_g
+0 = -\frac{\partial\Phi}{\partial x} + fv_g, && 0 = -\frac{\partial\Phi}{\partial y} - fu_g
 \end{align}
 %
 Stellt man dies nach der Windgeschwindigkeit um, ergeben sich
 %
 \begin{align}
-v_g = \frac{1}{f}\frac{\partial\phi}{\partial x}, && u_g = -\frac{1}{f}\frac{\partial\phi}{\partial y}.
+v_g = \frac{1}{f}\frac{\partial\Phi}{\partial x}, && u_g = -\frac{1}{f}\frac{\partial\Phi}{\partial y}.
 \end{align}
 %
 Der geostrophische Wind ist also
@@ -11407,9 +11407,9 @@ Der geostrophische Wind ist also
 \begin{center}
 \begin{align}
 \mathbf{v}_{h, g} = \frac{1}{f}\left(\begin{array}{c}
-- \frac{\partial\phi}{\partial y}\\
-\frac{\partial\phi}{\partial x}\\
-\end{array}\right) = \mathbf{k}\times\frac{1}{f}\nabla\phi.
+- \frac{\partial\Phi}{\partial y}\\
+\frac{\partial\Phi}{\partial x}\\
+\end{array}\right) = \mathbf{k}\times\frac{1}{f}\nabla\Phi.
 \label{eq:geostr_wind}
 \end{align}
 \end{center}
@@ -11421,7 +11421,7 @@ Die geostrophische Windgeschwindigkeit nimmt also mit wachsendem Betrag der Brei
 Bildet man das Skalarprodukt mit dem Gradienten des Geopotentials, so folgt
 %
 \begin{align}
-\nabla\phi\cdot\mathbf{v}_{h, g} = 0, 
+\nabla\Phi\cdot\mathbf{v}_{h, g} = 0, 
 \end{align}
 %
 der geostrophische Wind ist senkrecht zum Geopotentialgradienten. Daher ist der geostrophische Wind isohypsenparallel. Die lokalzeitliche Tendenz des Horizontalwindes entsteht bei Geostrophie rein aus der Advektion. Weitere wichtige Implikationen der geostrophischen Annahme werden in Absch. \ref{sec:entwicklungen_des_coriolisparameters_in_ebener_geometrie} behandelt.
@@ -11429,7 +11429,7 @@ der geostrophische Wind ist senkrecht zum Geopotentialgradienten. Daher ist der 
 Bildet man die Divergenz von Glg. \eqref{eq:geostr_wind}, erhält man
 %
 \begin{align}
-\nabla\cdot\mathbf{v}_{h, g} = -\frac{1}{f}\frac{\partial^2\phi}{\partial x\partial y} + \frac{1}{f}\frac{\partial^2\phi}{\partial y\partial x} - \frac{\beta}{f^2}\frac{\partial\phi}{\partial x} - \frac{v\tan\left(\varphi\right)}{r} = -\frac{\beta}{f^2}\frac{\partial\phi}{\partial x} = -\frac{\beta}{f}v - \frac{v\tan\left(\varphi\right)}{r}.
+\nabla\cdot\mathbf{v}_{h, g} = -\frac{1}{f}\frac{\partial^2\Phi}{\partial x\partial y} + \frac{1}{f}\frac{\partial^2\Phi}{\partial y\partial x} - \frac{\beta}{f^2}\frac{\partial\Phi}{\partial x} - \frac{v\tan\left(\phi\right)}{r} = -\frac{\beta}{f^2}\frac{\partial\Phi}{\partial x} = -\frac{\beta}{f}v - \frac{v\tan\left(\phi\right)}{r}.
 \end{align}
 %
 Unter Verwendung der Skalen aus Tab. \ref{tab:syn_scale} folgt
@@ -11446,7 +11446,7 @@ Der \textit{thermische Wind}\index{thermischer Wind}\index{Wind!thermischer} bez
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-\frac{\partial\mathbf{v}_{h, g}}{\partial p} = \mathbf{k}\times\frac{1}{f}\nabla\frac{\partial\phi}{\partial p} = -\frac{R_d}{pf}\mathbf{k}\times\nabla T.\label{eq:therm_wind}
+\frac{\partial\mathbf{v}_{h, g}}{\partial p} = \mathbf{k}\times\frac{1}{f}\nabla\frac{\partial\Phi}{\partial p} = -\frac{R_d}{pf}\mathbf{k}\times\nabla T.\label{eq:therm_wind}
 \end{align}
 \end{center}
 }}
@@ -11474,32 +11474,32 @@ mit einer gewichteten Schichtmitteltemperatur
 Für den Coriolis-Parameter $f$ als Funktion der Breite $\varphi$ gilt
 %
 \begin{align}
-f\left(\varphi\right) = 2\omega\sin\left(\varphi\right).
+f\left(\phi\right) = 2\omega\sin\left(\phi\right).
 \end{align}
 %
-Taylor-entwickelt man dies an einer Breite $\varphi_0$, erhält man
+Taylor-entwickelt man dies an einer Breite $\phi_0$, erhält man
 %
 \begin{align}
-f\left(\varphi\right) &= f\left(\varphi_0\right) + f'\left(\varphi_0\right)\left(\varphi - \varphi_0\right) + \frac{1}{2}f''\left(\varphi_0\right)\left(\varphi - \varphi_0\right)^2 + \frac{1}{6}f'''\left(\varphi_0\right)\left(\varphi - \varphi_0\right)^2 + \mathcal{O}\left[\left(\varphi - \varphi_0\right)^4\right]\nonumber\\
-&= f\left(\varphi_0\right)\left[1 + \cot\left(\varphi_0\right)\left(\varphi - \varphi_0\right) - \frac{1}{2}\left(\varphi - \varphi_0\right)^2 - \frac{1}{6}\cot\left(\varphi_0\right)\left(\varphi - \varphi_0\right)^3\right], 
+f\left(\phi\right) &= f\left(\phi_0\right) + f'\left(\phi_0\right)\left(\phi - \phi_0\right) + \frac{1}{2}f''\left(\phi_0\right)\left(\phi - \phi_0\right)^2 + \frac{1}{6}f'''\left(\phi_0\right)\left(\phi - \phi_0\right)^2 + \mathcal{O}\left[\left(\phi - \phi_0\right)^4\right]\nonumber\\
+&= f\left(\phi_0\right)\left[1 + \cot\left(\phi_0\right)\left(\phi - \phi_0\right) - \frac{1}{2}\left(\phi - \phi_0\right)^2 - \frac{1}{6}\cot\left(\phi_0\right)\left(\phi - \phi_0\right)^3\right], 
 \end{align}
 %
 wobei die Terme vierter und höherer Ordnung nicht mehr mitnotiert wurden. Mit
 %
 \begin{align}
-y \coloneqq r\left(\varphi - \varphi_0\right)
+y \coloneqq r\left(\phi - \phi_0\right)
 \end{align}
 %
 mit $r$ als Abstand vom Erdmittelpunkt kann man dies als
 %
 \begin{align}
-f\left(\varphi\right) &= f\left(\varphi_0\right)\left[1 + \cot\left(\varphi_0\right)\frac{y}{r} - \frac{y^2}{2r^2} - \frac{y^3}{6r^3}\cot\left(\varphi_0\right)\right]\label{eq:f_dev}
+f\left(\phi\right) &= f\left(\phi_0\right)\left[1 + \cot\left(\phi_0\right)\frac{y}{r} - \frac{y^2}{2r^2} - \frac{y^3}{6r^3}\cot\left(\phi_0\right)\right]\label{eq:f_dev}
 \end{align}
 %
 notieren. Der \textit{Rossby-Parameter}\index{Rossby-Parameter} wird definiert durch
 %
 \begin{align}
-\beta\left(\varphi_0\right) \coloneqq \cot\left(\varphi_0\right)\frac{f\left(\varphi_0\right)}{r} = \frac{2\omega\cos\left(\varphi_0\right)}{r} = \frac{d\varphi}{dy}\frac{df}{d\varphi} = \frac{df}{dy}.
+\beta\left(\phi_0\right) \coloneqq \cot\left(\phi_0\right)\frac{f\left(\phi_0\right)}{r} = \frac{2\omega\cos\left(\phi_0\right)}{r} = \frac{d\phi}{dy}\frac{df}{d\phi} = \frac{df}{dy}.
 \end{align}
 %
 In den nun herzuleitenden Approximationen wird von einem zonalen Kanal der meridionalen Ausdehnung $2B$ ausgegangen, der an der Breite $\varphi_0$ zentriert ist. Die Krümmungsterme werden vernachlässigt, daher spricht man von Ebenen.
@@ -11510,13 +11510,13 @@ In den nun herzuleitenden Approximationen wird von einem zonalen Kanal der merid
 Hier macht man die Approximation
 %
 \begin{align}
-f\left(\varphi\right) \approx f\left(\varphi_0\right).
+f\left(\phi\right) \approx f\left(\phi_0\right).
 \end{align}
 %
 Nach Glg. \eqref{eq:f_dev} ist dies gerechtfertigt, falls
 %
 \begin{align}
-B \ll r\tan\left(\varphi_0\right), && B \ll \sqrt{2}r
+B \ll r\tan\left(\phi_0\right), && B \ll \sqrt{2}r
 \end{align}
 %
 gelten. Bei der sogenannten \textit{f-Kugel}\index{f-Kugel} nimmt man einen global homogenen Coriolisparameter an, was für operationelle Vorhersagen nicht geeignet ist.
@@ -11527,13 +11527,13 @@ gelten. Bei der sogenannten \textit{f-Kugel}\index{f-Kugel} nimmt man einen glob
 Hier setzt man die Approximation
 %
 \begin{align}
-f\left(\varphi\right) \approx f\left(\varphi_0\right) + \beta y
+f\left(\phi\right) \approx f\left(\phi_0\right) + \beta y
 \end{align}
 %
 an. Nach Glg. \eqref{eq:f_dev} ist dies gerechtfertigt, falls
 %
 \begin{align}
-B \ll 2r\cot\left(\varphi_0\right), && B \ll \sqrt{6}r
+B \ll 2r\cot\left(\phi_0\right), && B \ll \sqrt{6}r
 \end{align}
 %
 gelten.
@@ -15266,7 +15266,7 @@ Bei der letzten Implikation wurde die $p-$Abhängigkeit von $\sigma$ vernachläs
 eingesetzt. Nun werden die beiden Gleichungen addiert
 %
 \begin{align}
-\frac{\partial}{\partial t}\left[f + \Delta\psi + \frac{f_0^2}{\sigma}\frac{\partial^2\psi}{\partial p^2}\right] + \mathbf{v}_{h, g}\cdot\nabla\left(f + \Delta\psi + \frac{f_0^2}{\sigma}\frac{\partial^2\psi}{\partial p^2}\right) = 0.\label{eq:tendency_eq_pre}
+\frac{\partial}{\partial t}\left(f + \Delta\psi + \frac{f_0^2}{\sigma}\frac{\partial^2\psi}{\partial p^2}\right) + \mathbf{v}_{h, g}\cdot\nabla\left(f + \Delta\psi + \frac{f_0^2}{\sigma}\frac{\partial^2\psi}{\partial p^2}\right) = 0.\label{eq:tendency_eq_pre}
 \end{align}
 %
 Die Größe
@@ -17994,31 +17994,85 @@ Die Gebiete zwischen den \index{Wendekreis}\textit{Wendekreisen}, die bei Breite
 Die Geostrophie gilt in nullter Ordnung auf der synoptischen Skala in den Extratropen, Folgerungen daraus wurden in Absch. \ref{sec:geostrophie} besprochen. In Absch. \ref{sec:barokline_instabilitaet} wurde bereits das quasigeostrophische Gleichungssystem, bestehend aus Tendenzgleichung Glg. \eqref{eq:tendency_eq_pre} und $\omega-$Gleichung Ggl. \eqref{eq:omega_eq}, abgeleitet, welches auf zonale Kanäle in den Extratropen angewandt werden kann, deren meridionale Ausdehnung eine Anwendung der $\beta-$Ebenen-Approximation erlaubt. Es wurde gezeigt, dass die baroklinen Wellen, die man als Lösungen eines quasigeostrophischen linearisierten Zweischichtmodells findet, instabil sind. Der hierdurch angestoßene Prozess ist die Zyklogenese, was hier näher behandelt werden soll. Man definiert zunächst die \index{Geopotentialtendenz}\textit{Geopotentialtendenz}\index{Tendenz!des Geopotentials} durch
 %
 \begin{align}
-\chi \coloneqq \frac{\partial\phi}{\partial t}, \label{sec:tendency_def}
+\chi \coloneqq \frac{\partial\Phi}{\partial t}, \label{sec:tendency_def}
 \end{align}
 %
 \subsection{Tendenzgleichung}
 \label{sec:tendenzgleichung}\index{Tendenzgleichung}
 
-Mit Glg. \eqref{sec:tendency_def} kann man Glg. \eqref{eq:tendency_eq_pre} wie folgt umschreiben:
+Glg. \eqref{eq:tendency_eq_pre} lautete
 %
 \begin{align}
-\underbrace{\vphantom{\left[\Delta + \frac{f_0^2}{\sigma}\frac{\partial^2}{\partial p^2}\right]\chi = -f_0v_g\beta - \mathbf{v}_{h, g}\cdot\nabla\left(\Delta\phi\right) - \frac{f_0^2}{\sigma}\frac{\partial}{\partial p}\left[\mathbf{v}_{h, g}\cdot\nabla\frac{\partial\phi}{\partial p}\right]}\left[\Delta + \frac{f_0^2}{\sigma}\frac{\partial^2}{\partial p^2}\right]\chi}_{=:A} = \underbrace{\vphantom{\left[\Delta + \frac{f_0^2}{\sigma}\frac{\partial^2}{\partial p^2}\right]\chi = -f_0v_g\beta - \mathbf{v}_{h, g}\cdot\nabla\left(\Delta\phi\right) - \frac{f_0^2}{\sigma}\frac{\partial}{\partial p}\left[\mathbf{v}_{h, g}\cdot\nabla\frac{\partial\phi}{\partial p}\right]} -f_0v_g\beta}_{=:B}\underbrace{\vphantom{\left[\Delta + \frac{f_0^2}{\sigma}\frac{\partial^2}{\partial p^2}\right]\chi = -f_0v_g\beta - \mathbf{v}_{h, g}\cdot\nabla\left(\Delta\phi\right) - \frac{f_0^2}{\sigma}\frac{\partial}{\partial p}\left[\mathbf{v}_{h, g}\cdot\nabla\frac{\partial\phi}{\partial p}\right]} -\mathbf{v}_{h, g}\cdot\nabla\left(\Delta\phi\right)}_{=:C} \underbrace{\vphantom{\left[\Delta + \frac{f_0^2}{\sigma}\frac{\partial^2}{\partial p^2}\right]\chi = -f_0v_g\beta - \mathbf{v}_{h, g}\cdot\nabla\left(\Delta\phi\right) - \frac{f_0^2}{\sigma}\frac{\partial}{\partial p}\left[\mathbf{v}_{h, g}\cdot\nabla\frac{\partial\phi}{\partial p}\right]} -\frac{f_0^2}{\sigma}\frac{\partial}{\partial p}\left[\mathbf{v}_h\cdot\nabla\frac{\partial\phi}{\partial p}\right]}_{=:D}\label{eq:tendency_eq_cyclogen}
+\frac{\partial}{\partial t}\left(f + \Delta\psi + \frac{f_0^2}{\sigma}\frac{\partial^2\psi}{\partial p^2}\right) + \mathbf{v}_{h, g}\cdot\nabla\left(f + \Delta\psi + \frac{f_0^2}{\sigma}\frac{\partial^2\psi}{\partial p^2}\right) &= 0\nonumber\\
+\Leftrightarrow\frac{\partial}{\partial t}\left(f + \Delta\psi + \frac{f_0^2}{\sigma}\frac{\partial^2\psi}{\partial p^2}\right) &= -\mathbf{v}_{h, g}\cdot\nabla\left(f + \Delta\psi + \frac{f_0^2}{\sigma}\frac{\partial^2\psi}{\partial p^2}\right)\nonumber\\
+\Leftrightarrow\frac{\partial}{\partial t}\left(\Delta + \frac{f_0^2}{\sigma}\frac{\partial^2}{\partial p^2}\right)\psi &= -\mathbf{v}_{h, g}\cdot\nabla\left(f + \Delta\psi + \frac{f_0^2}{\sigma}\frac{\partial^2\psi}{\partial p^2}\right)\nonumber\\
+\Leftrightarrow\frac{\partial}{\partial t}\left(\Delta + \frac{f_0^2}{\sigma}\frac{\partial^2}{\partial p^2}\right)\psi &= -v_g\beta - \mathbf{v}_{h, g}\cdot\nabla\left(\Delta\psi + \frac{f_0^2}{\sigma}\frac{\partial^2\psi}{\partial p^2}\right).
 \end{align}
 %
-Dabei wurde im Term D eine Ableitung nach $p$ herausgezogen, wobei Glg. \eqref{eq:therm_wind} ausgenutzt wurde, da dies den Term anschaulicher macht. Diese Gleichung soll nun konzeptionell untersucht werden. Geht man davon aus, dass $\chi$ aus nur einer einzigen Fourier-Komponente im dreidimensionalen Raum besteht, folgt
+Multipliziert man dies mit $f_0$, erhält man
+%
+\begin{align}
+\frac{\partial}{\partial t}\left(\Delta + \frac{f_0^2}{\sigma}\frac{\partial^2}{\partial p^2}\right)\left(f_0\psi\right) &= -f_0v_g\beta - \mathbf{v}_{h, g}\cdot\nabla\left[\Delta\left(f_0\psi\right) + \frac{f_0^2}{\sigma}\frac{\partial^2\left(f_0\psi\right)}{\partial p^2}\right].
+\end{align}
+%
+Aufgrung von Glg. \eqref{eq:geostr_wind_vereinfacht} ist
+%
+\begin{align}
+\psi = \frac{\Phi}{f_0},
+\end{align}
+%
+es gilt also
+%
+\begin{align}
+\frac{\partial}{\partial t}\left(\Delta + \frac{f_0^2}{\sigma}\frac{\partial^2}{\partial p^2}\right)\Phi &= -f_0v_g\beta - \mathbf{v}_{h, g}\cdot\nabla\left(\Delta\Phi + \frac{f_0^2}{\sigma}\frac{\partial^2\Phi}{\partial p^2}\right)\nonumber\\
+\Leftrightarrow\frac{\partial}{\partial t}\left(\Delta + \frac{f_0^2}{\sigma}\frac{\partial^2}{\partial p^2}\right)\Phi &= -f_0v_g\beta - \mathbf{v}_{h, g}\cdot\nabla\left(\Delta\Phi\right) - \mathbf{v}_{h, g}\cdot\nabla\left(\frac{f_0^2}{\sigma}\frac{\partial^2\Phi}{\partial p^2}\right).
+\end{align}
+%
+Geht man von einem homogenen statischen Stabilitätsparameter $\sigma$ aus, folgt
+%
+\begin{align}
+\left(\Delta + \frac{f_0^2}{\sigma}\frac{\partial^2}{\partial p^2}\right)\frac{\partial\Phi}{\partial t} &= -f_0v_g\beta - \mathbf{v}_{h, g}\cdot\nabla\left(\Delta\Phi\right) - \frac{f_0^2}{\sigma}\mathbf{v}_{h, g}\cdot\nabla\frac{\partial^2\Phi}{\partial p^2}\nonumber\\
+\Leftrightarrow\left(\Delta + \frac{f_0^2}{\sigma}\frac{\partial^2}{\partial p^2}\right)\frac{\partial\Phi}{\partial t} &= -f_0v_g\beta - \mathbf{v}_{h, g}\cdot\nabla\left(\Delta\Phi\right) - \frac{f_0^2}{\sigma}\mathbf{v}_{h, g}\cdot\frac{\partial}{\partial p}\left(\nabla\frac{\partial\Phi}{\partial p}\right).
+\end{align}
+%
+Aus Glg. \eqref{eq:therm_wind} folgt
+%
+\begin{align}
+\nabla\frac{\partial\Phi}{\partial p}\cdot\frac{\partial\mathbf{v}_{h, g}}{\partial p} = \nabla\frac{\partial\Phi}{\partial p}\cdot\left(\mathbf{k}\times\frac{1}{f_0}\nabla\frac{\partial\Phi}{\partial p}\right) = \frac{1}{f_0}\nabla\frac{\partial\Phi}{\partial p}\cdot\left(\mathbf{k}\times\nabla\frac{\partial\Phi}{\partial p}\right) = 0,
+\end{align}
+%
+daher kann man auch
+%
+\begin{align}
+\Leftrightarrow\left(\Delta + \frac{f_0^2}{\sigma}\frac{\partial^2}{\partial p^2}\right)\frac{\partial\Phi}{\partial t} &= -f_0v_g\beta - \mathbf{v}_{h, g}\cdot\nabla\left(\Delta\Phi\right) - \frac{f_0^2}{\sigma}\mathbf{v}_{h, g}\cdot\frac{\partial}{\partial p}\left(\nabla\frac{\partial\Phi}{\partial p}\right) - \frac{f_0^2}{\sigma}\left(\nabla\frac{\partial\Phi}{\partial p}\right)\cdot\frac{\partial\mathbf{v}_{h, g}}{\partial p}\nonumber\\
+\Leftrightarrow\left(\Delta + \frac{f_0^2}{\sigma}\frac{\partial^2}{\partial p^2}\right)\frac{\partial\Phi}{\partial t} &= -f_0v_g\beta - \mathbf{v}_{h, g}\cdot\nabla\left(\Delta\Phi\right) - \frac{f_0^2}{\sigma}\frac{\partial}{\partial p}\left(\mathbf{v}_{h, g}\cdot\nabla\frac{\partial\Phi}{\partial p}\right)
+\end{align}
+%
+schreiben. Mit Glg. \eqref{sec:tendency_def} kann man dies in die Form
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\underbrace{\vphantom{\left(\Delta + \frac{f_0^2}{\sigma}\frac{\partial^2}{\partial p^2}\right)\chi = -f_0v_g\beta - \mathbf{v}_{h, g}\cdot\nabla\left(\Delta\Phi\right) - \frac{f_0^2}{\sigma}\frac{\partial}{\partial p}\left(\mathbf{v}_{h, g}\cdot\nabla\frac{\partial\Phi}{\partial p}\right)}\left(\Delta + \frac{f_0^2}{\sigma}\frac{\partial^2}{\partial p^2}\right)\chi}_{=:A} = \underbrace{\vphantom{\left(\Delta + \frac{f_0^2}{\sigma}\frac{\partial^2}{\partial p^2}\right)\chi = -f_0v_g\beta - \mathbf{v}_{h, g}\cdot\nabla\left(\Delta\Phi\right) - \frac{f_0^2}{\sigma}\frac{\partial}{\partial p}\left(\mathbf{v}_{h, g}\cdot\nabla\frac{\partial\Phi}{\partial p}\right)} -f_0v_g\beta}_{=:B}\underbrace{\vphantom{\left(\Delta + \frac{f_0^2}{\sigma}\frac{\partial^2}{\partial p^2}\right)\chi = -f_0v_g\beta - \mathbf{v}_{h, g}\cdot\nabla\left(\Delta\Phi\right) - \frac{f_0^2}{\sigma}\frac{\partial}{\partial p}\left(\mathbf{v}_{h, g}\cdot\nabla\frac{\partial\Phi}{\partial p}\right)} -\mathbf{v}_{h, g}\cdot\nabla\left(\Delta\Phi\right)}_{=:C} \underbrace{\vphantom{\left[\Delta + \frac{f_0^2}{\sigma}\frac{\partial^2}{\partial p^2}\right]\chi = -f_0v_g\beta - \mathbf{v}_{h, g}\cdot\nabla\left(\Delta\Phi\right) - \frac{f_0^2}{\sigma}\frac{\partial}{\partial p}\left(\mathbf{v}_{h, g}\cdot\nabla\frac{\partial\Phi}{\partial p}\right)} -\frac{f_0^2}{\sigma}\frac{\partial}{\partial p}\left(\mathbf{v}_{h, g}\cdot\nabla\frac{\partial\Phi}{\partial p}\right)}_{=:D}\label{eq:tendency_eq_cyclogen}
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+bringen. Diese Gleichung soll nun konzeptionell untersucht werden. Geht man davon aus, dass $\chi$ aus nur einer einzigen Fourier-Komponente im dreidimensionalen Raum besteht, folgt
 %
 \begin{align}
 \text{A} \sim -\chi \sim \text{Zyklogenese}, 
 \end{align}
 %
-\index{Zyklogenese} wobei mit Zyklogenese hier ein Absinken der Druckfläche gemeint ist. In den Extratropen findet man häufig meridionale Wellen, die einem zonalen Grundstrom $U$ überlagert sind, daher macht man für das Geopotential $\phi$ den Ansatz
+\index{Zyklogenese} wobei mit Zyklogenese hier ein Absinken der Druckfläche gemeint ist. In den Extratropen findet man häufig meridionale Wellen, welche einem zonalen Grundstrom $U$ überlagert sind. Daher macht man für das Geopotential $\Phi$ den Ansatz
 %
 \begin{align}
-\phi\left(x, y, p\right) = -Uf_0y + \frac{\newhat{v}f_0L}{2\pi}\sin\left(\frac{2\pi}{L}x\right)\sin\left(ap + b\right) + \phi_0\left(p\right), 
+\Phi\left(x, y, p\right) = -Uf_0y + \frac{\newhat{v}f_0L}{2\pi}\sin\left(\frac{2\pi}{L}x\right)\sin\left(ap + b\right) + \Phi_0\left(p\right), 
 \end{align}
 %
-wobei $\newhat{v}$ die Geschwindigkeitsamplitude der meridionalen Schwingung bezeichnet. Die linere Funktion $ap + b$ ermöglicht eine Phasenverschiebung der Störung mit der Höhe; $\varphi_0$ steht für einen Hintergrundzustand. Für den Term $B$ findet man in diesem Fall
+wobei $\newhat{v}$ die Geschwindigkeitsamplitude der meridionalen Schwingung bezeichnet. Die lineare Funktion $ap + b$ ermöglicht eine Phasenverschiebung der Störung mit der Höhe; $\Phi_0$ steht für einen Hintergrundzustand. Für den Term $B$ findet man in diesem Fall
 %
 \begin{align}
 B = -f_0\beta\newhat{v}\cos\left(\frac{2\pi}{L}x\right).
@@ -18027,10 +18081,10 @@ B = -f_0\beta\newhat{v}\cos\left(\frac{2\pi}{L}x\right).
 Dieser Term führt also überall dort zu Zyklogenese, wo $v_g$ negativ ist, also stromaufwärts des Troges und stromabwärts des Rückens. Er trägt also zu retrograder Progression bei. Term $B$ ist die Advektion planetarer Vorticity. Für den Ausdruck C, welcher die Advektion relativer Vorticity ist, berechnet man zunächst
 %
 \begin{align}
-\Delta\phi = -\frac{2\pi}{L}\newhat{v}f_0\sin\left(\frac{2\pi}{L}x\right), 
+\Delta\Phi = -\frac{2\pi}{L}\newhat{v}f_0\sin\left(\frac{2\pi}{L}x\right), 
 \end{align}
 %
-wobei daran erinnert sei, dass $\Delta\phi$ sich hier nur auf die Horizontale bezieht. Hieraus folgt
+wobei daran erinnert sei, dass $\Delta\Phi$ sich hier nur auf die Horizontale bezieht. Hieraus folgt
 %
 \begin{align}
 C = U\frac{4\pi^2}{L^2}\newhat{v}f_0\cos\left(\frac{2\pi}{L}x\right) = -\frac{2\pi U}{L\beta}B.
@@ -18042,11 +18096,11 @@ Dieser Term führt also stromabwärts des Troges und stromaufwärts des Rückens
 \newtilde{L} = \frac{2\pi U}{\beta}
 \end{align}
 %
-kompensieren sich $B$ und $C$, die Welle ist stationär. Noch längere Wellen propagieren retrograd. Beide Terme $B$ und $C$ verschwinden an den Achsen der Druckgebilde, also tragen sie ausschließlich zu deren Verlagerung bei, nicht jedoch zu ihrer Vertiefung. Hierfür ist der Term $D$ zuständig. Das Skalarprodukt $\mathbf{v}_h\cdot\nabla\frac{\partial\phi}{\partial p}$ ist die horizontale Temperaturadvektion, wie sich aus der hydrostatischen Grundgleichung in der Form Glg. \eqref{eq:hydrostatic_p} ergibt. Daher bezeichnet man $D$ auch als negative \textit{differenzielle Temperaturadvektion}\index{differenzielle Temperaturadvektion}\index{Temperaturadvektion!differenzielle}. Es gilt
+kompensieren sich $B$ und $C$, die Welle ist stationär. Noch längere Wellen propagieren retrograd. Beide Terme $B$ und $C$ verschwinden an den Achsen der Druckgebilde, also tragen sie ausschließlich zu deren Verlagerung bei, nicht jedoch zu ihrer Vertiefung. Hierfür ist der Term $D$ zuständig. Das Skalarprodukt $\mathbf{v}_h\cdot\nabla\frac{\partial\Phi}{\partial p}$ ist die horizontale Temperaturadvektion, wie sich aus der hydrostatischen Grundgleichung in der Form Glg. \eqref{eq:hydrostatic_p} ergibt. Daher bezeichnet man $D$ auch als negative \textit{differenzielle Temperaturadvektion}\index{differenzielle Temperaturadvektion}\index{Temperaturadvektion!differenzielle}. Es gilt
 %
 \begin{align}
 D = \begin{cases}
-\text{postiv, falls Kaltluftadvektion mit der Tiefe zunimmt, }\\
+\text{positiv, falls Kaltluftadvektion mit der Tiefe zunimmt, }\\
 \text{negativ, falls Warmluftadvektion mit der Tiefe zunimmt.}
 \end{cases}
 \end{align}
