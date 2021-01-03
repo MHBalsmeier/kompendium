@@ -25967,10 +25967,13 @@ Für die \textit{materielle Ableitung}\index{materielle Ableitung}\index{Ableitu
 \begin{align}
 \md{\mathbf{v}} &= \mathbf{i}\left(\frac{\partial u}{\partial t} + u\frac{\partial u}{\partial x} + v\frac{\partial u}{\partial y} + w\frac{\partial u}{\partial z} - \frac{uv\tan\left(\varphi\right)}{a + z} + \frac{uw}{a + z}\right)\nonumber\\
 & + \mathbf{j}\left(\frac{\partial v}{\partial t} + u\frac{\partial v}{\partial x} + v\frac{\partial v}{\partial y} + w\frac{\partial v}{\partial z} + \frac{u^2\tan\left(\varphi\right)}{a + z} + \frac{vw}{a + z}\right)\nonumber\\
-& + \mathbf{k}\left(\frac{\partial w}{\partial t} + u\frac{\partial w}{\partial x} + v\frac{\partial w}{\partial y} + w\frac{\partial w}{\partial z} - \frac{u^2 + v^2}{a + z}\right).\label{eq:mat_deriv_momentum_local}
+& + \mathbf{k}\left(\frac{\partial w}{\partial t} + u\frac{\partial w}{\partial x} + v\frac{\partial w}{\partial y} + w\frac{\partial w}{\partial z} - \frac{u^2 + v^2}{a + z}\right)\label{eq:mat_deriv_momentum_local}\\
+&= \mathbf{i}\left(\md{u} - \frac{uv\tan\left(\varphi\right)}{a + z} + \frac{uw}{a + z}\right)\nonumber\\
+& + \mathbf{j}\left(\md{v} + \frac{u^2\tan\left(\varphi\right)}{a + z} + \frac{vw}{a + z}\right)\nonumber\\
+& + \mathbf{k}\left(\md{w}\textcolor{red}{- \frac{u^2 + v^2}{a + z}}\right).
 \end{align}
 %
-Eine weitere Form des advektiven Anteils hiervon ist
+Der \textcolor{red}{rote} Term ist die Zentrifugalbeschleunigung. Eine weitere Form des advektiven Anteils hiervon ist
 %
 \begin{align}
 \left(\mathbf{v}\cdot\nabla\right)\mathbf{v} &= \left[\left(\mathbf{v}_h + w\mathbf{k}\right)\cdot\nabla\right]\left(\mathbf{v}_h + w\mathbf{k}\right) = \left(\mathbf{v}_h\cdot\nabla\right)\mathbf{v}_h + w\frac{\partial\mathbf{v}_h}{\partial z} + \left(\mathbf{v}\cdot\nabla\right)\left(w\mathbf{k}\right)\nonumber\\
