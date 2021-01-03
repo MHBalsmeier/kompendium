@@ -6,7 +6,7 @@ fig = plt.figure();
 
 epsilon = 1e-3;
 
-kappa_vector = np.linspace(0 + epsilon, 2*math.pi + epsilon, 10000);
+kappa_vector = np.linspace(0 + epsilon, 2*math.pi - 10*epsilon, 10000);
 velocitys_array = np.zeros([len(kappa_vector), 4]);
 
 for i in range(len(kappa_vector)):
