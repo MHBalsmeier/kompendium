@@ -2601,11 +2601,13 @@ mit
 b = \sqrt{\frac{\hbar}{m\omega}}, && c_n = \frac{1}{\sqrt{b\sqrt{\pi}2^nn!}}, && u = \frac{x}{b}.
 \end{align}
 %
-Zum Schluss werden noch zwei Relationen festgehalten, die aus den Glg.en \eqref{eq:herm_pol_prop_2} und \eqref{eq:herm_pol_prop_1} folgen:
+Zum Schluss werden noch zwei wichtige Relationen festgehalten:
 %
 \begin{align}
-u\psi_n\left(u\right) &= \sqrt{\frac{n}{2}}\psi_{n - 1}\left(u\right) + \sqrt{\frac{n + 1}{2}}\psi_{n + 1}\left(u\right)\label{eq:harm_osz_zust_prop_1}\\
-\frac{d\psi_n}{du}\left(u\right) &= \sqrt{2n}\psi_{n - 1}\left(u\right) - u\psi_n\left(u\right) = \sqrt{\frac{n}{2}}\psi_{n - 1}\left(u\right) - \sqrt{\frac{n + 1}{2}}\psi_{n + 1}\left(u\right)\label{eq:harm_osz_zust_prop_2}
+u\psi_n\left(u\right) &\stackrel{\text{Glg. \eqref{eq:herm_pol_prop_2}}}{=} n\frac{1}{\sqrt{2n}}\psi_{n - 1}\left(u\right) + \frac{1}{2}\sqrt{2\left(n + 1\right)}\psi_{n + 1}\left(u\right) = \sqrt{\frac{n}{2}}\psi_{n - 1}\left(u\right) + \sqrt{\frac{n + 1}{2}}\psi_{n + 1}\left(u\right),\label{eq:harm_osz_zust_prop_1}\\
+\frac{d\psi_n}{du}\left(u\right) &\stackrel{\text{Glg. \eqref{eq:herm_pol_prop_1}}}{=} 2n\frac{1}{\sqrt{2n}}\psi_{n - 1}\left(u\right) - u\psi_n\left(u\right) = \sqrt{2n}\psi_{n - 1}\left(u\right) - u\psi_n\left(u\right)\nonumber\\
+&= \sqrt{2n}\psi_{n - 1}\left(u\right) - \sqrt{\frac{n}{2}}\psi_{n - 1}\left(u\right) - \sqrt{\frac{n + 1}{2}}\psi_{n + 1}\left(u\right) = \sqrt{n}\left(\sqrt{2} - \frac{1}{\sqrt{2}}\right)\psi_{n - 1}\left(u\right)  - \sqrt{\frac{n + 1}{2}}\psi_{n + 1}\left(u\right)\nonumber\\
+&= \sqrt{n}\left(\frac{2}{\sqrt{2}} - \frac{1}{\sqrt{2}}\right)\psi_{n - 1}\left(u\right)  - \sqrt{\frac{n + 1}{2}}\psi_{n + 1}\left(u\right) = \sqrt{\frac{n}{2}}\psi_{n - 1}\left(u\right) - \sqrt{\frac{n + 1}{2}}\psi_{n + 1}\left(u\right)\label{eq:harm_osz_zust_prop_2}
 \end{align}
 %
 \section{Hilbert-Raum und Operatoren}
