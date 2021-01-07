@@ -22294,19 +22294,74 @@ Da die Kostenfunktion minimert werden soll und die Wurzel streng monoton steigen
 J\left(x\right) = J_B\left(x, y\right) + J_y\left(x, x_B\right) = \frac{1}{2}\alpha_B\left(x - x_B\right)^2 + \frac{1}{2}\alpha_y\left(x - \newhat{I}y\right)^2.
 \end{align}
 %
-Der Faktor $\frac{1}{2}$ ist Konvention und ändert das Minimum der Kostenfunktion nicht. Die Bestimmung des Operators $\newhat{I}$ kann sehr kompliziert sein. Die Messungen sind nämlich i. A. allgemeinen nicht einfach Messungen von $\left(p, \rho, T, \mathbf{v}\right)$, welche interpoliert und mittels der Zustandsgleichung umgerechnet werden müssen, sondern es kann sich auch um Messungen von spektralen Strahldichten an einem Satelliten oder Radarreflektivitäten handeln. Für diese Größen ist es jedoch deutlich einfacher möglich, sie aus einem Modellzustand heraus zu rekonstruieren. Daher nimmt man die Ersetzung
+Der Faktor $\frac{1}{2}$ ist Konvention und ändert das Minimum der Kostenfunktion nicht. Die Bestimmung des Operators $\newhat{I}$ kann sehr kompliziert sein. Die Messungen sind nämlich i. A. nicht einfach Messungen von $\left(p, \rho, T, \mathbf{v}\right)$, welche interpoliert und mittels der Zustandsgleichung umgerechnet werden müssen, sondern es kann sich auch um Messungen von spektralen Strahldichten an einem Satelliten oder Radarreflektivitäten handeln. Für diese Größen ist es jedoch deutlich einfacher möglich, sie aus einem Modellzustand heraus zu rekonstruieren. Daher nimmt man die Ersetzung
 %
 \begin{align}
-\left(x - \newhat{I}y\right)^2 \to \left(y - \newhat{H}x\right)^2
+\text{Modell} - \text{interpolierte Beobachtung} &\to \text{Beobachtung} - \text{interpoliertes Modell}\\
+\Rightarrow  x - \newhat{I}y &\to y - \newhat{H}_{\text{nl}}\left(x\right)\label{eq:replace_for_3dvar}
 \end{align}
 %
-vor, hierbei ist $\newhat{H}$ ein linearer Operator, der sogenannte \textit{Beobachtungsoperator}\index{Beobachtungsoperator}, welcher aus einem Modellzustand $\mathbf{x}$ die Messungen $\mathbf{y}$ rekonstruiert. Hierzu muss man die Modellvariablen als Störungen auffassen,
+vor, hierbei ist $\newhat{H}_{\text{nl}}$ ein i. A. nichtlinearer Operator. Um das Problem jedoch später mittels linearer Algebra bearbeiten zu können, wird $\newhat{H}_{\text{nl}}$ an einer geeigneten Stelle $\newoverline{x}$ linearisiert, also
 %
 \begin{align}
-x \to x - \newoverline{x},
+\newhat{H}_{\text{nl}}\left(x\right) = \newhat{H}_{\text{nl}}\left(\newoverline{x}\right) + \left[\nabla\newhat{H}_{\text{nl}}\left(\newoverline{x}\right)\right]\left(x - \newoverline{x}\right) + \mathcal{O}\left[\left(x - \newoverline{x}\right)^2\right].
 \end{align}
 %
-wobei $x_0$ ein Hintergrundwert ist. Bei nur einer Messung und einer Modellvariable ist $\newhat{H}$ einfach eine Zahl,
+Nun definiert man
+%
+\begin{align}
+\newhat{H} \coloneqq \nabla\newhat{H}_{\text{nl}}\left(\newoverline{x}\right)
+\end{align}
+%
+als den sogenannten \textit{Beobachtungsoperator}\index{Beobachtungsoperator}. Damit erhält man
+%
+\begin{align}
+\newhat{H}_{\text{nl}}\left(x\right) = \newhat{H}_{\text{nl}}\left(\newoverline{x}\right) + \newhat{H}\left(x - \newoverline{x}\right) + \mathcal{O}\left[\left(x - \newoverline{x}\right)^2\right].
+\end{align}
+%
+Nun nimmt man die Bezeichnungsänderungen
+%
+\begin{align}
+x \to x - \newoverline{x}
+\end{align}
+%
+sowie
+%
+\begin{align}
+\newhat{H}_{\text{nl}}\left(x\right) \to \newhat{H}_{\text{nl}}\left(x - \newoverline{x}\right)
+\end{align}
+%
+vor. Auf den Term $x - x_B$ hat dies wegen
+%
+\begin{align}
+x - x_B = x - x_B + \newoverline{x} - \newoverline{x} = x - \newoverline{x} - x_B + \newoverline{x} = \left(x - \newoverline{x}\right) - \left(x_B - \newoverline{x}\right)
+\end{align}
+%
+keinen Einfluss. Man erhält unter Vernachlässigung eines Ungefährzeichens
+%
+\begin{align}
+\newhat{H}_{\text{nl}}\left(x\right) = \newhat{H}_{\text{nl}}\left(0\right) + \newhat{H}x.
+\end{align}
+%
+Setzt man dies in die rechte Seite von Glg. \eqref{eq:replace_for_3dvar} ein, erhält man
+%
+\begin{align}
+y - \newhat{H}_{\text{nl}}\left(x\right) = y - \newhat{H}_{\text{nl}}\left(0\right) - \newhat{H}x.
+\end{align}
+%
+Fasst man auch die Beobachtungen als Störungen auf, ersetzt also
+%
+\begin{align}
+y \to y - \newhat{H}_{\text{nl}}\left(0\right),
+\end{align}
+%
+folgt
+%
+\begin{align}
+y - \newhat{H}_{\text{nl}}\left(x\right) \approx y - \newhat{H}x.
+\end{align}
+%
+Bei nur einer Messung und einer Modellvariable ist $\newhat{H}$ einfach eine Zahl,
 %
 \begin{align}
 \newhat{H} = h.
