@@ -22551,10 +22551,10 @@ notieren. Aus Glg. \eqref{eq:3dvar_criterion} folgt in diesem Fall also
 Nun nimmt man an, dass nicht eine, sondern $M$ Beobachtungen vorliegen. Die Kostenfunktion Glg. \eqref{eq:3dvar_cost_1_obs} verallgemeinert man für diesen Fall zu
 %
 \begin{center}
-\doublebox{\parbox{0.8\textwidth}{
+\doublebox{\parbox{\textwidth}{
 \begin{center}
 \begin{eqnarray}
-J\left(\mathbf{x}\right) = \frac{1}{2}\left(\mathbf{x} - \mathbf{x}_B\right)^T\overleftrightarrow{B}^{-1}\left(\mathbf{x} - \mathbf{x}_B\right) + \frac{1}{2}\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}\right)^T\overleftrightarrow{R}^{-1}\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}\right)\label{eq:3d-var_cost_function}
+J\left(\mathbf{x}\right) = \frac{1}{2}\left(\mathbf{x} - \mathbf{x}_B\right)^T\overleftrightarrow{B}^{-1}\left(\mathbf{x} - \mathbf{x}_B\right) + \frac{1}{2}\left(\mathbf{y} - \newhat{h}\left(\mathbf{x}_B\right) - \overleftrightarrow{H}\left(\mathbf{x} - \mathbf{x}_B\right)\right)^T\overleftrightarrow{R}^{-1}\left(\mathbf{y} - \newhat{h}\left(\mathbf{x}_B\right) - \overleftrightarrow{H}\left(\mathbf{x} - \mathbf{x}_B\right)\right)\label{eq:3d-var_cost_function}
 \end{eqnarray}
 \end{center}
 }}
@@ -22589,25 +22589,27 @@ Dabei wurde berücksichtigt, dass wegen
 die Matrix $\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H}$ orthogonal ist. Bildet man den Gradienten von Glg. \eqref{eq:3d-var_deriv} (in Bezug auf $\mathbf{x}$), erhält man
 %
 \begin{align}
-\nabla\left[\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}\right)^T\overleftrightarrow{R}^{-1}\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}\right)\right] &= -\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\mathbf{y} + \overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H}\mathbf{x} = -\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}\right).
+\nabla\left[\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}\right)^T\overleftrightarrow{R}^{-1}\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}\right)\right] &= -2\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\mathbf{y} + 2\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H}\mathbf{x} = -2\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}\right).
 \end{align}
 %
 Hieraus folgt
 %
 \begin{eqnarray}
-\nabla J = \overleftrightarrow{B}^{-1}\left(\mathbf{x} - \mathbf{x}_B\right) - \overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}\right).
+\nabla J = \overleftrightarrow{B}^{-1}\left(\mathbf{x} - \mathbf{x}_B\right) - \overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\left(\mathbf{y} - \newhat{h}\left(\mathbf{x}_B\right) - \overleftrightarrow{H}\left(\mathbf{x} - \mathbf{x}_B\right)\right).
 \end{eqnarray}
 %
 Aus Glg. \eqref{eq:3dvar_criterion} folgt also
 %
 \begin{align}
-\overleftrightarrow{B}^{-1}\left(\mathbf{x} - \mathbf{x}_B\right) - \overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}\right) &= 0\nonumber
+\overleftrightarrow{B}^{-1}\left(\mathbf{x} - \mathbf{x}_B\right) - \overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\left(\mathbf{y} - \newhat{h}\left(\mathbf{x}_B\right) - \overleftrightarrow{H}\left(\mathbf{x} - \mathbf{x}_B\right)\right) &= 0\nonumber\\
+\Leftrightarrow\left(\mathbf{x} - \mathbf{x}_B\right) - \overleftrightarrow{B}\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\left(\mathbf{y} - \newhat{h}\left(\mathbf{x}_B\right) - \overleftrightarrow{H}\left(\mathbf{x} - \mathbf{x}_B\right)\right) &= 0\nonumber\\
+\Leftrightarrow\left(\overleftrightarrow{B}\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H} + 1\right)\left(\mathbf{x} - \mathbf{x}_B\right) - \overleftrightarrow{B}\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\left(\mathbf{y} - \newhat{h}\left(\mathbf{x}_B\right)\right) &= 0\nonumber
 \end{align}
 \begin{center}
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-\Leftrightarrow\left(\overleftrightarrow{B}^{-1} + \overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H}\right)\mathbf{x} &= \overleftrightarrow{B}^{-1}\mathbf{x}_B + \overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\mathbf{y}.\nonumber
+\Leftrightarrow\left(\overleftrightarrow{B}\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H} + 1\right)\left(\mathbf{x} - \mathbf{x}_B\right) = \overleftrightarrow{B}\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\left(\mathbf{y} - \newhat{h}\left(\mathbf{x}_B\right)\right).
 \end{align}
 \end{center}
 }}
@@ -22615,17 +22617,11 @@ Aus Glg. \eqref{eq:3dvar_criterion} folgt also
 %
 Dies ist das für $\mathbf{x}$ geltende lineare Gleichungssystem. Man kann dies weiter umformen zu
 %
-\begin{align}
-\Leftrightarrow\left(\overleftrightarrow{B}^{-1} + \overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H}\right)\mathbf{x} - \overleftrightarrow{B}^{-1}\mathbf{x}_B &= \overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\mathbf{y}\nonumber\\
-\Leftrightarrow\left(\overleftrightarrow{B}^{-1} + \overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H}\right)\left(\mathbf{x} - \mathbf{x}_B\right) + \overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H}\mathbf{x}_B &= \overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\mathbf{y}\nonumber\\
-\Leftrightarrow\left(\overleftrightarrow{B}^{-1} + \overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H}\right)\left(\mathbf{x} - \mathbf{x}_B\right) &= \overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\mathbf{y} - \overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H}\mathbf{x}_B\nonumber\\
-\Leftrightarrow\left(\overleftrightarrow{B}^{-1} + \overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H}\right)\left(\mathbf{x} - \mathbf{x}_B\right) &= \overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}_B\right)\nonumber
-\end{align}
 \begin{center}
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-\mathbf{x} &= \mathbf{x}_B + \left(\overleftrightarrow{B}^{-1} + \overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H}\right)^{-1}\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}_B\right).
+\mathbf{x} &= \mathbf{x}_B + \left(\overleftrightarrow{B}\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H} + 1\right)^{-1}\overleftrightarrow{B}\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\left(\mathbf{y} - \newhat{h}\left(\mathbf{x}_B\right)\right).
 \end{align}
 \end{center}
 }}
@@ -22634,7 +22630,7 @@ Dies ist das für $\mathbf{x}$ geltende lineare Gleichungssystem. Man kann dies 
 Die Matrix
 %
 \begin{align}
-\overleftrightarrow{K} \coloneqq \left(\overleftrightarrow{B}^{-1} + \overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H}\right)^{-1}\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}
+\overleftrightarrow{K} \coloneqq \left(\overleftrightarrow{B}\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H} + 1\right)^{-1}\overleftrightarrow{B}\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}
 \end{align}
 %
 bezeichnet man als \textit{Gain-Matrix}\index{Gain-Matrix}.
