@@ -17946,161 +17946,6 @@ Nichtsdestotrotz veranschaulicht dieser Abschnitt, dass alle Arten von Parametri
 \part{Anwendungen der Dynamik}
 \label{part:anwendungen_der_dynamik}
 
-\chapter{\normalfont\textsc{Klimatologie der Atmosphäre}}
-\label{chap:klimatologie_der_atmosphaere}\index{Klimatologie!der Atmosphäre}
-
-In Absch. \ref{sec:barokline_instabilitaet} wird gezeigt, dass ein starker thermischer Wind eine Voraussetzung für die Entstehung synoptischer Störungen in den mittleren Breiten ist. In der Realität stellt man fest, dass es Breiten besonders starker Baroklinität gibt, in denen in der Tropopausenregion ein Jet existiert. Diese Frontalzonen sind dementsprechend klassische Entstehungsgebiete von Tiefdruckgebieten (s. Kap. \ref{chap:extratropische_dynamik}). Unklar ist jedoch, warum diese Luftmassengrenzen überhaupt existieren. Aus der Intuition heraus wäre es naheliegender, anzunehmen, dass solche Zonen starker Gradienten durch irgendwelche Mechanismen abgebaut werden, spätestens durch Diffusion. Diese Unklarheit auszuräumen ist Ziel dieses Kapitels.
-
-Statistische Größen des Erdsystems bezeichnet man als \textit{Klima}\index{Klima}, Zusammenstellungen derartiger Charakteristika nennt man \textit{Klimatologien}\index{Klimatologie}. Üblicherweise bildet man dabei 30-jährige Mittel. In diesem Kapitel soll es um zonale Mittel
-%
-\begin{align}
-\newoverline{\psi}\left(\phi, z\right) \coloneqq \frac{1}{2\pi}\int_{\lambda = 0}^{2\pi}\psi\left(\phi, \lambda, t\right)d\lambda
-\end{align}
-%
-von Größen $\psi$ gehen, hierbei ist $\lambda$ die geographische Länge. Diese Mittel erfüllen die Regeln
-%
-\begin{align}
-\frac{\partial\newoverline{\psi}}{\partial t} &= \frac{1}{2\pi}\frac{\partial}{\partial t}\int_{\lambda = 0}^{2\pi}\psi d\lambda = \frac{1}{2\pi}\int_{\lambda = 0}^{2\pi}\frac{\psi}{\partial t}d\lambda = \newoverline{\frac{\psi}{\partial t}},\\
-\newoverline{\frac{\partial\psi}{\partial x}} &= \frac{1}{2\pi}\int_{\lambda = 0}^{2\pi}\frac{\psi}{\partial x}d\lambda = \frac{1}{2\pi}\left[\psi\right]_0^{2\pi} = \frac{1}{2\pi}\left[\psi\right]_0^0 = 0,\\
-\frac{\partial\newoverline{\psi}}{\partial y} &= \frac{1}{2\pi}\frac{\partial}{\partial y}\int_{\lambda = 0}^{2\pi}\psi d\lambda = \frac{1}{2\pi}\int_{\lambda = 0}^{2\pi}\frac{\partial\psi}{\partial y}d\lambda = \newoverline{\frac{\partial\psi}{\partial y}},\\
-\newoverline{\newoverline{\psi}} &= \frac{1}{2\pi}\int_{\lambda = 0}^{2\pi}\newoverline{\psi}d\lambda = \newoverline{\psi}.\label{eq_zonal_mean_rule_0}
-\end{align}
-%
-Sie werden als zeitunabhängig angenommen, es wird also von
-%
-\begin{align}
-\frac{\partial\newoverline{\psi}}{\partial t} = 0
-\end{align}
-%
-ausgegangen. Für Abweichungen notiert man $\psi' \coloneqq \psi - \newoverline{\psi}$, für das vollständige Feld gilt somit
-%
-\begin{align}
-\psi\left(\phi, \lambda, z, t\right) = \newoverline{\psi}\left(\phi, \lambda\right) + \psi'\left(\phi, \lambda, z, t\right).
-\end{align}
-%
-Diese Abweichungen erfüllen
-%
-\begin{align}
-\newoverline{\psi'} = \newoverline{\psi - \newoverline{\psi}} = \newoverline{\psi} - \newoverline{\newoverline{\psi}} \stackrel{\text{Glg. \eqref{eq_zonal_mean_rule_0}}}{=} \newoverline{\psi} - \newoverline{\psi} = 0.
-\end{align}
-%
-Durch Vergleich mit den Glg.en \eqref{eq:reynolds_prop_1} - \eqref{eq:reynolds_prop_3} stellt man fest, dass zonale Mittel Reynolds-Mittel sind. Man beschränkt sich hier auf $\psi = p, T, u, v, w$. Asymmetrien in den Eigenschaften der Erdoberfläche (Orographie, Rauhigkeit, Strahlungseigenschaften) führen dabei zu Asymmetrien der Klimatologie, solche Effekte werden hier nicht mit berücksichtigt.
-
-\section{Zonal gemittelte Gleichungen}
-\label{sec:zonal_gemittelte_gleichungen}\index{Gleichungen!zonal gemittelte}\index{zonal gemittelte Gleichungen}
-
-\subsection{Lineare Flachwassergleichungen}
-\label{sec:lineare_flachwassergleichungen}
-
-Zunächst wird von den linearisierten Flachwassergleichungen Glg.en \eqref{eq:flach_lin_1} - \eqref{eq:flach_lin_2} ausgegangen. Diese lauten in Komponenten
-%
-\begin{align}
-\frac{\partial u}{\partial t} &= -g\frac{\partial d}{\partial x} + fv,\\
-\frac{\partial v}{\partial t} &= -g\frac{\partial d}{\partial y} - fu,\\
-\frac{\partial d}{\partial t} &= -D\left(\frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} - v\frac{\tan\left(\phi\right)}{a}\right).
-\end{align}
-%
-Zonale Mittel zonaler Gradienten verschwinden, somit erhält man
-%
-\begin{align}
-\frac{\partial\newoverline{u}}{\partial t} &= f\newoverline{v},\\
-\frac{\partial\newoverline{v}}{\partial t} &= -g\frac{\partial\newoverline{d}}{\partial y} - f\newoverline{u},\\
-\frac{\partial\newoverline{d}}{\partial t} &= -D\left(\frac{\partial\newoverline{v}}{\partial y} - \newoverline{v}\frac{\tan\left(\phi\right)}{a}\right).
-\end{align}
-%
-Geht man von konstanten gemittelten Größen aus, folgt
-%
-\begin{align}
-0 &= f\newoverline{v},\label{eq:clim_deriv_0}\\
-0 &= -g\frac{\partial\newoverline{d}}{\partial y} - f\newoverline{u},\\
-0 &= -D\left(\frac{\partial\newoverline{v}}{\partial y} - \newoverline{v}\frac{\tan\left(\phi\right)}{a}\right).
-\end{align}
-%
-Aus Glg. \eqref{eq:clim_deriv_0} folgt $\newoverline{v} = 0$, vom ganzen Gleichungssystem bleibt also nur
-%
-\begin{align}
-f\newoverline{u} &= -g\frac{\partial\newoverline{d}}{\partial y}.
-\end{align}
-%
-übrig, $\newoverline{u}$ ist also geostrophisch balanciert.
-
-\subsection{Nichtlineare Flachwassergleichungen}
-\label{sec:nichtlineare_flachwassergleichungen}
-
-Notiert man die Impulsgleichung der nichtlinearen Flachwassergleichungen Glg. \eqref{eq:momentum_eq_shallow_nonl} komponentenweise, erhält man
-%
-\begin{align}
-\frac{\partial u}{\partial t} &= -\frac{\partial\left(gh + gb + k\right)}{\partial x} + qhv = -g\frac{\partial\left(h + b + k\right)}{a\cos\left(\phi\right)\partial\lambda} - \nabla k + \left(f + \zeta\right)v,\\
-\frac{\partial v}{\partial t} &= -\frac{\partial\left(gh + gb + k\right)}{\partial y} - \left(f + \zeta\right)u.
-\end{align}
-%
-Zonale Mittelung führt auf
-%
-\begin{align}
-\frac{\partial\newoverline{u}}{\partial t} &= f\newoverline{v} + \newoverline{\zeta v} = \left(f + \newoverline{\zeta}\right)\newoverline{v} + \newoverline{\zeta'v'},\\
-\frac{\partial\newoverline{v}}{\partial t} &= -\frac{\partial\left(g\newoverline{h} + g\newoverline{b} + \newoverline{k}\right)}{\partial y} - \left(f + \newoverline{\zeta}\right)\newoverline{u} - \newoverline{\zeta'u'}.
-\end{align}
-%
-Zonale Mittel werden als konstant angenommen, woraus folgt
-%
-\begin{align}
-0 &= \left(f + \newoverline{\zeta}\right)\newoverline{v} + \newoverline{\zeta'v'},\\
-0 &= -\frac{\partial\left(g\newoverline{h} + g\newoverline{b} + \newoverline{k}\right)}{\partial y} - \left(f + \newoverline{\zeta}\right)\newoverline{u} - \newoverline{\zeta'u'}.\label{eq:swe_mean_deriv_0}
-\end{align}
-%
-Aus Massenerhaltungsgründen gilt
-%
-\begin{align}
-\newoverline{v} = 0,\label{eq:v_bar_0_swe}
-\end{align}
-%
-woraus unmittelbar
-%
-\begin{align}
-\newoverline{\zeta'v'} = 0
-\end{align}
-%
-folgt. Im Rahmen der Flachwassergleichungen gibt es also keinen turbulenten meridionalen Transport relativer Vorticity. Weiterhin folgen aus Glg. \eqref{eq:v_bar_0_swe}
-%
-\begin{align}
-\newoverline{\zeta} &= -\frac{\partial\newoverline{u}}{\partial y} + \frac{\newoverline{u}}{a}\tan\left(\phi\right),\\
-\newoverline{k} = \frac{1}{2}\newoverline{u^2} + \frac{1}{2}\newoverline{v^2} \Rightarrow \frac{\partial\newoverline{k}}{\partial y} &= \newoverline{u\frac{\partial u}{\partial y}} + \newoverline{v\frac{\partial v}{\partial y}} = \newoverline{u}\frac{\partial\newoverline{u}}{\partial y} + \newoverline{v}\frac{\partial\newoverline{v}}{\partial y} + \newoverline{u'\frac{\partial u'}{\partial y}} + \newoverline{v'\frac{\partial v'}{\partial y}}\nonumber\\
-&= \newoverline{u}\frac{\partial\newoverline{u}}{\partial y} + \newoverline{u'\frac{\partial u'}{\partial y}} + \newoverline{v'\frac{\partial v'}{\partial y}}.
-\end{align}
-%
-Setzt man dies in Glg. \eqref{eq:swe_mean_deriv_0} ein, folgt
-%
-\begin{align}
-g\frac{\partial\left(\newoverline{h} + \newoverline{b}\right)}{\partial y} &= -f\newoverline{u} - \frac{\newoverline{u}}{a}\tan\left(\phi\right)\newoverline{u} - \newoverline{u'\frac{\partial u'}{\partial y}} - \newoverline{v'\frac{\partial v'}{\partial y}} - \newoverline{\zeta'u'}.
-\end{align}
-%
-Mit
-%
-\begin{align}
-\zeta' = \frac{\partial v'}{\partial x} - \frac{\partial u'}{\partial y} + \frac{v'}{a}\tan\left(\phi\right)
-\end{align}
-%
-Kann man dies weiter umformen zu
-%
-\begin{align}
-g\frac{\partial\left(\newoverline{h} + \newoverline{b}\right)}{\partial y} &= -f\newoverline{u} - \frac{\newoverline{u}}{a}\tan\left(\phi\right)\newoverline{u} - \newoverline{u'\frac{\partial u'}{\partial y}} - \newoverline{v'\frac{\partial v'}{\partial y}} - \newoverline{\left(\frac{\partial v'}{\partial x} - \frac{\partial u'}{\partial y} + \frac{v'}{a}\tan\left(\phi\right)\right)u'}\nonumber\\
-\Leftrightarrow g\frac{\partial\left(\newoverline{h} + \newoverline{b}\right)}{\partial y} &= -f\newoverline{u} - \frac{\newoverline{u}}{a}\tan\left(\phi\right)\newoverline{u} - \newoverline{v'\frac{\partial v'}{\partial y}} - \newoverline{\left(\frac{\partial v'}{\partial x} + \frac{v'}{a}\tan\left(\phi\right)\right)u'}\nonumber\\
-\Leftrightarrow \textcolor{red}{g\frac{\partial\left(\newoverline{h} + \newoverline{b}\right)}{\partial y}} &= \textcolor{red}{-f\newoverline{u}} - \newoverline{v'\frac{\partial v'}{\partial y}} - \newoverline{u'\frac{\partial v'}{\partial x}} + \textcolor{blue}{\newoverline{\frac{u'v'}{a}\tan\left(\phi\right)} - \frac{\newoverline{u}^2}{a}\tan\left(\phi\right)}.
-\end{align}
-%
-Die \textcolor{red}{rot} markierten Terme enthalten die geostrophische Balance, die \textcolor{blue}{blau} markieren Anteile sind metrische Terme. Die schwarzen Terme sind die turbulente Impulsadvektion.
-
-\subsection{Boussinesq-Gleichungen}
-\label{sec:boussinesq-gleichungen}
-
-Die Flachwassergleichungen haben eine triviale vertikale Struktur: vertikale Schwerungen sind konstant. Dementsprechend waren die bisher in diesem Kapitel gefundenen Aussagen eher trivial.
-
-\section{Frontalzonen und Jets}
-\label{sec:frontalzonen_und_jets}\index{Frontalzone}\index{Jet}
-
-\section{Konvektiv-radiatives Gleichgewicht}
-\label{sec:konvektiv-radiatives_gleichgewicht}\index{konvektiv-radiatives Gleichgewicht}\index{Gleichgewicht!konvektiv-radiatives}
-
 \chapter{\normalfont\textsc{Extratropische Dynamik}}
 \label{chap:extratropische_dynamik}\index{Dynamik!extratropische}
 
@@ -18241,6 +18086,237 @@ Die semigeostrophische Annahme ist eine Relaxation der quasigeostrophischen Anna
 
 \section{PV-Denken}
 \label{sec:pv-denken}\index{PV-Denken}\index{potentielle Vorticitiy}\index{Vorticity!potentielle}
+
+
+\chapter{\normalfont\textsc{Klimatologie der Atmosphäre}}
+\label{chap:klimatologie_der_atmosphaere}\index{Klimatologie!der Atmosphäre}
+
+In Absch. \ref{sec:barokline_instabilitaet} wird gezeigt, dass ein starker thermischer Wind eine Voraussetzung für die Entstehung synoptischer Störungen in den mittleren Breiten ist. In der Realität stellt man fest, dass es Breiten besonders starker Baroklinität gibt, in denen in der Tropopausenregion ein Jet existiert. Diese Frontalzonen sind dementsprechend klassische Entstehungsgebiete von Tiefdruckgebieten (s. Kap. \ref{chap:extratropische_dynamik}). Unklar ist jedoch, warum diese Luftmassengrenzen überhaupt existieren. Aus der Intuition heraus wäre es naheliegender, anzunehmen, dass solche Zonen starker Gradienten durch irgendwelche Mechanismen abgebaut werden, spätestens durch Diffusion. Diese Unklarheit auszuräumen ist Ziel dieses Kapitels.
+
+Statistische Größen des Erdsystems bezeichnet man als \textit{Klima}\index{Klima}, Zusammenstellungen derartiger Charakteristika nennt man \textit{Klimatologien}\index{Klimatologie}. Üblicherweise bildet man dabei 30-jährige Mittel. In diesem Kapitel soll es um zonale Mittel
+%
+\begin{align}
+\newoverline{\psi}\left(\phi, z\right) \coloneqq \frac{1}{2\pi}\int_{\lambda = 0}^{2\pi}\psi\left(\phi, \lambda, t\right)d\lambda
+\end{align}
+%
+von Größen $\psi$ gehen, hierbei ist $\lambda$ die geographische Länge. Diese Mittel erfüllen die Regeln
+%
+\begin{align}
+\frac{\partial\newoverline{\psi}}{\partial t} &= \frac{1}{2\pi}\frac{\partial}{\partial t}\int_{\lambda = 0}^{2\pi}\psi d\lambda = \frac{1}{2\pi}\int_{\lambda = 0}^{2\pi}\frac{\psi}{\partial t}d\lambda = \newoverline{\frac{\psi}{\partial t}},\\
+\newoverline{\frac{\partial\psi}{\partial x}} &= \frac{1}{2\pi}\int_{\lambda = 0}^{2\pi}\frac{\psi}{\partial x}d\lambda = \frac{1}{2\pi}\left[\psi\right]_0^{2\pi} = \frac{1}{2\pi}\left[\psi\right]_0^0 = 0,\\
+\frac{\partial\newoverline{\psi}}{\partial y} &= \frac{1}{2\pi}\frac{\partial}{\partial y}\int_{\lambda = 0}^{2\pi}\psi d\lambda = \frac{1}{2\pi}\int_{\lambda = 0}^{2\pi}\frac{\partial\psi}{\partial y}d\lambda = \newoverline{\frac{\partial\psi}{\partial y}},\\
+\newoverline{\newoverline{\psi}} &= \frac{1}{2\pi}\int_{\lambda = 0}^{2\pi}\newoverline{\psi}d\lambda = \newoverline{\psi}.\label{eq_zonal_mean_rule_0}
+\end{align}
+%
+Sie werden als zeitunabhängig angenommen, es wird also von
+%
+\begin{align}
+\frac{\partial\newoverline{\psi}}{\partial t} = 0
+\end{align}
+%
+ausgegangen. Für Abweichungen notiert man $\psi' \coloneqq \psi - \newoverline{\psi}$, für das vollständige Feld gilt somit
+%
+\begin{align}
+\psi\left(\phi, \lambda, z, t\right) = \newoverline{\psi}\left(\phi, \lambda\right) + \psi'\left(\phi, \lambda, z, t\right).
+\end{align}
+%
+Diese Abweichungen erfüllen
+%
+\begin{align}
+\newoverline{\psi'} = \newoverline{\psi - \newoverline{\psi}} = \newoverline{\psi} - \newoverline{\newoverline{\psi}} \stackrel{\text{Glg. \eqref{eq_zonal_mean_rule_0}}}{=} \newoverline{\psi} - \newoverline{\psi} = 0.
+\end{align}
+%
+Durch Vergleich mit den Glg.en \eqref{eq:reynolds_prop_1} - \eqref{eq:reynolds_prop_3} stellt man fest, dass zonale Mittel Reynolds-Mittel sind. Man beschränkt sich hier auf $\psi = p, T, u, v, w$. Asymmetrien in den Eigenschaften der Erdoberfläche (Orographie, Rauhigkeit, Strahlungseigenschaften) führen dabei zu Asymmetrien der Klimatologie, solche Effekte werden hier nicht mit berücksichtigt.
+
+\section{Hadley-Zirkulation}
+\label{sec:hadley-zirkulation}\index{Hadley-Zirkulation}
+
+Man stelle sich eine Erde ohne Obliquität vor, also eine Erde ohne Jahreszeiten. Diese hätte im kurzwelligen Bereich in den Tropen eine Energiezufuhr
+%
+\begin{align}
+S_\text{in} = \frac{S_0}{4\pi}\cos\left(\phi\right) > 0.
+\end{align}
+%
+Hierbei ist $S_\text{in}$ die vertikale Strahlungsflussdichte im kurzwelligen Bereich und $\phi$ ist wie gewohnt die Breite. Alle Größen werden im klimatologischen Mittel betrachtet. Genau an den Polen wäre die vertikale kurzwellige Strahlungsflussdichte Null, wenn man von Streuung und anderen schwachen Effekten absieht. Im langwelligen Bereich wäre die Ausstrahlung $S_\text{out}$ an den Polen zwar schwächer als in den Tropen, jedoch nicht Null. Da das globale Integral über die kurzwellige einfallende Strahlung gleich dem globalen Integral über die langwellige ausgehende Strahlung ist,
+%
+\begin{align}
+&\int_{\phi = -\pi/2}^{\pi/2}\int_{\lambda = 0}^{2\pi}S_0\Theta\left[\cos\left(\lambda\right)\right]\cos\left(\phi\right)a^2\cos\left(\phi\right)d\lambda d\phi = a^2S_0\int_{\phi = -\pi/2}^{\pi/2}\cos\left(\phi\right)^2\int_{\lambda = 0}^{2\pi}\Theta\left[\cos\left(\lambda\right)\right]d\lambda d\phi\nonumber\\
+&a^2S_0\int_{\phi = -\pi/2}^{\pi/2}\cos\left(\phi\right)^22d\phi = a^2S_02\int_{\phi = -\pi/2}^{\pi/2}\cos\left(\phi\right)^2d\phi = \pi a^2S_0\\
+&\Rightarrow\int_{\phi = -\pi/2}^{\pi/2}\int_{\lambda = 0}^{2\pi}S_\text{out}\cos\left(\phi\right)d\phi d\lambda = \pi a^2S_0,
+\end{align}
+%
+ist die Strahlungsbilanz in den Tropen positiv und in den Polarregionen negativ. Dies bezeichnet man als \textit{differenzielles Heizen (differential heating)}\index{differential heating}. Geht man von einem stationären Temperaturfeld aus, folgt für
+%
+\begin{align}
+\text{Konvergenz der Strahlungsflussdichte} &+ \text{Konvergenz der Flussdichte innerer Energie} = 0\\
+\Rightarrow\text{Konvergenz der Strahlungsflussdichte} &= \text{Divergenz der Flussdichte innerer Energie},\\
+\Rightarrow S_\text{in} - S_\text{out} &= \text{Divergenz der Flussdichte innerer Energie}\\
+\Rightarrow S_\text{in} - S_\text{out} &= \frac{c^{(v)}}{a}\left[\frac{\partial V}{\partial\phi} - V\tan\left(\phi\right)\right].\label{eq:hadley_base}
+\end{align}
+%
+Hierbei ist
+%
+\begin{align}
+V \coloneqq \int_0^\infty\rho Tvdz
+\end{align}
+%
+die vertikal integrierte meridionale Flussdichte innerer Energie. Setzt man in Glg. \eqref{eq:hadley_base}
+%
+\begin{align}
+S_\text{in} = \frac{S_0}{4\pi}\cos\left(\phi\right)
+\end{align}
+%
+sowie die Näherung
+%
+\begin{align}
+S_\text{out} = \frac{S_0}{4}
+\end{align}
+%
+ein, erhält man
+%
+\begin{align}
+\frac{S_0}{4\pi}\cos\left(\phi\right) - \frac{S_0}{4} &= \frac{c^{(v)}}{a}\left[\frac{\partial V\left(\phi\right)}{\partial\phi} - V\left(\phi\right)\tan\left(\phi\right)\right]\nonumber\\
+\Rightarrow\cos\left(\phi\right) - \pi &= \frac{4\pi c^{(v)}}{S_0 a}\left[\frac{\partial V\left(\phi\right)}{\partial\phi} - V\left(\phi\right)\tan\left(\phi\right)\right].
+\end{align}
+%
+Dies ist eine Differenzialgleichung für die Funktion $V = V\left(\phi\right)$.
+
+Die Wechselwirkung der Strahlung mit der Atmosphäre geschieht im Wesentlichen über den Umweg der Erdoberfläche. Die Atmosphäre wird also in den Tropen von unten gewärmt und somit labilisiert und in den Polarregionen von unten gekühlt und somit stabilisiert. Dies führt zu positiver Vertikalbewegung in den Tropen und negativer Vertikalbewegung an den Polen. Aus Massenerhaltungsgründen muss dementsprechend die Strömung in der oberen Troposphäre in Richtung der Pole verlaufen und in der unteren Troposphäre in Richtung des Äquators.
+
+Unter der Annahme eines homogenen Bodendrucks führt die höhere Temperatur in den Tropen zu einer Aufwöbung des Geopotentials in diesem Bereich. Dies induziert eine geostrophische zonale Strömung, die in beiden Hemisphären in Richtung der Rotation des Planeten gerichtet ist.
+
+Solche meridionalen Zirkulationen bezeichnet man als \textit{Hadley-Zirkulationen}\index{Hadley-Zirkulation}. Die drei wichtigen Punkte der Hadley-Zirkulation werden noch einmal zusammengefasst:
+%
+\begin{itemize}
+\item Das differenzielle Heizen führt zu Labilisierung in den Tropen und Stabilisierung in den Polarregionen.
+\item Dies führt zu einer meridionalen Zirkulation: Die Vertikalgeschwindigkeit ist positiv in den Tropen und negativ an den Polen. Die Luft fließt in der oberen Troposphäre in Richtung der Pole und in der unteren Troposphäre in Richtung des Äquators.
+\item Dies führt zu einer geostrophischen zonalen Strömung, welche in Richtung der Rotation des Planeten gerichtet ist.
+\end{itemize}
+
+\subsection{Entropieperspektive}
+\label{sec:entropieperspektive}
+
+Im klimatologischen Mittel sind sowohl die Energie als auch die Entropie der Atmosphäre konstant. Über Strahlung wird in den Tropen in einem klimatologischen Zeitintervall eine Wärme $q$ hinzugefügt, die in den Polargebieten wieder abgegeben wird. Da die Temperatur an den Polen niedriger ist, ist die abgegebene Menge an Entropie größer als die aufgenommene. Die Interaktion mit der Erde führt für den Rest des Weltalls also zu einem Entropiezuwachs. Damit die Entropie der Erde selbst nicht absinkt, müssen in Atmosphäre und Ozean jedoch Entropie produziert werden. Dies geschieht über die irreversiblen Prozesse, insbesondere Reibung.
+
+\subsection{Die Atmosphäre als Wärmekraftmaschine}
+\label{sec:die_atmosphäre_als_wärmekraftmaschine}\index{Wärmekraftmaschine!Atmosphäre}\index{Atmosphäre als Wärmekraftmaschine}
+
+Die Atmosphäre wird vom Weltall über Strahlung mit Wärme versorgt. Ein Teil dieser Wärme wird genutzt, um kinetische Energie (Wind) zu erzeugen. Diese Energie wid schließlich dissipiert, wobei Entrope produziert wird. Die gleiche Menge an Wärme, die die Atmosphäre aufgenommen hat, gibt sie schließlich auch wieder ans Weltall ab, nur diesmal ist dies mit einem höheren Entropiefluss verbunden. Das Weltall steckt also Energie in die Erde hinein, was kinetische Energie produziert, und bekommt die Energie in dissipierter Form zurück. Dies entspricht einer Wärmekraftmaschine.
+
+\section{Zonal gemittelte Gleichungen}
+\label{sec:zonal_gemittelte_gleichungen}\index{Gleichungen!zonal gemittelte}\index{zonal gemittelte Gleichungen}
+
+\subsection{Lineare Flachwassergleichungen}
+\label{sec:lineare_flachwassergleichungen}
+
+
+Zunächst wird von den linearisierten Flachwassergleichungen Glg.en \eqref{eq:flach_lin_1} - \eqref{eq:flach_lin_2} ausgegangen. Diese lauten in Komponenten
+%
+\begin{align}
+\frac{\partial u}{\partial t} &= -g\frac{\partial d}{\partial x} + fv,\\
+\frac{\partial v}{\partial t} &= -g\frac{\partial d}{\partial y} - fu,\\
+\frac{\partial d}{\partial t} &= -D\left(\frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} - v\frac{\tan\left(\phi\right)}{a}\right).
+\end{align}
+%
+Zonale Mittel zonaler Gradienten verschwinden, somit erhält man
+%
+\begin{align}
+\frac{\partial\newoverline{u}}{\partial t} &= f\newoverline{v},\\
+\frac{\partial\newoverline{v}}{\partial t} &= -g\frac{\partial\newoverline{d}}{\partial y} - f\newoverline{u},\\
+\frac{\partial\newoverline{d}}{\partial t} &= -D\left(\frac{\partial\newoverline{v}}{\partial y} - \newoverline{v}\frac{\tan\left(\phi\right)}{a}\right).
+\end{align}
+%
+Geht man von konstanten gemittelten Größen aus, folgt
+%
+\begin{align}
+0 &= f\newoverline{v},\label{eq:clim_deriv_0}\\
+0 &= -g\frac{\partial\newoverline{d}}{\partial y} - f\newoverline{u},\\
+0 &= -D\left(\frac{\partial\newoverline{v}}{\partial y} - \newoverline{v}\frac{\tan\left(\phi\right)}{a}\right).
+\end{align}
+%
+Aus Glg. \eqref{eq:clim_deriv_0} folgt $\newoverline{v} = 0$, vom ganzen Gleichungssystem bleibt also nur
+%
+\begin{align}
+f\newoverline{u} &= -g\frac{\partial\newoverline{d}}{\partial y}.
+\end{align}
+%
+übrig, $\newoverline{u}$ ist also geostrophisch balanciert.
+
+\subsection{Nichtlineare Flachwassergleichungen}
+\label{sec:nichtlineare_flachwassergleichungen}
+
+Notiert man die Impulsgleichung der nichtlinearen Flachwassergleichungen Glg. \eqref{eq:momentum_eq_shallow_nonl} komponentenweise, erhält man
+%
+\begin{align}
+\frac{\partial u}{\partial t} &= -\frac{\partial\left(gh + gb + k\right)}{\partial x} + qhv = -g\frac{\partial\left(h + b + k\right)}{a\cos\left(\phi\right)\partial\lambda} - \nabla k + \left(f + \zeta\right)v,\\
+\frac{\partial v}{\partial t} &= -\frac{\partial\left(gh + gb + k\right)}{\partial y} - \left(f + \zeta\right)u.
+\end{align}
+%
+Zonale Mittelung führt auf
+%
+\begin{align}
+\frac{\partial\newoverline{u}}{\partial t} &= f\newoverline{v} + \newoverline{\zeta v} = \left(f + \newoverline{\zeta}\right)\newoverline{v} + \newoverline{\zeta'v'},\\
+\frac{\partial\newoverline{v}}{\partial t} &= -\frac{\partial\left(g\newoverline{h} + g\newoverline{b} + \newoverline{k}\right)}{\partial y} - \left(f + \newoverline{\zeta}\right)\newoverline{u} - \newoverline{\zeta'u'}.
+\end{align}
+%
+Zonale Mittel werden als konstant angenommen, woraus folgt
+%
+\begin{align}
+0 &= \left(f + \newoverline{\zeta}\right)\newoverline{v} + \newoverline{\zeta'v'},\\
+0 &= -\frac{\partial\left(g\newoverline{h} + g\newoverline{b} + \newoverline{k}\right)}{\partial y} - \left(f + \newoverline{\zeta}\right)\newoverline{u} - \newoverline{\zeta'u'}.\label{eq:swe_mean_deriv_0}
+\end{align}
+%
+Aus Massenerhaltungsgründen gilt
+%
+\begin{align}
+\newoverline{v} = 0,\label{eq:v_bar_0_swe}
+\end{align}
+%
+woraus unmittelbar
+%
+\begin{align}
+\newoverline{\zeta'v'} = 0
+\end{align}
+%
+folgt. Im Rahmen der Flachwassergleichungen gibt es also keinen turbulenten meridionalen Transport relativer Vorticity. Weiterhin folgen aus Glg. \eqref{eq:v_bar_0_swe}
+%
+\begin{align}
+\newoverline{\zeta} &= -\frac{\partial\newoverline{u}}{\partial y} + \frac{\newoverline{u}}{a}\tan\left(\phi\right),\\
+\newoverline{k} = \frac{1}{2}\newoverline{u^2} + \frac{1}{2}\newoverline{v^2} \Rightarrow \frac{\partial\newoverline{k}}{\partial y} &= \newoverline{u\frac{\partial u}{\partial y}} + \newoverline{v\frac{\partial v}{\partial y}} = \newoverline{u}\frac{\partial\newoverline{u}}{\partial y} + \newoverline{v}\frac{\partial\newoverline{v}}{\partial y} + \newoverline{u'\frac{\partial u'}{\partial y}} + \newoverline{v'\frac{\partial v'}{\partial y}}\nonumber\\
+&= \newoverline{u}\frac{\partial\newoverline{u}}{\partial y} + \newoverline{u'\frac{\partial u'}{\partial y}} + \newoverline{v'\frac{\partial v'}{\partial y}}.
+\end{align}
+%
+Setzt man dies in Glg. \eqref{eq:swe_mean_deriv_0} ein, folgt
+%
+\begin{align}
+g\frac{\partial\left(\newoverline{h} + \newoverline{b}\right)}{\partial y} &= -f\newoverline{u} - \frac{\newoverline{u}}{a}\tan\left(\phi\right)\newoverline{u} - \newoverline{u'\frac{\partial u'}{\partial y}} - \newoverline{v'\frac{\partial v'}{\partial y}} - \newoverline{\zeta'u'}.
+\end{align}
+%
+Mit
+%
+\begin{align}
+\zeta' = \frac{\partial v'}{\partial x} - \frac{\partial u'}{\partial y} + \frac{v'}{a}\tan\left(\phi\right)
+\end{align}
+%
+Kann man dies weiter umformen zu
+%
+\begin{align}
+g\frac{\partial\left(\newoverline{h} + \newoverline{b}\right)}{\partial y} &= -f\newoverline{u} - \frac{\newoverline{u}}{a}\tan\left(\phi\right)\newoverline{u} - \newoverline{u'\frac{\partial u'}{\partial y}} - \newoverline{v'\frac{\partial v'}{\partial y}} - \newoverline{\left(\frac{\partial v'}{\partial x} - \frac{\partial u'}{\partial y} + \frac{v'}{a}\tan\left(\phi\right)\right)u'}\nonumber\\
+\Leftrightarrow g\frac{\partial\left(\newoverline{h} + \newoverline{b}\right)}{\partial y} &= -f\newoverline{u} - \frac{\newoverline{u}}{a}\tan\left(\phi\right)\newoverline{u} - \newoverline{v'\frac{\partial v'}{\partial y}} - \newoverline{\left(\frac{\partial v'}{\partial x} + \frac{v'}{a}\tan\left(\phi\right)\right)u'}\nonumber\\
+\Leftrightarrow \textcolor{red}{g\frac{\partial\left(\newoverline{h} + \newoverline{b}\right)}{\partial y}} &= \textcolor{red}{-f\newoverline{u}} - \newoverline{v'\frac{\partial v'}{\partial y}} - \newoverline{u'\frac{\partial v'}{\partial x}} + \textcolor{blue}{\newoverline{\frac{u'v'}{a}\tan\left(\phi\right)} - \frac{\newoverline{u}^2}{a}\tan\left(\phi\right)}.
+\end{align}
+%
+Die \textcolor{red}{rot} markierten Terme enthalten die geostrophische Balance, die \textcolor{blue}{blau} markieren Anteile sind metrische Terme. Die schwarzen Terme sind die turbulente Impulsadvektion.
+
+\subsection{Quasigeostrophie}
+\label{sec:quasigeostrophie_klima}
+
+Die Anwendung der quasigeostrophischen Theorie ist auf die $\beta-$Ebene beschränkt und daher nicht global möglich (s. Absch. \ref{sec:quasigeostrophie}). Trotzdem sollen auch die quasigeostrophischen Gleichungen hier zonal gemittelt werden.
+
+\subsection{Semigeostrophie}
+\label{sec:semigeostrophie_klima}
+
+Die quasigeostrophische Theorie filtert Fronten. Frontalzonen spielen jedoch eine wichtige Rolle für die synoptische Struktur der mittleren Breiten. Daher soll ihre klimatologische Entstehung hier anhand der semigeostrophischen Gleichungen nachvollzogen werden.
 
 \chapter{\normalfont\textsc{Tropische Dynamik}}
 \label{chap:tropische_dynamik}\index{Dynamik!tropische}
