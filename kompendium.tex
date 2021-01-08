@@ -22298,25 +22298,25 @@ Der Faktor $\frac{1}{2}$ ist Konvention und ändert das Minimum der Kostenfunkti
 %
 \begin{align}
 \text{Modell} - \text{interpolierte Beobachtung} &\to \text{Beobachtung} - \text{interpoliertes Modell}\\
-\Rightarrow  x - \newhat{I}y &\to y - \newhat{H}_{\text{nl}}\left(x\right)\label{eq:replace_for_3dvar}
+\Rightarrow  x - \newhat{I}y &\to y - \newhat{h}\left(x\right)\label{eq:replace_for_3dvar}
 \end{align}
 %
-vor, hierbei ist $\newhat{H}_{\text{nl}}$ ein i. A. nichtlinearer Operator. Um das Problem jedoch später mittels linearer Algebra bearbeiten zu können, wird $\newhat{H}_{\text{nl}}$ an einer geeigneten Stelle $\newoverline{x}$ linearisiert, also
+vor, hierbei ist $\newhat{h}$ ein i. A. nichtlinearer Operator. Um das Problem jedoch später mittels linearer Algebra bearbeiten zu können, wird $\newhat{h}$ an einer geeigneten Stelle $\newoverline{x}$ linearisiert, also
 %
 \begin{align}
-\newhat{H}_{\text{nl}}\left(x\right) = \newhat{H}_{\text{nl}}\left(\newoverline{x}\right) + \left[\nabla\newhat{H}_{\text{nl}}\left(\newoverline{x}\right)\right]\left(x - \newoverline{x}\right) + \mathcal{O}\left[\left(x - \newoverline{x}\right)^2\right].
+\newhat{h}\left(x\right) = \newhat{h}\left(\newoverline{x}\right) + \left[\nabla\newhat{h}\left(\newoverline{x}\right)\right]\left(x - \newoverline{x}\right) + \mathcal{O}\left[\left(x - \newoverline{x}\right)^2\right].
 \end{align}
 %
 Nun definiert man
 %
 \begin{align}
-\newhat{H} \coloneqq \nabla\newhat{H}_{\text{nl}}\left(\newoverline{x}\right)
+\newhat{H} \coloneqq \nabla\newhat{h}\left(\newoverline{x}\right)
 \end{align}
 %
 als den sogenannten \textit{Beobachtungsoperator}\index{Beobachtungsoperator}. Damit erhält man
 %
 \begin{align}
-\newhat{H}_{\text{nl}}\left(x\right) = \newhat{H}_{\text{nl}}\left(\newoverline{x}\right) + \newhat{H}\left(x - \newoverline{x}\right) + \mathcal{O}\left[\left(x - \newoverline{x}\right)^2\right].
+\newhat{h}\left(x\right) = \newhat{h}\left(\newoverline{x}\right) + \newhat{H}\left(x - \newoverline{x}\right) + \mathcal{O}\left[\left(x - \newoverline{x}\right)^2\right].
 \end{align}
 %
 Nun nimmt man die Bezeichnungsänderungen
@@ -22328,7 +22328,7 @@ x \to x - \newoverline{x}
 sowie
 %
 \begin{align}
-\newhat{H}_{\text{nl}}\left(x\right) \to \newhat{H}_{\text{nl}}\left(x - \newoverline{x}\right)
+\newhat{h}\left(x\right) \to \newhat{h}\left(x - \newoverline{x}\right)
 \end{align}
 %
 vor. Auf den Term $x - x_B$ hat dies wegen
@@ -22340,25 +22340,25 @@ x - x_B = x - x_B + \newoverline{x} - \newoverline{x} = x - \newoverline{x} - x_
 keinen Einfluss. Man erhält unter Vernachlässigung eines Ungefährzeichens
 %
 \begin{align}
-\newhat{H}_{\text{nl}}\left(x\right) = \newhat{H}_{\text{nl}}\left(0\right) + \newhat{H}x.
+\newhat{h}\left(x\right) = \newhat{h}\left(0\right) + \newhat{H}x.
 \end{align}
 %
 Setzt man dies in die rechte Seite von Glg. \eqref{eq:replace_for_3dvar} ein, erhält man
 %
 \begin{align}
-y - \newhat{H}_{\text{nl}}\left(x\right) = y - \newhat{H}_{\text{nl}}\left(0\right) - \newhat{H}x.
+y - \newhat{h}\left(x\right) = y - \newhat{h}\left(0\right) - \newhat{H}x.
 \end{align}
 %
 Fasst man auch die Beobachtungen als Störungen auf, ersetzt also
 %
 \begin{align}
-y \to y - \newhat{H}_{\text{nl}}\left(0\right),
+y \to y - \newhat{h}\left(0\right),
 \end{align}
 %
 folgt
 %
 \begin{align}
-y - \newhat{H}_{\text{nl}}\left(x\right) \approx y - \newhat{H}x.
+y - \newhat{h}\left(x\right) \approx y - \newhat{H}x.
 \end{align}
 %
 Bei nur einer Messung und einer Modellvariable ist $\newhat{H}$ einfach eine Zahl,
@@ -22571,8 +22571,8 @@ bezeichnet man als \textit{Gain-Matrix}\index{Gain-Matrix}.
 \subsection{Berücksichtigung von Hydrostatik}
 \label{sec:berücksichtigung_von_hydrostatik}\index{Hydrostatik!Datenassimilation}\index{Datenassimilation!Hydrostatik}
 
-\subsubsection{Als exakte Einschränkung}
-\label{sec:als_exakte_einschraenkung}
+\subsubsection{Als strong constraint}
+\label{sec:als_strong_constraint}
 
 Geht man von Hydrostatik aus, also von Gültigkeit der hydrostatischen Grundgleichung Glg. \eqref{eq:hydrostatic}, vereinfacht sich der thermodynamische Zustand der Atmosphäre erheblich: Üblicherweise reichen zwei thermodynamische Größen $q_1$, $q_2$ aus, um diesen festzulegen. Bei Gültigkeit einer Gleichung der Form
 %
@@ -22580,12 +22580,12 @@ Geht man von Hydrostatik aus, also von Gültigkeit der hydrostatischen Grundglei
 \frac{\partial q_1}{\partial z} = f\left(q_2\right)
 \end{align}
 %
-kann man jedoch die Festlegung der Größe $q_1$ in der gesamten Atmosphäre durch ihre Festlegung auf einer Fläche ersetzen, zum Beispiel der Erdoberfläche oder einer Druckfläche.
+kann man jedoch die Festlegung der Größe $q_1$ in der gesamten Atmosphäre durch ihre Festlegung auf einer Fläche ersetzen, zum Beispiel der Erdoberfläche oder einer Druckfläche. Die exakte Gültigkeit einer Aussage über das Resultat einer Datenassimilation zu fordern bezeichnet man als \textit{strong constraint}\index{strong constraint}..
 
-\subsubsection{Als Teil der Kostenfunktion}
-\label{sec:als_teil_der_kostenfunktion}
+\subsubsection{Als weak constraint}
+\label{sec:als_weak_constraint}
 
-Eine abgeschwächte Variante des im vorherigen Abschnitts dargelegten Verfahrens besteht darin, die Gültigkeit der hydrostatischen Grundgleichung nicht exakt zu fordern, sondern selbige nur in die Kostenfunktion $J$ aufzunehmen.
+Eine abgeschwächte Variante des im vorherigen Abschnitts dargelegten Verfahrens besteht darin, die Gültigkeit der hydrostatischen Grundgleichung nicht exakt zu fordern, sondern selbige nur in die Kostenfunktion $J$ aufzunehmen. Dies bezeichnet man als \textit{weak constraint}\index{weak constraint}.
 
 \subsection{Berücksichtigung der Balancegleichung}
 \label{sec:berücksichtigung_der_balancegleichung}\index{Balancegleichung!Datenassimilation}\index{Datenassimilation!Balancegleichung}
