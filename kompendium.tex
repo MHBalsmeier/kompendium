@@ -22355,7 +22355,7 @@ Beim \textit{3D-Var-Verfahren}\index{3D-Var-Verfahren} geht man devaon aus, dass
 Zunächst stellt man sich vor, dass man nur eine Beobachtung $y$ hat und das Modell nur aus einer einzigen Zahl $x$ besteht. Als Ansatz $J'$ für $J$ orientiert man sich an der euklidischen Norm und notiert
 %
 \begin{align}
-J'\left(x\right) = \sqrt{J_B'\left(x, y\right)^2 + J_y'\left(x, x_B\right)^2} = \sqrt{\alpha_B\left(x - x_B\right)^2 + \alpha_y\left(x - \newhat{I}y\right)^2}.
+J'\left(x\right) = \sqrt{J_B'\left(x, y\right)^2 + J_y'\left(x, x_B\right)^2} = \sqrt{\alpha_B\left(x - x_B\right)^2 + \alpha_y\left[x - \newhat{I}\left(y\right)\right]^2}.
 \end{align}
 %
 Hierbei sind $\alpha_B$, $\alpha_y$ zwei Gewichtungsfaktoren mit
@@ -22367,86 +22367,64 @@ Hierbei sind $\alpha_B$, $\alpha_y$ zwei Gewichtungsfaktoren mit
 Da die Kostenfunktion minimert werden soll und die Wurzel streng monoton steigen ist, vereinfacht man die notation der Kostenfunktion zu
 %
 \begin{align}
-J\left(x\right) = J_B\left(x, y\right) + J_y\left(x, x_B\right) = \frac{1}{2}\alpha_B\left(x - x_B\right)^2 + \frac{1}{2}\alpha_y\left(x - \newhat{I}y\right)^2.
+J\left(x\right) = J_B\left(x, y\right) + J_y\left(x, x_B\right) = \frac{1}{2}\alpha_B\left(x - x_B\right)^2 + \frac{1}{2}\alpha_y\left[x - \newhat{I}\left(y\right)\right]^2.
 \end{align}
 %
-Der Faktor $\frac{1}{2}$ ist Konvention und ändert das Minimum der Kostenfunktion nicht. Die Bestimmung des Operators $\newhat{I}$ kann sehr kompliziert sein. Die Messungen sind nämlich i. A. nicht einfach Messungen von $\left(p, \rho, T, \mathbf{v}\right)$, welche interpoliert und mittels der Zustandsgleichung umgerechnet werden müssen, sondern es kann sich auch um Messungen von spektralen Strahldichten an einem Satelliten oder Radarreflektivitäten handeln. Für diese Größen ist es jedoch deutlich einfacher möglich, sie aus einem Modellzustand heraus zu rekonstruieren. Daher nimmt man die Ersetzung
+Der Faktor $\frac{1}{2}$ ist Konvention und ändert das Minimum der Kostenfunktion nicht. Die Bestimmung des Operators $\newhat{I}$ kann in der realen Atmosphäre sehr kompliziert sein. Die Messungen sind nämlich i. A. nicht einfach Messungen von $\left(p, \rho, T, \mathbf{v}\right)$, welche interpoliert und mittels der Zustandsgleichung umgerechnet werden müssen, sondern es kann sich auch um Messungen von spektralen Strahldichten an einem Satelliten oder Radarreflektivitäten handeln. Für diese Größen ist es jedoch deutlich einfacher möglich, sie aus einem Modellzustand heraus zu rekonstruieren. Daher nimmt man die Ersetzung
 %
 \begin{align}
 \text{Modell} - \text{interpolierte Beobachtung} &\to \text{Beobachtung} - \text{interpoliertes Modell}\\
-\Rightarrow  x - \newhat{I}y &\to y - \newhat{h}\left(x\right)\label{eq:replace_for_3dvar}
+\Rightarrow  x - \newhat{I}\left(y\right) &\to y - \newhat{h}\left(x\right)\label{eq:replace_for_3dvar}
 \end{align}
 %
-vor, hierbei ist $\newhat{h}$ ein i. A. nichtlinearer Operator. Um das Problem jedoch später mittels linearer Algebra bearbeiten zu können, wird $\newhat{h}$ an einer geeigneten Stelle $\newoverline{x}$ linearisiert, also
+vor, hierbei ist $\newhat{h}$ ein i. A. nichtlinearer Operator. Die Kostenfunktion lautet somit
 %
 \begin{align}
-\newhat{h}\left(x\right) = \newhat{h}\left(\newoverline{x}\right) + \left[\nabla\newhat{h}\left(\newoverline{x}\right)\right]\left(x - \newoverline{x}\right) + \mathcal{O}\left[\left(x - \newoverline{x}\right)^2\right].
+J\left(x\right) = \frac{1}{2}\alpha_B\left(x - x_B\right)^2 + \frac{1}{2}\alpha_y\left[y - \newhat{h}\left(x\right)\right]^2.\label{eq:3dvar_cost_one_obs}
 \end{align}
 %
-Nun definiert man
+Das Minimum der Kostenfunktion erfüllt
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\nabla J = 0.\label{eq:3dvar_criterion}
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+Diese Gleichung ist auch im mehrdimensionalen Fall notwendig und hinreichend für das Minimum: Da $J$ quadratisch ist, ist $\nabla J$ linear mit konstanten Gliedern, die man durch eine Koordinatentransformation verschwinden lassen kann. Die $\nabla J$ festlegende Matrix ist weiterhin symmetrisch. Da die Einträge auf der Hauptdiagonalen alle ungleich Null sind, ist diese Matrix invertierbar. Es gibt also nur ein $\mathbf{x}$ mit $\nabla J\left(\mathbf{x}\right) = \mathbf{0}$. Wegen $\lim_{\left|\mathbf{x}\right| \to \infty} J = \infty$ ist dies ein Minimum.
+
+Um das Problem mit linearer Algebra bearbeiten zu können, wird $\newhat{h}$ an der Stelle $x_B$ linearisiert, also
 %
 \begin{align}
-\newhat{H} \coloneqq \nabla\newhat{h}\left(\newoverline{x}\right)
+\newhat{h}\left(x\right) = \newhat{h}\left(x_B\right) + \newhat{H}\left(x - x_B\right) + \mathcal{O}\left[\left(x - x_B\right)^2\right],
 \end{align}
 %
-als den sogenannten \textit{Beobachtungsoperator}\index{Beobachtungsoperator}. Damit erhält man
+hierbei ist
 %
 \begin{align}
-\newhat{h}\left(x\right) = \newhat{h}\left(\newoverline{x}\right) + \newhat{H}\left(x - \newoverline{x}\right) + \mathcal{O}\left[\left(x - \newoverline{x}\right)^2\right].
+\newhat{H}\left(x\right) \coloneqq \newhat{h}'\left(x_B\right)
 \end{align}
 %
-Nun nimmt man die Bezeichnungsänderungen
+die Ableitung von $\newhat{h}$ an der Stelle $x_B$. Dies bezeichnet man als den sogenannten \textit{Beobachtungsoperator}\index{Beobachtungsoperator}. Setzt man dies in Glg. \eqref{eq:3dvar_cost_one_obs} ein, erhält man unter Vernachlässigung eines Ungefährzeichens
 %
 \begin{align}
-x \to x - \newoverline{x}
+J\left(x\right) = \frac{1}{2}\alpha_B\left(x - x_B\right)^2 + \frac{1}{2}\alpha_y\left[y - \newhat{h}\left(x_B\right) - \newhat{H}\left(x - x_B\right)\right]^2\label{eq:3dvar_cost_simple}
 \end{align}
 %
-sowie
+Die Ableitung hiervon lautet
 %
 \begin{align}
-\newhat{h}\left(x\right) \to \newhat{h}\left(x - \newoverline{x}\right)
-\end{align}
-%
-vor. Auf den Term $x - x_B$ hat dies wegen
-%
-\begin{align}
-x - x_B = x - x_B + \newoverline{x} - \newoverline{x} = x - \newoverline{x} - x_B + \newoverline{x} = \left(x - \newoverline{x}\right) - \left(x_B - \newoverline{x}\right)
-\end{align}
-%
-keinen Einfluss. Man erhält unter Vernachlässigung eines Ungefährzeichens
-%
-\begin{align}
-\newhat{h}\left(x\right) = \newhat{h}\left(0\right) + \newhat{H}x.
-\end{align}
-%
-Setzt man dies in die rechte Seite von Glg. \eqref{eq:replace_for_3dvar} ein, erhält man
-%
-\begin{align}
-y - \newhat{h}\left(x\right) = y - \newhat{h}\left(0\right) - \newhat{H}x.
-\end{align}
-%
-Fasst man auch die Beobachtungen als Störungen auf, ersetzt also
-%
-\begin{align}
-y \to y - \newhat{h}\left(0\right),
-\end{align}
-%
-folgt
-%
-\begin{align}
-y - \newhat{h}\left(x\right) \approx y - \newhat{H}x.
+J'\left(x\right) = \alpha_B\left(x - x_B\right) - \alpha_y\newhat{H}\left[y - \newhat{h}\left(x_B\right) - \newhat{H}\left(x - x_B\right)\right].\label{eq:3dvar_deriv_1obs}
 \end{align}
 %
 Bei nur einer Messung und einer Modellvariable ist $\newhat{H}$ einfach eine Zahl,
 %
 \begin{align}
-\newhat{H} = h.
-\end{align}
-%
-Die Kostenfunktion lautet somit
-%
-\begin{align}
-J\left(x\right) = \frac{1}{2}\alpha_B\left(x - x_B\right)^2 + \frac{1}{2}\alpha_y\left(y - hx\right)^2.
+\newhat{H} = H.
 \end{align}
 %
 Die Kostenfunktion soll dimensionslos sein. Aus einer Dimensionsanalyse erhält man
@@ -22461,42 +22439,52 @@ Ein sinnvoller Ansatz für die Gewichtungsfaktoren sind die inversen Varianzen:
 \alpha_B = \frac{1}{\sigma_B^2}, && \alpha_y = \frac{1}{\sigma_y^2}
 \end{align}
 %
-Hierbei ist $\sigma_B$ die Standardabweichung des Hintergrundzustandes und $\sigma_y$ die Standardabweichung der Messung $y$.
-
-Das Minimum der Kostenfunktion erfüllt
+Hierbei ist $\sigma_B$ die Standardabweichung des Hintergrundzustandes und $\sigma_y$ die Standardabweichung der Messung $y$. Dies kann man auch formaler begründen, indem man annimmt, dass sowohl der Fehler des Hintergrundzustandes als auch der Messung normalverteilt sind, also
 %
-\begin{center}
-\doublebox{\parbox{0.8\textwidth}{
-\begin{center}
 \begin{align}
-\nabla J = 0.\label{eq:3dvar_criterion}
+P\left(x, y\right) \propto \exp\left[-\frac{\left(x - x_B\right)^2}{2\sigma_B^2}\right]\exp\left[-\frac{\left(y - \newhat{h}\left(x\right)\right)^2}{2\sigma_B^2}\right] = \exp\left[-\frac{\left(x - x_B\right)^2}{2\sigma_B^2} - \frac{\left(y - \newhat{h}\left(x\right)\right)^2}{2\sigma_B^2}\right].
 \end{align}
-\end{center}
-}}
-\end{center}
 %
-Diese Gleichung ist auch im mehrdimensionalen Fall notwendig und hinreichend für das Minimum: Da $J$ quadratisch ist, ist $\nabla J$ linear mit konstanten Gliedern, die man durch eine Koordinatentransformation verschwinden lassen kann. Die $\nabla J$ festlegende Matrix ist weiterhin symmetrisch. Da die Einträge auf der Hauptdiagonale alle ungleich Null sind, ist diese Matrix invertierbar. Es gibt also nur ein $\mathbf{x}$ mit $\nabla J\left(\mathbf{x}\right) = \mathbf{0}$. Wegen $\lim_{\left|\mathbf{x}\right| \to \infty} J = \infty$ ist dies ein Minimum.
-
-Aus Glg. \eqref{eq:3dvar_criterion} erhält man
+$P\left(x, y\right)$ ist die Wahrscheinlichkeitsdichte für $x$ under der Annahme, dass $y$ eingetreten ist. Dies maximiert man, indem man den negativen Logarithmus minimiert, also
 %
 \begin{align}
-0 = \frac{1}{\sigma_B^2}\left(x - x_B\right) - \frac{h}{\sigma_y^2}\left(y - hx\right) \Rightarrow x = x_B + \frac{h\sigma_B^2}{\sigma_y^2}\left(y - hx\right).
+P\left(x, y\right)\text{ maximal} \Rightarrow \frac{\left(x - x_B\right)^2}{2\sigma_B^2} + \frac{\left(y - \newhat{h}\left(x\right)\right)^2}{2\sigma_B^2}\text{ minimal.}
+\end{align}
+%
+Aus Glg. \eqref{eq:3dvar_deriv_1obs} erhält man mit Glg. \eqref{eq:3dvar_criterion}
+%
+\begin{align}
+\frac{1}{\sigma_B^2}\left(x - x_B\right) - \frac{H}{\sigma_y^2}\left[y - \newhat{h}\left(x_B\right) - H\left(x - x_B\right)\right] &= \frac{1}{\sigma_B^2}\left(x - x_B\right) - \frac{H}{\sigma_y^2}\left[y - \newhat{h}\left(x_B\right)\right] + \frac{H^2}{\sigma_y^2}\left(x - x_B\right) = 0\nonumber\\
+\Rightarrow\left(\frac{1}{\sigma_B^2} + \frac{H^2}{\sigma_y^2}\right)\left(x - x_B\right) - \frac{H}{\sigma_y^2}\left[y - \newhat{h}\left(x_B\right)\right] &= 0\nonumber\\
+\Rightarrow x = x_B + \frac{H}{\sigma_y^2\left(\frac{1}{\sigma_B^2} + \frac{H^2}{\sigma_y^2}\right)}\left[y - \newhat{h}\left(x_B\right)\right] &= x_B + \frac{H}{\frac{\sigma_y^2}{\sigma_B^2} + H^2}\left[y - \newhat{h}\left(x_B\right)\right].
 \end{align}
 %
 Hieraus folgen zwei interessante Grenzfälle:
 %
 \begin{itemize}
-\item Im Fall $\frac{\sigma_B^2}{\sigma_y^2} \to \infty$, was einem sehr ungenauen Hintergrundzustand $x_B$ entspricht, gilt $hx = y$. Die Analyse bestimmt sich in diesem Fall nur aus den Messungen.
 \item Im Fall $\frac{\sigma_y^2}{\sigma_B^2} \to \infty$, was sehr ungenauen Messungen $y$ entspricht, gilt $x = x_B$. Die Analyse bestimmt sich in diesem Fall nur aus dem Hintergrundzustand.
-\end{itemize}
-%
-Nun nimmt man an, dass ein Modellzustand nicht durch eine einzelne Zahl $x$, sondern durch einen Zustandsvektor $\mathbf{x}$ der Länge $N$ festgelegt wird. Für diesen Fall verallgemeinert die Kostenfunktion zu
+\item Im Fall $\frac{\sigma_B^2}{\sigma_y^2} \to \infty$, was einem sehr ungenauen Hintergrundzustand $x_B$ entspricht, gilt
 %
 \begin{align}
-J\left(\mathbf{x}\right) = \frac{1}{2}\left(\mathbf{x} - \mathbf{x}_B\right)^T\overleftrightarrow{B}^{-1}\left(\mathbf{x} - \mathbf{x}_B\right) + \frac{1}{2}\frac{1}{\sigma_y^2}\left(y - \overleftrightarrow{H}\mathbf{x}\right)^2.\label{eq:3dvar_cost_1_obs}
+x &= x_B + \frac{H}{H^2}\left[y - \newhat{h}\left(x_B\right)\right] = x_B + \frac{y - \newhat{h}\left(x_B\right)}{H}.
 \end{align}
 %
-Hierbei ist $\overleftrightarrow{B} \in \mathbb{R}^{N \times N}$ die Kovarianzmatrix der Fehler des Hintergrundzustandes. Diese Matrix hat Diagonalform, auf ihrer Hauptdiagonalen stehen die Varianzen des Hintergrundzustandes:
+Die Analyse bestimmt sich in diesem Fall nur aus den Messungen.
+\end{itemize}
+%
+Nun nimmt man an, dass ein Modellzustand nicht durch eine einzelne Zahl $x$, sondern durch einen Zustandsvektor $\mathbf{x}$ der Länge $N$ festgelegt wird. Für diesen Fall verallgemeinert die Kostenfunktion Glg. \eqref{eq:3dvar_cost_simple} zu
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+J\left(\mathbf{x}\right) = \frac{1}{2}\left(\mathbf{x} - \mathbf{x}_B\right)^T\overleftrightarrow{B}^{-1}\left(\mathbf{x} - \mathbf{x}_B\right) + \frac{1}{2}\frac{1}{\sigma_y^2}\left[y - \newhat{h}\left(\mathbf{x}_B\right) - \mathbf{H}\left(\mathbf{x} - \mathbf{x}_B\right)\right]^2.\label{eq:3dvar_cost_1_obs}
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+$\mathbf{H}$ ist ein $1 \times N-$Vektor. $\overleftrightarrow{B} \in \mathbb{R}^{N \times N}$ ist die Kovarianzmatrix der Fehler des Hintergrundzustandes. Diese Matrix hat Diagonalform, auf ihrer Hauptdiagonalen stehen die Varianzen des Hintergrundzustandes:
 %
 \begin{align}
 \overleftrightarrow{B} = \left(\begin{array}{cccc}
@@ -22518,37 +22506,44 @@ Hieraus folgt
 \end{array}\right).
 \end{align}
 %
-Hieraus folgt
+Somit erhält man
 %
 \begin{align}
-\left(\mathbf{x} - \mathbf{x}_B\right)^T\overleftrightarrow{B}^{-1}\left(\mathbf{x} - \mathbf{x}_B\right) = \sum_{i = 0}^{N - 1}\frac{\left(x_i - x_{i, B}\right)^2}{\sigma_{i, B}^2}.
-\end{align}
-%
-Der Operator $\overleftrightarrow{H}$ ist eine $1 \times N-$Matrix, also die Transponierte $\mathbf{h}^T$ eines Spaltenvektors $\mathbf{h}$. Somit gilt
-%
-\begin{align}
-\overleftrightarrow{H}\mathbf{x} = \sum_{i = 0}^{N - 1}h_ix_i.
+\frac{1}{2}\left(\mathbf{x} - \mathbf{x}_B\right)^T\overleftrightarrow{B}^{-1}\left(\mathbf{x} - \mathbf{x}_B\right) = \sum_{i = 0}^{N - 1}\frac{\left(x_i - x_{i, B}\right)^2}{2\sigma_{i, B}^2}.
 \end{align}
 %
 Man erhält hieraus
 %
 \begin{align}
-\left(\nabla J\right)_i = \frac{\left(x_i - x_{i, B}\right)}{\sigma_{i, B}^2} - \frac{h_i}{\sigma_y^2}\left(y - \sum_{j = 0}^{N - 1}h_jx_j\right).
+\left(\nabla J\right)_i = \frac{\left(x_i - x_{i, B}\right)}{\sigma_{i, B}^2} - \frac{H_i}{\sigma_y^2}\left[y - \newhat{h}\left(\mathbf{x}_B\right) - \mathbf{H}\left(\mathbf{x} - \mathbf{x}_B\right)\right].
 \end{align}
 %
 Dies kann man in der kompakten Form
 %
 \begin{align}
-\nabla J = \overleftrightarrow{B}^{-1}\left(\mathbf{x} - \mathbf{x}_B\right) - \frac{\overleftrightarrow{H}^T}{\sigma_y^2}\left(y - \overleftrightarrow{H}\mathbf{x}\right).
+\nabla J = \overleftrightarrow{B}^{-1}\left(\mathbf{x} - \mathbf{x}_B\right) - \frac{\mathbf{H}^T}{\sigma_y^2}\left[y - \newhat{h}\left(\mathbf{x}_B\right) - \mathbf{H}\left(\mathbf{x} - \mathbf{x}_B\right)\right].
 \end{align}
 %
 notieren. Aus Glg. \eqref{eq:3dvar_criterion} folgt in diesem Fall also
 %
 \begin{align}
-\left(\overleftrightarrow{B}^{-1} + \frac{\overleftrightarrow{H}^T}{\sigma_y^2}\overleftrightarrow{H}\right)\mathbf{x} = \overleftrightarrow{B}^{-1}\mathbf{x}_B + \frac{\overleftrightarrow{H}^T}{\sigma_y^2}y
+\overleftrightarrow{B}^{-1}\left(\mathbf{x} - \mathbf{x}_B\right) &= \frac{\mathbf{H}^T}{\sigma_y^2}\left[y - \newhat{h}\left(\mathbf{x}_B\right) - \mathbf{H}\left(\mathbf{x} - \mathbf{x}_B\right)\right]\nonumber\\
+\Rightarrow\overleftrightarrow{B}^{-1}\left(\mathbf{x} - \mathbf{x}_B\right) + \frac{\mathbf{H}^T}{\sigma_y^2}\left[\mathbf{H}\left(\mathbf{x} - \mathbf{x}_B\right)\right] &= \frac{\mathbf{H}^T}{\sigma_y^2}\left[y - \newhat{h}\left(\mathbf{x}_B\right)\right]\nonumber\\
+\Rightarrow\left(\overleftrightarrow{B}^{-1} + \frac{\mathbf{H}^T\mathbf{H}}{\sigma_y^2}\right)\left(\mathbf{x} - \mathbf{x}_B\right) &= \frac{\mathbf{H}^T}{\sigma_y^2}\left[y - \newhat{h}\left(\mathbf{x}_B\right)\right]\nonumber
 \end{align}
-%
-notieren.
+\begin{align}
+\Rightarrow\left(1 + \overleftrightarrow{B}\frac{\mathbf{H}^T\mathbf{H}}{\sigma_y^2}\right)\left(\mathbf{x} - \mathbf{x}_B\right) &= \frac{\overleftrightarrow{B}\mathbf{H}^T}{\sigma_y^2}\left[y - \newhat{h}\left(\mathbf{x}_B\right)\right]\nonumber\\
+\Rightarrow\mathbf{x} - \mathbf{x}_B &= \left(1 + \overleftrightarrow{B}\frac{\mathbf{H}^T\mathbf{H}}{\sigma_y^2}\right)^{-1}\frac{\overleftrightarrow{B}\mathbf{H}^T}{\sigma_y^2}\left[y - \newhat{h}\left(\mathbf{x}_B\right)\right]\nonumber
+\end{align}
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\Rightarrow\mathbf{x} &= \mathbf{x}_B + \left(\overleftrightarrow{B}\frac{\mathbf{H}^T\mathbf{H}}{\sigma_y^2} + 1\right)^{-1}\frac{\overleftrightarrow{B}\mathbf{H}^T}{\sigma_y^2}\left[y - \newhat{h}\left(\mathbf{x}_B\right)\right].
+\end{align}
+\end{center}
+}}
+\end{center}
 
 \subsection{Beliebige Anzahl von Beobachtungen}
 \label{sec:beliebige_anzahl_von_beobachtungen}
@@ -22618,7 +22613,7 @@ Aus Glg. \eqref{eq:3dvar_criterion} folgt also
 }}
 \end{center}
 %
-Dies ist das für $\mathbf{x}$ geltende lienare Gleichungssystem. Man kann dies weiter umformen zu
+Dies ist das für $\mathbf{x}$ geltende lineare Gleichungssystem. Man kann dies weiter umformen zu
 %
 \begin{align}
 \Leftrightarrow\left(\overleftrightarrow{B}^{-1} + \overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H}\right)\mathbf{x} - \overleftrightarrow{B}^{-1}\mathbf{x}_B &= \overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\mathbf{y}\nonumber\\
