@@ -22633,7 +22633,38 @@ Die Matrix
 \overleftrightarrow{K} \coloneqq \left(\overleftrightarrow{B}\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H} + 1\right)^{-1}\overleftrightarrow{B}\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}
 \end{align}
 %
-bezeichnet man als \textit{Gain-Matrix}\index{Gain-Matrix}.
+bezeichnet man als \textit{Gain-Matrix}\index{Gain-Matrix}. Man kann den Ausdruck für die Gain-Matrix noch etwas vereinfachen. Sei $\overleftrightarrow{A} \in \mathbb{R}^{N \times M}$. Dann gilt
+%
+\begin{align}
+\overleftrightarrow{A} &= \overleftrightarrow{A}\left(\overleftrightarrow{H}\overleftrightarrow{A} + 1\right)\left(\overleftrightarrow{H}\overleftrightarrow{A} + 1\right)^{-1}\nonumber\\
+\Leftrightarrow\overleftrightarrow{A} &= \left(\overleftrightarrow{A}\overleftrightarrow{H}\overleftrightarrow{A} + \overleftrightarrow{A}\right)\left(\overleftrightarrow{H}\overleftrightarrow{A} + 1\right)^{-1}\nonumber\\
+\Leftrightarrow\overleftrightarrow{A} &= \left(\overleftrightarrow{A}\overleftrightarrow{H} + 1\right)\overleftrightarrow{A}\left(\overleftrightarrow{H}\overleftrightarrow{A} + 1\right)^{-1}\nonumber\\
+\Leftrightarrow\left(\overleftrightarrow{A}\overleftrightarrow{H} + 1\right)^{-1}\overleftrightarrow{A} &= \overleftrightarrow{A}\left(\overleftrightarrow{H}\overleftrightarrow{A} + 1\right)^{-1}\nonumber.
+\end{align}
+%
+Definiert man nun
+%
+\begin{align}
+\overleftrightarrow{A} \coloneqq \overleftrightarrow{B}\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1},
+\end{align}
+%
+folgt
+%
+\begin{align}
+\overleftrightarrow{K} = \left(\overleftrightarrow{B}\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H} + 1\right)^{-1}\overleftrightarrow{B}\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1} = \overleftrightarrow{B}\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\left(\overleftrightarrow{H}\overleftrightarrow{B}\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1} + 1\right)^{-1}.
+\end{align}
+%
+Hieraus folgt weiterhin
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\overleftrightarrow{K} = \overleftrightarrow{B}\overleftrightarrow{H}^T\left(\overleftrightarrow{H}\overleftrightarrow{B}\overleftrightarrow{H}^T + \overleftrightarrow{R}\right)^{-1}.
+\end{align}
+\end{center}
+}}
+\end{center}
 
 \subsection{Berücksichtigung von Hydrostatik}
 \label{sec:berücksichtigung_von_hydrostatik}\index{Hydrostatik!Datenassimilation}\index{Datenassimilation!Hydrostatik}
