@@ -22318,41 +22318,30 @@ Da das Lösen der Strahlungsübertragungsgleichung\index{Strahlungsübertragungs
 \chapter{\normalfont\textsc{Datenassimilation}}
 \label{chap:datenassimilation}\index{Datenassimilation}
 
-Bei der \textit{Datenassimilation}\index{Datenassimilation} geht es um die Bestimmung eines Modellzustandes aus Beobachtungen. $\mathbf{x}$ sei der Zustandsvektor der Modellatmosphäre (die \textit{Analyse}\index{Analyse}) und $\mathbf{y}$ sei der Vektor der Messungen. Man nimmt zunächst an, dass beide zum gleichen Zeitpunkt gültig seien. Die Länge der Vektoren $\mathbf{x}$ und $\mathbf{y}$ sind i. A. unterschiedlich, und die gemessenen Größen entsprechen i. A. nicht den Modellvariablen. Der einfachste Ansatz wäre eine Interpolation
-%
-\begin{align}
-\mathbf{x} = \newhat{I}\mathbf{y}.
-\end{align}
-%
-Hierbei übernimmt der Operator $\newhat{I}$, der nicht notwendigerweise linear sein muss, zwei Aufgaben:
-%
-\begin{enumerate}
-\item Umrechnung der gemessenen Variablen in die prognostischen Variablen.
-\item Interpolation an die Gitterpunkte. Dabei können unterschiedliche Methoden verwendet werden.
-\end{enumerate}
-%
-Das Problem, welches hierbei auftritt, ist, dass bei groben Auflösungen der so bestimmte Vektor $\mathbf{x}$ weit entfernt von Hydrostatik, Divergenzfreiheit und Geostrophie ist. Dies löst zu starke Schall- und Schwerewellen aus. Daher muss man $\mathbf{x}$ in Richtung eines balancierten Zustandes $\mathbf{x}_B$ korrigieren. Hierzu verwendet man eine Kostenfunktion\index{Kostenfunktion} $J$, welche zwei Terme enthält:
+Bei der \textit{Datenassimilation}\index{Datenassimilation} geht es um die Bestimmung eines Modellzustandes aus Beobachtungen.
+
+\section{Objective analysis}
+\label{sec:objective_analysis}\index{objective analysis}
+
+Bis zur zweiten Häfte des 20. Jahrhunderts mussten Meteorologen Wetterkarten manuell auf Grundlage der zur Verfügeng stehenden Daten zeichen, was man als \textit{Analyse}\index{Analyse} bezeichnet. Auch die Anfangszustände der ersten operationellen Modellläufe wurden auf diese Weise festgelegt \cite{lynchrichardson}. Dies war zeitaufwendig, ineffizient und fehleranfällig. Daher begann man schnell damit, diesen Prozess zu automatisieren, was man als \textit{objective analysis}\index{objective analysis} bezeichnet. Die Analyse ist objektiv, da sie nun nicht mehr von der Person abhängt, von der sie erstellt wird. Im Wesentlichen handelt es sich bei solchen Analysen um Interpolationen und Umrechnungen der gemessenen Größen in Modellvariablen.
+
+\section{Optimum interpolation}
+\label{sec:optimum_interpolation}
+
+Ein Nachteil von Interpolationen ist, dass sie sehr ungenau werden können, wenn keine Messdaten in der näheren Umgebung vorliegen. Am Beginn der operationellen numerischen Wettervorhersage in den 1950er-Jahren gab es ausschließlich konventionelle Messungen, die meisten von ihnen in Europa und den USA. Auf der Südhalbkugel gab es kaum Wetterbeobachtungen. Eine naheliegende Lösung ist nun, in Regionen, in denen kaum Messungen vorgenommen werden, einen klimatologischen Hintergrundzustand oder den vorherigen Modelllauf als Ersatz für Messungen zu verwenden. Hierdurch können die Informationen aus den Gebieten mit vielen Beobachtungen mittels der vom Modell simulierten physikalischen Gesetze in die Regionen mit wenigen Beobachtungen propagieren.
+
+Bei der sogenannten \textit{optimum interpolation}\index{optimum interpolation} geht es nun darum, Informationen aus den Beobachtungsdaten und einem Hintergrundzustand auf optimale Art und Weise miteinander zu kombinieren. Hierzu verwendet man eine Kostenfunktion\index{Kostenfunktion} $J$, welche zwei Terme enthält:
 %
 \begin{itemize}
-\item Ein Anteil $J_B$, welcher die Differenz zwischen der Analyse und der Balance repräsentiert.
+\item Ein Anteil $J_B$, welcher die Differenz zwischen der Analyse und dem Hintergrundzustand repräsentiert.
 \item Ein Anteil $J_y$, welcher die Differenz zwischen der Analyse und den Beobachtungen repräsentiert.
 \end{itemize}
 %
 Als Formel notiert man
 %
 \begin{align}
-J\left(\mathbf{x}\right) = J_B\left(\mathbf{x}, \mathbf{y}\right) + J_y\left(\mathbf{x}, \mathbf{x}_B\right).
+J\left(\mathbf{x}\right) = J_B\left(\mathbf{x}, \mathbf{x}_B\right) + J_y\left(\mathbf{x}, \mathbf{y}\right).
 \end{align}
-
-\section{Objective analysis}
-\label{sec:objective_analysis}\index{objective analysis}
-
-Bis zur zweiten Häfte des 20. Jahrhunderts mussten Meteorologen Wetterkarten manuell auf Grundlage der zur Verfügeng stehenden Daten zeichen, was man als \textit{Analyse}\index{Analyse} bezeichnet. Auch die Anfangszustände der ersten operationellen Modellläufe wurden auf diese Weise festgelegt \cite{lynchrichardson}. Dies war zeitaufwendig, ineffizient und fehleranfällig. Daher begann man schnell damit, diesen Prozess zu automatisieren, was man als \textit{objective analysis}\index{objective analysis} bezeichnet. Die Analyse ist objektiv, da sie nun nicht mehr von der Person abhängt, von der sie erstellt wird.
-
-\section{Optimum interpolation}
-\label{sec:optimum_interpolation}
-
-Bei der sogenannten \textit{optimum interpolation}\index{optimum interpolation} geht es darum, Informationen aus den Beobachtungsdaten und einem Hitnergrundzustand auf optimale Art und Weise miteinander zu kombinieren.
 
 \subsection{Eine Beobachtung}
 \label{sec:eine_beobachtung}
@@ -22360,7 +22349,7 @@ Bei der sogenannten \textit{optimum interpolation}\index{optimum interpolation} 
 Zunächst stellt man sich vor, dass man nur eine Beobachtung $y$ hat und das Modell nur aus einer einzigen Zahl $x$ besteht. Als Ansatz $J'$ für $J$ orientiert man sich an der euklidischen Norm und notiert
 %
 \begin{align}
-J'\left(x\right) = \sqrt{J_B'\left(x, y\right)^2 + J_y'\left(x, x_B\right)^2} = \sqrt{\alpha_B\left(x - x_B\right)^2 + \alpha_y\left[x - \newhat{I}\left(y\right)\right]^2}.
+J'\left(x\right) = \sqrt{J_B'\left(x, x_B\right)^2 + J_y'\left(x, y\right)^2} = \sqrt{\alpha_B\left(x - x_B\right)^2 + \alpha_y\left[x - \newhat{I}\left(y\right)\right]^2}.
 \end{align}
 %
 Hierbei sind $\alpha_B$, $\alpha_y$ zwei Gewichtungsfaktoren mit
@@ -22372,7 +22361,7 @@ Hierbei sind $\alpha_B$, $\alpha_y$ zwei Gewichtungsfaktoren mit
 Da die Kostenfunktion minimert werden soll und die Wurzel streng monoton steigen ist, vereinfacht man die notation der Kostenfunktion zu
 %
 \begin{align}
-J\left(x\right) = J_B\left(x, y\right) + J_y\left(x, x_B\right) = \frac{1}{2}\alpha_B\left(x - x_B\right)^2 + \frac{1}{2}\alpha_y\left[x - \newhat{I}\left(y\right)\right]^2.
+J\left(x\right) = J_B\left(x, x_B\right) + J_y\left(x, y\right) = \frac{1}{2}\alpha_B\left(x - x_B\right)^2 + \frac{1}{2}\alpha_y\left[x - \newhat{I}\left(y\right)\right]^2.
 \end{align}
 %
 Der Faktor $\frac{1}{2}$ ist Konvention und ändert das Minimum der Kostenfunktion nicht. Die Bestimmung des Operators $\newhat{I}$ kann in der realen Atmosphäre sehr kompliziert sein. Die Messungen sind nämlich i. A. nicht einfach Messungen von $\left(p, \rho, T, \mathbf{v}\right)$, welche interpoliert und mittels der Zustandsgleichung umgerechnet werden müssen, sondern es kann sich auch um Messungen von spektralen Strahldichten an einem Satelliten oder Radarreflektivitäten handeln. Für diese Größen ist es jedoch deutlich einfacher möglich, sie aus einem Modellzustand heraus zu rekonstruieren. Daher nimmt man die Ersetzung
@@ -22682,17 +22671,11 @@ Setzt man dies in Glg. \eqref{eq:oi_result_pre} ein, erhält man
 \end{center}
 }}
 \end{center}
-
-\section{3D-Var}
-\label{sec:3d-var}\index{3D-Var}
-
-Beim \textit{3D-Var-Verfahren}\index{3D-Var-Verfahren} geht es darum, Glg. \eqref{eq:oi_result} iterativ ohne explizite Berehcnung der Gain-Matrix zu lösen.
+%
+Ein Nachteil dieses Verfahrens ist, dass die so erhaltenen Felder nicht die Balancegleichung erfüllen und daher Schall- und Schwerewellen auslösen. Daher kann man die so gewonnene Analyse, wenn man von sehr feinen Modellauflösungen absieht, nicht als Anfangszustand eines Modelllaufes verwenden. Daher ist nach einer Analyse mit OI noch eine Schall- und Schwerewellen dämpfende \textit{Initialisierung}\index{Initialisierung} notwendig, bevor das Modell gestartet werden kann.
 
 \subsection{Berücksichtigung von Hydrostatik}
 \label{sec:berücksichtigung_von_hydrostatik}\index{Hydrostatik!Datenassimilation}\index{Datenassimilation!Hydrostatik}
-
-\subsubsection{Als strong constraint}
-\label{sec:als_strong_constraint}
 
 Geht man von Hydrostatik aus, also von Gültigkeit der hydrostatischen Grundgleichung Glg. \eqref{eq:hydrostatic}, vereinfacht sich der thermodynamische Zustand der Atmosphäre erheblich: Üblicherweise reichen zwei thermodynamische Größen $q_1$, $q_2$ aus, um diesen festzulegen. Bei Gültigkeit einer Gleichung der Form
 %
@@ -22702,17 +22685,28 @@ Geht man von Hydrostatik aus, also von Gültigkeit der hydrostatischen Grundglei
 %
 kann man jedoch die Festlegung der Größe $q_1$ in der gesamten Atmosphäre durch ihre Festlegung auf einer Fläche ersetzen, zum Beispiel der Erdoberfläche oder einer Druckfläche. Die exakte Gültigkeit einer Aussage über das Resultat einer Datenassimilation zu fordern bezeichnet man als \textit{strong constraint}\index{strong constraint}.
 
-\subsubsection{Als weak constraint}
-\label{sec:als_weak_constraint}
+\section{3D-Var}
+\label{sec:3d-var}\index{3D-Var}
 
-Eine abgeschwächte Variante des im vorherigen Abschnitts dargelegten Verfahrens besteht darin, die Gültigkeit der hydrostatischen Grundgleichung nicht exakt zu fordern, sondern selbige nur in die Kostenfunktion $J$ aufzunehmen. Dies bezeichnet man als \textit{weak constraint}\index{weak constraint}.
+Die Inversion der $M \times M-$Matrix $\overleftrightarrow{H}\overleftrightarrow{B}\overleftrightarrow{H}^T + \overleftrightarrow{R}$ ist sehr aufwendig, wenn die Anzahl der Einzelbeobachtungen groß ist. Hierzu mache man sich klar, dass beispielsweise ein Radarbild aus einer sehr großen Zahl von Einzelbeobachtungen besteht. Dies ist ein Nachteil der OI. Beim \textit{3D-Var-Verfahren}\index{3D-Var-Verfahren} geht es darum, Glg. \eqref{eq:oi_result} iterativ ohne explizite Berechnung der Gain-Matrix zu lösen.
 
-\subsection{Berücksichtigung der Balancegleichung}
-\label{sec:berücksichtigung_der_balancegleichung}\index{Balancegleichung!Datenassimilation}\index{Datenassimilation!Balancegleichung}
+\subsubsection{Weak constraints}
+\label{sec:weak_constraints}
+
+Ein weiterer Vorteil von 3D-Var gegenüber OI besteht darin, Nebendingungen ohne großen Aufwand einfordern zu können, indem man sie in die Kostenfunktion aufnimmt. Dies bezeichnet man als \textit{weak constraint}\index{weak constraint}. Das in Absch. \ref{sec:berücksichtigung_von_hydrostatik} dargelegte Verfahren kann man als weak constrain formulieren, indem man einen Term
+%
+\begin{align}
+J \propto \frac{1}{2}\int_A\left(\frac{\partial p}{\partial z} + g\rho\right)^2d^3r
+\end{align}
+%
+in die Kostenfunktion aufnimmt.
+
+\subsubsection{Balancegleichung}
+\label{sec:balancegleichung_data_ass}\index{Balancegleichung!Datenassimilation}\index{Datenassimilation!Balancegleichung}
 
 Der Horizontalwind ist auf der synoptischen Skala aufgrund der näherungsweisen Gültigkeit des geostrophischen Gleichgewichts sowie der Balancegleichung eng mit den thermodynamischen Größen verknüpft. Daher kann man ihn als diagnostische Größe betrachten. Ihn direkt aus der Geostrophie in Form von Glg. \eqref{eq:geostr_wind} zu berechnen ist aufgrund des in Absch. \ref{sec:geostrophie} dargestellten Divergenzproblems in den Tropen nicht möglich. Daher kann man anstattdessen die Balancegleichung \eqref{eq:balance_equation} oder die linearisierte Balancegleichung Glg. \eqref{eq:balance_equation_linear} verwenden. Diese filtert sowohl Schall- als auch Schwerewellen, da beide mit Divergenzen verbunden sind.
 
-Analog zum Fall der Hydrostatik ist es auch hier wieder möglich, die Gültigkeit der Balancegleichung entweder exakt zu fordern, oder sie in die Kostenfunktion aufzunehmen.
+Analog zum Fall der Hydrostatik ist es auch hier wieder möglich, die Gültigkeit der Balancegleichung entweder exakt zu fordern, oder, was einfacher ist, sie in die Kostenfunktion aufzunehmen.
 
 \section{4D-Var}
 \label{sec:4d-var}\index{4D-Var}
