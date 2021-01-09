@@ -149,7 +149,7 @@
 \titleformat{\chapter}[hang]{\vspace{-3cm}\LARGE\centering}{\thechapter\hspace{20pt}}{0pt}{\LARGE\centering}
 \setlength\parskip{0 mm}
 \setstretch{0.5}
-\addbibresource{references.bib}
+\addbibresource{../references.bib}
 \DeclareFieldFormat[article]{title}{{#1}}
 \makeindex
 \definecolor{mygray}{rgb}{0.5, 0.5, 0.5}
@@ -22344,10 +22344,15 @@ Als Formel notiert man
 J\left(\mathbf{x}\right) = J_B\left(\mathbf{x}, \mathbf{y}\right) + J_y\left(\mathbf{x}, \mathbf{x}_B\right).
 \end{align}
 
-\section{3D-Var}
-\label{sec:3d-var}\index{3D-Var}
+\section{Objective analysis}
+\label{sec:objective_analysis}\index{objective analysis}
 
-Beim \textit{3D-Var-Verfahren}\index{3D-Var-Verfahren} geht man devaon aus, dass alle Beobachtungen zum gleichen Zeitpunkt getätigt wurden.
+Bis zur zweiten Häfte des 20. Jahrhunderts mussten Meteorologen Wetterkarten manuell auf Grundlage der zur Verfügeng stehenden Daten zeichen, was man als \textit{Analyse}\index{Analyse} bezeichnet. Auch die Anfangszustände der ersten operationellen Modellläufe wurden auf diese Weise festgelegt \cite{lynchrichardson}. Dies war zeitaufwendig, ineffizient und fehleranfällig. Daher begann man schnell damit, diesen Prozess zu automatisieren, was man als \textit{objective analysis}\index{objective analysis} bezeichnet. Die Analyse ist objektiv, da sie nun nicht mehr von der Person abhängt, von der sie erstellt wird.
+
+\section{Optimum interpolation}
+\label{sec:optimum_interpolation}
+
+Bei der sogenannten \textit{optimum interpolation}\index{optimum interpolation} geht es darum, Informationen aus den Beobachtungsdaten und einem Hitnergrundzustand auf optimale Art und Weise miteinander zu kombinieren.
 
 \subsection{Eine Beobachtung}
 \label{sec:eine_beobachtung}
@@ -22621,7 +22626,7 @@ Dies ist das für $\mathbf{x}$ geltende lineare Gleichungssystem. Man kann dies 
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-\mathbf{x} &= \mathbf{x}_B + \left(\overleftrightarrow{B}\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H} + 1\right)^{-1}\overleftrightarrow{B}\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\left(\mathbf{y} - \newhat{h}\left(\mathbf{x}_B\right)\right).
+\mathbf{x} &= \mathbf{x}_B + \left(\overleftrightarrow{B}\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H} + 1\right)^{-1}\overleftrightarrow{B}\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\left(\mathbf{y} - \newhat{h}\left(\mathbf{x}_B\right)\right).\label{eq:oi_result_pre}
 \end{align}
 \end{center}
 }}
@@ -22665,6 +22670,23 @@ Hieraus folgt weiterhin
 \end{center}
 }}
 \end{center}
+%
+Setzt man dies in Glg. \eqref{eq:oi_result_pre} ein, erhält man
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\mathbf{x} &= \mathbf{x}_B + \overleftrightarrow{B}\overleftrightarrow{H}^T\left(\overleftrightarrow{H}\overleftrightarrow{B}\overleftrightarrow{H}^T + \overleftrightarrow{R}\right)^{-1}\left(\mathbf{y} - \newhat{h}\left(\mathbf{x}_B\right)\right).\label{eq:oi_result}
+\end{align}
+\end{center}
+}}
+\end{center}
+
+\section{3D-Var}
+\label{sec:3d-var}\index{3D-Var}
+
+Beim \textit{3D-Var-Verfahren}\index{3D-Var-Verfahren} geht es darum, Glg. \eqref{eq:oi_result} iterativ ohne explizite Berehcnung der Gain-Matrix zu lösen.
 
 \subsection{Berücksichtigung von Hydrostatik}
 \label{sec:berücksichtigung_von_hydrostatik}\index{Hydrostatik!Datenassimilation}\index{Datenassimilation!Hydrostatik}
@@ -22678,7 +22700,7 @@ Geht man von Hydrostatik aus, also von Gültigkeit der hydrostatischen Grundglei
 \frac{\partial q_1}{\partial z} = f\left(q_2\right)
 \end{align}
 %
-kann man jedoch die Festlegung der Größe $q_1$ in der gesamten Atmosphäre durch ihre Festlegung auf einer Fläche ersetzen, zum Beispiel der Erdoberfläche oder einer Druckfläche. Die exakte Gültigkeit einer Aussage über das Resultat einer Datenassimilation zu fordern bezeichnet man als \textit{strong constraint}\index{strong constraint}..
+kann man jedoch die Festlegung der Größe $q_1$ in der gesamten Atmosphäre durch ihre Festlegung auf einer Fläche ersetzen, zum Beispiel der Erdoberfläche oder einer Druckfläche. Die exakte Gültigkeit einer Aussage über das Resultat einer Datenassimilation zu fordern bezeichnet man als \textit{strong constraint}\index{strong constraint}.
 
 \subsubsection{Als weak constraint}
 \label{sec:als_weak_constraint}
