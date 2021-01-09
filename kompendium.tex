@@ -22603,7 +22603,7 @@ Aus Glg. \eqref{eq:3dvar_criterion} folgt also
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-\Leftrightarrow\left(\overleftrightarrow{B}\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H} + 1\right)\left(\mathbf{x} - \mathbf{x}_B\right) = \overleftrightarrow{B}\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\left(\mathbf{y} - \newhat{h}\left(\mathbf{x}_B\right)\right).
+\Leftrightarrow\left(\overleftrightarrow{B}\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H} + 1\right)\left(\mathbf{x} - \mathbf{x}_B\right) = \overleftrightarrow{B}\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\left(\mathbf{y} - \newhat{h}\left(\mathbf{x}_B\right)\right).\label{eq:oi_lin}
 \end{align}
 \end{center}
 }}
@@ -22689,6 +22689,27 @@ kann man jedoch die Festlegung der Größe $q_1$ in der gesamten Atmosphäre dur
 \label{sec:3d-var}\index{3D-Var}
 
 Die Inversion der $M \times M-$Matrix $\overleftrightarrow{H}\overleftrightarrow{B}\overleftrightarrow{H}^T + \overleftrightarrow{R}$ ist sehr aufwendig, wenn die Anzahl der Einzelbeobachtungen groß ist. Hierzu mache man sich klar, dass beispielsweise ein Radarbild aus einer sehr großen Zahl von Einzelbeobachtungen besteht. Dies ist ein Nachteil der OI. Beim \textit{3D-Var-Verfahren}\index{3D-Var-Verfahren} geht es darum, Glg. \eqref{eq:oi_result} iterativ ohne explizite Berechnung der Gain-Matrix zu lösen.
+
+Definiere
+%
+\begin{align}
+\delta\mathbf{x} &\coloneqq \mathbf{x} - \mathbf{x}_B,\\
+\mathbf{d}_B &\coloneqq \mathbf{y} - \newhat{h}\left(\mathbf{x}_B\right),\\
+\end{align}
+%
+Glg. \eqref{eq:oi_lin} lautet dann
+%
+\begin{align}
+\left(\overleftrightarrow{B}\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H} + 1\right)\delta\mathbf{x} = \overleftrightarrow{B}\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\mathbf{d}_B.
+\end{align}
+%
+Multipliziert man mit $\overleftrightarrow{B}^{-1}$, erhält man
+%
+\begin{align}
+\left(\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H} + \overleftrightarrow{B}^{-1}\right)\delta\mathbf{x} = \overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\mathbf{d}_B.
+\end{align}
+%
+Hier muss also eine $N \times N-$Matrix invertiert werden. Hieraus würde man erwarten, dass diese Gleichung für $N < M$, falls also mehr Beobachtungen als Modellfreiheitsgrade vorliegen, effizienter ist als Glg. \eqref{eq:oi_result}.
 
 \subsubsection{Weak constraints}
 \label{sec:weak_constraints}
