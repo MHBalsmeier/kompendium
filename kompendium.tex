@@ -22624,10 +22624,12 @@ Dies ist das für $\mathbf{x}$ geltende lineare Gleichungssystem. Man kann dies 
 Die Matrix
 %
 \begin{align}
-\overleftrightarrow{K} \coloneqq \left(\overleftrightarrow{B}\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H} + 1\right)^{-1}\overleftrightarrow{B}\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}
+\overleftrightarrow{K} \coloneqq \left(\overleftrightarrow{B}\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H} + 1\right)^{-1}\overleftrightarrow{B}\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\label{eq:gain_first_version}
 \end{align}
 %
-bezeichnet man als \textit{Gain-Matrix}\index{Gain-Matrix}. Man kann den Ausdruck für die Gain-Matrix noch etwas vereinfachen. Sei $\overleftrightarrow{A} \in \mathbb{R}^{N \times M}$. Dann gilt
+bezeichnet man als \textit{Gain-Matrix}\index{Gain-Matrix}. Um die rechte Seite dieser Gleichung zu berechnen, muss man eine $N \times N-$Matrix invertieren.
+
+Man kann den Ausdruck für die Gain-Matrix noch etwas vereinfachen. Sei $\overleftrightarrow{A} \in \mathbb{R}^{N \times M}$. Dann gilt
 %
 \begin{align}
 \overleftrightarrow{A} &= \overleftrightarrow{A}\left(\overleftrightarrow{H}\overleftrightarrow{A} + 1\right)\left(\overleftrightarrow{H}\overleftrightarrow{A} + 1\right)^{-1}\nonumber\\
@@ -22648,19 +22650,19 @@ folgt
 \overleftrightarrow{K} = \left(\overleftrightarrow{B}\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H} + 1\right)^{-1}\overleftrightarrow{B}\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1} = \overleftrightarrow{B}\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\left(\overleftrightarrow{H}\overleftrightarrow{B}\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1} + 1\right)^{-1}.
 \end{align}
 %
-Hieraus folgt weiterhin
+Für die Berechnung der rechten Seite dieser Gleichung ist nun eine $M \times M-$Matrix zu invertieren, was für $M < N$ effizienter als Glg. \eqref{eq:gain_first_version} ist. Man kann dies weiter zu
 %
 \begin{center}
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-\overleftrightarrow{K} = \overleftrightarrow{B}\overleftrightarrow{H}^T\left(\overleftrightarrow{H}\overleftrightarrow{B}\overleftrightarrow{H}^T + \overleftrightarrow{R}\right)^{-1}.
+\overleftrightarrow{K} = \overleftrightarrow{B}\overleftrightarrow{H}^T\left(\overleftrightarrow{H}\overleftrightarrow{B}\overleftrightarrow{H}^T + \overleftrightarrow{R}\right)^{-1}
 \end{align}
 \end{center}
 }}
 \end{center}
 %
-Setzt man dies in Glg. \eqref{eq:oi_result_pre} ein, erhält man
+vereinfachen. Setzt man dies in Glg. \eqref{eq:oi_result_pre} ein, erhält man
 %
 \begin{center}
 \doublebox{\parbox{0.8\textwidth}{
