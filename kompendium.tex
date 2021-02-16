@@ -20547,7 +20547,7 @@ Man fordert nun
 Hieraus leitet man
 %
 \begin{align}
-\mathbf{u}\cdot\mathbf{v} = \sum_{e\in c}\frac{l_ed_e}{2A_c}u_eu_e
+\left(\mathbf{u}\cdot\mathbf{v}\right)_c = \sum_{e\in c}\frac{l_ed_e}{2A_c}u_ev_e
 \end{align}
 %
 als Diskretisierung für das Skalarprodukt ab. Im ebenen Fall ergibt sich für die Summe der Gewichtungsfaktoren
@@ -21437,7 +21437,7 @@ Bei einer ebenen dreieckigen oder hexagonalen C-Gitter-Diskretisierung sind die 
 mit $1 \leq i \leq 3$, wobei $u$ eine beliebige Vektorkomponente ist. Für jede Raumrichtung $i$ wird hier ein separater Mittelungsoperator zugelassen. Die Bedingungen Glg. \eqref{eq:linear_condition_trivariate} lassen sich also hier in der Form
 %
 \begin{align}
-\newtilde{u}_1^{(1)} + \newtilde{u}_2^{(2)} + \newtilde{u}_3^{3} \hastobe 0, && \newtilde{v}_1^{(1)} + \newtilde{v}_2^{(2)} + \newtilde{v}_3^{3} \hastobe 0\label{eq:linear_condition_trivariate_discrete}
+\newtilde{u}_1^{(1)} + \newtilde{u}_2^{(2)} + \newtilde{u}_3^{(3)} \hastobe 0, && \newtilde{v}_1^{(1)} + \newtilde{v}_2^{(2)} + \newtilde{v}_3^{3} \hastobe 0\label{eq:linear_condition_trivariate_discrete}
 \end{align}
 %
 notieren. Diese Gleichungen sind als Forderungen an Vektorfelder $\mathbf{v}$ zu verstehen. Sollten Gradientefelder $\nabla\alpha$ die Bedingung Glg. \eqref{eq:linear_condition_trivariate_discrete} nicht, so hat man ein Problem, da die Berechnung von Gradientenfeldern auf dem C-Gitter festgelegt ist. Daher verwendet man als Forderung an den zu findenden Mittelungsoperator die Mittelung von Glg. \eqref{eq:gradient_linear_condition}:
