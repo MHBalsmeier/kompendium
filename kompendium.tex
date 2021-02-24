@@ -10372,6 +10372,7 @@ g = g_0.
 Die Implikationen von Glg. \eqref{eq:shallow_atmosphere} lauten also zusammengefasst
 %
 \begin{enumerate}
+\item in Differenzialoperatoren muss $\frac{1}{r}$ durch $\frac{1}{a}$ ersetzt werden,
 \item die traditionelle Approximation\index{traditionelle Approximation}\index{Approximation!traditionelle} $f' = 0$ muss gemacht werden,
 \item alle metrischen Terme, die nicht $\tan\left(\varphi\right)$ enhalten, müssen vernachlässigt werden (in der Divergenz, Vorticity und Impulsadvektion),
 \item die Schwere muss höhenunabhängig sein, $g \to g_0 =$ homogen.
@@ -10383,9 +10384,9 @@ Das Impulsgleichung der shallow atmosphere\index{shallow atmosphere} lautet somi
 \doublebox{\parbox{0.9\textwidth}{
 \begin{center}
 \begin{align}
-\frac{\partial u}{\partial t} + u\frac{\partial u}{\partial x} + v\frac{\partial u}{\partial y} - \frac{uv\tan\left(\varphi\right)}{a + z} &= -\frac{1}{\rho}\frac{\partial p}{\partial x} + fv + F_{R,x}
+\frac{\partial u}{\partial t} + u\frac{\partial u}{\partial x} + v\frac{\partial u}{\partial y} - \frac{uv\tan\left(\varphi\right)}{a} &= -\frac{1}{\rho}\frac{\partial p}{\partial x} + fv + F_{R,x}
 \label{eq:x_momentum_simplified},\\
-\frac{\partial v}{\partial t} + u\frac{\partial v}{\partial x} + v\frac{\partial v}{\partial y} + \frac{u^2\tan\left(\varphi\right)}{a + z} &= -\frac{1}{\rho}\frac{\partial p}{\partial y} - fu + F_{R,y}
+\frac{\partial v}{\partial t} + u\frac{\partial v}{\partial x} + v\frac{\partial v}{\partial y} + \frac{u^2\tan\left(\varphi\right)}{a} &= -\frac{1}{\rho}\frac{\partial p}{\partial y} - fu + F_{R,y}
 \label{eq:y_momentum_simplified},\\
 \frac{\partial w}{\partial t} + u\frac{\partial w}{\partial x} + v\frac{\partial w}{\partial y} + w\frac{\partial w}{\partial z} &= -\frac{1}{\rho}\frac{\partial p}{\partial z} - g_0 + F_{R,z}
 \label{eq:z_momentum_simplified}.
