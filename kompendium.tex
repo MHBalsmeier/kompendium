@@ -20018,7 +20018,7 @@ Dies kann man nun mit Glg. \eqref{eq:deriv_temp_evol_model_1} gleichsetzen:
 %
 \begin{align}
 &c^{(v)}\rho_0\frac{T_1 - T_0}{\Delta t} + c^{(v)}T_1\frac{\rho_1 - \rho_0}{\Delta t}\nonumber\\
-&=  \left(\alpha c^{(p)}T_0 + \beta c^{(p)}T_1 - \alpha s_0T_0 - \beta s_1T_1\right)\frac{\rho_1 - \rho_0}{\Delta t} + \left(\alpha T_0 + \beta T_1\right)\frac{\rho_1s_1 - \rho_0s_0}{\Delta t}
+&= \left(\alpha c^{(p)}T_0 + \beta c^{(p)}T_1 - \alpha s_0T_0 - \beta s_1T_1\right)\frac{\rho_1 - \rho_0}{\Delta t} + \left(\alpha T_0 + \beta T_1\right)\frac{\rho_1s_1 - \rho_0s_0}{\Delta t}\label{eq:deriv_temp_evol_model_2}
 \end{align}
 %
 Die Zeitdifferenz lässt sich herauskürzen:
@@ -20055,6 +20055,32 @@ T_1 &= \frac{c^{(v)}\rho_0T_0 + \left(\alpha c^{(p)}T_0 - \alpha s_0T_0\right)\D
 \end{center}
 %
 Im Fall $\beta = \frac{c^{(v)}}{c^{(p)}}$ heben sich die \textcolor{red}{rot} markierten Terme gegenseitig auf.
+
+\subsubsection{Energetisch konsistente Zeitentwicklung der Entropiedichte}
+\label{sec:energetisch_konsistente_zeitentwicklung_der_entropiedichte}
+
+Alternativ lässt sich auch eine analoge Gleichung für die energetisch konsistente Zeitentwicklung der Entropiedichte bestimmen. Glg. \eqref{eq:deriv_temp_evol_model_2} lautet
+%
+\begin{align}
+&c^{(v)}\rho_0\frac{T_1 - T_0}{\Delta t} + c^{(v)}T_1\frac{\rho_1 - \rho_0}{\Delta t}\nonumber\\
+&= \left(\alpha c^{(p)}T_0 + \beta c^{(p)}T_1 - \alpha s_0T_0 - \beta\frac{\newtilde{s}_1}{\rho_1}T_1\right)\frac{\rho_1 - \rho_0}{\Delta t} + \left(\alpha T_0 + \beta T_1\right)\frac{\newtilde{s}_1 - \newtilde{s}_0}{\Delta t}.
+\end{align}
+%
+Multipliziert man mit $\Delta t$, erhält man
+%
+\begin{align}
+&c^{(v)}\rho_0\left(T_1 - T_0\right) + c^{(v)}T_1\left(\rho_1 - \rho_0\right)\nonumber\\
+&= \left(\alpha c^{(p)}T_0 + \beta c^{(p)}T_1 - \alpha s_0T_0 - \beta\frac{\newtilde{s}_1}{\rho_1}T_1\right)\left(\rho_1 - \rho_0\right) + \left(\alpha T_0 + \beta T_1\right)\left(\newtilde{s}_1 - \newtilde{s}_0\right)\nonumber\\
+\Leftrightarrow&\left(\alpha c^{(p)}T_0 + \beta c^{(p)}T_1 - \alpha s_0T_0 - \beta\frac{\newtilde{s}_1}{\rho_1}T_1\right)\left(\rho_1 - \rho_0\right) + \left(\alpha T_0 + \beta T_1\right)\left(\newtilde{s}_1 - \newtilde{s}_0\right)\nonumber\\
+&= c^{(v)}\rho_0\left(T_1 - T_0\right) + c^{(v)}T_1\left(\rho_1 - \rho_0\right)\nonumber\\
+\Leftrightarrow&-\beta\frac{\newtilde{s}_1}{\rho_1}T_1\left(\rho_1 - \rho_0\right) + \left(\alpha T_0 + \beta T_1\right)\left(\newtilde{s}_1 - \newtilde{s}_0\right)\nonumber\\
+&= c^{(v)}\rho_0\left(T_1 - T_0\right) + c^{(v)}T_1\left(\rho_1 - \rho_0\right) - \left(\alpha c^{(p)}T_0 + \beta c^{(p)}T_1 - \alpha s_0T_0\right)\left(\rho_1 - \rho_0\right)\nonumber\\
+\Leftrightarrow&-\beta\frac{\newtilde{s}_1}{\rho_1}T_1\left(\rho_1 - \rho_0\right) + \left(\alpha T_0 + \beta T_1\right)\newtilde{s}_1\nonumber\\
+&= c^{(v)}\rho_0\left(T_1 - T_0\right) + c^{(v)}T_1\left(\rho_1 - \rho_0\right) - \left(\alpha c^{(p)}T_0 + \beta c^{(p)}T_1 - \alpha s_0T_0\right)\left(\rho_1 - \rho_0\right) + \left(\alpha T_0 + \beta T_1\right)\newtilde{s}_0\nonumber\\
+\Leftrightarrow&\newtilde{s}_1\left[\alpha T_0 + \beta T_1 - \frac{\beta}{\rho_1}T_1\left(\rho_1 - \rho_0\right)\right]\nonumber\\
+&= c^{(v)}\rho_0\left(T_1 - T_0\right) + c^{(v)}T_1\left(\rho_1 - \rho_0\right) - \left(\alpha c^{(p)}T_0 + \beta c^{(p)}T_1 - \alpha s_0T_0\right)\left(\rho_1 - \rho_0\right) + \left(\alpha T_0 + \beta T_1\right)\newtilde{s}_0\nonumber\\
+\Leftrightarrow&\newtilde{s}_1 = \frac{c^{(v)}\rho_0\left(T_1 - T_0\right) + c^{(v)}T_1\left(\rho_1 - \rho_0\right) - \left(\alpha c^{(p)}T_0 + \beta c^{(p)}T_1 - \alpha s_0T_0\right)\left(\rho_1 - \rho_0\right) + \left(\alpha T_0 + \beta T_1\right)\newtilde{s}_0}{\alpha T_0 + \beta T_1 - \frac{\beta}{\rho_1}T_1\left(\rho_1 - \rho_0\right)}.
+\end{align}
 
 \chapter{\normalfont\textsc{Auswahl einer zukunftsfähigen horizontalen Diskretisierung}}
 \label{sec:auswahl_einer_zukunftsfaehigen_horizontalen_diskretisierung}
