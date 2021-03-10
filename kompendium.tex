@@ -19950,7 +19950,7 @@ Soll der verallgemeinerte Coriolisterm nicht zur Evolution der kinetischen Energ
 \label{sec:evolution_der_temperatur}
 
 \subsubsection{Zeitentwicklung der inneren Energie}
-\label{sec:Zeitentwicklung_der_inneren_energie}
+\label{sec:zeitentwicklung_der_inneren_energie}
 
 Für die Zeitentwicklung der inneren Energiedichte $\newtilde{I}$ kann man notieren
 %
@@ -23470,7 +23470,7 @@ Die Funktion $f$ in Glg. \eqref{eq:prog_rev_3} sei die thermische Zustandsgleich
 -\nabla G - s\nabla T = -\nabla\left(c^{(p)}\nabla T - sT\right) - s\nabla T = -c^{(p)}\nabla T + T\nabla s
 \end{align}
 %
-umgeschrieben, da dies die implizite Behandlung vertikal propagierender Schallwellen vereinfacht, s. Absch. \ref{sec:behanlung_vertikal_propagierender_wellen}. Die thermische Zustandsgleichung idealer Gase ist implizit in Glg. \eqref{eq:prog_rev_3} enthalten, diese wurde in Absch. \ref{sec:energetisch_konsistente_zeitentwicklung_der_temperatur} hergeleitet.
+umgeschrieben, da dies die implizite Behandlung vertikal propagierender Schallwellen vereinfacht, s. Absch. \ref{sec:behandlung_vertikal_propagierender_wellen}. Die thermische Zustandsgleichung idealer Gase ist implizit in Glg. \eqref{eq:prog_rev_3} enthalten, diese wurde in Absch. \ref{sec:energetisch_konsistente_zeitentwicklung_der_temperatur} hergeleitet.
 
 \section{Diskretisierung der Poisson-Klammern}
 \label{sec:diskretisierung_der_poisson-klammern}\index{Poisson-Klammer!Diskretisierung}\index{Diskretisierung von Poisson-Klammern}
@@ -23958,23 +23958,72 @@ Für die Matrix $\overleftrightarrow{A}$ erhält man
 \end{array}\right).
 \end{align}
 %
-Analog lässt sich der Vertikalwind vertikal advehieren. Implizite Behandlung vertikaler Impulsadvektion ist vor allem dann sinnvoll, wenn nicht-hydrostatische Effekte relevant werden.
 
 \subsubsection{Behandlung vertikal propagierender Wellen}
-\label{sec:behanlung_vertikal_propagierender_wellen}
+\label{sec:behandlung_vertikal_propagierender_wellen}
 
-Vertikal propagierende Wellen werden aus Stabilitätsgründen implizit behandelt. Hierfür notiert man zunächst
+Vertikal propagierende Wellen werden aus Stabilitätsgründen anteilig implizit behandelt. Hierfür notiert man zunächst
 %
 \begin{align}
+T' &\stackrel{}{=} \frac{\partial T}{\partial\rho}\rho' + \frac{\partial T}{\partial\newtilde{s}}\newtilde{s}' = \left(\frac{R_s}{c^{(v)}}\frac{T}{\rho} - \frac{\newtilde{s}}{c^{(v)}\rho^2}T\right)\rho' + \frac{T}{c^{(v)}\rho}\newtilde{s}' = \frac{T}{\rho c^{(v)}}\left(R_s - \frac{\newtilde{s}}{\rho}\right)\rho' + \frac{T}{c^{(v)}\rho}\newtilde{s}',\\
+s' &\stackrel{s = \newtilde{s}/\rho}{=} \frac{\partial s}{\partial\rho}\rho' + \frac{\partial s}{\partial\newtilde{s}}\newtilde{s}' = -\frac{\newtilde{s}}{\rho^2}\rho' + \frac{1}{\rho}\newtilde{s}'.\\
+\end{align}
+%
+Die Ableitungen kürzt man mit
+%
+\begin{align}
+\alpha = \frac{T}{\rho c^{(v)}}\left(R_s - \frac{\newtilde{s}}{\rho}\right),& \beta = \frac{T}{c^{(v)}\rho},\\
+\gamma = -\frac{\newtilde{s}}{\rho^2},& \delta = \frac{1}{\rho}
+\end{align}
+%
+ab. Diese berechnet man in den Zellzentren mittels des alten Zustands (Zeitschritt $n$). Die vertikale Impulsgleichung notiert man in der Form
+%
+\begin{align}
+w_{k - 1/2}^{(n + 1)} = w_{k - 1}^{(\text{expl.})} + \epsilon\Delta t\left(-c^{(p)}\frac{T^{(n + 1)}_{k - 1} - T^{(n + 1)}_{k}}{z_{k - 1} - z_{k}} + \newoverline{T_k^{(n)}}^{(k - 1/2)}\frac{s^{(n + 1)}_{k - 1} - s^{(n + 1)}_{k}}{z_{k - 1} - z_{k}}\right).\label{eq:wave_vertical_deriv_0}
+\end{align}
+%
+Hierbei ist $\epsilon$ das implizite Gewicht, welches aufgrund von Absch. \ref{sec:zeitentwicklung_der_inneren_energie} meist mit $\frac{c^{(v)}}{c^{(p)}}$ angesetzt wird. Für die impliziten Größen notiert man nun
+%
+\begin{align}
+T^{(n + 1)}_k &= T^{(\text{expl.})}_k + T'_k = T^{(\text{expl.})}_k + \alpha_k\rho'_k + \beta_k\newtilde{s}'_k,\\
+\newtilde{s}^{(n + 1)}_k &= \newtilde{s}^{(\text{expl.})}_k + \newtilde{s}'_k = \newtilde{s}^{(\text{expl.})}_k + \gamma_k\rho'_k + \delta_k\newtilde{s}'_k.
+\end{align}
+%
+Die gestrichenen Größen sind die Abweichungen von den expliziten Komponenten, also
+%
+\begin{align}
+\psi'_k \coloneqq \psi_k^{(n + 1)} - \psi_k^{(\text{expl.})}
+\end{align}
+%
+für $\psi = \rho, \newtilde{s}.$ Hierfür gelten
+%
+\begin{align}
+\rho_k' = -\Delta t\frac{M_{k - 1/2} - M_{k + 1/2}}{V_k},\\
+\newtilde{s}_k' = -\Delta t\frac{\newoverline{s_k^{(n + 1)^\star}}^{(k - 1/2)}M_{k - 1/2} - \newoverline{s_k^{(n + 1)^\star}}^{(k + 1/2)}M_{k + 1/2}}{V_k}.
+\end{align}
+%
+Hierbei definiert
+%
+\begin{align}
+M_{k - 1/2} \coloneqq A_{k - 1/2}\frac{\newoverline{\rho_k^{(n)}}^{(k - 1/2)}w_{k - 1/2}^{(n + 1)} + \newoverline{\rho_k^{(n + 1)}}^{(k - 1/2)}w_{k - 1/2}^{(n)}}{2}
+\end{align}
+%
+für $2 \leq k \leq N_L$ die vertikale kovariante mit den Begrenzungsflächen $A_{k - 1/2}$ der Gitterboxen multiplizierte Massenflussdichte, dies ist der Unbekanntenvektor. $\left(n + 1\right)^\star$ ist ein vorläufiger Wert für den neuen Zeitschritt. Setzt man dies in Glg. \eqref{eq:wave_vertical_deriv_0} ein, erhält man
+%
+\begin{align}
+w_{k - 1/2}^{(n + 1)} &= w_{k - 1}^{(\text{expl.})} + \epsilon\Delta t\left(-c^{(p)}\frac{T^{(\text{expl.})}_{k - 1} + T'_{k - 1} - T^{(\text{expl.})}_{k} - T'_k}{z_{k - 1} - z_{k}} + \newoverline{T_k^{(n)}}^{(k - 1/2)}\frac{s^{(\text{expl.})}_{k - 1} + s'_{k - 1} - s^{(\text{expl.})}_k - s'_k}{z_{k - 1} - z_k}\right)\nonumber\\
+w_{k - 1/2}^{(n + 1)} &= w_{k - 1}^{(\text{expl.})} + \epsilon\Delta t\nonumber\\
+&\cdot\Bigg(-c^{(p)}\frac{T^{(\text{expl.})}_{k - 1} + \alpha_{k - 1}\rho'_{k - 1} + \beta_{k - 1}\newtilde{s}'_{k - 1} - T^{(\text{expl.})}_{k} - \alpha_k\rho'_k - \beta_k\newtilde{s}'_k}{z_{k - 1} - z_{k}}\nonumber\\
+&+ \newoverline{T_k^{(n)}}^{(k - 1/2)}\frac{s^{(\text{expl.})}_{k - 1} + \gamma_{k - 1}\rho'_{k - 1} + \delta_{k - 1}\newtilde{s}'_{k - 1} - s^{(\text{expl.})}_k - \gamma_k\rho'_k - \delta_k\newtilde{s}'_k}{z_{k - 1} - z_k}\Bigg).
 \end{align}
 %
 Hieraus lassen sich die anderen Unbekannten wie folgt bestimmen:
 %
 \begin{align}
-\rho^{(n + 1)}_k &= \rho^{(\text{expl.})}_k - \Delta t\frac{M_{k - 1/2} + M_{k + 1/2}}{V_k}\\
-\newtilde{s}^{(n + 1)}_k &= \newtilde{s}^{(\text{expl.})}_k - \Delta t\frac{\newoverline{s_k^{(n + 1)^\star}}^{(k - 1/2)}M_{k - 1/2} + \newoverline{s_k^{(n + 1)^\star}}^{(k + 1/2)}M_{k + 1/2}}{V_k}\\
+\rho^{(n + 1)}_k &= \rho^{(\text{expl.})}_k - \Delta t\frac{M_{k - 1/2} + M_{k + 1/2}}{V_k},\\
+\newtilde{s}^{(n + 1)}_k &= \newtilde{s}^{(\text{expl.})}_k - \Delta t\frac{\newoverline{s_k^{(n + 1)^\star}}^{(k - 1/2)}M_{k - 1/2} + \newoverline{s_k^{(n + 1)^\star}}^{(k + 1/2)}M_{k + 1/2}}{V_k},\\
 w^{(n + 1)}_{k - 1/2} &= \frac{\frac{2M_{k - 1/2}}{A_{k - 1/2}} - \newoverline{\rho_k^{(n + 1)}}^{(k - 1/2)}w^{(n + 1)}_{k - 1/2}}{\newoverline{\rho_k^{(n)}}^{(k - 1/2)}},\\
-T^{(n + 1)}_{k} &= T^{(\text{expl.})}_{k} + \alpha_k\left(\rho^{(n + 1)}_k  - \rho^{(\text{expl.})}_k\right) + \beta_k\left(\newtilde{s}^{(n + 1)}_k - \newtilde{s}^{(\text{expl.})}_k\right)
+T^{(n + 1)}_{k} &= T^{(\text{expl.})}_{k} + \alpha_k\left(\rho^{(n + 1)}_k  - \rho^{(\text{expl.})}_k\right) + \beta_k\left(\newtilde{s}^{(n + 1)}_k - \newtilde{s}^{(\text{expl.})}_k\right).
 \end{align}
 
 \subsubsection{Vertikale Advektion einer generalisierten Dichte}
@@ -24132,7 +24181,7 @@ Das Zeitschrittverfahren ist das Runge-Kutta-Verfahren dritter Ordnung. Zusätzl
 \item Anschließend wird die vertikale Advektion von $\mathbf{v}_h$ mittels eines impliziten Verfahrens berechnet, s. Absch. \ref{sec:vertikale_advektion_des_horizontalwindes}.
 \item Nun werden die horizontalen Divergenzen mittels der skalaren Werte des vorherigen Runge-Kutta-Schrittes und der neuen Werte der horizontalen Geschwindigkeitskomponenten berechnet, dabei werden auch diabatische Effekte berücksichtigt bzw. addiert.
 \item Nun wird der explizite Anteil der Temperaturänderung mittels des in Absch. \ref{sec:energetisch_konsistente_zeitentwicklung_der_temperatur} vorgestellten Verfahrens berechnet, hierbei sind auch die diabatischen Terme enthalten.
-\item Mittels des in Absch. \ref{sec:behanlung_vertikal_propagierender_wellen} beschriebenen Sound wave solvers werden die neuen kovarianten Vertikalgeschwindigkeiten sowie die neue Temperatur ermittelt.
+\item Mittels des in Absch. \ref{sec:behandlung_vertikal_propagierender_wellen} beschriebenen Sound wave solvers werden die neuen kovarianten Vertikalgeschwindigkeiten sowie die neue Temperatur ermittelt.
 \item Zuletzt werden mittels der generalisierten Kontinuitätsgleichungen die neuen Werte der Entropie- und Massendichte berechnet, s. Absch. \ref{sec:vertikale_advektion_einer_generalisierten_dichte}.
 \end{enumerate}
 
