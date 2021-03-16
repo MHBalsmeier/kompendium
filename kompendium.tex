@@ -20665,50 +20665,7 @@ Hieraus leitet man
 }}
 \end{center}
 %
-als Diskretisierung für das Skalarprodukt ab. Setzt man hier die Approximationen
-%
-\begin{align}
-V_{c, k} &\approx A_{c, k}\Delta z_{k},\\
-A_{e, k} &\approx l_{e, k}\Delta z_{k}
-\end{align}
-%
-ein, erhält man unter Vernachlässigung des Ungefähr-Zeichens
-%
-\begin{align}
-\mathbf{u}^{(1)}\cdot\mathbf{u}^{(2)} &= \sum_{e\in c}\frac{l_{e, k}d_{e, k}}{2A_{c, k}}u_{e, k}^{(1)}u_{e, k}^{(2)} + \frac{A_{c, k - 1/2}\Delta z_{k - 1/2}}{2A_{c, k}\Delta z_{k}}w_{c, k - 1/2}^{(1)}w_{c, k - 1/2}^{(2)} + \frac{A_{c, k + 1/2}\Delta z_{k + 1/2}}{2A_{c, k}\Delta z_{k}}w_{c, k + 1/2}^{(1)}w_{c, k + 1/2}^{(2)}.
-\end{align}
-%
-Nun setzt man
-%
-\begin{align}
-A_{c, k} = \left(\frac{r_k}{a}\right)^2A_c
-\end{align}
-%
-an, wobei $a$ der mittlere Erdradius ist und $A_c$ die Grundfläche der Zelle auf Höhe des Erdradius ist. Analog setzt man für die Längen
-%
-\begin{align}
-l_{e, k} &= \frac{r_k}{a}l_e,\\
-d_{e, k} &= \frac{r_k}{a}d_e
-\end{align}
-%
-an. Hieraus folgt
-%
-\begin{center}
-\doublebox{\parbox{0.8\textwidth}{
-\begin{center}
-\begin{align}
-\mathbf{u}^{(1)}\cdot\mathbf{u}^{(2)} &= \sum_{e\in c}\frac{a^2r_k^2l_{e}d_{e}}{2a^2r_k^2A_c}u_{e, k}^{(1)}u_{e, k}^{(2)} + \frac{r_{k - 1/2}^2A_c\Delta z_{k - 1/2}}{2r_k^2A_c\Delta z_{k}}w_{c, k - 1/2}^{(1)}w_{c, k - 1/2}^{(2)} + \frac{r_{k + 1/2}^2A_c\Delta z_{k + 1/2}}{2r_k^2A_c\Delta z_{k}}w_{c, k + 1/2}^{(1)}w_{c, k + 1/2}^{(2)}\nonumber\\
-&= \sum_{e\in c}\frac{l_{e}d_{e}}{2A_c}u_{e, k}^{(1)}u_{e, k}^{(2)} + \frac{r_{k - 1/2}^2\Delta z_{k - 1/2}}{2r_k^2\Delta z_{k}}w_{c, k - 1/2}^{(1)}w_{c, k - 1/2}^{(2)} + \frac{r_{k + 1/2}^2\Delta z_{k + 1/2}}{2r_k^2\Delta z_{k}}w_{c, k + 1/2}^{(1)}w_{c, k + 1/2}^{(2)}
-\end{align}
-\end{center}
-}}
-\end{center}
-%
-In der shallow atmosphere nimmt man $r_k = r_{k - 1/2} = a$ und Höhenunabhängigkeit aller Gittereigenschaften an, dies führt auf Glg. \eqref{eq:inner_c-grid_3d_shallow}:
-%
-\begin{align}
-\mathbf{u}^{(1)}\cdot\mathbf{u}^{(2)}\vline_\text{shallow} &= \sum_{e\in c}\frac{l_ed_e}{2A_c}u_{e, k}^{(1)}u_{e, k}^{(2)} + \frac{\Delta z_{k - 1/2}}{2\Delta z_{k}}w_{c, k - 1/2}^{(1)}w_{c, k - 1/2}^{(2)} + \frac{\Delta z_{k + 1/2}}{2\Delta z_{k}}w_{c, k + 1/2}^{(1)}w_{c, k + 1/2}^{(2)}
-\end{align}
+als Diskretisierung für das Skalarprodukt ab.
 
 \section{Festlegung auf das C-Gitter}
 \label{sec:festlegung_auf_das_c-gitter}\index{C-Gitter}
