@@ -23201,7 +23201,13 @@ Die Reihenfolge der Mittelungen spielt hier also keine Rolle.
 \subsubsection{Deep atmosphere}
 \label{sec:deep_atmosphere_cov}
 
-In der tiefen Atmosphäre wird ausschließlich die Mittelungsreihenfolge $\newoverline{\newoverline{w_{c, k - \frac{1}{2}}}^{(k)}}^{(e)}$ zugelassen. Die Mittelung auf die Kante $(e)$ ist weiterhim das arithmetische Mittel der beiden auf die Zellzentren gemittelten Werte.
+In der tiefen Atmosphäre wird ausschließlich die Mittelungsreihenfolge $\newoverline{\newoverline{w_{c, k - \frac{1}{2}}}^{(k)}}^{(e)}$ zugelassen. Die Mittelung auf die Kante $(e)$ ist weiterhin das arithmetische Mittel der beiden auf die Zellzentren gemittelten Werte. Für die vertikale Mittelung auf die Zentren verwendet man die Gewichte aus Glg. \eqref{eq:inner_c-grid_3d_deep}:
+%
+\begin{align}
+\newoverline{w_{c, k - \frac{1}{2}}}^{(k)} = \frac{A_{c, k - 1/2}\Delta z_{c, k - /2}w_{c, k - \frac{1}{2}} + A_{c, k + 1/2}\Delta z_{c, k + /2}w_{c, k + \frac{1}{2}}}{2V_{c, k}}
+\end{align}
+%
+Hier hängen die Schichtdicken auch vom horizontalen Index ab.
 
 \subsection{Skalarprodukt auf dem C-Gitter in geländefolgenden Koordinaten}
 \label{sec:skalarprodukt_auf_dem_c-gitter_in_gelaendefolgenden_koordinaten}
