@@ -23117,6 +23117,7 @@ als Mittelungsoperator. Die Gewichtungsfaktoren $\frac{\left|V_{x, k}\cap V_{y, 
 \end{align}
 %
 Analog werden auch vertikale Mittelungen definiert. Ein einzelner Mittelungsoperator ist also entweder ausschließlich horizontal oder vertikal.
+
 \subsection{Rekonstruktion der horizontalen kovarianten Maßzahl}
 \label{sec:rekonstruktion_der_horizontalen_kovarianten_maßzahl}\index{kovariante Maßzahl!Rekonstruktion (geländefolgende Koordinaten)}
 
@@ -23231,6 +23232,27 @@ Dies lässt sich als Mittelungsoperator von den Kanten auf die Zellenmittelpunkt
 
 \subsubsection{Deep atmosphere}
 \label{sec:inner_c_deep_atmosphere}
+
+In der tiefen Atmosphäre nimmt man die Ersetzungen
+%
+\begin{align}
+A_c\Delta z_{c, k} &\to V_{c, k},\\
+\Delta z_{e, k}l_{e, k} &\to A_{e, k},\\
+d_e &\to d_{e, k}
+\end{align}
+%
+vor. Für die vertikale Komponente orientiert man sich an Glg. \eqref{eq:inner_c-grid_3d_deep}. Dies führt auf
+%
+\begin{align}
+\mathbf{u}^{(1)}\cdot\mathbf{u}^{(2)} = \sum_{e\in c}\frac{A_{e, k}d_e}{2V_{c, k}}u_e^{(1)}u_e^{(2)} + \frac{A_{c, k - 1/2}\Delta z_{c, k - 1/2}}{2V_{c, k}}w_u^{(1)}w_u^{(2)} + \frac{A_{c, k + 1/2}\Delta z_{c, k + 1/2}}{2V_{c, k}}w_l^{(1)}w_l^{(2)}.
+\end{align}
+%
+Analog lautet der Mittelungsoperator von den Kanten auf die Zellenmittelpunkte
+%
+\begin{align}
+\newoverline{u_e^{(1)}u_e^{(2)}}^{(c)} = \sum_{e\in c}\frac{A_{e, k}d_e}{2V_{c, k}}u_e^{(1)}u_e^{(2)}.
+\end{align}
+
 
 \subsection{Rekonstruktion der vertikalen kontravarianten Maßzahl}
 \label{sec:rekonstruktion_der_vertikalen_kontravarianten_maßzahl}\index{kontravariante Maßzahl!Rekonstruktion (geländefolgende Koordinaten)}
@@ -23864,22 +23886,16 @@ Die vertikale Diskretisierung erfordert einen Layerindex $0 \leq i \leq N_L - 1$
 u^{(n + 1)}_{i} = u^{(n)}_{i} + \Delta t\newdot{u}^{(n)}_{i, \text{expl}} - \frac{\newoverline{w^{(n)}_{k - 1/2}}^{(i)}\Delta t}{2}\left(\frac{u^{(n)}_{i - 1} - u^{(n)}_{i + 1}}{z_{i - 1} - z_{i + 1}} + \frac{u^{(n + 1)}_{i - 1} - u^{(n + 1)}_{i + 1}}{z_{i - 1} - z_{i + 1}}\right)
 \end{align}
 %
-Diese Gleichung wird noch einmal notiert, dabei werden die Unbekannten \textcolor{red}{rot} notiert, die Bekannten \textcolor{blue}{blau} und die Vorfaktoren der Unbekannten schwarz eingefärbt:
-%
-\begin{align}
-\textcolor{red}{u^{(n + 1)}_{i}} = \textcolor{blue}{u^{(n)}_{i} + \Delta t\newdot{u}^{(n)}_{i, \text{expl}} - \frac{\newoverline{w^{(n)}_{k - 1/2}}^{(i)}\Delta t}{2}\frac{u^{(n)}_{i - 1} - u^{(n)}_{i + 1}}{z_{i - 1} - z_{i + 1}}} - \frac{\newoverline{w^{(n)}_{k - 1/2}}^{(i)}\Delta t}{2\left(z_{i - 1} - z_{i + 1}\right)}\textcolor{red}{u^{(n + 1)}_{i - 1}} + \frac{\newoverline{w^{(n)}_{k - 1/2}}^{(i)}\Delta t}{2\left(z_{i - 1} - z_{i + 1}\right)}\textcolor{red}{u^{(n + 1)}_{i + 1}}
-\end{align}
-%
 Im nullten (obersten) Layer verwendet man einen einseitigen unteren Differenzenquotienten, um die Reflexion von Wellen am oberen Rand zu minimieren:
 %
 \begin{align}
-\textcolor{red}{u^{(n + 1)}_{0}} = \textcolor{blue}{u^{(n)}_{0} + \Delta t\newdot{u}^{(n)}_{0, \text{expl}} - \frac{\newoverline{w^{(n)}_{k - 1/2}}^{(0)}\Delta t}{2}\frac{u^{(n)}_{0} - u^{(n)}_{1}}{z_{0} - z_{1}}} - \frac{\newoverline{w^{(n)}_{k - 1/2}}^{(0)}\Delta t}{2\left(z_{0} - z_{1}\right)}\textcolor{red}{u^{(n + 1)}_{0}} + \frac{\newoverline{w^{(n)}_{k - 1/2}}^{(0)}\Delta t}{2\left(z_{0} - z_{1}\right)}\textcolor{red}{u^{(n + 1)}_{1}}
+u^{(n + 1)}_{0} = u^{(n)}_{0} + \Delta t\newdot{u}^{(n)}_{0, \text{expl}} - \frac{\newoverline{w^{(n)}_{k - 1/2}}^{(0)}\Delta t}{2}\frac{u^{(n)}_{0} - u^{(n)}_{1}}{z_{0} - z_{1}} - \frac{\newoverline{w^{(n)}_{k - 1/2}}^{(0)}\Delta t}{2\left(z_{0} - z_{1}\right)}u^{(n + 1)}_{0} + \frac{\newoverline{w^{(n)}_{k - 1/2}}^{(0)}\Delta t}{2\left(z_{0} - z_{1}\right)}u^{(n + 1)}_{1}
 \end{align}
 %
 Bei $i = N_L - 1$ gilt
 %
 \begin{align}
-\textcolor{red}{u^{(n + 1)}_{N_L - 1}} = \textcolor{blue}{u^{(n)}_{N_L - 1} + \Delta t\newdot{u}^{(n)}_{N_L - 1, \text{expl}} - \frac{\newoverline{w^{(n)}_{k - 1/2}}^{(N_L - 1)}\Delta t}{2}\frac{u^{(n)}_{N_L - 2}}{z_{N_L - 2} - z_{N_L}}} - \frac{\newoverline{w^{(n)}_{k - 1/2}}^{(N_L - 1)}\Delta t}{2\left(z_{N_L - 2} - z_{N_L}\right)}\textcolor{red}{u^{(n + 1)}_{N_L - 2}}.
+u^{(n + 1)}_{N_L - 1} = u^{(n)}_{N_L - 1} + \Delta t\newdot{u}^{(n)}_{N_L - 1, \text{expl}} - \frac{\newoverline{w^{(n)}_{k - 1/2}}^{(N_L - 1)}\Delta t}{2}\frac{u^{(n)}_{N_L - 2}}{z_{N_L - 2} - z_{N_L}} - \frac{\newoverline{w^{(n)}_{k - 1/2}}^{(N_L - 1)}\Delta t}{2\left(z_{N_L - 2} - z_{N_L}\right)}u^{(n + 1)}_{N_L - 2}.
 \end{align}
 %
 Man definiert den Vektor $\mathbf{V}$ der Unbekannten durch
@@ -24154,23 +24170,16 @@ somit erhält man
 &- \frac{\Delta t}{2}\left(\alpha_{i - \frac{1}{2}, i - 1}\rho_{i - 1}^{(n + 1)} + \alpha_{i - \frac{1}{2}, i}\rho_i^{(n + 1)}\right)\frac{W_{i - 1/2}^{(n + 1)}}{V_i} + \frac{\Delta t}{2}\left(\alpha_{i + \frac{1}{2}, i}\rho_i^{(n + 1)} + \alpha_{i + \frac{1}{2}, i + 1}\rho_{i + 1}^{(n + 1)}\right)\frac{W_{i + 1/2}^{(n + 1)}}{V_i}.
 \end{align}
 %
-Diese Gleichung wird noch einmal notiert, dabei werden die Unbekannten \textcolor{red}{rot} notiert, die Bekannten \textcolor{blue}{blau} und die Vorfaktoren der Unbekannten schwarz eingefärbt:
-%
-\begin{align}
-&\textcolor{red}{\rho_i^{(n + 1)}} = \textcolor{blue}{\rho_i^{(n)} + \Delta t\newdot{\rho_i}^{(n)}_{\text{expl}}}\nonumber\\
-&- \frac{\Delta t}{2}\left(\alpha_{i - \frac{1}{2}, i - 1}\textcolor{red}{\rho_{i - 1}^{(n + 1)}} + \alpha_{i - \frac{1}{2}, i}\textcolor{red}{\rho_i^{(n + 1)}}\right)\frac{W_{i - 1/2}^{(n + 1)}}{V_i} + \frac{\Delta t}{2}\left(\alpha_{i + \frac{1}{2}, i}\textcolor{red}{\rho_i^{(n + 1)}} + \alpha_{i + \frac{1}{2}, i + 1}\textcolor{red}{\rho_{i + 1}^{(n + 1)}}\right)\frac{W_{i + 1/2}^{(n + 1)}}{V_i}.
-\end{align}
-%
 Bei $i = 0$ gilt $w_{i - 1/2} = 0$:
 %
 \begin{align}
-&\textcolor{red}{\rho_0^{(n + 1)}} = \textcolor{blue}{\rho_0^{(n)} + \Delta t\newdot{\rho}^{(n)}_{0, \text{expl}}} + \frac{\Delta t}{2}\left(\alpha_{\frac{1}{2}, 0}\textcolor{red}{\rho_0^{(n + 1)}} + \alpha_{\frac{1}{2}, 1}\textcolor{red}{\rho_{1}^{(n + 1)}}\right)\frac{W_{1/2}^{(n + 1)}}{V_0}
+&\rho_0^{(n + 1)} = \rho_0^{(n)} + \Delta t\newdot{\rho}^{(n)}_{0, \text{expl}} + \frac{\Delta t}{2}\left(\alpha_{\frac{1}{2}, 0}\rho_0^{(n + 1)} + \alpha_{\frac{1}{2}, 1}\rho_{1}^{(n + 1)}\right)\frac{W_{1/2}^{(n + 1)}}{V_0}
 \end{align}
 %
 Bei $i = N_L - 1$ gilt $w_{i + 1/2} = 0$:
 %
 \begin{align}
-&\textcolor{red}{\rho_{N_L - 1}^{(n + 1)}} = \textcolor{blue}{\rho_{N_L - 1}^{(n)} + \Delta t\newdot{\rho}^{(n)}_{N_L - 1, \text{expl}}} - \frac{\Delta t}{2}\left(\alpha_{N_L - \frac{3}{2}, N_L - 2}\textcolor{red}{\rho_{N_L - 2}^{(n + 1)}} + \alpha_{N_L - \frac{3}{2}, N_L - 1}\textcolor{red}{\rho_{N_L - 1}^{(n + 1)}}\right)\frac{W_{N_L - 3/2}^{(n + 1)}}{V_{N_L - 1}}.
+\rho_{N_L - 1}^{(n + 1)} = \rho_{N_L - 1}^{(n)} + \Delta t\newdot{\rho}^{(n)}_{N_L - 1, \text{expl}} - \frac{\Delta t}{2}\left(\alpha_{N_L - \frac{3}{2}, N_L - 2}\rho_{N_L - 2}^{(n + 1)} + \alpha_{N_L - \frac{3}{2}, N_L - 1}\rho_{N_L - 1}^{(n + 1)}\right)\frac{W_{N_L - 3/2}^{(n + 1)}}{V_{N_L - 1}}.
 \end{align}
 %
 Man definiert den Vektor $\mathbf{x}$ der Unbekannten durch
