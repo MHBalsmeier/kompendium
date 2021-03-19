@@ -23854,13 +23854,13 @@ Hieraus folgt, dass ein schnelles implizites Verfahren ideal für einen dynamisc
 Das grundlegende Zeitschrittverfahren des Modells soll explizit sein. Das explizite Euler-Verfahren ist nur erster Ordnung und daher nicht genau genug. Ein Multi-Schritt-Verfahren erzeugt unphysikalische Moden, was ebenfalls unvorteilhaft ist. Daher verwendet man ein Runge-Kutta-Verfahren. Als Konvergenzordnung ist Drei ein guter Kompromiss aus Genauigkeit und Effizienz. Dabei muss man beachten, dass aufgrund der Nichtlinearität das Gleichungssystems die tatsächliche Konvergenzordnung nur Zwei ist.
 
 \subsection{Split-explicit-Techniken}
-\label{sec:split-explicit-techniken}\index{Split-explicit-Technik}
+\label{sec:split-explicit-techniken}\index{Split-explicit-Verfahren}
 
 Eine wesentliche Einschränkung in Bezug auf den Zeitschritt und somit auch in Bezug auf die Effizienz eines Modells ist das mit Schallwellen verbundene CFL-Kriterium\index{CFL-Kriterium!Schallwelle}\index{Schallwelle!CFL-Kriterium}. Daher teilt man das Gleichungssystem häufig in sogenannte \textit{fast modes}\index{fast mode} oder \textit{divergent modes}\index{divergent mode} einerseits und die \textit{slow modes}\index{slow mode}, \textit{advective modes}\index{advective mode} oder \textit{non-divergent modes}\index{non-divergent mode} andererseits ein. Die fast modes umfassen dabei alle mit Schallwellen verbundenen Terme, während die slow modes die restlichen Terme umfassen. Bei Split-explicit-Techniken\index{Split-explicit-Technik} integriert man nun die fast modes mit einem ca. dreimal kleineren Zeitschritt. Im Falle des Gleichungssystems Glg.en \eqref{eq:prog_rev_0} - \eqref{eq:prog_rev_3} käme nur die Advektion des Impulses für den größeren Zeitschritt in Frage. Die Advektionen von Dichte und Entropie sollten hingegen zu den fast modes gezählt werden, um die Divergenzen der Flussidchten nicht in Advektions- und Kompressionsanteile zerlegen zu müssen. Wenn man hohe Anforderungen an die energetische Konsistenz eines Zeitschrittverfahrens stellt, ist jedoch auch die Abspaltung der Impulsadvektion nicht sinnvoll.
 
 Um dies einzusehen, muss man sich zunächst einmal klarmachen, dass die Advektion kinetischer Energie mit der Kontinuitätsgleichung in Verbindung steht und daher auch zu den fast modes zählt. Dies wurde bereits in Abschn. \ref{sec:überprüfung_der_energieerhaltung} eingesehen. Somit müssen auch beide Terme bzw. Gleichungen mit dem gleichen Zeitschritt integriert werden. Zur Wahrung des diskretisierten Analogons der Lamb-Transformation $-\left(\mathbf{v}\cdot\nabla\right)\mathbf{v} = -\nabla k - \left(\nabla\times\mathbf{v}\right)\times\mathbf{v}$ muss dann auch der generalisierte Coriolis-Term und somit das komplette Gleichungssystem mit dem kleineren Zeitschritt integriert werden.
 
-Da das Zeitschrittverfahren jedoch ohnehin niemals vollständig energetisch konsistent ist, ist es durchaus angebracht, ein Split-explicit-Verfahren als Option in den dynamischen Kern einzubauen.
+Da das Zeitschrittverfahren jedoch ohnehin niemals vollständig energetisch konsistent ist, ist es durchaus angebracht, ein Split-explicit-Verfahren als Option in den dynamischen Kern einzubauen. Dies wird in Abschn. \ref{sec:hinzufügen_einer_split-explicit-option} durchgeführt, zunächst wird die Zeitintegration jedoch ohne ein solches entwickelt.
 
 \subsection{Modifikationen zur Stabilisierung}
 \label{sec:modifikationen_zur_stabilisierung}
@@ -24172,15 +24172,18 @@ Das Forward-Backward-Verfahren wurde in Abschn. \ref{sec:forward-backward-verfah
 \subsection{Zusammenfassung}
 \label{sec:zusammenfassung}
 
-Das Zeitschrittverfahren ist das Runge-Kutta-Verfahren dritter Ordnung. Zusätzlich werden einige Modifikationen zur Stabilisierung und Effizienzerhöhung vorgenommen. Das prinzipielle Vorgehen bei jedem der drei Unterschritte ist folgendes:
+Das Zeitschrittverfahren ist das Runge-Kutta-Verfahren zweiter Ordnung. Zusätzlich werden einige Modifikationen zur Stabilisierung und Effizienzerhöhung vorgenommen. Das prinzipielle Vorgehen bei jedem der drei Unterschritte ist folgendes:
 
 \begin{enumerate}
-\item Zunächst werden die Geschwindigkeitstendenzen des expliziten Anteils berechnet.
-\item Nun werden die horizontalen Divergenzen mittels der skalaren Werte des vorherigen Runge-Kutta-Schrittes und der neuen Werte der horizontalen Geschwindigkeitskomponenten berechnet, dabei werden auch diabatische Effekte berücksichtigt bzw. addiert.
+\item Zunächst werden die Geschwindigkeitstendenzen des expliziten Anteils berechnet. Im zweiten RK-Schritt wird die endgültige Tendenz als arithmetisches Mittel der beiden Schritte berechnet.
+\item Nun werden die horizontalen Divergenzen mittels der skalaren Werte des vorherigen Runge-Kutta-Schrittes und der neuen Werte der horizontalen Geschwindigkeitskomponenten berechnet, dabei werden auch diabatische Effekte berücksichtigt. Im zweiten RK-Schritt wird die endgültige Tendenz als arithmetisches Mittel der beiden Schritte berechnet.
 \item Nun wird der explizite Anteil der Temperaturänderung mittels des in Abschn. \ref{sec:energetisch_konsistente_zeitentwicklung_der_temperatur} vorgestellten Verfahrens berechnet, hierbei sind auch die diabatischen Terme enthalten.
-\item Mittels des in Abschn. \ref{sec:behandlung_vertikal_propagierender_wellen} beschriebenen Sound wave solvers werden die neuen kovarianten Vertikalgeschwindigkeiten sowie die neue Temperatur ermittelt.
-\item Zuletzt werden mittels der generalisierten Kontinuitätsgleichungen die neuen Werte der Entropie- und Massendichte berechnet, s. Abschn. \ref{sec:vertikale_advektion_einer_generalisierten_dichte}.
+\item Mittels des in Abschn. \ref{sec:behandlung_vertikal_propagierender_wellen} beschriebenen Verfahrens werden die neuen Werte der Vertkalgeschwindigkeit und der Skalarfelder berechnet.
+\item Zuletzt werden mittels der generalisierten Kontinuitätsgleichungen die neuen Werte der generalisierten Dichten der Tracer berechnet, s. Abschn. \ref{sec:vertikale_advektion_einer_generalisierten_dichte}.
 \end{enumerate}
+
+\subsection{Hinzufügen einer Split-explicit-Option}
+\label{sec:hinzufügen_einer_split-explicit-option}\index{Split-explicit-Verfahren}
 
 \section{Regionaler Modus}
 \label{sec:regionaler_modus}
