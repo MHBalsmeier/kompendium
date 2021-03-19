@@ -23373,7 +23373,7 @@ definiert. Es wird nur diese Reihenfolge der Mittelungsoperatoren zugelassen. Fo
 Da man nun die vertikale kontravariante Massenflussdichte kennt, kann man Glg. \eqref{eq:div_c-grid_shallow_no_terrain} zu
 %
 \begin{align}
-\nabla\cdot\mathbf{v} &= \frac{1}{A_c\Delta z_{c, k}}\left(\sum_{e\in c}l_e\Delta z_{e, k}u_e + A_cv^{(v)}_{c, k - 1/2, \text{GK}} - A_cv^{(v)}_{c, k + 1/2, \text{GK}}\right)\label{eq:div_c-grid_shallow_terrain}
+\left(\nabla\cdot\mathbf{v}\right)_{c, k} &= \frac{1}{A_c\Delta z_{c, k}}\left(\sum_{e\in c}l_e\Delta z_{e, k}u_e + A_cv^{(v)}_{c, k - 1/2, \text{GK}} - A_cv^{(v)}_{c, k + 1/2, \text{GK}}\right)\label{eq:div_c-grid_shallow_terrain}
 \end{align}
 %
 verallgemeinern. Dabei wurde die Ersetzung
@@ -23385,7 +23385,7 @@ w_{k - 1/2} \to v^{(v)}_{c, k - 1/2, \text{GK}}
 vorgenommen und die Schichtdicke wurde von der horizontalen Position abhängig gemacht. Setzt man Glg. \eqref{eq:contravariant_vertical_measure_number_shallow} in Glg. \eqref{eq:div_c-grid_shallow_terrain} ein, erhält man
 %
 \begin{align}
-\nabla\cdot\mathbf{v} &= \frac{1}{A_c\Delta z_{c, k}}\left[\sum_{e\in c}l_e\Delta z_{e, k}u_e + A_c\left(w_{c, k - 1/2} - \newoverline{\newoverline{J_{e, k}u_{e, k}}^{(c)}}^{(k - \frac{1}{2})}\right) - A_c\left(w_{c, k + 1/2} - \newoverline{\newoverline{J_{e, k}u_{e, k}}^{(c)}}^{(k + \frac{1}{2})}\right)\right]\nonumber\\
+\left(\nabla\cdot\mathbf{v}\right)_{c, k} &= \frac{1}{A_c\Delta z_{c, k}}\left[\sum_{e\in c}l_e\Delta z_{e, k}u_e + A_c\left(w_{c, k - 1/2} - \newoverline{\newoverline{J_{e, k}u_{e, k}}^{(c)}}^{(k - \frac{1}{2})}\right) - A_c\left(w_{c, k + 1/2} - \newoverline{\newoverline{J_{e, k}u_{e, k}}^{(c)}}^{(k + \frac{1}{2})}\right)\right]\nonumber\\
 &= \sum_{e\in c}\frac{l_e\Delta z_{e, k}}{A_c\Delta z_{c, k}}u_e + \frac{w_{c, k - 1/2}}{\Delta z_{c, k}} - \frac{\newoverline{\newoverline{J_{e, k}u_{e, k}}^{(c)}}^{(k - \frac{1}{2})}}{\Delta z_{c, k}} - \frac{w_{c, k + 1/2}}{\Delta z_{c, k}} + \frac{\newoverline{\newoverline{J_{e, k}u_{e, k}}^{(c)}}^{(k + \frac{1}{2})}}{\Delta z_{c, k}}\nonumber\\
 &\stackrel{\text{Glg. \eqref{eq:edge_to_cell_shallow}}}{=} \frac{w_{c, k - 1/2} - w_{c, k + 1/2}}{\Delta z_{c, k}} + \sum_{e\in c}\frac{l_e\Delta z_{e, k}}{A_c\Delta z_{c, k}}u_e\nonumber\\
 &- \frac{\newoverline{\sum_{e\in c}\frac{l_ed_e}{2A_c\Delta z_{c, k}}\Delta z_{e, k}J_{e, k}u_{e, k}}^{(k - \frac{1}{2})} - \newoverline{\sum_{e\in c}\frac{l_ed_e}{2A_c\Delta z_{c, k}}\Delta z_{e, k}J_{e, k}u_{e, k}}^{(k + \frac{1}{2})}}{\Delta z_{c, k}}\nonumber\\
@@ -23401,7 +23401,7 @@ vorgenommen und die Schichtdicke wurde von der horizontalen Position abhängig g
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-\Rightarrow\nabla\cdot\mathbf{v}&= \left[\sum_{e\in c}\left(l_e\frac{\Delta z_{e, k}u_e}{A_c\Delta z_{c, k}}\right) + \frac{w_{c, k - 1/2} - w_{c, k + 1/2}}{\Delta z_{c, k}}\right]\nonumber\\
+\Rightarrow\left(\nabla\cdot\mathbf{v}\right)_{c, k} &= \left[\sum_{e\in c}\left(l_e\frac{\Delta z_{e, k}u_e}{A_c\Delta z_{c, k}}\right) + \frac{w_{c, k - 1/2} - w_{c, k + 1/2}}{\Delta z_{c, k}}\right]\nonumber\\
 &- \frac{1}{2}\sum_{e\in c}\frac{l_ed_e}{2A_c\Delta z_{c, k}}\Bigg[\left(\frac{\Delta z_{e, k - 1}}{\Delta z_{c, k - 1}}J_{e, k - 1}u_{e, k - 1} + \textcolor{blue}{\frac{\Delta z_{e, k}}{\Delta z_{c, k}}J_{e, k}u_{e, k}}\right)\nonumber\\
 &- \left(\textcolor{blue}{\frac{\Delta z_{e, k}}{\Delta z_{c, k}}J_{e, k}u_{e, k}} + \frac{\Delta z_{e, k + 1}}{\Delta z_{c, k + 1}}J_{e, k + 1}u_{e, k + 1}\right)\Bigg].\label{eq:div_c-grid_shallow_terrain_concrete}
 \end{align}
@@ -23417,20 +23417,28 @@ Die Terme in der ersten Zeile entsprechen Glg. \eqref{eq:div_c-grid_shallow_no_t
 In der tiefen Atmosphäre verallgemeinert Glg. \eqref{eq:div_c-grid_shallow_terrain} zu
 %
 \begin{align}
-\nabla\cdot\mathbf{v} &= \frac{1}{V_{c, k}}\left(\sum_{e\in c}A_{e, k}u_e + A_{c, k - 1/2}v^{(v)}_{c, k - 1/2, \text{GK}} - A_{c, k + 1/2}v^{(v)}_{c, k + 1/2, \text{GK}}\right).
+\left(\nabla\cdot\mathbf{v}\right)_{c, k} &= \frac{1}{V_{c, k}}\left(\sum_{e\in c}A_{e, k}u_e + A_{c, k - 1/2}v^{(v)}_{c, k - 1/2, \text{GK}} - A_{c, k + 1/2}v^{(v)}_{c, k + 1/2, \text{GK}}\right).
 \end{align}
 %
 Setzt man hier Glg. \eqref{eq:contravariant_vertical_measure_number_shallow} zu, erhält man
 %
 \begin{align}
-\nabla\cdot\mathbf{v} &= \frac{1}{V_{c, k}}\left(\sum_{e\in c}A_{e, k}u_e + A_{c, k - 1/2}v^{(v)}_{c, k - 1/2, \text{GK}} - A_{c, k + 1/2}v^{(v)}_{c, k + 1/2, \text{GK}}\right)\nonumber\\
+\left(\nabla\cdot\mathbf{v}\right)_{c, k} &= \frac{1}{V_{c, k}}\left(\sum_{e\in c}A_{e, k}u_e + A_{c, k - 1/2}v^{(v)}_{c, k - 1/2, \text{GK}} - A_{c, k + 1/2}v^{(v)}_{c, k + 1/2, \text{GK}}\right)\nonumber\\
 &= \frac{1}{V_{c, k}}\left[\sum_{e\in c}\left(A_{e, k}u_e\right) + A_{c, k - 1/2}w_{c, k - 1/2} - A_{c, k + 1/2}w_{c, k + 1/2}\right]\nonumber\\
 &- \frac{1}{V_{c, k}}\sum_{e\in c}\Bigg[A_{c, k - 1/2}\frac{1}{2}\left(\frac{A_{e, k}d_{e, k}}{2V_{c, k}}J_{e, k}^{(1)}u_{e, k}^{(2)} + \frac{A_{e, k - 1}d_{e, k - 1}}{2V_{c, k - 1}}J_{e, k - 1}^{(1)}u_{e, k - 1}^{(2)}\right)\nonumber\\
-&- A_{c, k + 1/2}\frac{1}{2}\left(\frac{A_{e, k}d_{e, k}}{2V_{c, k}}J_{e, k}^{(1)}u_{e, k}^{(2)} + \frac{A_{e, k + 1}d_{e, k + 1}}{2V_{c, k + 1}}J_{e, k + 1}^{(1)}u_{e, k + 1}^{(2)}\right)\Bigg]\nonumber\\
-&= \frac{1}{V_{c, k}}\left[\sum_{e\in c}\left(A_{e, k}u_e\right) + A_{c, k - 1/2}w_{c, k - 1/2} - A_{c, k + 1/2}w_{c, k + 1/2}\right]\nonumber\\
-&+ \frac{1}{V_{c, k}}\sum_{e\in c}\Bigg[-A_{c, k - 1/2}\left(\frac{A_{e, k}d_{e, k}}{4V_{c, k}}J_{e, k}^{(1)}u_{e, k}^{(2)} + \frac{A_{e, k - 1}d_{e, k - 1}}{4V_{c, k - 1}}J_{e, k - 1}^{(1)}u_{e, k - 1}^{(2)}\right)\nonumber\\
-&+ A_{c, k + 1/2}\left(\frac{A_{e, k}d_{e, k}}{4V_{c, k}}J_{e, k}^{(1)}u_{e, k}^{(2)} + \frac{A_{e, k + 1}d_{e, k + 1}}{4V_{c, k + 1}}J_{e, k + 1}^{(1)}u_{e, k + 1}^{(2)}\right)\Bigg]
+&- A_{c, k + 1/2}\frac{1}{2}\left(\frac{A_{e, k}d_{e, k}}{2V_{c, k}}J_{e, k}^{(1)}u_{e, k}^{(2)} + \frac{A_{e, k + 1}d_{e, k + 1}}{2V_{c, k + 1}}J_{e, k + 1}^{(1)}u_{e, k + 1}^{(2)}\right)\Bigg]\nonumber
 \end{align}
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\Rightarrow\left(\nabla\cdot\mathbf{v}\right)_{c, k} &= \frac{1}{V_{c, k}}\left[\sum_{e\in c}\left(A_{e, k}u_e\right) + A_{c, k - 1/2}w_{c, k - 1/2} - A_{c, k + 1/2}w_{c, k + 1/2}\right]\nonumber\\
+&+ \frac{1}{V_{c, k}}\sum_{e\in c}\Bigg[-A_{c, k - 1/2}\left(\frac{A_{e, k}d_{e, k}}{4V_{c, k}}J_{e, k}^{(1)}u_{e, k}^{(2)} + \frac{A_{e, k - 1}d_{e, k - 1}}{4V_{c, k - 1}}J_{e, k - 1}^{(1)}u_{e, k - 1}^{(2)}\right)\nonumber\\
+&+ A_{c, k + 1/2}\left(\frac{A_{e, k}d_{e, k}}{4V_{c, k}}J_{e, k}^{(1)}u_{e, k}^{(2)} + \frac{A_{e, k + 1}d_{e, k + 1}}{4V_{c, k + 1}}J_{e, k + 1}^{(1)}u_{e, k + 1}^{(2)}\right)\Bigg].
+\end{align}
+\end{center}
+}}
+\end{center}
 %
 Die in Glg. \eqref{eq:div_c-grid_shallow_terrain_concrete} mögliche Vereinfachung ist hier nicht anwendbar.
 
