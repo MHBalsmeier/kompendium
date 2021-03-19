@@ -23414,6 +23414,26 @@ Die Terme in der ersten Zeile entsprechen Glg. \eqref{eq:div_c-grid_shallow_no_t
 \subsubsection{Deep atmosphere}
 \label{sec:deep_atmosphere_div_c}
 
+In der tiefen Atmosphäre verallgemeinert Glg. \eqref{eq:div_c-grid_shallow_terrain} zu
+%
+\begin{align}
+\nabla\cdot\mathbf{v} &= \frac{1}{V_{c, k}}\left(\sum_{e\in c}A_{e, k}u_e + A_{c, k - 1/2}v^{(v)}_{c, k - 1/2, \text{GK}} - A_{c, k + 1/2}v^{(v)}_{c, k + 1/2, \text{GK}}\right).
+\end{align}
+%
+Setzt man hier Glg. \eqref{eq:contravariant_vertical_measure_number_shallow} zu, erhält man
+%
+\begin{align}
+\nabla\cdot\mathbf{v} &= \frac{1}{V_{c, k}}\left(\sum_{e\in c}A_{e, k}u_e + A_{c, k - 1/2}v^{(v)}_{c, k - 1/2, \text{GK}} - A_{c, k + 1/2}v^{(v)}_{c, k + 1/2, \text{GK}}\right)\nonumber\\
+&= \frac{1}{V_{c, k}}\left[\sum_{e\in c}\left(A_{e, k}u_e\right) + A_{c, k - 1/2}w_{c, k - 1/2} - A_{c, k + 1/2}w_{c, k + 1/2}\right]\nonumber\\
+&- \frac{1}{V_{c, k}}\sum_{e\in c}\Bigg[A_{c, k - 1/2}\frac{1}{2}\left(\frac{A_{e, k}d_{e, k}}{2V_{c, k}}J_{e, k}^{(1)}u_{e, k}^{(2)} + \frac{A_{e, k - 1}d_{e, k - 1}}{2V_{c, k - 1}}J_{e, k - 1}^{(1)}u_{e, k - 1}^{(2)}\right)\nonumber\\
+&- A_{c, k + 1/2}\frac{1}{2}\left(\frac{A_{e, k}d_{e, k}}{2V_{c, k}}J_{e, k}^{(1)}u_{e, k}^{(2)} + \frac{A_{e, k + 1}d_{e, k + 1}}{2V_{c, k + 1}}J_{e, k + 1}^{(1)}u_{e, k + 1}^{(2)}\right)\Bigg]\nonumber\\
+&= \frac{1}{V_{c, k}}\left[\sum_{e\in c}\left(A_{e, k}u_e\right) + A_{c, k - 1/2}w_{c, k - 1/2} - A_{c, k + 1/2}w_{c, k + 1/2}\right]\nonumber\\
+&+ \frac{1}{V_{c, k}}\sum_{e\in c}\Bigg[-A_{c, k - 1/2}\left(\frac{A_{e, k}d_{e, k}}{4V_{c, k}}J_{e, k}^{(1)}u_{e, k}^{(2)} + \frac{A_{e, k - 1}d_{e, k - 1}}{4V_{c, k - 1}}J_{e, k - 1}^{(1)}u_{e, k - 1}^{(2)}\right)\nonumber\\
+&+ A_{c, k + 1/2}\left(\frac{A_{e, k}d_{e, k}}{4V_{c, k}}J_{e, k}^{(1)}u_{e, k}^{(2)} + \frac{A_{e, k + 1}d_{e, k + 1}}{4V_{c, k + 1}}J_{e, k + 1}^{(1)}u_{e, k + 1}^{(2)}\right)\Bigg]
+\end{align}
+%
+Die in Glg. \eqref{eq:div_c-grid_shallow_terrain_concrete} mögliche Vereinfachung ist hier nicht anwendbar.
+
 \section{Ellipsoidische Modifikation des Gitters}
 \label{sec:ellipsoidische_modifikation_des_gitters}\index{Gitter!ellipsoidische Modifikation}\index{ellipsoidisches Gitter}
 
