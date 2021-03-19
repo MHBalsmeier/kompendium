@@ -23687,7 +23687,7 @@ Zieht man Glg. \eqref{eq:grad_c-grid_terrain_deriv_0} von Glg. \eqref{eq:grad_c-
 \begin{align}
 &\mathbf{v}\cdot\nabla\psi = \nabla\cdot\left(\psi\mathbf{v}\right) - \psi\nabla\cdot\mathbf{v}\nonumber\\
 &= \left[\sum_{e\in c}\left(l_e\frac{\Delta z_{e, k}\left(\psi_{o(e), k} - \psi_{c, k}\right)u_e}{2A_c\Delta z_{c, k}}\right) + \frac{\left(\psi_{c, k - 1} - \psi_{c, k}\right)w_{c, k - 1/2} - \left(\psi_{c, k + 1} - \psi_{c, k}\right)w_{c, k + 1/2}}{2\Delta z_{c, k}}\right]\nonumber\\
-&- \sum_{e\in c}\frac{l_ed_e}{A_c\Delta z_{c, k}}\left(\frac{\Delta z_{e, k - 1}}{\Delta z_{c, k - 1}}J_{e, k - 1}\frac{\psi_{c, k - 1} + \psi_{o(e), k - 1} - 2\psi_{c, k}}{2}\textcolor{red}{u_{e, k - 1}} - \frac{\Delta z_{e, k + 1}}{\Delta z_{c, k + 1}}J_{e, k + 1}\frac{\psi_{c, k + 1} + \psi_{o(e), k + 1} - 2\psi_{c, k}}{2}\textcolor{red}{u_{e, k + 1}}\right)\nonumber\\
+&- \sum_{e\in c}\frac{l_ed_e}{4A_c\Delta z_{c, k}}\left(\frac{\Delta z_{e, k - 1}}{\Delta z_{c, k - 1}}J_{e, k - 1}\frac{\psi_{c, k - 1} + \psi_{o(e), k - 1} - 2\psi_{c, k}}{2}\textcolor{red}{u_{e, k - 1}} - \frac{\Delta z_{e, k + 1}}{\Delta z_{c, k + 1}}J_{e, k + 1}\frac{\psi_{c, k + 1} + \psi_{o(e), k + 1} - 2\psi_{c, k}}{2}\textcolor{red}{u_{e, k + 1}}\right)\nonumber\\
 &\stackrel{\text{Glg. }\eqref{eq:inner_c-grid_3d_shallow_terrain}}{\hastobe} \sum_{e\in c}\frac{l_ed_e}{2A_c\Delta z_{c, k}}\Delta z_{e, k}\left(\nabla\psi\right)_eu_e + \frac{\Delta z_{c, k - 1/2}}{2\Delta z_{c, k}}\left(\nabla\psi\right)_{c, k - 1/2}w_{c, k - 1/2} + \frac{\Delta z_{c, k + 1/2}}{2\Delta z_{c, k}}\left(\nabla\psi\right)_{c, k + 1/2}w_{c, k + 1/2}.
 \end{align}
 %
