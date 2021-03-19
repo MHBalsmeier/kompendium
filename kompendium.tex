@@ -23836,8 +23836,8 @@ Im Rahmen des bisher entwickelten Formalismus gibt es drei Möglichkeiten für A
 %
 Diese verbleibenden Freiheiten sind nicht ausreichend, um die Konvergenzordnung des Gesamtmodells zu erhöhen. Anstattdessen kann man die in Kap. \ref{chap:multi-moment-finite-volumen-verfahren} MMFV-Methode verwenden.
 
-\section{Zeitschrittverfahren: Variante I}
-\label{sec:zeitschrittverfahren_variante_i}\index{Zeitschrittverfahren!im dynamischen Kern}\index{dynamischer Kern!Zeitschrittverfahren}\index{Kern!dynamischer!Zeitschrittverfahren}
+\section{HEVI-Verfahren}
+\label{sec:hevi-verfahren}\index{HEVI-Verfahren}
 
 Es besteht folgender Konflikt zwischen expliziten\index{explizites Zeitschrittverfahren}\index{Zeitschrittverfahren!explizites} und impliziten Verfahren\index{implizites Zeitschrittverfahren}\index{Zeitschrittverfahren!implizites}:
 %
@@ -23846,7 +23846,7 @@ Es besteht folgender Konflikt zwischen expliziten\index{explizites Zeitschrittve
 \item Implizite Verfahren\index{implizites Zeitschrittverfahren}\index{Zeitschrittverfahren!implizites} sind aufwendiger zu implementieren. Ihre Geschwindigkeit hängt von der Komplexität des Problems ab. Sie sind stabiler als explizite Verfahren und ermöglichen einen großen Zeitschritt, was positiv zu ihrer Performance beiträgt.
 \end{itemize}
 %
-Hieraus folgt, dass ein schnelles implizites Verfahren ideal für einen dynamischen Kern wäre. Da die zu lösenden Gleichungen jedoch nichtlinear sind, ist ein dreidimensional implizites Verfahren nur über ein iteratives Vorgehen möglich. Ein solches wird in Abschn. \ref{sec:zeitschrittverfahren_variante_ii} entwickelt. In diesem Abschnitt wählt man als Kompromiss das \textit{HEVI-Konzept,}\index{HEVI-Konzept} was für \textit{horizontally explicit, vertically implicit}\index{horizontally explicit, vertically implicit (HEVI)} steht.
+Hieraus folgt, dass ein schnelles implizites Verfahren ideal für einen dynamischen Kern wäre. Da die zu lösenden Gleichungen jedoch nichtlinear sind, ist ein dreidimensional implizites Verfahren nur über ein iteratives Vorgehen möglich. In diesem Abschnitt wählt man als Kompromiss das \textit{HEVI-Konzept,}\index{HEVI-Konzept} was für \textit{horizontally explicit, vertically implicit}\index{horizontally explicit, vertically implicit (HEVI)} steht.
 
 \subsection{Festlegung auf ein Runge-Kutta-Verfahren}
 \label{sec:Festlegung_auf_ein_runge-kutta-verfahren}
@@ -23864,80 +23864,6 @@ Da das Zeitschrittverfahren jedoch ohnehin niemals vollständig energetisch kons
 
 \subsection{Modifikationen zur Stabilisierung}
 \label{sec:modifikationen_zur_stabilisierung}
-
-\subsubsection{Vertikale Advektion des Horizontalwindes}
-\label{sec:vertikale_advektion_des_horizontalwindes}
-
-Sei $u$ eine horizontale Vektorkomponente. Vorbereitend wird das Crank-Nicolson-Verfahren\index{Crank-Nicolson-Verfahren} mit $n$ als gegenwärtigem Zeitschritt notiert:
-%
-\begin{align}
-u^{(n + 1)} = u^{(n)} + \frac{\Delta t}{2}\left(\frac{\partial u^{(n)}}{\partial t} + \frac{\partial u^{(n + 1)}}{\partial t}\right)
-\end{align}
-%
-An dieser Stelle geht es dabei nur um vertikale Advektion\index{Advektion!vertikale}, die anderen Terme werden explizit berechnet:
-%
-\begin{align}
-u^{(n + 1)} = u^{(n)} + \Delta t\newdot{u}^{(n)}_{\text{expl}} - \frac{w^{(n)}\Delta t}{2}\left(\frac{\partial u^{(n)}}{\partial z} + \frac{\partial u^{(n + 1)}}{\partial z}\right)
-\end{align}
-%
-Die vertikale Diskretisierung erfordert einen Layerindex $0 \leq i \leq N_L - 1$:
-%
-\begin{align}
-u^{(n + 1)}_{i} = u^{(n)}_{i} + \Delta t\newdot{u}^{(n)}_{i, \text{expl}} - \frac{\newoverline{w^{(n)}_{k - 1/2}}^{(i)}\Delta t}{2}\left(\frac{u^{(n)}_{i - 1} - u^{(n)}_{i + 1}}{z_{i - 1} - z_{i + 1}} + \frac{u^{(n + 1)}_{i - 1} - u^{(n + 1)}_{i + 1}}{z_{i - 1} - z_{i + 1}}\right)
-\end{align}
-%
-Im nullten (obersten) Layer verwendet man einen einseitigen unteren Differenzenquotienten, um die Reflexion von Wellen am oberen Rand zu minimieren:
-%
-\begin{align}
-u^{(n + 1)}_{0} = u^{(n)}_{0} + \Delta t\newdot{u}^{(n)}_{0, \text{expl}} - \frac{\newoverline{w^{(n)}_{k - 1/2}}^{(0)}\Delta t}{2}\frac{u^{(n)}_{0} - u^{(n)}_{1}}{z_{0} - z_{1}} - \frac{\newoverline{w^{(n)}_{k - 1/2}}^{(0)}\Delta t}{2\left(z_{0} - z_{1}\right)}u^{(n + 1)}_{0} + \frac{\newoverline{w^{(n)}_{k - 1/2}}^{(0)}\Delta t}{2\left(z_{0} - z_{1}\right)}u^{(n + 1)}_{1}
-\end{align}
-%
-Bei $i = N_L - 1$ gilt
-%
-\begin{align}
-u^{(n + 1)}_{N_L - 1} = u^{(n)}_{N_L - 1} + \Delta t\newdot{u}^{(n)}_{N_L - 1, \text{expl}} - \frac{\newoverline{w^{(n)}_{k - 1/2}}^{(N_L - 1)}\Delta t}{2}\frac{u^{(n)}_{N_L - 2}}{z_{N_L - 2} - z_{N_L}} - \frac{\newoverline{w^{(n)}_{k - 1/2}}^{(N_L - 1)}\Delta t}{2\left(z_{N_L - 2} - z_{N_L}\right)}u^{(n + 1)}_{N_L - 2}.
-\end{align}
-%
-Man definiert den Vektor $\mathbf{V}$ der Unbekannten durch
-%
-\begin{align}
-\mathbf{V} = \left(\begin{array}{c}
-u^{(n + 1)}_{0}\\
-u^{(n + 1)}_{1}\\
-\vdots\\
-u^{(n + 1)}_{N_L - 1}
-\end{array}\right),
-\end{align}
-%
-für diesen gilt ein lineares Gleichungssystem\index{lineares Gleichungssystem}\index{Gleichungssystem!lineares}
-%
-\begin{align}
-\overleftrightarrow{A}\cdot\mathbf{V} = \mathbf{d}
-\end{align}
-%
-mit einer Matrix $\overleftrightarrow{A}$ und einer rechten Seite $\mathbf{d}$. Für die rechte Seite gilt
-%
-\begin{align}
-\mathbf{d} = \left(\begin{array}{c}
-u^{(n)}_{0} + \Delta t\newdot{u}^{(n)}_{0, \text{expl}} - \frac{\newoverline{w^{(n)}_{k - 1/2}}^{(0)}\Delta t}{2}\frac{u^{(n)}_{0} - u^{(n)}_{1}}{z_{0} - z_{1}}\\
-u^{(n)}_{1} + \Delta t\newdot{u}^{(n)}_{1, \text{expl}} - \frac{\newoverline{w^{(n)}_{k - 1/2}}^{(1)}\Delta t}{2}\frac{u^{(n)}_{0} - u^{(n)}_{2}}{z_{0} - z_{2}}\\
-u^{(n)}_{2} + \Delta t\newdot{u}^{(n)}_{2, \text{expl}} - \frac{\newoverline{w^{(n)}_{k - 1/2}}^{(2)}\Delta t}{2}\frac{u^{(n)}_{1} - u^{(n)}_{3}}{z_{1} - z_{3}}\\
-\vdots\\
-u^{(n)}_{N_L - 2} + \Delta t\newdot{u}^{(n)}_{N_L - 2, \text{expl}} - \frac{\newoverline{w^{(n)}_{k - 1/2}}^{(N_L - 2)}\Delta t}{2}\frac{u^{(n)}_{N_L - 3} - u^{(n)}_{N_L - 1}}{z_{N_L - 3} - z_{N_L - 1}}\\
-u^{(n)}_{N_L - 1} + \Delta t\newdot{u}^{(n)}_{N_L - 1, \text{expl}} - \frac{\newoverline{w^{(n)}_{k - 1/2}}^{(N_L - 1)}\Delta t}{2}\frac{u^{(n)}_{N_L - 2}}{z_{N_L - 2} - z_{N_L}}
-\end{array}\right).
-\end{align}
-%
-Für die Matrix $\overleftrightarrow{A}$ erhält man
-%
-\begin{align}
-\overleftrightarrow{A} &= \left(\begin{array}{cccc}
-1 + \frac{\newoverline{w^{(n)}_{k - 1/2}}^{(0)}\Delta t}{2\left(z_{0} - z_{1}\right)} & -\frac{\newoverline{w^{(n)}_{k - 1/2}}^{(0)}\Delta t}{2\left(z_{0} - z_{1}\right)}  & \dots & 0 \\
-\frac{\newoverline{w^{(n)}_{k - 1/2}}^{(1)}\Delta t}{2\left(z_{0} - z_{2}\right)} & 1 & -\frac{\newoverline{w^{(n)}_{k - 1/2}}^{(1)}\Delta t}{2\left(z_{0} - z_{2}\right)}\hspace{2 cm}\dots &  0 \\
-\vdots & \hspace{2 cm}\ddots & \ddots & \vdots \\
-0 & \dots & \frac{\newoverline{w^{(n)}_{k - 1/2}}^{(N_L - 1)}\Delta t}{2\left(z_{N_L - 2} - z_{N_L}\right)} & 1
-\end{array}\right).
-\end{align}
 
 \subsubsection{Behandlung vertikal propagierender Wellen}
 \label{sec:behandlung_vertikal_propagierender_wellen}
@@ -24250,15 +24176,11 @@ Das Zeitschrittverfahren ist das Runge-Kutta-Verfahren dritter Ordnung. Zusätzl
 
 \begin{enumerate}
 \item Zunächst werden die Geschwindigkeitstendenzen des expliziten Anteils berechnet.
-\item Anschließend wird die vertikale Advektion von $\mathbf{v}_h$ mittels eines impliziten Verfahrens berechnet, s. Abschn. \ref{sec:vertikale_advektion_des_horizontalwindes}.
 \item Nun werden die horizontalen Divergenzen mittels der skalaren Werte des vorherigen Runge-Kutta-Schrittes und der neuen Werte der horizontalen Geschwindigkeitskomponenten berechnet, dabei werden auch diabatische Effekte berücksichtigt bzw. addiert.
 \item Nun wird der explizite Anteil der Temperaturänderung mittels des in Abschn. \ref{sec:energetisch_konsistente_zeitentwicklung_der_temperatur} vorgestellten Verfahrens berechnet, hierbei sind auch die diabatischen Terme enthalten.
 \item Mittels des in Abschn. \ref{sec:behandlung_vertikal_propagierender_wellen} beschriebenen Sound wave solvers werden die neuen kovarianten Vertikalgeschwindigkeiten sowie die neue Temperatur ermittelt.
 \item Zuletzt werden mittels der generalisierten Kontinuitätsgleichungen die neuen Werte der Entropie- und Massendichte berechnet, s. Abschn. \ref{sec:vertikale_advektion_einer_generalisierten_dichte}.
 \end{enumerate}
-
-\section{Zeitschrittverfahren: Variante II}
-\label{sec:zeitschrittverfahren_variante_ii}\index{Zeitschrittverfahren!im dynamischen Kern}\index{dynamischer Kern!Zeitschrittverfahren}\index{Kern!dynamischer!Zeitschrittverfahren}
 
 \section{Regionaler Modus}
 \label{sec:regionaler_modus}
