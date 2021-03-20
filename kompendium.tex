@@ -23373,7 +23373,7 @@ definiert. Es wird nur diese Reihenfolge der Mittelungsoperatoren zugelassen. Fo
 Da man nun die vertikale kontravariante Massenflussdichte kennt, kann man Glg. \eqref{eq:div_c-grid_shallow_no_terrain} zu
 %
 \begin{align}
-\left(\nabla\cdot\mathbf{v}\right)_{c, k} &= \frac{1}{A_c\Delta z_{c, k}}\left(\sum_{e\in c}l_e\Delta z_{e, k}u_e + A_cv^{(v)}_{c, k - 1/2, \text{GK}} - A_cv^{(v)}_{c, k + 1/2, \text{GK}}\right)\label{eq:div_c-grid_shallow_terrain}
+\left(\nabla\cdot\mathbf{v}\right)_{c, k} &= \frac{1}{A_c\Delta z_{c, k}}\left(\sum_{e\in c}l_e\Delta z_{e, k}u_{e, k} + A_cv^{(v)}_{c, k - 1/2, \text{GK}} - A_cv^{(v)}_{c, k + 1/2, \text{GK}}\right)\label{eq:div_c-grid_shallow_terrain}
 \end{align}
 %
 verallgemeinern. Dabei wurde die Ersetzung
@@ -23385,23 +23385,23 @@ w_{k - 1/2} \to v^{(v)}_{c, k - 1/2, \text{GK}}
 vorgenommen und die Schichtdicke wurde von der horizontalen Position abhängig gemacht. Setzt man Glg. \eqref{eq:contravariant_vertical_measure_number_shallow} in Glg. \eqref{eq:div_c-grid_shallow_terrain} ein, erhält man
 %
 \begin{align}
-\left(\nabla\cdot\mathbf{v}\right)_{c, k} &= \frac{1}{A_c\Delta z_{c, k}}\left[\sum_{e\in c}l_e\Delta z_{e, k}u_e + A_c\left(w_{c, k - 1/2} - \newoverline{\newoverline{J_{e, k}u_{e, k}}^{(c)}}^{(k - \frac{1}{2})}\right) - A_c\left(w_{c, k + 1/2} - \newoverline{\newoverline{J_{e, k}u_{e, k}}^{(c)}}^{(k + \frac{1}{2})}\right)\right]\nonumber\\
-&= \sum_{e\in c}\frac{l_e\Delta z_{e, k}}{A_c\Delta z_{c, k}}u_e + \frac{w_{c, k - 1/2}}{\Delta z_{c, k}} - \frac{\newoverline{\newoverline{J_{e, k}u_{e, k}}^{(c)}}^{(k - \frac{1}{2})}}{\Delta z_{c, k}} - \frac{w_{c, k + 1/2}}{\Delta z_{c, k}} + \frac{\newoverline{\newoverline{J_{e, k}u_{e, k}}^{(c)}}^{(k + \frac{1}{2})}}{\Delta z_{c, k}}\nonumber\\
-&\stackrel{\text{Glg. \eqref{eq:edge_to_cell_shallow}}}{=} \frac{w_{c, k - 1/2} - w_{c, k + 1/2}}{\Delta z_{c, k}} + \sum_{e\in c}\frac{l_e\Delta z_{e, k}}{A_c\Delta z_{c, k}}u_e\nonumber\\
+\left(\nabla\cdot\mathbf{v}\right)_{c, k} &= \frac{1}{A_c\Delta z_{c, k}}\left[\sum_{e\in c}l_e\Delta z_{e, k}u_{e, k} + A_c\left(w_{c, k - 1/2} - \newoverline{\newoverline{J_{e, k}u_{e, k}}^{(c)}}^{(k - \frac{1}{2})}\right) - A_c\left(w_{c, k + 1/2} - \newoverline{\newoverline{J_{e, k}u_{e, k}}^{(c)}}^{(k + \frac{1}{2})}\right)\right]\nonumber\\
+&= \sum_{e\in c}\frac{l_e\Delta z_{e, k}}{A_c\Delta z_{c, k}}u_{e, k} + \frac{w_{c, k - 1/2}}{\Delta z_{c, k}} - \frac{\newoverline{\newoverline{J_{e, k}u_{e, k}}^{(c)}}^{(k - \frac{1}{2})}}{\Delta z_{c, k}} - \frac{w_{c, k + 1/2}}{\Delta z_{c, k}} + \frac{\newoverline{\newoverline{J_{e, k}u_{e, k}}^{(c)}}^{(k + \frac{1}{2})}}{\Delta z_{c, k}}\nonumber\\
+&\stackrel{\text{Glg. \eqref{eq:edge_to_cell_shallow}}}{=} \frac{w_{c, k - 1/2} - w_{c, k + 1/2}}{\Delta z_{c, k}} + \sum_{e\in c}\frac{l_e\Delta z_{e, k}}{A_c\Delta z_{c, k}}u_{e, k}\nonumber\\
 &- \frac{\newoverline{\sum_{e\in c}\frac{l_ed_e}{2A_c\Delta z_{c, k}}\Delta z_{e, k}J_{e, k}u_{e, k}}^{(k - \frac{1}{2})} - \newoverline{\sum_{e\in c}\frac{l_ed_e}{2A_c\Delta z_{c, k}}\Delta z_{e, k}J_{e, k}u_{e, k}}^{(k + \frac{1}{2})}}{\Delta z_{c, k}}\nonumber\\
-&= \frac{w_{c, k - 1/2} - w_{c, k + 1/2}}{\Delta z_{c, k}} + \sum_{e\in c}\frac{l_e\Delta z_{e, k}}{A_c\Delta z_{c, k}}u_e - \frac{\sum_{e\in c}\frac{l_ed_e}{2A_c}\newoverline{\frac{\Delta z_{e, k}}{\Delta z_{c, k}}J_{e, k}u_{e, k}}^{(k - \frac{1}{2})} - \sum_{e\in c}\frac{l_ed_e}{2A_c}\newoverline{\frac{\Delta z_{e, k}}{\Delta z_{c, k}}J_{e, k}u_{e, k}}^{(k + \frac{1}{2})}}{\Delta z_{c, k}}\nonumber
+&= \frac{w_{c, k - 1/2} - w_{c, k + 1/2}}{\Delta z_{c, k}} + \sum_{e\in c}\frac{l_e\Delta z_{e, k}}{A_c\Delta z_{c, k}}u_{e, k} - \frac{\sum_{e\in c}\frac{l_ed_e}{2A_c}\newoverline{\frac{\Delta z_{e, k}}{\Delta z_{c, k}}J_{e, k}u_{e, k}}^{(k - \frac{1}{2})} - \sum_{e\in c}\frac{l_ed_e}{2A_c}\newoverline{\frac{\Delta z_{e, k}}{\Delta z_{c, k}}J_{e, k}u_{e, k}}^{(k + \frac{1}{2})}}{\Delta z_{c, k}}\nonumber
 \end{align}
 \begin{align}
-&= \frac{w_{c, k - 1/2} - w_{c, k + 1/2}}{\Delta z_{c, k}} + \sum_{e\in c}\frac{l_e\Delta z_{e, k}u_e - \frac{l_ed_e}{2}\newoverline{\frac{\Delta z_{e, k}}{\Delta z_{c, k}}J_{e, k}u_{e, k}}^{(k - \frac{1}{2})} + \frac{l_ed_e}{2}\newoverline{\frac{\Delta z_{e, k}}{\Delta z_{c, k}}J_{e, k}u_{e, k}}^{(k + \frac{1}{2})}}{A_c\Delta z_{c, k}}\nonumber\\
-&= \frac{w_{c, k - 1/2} - w_{c, k + 1/2}}{\Delta z_{c, k}} + \sum_{e\in c}l_e\frac{\Delta z_{e, k}u_e - \frac{d_e}{2}\newoverline{\frac{\Delta z_{e, k}}{\Delta z_{c, k}}J_{e, k}u_{e, k}}^{(k - \frac{1}{2})} + \frac{d_e}{2}\newoverline{\frac{\Delta z_{e, k}}{\Delta z_{c, k}}J_{e, k}u_{e, k}}^{(k + \frac{1}{2})}}{A_c\Delta z_{c, k}}\nonumber\\
+&= \frac{w_{c, k - 1/2} - w_{c, k + 1/2}}{\Delta z_{c, k}} + \sum_{e\in c}\frac{l_e\Delta z_{e, k}u_{e, k} - \frac{l_ed_e}{2}\newoverline{\frac{\Delta z_{e, k}}{\Delta z_{c, k}}J_{e, k}u_{e, k}}^{(k - \frac{1}{2})} + \frac{l_ed_e}{2}\newoverline{\frac{\Delta z_{e, k}}{\Delta z_{c, k}}J_{e, k}u_{e, k}}^{(k + \frac{1}{2})}}{A_c\Delta z_{c, k}}\nonumber\\
+&= \frac{w_{c, k - 1/2} - w_{c, k + 1/2}}{\Delta z_{c, k}} + \sum_{e\in c}l_e\frac{\Delta z_{e, k}u_{e, k} - \frac{d_e}{2}\newoverline{\frac{\Delta z_{e, k}}{\Delta z_{c, k}}J_{e, k}u_{e, k}}^{(k - \frac{1}{2})} + \frac{d_e}{2}\newoverline{\frac{\Delta z_{e, k}}{\Delta z_{c, k}}J_{e, k}u_{e, k}}^{(k + \frac{1}{2})}}{A_c\Delta z_{c, k}}\nonumber\\
 &= \frac{w_{c, k - 1/2} - w_{c, k + 1/2}}{\Delta z_{c, k}}\nonumber\\
-& + \sum_{e\in c}l_e\frac{\Delta z_{e, k}u_e - \frac{d_e}{4}\left(\frac{\Delta z_{e, k - 1}}{\Delta z_{c, k - 1}}J_{e, k - 1}u_{e, k - 1} + \frac{\Delta z_{e, k}}{\Delta z_{c, k}}J_{e, k}u_{e, k}\right) + \frac{d_e}{4}\left(\frac{\Delta z_{e, k}}{\Delta z_{c, k}}J_{e, k}u_{e, k} + \frac{\Delta z_{e, k + 1}}{\Delta z_{c, k + 1}}J_{e, k + 1}u_{e, k + 1}\right)}{A_c\Delta z_{c, k}}\nonumber
+& + \sum_{e\in c}l_e\frac{\Delta z_{e, k}u_{e, k} - \frac{d_e}{4}\left(\frac{\Delta z_{e, k - 1}}{\Delta z_{c, k - 1}}J_{e, k - 1}u_{e, k - 1} + \frac{\Delta z_{e, k}}{\Delta z_{c, k}}J_{e, k}u_{e, k}\right) + \frac{d_e}{4}\left(\frac{\Delta z_{e, k}}{\Delta z_{c, k}}J_{e, k}u_{e, k} + \frac{\Delta z_{e, k + 1}}{\Delta z_{c, k + 1}}J_{e, k + 1}u_{e, k + 1}\right)}{A_c\Delta z_{c, k}}\nonumber
 \end{align}
 \begin{center}
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-\Rightarrow\left(\nabla\cdot\mathbf{v}\right)_{c, k} &= \left[\sum_{e\in c}\left(l_e\frac{\Delta z_{e, k}u_e}{A_c\Delta z_{c, k}}\right) + \frac{w_{c, k - 1/2} - w_{c, k + 1/2}}{\Delta z_{c, k}}\right]\nonumber\\
+\Rightarrow\left(\nabla\cdot\mathbf{v}\right)_{c, k} &= \left[\sum_{e\in c}\left(l_e\frac{\Delta z_{e, k}u_{e, k}}{A_c\Delta z_{c, k}}\right) + \frac{w_{c, k - 1/2} - w_{c, k + 1/2}}{\Delta z_{c, k}}\right]\nonumber\\
 &- \frac{1}{2}\sum_{e\in c}\frac{l_ed_e}{2A_c\Delta z_{c, k}}\Bigg[\left(\frac{\Delta z_{e, k - 1}}{\Delta z_{c, k - 1}}J_{e, k - 1}u_{e, k - 1} + \textcolor{blue}{\frac{\Delta z_{e, k}}{\Delta z_{c, k}}J_{e, k}u_{e, k}}\right)\nonumber\\
 &- \left(\textcolor{blue}{\frac{\Delta z_{e, k}}{\Delta z_{c, k}}J_{e, k}u_{e, k}} + \frac{\Delta z_{e, k + 1}}{\Delta z_{c, k + 1}}J_{e, k + 1}u_{e, k + 1}\right)\Bigg].\label{eq:div_c-grid_shallow_terrain_concrete}
 \end{align}
@@ -23417,14 +23417,14 @@ Die Terme in der ersten Zeile entsprechen Glg. \eqref{eq:div_c-grid_shallow_no_t
 In der tiefen Atmosphäre verallgemeinert Glg. \eqref{eq:div_c-grid_shallow_terrain} zu
 %
 \begin{align}
-\left(\nabla\cdot\mathbf{v}\right)_{c, k} &= \frac{1}{V_{c, k}}\left(\sum_{e\in c}A_{e, k}u_e + A_{c, k - 1/2}v^{(v)}_{c, k - 1/2, \text{GK}} - A_{c, k + 1/2}v^{(v)}_{c, k + 1/2, \text{GK}}\right).
+\left(\nabla\cdot\mathbf{v}\right)_{c, k} &= \frac{1}{V_{c, k}}\left(\sum_{e\in c}A_{e, k}u_{e, k} + A_{c, k - 1/2}v^{(v)}_{c, k - 1/2, \text{GK}} - A_{c, k + 1/2}v^{(v)}_{c, k + 1/2, \text{GK}}\right).
 \end{align}
 %
 Setzt man hier Glg. \eqref{eq:contravariant_vertical_measure_number_shallow} zu, erhält man
 %
 \begin{align}
-\left(\nabla\cdot\mathbf{v}\right)_{c, k} &= \frac{1}{V_{c, k}}\left(\sum_{e\in c}A_{e, k}u_e + A_{c, k - 1/2}v^{(v)}_{c, k - 1/2, \text{GK}} - A_{c, k + 1/2}v^{(v)}_{c, k + 1/2, \text{GK}}\right)\nonumber\\
-&= \frac{1}{V_{c, k}}\left[\sum_{e\in c}\left(A_{e, k}u_e\right) + A_{c, k - 1/2}w_{c, k - 1/2} - A_{c, k + 1/2}w_{c, k + 1/2}\right]\nonumber\\
+\left(\nabla\cdot\mathbf{v}\right)_{c, k} &= \frac{1}{V_{c, k}}\left(\sum_{e\in c}A_{e, k}u_{e, k} + A_{c, k - 1/2}v^{(v)}_{c, k - 1/2, \text{GK}} - A_{c, k + 1/2}v^{(v)}_{c, k + 1/2, \text{GK}}\right)\nonumber\\
+&= \frac{1}{V_{c, k}}\left[\sum_{e\in c}\left(A_{e, k}u_{e, k}\right) + A_{c, k - 1/2}w_{c, k - 1/2} - A_{c, k + 1/2}w_{c, k + 1/2}\right]\nonumber\\
 &- \frac{1}{V_{c, k}}\sum_{e\in c}\Bigg[A_{c, k - 1/2}\frac{1}{2}\left(\frac{A_{e, k}d_{e, k}}{2V_{c, k}}J_{e, k}^{(1)}u_{e, k}^{(2)} + \frac{A_{e, k - 1}d_{e, k - 1}}{2V_{c, k - 1}}J_{e, k - 1}^{(1)}u_{e, k - 1}^{(2)}\right)\nonumber\\
 &- A_{c, k + 1/2}\frac{1}{2}\left(\frac{A_{e, k}d_{e, k}}{2V_{c, k}}J_{e, k}^{(1)}u_{e, k}^{(2)} + \frac{A_{e, k + 1}d_{e, k + 1}}{2V_{c, k + 1}}J_{e, k + 1}^{(1)}u_{e, k + 1}^{(2)}\right)\Bigg]\nonumber
 \end{align}
@@ -23432,9 +23432,9 @@ Setzt man hier Glg. \eqref{eq:contravariant_vertical_measure_number_shallow} zu,
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-\Rightarrow\left(\nabla\cdot\mathbf{v}\right)_{c, k} &= \frac{1}{V_{c, k}}\left[\sum_{e\in c}\left(A_{e, k}u_e\right) + A_{c, k - 1/2}w_{c, k - 1/2} - A_{c, k + 1/2}w_{c, k + 1/2}\right]\nonumber\\
+\Rightarrow\left(\nabla\cdot\mathbf{v}\right)_{c, k} &= \frac{1}{V_{c, k}}\left[\sum_{e\in c}\left(A_{e, k}u_{e, k}\right) + A_{c, k - 1/2}w_{c, k - 1/2} - A_{c, k + 1/2}w_{c, k + 1/2}\right]\nonumber\\
 &+ \frac{1}{V_{c, k}}\sum_{e\in c}\Bigg[-A_{c, k - 1/2}\left(\frac{A_{e, k}d_{e, k}}{4V_{c, k}}J_{e, k}^{(1)}u_{e, k}^{(2)} + \frac{A_{e, k - 1}d_{e, k - 1}}{4V_{c, k - 1}}J_{e, k - 1}^{(1)}u_{e, k - 1}^{(2)}\right)\nonumber\\
-&+ A_{c, k + 1/2}\left(\frac{A_{e, k}d_{e, k}}{4V_{c, k}}J_{e, k}^{(1)}u_{e, k}^{(2)} + \frac{A_{e, k + 1}d_{e, k + 1}}{4V_{c, k + 1}}J_{e, k + 1}^{(1)}u_{e, k + 1}^{(2)}\right)\Bigg].
+&+ A_{c, k + 1/2}\left(\frac{A_{e, k}d_{e, k}}{4V_{c, k}}J_{e, k}^{(1)}u_{e, k}^{(2)} + \frac{A_{e, k + 1}d_{e, k + 1}}{4V_{c, k + 1}}J_{e, k + 1}^{(1)}u_{e, k + 1}^{(2)}\right)\Bigg].\label{eq:div_deep}
 \end{align}
 \end{center}
 }}
@@ -23608,7 +23608,7 @@ da die Funktionalableitung auch an den Grenzen der Boxen ausgewertet und anschli
 Aus Glg. \eqref{eq:h_kin_u} folgt
 %
 \begin{align}
-\frac{H_\text{kin}^{(u)}\left(u + \epsilon h\right) - H_\text{kin}^{(u)}\left(u\right)}{\epsilon} &= \sum_{c, k}\sum_{e\in c}\frac{\rho_{c, k}l_ed_e\Delta z_{e, k}}{2}u_{e, k}h_{e, k} + O\left(h^2\right) = \sum_{c, k}\sum_{e\in c}\rho_{c, k}u_{e, k}h_{e, k}V_{e, k} + O\left(h^2\right).
+\frac{H_\text{kin}^{(u)}\left(u + \epsilon h\right) - H_\text{kin}^{(u)}\left(u\right)}{\epsilon} &= \sum_{c, k}\sum_{e\in c}\frac{\rho_{c, k}l_ed_e\Delta z_{e, k}}{2}u_{e, k}h_{e, k} + O\left(h^2\right) = \sum_{c, k}\sum_{e\in c}\rho_{c, k}u_{e, k}h_{e, k}V_{e, k} + O\left(h^2\right).\label{eq:shallow_func_deriv_deriv_0}
 \end{align}
 %
 Die Summe über Zellen kann als eine Summe über Kanten umgeschrieben werden
@@ -23628,7 +23628,7 @@ Analog folgt aus Glg. \eqref{eq:h_kin_w}
 %
 \begin{align}
 \frac{H_\text{kin}^{(w)}\left(w + \epsilon h\right) - H_\text{kin}^{(w)}\left(u\right)}{\epsilon} &= \sum_{c, k}\left(\frac{\rho_{c, k}\Delta z_{c, k - 1/2}}{2}w_{c, k - 1/2}h_{c, k - 1/2} + \frac{\rho_{c, k}\Delta z_{c, k + 1/2}}{2}w_{c, k + 1/2}h_{c, k + 1/2}\right)A_{c}\nonumber\\
-&= \sum_{c, k}\left(\frac{\rho_{c, k}}{2}w_{c, k - 1/2}h_{c, k - 1/2} + \frac{\rho_{c, k - 1}}{2}w_{c, k - 1/2}h_{c, k - 1/2}\right)\Delta z_{c, k - 1/2}A_{c}.
+&= \sum_{c, k}\left(\frac{\rho_{c, k}}{2}w_{c, k - 1/2}h_{c, k - 1/2} + \frac{\rho_{c, k - 1}}{2}w_{c, k - 1/2}h_{c, k - 1/2}\right)\Delta z_{c, k - 1/2}A_{c}.\label{eq:shallow_func_deriv_deriv_1}
 \end{align}
 %
 Dabei wurde eine Indexverschiebung vorgenommen. Mit $V_{c, k - 1/2} = A_c\Delta z_{c, k - 1/2}$ erhält man
@@ -23646,13 +23646,60 @@ Somit folgt
 Verwendet man den modifizierten Operator $H_\text{kin}^\star\left(\mathbf{v}\right)$ aus Glg. \eqref{eq:h_kin_mod}, erhält man
 %
 \begin{align}
-\left(\frac{\delta H^\star}{\delta\mathbf{v}}\right)_{e, k} &= \newtilde{\rho_{c, k}}^{(e)}u_{e, k},\\
-\left(\frac{\delta H^\star}{\delta\mathbf{v}}\right)_{c, k - 1/2} &= \newtilde{\rho_{c, k}}^{(k - 1/2)}w_{c, k - 1/2}.
+\left(\frac{\delta H^\star}{\delta\mathbf{v}}\right)_{e, k} &= \newtilde{\rho_{c, k}}^{(e)}u_{e, k},\label{eq:h_mod_func_deriv_0}\\
+\left(\frac{\delta H^\star}{\delta\mathbf{v}}\right)_{c, k - 1/2} &= \newtilde{\rho_{c, k}}^{(k - 1/2)}w_{c, k - 1/2}.\label{eq:h_mod_func_deriv_1}
 \end{align}
 
 \subsubsection{Deep atmosphere}
 \label{sec:deep_atmosphere_funk_abl}
 
+Glg. \eqref{eq:shallow_func_deriv_deriv_0} verallgemeinert man mit
+%
+\begin{align}
+V_{e, k} \coloneqq A_{e,k}\frac{d_{e, k}}{2}
+\end{align}
+%
+wie folgt auf die deep atmosphere:
+%
+\begin{align}
+\frac{H_\text{kin}^{(u)}\left(u + \epsilon h\right) - H_\text{kin}^{(u)}\left(u\right)}{\epsilon} &= \sum_{c, k}\sum_{e\in c}\frac{\rho_{c, k}d_eA_{e, k}}{2}u_{e, k}h_{e, k} + O\left(h^2\right) = \sum_{c, k}\sum_{e\in c}\rho_{c, k}u_{e, k}h_{e, k}V_{e, k} + O\left(h^2\right)
+\end{align}
+%
+Nun schreibt man die Summe über Zellen wieder als Summe über Kanten auf:
+%
+\begin{align}
+\frac{H_\text{kin}^{(u)}\left(u + \epsilon h\right) - H_\text{kin}^{(u)}\left(u\right)}{\epsilon} &= \sum_{e, k}\left(\rho_{c_0(e), k} + \rho_{c_1(e), k}\right)u_{e, k}h_{e, k}V_{e, k} + O\left(h^2\right)\nonumber\\
+&= 2\sum_{e, k}\frac{\rho_{c_0(e), k} + \rho_{c_1(e), k}}{2}u_{e, k}h_{e, k}V_{e, k} + O\left(h^2\right)
+\end{align}
+%
+Somit gilt auch in der tiefen Atmosphäre
+%
+\begin{align}
+\left(\frac{\delta H}{\delta\mathbf{v}}\right)_{e, k} = \frac{\rho_{c_0(e), k} + \rho_{c_1(e), k}}{2}u_{e, k}.
+\end{align}
+%
+Analog verfährt man mit Glg. \eqref{eq:shallow_func_deriv_deriv_0}:
+%
+\begin{align}
+\frac{H_\text{kin}^{(w)}\left(w + \epsilon h\right) - H_\text{kin}^{(w)}\left(u\right)}{\epsilon} &= \sum_{c, k}\left(\frac{\rho_{c, k}A_{c, k - 1/2}\Delta z_{c, k - 1/2}}{2V_{c, k}}w_{c, k - 1/2}h_{c, k - 1/2} + \frac{\rho_{c, k}A_{c, k + 1/2}\Delta z_{c, k + 1/2}}{2V_{c, k}}w_{c, k + 1/2}h_{c, k + 1/2}\right)V_{c, k}\nonumber\\
+&= \sum_{c, k}\frac{\rho_{c, k}A_{c, k - 1/2}\Delta z_{c, k - 1/2}}{2}w_{c, k - 1/2}h_{c, k - 1/2} + \frac{\rho_{c, k}A_{c, k + 1/2}\Delta z_{c, k + 1/2}}{2}w_{c, k + 1/2}h_{c, k + 1/2}\nonumber\\
+&= \sum_{c, k}\frac{\rho_{c, k}A_{c, k - 1/2}\Delta z_{c, k - 1/2}}{2}w_{c, k - 1/2}h_{c, k - 1/2} + \frac{\rho_{c, k - 1}A_{c, k - 1/2}\Delta z_{c, k - 1/2}}{2}w_{c, k - 1/2}h_{c, k - 1/2}\nonumber\\
+&= \sum_{c, k}\left(\frac{\rho_{c, k}}{2}w_{c, k - 1/2}h_{c, k - 1/2} + \frac{\rho_{c, k - 1}}{2}w_{c, k - 1/2}h_{c, k - 1/2}\right)\Delta z_{c, k - 1/2}A_{c}
+\end{align}
+%
+Mit $V_{c, k - 1/2} = A_c\Delta z_{c, k - 1/2}$ erhält man
+%
+\begin{align}
+\frac{H_\text{kin}^{(w)}\left(w + \epsilon h\right) - H_\text{kin}^{(w)}\left(u\right)}{\epsilon} &= \sum_{c, k}\frac{\rho_{c, k} + \rho_{c, k - 1}}{2}w_{c, k - 1/2}h_{c, k - 1/2}V_{c, k - 1/2}.
+\end{align}
+%
+Somit folgt
+%
+\begin{align}
+\left(\frac{\delta H}{\delta\mathbf{v}}\right)_{c, k - 1/2} = \frac{\rho_{c, k} + \rho_{c, k - 1}}{2}w_{c, k - 1/2}.
+\end{align}
+%
+Die Glg.en \eqref{eq:h_mod_func_deriv_0} - \eqref{eq:h_mod_func_deriv_1} gelten auch in der deep atmosphere.
 
 \subsection{Gradient auf dem C-Gitter in geländefolgenden Koordinaten}
 \label{sec:gradient_auf_dem_c-gitter_in_gelaendefolgenden_koordinaten}
@@ -23759,6 +23806,14 @@ des Gradienten in geländefolgenden Koordinaten.
 
 \subsubsection{Deep atmosphere}
 \label{sec:grad_c_deep_atmosphere}
+
+Auch in der deep atmosphere ist in geländefolgenden Koordinaten die diskretisierte Produktregel des Nabla-Operators lokal nicht gültig. Hier gilt nach Glg. \eqref{eq:div_deep}
+%
+\begin{align}
+\int_A\psi\nabla\cdot\mathbf{v}d^3r&\to\sum_{c, k}\left(\psi\nabla\cdot\mathbf{v}\right)_{c, k}V_{c, k} = \left[\sum_{e\in c}\left(A_{e, k}\psi_{c, k}u_{e, k}\right) + A_{c, k - 1/2}w_{c, k - 1/2} - A_{c, k + 1/2}w_{c, k + 1/2}\right]\nonumber\\
+&+ \sum_{e\in c}\Bigg[-A_{c, k - 1/2}\left(\frac{A_{e, k}d_{e, k}}{4V_{c, k}}J_{e, k}^{(1)}\psi_{c, k}u_{e, k}^{(2)} + \frac{A_{e, k - 1}d_{e, k - 1}}{4V_{c, k - 1}}J_{e, k - 1}^{(1)}\psi_{c, k}u_{e, k - 1}^{(2)}\right)\nonumber\\
+&+ A_{c, k + 1/2}\left(\frac{A_{e, k}d_{e, k}}{4V_{c, k}}J_{e, k}^{(1)}\psi_{c, k}u_{e, k}^{(2)} + \frac{A_{e, k + 1}d_{e, k + 1}}{4V_{c, k + 1}}J_{e, k + 1}^{(1)}\psi_{c, k}u_{e, k + 1}^{(2)}\right)\Bigg].
+\end{align}
 
 \subsection{Überprüfung der Energieerhaltung}
 \label{sec:überprüfung_der_energieerhaltung}
@@ -23879,7 +23934,7 @@ Im Rahmen des bisher entwickelten Formalismus gibt es drei Möglichkeiten für A
 \item Erhöhung der Anzahl der Kanten, die bei Berechnung des Vorticityflussterms berücksichtigt werden.
 \end{enumerate}
 %
-Diese verbleibenden Freiheiten sind nicht ausreichend, um die Konvergenzordnung des Gesamtmodells zu erhöhen. Anstattdessen kann man die in Kap. \ref{chap:multi-moment-finite-volumen-verfahren} MMFV-Methode verwenden.
+Diese verbleibenden Freiheiten sind nicht ausreichend, um die Konvergenzordnung des Gesamtmodells zu erhöhen. Anstattdessen kann man die in Kap. vorgestellte \ref{chap:multi-moment-finite-volumen-verfahren} MMFV-Methode verwenden.
 
 \section{HEVI-Verfahren}
 \label{sec:hevi-verfahren}\index{HEVI-Verfahren}
