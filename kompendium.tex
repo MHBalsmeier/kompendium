@@ -8050,7 +8050,7 @@ Multipliziert man Glg. \eqref{eq:friction_acceleration} mit $\rho\mathbf{v}$, er
 Unter der Annahme, dass die Viskositäten homogen sind, gilt in Analogie zum inkompressiblen Fall
 %
 \begin{align}
-\int_\Omega\mu\mathbf{v}\cdot\Delta\mathbf{v}d^3r < 0.\label{eq:friction_dissipation_deriv_0}
+\int_\Omega\mu\mathbf{v}\cdot\Delta\mathbf{v}d^3r \leq 0.\label{eq:friction_dissipation_deriv_0}
 \end{align}
 %
 Für den zweiten Term rechnet man
@@ -21619,7 +21619,7 @@ Setzt man $\alpha = \exp\left(i\mathbf{k}\cdot\mathbf{r}\right)$ in Glg. \eqref{
 Somit wird Glg. \eqref{eq:disp_rel_hex_c_mod_0} zu
 %
 \begin{align}
-\omega^4 - \omega^2\left[\frac{f_0^2}{3}\left(a_1^2 + a_2^2 + a_3^2\right) + \frac{8\Phi_0}{3d^2}\left(s_1^2 + s_2^2 + s_3^2\right)\right] = 0.
+\omega^4 - \omega^2\left[\frac{f_0^2}{3}\left(a_1^2 + a_2^2 + a_3^2\right) + \frac{8\Phi_0}{3d^2}\left(s_1^2 + s_2^2 + s_3^2\right)\right] = 0.\label{eq:thuburn_leads_to_geostrophic_mode}
 \end{align}
 %
 Verwendet man Glg. \eqref{eq:thuburn_op} zur Rekontruktion der tangentialen Geschwindigkeitskomponenten, so entsteht also eine stationäre geostrophische Mode.
@@ -21889,7 +21889,7 @@ erfordert auf einem C-Gitter\index{C-Gitter} besondere Aufmerksamkeit. Insbesond
 \item Mit welcher Vorticity muss die tangentiale Windkomponente am Ende multipliziert werden, um eine Komponente von $\mathbf{v}\times\etabi$ zu erhalten?
 \end{enumerate}
 %
-In diesem Kapitel werden diese Fragen zunächst im Lichte der shallow water equations (SWEs)\index{shallow water equations (SWEs)}\index{SWEs} betrachtet, bevor in Abschn. \ref{sec:barokline_aspekte} barokline Effekte betrachtet werden. Die SWEs lauten ohne Reibung
+In diesem Kapitel werden diese Fragen zunächst im Lichte der shallow water equations (SWEs)\index{shallow water equations (SWEs)}\index{SWEs} betrachtet. Die SWEs lauten ohne Reibung
 %
 \begin{align}
 \frac{\partial\mathbf{v}}{\partial t} & \stackrel{\text{Glg. \eqref{eq:swe_0}}}{=} -g\nabla\left(h + b\right) - f\mathbf{k}\times\mathbf{v} \textcolor{red}{- \nabla k - \zeta\mathbf{k}\times\mathbf{v}} + \mu\mathbf{k},\label{eq:swe_gen_cori_0}\\
@@ -21958,28 +21958,8 @@ folgern. Das Integral über die Divergenz der potentiellen Vorticityflussdichte\
 %
 Das globale Integral der inkompressible potentielle Vorticity\index{inkompressible potentielle Vorticity}\index{inkompressible potentielle Vorticity}\index{Vorticity!inkompressible potentielle} $q$ ist also konstant.
 
-Um die obigen Eingangsfragen dieses Kapitels zu beantworten, muss man sich fragen, was man damit meint, zu sagen \glqq Die Größe $x$ muss auf \textit{diese Weise} berechnet werden\grqq. Hierbei wird in diesem Kapitel von folgender Grundforderungen ausgegangen:
-%
-\begin{center}
-\doublebox{\parbox{0.8\textwidth}{
-\begin{center}
-Das diskretisierte Analogon der Dispersionrelation der Poincaré-Wellen Glg. \eqref{eq:poincare_dispersion} soll eine geostrophische Mode $\omega = 0$ haben.
-\end{center}
-}}
-\end{center}
-%
-Außerdem fordert man, dass
-%
-\begin{enumerate}
-\item der generalisierte Coriolis-Term\index{generalisierter Coriolis-Term}\index{Coriolis-Term!generalisierter} wegen $\mathbf{v}\cdot\left(\mathbf{v}\times\etabi\right) = 0$ keine kinetische Energie produziert oder vernichtet und
-\item dass die global integrierte potentielle Vorticity $\int_{4\pi}h\frac{\zeta + f}{h}d\omega$ konstant ist.
-\end{enumerate}
-
 \section{Reguläres Gitter}
 \label{sec:reguläres_gitter}
-
-\subsection{Linearisierung}
-\label{sec:linearisierung}
 
 Der Vorticityflussterm der shallow water equations lautet
 %
@@ -21987,7 +21967,7 @@ Der Vorticityflussterm der shallow water equations lautet
 -\left(f + \zeta\right)\mathbf{k}\times\mathbf{v}.
 \end{align}
 %
-Projziert man diesen auf den Normalenvektor $\mathbf{n}$ einer Kante, erhält man laut Glg. \eqref{eq:v_t_c-grid}
+In diesem Abschnitt soll eine Diskretisierung gefunden werden, welche die Thuburn-Bedingung erfüllt und somit nach Glg. \eqref{eq:thuburn_leads_to_geostrophic_mode} auch eine geostrophische Mode besitzt. Projziert man diesen auf den Normalenvektor $\mathbf{n}$ einer Kante, erhält man laut Glg. \eqref{eq:v_t_c-grid}
 %
 \begin{align}
 -\left[\left(f + \zeta\right)\mathbf{k}\times\mathbf{v}\right]\cdot\mathbf{n} &= \left(f + \zeta\right)v_t.
@@ -22056,12 +22036,7 @@ Auch dieser Ansatz erfüllt die Thuburn-Bedingung also nicht. Es ist vielmehr ei
 \left(\zeta U_t\right)_3 &= \frac{1}{\sqrt{3}}\left(-\newoverline{\zeta_1}^{(2)}U + \newoverline{\zeta_2}^{(1)}\frac{U}{2}\right).
 \end{align}
 %
-Dies erfüllt die Thuburn-Bedingung, da Mittelungsoperatoren kommutieren. Es kann auch ein anderer als der einfache Mittelungsoperator $\newoverline{\zeta_i}^{(j)}$ verwendet werden.
-
-\subsection{Vollständiger Term}
-\label{sec:vollständiger_term}
-
-
+Dies erfüllt die Thuburn-Bedingung, da Mittelungsoperatoren kommutieren. Es kann auch ein anderer als der einfache Mittelungsoperator $\newoverline{\zeta_i}^{(j)}$ verwendet werden. Mit $\zeta \to \eta = \zeta + f$ lässt sich der vollständige Vorticityflussterm auf dem regulären C-Gitter so ausdrücken.
 
 \section{Deformiertes Gitter}
 \label{sec:deformiertes_gitter}
@@ -22072,7 +22047,7 @@ Dies erfüllt die Thuburn-Bedingung, da Mittelungsoperatoren kommutieren. Es kan
 \subsubsection{Homogener Coriolisparameter}
 \label{sec:homogener_coriolisparameter}
 
-
+Es ist nicht trivial, wie der Vorticityflussterm auf das deformierte Gitter zu erweitern ist. Hierzu geht man zunächst von der f-Ebene aus, um von einer homogenen Vorticity $f_0$ ausgehen zu können. Anstatt zu versuchen, die Thuburn-Bedingung auf das deformierte Gitter zu generalisieren, wird die eng verwandete Aussage als Grundforderung verwendet, dass eine geostrophische Mode existieren soll. Darüber hinaus soll die Diskretisierung energieerhaltend sein.
 
 \subsubsection{Inhomogener Coriolisparameter}
 \label{sec:inhomogener_coriolisparameter}
@@ -22082,15 +22057,8 @@ Dies erfüllt die Thuburn-Bedingung, da Mittelungsoperatoren kommutieren. Es kan
 \subsection{Verwendung der vollständigen Vorticity}
 \label{sec:verwendung_der_vollständigen_vorticity}
 
-
-
 \subsubsection{Modifikation zur Einhaltung der Thuburn-Bedingung}
 \label{sec:modifikation_zur_einhaltung_der_thuburn-bedingung}
-
-
-
-\section{Barokline Aspekte}
-\label{sec:barokline_aspekte}
 
 
 
@@ -22249,14 +22217,19 @@ zerstört keine der überprüften Aussagen.
 \section{Deformiertes Gitter}
 \label{sec:deformiertes_gitter_diff}
 
-\subsection{Dissipation}
-\label{sec:dissipation_hex_deformed}
-
 \section{Dreidimensionale Erweiterung}
 \label{sec:dreidimensionale_erweiterung}
 
-\subsection{Dissipation}
-\label{sec:dissipation_hex_3d}
+\section{Dissipation}
+\label{sec:dissipation_hex}
+
+Für die Dissipationsrate $\epsilon_\text{hex}$ kann einfach
+%
+\begin{align}
+\epsilon_\text{hex} = -\rho\frac{\partial\mathbf{v}_\text{diff}}{\partial t}\cdot\mathbf{v}
+\end{align}
+%
+angesetzt werden. Dies entspricht zwar nicht exakt der molekularen Dissipationsrate Glg. \eqref{eq:dissipation}, jedoch sind die globalen Integrale über beide Ansätze nach Glg. \eqref{eq:friction_dissipation_balance} identisch. Somit ist energetische Konsistenz gegeben.
 
 \chapter{\normalfont\textsc{Multi-Moment-finite-Volumen-Verfahren}}
 \label{chap:multi-moment-finite-volumen-verfahren}\index{Multi-Moment-finite-Volumen-Verfahren}
