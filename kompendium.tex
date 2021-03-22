@@ -23399,16 +23399,16 @@ Setzt man hier Glg. \eqref{eq:contravariant_vertical_measure_number_shallow} zu,
 \begin{align}
 \left(\nabla\cdot\mathbf{v}\right)_{c, k} &= \frac{1}{V_{c, k}}\left(\sum_{e\in c}A_{e, k}u_{e, k} + A_{c, k - 1/2}v^{(v)}_{c, k - 1/2, \text{GK}} - A_{c, k + 1/2}v^{(v)}_{c, k + 1/2, \text{GK}}\right)\nonumber\\
 &= \frac{1}{V_{c, k}}\left[\sum_{e\in c}\left(A_{e, k}u_{e, k}\right) + A_{c, k - 1/2}w_{c, k - 1/2} - A_{c, k + 1/2}w_{c, k + 1/2}\right]\nonumber\\
-&- \frac{1}{V_{c, k}}\sum_{e\in c}\Bigg[A_{c, k - 1/2}\frac{1}{2}\left(\frac{A_{e, k}d_{e, k}}{2V_{c, k}}J_{e, k}^{(1)}u_{e, k}^{(2)} + \frac{A_{e, k - 1}d_{e, k - 1}}{2V_{c, k - 1}}J_{e, k - 1}^{(1)}u_{e, k - 1}^{(2)}\right)\nonumber\\
-&- A_{c, k + 1/2}\frac{1}{2}\left(\frac{A_{e, k}d_{e, k}}{2V_{c, k}}J_{e, k}^{(1)}u_{e, k}^{(2)} + \frac{A_{e, k + 1}d_{e, k + 1}}{2V_{c, k + 1}}J_{e, k + 1}^{(1)}u_{e, k + 1}^{(2)}\right)\Bigg]\nonumber
+&- \frac{1}{V_{c, k}}\sum_{e\in c}\Bigg[A_{c, k - 1/2}\frac{1}{2}\left(\frac{A_{e, k}d_{e, k}}{2V_{c, k}}J_{e, k}u_{e, k} + \frac{A_{e, k - 1}d_{e, k - 1}}{2V_{c, k - 1}}J_{e, k - 1}u_{e, k - 1}\right)\nonumber\\
+&- A_{c, k + 1/2}\frac{1}{2}\left(\frac{A_{e, k}d_{e, k}}{2V_{c, k}}J_{e, k}u_{e, k} + \frac{A_{e, k + 1}d_{e, k + 1}}{2V_{c, k + 1}}J_{e, k + 1}u_{e, k + 1}\right)\Bigg]\nonumber
 \end{align}
 \begin{center}
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
 \Rightarrow\left(\nabla\cdot\mathbf{v}\right)_{c, k} &= \frac{1}{V_{c, k}}\left[\sum_{e\in c}\left(A_{e, k}u_{e, k}\right) + A_{c, k - 1/2}w_{c, k - 1/2} - A_{c, k + 1/2}w_{c, k + 1/2}\right]\nonumber\\
-&+ \frac{1}{V_{c, k}}\sum_{e\in c}\Bigg[-A_{c, k - 1/2}\left(\frac{A_{e, k}d_{e, k}}{4V_{c, k}}J_{e, k}^{(1)}u_{e, k}^{(2)} + \frac{A_{e, k - 1}d_{e, k - 1}}{4V_{c, k - 1}}J_{e, k - 1}^{(1)}u_{e, k - 1}^{(2)}\right)\nonumber\\
-&+ A_{c, k + 1/2}\left(\frac{A_{e, k}d_{e, k}}{4V_{c, k}}J_{e, k}^{(1)}u_{e, k}^{(2)} + \frac{A_{e, k + 1}d_{e, k + 1}}{4V_{c, k + 1}}J_{e, k + 1}^{(1)}u_{e, k + 1}^{(2)}\right)\Bigg].\label{eq:div_deep}
+&+ \frac{1}{V_{c, k}}\sum_{e\in c}\Bigg[-A_{c, k - 1/2}\left(\frac{A_{e, k}d_{e, k}}{4V_{c, k}}J_{e, k}u_{e, k} + \frac{A_{e, k - 1}d_{e, k - 1}}{4V_{c, k - 1}}J_{e, k - 1}u_{e, k - 1}\right)\nonumber\\
+&+ A_{c, k + 1/2}\left(\frac{A_{e, k}d_{e, k}}{4V_{c, k}}J_{e, k}u_{e, k} + \frac{A_{e, k + 1}d_{e, k + 1}}{4V_{c, k + 1}}J_{e, k + 1}u_{e, k + 1}\right)\Bigg].\label{eq:div_deep}
 \end{align}
 \end{center}
 }}
@@ -23760,17 +23760,17 @@ Mit einer Indexverschiebung folgt
 \begin{align}
 &= \sum_{e, k}-l_ed_e\Delta z_{e, k}u_e\sum_{c\in e}-\frac{\psi_{c, k}\gamma_{e(c)}}{d_e} - \sum_{c, k - 1/2}A_c\Delta z_{c, k - 1/2}w_{c, k - 1/2}\left(\nabla_z\psi\right)_{c, k - 1/2}\nonumber\\
 &+ \sum_{e, k}l_ed_e\Delta z_{e, k}u_{e, k}J_{e, k}\newoverline{\newoverline{\left(\nabla_z\psi\right)_{c, k - 1/2}}^{(k)}}^{(e)}\nonumber\\
-&= \sum_{e, k}-l_ed_e\Delta z_{e, k}u_e\left(\sum_{c\in e}-\frac{\psi_{c, k}\gamma_{e(c)}}{d_e} - J_{e, k}\newoverline{\newoverline{\left(\nabla_z\psi\right)_{c, k - 1/2}}^{(k)}}^{(e)}\right) - \sum_{c, k - 1/2}A_c\Delta z_{c, k - 1/2}w_{c, k - 1/2}\left(\nabla_z\psi\right)_{c, k - 1/2}\nonumber\\
-&= -\left[\sum_{e, k}V_{e, k}u_e\left(\sum_{c\in e}-\frac{\psi_{c, k}\gamma_{e(c)}}{d_e} - J_{e, k}\newoverline{\newoverline{\left(\nabla_z\psi\right)_{c, k - 1/2}}^{(k)}}^{(e)}\right) + \sum_{c, k - 1/2}V_{c, k - 1/2}w_{c, k - 1/2}\left(\nabla_z\psi\right)_{c, k - 1/2}\right].
+&= \sum_{e, k}-l_ed_e\Delta z_{e, k}u_e\left[\sum_{c\in e}\left(-\frac{\psi_{c, k}\gamma_{e(c)}}{d_e}\right) - J_{e, k}\newoverline{\newoverline{\left(\nabla_z\psi\right)_{c, k - 1/2}}^{(k)}}^{(e)}\right] - \sum_{c, k - 1/2}A_c\Delta z_{c, k - 1/2}w_{c, k - 1/2}\left(\nabla_z\psi\right)_{c, k - 1/2}\nonumber\\
+&= -\left\{2\sum_{e, k}V_{e, k}u_e\left[\sum_{c\in e}\left(-\frac{\psi_{c, k}\gamma_{e(c)}}{d_e}\right) - J_{e, k}\newoverline{\newoverline{\left(\nabla_z\psi\right)_{c, k - 1/2}}^{(k)}}^{(e)}\right] + \sum_{c, k - 1/2}V_{c, k - 1/2}w_{c, k - 1/2}\left(\nabla_z\psi\right)_{c, k - 1/2}\right\}.
 \end{align}
 %
-Hieraus ergibt sich die Diskretisierung
+Der Faktor 2 steht für die beiden Raumrichtungen in der Horizontalen. Hieraus ergibt sich die Diskretisierung
 %
 \begin{center}
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-\left(\nabla\psi\right)_{e, k} = \frac{1}{d_e}\sum_{c\in e}-\psi_{c, k}\gamma_{e(c)} - J_{e, k}\newoverline{\newoverline{\left(\nabla_z\psi\right)_{c, k - 1/2}}^{(k)}}^{(e)}
+\left(\nabla\psi\right)_{e, k} = \frac{1}{d_e}\sum_{c\in e}\left(-\psi_{c, k}\gamma_{e(c)}\right) - J_{e, k}\newoverline{\newoverline{\left(\nabla_z\psi\right)_{c, k - 1/2}}^{(k)}}^{(e)}
 \end{align}
 \end{center}
 }}
@@ -23785,11 +23785,31 @@ Auch in der deep atmosphere ist in geländefolgenden Koordinaten die diskretisie
 %
 \begin{align}
 \int_A\psi\nabla\cdot\mathbf{v}d^3r&\to\sum_{c, k}\left(\psi\nabla\cdot\mathbf{v}\right)_{c, k}V_{c, k} = \sum_{c, k}\Bigg\lbrace\left[\sum_{e\in c}\left(A_{e, k}\psi_{c, k}u_{e, k}\right) + A_{c, k - 1/2}\psi_{c, k}w_{c, k - 1/2} - A_{c, k + 1/2}\psi_{c, k}w_{c, k + 1/2}\right]\nonumber\\
-&+ \sum_{e\in c}\Bigg[-A_{c, k - 1/2}\left(\frac{A_{e, k}d_{e, k}}{4V_{c, k}}J_{e, k}^{(1)}\psi_{c, k}u_{e, k}^{(2)} + \frac{A_{e, k - 1}d_{e, k - 1}}{4V_{c, k - 1}}J_{e, k - 1}^{(1)}\psi_{c, k}u_{e, k - 1}^{(2)}\right)\nonumber\\
-&+ A_{c, k + 1/2}\left(\frac{A_{e, k}d_{e, k}}{4V_{c, k}}J_{e, k}^{(1)}\psi_{c, k}u_{e, k}^{(2)} + \frac{A_{e, k + 1}d_{e, k + 1}}{4V_{c, k + 1}}J_{e, k + 1}^{(1)}\psi_{c, k}u_{e, k + 1}^{(2)}\right)\Bigg]\Bigg\rbrace.
+&+ \sum_{e\in c}\Bigg[-A_{c, k - 1/2}\left(\frac{A_{e, k}d_{e, k}}{4V_{c, k}}J_{e, k}\psi_{c, k}u_{e, k} + \frac{A_{e, k - 1}d_{e, k - 1}}{4V_{c, k - 1}}J_{e, k - 1}\psi_{c, k}u_{e, k - 1}\right)\nonumber\\
+&+ A_{c, k + 1/2}\left(\frac{A_{e, k}d_{e, k}}{4V_{c, k}}J_{e, k}\psi_{c, k}u_{e, k} + \frac{A_{e, k + 1}d_{e, k + 1}}{4V_{c, k + 1}}J_{e, k + 1}\psi_{c, k}u_{e, k + 1}\right)\Bigg]\Bigg\rbrace.
 \end{align}
 %
-Bis auf die Korrekturterme der geländefolgenden Koordinaten ist die Produktregel des Nabla-Operators auch hier lokal gültig, es gilt weiterhin die Herleitung in Abschn. \ref{sec:dreidimensionales_orthogonales_gitter_(deep)}. Darüber hinaus verschwindet auch hier ein globales Integral über eine Divergenz, die Begründung hierfür ist dieselbe wie in der shallow atmosphere. Man kann also die partielle Integration auf die Terme der geländefolgenden Korrektur beschränken:
+Bis auf die Korrekturterme der geländefolgenden Koordinaten ist die Produktregel des Nabla-Operators auch hier lokal gültig, es gilt weiterhin die Herleitung in Abschn. \ref{sec:dreidimensionales_orthogonales_gitter_(deep)}. Darüber hinaus verschwindet auch hier ein globales Integral über eine Divergenz, die Begründung hierfür ist dieselbe wie in der shallow atmosphere. Man kann also die partielle Integration auf die Terme der geländefolgende Korrektur beschränken:
+%
+\begin{align}
+&\sum_{c, k}\sum_{e\in c}\Bigg[-A_{c, k - 1/2}\left(\frac{A_{e, k}d_{e, k}}{4V_{c, k}}J_{e, k}\psi_{c, k}u_{e, k} + \frac{A_{e, k - 1}d_{e, k - 1}}{4V_{c, k - 1}}J_{e, k - 1}\psi_{c, k}u_{e, k - 1}\right)\nonumber\\
+&+ A_{c, k + 1/2}\left(\frac{A_{e, k}d_{e, k}}{4V_{c, k}}J_{e, k}\psi_{c, k}u_{e, k} + \frac{A_{e, k + 1}d_{e, k + 1}}{4V_{c, k + 1}}J_{e, k + 1}\psi_{c, k}u_{e, k + 1}\right)\Bigg]\nonumber\\
+&= \sum_{c, k}\sum_{e\in c}\Bigg[-A_{c, k - 1/2}\left(\frac{V_{e, k}}{2V_{c, k}}J_{e, k}\psi_{c, k}u_{e, k} + \frac{V_{e, k - 1}}{2V_{c, k - 1}}J_{e, k - 1}\psi_{c, k}u_{e, k - 1}\right)\nonumber\\
+&+ A_{c, k + 1/2}\left(\frac{V_{e, k}}{2V_{c, k}}J_{e, k}\psi_{c, k}u_{e, k} + \frac{V_{e, k + 1}}{2V_{c, k + 1}}J_{e, k + 1}\psi_{c, k}u_{e, k + 1}\right)\Bigg]\nonumber\\
+&= \sum_{c, k}\sum_{e\in c}\Bigg[-A_{c, k - 1/2}\frac{V_{e, k}}{2V_{c, k}}J_{e, k}\psi_{c, k}u_{e, k} - A_{c, k - 1/2}\frac{V_{e, k - 1}}{2V_{c, k - 1}}J_{e, k - 1}\psi_{c, k}u_{e, k - 1}\nonumber\\
+&+ A_{c, k + 1/2}\frac{V_{e, k}}{2V_{c, k}}J_{e, k}\psi_{c, k}u_{e, k} + A_{c, k + 1/2}\frac{V_{e, k + 1}}{2V_{c, k + 1}}J_{e, k + 1}\psi_{c, k}u_{e, k + 1}\Bigg]\nonumber
+\end{align}
+\begin{align}
+&= \sum_{c, k}\sum_{e\in c}\Bigg(-A_{c, k - 1/2}\frac{V_{e, k}}{2V_{c, k}}J_{e, k}\psi_{c, k}u_{e, k} - A_{c, k + 1/2}\frac{V_{e, k}}{2V_{c, k}}J_{e, k}\psi_{c, k + 1}u_{e, k}\nonumber\\
+&+ A_{c, k + 1/2}\frac{V_{e, k}}{2V_{c, k}}J_{e, k}\psi_{c, k}u_{e, k} + A_{c, k - 1/2}\frac{V_{e, k}}{2V_{c, k}}J_{e, k}\psi_{c, k - 1}u_{e, k}\Bigg)\nonumber\\
+&= \sum_{c, k}\sum_{e\in c}J_{e, k}u_{e, k}\left(-\frac{A_{c, k - 1/2}}{2V_{c, k}}\psi_{c, k} - \frac{A_{c, k + 1/2}}{2V_{c, k}}\psi_{c, k + 1} + \frac{A_{c, k + 1/2}}{2V_{c, k}}\psi_{c, k} + \frac{A_{c, k - 1/2}}{2V_{c, k}}\psi_{c, k - 1}\right)V_{e, k}\nonumber\\
+&= \sum_{c, k}\sum_{e\in c}J_{e, k}u_{e, k}\left(\frac{A_{c, k - 1/2}}{2V_{c, k}}\Delta z_{c, k - 1/2}\frac{\psi_{c, k - 1} - \psi_{c, k}}{\Delta z_{c, k - 1/2}} + \frac{A_{c, k + 1/2}}{2V_{c, k}}\Delta z_{c, k + 1/2}\frac{\psi_{c, k} - \psi_{c, k + 1}}{\Delta z_{c, k + 1/2}}\right)V_{e, k}\nonumber
+\end{align}
+\begin{align}
+&= \sum_{c, k}\sum_{e\in c}J_{e, k}u_{e, k}\newoverline{\left(\nabla_z\psi\right)_{c, k - 1/2}}^{(k)}V_{e, k} = -\sum_{c, k}\sum_{e\in c}-J_{e, k}u_{e, k}\newoverline{\left(\nabla_z\psi\right)_{c, k - 1/2}}^{(k)}V_{e, k}\nonumber\\
+&= -\sum_{c, k}\sum_{e\in c}-J_{e, k}2u_{e, k}\frac{1}{2}\newoverline{\left(\nabla_z\psi\right)_{c, k - 1/2}}^{(k)}V_{e, k} = -\sum_{e, k}J_{e, k}u_{e, k}V_{e, k}\left(-2\sum_{c\in e}\frac{1}{2}\newoverline{\left(\nabla_z\psi\right)_{c, k - 1/2}}^{(k)}\right)\nonumber\\
+&= -2\sum_{e, k}u_{e, k}V_{e, k}\left(-J_{e, k}\newoverline{\newoverline{\left(\nabla_z\psi\right)_{c, k - 1/2}}^{(k)}}^{(e)}\right)
+\end{align}
 %
 Daher gilt auch in der deep atmosphere
 %
@@ -23797,7 +23817,7 @@ Daher gilt auch in der deep atmosphere
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-\left(\nabla\psi\right)_{e, k} = \frac{1}{d_e}\sum_{c\in e}-\psi_{c, k}\gamma_{e(c)} - J_{e, k}\newoverline{\newoverline{\left(\nabla_z\psi\right)_{c, k - 1/2}}^{(e)}}^{(k)}
+\left(\nabla\psi\right)_{e, k} = \frac{1}{d_{e, k}}\sum_{c\in e}\left(-\psi_{c, k}\gamma_{e(c)}\right) - J_{e, k}\newoverline{\newoverline{\left(\nabla_z\psi\right)_{c, k - 1/2}}^{(k)}}^{(e)},
 \end{align}
 \end{center}
 }}
