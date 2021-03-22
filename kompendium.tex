@@ -98,6 +98,7 @@
 \newcommand{\CAPE}{\text{CAPE}}
 \newcommand{\CIN}{\text{CIN}}
 \newcommand{\PVU}{\text{PVU}}
+\newcommand{\TKE}{\text{TKE}}
 \newcommand{\newvline}{\:\vline\:}
 \newcommand{\id}{\text{id}}
 \let\lim\relax
@@ -17863,13 +17864,13 @@ Als modifizierte Begründung für diesen Ansatz kann man die folgende Analogie v
 Zu bestimmen bleiben allerdings die effektiven Viskositäten. In einer Diskretisierung setzt man nun analog zu Glg. \eqref{eq:para_ansatz_0}
 %
 \begin{align}
-\nu_\Delta = \nu + \nu_S,&& \mu_{v, \Delta} = \mu_v + \mu_{v, S}
+K = \nu + \nu_S,&& K_v = \mu_v + \mu_{v, S}
 \end{align}
 %
 an. Hieraus folgt für die effektive Reibungsbeschleunigung
 %
 \begin{align}
-\mathbf{f}_R &= \left(\frac{\mu_{v, \Delta}}{\rho} + \frac{4\nu_{v, \Delta}}{3}\right)\nabla D - \nu_{v, \Delta}\nabla\times\zetabi.\label{eq:friction_acceleration_for_discrete}
+\mathbf{f}_R &= \left(\frac{K_v}{\rho} + \frac{4K}{3}\right)\nabla D - K\nabla\times\zetabi.\label{eq:friction_acceleration_for_discrete}
 \end{align}
 
 \subsection{Beispiel: Phasenübergänge}
@@ -24388,11 +24389,39 @@ Außerhalb der planetarischen Grenzschicht kann von einem Wert für die vertikal
 \label{sec:impuls}\index{Impulsdiffusion}\index{Diffusion!Impuls}
 
 Projiziert man Glg. \eqref{eq:friction_acceleration_for_discrete} auf $\mathbf{e}_x$, erhält man
-
+%
 \begin{align}
-\mathbf{e}_x\cdot\mathbf{f}_R &= \mathbf{e}_x\cdot\left[\left(\frac{\mu_{v, \Delta}}{\rho} + \frac{4\nu_{v, \Delta}}{3}\right)\nabla D - \nu_{v, \Delta}\nabla\times\zetabi\right] = \left(\frac{\mu_{v, \Delta}}{\rho} + \frac{4\nu_{v, \Delta}}{3}\right)\frac{\partial D}{\partial x} - \nu_{v, \Delta}\left(\frac{\partial\zeta_z}{\partial y} - \frac{\partial\zeta_y}{\partial z}\right)\nonumber\\
-&= \left(\frac{\mu_{v, \Delta}}{\rho} + \frac{4\nu_{v, \Delta}}{3}\right)\frac{\partial D}{\partial x} + \nu_{v, \Delta}\left(\frac{\partial\zeta_y}{\partial z} - \frac{\partial\zeta_z}{\partial y}\right).
+\mathbf{e}_x\cdot\mathbf{f}_R &= \mathbf{e}_x\cdot\left[\left(\frac{K_v}{\rho} + \frac{4K}{3}\right)\nabla D - K\nabla\times\zetabi\right] = \left(\frac{K_v}{\rho} + \frac{4K}{3}\right)\frac{\partial D}{\partial x} - K\left(\frac{\partial\zeta_z}{\partial y} - \frac{\partial\zeta_y}{\partial z}\right)\nonumber\\
+&= \left(\frac{K_v}{\rho} + \frac{4K}{3}\right)\frac{\partial D}{\partial x} + K\left(\frac{\partial\zeta_y}{\partial z} - \frac{\partial\zeta_z}{\partial y}\right).
 \end{align}
+%
+Hier kann auch von der inkompressiblen Form ausgegangen werden:
+%
+\begin{align}
+\mathbf{e}_x\cdot\mathbf{f}_R &= K\frac{\partial D}{\partial x} + K\left(\frac{\partial\zeta_y}{\partial z} - \frac{\partial\zeta_z}{\partial y}\right).
+\end{align}
+
+\subsubsection{Smagorinsky-Ansatz}
+\label{sec:smagorinsky-ansatz}\index{Smagorinsky-Ansatz}
+
+Die Viskoität $K$ enthält im Rahmen der Turbulenzparametrisierungen molekulare und turbulente Anteile. Die turbulenten Anteile beschreiben den gemittelten Effekt subskaliger Bewegung. Es kann davon ausgegangen werden, dass diese subskaligen Wirbel und Wellen nicht immer gleich stark sind, sondern umso stärker, je inhomogener das Windfeld ist. Dies wird durch den \textit{Smagorinsky-Ansatz} beschrieben, bei dem davon ausgegangen wird, dass die Viskosität proportional zur Scherung des Windfeldes ist.
+
+\subsubsection{$\TKE$-Ansätze}
+\label{sec:tke-ansätze}\index{TKE-Ansatz}
+
+Die subskalige Viskosität beschreibt den Einfluss des nicht aufgelösten Anteils der kinetischen Energie, welche man auch als \textit{turbulente kinetische Energie ($\TKE$)}\index{turbulente kinetische Energie ($\TKE$)}\index{kinetische Energie!turbulente ($\TKE$)}\index{$\TKE$ (turbulente kinetische Energie)} bezeichnet. Beim Smagorinsky-Ansatz wird diese Viskosität durch kinematische Eigenschaften des derzeitigen Windfeldes ausgedrückt. Man kann jedoch auch die $\TKE$ als zusätzliche prognostische Größe einführen und für diese eine Gleichung
+%
+\begin{align}
+\frac{\partial\TKE}{\partial t} = -\mathbf{v}\cdot\nabla\TKE + \text{Quellen} - \text{Senken}
+\end{align}
+%
+lösen. Anschließend können die Viskositätskoeffizienten als Funktionen 
+%
+\begin{align}
+K = K\left[\mathbf{v}\left(\mathbf{r}\right), \TKE\right]
+\end{align}
+%
+des derzeitigen Windfeldes und der $\TKE$ ausgedrückt werden. Über die prognostische Gleichung der $\TKE$ enthält dieser Ansatz dann auch Informationen über das vergangene Windfeld.
 
 \chapter{\normalfont\textsc{Weiterführende Aspekte}}
 \label{chap:weiterfuehrende_aspekte}
