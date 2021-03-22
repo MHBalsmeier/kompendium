@@ -23810,10 +23810,26 @@ des Gradienten in geländefolgenden Koordinaten.
 Auch in der deep atmosphere ist in geländefolgenden Koordinaten die diskretisierte Produktregel des Nabla-Operators lokal nicht gültig. Hier gilt nach Glg. \eqref{eq:div_deep}
 %
 \begin{align}
-\int_A\psi\nabla\cdot\mathbf{v}d^3r&\to\sum_{c, k}\left(\psi\nabla\cdot\mathbf{v}\right)_{c, k}V_{c, k} = \left[\sum_{e\in c}\left(A_{e, k}\psi_{c, k}u_{e, k}\right) + A_{c, k - 1/2}w_{c, k - 1/2} - A_{c, k + 1/2}w_{c, k + 1/2}\right]\nonumber\\
+\int_A\psi\nabla\cdot\mathbf{v}d^3r&\to\sum_{c, k}\left(\psi\nabla\cdot\mathbf{v}\right)_{c, k}V_{c, k} = \sum_{c, k}\Bigg\lbrace\left[\sum_{e\in c}\left(A_{e, k}\psi_{c, k}u_{e, k}\right) + A_{c, k - 1/2}\psi_{c, k}w_{c, k - 1/2} - A_{c, k + 1/2}\psi_{c, k}w_{c, k + 1/2}\right]\nonumber\\
 &+ \sum_{e\in c}\Bigg[-A_{c, k - 1/2}\left(\frac{A_{e, k}d_{e, k}}{4V_{c, k}}J_{e, k}^{(1)}\psi_{c, k}u_{e, k}^{(2)} + \frac{A_{e, k - 1}d_{e, k - 1}}{4V_{c, k - 1}}J_{e, k - 1}^{(1)}\psi_{c, k}u_{e, k - 1}^{(2)}\right)\nonumber\\
-&+ A_{c, k + 1/2}\left(\frac{A_{e, k}d_{e, k}}{4V_{c, k}}J_{e, k}^{(1)}\psi_{c, k}u_{e, k}^{(2)} + \frac{A_{e, k + 1}d_{e, k + 1}}{4V_{c, k + 1}}J_{e, k + 1}^{(1)}\psi_{c, k}u_{e, k + 1}^{(2)}\right)\Bigg].
+&+ A_{c, k + 1/2}\left(\frac{A_{e, k}d_{e, k}}{4V_{c, k}}J_{e, k}^{(1)}\psi_{c, k}u_{e, k}^{(2)} + \frac{A_{e, k + 1}d_{e, k + 1}}{4V_{c, k + 1}}J_{e, k + 1}^{(1)}\psi_{c, k}u_{e, k + 1}^{(2)}\right)\Bigg]\Bigg\rbrace.
 \end{align}
+%
+Bis auf die Korrekturterme der geländefolgenden Koordinaten ist die Produktregel des Nabla-Operators auch hier lokal gültig, es gilt weiterhin die Herleitung in Abschn. \ref{sec:dreidimensionales_orthogonales_gitter_(deep)}. Darüber hinaus verschwindet auch hier ein globales Integral über eine Divergenz, die Begründung hierfür ist dieselbe wie in der shallow atmosphere. Man kann also die partielle Integration auf die Terme der geländefolgenden Korrektur beschränken:
+%
+Daher gilt auch in der deep atmosphere
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\left(\nabla\psi\right)_{e, k} = \frac{1}{d_e}\sum_{c\in e}-\psi_{c, k}\gamma_{e(c)} - J_{e, k}\newoverline{\newoverline{\left(\nabla_z\psi\right)_{c, k - 1/2}}^{(e)}}^{(k)}
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+wobei hier nur diese Reihenfolge der Mittelungsoperatoren zulässig ist.
 
 \subsection{Überprüfung der Energieerhaltung}
 \label{sec:überprüfung_der_energieerhaltung}
