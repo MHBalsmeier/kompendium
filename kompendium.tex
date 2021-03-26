@@ -22328,10 +22328,10 @@ Der Faktor $\frac{1}{2}$ ist Konvention und ändert das Minimum der Kostenfunkti
 %
 \begin{align}
 \text{Modell} - \text{interpolierte Beobachtung} &\to \text{Beobachtung} - \text{interpoliertes Modell}\\
-\Rightarrow  x - \newhat{I}\left(y\right) &\to y - \newhat{h}\left(x\right)\label{eq:replace_for_3dvar}
+\Rightarrow x - \newhat{I}\left(y\right) &\to y - \newhat{h}\left(x\right)\label{eq:replace_for_3dvar}
 \end{align}
 %
-vor, hierbei ist $\newhat{h}$ ein i. A. nichtlinearer Operator. Die Kostenfunktion lautet somit
+vor, hierbei ist $\newhat{h}$ ein i. A. nichtlinearer Operator, der sogenannte \textit{Beobachtungsoperator}\index{Beobachtungsoperator}. Die Kostenfunktion lautet somit
 %
 \begin{align}
 J\left(x\right) = \frac{1}{2}\alpha_B\left(x - x_B\right)^2 + \frac{1}{2}\alpha_y\left[y - \newhat{h}\left(x\right)\right]^2.\label{eq:3dvar_cost_one_obs}
@@ -22363,10 +22363,10 @@ hierbei ist
 \newhat{H}\left(x\right) \coloneqq \newhat{h}'\left(x_B\right)
 \end{align}
 %
-die Ableitung von $\newhat{h}$ an der Stelle $x_B$. Dies bezeichnet man als den sogenannten \textit{Beobachtungsoperator}\index{Beobachtungsoperator}. Setzt man dies in Glg. \eqref{eq:3dvar_cost_one_obs} ein, erhält man unter Vernachlässigung eines Ungefährzeichens
+die Ableitung von $\newhat{h}$ an der Stelle $x_B$. Setzt man dies in Glg. \eqref{eq:3dvar_cost_one_obs} ein, erhält man unter Vernachlässigung eines Ungefährzeichens
 %
 \begin{align}
-J\left(x\right) = \frac{1}{2}\alpha_B\left(x - x_B\right)^2 + \frac{1}{2}\alpha_y\left[y - \newhat{h}\left(x_B\right) - \newhat{H}\left(x - x_B\right)\right]^2\label{eq:3dvar_cost_simple}
+J\left(x\right) = \frac{1}{2}\alpha_B\left(x - x_B\right)^2 + \frac{1}{2}\alpha_y\left[y - \newhat{h}\left(x_B\right) - \newhat{H}\left(x - x_B\right)\right]^2.\label{eq:3dvar_cost_simple}
 \end{align}
 %
 Die Ableitung hiervon lautet
