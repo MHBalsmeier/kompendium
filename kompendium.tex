@@ -22189,10 +22189,10 @@ K_2\frac{2}{3}\left(\delta_3u_1 + \delta_1u_3\right) & K_3\frac{2}{3}\left(\delt
 %
 zerstört keine der überprüften Aussagen.
 
-\section{Deformiertes Gitter}
-\label{sec:deformiertes_gitter_diff}
+\subsection{Modifikation zur Einhaltung der Thuburn-Bedingung}
+\label{sec:modifikation_zur_einhaltung_der_thuburn-Bedingung_diff}
 
-In diesem Abschnitt werden die Resultate des vorherigen Abschnittes auf das deformierte hexagonale C-Gitter verallgemeinert. Auch hier bleibt man im Rahmen der shallow water equations. Für die Reibungsbeschleunigung an der Kante $e$ macht man den Ansatz
+Die Divergenz des Tensors Glg. \eqref{eq:stress_tensor_hex_regular} erfüllt noch nicht die Thuburn-Bedingung\index{Thuburn-Bedingung}. Motiviert durch Abschn. \ref{sec:formulierung_der_rotation} macht man für die Reibungsbeschleunigung an der Kante $e$ daher den Ansatz
 %
 \begin{align}
 h_e\frac{\partial u_{e, \text{diff}}}{\partial t} &= \left[\nabla\left(K_cE_{c(e)}\right)\right]_e + \frac{1}{l_e}\left(\frac{1}{3}\sum_{r\in t_1}K_rF_{r(e)} - \frac{1}{3}\sum_{r\in t_2}K_rF_{r(e)}\right)\nonumber\\
@@ -22213,7 +22213,7 @@ Für die Scherdeformationen\index{Scherdeformation} muss laut Glg. \eqref{eq:str
 %
 \begin{align}
 &\delta_2\left[\frac{2}{3}\left(\delta_2u_1 + \delta_1u_2\right)\right] + \delta_3\left[\frac{2}{3}\left(\delta_3u_1 + \delta_1u_3\right)\right] \hastobe \frac{1}{3}\delta_y\left(F_{1(e)} + F_{2(e)} + F_{3(e)}\right)\nonumber\\
-&\stackrel{\text{Glg. \eqref{eq:ddy_hex}}}{=} \frac{1}{3\sqrt{3}}\left(\delta_2 - \delta_3\right)\left(F_{1(e)} + F_{2(e)} + F_{3(e)}\right)
+&\stackrel{\text{Glg. \eqref{eq:ddy_hex}}}{=} \frac{1}{3\sqrt{3}}\left(\delta_2 - \delta_3\right)\left(F_{1(e)} + F_{2(e)} + F_{3(e)}\right)\label{eq:deriv_hex_diff_deformed_0}
 \end{align}
 %
 gelten. Die Wahl von $F_{1(e)}$ ist hierbei willkürlich, da dieser Term zunächst addiert und dann wieder abgezogen wird. Man wählt daher naheliegenderweise
@@ -22222,35 +22222,41 @@ gelten. Die Wahl von $F_{1(e)}$ ist hierbei willkürlich, da dieser Term zunäch
 F_{1(e)} &= \zeta_1.
 \end{align}
 %
-Es gilt also die Forderung
+Zunächst behandelt man Glg. \eqref{eq:deriv_hex_diff_deformed_0} in der Form
 %
 \begin{align}
-&\delta_2\left[\frac{2}{3}\left(\delta_2u_1 + \delta_1u_2\right)\right] + \delta_3\left[\frac{2}{3}\left(\delta_3u_1 + \delta_1u_3\right)\right] \hastobe \frac{1}{3\sqrt{3}}\left(\delta_2 - \delta_3\right)\left(F_{2(e)} + F_{3(e)}\right)\nonumber\\
-\Leftrightarrow&\frac{2}{3}\delta_2\left(\delta_2u_1 + \delta_1u_2\right) + \frac{2}{3}\delta_3\left(\delta_3u_1 + \delta_1u_3\right) = \frac{1}{3\sqrt{3}}\delta_2\left(F_{2(e)} + F_{3(e)}\right) + \frac{1}{3\sqrt{3}}\delta_3\left(-F_{2(e)} - F_{3(e)}\right).\label{eq:deriv_hex_diff_deformed_0}
+&\delta_2\left[\frac{2}{3}\left(\delta_2u_1 + \delta_1u_2\right)\right] + \delta_3\left[\frac{2}{3}\left(\delta_3u_1 + \delta_1u_3\right)\right] = \frac{1}{\sqrt{3}}\left(\delta_2F_{3(e)} - \delta_3F_{2(e)}\right).
 \end{align}
 %
-Man macht zunächst den Ansatz
+Hiermit erhält man
 %
 \begin{align}
-F_{2(e)} &= 2\sqrt{3}\left(-\delta_2u_1 + \delta_3u_1 + f_2\right),\\
-F_{3(e)} &= 2\sqrt{3}\left(-\delta_1u_2 + \delta_1u_3 + f_3\right)
+F_{2(e)} &= -\frac{2}{\sqrt{3}}\left(\delta_3u_1 + \delta_1u_3\right) = \frac{2}{\sqrt{3}}\left(-\delta_3u_1 - \delta_1u_3\right) = \frac{2}{\sqrt{3}}\left[\left(\delta_3u_1 - \delta_1u_3\right) - 2\delta_3u_1\right] \stackrel{\text{Glg. \eqref{eq:hex_curl_rhombus_1}}}{=} \zeta_2 - \frac{4}{\sqrt{3}}\delta_3u_1,\\
+F_{3(e)} &= \frac{2}{\sqrt{3}}\left(\delta_2u_1 + \delta_1u_2\right) = \frac{2}{\sqrt{3}}\left[\left(\delta_1u_2 - \delta_2u_1\right) + 2\delta_2u_1\right] \stackrel{\text{Glg. \eqref{eq:hex_curl_rhombus_2}}}{=} \zeta_3 + \frac{4}{\sqrt{3}}\delta_2u_1.
 \end{align}
 %
-mit Ausdrücken $f_2, f_3$, welche vom Geschwindigkeitsfeld abhängen düfen. Setzt man dies in Glg. \eqref{eq:deriv_hex_diff_deformed_0} ein, erhält man
+Analog zu Abschn. \ref{sec:formulierung_der_rotation} verwendet man nun die gemittelten Scherdeformationen, was auf Glg. \eqref{eq:deriv_hex_diff_deformed_0} führt. Das Verfahren zur Berechnung des Gradienten der Komponente $u_1$ wird in Abschn. \ref{sec:berechnung_der_geschwindigkeitsgradienten} im Rahmen des deformierten Gitters vorgestellt.
+
+\section{Deformiertes Gitter}
+\label{sec:deformiertes_gitter_diff}
+
+In diesem Abschnitt werden die Resultate des vorherigen Abschnittes auf das deformierte hexagonale C-Gitter verallgemeinert. Auch hier bleibt man im Rahmen der shallow water equations. Im wesentlichen kann man die gleichen Formeln wie auf dem regulären Gitter verwenden, jedoch können die Geschwindigkeitsgradienten etwas anders notiert werden. Wegen
 %
 \begin{align}
-&\frac{2}{3}\delta_2\left(\delta_2u_1 + \delta_1u_2\right) + \frac{2}{3}\delta_3\left(\delta_3u_1 + \delta_1u_3\right)\nonumber\\
-&= \frac{2}{3}\delta_2\left(\delta_2u_1 - \delta_3u_1 - f_2  + \delta_1u_2 - \delta_1u_3 - f_3\right) + \frac{2}{3}\delta_3\left(-\delta_2u_1 + \delta_3u_1 + f_2 - \delta_1u_2 + \delta_1u_3 + f_3\right)\nonumber\\
-&= \frac{2}{3}\delta_2\left(\delta_2u_1 + \delta_1u_2\right) + \frac{2}{3}\delta_3\left(\delta_3u_1 + \delta_1u_3\right) + \frac{2}{3}\delta_2\left(-\delta_3u_1 - f_2 - \delta_1u_3 - f_3\right) + \frac{2}{3}\delta_3\left(-\delta_2u_1 + f_2 - \delta_1u_2 + f_3\right).
+F_{2(e)} + F_{3(e)} &= \zeta_2 - \frac{4}{\sqrt{3}}\delta_3u_1 + \zeta_3 + \frac{4}{\sqrt{3}}\delta_2u_1 = \zeta_2 + \zeta_3 + 4\frac{1}{\sqrt{3}}\left(\delta_2 - \delta_3\right)u_1 = \zeta_2 + \zeta_3 + 4\delta_yu_1\nonumber\\
+&= \zeta_2 + 2\delta_yu_1 + \zeta_3 + 2\delta_yu_1
 \end{align}
 %
-Man kann die Bezeichnungen $F_{2(e)}$, $F_{3(e)}$ auch vertauschen.
+kann man die Deformationen auch in der Form
 %
 \begin{align}
-F_{2(e)} &= \zeta_2 - \frac{4}{\sqrt{3}}\delta_3u_1,\\
-F_{3(e)} &= \zeta_3 + \frac{4}{\sqrt{3}}\delta_2u_1.
+E_{c(e)} &= -\frac{2}{3}D + \frac{4}{3}\delta_xu_1\vline_c,\\
+F_{1(e)} &= \zeta_1,\\
+F_{2(e)} &= \zeta_2 + 2\delta_yu_1\vline_2,\\
+F_{3(e)} &= \zeta_3 + 2\delta_yu_1\vline_3
 \end{align}
 %
+aufschreiben. Hierbei werden die Geschwindigkeitsgradienten über Zellen bzw. Rhomben berechnet.
 
 \subsubsection{Berechnung der Geschwindigkeitsgradienten}
 \label{sec:berechnung_der_geschwindigkeitsgradienten}
