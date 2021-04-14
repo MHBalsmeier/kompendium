@@ -22195,8 +22195,8 @@ zerstört keine der überprüften Aussagen.
 In diesem Abschnitt werden die Resultate des vorherigen Abschnittes auf das deformierte hexagonale C-Gitter verallgemeinert. Auch hier bleibt man im Rahmen der shallow water equations. Für die Reibungsbeschleunigung an der Kante $e$ macht man den Ansatz
 %
 \begin{align}
-h_e\frac{\partial u_{e, \text{diff}}}{\partial t} &= \left[\nabla\left(K_cE_{c(e)}\right)\right]_e - \frac{1}{l_e}\left(\frac{1}{3}\sum_{r\in t_1}K_rF_{r(e)} - \frac{1}{3}\sum_{r\in t_2}K_rF_{r(e)}\right)\nonumber\\
-&= \left[\nabla\left(K_cE_{c(e)}\right)\right]_e - \frac{1}{3l_e}\left(\sum_{r\in t_1}K_rF_{r(e)} - \sum_{r\in t_2}K_rF_{r(e)}\right).
+h_e\frac{\partial u_{e, \text{diff}}}{\partial t} &= \left[\nabla\left(K_cE_{c(e)}\right)\right]_e + \frac{1}{l_e}\left(\frac{1}{3}\sum_{r\in t_1}K_rF_{r(e)} - \frac{1}{3}\sum_{r\in t_2}K_rF_{r(e)}\right)\nonumber\\
+&= \left[\nabla\left(K_cE_{c(e)}\right)\right]_e + \frac{1}{3l_e}\left(\sum_{r\in t_1}K_rF_{r(e)} - \sum_{r\in t_2}K_rF_{r(e)}\right).
 \end{align}
 %
 Hierbei sind $E_c$ und $F_r$ \textit{Deformationen}\index{Deformation}, welche in den Zellzentren bzw. an den Kanten lokalisiert sind. Die $E_c$ sind auf der Diagonalen des Stress-Tensors\index{Stress-Tensor} lokalisiert, sie werden als \textit{Schubdeformationen}\index{Schubdeformation} (engl. \textit{strain deformation}\index{strain deformation}) bezeichnet. Die $F_r$ sind nicht auf der Diagonalen des Stress-Tensors\index{Stress-Tensor} lokalisiert, sie werden als \textit{Scherdeformationen}\index{Scherdeformation} (engl. \textit{shear deformation}\index{shear deformation}) bezeichnet. Man lässt hierbei zu, dass beide außer von ihrer Position auch von der Kante abhängen können, an der man die Beschleunigung berechnen möchte, also $E_{c(e)}$ bzw. $F_{r(e)}$. Das Dreieck $t_1$ ist in Bezug auf die Kante $e$ in der Richtung $\mathbf{k}\times\mathbf{n}_e$ lokalisiert, die Kante $t_2$ in Richtung $-\mathbf{k}\times\mathbf{n}_e$. $K_c$ und $K_r$ sind nichtnegative Diffusionskoeffizienten, welche in diesem Kapitel offengelassen werden. O. B. d. A. nimmt man an, dass $\mathbf{n}_e$ parallel zu $\mathbf{i}_1$ ausgerichtet ist.
@@ -22212,19 +22212,45 @@ E_{c(e)} &= \frac{4}{9}\left[2\delta_1u_1 - \left(\delta_2u_2 + \delta_3u_3\righ
 Für die Scherdeformationen\index{Scherdeformation} muss laut Glg. \eqref{eq:stress_tensor_hex_regular}
 %
 \begin{align}
-&\delta_2\left[\frac{2}{3}\left(\delta_2u_1 + \delta_1u_2\right)\right] + \delta_3\left[\frac{2}{3}\left(\delta_3u_1 + \delta_1u_3\right)\right] = -\frac{1}{3}\delta_y\left(F_{1(e)} + F_{2(e)} + F_{3(e)}\right)\nonumber\\
+&\delta_2\left[\frac{2}{3}\left(\delta_2u_1 + \delta_1u_2\right)\right] + \delta_3\left[\frac{2}{3}\left(\delta_3u_1 + \delta_1u_3\right)\right] \hastobe \frac{1}{3}\delta_y\left(F_{1(e)} + F_{2(e)} + F_{3(e)}\right)\nonumber\\
 &\stackrel{\text{Glg. \eqref{eq:ddy_hex}}}{=} \frac{1}{3\sqrt{3}}\left(\delta_2 - \delta_3\right)\left(F_{1(e)} + F_{2(e)} + F_{3(e)}\right)
 \end{align}
 %
-gelten. Somit folgt
+gelten. Die Wahl von $F_{1(e)}$ ist hierbei willkürlich, da dieser Term zunächst addiert und dann wieder abgezogen wird. Man wählt daher naheliegenderweise
 %
 \begin{align}
-F_{1(e)} &= \zeta_1,\\
+F_{1(e)} &= \zeta_1.
+\end{align}
+%
+Es gilt also die Forderung
+%
+\begin{align}
+&\delta_2\left[\frac{2}{3}\left(\delta_2u_1 + \delta_1u_2\right)\right] + \delta_3\left[\frac{2}{3}\left(\delta_3u_1 + \delta_1u_3\right)\right] \hastobe \frac{1}{3\sqrt{3}}\left(\delta_2 - \delta_3\right)\left(F_{2(e)} + F_{3(e)}\right)\nonumber\\
+\Leftrightarrow&\frac{2}{3}\delta_2\left(\delta_2u_1 + \delta_1u_2\right) + \frac{2}{3}\delta_3\left(\delta_3u_1 + \delta_1u_3\right) = \frac{1}{3\sqrt{3}}\delta_2\left(F_{2(e)} + F_{3(e)}\right) + \frac{1}{3\sqrt{3}}\delta_3\left(-F_{2(e)} - F_{3(e)}\right).\label{eq:deriv_hex_diff_deformed_0}
+\end{align}
+%
+Man macht zunächst den Ansatz
+%
+\begin{align}
+F_{2(e)} &= 2\sqrt{3}\left(-\delta_2u_1 + \delta_3u_1 + f_2\right),\\
+F_{3(e)} &= 2\sqrt{3}\left(-\delta_1u_2 + \delta_1u_3 + f_3\right)
+\end{align}
+%
+mit Ausdrücken $f_2, f_3$, welche vom Geschwindigkeitsfeld abhängen düfen. Setzt man dies in Glg. \eqref{eq:deriv_hex_diff_deformed_0} ein, erhält man
+%
+\begin{align}
+&\frac{2}{3}\delta_2\left(\delta_2u_1 + \delta_1u_2\right) + \frac{2}{3}\delta_3\left(\delta_3u_1 + \delta_1u_3\right)\nonumber\\
+&= \frac{2}{3}\delta_2\left(\delta_2u_1 - \delta_3u_1 - f_2  + \delta_1u_2 - \delta_1u_3 - f_3\right) + \frac{2}{3}\delta_3\left(-\delta_2u_1 + \delta_3u_1 + f_2 - \delta_1u_2 + \delta_1u_3 + f_3\right)\nonumber\\
+&= \frac{2}{3}\delta_2\left(\delta_2u_1 + \delta_1u_2\right) + \frac{2}{3}\delta_3\left(\delta_3u_1 + \delta_1u_3\right) + \frac{2}{3}\delta_2\left(-\delta_3u_1 - f_2 - \delta_1u_3 - f_3\right) + \frac{2}{3}\delta_3\left(-\delta_2u_1 + f_2 - \delta_1u_2 + f_3\right).
+\end{align}
+%
+Man kann die Bezeichnungen $F_{2(e)}$, $F_{3(e)}$ auch vertauschen.
+%
+\begin{align}
 F_{2(e)} &= \zeta_2 - \frac{4}{\sqrt{3}}\delta_3u_1,\\
 F_{3(e)} &= \zeta_3 + \frac{4}{\sqrt{3}}\delta_2u_1.
 \end{align}
 %
-Die Wahl von $F_{1(e)}$ ist hierbei willkürlich, da dieser Term zunächst addiert und dann wieder abgezogen wird.
 
 \subsubsection{Berechnung der Geschwindigkeitsgradienten}
 \label{sec:berechnung_der_geschwindigkeitsgradienten}
