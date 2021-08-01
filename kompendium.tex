@@ -23486,7 +23486,7 @@ Als prognostische Variablen\index{prognostische Variable}\index{Variable!prognos
 %
 \begin{itemize}
 \item die Massendichte\index{Massendichte} $\rho$ in den Zentren der Boxen,
-\item die Entropiedichte\index{Entropiedichte} $\newtilde{s}$ in den Zentren der Boxen,
+\item die potentielle Temperaturdichte\index{potentielle Temperaturdichte}\index{Temperaturdichte!potentielle} $\newtilde{\theta}$ in den Zentren der Boxen,
 \item die Horizontalgeschwindigkeit\index{Horizontalgeschwindigkeit} $u$ and den Kanten der Zellen
 \item die Vertikalgeschwindigkeit\index{Vertikalgeschwindigkeit} $w$ in den Levels\index{Level} sowie
 \item die Temperatur\index{Temperatur} $T$ in den Zentren der Boxen als semi-prognostische Variable\index{semi-prognostische Variable}\index{Variable!semi-prognostische}
@@ -23495,7 +23495,7 @@ Als prognostische Variablen\index{prognostische Variable}\index{Variable!prognos
 gewählt. Die Hamilton-Funktion\index{Hamilton-Funktion} $H$ schreibt man dann als Funktion von $\rho, \newtilde{s}$ und $\mathbf{v}$,
 %
 \begin{align}
-H = H\left(\rho, \newtilde{s}, \mathbf{v}\right).
+H = H\left(\rho, \newtilde{\theta}, \mathbf{v}\right).
 \end{align}
 %
 Die Form der prognostischen Gleichungen\index{prognostische Gleichung}\index{Gleichung!prognostische} für diesen Fall wurden in in Abschn. \ref{sec:entropiedichte_als_prognostische_variable_hamilton} hergeleitet, sie lauten
@@ -23504,22 +23504,16 @@ Die Form der prognostischen Gleichungen\index{prognostische Gleichung}\index{Gle
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-\frac{\partial\mathbf{v}}{\partial t} &= -c^{(p)}\nabla T + T\nabla s - \nabla k + \mathbf{v}\times\etabi - \nabla\phi,\label{eq:prog_rev_0}\\
+\frac{\partial\mathbf{v}}{\partial t} &= -c^{(p)}\theta\nabla\Pi - \nabla k + \mathbf{v}\times\etabi - \nabla\phi,\label{eq:prog_rev_0}\\
 \frac{\partial\rho}{\partial t} &= -\nabla\cdot\left(\rho\mathbf{v}\right),\label{eq:prog_rev_1}\\
-\frac{\partial\newtilde{s}}{\partial t} &= -\nabla\cdot\left(\newtilde{s}\mathbf{v}\right),\label{eq:prog_rev_2}\\
-T_1 &= f\left(\rho, \newtilde{s}\right).\label{eq:prog_rev_3}
+\frac{\partial\newtilde{\theta}}{\partial t} &= -\nabla\cdot\left(\newtilde{\theta}\mathbf{v}\right),\label{eq:prog_rev_2}\\
+T_1 &= f\left(\rho, \newtilde{\theta}\right).\label{eq:prog_rev_3}
 \end{align}
 \end{center}
 }}
 \end{center}
 %
-Die Funktion $f$ in Glg. \eqref{eq:prog_rev_3} sei die thermische Zustandsgleichung idealer Gase. Der Druckgradient\index{Druckgradient} wurde dabei in der Form
-%
-\begin{align}
--\nabla G - s\nabla T = -\nabla\left(c^{(p)}\nabla T - sT\right) - s\nabla T = -c^{(p)}\nabla T + T\nabla s
-\end{align}
-%
-umgeschrieben, da dies die implizite Behandlung vertikal propagierender Schallwellen vereinfacht, s. Abschn. \ref{sec:behandlung_vertikal_propagierender_wellen}. Die thermische Zustandsgleichung idealer Gase ist implizit in Glg. \eqref{eq:prog_rev_3} enthalten, diese wurde in Abschn. \ref{sec:energetisch_selbstkonsistente_zeitentwicklung_der_temperatur} hergeleitet.
+Die Funktion $f$ in Glg. \eqref{eq:prog_rev_3} sei die thermische Zustandsgleichung idealer Gase.
 
 \section{Diskretisierung der Poisson-Klammern}
 \label{sec:diskretisierung_der_poisson-klammern}\index{Poisson-Klammer!Diskretisierung}\index{Diskretisierung von Poisson-Klammern}
