@@ -23970,7 +23970,7 @@ Hierbei ist $\epsilon$ das implizite Gewicht, welches aufgrund von Abschn. \ref{
 %
 \begin{align}
 \theta^{'(n + 1)}_k &= \theta^{'(\text{expl.})}_k + \theta''_k = \theta^{'(\text{expl.})}_k + \alpha_k\rho'_k + \beta_k\newtilde{\theta}'_k,\\
-\Pi^{'(n + 1)}_k &= \Pi^{'(\text{expl.})}_k + \Pi''_k = \Pi^{'(\text{expl.})}_k + \gamma_k\theta''_k.
+\Pi^{'(n + 1)}_k &= \Pi^{'(\text{expl.})}_k + \Pi''_k = \Pi^{'(\text{expl.})}_k + \gamma_k\newtilde{\theta}'_{k}
 \end{align}
 %
 Die gestrichenen Größen sind die Abweichungen von den expliziten Komponenten, also
@@ -23997,27 +23997,23 @@ für $2 \leq k \leq N_L$ die vertikale kovariante mit den Begrenzungsflächen $A
 \begin{align}
 w_{k - 1/2}^{(n + 1)} &= w_{k - 1/2}^{(\text{expl.})} - \epsilon\Delta tc^{(p)}\left(\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}\frac{\Pi^{'\text{expl.}}_{k - 1} + \Pi''_{k - 1} - \Pi^{'\text{expl.}}_{k} - \Pi''_{k}}{z_{k - 1} - z_{k}} + \newoverline{\theta_k^{'(n + 1)}}^{(k - 1/2)}\frac{d\newoverline{\Pi}}{dz}\vline_{k-1/2}\right)\nonumber\\
 \Leftrightarrow w_{k - 1/2}^{(n + 1)} &= w_{k - 1/2}^{(\text{expl.})} - \epsilon\Delta tc^{(p)}\left(\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}\frac{\Pi^{'\text{expl.}}_{k - 1} + \Pi''_{k - 1} - \Pi^{'\text{expl.}}_{k} - \Pi''_{k}}{z_{k - 1} - z_{k}} + \frac{\theta_{k-1}^{'(n + 1)}+\theta_k^{'(n + 1)}}{2}\frac{d\newoverline{\Pi}}{dz}\vline_{k-1/2}\right)\nonumber\\
-\Leftrightarrow w_{k - 1/2}^{(n + 1)} &= w_{k - 1/2}^{(\text{expl.})} - \epsilon\Delta tc^{(p)}\left(\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}\frac{\Pi^{'\text{expl.}}_{k - 1} + \gamma_{k - 1}\theta''_{k - 1} - \Pi^{'\text{expl.}}_{k} - \gamma_k\theta''_{k}}{z_{k - 1} - z_{k}} + \frac{\theta_{k-1}^{'(n + 1)}+\theta_k^{'(n + 1)}}{2}\frac{d\newoverline{\Pi}}{dz}\vline_{k-1/2}\right)\nonumber\\
-\Leftrightarrow w_{k - 1/2}^{(n + 1)} &= w_{k - 1/2}^{(\text{expl.})} - \epsilon\Delta tc^{(p)}\left(\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}\frac{\Pi^{'\text{expl.}}_{k - 1} + \gamma_{k - 1}\theta''_{k - 1} - \Pi^{'\text{expl.}}_{k} - \gamma_k\theta''_{k}}{z_{k - 1} - z_{k}} + \frac{\theta_{k-1}^{'(\text{expl.})}+\theta''_{k - 1}+\theta_k^{'(\text{expl.})}+\theta''_{k}}{2}\frac{d\newoverline{\Pi}}{dz}\vline_{k-1/2}\right)\\
-\Leftrightarrow w_{k - 1/2}^{(n + 1)} &= w_{k - 1/2}^{(\text{expl.})} - \epsilon\Delta tc^{(p)}\cdot\nonumber\\
-&\cdot\Bigg(\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}\frac{\Pi^{'\text{expl.}}_{k - 1} + \gamma_{k - 1}\alpha_{k-1}\rho'_{k - 1} + \gamma_{k - 1}\beta_{k-1}\newtilde{\theta}'_{k - 1} - \Pi^{'\text{expl.}}_{k} - \gamma_k\alpha_k\rho'_{k} - \gamma_k\beta_k\newtilde{\theta}'_{k}}{z_{k - 1} - z_{k}}\nonumber\\
+\Leftrightarrow w_{k - 1/2}^{(n + 1)} &= w_{k - 1/2}^{(\text{expl.})} - \epsilon\Delta tc^{(p)}\left(\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}\frac{\Pi^{'\text{expl.}}_{k - 1} + \gamma_{k - 1}\newtilde{\theta}'_{k - 1} - \Pi^{'\text{expl.}}_{k} - \gamma_k\newtilde{\theta}'_{k}}{z_{k - 1} - z_{k}} + \frac{\theta_{k-1}^{'(n + 1)}+\theta_k^{'(n + 1)}}{2}\frac{d\newoverline{\Pi}}{dz}\vline_{k-1/2}\right)\nonumber\\
+\Leftrightarrow w_{k - 1/2}^{(n + 1)} &= w_{k - 1/2}^{(\text{expl.})} - \epsilon\Delta tc^{(p)}\left(\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}\frac{\Pi^{'\text{expl.}}_{k - 1} + \gamma_{k - 1}\newtilde{\theta}'_{k - 1} - \Pi^{'\text{expl.}}_{k} - \gamma_k\newtilde{\theta}'_{k}}{z_{k - 1} - z_{k}} + \frac{\theta_{k-1}^{'(\text{expl.})}+\theta''_{k - 1}+\theta_k^{'(\text{expl.})}+\theta''_{k}}{2}\frac{d\newoverline{\Pi}}{dz}\vline_{k-1/2}\right)\\
+\Leftrightarrow w_{k - 1/2}^{(n + 1)} &= w_{k - 1/2}^{(\text{expl.})} - \epsilon\Delta tc^{(p)}\cdot\Bigg(\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}\frac{\Pi^{'\text{expl.}}_{k - 1} + \gamma_{k - 1}\newtilde{\theta}'_{k - 1} - \Pi^{'\text{expl.}}_{k} - \gamma_k\newtilde{\theta}'_{k}}{z_{k - 1} - z_{k}}\nonumber\\
 &+ \frac{\theta_{k-1}^{'(\text{expl.})}+\alpha_{k-1}\rho'_{k - 1}+\beta_{k-1}\newtilde{\theta}'_{k - 1}+\theta_k^{'(\text{expl.})}+\alpha_{k}\rho'_{k}+\beta_{k}\newtilde{\theta}'_{k}}{2}\frac{d\newoverline{\Pi}}{dz}\vline_{k-1/2}\Bigg).
 \end{align}
 %
 Die gestrichenen Größen enthalten den Unbekanntenvektor, daher bringt man sie auf die linke Seite:
 %
 \begin{align}
-&\epsilon\Delta tc^{(p)}\Bigg(\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}\frac{\gamma_{k - 1}\alpha_{k-1}\rho'_{k - 1} + \gamma_{k - 1}\beta_{k-1}\newtilde{\theta}'_{k - 1} - \gamma_k\alpha_k\rho'_{k} - \gamma_k\beta_k\newtilde{\theta}'_{k}}{z_{k - 1} - z_{k}}\nonumber\\
-&+ \frac{\alpha_{k-1}\rho'_{k - 1}+\beta_{k-1}\newtilde{\theta}'_{k - 1}+\alpha_{k}\rho'_{k}+\beta_{k}\newtilde{\theta}'_{k}}{2}\frac{d\newoverline{\Pi}}{dz}\vline_{k-1/2}\Bigg)\nonumber\\
+&\epsilon\Delta tc^{(p)}\left(\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}\frac{\gamma_{k - 1}\newtilde{\theta}'_{k - 1} - \gamma_k\newtilde{\theta}'_{k}}{z_{k - 1} - z_{k}} + \frac{\alpha_{k-1}\rho'_{k - 1}+\beta_{k-1}\newtilde{\theta}'_{k - 1}+\alpha_{k}\rho'_{k}+\beta_{k}\newtilde{\theta}'_{k}}{2}\frac{d\newoverline{\Pi}}{dz}\vline_{k-1/2}\right)\nonumber\\
 &= w_{k - 1/2}^{(\text{expl.})} - w_{k - 1/2}^{(n + 1)} - \epsilon\Delta tc^{(p)}\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}\frac{\Pi^{'\text{expl.}}_{k - 1} - \Pi^{'\text{expl.}}_{k}}{z_{k - 1} - z_{k}} - \epsilon\Delta tc^{(p)}\frac{\theta_{k-1}^{'(\text{expl.})}+\theta_k^{'(\text{expl.})}}{2}\frac{d\newoverline{\Pi}}{dz}\vline_{k-1/2}\nonumber\\
-&\Leftrightarrow\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}\frac{\gamma_{k - 1}\alpha_{k-1}\rho'_{k - 1} + \gamma_{k - 1}\beta_{k-1}\newtilde{\theta}'_{k - 1} - \gamma_k\alpha_k\rho'_{k} - \gamma_k\beta_k\newtilde{\theta}'_{k}}{z_{k - 1} - z_{k}}\nonumber\\
-&+ \frac{\alpha_{k-1}\rho'_{k - 1}+\beta_{k-1}\newtilde{\theta}'_{k - 1}+\alpha_{k}\rho'_{k}+\beta_{k}\newtilde{\theta}'_{k}}{2}\frac{d\newoverline{\Pi}}{dz}\vline_{k-1/2}\nonumber\\
+&\Leftrightarrow\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}\frac{\gamma_{k - 1}\newtilde{\theta}'_{k - 1} - \gamma_k\newtilde{\theta}'_{k}}{z_{k - 1} - z_{k}} + \frac{\alpha_{k-1}\rho'_{k - 1}+\beta_{k-1}\newtilde{\theta}'_{k - 1}+\alpha_{k}\rho'_{k}+\beta_{k}\newtilde{\theta}'_{k}}{2}\frac{d\newoverline{\Pi}}{dz}\vline_{k-1/2}\nonumber\\
 &= \frac{w_{k - 1/2}^{(\text{expl.})} - w_{k - 1/2}^{(n + 1)}}{\epsilon\Delta tc^{(p)}} - \newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}\frac{\Pi^{'\text{expl.}}_{k - 1} - \Pi^{'\text{expl.}}_{k}}{z_{k - 1} - z_{k}} - \frac{\theta_{k-1}^{'(\text{expl.})}+\theta_k^{'(\text{expl.})}}{2}\frac{d\newoverline{\Pi}}{dz}\vline_{k-1/2}\nonumber\\
-&\Leftrightarrow\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}\left(\gamma_{k - 1}\alpha_{k-1}\rho'_{k - 1} + \gamma_{k - 1}\beta_{k-1}\newtilde{\theta}'_{k - 1} - \gamma_k\alpha_k\rho'_{k} - \gamma_k\beta_k\newtilde{\theta}'_{k}\right)\nonumber\\
-&+ \frac{d\newoverline{\Pi}}{2dz}\vline_{k-1/2}\left(z_{k - 1} - z_{k}\right)\left(\alpha_{k-1}\rho'_{k - 1}+\beta_{k-1}\newtilde{\theta}'_{k - 1}+\alpha_{k}\rho'_{k}+\beta_{k}\newtilde{\theta}'_{k}\right)\nonumber\\
+&\Leftrightarrow\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}\left(\gamma_{k - 1}\newtilde{\theta}'_{k - 1} - \gamma_k\newtilde{\theta}'_{k}\right) + \frac{d\newoverline{\Pi}}{2dz}\vline_{k-1/2}\left(z_{k - 1} - z_{k}\right)\left(\alpha_{k-1}\rho'_{k - 1}+\beta_{k-1}\newtilde{\theta}'_{k - 1}+\alpha_{k}\rho'_{k}+\beta_{k}\newtilde{\theta}'_{k}\right)\nonumber\\
 &= \frac{\left(w_{k - 1/2}^{(\text{expl.})} - w_{k - 1/2}^{(n + 1)}\right)\left(z_{k - 1} - z_{k}\right)}{\epsilon\Delta tc^{(p)}} - \newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}\left(\Pi^{'\text{expl.}}_{k - 1} - \Pi^{'\text{expl.}}_{k}\right) - \left(z_{k - 1} - z_{k}\right)\left(\theta_{k-1}^{'(\text{expl.})}+\theta_k^{'(\text{expl.})}\right)\frac{d\newoverline{\Pi}}{2dz}\vline_{k-1/2}\nonumber\\
-&\Leftrightarrow\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}\Bigg(-\gamma_{k - 1}\alpha_{k-1}\frac{M_{k - 3/2} - M_{k - 1/2}}{V_{k-1}} - \gamma_{k - 1}\beta_{k-1}\frac{\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 3/2)}M_{k - 3/2} - \newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}M_{k - 1/2}}{V_{k-1}}\nonumber\\
-&+ \gamma_k\alpha_k\frac{M_{k - 1/2} - M_{k + 1/2}}{V_k} + \gamma_k\beta_k\frac{\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}M_{k - 1/2} - \newoverline{\theta_k^{(n + 1)^\star}}^{(k + 1/2)}M_{k + 1/2}}{V_k}\Bigg)\nonumber\\
+&\Leftrightarrow\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}\Bigg(-\gamma_{k - 1}\frac{\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 3/2)}M_{k - 3/2} - \newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}M_{k - 1/2}}{V_{k-1}}\nonumber\\
+&+ \gamma_k\frac{\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}M_{k - 1/2} - \newoverline{\theta_k^{(n + 1)^\star}}^{(k + 1/2)}M_{k + 1/2}}{V_k}\Bigg)\nonumber\\
 &+ \frac{d\newoverline{\Pi}}{2dz}\vline_{k-1/2}\left(z_{k - 1} - z_{k}\right)\Bigg(-\alpha_{k-1}\frac{M_{k - 3/2} - M_{k - 1/2}}{V_{k-1}}-\beta_{k-1}\frac{\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 3/2)}M_{k - 3/2} - \newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}M_{k - 1/2}}{V_{k-1}}\nonumber\\
 &-\alpha_{k}\frac{M_{k - 1/2} - M_{k + 1/2}}{V_k}-\beta_{k}\frac{\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}M_{k - 1/2} - \newoverline{\theta_k^{(n + 1)^\star}}^{(k + 1/2)}M_{k + 1/2}}{V_k}\Bigg)\nonumber\\
 &= \frac{\left(w_{k - 1/2}^{(\text{expl.})} - w_{k - 1/2}^{(n + 1)}\right)\left(z_{k - 1} - z_{k}\right)}{\epsilon\Delta t^2c^{(p)}} - \newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}\frac{\Pi^{'\text{expl.}}_{k - 1} - \Pi^{'\text{expl.}}_{k}}{\Delta t} - \frac{z_{k - 1} - z_{k}}{\Delta t}\left(\theta_{k-1}^{'(\text{expl.})}+\theta_k^{'(\text{expl.})}\right)\frac{d\newoverline{\Pi}}{2dz}\vline_{k-1/2}.
@@ -24026,19 +24022,19 @@ Die gestrichenen Größen enthalten den Unbekanntenvektor, daher bringt man sie 
 Nun nimmt man die Ersetzungen
 %
 \begin{align}
-\alpha_k \to \frac{\alpha_k}{V_k}, \beta_k \to \frac{\beta_k}{V_k}
+\alpha_k \to \frac{\alpha_k}{V_k}, \beta_k \to \frac{\beta_k}{V_k}, \gamma_k \to \frac{\gamma_k}{V_k}
 \end{align}
 %
 vor. Es folgt
 %
 \begin{align}
-&\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}\Bigg[-\gamma_{k - 1}\alpha_{k-1}\left(M_{k - 3/2} - M_{k - 1/2}\right) - \gamma_{k - 1}\beta_{k-1}\left(\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 3/2)}M_{k - 3/2} - \newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}M_{k - 1/2}\right)\nonumber\\
-&+ \gamma_k\alpha_k\left(M_{k - 1/2} - M_{k + 1/2}\right) + \gamma_k\beta_k\left(\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}M_{k - 1/2} - \newoverline{\theta_k^{(n + 1)^\star}}^{(k + 1/2)}M_{k + 1/2}\right)\Bigg]\nonumber\\
+&\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}\Bigg[-\gamma_{k - 1}\left(\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 3/2)}M_{k - 3/2} - \newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}M_{k - 1/2}\right)\nonumber\\
+&+ \gamma_k\left(\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}M_{k - 1/2} - \newoverline{\theta_k^{(n + 1)^\star}}^{(k + 1/2)}M_{k + 1/2}\right)\Bigg]\nonumber\\
 &+ \frac{d\newoverline{\Pi}}{2dz}\vline_{k-1/2}\left(z_{k - 1} - z_{k}\right)\Bigg[-\alpha_{k-1}\left(M_{k - 3/2} - M_{k - 1/2}\right)-\beta_{k-1}\left(\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 3/2)}M_{k - 3/2} - \newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}M_{k - 1/2}\right)\nonumber\\
 &-\alpha_{k}\left(M_{k - 1/2} - M_{k + 1/2}\right)-\beta_{k}\left(\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}M_{k - 1/2} - \newoverline{\theta_k^{(n + 1)^\star}}^{(k + 1/2)}M_{k + 1/2}\right)\Bigg]\nonumber\\
 &= \frac{\left(w_{k - 1/2}^{(\text{expl.})} - w_{k - 1/2}^{(n + 1)}\right)\left(z_{k - 1} - z_{k}\right)}{\epsilon\Delta t^2c^{(p)}} - \newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}\frac{\Pi^{'\text{expl.}}_{k - 1} - \Pi^{'\text{expl.}}_{k}}{\Delta t} - \frac{z_{k - 1} - z_{k}}{\Delta t}\left(\theta_{k-1}^{'(\text{expl.})}+\theta_k^{'(\text{expl.})}\right)\frac{d\newoverline{\Pi}}{2dz}\vline_{k-1/2}\nonumber\\
-&\Leftrightarrow\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}\Bigg[\gamma_{k - 1}\alpha_{k-1}\left(M_{k - 3/2} - M_{k - 1/2}\right) + \gamma_{k - 1}\beta_{k-1}\left(\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 3/2)}M_{k - 3/2} - \newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}M_{k - 1/2}\right)\nonumber\\
-&- \gamma_k\alpha_k\left(M_{k - 1/2} - M_{k + 1/2}\right) - \gamma_k\beta_k\left(\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}M_{k - 1/2} - \newoverline{\theta_k^{(n + 1)^\star}}^{(k + 1/2)}M_{k + 1/2}\right)\Bigg]\nonumber\\
+&\Leftrightarrow\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}\Bigg[\gamma_{k - 1}\left(\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 3/2)}M_{k - 3/2} - \newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}M_{k - 1/2}\right)\nonumber\\
+&- \gamma_k\left(\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}M_{k - 1/2} - \newoverline{\theta_k^{(n + 1)^\star}}^{(k + 1/2)}M_{k + 1/2}\right)\Bigg]\nonumber\\
 &+ \frac{d\newoverline{\Pi}}{2dz}\vline_{k-1/2}\left(z_{k - 1} - z_{k}\right)\Bigg[\alpha_{k-1}\left(M_{k - 3/2} - M_{k - 1/2}\right)+\beta_{k-1}\left(\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 3/2)}M_{k - 3/2} - \newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}M_{k - 1/2}\right)\nonumber\\
 &+\alpha_{k}\left(M_{k - 1/2} - M_{k + 1/2}\right)+\beta_{k}\left(\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}M_{k - 1/2} - \newoverline{\theta_k^{(n + 1)^\star}}^{(k + 1/2)}M_{k + 1/2}\right)\Bigg] - \frac{w_{k - 1/2}^{(n + 1)}\left(z_{k - 1} - z_{k}\right)}{\epsilon\Delta t^2c^{(p)}}\nonumber\\
 &= -\frac{w_{k - 1/2}^{(\text{expl.})}\left(z_{k - 1} - z_{k}\right)}{\epsilon\Delta t^2c^{(p)}} + \newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}\frac{\Pi^{'\text{expl.}}_{k - 1} - \Pi^{'\text{expl.}}_{k}}{\Delta t} + \frac{z_{k - 1} - z_{k}}{\Delta t}\left(\theta_{k-1}^{'(\text{expl.})}+\theta_k^{'(\text{expl.})}\right)\frac{d\newoverline{\Pi}}{2dz}\vline_{k-1/2}.\label{eq:vert_solver_pre_0}
@@ -24053,8 +24049,8 @@ w^{(n + 1)}_{k - 1/2} &= \frac{\frac{2M_{k - 1/2}}{A_{k - 1/2}} - \newoverline{\
 Setzt man dies in Glg. \eqref{eq:vert_solver_pre_0} ein, erhält man
 %
 \begin{align}
-&\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}\Bigg[\gamma_{k - 1}\alpha_{k-1}\left(M_{k - 3/2} - M_{k - 1/2}\right) + \gamma_{k - 1}\beta_{k-1}\left(\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 3/2)}M_{k - 3/2} - \newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}M_{k - 1/2}\right)\nonumber\\
-&- \gamma_k\alpha_k\left(M_{k - 1/2} - M_{k + 1/2}\right) - \gamma_k\beta_k\left(\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}M_{k - 1/2} - \newoverline{\theta_k^{(n + 1)^\star}}^{(k + 1/2)}M_{k + 1/2}\right)\Bigg]\nonumber\\
+&\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}\Bigg[\gamma_{k - 1}\left(\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 3/2)}M_{k - 3/2} - \newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}M_{k - 1/2}\right)\nonumber\\
+&- \gamma_k\left(\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}M_{k - 1/2} - \newoverline{\theta_k^{(n + 1)^\star}}^{(k + 1/2)}M_{k + 1/2}\right)\Bigg]\nonumber\\
 &+ \frac{d\newoverline{\Pi}}{2dz}\vline_{k-1/2}\left(z_{k - 1} - z_{k}\right)\Bigg[\alpha_{k-1}\left(M_{k - 3/2} - M_{k - 1/2}\right)+\beta_{k-1}\left(\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 3/2)}M_{k - 3/2} - \newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}M_{k - 1/2}\right)\nonumber\\
 &+\alpha_{k}\left(M_{k - 1/2} - M_{k + 1/2}\right)+\beta_{k}\left(\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}M_{k - 1/2} - \newoverline{\theta_k^{(n + 1)^\star}}^{(k + 1/2)}M_{k + 1/2}\right)\Bigg]\nonumber\\
 &- \frac{\frac{2M_{k - 1/2}}{A_{k - 1/2}} - \newoverline{\rho_k^{(n + 1)}}^{(k - 1/2)}w^{(n)}_{k - 1/2}}{\newoverline{\rho_k^{(n)}}^{(k - 1/2)}}\frac{\left(z_{k - 1} - z_{k}\right)}{\epsilon\Delta t^2c^{(p)}}\nonumber\\
@@ -24071,8 +24067,8 @@ Für die Dichte $ \newoverline{\rho_k^{(n + 1)}}^{(k - 1/2)}$ gilt
 Hieraus folgt
 %
 \begin{align}
-&\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}\Bigg[\gamma_{k - 1}\alpha_{k - 1}\left(M_{k - 3/2} - M_{k - 1/2}\right) + \gamma_{k - 1}\beta_{k-1}\left(\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 3/2)}M_{k - 3/2} - \newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}M_{k - 1/2}\right)\nonumber\\
-&- \gamma_k\alpha_k\left(M_{k - 1/2} - M_{k + 1/2}\right) - \gamma_k\beta_k\left(\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}M_{k - 1/2} - \newoverline{\theta_k^{(n + 1)^\star}}^{(k + 1/2)}M_{k + 1/2}\right)\Bigg]\nonumber\\
+&\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}\Bigg[\gamma_{k - 1}\left(\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 3/2)}M_{k - 3/2} - \newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}M_{k - 1/2}\right)\nonumber\\
+&- \gamma_k\left(\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}M_{k - 1/2} - \newoverline{\theta_k^{(n + 1)^\star}}^{(k + 1/2)}M_{k + 1/2}\right)\Bigg]\nonumber\\
 &+ \frac{d\newoverline{\Pi}}{2dz}\vline_{k-1/2}\left(z_{k - 1} - z_{k}\right)\Bigg[\alpha_{k - 1}\left(M_{k - 3/2} - M_{k - 1/2}\right) + \beta_{k - 1}\left(\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 3/2)}M_{k - 3/2} - \newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}M_{k - 1/2}\right)\nonumber\\
 &+\alpha_{k}\left(M_{k - 1/2} - M_{k + 1/2}\right)+\beta_{k}\left(\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}M_{k - 1/2} - \newoverline{\theta_k^{(n + 1)^\star}}^{(k + 1/2)}M_{k + 1/2}\right)\Bigg]\nonumber\\
 &- \frac{\left(z_{k - 1} - z_{k}\right)}{\epsilon\Delta t^2c^{(p)}}\frac{\frac{2M_{k - 1/2}}{A_{k - 1/2}} - w^{(n)}_{k - 1/2}\newoverline{\rho_k^{(\text{expl.})}}^{(k - 1/2)} + w^{(n)}_{k - 1/2}\Delta t\frac{M_{k - 3/2} - M_{k - 1/2}}{2V_{k - 1}} + w^{(n)}_{k - 1/2}\Delta t\frac{M_{k - 1/2} - M_{k + 1/2}}{2V_k}}{\newoverline{\rho_k^{(n)}}^{(k - 1/2)}}\nonumber\\
@@ -24088,12 +24084,12 @@ c_{k - 3/2}M_{k - 3/2} + d_{k - 1/2}M_{k - 1/2} + e_{k + 1/2}M_{k + 1/2} = r_{k 
 Für die Koeffizienten gilt
 %
 \begin{align}
-c_{k - 3/2} &= \left[\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}\gamma_{k - 1} + \frac{d\newoverline{\Pi}}{2dz}\vline_{k-1/2}\left(z_{k - 1} - z_{k}\right)\right]\left(\alpha_{k-1} + \beta_{k-1}\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 3/2)}\right)\nonumber\\
+c_{k - 3/2} &= \newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}\gamma_{k - 1}\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 3/2)} + \frac{d\newoverline{\Pi}}{2dz}\vline_{k - 1/2}\left(z_{k - 1} - z_{k}\right)\left(\alpha_{k - 1} + \beta_{k - 1}\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 3/2)}\right)\nonumber\\
 &- \frac{\left(z_{k - 1} - z_{k}\right)}{\epsilon\Delta tc^{(p)}}\frac{w^{(n)}_{k - 1/2}}{2V_{k - 1}\newoverline{\rho_k^{(n)}}^{(k - 1/2)}},\\
-d_{k - 1/2} &= -\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}\left[\gamma_{k - 1}\left(\alpha_{k - 1} + \beta_{k - 1}\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}\right) + \gamma_{k}\left(\alpha_{k} + \beta_{k}\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}\right)\right]\nonumber\\
-&+ \frac{d\newoverline{\Pi}}{2dz}\vline_{k-1/2}\left(z_{k - 1} - z_{k}\right)\left[\alpha_{k} - \alpha_{k - 1} + \newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}\left(\beta_{k} - \beta_{k - 1}\right)\right]\nonumber\\
+d_{k - 1/2} &= -\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}\left[\gamma_{k - 1}\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)} + \gamma_{k}\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}\right]\nonumber\\
+&+ \frac{d\newoverline{\Pi}}{2dz}\vline_{k - 1/2}\left(z_{k - 1} - z_{k}\right)\left[\alpha_{k} - \alpha_{k - 1} + \newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}\left(\beta_{k} - \beta_{k - 1}\right)\right]\nonumber\\
 &- \frac{\left(z_{k - 1} - z_{k}\right)}{\epsilon\Delta t^2c^{(p)}\newoverline{\rho_k^{(n)}}^{(k - 1/2)}}\left[\frac{2}{A_{k - 1/2}} - \frac{\Delta tw^{(n)}_{k - 1/2}}{2}\left(\frac{1}{V_{k - 1}} + \frac{1}{V_k}\right)\right],\\
-e_{k + 1/2} &= \left[\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}\gamma_{k} - \frac{d\newoverline{\Pi}}{2dz}\vline_{k - 1/2}\left(z_{k - 1} - z_{k}\right)\right]\left(\alpha_{k} + \beta_{k}\newoverline{\theta_k^{(n + 1)^\star}}^{(k + 1/2)}\right)\nonumber\\
+e_{k + 1/2} &= \newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}\gamma_{k}\newoverline{\theta_k^{(n + 1)^\star}}^{(k + 1/2)} - \frac{d\newoverline{\Pi}}{2dz}\vline_{k - 1/2}\left(z_{k - 1} - z_{k}\right)\left(\alpha_{k} + \beta_{k}\newoverline{\theta_k^{(n + 1)^\star}}^{(k + 1/2)}\right)\nonumber\\
 &+ \frac{\left(z_{k - 1} - z_{k}\right)}{\epsilon\Delta tc^{(p)}}\frac{w^{(n)}_{k - 1/2}}{2V_{k}\newoverline{\rho_k^{(n)}}^{(k - 1/2)}},
 \end{align}
 \begin{align}
@@ -24106,7 +24102,7 @@ Aus dem Ergebnis für $M_{k - 1/2}$ lassen sich die anderen Unbekannten wie folg
 \begin{align}
 \rho^{(n + 1)}_k &= \rho^{(\text{expl.})}_k - \Delta t\frac{M_{k - 1/2} - M_{k + 1/2}}{V_k},\\
 \newtilde{\theta}^{(n + 1)}_k &= \newtilde{\theta}^{(\text{expl.})}_k - \Delta t\frac{\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}M_{k - 1/2} - \newoverline{\theta_k^{(n + 1)^\star}}^{(k + 1/2)}M_{k + 1/2}}{V_k},\\
-\Pi_k^{(n+1)} &= \Pi_k^{(n)} + \gamma_k\left(\newtilde{\theta}_k^{(n+1)} - \newtilde{\theta}_k^{(n)}\right),\\
+\Pi_k^{(n+1)} &= \Pi_k^{(n)} + \gamma_kV_k\left(\newtilde{\theta}_k^{(n + 1)} - \newtilde{\theta}_k^{(n)}\right),\\
 w^{(n + 1)}_{k - 1/2} &\stackrel{\text{Glg. \eqref{eq:w_from_ml}}}{=} \frac{\frac{2M_{k - 1/2}}{A_{k - 1/2}} - \newoverline{\rho_k^{(n + 1)}}^{(k - 1/2)}w^{(n)}_{k - 1/2}}{\newoverline{\rho_k^{(n)}}^{(k - 1/2)}}.
 \end{align}
 
