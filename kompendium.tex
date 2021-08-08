@@ -24073,10 +24073,10 @@ Hieraus folgt
 \begin{align}
 &\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}\Bigg[\gamma_{k - 1}\alpha_{k-1}\left(M_{k - 3/2} - M_{k - 1/2}\right) + \gamma_{k - 1}\beta_{k-1}\left(\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 3/2)}M_{k - 3/2} - \newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}M_{k - 1/2}\right)\nonumber\\
 &- \gamma_k\alpha_k\left(M_{k - 1/2} - M_{k + 1/2}\right) - \gamma_k\beta_k\left(\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}M_{k - 1/2} - \newoverline{\theta_k^{(n + 1)^\star}}^{(k + 1/2)}M_{k + 1/2}\right)\Bigg]\nonumber\\
-&+ \frac{d\newoverline{\Pi}}{2dz}\vline_{k-1/2}\left(z_{k - 1} - z_{k}\right)\Bigg[\alpha_{k-1}\left(M_{k - 3/2} - M_{k - 1/2}\right)+\beta_{k-1}\left(\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 3/2)}M_{k - 3/2} - \newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}M_{k - 1/2}\right)\nonumber\\
+&+ \frac{d\newoverline{\Pi}}{2dz}\vline_{k-1/2}\left(z_{k - 1} - z_{k}\right)\Bigg[\alpha_{k-1}\left(M_{k - 3/2} - M_{k - 1/2}\right) + \beta_{k - 1}\left(\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 3/2)}M_{k - 3/2} - \newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}M_{k - 1/2}\right)\nonumber\\
 &+\alpha_{k}\left(M_{k - 1/2} - M_{k + 1/2}\right)+\beta_{k}\left(\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}M_{k - 1/2} - \newoverline{\theta_k^{(n + 1)^\star}}^{(k + 1/2)}M_{k + 1/2}\right)\Bigg]\nonumber\\
 &- \frac{\left(z_{k - 1} - z_{k}\right)}{\epsilon\Delta t^2c^{(p)}}\frac{\frac{2M_{k - 1/2}}{A_{k - 1/2}} - w^{(n)}_{k - 1/2}\newoverline{\rho_k^{(\text{expl.})}}^{(k - 1/2)} + w^{(n)}_{k - 1/2}\Delta t\frac{M_{k - 3/2} - M_{k - 1/2}}{2V_{k - 1}} + w^{(n)}_{k - 1/2}\Delta t\frac{M_{k - 1/2} - M_{k + 1/2}}{2V_k}}{\newoverline{\rho_k^{(n)}}^{(k - 1/2)}}\nonumber\\
-&= -\frac{w_{k - 1/2}^{(\text{expl.})}\left(z_{k - 1} - z_{k}\right)}{\epsilon\Delta t^2c^{(p)}} + \newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}\frac{\Pi^{'\text{expl.}}_{k - 1} - \Pi^{'\text{expl.}}_{k}}{\Delta t} + \frac{z_{k - 1} - z_{k}}{\Delta t}\left(\theta_{k-1}^{'(\text{expl.})}+\theta_k^{'(\text{expl.})}\right)\frac{d\newoverline{\Pi}}{2dz}\vline_{k-1/2}.
+&= -\frac{w_{k - 1/2}^{(\text{expl.})}\left(z_{k - 1} - z_{k}\right)}{\epsilon\Delta t^2c^{(p)}} + \newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}\frac{\Pi^{'\text{expl.}}_{k - 1} - \Pi^{'\text{expl.}}_{k}}{\Delta t} + \frac{z_{k - 1} - z_{k}}{\Delta t}\left(\theta_{k - 1}^{'(\text{expl.})}+\theta_k^{'(\text{expl.})}\right)\frac{d\newoverline{\Pi}}{2dz}\vline_{k-1/2}.
 \end{align}
 %
 Dies ist die zu lösende Gleichung. Diese ist formal von der Form
@@ -24088,12 +24088,10 @@ c_{k - 3/2}M_{k - 3/2} + d_{k - 1/2}M_{k - 1/2} + e_{k + 1/2}M_{k + 1/2} = r_{k 
 Für die Koeffizienten gilt
 %
 \begin{align}
-c_{k - 3/2} &= c^{(p)}\alpha_{k - 1} + c^{(p)}\beta_{k - 1}\newoverline{s_k^{(n + 1)^\star}}^{(k - 3/2)} - \newoverline{T_k^{(n + 1)^\star}}^{(k - 1/2)}\gamma_{k - 1} - \newoverline{T_k^{(n + 1)^\star}}^{(k - 1/2)}\delta_{k - 1}\newoverline{s_k^{(n + 1)^\star}}^{(k - 3/2)}\nonumber\\
-&- \frac{\left(z_{k - 1} - z_k\right)w^{(n)}_{k - 1/2}}{2\epsilon\Delta tV_{k - 1}\newoverline{\rho_k^{(n)}}^{(k - 1/2)}},\\
-d_{k - 1/2} &= -c^{(p)}\alpha_{k - 1} - c^{(p)}\left(\beta_{k - 1} + \beta_k\right)\newoverline{s_k^{(n + 1)^\star}}^{(k - 1/2)} - c^{(p)}\alpha_k + \newoverline{T_k^{(n + 1)^\star}}^{(k - 1/2)}\gamma_{k - 1} + \newoverline{T_k^{(n + 1)^\star}}^{(k - 1/2)}\delta_{k - 1}\newoverline{s_k^{(n + 1)^\star}}^{(k - 1/2)}\nonumber\\
-&- \frac{\left(z_{k - 1} - z_k\right)}{\epsilon\Delta t^2\newoverline{\rho_k^{(n)}}^{(k - 1/2)}}\frac{2}{A_{k - 1/2}} + \newoverline{T_k^{(n + 1)^\star}}^{(k - 1/2)}\gamma_k + \newoverline{T_k^{(n + 1)^\star}}^{(k - 1/2)}\delta_k\newoverline{s_k^{(n + 1)^\star}}^{(k - 1/2)}\nonumber\\
-& + \frac{\left(z_{k - 1} - z_k\right)w^{(n)}_{k - 1/2}}{\epsilon\Delta t\newoverline{\rho_k^{(n)}}^{(k - 1/2)}}\left(\frac{1}{2V_{k - 1}} - \frac{1}{2V_k}\right),\\
-e_{k + 1/2} &= c^{(p)}\alpha_k + c^{(p)}\beta_k\newoverline{s_k^{(n + 1)^\star}}^{(k + 1/2)} - \newoverline{T_k^{(n + 1)^\star}}^{(k - 1/2)}\gamma_k - \newoverline{T_k^{(n + 1)^\star}}^{(k - 1/2)}\delta_k\newoverline{s_k^{(n + 1)^\star}}^{(k + 1/2)}  + \frac{\left(z_{k - 1} - z_k\right)w^{(n)}_{k - 1/2}}{\epsilon\Delta t\newoverline{\rho_k^{(n)}}^{(k - 1/2)}}\frac{1}{2V_k},\\
+c_{k - 3/2} &= \left[\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}\gamma_{k - 1} + \frac{d\newoverline{\Pi}}{2dz}\vline_{k-1/2}\left(z_{k - 1} - z_{k}\right)\right]\left(\alpha_{k-1} + \beta_{k-1}\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 3/2)}\right)\nonumber\\
+&- \frac{\left(z_{k - 1} - z_{k}\right)}{\epsilon\Delta tc^{(p)}}\frac{w^{(n)}_{k - 1/2}}{2V_{k - 1}\newoverline{\rho_k^{(n)}}^{(k - 1/2)}},\\
+d_{k - 1/2} &= 0,\\
+e_{k + 1/2} &= 0,\\
 r_{k - 1/2} &= -\frac{w_{k - 1/2}^{(\text{expl.})}\left(z_{k - 1} - z_{k}\right)}{\epsilon\Delta t^2c^{(p)}} + \newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}\frac{\Pi^{'\text{expl.}}_{k - 1} - \Pi^{'\text{expl.}}_{k}}{\Delta t} + \frac{z_{k - 1} - z_{k}}{\Delta t}\left(\theta_{k-1}^{'(\text{expl.})}+\theta_k^{'(\text{expl.})}\right)\frac{d\newoverline{\Pi}}{2dz}\vline_{k-1/2}\nonumber\\
 &- \frac{\left(z_{k - 1} - z_{k}\right)}{\epsilon\Delta t^2c^{(p)}}\frac{w^{(n)}_{k - 1/2}\newoverline{\rho_k^{(\text{expl.})}}^{(k - 1/2)}}{\newoverline{\rho_k^{(n)}}^{(k - 1/2)}}.
 \end{align}
