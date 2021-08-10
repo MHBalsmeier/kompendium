@@ -23970,7 +23970,7 @@ Hierbei ist $\epsilon$ das implizite Gewicht, welches aufgrund von Abschn. \ref{
 %
 \begin{align}
 \theta^{'(n + 1)}_k &= \theta^{'(\text{expl.})}_k + \theta''_k = \theta^{'(\text{expl.})}_k + \alpha_k\rho'_k + \beta_k\newtilde{\theta}'_k,\\
-\Pi^{'(n + 1)}_k &= \Pi^{'(\text{expl.})}_k + \Pi''_k = \Pi^{'(\text{expl.})}_k + \gamma_k\newtilde{\theta}'_{k}
+\Pi^{'(n + 1)}_k &= \Pi^{'(\text{expl.})}_k + \Pi''_k = \Pi^{'(\text{expl.})}_k + \gamma_k\newtilde{\theta}'_{k}.
 \end{align}
 %
 Die gestrichenen Größen sind die Abweichungen von den expliziten Komponenten, also
@@ -24278,10 +24278,10 @@ Dementsprechend muss das Gleichungssystem Glg.en \eqref{eq:prog_rev_0} - \eqref{
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-\frac{\partial\mathbf{v}}{\partial t} &= -c^{(p)}\nabla T + T\nabla s - \nabla k + \mathbf{v}\times\etabi - \nabla\phi + \textcolor{red}{\mathbf{f}_R}\label{eq:prog_irrev_0}\\
+\frac{\partial\mathbf{v}}{\partial t} &= -c^{(p)}\theta\nabla\Pi - \nabla k + \mathbf{v}\times\etabi - \nabla\phi + \textcolor{red}{\mathbf{f}_R}\label{eq:prog_irrev_0}\\
 \frac{\partial\rho}{\partial t} &= -\nabla\cdot\left(\rho\mathbf{v}\right) + \textcolor{red}{\nabla\cdot\left(\kappa_\rho\nabla\rho\right)}\label{eq:prog_irrev_1}\\
-\frac{\partial\newtilde{s}}{\partial t} &= -\nabla\cdot\left(\newtilde{s}\mathbf{v}\right) + \textcolor{red}{\frac{q^{(V)}}{T}}\label{eq:prog_irrev_2}\\
-T &= f\left(\rho, \newtilde{s}\right)\label{eq:prog_irrev_3}
+\frac{\partial\newtilde{s}}{\partial t} &= -\nabla\cdot\left(\newtilde{s}\mathbf{v}\right) + \textcolor{red}{\frac{q^{(V)}}{c^{(p)}\Pi}}\label{eq:prog_irrev_2}\\
+\Pi &= f\left(\newtilde{\theta}\right)\label{eq:prog_irrev_3}
 \end{align}
 \end{center}
 }}
