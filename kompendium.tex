@@ -24061,7 +24061,8 @@ Für die Dichte $ \newoverline{\rho_k^{(n + 1)}}^{(k - 1/2)}$ gilt
 %
 \begin{align}
 \newoverline{\rho_k^{(n + 1)}}^{(k - 1/2)} &= \frac{1}{2}\rho_{k - 1}^{(n + 1)} + \frac{1}{2}\rho_k^{(n + 1)}\nonumber\\
-&= \frac{1}{2}\rho_{k - 1}^{(\text{expl.})} - \Delta t\frac{M_{k - 3/2} - M_{k - 1/2}}{2V_{k - 1}} + \frac{1}{2}\rho_k^{(\text{expl.})} - \Delta t\frac{M_{k - 1/2} - M_{k + 1/2}}{2V_k}.
+&= \frac{1}{2}\rho_{k - 1}^{(\text{expl.})} - \Delta t\frac{M_{k - 3/2} - M_{k - 1/2}}{2V_{k - 1}} + \frac{1}{2}\rho_k^{(\text{expl.})} - \Delta t\frac{M_{k - 1/2} - M_{k + 1/2}}{2V_k}\nonumber\\
+&= \newoverline{\rho_{k}^{(\text{expl.})}}^{(k - 1/2)} - \Delta t\frac{M_{k - 3/2} - M_{k - 1/2}}{2V_{k - 1}} - \Delta t\frac{M_{k - 1/2} - M_{k + 1/2}}{2V_k}.
 \end{align}
 %
 Hieraus folgt
@@ -24101,7 +24102,7 @@ Aus dem Ergebnis für $M_{k - 1/2}$ lassen sich die anderen Unbekannten wie folg
 \begin{align}
 \rho^{(n + 1)}_k &= \rho^{(\text{expl.})}_k - \Delta t\frac{M_{k - 1/2} - M_{k + 1/2}}{V_k},\\
 \newtilde{\theta}^{(n + 1)}_k &= \newtilde{\theta}^{(\text{expl.})}_k - \Delta t\frac{\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}M_{k - 1/2} - \newoverline{\theta_k^{(n + 1)^\star}}^{(k + 1/2)}M_{k + 1/2}}{V_k},\\
-\Pi_k^{(n+1)} &= \Pi_k^{(n)} + \gamma_kV_k\left(\newtilde{\theta}_k^{(n + 1)} - \newtilde{\theta}_k^{(n)}\right),\\
+\Pi_k^{'(n+1)} &= \Pi_k^{'(\text{expl.})} + \gamma_kV_k\left(\newtilde{\theta}_k^{(n + 1)} - \newtilde{\theta}_k^{(\text{expl.})}\right),\\
 w^{(n + 1)}_{k - 1/2} &\stackrel{\text{Glg. \eqref{eq:w_from_ml}}}{=} \frac{\frac{2M_{k - 1/2}}{A_{k - 1/2}} - \newoverline{\rho_k^{(n + 1)}}^{(k - 1/2)}w^{(n)}_{k - 1/2}}{\newoverline{\rho_k^{(n)}}^{(k - 1/2)}}.
 \end{align}
 
