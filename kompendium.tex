@@ -22257,14 +22257,14 @@ Da die Kostenfunktion minimert werden soll und die Wurzel streng monoton steigen
 J\left(x\right) = J_B\left(x, x_B\right) + J_y\left(x, y\right) = \frac{1}{2}\alpha_B\left(x - x_B\right)^2 + \frac{1}{2}\alpha_y\left[x - \newhat{I}\left(y\right)\right]^2.
 \end{align}
 %
-Der Faktor $\frac{1}{2}$ ist Konvention und ändert das Minimum der Kostenfunktion nicht. Die Bestimmung des Operators $\newhat{I}$ kann in der realen Atmosphäre sehr kompliziert sein. Die Messungen sind nämlich i. A. nicht einfach Messungen von $\left(p, \rho, T, \mathbf{v}\right)$, welche interpoliert und mittels der Zustandsgleichung umgerechnet werden müssen, sondern es kann sich auch um Messungen von spektralen Strahldichten an einem Satelliten oder Radarreflektivitäten handeln. Für diese Größen ist es jedoch deutlich einfacher möglich, sie aus einem Modellzustand heraus zu rekonstruieren. Daher nimmt man die Ersetzung
+Der Faktor $\frac{1}{2}$ ist Konvention und ändert das Minimum der Kostenfunktion nicht. Da im Falle von konventionellen Beobachtungen meist mehr Modellfreiheitsgrade als Messwerte vorliegen, führt die Ersetzung
 %
 \begin{align}
 \text{Modell} - \text{interpolierte Beobachtung} &\to \text{Beobachtung} - \text{interpoliertes Modell}\\
 \Rightarrow x - \newhat{I}\left(y\right) &\to y - \newhat{h}\left(x\right)\label{eq:replace_for_3dvar}
 \end{align}
 %
-vor, hierbei ist $\newhat{h}$ ein i. A. nichtlinearer Operator, der sogenannte \textit{Beobachtungsoperator}\index{Beobachtungsoperator}. Die Kostenfunktion lautet somit
+zu einem kleineren Problem. Hierbei ist $\newhat{h}$ ein i. A. nichtlinearer Operator, der sogenannte \textit{Beobachtungsoperator}\index{Beobachtungsoperator}. Die Kostenfunktion lautet somit
 %
 \begin{align}
 J\left(x\right) = \frac{1}{2}\alpha_B\left(x - x_B\right)^2 + \frac{1}{2}\alpha_y\left[y - \newhat{h}\left(x\right)\right]^2.\label{eq:3dvar_cost_one_obs}
@@ -22583,9 +22583,9 @@ kann man jedoch die Festlegung der Größe $q_1$ in der gesamten Atmosphäre dur
 \section{3D-Var}
 \label{sec:3d-var}\index{3D-Var}
 
-Die Inversion der $M \times M-$Matrix $\overleftrightarrow{H}\overleftrightarrow{B}\overleftrightarrow{H}^T + \overleftrightarrow{R}$ ist sehr aufwendig, wenn die Anzahl der Einzelbeobachtungen groß ist. Hierzu mache man sich klar, dass beispielsweise ein Radarbild aus einer sehr großen Zahl von Einzelbeobachtungen besteht. Dies ist ein Nachteil der OI. Beim \textit{3D-Var-Verfahren}\index{3D-Var-Verfahren} geht es darum, Glg. \eqref{eq:oi_result} iterativ ohne explizite Berechnung der Gain-Matrix zu lösen.
+Die Inversion der $M \times M-$Matrix $\overleftrightarrow{H}\overleftrightarrow{B}\overleftrightarrow{H}^T + \overleftrightarrow{R}$ ist sehr aufwendig, wenn die Anzahl der Einzelbeobachtungen groß ist. Hierzu mache man sich klar, dass beispielsweise ein Radarbild aus einer sehr großen Zahl von Einzelbeobachtungen besteht. Dies ist ein Nachteil der OI.
 
-Definiere
+Beim \textit{3D-Var-Verfahren}\index{3D-Var-Verfahren} geht es darum, Glg. \eqref{eq:oi_result} iterativ ohne explizite Berechnung der Gain-Matrix zu lösen. Definiere
 %
 \begin{align}
 \delta\mathbf{x} &\coloneqq \mathbf{x} - \mathbf{x}_B,\\
