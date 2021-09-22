@@ -22261,7 +22261,7 @@ Der Faktor $\frac{1}{2}$ ist Konvention und ändert das Minimum der Kostenfunkti
 %
 \begin{align}
 \text{Modell} - \text{interpolierte Beobachtung} &\to \text{Beobachtung} - \text{interpoliertes Modell}\\
-\Rightarrow x - \newhat{I}\left(y\right) &\to y - \newhat{h}\left(x\right)\label{eq:replace_for_3dvar}
+\Rightarrow x - \newhat{I}\left(y\right) &\to y - \newhat{h}\left(x\right)\label{eq:replace_for_oi}
 \end{align}
 %
 zu einem kleineren Problem. Hierbei ist $\newhat{h}$ ein i. A. nichtlinearer Operator, der sogenannte \textit{Beobachtungsoperator}\index{Beobachtungsoperator}. Die Kostenfunktion lautet somit
@@ -22583,7 +22583,7 @@ kann man jedoch die Festlegung der Größe $q_1$ in der gesamten Atmosphäre dur
 \section{3D-Var}
 \label{sec:3d-var}\index{3D-Var}
 
-Die Inversion der $M \times M-$Matrix $\overleftrightarrow{H}\overleftrightarrow{B}\overleftrightarrow{H}^T + \overleftrightarrow{R}$ ist sehr aufwendig, wenn die Anzahl der Einzelbeobachtungen groß ist. Hierzu mache man sich klar, dass beispielsweise ein Radarbild aus einer sehr großen Zahl von Einzelbeobachtungen besteht. Dies ist ein Nachteil der OI.
+Die Inversion der $M \times M-$Matrix $\overleftrightarrow{H}\overleftrightarrow{B}\overleftrightarrow{H}^T + \overleftrightarrow{R}$ ist sehr aufwendig, wenn die Anzahl der Einzelbeobachtungen groß ist. Hierzu mache man sich klar, dass beispielsweise ein Radarbild aus einer sehr großen Zahl von Einzelbeobachtungen besteht. Dies ist ein Nachteil der OI. Diesen könnte man umgehen, indem man die Ersetzung Glg. \eqref{eq:replace_for_oi} rückgängig macht. Dies ist bei Fernerkundungsdaten nicht direkt möglich, da man beispielsweise eine spektrale Strahldichte an einem Satelliten nicht ohne weiteres in Temperaturen umrechnen kann. Eine Lösung hierfür wird in diesem Abschnitt dargestellt.
 
 Beim \textit{3D-Var-Verfahren}\index{3D-Var-Verfahren} geht es darum, Glg. \eqref{eq:oi_result} iterativ ohne explizite Berechnung der Gain-Matrix zu lösen. Definiere
 %
