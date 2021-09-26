@@ -22239,6 +22239,9 @@ J\left(\mathbf{x}\right) = J_B\left(\mathbf{x}, \mathbf{x}_B\right) + J_y\left(\
 \subsection{Eine Beobachtung}
 \label{sec:eine_beobachtung}
 
+\subsubsection{Ein Modellfreiheitsgrad}
+\label{sec:ein_modellfreiheitsgrad}
+
 Zunächst stellt man sich vor, dass man nur eine Beobachtung $y$ hat und das Modell nur aus einer einzigen Zahl $x$ besteht. Als Ansatz $J'$ für $J$ orientiert man sich an der euklidischen Norm und notiert
 %
 \begin{align}
@@ -22358,7 +22361,10 @@ x &= x_B + \frac{H}{H^2}\left[y - \newhat{h}\left(x_B\right)\right] = x_B + \fra
 %
 Die Analyse bestimmt sich in diesem Fall nur aus den Messungen.
 \end{itemize}
-%
+
+\subsubsection{Mehrere Modellfreiheitsgrade}
+\label{sec:mehrere_modellfreiheitsgrade}
+
 Nun nimmt man an, dass ein Modellzustand nicht durch eine einzelne Zahl $x$, sondern durch einen Zustandsvektor $\mathbf{x}$ der Länge $N$ festgelegt wird. Für diesen Fall verallgemeinert die Kostenfunktion Glg. \eqref{eq:3dvar_cost_simple} zu
 %
 \begin{center}
@@ -22566,8 +22572,11 @@ vereinfachen. Setzt man dies in Glg. \eqref{eq:oi_result_pre} ein, erhält man
 \end{center}
 }}
 \end{center}
-%
-Ein Nachteil dieses Verfahrens ist, dass die so erhaltenen Felder nicht die Balancegleichung erfüllen und daher Schall- und Schwerewellen auslösen. Daher kann man die so gewonnene Analyse, wenn man von sehr feinen Modellauflösungen absieht, nicht als Anfangszustand eines Modelllaufes verwenden. Daher ist nach einer Analyse mit OI noch eine Schall- und Schwerewellen dämpfende \textit{Initialisierung}\index{Initialisierung} notwendig, bevor das Modell gestartet werden kann.
+
+\subsection{Sonderprobleme bei der Behandlung des Windfeldes}
+\label{sec:sonderprobleme_bei_der_behandlung_des_windfeldes}
+
+Das Windfeld kann als Teil der OI assimiliert werden. Dies hat bei groben Modellauflösungen jedoch den Nachteil, dass der so erhaltene Wind häufig weiter von der Balancegleichung entfernt ist, als dies auf der synoptischen Skala üblich ist und somit zu starke Schall- und Schwerewellen auslöst. Diese lösen dann Vorhersagefehler aus. Daher kann es sinnvoll sein, das Windfeld nicht auf Grundlage von Messungen zu bestimmen, sondern durch Lösen der Balancegleichung. Dies ist ein Beispiel dafür, dass die OI die Qualität der Analyse und nicht der Vorhersage maximiert.
 
 \subsection{Berücksichtigung von Hydrostatik}
 \label{sec:berücksichtigung_von_hydrostatik}\index{Hydrostatik!Datenassimilation}\index{Datenassimilation!Hydrostatik}
