@@ -22223,7 +22223,7 @@ Bis zur zweiten Häfte des 20. Jahrhunderts mussten Meteorologen Wetterkarten ma
 
 Ein Nachteil von Interpolationen ist, dass sie sehr ungenau werden können, wenn keine Messdaten in der näheren Umgebung vorliegen. Am Beginn der operationellen numerischen Wettervorhersage in den 1950er-Jahren gab es ausschließlich konventionelle Messungen, die meisten von ihnen in Europa und den USA. Auf der Südhalbkugel gab es kaum Wetterbeobachtungen. Eine naheliegende Lösung ist nun, in Regionen, in denen kaum Messungen vorgenommen werden, einen klimatologischen Hintergrundzustand oder den vorherigen Modelllauf als Ersatz für Messungen zu verwenden. Hierdurch können die Informationen aus den Gebieten mit vielen Beobachtungen mittels der vom Modell simulierten physikalischen Gesetze in die Regionen mit wenigen Beobachtungen propagieren.
 
-Bei der sogenannten \textit{optimum interpolation}\index{optimum interpolation} geht es nun darum, Informationen aus den Beobachtungsdaten und einem Hintergrundzustand auf optimale Art und Weise miteinander zu kombinieren. Hierzu verwendet man eine Kostenfunktion\index{Kostenfunktion} $J$, welche zwei Terme enthält:
+Bei der sogenannten \textit{optimum interpolation}\index{optimum interpolation} geht es nun darum, Informationen aus den Beobachtungsdaten und einem Hintergrundzustand auf optimale Art und Weise miteinander zu kombinieren. Damit ist gemeint, dass das Resultat (die Analyse) möglichst nahe am realen atmosphärischen Zustand zum Analysezeitpunkt liegen soll.\footnote{Dies ist nicht zwangsläufig auch der Zustand, der zur besten Vorhersage führt.} Hierzu verwendet man eine Kostenfunktion\index{Kostenfunktion} $J$, welche zwei Terme enthält:
 %
 \begin{itemize}
 \item Ein Anteil $J_B$, welcher die Differenz zwischen der Analyse und dem Hintergrundzustand repräsentiert.
@@ -22441,13 +22441,13 @@ Nun nimmt man an, dass nicht eine, sondern $M$ Beobachtungen vorliegen. Die Kost
 \doublebox{\parbox{\textwidth}{
 \begin{center}
 \begin{eqnarray}
-J\left(\mathbf{x}\right) = \frac{1}{2}\left(\mathbf{x} - \mathbf{x}_B\right)^T\overleftrightarrow{B}^{-1}\left(\mathbf{x} - \mathbf{x}_B\right) + \frac{1}{2}\left(\mathbf{y} - \newhat{h}\left(\mathbf{x}_B\right) - \overleftrightarrow{H}\left(\mathbf{x} - \mathbf{x}_B\right)\right)^T\overleftrightarrow{R}^{-1}\left(\mathbf{y} - \newhat{h}\left(\mathbf{x}_B\right) - \overleftrightarrow{H}\left(\mathbf{x} - \mathbf{x}_B\right)\right)\label{eq:3d-var_cost_function}
+J\left(\mathbf{x}\right) = \frac{1}{2}\left(\mathbf{x} - \mathbf{x}_B\right)^T\overleftrightarrow{B}^{-1}\left(\mathbf{x} - \mathbf{x}_B\right) + \frac{1}{2}\left(\mathbf{y} - \newhat{h}\left(\mathbf{x}_B\right) - \overleftrightarrow{H}\left(\mathbf{x} - \mathbf{x}_B\right)\right)^T\overleftrightarrow{R}^{-1}\left(\mathbf{y} - \newhat{h}\left(\mathbf{x}_B\right) - \overleftrightarrow{H}\left(\mathbf{x} - \mathbf{x}_B\right)\right).\label{eq:3d-var_cost_function}
 \end{eqnarray}
 \end{center}
 }}
 \end{center}
 %
-Hierbei ist $\overleftrightarrow{R}$ die Kovarianzmatrix der Fehler der Beobachtungen. Es gilt
+Hierbei ist $\overleftrightarrow{R}$ die Kovarianzmatrix der Fehler der Beobachtungen. Da es sich hierbei vorwiegend um statistische (und keine systematischen) Fehler handelt, kann man davon ausgehen, dass diese Diagonalform hat. Es gilt
 %
 \begin{align}
 \left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}\right)^T\overleftrightarrow{R}^{-1}\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}\right) &= \mathbf{y}^T\overleftrightarrow{R}^{-1}\mathbf{y} - \mathbf{y}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H}\mathbf{x} - \mathbf{x}^T\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\mathbf{y} + \mathbf{x}^T\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H}\mathbf{x}.
