@@ -17826,8 +17826,8 @@ Für die Enstrophie\index{Enstrophie} bedeutet dies
 
 Die Abschätzung der Auswirkungen subskaliger Variabilität auf die gemittelten Größen bezeichnet man als \textit{Parmetrisierungen}. In einer anderen Konvention bezeichnet man all das als Parametrisierung, oder auch \glqq Physik\grqq\ (in Abgrenzung zur \glqq Dynamik\grqq), was über das trockenadiabatische Gleichungssystem hinausgeht. Von dieser Konvention wird hier kein Gebrauch gemacht.
 
-\subsection{Beispiel: skalare Advektion}
-\label{sec:beispiel:_skalare_advektion}\index{Advektion!skalare!Parametrisierung}\index{Parametrisierung!skalare Advektion}
+\subsection{Skalare Advektion}
+\label{sec:skalare_advektion}\index{Advektion!skalare!Parametrisierung}\index{Parametrisierung!skalare Advektion}
 
 Die Natur diffundiert die Größen Temperatur $T$ und Gasdichten $\rho_i$. Sei $\psi$ eine solche Größe. Die Diffusion erfolgt durch einen von den thermodynamischen Zustandsgrößen abhängenden Diffusionskoeffizienten $\kappa_\psi$, der somit von Ort und Zeit abhängt. Man notiert
 %
@@ -17849,7 +17849,7 @@ wobei der Index $\Delta$ für den in die Diskretisierung einzusetzenden Diffusio
 %
 Dabei ist der horizontale Diffusionskoeffizient größer als der vertikale.
 
-\subsection{Beispiel: Impulsadvektion}
+\subsection{Impulsadvektion}
 \label{sec:impulsadvektion}\index{Impulsadvektion!Parametrisierung}\index{Parametrisierung!Impulsadvektion}
 
 Um einen Ansatz für die Parametrisierung von Impulsadvektion\index{Impulsadvektion!Parametrisierung}\index{Parametrisierung!Impulsadvektion} herzuleiten, geht man analog zum Fall skalarer Advektion\index{Advektion!skalare!Parametrisierung}\index{Parametrisierung!skalare Advektion} im vorherigen Abschnitt von dem Ansatz aus, dass die subskalige Variabilität zu einer isotropen Diffusion\index{Diffusion} führt. Dies entspricht auch dem in Abschn. \ref{sec:mischungswegansatz} beschriebenen Mischungswegansatz\index{Mischungswegansatz}. Hierbei wurde ja davon ausgegangen, dass das Fluid über eine gewisse Länge, der sogenannten Mischungsweglänge\index{Mischungsweglänge} seine Eigenschaften unverändert transportiert, bevor es zu einer Angleichung mit der Umgebung kommt. Dies ist bei molekularer Diffusion\index{molekulare Diffusion}\index{Diffusion!molekulare}, und somit auch bei Reibung\index{Reibung} als Spezialfall dieser, ebenfalls der Fall. Man erinnert sich zunächst an Glg. \eqref{eq:friction_acceleration} für die Reibungsbeschleunigung $\mathbf{f}_R$:
@@ -17873,8 +17873,8 @@ an. Hieraus folgt für die effektive Reibungsbeschleunigung
 \mathbf{f}_R &= \left(\frac{K_v}{\rho} + \frac{4K}{3}\right)\nabla D - K\nabla\times\zetabi.\label{eq:friction_acceleration_for_discrete}
 \end{align}
 
-\subsection{Beispiel: Phasenübergänge}
-\label{sec:beispiel:_phasenuebergaenge}\index{Phasenübergang!Parametrisierung}\index{Parametrisierung!Phasenübergänge}
+\subsection{Phasenübergänge}
+\label{sec:phasenuebergaenge}\index{Phasenübergang!Parametrisierung}\index{Parametrisierung!Phasenübergänge}
 
 Sei $\rho_v$ die Dichte des Wasserdampfes, die Advektionsgleichung für diese Größe lautet
 %
@@ -17946,6 +17946,17 @@ Der Quellterm $Q_v$ setzt sich somit aus zwei Anteilen zusammen:
 Ein Modell hätte zunächst nur Kenntnis vom aufgelösten Anteil $\newtilde{Q}_v$ und würde somit den Gesamt-Phasenübergang $Q_v$ unterschätzen. Insbesondere kann es Situationen mit $\newtilde{Q}_v = 0$ und $\Delta Q_v < 0$ geben. Man könnte nun aus hergeleiteten oder gemessenen Spektraleigenschaften der Felder Ansätze für den Term $\Delta Q_v$ herleiten. Dies wäre jedoch mit großem theoretischen Aufwand verbunden. Anstattdessen wäre es sinnvoll, sich einen sehr einfachen Ansatz für $\Delta Q_v$ zu überlegen und die hierin vorhandenen Koeffizienten direkt an Beobachtungen anzupassen.
 
 Nichtsdestotrotz veranschaulicht dieser Abschnitt, dass alle Arten von Parametrisierungen letzten Endes mit subskaliger Variabilität zu tun haben.  Im Fall $\Omega, \Delta t \to 0$ geht $\Delta Q_v$ gegen Null, was ebenfalls für alle Parametrisierungen der Fall ist.
+
+\subsection{Verdunstungsraten}
+\label{sec:verdunstungsraten}\index{Verdunstungsrate}
+
+An Wasseroberflächen findet Verdunstung statt. Für den Netto-Massenfluss in die Atmosphäre hinein gilt
+%
+\begin{align}
+\text{Netto-Massenfluss} = \text{Verdunstung} - \text{Kondensation}.
+\end{align}
+%
+Ist der Dampfdruck gleich dem Sättigungsdampfdruck, heben sich die beiden Terme auf der rechten Seite gegenseitig auf und die Netto-Verdunstungsrate ist Null. Die genaue Berechnung der beiden Terme auf der rechten Seite für gegebene Bedingugnen $\left(p_v, T\right)$ soll hier nicht besprochen werden. Für die Netto-Verdunstungsrate wird von nun an einfach der Begriff \textit{Verdunstungsrate}\index{Verdunstungsrate} $Q$ verwendet.
 
 \part{Anwendungen der Dynamik}
 \label{part:anwendungen_der_dynamik}
