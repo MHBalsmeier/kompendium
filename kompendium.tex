@@ -17991,7 +17991,7 @@ Q = \frac{\rho_v^{(s)} - \rho_v}{r},
 hierbei ist $\rho_v^{(s)}$ die absolute Sättigugnsfeuchte bei der SST (sea surface temperature) und $\rho_v$ die tatsächliche absolute Feuchte in der untersten Modellschicht. Hierfür macht man einen diffusiven Ansatz
 %
 \begin{align}
-Q = A_z\frac{\rho_v^{(s)} - \rho_v}{z}
+Q = A_z\frac{\rho_v^{(s)} - \rho_v}{z}\label{sec:ansatz_evaporation_rate}
 \end{align}
 %
 mit dem Diffusionskoeffizienten $A_z \geq 0$ aus Abschn. \ref{sec:mischungswegansatz}. $z > 0$ ist die Höhe der Gitterpunkte in der untersten Modellschicht über Grund. Für $A_z$ gilt laut Glg. \eqref{eq:def_eddy_exchange_coeff}
@@ -18016,6 +18016,24 @@ Setzt man dies in Glg. \eqref{eq:deriv_evaporation_0} ein, erhält man
 %
 \begin{align}
 A_z &= u_\star kz.
+\end{align}
+%
+Hieraus folgt zunächst
+%
+\begin{align}
+\frac{1}{A_z\left(z'\right)} = \frac{1}{u_\star kz'}.
+\end{align}
+%
+Mittelt man dies von $z_0$ nach $z$ erhält man
+%
+\begin{align}
+\frac{1}{z - z_0}\int_{z_0}^z\frac{1}{A_z\left(z'\right)}dz' &\approx \frac{1}{z}\int_{z_0}^z\frac{1}{A_z\left(z'\right)}dz' = \frac{1}{z}\int_{z_0}^z\frac{1}{u_\star kz'}dz' = \frac{1}{zu_\star k}\ln\left(\frac{z}{z_0}\right).
+\end{align}
+%
+Setzt man dies in Glg. \eqref{sec:ansatz_evaporation_rate} ein, erhält man
+%
+\begin{align}
+Q = A_z\frac{\rho_v^{(s)} - \rho_v}{z} = \frac{zu_\star k}{\ln\left(\frac{z}{z_0}\right)}\frac{\rho_v^{(s)} - \rho_v}{z} = \frac{u_\star k}{\ln\left(\frac{z}{z_0}\right)}\left(\rho_v^{(s)} - \rho_v\right).
 \end{align}
 %
 Es gilt also
