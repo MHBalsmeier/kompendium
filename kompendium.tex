@@ -16966,6 +16966,21 @@ Die Konstante $z_0 > 0$ ist die \textit{Rauhigkeitslänge}\index{Rauhigkeitslän
 
 Die Schicht, in der Ggl. \eqref{eq:karman_eq} eine gute Approximation ist, bezeichnet man als \textit{Prandtl-Schicht}\index{Prandtl-Schicht}. Sie hat typischerweise Ausdehungen von ein bis zwei freien Mischungsweglängen $l$. Nach unten hin ist sie begrenzt durch die \index{laminare Unterschicht}\index{Unterschicht!laminare}\textit{laminare Unterschicht}, welche im Bereich $\sim 1$ mm dick ist und in welcher molekulare Diffusion vorherrscht. Laminare Unterschicht und Prandtl-Schicht zusammengenommen bilden die \index{Oberflächenschicht}\textit{Oberflächenschicht}. Nach oben hin ist die Oberflächenschicht durch die \index{Ekman-Schicht}\textit{Ekman-Schicht} begrenzt.
 
+\subsubsection{Rauhigkeitsgeschwindigeit}
+\label{sec:rauhigkeitsgeschwindigeit}\index{Rauhigkeitsgeschwindigeit}
+
+Für die Rauhigkeitsgeschwindigkeit $u_\star$ gilt
+%
+\begin{align}
+\newoverline{u}\left(z_\star\right) \hastobe u_\star \Leftrightarrow 1 =  \frac{1}{k}\ln\left(\frac{z_\star}{z_0}\right) \Leftrightarrow z_\star = z_0\exp\left(k\right).
+\end{align}
+%
+Die Rauhigkeitswindgeschwindigkeit ist also die Windgeschwindigkeit, die in der Höhe $z_\star = z_0e^k \approx 1,5 z_0$ herrscht. Kennt man den Wind $U$ in der Höhe $Z$ (beispielsweise die unterste Schicht eines Modells), so lässt sich die Rauhigkeitsgeschwindigkeit aus Glg. \eqref{eq:ln_wind_profile} bestimmen:
+%
+\begin{align}
+U = \frac{u_\star}{k}\ln\left(\frac{Z}{z_0}\right) \Leftrightarrow u_\star = \frac{Uk}{\ln\left(\frac{Z}{z_0}\right)}.
+\end{align}
+
 \section{Ekman-Transport}
 \label{sec:ekman-transport}\index{Ekman-Transport}
 
@@ -17966,6 +17981,20 @@ Wie schnell tritt der Wasserdampf durch die Obergrenze der laminaren Unterschich
 \end{center}
 %
 Die Antwort darauf ließe sich aus den Diffusionsgesetzen bestimmen, nach Mittelung treten jedoch turbulente Kovarianzterme auf, welche parametrisiert werden müssen.
+
+Als Ansatz macht man
+%
+\begin{align}
+Q = \frac{\rho_v^{(s)} - \rho_v}{r},
+\end{align}
+%
+hierbei ist $\rho_v^{(s)}$ die absolute Sättigugnsfeuchte bei der SST (sea surface temperature) und $\rho_v$ die tatsächliche absolute Feuchte in der untersten Modellschicht. Für $r$ erhält man aus dem logarithmischen Windprofil
+%
+\begin{align}
+r = \frac{1}{ku_\star}\ln\left(\frac{z_\text{AGL}}{z_0}\right),
+\end{align}
+%
+wobei $z_\text{AGL}$ die z-Koordinate über Grund des Gitterpunktes in der untersten Modellschicht ist.
 
 \part{Anwendungen der Dynamik}
 \label{part:anwendungen_der_dynamik}
