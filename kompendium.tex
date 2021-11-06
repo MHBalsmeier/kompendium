@@ -24461,7 +24461,7 @@ Die Viskoität $K$ enthält im Rahmen der Turbulenzparametrisierungen molekulare
 Die subskalige Viskosität beschreibt den Einfluss des nicht aufgelösten Anteils der kinetischen Energie, welche man auch als \textit{turbulente kinetische Energie ($\TKE$)}\index{turbulente kinetische Energie ($\TKE$)}\index{kinetische Energie!turbulente ($\TKE$)}\index{$\TKE$ (turbulente kinetische Energie)} bezeichnet. Beim Smagorinsky-Ansatz wird diese Viskosität durch kinematische Eigenschaften des derzeitigen Windfeldes ausgedrückt. Man kann jedoch auch die $\TKE$ als zusätzliche prognostische Größe einführen und für diese eine Gleichung
 %
 \begin{align}
-\frac{\partial\TKE}{\partial t} = -\mathbf{v}\cdot\nabla\TKE + \text{Quellen} - \text{Senken}
+\frac{\partial\TKE}{\partial t} = -\mathbf{v}\cdot\nabla\TKE + \text{Quellen} - \text{Senken}\label{eq:tke_ansatz}
 \end{align}
 %
 lösen. Anschließend können die Viskositätskoeffizienten als Funktionen 
@@ -24470,7 +24470,44 @@ lösen. Anschließend können die Viskositätskoeffizienten als Funktionen
 K = K\left[\mathbf{v}\left(\mathbf{r}\right), \TKE\right]
 \end{align}
 %
-des derzeitigen Windfeldes und der $\TKE$ ausgedrückt werden. Über die prognostische Gleichung der $\TKE$ enthält dieser Ansatz dann auch Informationen über das vergangene Windfeld.
+des derzeitigen Windfeldes und der $\TKE$ ausgedrückt werden. Über die prognostische Gleichung der $\TKE$ enthält dieser Ansatz dann auch Informationen über das vergangene Windfeld. Üblicherweise wird der Smagorinsky-Ansatz für horizontale und der TKE-Ansatz für vertikale Diffusion verwendet.
+
+Die Senke der TKE (s. Glg. \eqref{eq:tke_ansatz}) ist die molekulare Dissipation $\epsilon$. Für die Quellen wird das Symbol $S$ verwendet, somit erhält man
+%
+\begin{align}
+\frac{\partial\TKE}{\partial t} = -\mathbf{v}\cdot\nabla\TKE + S - \epsilon.
+\end{align}
+%
+Für $\epsilon$ bietet sich der einfache Ansatz
+%
+\begin{align}
+\epsilon = \kappa\TKE
+\end{align}
+%
+an. $S$ besteht aus
+%
+\begin{itemize}
+\item der Dissipation $\epsilon_\Delta$ der aufgelösten Skalen,
+\item der Generation subskaliger Wirbel durch Wechselwirkung der aufgelösten Skalen mit der Erdoberfläche; dieser Term wird als $S'$ bezeichnet.
+\end{itemize}
+%
+Somit erhält man
+%
+\begin{align}
+\frac{\partial\TKE}{\partial t} = -\mathbf{v}\cdot\nabla\TKE + \epsilon_\Delta + S' - \kappa\TKE.
+\end{align}
+%
+Für $S'$ bietet sich der Ansatz
+%
+\begin{align}
+S' = \kappa'\KE
+\end{align}
+%
+an. Somit lautet die Gleichung für die TKE
+%
+\begin{align}
+\frac{\partial\TKE}{\partial t} = -\mathbf{v}\cdot\nabla\TKE + \epsilon_\Delta + \kappa'\KE - \kappa\TKE.
+\end{align}
 
 \chapter{\normalfont\textsc{Weiterführende Aspekte}}
 \label{chap:weiterfuehrende_aspekte}
