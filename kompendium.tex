@@ -6177,7 +6177,7 @@ j_z = -C\frac{\partial q}{\partial z},
 wenn man annimmt, dass $q$ nicht mit anderen Größen korreliert. Für $q = 1$ und homogenes $v$ erhält man \index{Diffusion}\textit{Diffusion}, 
 %
 \begin{align}
-C\to D\approx\frac{\newoverline{v}\lambda}{3}, 
+C\to D\approx\frac{\newoverline{v}\lambda}{3},\label{eq:diff_const_kinetic_gastheory}
 \end{align}
 %
 $D$ ist die \textit{Diffusionskonstante}\index{Diffusionskonstante}. Mit der Kontinuitätsgleichung
@@ -24428,12 +24428,6 @@ Dies entspricht grob dem in Glg. \eqref{sec:eddy_viscosity_vert_estimate} erhalt
 
 Außerhalb der planetarischen Grenzschicht kann von einem Wert für die vertikale Mischungsweglänge von ca. 100 m ausgegangen werden, da dort größere Wirbel existieren. Die horizontale Mischungsweglänge kann außerhalb der planetarischen Grenzschicht mit ca. 10 km abgeschätzt werden (zwei Größenordnungen über der horizontalen Mischungsweglänge). Simulationen, deren Auflösung die Mischungsweglänge unterschreiten, bezeichnet man als \textit{large eddy simulations (LES)}\index{large eddy simulation (LES)}. Bei weiterer Erhöhung der Auflösung findet eine Konvergenz der numerischen gegen die molekularen Diffusionskoeffizienten statt.
 
-\subsection{Masse}
-\label{sec:masse}\index{Massendiffusion}\index{Diffusion!Masse}
-
-\subsection{Temperatur}
-\label{sec:temperatur}\index{Temperaturdiffusion}\index{Diffusion!Temperatur}
-
 \subsection{Impuls}
 \label{sec:impuls}\index{Impulsdiffusion}\index{Diffusion!Impuls}
 
@@ -24453,7 +24447,33 @@ Hier kann auch von der inkompressiblen Form ausgegangen werden:
 \subsubsection{Smagorinsky-Ansatz}
 \label{sec:smagorinsky-ansatz}\index{Smagorinsky-Ansatz}
 
-Die Viskoität $K$ enthält im Rahmen der Turbulenzparametrisierungen molekulare und turbulente Anteile. Die turbulenten Anteile beschreiben den gemittelten Effekt subskaliger Bewegung. Es kann davon ausgegangen werden, dass diese subskaligen Wirbel und Wellen nicht immer gleich stark sind, sondern umso stärker, je inhomogener das Windfeld ist. Dies wird durch den \textit{Smagorinsky-Ansatz} beschrieben, bei dem davon ausgegangen wird, dass die Viskosität proportional zur Scherung des Windfeldes ist.
+Die auf das horizontale Windfeld wirkende Viskosität $K_h$ enthält im Rahmen der Turbulenzparametrisierungen molekulare und turbulente Anteile. Die turbulenten Anteile beschreiben den gemittelten Effekt subskaliger Bewegung. Es kann davon ausgegangen werden, dass diese subskaligen Wirbel und Wellen nicht immer gleich stark sind, sondern umso stärker, je inhomogener das Windfeld ist. Dies wird durch den \textit{Smagorinsky-Ansatz} beschrieben. Um diesen Ansatz zu verstehen, orientiert man sich zunächst an dem im Rahmen der kinetischen Gastheorie hergeleiteten molekularen Diffusionskoeffzienten. Auch dieser ist keine homogene Konstante. Für ihn gilt laut Glg. \eqref{eq:diff_const_kinetic_gastheory}
+%
+\begin{align}
+K_h = \frac{\newoverline{v}\lambda}{3},
+\end{align}
+%
+wobei $\lambda$ die mittlere freie Weglänge ist. Überträgt man dies auf Turbulenz (subskalige hydrodynamische Bewegung), kann man
+%
+\begin{align}
+\lambda &\propto \Delta x,\\
+\newoverline{v} &\propto \left|\mathbf{v}_h\right|
+\end{align}
+%
+ansetzen. Es ist allerdings nicht direkt der Wind an sich, der einen diffusiven Effekt hat, sondern eher die Verwirbelung des Windes. Daher macht man dan Ansatz
+%
+\begin{align}
+K_h = c_sA\left|\zeta\right|,
+\end{align}
+%
+wobei $c_s > 0$ ein Proportionalitätsfaktor ist, der sogenannte \textit{Smagorinsky-Koeffizient}\index{Smagorinsky-Koeffizient}, $A$ die Fläche einer Gitterzelle und $\zeta$ die Scherung bezeichnet. Um $c_s$ abzuschätzen, verwendet man
+%
+\begin{align}
+c_sA\left|\zeta\right| &= c_s\Delta x^2\left|\zeta\right| \sim c_s\Delta x^2\frac{2\pi}{\frac{\Delta x}{2}}\left|\mathbf{v}_h\right| = c_s\Delta x4\pi\left|\mathbf{v}_h\right| \stackrel{\text{Glg. \eqref{eq:diff_const_kinetic_gastheory}}}{\sim} \frac{\Delta x\left|\mathbf{v}_h\right|}{3}\nonumber\\
+\Rightarrow c_s &\sim \frac{1}{12\pi}.
+\end{align}
+%
+Dabei wurde benutzt, dass $\frac{\Delta x}{2}$ eine charakteristische subskalige Größenordnung ist.
 
 \subsubsection{$\TKE$-Ansätze}
 \label{sec:tke-ansätze}\index{TKE-Ansatz}
@@ -24470,7 +24490,7 @@ lösen. Anschließend können die Viskositätskoeffizienten als Funktionen
 K = K\left[\mathbf{v}\left(\mathbf{r}\right), \TKE\right]
 \end{align}
 %
-des derzeitigen Windfeldes und der $\TKE$ ausgedrückt werden. Über die prognostische Gleichung der $\TKE$ enthält dieser Ansatz dann auch Informationen über das vergangene Windfeld. Üblicherweise wird der Smagorinsky-Ansatz für horizontale und der TKE-Ansatz für vertikale Diffusion verwendet.
+des derzeitigen Windfeldes und der $\TKE$ ausgedrückt werden. Über die prognostische Gleichung der $\TKE$ enthält dieser Ansatz dann auch Informationen über das vergangene Windfeld.
 
 Die Senke der TKE (s. Glg. \eqref{eq:tke_ansatz}) ist die molekulare Dissipation $\epsilon$. Für die Quellen wird das Symbol $S$ verwendet, somit erhält man
 %
@@ -24508,6 +24528,27 @@ an. Somit lautet die Gleichung für die TKE
 \begin{align}
 \frac{\partial\TKE}{\partial t} = -\mathbf{v}\cdot\nabla\TKE + \epsilon_\Delta + \kappa'\KE - \kappa\TKE.
 \end{align}
+
+\subsection{Horizontale und vertikale Diffusionskoeffizenten}
+\label{sec:horizontale_und_vertikale_diffusionskoeffizenten}\index{Diffusionskoeffizient!horizontaler}\index{Diffusionskoeffizient!vertikaler}
+
+Beim Smagorinsky- und TKE-Ansatz geht es letzten Endes darum, Diffusionskoeffizienten zu berechnen. Üblicherweise wird der Smagorinsky-Ansatz für horizontale und der TKE-Ansatz für vertikale Diffusion verwendet. Im Sinne das Smagorinsky-Ansatzes kann man den vertikalen Diffusionskoeffizienten $K_v$ über
+%
+\begin{align}
+K_v = rc_s\Delta z\sqrt{\TKE}
+\end{align}
+%
+berechnen, hierbei ist $r > 0$ das Aspektverhältnis der Wirbel (charakteristische vertikale in Relation zur horizontalen Länge).
+
+\subsection{Masse}
+\label{sec:masse}\index{Massendiffusion}\index{Diffusion!Masse}
+
+
+
+\subsection{Temperatur}
+\label{sec:temperatur}\index{Temperaturdiffusion}\index{Diffusion!Temperatur}
+
+
 
 \chapter{\normalfont\textsc{Weiterführende Aspekte}}
 \label{chap:weiterfuehrende_aspekte}
