@@ -24463,7 +24463,7 @@ wobei $\lambda$ die mittlere freie Weglänge ist. Überträgt man dies auf Turbu
 ansetzen. Es ist allerdings nicht direkt der Wind an sich, der einen diffusiven Effekt hat, sondern eher die Verwirbelung des Windes. Daher macht man dan Ansatz
 %
 \begin{align}
-K_h = c_sA\left|\zeta\right|,
+K_h = c_sA\left|\zeta\right|,\label{eq:smag_ansatz}
 \end{align}
 %
 wobei $c_s > 0$ ein Proportionalitätsfaktor ist, der sogenannte \textit{Smagorinsky-Koeffizient}\index{Smagorinsky-Koeffizient}, $A$ die Fläche einer Gitterzelle und $\zeta$ die Scherung bezeichnet. Um $c_s$ abzuschätzen, verwendet man
@@ -24527,6 +24527,24 @@ an. Somit lautet die Gleichung für die TKE
 %
 \begin{align}
 \frac{\partial\TKE}{\partial t} = -\mathbf{v}\cdot\nabla\TKE + \epsilon_\Delta + \kappa'\KE - \kappa\TKE.
+\end{align}
+%
+Um $\kappa$ zu bestimmen, macht man den eindimensionalen Ansatz
+%
+\begin{align}
+\frac{\partial k}{\partial t} = u\frac{\partial u}{\partial t} = uK\frac{\partial^2u}{\partial t^2} = -u^2Kl^2 = -2Kl^2k = -\frac{8\pi^2K}{\lambda^2}k,
+\end{align}
+%
+wobei $l = \frac{2\pi}{\lambda}$ in diesem Fall die Kreiswellenzahl bezeichnet. $K$ ist hierbei der Diffusionskoeffizient, der auf Wellen der Länge $\lambda$ wirkt. Für $\lambda$ setzt man eine charakteristische subskalige Größenordnung $\frac{\Delta x}{2}$ ein, was auf
+%
+\begin{align}
+\frac{\partial k}{\partial t} = -\frac{32\pi^2K}{\Delta x^2}k
+\end{align}
+%
+führt. $K$ ist hierbei ein diskreter Diffusionskoeffizient $K_\Delta$. Jedoch ist der auf die Skala $\frac{\Delta x}{2}$ wirkende Diffusionskoeffizient nach Glg. \eqref{eq:smag_ansatz} ca. viermal kleiner als der auf die Skala $\Delta x$ wirkende. Somit erhält man
+%
+\begin{align}
+\kappa = \frac{8\pi^2K_\Delta}{\Delta x^2} = \frac{8\pi^2K_\Delta}{A}.
 \end{align}
 
 \subsection{Horizontale und vertikale Diffusionskoeffizenten}
