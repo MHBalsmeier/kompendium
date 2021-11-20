@@ -24535,7 +24535,7 @@ Um $\kappa$ zu bestimmen, macht man den eindimensionalen Ansatz
 \frac{\partial k}{\partial t} = u\frac{\partial u}{\partial t} = uK\frac{\partial^2u}{\partial t^2} = -u^2Kl^2 = -2Kl^2k = -\frac{8\pi^2K}{\lambda^2}k,
 \end{align}
 %
-wobei $l = \frac{2\pi}{\lambda}$ in diesem Fall die Kreiswellenzahl bezeichnet. $K$ ist hierbei der Diffusionskoeffizient, der auf Wellen der Länge $\lambda$ wirkt. Für $\lambda$ setzt man eine charakteristische subskalige Größenordnung $\frac{\Delta x}{2}$ ein, was auf
+wobei $l = \frac{2\pi}{\lambda}$ in diesem Fall die Kreiswellenzahl bezeichnet. $K$ ist hierbei der effektive kinematische Diffusionskoeffizient, der auf Wellen der Länge $\lambda$ wirkt. Für $\lambda$ setzt man eine charakteristische subskalige Größenordnung $\frac{\Delta x}{2}$ ein, was auf
 %
 \begin{align}
 \frac{\partial k}{\partial t} = -\frac{32\pi^2K}{\Delta x^2}k
@@ -24550,13 +24550,19 @@ führt. $K$ ist hierbei ein diskreter Diffusionskoeffizient $K_\Delta$. Jedoch i
 \subsection{Horizontale und vertikale Diffusionskoeffizenten}
 \label{sec:horizontale_und_vertikale_diffusionskoeffizenten}\index{Diffusionskoeffizient!horizontaler}\index{Diffusionskoeffizient!vertikaler}
 
-Beim Smagorinsky- und TKE-Ansatz geht es letzten Endes darum, Diffusionskoeffizienten zu berechnen. Üblicherweise wird der Smagorinsky-Ansatz für horizontale und der TKE-Ansatz für vertikale Diffusion verwendet. Im Sinne das Smagorinsky-Ansatzes kann man den vertikalen Diffusionskoeffizienten $K_v$ über
+Beim Smagorinsky- und TKE-Ansatz geht es letzten Endes darum, Diffusionskoeffizienten zu berechnen. Üblicherweise wird der Smagorinsky-Ansatz für horizontale und der TKE-Ansatz für vertikale Diffusion verwendet. Im Sinne des Mischungswegansatzes kann man den vertikalen Diffusionskoeffizienten $K_v$ über
 %
 \begin{align}
-K_v = rc_s\Delta z\Delta x\frac{2\pi}{\frac{\Delta x}{2}}\sqrt{2\TKE}\cdot 10^{-1} = rc_s\Delta z4\pi\sqrt{2\TKE}\cdot 10^{-1}
+K_v = \newoverline{lw'} \approx l\cdot 0,01\sqrt{2\TKE} \equiv cl\sqrt{2\TKE}
 \end{align}
 %
-berechnen, hierbei ist $r > 0$ das Aspektverhältnis der Wirbel (charakteristische vertikale in Relation zur horizontalen Länge).
+berechnen, hierbei ist $l > 0$ die Mischungsweglänge. Der Parameter $c \approx 0,01$ kann in der Modellierung als Tuningparameter aufgefasst werden. Für Schichtdicken $\Delta z < l$ muss man dies zu
+%
+\begin{align}
+K_v = c\text{min}\left(l, \Delta z\right)\sqrt{2\TKE}
+\end{align}
+%
+verallgemeinern.
 
 \subsection{Masse}
 \label{sec:masse}\index{Massendiffusion}\index{Diffusion!Masse}
