@@ -22265,35 +22265,6 @@ Für die Dissipationsrate $\epsilon_\text{hex}$ kann einfach
 %
 angesetzt werden. Dies entspricht zwar nicht exakt der molekularen Dissipationsrate Glg. \eqref{eq:dissipation}, jedoch sind die globalen Integrale über beide Ansätze nach Glg. \eqref{eq:friction_dissipation_balance} identisch. Somit ist energetische Selbstkonsistenz gegeben.
 
-\chapter{\normalfont\textsc{Multi-Moment-finite-Volumen-Verfahren}}
-\label{chap:multi-moment-finite-volumen-verfahren}\index{Multi-Moment-finite-Volumen-Verfahren}
-
-Man stelle sich ein eindimensionales C-Gitter mit skalaren Punkten bei
-%
-\begin{align}
-x = d, 5d
-\end{align}
-%
-mit $d > 0$ und vektoriellen Punten bei
-%
-\begin{align}
-x = 0, 3d, 7d
-\end{align}
-%
-vor. Ein volumenkonformes Remapping eines Vektorfeldes $v$ auf die skalaren Punkte ergibt
-%
-\begin{align}
-\newoverline{v}_0 = \frac{1}{3}v_0 + \frac{2}{3}v_1,&& \newoverline{v}_1 = \frac{1}{2}v_1 + \frac{1}{2}v_2.
-\end{align}
-%
-Eine lineare Interpolation würde jedoch
-%
-\begin{align}
-\newtilde{v}_0 = \frac{2}{3}v_0 + \frac{1}{3}v_1,&& \newtilde{v}_1 = \frac{1}{2}v_1 + \frac{1}{2}v_2
-\end{align}
-%
-ergeben. Es ist zu erwarten, dass die Interpolation genauer ist, jedoch ist diese nicht energetisch selbstkonsistent. Daher besteht ein Bedarf an genaueren, aber weiterhin selbstkonsistenten Verfahren auf C-Gittern.
-
 \chapter{\normalfont\textsc{Strahlungstransportalgorithmen}}
 \label{chap:strahlungstransportalgorithmen}\index{Strahlung!in Modellen}
 
@@ -23980,7 +23951,7 @@ Im Rahmen des bisher entwickelten Formalismus gibt es drei Möglichkeiten für A
 \item Erhöhung der Anzahl der Kanten, die bei Berechnung des Vorticityflussterms berücksichtigt werden.
 \end{enumerate}
 %
-Diese verbleibenden Freiheiten sind nicht ausreichend, um die Konvergenzordnung des Gesamtmodells zu erhöhen. Anstattdessen kann man die in Kap. vorgestellte \ref{chap:multi-moment-finite-volumen-verfahren} MMFV-Methode verwenden.
+Diese verbleibenden Freiheiten sind nicht ausreichend, um die Konvergenzordnung des Gesamtmodells zu erhöhen.
 
 \section{HEVI-Verfahren}
 \label{sec:hevi-verfahren}\index{HEVI-Verfahren}
