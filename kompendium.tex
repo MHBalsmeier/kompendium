@@ -23977,7 +23977,7 @@ Eine wesentliche Einschränkung in Bezug auf den Zeitschritt und somit auch in B
 
 Um dies einzusehen, muss man sich zunächst einmal klarmachen, dass die Advektion kinetischer Energie mit der Kontinuitätsgleichung in Verbindung steht und daher auch zu den fast modes zählt. Dies wurde bereits in Abschn. \ref{sec:überprüfung_der_energieerhaltung} eingesehen. Somit müssen auch beide Terme bzw. Gleichungen mit dem gleichen Zeitschritt integriert werden. Zur Wahrung des diskretisierten Analogons der Lamb-Transformation $-\left(\mathbf{v}\cdot\nabla\right)\mathbf{v} = -\nabla k - \left(\nabla\times\mathbf{v}\right)\times\mathbf{v}$ muss dann auch der generalisierte Coriolis-Term und somit das komplette Gleichungssystem mit dem kleineren Zeitschritt integriert werden.
 
-Da das Zeitschrittverfahren jedoch ohnehin niemals vollständig energetisch selbstkonsistent ist, ist es durchaus angebracht, ein Split-explicit-Verfahren als Option in den dynamischen Kern einzubauen. Dies wird in Abschn. \ref{sec:hinzufügen_einer_split-explicit-option} durchgeführt, zunächst wird die Zeitintegration jedoch ohne ein solches entwickelt.
+Aufgrund der hier besprochenen Nachteile wird keine Split-explicit-Option in den zu entwickelnden dynamischen Kern eingebaut.
 
 \subsection{Modifikationen zur Stabilisierung}
 \label{sec:modifikationen_zur_stabilisierung}
@@ -24296,9 +24296,6 @@ Das Zeitschrittverfahren ist das Runge-Kutta-Verfahren zweiter Ordnung. Zusätzl
 \item Mittels des in Abschn. \ref{sec:behandlung_vertikal_propagierender_wellen} beschriebenen Verfahrens werden die neuen Werte der Vertkalgeschwindigkeit und der Skalarfelder berechnet.
 \item Zuletzt werden mittels der generalisierten Kontinuitätsgleichungen die neuen Werte der generalisierten Dichten der Tracer berechnet, s. Abschn. \ref{sec:vertikale_advektion_einer_generalisierten_dichte}.
 \end{enumerate}
-
-\subsection{Hinzufügen einer Split-explicit-Option}
-\label{sec:hinzufügen_einer_split-explicit-option}\index{Split-explicit-Verfahren}
 
 \section{Regionaler Modus}
 \label{sec:regionaler_modus}
