@@ -22758,6 +22758,11 @@ J_n = \left(\mathbf{Y}_n - \overleftrightarrow{H}_n\overleftrightarrow{M}^n\math
 \subsubsection{Die innere Schleife}
 \label{sec:die_innere_schleife_4d-var}
 
+\section{Interpolation eines anderen Modells}
+\label{sec:interpolation_eines_anderen_modells}
+
+Liegt der Anfangszustand eines anderen Modells vor (beispielsweise auf einem Länge-Breite-Gitter), ist es durchaus möglich, diesen zu einfach auf das gewünschte Modellgitter zu interpolieren und in die prognostischen Variablen umzurechnen. Hierbei wird das andere Modell als \glqq Beobachtung\grqq\ aufgefasst und es wird die Annahme gemacht, dass der Fehler der Datenassimilation des anderen Modells vernachlässigbar ist im Vergleich zum Fehler der Vorhersage des eigenen Modells. Diese Annahme ist häufig gerechtfertigt, und selbst wenn sie nicht gerechtfertigt ist, kann es sinnvoll sein, trotzdem diese Methode zu verwenden, um die durch die Einfachheit dieses Verfahrens freiwerdenden Rechenkapazitäten für den Modelllauf zu nutzen.
+
 \part{Entwicklung eines dynamischen Kerns}
 \label{part:entwicklung_eines_dynamischen_kerns}\index{dynamischer Kern}\index{Kern!dynamischer}
 
