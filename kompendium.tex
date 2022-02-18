@@ -16616,56 +16616,6 @@ Abb. \ref{fig:barokline_instabilitaet} zeigt die für unterschiedliche Wellenzah
 
 Bei der baroklinen Instabilität wird potentielle Energie der Schichtung, welche durch das Strahlungsfeld immer wieder neu erzeugt wird, in kinetische Energie des Horizontalwindes umgewandelt, bevor sie dissipiert wird.
 
-\chapter{\normalfont\textsc{Stationäre analytische Lösungen}}
-\label{chap:stationäre_analytische_lösungen}
-
-In diesem Kapitel werden globale, stationäre, zonal symmetrische Lösungen der adiabatischen dynamischen Gleichungen unter der SGA gesucht. Die Impulsgleichungen sind die Glg.en \eqref{eq:x_momentum_sga} - \eqref{eq:z_momentum_sga} mit $g = g_0\frac{a^2}{\left(a + z\right)^2}$, der Erste Hauptsatz wir in der Form von Glg. \eqref{eq:pressure_prognostic_equation} verwendet. Außerdem benötigt man die Kontinuitätsgleichung. Das diesem Kapitel zugrundeliegende Gleichungssystem lautet also
-%
-\begin{align}
-\frac{\partial u}{\partial t} + u\frac{\partial u}{\partial x} + v\frac{\partial u}{\partial y} + w\frac{\partial u}{\partial z} - \frac{uv\tan\left(\varphi\right)}{a + z} + \frac{uw}{a + z} &= -\frac{1}{\rho}\frac{\partial p}{\partial x} - f'w + fv,\\
-\frac{\partial v}{\partial t} + u\frac{\partial v}{\partial x} + v\frac{\partial v}{\partial y} + w\frac{\partial v}{\partial z} + \frac{u^2\tan\left(\varphi\right)}{a + z} + \frac{vw}{a + z} &= -\frac{1}{\rho}\frac{\partial p}{\partial y} - fu,\\
-\frac{\partial w}{\partial t} + u\frac{\partial w}{\partial x} + v\frac{\partial w}{\partial y} + w\frac{\partial w}{\partial z} - \frac{u^2 + v^2}{a + z} &= -\frac{1}{\rho}\frac{\partial p}{\partial z} - g_0\frac{a^2}{\left(a + z\right)^2} + f'u,\\
-\frac{\partial p}{\partial t} &= -\mathbf{v}\cdot\nabla p - \frac{c^{(p)}}{c^{(v)}}p\nabla\cdot\mathbf{v},\\
-\frac{\partial\rho}{\partial t} &= -\nabla\cdot\left(\rho\mathbf{v}\right).
-\end{align}
-%
-Streicht man die lokalzeitlichen Ableitungen weg, erhält man
-%
-\begin{align}
-u\frac{\partial u}{\partial x} + v\frac{\partial u}{\partial y} + w\frac{\partial u}{\partial z} - \frac{uv\tan\left(\varphi\right)}{a + z} + \frac{uw}{a + z} &= -\frac{1}{\rho}\frac{\partial p}{\partial x} - 2\Omega\cos\left(\phi\right)w + 2\Omega\sin\left(\phi\right)v,\\
-u\frac{\partial v}{\partial x} + v\frac{\partial v}{\partial y} + w\frac{\partial v}{\partial z} + \frac{u^2\tan\left(\varphi\right)}{a + z} + \frac{vw}{a + z} &= -\frac{1}{\rho}\frac{\partial p}{\partial y} - 2\Omega\sin\left(\phi\right)u,\\
-u\frac{\partial w}{\partial x} + v\frac{\partial w}{\partial y} + w\frac{\partial w}{\partial z} - \frac{u^2 + v^2}{a + z} &= -\frac{1}{\rho}\frac{\partial p}{\partial z} - g_0\frac{a^2}{\left(a + z\right)^2} + 2\Omega\cos\left(\phi\right)u,\\
-0 &= -\mathbf{v}\cdot\nabla p - \frac{c^{(p)}}{c^{(v)}}p\nabla\cdot\mathbf{v},\\
-0 &= -\nabla\cdot\left(\rho\mathbf{v}\right).
-\end{align}
-%
-Nun geht man weiter davon aus, dass alle Felder ausschließlich Funktionen von $z$ und $\phi$ sind. x-Ableitungen verschwinden also:
-%
-\begin{align}
-v\frac{\partial u}{\partial y} + w\frac{\partial u}{\partial z} - \frac{uv\tan\left(\varphi\right)}{a + z} + \frac{uw}{a + z} &= -2\Omega\cos\left(\phi\right)w + 2\Omega\sin\left(\phi\right)v,\\
-v\frac{\partial v}{\partial y} + w\frac{\partial v}{\partial z} + \frac{u^2\tan\left(\varphi\right)}{a + z} + \frac{vw}{a + z} &= -\frac{1}{\rho}\frac{\partial p}{\partial y} - 2\Omega\sin\left(\phi\right)u,\\
-v\frac{\partial w}{\partial y} + w\frac{\partial w}{\partial z} - \frac{u^2 + v^2}{a + z} &= -\frac{1}{\rho}\frac{\partial p}{\partial z} - g_0\frac{a^2}{\left(a + z\right)^2} + 2\Omega\cos\left(\phi\right)u,\\
-0 &= -v\frac{\partial p}{\partial y} - w\frac{\partial p}{\partial z} - \frac{c^{(p)}}{c^{(v)}}p\left(\frac{\partial v}{\partial y} + \frac{\partial w}{\partial z} - \frac{v\tan\left(\varphi\right)}{r} + \frac{2w}{r}\right),\\
-0 &= -v\frac{\partial\rho}{\partial y} - w\frac{\partial\rho}{\partial z} - \rho\left(\frac{\partial v}{\partial y} + \frac{\partial w}{\partial z} - \frac{v\tan\left(\varphi\right)}{r} + \frac{2w}{r}\right)
-\end{align}
-%
-Um das Problem weiter zu vereinfachen, geht man von $w = 0$ aus:
-%
-\begin{align}
-v\frac{\partial u}{\partial y} - \frac{uv\tan\left(\varphi\right)}{a + z} &= 2\Omega\sin\left(\phi\right)v,\\
-v\frac{\partial v}{\partial y} + \frac{u^2\tan\left(\varphi\right)}{a + z} &= -\frac{1}{\rho}\frac{\partial p}{\partial y} - 2\Omega\sin\left(\phi\right)u,\\
--\frac{u^2 + v^2}{a + z} &= -\frac{1}{\rho}\frac{\partial p}{\partial z} - g_0\frac{a^2}{\left(a + z\right)^2} + 2\Omega\cos\left(\phi\right)u,\\
-0 &= -v\frac{\partial p}{\partial y} - \frac{c^{(p)}}{c^{(v)}}p\left(\frac{\partial v}{\partial y} - \frac{v\tan\left(\varphi\right)}{r}\right),\\
-0 &= -v\frac{\partial\rho}{\partial y} - \rho\left(\frac{\partial v}{\partial y} - \frac{v\tan\left(\varphi\right)}{r}\right)
-\end{align}
-%
-Geht man weiterhin von $v = 0$ aus, sind nur noch die y- und die z-Komponente der Impulsgleichung nicht trivial erfüllt:
-%
-\begin{align}
-\frac{u^2\tan\left(\varphi\right)}{a + z} &= -\frac{1}{\rho}\frac{\partial p}{\partial y} - 2\Omega\sin\left(\phi\right)u,\\
--\frac{u^2}{a + z} &= -\frac{1}{\rho}\frac{\partial p}{\partial z} - g_0\frac{a^2}{\left(a + z\right)^2} + 2\Omega\cos\left(\phi\right)u
-\end{align}
-
 \chapter{\normalfont\textsc{Turbulenz}}
 \label{chap:turbulenz}\index{Turbulenz}
 
