@@ -24055,56 +24055,6 @@ Nach diesen Verallgemeinerungen ist es sinnvoll, sich zu überlegen welche grund
 \item Es wird davon ausgegangen, dass alle Kondensate der gleichen Klasse auch die gleiche Temperatur haben.
 \end{itemize}
 
-\section{Model output statistics (MOS)}
-\label{sec:model_output_statistics_mos}\index{Model output statistics}
-
-Fast jede Modellvorhersage ist falsch. Es gibt statistische Fehler sowie systematische Fehler. Außerdem gibt es in der Synoptik Größen, welche keine prognostischen Variablen sind und sich auch nur schwer direkt diagnostizieren lassen, wie z. B. die Sichtweite. \textit{Model output statistics (MOS)}\index{Model output statistics} ist ein Werkzeug, welches für die beiden Problembereiche
-%
-\begin{itemize}
-\item Korrektur für systematische Modellfehler,
-\item Vorhersage von schwer zu diagnostizierenden Variablen
-\end{itemize}
-%
-verwendet wird. In Abgrenzung hierzu bezeichnet man die Modellvorhersage als \textit{direct model output (DMO)}\index{direct model output (DMO)}. In gewisser Weise ist MOS eine Formalisierung dessen, was ein vorhersagender Meteorologe als \textit{Erfahrung} bezeichnen würde. Grundsätzlich kommen hierfür eine große Bandbreite an statistischen Methoden in Frage, von einfachem Korrigieren in der Form \glqq Die vom Modell vorhergesagte Windgeschwindigkeit ist im Mittel zehn Prozent zu niedrig\grqq\ bis hin zu sehr komplexen, vieldimensionalen Funktionen. Als allgemeinen Ansatz verwendet man
-%
-\begin{align}
-f = f_t\left(\mathbf{x}\right),
-\end{align}
-%
-hierbei sind $f$ die zu bestimmende Zielgröße, der sogenannte \textit{Prädiktand}\index{Prädiktand} (10-m-Böen-Windgeschwindigkeit, Sichtweite, prognostische Variable an einem Gitterpunkt etc.), $\mathbf{x} \in \mathbb{R}^M$ der Zustandsvektor der Modellatmosphäre und $t$ die Zeit seit Beginn des Modelllauffes. Es ist sinnvoll, $f_t$ als Polynom $N-$ter Ordnung darzustellen, also
-%
-\begin{align}
-f_t\left(\mathbf{x}\right) = \sum_{n = 0}^N\sum_{\alpha_n}c_{\alpha_n}^{(t)}\mathbf{x}^{\alpha_n}.
-\end{align}
-%
-Hierbei ist $\alpha_n = \left(k_i\right)_{0 \leq i \leq M - 1}$ ein $M-$Tupel mit $\sum_{l = 0}^{M - 1}k_l = n$. Weiterhin ist
-%
-\begin{align}
-\mathbf{x}^{\alpha_n} \coloneqq \prod_{l = 0}^{M - 1}x_l^{k_l}.
-\end{align}
-%
-Im Allgemeinen berücksichtigt man nicht alle Elemente des Zustandsvektors der Modellatmosphäre $\mathbf{x}$, sondern nur diejenigen, welche einen signifikanten Einfluss auf den Prädiktanden\index{Prädiktand} $f$ haben, diese Größen bezeichnet man als \textit{Prädiktoren}\index{Prädiktor}. Die Koeffizienten $c_\alpha^{(t)} \in \mathbb{R}$ bestimmt man nun so, dass die Fehlernorm
-%
-\begin{align}
-E_t \coloneqq \sum_{i}\left[f_t\left(\mathbf{x}_i\left(t\right)\right) - f_{\text{obs}, i}\right]^2
-\end{align}
-%
-minimiert wird. Hierbei läuft $i$ über alle zur Verfügung stehenden Modellläufe. $f_{\text{obs}, i}$ ist ein als wahr betrachteter Wert, zum Beispiel ein Messwert oder ein Wert aus einer Reanalyse.
-
-\subsection{Beispiel}
-\label{sec:beispiel}
-
-Als Beispiel wird die obige Aussage \glqq Die vom Modell vorhergesagte Windgeschwindigkeit ist im Mittel zehn Prozent zu niedrig\grqq\ betrachtet. Man nehme hierfür der Einfachheit halber an, dass die Windgeschwindigkeit $v$ das $i-$te Element des Zustandsvektors der Modellatmosphäre $\mathbf{x}$ ist, also $v = x_i$. In diesem Fall ist nur ein einziger der Koeffizienten $c_\alpha$ ungleich Null,
-%
-\begin{align}
-v_\text{MOS} = \frac{1}{0,9}v_\text{Modell}.
-\end{align}
-
-\subsection{Verallgemeinerungen}
-\label{sec:verallgemeinerungen}
-
-Der Vektor $\mathbf{x}$ muss nicht zwangslöufig nur aus dem DMO eines einzigen Modells bestehen, sondern kann auch mehrere Modelle oder Beobachtungsdaten umfassen, die seit dem letzten Modelllauf gemacht wurden. Weiterhin kann man die Koeffizienten von der Jahreszeit und/oder Tageszeit des Starts des Modelllaufes sowie des Vorhersagezeitpunktes abhängig machen.
-
 \part{Anhang}
 \label{part:anhang}
 
