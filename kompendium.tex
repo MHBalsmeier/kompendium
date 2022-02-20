@@ -23768,8 +23768,8 @@ Das Zeitschrittverfahren ist das Runge-Kutta-Verfahren zweiter Ordnung. Zusätzl
 \item Zuletzt werden mittels der generalisierten Kontinuitätsgleichungen die neuen Werte der generalisierten Dichten der Tracer berechnet, s. Abschn. \ref{sec:vertikale_advektion_einer_generalisierten_dichte}.
 \end{enumerate}
 
-\section{Regionaler Modus}
-\label{sec:regionaler_modus}
+\section{Regionale Version}
+\label{sec:regionale_version}
 
 Die Atmosphäre ist global. Ein Regionalmodell ist trotzdem praktisch, um Experimente und operationelle Läufe mit erhöhter Auflösung durchführen zu können. Die Begründung für die Auswahl des hexagonalen Gitters für das in diesem Buch entwickelte Globalmodell sind die im Vergleich zum viereckigen Gitter ähnlich guten numerischen Eigenschaften in Verbindung mit Quasi-Uniformität und Orthogonalität. Daher könnte man auch ein lokales Modell auf einem hexagonalen Gitter implementieren. Nachteil ist jedoch der Aufwand, den der Gittergenerierungsprozess mit sich bringt sowie die schwierige Parallelisierbarkeit und der eventuelle Mehraufwand, der nötig ist, um eine zufriendenstellende Performance zu erzielen. Daher sollen in diesem Abschnitt die bisherigen Erkenntnisse dieses Kapitels auf ein regionales Länge-Breite-Gitter verallgemeinert werden, da das Polproblem bei einem regionalen Modell ohnehin nicht auftritt.
 
