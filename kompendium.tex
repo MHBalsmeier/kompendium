@@ -24058,6 +24058,15 @@ Nach diesen Verallgemeinerungen ist es sinnvoll, sich zu überlegen welche grund
 \section{Tuning}
 \label{sec:tuning}
 
+Nicht alle im Modell verwendeten Größen sind ab initio aus der Theorie ableitbar, zum Beispiel die in den Turbulenzparametrisierungen verwendeten Diffusionskoeffizienten. Sie haben üblicherweise keinen exakt richtigen Wert und werden daher auch \textit{semiempirische Koeffizienten} genannt. Man sollte sie nicht als Konstanten bezeichnen, da sie dies nicht sind. Um das Modell möglichst genau zu machen, sollte man natürlich einen möglichst richtigen Wert für sie verwenden. Um einen solchen zu bestimmen, bieten sich zunächst zwei Methoden an:
+%
+\begin{itemize}
+\item Man kann sie aus Messungen ableiten.
+\item Man kann sie aus DNS-Läufen (\textit{direct numerical simulation}) ableiten, dies sind sehr hoch aufgelöste Läufe, bishin zu \textit{computational fluid dynamics (CFD)}.
+\end{itemize}
+%
+Aus der Literatur ergibt sich daraus ein vertretbares Intervall, innerhalb dessen man den zu bestimmenden Koeffizienten frei wählen kann. Innerhalb dieses Intervalls wählt man ihn einfach so, dass das Modell möglichst genau ist. Da man in einem Atmosphärenmodell mehrere Parameter tunen kann, wird dies zu einem mehrdimensionalen Optimierungsproblem, für das mehrere Iterationen benötigt werden.
+
 Folgende Koeffizienten im Modell können getunt werden:
 %
 \begin{itemize}
@@ -24067,7 +24076,7 @@ Folgende Koeffizienten im Modell können getunt werden:
 \item w-$\theta$-Korrelation
 \end{itemize}
 %
-Im Rest dieses Abschnitts wird auf das uning der einzelnen Koeffizenten eingegangen.
+Im Rest dieses Abschnitts wird auf das Tuning der einzelnen Koeffizienten eingegangen.
 
 \subsection{Horizontale Diffusionskoeffizienten}
 \label{sec:horizontale_diffusions_koeffizienten}
