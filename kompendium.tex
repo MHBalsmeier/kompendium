@@ -23896,41 +23896,10 @@ Hier kann auch von der inkompressiblen Form ausgegangen werden:
 \mathbf{e}_x\cdot\mathbf{f}_R &= K\frac{\partial D}{\partial x} + K\left(\frac{\partial\zeta_y}{\partial z} - \frac{\partial\zeta_z}{\partial y}\right).
 \end{align}
 
-\subsubsection{Smagorinsky-Ansatz}
-\label{sec:smagorinsky-ansatz}\index{Smagorinsky-Ansatz}
-
-Die auf das horizontale Windfeld wirkende Viskosität $K_h$ enthält im Rahmen der Turbulenzparametrisierungen molekulare und turbulente Anteile. Die turbulenten Anteile beschreiben den gemittelten Effekt subskaliger Bewegung. Es kann davon ausgegangen werden, dass diese subskaligen Wirbel und Wellen nicht immer gleich stark sind, sondern umso stärker, je inhomogener das Windfeld ist. Dies wird durch den \textit{Smagorinsky-Ansatz} beschrieben. Um diesen Ansatz zu verstehen, orientiert man sich zunächst an dem im Rahmen der kinetischen Gastheorie hergeleiteten molekularen Diffusionskoeffzienten. Auch dieser ist keine homogene Konstante. Für ihn gilt laut Glg. \eqref{eq:diff_const_kinetic_gastheory}
-%
-\begin{align}
-K_h = \frac{\newoverline{v}\lambda}{3},
-\end{align}
-%
-wobei $\lambda$ die mittlere freie Weglänge ist. Überträgt man dies auf Turbulenz (subskalige hydrodynamische Bewegung), kann man
-%
-\begin{align}
-\lambda &\propto \Delta x,\\
-\newoverline{v} &\propto \left|\mathbf{v}_h\right|
-\end{align}
-%
-ansetzen. Es ist allerdings nicht direkt der Wind an sich, der einen diffusiven Effekt hat, sondern eher die Verwirbelung des Windes. Daher macht man dan Ansatz
-%
-\begin{align}
-K_h = c_sA\left|\zeta\right|,\label{eq:smag_ansatz}
-\end{align}
-%
-wobei $c_s > 0$ ein Proportionalitätsfaktor ist, der sogenannte \textit{Smagorinsky-Koeffizient}\index{Smagorinsky-Koeffizient}, $A$ die Fläche einer Gitterzelle und $\zeta$ die Scherung bezeichnet. Um $c_s$ abzuschätzen, verwendet man
-%
-\begin{align}
-c_sA\left|\zeta\right| &= c_s\Delta x^2\left|\zeta\right| \sim c_s\Delta x^2\frac{2\pi}{\frac{\Delta x}{2}}\left|\mathbf{v}_h\right| = c_s\Delta x4\pi\left|\mathbf{v}_h\right| \stackrel{\text{Glg. \eqref{eq:diff_const_kinetic_gastheory}}}{\sim} \frac{\Delta x\left|\mathbf{v}_h\right|}{3}\nonumber\\
-\Rightarrow c_s &\sim \frac{1}{12\pi}.
-\end{align}
-%
-Dabei wurde benutzt, dass $\frac{\Delta x}{2}$ eine charakteristische subskalige Größenordnung ist.
-
 \subsubsection{$\TKE$-Ansätze}
 \label{sec:tke-ansätze}\index{TKE-Ansatz}
 
-Die subskalige Viskosität beschreibt den Einfluss des nicht aufgelösten Anteils der kinetischen Energie, welche man auch als \textit{turbulente kinetische Energie ($\TKE$)}\index{turbulente kinetische Energie ($\TKE$)}\index{kinetische Energie!turbulente ($\TKE$)}\index{$\TKE$ (turbulente kinetische Energie)} bezeichnet. Beim Smagorinsky-Ansatz wird diese Viskosität durch kinematische Eigenschaften des derzeitigen Windfeldes ausgedrückt. Man kann jedoch auch die $\TKE$ als zusätzliche prognostische Größe einführen und für diese eine Gleichung
+Die subskalige Viskosität beschreibt den Einfluss des nicht aufgelösten Anteils der kinetischen Energie, welche man auch als \textit{turbulente kinetische Energie ($\TKE$)}\index{turbulente kinetische Energie ($\TKE$)}\index{kinetische Energie!turbulente ($\TKE$)}\index{$\TKE$ (turbulente kinetische Energie)} bezeichnet. Man kann die $\TKE$ als zusätzliche prognostische Größe einführen und für diese eine Gleichung
 %
 \begin{align}
 \frac{\partial\TKE}{\partial t} = -\mathbf{v}\cdot\nabla\TKE + \text{Quellen} - \text{Senken}\label{eq:tke_ansatz}
@@ -23993,16 +23962,12 @@ wobei $l = \frac{2\pi}{\lambda}$ in diesem Fall die Kreiswellenzahl bezeichnet. 
 \frac{\partial k}{\partial t} = -\frac{32\pi^2K}{\Delta x^2}k
 \end{align}
 %
-führt. $K$ ist hierbei ein diskreter Diffusionskoeffizient $K_\Delta$. Jedoch ist der auf die Skala $\frac{\Delta x}{2}$ wirkende Diffusionskoeffizient nach Glg. \eqref{eq:smag_ansatz} ca. viermal kleiner als der auf die Skala $\Delta x$ wirkende. Somit erhält man
-%
-\begin{align}
-\kappa = \frac{8\pi^2K_\Delta}{\Delta x^2} = \frac{8\pi^2K_\Delta}{A}.
-\end{align}
+führt. $K$ ist hierbei ein diskreter Diffusionskoeffizient $K_\Delta$.
 
 \subsection{Horizontale und vertikale Diffusionskoeffizenten}
 \label{sec:horizontale_und_vertikale_diffusionskoeffizenten}\index{Diffusionskoeffizient!horizontaler}\index{Diffusionskoeffizient!vertikaler}
 
-Beim Smagorinsky- und TKE-Ansatz geht es letzten Endes darum, Diffusionskoeffizienten zu berechnen. Üblicherweise wird der Smagorinsky-Ansatz für horizontale und der TKE-Ansatz für vertikale Diffusion verwendet. Im Sinne des Mischungswegansatzes kann man den vertikalen Diffusionskoeffizienten $K_v$ über
+Beim Smagorinsky- und TKE-Ansatz geht es letzten Endes darum, Diffusionskoeffizienten zu berechnen. Im Sinne des Mischungswegansatzes kann man den vertikalen Diffusionskoeffizienten $K_v$ über
 %
 \begin{align}
 K_v = \newoverline{lw'} \approx l\cdot 0,01\sqrt{2\TKE} \equiv cl\sqrt{2\TKE}
