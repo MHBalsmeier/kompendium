@@ -9733,6 +9733,16 @@ Laut den Erkenntnissen des Abschn. \ref{sec:beispiel:_feuchte_luft} kann man in 
 %
 den reversiblen Teil der Dynamik nach Abschn. \ref{sec:potentielle_temperatur_als_prognostische_variable_hamilton} übernehmen, wenn man davon ausgeht, dass trockene Luft und Wasserdampf perfekte ideale Gase sind.
 
+\subsection{Kondensate}
+\label{sec:kondensate}
+
+Kondensate bewegen sich mit einer Geschwindigkeit $\mathbf{v}_i \not= \mathbf{v}$, welche nicht der Windgeschwindigkeit entspricht, da sie eine überlagerte Sinkgeschwindigkeit haben. Diese muss man im globalen Integral der kinetischen Energie berücksichtigen. Dies würde einige zusätzliche Terme generieren. Dies ist jedoch im Verhältnis zum Nutzen nicht praktikabel. Stattdessen wird die Existenz der Kondensate mit folgenden Eingriffen an die Dynamik angekoppelt:
+%
+\begin{itemize}
+\item Die Druckgradientbeschleunigung wird mit einem Vorfaktor $\frac{\rho_h}{\rho}$ multipliziert, da die Kondensate vom Druckgradienten mitbeschleunigt werden müssen, aber selbst keinen Druck generieren. Selbiges gilt für die Reibungsbeschleunigung. Die Coriolisbeschleunigung und die Schwere hingegen werden nicht auf diese Weise modifiziert, da diese Kräfte auch auf Kondensate wirken (die Tatsache, dass die auf Kondensate wirkende Coriolisbeschleunigung aufgrund ihrer Sinkgeschwindigkeit von der auf die Gasphase wirkende Coriolisbeschleunigung abweicht, wird ignoriert).
+\item Da der Erste Haupsatz für die Größe $\rho_h\theta_v$ formuliert wird, müssen die Wärmeleistungsdichten mit einem Vorfaktor $\frac{\rho_hc_h^{(v)}}{\rho c} \leq 1$ multipliziert werden.
+\end{itemize}
+
 \section{Ankopplung an das Strahlungsfeld}
 \label{sec:ankopplung_an_das_strahlungsfeld}
 
