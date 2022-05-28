@@ -221,7 +221,6 @@ Als Einheitensystem wird das SI-System verwendet.
 \hline Index $g$ & Bezug auf den gasförmigen Anteil der Luft &\tabularnewline
 \hline $M_d$ & molare Masse trockener Luft &$0,028964420$ kg/mol \cite{formelsammlung}\tabularnewline
 \hline $M_v$ & molare Masse von Wasser & $0,01801527$ kg/mol \cite{iapws}\tabularnewline
-\hline $\epsilon'$ & $M_v/M_d$ & $0,62197931$\tabularnewline
 \hline $\omega$ & Winkelgeschwindigkeit der Erdrotation & $7,292115\cdot 10^{-5}$ 1/s \cite{iers}\tabularnewline
 \hline $a$ & Erdradius am Äquator & $6378137,0$ m \cite{wgs84}\tabularnewline
 \hline $1/\newtilde{f}$ & Abplattung & $298,257223563$ \cite{wgs84}\tabularnewline
@@ -5861,20 +5860,20 @@ Man hat also
 Die individuelle Gaskonstante feuchter Luft ist also
 %
 \begin{align}
-R_h = R_d\left[1 - \frac{\rho_v}{\rho_h} + \frac{\rho_v}{\rho_h}\frac{M_d}{M_v}\right].\label{eq:gaskonstanth_humider_luft}
+R_h = R_d\left(1 - \frac{\rho_v}{\rho_h} + \frac{\rho_v}{\rho_h}\frac{M_d}{M_v}\right).\label{eq:gaskonstanth_humider_luft}
 \end{align}
 %
 Man definiert weiter die \textit{virtuelle Temperatur}\index{virtuelle Temperatur}\index{Temperatur!virtuelle} $T_v$ als diejenige Temperatur, bei der trockene Luft bei gleichem Druck die gleiche Dichte hätte wie feuchte Luft. Als Gleichung bedeutet dies
 %
 \begin{align}
 R_h\rho T &= R_d\rho T_v\Rightarrow T_v = \frac{R_h}{R_d}T = T\left(1 - \frac{\rho_v}{\rho_h} + \frac{\rho_v}{\rho_h}\frac{M_d}{M_v}\right)\nonumber\\
-&= T\left[1 + \frac{\rho_v}{\rho_h}\left(\frac{1}{\epsilon} - 1\right)\right].\label{eq:def_virtual_temperature}
+&= T\left[1 + \frac{\rho_v}{\rho_h}\left(\frac{M_d}{M_v} - 1\right)\right].\label{eq:def_virtual_temperature}
 \end{align}
 %
 Die Differenz
 %
 \begin{align}
-\Delta T_v& \coloneqq T_v - T = T\frac{\rho_v}{\rho_h}\left(\frac{1}{\epsilon} - 1\right)
+\Delta T_v& \coloneqq T_v - T = T\frac{\rho_v}{\rho_h}\left(\frac{M_d}{M_v} - 1\right)
 \end{align}
 %
 bezeichnet man als \textit{virtuellen Temperaturzuschlag}.\index{virtueller Temperaturzuschlag}\index{Temperaturzuschlag!virtueller}
@@ -5906,17 +5905,17 @@ r_V \coloneqq\frac{n_v}{n_d}
 definiert. Diese Größe wird häufig in chemischen und Strahlungsbetrachtungen verwendet, wo es eher auf die Teilchendichte als auf die Massendichte ankommt. Ein hochgestelltes $S$ an den Symbolen bedeutet, dass von Sättigung ausgegangen wird. Einige nützliche Umrechnungen lauten
 %
 \begin{align}
-q &= \frac{p_vR_hT}{R_vT p} = \frac{p_vR_h}{pR_v} = \frac{p_v}{p}\frac{R_d}{R_v}\left[1 - \frac{\rho_v}{\rho_h} + \frac{\rho_v}{\rho_h}\frac{M_d}{M_v}\right]\nonumber\\
-&= \frac{p_v}{p}\left(\epsilon\left(1 - q\right) + q\right) = \frac{p_v}{p}\left(q\left(1 - \epsilon'\right) + \epsilon'\right)\nonumber\\
-\Rightarrow q\left(1 + \left(\epsilon' - 1\right)\frac{p_v}{p}\right) &= \epsilon'\frac{p_v}{p}\Rightarrow q = \frac{\epsilon'}{\frac{p}{p_v} + \epsilon' - 1},\\
-r &= \frac{\rho_v}{\rho_d} = \frac{p_vR_dT}{R_vTp_d} = \frac{p_v}{p_d}\epsilon' = \frac{p_v}{p - p_v}\epsilon' = \frac{\epsilon'}{\frac{p}{p_v} - 1}, \nonumber\\
+q &= \frac{p_vR_hT}{R_vT p} = \frac{p_vR_h}{pR_v} = \frac{p_v}{p}\frac{R_d}{R_v}\left(1 - \frac{\rho_v}{\rho_h} + \frac{\rho_v}{\rho_h}\frac{M_d}{M_v}\right)\nonumber\\
+&= \frac{p_v}{p}\left(\frac{M_v}{M_d}\left(1 - q\right) + q\right) = \frac{p_v}{p}\left(q\left(1 - \frac{M_v}{M_d}\right) + \frac{M_v}{M_d}\right)\nonumber\\
+\Rightarrow q\left(1 + \left(\frac{M_v}{M_d} - 1\right)\frac{p_v}{p}\right) &= \frac{M_v}{M_d}\frac{p_v}{p}\Rightarrow q = \frac{\frac{M_v}{M_d}}{\frac{p}{p_v} + \frac{M_v}{M_d} - 1},\\
+r &= \frac{\rho_v}{\rho_d} = \frac{p_vR_dT}{R_vTp_d} = \frac{p_v}{p_d}\frac{M_v}{M_d} = \frac{p_v}{p - p_v}\frac{M_v}{M_d} = \frac{\frac{M_v}{M_d}}{\frac{p}{p_v} - 1}, \nonumber\\
 r_V &= \frac{n_v}{n_d} = \frac{p_v}{p_d} = \frac{\rho_vR_v}{\rho_dR_d}.
 \end{align}
 %
 Häufige Näherungen sind
 %
 \begin{align}
-q \approx \frac{\epsilon'}{\frac{p}{p_v} - 1} = r, && q \approx \epsilon'\frac{p_v}{p}, && r \approx \epsilon'\frac{p_v}{p}.\label{eq:mischungsverhaeltnis_vereinfacht}
+q \approx \frac{\frac{M_v}{M_d}}{\frac{p}{p_v} - 1} = r, && q \approx \frac{M_v}{M_d}\frac{p_v}{p}, && r \approx \frac{M_v}{M_d}\frac{p_v}{p}.\label{eq:mischungsverhaeltnis_vereinfacht}
 \end{align}
 %
 \section{Klassische Systeme}
@@ -15873,7 +15872,7 @@ Setzt man hier die Zustandsgleichung idealer Gase $p = \rho R_dT$ ein, erhält m
 mit einem vereinfachten Faktor
 %
 \begin{align}
-\beta'&= \beta'\left(p, T\right) \coloneqq\frac{1 + \frac{c_cp_v^{(S)}}{TR_vp}}{1 + \frac{\epsilon'c_c}{pc^{(p)}}\frac{dp_v^{(S)}}{dT}}\stackrel{\text{Glg. \eqref{eq:clausius-clapeyron_vereinfacht}}}{\approx}\frac{1 + \frac{c_cp_v^{(S)}}{TR_vp}}{1 + \frac{\epsilon'c_c^2p_v^{(S)}}{R_vc^{(p)}T^2p}}\nonumber
+\beta'&= \beta'\left(p, T\right) \coloneqq\frac{1 + \frac{c_cp_v^{(S)}}{TR_vp}}{1 + \frac{\frac{M_v}{M_d}c_c}{pc^{(p)}}\frac{dp_v^{(S)}}{dT}}\stackrel{\text{Glg. \eqref{eq:clausius-clapeyron_vereinfacht}}}{\approx}\frac{1 + \frac{c_cp_v^{(S)}}{TR_vp}}{1 + \frac{\frac{M_v}{M_d}c_c^2p_v^{(S)}}{R_vc^{(p)}T^2p}}\nonumber
 \end{align}
 \begin{center}
 \doublebox{\parbox{\textwidth}{
