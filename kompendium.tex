@@ -23627,7 +23627,7 @@ r_{k - 1/2} &= -\frac{w_{k - 1/2}^{(\text{expl.})}\left(z_{k - 1} - z_{k}\right)
 &- \frac{\left(z_{k - 1} - z_{k}\right)}{\epsilon\Delta t^2c^{(p)}}\frac{w^{(n)}_{k - 1/2}\newoverline{\rho_k^{(\text{expl.})}}^{(k - 1/2)}}{\newoverline{\rho_k^{(n)}}^{(k - 1/2)}}.
 \end{align}
 %
-Aus dem Ergebnis für $M_{k - 1/2}$ lassen sich die anderen Unbekannten wie folgt bestimmen:
+Lineare Gleichungssysteme mit Drei-Band-Matrizen können mit dem Thomas-Algorithmus\index{Thomas-Algorithmus} gelöst werden. Aus dem Ergebnis für $M_{k - 1/2}$ lassen sich die anderen Unbekannten wie folgt bestimmen:
 %
 \begin{align}
 \rho^{(n + 1)}_k &= \rho^{(\text{expl.})}_k - \Delta t\frac{M_{k - 1/2} - M_{k + 1/2}}{V_k},\\
@@ -23635,136 +23635,6 @@ Aus dem Ergebnis für $M_{k - 1/2}$ lassen sich die anderen Unbekannten wie folg
 \Pi_k^{'(n+1)} &= \Pi_k^{'(\text{expl.})} + \gamma_kV_k\left(\newtilde{\theta}_k^{(n + 1)} - \newtilde{\theta}_k^{(\text{expl.})}\right),\\
 w^{(n + 1)}_{k - 1/2} &\stackrel{\text{Glg. \eqref{eq:w_from_ml}}}{=} \frac{\frac{2M_{k - 1/2}}{A_{k - 1/2}} - \newoverline{\rho_k^{(n + 1)}}^{(k - 1/2)}w^{(n)}_{k - 1/2}}{\newoverline{\rho_k^{(n)}}^{(k - 1/2)}}.
 \end{align}
-
-\subsubsection{Vertikale Advektion einer generalisierten Dichte}
-\label{sec:vertikale_advektion_einer_generalisierten_dichte}
-
-Sei $\rho$ eine generalisierte Dichte (Massendichte, Entropiedichte, Energiedichte, etc.). Vorbereitend wird das Crank-Nicolson-Verfahren mit $n$ als gegenwärtigem Zeitschritt notiert:
-%
-\begin{align}
-\rho^{(n + 1)} = \rho^{(n)} + \Delta t\frac{1}{2}\left(\frac{\partial\rho^{(n)}}{\partial t} + \frac{\partial\rho^{(n + 1)}}{\partial t}\right)
-\end{align}
-%
-An dieser Stelle geht es dabei nur um die vertikale Konvergenz, die anderen Terme werden explizit berechnet:
-%
-\begin{align}
-\rho^{(n + 1)} = \rho^{(n)} + \Delta t\newdot{\rho}^{(n)}_{\text{expl}} - \Delta t\frac{1}{2}\left(\frac{\partial\left(\rho^{(n)}w^{(n + 1)}\right)}{\partial z} + \frac{\partial\left(\rho^{(n + 1)}w^{(n + 1)}\right)}{\partial z}\right)
-\end{align}
-%
-Lediglich die generalisierte Dichte wird dabei in Form des Crank-Nicolson-Verfahrens behandelt, die Geschwindigkeit wird aus Stabilitätsgründen vom neuen Zeitschritt genommen. Den Anteil
-%
-\begin{align}
--\frac{1}{2}\frac{\partial\left(\rho^{(n)}w^{(n + 1)}\right)}{\partial z}
-\end{align}
-%
-absorbiert man in die expizite Tendenz, definiert also
-%
-\begin{align}
-\newdot{\rho}^{(n)}_{\text{expl}}  \to \newdot{\rho}^{(n)}_{\text{expl}}  - \frac{1}{2}\frac{\partial\left(\rho^{(n)}w^{(n + 1)}\right)}{\partial z}
-\end{align}
-%
-um. Die vertikale Diskretisierung erfordert einen Levelindex $0 \leq i \leq N_L - 1$:
-%
-\begin{align}
-\rho_i^{(n + 1)} = \rho_i^{(n)} + \Delta t\newdot{\rho_i}^{(n)}_{\text{expl}} - \frac{\Delta t}{2}\frac{A_{i - 1/2}\newoverline{\rho_k^{(n + 1)}}^{(i - 1/2)}w_{i - 1/2}^{(n + 1)} - A_{i + 1/2}\newoverline{\rho_k^{(n + 1)}}^{(i + 1/2)}w_{i + 1/2}^{(n + 1)}}{V_i}\label{eq:adv_gen_density_deriv_0}
-\end{align}
-%
-Für die vertikalen Mittelungen der Dichte notiert man allgemein
-%
-\begin{align}
-\newoverline{\rho_k}^{(i - 1/2)} = \alpha_{i - \frac{1}{2}, i - 1}\rho_{i - 1} + \alpha_{i - \frac{1}{2}, i}\rho_i
-\end{align}
-%
-mit
-%
-\begin{align}
-\alpha_{i - \frac{1}{2}, i - 1} + \alpha_{i - \frac{1}{2}, i} = 1.
-\end{align}
-%
-Setzt man dies in Glg. \eqref{eq:adv_gen_density_deriv_0} ein, erhält man
-%
-\begin{align}
-&\rho_i^{(n + 1)} = \rho_i^{(n)} + \Delta t\newdot{\rho_i}^{(n)}_{\text{expl}}\nonumber\\
-&- \frac{\Delta t}{2}\left(\alpha_{i - \frac{1}{2}, i - 1}\rho_{i - 1}^{(n + 1)} + \alpha_{i - \frac{1}{2}, i}\rho_i^{(n + 1)}\right)\frac{A_{i - 1/2}w_{i - 1/2}^{(n + 1)}}{V_i} + \frac{\Delta t}{2}\left(\alpha_{i + \frac{1}{2}, i}\rho_i^{(n + 1)} + \alpha_{i + \frac{1}{2}, i + 1}\rho_{i + 1}^{(n + 1)}\right)\frac{A_{i + 1/2}w_{i + 1/2}^{(n + 1)}}{V_i}.
-\end{align}
-%
-Man definiert nun
-%
-\begin{align}
-W_{i + 1/2} \coloneqq A_{i + 1/2}w_{i + 1/2}^{(n + 1)},
-\end{align}
-%
-somit erhält man
-%
-\begin{align}
-&\rho_i^{(n + 1)} = \rho_i^{(n)} + \Delta t\newdot{\rho_i}^{(n)}_{\text{expl}}\nonumber\\
-&- \frac{\Delta t}{2}\left(\alpha_{i - \frac{1}{2}, i - 1}\rho_{i - 1}^{(n + 1)} + \alpha_{i - \frac{1}{2}, i}\rho_i^{(n + 1)}\right)\frac{W_{i - 1/2}^{(n + 1)}}{V_i} + \frac{\Delta t}{2}\left(\alpha_{i + \frac{1}{2}, i}\rho_i^{(n + 1)} + \alpha_{i + \frac{1}{2}, i + 1}\rho_{i + 1}^{(n + 1)}\right)\frac{W_{i + 1/2}^{(n + 1)}}{V_i}.
-\end{align}
-%
-Bei $i = 0$ gilt $w_{i - 1/2} = 0$:
-%
-\begin{align}
-&\rho_0^{(n + 1)} = \rho_0^{(n)} + \Delta t\newdot{\rho}^{(n)}_{0, \text{expl}} + \frac{\Delta t}{2}\left(\alpha_{\frac{1}{2}, 0}\rho_0^{(n + 1)} + \alpha_{\frac{1}{2}, 1}\rho_{1}^{(n + 1)}\right)\frac{W_{1/2}^{(n + 1)}}{V_0}
-\end{align}
-%
-Bei $i = N_L - 1$ gilt $w_{i + 1/2} = 0$:
-%
-\begin{align}
-\rho_{N_L - 1}^{(n + 1)} = \rho_{N_L - 1}^{(n)} + \Delta t\newdot{\rho}^{(n)}_{N_L - 1, \text{expl}} - \frac{\Delta t}{2}\left(\alpha_{N_L - \frac{3}{2}, N_L - 2}\rho_{N_L - 2}^{(n + 1)} + \alpha_{N_L - \frac{3}{2}, N_L - 1}\rho_{N_L - 1}^{(n + 1)}\right)\frac{W_{N_L - 3/2}^{(n + 1)}}{V_{N_L - 1}}.
-\end{align}
-%
-Man definiert den Vektor $\mathbf{x}$ der Unbekannten durch
-%
-\begin{align}
-\mathbf{x} = \left(\begin{array}{c}
-\rho^{(n + 1)}_{0}\\
-\rho^{(n + 1)}_{1}\\
-\vdots\\
-\rho^{(n + 1)}_{N_L - 1}
-\end{array}\right),
-\end{align}
-%
-für diesen gilt ein lineares Gleichungssystem\index{lineares Gleichungssystem}\index{Gleichungssystem!lineares}
-%
-\begin{align}
-A\cdot\mathbf{x} = \mathbf{d}
-\end{align}
-%
-mit einer Matrix $A$ und einer rechten Seite $\mathbf{d}$. Für diese rechte Seite gilt
-%
-\begin{align}
-\mathbf{d} = \left(\begin{array}{c}
-\rho^{(n)}_{0} + \Delta t\newdot{\rho}^{(n)}_{0, \text{expl}}\\
-\rho^{(n)}_{1} + \Delta t\newdot{\rho}^{(n)}_{1, \text{expl}}\\
-\rho^{(n)}_{2} + \Delta t\newdot{\rho}^{(n)}_{2, \text{expl}}\\
-\vdots\\
-\rho^{(n)}_{N_L - 2} + \Delta t\newdot{\rho}^{(n)}_{N_L - 2, \text{expl}}\\
-\rho^{(n)}_{N_L - 1} + \Delta t\newdot{\rho}^{(n)}_{N_L - 1, \text{expl}}
-\end{array}\right).
-\end{align}
-%
-Für die Matrix $A$ erhält man
-%
-\begin{align}
-A &= \left(\begin{array}{cccc}
-b_0 & c_0  & \dots & 0 \\
-a_0 & b_1 & c_1 \hspace{2 cm}\dots &  0 \\
-\vdots & \hspace{2 cm}\ddots & \ddots & \vdots \\
-0 & \dots & a_{N_L - 2} & b_{N_L - 1}
-\end{array}\right)
-\end{align}
-%
-mit Vektoren $\mathbf{a}, \mathbf{c} \in \mathbb{R}^{N_L - 1}$, $\mathbf{b} \in \mathbb{R}^{N_L}$. Für diese erhält man
-%
-\begin{align}
-a_i &= \frac{\Delta t}{2}\frac{\alpha_{i + \frac{1}{2}, i}W_{i + 1/2}^{(n + 1)}}{V_{i + 1}},\\
-b_0 &= 1 - \frac{\Delta t}{2}\alpha_{\frac{1}{2}, 0}\frac{W_{1/2}^{(n + 1)}}{V_0},\\
-b_i &= 1 + \frac{\Delta t}{2}\frac{\alpha_{i - \frac{1}{2}, i}W_{i - 1/2}^{(n + 1)} - \alpha_{i + \frac{1}{2}, 1}W_{i + 1/2}^{(n + 1)}}{V_i},\\
-b_{N_L - 1} &= 1 + \frac{\Delta t}{2}\frac{\alpha_{N_L - \frac{3}{2}, N_L - 1}W_{N_L - 3/2}^{(n + 1)}}{V_{N_L - 1}},\\
-c_i &= -\frac{\Delta t}{2}\alpha_{i + \frac{1}{2}, i + 1}\frac{W_{i + 1/2}^{(n + 1)}}{V_i}.
-\end{align}
-%
-Lineare Gleichungssysteme mit Drei-Band-Matrizen können mit dem Thomas-Algorithmus\index{Thomas-Algorithmus} gelöst werden.
 
 \subsubsection{Horizontales Forward-backward-Verfahren}
 \label{sec:horizontales_forward-backward-Verfahren}\index{Forward-Backward-Verfahren}
@@ -23783,7 +23653,7 @@ Das Zeitschrittverfahren ist das Runge-Kutta-Verfahren zweiter Ordnung. Zusätzl
 \item Zunächst werden die Geschwindigkeitstendenzen des expliziten Anteils berechnet. Im zweiten RK-Schritt wird die endgültige Tendenz als arithmetisches Mittel der beiden Schritte berechnet.
 \item Nun werden die horizontalen Divergenzen mittels der skalaren Werte des vorherigen Runge-Kutta-Schrittes und der neuen Werte der horizontalen Geschwindigkeitskomponenten berechnet, dabei werden auch diabatische Effekte berücksichtigt. Im zweiten RK-Schritt wird die endgültige Tendenz als arithmetisches Mittel der beiden Schritte berechnet.
 \item Mittels des in Abschn. \ref{sec:behandlung_vertikal_propagierender_wellen} beschriebenen Verfahrens werden die neuen Werte der Vertkalgeschwindigkeit und der Skalarfelder berechnet.
-\item Zuletzt werden mittels der generalisierten Kontinuitätsgleichungen die neuen Werte der generalisierten Dichten der Tracer berechnet, s. Abschn. \ref{sec:vertikale_advektion_einer_generalisierten_dichte}.
+\item Zuletzt werden mittels der Kontinuitätsgleichungen die neuen Werte der Massendichten der Tracer berechnet, s. Abschn. \ref{sec:vertikale_advektion_einer_massendichte}.
 \end{enumerate}
 
 \section{Regionale Version}
@@ -24013,6 +23883,134 @@ verallgemeinern.
 \label{sec:framework_fuer_die_beruecksichtigung_von_tracern}
 
 Führt man $N \geq 1$ Tracer ein (also Anteile der Luft, die nicht zur trockenen Luft gehören), von denen $1 \leq N_C \leq N - 1$ kondensiert sind, so benötigt man $N$ zusätzliche Kontinuitätsgleichungen. Macht man die Annahme des lokalen thermodynamischen Gleichgewichts (alle Kondensate haben die gleiche Temperatur wie die Gasphase), muss man keine zusätzlichen Ersten Hauptsätze einführen. Der Grundansatz zur dynamischen und thermodynamischen Ankopplung der gasförmigen und kondensierten Tracer an das Gleichungssystem für trockene Luft wurde in Abschn. \ref{sec:heterogene_atmosphaere} festgelegt.
+
+\subsection{Vertikale Advektion einer Massendichte}
+\label{sec:vertikale_advektion_einer_massendichte}
+
+Sei $\rho$ eine Massendichte. Vorbereitend wird das Crank-Nicolson-Verfahren mit $n$ als gegenwärtigem Zeitschritt notiert:
+%
+\begin{align}
+\rho^{(n + 1)} = \rho^{(n)} + \Delta t\frac{1}{2}\left(\frac{\partial\rho^{(n)}}{\partial t} + \frac{\partial\rho^{(n + 1)}}{\partial t}\right)
+\end{align}
+%
+An dieser Stelle geht es dabei nur um die vertikale Konvergenz, die anderen Terme werden explizit berechnet:
+%
+\begin{align}
+\rho^{(n + 1)} = \rho^{(n)} + \Delta t\newdot{\rho}^{(n)}_{\text{expl}} - \Delta t\frac{1}{2}\left(\frac{\partial\left(\rho^{(n)}w^{(n + 1)}\right)}{\partial z} + \frac{\partial\left(\rho^{(n + 1)}w^{(n + 1)}\right)}{\partial z}\right)
+\end{align}
+%
+Lediglich die generalisierte Dichte wird dabei in Form des Crank-Nicolson-Verfahrens behandelt, die Geschwindigkeit wird aus Stabilitätsgründen vom neuen Zeitschritt genommen. Den Anteil
+%
+\begin{align}
+-\frac{1}{2}\frac{\partial\left(\rho^{(n)}w^{(n + 1)}\right)}{\partial z}
+\end{align}
+%
+absorbiert man in die expizite Tendenz, definiert also
+%
+\begin{align}
+\newdot{\rho}^{(n)}_{\text{expl}}  \to \newdot{\rho}^{(n)}_{\text{expl}}  - \frac{1}{2}\frac{\partial\left(\rho^{(n)}w^{(n + 1)}\right)}{\partial z}
+\end{align}
+%
+um. Die vertikale Diskretisierung erfordert einen Levelindex $0 \leq i \leq N_L - 1$:
+%
+\begin{align}
+\rho_i^{(n + 1)} = \rho_i^{(n)} + \Delta t\newdot{\rho_i}^{(n)}_{\text{expl}} - \frac{\Delta t}{2}\frac{A_{i - 1/2}\newoverline{\rho_k^{(n + 1)}}^{(i - 1/2)}w_{i - 1/2}^{(n + 1)} - A_{i + 1/2}\newoverline{\rho_k^{(n + 1)}}^{(i + 1/2)}w_{i + 1/2}^{(n + 1)}}{V_i}\label{eq:adv_gen_density_deriv_0}
+\end{align}
+%
+Für die vertikalen Mittelungen der Dichte notiert man allgemein
+%
+\begin{align}
+\newoverline{\rho_k}^{(i - 1/2)} = \alpha_{i - \frac{1}{2}, i - 1}\rho_{i - 1} + \alpha_{i - \frac{1}{2}, i}\rho_i
+\end{align}
+%
+mit
+%
+\begin{align}
+\alpha_{i - \frac{1}{2}, i - 1} + \alpha_{i - \frac{1}{2}, i} = 1.
+\end{align}
+%
+Setzt man dies in Glg. \eqref{eq:adv_gen_density_deriv_0} ein, erhält man
+%
+\begin{align}
+&\rho_i^{(n + 1)} = \rho_i^{(n)} + \Delta t\newdot{\rho_i}^{(n)}_{\text{expl}}\nonumber\\
+&- \frac{\Delta t}{2}\left(\alpha_{i - \frac{1}{2}, i - 1}\rho_{i - 1}^{(n + 1)} + \alpha_{i - \frac{1}{2}, i}\rho_i^{(n + 1)}\right)\frac{A_{i - 1/2}w_{i - 1/2}^{(n + 1)}}{V_i} + \frac{\Delta t}{2}\left(\alpha_{i + \frac{1}{2}, i}\rho_i^{(n + 1)} + \alpha_{i + \frac{1}{2}, i + 1}\rho_{i + 1}^{(n + 1)}\right)\frac{A_{i + 1/2}w_{i + 1/2}^{(n + 1)}}{V_i}.
+\end{align}
+%
+Man definiert nun
+%
+\begin{align}
+W_{i + 1/2} \coloneqq A_{i + 1/2}w_{i + 1/2}^{(n + 1)},
+\end{align}
+%
+somit erhält man
+%
+\begin{align}
+&\rho_i^{(n + 1)} = \rho_i^{(n)} + \Delta t\newdot{\rho_i}^{(n)}_{\text{expl}}\nonumber\\
+&- \frac{\Delta t}{2}\left(\alpha_{i - \frac{1}{2}, i - 1}\rho_{i - 1}^{(n + 1)} + \alpha_{i - \frac{1}{2}, i}\rho_i^{(n + 1)}\right)\frac{W_{i - 1/2}^{(n + 1)}}{V_i} + \frac{\Delta t}{2}\left(\alpha_{i + \frac{1}{2}, i}\rho_i^{(n + 1)} + \alpha_{i + \frac{1}{2}, i + 1}\rho_{i + 1}^{(n + 1)}\right)\frac{W_{i + 1/2}^{(n + 1)}}{V_i}.
+\end{align}
+%
+Bei $i = 0$ gilt $w_{i - 1/2} = 0$:
+%
+\begin{align}
+&\rho_0^{(n + 1)} = \rho_0^{(n)} + \Delta t\newdot{\rho}^{(n)}_{0, \text{expl}} + \frac{\Delta t}{2}\left(\alpha_{\frac{1}{2}, 0}\rho_0^{(n + 1)} + \alpha_{\frac{1}{2}, 1}\rho_{1}^{(n + 1)}\right)\frac{W_{1/2}^{(n + 1)}}{V_0}
+\end{align}
+%
+Bei $i = N_L - 1$ gilt $w_{i + 1/2} = 0$:
+%
+\begin{align}
+\rho_{N_L - 1}^{(n + 1)} = \rho_{N_L - 1}^{(n)} + \Delta t\newdot{\rho}^{(n)}_{N_L - 1, \text{expl}} - \frac{\Delta t}{2}\left(\alpha_{N_L - \frac{3}{2}, N_L - 2}\rho_{N_L - 2}^{(n + 1)} + \alpha_{N_L - \frac{3}{2}, N_L - 1}\rho_{N_L - 1}^{(n + 1)}\right)\frac{W_{N_L - 3/2}^{(n + 1)}}{V_{N_L - 1}}.
+\end{align}
+%
+Man definiert den Vektor $\mathbf{x}$ der Unbekannten durch
+%
+\begin{align}
+\mathbf{x} = \left(\begin{array}{c}
+\rho^{(n + 1)}_{0}\\
+\rho^{(n + 1)}_{1}\\
+\vdots\\
+\rho^{(n + 1)}_{N_L - 1}
+\end{array}\right),
+\end{align}
+%
+für diesen gilt ein lineares Gleichungssystem\index{lineares Gleichungssystem}\index{Gleichungssystem!lineares}
+%
+\begin{align}
+A\cdot\mathbf{x} = \mathbf{d}
+\end{align}
+%
+mit einer Matrix $A$ und einer rechten Seite $\mathbf{d}$. Für diese rechte Seite gilt
+%
+\begin{align}
+\mathbf{d} = \left(\begin{array}{c}
+\rho^{(n)}_{0} + \Delta t\newdot{\rho}^{(n)}_{0, \text{expl}}\\
+\rho^{(n)}_{1} + \Delta t\newdot{\rho}^{(n)}_{1, \text{expl}}\\
+\rho^{(n)}_{2} + \Delta t\newdot{\rho}^{(n)}_{2, \text{expl}}\\
+\vdots\\
+\rho^{(n)}_{N_L - 2} + \Delta t\newdot{\rho}^{(n)}_{N_L - 2, \text{expl}}\\
+\rho^{(n)}_{N_L - 1} + \Delta t\newdot{\rho}^{(n)}_{N_L - 1, \text{expl}}
+\end{array}\right).
+\end{align}
+%
+Für die Matrix $A$ erhält man
+%
+\begin{align}
+A &= \left(\begin{array}{cccc}
+b_0 & c_0  & \dots & 0 \\
+a_0 & b_1 & c_1 \hspace{2 cm}\dots &  0 \\
+\vdots & \hspace{2 cm}\ddots & \ddots & \vdots \\
+0 & \dots & a_{N_L - 2} & b_{N_L - 1}
+\end{array}\right)
+\end{align}
+%
+mit Vektoren $\mathbf{a}, \mathbf{c} \in \mathbb{R}^{N_L - 1}$, $\mathbf{b} \in \mathbb{R}^{N_L}$. Für diese erhält man
+%
+\begin{align}
+a_i &= \frac{\Delta t}{2}\frac{\alpha_{i + \frac{1}{2}, i}W_{i + 1/2}^{(n + 1)}}{V_{i + 1}},\\
+b_0 &= 1 - \frac{\Delta t}{2}\alpha_{\frac{1}{2}, 0}\frac{W_{1/2}^{(n + 1)}}{V_0},\\
+b_i &= 1 + \frac{\Delta t}{2}\frac{\alpha_{i - \frac{1}{2}, i}W_{i - 1/2}^{(n + 1)} - \alpha_{i + \frac{1}{2}, 1}W_{i + 1/2}^{(n + 1)}}{V_i},\\
+b_{N_L - 1} &= 1 + \frac{\Delta t}{2}\frac{\alpha_{N_L - \frac{3}{2}, N_L - 1}W_{N_L - 3/2}^{(n + 1)}}{V_{N_L - 1}},\\
+c_i &= -\frac{\Delta t}{2}\alpha_{i + \frac{1}{2}, i + 1}\frac{W_{i + 1/2}^{(n + 1)}}{V_i}.
+\end{align}
 
 \subsection{Limiter}
 \label{sec:limiter}\index{Limiter}
