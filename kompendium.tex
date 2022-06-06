@@ -24015,8 +24015,49 @@ c_i &= -\frac{\Delta t}{2}\alpha_{i + \frac{1}{2}, i + 1}\frac{W_{i + 1/2}^{(n +
 \subsection{Limiter}
 \label{sec:limiter}\index{Limiter}
 
+Nach Advektion, Diffusion und Phasenübergängen ist es möglich, dass negative Dichten entstehen können. Dies sollte nur durch Rundungsfehler der Fall sein. Diese numerischen Artefakte müssen korrigiert werden, indem man in diesen Gitterboxen am Ende des Zeitschritts die Dichte des jeweiligen Tracers auf Null setzt. Geschieht dies über Rundungsfehler hinaus, wird die Massenerhaltung verletzt, was nicht akzeptabel ist.
+
 \subsection{Parametrisierungen}
 \label{sec:parametrisierungen_tracer}\index{Parametrisierung!Phasenübergänge}\index{Phasenübergang!Parametrisierung}
+
+\subsection{Vier-Kondensate-Schema}
+\label{sec:vier-kondensate-schema}\index{Vier-Kondensate-Schema}
+
+Dieses Schema berücksichtigt folgende vier Kondensatklassen:
+
+\begin{itemize}
+\item Wolkenwasser
+\item Regenwasser
+\item flüsiger Niederschlag
+\item fester Niederschlag
+\end{itemize}
+%
+Dieses Schema ist adäquat für Globalmodelle.
+
+\subsection{Fünf-Kondensate-Schema}
+\label{sec:fuenf-kondensate-schema}\index{Fünf-Kondensate-Schema}
+
+Bei diesem Schema kommt gegenüber dem Vier-Kondensate-Schema noch eine fünfte Kondensatklasse hinzu, nämlich Graupel. Somit lauten die fünf hier verwendeten Kondensatklassen
+%
+\begin{itemize}
+\item Wolkenwasser,
+\item Regenwasser,
+\item flüsiger Niederschlag,
+\item fester Niederschlag,
+\item Graupel.
+\end{itemize}
+%
+Dieses Schema ist adäquat für Regionalmodelle.
+
+\subsection{Weiterführende Wolken-Mikrophysik-Schemata}
+\label{sec:weiterfuehrende_wolken-mikrophysik-schemata}
+
+Bei den bisher betrachteten Schemata wird jede Kondesatklasse durch eine prognostische Variable, nämlich die Massendichte oder auch die spezifische Dichte beschrieben. Dies wäre nur dann eine vollständige Beschreibung, wenn alle Kondensate der jeweiligen Klasse den gleichen Radius und die gleiche Temperatur wie die Gasphase hätten. Beides ist jedoch im Allgemeinen nicht der Fall. Es bieten sich zwei Erweiterungen an:
+%
+\begin{itemize}
+\item Jeder Kondensatklasse kann ihre eigene Temperatur zugewiesen werden.
+\item Die Größenverteilung innerhalb der Kondensatklassen kann berücksichtigt werden. Dies geschieht bei den sogenannten \textit{Multi-Moment-Schemata}\index{Multi-Moment-Schema}, bei denen die höheren Momente der Größenverteilungen (oder vergleichbare die Form der Verteilungen beschreibenden Größen) als zusätzliche prignostische Variablen eingeführt werden.
+\end{itemize}
 
 \section{Ankopplung an ein Strahlungstransportmodell}
 \label{sec:ankopplung_an_ein_strahlungstransportmodell}
