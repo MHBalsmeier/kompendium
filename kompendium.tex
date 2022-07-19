@@ -23454,10 +23454,10 @@ Es besteht folgender Konflikt zwischen expliziten\index{explizites Zeitschrittve
 %
 Hieraus folgt, dass ein schnelles implizites Verfahren ideal für einen dynamischen Kern wäre. Da die zu lösenden Gleichungen jedoch nichtlinear sind, ist ein dreidimensional implizites Verfahren nur über ein iteratives Vorgehen möglich. In diesem Abschnitt wählt man als Kompromiss das \textit{HEVI-Konzept,}\index{HEVI-Konzept} was für \textit{horizontally explicit, vertically implicit}\index{horizontally explicit, vertically implicit (HEVI)} steht.
 
-\subsection{Festlegung auf ein Runge-Kutta-Verfahren}
-\label{sec:Festlegung_auf_ein_runge-kutta-verfahren}
+\subsection{Festlegung auf ein Predictor-Corrector-Verfahren}
+\label{sec:Festlegung_auf_ein_predictor-corrector-verfahren}
 
-Das grundlegende Zeitschrittverfahren des Modells soll explizit sein. Das explizite Euler-Verfahren ist nur erster Ordnung und daher nicht genau genug. Ein Multi-Schritt-Verfahren erzeugt unphysikalische Moden, was ebenfalls unvorteilhaft ist. Daher verwendet man ein Runge-Kutta-Verfahren. Als Konvergenzordnung ist Drei ein guter Kompromiss aus Genauigkeit und Effizienz. Dabei muss man beachten, dass aufgrund der Nichtlinearität das Gleichungssystems die tatsächliche Konvergenzordnung nur Zwei ist.
+Das grundlegende Zeitschrittverfahren des Modells soll explizit sein. Das explizite Euler-Verfahren ist nur erster Ordnung und daher nicht genau genug. Ein Multi-Schritt-Verfahren erzeugt unphysikalische Moden, was ebenfalls unvorteilhaft ist. Daher verwendet man ein Predictor-Corrector-Verfahren.
 
 \subsection{Split-explicit-Techniken}
 \label{sec:split-explicit-techniken}\index{Split-explicit-Verfahren}
@@ -23488,7 +23488,7 @@ Die zwei Striche stehen für lineare Entwicklungen in Abgrenzung zum hydrostatis
 \gamma \coloneqq \frac{R_s}{c^{(V)}\newtilde{\theta}}\Pi
 \end{align}
 %
-ab. Diese berechnet man in den Zellzentren, wobei man beim ersten Runge-Kutta-Schritt den alten Zeitschritt (Zeitschritt $n$) und beim zweiten Runge-Kutta-Schritt das arithmetische Mittel der Schritte $n$ und $n + 1$ verwendet. Die vertikale Impulsgleichung notiert man in der Form
+ab. Diese berechnet man in den Zellzentren, wobei man beim Predictor-Schritt den alten Zeitschritt (Zeitschritt $n$) und beim zweiten Corrector-Schritt das arithmetische Mittel der Schritte $n$ und $n + 1$ verwendet. Die vertikale Impulsgleichung notiert man in der Form
 %
 \begin{align}
 w_{k - 1/2}^{(n + 1)} &= w_{k - 1/2}^{(\text{expl.})} - \epsilon\Delta tc^{(p)}\left[\left(\newoverline{\newoverline{\theta}_k}^{(k - 1/2)} + \newoverline{\theta_k^{'(n + 1)^\star}}^{(k - 1/2)}\right)\frac{\Pi^{'(n + 1)}_{k - 1} - \Pi^{'(n + 1)}_{k}}{z_{k - 1} - z_{k}} + \newoverline{\theta_k^{'(n + 1)}}^{(k - 1/2)}\frac{\newoverline{\Pi}_{k - 1} - \newoverline{\Pi}_{k}}{z_{k - 1} - z_{k}}\right]\nonumber\\
@@ -23647,11 +23647,11 @@ Das Forward-Backward-Verfahren wurde in Abschn. \ref{sec:forward-backward-verfah
 \subsection{Zusammenfassung}
 \label{sec:zusammenfassung}
 
-Das Zeitschrittverfahren ist das Runge-Kutta-Verfahren zweiter Ordnung. Zusätzlich werden einige Modifikationen zur Stabilisierung und Effizienzerhöhung vorgenommen. Das prinzipielle Vorgehen bei jedem der drei Unterschritte ist folgendes:
+Die grundlegende Archtiektur des Zeitschrittverfahrens ist die des Pedcitor-Corrector-Verfahrens. Zusätzlich werden einige Modifikationen zur Stabilisierung und Effizienzerhöhung vorgenommen. Das prinzipielle Vorgehen bei jedem der drei Unterschritte ist folgendes:
 
 \begin{enumerate}
 \item Zunächst werden die Geschwindigkeitstendenzen des expliziten Anteils berechnet. Im zweiten RK-Schritt wird die endgültige Tendenz als arithmetisches Mittel der beiden Schritte berechnet.
-\item Nun werden die horizontalen Divergenzen mittels der skalaren Werte des vorherigen Runge-Kutta-Schrittes und der neuen Werte der horizontalen Geschwindigkeitskomponenten berechnet, dabei werden auch diabatische Effekte berücksichtigt. Im zweiten RK-Schritt wird die endgültige Tendenz als arithmetisches Mittel der beiden Schritte berechnet.
+\item Nun werden die horizontalen Divergenzen mittels der skalaren Werte des Predictor-Schrittes und der neuen Werte der horizontalen Geschwindigkeitskomponenten berechnet, dabei werden auch diabatische Effekte berücksichtigt. Im zweiten RK-Schritt wird die endgültige Tendenz als arithmetisches Mittel der beiden Schritte berechnet.
 \item Mittels des in Abschn. \ref{sec:behandlung_vertikal_propagierender_wellen} beschriebenen Verfahrens werden die neuen Werte der Vertkalgeschwindigkeit und der Skalarfelder berechnet.
 \item Zuletzt werden mittels der Kontinuitätsgleichungen die neuen Werte der Massendichten der Tracer berechnet, s. Abschn. \ref{sec:vertikale_advektion_einer_massendichte}.
 \end{enumerate}
@@ -23701,7 +23701,7 @@ q^{(V)} = q^{(V)}_\text{diss} + q^{(V)}_\text{Tdiff} = \rho\epsilon + \nabla\cdo
 %
 Hierbei ist $\epsilon$ die Dissipation\index{Dissipation}. Der Term $\nabla\cdot\left(c_d^{(v)}\rho\kappa_T\nabla T\right)$ beschreibt die Konvergenz der aus der Temperaturdiffusion\index{Temperaturdiffusion}\index{Diffusion!Temperatur} resultierenden Wärmeflussdichte\index{Wärmeflussdichte}.
 
-Die Temperaturgleichung Glg. \eqref{eq:prog_irrev_3} ist dieselbe wie Glg. \eqref{eq:prog_rev_3}, die diffusiven Effekte gehen über $\Delta\rho$ und $\Delta\newtilde{s}$ auch in die Temperatur ein. In Analogie zum vorigen Kapitel werden auch in diesem Kapitel die horizontalen und vertikalen Diskretisierungen separat hergeleitet, auch wenn es in einem nichthydrostatischen Modell keine Auszeichnung der vertikalen Raumrichtung mehr gibt. Alle in diesem Kapitel betrachteten irreversiblen Terme werden nur im dritten (letzten) Runge-Kutta-Zeitschritt\index{Runge-Kutta-Verfahren} berücksichtigt.
+Die Temperaturgleichung Glg. \eqref{eq:prog_irrev_3} ist dieselbe wie Glg. \eqref{eq:prog_rev_3}, die diffusiven Effekte gehen über $\Delta\rho$ und $\Delta\newtilde{s}$ auch in die Temperatur ein. In Analogie zum vorigen Kapitel werden auch in diesem Kapitel die horizontalen und vertikalen Diskretisierungen separat hergeleitet, auch wenn es in einem nichthydrostatischen Modell keine Auszeichnung der vertikalen Raumrichtung mehr gibt. Alle in diesem Kapitel betrachteten irreversiblen Terme werden nur im Corrector-Schritt berücksichtigt.
 
 \section{Horizontale Diffusion}
 \label{sec:horizontale_diffusion}\index{horizontale Diffusion}\index{Diffusion!horizontale}
