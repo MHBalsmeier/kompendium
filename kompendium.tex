@@ -22256,9 +22256,9 @@ Da das Lösen der Strahlungsübertragungsgleichung\index{Strahlungsübertragungs
 Der Begriff \textit{dynamischer Kern}\index{dynamischer Kern}\index{Kern!dynamischer} wird häufig nicht präzise definiert, was hier jedoch getan werden soll. Dazu werden verschiedene Unterkomponenten definiert:
 %
 \begin{itemize}
-\item Der \textit{reversible Teil des dynamischen Kerns}\index{dynamischer Kern!reversibler Teil}\index{Kern!dynamischer!reversibler Teil} löst die Gleichungen einer trockenadiabatischen Atmosphäre ohne molekulare und numerische Diffusionsterme. Bei Modellen, bei denen dieser Teil des dynamischen Kerns den Zweiten Hauptsatz nicht exakt einhält, sollte man diesen Teil besser als \textit{primären Teil des dynamischen Kerns}\index{dynamischer Kern!primärer Teil}\index{Kern!dynamischer!primärer Teil} bezeichnen.
-\item Der \textit{irreversible Teil des dynamischen Kerns}\index{dynamischer Kern!irreversibler Teil}\index{Kern!dynamischer!irreversibler Teil} behandelt molekulare und numerische diffusive Flüsse\index{diffusiver Fluss}\index{Fluss!diffusiver}. Dabei kann es sich um Wärme-, Massen- oder Impulsflüsse handeln. Bei Modellen, bei denen der zuvor definierte Teil des dynamischen Kerns den Zweiten Hauptsatz nicht exakt einhält, sollte man diesen Teil besser als \textit{sekundären Teil des dynamischen Kerns}\index{dynamischer Kern!sekundärer Teil}\index{Kern!dynamischer!sekundärer Teil} bezeichnen. Zusammen mit dem zuvor definierten Teil bildet dieser Teil den \textit{trockenen dynamischen Kern}\index{dynamischer Kern!trockener}\index{Kern!dynamischer!trockener}.
-\item Der \textit{erweiterte dynamische Kern}\index{dynamischer Kern!erweiterter}\index{Kern!dynamischer!erweiterter} behandelt die Advektion von Tracern und stellt sicher, dass keine negativen Tracerdichten auftreten. Dabei kann es sich um Wasserkomponenten, Aerosole oder Gase handeln.
+\item Der \textit{reversible Teil des dynamischen Kerns}\index{dynamischer Kern!reversibler Teil}\index{Kern!dynamischer!reversibler Teil} löst die Gleichungen einer trockenadiabatischen Atmosphäre ohne molekulare und numerische Diffusionsterme. Bei Modellen, bei denen dieser Teil des dynamischen Kerns den Zweiten Hauptsatz der Thermodynamik nicht exakt einhält, sollte man diesen Teil besser als \textit{primären Teil des dynamischen Kerns}\index{dynamischer Kern!primärer Teil}\index{Kern!dynamischer!primärer Teil} bezeichnen.
+\item Der \textit{irreversible Teil des dynamischen Kerns}\index{dynamischer Kern!irreversibler Teil}\index{Kern!dynamischer!irreversibler Teil} behandelt molekulare und numerische diffusive Flüsse\index{diffusiver Fluss}\index{Fluss!diffusiver}. Dabei kann es sich um Wärme-, Massen- oder Impulsflüsse handeln. Bei Modellen, bei denen der zuvor definierte Teil des dynamischen Kerns den Zweiten Hauptsatz der Thermodynamik nicht exakt einhält, sollte man diesen Teil besser als \textit{sekundären Teil des dynamischen Kerns}\index{dynamischer Kern!sekundärer Teil}\index{Kern!dynamischer!sekundärer Teil} bezeichnen. Zusammen mit dem zuvor definierten Teil bildet dieser Teil den \textit{trockenen dynamischen Kern}\index{dynamischer Kern!trockener}\index{Kern!dynamischer!trockener}.
+\item Der \textit{erweiterte dynamische Kern}\index{dynamischer Kern!erweiterter}\index{Kern!dynamischer!erweiterter} behandelt die Advektion von Tracern und stellt sicher, dass keine negativen Tracerdichten auftreten. Dabei kann es sich um Wasserkomponenten, Aerosole und/oder Spurengase handeln.
 \end{itemize}
 
 \section{Horizontales Gitter}
@@ -22502,7 +22502,7 @@ Sei $\psi: A \to \mathbb{R}^n$ mit $n \in \lbrace 1, 2, 3\rbrace$ ein zweifach s
 \psi \to \psi_{h, v}^{(\tau)},
 \end{align}
 %
-hierbei ist $h \in \mathbb{N}$ der horizontale Index, $v \in \mathbb{N}$ der vertikale Index und $\tau \in \mathbb{N}$ der den Zeitschritt festlegenden Index. Sollten einer oder mehrere der Indizes für eine Betrachtung nicht wichtig sein, so werden diese in der Notation vernachlässigt. Werden am jeweiligen Ort keine abweichenden Definitionen eingeführt, bezeichnet $c$ Zellen, $e$ Kanten, $dc$ duale Zellen und $de$ duale Kanten. In der Vertikalen werden die Layer von $k = 0$ bis $k = N_L - 1$ durchnummeriert, die Level werden von $k = -\frac{1}{2}$ bis $k = N_L - \frac{1}{2}$ (mit Abstand Eins) bezeichnet.
+hierbei ist $h \in \mathbb{N}$ der horizontale Index, $v \in \mathbb{N}$ der vertikale Index und $\tau \in \mathbb{N}$ der den Zeitschritt festlegende Index. Sollten einer oder mehrere der Indizes für eine Betrachtung nicht wichtig sein, so werden diese in der Notation vernachlässigt. Werden am jeweiligen Ort keine abweichenden Definitionen eingeführt, bezeichnet $c$ Zellen, $e$ Kanten, $dc$ duale Zellen und $de$ duale Kanten. In der Vertikalen werden die Layer von $k = 1$ bis $k = N_L$ durchnummeriert, die Level werden von $k = \frac{1}{2}$ bis $k = N_L + \frac{1}{2}$ (mit Abstand Eins) bezeichnet.
 
 \subsection{Ausgezeichnete Punkte}
 \label{sec:ausgezeichnete_punkte}
@@ -22516,7 +22516,7 @@ Folgende Mengen von Punkten spielen eine besondere Rolle:
 \item die Mittelpunkte der dualen Kanten aus Sicht des dualen Gitters (Index $de$)
 \end{enumerate}
 %
-Dabei sind jeweils sowohl die Layer, als auch die Level wichtig. Jedem Element dieser acht Punktmengen ordnet man dabei ein Volumen $V_{l, k}$ mit $l \in \lbrace c, d, e, de\rbrace$ zu. Dabei muss bei den Kanten ein Unterschied zwischen dem primären und dualen Gitter machen, auch wenn es sich um die gleichen Punkte handelt. Normalenvektoren werden mit $\mathbf{n}_e$ bzw. $\mathbf{n}_{de}$ bezeichnet.
+Dabei sind jeweils sowohl die Layer, als auch die Level wichtig. Jedem Element dieser acht Punktmengen ordnet man dabei ein Volumen $V_{l, k}$ mit $l \in \lbrace c, d, e, de\rbrace$ zu. Dabei muss man bei den Kanten einen Unterschied zwischen dem primären und dualen Gitter machen, auch wenn es sich um die gleichen Punkte handelt. Normalenvektoren werden mit $\mathbf{n}_e$ bzw. $\mathbf{n}_{de}$ bezeichnet.
 
 \subsection{Arten von Feldern}
 \label{sec:arten_von_feldern}
@@ -22681,7 +22681,7 @@ Die Reihenfolge der Mittelungen spielt hier also keine Rolle.
 In der tiefen Atmosphäre wird ausschließlich die Mittelungsreihenfolge $\newoverline{\newoverline{w_{c, k + \frac{1}{2}}}^{(k)}}^{(e)}$ zugelassen. Die Mittelung auf die Kante $(e)$ ist weiterhin das arithmetische Mittel der beiden auf die Zellzentren gemittelten Werte. Für die vertikale Mittelung auf die Zentren verwendet man die Gewichte aus Glg. \eqref{eq:inner_c-grid_3d_deep}:
 %
 \begin{align}
-\newoverline{w_{c, k + \frac{1}{2}}}^{(k)} = \frac{A_{c, k + 1/2}\Delta z_{c, k - /2}w_{c, k + \frac{1}{2}} + A_{c, k + 1/2}\Delta z_{c, k + /2}w_{c, k + \frac{1}{2}}}{2V_{c, k}}
+\newoverline{w_{c, k + \frac{1}{2}}}^{(k)} = \frac{A_{c, k - 1/2}\Delta z_{c, k - 1/2}w_{c, k - \frac{1}{2}} + A_{c, k + 1/2}\Delta z_{c, k + 1/2}w_{c, k + \frac{1}{2}}}{2V_{c, k}}
 \end{align}
 %
 Hier hängen die Schichtdicken auch vom horizontalen Index ab.
@@ -22689,7 +22689,7 @@ Hier hängen die Schichtdicken auch vom horizontalen Index ab.
 \subsection{Skalarprodukt auf dem C-Gitter in geländefolgenden Koordinaten}
 \label{sec:skalarprodukt_auf_dem_c-gitter_in_gelaendefolgenden_koordinaten}
 
-Das Skalarprodukt macht aus zwei Vektorfeldern ein Skalarfeld und sollte daher auch im Kontext der Mittelungssoperatoren betrachtet werden.
+Das Skalarprodukt macht aus zwei Vektorfeldern ein Skalarfeld und sollte daher auch im Kontext der Mittelungsoperatoren betrachtet werden.
 
 \subsubsection{Shallow atmosphere}
 \label{sec:inner_c_shallow_atmosphere}
@@ -22697,13 +22697,13 @@ Das Skalarprodukt macht aus zwei Vektorfeldern ein Skalarfeld und sollte daher a
 In Abschn. \ref{sec:skalarprodukt_auf_dem_c-gitter} wurde davon ausgegagnegen, dass die Diskretisierungen von Gradient und Divergenz festgelegt ist, und es wurde die Diskretisierung des dreidimensionalen Skalarproduktes auf dem C-Gitter Glg. \eqref{eq:inner_c-grid_3d_shallow} hergeleitet. Hier geht man andersherum vor, und setzt die Diskretisierung des Skalarproduktes voraus. Man verallgemeinert Glg. \eqref{eq:inner_c-grid_3d_shallow} wie folgt auf geländefolgende Koordinaten:
 %
 \begin{align}
-\left(\mathbf{u}^{(1)}\cdot\mathbf{u}^{(2)}\right)_{c, k} = \sum_{e\in c}\frac{l_ed_e}{2A_c\Delta z_{c, k}}\Delta z_{e, k}u_{e, k}^{(1)}u_{e, k}^{(2)} + \frac{\Delta z_{c, k + 1/2}}{2\Delta z_{c, k}}w_u^{(1)}w_u^{(2)} + \frac{\Delta z_{c, k + 1/2}}{2\Delta z_{c, k}}w_l^{(1)}w_l^{(2)}\label{eq:inner_c-grid_3d_shallow_terrain}
+\left(\mathbf{u}^{(1)}\cdot\mathbf{u}^{(2)}\right)_{c, k} = \sum_{e\in c}\frac{l_ed_e}{2A_c\Delta z_{c, k}}\Delta z_{e, k}u_{e, k}^{(1)}u_{e, k}^{(2)} + \frac{\Delta z_{c, k - 1/2}}{2\Delta z_{c, k}}w_u^{(1)}w_u^{(2)} + \frac{\Delta z_{c, k + 1/2}}{2\Delta z_{c, k}}w_l^{(1)}w_l^{(2)}\label{eq:inner_c-grid_3d_shallow_terrain}
 \end{align}
 %
 Dies lässt sich als Mittelungsoperator von den Kanten auf die Zellenmittelpunkte auffassen:
 %
 \begin{align}
-\newoverline{\mathbf{u}^{(1)}\mathbf{u}^{(2)}}^{(c)} = \sum_{e\in c}\frac{l_ed_e}{2A_c\Delta z_{c, k}}\Delta z_{e, k}u_{e, k}^{(1)}u_{e, k}^{(2)}\label{eq:edge_to_cell_shallow}
+\newoverline{\mathbf{u}^{(1)}\cdot\mathbf{u}^{(2)}}^{(c)} = \sum_{e\in c}\frac{l_ed_e}{2A_c\Delta z_{c, k}}\Delta z_{e, k}u_{e, k}^{(1)}u_{e, k}^{(2)}\label{eq:edge_to_cell_shallow}
 \end{align}
 
 \subsubsection{Deep atmosphere}
