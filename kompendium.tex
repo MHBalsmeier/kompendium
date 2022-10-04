@@ -23622,16 +23622,16 @@ c_{k - 1/2}M_{k - 1/2} + d_{k + 1/2}M_{k + 1/2} + e_{k + 3/2}M_{k + 3/2} = r_{k 
 Für die Koeffizienten gilt
 %
 \begin{align}
-c_{k - 3/2} &= \newoverline{\theta_k^{(n + 1)^\star}}^{(k + 1/2)}\gamma_{k - 1}\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 3/2)} + \frac{d\newoverline{\Pi}}{2dz}\vline_{k - 1/2}\left(z_{k - 1} - z_{k}\right)\left(\alpha_{k - 1} + \beta_{k - 1}\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 3/2)}\right)\nonumber\\
-&- \frac{\left(z_{k - 1} - z_{k}\right)}{\epsilon\Delta tc^{(p)}}\frac{w^{(n)}_{k - 1/2}}{2V_{k - 1}\newoverline{\rho_k^{(n)}}^{(k + 1/2)}},\\
-d_{k - 1/2} &= -\left(\newoverline{\theta_k^{(n + 1)^\star}}^{(k + 1/2)}\right)^2\left(\gamma_{k - 1} + \gamma_{k}\right) + \frac{d\newoverline{\Pi}}{2dz}\vline_{k - 1/2}\left(z_{k - 1} - z_{k}\right)\left[\alpha_{k} - \alpha_{k - 1} + \newoverline{\theta_k^{(n + 1)^\star}}^{(k + 1/2)}\left(\beta_{k} - \beta_{k - 1}\right)\right]\nonumber\\
-&- \frac{\left(z_{k - 1} - z_{k}\right)}{\epsilon\Delta t^2c^{(p)}\newoverline{\rho_k^{(n)}}^{(k + 1/2)}}\left[\frac{2}{A_{k - 1/2}} + \frac{\Delta tw^{(n)}_{k - 1/2}}{2}\left(-\frac{1}{V_{k - 1}} + \frac{1}{V_k}\right)\right],\\
-e_{k + 1/2} &= \newoverline{\theta_k^{(n + 1)^\star}}^{(k + 1/2)}\gamma_{k}\newoverline{\theta_k^{(n + 1)^\star}}^{(k + 1/2)} - \frac{d\newoverline{\Pi}}{2dz}\vline_{k - 1/2}\left(z_{k - 1} - z_{k}\right)\left(\alpha_{k} + \beta_{k}\newoverline{\theta_k^{(n + 1)^\star}}^{(k + 1/2)}\right)\nonumber\\
-&+ \frac{\left(z_{k - 1} - z_{k}\right)}{\epsilon\Delta tc^{(p)}}\frac{w^{(n)}_{k - 1/2}}{2V_{k}\newoverline{\rho_k^{(n)}}^{(k + 1/2)}},
+c_{k - 1/2} &= \newoverline{\theta_k^{(n + 1)^\star}}^{(k + 1/2)}\gamma_{k}\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)} + \frac{d\newoverline{\Pi}}{2dz}\vline_{k + 1/2}\left(z_{k} - z_{k + 1}\right)\left(\alpha_{k} + \beta_{k}\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}\right)\nonumber\\
+&- \frac{\left(z_{k} - z_{k + 1}\right)}{\epsilon\Delta tc^{(p)}}\frac{w^{(n)}_{k + 1/2}}{2V_{k}\newoverline{\rho_k^{(n)}}^{(k + 1/2)}},\\
+d_{k + 1/2} &= -\left(\newoverline{\theta_k^{(n + 1)^\star}}^{(k + 1/2)}\right)^2\left(\gamma_{k} + \gamma_{k + 1}\right) + \frac{d\newoverline{\Pi}}{2dz}\vline_{k + 1/2}\left(z_{k} - z_{k + 1}\right)\left[\alpha_{k + 1} - \alpha_{k} + \newoverline{\theta_k^{(n + 1)^\star}}^{(k + 1/2)}\left(\beta_{k + 1} - \beta_{k}\right)\right]\nonumber\\
+&- \frac{\left(z_{k} - z_{k + 1}\right)}{\epsilon\Delta t^2c^{(p)}\newoverline{\rho_k^{(n)}}^{(k + 1/2)}}\left[\frac{2}{A_{k + 1/2}} + \frac{\Delta tw^{(n)}_{k + 1/2}}{2}\left(-\frac{1}{V_{k}} + \frac{1}{V_{k + 1}}\right)\right],\\
+e_{k + 3/2} &= \newoverline{\theta_k^{(n + 1)^\star}}^{(k + 1/2)}\gamma_{k + 1}\newoverline{\theta_k^{(n + 1)^\star}}^{(k + 3/2)} - \frac{d\newoverline{\Pi}}{2dz}\vline_{k + 1/2}\left(z_{k} - z_{k + 1}\right)\left(\alpha_{k + 1} + \beta_{k + 1}\newoverline{\theta_k^{(n + 1)^\star}}^{(k + 3/2)}\right)\nonumber\\
+&+ \frac{\left(z_{k} - z_{k + 1}\right)}{\epsilon\Delta tc^{(p)}}\frac{w^{(n)}_{k + 1/2}}{2V_{k + 1}\newoverline{\rho_k^{(n)}}^{(k + 1/2)}},
 \end{align}
 \begin{align}
-r_{k - 1/2} &= -\frac{w_{k - 1/2}^{(\text{expl.})}\left(z_{k - 1} - z_{k}\right)}{\epsilon\Delta t^2c^{(p)}} + \newoverline{\theta_k^{(n + 1)^\star}}^{(k + 1/2)}\frac{\Pi^{'(\text{expl.})}_{k - 1} - \Pi^{'(\text{expl.})}_{k}}{\Delta t} + \frac{z_{k - 1} - z_{k}}{\Delta t}\left(\theta_{k-1}^{'(\text{expl.})}+\theta_k^{'(\text{expl.})}\right)\frac{d\newoverline{\Pi}}{2dz}\vline_{k-1/2}\nonumber\\
-&- \frac{\left(z_{k - 1} - z_{k}\right)}{\epsilon\Delta t^2c^{(p)}}\frac{w^{(n)}_{k - 1/2}\newoverline{\rho_k^{(\text{expl.})}}^{(k + 1/2)}}{\newoverline{\rho_k^{(n)}}^{(k + 1/2)}}.
+r_{k + 1/2} &= -\frac{w_{k + 1/2}^{(\text{expl.})}\left(z_{k} - z_{k + 1}\right)}{\epsilon\Delta t^2c^{(p)}} + \newoverline{\theta_k^{(n + 1)^\star}}^{(k + 1/2)}\frac{\Pi^{'(\text{expl.})}_{k} - \Pi^{'(\text{expl.})}_{k + 1}}{\Delta t} + \frac{z_{k} - z_{k + 1}}{\Delta t}\left(\theta_{k}^{'(\text{expl.})}+\theta_{k + 1}^{'(\text{expl.})}\right)\frac{d\newoverline{\Pi}}{2dz}\vline_{k + 1/2}\nonumber\\
+&- \frac{\left(z_{k} - z_{k + 1}\right)}{\epsilon\Delta t^2c^{(p)}}\frac{w^{(n)}_{k + 1/2}\newoverline{\rho_k^{(\text{expl.})}}^{(k + 1/2)}}{\newoverline{\rho_k^{(n)}}^{(k + 1/2)}}.
 \end{align}
 %
 Lineare Gleichungssysteme mit Drei-Band-Matrizen können mit dem Thomas-Algorithmus\index{Thomas-Algorithmus} gelöst werden. Aus dem Ergebnis für $M_{k + 1/2}$ lassen sich die anderen Unbekannten wie folgt bestimmen:
