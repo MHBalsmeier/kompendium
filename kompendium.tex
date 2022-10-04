@@ -23526,13 +23526,13 @@ für $\psi = \rho, \newtilde{\theta}.$ Hierfür gelten
 Hierbei definiert
 %
 \begin{align}
-M_{k - 1/2} \coloneqq A_{k - 1/2}\frac{\newoverline{\rho_k^{(n)}}^{(k + 1/2)}w_{k - 1/2}^{(n + 1)} + \newoverline{\rho_k^{(n + 1)}}^{(k + 1/2)}w_{k - 1/2}^{(n)}}{2}\label{eq:def_ml}
+M_{k + 1/2} \coloneqq A_{k + 1/2}\frac{\newoverline{\rho_k^{(n)}}^{(k + 1/2)}w_{k + 1/2}^{(n + 1)} + \newoverline{\rho_k^{(n + 1)}}^{(k + 1/2)}w_{k + 1/2}^{(n)}}{2}\label{eq:def_ml}
 \end{align}
 %
-für $2 \leq k \leq N_L$ die vertikale kovariante mit den Begrenzungsflächen $A_{k - 1/2}$ der Gitterboxen multiplizierte Massenflussdichte, dies ist der Unbekanntenvektor. Setzt man dies in Glg. \eqref{eq:wave_vertical_deriv_0} ein, erhält man
+für $1 \leq k \leq N_L - 1$ die vertikale kovariante mit den Begrenzungsflächen $A_{k + 1/2}$ der Gitterboxen multiplizierte Massenflussdichte, dies ist der Unbekanntenvektor. Setzt man dies in Glg. \eqref{eq:wave_vertical_deriv_0} ein, erhält man
 %
 \begin{align}
-w_{k - 1/2}^{(n + 1)} &= w_{k - 1/2}^{(\text{expl.})} - \epsilon\Delta tc^{(p)}\left(\newoverline{\theta_k^{(n + 1)^\star}}^{(k + 1/2)}\frac{\Pi^{'(\text{expl.})}_{k - 1} + \Pi''_{k - 1} - \Pi^{'(\text{expl.})}_{k} - \Pi''_{k}}{z_{k - 1} - z_{k}} + \newoverline{\theta_k^{'(n + 1)}}^{(k + 1/2)}\frac{d\newoverline{\Pi}}{dz}\vline_{k-1/2}\right)\nonumber\\
+w_{k + 1/2}^{(n + 1)} &= w_{k + 1/2}^{(\text{expl.})} - \epsilon\Delta tc^{(p)}\left(\newoverline{\theta_k^{(n + 1)^\star}}^{(k + 1/2)}\frac{\Pi^{'(\text{expl.})}_{k} + \Pi''_{k} - \Pi^{'(\text{expl.})}_{k + 1} - \Pi''_{k + 1}}{z_{k} - z_{k + 1}} + \newoverline{\theta_k^{'(n + 1)}}^{(k + 1/2)}\frac{d\newoverline{\Pi}}{dz}\vline_{k+1/2}\right)\nonumber\\
 \Leftrightarrow w_{k - 1/2}^{(n + 1)} &= w_{k - 1/2}^{(\text{expl.})} - \epsilon\Delta tc^{(p)}\left(\newoverline{\theta_k^{(n + 1)^\star}}^{(k + 1/2)}\frac{\Pi^{'(\text{expl.})}_{k - 1} + \Pi''_{k - 1} - \Pi^{'(\text{expl.})}_{k} - \Pi''_{k}}{z_{k - 1} - z_{k}} + \frac{\theta_{k-1}^{'(n + 1)}+\theta_k^{'(n + 1)}}{2}\frac{d\newoverline{\Pi}}{dz}\vline_{k-1/2}\right)\nonumber\\
 \Leftrightarrow w_{k - 1/2}^{(n + 1)} &= w_{k - 1/2}^{(\text{expl.})} - \epsilon\Delta tc^{(p)}\left(\newoverline{\theta_k^{(n + 1)^\star}}^{(k + 1/2)}\frac{\Pi^{'(\text{expl.})}_{k - 1} + \gamma_{k - 1}\newtilde{\theta}'_{k - 1} - \Pi^{'(\text{expl.})}_{k} - \gamma_k\newtilde{\theta}'_{k}}{z_{k - 1} - z_{k}} + \frac{\theta_{k-1}^{'(n + 1)}+\theta_k^{'(n + 1)}}{2}\frac{d\newoverline{\Pi}}{dz}\vline_{k-1/2}\right)\nonumber\\
 \Leftrightarrow w_{k - 1/2}^{(n + 1)} &= w_{k - 1/2}^{(\text{expl.})} - \epsilon\Delta tc^{(p)}\left(\newoverline{\theta_k^{(n + 1)^\star}}^{(k + 1/2)}\frac{\Pi^{'(\text{expl.})}_{k - 1} + \gamma_{k - 1}\newtilde{\theta}'_{k - 1} - \Pi^{'(\text{expl.})}_{k} - \gamma_k\newtilde{\theta}'_{k}}{z_{k - 1} - z_{k}} + \frac{\theta_{k-1}^{'(\text{expl.})}+\theta''_{k - 1}+\theta_k^{'(\text{expl.})}+\theta''_{k}}{2}\frac{d\newoverline{\Pi}}{dz}\vline_{k-1/2}\right)\\
@@ -23912,13 +23912,13 @@ Lediglich die generalisierte Dichte wird dabei in Form des Crank-Nicolson-Verfah
 -\frac{1}{2}\frac{\partial\left(\rho^{(n)}w^{(n + 1)}\right)}{\partial z}
 \end{align}
 %
-absorbiert man in die expizite Tendenz, definiert also
+absorbiert man in die explizite Tendenz, definiert also
 %
 \begin{align}
 \newdot{\rho}^{(n)}_{\text{expl}}  \to \newdot{\rho}^{(n)}_{\text{expl}}  - \frac{1}{2}\frac{\partial\left(\rho^{(n)}w^{(n + 1)}\right)}{\partial z}
 \end{align}
 %
-um. Die vertikale Diskretisierung erfordert einen Levelindex $0 \leq i \leq N_L - 1$:
+um. Die vertikale Diskretisierung erfordert einen Layerindex $1 \leq i \leq N_L$:
 %
 \begin{align}
 \rho_i^{(n + 1)} = \rho_i^{(n)} + \Delta t\newdot{\rho_i}^{(n)}_{\text{expl}} - \frac{\Delta t}{2}\frac{A_{i - 1/2}\newoverline{\rho_k^{(n + 1)}}^{(i - 1/2)}w_{i - 1/2}^{(n + 1)} - A_{i + 1/2}\newoverline{\rho_k^{(n + 1)}}^{(i + 1/2)}w_{i + 1/2}^{(n + 1)}}{V_i}\label{eq:adv_gen_density_deriv_0}
@@ -23927,13 +23927,13 @@ um. Die vertikale Diskretisierung erfordert einen Levelindex $0 \leq i \leq N_L 
 Für die vertikalen Mittelungen der Dichte notiert man allgemein
 %
 \begin{align}
-\newoverline{\rho_k}^{(i - 1/2)} = \alpha_{i - \frac{1}{2}, i - 1}\rho_{i - 1} + \alpha_{i - \frac{1}{2}, i}\rho_i
+\newoverline{\rho_k}^{(i + 1/2)} = \alpha_{i + \frac{1}{2}, i}\rho_{i} + \alpha_{i + \frac{1}{2}, i + 1}\rho_{i + 1}
 \end{align}
 %
 mit
 %
 \begin{align}
-\alpha_{i - \frac{1}{2}, i - 1} + \alpha_{i - \frac{1}{2}, i} = 1.
+\alpha_{i + \frac{1}{2}, i} + \alpha_{i + \frac{1}{2}, i + 1} = 1.
 \end{align}
 %
 Setzt man dies in Glg. \eqref{eq:adv_gen_density_deriv_0} ein, erhält man
@@ -23956,26 +23956,26 @@ somit erhält man
 &- \frac{\Delta t}{2}\left(\alpha_{i - \frac{1}{2}, i - 1}\rho_{i - 1}^{(n + 1)} + \alpha_{i - \frac{1}{2}, i}\rho_i^{(n + 1)}\right)\frac{W_{i - 1/2}^{(n + 1)}}{V_i} + \frac{\Delta t}{2}\left(\alpha_{i + \frac{1}{2}, i}\rho_i^{(n + 1)} + \alpha_{i + \frac{1}{2}, i + 1}\rho_{i + 1}^{(n + 1)}\right)\frac{W_{i + 1/2}^{(n + 1)}}{V_i}.
 \end{align}
 %
-Bei $i = 0$ gilt $w_{i - 1/2} = 0$:
+Bei $i = 1$ gilt $w_{i - 1/2} = 0$:
 %
 \begin{align}
-&\rho_0^{(n + 1)} = \rho_0^{(n)} + \Delta t\newdot{\rho}^{(n)}_{0, \text{expl}} + \frac{\Delta t}{2}\left(\alpha_{\frac{1}{2}, 0}\rho_0^{(n + 1)} + \alpha_{\frac{1}{2}, 1}\rho_{1}^{(n + 1)}\right)\frac{W_{1/2}^{(n + 1)}}{V_0}
+&\rho_1^{(n + 1)} = \rho_1^{(n)} + \Delta t\newdot{\rho}^{(n)}_{1, \text{expl}} + \frac{\Delta t}{2}\left(\alpha_{\frac{3}{2}, 1}\rho_1^{(n + 1)} + \alpha_{\frac{3}{2}, 2}\rho_{2}^{(n + 1)}\right)\frac{W_{3/2}^{(n + 1)}}{V_1}
 \end{align}
 %
-Bei $i = N_L - 1$ gilt $w_{i + 1/2} = 0$:
+Bei $i = N_L$ gilt $w_{i + 1/2} = 0$:
 %
 \begin{align}
-\rho_{N_L - 1}^{(n + 1)} = \rho_{N_L - 1}^{(n)} + \Delta t\newdot{\rho}^{(n)}_{N_L - 1, \text{expl}} - \frac{\Delta t}{2}\left(\alpha_{N_L - \frac{3}{2}, N_L - 2}\rho_{N_L - 2}^{(n + 1)} + \alpha_{N_L - \frac{3}{2}, N_L - 1}\rho_{N_L - 1}^{(n + 1)}\right)\frac{W_{N_L - 3/2}^{(n + 1)}}{V_{N_L - 1}}.
+\rho_{N_L}^{(n + 1)} = \rho_{N_L}^{(n)} + \Delta t\newdot{\rho}^{(n)}_{N_L, \text{expl}} - \frac{\Delta t}{2}\left(\alpha_{N_L - \frac{1}{2}, N_L - 1}\rho_{N_L - 1}^{(n + 1)} + \alpha_{N_L - \frac{1}{2}, N_L}\rho_{N_L}^{(n + 1)}\right)\frac{W_{N_L - 1/2}^{(n + 1)}}{V_{N_L}}.
 \end{align}
 %
 Man definiert den Vektor $\mathbf{x}$ der Unbekannten durch
 %
 \begin{align}
 \mathbf{x} = \left(\begin{array}{c}
-\rho^{(n + 1)}_{0}\\
 \rho^{(n + 1)}_{1}\\
+\rho^{(n + 1)}_{2}\\
 \vdots\\
-\rho^{(n + 1)}_{N_L - 1}
+\rho^{(n + 1)}_{N_L}
 \end{array}\right),
 \end{align}
 %
@@ -23989,12 +23989,12 @@ mit einer Matrix $A$ und einer rechten Seite $\mathbf{d}$. Für diese rechte Sei
 %
 \begin{align}
 \mathbf{d} = \left(\begin{array}{c}
-\rho^{(n)}_{0} + \Delta t\newdot{\rho}^{(n)}_{0, \text{expl}}\\
 \rho^{(n)}_{1} + \Delta t\newdot{\rho}^{(n)}_{1, \text{expl}}\\
 \rho^{(n)}_{2} + \Delta t\newdot{\rho}^{(n)}_{2, \text{expl}}\\
+\rho^{(n)}_{3} + \Delta t\newdot{\rho}^{(n)}_{3, \text{expl}}\\
 \vdots\\
-\rho^{(n)}_{N_L - 2} + \Delta t\newdot{\rho}^{(n)}_{N_L - 2, \text{expl}}\\
-\rho^{(n)}_{N_L - 1} + \Delta t\newdot{\rho}^{(n)}_{N_L - 1, \text{expl}}
+\rho^{(n)}_{N_L - 1} + \Delta t\newdot{\rho}^{(n)}_{N_L - 1, \text{expl}}\\
+\rho^{(n)}_{N_L} + \Delta t\newdot{\rho}^{(n)}_{N_L, \text{expl}}
 \end{array}\right).
 \end{align}
 %
@@ -24002,10 +24002,10 @@ Für die Matrix $A$ erhält man
 %
 \begin{align}
 A &= \left(\begin{array}{cccc}
-b_0 & c_0  & \dots & 0 \\
-a_0 & b_1 & c_1 \hspace{2 cm}\dots &  0 \\
+b_1 & c_1  & \dots & 0 \\
+a_1 & b_2 & c_2 \hspace{2 cm}\dots &  0 \\
 \vdots & \hspace{2 cm}\ddots & \ddots & \vdots \\
-0 & \dots & a_{N_L - 2} & b_{N_L - 1}
+0 & \dots & a_{N_L - 1} & b_{N_L}
 \end{array}\right)
 \end{align}
 %
@@ -24013,9 +24013,9 @@ mit Vektoren $\mathbf{a}, \mathbf{c} \in \mathbb{R}^{N_L - 1}$, $\mathbf{b} \in 
 %
 \begin{align}
 a_i &= \frac{\Delta t}{2}\frac{\alpha_{i + \frac{1}{2}, i}W_{i + 1/2}^{(n + 1)}}{V_{i + 1}},\\
-b_0 &= 1 - \frac{\Delta t}{2}\alpha_{\frac{1}{2}, 0}\frac{W_{1/2}^{(n + 1)}}{V_0},\\
+b_1 &= 1 - \frac{\Delta t}{2}\alpha_{\frac{3}{2}, 1}\frac{W_{3/2}^{(n + 1)}}{V_1},\\
 b_i &= 1 + \frac{\Delta t}{2}\frac{\alpha_{i - \frac{1}{2}, i}W_{i - 1/2}^{(n + 1)} - \alpha_{i + \frac{1}{2}, 1}W_{i + 1/2}^{(n + 1)}}{V_i},\\
-b_{N_L - 1} &= 1 + \frac{\Delta t}{2}\frac{\alpha_{N_L - \frac{3}{2}, N_L - 1}W_{N_L - 3/2}^{(n + 1)}}{V_{N_L - 1}},\\
+b_{N_L} &= 1 + \frac{\Delta t}{2}\frac{\alpha_{N_L - \frac{1}{2}, N_L}W_{N_L - 1/2}^{(n + 1)}}{V_{N_L}},\\
 c_i &= -\frac{\Delta t}{2}\alpha_{i + \frac{1}{2}, i + 1}\frac{W_{i + 1/2}^{(n + 1)}}{V_i}.
 \end{align}
 
