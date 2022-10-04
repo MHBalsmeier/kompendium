@@ -22684,7 +22684,7 @@ In der tiefen Atmosphäre wird ausschließlich die Mittelungsreihenfolge $\newov
 \newoverline{w_{c, k + \frac{1}{2}}}^{(k)} = \frac{A_{c, k - 1/2}\Delta z_{c, k - 1/2}w_{c, k - \frac{1}{2}} + A_{c, k + 1/2}\Delta z_{c, k + 1/2}w_{c, k + \frac{1}{2}}}{2V_{c, k}}
 \end{align}
 %
-Hier hängen die Schichtdicken auch vom horizontalen Index ab.
+Hier hängen die vertikalen Flächen auch vom vertikalen Index ab.
 
 \subsection{Skalarprodukt auf dem C-Gitter in geländefolgenden Koordinaten}
 \label{sec:skalarprodukt_auf_dem_c-gitter_in_gelaendefolgenden_koordinaten}
@@ -22720,7 +22720,7 @@ d_e &\to d_{e, k}
 vor. Für die vertikale Komponente orientiert man sich an Glg. \eqref{eq:inner_c-grid_3d_deep}. Dies führt auf
 %
 \begin{align}
-\left(\mathbf{u}^{(1)}\cdot\mathbf{u}^{(2)}\right)_{c, k} = \sum_{e\in c}\frac{A_{e, k}d_e}{2V_{c, k}}u_{e, k}^{(1)}u_{e, k}^{(2)} + \frac{A_{c, k + 1/2}\Delta z_{c, k + 1/2}}{2V_{c, k}}w_u^{(1)}w_u^{(2)} + \frac{A_{c, k + 1/2}\Delta z_{c, k + 1/2}}{2V_{c, k}}w_l^{(1)}w_l^{(2)}.
+\left(\mathbf{u}^{(1)}\cdot\mathbf{u}^{(2)}\right)_{c, k} = \sum_{e\in c}\frac{A_{e, k}d_e}{2V_{c, k}}u_{e, k}^{(1)}u_{e, k}^{(2)} + \frac{A_{c, k - 1/2}\Delta z_{c, k - 1/2}}{2V_{c, k}}w_u^{(1)}w_u^{(2)} + \frac{A_{c, k + 1/2}\Delta z_{c, k + 1/2}}{2V_{c, k}}w_l^{(1)}w_l^{(2)}.
 \end{align}
 %
 Analog lautet der Mittelungsoperator von den Kanten auf die Zellenmittelpunkte
@@ -22811,9 +22811,9 @@ Es gilt
 %
 \begin{align}
 &\newoverline{\newoverline{J_{e, k}u_{e, k}}^{(c)}}^{(k + \frac{1}{2})} = \newoverline{\sum_{e\in c}\frac{l_ed_e}{2A_c\Delta z_{c, k}}\Delta z_{e, k}J_{e, k}u_{e, k}}^{(k + \frac{1}{2})} = \sum_{e\in c}\frac{l_ed_e}{2A_c}\newoverline{\frac{\Delta z_{e, k}}{\Delta z_{c, k}}J_{e, k}u_{e, k}}^{(k + \frac{1}{2})}\nonumber\\
-&= \sum_{e\in c}\frac{l_ed_e}{2A_c}\frac{1}{2\Delta z_{c, k + 1/2}}\left(\Delta z_{c, k - 1}\frac{\Delta z_{e, k - 1}}{\Delta z_{c, k - 1}}J_{e, k - 1}u_{e, k - 1} + \Delta z_{c, k}\frac{\Delta z_{e, k}}{\Delta z_{c, k}}J_{e, k}u_{e, k}\right)\nonumber\\
-&= \sum_{e\in c}\frac{l_ed_e}{2A_c}\frac{1}{2\Delta z_{c, k + 1/2}}\left(\Delta z_{e, k - 1}J_{e, k - 1}u_{e, k - 1} + \Delta z_{e, k}J_{e, k}u_{e, k}\right)\nonumber\\
-&= \sum_{e\in c}\frac{l_ed_e}{2A_c}\frac{\Delta z_{e, k + 1/2}}{\Delta z_{c, k + 1/2}}\frac{\Delta z_{e, k - 1}J_{e, k - 1}u_{e, k - 1} + \Delta z_{e, k}J_{e, k}u_{e, k}}{2\Delta z_{e, k + 1/2}}\nonumber\\
+&= \sum_{e\in c}\frac{l_ed_e}{2A_c}\frac{1}{2\Delta z_{c, k + 1/2}}\left(\Delta z_{c, k}\frac{\Delta z_{e, k}}{\Delta z_{c, k}}J_{e, k}u_{e, k} + \Delta z_{c, k + 1}\frac{\Delta z_{e, k + 1}}{\Delta z_{c, k + 1}}J_{e, k + 1}u_{e, k + 1}\right)\nonumber\\
+&= \sum_{e\in c}\frac{l_ed_e}{2A_c}\frac{1}{2\Delta z_{c, k + 1/2}}\left(\Delta z_{e, k}J_{e, k}u_{e, k} + \Delta z_{e, k + 1}J_{e, k + 1}u_{e, k + 1}\right)\nonumber\\
+&= \sum_{e\in c}\frac{l_ed_e}{2A_c}\frac{\Delta z_{e, k + 1/2}}{\Delta z_{c, k + 1/2}}\frac{\Delta z_{e, k}J_{e, k}u_{e, k} + \Delta z_{e, k + 1}J_{e, k + 1}u_{e, k + 1}}{2\Delta z_{e, k + 1/2}}\nonumber\\
 &= \sum_{e\in c}\frac{l_ed_e}{2A_c}\frac{\Delta z_{e, k + 1/2}}{\Delta z_{c, k + 1/2}}\newoverline{J_{e, k}u_{e, k}}^{(k + 1/2)} = \newoverline{\newoverline{J_{e, k}u_{e, k}}^{(k + 1/2)}}^{(c)}.
 \end{align}
 %
@@ -22837,7 +22837,7 @@ v^{(v)}_{c, k + \frac{1}{2}, \text{GK}} \coloneqq w_{c, k + \frac{1}{2}} - \newo
 definiert. Es wird nur diese Reihenfolge der Mittelungsoperatoren zugelassen. Formuliert man dies aus, erhält man mit Glg. \eqref{eq:edges2cells_deep}
 %
 \begin{align}
-\newoverline{\newoverline{J_{e, k}u_{e, k}}^{(c)}}^{(k + \frac{1}{2})} = \frac{1}{2}\left(\sum_{e\in c}\frac{A_{e, k}d_{e, k}}{2V_{c, k}}J_{e, k}^{(1)}u_{e, k}^{(2)} + \sum_{e\in c}\frac{A_{e, k - 1}d_{e, k - 1}}{2V_{c, k - 1}}J_{e, k - 1}^{(1)}u_{e, k - 1}^{(2)}\right).
+\newoverline{\newoverline{J_{e, k}u_{e, k}}^{(c)}}^{(k + \frac{1}{2})} = \frac{1}{2}\left(\sum_{e\in c}\frac{A_{e, k}d_{e, k}}{2V_{c, k}}J_{e, k}^{(1)}u_{e, k}^{(2)} + \sum_{e\in c}\frac{A_{e, k + 1}d_{e, k + 1}}{2V_{c, k + 1}}J_{e, k + 1}^{(1)}u_{e, k + 1}^{(2)}\right).
 \end{align}
 
 \subsection{Divergenz in geländefolgenden Koordinaten}
@@ -22849,13 +22849,13 @@ definiert. Es wird nur diese Reihenfolge der Mittelungsoperatoren zugelassen. Fo
 Da man nun die vertikale kontravariante Massenflussdichte kennt, kann man Glg. \eqref{eq:div_c-grid_shallow_no_terrain} zu
 %
 \begin{align}
-\left(\nabla\cdot\mathbf{v}\right)_{c, k} &= \frac{1}{A_c\Delta z_{c, k}}\left(\sum_{e\in c}l_e\Delta z_{e, k}u_{e, k} + A_cv^{(v)}_{c, k + 1/2, \text{GK}} - A_cv^{(v)}_{c, k + 1/2, \text{GK}}\right)\label{eq:div_c-grid_shallow_terrain}
+\left(\nabla\cdot\mathbf{v}\right)_{c, k} &= \frac{1}{A_c\Delta z_{c, k}}\left(\sum_{e\in c}l_e\Delta z_{e, k}u_{e, k} + A_cv^{(v)}_{c, k - 1/2, \text{GK}} - A_cv^{(v)}_{c, k + 1/2, \text{GK}}\right)\label{eq:div_c-grid_shallow_terrain}
 \end{align}
 %
 verallgemeinern. Dabei wurde die Ersetzung
 %
 \begin{align}
-w_{k - 1/2} \to v^{(v)}_{c, k + 1/2, \text{GK}}
+w_{k + 1/2} \to v^{(v)}_{c, k + 1/2, \text{GK}}
 \end{align}
 %
 vorgenommen und die Schichtdicke wurde von der horizontalen Position abhängig gemacht. Setzt man Glg. \eqref{eq:contravariant_vertical_measure_number_shallow} in Glg. \eqref{eq:div_c-grid_shallow_terrain} ein, erhält man
