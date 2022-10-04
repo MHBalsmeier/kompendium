@@ -23498,9 +23498,9 @@ Die zwei Striche stehen für lineare Entwicklungen in Abgrenzung zum hydrostatis
 ab. Diese berechnet man in den Zellzentren, wobei man beim Predictor-Schritt den alten Zeitschritt (Zeitschritt $n$) und beim zweiten Corrector-Schritt das arithmetische Mittel der Schritte $n$ und $n + 1$ verwendet. Die vertikale Impulsgleichung notiert man in der Form
 %
 \begin{align}
-w_{k - 1/2}^{(n + 1)} &= w_{k - 1/2}^{(\text{expl.})} - \epsilon\Delta tc^{(p)}\left[\left(\newoverline{\newoverline{\theta}_k}^{(k + 1/2)} + \newoverline{\theta_k^{'(n + 1)^\star}}^{(k + 1/2)}\right)\frac{\Pi^{'(n + 1)}_{k - 1} - \Pi^{'(n + 1)}_{k}}{z_{k - 1} - z_{k}} + \newoverline{\theta_k^{'(n + 1)}}^{(k + 1/2)}\frac{\newoverline{\Pi}_{k - 1} - \newoverline{\Pi}_{k}}{z_{k - 1} - z_{k}}\right]\nonumber\\
-&= w_{k - 1/2}^{(\text{expl.})} - \epsilon\Delta tc^{(p)}\left(\newoverline{\theta_k^{(n + 1)^\star}}^{(k + 1/2)}\frac{\Pi^{'(n + 1)}_{k - 1} - \Pi^{'(n + 1)}_{k}}{z_{k - 1} - z_{k}} + \newoverline{\theta_k^{'(n + 1)}}^{(k + 1/2)}\frac{\newoverline{\Pi}_{k - 1} - \newoverline{\Pi}_{k}}{z_{k - 1} - z_{k}}\right)\nonumber\\
-&= w_{k - 1/2}^{(\text{expl.})} - \epsilon\Delta tc^{(p)}\left(\newoverline{\theta_k^{(n + 1)^\star}}^{(k + 1/2)}\frac{\Pi^{'(n + 1)}_{k - 1} - \Pi^{'(n + 1)}_{k}}{z_{k - 1} - z_{k}} + \newoverline{\theta_k^{'(n + 1)}}^{(k + 1/2)}\frac{d\newoverline{\Pi}}{dz}\vline_{k-1/2}\right).\label{eq:wave_vertical_deriv_0}
+w_{k + 1/2}^{(n + 1)} &= w_{k + 1/2}^{(\text{expl.})} - \epsilon\Delta tc^{(p)}\left[\left(\newoverline{\newoverline{\theta}_k}^{(k + 1/2)} + \newoverline{\theta_k^{'(n + 1)^\star}}^{(k + 1/2)}\right)\frac{\Pi^{'(n + 1)}_{k} - \Pi^{'(n + 1)}_{k + 1}}{z_{k} - z_{k + 1}} + \newoverline{\theta_k^{'(n + 1)}}^{(k + 1/2)}\frac{\newoverline{\Pi}_{k} - \newoverline{\Pi}_{k + 1}}{z_{k} - z_{k + 1}}\right]\nonumber\\
+&= w_{k + 1/2}^{(\text{expl.})} - \epsilon\Delta tc^{(p)}\left(\newoverline{\theta_k^{(n + 1)^\star}}^{(k + 1/2)}\frac{\Pi^{'(n + 1)}_{k} - \Pi^{'(n + 1)}_{k + 1}}{z_{k} - z_{k + 1}} + \newoverline{\theta_k^{'(n + 1)}}^{(k + 1/2)}\frac{\newoverline{\Pi}_{k} - \newoverline{\Pi}_{k + 1}}{z_{k} - z_{k + 1}}\right)\nonumber\\
+&= w_{k + 1/2}^{(\text{expl.})} - \epsilon\Delta tc^{(p)}\left(\newoverline{\theta_k^{(n + 1)^\star}}^{(k + 1/2)}\frac{\Pi^{'(n + 1)}_{k} - \Pi^{'(n + 1)}_{k + 1}}{z_{k} - z_{k + 1}} + \newoverline{\theta_k^{'(n + 1)}}^{(k + 1/2)}\frac{d\newoverline{\Pi}}{dz}\vline_{k+1/2}\right).\label{eq:wave_vertical_deriv_0}
 \end{align}
 %
 Hierbei ist $\epsilon$ das implizite Gewicht, welches meist im Bereich von 0,75 liegt. $\left(n + 1\right)^\star$ ist ein vorläufiger Wert für den neuen Zeitschritt. Für die impliziten Größen notiert man nun
@@ -23520,7 +23520,7 @@ für $\psi = \rho, \newtilde{\theta}.$ Hierfür gelten
 %
 \begin{align}
 \rho_k' = -\Delta t\frac{M_{k - 1/2} - M_{k + 1/2}}{V_k},\\
-\newtilde{\theta}_k' = -\Delta t\frac{\newoverline{\theta_k^{(n + 1)^\star}}^{(k + 1/2)}M_{k - 1/2} - \newoverline{\theta_k^{(n + 1)^\star}}^{(k + 1/2)}M_{k + 1/2}}{V_k}.
+\newtilde{\theta}_k' = -\Delta t\frac{\newoverline{\theta_k^{(n + 1)^\star}}^{(k - 1/2)}M_{k - 1/2} - \newoverline{\theta_k^{(n + 1)^\star}}^{(k + 1/2)}M_{k + 1/2}}{V_k}.
 \end{align}
 %
 Hierbei definiert
