@@ -22861,23 +22861,23 @@ w_{k + 1/2} \to v^{(v)}_{c, k + 1/2, \text{GK}}
 vorgenommen und die Schichtdicke wurde von der horizontalen Position abhängig gemacht. Setzt man Glg. \eqref{eq:contravariant_vertical_measure_number_shallow} in Glg. \eqref{eq:div_c-grid_shallow_terrain} ein, erhält man
 %
 \begin{align}
-\left(\nabla\cdot\mathbf{v}\right)_{c, k} &= \frac{1}{A_c\Delta z_{c, k}}\left[\sum_{e\in c}l_e\Delta z_{e, k}u_{e, k} + A_c\left(w_{c, k + 1/2} - \newoverline{\newoverline{J_{e, k}u_{e, k}}^{(c)}}^{(k + \frac{1}{2})}\right) - A_c\left(w_{c, k + 1/2} - \newoverline{\newoverline{J_{e, k}u_{e, k}}^{(c)}}^{(k + \frac{1}{2})}\right)\right]\nonumber\\
-&= \sum_{e\in c}\frac{l_e\Delta z_{e, k}}{A_c\Delta z_{c, k}}u_{e, k} + \frac{w_{c, k + 1/2}}{\Delta z_{c, k}} - \frac{\newoverline{\newoverline{J_{e, k}u_{e, k}}^{(c)}}^{(k + \frac{1}{2})}}{\Delta z_{c, k}} - \frac{w_{c, k + 1/2}}{\Delta z_{c, k}} + \frac{\newoverline{\newoverline{J_{e, k}u_{e, k}}^{(c)}}^{(k + \frac{1}{2})}}{\Delta z_{c, k}}\nonumber\\
-&\stackrel{\text{Glg. \eqref{eq:edge_to_cell_shallow}}}{=} \frac{w_{c, k + 1/2} - w_{c, k + 1/2}}{\Delta z_{c, k}} + \sum_{e\in c}\frac{l_e\Delta z_{e, k}}{A_c\Delta z_{c, k}}u_{e, k}\nonumber\\
-&- \frac{\newoverline{\sum_{e\in c}\frac{l_ed_e}{2A_c\Delta z_{c, k}}\Delta z_{e, k}J_{e, k}u_{e, k}}^{(k + \frac{1}{2})} - \newoverline{\sum_{e\in c}\frac{l_ed_e}{2A_c\Delta z_{c, k}}\Delta z_{e, k}J_{e, k}u_{e, k}}^{(k + \frac{1}{2})}}{\Delta z_{c, k}}\nonumber\\
-&= \frac{w_{c, k + 1/2} - w_{c, k + 1/2}}{\Delta z_{c, k}} + \sum_{e\in c}\frac{l_e\Delta z_{e, k}}{A_c\Delta z_{c, k}}u_{e, k} - \frac{\sum_{e\in c}\frac{l_ed_e}{2A_c}\newoverline{\frac{\Delta z_{e, k}}{\Delta z_{c, k}}J_{e, k}u_{e, k}}^{(k + \frac{1}{2})} - \sum_{e\in c}\frac{l_ed_e}{2A_c}\newoverline{\frac{\Delta z_{e, k}}{\Delta z_{c, k}}J_{e, k}u_{e, k}}^{(k + \frac{1}{2})}}{\Delta z_{c, k}}\nonumber
+\left(\nabla\cdot\mathbf{v}\right)_{c, k} &= \frac{1}{A_c\Delta z_{c, k}}\left[\sum_{e\in c}l_e\Delta z_{e, k}u_{e, k} + A_c\left(w_{c, k - 1/2} - \newoverline{\newoverline{J_{e, k}u_{e, k}}^{(c)}}^{(k - \frac{1}{2})}\right) - A_c\left(w_{c, k + 1/2} - \newoverline{\newoverline{J_{e, k}u_{e, k}}^{(c)}}^{(k + \frac{1}{2})}\right)\right]\nonumber\\
+&= \sum_{e\in c}\frac{l_e\Delta z_{e, k}}{A_c\Delta z_{c, k}}u_{e, k} + \frac{w_{c, k - 1/2}}{\Delta z_{c, k}} - \frac{\newoverline{\newoverline{J_{e, k}u_{e, k}}^{(c)}}^{(k - \frac{1}{2})}}{\Delta z_{c, k}} - \frac{w_{c, k + 1/2}}{\Delta z_{c, k}} + \frac{\newoverline{\newoverline{J_{e, k}u_{e, k}}^{(c)}}^{(k + \frac{1}{2})}}{\Delta z_{c, k}}\nonumber\\
+&\stackrel{\text{Glg. \eqref{eq:edge_to_cell_shallow}}}{=} \frac{w_{c, k - 1/2} - w_{c, k + 1/2}}{\Delta z_{c, k}} + \sum_{e\in c}\frac{l_e\Delta z_{e, k}}{A_c\Delta z_{c, k}}u_{e, k}\nonumber\\
+&- \frac{\newoverline{\sum_{e\in c}\frac{l_ed_e}{2A_c\Delta z_{c, k}}\Delta z_{e, k}J_{e, k}u_{e, k}}^{(k - \frac{1}{2})} - \newoverline{\sum_{e\in c}\frac{l_ed_e}{2A_c\Delta z_{c, k}}\Delta z_{e, k}J_{e, k}u_{e, k}}^{(k + \frac{1}{2})}}{\Delta z_{c, k}}\nonumber\\
+&= \frac{w_{c, k - 1/2} - w_{c, k + 1/2}}{\Delta z_{c, k}} + \sum_{e\in c}\frac{l_e\Delta z_{e, k}}{A_c\Delta z_{c, k}}u_{e, k} - \frac{\sum_{e\in c}\frac{l_ed_e}{2A_c}\newoverline{\frac{\Delta z_{e, k}}{\Delta z_{c, k}}J_{e, k}u_{e, k}}^{(k - \frac{1}{2})} - \sum_{e\in c}\frac{l_ed_e}{2A_c}\newoverline{\frac{\Delta z_{e, k}}{\Delta z_{c, k}}J_{e, k}u_{e, k}}^{(k + \frac{1}{2})}}{\Delta z_{c, k}}\nonumber
 \end{align}
 \begin{align}
-&= \frac{w_{c, k + 1/2} - w_{c, k + 1/2}}{\Delta z_{c, k}} + \sum_{e\in c}\frac{l_e\Delta z_{e, k}u_{e, k} - \frac{l_ed_e}{2}\newoverline{\frac{\Delta z_{e, k}}{\Delta z_{c, k}}J_{e, k}u_{e, k}}^{(k + \frac{1}{2})} + \frac{l_ed_e}{2}\newoverline{\frac{\Delta z_{e, k}}{\Delta z_{c, k}}J_{e, k}u_{e, k}}^{(k + \frac{1}{2})}}{A_c\Delta z_{c, k}}\nonumber\\
-&= \frac{w_{c, k + 1/2} - w_{c, k + 1/2}}{\Delta z_{c, k}} + \sum_{e\in c}l_e\frac{\Delta z_{e, k}u_{e, k} - \frac{d_e}{2}\newoverline{\frac{\Delta z_{e, k}}{\Delta z_{c, k}}J_{e, k}u_{e, k}}^{(k + \frac{1}{2})} + \frac{d_e}{2}\newoverline{\frac{\Delta z_{e, k}}{\Delta z_{c, k}}J_{e, k}u_{e, k}}^{(k + \frac{1}{2})}}{A_c\Delta z_{c, k}}\nonumber\\
-&= \frac{w_{c, k + 1/2} - w_{c, k + 1/2}}{\Delta z_{c, k}}\nonumber\\
+&= \frac{w_{c, k - 1/2} - w_{c, k + 1/2}}{\Delta z_{c, k}} + \sum_{e\in c}\frac{l_e\Delta z_{e, k}u_{e, k} - \frac{l_ed_e}{2}\newoverline{\frac{\Delta z_{e, k}}{\Delta z_{c, k}}J_{e, k}u_{e, k}}^{(k - \frac{1}{2})} + \frac{l_ed_e}{2}\newoverline{\frac{\Delta z_{e, k}}{\Delta z_{c, k}}J_{e, k}u_{e, k}}^{(k + \frac{1}{2})}}{A_c\Delta z_{c, k}}\nonumber\\
+&= \frac{w_{c, k - 1/2} - w_{c, k + 1/2}}{\Delta z_{c, k}} + \sum_{e\in c}l_e\frac{\Delta z_{e, k}u_{e, k} - \frac{d_e}{2}\newoverline{\frac{\Delta z_{e, k}}{\Delta z_{c, k}}J_{e, k}u_{e, k}}^{(k - \frac{1}{2})} + \frac{d_e}{2}\newoverline{\frac{\Delta z_{e, k}}{\Delta z_{c, k}}J_{e, k}u_{e, k}}^{(k + \frac{1}{2})}}{A_c\Delta z_{c, k}}\nonumber\\
+&= \frac{w_{c, k - 1/2} - w_{c, k + 1/2}}{\Delta z_{c, k}}\nonumber\\
 & + \sum_{e\in c}l_e\frac{\Delta z_{e, k}u_{e, k} - \frac{d_e}{4}\left(\frac{\Delta z_{e, k - 1}}{\Delta z_{c, k - 1}}J_{e, k - 1}u_{e, k - 1} + \frac{\Delta z_{e, k}}{\Delta z_{c, k}}J_{e, k}u_{e, k}\right) + \frac{d_e}{4}\left(\frac{\Delta z_{e, k}}{\Delta z_{c, k}}J_{e, k}u_{e, k} + \frac{\Delta z_{e, k + 1}}{\Delta z_{c, k + 1}}J_{e, k + 1}u_{e, k + 1}\right)}{A_c\Delta z_{c, k}}\nonumber
 \end{align}
 \begin{center}
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-\Rightarrow\left(\nabla\cdot\mathbf{v}\right)_{c, k} &= \left[\sum_{e\in c}\left(l_e\frac{\Delta z_{e, k}u_{e, k}}{A_c\Delta z_{c, k}}\right) + \frac{w_{c, k + 1/2} - w_{c, k + 1/2}}{\Delta z_{c, k}}\right]\nonumber\\
+\Rightarrow\left(\nabla\cdot\mathbf{v}\right)_{c, k} &= \left[\sum_{e\in c}\left(l_e\frac{\Delta z_{e, k}u_{e, k}}{A_c\Delta z_{c, k}}\right) + \frac{w_{c, k - 1/2} - w_{c, k + 1/2}}{\Delta z_{c, k}}\right]\nonumber\\
 &- \frac{1}{2}\sum_{e\in c}\frac{l_ed_e}{2A_c\Delta z_{c, k}}\Bigg[\left(\frac{\Delta z_{e, k - 1}}{\Delta z_{c, k - 1}}J_{e, k - 1}u_{e, k - 1} + \textcolor{blue}{\frac{\Delta z_{e, k}}{\Delta z_{c, k}}J_{e, k}u_{e, k}}\right)\nonumber\\
 &- \left(\textcolor{blue}{\frac{\Delta z_{e, k}}{\Delta z_{c, k}}J_{e, k}u_{e, k}} + \frac{\Delta z_{e, k + 1}}{\Delta z_{c, k + 1}}J_{e, k + 1}u_{e, k + 1}\right)\Bigg].\label{eq:div_c-grid_shallow_terrain_concrete}
 \end{align}
@@ -22893,23 +22893,23 @@ Die Terme in der ersten Zeile entsprechen Glg. \eqref{eq:div_c-grid_shallow_no_t
 In der tiefen Atmosphäre verallgemeinert Glg. \eqref{eq:div_c-grid_shallow_terrain} zu
 %
 \begin{align}
-\left(\nabla\cdot\mathbf{v}\right)_{c, k} &= \frac{1}{V_{c, k}}\left(\sum_{e\in c}A_{e, k}u_{e, k} + A_{c, k + 1/2}v^{(v)}_{c, k + 1/2, \text{GK}} - A_{c, k + 1/2}v^{(v)}_{c, k + 1/2, \text{GK}}\right).
+\left(\nabla\cdot\mathbf{v}\right)_{c, k} &= \frac{1}{V_{c, k}}\left(\sum_{e\in c}A_{e, k}u_{e, k} + A_{c, k - 1/2}v^{(v)}_{c, k - 1/2, \text{GK}} - A_{c, k + 1/2}v^{(v)}_{c, k + 1/2, \text{GK}}\right).
 \end{align}
 %
-Setzt man hier Glg. \eqref{eq:contravariant_vertical_measure_number_shallow} zu, erhält man
+Setzt man hier Glg. \eqref{eq:contravariant_vertical_measure_number_shallow} ein, erhält man
 %
 \begin{align}
-\left(\nabla\cdot\mathbf{v}\right)_{c, k} &= \frac{1}{V_{c, k}}\left(\sum_{e\in c}A_{e, k}u_{e, k} + A_{c, k + 1/2}v^{(v)}_{c, k + 1/2, \text{GK}} - A_{c, k + 1/2}v^{(v)}_{c, k + 1/2, \text{GK}}\right)\nonumber\\
-&= \frac{1}{V_{c, k}}\left[\sum_{e\in c}\left(A_{e, k}u_{e, k}\right) + A_{c, k + 1/2}w_{c, k + 1/2} - A_{c, k + 1/2}w_{c, k + 1/2}\right]\nonumber\\
-&- \frac{1}{V_{c, k}}\sum_{e\in c}\Bigg[A_{c, k + 1/2}\frac{1}{2}\left(\frac{A_{e, k}d_{e, k}}{2V_{c, k}}J_{e, k}u_{e, k} + \frac{A_{e, k - 1}d_{e, k - 1}}{2V_{c, k - 1}}J_{e, k - 1}u_{e, k - 1}\right)\nonumber\\
+\left(\nabla\cdot\mathbf{v}\right)_{c, k} &= \frac{1}{V_{c, k}}\left(\sum_{e\in c}A_{e, k}u_{e, k} + A_{c, k - 1/2}v^{(v)}_{c, k - 1/2, \text{GK}} - A_{c, k + 1/2}v^{(v)}_{c, k + 1/2, \text{GK}}\right)\nonumber\\
+&= \frac{1}{V_{c, k}}\left[\sum_{e\in c}\left(A_{e, k}u_{e, k}\right) + A_{c, k - 1/2}w_{c, k - 1/2} - A_{c, k + 1/2}w_{c, k + 1/2}\right]\nonumber\\
+&- \frac{1}{V_{c, k}}\sum_{e\in c}\Bigg[A_{c, k - 1/2}\frac{1}{2}\left(\frac{A_{e, k}d_{e, k}}{2V_{c, k}}J_{e, k}u_{e, k} + \frac{A_{e, k - 1}d_{e, k - 1}}{2V_{c, k - 1}}J_{e, k - 1}u_{e, k - 1}\right)\nonumber\\
 &- A_{c, k + 1/2}\frac{1}{2}\left(\frac{A_{e, k}d_{e, k}}{2V_{c, k}}J_{e, k}u_{e, k} + \frac{A_{e, k + 1}d_{e, k + 1}}{2V_{c, k + 1}}J_{e, k + 1}u_{e, k + 1}\right)\Bigg]\nonumber
 \end{align}
 \begin{center}
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-\Rightarrow\left(\nabla\cdot\mathbf{v}\right)_{c, k} &= \frac{1}{V_{c, k}}\left[\sum_{e\in c}\left(A_{e, k}u_{e, k}\right) + A_{c, k + 1/2}w_{c, k + 1/2} - A_{c, k + 1/2}w_{c, k + 1/2}\right]\nonumber\\
-&+ \frac{1}{V_{c, k}}\sum_{e\in c}\Bigg[-A_{c, k + 1/2}\left(\frac{A_{e, k}d_{e, k}}{4V_{c, k}}J_{e, k}u_{e, k} + \frac{A_{e, k - 1}d_{e, k - 1}}{4V_{c, k - 1}}J_{e, k - 1}u_{e, k - 1}\right)\nonumber\\
+\Rightarrow\left(\nabla\cdot\mathbf{v}\right)_{c, k} &= \frac{1}{V_{c, k}}\left[\sum_{e\in c}\left(A_{e, k}u_{e, k}\right) + A_{c, k - 1/2}w_{c, k - 1/2} - A_{c, k + 1/2}w_{c, k + 1/2}\right]\nonumber\\
+&+ \frac{1}{V_{c, k}}\sum_{e\in c}\Bigg[-A_{c, k - 1/2}\left(\frac{A_{e, k}d_{e, k}}{4V_{c, k}}J_{e, k}u_{e, k} + \frac{A_{e, k - 1}d_{e, k - 1}}{4V_{c, k - 1}}J_{e, k - 1}u_{e, k - 1}\right)\nonumber\\
 &+ A_{c, k + 1/2}\left(\frac{A_{e, k}d_{e, k}}{4V_{c, k}}J_{e, k}u_{e, k} + \frac{A_{e, k + 1}d_{e, k + 1}}{4V_{c, k + 1}}J_{e, k + 1}u_{e, k + 1}\right)\Bigg].\label{eq:div_deep}
 \end{align}
 \end{center}
