@@ -23495,7 +23495,7 @@ Die zwei Striche stehen für lineare Entwicklungen in Abgrenzung zum hydrostatis
 \gamma \coloneqq \frac{R_s}{c^{(V)}\newtilde{\theta}}\Pi
 \end{align}
 %
-ab. Diese berechnet man in den Zellzentren, wobei man beim Predictor-Schritt den alten Zeitschritt (Zeitschritt $n$) und beim zweiten Corrector-Schritt das arithmetische Mittel der Schritte $n$ und $n + 1$ verwendet. Die vertikale Impulsgleichung notiert man in der Form
+ab. Diese berechnet man in den Zellzentren, wobei man beim Predictor-Schritt den alten Zeitschritt (Zeitschritt $n$) und beim Corrector-Schritt das arithmetische Mittel der Schritte $n$ und $n + 1$ verwendet. Die vertikale Impulsgleichung notiert man in der Form
 %
 \begin{align}
 w_{k + 1/2}^{(n + 1)} &= w_{k + 1/2}^{(\text{expl.})} - \epsilon\Delta tc^{(p)}\left[\left(\newoverline{\newoverline{\theta}_k}^{(k + 1/2)} + \newoverline{\theta_k^{'(n + 1)^\star}}^{(k + 1/2)}\right)\frac{\Pi^{'(n + 1)}_{k} - \Pi^{'(n + 1)}_{k + 1}}{z_{k} - z_{k + 1}} + \newoverline{\theta_k^{'(n + 1)}}^{(k + 1/2)}\frac{\newoverline{\Pi}_{k} - \newoverline{\Pi}_{k + 1}}{z_{k} - z_{k + 1}}\right]\nonumber\\
