@@ -19399,6 +19399,53 @@ abhängt. Man nimmt nun an, dass der Übergang von laminarer zu turbulenter Reib
 \section{Wachstum von Kondensaten}
 \label{sec:wachstum_von_kondensaten}
 
+\subsection{Größenverteilung von Regentropfen}
+\label{sec:groessenverteilung_von_regentropfen}
+
+Die für Regentropfen am häufigsten genutzte Größenverteilung ist die \textit{Marshall-Palmer-Verteilung}\index{Marshall-Palmer-Verteilung} \cite{THEDISTRIBUTIONOFRAINDROPSWITHSIZE}, welche die Form
+%
+\begin{align}
+n\left(D\right) = n_0\exp\left(-\lambda D\right)
+\end{align}
+%
+hat. Hierbei sind $D$ der Durchmesser der Regentropfen, $\lambda$ ein Parameter und $n\left(D\right)$ die Anzahl der Tropfen mit Durchmesser zwischen $D$ und $D + dD$, dividiert durch $dD$. $n_0 = 8\cdot 10^6\text{ m}^{-4}$ wird als Konstante angesetzt. Dies ergibt sich empirisch. Der Parameter $\lambda$ kann mit der dichte flüssigen Wassers $\rho_l$ verknüpft werden. Hierzu integriert man
+%
+\begin{align}
+\rho_l = \int_0^\infty n\left(D\right)mdD = \int_0^\infty n\left(D\right)\frac{4}{3}\pi\left(\frac{D}{2}\right)^3\rho_l'dD = \frac{\pi}{6}\int_0^\infty n\left(D\right)D^3\rho_l'dD = \frac{\pi}{6}\rho_l'n_0\int_0^\infty \exp\left(-\lambda D\right)D^3dD,\label{eq:marshall_palmer_deriv_1}
+\end{align}
+%
+hierbei ist $\rho_l'$ die Dichte von Wasser. Für das Integral erhält man mit Glg. \eqref{eq:int_prop_1}
+%
+\begin{align}
+\int_0^\infty\exp\left(-\lambda D\right)D^3dD &= \frac{6}{\lambda^4}.
+\end{align}
+%
+Setzt man dies in Glg. \eqref{eq:marshall_palmer_deriv_1} ein, erhält man
+%
+\begin{align}
+\rho_l = \frac{\pi}{6}\rho_l'n_0\int_0^\infty \exp\left(-\lambda D\right)D^3dD = \frac{\pi\rho_l'n_0}{\lambda^4},
+\end{align}
+%
+hieraus folgt
+%
+\begin{align}
+\lambda = \left(\frac{\pi\rho_l'n_0}{\rho_l}\right)^{1/4}.
+\end{align}
+%
+Für den mittleren Durchmesser $D_0$ folgt, wiederum mit Glg. \eqref{eq:int_prop_1},
+%
+\begin{align}
+D_0 = \frac{\int_0^\infty\exp\left(-\lambda D\right)DdD}{\int_0^\infty\exp\left(-\lambda D\right)dD} = \frac{1}{\lambda},
+\end{align}
+%
+also
+%
+\begin{align}
+D_0 = \left(\frac{\rho_l}{\pi\rho_l'n_0}\right)^{1/4}.
+\end{align}
+%
+Diese Formel kann genutzt werden, um einen mittleren Radius von Regentropfen aus der Dichte flüssigen Wassers diagnostisch abzuleiten.
+
 \subsection{Koagulation}
 \label{sec:koagulation}\index{Koagulation}
 
