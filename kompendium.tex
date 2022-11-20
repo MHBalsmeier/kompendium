@@ -9736,10 +9736,10 @@ den reversiblen Teil der Dynamik nach Abschn. \ref{sec:potentielle_temperatur_al
 \subsection{Kondensate}
 \label{sec:kondensate}
 
-Kondensate bewegen sich mit einer Geschwindigkeit $\mathbf{v}_i \not= \mathbf{v}$, welche nicht der Windgeschwindigkeit entspricht, da sie eine überlagerte Sinkgeschwindigkeit haben. Diese muss man im globalen Integral der kinetischen Energie berücksichtigen. Dies würde einige zusätzliche Terme generieren. Dies ist jedoch im Verhältnis zum Nutzen nicht praktikabel. Stattdessen wird die Existenz der Kondensate mit folgenden Eingriffen an die Dynamik angekoppelt:
+Kondensate bewegen sich mit einer Geschwindigkeit $\mathbf{v}_i \not= \mathbf{v}$, welche nicht der Windgeschwindigkeit entspricht, da sie eine überlagerte Fallgeschwindigkeit haben. Diese muss man im globalen Integral der kinetischen Energie berücksichtigen. Dies würde einige zusätzliche Terme generieren. Dies ist jedoch im Verhältnis zum Nutzen nicht praktikabel. Stattdessen wird die Existenz der Kondensate mit folgenden Eingriffen an die Dynamik angekoppelt:
 %
 \begin{itemize}
-\item Die Druckgradientbeschleunigung wird mit einem Vorfaktor $\frac{\rho_h}{\rho}$ multipliziert, da die Kondensate vom Druckgradienten mitbeschleunigt werden müssen, aber selbst keinen Druck generieren. Selbiges gilt für die Reibungsbeschleunigung. Die Coriolisbeschleunigung und die Schwere hingegen werden nicht auf diese Weise modifiziert, da diese Kräfte auch auf Kondensate wirken (die Tatsache, dass die auf Kondensate wirkende Coriolisbeschleunigung aufgrund ihrer Sinkgeschwindigkeit von der auf die Gasphase wirkende Coriolisbeschleunigung abweicht, wird ignoriert).
+\item Die Druckgradientbeschleunigung wird mit einem Vorfaktor $\frac{\rho_h}{\rho}$ multipliziert, da die Kondensate vom Druckgradienten mitbeschleunigt werden müssen, aber selbst keinen Druck generieren. Selbiges gilt für die Reibungsbeschleunigung. Die Coriolisbeschleunigung und die Schwere hingegen werden nicht auf diese Weise modifiziert, da diese Kräfte auch auf Kondensate wirken (die Tatsache, dass die auf Kondensate wirkende Coriolisbeschleunigung aufgrund ihrer Fallgeschwindigkeit von der auf die Gasphase wirkende Coriolisbeschleunigung abweicht, wird ignoriert).
 \item Da der Erste Haupsatz für die Größe $\rho_h\theta_v$ formuliert wird, müssen die Wärmeleistungsdichten mit einem Vorfaktor $\frac{\rho_hc_h^{(v)}}{\rho c} \leq 1$ multipliziert werden.
 \end{itemize}
 
@@ -19312,7 +19312,7 @@ F = 6\pi a\eta U.\label{eq:stokes_friction}
 Setzt man dies mit der Gewichtskraft
 %
 \begin{align}
-F_g = mg = \frac{4}{3}\pi a^3\rho_l'g\label{eq:gravity_on_condensate}
+F_g = mg = \frac{4}{3}\pi a^3\left(\rho_l' - \rho_h'\right)g\label{eq:gravity_on_condensate}
 \end{align}
 %
 gleich, erhält man
@@ -19321,13 +19321,13 @@ gleich, erhält man
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-v_\text{sink} = \frac{F}{6\pi a\eta} = \frac{4\pi a^3\rho_l'g}{18\pi a\rho_h'\nu} = \frac{2\pi a^2\rho_l'g}{9\pi\rho_h'\nu}\label{eq:sink_stokes}
+v_\text{sink} = \frac{F}{6\pi a\eta} = \frac{4\pi a^3\left(\rho_l' - \rho_h'\right)g}{18\pi a\rho_h'\nu} = \frac{2 a^2\left(\rho_l' - \rho_h'\right)g}{9\rho_h'\nu}\label{eq:sink_stokes}
 \end{align}
 \end{center}
 }}
 \end{center}
 %
-als Formel für die Gleichgewichts-Sinkgeschwindigkeit $v_\text{sink}$.
+als Formel für die Gleichgewichts-Fallgeschwindigkeit $v_\text{sink}$. Dabei wurde in Glg. \eqref{eq:gravity_on_condensate} der statische Auftrieb des Kondensats abgezogen.
 
 \subsection{Turbulente Umströmung}
 \label{sec:turbulente_umstroemung}
@@ -19353,10 +19353,10 @@ wobei $c_w \geq 0$ eine von der Form des umströmten Objektes abhängige Konstan
 }}
 \end{center}
 %
-als Formel für die Gleichgewichts-Sinkgeschwindigkeit $v_\text{sink}$.
+als Formel für die Gleichgewichts-Fallgeschwindigkeit $v_\text{sink}$.
 
-\subsection{Zusammengesetzte Formel für die Sinkgeschwindigkeit}
-\label{sec:zusammengesetzte_formel_für_die_sinkgeschwindigkeit}
+\subsection{Zusammengesetzte Formel für die Fallgeschwindigkeit}
+\label{sec:zusammengesetzte_formel_für_die_fallgeschwindigkeit}
 
 Kleine Kondensate werden laminar umströmt, größere turbulent. Der Parameter $\alpha\in\left[0, 1\right]$ beschreibe den Anteil von Turbulenz in der Reibungskraft $F$, also
 %
@@ -19370,7 +19370,7 @@ Setzt man hier die Glg.en \eqref{eq:stokes_friction} und \eqref{eq:turbulent_fri
 F = \alpha\frac{1}{2}c_w\pi a^2\rho_h'U^2 + \left(1 - \alpha\right)6\pi a\rho_h'\nu U.
 \end{align}
 %
-Setzt man dies mit der Gewichtskraft laut Glg. \eqref{eq:gravity_on_condensate} gleich, erhält man unter der Annahme $\alpha \not= 0$
+Hierbei ist $c_w \approx 0,8$ ein realistischer Wert. Setzt man dies mit der Gewichtskraft laut Glg. \eqref{eq:gravity_on_condensate} gleich, erhält man unter der Annahme $\alpha \not= 0$
 
 \begin{align}
 \left(1 - \alpha\right)6\pi a\rho_h'\nu v_\text{sink} + \alpha\frac{1}{2}c_w\pi a^2\rho_h'v_\text{sink}^2 &= \frac{4}{3}\pi a^3\rho_l'g\nonumber\\
@@ -19393,7 +19393,7 @@ abhängt. Man nimmt nun an, dass der Übergang von laminarer zu turbulenter Reib
 \item Berechne $v_\text{sink}$ aus Glg. \eqref{eq:sink_stokes}.
 \item Berechne hieraus die Reynoldszahl $R$.
 \item Wenn das Ergebnis nicht größer als $R_k$ ist, $R \leq R_k$, gilt $\alpha = 0$ und das Ergebnis liegt bereits vor. Dabei kann bei Kugeln von $R_k = 10$ ausgegangen werden.
-\item Andernfalls gilt $\alpha = 1$, dann verwende \eqref{eq:sink_turb} zur Bestimmung der Gleichgewichts-Sinkgeschwindigkeit. Dabei kann bei Kugeln von $c_w = 1$ ausgegangen werden.
+\item Andernfalls gilt $\alpha = 1$, dann verwende \eqref{eq:sink_turb} zur Bestimmung der Gleichgewichts-Fallgeschwindigkeit. Dabei kann bei Kugeln von $c_w = 1$ ausgegangen werden.
 \end{enumerate}
 
 \section{Wachstum von Kondensaten}
