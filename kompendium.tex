@@ -19121,35 +19121,30 @@ Man kann also
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-E^4\psi = 0
+E^4\psi = 0\label{eq:stokes_pde}
 \end{align}
 \end{center}
 }}
 \end{center}
 %
-als Differenzialgleichung für $\psi$ verwenden. Aus der Randbedingung Glg. \eqref{eq:stokes_fric_boundary_1} folgt
+als Differenzialgleichung für $\psi$ verwenden. Aus der Randbedingung Glg. \eqref{eq:stokes_fric_boundary_1} folgen
 %
 \begin{align}
-\frac{\partial\psi}{\partial r}\left(r = a\right) = \frac{\partial\psi}{\partial\theta}\left(r = a\right) = 0.
+\frac{\partial\psi}{\partial r}\left(r = a\right) &= 0,\label{eq:stokes_psi_bc_4}\\
+\frac{\partial\psi}{\partial\theta}\left(r = a\right) &= 0.
 \end{align}
 %
 $\psi$ ist also konstant entlang der Kugeloberfläche, o. B. d. A. kann man als Randbedingung
 %
 \begin{align}
-\psi\left(r = a\right) = 0
+\psi\left(r = a\right) = 0\label{eq:stokes_psi_bc_1}
 \end{align}
 %
 fordern. Die Randbedingung Glg. \eqref{eq:stokes_fric_boundary_0} lautet in Kugelkoordinaten
 %
 \begin{align}
-\lim_{\left|\mathbf{r}\right| \to \infty}v_r &= U\cos\left(\theta\right),\\
-\lim_{\left|\mathbf{r}\right| \to \infty}v_\theta &= -U\sin\left(\theta\right).
-\end{align}
-%
-Dies impliziert für $\psi$ die Tatsache
-%
-\begin{align}
-\lim_{\left|\mathbf{r}\right| \to \infty}\psi &= -\frac{Ur^2\sin\left(\theta\right)^2}{2}.
+\lim_{\left|\mathbf{r}\right|\to\infty}v_r &= U\cos\left(\theta\right),\label{eq:stokes_psi_bc_2}\\
+\lim_{\left|\mathbf{r}\right|\to\infty}v_\theta &= -U\sin\left(\theta\right).\label{eq:stokes_psi_bc_3}
 \end{align}
 %
 Der Druck soll in der Unendlichkeit gegen einen homogenen Hintergrunddruck $p_0$ konvergieren:
@@ -19161,44 +19156,187 @@ Der Druck soll in der Unendlichkeit gegen einen homogenen Hintergrunddruck $p_0$
 Es gilt
 %
 \begin{align}
-E^4\psi &= \left(\frac{\partial^2}{\partial r^2} - \frac{1}{r^2\tan\left(\theta\right)}\frac{\partial}{\partial\theta} + \frac{1}{r^2}\frac{\partial^2}{\partial\theta^2}\right)\left(\frac{\partial^2\psi}{\partial r^2} - \frac{1}{r^2\tan\left(\theta\right)}\frac{\partial\psi}{\partial\theta} + \frac{1}{r^2}\frac{\partial^2\psi}{\partial\theta^2}\right).
+E^4\psi &= \left(\frac{\partial^2}{\partial r^2} - \frac{1}{r^2\tan\left(\theta\right)}\frac{\partial}{\partial\theta} + \frac{1}{r^2}\frac{\partial^2}{\partial\theta^2}\right)\left(\frac{\partial^2\psi}{\partial r^2} - \frac{1}{r^2\tan\left(\theta\right)}\frac{\partial\psi}{\partial\theta} + \frac{1}{r^2}\frac{\partial^2\psi}{\partial\theta^2}\right).\label{eq:stokes_e4}
 \end{align}
 %
-Man rechnet zunächst vorbereitend
+Nun macht man für $\psi$ den Ansatz
 %
 \begin{align}
-&\frac{\partial}{\partial r}\left(\frac{\partial^2\psi}{\partial r^2} - \frac{1}{r^2\tan\left(\theta\right)}\frac{\partial\psi}{\partial\theta} + \frac{1}{r^2}\frac{\partial^2\psi}{\partial\theta^2}\right) = \frac{\partial^3\psi}{\partial r^3} - \frac{1}{r^2\tan\left(\theta\right)}\frac{\partial^2\psi}{\partial r\partial\theta} + \frac{1}{r^2}\frac{\partial^3\psi}{\partial r\partial\theta^2} + \frac{2}{r^3\tan\left(\theta\right)}\frac{\partial\psi}{\partial\theta} - \frac{2}{r^3}\frac{\partial^2\psi}{\partial\theta^2},\nonumber\\
-&\frac{\partial^2}{\partial r^2}\left(\frac{\partial^2\psi}{\partial r^2} - \frac{1}{r^2\tan\left(\theta\right)}\frac{\partial\psi}{\partial\theta} + \frac{1}{r^2}\frac{\partial^2\psi}{\partial\theta^2}\right) = \frac{\partial^4\psi}{\partial r^4} - \frac{1}{r^2\tan\left(\theta\right)}\frac{\partial^3\psi}{\partial r^2\partial\theta} + \frac{1}{r^2}\frac{\partial^4\psi}{\partial r^2\partial\theta^2} + \frac{2}{r^3\tan\left(\theta\right)}\frac{\partial^2\psi}{\partial r\partial\theta} - \frac{2}{r^3}\frac{\partial^3\psi}{\partial r\partial\theta^2}\nonumber\\
-& + \frac{2}{r^3\tan\left(\theta\right)}\frac{\partial^2\psi}{\partial r\partial\theta} - \frac{2}{r^3}\frac{\partial^3\psi}{\partial r\partial\theta^2} - \frac{6}{r^4\tan\left(\theta\right)}\frac{\partial\psi}{\partial\theta} + \frac{6}{r^4}\frac{\partial^2\psi}{\partial\theta^2}\nonumber\\
-&= \frac{\partial^4\psi}{\partial r^4} \textcolor{red}{- \frac{1}{r^2\tan\left(\theta\right)}\frac{\partial^3\psi}{\partial r^2\partial\theta}} + \textcolor{blue}{\frac{1}{r^2}\frac{\partial^4\psi}{\partial r^2\partial\theta^2}} + \frac{4}{r^3\tan\left(\theta\right)}\frac{\partial^2\psi}{\partial r\partial\theta} - \frac{4}{r^3}\frac{\partial^3\psi}{\partial r\partial\theta^2} - \frac{6}{r^4\tan\left(\theta\right)}\frac{\partial\psi}{\partial\theta} + \frac{6}{r^4}\frac{\partial^2\psi}{\partial\theta^2},
-\end{align}
-\begin{align}
-&\frac{\partial}{\partial\theta}\left(\frac{\partial^2\psi}{\partial r^2} - \frac{\cos\left(\theta\right)}{r^2\sin\left(\theta\right)}\frac{\partial\psi}{\partial\theta} + \frac{1}{r^2}\frac{\partial^2\psi}{\partial\theta^2}\right) = \frac{\partial^3\psi}{\partial\theta\partial r^2} - \frac{\cos\left(\theta\right)}{r^2\sin\left(\theta\right)}\frac{\partial^2\psi}{\partial\theta^2} + \frac{1}{r^2}\frac{\partial^3\psi}{\partial\theta^3} + \frac{1}{r^2}\frac{\partial\psi}{\partial\theta} + \frac{\cos\left(\theta\right)^2}{r^2\sin\left(\theta\right)^2}\frac{\partial\psi}{\partial\theta}\nonumber\\
-&\Rightarrow-\frac{1}{r^2\tan\left(\theta\right)}\frac{\partial}{\partial\theta}\left(\frac{\partial^2\psi}{\partial r^2} - \frac{\cos\left(\theta\right)}{r^2\sin\left(\theta\right)}\frac{\partial\psi}{\partial\theta} + \frac{1}{r^2}\frac{\partial^2\psi}{\partial\theta^2}\right)\nonumber\\
-&= -\frac{1}{r^2\tan\left(\theta\right)}\frac{\partial^3\psi}{\partial\theta\partial r^2} + \frac{1}{r^4\tan\left(\theta\right)^2}\frac{\partial^2\psi}{\partial\theta^2} - \frac{1}{r^4\tan\left(\theta\right)}\frac{\partial^3\psi}{\partial\theta^3} - \frac{1}{r^4\tan\left(\theta\right)}\frac{\partial\psi}{\partial\theta} - \frac{1}{r^4\tan\left(\theta\right)^3}\frac{\partial\psi}{\partial\theta}\nonumber\\
-&= \textcolor{red}{-\frac{1}{r^2\tan\left(\theta\right)}\frac{\partial^3\psi}{\partial\theta\partial r^2}} + \textcolor{brown}{\frac{1}{r^4\tan\left(\theta\right)^2}\frac{\partial^2\psi}{\partial\theta^2}} \textcolor{magenta}{- \frac{1}{r^4\tan\left(\theta\right)}\frac{\partial^3\psi}{\partial\theta^3}} \textcolor{green}{- \frac{\cos\left(\theta\right)}{r^4\sin\left(\theta\right)^3}\frac{\partial\psi}{\partial\theta}},
-\end{align}
-\begin{align}
-&\frac{1}{r^2}\frac{\partial^2}{\partial\theta^2}\left(\frac{\partial^2\psi}{\partial r^2} - \frac{\cos\left(\theta\right)}{r^2\sin\left(\theta\right)}\frac{\partial\psi}{\partial\theta} + \frac{1}{r^2}\frac{\partial^2\psi}{\partial\theta^2}\right) = \frac{1}{r^2}\frac{\partial}{\partial\theta}\left(\frac{\partial^3\psi}{\partial\theta\partial r^2} - \frac{\cos\left(\theta\right)}{r^2\sin\left(\theta\right)}\frac{\partial^2\psi}{\partial\theta^2} + \frac{1}{r^2}\frac{\partial^3\psi}{\partial\theta^3} + \frac{1}{r^2}\frac{\partial\psi}{\partial\theta} + \frac{\cos\left(\theta\right)^2}{r^2\sin\left(\theta\right)^2}\frac{\partial\psi}{\partial\theta}\right)\nonumber\\
-&= \frac{1}{r^2}\frac{\partial^4\psi}{\partial\theta^2\partial r^2} - \frac{\cos\left(\theta\right)}{r^4\sin\left(\theta\right)}\frac{\partial^3\psi}{\partial\theta^3} + \frac{1}{r^4}\frac{\partial^4\psi}{\partial\theta^4} + \frac{1}{r^4}\frac{\partial^2\psi}{\partial\theta^2} + \frac{\cos\left(\theta\right)^2}{r^4\sin\left(\theta\right)^2}\frac{\partial^2\psi}{\partial\theta^2}\nonumber\\
-&+ \frac{1}{r^4}\frac{\partial^2\psi}{\partial\theta^2} + \frac{\cos\left(\theta\right)^2}{r^4\sin\left(\theta\right)^2}\frac{\partial^2\psi}{\partial\theta^2} - \frac{2\cos\left(\theta\right)}{r^4\sin\left(\theta\right)}\frac{\partial\psi}{\partial\theta} - \frac{2\cos\left(\theta\right)^3}{r^4\sin\left(\theta\right)^3}\frac{\partial\psi}{\partial\theta}\nonumber\\
-&= \frac{1}{r^2}\frac{\partial^4\psi}{\partial\theta^2\partial r^2} - \frac{\cos\left(\theta\right)}{r^4\sin\left(\theta\right)}\frac{\partial^3\psi}{\partial\theta^3} + \frac{1}{r^4}\frac{\partial^4\psi}{\partial\theta^4} + \frac{2}{r^4\sin\left(\theta\right)^2}\frac{\partial^2\psi}{\partial\theta^2} - \frac{2\cos\left(\theta\right)}{r^4\sin\left(\theta\right)}\frac{\partial\psi}{\partial\theta} - \frac{2\cos\left(\theta\right)^3}{r^4\sin\left(\theta\right)^3}\frac{\partial\psi}{\partial\theta}\nonumber\\
-&= \textcolor{blue}{\frac{1}{r^2}\frac{\partial^4\psi}{\partial\theta^2\partial r^2}} \textcolor{magenta}{- \frac{\cos\left(\theta\right)}{r^4\sin\left(\theta\right)}\frac{\partial^3\psi}{\partial\theta^3}} + \frac{1}{r^4}\frac{\partial^4\psi}{\partial\theta^4} + \textcolor{brown}{\frac{2}{r^4\sin\left(\theta\right)^2}\frac{\partial^2\psi}{\partial\theta^2}} \textcolor{green}{- \frac{2\cos\left(\theta\right)}{r^4\sin\left(\theta\right)^3}\frac{\partial\psi}{\partial\theta}}.
+\psi\left(r,\theta\right) = -\frac{U\sin\left(\theta\right)^2}{2}\left(Ar + Br^2 + \frac{C}{r}\right).\label{eq:stokes_ansatz}
 \end{align}
 %
-Somit erhält man
+Aus Glg. \eqref{eq:stokes_psi_bc_2} folgt
 %
 \begin{align}
-E^4\psi &= \frac{\partial^4\psi}{\partial r^4} \textcolor{red}{- \frac{2}{r^2\tan\left(\theta\right)}\frac{\partial^3\psi}{\partial r^2\partial\theta}} + \textcolor{blue}{\frac{2}{r^2}\frac{\partial^4\psi}{\partial r^2\partial\theta^2}} + \frac{4}{r^3\tan\left(\theta\right)}\frac{\partial^2\psi}{\partial r\partial\theta} - \frac{4}{r^3}\frac{\partial^3\psi}{\partial r\partial\theta^2} - \frac{6}{r^4\tan\left(\theta\right)}\frac{\partial\psi}{\partial\theta} + \frac{6}{r^4}\frac{\partial^2\psi}{\partial\theta^2}\nonumber\\
-& \textcolor{magenta}{- \frac{2}{r^4\tan\left(\theta\right)}\frac{\partial^3\psi}{\partial\theta^3}} \textcolor{green}{- \frac{3\cos\left(\theta\right)}{r^4\sin\left(\theta\right)^3}\frac{\partial\psi}{\partial\theta}} + \textcolor{brown}{\frac{2 + \cos\left(\theta\right)^2}{r^4\sin\left(\theta\right)^2}\frac{\partial^2\psi}{\partial\theta^2}} + \frac{1}{r^4}\frac{\partial^4\psi}{\partial\theta^4}\nonumber\\
-&= \frac{\partial^4\psi}{\partial r^4} - \frac{2}{r^2\tan\left(\theta\right)}\frac{\partial^3\psi}{\partial r^2\partial\theta} + \frac{2}{r^2}\frac{\partial^4\psi}{\partial r^2\partial\theta^2} + \frac{4}{r^3\tan\left(\theta\right)}\frac{\partial^2\psi}{\partial r\partial\theta} - \frac{4}{r^3}\frac{\partial^3\psi}{\partial r\partial\theta^2}\nonumber\\
-&- \frac{2}{r^4\tan\left(\theta\right)}\frac{\partial^3\psi}{\partial\theta^3} - \frac{3\cos\left(\theta\right)\left(1 + 2\sin\left(\theta\right)^2\right)}{r^4\sin\left(\theta\right)^3}\frac{\partial\psi}{\partial\theta} + \frac{2 + \cos\left(\theta\right)^2 + 6\sin\left(\theta\right)^2}{r^4\sin\left(\theta\right)^2}\frac{\partial^2\psi}{\partial\theta^2} + \frac{1}{r^4}\frac{\partial^4\psi}{\partial\theta^4}.
+\lim_{\left|\mathbf{r}\right| \to \infty}v_r &= -\lim_{\left|\mathbf{r}\right|\to\infty}\frac{1}{r^2\sin\left(\theta\right)}\frac{\partial\psi}{\partial\theta} = \lim_{\left|\mathbf{r}\right|\to\infty}\frac{1}{r^2\sin\left(\theta\right)}\frac{\partial}{\partial\theta}\frac{U\sin\left(\theta\right)^2}{2}\left(Ar + Br^2 + \frac{C}{r}\right)\nonumber\\
+&= \lim_{\left|\mathbf{r}\right|\to\infty}\frac{1}{r^2\sin\left(\theta\right)}U\sin\left(\theta\right)\cos\left(\theta\right)\left(Ar + Br^2 + \frac{C}{r}\right)\nonumber\\
+&= \lim_{\left|\mathbf{r}\right|\to\infty}U\cos\left(\theta\right)\left(\frac{A}{r} + B + \frac{C}{r^3}\right)\nonumber\\
+&= \lim_{\left|\mathbf{r}\right|\to\infty}BU\cos\left(\theta\right) = BU\cos\left(\theta\right).
 \end{align}
 %
-Die farblich markierten Terme wurden jeweils zusammengefasst. Dies impliziert mit Glg. \eqref{eq:v_theta_for_stokes_friction}
+Vergleich mit Glg. \eqref{eq:stokes_psi_bc_2} impliziert
 %
 \begin{align}
-v_\theta &= \frac{1}{r\sin\left(\theta\right)}\frac{\partial\psi}{\partial r} = \frac{1}{r\sin\left(\theta\right)}\frac{\partial}{\partial r}\left[\frac{Ua^2\sin^2\left(\theta\right)}{4}\left(-\frac{2r^2}{a^2} + \frac{3r}{a} - \frac{a}{r}\right)\right]\nonumber\\
+B = 1.
+\end{align}
+%
+Aus Glg. \eqref{eq:stokes_psi_bc_3} folgt
+%
+\begin{align}
+\lim_{\left|\mathbf{r}\right|\to\infty}v_\theta &= \lim_{\left|\mathbf{r}\right|\to\infty}\frac{1}{r\sin\left(\theta\right)}\frac{\partial\psi}{\partial r} = -\lim_{\left|\mathbf{r}\right|\to\infty}\frac{1}{r\sin\left(\theta\right)}\frac{\partial}{\partial r}\frac{U\sin\left(\theta\right)^2}{2}\left(Ar + Br^2 + \frac{C}{r}\right)\nonumber\\
+&= -\lim_{\left|\mathbf{r}\right|\to\infty}\frac{1}{r\sin\left(\theta\right)}\frac{U\sin\left(\theta\right)^2}{2}\left(A + 2Br - \frac{C}{r^2}\right)\nonumber\\
+&= -\lim_{\left|\mathbf{r}\right|\to\infty}U\sin\left(\theta\right)\left(\frac{A}{2r} + B - \frac{C}{2r^3}\right)\nonumber\\
+&= -\lim_{\left|\mathbf{r}\right|\to\infty}U\sin\left(\theta\right)B = -BU\sin\left(\theta\right).
+\end{align}
+%
+Vergleich mit Glg. \eqref{eq:stokes_psi_bc_3} impliziert wiederum $B = 1$, also
+%
+\begin{align}
+\psi\left(r,\theta\right) = -\frac{U\sin\left(\theta\right)^2}{2}\left(Ar + r^2 + \frac{C}{r}\right).
+\end{align}
+%
+Aus Glg. \eqref{eq:stokes_psi_bc_1} erhält man weiter
+%
+\begin{align}
+\psi\left(a,\theta\right) &= -\frac{U\sin\left(\theta\right)^2}{2}\left(Aa + a^2 + \frac{C}{a}\right) \hastobe 0\\
+\Leftrightarrow Aa + a^2 + \frac{C}{a} &= 0\\
+\Leftrightarrow Aa^2 + a^3 + C &= 0\\
+\Leftrightarrow C &= -Aa^2 - a^3,
+\end{align}
+%
+also
+%
+\begin{align}
+\psi\left(r,\theta\right) = -\frac{U\sin\left(\theta\right)^2}{2}\left(Ar + r^2 - \frac{Aa^2 + a^3}{r}\right).
+\end{align}
+%
+Hieraus folgt
+%
+\begin{align}
+\frac{\psi\left(r,\theta\right)}{\partial r} = -\frac{U\sin\left(\theta\right)^2}{2}\left(A + 2r + \frac{Aa^2 + a^3}{r^2}\right).
+\end{align}
+%
+Aus Glg. \eqref{eq:stokes_psi_bc_4} folgt
+%
+\begin{align}
+A + 2a + \frac{Aa^2 + a^3}{a^2} = A + 2a + A + a &= 2A + 3a \hastobe 0\nonumber\\
+\Leftrightarrow A &= -\frac{3a}{2}.
+\end{align}
+%
+Der Ansatz lautet also
+%
+\begin{align}
+\psi\left(r,\theta\right) &= -\frac{U\sin\left(\theta\right)^2}{2}\left(-\frac{3a}{2}r + r^2 + \frac{3a^3}{2r} - \frac{a^3}{r}\right)\nonumber\\
+&= -\frac{U\sin\left(\theta\right)^2}{2}\left(-\frac{3a}{2}r + r^2 + \frac{a^3}{2r}\right).\label{eq:stokes_ansatz_concrete}
+\end{align}
+%
+Nun wird dies in Glg. \eqref{eq:stokes_e4} eingesetzt. Vorbereitend rechnet man
+%
+\begin{align}
+\frac{\partial^2\psi}{\partial r^2} &= -\frac{U\sin\left(\theta\right)^2}{2}\left(2 + \frac{a^3}{r^3}\right),\\
+-\frac{1}{r^2\tan\left(\theta\right)}\frac{\partial\psi}{\partial\theta} &= U\cos\left(\theta\right)^2\left(-\frac{3a}{2r} + 1 + \frac{a^3}{2r^3}\right),\\
+\frac{1}{r^2}\frac{\partial^2\psi}{\partial\theta^2} &= -U\left(\cos\left(\theta\right)^2 - \sin\left(\theta\right)^2\right)\left(-\frac{3a}{2r} + 1 + \frac{a^3}{2r^3}\right).
+\end{align}
+%
+Addiert man diese drei Terme, erhält man
+%
+\begin{align}
+E^2\psi &= \frac{\partial^2\psi}{\partial r^2} - \frac{1}{r^2\tan\left(\theta\right)}\frac{\partial\psi}{\partial\theta} + \frac{1}{r^2}\frac{\partial^2\psi}{\partial\theta^2} = -\frac{U\sin\left(\theta\right)^2}{2}\left(2 + \frac{a^3}{r^3}\right) + U\sin\left(\theta\right)^2\left(-\frac{3a}{2r} + 1 + \frac{a^3}{2r^3}\right)\\
+&= -\frac{U\sin\left(\theta\right)^2}{2}\left(2 + \frac{a^3}{r^3} + \frac{3a}{r} - 2 - \frac{a^3}{r^3}\right)\\
+&= -\frac{3aU\sin\left(\theta\right)^2}{2r}.\label{eq:stokes_e2}
+\end{align}
+%
+Hieraus folgt
+%
+\begin{align}
+\frac{\partial^2E^2\psi}{\partial r^2} &= -\frac{6aU\sin\left(\theta\right)^2}{2r^3} = -\frac{3aU\sin\left(\theta\right)^2}{r^3},\\
+-\frac{1}{r^2\tan\left(\theta\right)}\frac{\partial E^2\psi}{\partial\theta} &= \frac{3aU\cos\left(\theta\right)^2}{r^3},\\
+\frac{1}{r^2}\frac{\partial^2 E^2\psi}{\partial\theta^2} &= -\frac{3aU\left(\cos\left(\theta\right)^2 - \sin\left(\theta\right)^2\right)}{r^3}.
+\end{align}
+%
+Addiert man diese drei Gleichungen, folgt
+%
+\begin{align}
+E^4\psi = 0.
+\end{align}
+%
+Glg. \eqref{eq:stokes_ansatz} löst also in der Tat Glg. \eqref{eq:stokes_pde}.
+
+Nun muss noch gezeigt werden, dass auch Glg. \eqref{eq:momentum_for_stokes_mod_mod} vom Ansatz Glg. gelöst wird. Man berechnet hierfür zunächst
+%
+\begin{align}
+\nabla\times\zetabi &= \nabla\times\left[\mathbf{e}_\phi\frac{E^2\psi}{r\sin\left(\theta\right)}\right] \stackrel{\text{Glg. \eqref{eq:diff_op_rule_5}}}{=} -\mathbf{e}_\phi\times\nabla\frac{E^2\psi}{r\sin\left(\theta\right)} + \frac{E^2\psi}{r\sin\left(\theta\right)}\nabla\times\mathbf{e}_\phi.
+\end{align}
+%
+Mit
+%
+\begin{align}
+\nabla\times\mathbf{e}_\phi &\stackrel{\text{Glg. \eqref{eq:rot_sphere}}}{=} \frac{1}{r\tan\left(\theta\right)}\mathbf{e}_r - \frac{1}{r}\mathbf{e}_\theta
+\end{align}
+%
+folgt
+%
+\begin{align}
+\nabla\times\zetabi &= -\mathbf{e}_\phi\times\nabla\frac{E^2\psi}{r\sin\left(\theta\right)} + \frac{E^2\psi}{r\sin\left(\theta\right)}\left(\frac{1}{r\tan\left(\theta\right)}\mathbf{e}_r - \frac{1}{r}\mathbf{e}_\theta\right)\nonumber\\
+&= -\mathbf{e}_\phi\times\nabla\frac{E^2\psi}{r\sin\left(\theta\right)} + \frac{\cos\left(\theta\right)E^2\psi}{r^2\sin\left(\theta\right)^2}\mathbf{e}_r - \frac{E^2\psi}{r^2\sin\left(\theta\right)}\mathbf{e}_\theta.
+\end{align}
+%
+Setzt man hier Glg. \eqref{eq:stokes_e2} ein, erhält man
+%
+\begin{align}
+\nabla\times\zetabi &= -\frac{3aU}{2}\left(-\mathbf{e}_\phi\times\nabla\frac{\sin\left(\theta\right)}{r^2} + \frac{\cos\left(\theta\right)}{r^3}\mathbf{e}_r - \frac{\sin\left(\theta\right)}{r^3}\mathbf{e}_\theta\right).\label{eq:stokes_deriv_1}
+\end{align}
+%
+Mit Glg. \eqref{eq:grad_sphere} folgt
+%
+\begin{align}
+\nabla\frac{\sin\left(\theta\right)}{r^2} &= -\frac{2\sin\left(\theta\right)}{r^3}\mathbf{e}_r + \frac{\cos\left(\theta\right)}{r^3}\mathbf{e}_\theta.
+\end{align}
+%
+Somit gilt
+%
+\begin{align}
+-\mathbf{e}_\phi\times\nabla\frac{\sin\left(\theta\right)}{r^2} &= \frac{2\sin\left(\theta\right)}{r^3}\mathbf{e}_\theta + \frac{\cos\left(\theta\right)}{r^3}\mathbf{e}_r.
+\end{align}
+%
+Setzt man dies in Glg. \eqref{eq:stokes_deriv_1} ein, erhält man
+%
+\begin{align}
+\nabla\times\zetabi &= -\frac{3aU}{2}\left(\frac{2\sin\left(\theta\right)}{r^3}\mathbf{e}_\theta + \frac{\cos\left(\theta\right)}{r^3}\mathbf{e}_r + \frac{\cos\left(\theta\right)}{r^3}\mathbf{e}_r - \frac{\sin\left(\theta\right)}{r^3}\mathbf{e}_\theta\right)\nonumber\\
+&= -\frac{3aU}{2}\left(\frac{\sin\left(\theta\right)}{r^3}\mathbf{e}_\theta + \frac{2\cos\left(\theta\right)}{r^3}\mathbf{e}_r\right).
+\end{align}
+%
+Setzt man dies in Glg. \eqref{eq:momentum_for_stokes_mod_mod} ein, erhält man
+%
+\begin{align}
+\nabla p = \frac{3aU}{2}\frac{\eta\sin\left(\theta\right)}{r^3}\mathbf{e}_\theta + \frac{3aU}{2}\frac{2\eta\cos\left(\theta\right)}{r^2}\mathbf{e}_r,
+\end{align}
+%
+also
+%
+\begin{align}
+\frac{\partial p}{\partial r} &= \frac{3aU}{2}\frac{2\eta\cos\left(\theta\right)}{r^3},\nonumber\\
+\frac{\partial p}{\partial\theta} &= \frac{3aU}{2}\frac{\eta\sin\left(\theta\right)}{r^2}.
+\end{align}
+%
+Dies wird gelöst durch
+%
+\begin{align}
+p = p_0 - \frac{3aU}{2}\frac{\eta\cos\left(\theta\right)}{r^2}.
+\end{align}
+%
+Dies impliziert für die durch den Druck entstehende Reibungskraft laut Glg. \eqref{eq:stokes_friction_p}
+%
+\begin{align}
+F_p &= -2\pi a^2\int_0^\pi-\frac{3\eta aU\cos\left(\theta\right)}{2a^2}\cos\left(\theta\right)\sin\left(\theta\right)d\theta = \pi\int_0^\pi 3\eta aU\cos\left(\theta\right)\cos\left(\theta\right)\sin\left(\theta\right)d\theta\nonumber\\
+&= 3\eta aU\pi\int_0^\pi\cos^2\left(\theta\right)\sin\left(\theta\right)d\theta = -3\eta aU\pi\left[\frac{1}{3}\cos\left(\theta\right)^3\right]_0^\pi = 2\eta aU\pi.
+\end{align}
+%
+Für $v_\theta$ erhält man mit Glg. \eqref{eq:v_theta_for_stokes_friction} und dem Ansatz Glg. \eqref{eq:stokes_ansatz_concrete}
+%
+\begin{align}
+v_\theta &= \frac{1}{r\sin\left(\theta\right)}\frac{\partial\psi}{\partial r} = \frac{1}{r\sin\left(\theta\right)}\frac{\partial}{\partial r}\left[-\frac{U\sin\left(\theta\right)^2}{2}\left(-\frac{3a}{2}r + r^2 + \frac{a^3}{2r}\right)\right]\nonumber\\
+&= \frac{1}{r}\frac{\partial}{\partial r}\left[\frac{U\sin\left(\theta\right)}{2}\left(\frac{3a}{2}r - r^2 - \frac{a^3}{2r}\right)\right] = \frac{1}{r}\frac{\partial}{\partial r}\left[\frac{Ua^2\sin\left(\theta\right)}{2}\left(\frac{3}{2a}r - \frac{r^2}{a^2} - \frac{a}{2r}\right)\right]\nonumber\\
 &= \frac{1}{r}\left[\frac{Ua^2\sin\left(\theta\right)}{4}\left(-\frac{4r}{a^2} + \frac{3}{a} + \frac{a}{r^2}\right)\right] = \frac{Ua^2\sin\left(\theta\right)}{4}\left(-\frac{4}{a^2} + \frac{3}{ar} + \frac{a}{r^3}\right).
 \end{align}
 %
@@ -19231,70 +19369,6 @@ Dies impliziert
 %
 \begin{align}
 F_v &= 3U\pi\eta a\frac{4}{3} = 4U\pi\eta a.
-\end{align}
-%
-Nun muss noch das Druckfeld bestimmt werden. Hierzu geht man aus von Glg. \eqref{eq:momentum_for_stokes_mod_mod}, man berechnet zunächst
-%
-\begin{align}
-\nabla\times\zetabi &= \nabla\times\left[\mathbf{e}_\phi\frac{E^2\psi}{r\sin\left(\theta\right)}\right] \stackrel{\text{Glg. \eqref{eq:diff_op_rule_5}}}{=} -\mathbf{e}_\phi\times\nabla\frac{E^2\psi}{r\sin\left(\theta\right)} + \frac{E^2\psi}{r\sin\left(\theta\right)}\nabla\times\mathbf{e}_\phi.
-\end{align}
-%
-Es gilt
-%
-\begin{align}
-\nabla\frac{E^2\psi}{r\sin\left(\theta\right)} &= \nabla\left[\frac{1}{r\sin\left(\theta\right)}\left(\frac{\partial^2\psi}{\partial r^2} - \frac{\cos\left(\theta\right)}{r^2\sin\left(\theta\right)}\frac{\partial\psi}{\partial\theta} + \frac{1}{r^2}\frac{\partial^2\psi}{\partial\theta^2}\right)\right] = \nabla\left(\frac{1}{r\sin\left(\theta\right)}\frac{\partial^2\psi}{\partial r^2} - \frac{\cos\left(\theta\right)}{r^3\sin\left(\theta\right)^2}\frac{\partial\psi}{\partial\theta} + \frac{1}{r^3\sin\left(\theta\right)}\frac{\partial^2\psi}{\partial\theta^2}\right)\nonumber\\
-&= \frac{\partial}{\partial r}\left(\frac{1}{r\sin\left(\theta\right)}\frac{\partial^2\psi}{\partial r^2} - \frac{\cos\left(\theta\right)}{r^3\sin\left(\theta\right)^2}\frac{\partial\psi}{\partial\theta} + \frac{1}{r^3\sin\left(\theta\right)}\frac{\partial^2\psi}{\partial\theta^2}\right)\mathbf{e}_r\nonumber\\
-&+ \frac{1}{r}\frac{\partial}{\partial\theta}\left(\frac{1}{r\sin\left(\theta\right)}\frac{\partial^2\psi}{\partial r^2} - \frac{\cos\left(\theta\right)}{r^3\sin\left(\theta\right)^2}\frac{\partial\psi}{\partial\theta} + \frac{1}{r^3\sin\left(\theta\right)}\frac{\partial^2\psi}{\partial\theta^2}\right)\mathbf{e}_\theta\nonumber
-\end{align}
-\begin{align}
-&= \left(\frac{1}{r\sin\left(\theta\right)}\frac{\partial^3\psi}{\partial r^3} - \frac{\cos\left(\theta\right)}{r^3\sin\left(\theta\right)^2}\frac{\partial^2\psi}{\partial r\partial\theta} + \frac{1}{r^3\sin\left(\theta\right)}\frac{\partial^3\psi}{\partial r\partial\theta^2} - \frac{1}{r^2\sin\left(\theta\right)}\frac{\partial^2\psi}{\partial r^2} + \frac{3\cos\left(\theta\right)}{r^4\sin\left(\theta\right)^2}\frac{\partial\psi}{\partial\theta} - \frac{3}{r^4\sin\left(\theta\right)}\frac{\partial^2\psi}{\partial\theta^2}\right)\mathbf{e}_r\nonumber\\
-&+ \Bigg(\frac{1}{r^2\sin\left(\theta\right)}\frac{\partial^3\psi}{\partial \theta\partial r^2} - \frac{\cos\left(\theta\right)}{r^4\sin\left(\theta\right)^2}\frac{\partial^2\psi}{\partial\theta^2} + \frac{1}{r^4\sin\left(\theta\right)}\frac{\partial^3\psi}{\partial\theta^3} - \frac{\cos\left(\theta\right)}{r^2\sin\left(\theta\right)^2}\frac{\partial^2\psi}{\partial r^2} + \frac{1}{r^4\sin\left(\theta\right)}\frac{\partial\psi}{\partial\theta}\nonumber\\
-&+ \frac{2\cos\left(\theta\right)^2}{r^4\sin\left(\theta\right)^3}\frac{\partial\psi}{\partial\theta} - \frac{\cos\left(\theta\right)}{r^4\sin\left(\theta\right)^2}\frac{\partial^2\psi}{\partial\theta^2}\Bigg)\mathbf{e}_\theta.
-\end{align}
-%
-Hieraus folgt
-%
-\begin{align}
-&-\mathbf{e}_\phi\times\nabla\frac{E^2\psi}{r\sin\left(\theta\right)}\nonumber\\
-&= -\left(\frac{1}{r\sin\left(\theta\right)}\frac{\partial^3\psi}{\partial r^3} - \frac{\cos\left(\theta\right)}{r^3\sin\left(\theta\right)^2}\frac{\partial^2\psi}{\partial r\partial\theta} + \frac{1}{r^3\sin\left(\theta\right)}\frac{\partial^3\psi}{\partial r\partial\theta^2} - \frac{1}{r^2\sin\left(\theta\right)}\frac{\partial^2\psi}{\partial r^2} + \frac{3\cos\left(\theta\right)}{r^4\sin\left(\theta\right)^2}\frac{\partial\psi}{\partial\theta} - \frac{3}{r^4\sin\left(\theta\right)}\frac{\partial^2\psi}{\partial\theta^2}\right)\mathbf{e}_\theta\nonumber\\
-&+ \Bigg(\frac{1}{r^2\sin\left(\theta\right)}\frac{\partial^3\psi}{\partial \theta\partial r^2} - \frac{\cos\left(\theta\right)}{r^4\sin\left(\theta\right)^2}\frac{\partial^2\psi}{\partial\theta^2} + \frac{1}{r^4\sin\left(\theta\right)}\frac{\partial^3\psi}{\partial\theta^3} - \frac{\cos\left(\theta\right)}{r^2\sin\left(\theta\right)^2}\frac{\partial^2\psi}{\partial r^2} + \frac{1}{r^4\sin\left(\theta\right)}\frac{\partial\psi}{\partial\theta}\nonumber\\
-&+ \frac{2\cos\left(\theta\right)^2}{r^4\sin\left(\theta\right)^3}\frac{\partial\psi}{\partial\theta} - \frac{\cos\left(\theta\right)}{r^4\sin\left(\theta\right)^2}\frac{\partial^2\psi}{\partial\theta^2}\Bigg)\mathbf{e}_r\nonumber\\
-&= \Bigg(\frac{1}{r^2\sin\left(\theta\right)}\frac{\partial^3\psi}{\partial \theta\partial r^2} \textcolor{brown}{- \frac{2\cos\left(\theta\right)}{r^4\sin\left(\theta\right)^2}\frac{\partial^2\psi}{\partial\theta^2}} + \frac{1}{r^4\sin\left(\theta\right)}\frac{\partial^3\psi}{\partial\theta^3} \textcolor{red}{- \frac{\cos\left(\theta\right)}{r^2\sin\left(\theta\right)^2}\frac{\partial^2\psi}{\partial r^2}} + \frac{1}{r^4\sin\left(\theta\right)}\frac{\partial\psi}{\partial\theta} + \textcolor{blue}{\frac{2\cos\left(\theta\right)^2}{r^4\sin\left(\theta\right)^3}\frac{\partial\psi}{\partial\theta}}\Bigg)\mathbf{e}_r\nonumber\\
-&+ \left(-\frac{1}{r\sin\left(\theta\right)}\frac{\partial^3\psi}{\partial r^3} + \frac{\cos\left(\theta\right)}{r^3\sin\left(\theta\right)^2}\frac{\partial^2\psi}{\partial r\partial\theta} - \frac{1}{r^3\sin\left(\theta\right)}\frac{\partial^3\psi}{\partial r\partial\theta^2} + \textcolor{magenta}{\frac{1}{r^2\sin\left(\theta\right)}\frac{\partial^2\psi}{\partial r^2}} \textcolor{cyan}{- \frac{3\cos\left(\theta\right)}{r^4\sin\left(\theta\right)^2}\frac{\partial\psi}{\partial\theta}} + \textcolor{green}{\frac{3}{r^4\sin\left(\theta\right)}\frac{\partial^2\psi}{\partial\theta^2}}\right)\mathbf{e}_\theta
-\end{align}
-%
-Mit
-%
-\begin{align}
-\nabla\times\mathbf{e}_\phi &\stackrel{\text{Glg. \eqref{eq:rot_sphere}}}{=} \frac{1}{r\tan\left(\theta\right)}\mathbf{e}_r - \frac{1}{r}\mathbf{e}_\theta
-\end{align}
-%
-folgt
-%
-\begin{align}
-\frac{E^2\psi}{r\sin\left(\theta\right)}\nabla\times\mathbf{e}_\phi &= \frac{1}{r\sin\left(\theta\right)}\left[\frac{\partial^2\psi}{\partial r^2} - \frac{1}{r^2\tan\left(\theta\right)}\frac{\partial\psi}{\partial\theta} + \frac{1}{r^2}\frac{\partial^2\psi}{\partial\theta^2}\right]\left(\frac{1}{r\tan\left(\theta\right)}\mathbf{e}_r - \frac{1}{r}\mathbf{e}_\theta\right)\nonumber\\
-&= \left(\frac{1}{r\sin\left(\theta\right)}\frac{\partial^2\psi}{\partial r^2} - \frac{\cos\left(\theta\right)}{r^3\sin\left(\theta\right)^2}\frac{\partial\psi}{\partial\theta} + \frac{1}{r^3\sin\left(\theta\right)}\frac{\partial^2\psi}{\partial\theta^2}\right)\left(\frac{1}{r\tan\left(\theta\right)}\mathbf{e}_r - \frac{1}{r}\mathbf{e}_\theta\right)\nonumber\\
-&= \left(\frac{\cos\left(\theta\right)}{r^2\sin\left(\theta\right)^2}\frac{\partial^2\psi}{\partial r^2} - \frac{\cos\left(\theta\right)^2}{r^4\sin\left(\theta\right)^3}\frac{\partial\psi}{\partial\theta} + \frac{\cos\left(\theta\right)}{r^4\sin\left(\theta\right)^2}\frac{\partial^2\psi}{\partial\theta^2}\right)\mathbf{e}_r\nonumber\\
-&- \left(\frac{1}{r^2\sin\left(\theta\right)}\frac{\partial^2\psi}{\partial r^2} - \frac{\cos\left(\theta\right)}{r^4\sin\left(\theta\right)^2}\frac{\partial\psi}{\partial\theta} + \frac{1}{r^4\sin\left(\theta\right)}\frac{\partial^2\psi}{\partial\theta^2}\right)\mathbf{e}_\theta\nonumber\\
-&= \left(\textcolor{red}{\frac{\cos\left(\theta\right)}{r^2\sin\left(\theta\right)^2}\frac{\partial^2\psi}{\partial r^2}} \textcolor{blue}{- \frac{\cos\left(\theta\right)^2}{r^4\sin\left(\theta\right)^3}\frac{\partial\psi}{\partial\theta}} + \textcolor{brown}{\frac{\cos\left(\theta\right)}{r^4\sin\left(\theta\right)^2}\frac{\partial^2\psi}{\partial\theta^2}}\right)\mathbf{e}_r\nonumber\\
-&+ \left(\textcolor{magenta}{-\frac{1}{r^2\sin\left(\theta\right)}\frac{\partial^2\psi}{\partial r^2}} + \textcolor{cyan}{\frac{\cos\left(\theta\right)}{r^4\sin\left(\theta\right)^2}\frac{\partial\psi}{\partial\theta}} \textcolor{green}{- \frac{1}{r^4\sin\left(\theta\right)}\frac{\partial^2\psi}{\partial\theta^2}}\right)\mathbf{e}_\theta.
-\end{align}
-%
-Somit gilt
-%
-\begin{align}
-&\nabla\times\zetabi\nonumber\\
-&= \left(\frac{1}{r^2\sin\left(\theta\right)}\frac{\partial^3\psi}{\partial \theta\partial r^2} + \frac{1}{r^4\sin\left(\theta\right)}\frac{\partial^3\psi}{\partial\theta^3} + \frac{1}{r^4\sin\left(\theta\right)}\frac{\partial\psi}{\partial\theta} + \textcolor{blue}{\frac{\cos\left(\theta\right)^2}{r^4\sin\left(\theta\right)^3}\frac{\partial\psi}{\partial\theta}} \textcolor{brown}{- \frac{\cos\left(\theta\right)}{r^4\sin\left(\theta\right)^2}\frac{\partial^2\psi}{\partial\theta^2}}\right)\mathbf{e}_r\nonumber\\
-&+ \left(-\frac{1}{r\sin\left(\theta\right)}\frac{\partial^3\psi}{\partial r^3} + \frac{\cos\left(\theta\right)}{r^3\sin\left(\theta\right)^2}\frac{\partial^2\psi}{\partial r\partial\theta} - \frac{1}{r^3\sin\left(\theta\right)}\frac{\partial^3\psi}{\partial r\partial\theta^2} \textcolor{cyan}{- \frac{2\cos\left(\theta\right)}{r^4\sin\left(\theta\right)^2}\frac{\partial\psi}{\partial\theta}} + \textcolor{green}{\frac{2}{r^4\sin\left(\theta\right)}\frac{\partial^2\psi}{\partial\theta^2}}\right)\mathbf{e}_\theta\nonumber\\
-&= \left(\frac{1}{r^2\sin\left(\theta\right)}\frac{\partial^3\psi}{\partial \theta\partial r^2} + \frac{1}{r^4\sin\left(\theta\right)}\frac{\partial^3\psi}{\partial\theta^3} + \frac{1}{r^4\sin\left(\theta\right)^3}\frac{\partial\psi}{\partial\theta} - \frac{\cos\left(\theta\right)}{r^4\sin\left(\theta\right)^2}\frac{\partial^2\psi}{\partial\theta^2}\right)\mathbf{e}_r\nonumber\\
-&+ \left(-\frac{1}{r\sin\left(\theta\right)}\frac{\partial^3\psi}{\partial r^3} + \frac{\cos\left(\theta\right)}{r^3\sin\left(\theta\right)^2}\frac{\partial^2\psi}{\partial r\partial\theta} - \frac{1}{r^3\sin\left(\theta\right)}\frac{\partial^3\psi}{\partial r\partial\theta^2} - \frac{2\cos\left(\theta\right)}{r^4\sin\left(\theta\right)^2}\frac{\partial\psi}{\partial\theta} + \frac{2}{r^4\sin\left(\theta\right)}\frac{\partial^2\psi}{\partial\theta^2}\right)\mathbf{e}_\theta.
-\end{align}
-%
-Die farblich markierten Terme heben sich jeweils paarweise (in Teilen) gegenseitig auf. Dies impliziert für die durch den Druck entstehende Reibungskraft laut Glg. \eqref{eq:stokes_friction_p}
-%
-\begin{align}
-F_p &= -2\pi a^2\int_0^\pi-\frac{3\eta aU\cos\left(\theta\right)}{2a^2}\cos\left(\theta\right)\sin\left(\theta\right)d\theta = \pi\int_0^\pi 3\eta aU\cos\left(\theta\right)\cos\left(\theta\right)\sin\left(\theta\right)d\theta\nonumber\\
-&= 3\eta aU\pi\int_0^\pi\cos^2\left(\theta\right)\sin\left(\theta\right)d\theta = -3\eta aU\pi\left[\frac{1}{3}\cos\left(\theta\right)^3\right]_0^\pi = 2\eta aU\pi.
 \end{align}
 %
 Somit gilt laut Glg. \eqref{eq:stokes_friction_split-up} für die Reibungskraft
