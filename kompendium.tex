@@ -23532,6 +23532,31 @@ Hieraus ergibt sich, dass nur das globale Integral über $\mathbf{v}\cdot\mathbf
 
 Somit ist die in diesem Kapitel entwickelte Ortsdiskretisierung energetisch selbstkonsistent.
 
+\subsubsection{Aufnahme eines hydrostatischen Hintergrundzustandes}
+\label{sec:aufnahme_eines_hydrostatischen_hintergrundzustandes}
+
+Ein hydrostatischer Hintergrundzustand wie in Abschn. \ref{sec:hydrostatischer_hintergrundzustand} beschrieben kann verwendet werden, ohne die Energieerhaltung zu zerstören. Dabei muss sichergestellt werden, dass
+%
+\begin{align}
+\mathbf{0} = -c^{(p)}\newoverline{\theta}\nabla\newoverline{\Pi} - \nabla\phi
+\end{align}
+%
+auch diskret gilt. Die entsprechenden Terme haben sich dann in der Diskretisierung gegenseitig auf.
+
+Dies ist so jedoch nur ohne Orographie der Fall. Sind jedoch Berge vorhanden, heben sich die horizontalen Anteile der Gradienten nicht exakt gegenseitig auf, sodass ein kleiner Fehler in der Energieerhaltung entsteht. Im Zusammenspiel von Orts- und Zeitdiskretisierung überwiegen jedoch die Vorteile des hydrostatischen Hintergrundzustandes. Der wesentlichste Vorteil hierbei ist, dass die horizontalen orogrphischen Korrekturanteile von $-c^{(p)}\theta\nabla\Pi$ und $-\nabla\phi$ zwei Größen sind, die sich fast komplett gegenseitig aufheben, also
+%
+\begin{align}
+-c^{(p)}\newoverline{\theta_{c, k}}^{(e)}J_{e, k}\newoverline{\left(\nabla_z\Pi\right)_{c, k + 1/2}}^{(k)} - J_{e, k}\newoverline{\left(\nabla_z\phi\right)_{c, k + 1/2}}^{(k)} \approx 0.
+\end{align}
+%
+Die übrigbleibende Differenz ist größtenteils ein Diskretisierungsfehler. Dieser wird kleiner, wenn man einen hydrostatischen Hintergrundzustand verwendet, da dann lediglich
+%
+\begin{align}
+-c^{(p)}\newoverline{\theta_{c, k}}^{(e)}J_{e, k}\newoverline{\left(\nabla_z\Pi'\right)_{c, k + 1/2}}^{(k)} - c^{(p)}\newoverline{\theta'_{c, k}}^{(e)}J_{e, k}\newoverline{\left(\nabla_z\newoverline{\Pi}\right)_{c, k + 1/2}}^{(k)}
+\end{align}
+%
+berechnet werden muss.
+
 \section{Randbedingungen}
 \label{sec:randbedingungen}
 
@@ -23769,7 +23794,7 @@ Möchte man keinen hydrostatischen Hintergrundzustand verwenden, muss man nur di
 \begin{align}
 \newoverline{\theta}_k &= 0,\\
 \newoverline{\Pi}_k &= 0,\\
-w_{k + 1/2}^{(\text{expl.})} &\to w_{k + 1/2}^{(\text{expl.})} - \Delta t\frac{d\newoverline{\Phi}}{dz}\vline_{k + 1/2}
+w_{k + 1/2}^{(\text{expl.})} &\to w_{k + 1/2}^{(\text{expl.})} - \Delta t\frac{d\newoverline{\phi}}{dz}\vline_{k + 1/2}
 \end{align}
 %
 vornehmen.
