@@ -23609,7 +23609,7 @@ Vertikal propagierende Wellen werden aus Stabilitätsgründen anteilig implizit 
 \Pi'' &\stackrel{\text{Glg. \eqref{eq:exner_pressure_diag}}}{=} \frac{R_s}{c^{(V)}\newtilde{\theta}}\left(\frac{R_s\newtilde{\theta}}{p_0}\right)^{R_s/c^{(V)}}\newtilde{\theta}'.
 \end{align}
 %
-Die zwei Striche stehen für lineare Entwicklungen in Abgrenzung zum hydrostatischen Hintergrundzustand. Die Ableitungen kürzt man mit
+Die zwei Striche stehen für lineare Entwicklungen gegenüber dem vorherigen Zeitschritt und nicht für Differenzen zum hydrostatischen Hintergrundzustand, welche mit $\theta',\Pi'$ bezeichet werden. Die Ableitungen kürzt man mit
 %
 \begin{align}
 \alpha \coloneqq -\frac{\newtilde{\theta}}{\rho^2},& \beta \coloneqq \frac{1}{\rho},\\
@@ -23763,6 +23763,16 @@ Lineare Gleichungssysteme mit Drei-Band-Matrizen können mit dem Thomas-Algorith
 \Pi_k^{'(n+1)} &= \Pi_k^{'(\text{expl.})} + \gamma_kV_k\left(\newtilde{\theta}_k^{(n + 1)} - \newtilde{\theta}_k^{(\text{expl.})}\right),\\
 w^{(n + 1)}_{k + 1/2} &\stackrel{\text{Glg. \eqref{eq:w_from_ml}}}{=} \frac{\frac{2M_{k + 1/2}}{A_{k + 1/2}} - \newoverline{\rho_k^{(n + 1)}}^{(k + 1/2)}w^{(n)}_{k + 1/2}}{\newoverline{\rho_k^{(n)}}^{(k + 1/2)}}.
 \end{align}
+%
+Möchte man keinen hydrostatischen Hintergrundzustand verwenden, muss man nur die Ersetzungen
+%
+\begin{align}
+\newoverline{\theta}_k &= 0,\\
+\newoverline{\Pi}_k &= 0,\\
+w_{k + 1/2}^{(\text{expl.})} &\to w_{k + 1/2}^{(\text{expl.})} - \Delta t\frac{d\newoverline{\Phi}}{dz}\vline_{k + 1/2}
+\end{align}
+%
+vornehmen.
 
 \subsubsection{Horizontales Forward-backward-Verfahren}
 \label{sec:horizontales_forward-backward-Verfahren}\index{Forward-Backward-Verfahren}
