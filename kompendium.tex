@@ -19833,7 +19833,7 @@ erfüllt. Sogenannte \textit{Runge-Kutta-Verfahren}\index{Runge-Kutta-Verfahren}
 \subsubsection{Linearer Fall}
 \label{sec:linearer_fall}
 
-Die Taylor-Entweicklung\index{Taylor-Entweicklung} von $f$ lautet
+Die Taylor-Entwicklung\index{Taylor-Entwicklung} von $f$ lautet
 %
 \begin{align}
 f\left(t\right) = \sum_{k = 0}^\infty\frac{f^{(k)}\left(0\right)}{k!}t^k.
@@ -19854,7 +19854,7 @@ f\left(t\right) &= \sum_{k = 0}^n\frac{F^k\left(0\right)}{k!}t^k + \sum_{k = n +
 %
 umformulieren. Es werden also die ersten $n$ Ableitungen von $f$ durch dieses Verfahren approximiert, was man als \textit{lineares Runge-Kutta-Verfahren dritter Ordnung}\index{Runge-Kutta-Verfahren!dritter Ordnung} bezeichnet.
 
-\subsubsection{Nichtinearer Fall}
+\subsubsection{Nichtlinearer Fall}
 \label{sec:nichtlinearer_fall}
 
 Definiert man
@@ -23589,11 +23589,68 @@ Im Rahmen des bisher entwickelten Formalismus gibt es drei Möglichkeiten für A
 %
 \begin{enumerate}
 \item Modifikation des kinetischen-Energie-Funktionals inklusive Interpolation der Dichte $\newtilde{\rho}^{(e)}_{c, k}$ and die Kante.
-\item Interpolation von $\frac{q_1}{\rho}$ an die Kante.
+\item Interpolation von $\theta$ an die Kante (s. Abschn. \ref{sec:tracer-advektion_hoeherer_ordnung}).
 \item Erhöhung der Anzahl der Kanten, die bei Berechnung des Vorticityflussterms berücksichtigt werden.
 \end{enumerate}
 %
 Diese verbleibenden Freiheiten sind nicht ausreichend, um die Konvergenzordnung des Gesamtmodells zu erhöhen.
+
+\subsection{Tracer-Advektion höherer Ordnung}
+\label{sec:tracer-advektion_hoeherer_ordnung}
+
+Die Genauigkeit der Diskretisierung kann erhöht werden, indem man $\theta$ nicht über das arithmetische Mittel
+%
+\begin{align}
+\newtilde{\theta}^{(e)} = \frac{\theta_{c_1(e)} + \theta_{c_2(e)}}{2},
+\end{align}
+%
+was zweiter Ordnung ist, an die Kante interpoliert, sondern in komplexerer Art und Weise. Der vertikale Index $k$ wird hier weggelassen, da in diesem Abschnitt von Zweidimensionalität ausgegangen wird und $c_1(e)$, $c_2(e)$ sind wie üblich die beiden Zeilen, welche an die Kante $e$ grenzen.
+
+\subsubsection{Eindimensionaler Fluss}
+\label{sec:eindimensionaler_fluss}
+
+Zunächst wird dies eindimensional betrachtet. Hierzu geht man von der wahren Ortsabhängigkeit $\theta = \theta\left(x\right)$ aus und nimmt an, dass in den skalaren Gitterpunkten $i$, welche an Orten $x_i = i\Delta x$ positioniert sind, die Werte von $\theta$ bekannt sind, also
+%
+\begin{align}
+\theta_i = \theta\left(x_i\right).
+\end{align}
+%
+Es wird nun eine geeignete Approximation für $\newtilde{\theta}^{(e)}$ gesucht, also $\theta$ an der Position $x = \frac{\Delta x}{2}$. Hierzu ersetzt man zunächst die Ortsabhängigkeit $\theta\left(x\right)$ durch $\mu^{(n)}\left(x\right)$, wobei $n$ für die Konvergenzordnung steht.
+
+Für $n = 2$ macht man den Ansatz
+%
+\begin{align}
+\mu^{(2)}\left(0\right) &= \theta\left(0\right),\label{eq:skam_gass_deriv_1}\\
+\mu^{(2)}\left(\Delta x\right) &= \theta\left(\Delta x\right).\label{eq:skam_gass_deriv_2}
+\end{align}
+%
+Da man zwei lineare Gleichungen für $\mu^{(2)}$ hat, macht man einen Ansatz mit zwei Koeffizienten, also
+%
+\begin{align}
+\mu^{(2)}\left(x\right) &= a + bx.
+\end{align}
+%
+Setzt man dies in die Glg.en \eqref{eq:skam_gass_deriv_1} - \eqref{eq:skam_gass_deriv_2} ein, erhält man
+%
+\begin{align}
+a &= \theta\left(0\right),\\
+a + b\Delta x &= \theta\left(\Delta x\right).
+\end{align}
+%
+Dies führt auf
+%
+\begin{align}
+a &= \theta_{c_1(e)},\\
+b &= \frac{\theta\left(\Delta x\right) - \theta\left(0\right)}{\Delta x} = \frac{\theta_{c_2(e)} - \theta_{c_1(e)}}{\Delta x},
+\end{align}
+%
+also
+%
+\begin{align}
+\newtilde{\theta}^{(e,2)} &= \mu^{(2)}\left(\frac{\Delta x}{2}\right) = a + b\frac{\Delta x}{2} = \theta_{c_1(e)} + \frac{\theta_{c_2(e)} - \theta_{c_1(e)}}{2} = \frac{\theta_{c_1(e)} + \theta_{c_2(e)}}{2},
+\end{align}
+%
+wobei $\newtilde{\theta}^{(e,2)}$ für eine Approximation zweiter Ordnung von $\theta$ an der Kante $e$ steht.
 
 \section{HEVI-Verfahren}
 \label{sec:hevi-verfahren}\index{HEVI-Verfahren}
