@@ -23641,16 +23641,29 @@ Dies führt auf
 %
 \begin{align}
 a &= \theta_{c_1(e)},\\
-b &= \frac{\theta\left(\Delta x\right) - \theta\left(0\right)}{\Delta x} = \frac{\theta_{c_2(e)} - \theta_{c_1(e)}}{\Delta x},
+b &= \frac{\theta\left(\Delta x\right) - \theta\left(0\right)}{\Delta x} = \frac{\theta_{c_2(e)} - \theta_{c_1(e)}}{\Delta x}.
 \end{align}
 %
-also
+Um hieraus $\newtilde{\theta}^{(e,2)}$ zu berechnen, wobei die hochgestellte Zwei für die Ordnung steht, muss noch eine Integration über das Zeitintervall $\left[0, \Delta t\right]$ durchgeführt werden, wobei $\Delta t$ die Länge eines Zeitschrittes ist. Man rechnet:
 %
 \begin{align}
-\newtilde{\theta}^{(e,2)} &= \mu^{(2)}\left(\frac{\Delta x}{2}\right) = a + b\frac{\Delta x}{2} = \theta_{c_1(e)} + \frac{\theta_{c_2(e)} - \theta_{c_1(e)}}{2} = \frac{\theta_{c_1(e)} + \theta_{c_2(e)}}{2},
+\newtilde{\theta}^{(e,2)} &= a + b\frac{\Delta x}{2} = \theta_{c_1(e)} + \frac{\theta\left(\Delta x\right) - \theta\left(0\right)}{2} = \frac{\theta\left(0\right) + \theta\left(\Delta x\right)}{2}
 \end{align}
 %
-wobei $\newtilde{\theta}^{(e,2)}$ für eine Approximation zweiter Ordnung von $\theta$ an der Kante $e$ steht.
+Um eine Approximation vierter Ordnung zu erhalten ($n = 4$), nimmt man die zweiten Ableitungen von $\theta$ in den Gitterzellen $c_1\left(e\right)$ und $c_2\left(e\right)$ mit in die Rekonstruktion von $\theta$ auf, also
+%
+\begin{align}
+\mu^{(4)}\left(x\right) &= a + bx + \frac{c}{2}x^2 + \frac{d}{2}\left(x - \Delta x\right)^2
+\end{align}
+%
+mit
+%
+\begin{align}
+c &= \frac{1}{2}\frac{\delta^2\theta_{c_1(e)}}{\delta x^2},\\
+d &= \frac{1}{2}\frac{\delta^2\theta_{c_2(e)}}{\delta x^2}.
+\end{align}
+%
+Experimentell zeigt sich, das Glg.  mit $\beta = 0,25$ zu den besten numerischen Resultaten führt \cite{ConservativeTransportSchemesforSphericalGeodesicGridsHighOrderFluxOperatorsforODEBasedTimeIntegration}.
 
 \section{HEVI-Verfahren}
 \label{sec:hevi-verfahren}\index{HEVI-Verfahren}
