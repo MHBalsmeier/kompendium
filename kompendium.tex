@@ -23673,6 +23673,49 @@ d &= \frac{1}{2}\frac{\delta^2\theta_{c_2(e)}}{\delta x^2}.
 %
 Experimentell zeigt sich, das Glg.  mit $\beta = 0,25$ zu den besten numerischen Resultaten führt \cite{ConservativeTransportSchemesforSphericalGeodesicGridsHighOrderFluxOperatorsforODEBasedTimeIntegration}.
 
+\subsubsection{Zweidimensionaler Fluss}
+\label{sec:zweidimensionaler_fluss}
+
+\subsubsection{Besonderheiten auf dem hexagonalen Gitter}
+\label{sec:besonderheiten_auf_dem_hexagonalen_gitter}
+
+Auf dem hexagonalen Gitter sind die Vektoren nicht entlang von Koordinatenlinien ausgerichtet, was die Berechnung der zweiten Ableitungen in den Zellzentren verkompliziert.
+%
+\begin{align}
+\psi\left(\mathbf{f}\right) &= \left(P\mathbf{f}\right)\cdot\left(P\mathbf{f}\right) - 2\left(P\mathbf{f}\right)\cdot\mathbf{s} + \mathbf{s}^2 = \sum_{i=1}^m\left(P\mathbf{f}\right)_i^2 - 2\sum_{i=1}^m\left(P\mathbf{f}\right)_is_i + \sum_{i=1}^ms_i^2\nonumber\\
+&= \sum_{i=1}^m\left(\sum_{j=1}^nP_{i, j}f_j\right)^2 - 2\sum_{i=1}^m\left(\sum_{j=1}^nP_{i, j}f_j\right)s_i + \sum_{i=1}^ms_i^2.
+\end{align}
+%
+Hieraus folgt
+%
+\begin{align}
+\frac{\partial\psi\left(\mathbf{f}\right)}{\partial f_k} &= 2\sum_{i=1}^m\left(\sum_{j=1}^nP_{i, j}\delta_{j,k}\right)^2\left(\sum_{j=1}^nP_{i, j}f_j\right) - 2\sum_{i=1}^m\left(\sum_{j=1}^nP_{i, j}\delta_{j,k}\right)s_i = 0\nonumber\\
+\Leftrightarrow\frac{\partial\psi\left(\mathbf{f}\right)}{\partial f_k} &= \sum_{i=1}^m\left(\sum_{j=1}^nP_{i,j}\delta_{j,k}\right)\left(\sum_{j=1}^nP_{i, j}f_j\right) - \sum_{i=1}^m\left(\sum_{j=1}^nP_{i, j}\delta_{j,k}\right)s_i = 0\nonumber\\
+\Leftrightarrow\frac{\partial\psi\left(\mathbf{f}\right)}{\partial f_k} &= \sum_{i=1}^mP_{i,k}\left(\sum_{j=1}^nP_{i, j}f_j\right) - \sum_{i=1}^mP_{i,k}s_i = \sum_{i=1}^m\sum_{j=1}^nP_{i,k}P_{i, j}f_j - \sum_{i=1}^mP_{i, k}s_i = 0\nonumber\\
+\Leftrightarrow\frac{\partial\psi\left(\mathbf{f}\right)}{\partial f_k} &= \sum_{j=1}^n\sum_{i=1}^mP^T_{k,i}P_{i,j}f_j - \sum_{i=1}^mP^T_{k,i}s_i = \sum_{j=1}^n\left(P^TP\right)_{k,j}f_j - \sum_{i=1}^mP^T_{k,i}s_i = 0\nonumber\\
+\Leftrightarrow\frac{\partial\psi\left(\mathbf{f}\right)}{\partial f_k} &= \left[\left(P^TP\right)\cdot\mathbf{f}\right]_k - \left(P^T\cdot\mathbf{s}\right)_k = 0.
+\end{align}
+%
+Es gilt also die Äquivalenz
+%
+\begin{align}
+\nabla_\mathbf{k}\psi = 0 \Leftrightarrow \left(P^TP\right)\cdot\mathbf{f} = P^T\cdot\mathbf{s},
+\end{align}
+%
+was man zu
+%
+\begin{align}
+\mathbf{f} = \left[\left(P^TP\right)^{-1}P^T\right]\cdot\mathbf{s} = B\cdot\mathbf{s}
+\end{align}
+%
+mit
+%
+\begin{align}
+B \coloneqq \left[\left(P^TP\right)^{-1}P^T\right]
+\end{align}
+%
+umformen kann.
+
 \section{HEVI-Verfahren}
 \label{sec:hevi-verfahren}\index{HEVI-Verfahren}
 
