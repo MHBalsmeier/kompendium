@@ -9632,11 +9632,11 @@ und erhält somit
 \lbrace K, H\rbrace &= \int_A\frac{\delta H}{\delta\rho}\nabla\cdot\frac{\delta K}{\delta\mathbf{v}} - \frac{\delta K}{\delta\rho}\nabla\cdot\frac{\delta H}{\delta\mathbf{v}} + \frac{\delta H}{\delta q_1}\nabla\cdot\left(\frac{q_1}{\rho}\frac{\delta K}{\delta\mathbf{v}}\right) - \frac{\delta K}{\delta q_1}\nabla\cdot\left(\frac{q_1}{\rho}\frac{\delta H}{\delta\mathbf{v}}\right)d^3r\nonumber\\
 &= \int_A\left(\frac{1}{2}\mathbf{v}^2 + \phi\right)\nabla\cdot\left(\rho\mathbf{v}\right) - \frac{1}{2}\mathbf{v}^2\nabla\cdot\left(\rho\mathbf{v}\right) + c_d^{(p)}\Pi\nabla\cdot\left(q_1\mathbf{v}\right)d^3r\nonumber\\
 &= \int_A\phi\nabla\cdot\left(\rho\mathbf{v}\right) + c_d^{(p)}\Pi\nabla\cdot\left(q_1\mathbf{v}\right)d^3r\nonumber\\
-&= \int_A-\rho\mathbf{v}\cdot\nabla\phi - c_d^{(p)}q_1\mathbf{v}\cdot\nabla\Pi d^3r,
+&= \int_A-\rho\mathbf{v}\cdot\nabla\phi - c_d^{(p)}q_1\mathbf{v}\cdot\nabla\Pi d^3r\label{eq:poisson_entropy_kinetic},
 \end{align}
 \begin{align}
 \lbrace I', H\rbrace &= \int_A\frac{\delta H}{\delta\rho}\nabla\cdot\frac{\delta I'}{\delta\mathbf{v}} - \frac{\delta I'}{\delta\rho}\nabla\cdot\frac{\delta H}{\delta\mathbf{v}} + \frac{\delta H}{\delta q_1}\nabla\cdot\left(\frac{q_1}{\rho}\frac{\delta I'}{\delta\mathbf{v}}\right) - \frac{\delta I'}{\delta q_1}\nabla\cdot\left(\frac{q_1}{\rho}\frac{\delta H}{\delta\mathbf{v}}\right)d^3r\nonumber\\
-&= \int_A-\phi\nabla\cdot\left(\rho\mathbf{v}\right) - c_d^{(p)}\Pi\nabla\cdot\left(q_1\mathbf{v}\right)d^3r.
+&= \int_A-\phi\nabla\cdot\left(\rho\mathbf{v}\right) - c_d^{(p)}\Pi\nabla\cdot\left(q_1\mathbf{v}\right)d^3r.\label{eq:poisson_entropy_potential_internal}
 \end{align}
 
 \subsection{Entropiedichte als prognostische Variable}
@@ -9673,10 +9673,10 @@ und erhält somit
 \begin{align}
 \lbrace K, H\rbrace &= \int_A\frac{\delta H}{\delta\rho}\nabla\cdot\left(\rho\mathbf{v}\right) - \frac{\delta K}{\delta\rho}\nabla\cdot\left(\rho\mathbf{v}\right) + T\nabla\cdot\left(q_1\mathbf{v}\right)d^3r\nonumber\\
 &= \int_A\left(\phi + G\right)\nabla\cdot\left(\rho\mathbf{v}\right) + T\nabla\cdot\left(q_1\mathbf{v}\right)d^3r\nonumber\\
-&= \int_A-\rho\mathbf{v}\cdot\nabla\left(\phi + G\right) - q_1\mathbf{v}\cdot\nabla Td^3r,\label{eq:poisson_entropy_kinetic}\\
+&= \int_A-\rho\mathbf{v}\cdot\nabla\left(\phi + G\right) - q_1\mathbf{v}\cdot\nabla Td^3r,\\
 \lbrace I', H\rbrace &= \int_A\frac{\delta H}{\delta\rho}\nabla\cdot\frac{\delta I'}{\delta\mathbf{v}} - \frac{\delta I'}{\delta\rho}\nabla\cdot\frac{\delta H}{\delta\mathbf{v}} + \frac{\delta H}{\delta q_1}\nabla\cdot\left(\frac{q_1}{\rho}\frac{\delta I'}{\delta\mathbf{v}}\right) - \frac{\delta I'}{\delta q_1}\nabla\cdot\left(\frac{q_1}{\rho}\frac{\delta H}{\delta\mathbf{v}}\right)d^3r\nonumber\\
 &= \int_A-\frac{\delta I'}{\delta\rho}\nabla\cdot\frac{\delta H}{\delta\mathbf{v}} - \frac{\delta I'}{\delta q_1}\nabla\cdot\left(\frac{q_1}{\rho}\frac{\delta H}{\delta\mathbf{v}}\right)d^3r\nonumber\\
-&= \int_A-\left(\phi + G\right)\nabla\cdot\left(\rho\mathbf{v}\right) - T\nabla\cdot\left(q_1\mathbf{v}\right)d^3r.\label{eq:poisson_entropy_potential_internal}
+&= \int_A-\left(\phi + G\right)\nabla\cdot\left(\rho\mathbf{v}\right) - T\nabla\cdot\left(q_1\mathbf{v}\right)d^3r.
 \end{align}
 %
 Hieraus erhält man als Ausdruck für die Druckgradientbeschleunigung\index{Druckgradientbeschleunigung}
@@ -23478,7 +23478,13 @@ Um Energieerhaltung\index{Energieerhaltung} auf die räumliche Diskretisierung z
 \item Es gilt $\lbrace H, H\rbrace_{\newtilde{s}} = \lbrace K, H\rbrace_{\newtilde{s}} + \lbrace I', H\rbrace_{\newtilde{s}} = 0$.
 \end{enumerate}
 %
-Der erste Punkt entspricht der Tatsache, dass die generalisierte Coriolis-Kraft keine Arbeit leistet, was bereits in Kap. \ref{chap:vorticityfluss_auf_dem_hexagonalen_c-gitter} nachgewiesen wurde. Die zweite und dritte Aussage haben rechnerisch die gleiche Voraussetzung. Hierzu addiere man die Glg.en \eqref{eq:poisson_entropy_kinetic} - \eqref{eq:poisson_entropy_potential_internal}, was auf $\lbrace H, H\rbrace = 0$ führt. Dabei wurden die folgenden beiden Tatsachen benutzt:
+Der erste Punkt entspricht der Tatsache, dass die generalisierte Coriolis-Kraft keine Arbeit leistet, was bereits in Kap. \ref{chap:vorticityfluss_auf_dem_hexagonalen_c-gitter} nachgewiesen wurde. Die zweite und dritte Aussage haben rechnerisch die gleiche Voraussetzung. Hierzu addiere man die Glg.en \eqref{eq:poisson_entropy_kinetic} - \eqref{eq:poisson_entropy_potential_internal}, was auf
+%
+\begin{align}
+\int_A\underbrace{-\rho\mathbf{v}\cdot\nabla\phi}_{\text{A}}\underbrace{ - c_d^{(p)}\rho\theta\mathbf{v}\cdot\nabla\Pi}_{\text{B}}\underbrace{ - \phi\nabla\cdot\left(\rho\mathbf{v}\right)}_{\text{A}}\underbrace{ - c_d^{(p)}\Pi\nabla\cdot\left(\rho\theta\mathbf{v}\right)}_{\text{B}}d^3r = 0\label{eq:poisson_energy_deriv}
+\end{align}
+%
+führt. Die Integrale über die Terme A und B heben sich jeweils gegenseitig auf. Dabei wurden die folgenden beiden Tatsachen benutzt:
 %
 \begin{enumerate}
 \item Die Rechenregel $\nabla\cdot\left(\psi\mathbf{v}\right) = \mathbf{v}\cdot\nabla\psi + \psi\nabla\cdot\mathbf{v}$.
@@ -23492,6 +23498,8 @@ Beide Tatsachen gelten auch in der Diskretisierung. Die Nachweise dafür wurden 
 \item Dass globale Integrale über Divergenzen verschwinden, wurde bereits in Abschn. \ref{sec:skalare_erhaltungseigenschaften_auf_dem_c-gitter} nachgewiesen.
 \end{enumerate}
 %
+Auf einen weiteren Aspekt sei hier hingewiesen: diskretisiert man Glg. \eqref{eq:poisson_energy_deriv}, kommt $\theta$ nur an den Kanten des Gitters vor, nicht in den Zellzentren. Man kann den Werte von $\theta$ an der Kante also frei wählen, solange man dies auch in der Druckgradientbeschleunigung tut. Dies wird in Abschn. \ref{sec:moeglichkeiten_zur_erhoehung_der_ordnung} genutzt werden, um $\theta$ an der Kante so zu berechnen, dass die Genaugikeit des Flussoperators $-\nabla\cdot\left(\rho\theta\mathbf{v}\right)$ erhöht wird. Auch die $\theta-$Erhaltung selbst wird hierdurch nicht verletzt, da weiterhin das, was aus einer Gitterbox herausfließt, in die benachbarte hineinfließt.
+
 Druckgradient- und Schwerebeschleunigung sowie die generalisierte Corioliskraft sind hierduch abgedeckt. Der Gradient der kinetischen Energie jedoch kürzt sich in den Poisson-Klammern heraus, da er zwar kinetische Energie transportiert, jedoch keine erzeugt oder vernichtet. Dies soll hier noch einmal nachvollzogen werden. Um dies einzusehen, notiert man die Impulsgleichung in der Form
 %
 \begin{align}
@@ -23583,7 +23591,7 @@ w_{c, N_L + \frac{1}{2}} = 0
 für alle Zellen $c$.
 
 \section{Möglichkeiten zur Erhöhung der Ordnung}
-\label{sec:möglichkeiten_zur_erhöhung_der_ordnung}
+\label{sec:moeglichkeiten_zur_erhoehung_der_ordnung}
 
 Im Rahmen des bisher entwickelten Formalismus gibt es drei Möglichkeiten für Ansätze zur Erhöhung der Konvergenzordnung:
 %
