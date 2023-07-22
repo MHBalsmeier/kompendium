@@ -23679,14 +23679,65 @@ Experimentell zeigt sich, das Glg.  mit $\beta = 0,25$ zu den besten numerischen
 \subsubsection{Besonderheiten auf dem hexagonalen Gitter}
 \label{sec:besonderheiten_auf_dem_hexagonalen_gitter}
 
-Auf dem hexagonalen Gitter sind die Vektoren nicht entlang von Koordinatenlinien ausgerichtet, was die Berechnung der zweiten Ableitungen in den Zellzentren verkompliziert.
+Auf dem hexagonalen Gitter sind die Vektoren nicht entlang von Koordinatenlinien ausgerichtet, was die Berechnung der zweiten Ableitungen in den Zellzentren verkompliziert. Daher macht man für $\theta$ den Ansatz
 %
 \begin{align}
-\psi\left(\mathbf{f}\right) &= \left(P\mathbf{f}\right)\cdot\left(P\mathbf{f}\right) - 2\left(P\mathbf{f}\right)\cdot\mathbf{s} + \mathbf{s}^2 = \sum_{i=1}^m\left(P\mathbf{f}\right)_i^2 - 2\sum_{i=1}^m\left(P\mathbf{f}\right)_is_i + \sum_{i=1}^ms_i^2\nonumber\\
-&= \sum_{i=1}^m\left(\sum_{j=1}^nP_{i, j}f_j\right)^2 - 2\sum_{i=1}^m\left(\sum_{j=1}^nP_{i, j}f_j\right)s_i + \sum_{i=1}^ms_i^2.
+g = g\left(x,y\right) = c_1 + c_2x + c_3y + c_4x^2 + c_5xy + c_6y^2.
 \end{align}
 %
-Hieraus folgt
+$x$ und $y$ werden hierbei auf der Tangentialebene an die Kugel im Zentrum der betrachteten Zelle berechnet. Die $x-$Achse zeige dabei in Richtung der Kante, an der $\newtilde{\theta}^{(e)}$ berechnet werden soll. Man definiert nun den Koeffizientenvektor
+%
+\begin{align}
+\mathbf{f} \coloneqq \left(\begin{array}{c}
+c_1\\
+c_2\\
+c_3\\
+c_4\\
+c_5\\
+c_6
+\end{array}\right).
+\end{align}
+%
+Nur $c_4$ ist für die zweite Ableitung in $x-$Richtung im Zentrum der Zelle relevant, es gilt
+%
+\begin{align}
+\frac{\partial^2 g}{\partial x^2}\left(0,0\right) = 2c_4.
+\end{align}
+%
+Das Ziel ist nun, den Vektor $\mathbf{f}$ zu berechnen. Dazu definiert man zunächst den Vektor
+%
+\begin{align}
+\mathbf{s} \coloneqq \left(\begin{array}{c}
+\theta\left(x_1,y_1\right)\\
+\vdots\\
+\theta\left(x_m,y_m\right)
+\end{array}\right)
+\end{align}
+%
+der tatsächlichen Werte von $\theta$ in den Zellzentren. Dabei ist $m \geq 6$ die Anzahl der Punkte, die zur Berechnung von $\mathbf{f}$ berechnet werden, dies sind die Zelle, in deren Zentrum die zweite Ableitung berechnet werden soll und alle benachbarten Zellen. Nun definiert man eine Fehlerfunktion%
+%
+\begin{align}
+\psi\left(\mathbf{f}\right) \coloneqq \sum_i^m\left[g\left(x_i,y_i\right) - s_i\right]^2.
+\end{align}
+%
+Man definiert nun die Polynomialmatrix
+%
+\begin{align}
+P \coloneqq \left(\begin{array}{cccccc}
+1 & x_1 & y_1 & x_1^2 & x_1y_1 & y_1^2\\
+\vdots & \vdots & \vdots & \vdots & \vdots & \vdots\\
+1 & x_m & y_m & x_m^2 & x_my_m & y_m^2
+\end{array}\right).
+\end{align}
+%
+Damit kann man $\psi$ in der Form
+%
+\begin{align}
+\psi\left(\mathbf{f}\right) &= \left(P\mathbf{f} - \mathbf{s}\right)^2 = \left(P\mathbf{f}\right)\cdot\left(P\mathbf{f}\right) - 2\left(P\mathbf{f}\right)\cdot\mathbf{s} + \mathbf{s}^2 = \sum_{i=1}^m\left(P\mathbf{f}\right)_i^2 - 2\sum_{i=1}^m\left(P\mathbf{f}\right)_is_i + \sum_{i=1}^ms_i^2\nonumber\\
+&= \sum_{i=1}^m\left(\sum_{j=1}^nP_{i, j}f_j\right)^2 - 2\sum_{i=1}^m\left(\sum_{j=1}^nP_{i, j}f_j\right)s_i + \sum_{i=1}^ms_i^2
+\end{align}
+%
+notieren. Hieraus folgt
 %
 \begin{align}
 \frac{\partial\psi\left(\mathbf{f}\right)}{\partial f_k} &= 2\sum_{i=1}^m\left(\sum_{j=1}^nP_{i, j}\delta_{j,k}\right)^2\left(\sum_{j=1}^nP_{i, j}f_j\right) - 2\sum_{i=1}^m\left(\sum_{j=1}^nP_{i, j}\delta_{j,k}\right)s_i = 0\nonumber\\
