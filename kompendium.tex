@@ -23658,23 +23658,55 @@ Um hieraus $\newtilde{\theta}^{(e,2)}$ zu berechnen, wobei die hochgestellte Zwe
 \newtilde{\theta}^{(e,2)} &= a + b\frac{\Delta x}{2} = \theta_{c_1(e)} + \frac{\theta\left(\Delta x\right) - \theta\left(0\right)}{2} = \frac{\theta\left(0\right) + \theta\left(\Delta x\right)}{2}
 \end{align}
 %
-Um eine Approximation vierter Ordnung zu erhalten ($n = 4$), nimmt man die zweiten Ableitungen von $\theta$ in den Gitterzellen $c_1\left(e\right)$ und $c_2\left(e\right)$ mit in die Rekonstruktion von $\theta$ auf, also
+Um eine Approximation dritter Ordnung zu erhalten ($n = 3$), nimmt man die zweite Ableitung von $\theta$ in der Gitterzelle $c_1\left(e\right)$ mit in die Rekonstruktion von $\theta$ auf, also
 %
 \begin{align}
-\mu^{(4)}\left(x\right) &= a + bx + \frac{c}{2}x^2 + \frac{d}{2}\left(x - \Delta x\right)^2
+\mu^{(3)}\left(x\right) &= a + bx + cx^2.
+\end{align}
+%
+Hieraus folgen
+%
+\begin{align}
+f_0 &= a,\\
+f_1 &= a + b\Delta x + c\Delta x^2,\\
+f_{-1} &= a - b\Delta x + c\Delta x^2,
+\end{align}
+%
+was sich zu
+%
+\begin{align}
+a &= f_0,\\
+f_{-1} + f_1 &= 2a + 2c\Delta x^2 = 2\left(f_0 + c\Delta x^2\right) \Rightarrow \frac{f_{-1} + f_1}{2} - f_0 = c\Delta x^2 \Rightarrow c = \frac{f_{-1} - 2f_0 + f_1}{2\Delta x^2},\\
+f_1 - f_{-1} &= 2b\Delta x \Rightarrow b = \frac{f_1 - f_{-1}}{2\Delta x}
+\end{align}
+%
+umformen lässt. Hieraus folgt
+%
+\begin{align}
+\mu^{(3)}\left(x\right) &= f_0 + \frac{f_1 - f_{-1}}{2\Delta x}x + \frac{f_{-1} - 2f_0 + f_1}{2\Delta x^2}x^2.
+\end{align}
+%
+Der Wert dieser Funktion an der Kante ($x = \frac{\Delta x}{2}$) lautet somit
+%
+\begin{align}
+\mu^{(3)}\left(\frac{\Delta x}{2}\right) &= f_0 + \frac{f_1 - f_{-1}}{4} + \frac{f_{-1} - 2f_0 + f_1}{8} = \frac{8f_0 + 2f_1 - 2f_{-1} + f_{-1} - 2f_0 + f_1}{8}\nonumber\\
+&= \frac{6f_0 + 3f_1 - f_{-1}}{8} = \frac{4f_0 + 4f_1 + 2f_0 - f_1 - f_{-1}}{8} = \frac{f_0 + f_1}{2} + \frac{2f_0 - f_1 - f_{-1}}{8}\nonumber\\
+&= \frac{f_0 + f_1}{2} - \frac{f_1 - 2f_0 + f_{-1}}{8} = \frac{f_0 + f_1}{2} - \Delta x^2\frac{f_1 - 2f_0 + f_{-1}}{8\Delta x^2}\nonumber\\
+&= \frac{f_0 + f_1}{2} - \frac{\Delta x^2}{8}\delta_x^2f
 \end{align}
 %
 mit
 %
 \begin{align}
-c &= \frac{1}{2}\frac{\delta^2\theta_{c_1(e)}}{\delta x^2},\\
-d &= \frac{1}{2}\frac{\delta^2\theta_{c_2(e)}}{\delta x^2}.
+\delta_x^2f \coloneqq \frac{f_1 - 2f_0 + f_{-1}}{\Delta x^2}
 \end{align}
 %
-Experimentell zeigt sich, das Glg.  mit $\beta = 0,25$ zu den besten numerischen Resultaten führt \cite{ConservativeTransportSchemesforSphericalGeodesicGridsHighOrderFluxOperatorsforODEBasedTimeIntegration}.
+als Approximation für die zweite Ableitung von $\theta$ in $x-$Richtung im Zentrum der Zelle $c_1\left(e\right)$.
 
 \subsubsection{Zweidimensionaler Fluss}
 \label{sec:zweidimensionaler_fluss}
+
+In zwei Dimensionen werden die eindimensionalen Formeln einfach in jeder Raumrichtung angewandt. Auf viereckigen Gittern, bei denen alle Vektoren parallel zu einer globalen Koordinatenachse liegen, ist dies kein Problem. Auf Gittern, die dieses Kriterium nicht erfüllen, ist dies komplizierter, worum es im nächsten Abschnitt geht.
 
 \subsubsection{Besonderheiten auf dem hexagonalen Gitter}
 \label{sec:besonderheiten_auf_dem_hexagonalen_gitter}
@@ -23701,7 +23733,7 @@ c_6
 Nur $c_4$ ist für die zweite Ableitung in $x-$Richtung im Zentrum der Zelle relevant, es gilt
 %
 \begin{align}
-\frac{\partial^2 g}{\partial x^2}\left(0,0\right) = 2c_4.
+\frac{\partial^2 g}{\partial x^2}\left(0,0\right) = 2c_4.\label{eq:adv_hex_deriv}
 \end{align}
 %
 Das Ziel ist nun, den Vektor $\mathbf{f}$ zu berechnen. Dazu definiert man zunächst den Vektor
@@ -23765,7 +23797,7 @@ mit
 B \coloneqq \left[\left(P^TP\right)^{-1}P^T\right]
 \end{align}
 %
-umformen kann.
+umformen kann. Hieraus lassen mithilfe von Glg. \eqref{eq:adv_hex_deriv} die zweiten Ableitungen in den Zellzentern in $x-$Richtung berechnen.
 
 \section{HEVI-Verfahren}
 \label{sec:hevi-verfahren}\index{HEVI-Verfahren}
