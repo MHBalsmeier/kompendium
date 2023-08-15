@@ -24441,6 +24441,105 @@ Nach diesen Verallgemeinerungen ist es sinnvoll, sich zu überlegen welche grund
 \item Geschwindigkeiten kondensierter Tracer werden als diagnostische Größen betrachtet.
 \end{itemize}
 
+\section{Post-processing}
+\label{sec:post-processing}
+
+\index{Post-processing}In diesem Abschnitt geht es um die Bestimmung von Größen, welche keine direkten Modellvariablen sind, jedoch standardmäßig von Wettermodellen erwartet werden.
+
+\subsection{2-m-Temperatur}
+\label{sec:2-m-temperatur}
+
+Die sogenannte \textit{2-m-Temperatur}\index{2-m-Temperatur} ist die Lufttemperatur 2 m über der Erdoberfläche. Nach WMO-Standard wird die bodennahne Temperatur dort gemessen und muss daher auch von Modellen herausgeschrieben werden. Um sie zu berechnen, geht man von der Wärmeleitungsgleichung\index{Wärmeleitungsgleichung} Glg. \eqref{eq:heat_conduction_equation}
+%
+\begin{align}
+\frac{\partial\psi}{\partial t} = \kappa\frac{\partial^2\psi}{\partial z^2}
+\end{align}
+%
+in eindimensionaler Form aus mit $\kappa > 0$ als Diffusionskoeffzienten. Diese löst man nun für $z>0$ unter der Randbedingung
+%
+\begin{align}
+\psi\left(0,t\right) = \psi_0\exp\left(-i\omega t\right).
+\end{align}
+%
+Man macht nun den Ansatz
+%
+\begin{align}
+\psi\left(z,t\right) = A\exp\left(ikz - i\omega t\right),
+\end{align}
+%
+dies impliziert
+%
+\begin{align}
+-i\omega = -k^2\kappa \Rightarrow k = \pm\sqrt{i}\sqrt{\frac{\omega}{\kappa}} = \pm\sqrt{\frac{\omega}{2\kappa}}\left(1 + i\right).
+\end{align}
+%
+Die Lösung mit negativem Vorzeichen kann physikalisch ausgeschlossen werden, da sie zu einer exponentiell anwachsenden Amplitude führt. Die Lösung lautet also
+%
+\begin{align}
+\psi\left(z,t\right) &= \psi_0\exp\left(-i\omega t\right)\exp\left(-\sqrt{\frac{\omega}{2\kappa}}z\right)\exp\left(i\sqrt{\frac{\omega}{2\kappa}}z\right)\nonumber\\
+&= \psi\left(0,t\right)\exp\left(-\sqrt{\frac{\omega}{2\kappa}}z\right)\exp\left(i\sqrt{\frac{\omega}{2\kappa}}z\right).
+\end{align}
+%
+Nun wendet man diese Lösung auf das Problem der Bestimmung der 2-m-Temperatur an, also $\psi \to T$. Für $\omega$ verwendet man $\omega = \frac{2\pi}{24\:\text{h}}$, also die Kreisfrequenz des Tagesgangs der Temperatur. Den Phasenanteil kann man in erster Näherung vernachlässigen. Für $\kappa$ setzt man den vertikalen turbulenten Diffusionskoeffizienten ein. Die Lösung wird somit zu
+%
+\begin{align}
+T\left(z\right) = T_1 + T_2\exp\left(-\sqrt{\frac{\omega}{2\kappa}}z\right),
+\end{align}
+%
+wobei o. B. d. A. ein Offset $T_1$ hinzugefügt und $\psi_0$ in $T_2$ umbenannt wurde. Hierfür gelten in der Atmosphäre die Randbedingungen
+%
+\begin{align}
+T\left(0\right) &= T_1 + T_2,\\
+T\left(z_l\right) &= T_1 + T_2\exp\left(-\sqrt{\frac{\omega}{2\kappa}}z\right),
+\end{align}
+%
+hierbei sind $T\left(0\right) =: T_l$ die Temperatur der Erdoberfläche und $T\left(z_l\right) =: T_l$ die Temperatur der untersten Modellschicht über Grund. Hieraus erhält man
+%
+\begin{align}
+T_1 &= T_s - T_2,\\
+T_l &= T_s - T_2 + T_2\exp\left(-\sqrt{\frac{\omega}{2\kappa}}z_l\right) = T_s - T_2\left[1 - \exp\left(-\sqrt{\frac{\omega}{2\kappa}}z_l\right)\right] \Rightarrow T_2 = \frac{T_s - T_l}{1 - \exp\left(-\sqrt{\frac{\omega}{2\kappa}}z_l\right)}.
+\end{align}
+%
+Daraus folgt
+%
+\begin{align}
+T\left(z\right) &= T_s - \frac{T_s - T_l}{1 - \exp\left(-\sqrt{\frac{\omega}{2\kappa}}z_l\right)} + \frac{T_s - T_l}{1 - \exp\left(-\sqrt{\frac{\omega}{2\kappa}}z_l\right)}\exp\left(-\sqrt{\frac{\omega}{2\kappa}}z\right)\nonumber\\
+&= T_s + \left(T_l - T_s\right)\frac{1 - \exp\left(-\sqrt{\frac{\omega}{2\kappa}}z\right)}{1 - \exp\left(-\sqrt{\frac{\omega}{2\kappa}}z_l\right)}.
+\end{align}
+%
+Hieraus lässt sich mit $z = 2\:\text{m}$ die 2-m-Temperatur bestimmen.
+
+\subsection{10-m-Wind}
+\label{sec:10-m-wind}
+
+\index{10-m-Wind}Der Wind wird standardmäßig zehn Meter über Grund gemessen, wo sich üblicherweise nicht die Vektoren einer Modellschicht befinden. Hierzu verwendet man das logarithmische Windprofil Glg. \eqref{eq:ln_wind_profile}, also
+%
+\begin{align}
+v_h\left(z_{10}\right) &= \frac{u_\star}{k}\ln\left(\frac{z_{10}}{z_0}\right),\\
+v_h\left(z_l\right) &= \frac{u_\star}{k}\ln\left(\frac{z_l}{z_0}\right).
+\end{align}
+%
+Hierbei sind $v_h\geq 0$ die horizontale Windgeschwindigkeit, $z_l$ die Höhe der untersten Modellschicht über Grund und $z_{10} \coloneqq 10\:\text{m}$. Hieraus folgt
+%
+\begin{align}
+v_h\left(z_{10}\right) &= v_h\left(z_l\right)\frac{\ln\left(\frac{z_{10}}{z_0}\right)}{\ln\left(\frac{z_l}{z_0}\right)}.
+\end{align}
+%
+Dies gilt so nur über Wasser. Über Land gilt die Konvention, dass der Wind über Gras gemessen werden muss, um Vergleichbarkeit herzustellen. Hierzu verwendet man die Gleichungen
+%
+\begin{align}
+v_h\left(z_{10}\right) &= \frac{u_\star}{k}\ln\left(\frac{z_{10}}{z_g}\right),\\
+v_h\left(z_l\right) &= \frac{u_\star}{k}\ln\left(\frac{z_l}{z_0}\right),
+\end{align}
+%
+wobei $z_g$ die Rauhigkeitslänge von Gras ist (0,02 m), was auf
+%
+\begin{align}
+v_h\left(z_{10}\right) &= v_h\left(z_l\right)\frac{\ln\left(\frac{z_{10}}{z_g}\right)}{\ln\left(\frac{z_l}{z_0}\right)}
+\end{align}
+%
+führt.
+
 \section{Tuning}
 \label{sec:tuning}
 
