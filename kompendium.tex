@@ -24401,6 +24401,59 @@ Dieses Schema berücksichtigt folgende vier Kondensatklassen:
 %
 Dieses Schema ist adäquat für Globalmodelle.
 
+\subsubsection{Diskretisierung von Kondensation und Resublimation}
+\label{sec:diskretisierung_von_kondensation_und_resublimation}\index{Kondensation!Diskretisierung}\index{Resublimation!Diskretisierung}
+
+Ist die Luft zum Zeitpunkt $t$ übersättigt, findet ein Phasenübergang von gasförmig nach flüssig oder von gasförmig nach fest statt, bis die Luft gesättigt ist. Ist die Luft untersättigt und ist noch Wolkenwasser oder Wolkeneis vorhanden, findet der Phasenübergang in die andere Richtung statt. Für die Modellierung geht man davon aus, dass nach einem Zeitschritt der Länge $\Delta t$ die Luft gesättigt ist, also
+%
+\begin{align}
+p_v\left(t + \Delta t\right) = p_S\left(t + \Delta t\right),\label{eq:model_phase_trans_deriv_1}
+\end{align}
+%
+hierbei sind $p_v$ der Dampfdruck und $p_S$ wie üblich der Sättigungsdampfdruck. Hieraus soll die Dichte $\Delta\rho_v$ an Wasserdampf bestimmt werden, welche kondensieren oder resublimieren muss, um diesen Zustand zu erreichen. Dies ist nicht einfach $\rho_S\left(t\right) - \rho_v\left(t\right),$ wobei $\rho_S$ die Sättigungsdichte ist, da dies die Phasenübergangswärme unberücksichtigt ließe. Aus Glg. \eqref{eq:model_phase_trans_deriv_1} folgt
+%
+\begin{align}
+\rho_v\left(t + \Delta t\right)R_vT\left(t + \Delta t\right) &= p_S\left[T\left(t + \Delta t\right)\right]\nonumber\\
+\Leftrightarrow\left(\rho_v + \Delta\rho_v\right)R_vT\left(t + \Delta t\right) &= p_S\left[T\left(t + \Delta t\right)\right],
+\end{align}
+%
+hierbei bezeichnen Größen ohne explizit angegebene Zeitabhängigkeit Größen zum Zeitpunkt $t$, also $\rho_v\coloneqq\rho_v\left(t\right).$ Hieraus folgt mit $\rho_t$ als Gesamtdichte weiter
+%
+\begin{align}
+\left(\rho_v + \Delta\rho_v\right)R_v\left(T - \Delta\rho_v\frac{L_v}{\rho_tc_v}\right) &= p_S\left(T - \Delta\rho_v\frac{L_v}{\rho_tc_v}\right).
+\end{align}
+%
+Multipliziert man die linke Seite aus und macht auf der rechten Seite eine Taylor-Entwicklung erster Ordnung, erhält man
+%
+\begin{align}
+p_v + \Delta\rho_vR_vT - R_v\Delta\rho_v\rho_v\frac{L_v}{\rho_tc_v} - \left(\Delta\rho_v\right)^2R_v\frac{L_v}{\rho_tc_v} &= p_S - p_S'\Delta\rho_v\frac{L_v}{\rho_tc_v}\nonumber\\
+\Leftrightarrow -\left(\Delta\rho_v\right)^2R_v\frac{L_v}{\rho_tc_v} + \Delta\rho_v\left(R_vT - R_v\rho_v\frac{L_v}{\rho_tc_v} + p_S'\frac{L_v}{\rho_tc_v}\right) + p_v - p_S &= 0\nonumber\\
+\Leftrightarrow a\left(\Delta\rho_v\right)^2 + b\Delta\rho_v + c &= 0\nonumber\\
+\Leftrightarrow \left(\Delta\rho_v\right)^2 + p\Delta\rho_v + q &= 0
+\end{align}
+%
+mit
+%
+\begin{align}
+a &\coloneqq -R_v\frac{L_v}{\rho_tc_v} < 0,\\
+b &\coloneqq R_vT - R_v\rho_v\frac{L_v}{\rho_tc_v} + p_S'\frac{L_v}{\rho_tc_v},\\
+c &\coloneqq p_v - p_S,\\
+p &\coloneqq \frac{b}{a},\\
+q &\coloneqq \frac{c}{a}.
+\end{align}
+%
+Dies impliziert zwei Lösungen
+%
+\begin{align}
+\left(\Delta\rho_v\right)_{1,2} = -\frac{p}{2} \pm \sqrt{\frac{p^2}{4} - q}.
+\end{align}
+%
+Nun ist noch zu bestimmen, welches der beiden Vorzeichen das physikalisch richtige ist. Im Fall von Untersättigung ist $p_v<p_S,$ was $c<0$ impliziert, also $q>0.$ Weiterhin sind $\left(\Delta\rho_v\right)^2>0$ und $\Delta\rho_v>0,$ was wegen $p\Delta\rho_v = -q - \left(\Delta\rho_v\right)^2 < 0$ die Relation $p<0$ impliziert. Damit $\Delta\rho_v>0$ ist, muss in diesem Fall das negative Vorzeichen gewählt werden. Im Fall von Übersättigung gilt ebenfalls $p<0$, da im Ausdruck für $p$ der Sättigungsdampfdruck nicht vorkommt, aber $q<0,$ was ebenfalls das negative Vorzeichen impliziert, da ansonsten für $q\to 0$ nicht $\Delta\rho_v\to 0$ folgt. Es ist also in jedem Fall
+%
+\begin{align}
+\Delta\rho_v = -\frac{p}{2} - \sqrt{\frac{p^2}{4} - q}.
+\end{align}
+
 \subsection{Fünf-Kondensate-Schema}
 \label{sec:fuenf-kondensate-schema}\index{Fünf-Kondensate-Schema}
 
