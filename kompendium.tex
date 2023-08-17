@@ -19479,7 +19479,7 @@ abhängt. Man nimmt nun an, dass der Übergang von laminarer zu turbulenter Reib
 Die für Regentropfen am häufigsten genutzte Größenverteilung ist die \textit{Marshall-Palmer-Verteilung}\index{Marshall-Palmer-Verteilung} \cite{THEDISTRIBUTIONOFRAINDROPSWITHSIZE}, welche die Form
 %
 \begin{align}
-n\left(D\right) = n_0\exp\left(-\lambda D\right)
+n\left(D\right) = n_0\exp\left(-\lambda D\right)\label{eq:marshall-palmer}
 \end{align}
 %
 hat. Hierbei sind $D$ der Durchmesser der Regentropfen, $\lambda$ ein Parameter und $n\left(D\right)$ die Anzahl der Tropfen mit Durchmesser zwischen $D$ und $D + dD$, dividiert durch $dD$. $n_0 = 8\cdot 10^6\text{ m}^{-4}$ wird als Konstante angesetzt. Dies ergibt sich empirisch. Der Parameter $\lambda$ kann mit der dichte flüssigen Wassers $\rho_l$ verknüpft werden. Hierzu integriert man
@@ -24453,6 +24453,13 @@ Nun ist noch zu bestimmen, welches der beiden Vorzeichen das physikalisch richti
 \begin{align}
 \Delta\rho_v = -\frac{p}{2} - \sqrt{\frac{p^2}{4} - q}.
 \end{align}
+
+\subsubsection{Entstehung von Niederschlag}
+\label{sec:entstehung_von_niederschlag}\index{Niederschlag!Modell}
+
+Es wird davon ausgegangen, dass die Größenverteilung der Regentropfen einer Marshall-Palmer-Verteilung Glg. \eqref{eq:marshall-palmer} entspricht.
+
+Es wird angenommen, dass bei und unterhalb von $-35^\circ$ C das Wolkenwasser komplett eisförmig ist und bei und oberhalb von $-10^\circ$ C das Wolkenwasser komplett flüssig ist und dazwischen ein linearer Übergang erfolgt. Dies ist durch Beobachtungen begründbar \cite{stensrud}.
 
 \subsection{Fünf-Kondensate-Schema}
 \label{sec:fuenf-kondensate-schema}\index{Fünf-Kondensate-Schema}
