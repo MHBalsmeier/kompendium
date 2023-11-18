@@ -1217,6 +1217,7 @@
 \newlabel{eq:turb_iso_inc_spec_pre_1}{{17.152}{287}{Ergebnisse}{equation.17.4.152}{}}
 \newlabel{eq:characteristic_length}{{17.154}{288}{Ergebnisse}{equation.17.4.154}{}}
 \newlabel{eq:turb_iso_inc_spec}{{17.157}{288}{Ergebnisse}{equation.17.4.157}{}}
+\newlabel{eq:ekin_spec_inertial_subrange}{{17.159}{288}{Ergebnisse}{equation.17.4.159}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {17.5}Geostrophische Turbulenz}{288}{section.17.5}\protected@file@percent }
 \newlabel{sec:geostrophische_turbulenz}{{17.5}{288}{Geostrophische Turbulenz}{section.17.5}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {17.6}Energiekaskade}{289}{section.17.6}\protected@file@percent }
@@ -1864,425 +1865,422 @@
 \newlabel{eq:prog_irrev_1}{{33.2}{423}{\normalfont \textsc {Irreversible Dynamik}}{equation.33.0.2}{}}
 \newlabel{eq:prog_irrev_2}{{33.3}{423}{\normalfont \textsc {Irreversible Dynamik}}{equation.33.0.3}{}}
 \newlabel{eq:prog_irrev_3}{{33.4}{423}{\normalfont \textsc {Irreversible Dynamik}}{equation.33.0.4}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {33.1}Horizontale Diffusion}{423}{section.33.1}\protected@file@percent }
-\newlabel{sec:horizontale_diffusion}{{33.1}{423}{Horizontale Diffusion}{section.33.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {33.1.1}Massendiffuson}{423}{subsection.33.1.1}\protected@file@percent }
-\newlabel{sec:massendiffusion_h}{{33.1.1}{423}{Massendiffuson}{subsection.33.1.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {33.1.2}Temperaturdiffuson}{423}{subsection.33.1.2}\protected@file@percent }
-\newlabel{sec:temperaturdiffusion_h}{{33.1.2}{423}{Temperaturdiffuson}{subsection.33.1.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {33.1.3}Impulsdiffusion}{423}{subsection.33.1.3}\protected@file@percent }
-\newlabel{sec:impulsdiffusion_h}{{33.1.3}{423}{Impulsdiffusion}{subsection.33.1.3}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {33.1.3.1}Dissipation}{423}{subsubsection.33.1.3.1}\protected@file@percent }
-\newlabel{sec:dissipation_modell}{{33.1.3.1}{423}{Dissipation}{subsubsection.33.1.3.1}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {33.2}Vertikale Diffusion}{423}{section.33.2}\protected@file@percent }
-\newlabel{sec:vertikale_diffusion}{{33.2}{423}{Vertikale Diffusion}{section.33.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {33.2.1}Massendiffuson}{423}{subsection.33.2.1}\protected@file@percent }
-\newlabel{sec:massendiffusion_v}{{33.2.1}{423}{Massendiffuson}{subsection.33.2.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {33.2.2}Temperaturdiffuson}{423}{subsection.33.2.2}\protected@file@percent }
-\newlabel{sec:temperaturdiffusion_v}{{33.2.2}{423}{Temperaturdiffuson}{subsection.33.2.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {33.2.3}Impulsdiffusion}{423}{subsection.33.2.3}\protected@file@percent }
-\newlabel{sec:impulsdiffusion_v}{{33.2.3}{423}{Impulsdiffusion}{subsection.33.2.3}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {33.2.4}Obere Randbedingung}{424}{subsection.33.2.4}\protected@file@percent }
-\newlabel{sec:obere_randbedingung_irreversibel}{{33.2.4}{424}{Obere Randbedingung}{subsection.33.2.4}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {33.3}Parametrisierungen}{424}{section.33.3}\protected@file@percent }
-\newlabel{sec:parametrisierungen_modell_irreversibel}{{33.3}{424}{Parametrisierungen}{section.33.3}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {33.3.1}Impuls}{424}{subsection.33.3.1}\protected@file@percent }
-\newlabel{sec:impuls}{{33.3.1}{424}{Impuls}{subsection.33.3.1}{}}
-\newlabel{eq:tke_ansatz}{{33.12}{424}{Impuls}{equation.33.3.12}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {33.3.1.1}Horizontale und vertikale Diffusionskoeffizenten}{425}{subsubsection.33.3.1.1}\protected@file@percent }
-\newlabel{sec:horizontale_und_vertikale_diffusionskoeffizenten}{{33.3.1.1}{425}{Horizontale und vertikale Diffusionskoeffizenten}{subsubsection.33.3.1.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {33.3.2}Masse}{426}{subsection.33.3.2}\protected@file@percent }
-\newlabel{sec:masse}{{33.3.2}{426}{Masse}{subsection.33.3.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {33.3.3}Temperatur}{426}{subsection.33.3.3}\protected@file@percent }
-\newlabel{sec:temperatur}{{33.3.3}{426}{Temperatur}{subsection.33.3.3}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {34}\normalfont  \textsc  {Weiterführende Aspekte}}{427}{chapter.34}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {33.1}Grundüberlegungen über Turbulenz-Parametrisierungen}{423}{section.33.1}\protected@file@percent }
+\newlabel{sec:grundueberlegungen_ueber_turbulenz-parametrisierungen}{{33.1}{423}{Grundüberlegungen über Turbulenz-Parametrisierungen}{section.33.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {33.2}Smagorinsky-Modelle}{424}{section.33.2}\protected@file@percent }
+\newlabel{sec:smagorinsky-modelle}{{33.2}{424}{Smagorinsky-Modelle}{section.33.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {33.2.1}Klassisches Smagorinsky-Modell}{424}{subsection.33.2.1}\protected@file@percent }
+\newlabel{sec:klassisches_smagorinsky-modell}{{33.2.1}{424}{Klassisches Smagorinsky-Modell}{subsection.33.2.1}{}}
+\newlabel{eq:ekin_spec_inertial_subrange_mod}{{33.10}{424}{Klassisches Smagorinsky-Modell}{equation.33.2.10}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {33.2.2}Dynamisches Smagorinsky-Modell}{424}{subsection.33.2.2}\protected@file@percent }
+\newlabel{sec:dynamisches_smagorinsky-modell}{{33.2.2}{424}{Dynamisches Smagorinsky-Modell}{subsection.33.2.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {33.3}TKE-Ansatz}{424}{section.33.3}\protected@file@percent }
+\newlabel{sec:tke-ansatz}{{33.3}{424}{TKE-Ansatz}{section.33.3}{}}
+\newlabel{eq:tke_ansatz}{{33.12}{424}{TKE-Ansatz}{equation.33.3.12}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {33.4}Besonderheiten vertikaler Diffusionskoeffizenten}{425}{section.33.4}\protected@file@percent }
+\newlabel{sec:besonderheiten_vertikaler_diffusionskoeffizenten}{{33.4}{425}{Besonderheiten vertikaler Diffusionskoeffizenten}{section.33.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {33.5}Dissipation}{425}{section.33.5}\protected@file@percent }
+\newlabel{sec:dissipation_modell}{{33.5}{425}{Dissipation}{section.33.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {33.6}Obere Randbedingung}{425}{section.33.6}\protected@file@percent }
+\newlabel{sec:obere_randbedingung_irreversibel}{{33.6}{425}{Obere Randbedingung}{section.33.6}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {34}\normalfont  \textsc  {Wasserdampf und Kondensate}}{427}{chapter.34}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{chap:weiterfuehrende_aspekte}{{34}{427}{\normalfont \textsc {Weiterführende Aspekte}}{chapter.34}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {34.1}Framework für die Berücksichtigung von Tracern}{427}{section.34.1}\protected@file@percent }
-\newlabel{sec:framework_fuer_die_beruecksichtigung_von_tracern}{{34.1}{427}{Framework für die Berücksichtigung von Tracern}{section.34.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {34.1.1}Vertikale Advektion einer Massendichte}{427}{subsection.34.1.1}\protected@file@percent }
-\newlabel{sec:vertikale_advektion_einer_massendichte}{{34.1.1}{427}{Vertikale Advektion einer Massendichte}{subsection.34.1.1}{}}
+\newlabel{chap:wasserdampf_und_kondensate}{{34}{427}{\normalfont \textsc {Wasserdampf und Kondensate}}{chapter.34}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {34.1}Vertikale Advektion einer Massendichte}{427}{section.34.1}\protected@file@percent }
+\newlabel{sec:vertikale_advektion_einer_massendichte}{{34.1}{427}{Vertikale Advektion einer Massendichte}{section.34.1}{}}
 \newlabel{eq:adv_gen_density_deriv_0}{{34.5}{427}{Vertikale Advektion einer Massendichte}{equation.34.1.5}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {34.1.2}Limiter}{429}{subsection.34.1.2}\protected@file@percent }
-\newlabel{sec:limiter}{{34.1.2}{429}{Limiter}{subsection.34.1.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {34.1.3}Parametrisierungen}{429}{subsection.34.1.3}\protected@file@percent }
-\newlabel{sec:parametrisierungen_tracer}{{34.1.3}{429}{Parametrisierungen}{subsection.34.1.3}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {34.1.4}Vier-Kondensate-Schema}{429}{subsection.34.1.4}\protected@file@percent }
-\newlabel{sec:vier-kondensate-schema}{{34.1.4}{429}{Vier-Kondensate-Schema}{subsection.34.1.4}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {34.1.4.1}Diskretisierung von Kondensation und Resublimation}{429}{subsubsection.34.1.4.1}\protected@file@percent }
-\newlabel{sec:diskretisierung_von_kondensation_und_resublimation}{{34.1.4.1}{429}{Diskretisierung von Kondensation und Resublimation}{subsubsection.34.1.4.1}{}}
-\newlabel{eq:model_phase_trans_deriv_1}{{34.22}{429}{Diskretisierung von Kondensation und Resublimation}{equation.34.1.22}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {34.2}Limiter}{429}{section.34.2}\protected@file@percent }
+\newlabel{sec:limiter}{{34.2}{429}{Limiter}{section.34.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {34.3}Parametrisierungen}{429}{section.34.3}\protected@file@percent }
+\newlabel{sec:parametrisierungen_tracer}{{34.3}{429}{Parametrisierungen}{section.34.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {34.4}Vier-Kondensate-Schema}{429}{section.34.4}\protected@file@percent }
+\newlabel{sec:vier-kondensate-schema}{{34.4}{429}{Vier-Kondensate-Schema}{section.34.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {34.5}Diskretisierung von Kondensation und Resublimation}{429}{section.34.5}\protected@file@percent }
+\newlabel{sec:diskretisierung_von_kondensation_und_resublimation}{{34.5}{429}{Diskretisierung von Kondensation und Resublimation}{section.34.5}{}}
+\newlabel{eq:model_phase_trans_deriv_1}{{34.22}{429}{Diskretisierung von Kondensation und Resublimation}{equation.34.5.22}{}}
 \abx@aux@cite{0}{stensrud}
 \abx@aux@segm{0}{0}{stensrud}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {34.1.4.2}Entstehung von Niederschlag}{430}{subsubsection.34.1.4.2}\protected@file@percent }
-\newlabel{sec:entstehung_von_niederschlag}{{34.1.4.2}{430}{Entstehung von Niederschlag}{subsubsection.34.1.4.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {34.1.5}Fünf-Kondensate-Schema}{430}{subsection.34.1.5}\protected@file@percent }
-\newlabel{sec:fuenf-kondensate-schema}{{34.1.5}{430}{Fünf-Kondensate-Schema}{subsection.34.1.5}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {34.1.6}Weiterführende Wolken-Mikrophysik-Schemata}{431}{subsection.34.1.6}\protected@file@percent }
-\newlabel{sec:weiterfuehrende_wolken-mikrophysik-schemata}{{34.1.6}{431}{Weiterführende Wolken-Mikrophysik-Schemata}{subsection.34.1.6}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {34.2}Ankopplung an ein Strahlungstransportmodell}{431}{section.34.2}\protected@file@percent }
-\newlabel{sec:ankopplung_an_ein_strahlungstransportmodell}{{34.2}{431}{Ankopplung an ein Strahlungstransportmodell}{section.34.2}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {34.3}Verbleibende Approximationen}{431}{section.34.3}\protected@file@percent }
-\newlabel{sec:verbleibende_approximationen}{{34.3}{431}{Verbleibende Approximationen}{section.34.3}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {34.4}Post-processing}{431}{section.34.4}\protected@file@percent }
-\newlabel{sec:post-processing}{{34.4}{431}{Post-processing}{section.34.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {34.4.1}2-m-Temperatur}{431}{subsection.34.4.1}\protected@file@percent }
-\newlabel{sec:2-m-temperatur}{{34.4.1}{431}{2-m-Temperatur}{subsection.34.4.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {34.4.2}10-m-Wind}{432}{subsection.34.4.2}\protected@file@percent }
-\newlabel{sec:10-m-wind}{{34.4.2}{432}{10-m-Wind}{subsection.34.4.2}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {34.5}Tuning}{433}{section.34.5}\protected@file@percent }
-\newlabel{sec:tuning}{{34.5}{433}{Tuning}{section.34.5}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {34.5.1}Horizontale Diffusionskoeffizienten}{433}{subsection.34.5.1}\protected@file@percent }
-\newlabel{sec:horizontale_diffusions_koeffizienten}{{34.5.1}{433}{Horizontale Diffusionskoeffizienten}{subsection.34.5.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {34.5.2}Vertikaler Diffusionskoeffizient}{433}{subsection.34.5.2}\protected@file@percent }
-\newlabel{sec:vertikaler_diffusionskoeffizient}{{34.5.2}{433}{Vertikaler Diffusionskoeffizient}{subsection.34.5.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {34.5.3}Maximales spezifisches Wolkenwasser}{433}{subsection.34.5.3}\protected@file@percent }
-\newlabel{sec:maximales_spezifisches_wolkenwasser}{{34.5.3}{433}{Maximales spezifisches Wolkenwasser}{subsection.34.5.3}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {34.5.4}w-${"θ}$-Korrelation}{433}{subsection.34.5.4}\protected@file@percent }
-\newlabel{sec:w-theta-Korrelation}{{34.5.4}{433}{w-$\theta $-Korrelation}{subsection.34.5.4}{}}
-\@writefile{toc}{\contentsline {part}{VIII\hspace  {1em}Anhang}{435}{part.8}\protected@file@percent }
-\newlabel{part:anhang}{{VIII}{437}{Anhang}{part.8}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {A}\normalfont  \textsc  {Herleitungen einiger mathematischer Formeln}}{437}{appendix.A}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {34.5.1}Entstehung von Niederschlag}{430}{subsection.34.5.1}\protected@file@percent }
+\newlabel{sec:entstehung_von_niederschlag}{{34.5.1}{430}{Entstehung von Niederschlag}{subsection.34.5.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {34.6}Fünf-Kondensate-Schema}{430}{section.34.6}\protected@file@percent }
+\newlabel{sec:fuenf-kondensate-schema}{{34.6}{430}{Fünf-Kondensate-Schema}{section.34.6}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {34.7}Weiterführende Wolken-Mikrophysik-Schemata}{431}{section.34.7}\protected@file@percent }
+\newlabel{sec:weiterfuehrende_wolken-mikrophysik-schemata}{{34.7}{431}{Weiterführende Wolken-Mikrophysik-Schemata}{section.34.7}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {35}\normalfont  \textsc  {Planetarische Grenzschicht}}{433}{chapter.35}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{chap:herleitungen_einiger_mathematischer_formeln}{{A}{437}{\normalfont \textsc {Herleitungen einiger mathematischer Formeln}}{appendix.A}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {A.1}Quadratische Ergänzung}{437}{section.A.1}\protected@file@percent }
-\newlabel{sec:quadratische_ergänzung}{{A.1}{437}{Quadratische Ergänzung}{section.A.1}{}}
-\newlabel{eq:pq}{{A.5}{437}{Quadratische Ergänzung}{equation.A.1.5}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {A.2}Summen und Reihen}{437}{section.A.2}\protected@file@percent }
-\newlabel{sec:summen_und_reihen}{{A.2}{437}{Summen und Reihen}{section.A.2}{}}
-\newlabel{eq:kleiner_gauss}{{A.6}{437}{Summen und Reihen}{equation.A.2.6}{}}
-\newlabel{eq:geometr_reihe}{{A.8}{437}{Summen und Reihen}{equation.A.2.8}{}}
+\newlabel{chap:planetarische_grenzschicht}{{35}{433}{\normalfont \textsc {Planetarische Grenzschicht}}{chapter.35}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {36}\normalfont  \textsc  {Soil-Parametrisierungen}}{435}{chapter.36}\protected@file@percent }
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\newlabel{chap:soil-parametrisierungen}{{36}{435}{\normalfont \textsc {Soil-Parametrisierungen}}{chapter.36}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {37}\normalfont  \textsc  {Weiterführende Aspekte}}{437}{chapter.37}\protected@file@percent }
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\newlabel{chap:weiterfuehrende_aspekte}{{37}{437}{\normalfont \textsc {Weiterführende Aspekte}}{chapter.37}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {37.1}Ankopplung an ein Strahlungstransportmodell}{437}{section.37.1}\protected@file@percent }
+\newlabel{sec:ankopplung_an_ein_strahlungstransportmodell}{{37.1}{437}{Ankopplung an ein Strahlungstransportmodell}{section.37.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {37.2}Verbleibende Approximationen}{437}{section.37.2}\protected@file@percent }
+\newlabel{sec:verbleibende_approximationen}{{37.2}{437}{Verbleibende Approximationen}{section.37.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {37.3}Post-processing}{437}{section.37.3}\protected@file@percent }
+\newlabel{sec:post-processing}{{37.3}{437}{Post-processing}{section.37.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {37.3.1}2-m-Temperatur}{437}{subsection.37.3.1}\protected@file@percent }
+\newlabel{sec:2-m-temperatur}{{37.3.1}{437}{2-m-Temperatur}{subsection.37.3.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {37.3.2}10-m-Wind}{438}{subsection.37.3.2}\protected@file@percent }
+\newlabel{sec:10-m-wind}{{37.3.2}{438}{10-m-Wind}{subsection.37.3.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {37.4}Tuning}{439}{section.37.4}\protected@file@percent }
+\newlabel{sec:tuning}{{37.4}{439}{Tuning}{section.37.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {37.4.1}Horizontale Diffusionskoeffizienten}{439}{subsection.37.4.1}\protected@file@percent }
+\newlabel{sec:horizontale_diffusions_koeffizienten}{{37.4.1}{439}{Horizontale Diffusionskoeffizienten}{subsection.37.4.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {37.4.2}Vertikaler Diffusionskoeffizient}{439}{subsection.37.4.2}\protected@file@percent }
+\newlabel{sec:vertikaler_diffusionskoeffizient}{{37.4.2}{439}{Vertikaler Diffusionskoeffizient}{subsection.37.4.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {37.4.3}Maximales spezifisches Wolkenwasser}{439}{subsection.37.4.3}\protected@file@percent }
+\newlabel{sec:maximales_spezifisches_wolkenwasser}{{37.4.3}{439}{Maximales spezifisches Wolkenwasser}{subsection.37.4.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {37.4.4}w-${"θ}$-Korrelation}{439}{subsection.37.4.4}\protected@file@percent }
+\newlabel{sec:w-theta-Korrelation}{{37.4.4}{439}{w-$\theta $-Korrelation}{subsection.37.4.4}{}}
+\@writefile{toc}{\contentsline {part}{VIII\hspace  {1em}Anhang}{441}{part.8}\protected@file@percent }
+\newlabel{part:anhang}{{VIII}{443}{Anhang}{part.8}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {A}\normalfont  \textsc  {Herleitungen einiger mathematischer Formeln}}{443}{appendix.A}\protected@file@percent }
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\newlabel{chap:herleitungen_einiger_mathematischer_formeln}{{A}{443}{\normalfont \textsc {Herleitungen einiger mathematischer Formeln}}{appendix.A}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {A.1}Quadratische Ergänzung}{443}{section.A.1}\protected@file@percent }
+\newlabel{sec:quadratische_ergänzung}{{A.1}{443}{Quadratische Ergänzung}{section.A.1}{}}
+\newlabel{eq:pq}{{A.5}{443}{Quadratische Ergänzung}{equation.A.1.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {A.2}Summen und Reihen}{443}{section.A.2}\protected@file@percent }
+\newlabel{sec:summen_und_reihen}{{A.2}{443}{Summen und Reihen}{section.A.2}{}}
+\newlabel{eq:kleiner_gauss}{{A.6}{443}{Summen und Reihen}{equation.A.2.6}{}}
+\newlabel{eq:geometr_reihe}{{A.8}{443}{Summen und Reihen}{equation.A.2.8}{}}
 \abx@aux@cite{0}{abramowitz}
 \abx@aux@segm{0}{0}{abramowitz}
-\newlabel{eq:reihe_1}{{A.12}{438}{Summen und Reihen}{equation.A.2.12}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {A.3}Kombinatorik}{438}{section.A.3}\protected@file@percent }
-\newlabel{sec:kombinatorik}{{A.3}{438}{Kombinatorik}{section.A.3}{}}
-\newlabel{def:multinomialkoeffizient}{{A.16}{438}{Kombinatorik}{equation.A.3.16}{}}
-\newlabel{eq:gen_bin_formula}{{A.17}{439}{Kombinatorik}{equation.A.3.17}{}}
-\newlabel{eq:levi-civita_prop_1}{{A.22}{439}{Kombinatorik}{equation.A.3.22}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {A.4}Determinanten}{440}{section.A.4}\protected@file@percent }
-\newlabel{sec:determinanten}{{A.4}{440}{Determinanten}{section.A.4}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {A.5}Grundfunktionen}{440}{section.A.5}\protected@file@percent }
-\newlabel{sec:grundfunktionen}{{A.5}{440}{Grundfunktionen}{section.A.5}{}}
-\newlabel{eq:1st_derivative_series}{{A.32}{441}{Grundfunktionen}{equation.A.5.32}{}}
-\newlabel{eq:nth_derivative_series}{{A.34}{441}{Grundfunktionen}{equation.A.5.34}{}}
-\newlabel{eq:exp_prop_1}{{A.42}{441}{Grundfunktionen}{equation.A.5.42}{}}
-\newlabel{eq:exp_prop_2}{{A.43}{442}{Grundfunktionen}{equation.A.5.43}{}}
-\newlabel{eq:exp_prop_3}{{A.44}{442}{Grundfunktionen}{equation.A.5.44}{}}
-\newlabel{eq:sinh_add_1}{{A.56}{442}{Grundfunktionen}{equation.A.5.56}{}}
-\newlabel{eq:cosh_add_1}{{A.57}{442}{Grundfunktionen}{equation.A.5.57}{}}
-\newlabel{eq:tanh_add_1}{{A.58}{442}{Grundfunktionen}{equation.A.5.58}{}}
-\newlabel{eq:trigo_add_lemma_1}{{A.61}{442}{Grundfunktionen}{equation.A.5.61}{}}
+\newlabel{eq:reihe_1}{{A.12}{444}{Summen und Reihen}{equation.A.2.12}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {A.3}Kombinatorik}{444}{section.A.3}\protected@file@percent }
+\newlabel{sec:kombinatorik}{{A.3}{444}{Kombinatorik}{section.A.3}{}}
+\newlabel{def:multinomialkoeffizient}{{A.16}{444}{Kombinatorik}{equation.A.3.16}{}}
+\newlabel{eq:gen_bin_formula}{{A.17}{445}{Kombinatorik}{equation.A.3.17}{}}
+\newlabel{eq:levi-civita_prop_1}{{A.22}{445}{Kombinatorik}{equation.A.3.22}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {A.4}Determinanten}{446}{section.A.4}\protected@file@percent }
+\newlabel{sec:determinanten}{{A.4}{446}{Determinanten}{section.A.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {A.5}Grundfunktionen}{446}{section.A.5}\protected@file@percent }
+\newlabel{sec:grundfunktionen}{{A.5}{446}{Grundfunktionen}{section.A.5}{}}
+\newlabel{eq:1st_derivative_series}{{A.32}{447}{Grundfunktionen}{equation.A.5.32}{}}
+\newlabel{eq:nth_derivative_series}{{A.34}{447}{Grundfunktionen}{equation.A.5.34}{}}
+\newlabel{eq:exp_prop_1}{{A.42}{447}{Grundfunktionen}{equation.A.5.42}{}}
+\newlabel{eq:exp_prop_2}{{A.43}{448}{Grundfunktionen}{equation.A.5.43}{}}
+\newlabel{eq:exp_prop_3}{{A.44}{448}{Grundfunktionen}{equation.A.5.44}{}}
+\newlabel{eq:sinh_add_1}{{A.56}{448}{Grundfunktionen}{equation.A.5.56}{}}
+\newlabel{eq:cosh_add_1}{{A.57}{448}{Grundfunktionen}{equation.A.5.57}{}}
+\newlabel{eq:tanh_add_1}{{A.58}{448}{Grundfunktionen}{equation.A.5.58}{}}
+\newlabel{eq:trigo_add_lemma_1}{{A.61}{448}{Grundfunktionen}{equation.A.5.61}{}}
 \abx@aux@cite{0}{fliessbach_theo_3}
 \abx@aux@segm{0}{0}{fliessbach_theo_3}
 \abx@aux@cite{0}{fliessbach_theo_2}
 \abx@aux@segm{0}{0}{fliessbach_theo_2}
-\@writefile{toc}{\contentsline {section}{\numberline {A.6}Deltadistribution}{444}{section.A.6}\protected@file@percent }
-\newlabel{sec:Deltadistribution}{{A.6}{444}{Deltadistribution}{section.A.6}{}}
-\newlabel{eq:delta_distribution_prop_1}{{A.83}{444}{Deltadistribution}{equation.A.6.83}{}}
-\newlabel{eq:delta_distribution_prop_2}{{A.84}{444}{Deltadistribution}{equation.A.6.84}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {A.7}Integralformeln}{444}{section.A.7}\protected@file@percent }
-\newlabel{sec:integralformeln}{{A.7}{444}{Integralformeln}{section.A.7}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {A.7.1}Partielle Integration}{444}{subsection.A.7.1}\protected@file@percent }
-\newlabel{sec:partielle_integration}{{A.7.1}{444}{Partielle Integration}{subsection.A.7.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {A.7.2}Substitutionsregel}{444}{subsection.A.7.2}\protected@file@percent }
-\newlabel{sec:substitutionsregel}{{A.7.2}{444}{Substitutionsregel}{subsection.A.7.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {A.7.3}Trennung der Variablen}{444}{subsection.A.7.3}\protected@file@percent }
-\newlabel{sec:trennung_der_variablen}{{A.7.3}{444}{Trennung der Variablen}{subsection.A.7.3}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {A.7.4}Leibniz-Regel}{445}{subsection.A.7.4}\protected@file@percent }
-\newlabel{sec:leibniz-regel}{{A.7.4}{445}{Leibniz-Regel}{subsection.A.7.4}{}}
-\newlabel{eq:leibniz-rule}{{A.95}{445}{Leibniz-Regel}{equation.A.7.95}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {A.6}Deltadistribution}{450}{section.A.6}\protected@file@percent }
+\newlabel{sec:Deltadistribution}{{A.6}{450}{Deltadistribution}{section.A.6}{}}
+\newlabel{eq:delta_distribution_prop_1}{{A.83}{450}{Deltadistribution}{equation.A.6.83}{}}
+\newlabel{eq:delta_distribution_prop_2}{{A.84}{450}{Deltadistribution}{equation.A.6.84}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {A.7}Integralformeln}{450}{section.A.7}\protected@file@percent }
+\newlabel{sec:integralformeln}{{A.7}{450}{Integralformeln}{section.A.7}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.7.1}Partielle Integration}{450}{subsection.A.7.1}\protected@file@percent }
+\newlabel{sec:partielle_integration}{{A.7.1}{450}{Partielle Integration}{subsection.A.7.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.7.2}Substitutionsregel}{450}{subsection.A.7.2}\protected@file@percent }
+\newlabel{sec:substitutionsregel}{{A.7.2}{450}{Substitutionsregel}{subsection.A.7.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.7.3}Trennung der Variablen}{450}{subsection.A.7.3}\protected@file@percent }
+\newlabel{sec:trennung_der_variablen}{{A.7.3}{450}{Trennung der Variablen}{subsection.A.7.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.7.4}Leibniz-Regel}{451}{subsection.A.7.4}\protected@file@percent }
+\newlabel{sec:leibniz-regel}{{A.7.4}{451}{Leibniz-Regel}{subsection.A.7.4}{}}
+\newlabel{eq:leibniz-rule}{{A.95}{451}{Leibniz-Regel}{equation.A.7.95}{}}
 \abx@aux@cite{0}{abramowitz}
 \abx@aux@segm{0}{0}{abramowitz}
-\@writefile{toc}{\contentsline {subsection}{\numberline {A.7.5}Weitere Formeln}{446}{subsection.A.7.5}\protected@file@percent }
-\newlabel{sec:weitere_formeln}{{A.7.5}{446}{Weitere Formeln}{subsection.A.7.5}{}}
-\newlabel{eq:int_prop_1}{{A.96}{446}{Weitere Formeln}{equation.A.7.96}{}}
-\newlabel{eq:stefanboltzmann_help}{{A.99}{446}{Weitere Formeln}{equation.A.7.99}{}}
-\newlabel{eq:int_prop_3}{{A.101}{446}{Weitere Formeln}{equation.A.7.101}{}}
-\newlabel{eq:def_fehlerfunktion}{{A.102}{446}{Weitere Formeln}{equation.A.7.102}{}}
-\newlabel{eq:integral_fehlerfunktion}{{A.103}{446}{Weitere Formeln}{equation.A.7.103}{}}
-\newlabel{eq:int_prop_5}{{A.105}{446}{Weitere Formeln}{equation.A.7.105}{}}
-\newlabel{eq:int_prop_4}{{A.106}{446}{Weitere Formeln}{equation.A.7.106}{}}
-\newlabel{eq:gamma_prop_0}{{A.108}{447}{Weitere Formeln}{equation.A.7.108}{}}
-\newlabel{eq:gamma_prop_1}{{A.109}{447}{Weitere Formeln}{equation.A.7.109}{}}
-\newlabel{eq:stirling}{{A.115}{447}{Weitere Formeln}{equation.A.7.115}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {A.7.6}Funktionalableitungen}{447}{subsection.A.7.6}\protected@file@percent }
-\newlabel{sec:funktionalableitungen}{{A.7.6}{447}{Funktionalableitungen}{subsection.A.7.6}{}}
-\newlabel{eq:def_functional_derivative}{{A.120}{448}{Funktionalableitungen}{equation.A.7.120}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {A.7.7}Residuensatz}{448}{subsection.A.7.7}\protected@file@percent }
-\newlabel{sec:residuensatz}{{A.7.7}{448}{Residuensatz}{subsection.A.7.7}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {A.8}Vektorräume}{448}{section.A.8}\protected@file@percent }
-\newlabel{sec:vektorraeume}{{A.8}{448}{Vektorräume}{section.A.8}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {A.8.1}Vektorprodukt}{450}{subsection.A.8.1}\protected@file@percent }
-\newlabel{sec:vektorprodukt_vektorraum}{{A.8.1}{450}{Vektorprodukt}{subsection.A.8.1}{}}
-\newlabel{eq:vektorprodukt_linear_summe}{{A.145}{450}{Vektorprodukt}{equation.A.8.145}{}}
-\newlabel{eq:vektorprodukt_linear_faktor}{{A.146}{450}{Vektorprodukt}{equation.A.8.146}{}}
-\newlabel{eq:cross_product_anticommutative}{{A.147}{450}{Vektorprodukt}{equation.A.8.147}{}}
-\newlabel{eq:bac-cab}{{A.151}{450}{Vektorprodukt}{equation.A.8.151}{}}
-\newlabel{eq:spat_prod_prop_0}{{A.157}{451}{Vektorprodukt}{equation.A.8.157}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {B}\normalfont  \textsc  {Vektoranalysis}}{453}{appendix.B}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.7.5}Weitere Formeln}{452}{subsection.A.7.5}\protected@file@percent }
+\newlabel{sec:weitere_formeln}{{A.7.5}{452}{Weitere Formeln}{subsection.A.7.5}{}}
+\newlabel{eq:int_prop_1}{{A.96}{452}{Weitere Formeln}{equation.A.7.96}{}}
+\newlabel{eq:stefanboltzmann_help}{{A.99}{452}{Weitere Formeln}{equation.A.7.99}{}}
+\newlabel{eq:int_prop_3}{{A.101}{452}{Weitere Formeln}{equation.A.7.101}{}}
+\newlabel{eq:def_fehlerfunktion}{{A.102}{452}{Weitere Formeln}{equation.A.7.102}{}}
+\newlabel{eq:integral_fehlerfunktion}{{A.103}{452}{Weitere Formeln}{equation.A.7.103}{}}
+\newlabel{eq:int_prop_5}{{A.105}{452}{Weitere Formeln}{equation.A.7.105}{}}
+\newlabel{eq:int_prop_4}{{A.106}{452}{Weitere Formeln}{equation.A.7.106}{}}
+\newlabel{eq:gamma_prop_0}{{A.108}{453}{Weitere Formeln}{equation.A.7.108}{}}
+\newlabel{eq:gamma_prop_1}{{A.109}{453}{Weitere Formeln}{equation.A.7.109}{}}
+\newlabel{eq:stirling}{{A.115}{453}{Weitere Formeln}{equation.A.7.115}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.7.6}Funktionalableitungen}{453}{subsection.A.7.6}\protected@file@percent }
+\newlabel{sec:funktionalableitungen}{{A.7.6}{453}{Funktionalableitungen}{subsection.A.7.6}{}}
+\newlabel{eq:def_functional_derivative}{{A.120}{454}{Funktionalableitungen}{equation.A.7.120}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.7.7}Residuensatz}{454}{subsection.A.7.7}\protected@file@percent }
+\newlabel{sec:residuensatz}{{A.7.7}{454}{Residuensatz}{subsection.A.7.7}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {A.8}Vektorräume}{454}{section.A.8}\protected@file@percent }
+\newlabel{sec:vektorraeume}{{A.8}{454}{Vektorräume}{section.A.8}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.8.1}Vektorprodukt}{456}{subsection.A.8.1}\protected@file@percent }
+\newlabel{sec:vektorprodukt_vektorraum}{{A.8.1}{456}{Vektorprodukt}{subsection.A.8.1}{}}
+\newlabel{eq:vektorprodukt_linear_summe}{{A.145}{456}{Vektorprodukt}{equation.A.8.145}{}}
+\newlabel{eq:vektorprodukt_linear_faktor}{{A.146}{456}{Vektorprodukt}{equation.A.8.146}{}}
+\newlabel{eq:cross_product_anticommutative}{{A.147}{456}{Vektorprodukt}{equation.A.8.147}{}}
+\newlabel{eq:bac-cab}{{A.151}{456}{Vektorprodukt}{equation.A.8.151}{}}
+\newlabel{eq:spat_prod_prop_0}{{A.157}{457}{Vektorprodukt}{equation.A.8.157}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {B}\normalfont  \textsc  {Vektoranalysis}}{459}{appendix.B}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{chap:vektoranalysis}{{B}{453}{\normalfont \textsc {Vektoranalysis}}{appendix.B}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {B.1}Mehrdimensionale Ableitungen}{453}{section.B.1}\protected@file@percent }
-\newlabel{sec:mehrdimensionale_ableitungen}{{B.1}{453}{Mehrdimensionale Ableitungen}{section.B.1}{}}
-\newlabel{eq:mehr_dim_kette}{{B.4}{453}{Mehrdimensionale Ableitungen}{equation.B.1.4}{}}
-\newlabel{eq:mat_derivative_op}{{B.6}{453}{Mehrdimensionale Ableitungen}{equation.B.1.6}{}}
-\newlabel{eq:mat_derivative_op_hor}{{B.12}{454}{Mehrdimensionale Ableitungen}{equation.B.1.12}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {B.1.1}Krümmungradius}{454}{subsection.B.1.1}\protected@file@percent }
-\newlabel{sec:kruemungsradius}{{B.1.1}{454}{Krümmungradius}{subsection.B.1.1}{}}
-\newlabel{eq:deriv_curv_1}{{B.29}{455}{Krümmungradius}{equation.B.1.29}{}}
-\newlabel{eq:deriv_curv_2}{{B.34}{455}{Krümmungradius}{equation.B.1.34}{}}
-\newlabel{eq:deriv_curv_3}{{B.35}{455}{Krümmungradius}{equation.B.1.35}{}}
-\newlabel{eq:deriv_curv_4}{{B.36}{455}{Krümmungradius}{equation.B.1.36}{}}
-\newlabel{eq:curv}{{B.42}{456}{Krümmungradius}{equation.B.1.42}{}}
-\newlabel{eq:curv_approx}{{B.43}{456}{Krümmungradius}{equation.B.1.43}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {B.1.2}Rechenregeln für Differenzialoperatoren}{456}{subsection.B.1.2}\protected@file@percent }
-\newlabel{sec:rechenregeln_fuer_Differenzialoperatoren}{{B.1.2}{456}{Rechenregeln für Differenzialoperatoren}{subsection.B.1.2}{}}
-\newlabel{eq:diff_op_rule_1}{{B.47}{457}{Rechenregeln für Differenzialoperatoren}{equation.B.1.47}{}}
-\newlabel{eq:diff_op_rule_2}{{B.48}{457}{Rechenregeln für Differenzialoperatoren}{equation.B.1.48}{}}
-\newlabel{eq:diff_op_rule_3}{{B.49}{457}{Rechenregeln für Differenzialoperatoren}{equation.B.1.49}{}}
-\newlabel{eq:diff_op_rule_4}{{B.50}{457}{Rechenregeln für Differenzialoperatoren}{equation.B.1.50}{}}
-\newlabel{eq:diff_op_rule_5}{{B.51}{457}{Rechenregeln für Differenzialoperatoren}{equation.B.1.51}{}}
-\newlabel{eq:diff_op_rule_6}{{B.52}{457}{Rechenregeln für Differenzialoperatoren}{equation.B.1.52}{}}
-\newlabel{eq:diff_op_rule_7}{{B.53}{458}{Rechenregeln für Differenzialoperatoren}{equation.B.1.53}{}}
-\newlabel{eq:diff_op_rule_8}{{B.54}{458}{Rechenregeln für Differenzialoperatoren}{equation.B.1.54}{}}
-\newlabel{eq:diff_op_rule_9}{{B.55}{458}{Rechenregeln für Differenzialoperatoren}{equation.B.1.55}{}}
-\newlabel{eq:diff_op_rule_12}{{B.56}{458}{Rechenregeln für Differenzialoperatoren}{equation.B.1.56}{}}
-\newlabel{eq:diff_op_rule_10}{{B.57}{459}{Rechenregeln für Differenzialoperatoren}{equation.B.1.57}{}}
-\newlabel{eq:diff_op_rule_11}{{B.58}{459}{Rechenregeln für Differenzialoperatoren}{equation.B.1.58}{}}
-\newlabel{eq:diff_op_harmonic_rule_1}{{B.60}{459}{Rechenregeln für Differenzialoperatoren}{equation.B.1.60}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {B.2}Differenzialoperatoren unter Koordinatentransformationen}{459}{section.B.2}\protected@file@percent }
-\newlabel{sec:Differenzialoperatoren:unter_koordinatentransformationen}{{B.2}{459}{Differenzialoperatoren unter Koordinatentransformationen}{section.B.2}{}}
-\newlabel{eq:gen_coords_orth_criterion}{{B.64}{459}{Differenzialoperatoren unter Koordinatentransformationen}{equation.B.2.64}{}}
-\newlabel{eq:part_derivative_gen}{{B.66}{460}{Differenzialoperatoren unter Koordinatentransformationen}{equation.B.2.66}{}}
-\newlabel{eq:inner_gen}{{B.67}{460}{Differenzialoperatoren unter Koordinatentransformationen}{equation.B.2.67}{}}
-\newlabel{eq:vector_product_gen}{{B.68}{460}{Differenzialoperatoren unter Koordinatentransformationen}{equation.B.2.68}{}}
-\newlabel{eq:grad_gen}{{B.69}{460}{Differenzialoperatoren unter Koordinatentransformationen}{equation.B.2.69}{}}
-\newlabel{eq:div_gen}{{B.70}{460}{Differenzialoperatoren unter Koordinatentransformationen}{equation.B.2.70}{}}
-\newlabel{eq:rot_gen}{{B.71}{460}{Differenzialoperatoren unter Koordinatentransformationen}{equation.B.2.71}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {B.2.1}Kugelkoordinaten}{460}{subsection.B.2.1}\protected@file@percent }
-\newlabel{sec:kugelkoordinaten}{{B.2.1}{460}{Kugelkoordinaten}{subsection.B.2.1}{}}
-\newlabel{eq:kugel_zu_global_1}{{B.74}{460}{Kugelkoordinaten}{equation.B.2.74}{}}
-\newlabel{eq:kugel_zu_global_2}{{B.75}{460}{Kugelkoordinaten}{equation.B.2.75}{}}
-\newlabel{eq:kugel_zu_global_3}{{B.76}{460}{Kugelkoordinaten}{equation.B.2.76}{}}
-\newlabel{eq:grad_sphere}{{B.88}{461}{Kugelkoordinaten}{equation.B.2.88}{}}
-\newlabel{eq:div_sphere}{{B.90}{462}{Kugelkoordinaten}{equation.B.2.90}{}}
-\newlabel{eq:laplace_klugel}{{B.91}{462}{Kugelkoordinaten}{equation.B.2.91}{}}
-\newlabel{eq:laplace_kugel_split}{{B.94}{462}{Kugelkoordinaten}{equation.B.2.94}{}}
-\newlabel{eq:laplace_winkelanteil}{{B.96}{462}{Kugelkoordinaten}{equation.B.2.96}{}}
-\newlabel{eq:rot_sphere}{{B.98}{463}{Kugelkoordinaten}{equation.B.2.98}{}}
-\newlabel{eq:mat_derivative_kugel}{{B.107}{465}{Kugelkoordinaten}{equation.B.2.107}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {B.2.1.1}Transformation auf geographische Koordinaten}{465}{subsubsection.B.2.1.1}\protected@file@percent }
-\newlabel{sec:transformation_auf_geographische_koordinaten}{{B.2.1.1}{465}{Transformation auf geographische Koordinaten}{subsubsection.B.2.1.1}{}}
-\newlabel{eq:laplace_geographische}{{B.111}{465}{Transformation auf geographische Koordinaten}{equation.B.2.111}{}}
-\newlabel{eq:div_geo}{{B.112}{465}{Transformation auf geographische Koordinaten}{equation.B.2.112}{}}
-\newlabel{eq:rot_geo}{{B.114}{465}{Transformation auf geographische Koordinaten}{equation.B.2.114}{}}
-\newlabel{eq:rot_local}{{B.115}{465}{Transformation auf geographische Koordinaten}{equation.B.2.115}{}}
-\newlabel{eq:mat_deriv_momentum_local}{{B.118}{466}{Transformation auf geographische Koordinaten}{equation.B.2.118}{}}
-\newlabel{eq:2dvector_invariant_u_advection}{{B.122}{466}{Transformation auf geographische Koordinaten}{equation.B.2.122}{}}
-\newlabel{eq:mat_deriv_momentum_met}{{B.128}{467}{Transformation auf geographische Koordinaten}{equation.B.2.128}{}}
-\newlabel{eq:mat_deriv_momentum_met_prop_0}{{B.130}{467}{Transformation auf geographische Koordinaten}{equation.B.2.130}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {B.3}Mehrdimensionale Integralrechnung}{467}{section.B.3}\protected@file@percent }
-\newlabel{sec:mehrdimensionale_integralrechnung}{{B.3}{467}{Mehrdimensionale Integralrechnung}{section.B.3}{}}
-\newlabel{eq:trans_formel}{{B.131}{467}{Mehrdimensionale Integralrechnung}{equation.B.3.131}{}}
-\newlabel{eq:gaussscher_satz}{{B.135}{468}{Mehrdimensionale Integralrechnung}{equation.B.3.135}{}}
-\newlabel{eq:n_dim_kugel_hilfe_1}{{B.138}{468}{Mehrdimensionale Integralrechnung}{equation.B.3.138}{}}
-\newlabel{eq:n_dim_kugel_hilfe_2}{{B.139}{468}{Mehrdimensionale Integralrechnung}{equation.B.3.139}{}}
-\newlabel{eq:volumen_n_dim_kugel}{{B.143}{469}{Mehrdimensionale Integralrechnung}{equation.B.3.143}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {B.3.1}Transporttheorem}{469}{subsection.B.3.1}\protected@file@percent }
-\newlabel{sec:transporttheorem}{{B.3.1}{469}{Transporttheorem}{subsection.B.3.1}{}}
-\newlabel{eq:transport_theorem}{{B.144}{469}{Transporttheorem}{equation.B.3.144}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {C}\normalfont  \textsc  {Orthogonale Funktionensysteme}}{471}{appendix.C}\protected@file@percent }
+\newlabel{chap:vektoranalysis}{{B}{459}{\normalfont \textsc {Vektoranalysis}}{appendix.B}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {B.1}Mehrdimensionale Ableitungen}{459}{section.B.1}\protected@file@percent }
+\newlabel{sec:mehrdimensionale_ableitungen}{{B.1}{459}{Mehrdimensionale Ableitungen}{section.B.1}{}}
+\newlabel{eq:mehr_dim_kette}{{B.4}{459}{Mehrdimensionale Ableitungen}{equation.B.1.4}{}}
+\newlabel{eq:mat_derivative_op}{{B.6}{459}{Mehrdimensionale Ableitungen}{equation.B.1.6}{}}
+\newlabel{eq:mat_derivative_op_hor}{{B.12}{460}{Mehrdimensionale Ableitungen}{equation.B.1.12}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.1.1}Krümmungradius}{460}{subsection.B.1.1}\protected@file@percent }
+\newlabel{sec:kruemungsradius}{{B.1.1}{460}{Krümmungradius}{subsection.B.1.1}{}}
+\newlabel{eq:deriv_curv_1}{{B.29}{461}{Krümmungradius}{equation.B.1.29}{}}
+\newlabel{eq:deriv_curv_2}{{B.34}{461}{Krümmungradius}{equation.B.1.34}{}}
+\newlabel{eq:deriv_curv_3}{{B.35}{461}{Krümmungradius}{equation.B.1.35}{}}
+\newlabel{eq:deriv_curv_4}{{B.36}{461}{Krümmungradius}{equation.B.1.36}{}}
+\newlabel{eq:curv}{{B.42}{462}{Krümmungradius}{equation.B.1.42}{}}
+\newlabel{eq:curv_approx}{{B.43}{462}{Krümmungradius}{equation.B.1.43}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.1.2}Rechenregeln für Differenzialoperatoren}{462}{subsection.B.1.2}\protected@file@percent }
+\newlabel{sec:rechenregeln_fuer_Differenzialoperatoren}{{B.1.2}{462}{Rechenregeln für Differenzialoperatoren}{subsection.B.1.2}{}}
+\newlabel{eq:diff_op_rule_1}{{B.47}{463}{Rechenregeln für Differenzialoperatoren}{equation.B.1.47}{}}
+\newlabel{eq:diff_op_rule_2}{{B.48}{463}{Rechenregeln für Differenzialoperatoren}{equation.B.1.48}{}}
+\newlabel{eq:diff_op_rule_3}{{B.49}{463}{Rechenregeln für Differenzialoperatoren}{equation.B.1.49}{}}
+\newlabel{eq:diff_op_rule_4}{{B.50}{463}{Rechenregeln für Differenzialoperatoren}{equation.B.1.50}{}}
+\newlabel{eq:diff_op_rule_5}{{B.51}{463}{Rechenregeln für Differenzialoperatoren}{equation.B.1.51}{}}
+\newlabel{eq:diff_op_rule_6}{{B.52}{463}{Rechenregeln für Differenzialoperatoren}{equation.B.1.52}{}}
+\newlabel{eq:diff_op_rule_7}{{B.53}{464}{Rechenregeln für Differenzialoperatoren}{equation.B.1.53}{}}
+\newlabel{eq:diff_op_rule_8}{{B.54}{464}{Rechenregeln für Differenzialoperatoren}{equation.B.1.54}{}}
+\newlabel{eq:diff_op_rule_9}{{B.55}{464}{Rechenregeln für Differenzialoperatoren}{equation.B.1.55}{}}
+\newlabel{eq:diff_op_rule_12}{{B.56}{464}{Rechenregeln für Differenzialoperatoren}{equation.B.1.56}{}}
+\newlabel{eq:diff_op_rule_10}{{B.57}{465}{Rechenregeln für Differenzialoperatoren}{equation.B.1.57}{}}
+\newlabel{eq:diff_op_rule_11}{{B.58}{465}{Rechenregeln für Differenzialoperatoren}{equation.B.1.58}{}}
+\newlabel{eq:diff_op_harmonic_rule_1}{{B.60}{465}{Rechenregeln für Differenzialoperatoren}{equation.B.1.60}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {B.2}Differenzialoperatoren unter Koordinatentransformationen}{465}{section.B.2}\protected@file@percent }
+\newlabel{sec:Differenzialoperatoren:unter_koordinatentransformationen}{{B.2}{465}{Differenzialoperatoren unter Koordinatentransformationen}{section.B.2}{}}
+\newlabel{eq:gen_coords_orth_criterion}{{B.64}{465}{Differenzialoperatoren unter Koordinatentransformationen}{equation.B.2.64}{}}
+\newlabel{eq:part_derivative_gen}{{B.66}{466}{Differenzialoperatoren unter Koordinatentransformationen}{equation.B.2.66}{}}
+\newlabel{eq:inner_gen}{{B.67}{466}{Differenzialoperatoren unter Koordinatentransformationen}{equation.B.2.67}{}}
+\newlabel{eq:vector_product_gen}{{B.68}{466}{Differenzialoperatoren unter Koordinatentransformationen}{equation.B.2.68}{}}
+\newlabel{eq:grad_gen}{{B.69}{466}{Differenzialoperatoren unter Koordinatentransformationen}{equation.B.2.69}{}}
+\newlabel{eq:div_gen}{{B.70}{466}{Differenzialoperatoren unter Koordinatentransformationen}{equation.B.2.70}{}}
+\newlabel{eq:rot_gen}{{B.71}{466}{Differenzialoperatoren unter Koordinatentransformationen}{equation.B.2.71}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.2.1}Kugelkoordinaten}{466}{subsection.B.2.1}\protected@file@percent }
+\newlabel{sec:kugelkoordinaten}{{B.2.1}{466}{Kugelkoordinaten}{subsection.B.2.1}{}}
+\newlabel{eq:kugel_zu_global_1}{{B.74}{466}{Kugelkoordinaten}{equation.B.2.74}{}}
+\newlabel{eq:kugel_zu_global_2}{{B.75}{466}{Kugelkoordinaten}{equation.B.2.75}{}}
+\newlabel{eq:kugel_zu_global_3}{{B.76}{466}{Kugelkoordinaten}{equation.B.2.76}{}}
+\newlabel{eq:grad_sphere}{{B.88}{467}{Kugelkoordinaten}{equation.B.2.88}{}}
+\newlabel{eq:div_sphere}{{B.90}{468}{Kugelkoordinaten}{equation.B.2.90}{}}
+\newlabel{eq:laplace_klugel}{{B.91}{468}{Kugelkoordinaten}{equation.B.2.91}{}}
+\newlabel{eq:laplace_kugel_split}{{B.94}{468}{Kugelkoordinaten}{equation.B.2.94}{}}
+\newlabel{eq:laplace_winkelanteil}{{B.96}{468}{Kugelkoordinaten}{equation.B.2.96}{}}
+\newlabel{eq:rot_sphere}{{B.98}{469}{Kugelkoordinaten}{equation.B.2.98}{}}
+\newlabel{eq:mat_derivative_kugel}{{B.107}{471}{Kugelkoordinaten}{equation.B.2.107}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {B.2.1.1}Transformation auf geographische Koordinaten}{471}{subsubsection.B.2.1.1}\protected@file@percent }
+\newlabel{sec:transformation_auf_geographische_koordinaten}{{B.2.1.1}{471}{Transformation auf geographische Koordinaten}{subsubsection.B.2.1.1}{}}
+\newlabel{eq:laplace_geographische}{{B.111}{471}{Transformation auf geographische Koordinaten}{equation.B.2.111}{}}
+\newlabel{eq:div_geo}{{B.112}{471}{Transformation auf geographische Koordinaten}{equation.B.2.112}{}}
+\newlabel{eq:rot_geo}{{B.114}{471}{Transformation auf geographische Koordinaten}{equation.B.2.114}{}}
+\newlabel{eq:rot_local}{{B.115}{471}{Transformation auf geographische Koordinaten}{equation.B.2.115}{}}
+\newlabel{eq:mat_deriv_momentum_local}{{B.118}{472}{Transformation auf geographische Koordinaten}{equation.B.2.118}{}}
+\newlabel{eq:2dvector_invariant_u_advection}{{B.122}{472}{Transformation auf geographische Koordinaten}{equation.B.2.122}{}}
+\newlabel{eq:mat_deriv_momentum_met}{{B.128}{473}{Transformation auf geographische Koordinaten}{equation.B.2.128}{}}
+\newlabel{eq:mat_deriv_momentum_met_prop_0}{{B.130}{473}{Transformation auf geographische Koordinaten}{equation.B.2.130}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {B.3}Mehrdimensionale Integralrechnung}{473}{section.B.3}\protected@file@percent }
+\newlabel{sec:mehrdimensionale_integralrechnung}{{B.3}{473}{Mehrdimensionale Integralrechnung}{section.B.3}{}}
+\newlabel{eq:trans_formel}{{B.131}{473}{Mehrdimensionale Integralrechnung}{equation.B.3.131}{}}
+\newlabel{eq:gaussscher_satz}{{B.135}{474}{Mehrdimensionale Integralrechnung}{equation.B.3.135}{}}
+\newlabel{eq:n_dim_kugel_hilfe_1}{{B.138}{474}{Mehrdimensionale Integralrechnung}{equation.B.3.138}{}}
+\newlabel{eq:n_dim_kugel_hilfe_2}{{B.139}{474}{Mehrdimensionale Integralrechnung}{equation.B.3.139}{}}
+\newlabel{eq:volumen_n_dim_kugel}{{B.143}{475}{Mehrdimensionale Integralrechnung}{equation.B.3.143}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.3.1}Transporttheorem}{475}{subsection.B.3.1}\protected@file@percent }
+\newlabel{sec:transporttheorem}{{B.3.1}{475}{Transporttheorem}{subsection.B.3.1}{}}
+\newlabel{eq:transport_theorem}{{B.144}{475}{Transporttheorem}{equation.B.3.144}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {C}\normalfont  \textsc  {Orthogonale Funktionensysteme}}{477}{appendix.C}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{chap:orthogonale_funktionensysteme}{{C}{471}{\normalfont \textsc {Orthogonale Funktionensysteme}}{appendix.C}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {C.1}Komplexe Exponentialfunktionen}{471}{section.C.1}\protected@file@percent }
-\newlabel{sec:komplexe_exponentialfunktionen}{{C.1}{471}{Komplexe Exponentialfunktionen}{section.C.1}{}}
-\newlabel{eq:def_ft_1d}{{C.3}{471}{Komplexe Exponentialfunktionen}{equation.C.1.3}{}}
-\newlabel{eq:def_ft_1d_inv}{{C.6}{471}{Komplexe Exponentialfunktionen}{equation.C.1.6}{}}
-\newlabel{eq:ft_deriv_0}{{C.8}{471}{Komplexe Exponentialfunktionen}{equation.C.1.8}{}}
-\newlabel{eq:ft_norm}{{C.9}{471}{Komplexe Exponentialfunktionen}{equation.C.1.9}{}}
-\newlabel{eq:parseval_identity}{{C.31}{473}{Komplexe Exponentialfunktionen}{equation.C.1.31}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {C.1.1}Faltungstheorem}{474}{subsection.C.1.1}\protected@file@percent }
-\newlabel{sec:faltungstheorem}{{C.1.1}{474}{Faltungstheorem}{subsection.C.1.1}{}}
-\newlabel{eq:faltung_deriv_0}{{C.34}{474}{Faltungstheorem}{equation.C.1.34}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {C.2}Legendre-Polynome}{475}{section.C.2}\protected@file@percent }
-\newlabel{sec:legendrepolynome}{{C.2}{475}{Legendre-Polynome}{section.C.2}{}}
-\newlabel{eq:legendre_iterativ}{{C.45}{475}{Legendre-Polynome}{equation.C.2.45}{}}
-\newlabel{eq:legendre_poly_formel}{{C.46}{475}{Legendre-Polynome}{equation.C.2.46}{}}
-\newlabel{eq:gen_bin_formula_legendre}{{C.48}{475}{Legendre-Polynome}{equation.C.2.48}{}}
-\newlabel{eq:legendre_poly_prop_1}{{C.67}{478}{Legendre-Polynome}{equation.C.2.67}{}}
-\newlabel{eq:legendre_poly_prop_2}{{C.77}{479}{Legendre-Polynome}{equation.C.2.77}{}}
-\newlabel{eq:legendre_vorform_2}{{C.78}{479}{Legendre-Polynome}{equation.C.2.78}{}}
-\newlabel{eq:ansatz_legendre_2}{{C.79}{479}{Legendre-Polynome}{equation.C.2.79}{}}
-\newlabel{eq:legendre_umgeformt}{{C.82}{479}{Legendre-Polynome}{equation.C.2.82}{}}
-\newlabel{eq:dgl_ass_leg_herl}{{C.92}{480}{Legendre-Polynome}{equation.C.2.92}{}}
-\newlabel{eq:assoziierte_legendre_funktionen}{{C.97}{481}{Legendre-Polynome}{equation.C.2.97}{}}
-\newlabel{eq:legendre_ass_prop_2}{{C.98}{481}{Legendre-Polynome}{equation.C.2.98}{}}
-\newlabel{eq:legendre_ass_prop_1_vorform}{{C.101}{481}{Legendre-Polynome}{equation.C.2.101}{}}
-\newlabel{eq:legendre_ass_prop_1}{{C.107}{482}{Legendre-Polynome}{equation.C.2.107}{}}
-\newlabel{eq:legendre_ass_prop_3}{{C.108}{482}{Legendre-Polynome}{equation.C.2.108}{}}
-\newlabel{eq:ortho_ass_lgen}{{C.111}{483}{Legendre-Polynome}{equation.C.2.111}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {C.3}Hermite-Polynome}{483}{section.C.3}\protected@file@percent }
-\newlabel{sec:hermitepolynome}{{C.3}{483}{Hermite-Polynome}{section.C.3}{}}
-\newlabel{eq:hermite_poly_geschlossen}{{C.113}{483}{Hermite-Polynome}{equation.C.3.113}{}}
-\newlabel{eq:hermite_dgl}{{C.114}{483}{Hermite-Polynome}{equation.C.3.114}{}}
-\newlabel{eq:produktregel_n}{{C.118}{483}{Hermite-Polynome}{equation.C.3.118}{}}
-\newlabel{eq:herm_pol_prop_1}{{C.122}{484}{Hermite-Polynome}{equation.C.3.122}{}}
-\newlabel{eq:herm_pol_prop_2}{{C.123}{484}{Hermite-Polynome}{equation.C.3.123}{}}
-\newlabel{eq:hermite_polynome_normierung}{{C.124}{484}{Hermite-Polynome}{equation.C.3.124}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {C.4}Laguerre-Polynome}{485}{section.C.4}\protected@file@percent }
-\newlabel{sec:laguerrepolynome}{{C.4}{485}{Laguerre-Polynome}{section.C.4}{}}
-\newlabel{eq:laguerre_dgl}{{C.129}{485}{Laguerre-Polynome}{equation.C.4.129}{}}
-\newlabel{eq:rek_laguerre}{{C.133}{485}{Laguerre-Polynome}{equation.C.4.133}{}}
-\newlabel{eq:laguerre_polynome_explizit}{{C.134}{485}{Laguerre-Polynome}{equation.C.4.134}{}}
-\newlabel{eq:laguerre_integral}{{C.143}{486}{Laguerre-Polynome}{equation.C.4.143}{}}
-\newlabel{eq:laguerre_int_prop_2}{{C.147}{486}{Laguerre-Polynome}{equation.C.4.147}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {C.5}Kugelflächenfunktionen}{487}{section.C.5}\protected@file@percent }
-\newlabel{sec:kugelflächenfunktionen}{{C.5}{487}{Kugelflächenfunktionen}{section.C.5}{}}
-\newlabel{eq:def_spherical_harmonics}{{C.155}{487}{Kugelflächenfunktionen}{equation.C.5.155}{}}
-\newlabel{eq:spherical_harm_prop_1}{{C.166}{488}{Kugelflächenfunktionen}{equation.C.5.166}{}}
-\newlabel{eq:spherical_harmonic_deriv_theta}{{C.167}{488}{Kugelflächenfunktionen}{equation.C.5.167}{}}
-\newlabel{eq:spherical_harmonic_deriv_phi}{{C.168}{489}{Kugelflächenfunktionen}{equation.C.5.168}{}}
-\newlabel{eq:spherical_harm_prop_2}{{C.171}{489}{Kugelflächenfunktionen}{equation.C.5.171}{}}
-\newlabel{eq:spherical_harm_prop_3}{{C.172}{490}{Kugelflächenfunktionen}{equation.C.5.172}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {C.5.1}Produkte}{490}{subsection.C.5.1}\protected@file@percent }
-\newlabel{sec:proukte}{{C.5.1}{490}{Produkte}{subsection.C.5.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {C.5.2}Transformation auf geographische Koordinaten}{490}{subsection.C.5.2}\protected@file@percent }
-\newlabel{sec:transformation_auf_geographische_koordinaten_sp_harmonics}{{C.5.2}{490}{Transformation auf geographische Koordinaten}{subsection.C.5.2}{}}
-\newlabel{eq:spherical_harmonic_deriv_theta_geo}{{C.178}{490}{Transformation auf geographische Koordinaten}{equation.C.5.178}{}}
-\newlabel{eq:spherical_harmonic_deriv_phi_geo}{{C.179}{490}{Transformation auf geographische Koordinaten}{equation.C.5.179}{}}
-\newlabel{eq:spherical_harm_prop_2_geo}{{C.180}{491}{Transformation auf geographische Koordinaten}{equation.C.5.180}{}}
-\newlabel{eq:spherical_harm_prop_3_geo}{{C.181}{491}{Transformation auf geographische Koordinaten}{equation.C.5.181}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {D}\normalfont  \textsc  {Geodäsie}}{493}{appendix.D}\protected@file@percent }
+\newlabel{chap:orthogonale_funktionensysteme}{{C}{477}{\normalfont \textsc {Orthogonale Funktionensysteme}}{appendix.C}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {C.1}Komplexe Exponentialfunktionen}{477}{section.C.1}\protected@file@percent }
+\newlabel{sec:komplexe_exponentialfunktionen}{{C.1}{477}{Komplexe Exponentialfunktionen}{section.C.1}{}}
+\newlabel{eq:def_ft_1d}{{C.3}{477}{Komplexe Exponentialfunktionen}{equation.C.1.3}{}}
+\newlabel{eq:def_ft_1d_inv}{{C.6}{477}{Komplexe Exponentialfunktionen}{equation.C.1.6}{}}
+\newlabel{eq:ft_deriv_0}{{C.8}{477}{Komplexe Exponentialfunktionen}{equation.C.1.8}{}}
+\newlabel{eq:ft_norm}{{C.9}{477}{Komplexe Exponentialfunktionen}{equation.C.1.9}{}}
+\newlabel{eq:parseval_identity}{{C.31}{479}{Komplexe Exponentialfunktionen}{equation.C.1.31}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {C.1.1}Faltungstheorem}{480}{subsection.C.1.1}\protected@file@percent }
+\newlabel{sec:faltungstheorem}{{C.1.1}{480}{Faltungstheorem}{subsection.C.1.1}{}}
+\newlabel{eq:faltung_deriv_0}{{C.34}{480}{Faltungstheorem}{equation.C.1.34}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {C.2}Legendre-Polynome}{481}{section.C.2}\protected@file@percent }
+\newlabel{sec:legendrepolynome}{{C.2}{481}{Legendre-Polynome}{section.C.2}{}}
+\newlabel{eq:legendre_iterativ}{{C.45}{481}{Legendre-Polynome}{equation.C.2.45}{}}
+\newlabel{eq:legendre_poly_formel}{{C.46}{481}{Legendre-Polynome}{equation.C.2.46}{}}
+\newlabel{eq:gen_bin_formula_legendre}{{C.48}{481}{Legendre-Polynome}{equation.C.2.48}{}}
+\newlabel{eq:legendre_poly_prop_1}{{C.67}{484}{Legendre-Polynome}{equation.C.2.67}{}}
+\newlabel{eq:legendre_poly_prop_2}{{C.77}{485}{Legendre-Polynome}{equation.C.2.77}{}}
+\newlabel{eq:legendre_vorform_2}{{C.78}{485}{Legendre-Polynome}{equation.C.2.78}{}}
+\newlabel{eq:ansatz_legendre_2}{{C.79}{485}{Legendre-Polynome}{equation.C.2.79}{}}
+\newlabel{eq:legendre_umgeformt}{{C.82}{485}{Legendre-Polynome}{equation.C.2.82}{}}
+\newlabel{eq:dgl_ass_leg_herl}{{C.92}{486}{Legendre-Polynome}{equation.C.2.92}{}}
+\newlabel{eq:assoziierte_legendre_funktionen}{{C.97}{487}{Legendre-Polynome}{equation.C.2.97}{}}
+\newlabel{eq:legendre_ass_prop_2}{{C.98}{487}{Legendre-Polynome}{equation.C.2.98}{}}
+\newlabel{eq:legendre_ass_prop_1_vorform}{{C.101}{487}{Legendre-Polynome}{equation.C.2.101}{}}
+\newlabel{eq:legendre_ass_prop_1}{{C.107}{488}{Legendre-Polynome}{equation.C.2.107}{}}
+\newlabel{eq:legendre_ass_prop_3}{{C.108}{488}{Legendre-Polynome}{equation.C.2.108}{}}
+\newlabel{eq:ortho_ass_lgen}{{C.111}{489}{Legendre-Polynome}{equation.C.2.111}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {C.3}Hermite-Polynome}{489}{section.C.3}\protected@file@percent }
+\newlabel{sec:hermitepolynome}{{C.3}{489}{Hermite-Polynome}{section.C.3}{}}
+\newlabel{eq:hermite_poly_geschlossen}{{C.113}{489}{Hermite-Polynome}{equation.C.3.113}{}}
+\newlabel{eq:hermite_dgl}{{C.114}{489}{Hermite-Polynome}{equation.C.3.114}{}}
+\newlabel{eq:produktregel_n}{{C.118}{489}{Hermite-Polynome}{equation.C.3.118}{}}
+\newlabel{eq:herm_pol_prop_1}{{C.122}{490}{Hermite-Polynome}{equation.C.3.122}{}}
+\newlabel{eq:herm_pol_prop_2}{{C.123}{490}{Hermite-Polynome}{equation.C.3.123}{}}
+\newlabel{eq:hermite_polynome_normierung}{{C.124}{490}{Hermite-Polynome}{equation.C.3.124}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {C.4}Laguerre-Polynome}{491}{section.C.4}\protected@file@percent }
+\newlabel{sec:laguerrepolynome}{{C.4}{491}{Laguerre-Polynome}{section.C.4}{}}
+\newlabel{eq:laguerre_dgl}{{C.129}{491}{Laguerre-Polynome}{equation.C.4.129}{}}
+\newlabel{eq:rek_laguerre}{{C.133}{491}{Laguerre-Polynome}{equation.C.4.133}{}}
+\newlabel{eq:laguerre_polynome_explizit}{{C.134}{491}{Laguerre-Polynome}{equation.C.4.134}{}}
+\newlabel{eq:laguerre_integral}{{C.143}{492}{Laguerre-Polynome}{equation.C.4.143}{}}
+\newlabel{eq:laguerre_int_prop_2}{{C.147}{492}{Laguerre-Polynome}{equation.C.4.147}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {C.5}Kugelflächenfunktionen}{493}{section.C.5}\protected@file@percent }
+\newlabel{sec:kugelflächenfunktionen}{{C.5}{493}{Kugelflächenfunktionen}{section.C.5}{}}
+\newlabel{eq:def_spherical_harmonics}{{C.155}{493}{Kugelflächenfunktionen}{equation.C.5.155}{}}
+\newlabel{eq:spherical_harm_prop_1}{{C.166}{494}{Kugelflächenfunktionen}{equation.C.5.166}{}}
+\newlabel{eq:spherical_harmonic_deriv_theta}{{C.167}{494}{Kugelflächenfunktionen}{equation.C.5.167}{}}
+\newlabel{eq:spherical_harmonic_deriv_phi}{{C.168}{495}{Kugelflächenfunktionen}{equation.C.5.168}{}}
+\newlabel{eq:spherical_harm_prop_2}{{C.171}{495}{Kugelflächenfunktionen}{equation.C.5.171}{}}
+\newlabel{eq:spherical_harm_prop_3}{{C.172}{496}{Kugelflächenfunktionen}{equation.C.5.172}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {C.5.1}Produkte}{496}{subsection.C.5.1}\protected@file@percent }
+\newlabel{sec:proukte}{{C.5.1}{496}{Produkte}{subsection.C.5.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {C.5.2}Transformation auf geographische Koordinaten}{496}{subsection.C.5.2}\protected@file@percent }
+\newlabel{sec:transformation_auf_geographische_koordinaten_sp_harmonics}{{C.5.2}{496}{Transformation auf geographische Koordinaten}{subsection.C.5.2}{}}
+\newlabel{eq:spherical_harmonic_deriv_theta_geo}{{C.178}{496}{Transformation auf geographische Koordinaten}{equation.C.5.178}{}}
+\newlabel{eq:spherical_harmonic_deriv_phi_geo}{{C.179}{496}{Transformation auf geographische Koordinaten}{equation.C.5.179}{}}
+\newlabel{eq:spherical_harm_prop_2_geo}{{C.180}{497}{Transformation auf geographische Koordinaten}{equation.C.5.180}{}}
+\newlabel{eq:spherical_harm_prop_3_geo}{{C.181}{497}{Transformation auf geographische Koordinaten}{equation.C.5.181}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {D}\normalfont  \textsc  {Geodäsie}}{499}{appendix.D}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{chap:geodaesie}{{D}{493}{\normalfont \textsc {Geodäsie}}{appendix.D}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {D.1}Konvention über Koordinatensysteme}{493}{section.D.1}\protected@file@percent }
-\newlabel{sec:konvention_ueber_koordinatensysteme}{{D.1}{493}{Konvention über Koordinatensysteme}{section.D.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {D.1.1}Ruhende Koordinaten}{493}{subsection.D.1.1}\protected@file@percent }
-\newlabel{sec:ruhende_koordinaten}{{D.1.1}{493}{Ruhende Koordinaten}{subsection.D.1.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {D.1.2}Globale Koordinaten}{493}{subsection.D.1.2}\protected@file@percent }
-\newlabel{sec:globale_koordinaten}{{D.1.2}{493}{Globale Koordinaten}{subsection.D.1.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {D.1.3}Geographische Koordinaten}{493}{subsection.D.1.3}\protected@file@percent }
-\newlabel{sec:geographische_koordinaten}{{D.1.3}{493}{Geographische Koordinaten}{subsection.D.1.3}{}}
-\newlabel{eq:kugel_zu_kugel_met_1}{{D.3}{493}{Geographische Koordinaten}{equation.D.1.3}{}}
-\newlabel{eq:kugel_zu_kugel_met_2}{{D.4}{493}{Geographische Koordinaten}{equation.D.1.4}{}}
-\newlabel{eq:kugel_zu_kugel_met_3}{{D.5}{493}{Geographische Koordinaten}{equation.D.1.5}{}}
-\newlabel{eq:kugel_zu_kugel_met_4}{{D.6}{493}{Geographische Koordinaten}{equation.D.1.6}{}}
-\newlabel{eq:kugel_zu_kugel_met_5}{{D.7}{493}{Geographische Koordinaten}{equation.D.1.7}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {D.2}Sphärische Geometrie}{493}{section.D.2}\protected@file@percent }
-\newlabel{sec:sphärische_geometrie}{{D.2}{493}{Sphärische Geometrie}{section.D.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {D.2.1}Geodäten}{493}{subsection.D.2.1}\protected@file@percent }
-\newlabel{sec:geodaeten}{{D.2.1}{493}{Geodäten}{subsection.D.2.1}{}}
-\newlabel{eq:dist_kugel_h}{{D.19}{494}{Geodäten}{equation.D.2.19}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {D.2.2}Vertikale Flächen}{495}{subsection.D.2.2}\protected@file@percent }
-\newlabel{sec:vertikale_flaechen}{{D.2.2}{495}{Vertikale Flächen}{subsection.D.2.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {D.2.3}Volumina}{495}{subsection.D.2.3}\protected@file@percent }
-\newlabel{sec:volumina}{{D.2.3}{495}{Volumina}{subsection.D.2.3}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {D.2.4}Sphärische Dreiecke}{495}{subsection.D.2.4}\protected@file@percent }
-\newlabel{sec:sphärische_dreiecke}{{D.2.4}{495}{Sphärische Dreiecke}{subsection.D.2.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {D.2.5}Sphärische Voronoi-Gitter}{495}{subsection.D.2.5}\protected@file@percent }
-\newlabel{sec:sphärische_voronoi-gitter}{{D.2.5}{495}{Sphärische Voronoi-Gitter}{subsection.D.2.5}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {D.3}Schwerefeld der Erde}{495}{section.D.3}\protected@file@percent }
-\newlabel{secschwerefeld_der_erde}{{D.3}{495}{Schwerefeld der Erde}{section.D.3}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {D.3.1}Eigenschaften von Ellipsen und Ellipsoiden}{495}{subsection.D.3.1}\protected@file@percent }
-\newlabel{sec:eigenschaften_von_ellipsen_und_ellipsoiden}{{D.3.1}{495}{Eigenschaften von Ellipsen und Ellipsoiden}{subsection.D.3.1}{}}
-\newlabel{eq:ellips_prop_1}{{D.29}{496}{Eigenschaften von Ellipsen und Ellipsoiden}{equation.D.3.29}{}}
-\newlabel{eq:ellips_prop_2}{{D.31}{496}{Eigenschaften von Ellipsen und Ellipsoiden}{equation.D.3.31}{}}
-\newlabel{eq:vol_rot_ellipsoid}{{D.32}{496}{Eigenschaften von Ellipsen und Ellipsoiden}{equation.D.3.32}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {D.3.2}Schwerefeld eines Ellipsoides}{496}{subsection.D.3.2}\protected@file@percent }
-\newlabel{sec:schwerefeld_eines_ellipsoides}{{D.3.2}{496}{Schwerefeld eines Ellipsoides}{subsection.D.3.2}{}}
-\newlabel{eq:zentrifugal_potential}{{D.34}{497}{Schwerefeld eines Ellipsoides}{equation.D.3.34}{}}
-\newlabel{eq:laplace_dgl}{{D.40}{497}{Schwerefeld eines Ellipsoides}{equation.D.3.40}{}}
-\newlabel{eq:ansatz_poisson}{{D.42}{497}{Schwerefeld eines Ellipsoides}{equation.D.3.42}{}}
-\newlabel{eq:deriv_legendre_dgl}{{D.44}{497}{Schwerefeld eines Ellipsoides}{equation.D.3.44}{}}
-\newlabel{eq:legendre_vorform}{{D.48}{498}{Schwerefeld eines Ellipsoides}{equation.D.3.48}{}}
-\newlabel{eq:dgl_u}{{D.49}{498}{Schwerefeld eines Ellipsoides}{equation.D.3.49}{}}
-\newlabel{eq:legendre_dgl}{{D.50}{498}{Schwerefeld eines Ellipsoides}{equation.D.3.50}{}}
-\newlabel{eq:radial_kugel_dgl}{{D.52}{498}{Schwerefeld eines Ellipsoides}{equation.D.3.52}{}}
-\newlabel{eq:allg_laplace_loesung}{{D.56}{498}{Schwerefeld eines Ellipsoides}{equation.D.3.56}{}}
-\newlabel{eq:grav_z_dritte_ordnung}{{D.67}{499}{Schwerefeld eines Ellipsoides}{equation.D.3.67}{}}
+\newlabel{chap:geodaesie}{{D}{499}{\normalfont \textsc {Geodäsie}}{appendix.D}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {D.1}Konvention über Koordinatensysteme}{499}{section.D.1}\protected@file@percent }
+\newlabel{sec:konvention_ueber_koordinatensysteme}{{D.1}{499}{Konvention über Koordinatensysteme}{section.D.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {D.1.1}Ruhende Koordinaten}{499}{subsection.D.1.1}\protected@file@percent }
+\newlabel{sec:ruhende_koordinaten}{{D.1.1}{499}{Ruhende Koordinaten}{subsection.D.1.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {D.1.2}Globale Koordinaten}{499}{subsection.D.1.2}\protected@file@percent }
+\newlabel{sec:globale_koordinaten}{{D.1.2}{499}{Globale Koordinaten}{subsection.D.1.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {D.1.3}Geographische Koordinaten}{499}{subsection.D.1.3}\protected@file@percent }
+\newlabel{sec:geographische_koordinaten}{{D.1.3}{499}{Geographische Koordinaten}{subsection.D.1.3}{}}
+\newlabel{eq:kugel_zu_kugel_met_1}{{D.3}{499}{Geographische Koordinaten}{equation.D.1.3}{}}
+\newlabel{eq:kugel_zu_kugel_met_2}{{D.4}{499}{Geographische Koordinaten}{equation.D.1.4}{}}
+\newlabel{eq:kugel_zu_kugel_met_3}{{D.5}{499}{Geographische Koordinaten}{equation.D.1.5}{}}
+\newlabel{eq:kugel_zu_kugel_met_4}{{D.6}{499}{Geographische Koordinaten}{equation.D.1.6}{}}
+\newlabel{eq:kugel_zu_kugel_met_5}{{D.7}{499}{Geographische Koordinaten}{equation.D.1.7}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {D.2}Sphärische Geometrie}{499}{section.D.2}\protected@file@percent }
+\newlabel{sec:sphärische_geometrie}{{D.2}{499}{Sphärische Geometrie}{section.D.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {D.2.1}Geodäten}{499}{subsection.D.2.1}\protected@file@percent }
+\newlabel{sec:geodaeten}{{D.2.1}{499}{Geodäten}{subsection.D.2.1}{}}
+\newlabel{eq:dist_kugel_h}{{D.19}{500}{Geodäten}{equation.D.2.19}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {D.2.2}Vertikale Flächen}{501}{subsection.D.2.2}\protected@file@percent }
+\newlabel{sec:vertikale_flaechen}{{D.2.2}{501}{Vertikale Flächen}{subsection.D.2.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {D.2.3}Volumina}{501}{subsection.D.2.3}\protected@file@percent }
+\newlabel{sec:volumina}{{D.2.3}{501}{Volumina}{subsection.D.2.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {D.2.4}Sphärische Dreiecke}{501}{subsection.D.2.4}\protected@file@percent }
+\newlabel{sec:sphärische_dreiecke}{{D.2.4}{501}{Sphärische Dreiecke}{subsection.D.2.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {D.2.5}Sphärische Voronoi-Gitter}{501}{subsection.D.2.5}\protected@file@percent }
+\newlabel{sec:sphärische_voronoi-gitter}{{D.2.5}{501}{Sphärische Voronoi-Gitter}{subsection.D.2.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {D.3}Schwerefeld der Erde}{501}{section.D.3}\protected@file@percent }
+\newlabel{secschwerefeld_der_erde}{{D.3}{501}{Schwerefeld der Erde}{section.D.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {D.3.1}Eigenschaften von Ellipsen und Ellipsoiden}{501}{subsection.D.3.1}\protected@file@percent }
+\newlabel{sec:eigenschaften_von_ellipsen_und_ellipsoiden}{{D.3.1}{501}{Eigenschaften von Ellipsen und Ellipsoiden}{subsection.D.3.1}{}}
+\newlabel{eq:ellips_prop_1}{{D.29}{502}{Eigenschaften von Ellipsen und Ellipsoiden}{equation.D.3.29}{}}
+\newlabel{eq:ellips_prop_2}{{D.31}{502}{Eigenschaften von Ellipsen und Ellipsoiden}{equation.D.3.31}{}}
+\newlabel{eq:vol_rot_ellipsoid}{{D.32}{502}{Eigenschaften von Ellipsen und Ellipsoiden}{equation.D.3.32}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {D.3.2}Schwerefeld eines Ellipsoides}{502}{subsection.D.3.2}\protected@file@percent }
+\newlabel{sec:schwerefeld_eines_ellipsoides}{{D.3.2}{502}{Schwerefeld eines Ellipsoides}{subsection.D.3.2}{}}
+\newlabel{eq:zentrifugal_potential}{{D.34}{503}{Schwerefeld eines Ellipsoides}{equation.D.3.34}{}}
+\newlabel{eq:laplace_dgl}{{D.40}{503}{Schwerefeld eines Ellipsoides}{equation.D.3.40}{}}
+\newlabel{eq:ansatz_poisson}{{D.42}{503}{Schwerefeld eines Ellipsoides}{equation.D.3.42}{}}
+\newlabel{eq:deriv_legendre_dgl}{{D.44}{503}{Schwerefeld eines Ellipsoides}{equation.D.3.44}{}}
+\newlabel{eq:legendre_vorform}{{D.48}{504}{Schwerefeld eines Ellipsoides}{equation.D.3.48}{}}
+\newlabel{eq:dgl_u}{{D.49}{504}{Schwerefeld eines Ellipsoides}{equation.D.3.49}{}}
+\newlabel{eq:legendre_dgl}{{D.50}{504}{Schwerefeld eines Ellipsoides}{equation.D.3.50}{}}
+\newlabel{eq:radial_kugel_dgl}{{D.52}{504}{Schwerefeld eines Ellipsoides}{equation.D.3.52}{}}
+\newlabel{eq:allg_laplace_loesung}{{D.56}{504}{Schwerefeld eines Ellipsoides}{equation.D.3.56}{}}
+\newlabel{eq:grav_z_dritte_ordnung}{{D.67}{505}{Schwerefeld eines Ellipsoides}{equation.D.3.67}{}}
 \abx@aux@cite{0}{abramowitz}
 \abx@aux@segm{0}{0}{abramowitz}
-\newlabel{eq:ungl_schwere}{{D.76}{500}{Schwerefeld eines Ellipsoides}{equation.D.3.76}{}}
-\newlabel{eq:grav_pot_ex_z}{{D.97}{503}{Schwerefeld eines Ellipsoides}{equation.D.3.97}{}}
-\newlabel{eq:allg_ellipse}{{D.142}{509}{Schwerefeld eines Ellipsoides}{equation.D.3.142}{}}
-\newlabel{eq:schwerepotential}{{D.148}{509}{Schwerefeld eines Ellipsoides}{equation.D.3.148}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {D.3.3}Forderungen an nicht-kugelförmige Koordinaten}{509}{subsection.D.3.3}\protected@file@percent }
-\newlabel{sec:forderungen_an_nicht-kugelförmige_koordinaten}{{D.3.3}{509}{Forderungen an nicht-kugelförmige Koordinaten}{subsection.D.3.3}{}}
+\newlabel{eq:ungl_schwere}{{D.76}{506}{Schwerefeld eines Ellipsoides}{equation.D.3.76}{}}
+\newlabel{eq:grav_pot_ex_z}{{D.97}{509}{Schwerefeld eines Ellipsoides}{equation.D.3.97}{}}
+\newlabel{eq:allg_ellipse}{{D.142}{515}{Schwerefeld eines Ellipsoides}{equation.D.3.142}{}}
+\newlabel{eq:schwerepotential}{{D.148}{515}{Schwerefeld eines Ellipsoides}{equation.D.3.148}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {D.3.3}Forderungen an nicht-kugelförmige Koordinaten}{515}{subsection.D.3.3}\protected@file@percent }
+\newlabel{sec:forderungen_an_nicht-kugelförmige_koordinaten}{{D.3.3}{515}{Forderungen an nicht-kugelförmige Koordinaten}{subsection.D.3.3}{}}
 \abx@aux@cite{0}{staniforth}
 \abx@aux@segm{0}{0}{staniforth}
-\@writefile{toc}{\contentsline {subsection}{\numberline {D.3.4}Ellipsoidische Approximation des Schwerefeldes}{510}{subsection.D.3.4}\protected@file@percent }
-\newlabel{sec:ellipsoidische_approximation des_schwerefeldes}{{D.3.4}{510}{Ellipsoidische Approximation des Schwerefeldes}{subsection.D.3.4}{}}
-\newlabel{eq:defellipse_1}{{D.149}{510}{Ellipsoidische Approximation des Schwerefeldes}{equation.D.3.149}{}}
-\newlabel{eq:defellipse_2}{{D.150}{510}{Ellipsoidische Approximation des Schwerefeldes}{equation.D.3.150}{}}
-\newlabel{eq:schwere_approx_1}{{D.155}{511}{Ellipsoidische Approximation des Schwerefeldes}{equation.D.3.155}{}}
-\newlabel{eq:schwere_approx_2_parameter}{{D.162}{512}{Ellipsoidische Approximation des Schwerefeldes}{equation.D.3.162}{}}
-\newlabel{eq:schwere_approx}{{D.172}{512}{Ellipsoidische Approximation des Schwerefeldes}{equation.D.3.172}{}}
-\newlabel{eq:schwere_approx_r}{{D.173}{513}{Ellipsoidische Approximation des Schwerefeldes}{equation.D.3.173}{}}
-\newlabel{eq:clairaut_deriv_1}{{D.188}{514}{Ellipsoidische Approximation des Schwerefeldes}{equation.D.3.188}{}}
-\newlabel{eq:clairaut}{{D.189}{514}{Ellipsoidische Approximation des Schwerefeldes}{equation.D.3.189}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {D.3.5}Senkrechte Trajektorien}{516}{subsection.D.3.5}\protected@file@percent }
-\newlabel{sec:senkrechte_trajektorien}{{D.3.5}{516}{Senkrechte Trajektorien}{subsection.D.3.5}{}}
-\newlabel{eq:deriv_senkr_darst_pot_flaechen}{{D.206}{516}{Senkrechte Trajektorien}{equation.D.3.206}{}}
-\newlabel{eq:deriv_senkr_ellipse_2d}{{D.210}{516}{Senkrechte Trajektorien}{equation.D.3.210}{}}
-\newlabel{eq:great_senkr_traj_deriv_1}{{D.211}{516}{Senkrechte Trajektorien}{equation.D.3.211}{}}
-\newlabel{eq:great_senkr_traj_deriv_5}{{D.212}{516}{Senkrechte Trajektorien}{equation.D.3.212}{}}
-\newlabel{eq:great_senkr_traj_deriv_4}{{D.213}{516}{Senkrechte Trajektorien}{equation.D.3.213}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {D.3.4}Ellipsoidische Approximation des Schwerefeldes}{516}{subsection.D.3.4}\protected@file@percent }
+\newlabel{sec:ellipsoidische_approximation des_schwerefeldes}{{D.3.4}{516}{Ellipsoidische Approximation des Schwerefeldes}{subsection.D.3.4}{}}
+\newlabel{eq:defellipse_1}{{D.149}{516}{Ellipsoidische Approximation des Schwerefeldes}{equation.D.3.149}{}}
+\newlabel{eq:defellipse_2}{{D.150}{516}{Ellipsoidische Approximation des Schwerefeldes}{equation.D.3.150}{}}
+\newlabel{eq:schwere_approx_1}{{D.155}{517}{Ellipsoidische Approximation des Schwerefeldes}{equation.D.3.155}{}}
+\newlabel{eq:schwere_approx_2_parameter}{{D.162}{518}{Ellipsoidische Approximation des Schwerefeldes}{equation.D.3.162}{}}
+\newlabel{eq:schwere_approx}{{D.172}{518}{Ellipsoidische Approximation des Schwerefeldes}{equation.D.3.172}{}}
+\newlabel{eq:schwere_approx_r}{{D.173}{519}{Ellipsoidische Approximation des Schwerefeldes}{equation.D.3.173}{}}
+\newlabel{eq:clairaut_deriv_1}{{D.188}{520}{Ellipsoidische Approximation des Schwerefeldes}{equation.D.3.188}{}}
+\newlabel{eq:clairaut}{{D.189}{520}{Ellipsoidische Approximation des Schwerefeldes}{equation.D.3.189}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {D.3.5}Senkrechte Trajektorien}{522}{subsection.D.3.5}\protected@file@percent }
+\newlabel{sec:senkrechte_trajektorien}{{D.3.5}{522}{Senkrechte Trajektorien}{subsection.D.3.5}{}}
+\newlabel{eq:deriv_senkr_darst_pot_flaechen}{{D.206}{522}{Senkrechte Trajektorien}{equation.D.3.206}{}}
+\newlabel{eq:deriv_senkr_ellipse_2d}{{D.210}{522}{Senkrechte Trajektorien}{equation.D.3.210}{}}
+\newlabel{eq:great_senkr_traj_deriv_1}{{D.211}{522}{Senkrechte Trajektorien}{equation.D.3.211}{}}
+\newlabel{eq:great_senkr_traj_deriv_5}{{D.212}{522}{Senkrechte Trajektorien}{equation.D.3.212}{}}
+\newlabel{eq:great_senkr_traj_deriv_4}{{D.213}{522}{Senkrechte Trajektorien}{equation.D.3.213}{}}
 \abx@aux@cite{0}{staniforth}
 \abx@aux@segm{0}{0}{staniforth}
-\newlabel{eq:great_senkr_traj_deriv_2}{{D.219}{517}{Senkrechte Trajektorien}{equation.D.3.219}{}}
-\newlabel{eq:great_senkr_traj_deriv_3}{{D.220}{517}{Senkrechte Trajektorien}{equation.D.3.220}{}}
-\newlabel{eq:great_senkr_traj}{{D.221}{517}{Senkrechte Trajektorien}{equation.D.3.221}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {D.4}\textsc  {Great}-Koordinaten}{518}{section.D.4}\protected@file@percent }
-\newlabel{sec:greatkoordinaten}{{D.4}{518}{\textsc {Great}-Koordinaten}{section.D.4}{}}
-\newlabel{eq:great_skal}{{D.222}{518}{\textsc {Great}-Koordinaten}{equation.D.4.222}{}}
-\newlabel{eq:great_senkr_traj_skaliert}{{D.223}{518}{\textsc {Great}-Koordinaten}{equation.D.4.223}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {D.4.1}Vertikalkoordinate}{518}{subsection.D.4.1}\protected@file@percent }
-\newlabel{sec:vertikalkoordinate}{{D.4.1}{518}{Vertikalkoordinate}{subsection.D.4.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {D.4.2}Zonale Koordinate}{518}{subsection.D.4.2}\protected@file@percent }
-\newlabel{sec:zonale_koordinate}{{D.4.2}{518}{Zonale Koordinate}{subsection.D.4.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {D.4.3}Meridionale Koordinate}{518}{subsection.D.4.3}\protected@file@percent }
-\newlabel{sec:meridionale_koordinate}{{D.4.3}{518}{Meridionale Koordinate}{subsection.D.4.3}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {D.4.4}Metrischer Tensor}{518}{subsection.D.4.4}\protected@file@percent }
-\newlabel{sec:metrischer_tensor}{{D.4.4}{518}{Metrischer Tensor}{subsection.D.4.4}{}}
-\newlabel{eq:great_deriv_1}{{D.227}{518}{Metrischer Tensor}{equation.D.4.227}{}}
-\newlabel{eq:great_deriv_2}{{D.228}{518}{Metrischer Tensor}{equation.D.4.228}{}}
-\newlabel{eq:great_deriv_3}{{D.229}{519}{Metrischer Tensor}{equation.D.4.229}{}}
-\newlabel{eq:great_deriv_4}{{D.230}{519}{Metrischer Tensor}{equation.D.4.230}{}}
-\newlabel{eq:great_deriv_5}{{D.231}{519}{Metrischer Tensor}{equation.D.4.231}{}}
-\newlabel{eq:great_deriv_6}{{D.233}{519}{Metrischer Tensor}{equation.D.4.233}{}}
-\newlabel{eq:great_deriv_7}{{D.236}{519}{Metrischer Tensor}{equation.D.4.236}{}}
-\newlabel{eq:great_deriv_8}{{D.237}{520}{Metrischer Tensor}{equation.D.4.237}{}}
-\newlabel{eq:great_deriv_9}{{D.238}{520}{Metrischer Tensor}{equation.D.4.238}{}}
-\newlabel{eq:great_deriv_10}{{D.241}{520}{Metrischer Tensor}{equation.D.4.241}{}}
-\newlabel{eq:great_deriv_11}{{D.243}{520}{Metrischer Tensor}{equation.D.4.243}{}}
-\newlabel{eq:great_deriv_12}{{D.249}{521}{Metrischer Tensor}{equation.D.4.249}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {D.4.5}Transformation von \textsc  {Great}-Koordinaten in globale Koordinaten}{522}{subsection.D.4.5}\protected@file@percent }
-\newlabel{sec:transformation_von_greatKoordinaten_in_globale_koordinaten}{{D.4.5}{522}{Transformation von \textsc {Great}-Koordinaten in globale Koordinaten}{subsection.D.4.5}{}}
-\newlabel{eq:trafo_great_zu_glo_deriv_1}{{D.254}{522}{Transformation von \textsc {Great}-Koordinaten in globale Koordinaten}{equation.D.4.254}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {D.4.6}Transformation von globalen Koordinaten in \textsc  {Great}-Koordinaten}{522}{subsection.D.4.6}\protected@file@percent }
-\newlabel{sec:transformation_von_globalen_Koordinaten_in_greatkoordinaten}{{D.4.6}{522}{Transformation von globalen Koordinaten in \textsc {Great}-Koordinaten}{subsection.D.4.6}{}}
-\newlabel{eq:trafo_glo_zu_great_deriv_5}{{D.260}{522}{Transformation von globalen Koordinaten in \textsc {Great}-Koordinaten}{equation.D.4.260}{}}
-\newlabel{eq:eq:trafo_glo_zu_great_deriv_1}{{D.261}{523}{Transformation von globalen Koordinaten in \textsc {Great}-Koordinaten}{equation.D.4.261}{}}
-\newlabel{eq:def_ell_skal}{{D.262}{523}{Transformation von globalen Koordinaten in \textsc {Great}-Koordinaten}{equation.D.4.262}{}}
-\newlabel{eq:trafo_glo_zu_great_deriv_2}{{D.268}{523}{Transformation von globalen Koordinaten in \textsc {Great}-Koordinaten}{equation.D.4.268}{}}
-\newlabel{eq:trafo_glo_zu_great_deriv_3}{{D.271}{523}{Transformation von globalen Koordinaten in \textsc {Great}-Koordinaten}{equation.D.4.271}{}}
-\newlabel{eq:trafo_glo_zu_great_deriv_4}{{D.273}{524}{Transformation von globalen Koordinaten in \textsc {Great}-Koordinaten}{equation.D.4.273}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {D.4.7}Rotation in \textsc  {Great}-Koordinaten}{525}{subsection.D.4.7}\protected@file@percent }
-\newlabel{sec:rotation_in_great-koordinaten}{{D.4.7}{525}{Rotation in \textsc {Great}-Koordinaten}{subsection.D.4.7}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {D.5}Ellipsoidische Geometrie}{525}{section.D.5}\protected@file@percent }
-\newlabel{sec:ellipsoidische_geometrie}{{D.5}{525}{Ellipsoidische Geometrie}{section.D.5}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {D.5.1}Ellipsoidische Geodäten}{525}{subsection.D.5.1}\protected@file@percent }
-\newlabel{sec:ellipsoidische_geodaeten}{{D.5.1}{525}{Ellipsoidische Geodäten}{subsection.D.5.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {D.5.2}Ellipsoidische Dreiecke}{525}{subsection.D.5.2}\protected@file@percent }
-\newlabel{sec:ellipsoidische_dreiecke}{{D.5.2}{525}{Ellipsoidische Dreiecke}{subsection.D.5.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {D.5.3}Ellipsoidische Voronoi-Gitter}{525}{subsection.D.5.3}\protected@file@percent }
-\newlabel{sec:ellipsoidische_voronoi-gitter}{{D.5.3}{525}{Ellipsoidische Voronoi-Gitter}{subsection.D.5.3}{}}
+\newlabel{eq:great_senkr_traj_deriv_2}{{D.219}{523}{Senkrechte Trajektorien}{equation.D.3.219}{}}
+\newlabel{eq:great_senkr_traj_deriv_3}{{D.220}{523}{Senkrechte Trajektorien}{equation.D.3.220}{}}
+\newlabel{eq:great_senkr_traj}{{D.221}{523}{Senkrechte Trajektorien}{equation.D.3.221}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {D.4}\textsc  {Great}-Koordinaten}{524}{section.D.4}\protected@file@percent }
+\newlabel{sec:greatkoordinaten}{{D.4}{524}{\textsc {Great}-Koordinaten}{section.D.4}{}}
+\newlabel{eq:great_skal}{{D.222}{524}{\textsc {Great}-Koordinaten}{equation.D.4.222}{}}
+\newlabel{eq:great_senkr_traj_skaliert}{{D.223}{524}{\textsc {Great}-Koordinaten}{equation.D.4.223}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {D.4.1}Vertikalkoordinate}{524}{subsection.D.4.1}\protected@file@percent }
+\newlabel{sec:vertikalkoordinate}{{D.4.1}{524}{Vertikalkoordinate}{subsection.D.4.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {D.4.2}Zonale Koordinate}{524}{subsection.D.4.2}\protected@file@percent }
+\newlabel{sec:zonale_koordinate}{{D.4.2}{524}{Zonale Koordinate}{subsection.D.4.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {D.4.3}Meridionale Koordinate}{524}{subsection.D.4.3}\protected@file@percent }
+\newlabel{sec:meridionale_koordinate}{{D.4.3}{524}{Meridionale Koordinate}{subsection.D.4.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {D.4.4}Metrischer Tensor}{524}{subsection.D.4.4}\protected@file@percent }
+\newlabel{sec:metrischer_tensor}{{D.4.4}{524}{Metrischer Tensor}{subsection.D.4.4}{}}
+\newlabel{eq:great_deriv_1}{{D.227}{524}{Metrischer Tensor}{equation.D.4.227}{}}
+\newlabel{eq:great_deriv_2}{{D.228}{524}{Metrischer Tensor}{equation.D.4.228}{}}
+\newlabel{eq:great_deriv_3}{{D.229}{525}{Metrischer Tensor}{equation.D.4.229}{}}
+\newlabel{eq:great_deriv_4}{{D.230}{525}{Metrischer Tensor}{equation.D.4.230}{}}
+\newlabel{eq:great_deriv_5}{{D.231}{525}{Metrischer Tensor}{equation.D.4.231}{}}
+\newlabel{eq:great_deriv_6}{{D.233}{525}{Metrischer Tensor}{equation.D.4.233}{}}
+\newlabel{eq:great_deriv_7}{{D.236}{525}{Metrischer Tensor}{equation.D.4.236}{}}
+\newlabel{eq:great_deriv_8}{{D.237}{526}{Metrischer Tensor}{equation.D.4.237}{}}
+\newlabel{eq:great_deriv_9}{{D.238}{526}{Metrischer Tensor}{equation.D.4.238}{}}
+\newlabel{eq:great_deriv_10}{{D.241}{526}{Metrischer Tensor}{equation.D.4.241}{}}
+\newlabel{eq:great_deriv_11}{{D.243}{526}{Metrischer Tensor}{equation.D.4.243}{}}
+\newlabel{eq:great_deriv_12}{{D.249}{527}{Metrischer Tensor}{equation.D.4.249}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {D.4.5}Transformation von \textsc  {Great}-Koordinaten in globale Koordinaten}{528}{subsection.D.4.5}\protected@file@percent }
+\newlabel{sec:transformation_von_greatKoordinaten_in_globale_koordinaten}{{D.4.5}{528}{Transformation von \textsc {Great}-Koordinaten in globale Koordinaten}{subsection.D.4.5}{}}
+\newlabel{eq:trafo_great_zu_glo_deriv_1}{{D.254}{528}{Transformation von \textsc {Great}-Koordinaten in globale Koordinaten}{equation.D.4.254}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {D.4.6}Transformation von globalen Koordinaten in \textsc  {Great}-Koordinaten}{528}{subsection.D.4.6}\protected@file@percent }
+\newlabel{sec:transformation_von_globalen_Koordinaten_in_greatkoordinaten}{{D.4.6}{528}{Transformation von globalen Koordinaten in \textsc {Great}-Koordinaten}{subsection.D.4.6}{}}
+\newlabel{eq:trafo_glo_zu_great_deriv_5}{{D.260}{528}{Transformation von globalen Koordinaten in \textsc {Great}-Koordinaten}{equation.D.4.260}{}}
+\newlabel{eq:eq:trafo_glo_zu_great_deriv_1}{{D.261}{529}{Transformation von globalen Koordinaten in \textsc {Great}-Koordinaten}{equation.D.4.261}{}}
+\newlabel{eq:def_ell_skal}{{D.262}{529}{Transformation von globalen Koordinaten in \textsc {Great}-Koordinaten}{equation.D.4.262}{}}
+\newlabel{eq:trafo_glo_zu_great_deriv_2}{{D.268}{529}{Transformation von globalen Koordinaten in \textsc {Great}-Koordinaten}{equation.D.4.268}{}}
+\newlabel{eq:trafo_glo_zu_great_deriv_3}{{D.271}{529}{Transformation von globalen Koordinaten in \textsc {Great}-Koordinaten}{equation.D.4.271}{}}
+\newlabel{eq:trafo_glo_zu_great_deriv_4}{{D.273}{530}{Transformation von globalen Koordinaten in \textsc {Great}-Koordinaten}{equation.D.4.273}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {D.4.7}Rotation in \textsc  {Great}-Koordinaten}{531}{subsection.D.4.7}\protected@file@percent }
+\newlabel{sec:rotation_in_great-koordinaten}{{D.4.7}{531}{Rotation in \textsc {Great}-Koordinaten}{subsection.D.4.7}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {D.5}Ellipsoidische Geometrie}{531}{section.D.5}\protected@file@percent }
+\newlabel{sec:ellipsoidische_geometrie}{{D.5}{531}{Ellipsoidische Geometrie}{section.D.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {D.5.1}Ellipsoidische Geodäten}{531}{subsection.D.5.1}\protected@file@percent }
+\newlabel{sec:ellipsoidische_geodaeten}{{D.5.1}{531}{Ellipsoidische Geodäten}{subsection.D.5.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {D.5.2}Ellipsoidische Dreiecke}{531}{subsection.D.5.2}\protected@file@percent }
+\newlabel{sec:ellipsoidische_dreiecke}{{D.5.2}{531}{Ellipsoidische Dreiecke}{subsection.D.5.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {D.5.3}Ellipsoidische Voronoi-Gitter}{531}{subsection.D.5.3}\protected@file@percent }
+\newlabel{sec:ellipsoidische_voronoi-gitter}{{D.5.3}{531}{Ellipsoidische Voronoi-Gitter}{subsection.D.5.3}{}}
 \abx@aux@read@bbl@mdfivesum{7DFCC41652D7221C2FEF6709CF64ACE9}
 \abx@aux@defaultrefcontext{0}{abramowitz}{nty/global//global/global}
 \abx@aux@defaultrefcontext{0}{nasa_earth}{nty/global//global/global}
@@ -2313,4 +2311,4 @@
 \abx@aux@defaultrefcontext{0}{arakawa_grids_figure}{nty/global//global/global}
 \abx@aux@defaultrefcontext{0}{thuburn_hexagonal_grid}{nty/global//global/global}
 \abx@aux@defaultrefcontext{0}{doi:10.1256/qj.04.49}{nty/global//global/global}
-\gdef \@abspage@last{553}
+\gdef \@abspage@last{559}

@@ -98,7 +98,6 @@
 \newcommand{\CAPE}{\text{CAPE}}
 \newcommand{\CIN}{\text{CIN}}
 \newcommand{\PVU}{\text{PVU}}
-\newcommand{\TKE}{\text{TKE}}
 \newcommand{\newvline}{\:\vline\:}
 \newcommand{\id}{\text{id}}
 \let\lim\relax
@@ -6217,7 +6216,7 @@ wobei $\newoverline{v}$ und $n$ als homogen angenommen werden. Befindet sich das
 aufgewendet werden, um das Strömungsfeld aufrechtzuerhalten. Diese Gleichung definiert die \textit{dynamische Viskosität}\index{dynamische Viskosität}\index{Viskosität!dynamische} $\eta$. Der horizontale Impuls fließt hierbei in $-z-$Richtung, bei Stationarität gilt somit
 %
 \begin{align}
-	\eta \approx \frac{n\lambda\newoverline{v}m}{3}.\label{eq:dyn_viscosity_kinetic_model}
+\eta \approx \frac{n\lambda\newoverline{v}m}{3}.\label{eq:dyn_viscosity_kinetic_model}
 \end{align}
 %
 Innere Reibung in einem Fluid ist also diffusiver Impulstransport aufgrund der Viskosität. Ist $c$ die Wärmekapazität pro Teilchen, ist $cT$ die Wärmeenergie pro Teilchen. Setzt man $q = cT$ an, erhält man
@@ -9397,7 +9396,7 @@ Setzt man dies in Glg. \eqref{eq:poisson_bracket_atm_gen_deriv_12} ein, erhält 
 &= -\nabla\frac{\delta H}{\delta\rho} - \frac{q_1}{\rho}\nabla\frac{\delta H}{\delta q_1} - \frac{\etabi}{\rho}\times\frac{\delta H}{\delta\mathbf{v}}.\label{eq:poisson_bracket_atm_gen_deriv_16}
 \end{align}
 %
-In der zweiten Zeile wurden dabei die Markierungen der konstant gehaltenen Größen weggelassen, da aus der Definition von $H$ eindeutig ist, wie die Ableitungen zu verstehen sind. Setzt man die Glg.en \eqref{eq:poisson_bracket_atm_gen_deriv_10} - \eqref{eq:poisson_bracket_atm_gen_deriv_11}, \eqref{eq:poisson_bracket_atm_gen_deriv_16} in Glg. \eqref{eq:poisson_bracket_atm_gen_deriv_0} ein, erhält man
+In der zweiten Zeile wurden dabei die Markierungen der konstantgehaltenen Größen weggelassen, da aus der Definition von $H$ eindeutig ist, wie die Ableitungen zu verstehen sind. Setzt man die Glg.en \eqref{eq:poisson_bracket_atm_gen_deriv_10} - \eqref{eq:poisson_bracket_atm_gen_deriv_11}, \eqref{eq:poisson_bracket_atm_gen_deriv_16} in Glg. \eqref{eq:poisson_bracket_atm_gen_deriv_0} ein, erhält man
 %
 \begin{align}
 \left\lbrace F, H\right\rbrace &= -\int_A\frac{\delta F}{\delta\rho}\nabla\cdot\frac{\delta H}{\delta\mathbf{v}}d^3r - \int_A\frac{\delta F}{\delta q_1}\nabla\cdot\left(\frac{q_1}{\rho}\frac{\delta H}{\delta\mathbf{v}}\right)d^3r\nonumber\\
@@ -17753,7 +17752,7 @@ Dieses Gebiet des Spektrums ($k > k_c$) bezeichnet man als \textit{dissipative r
 \doublebox{\parbox{\textwidth}{
 \begin{center}
 \begin{align}
-\newtilde{e}\left(k\right) & \approx \kappa_K\epsilon^{2/3}k^{-5/3}.
+\newtilde{e}\left(k\right) & \approx \kappa_K\epsilon^{2/3}k^{-5/3}.\label{eq:ekin_spec_inertial_subrange}
 \end{align}
 \end{center}
 }}
@@ -24037,30 +24036,31 @@ Die Atmosphäre ist global. Ein Regionalmodell ist trotzdem praktisch, um Experi
 \chapter{\normalfont\textsc{Irreversible Dynamik}}
 \label{chap:irreversible_dynamik}\index{irreversible Dynamik}\index{Dynamik!irreversible}
 
-In diesem Kapitel wird weiterhin von trockener Luft\index{trockene Luft}\index{Luft!trockene} ausgegangen. Aufgrund von Glg. in Verbindung mit Glg. ist die im vorigen Kapitel entwickelte Diskretisierung reversibel. Die irreversible Effekte in einer trockenen Atmosphäre sind die Diffusionen. Es gibt drei Arten von Diffusion:
+In diesem Kapitel wird weiterhin von trockener Luft\index{trockene Luft}\index{Luft!trockene} ausgegangen. Aufgrund von Glg. in Verbindung mit Glg. ist die im vorigen Kapitel entwickelte Diskretisierung reversibel. Die irreversible Effekte in einer trockenen Atmosphäre sind die Diffusionen. Es gibt zwei Arten von Diffusion:
 %
 \begin{itemize}
-\item Massendiffusion\index{Massendiffusion}\index{Diffusion!Masse}
 \item Temperaturdiffusion\index{Temperaturdiffusion}\index{Diffusion!Temperatur}
 \item Impulsdiffusion\index{Impulsdiffusion}\index{Diffusion!Impuls}
 \end{itemize}
 %
+Auf der molekularen Skala gibt es gemäß Glg. \eqref{eq:diffusionsglg} auch Diffusion von Masse, allerdings diffundiert Turbulenz in einer trockenen Atmosphäre keine Masse. Dies liegt daran, dass Turbulenz nur das Mischungsverhältnis diffundiert, welches in einer trockenen Atmosphäre Eins ist, und somit keine räumliche Variabilität, die diffundiert werden könnte.
+%
 Dementsprechend muss das Gleichungssystem Glg.en \eqref{eq:prog_rev_0} - \eqref{eq:prog_rev_3} wie folgt \textcolor{red}{modifiziert} werden:
-
+%
 \begin{center}
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
 \frac{\partial\mathbf{v}}{\partial t} &= -c^{(p)}\theta\nabla\Pi - \nabla k + \mathbf{v}\times\etabi - \nabla\phi + \textcolor{red}{\mathbf{f}_R}\label{eq:prog_irrev_0}\\
-\frac{\partial\rho}{\partial t} &= -\nabla\cdot\left(\rho\mathbf{v}\right) + \textcolor{red}{\nabla\cdot\left(\kappa_\rho\nabla\rho\right)}\label{eq:prog_irrev_1}\\
-\frac{\partial\newtilde{s}}{\partial t} &= -\nabla\cdot\left(\newtilde{s}\mathbf{v}\right) + \textcolor{red}{\frac{q^{(V)}}{c^{(p)}\Pi}}\label{eq:prog_irrev_2}\\
+\frac{\partial\rho}{\partial t} &= -\nabla\cdot\left(\rho\mathbf{v}\right)\label{eq:prog_irrev_1}\\
+\frac{\partial\newtilde{s}}{\partial t} &= -\nabla\cdot\left(\newtilde{\theta}\mathbf{v}\right) + \textcolor{red}{\frac{q^{(V)}}{c^{(p)}\Pi}}\label{eq:prog_irrev_2}\\
 \Pi &= f\left(\newtilde{\theta}\right)\label{eq:prog_irrev_3}
 \end{align}
 \end{center}
 }}
 \end{center}
-
-Die Impulsdiffusion\index{Impulsdiffusion}\index{Diffusion!Impuls} $\mathbf{f}_R$ wird in den Abschnitten \ref{sec:impulsdiffusion_h} und \ref{sec:impulsdiffusion_v} konkretisiert.  Die Massendiffusion\index{Massendiffusion}\index{Diffusion!Masse} wird in Form der Konvergenz einer Flussdichte $\nabla\cdot\left(\kappa_\rho\nabla\rho\right)$ in die Kontinuitätsleichung aufgenommen, wobei $\kappa_\rho$ der zugehörige molekulare Diffusionskoeffizient\index{Diffusionskoeffizient!Masse} ist. In die Wärmeleistungsdichte $q^{(V)}$ gehen zwei Effekte ein:
+%
+Die Massendiffusion\index{Massendiffusion}\index{Diffusion!Masse} wird in Form der Konvergenz einer Flussdichte $\nabla\cdot\left(\kappa_\rho\nabla\rho\right)$ in die Kontinuitätsleichung aufgenommen, wobei $\kappa_\rho$ der zugehörige molekulare Diffusionskoeffizient\index{Diffusionskoeffizient!Masse} ist. In die Wärmeleistungsdichte $q^{(V)}$ gehen zwei Effekte ein:
 %
 \begin{align}
 q^{(V)} = q^{(V)}_\text{diss} + q^{(V)}_\text{Tdiff} = \rho\epsilon + \nabla\cdot\left(c_d^{(v)}\rho\kappa_T\nabla T\right)
@@ -24068,52 +24068,22 @@ q^{(V)} = q^{(V)}_\text{diss} + q^{(V)}_\text{Tdiff} = \rho\epsilon + \nabla\cdo
 %
 Hierbei ist $\epsilon$ die Dissipation\index{Dissipation}. Der Term $\nabla\cdot\left(c_d^{(v)}\rho\kappa_T\nabla T\right)$ beschreibt die Konvergenz der aus der Temperaturdiffusion\index{Temperaturdiffusion}\index{Diffusion!Temperatur} resultierenden Wärmeflussdichte\index{Wärmeflussdichte}.
 
-Die Temperaturgleichung Glg. \eqref{eq:prog_irrev_3} ist dieselbe wie Glg. \eqref{eq:prog_rev_3}, die diffusiven Effekte gehen über $\Delta\rho$ und $\Delta\newtilde{s}$ auch in die Temperatur ein. In Analogie zum vorigen Kapitel werden auch in diesem Kapitel die horizontalen und vertikalen Diskretisierungen separat hergeleitet, auch wenn es in einem nichthydrostatischen Modell keine Auszeichnung der vertikalen Raumrichtung mehr gibt. Alle in diesem Kapitel betrachteten irreversiblen Terme werden nur im Corrector-Schritt berücksichtigt.
+Die Temperaturgleichung Glg. \eqref{eq:prog_irrev_3} ist dieselbe wie Glg. \eqref{eq:prog_rev_3}, die diffusiven Effekte gehen über $\Delta\rho$ und $\Delta\newtilde{s}$ auch in die Temperatur ein. In Analogie zum vorigen Kapitel werden auch in diesem Kapitel die horizontalen und vertikalen Diskretisierungen separat hergeleitet, auch wenn es in einem nichthydrostatischen Modell keine Auszeichnung der vertikalen Raumrichtung mehr gibt.
 
-\section{Horizontale Diffusion}
-\label{sec:horizontale_diffusion}\index{horizontale Diffusion}\index{Diffusion!horizontale}
+Alle in diesem Kapitel entwickelten Terme werden nur im Predictor-Schritt berechnet und im Corrector-Schritt konstantgehalten.
 
-\subsection{Massendiffuson}
-\label{sec:massendiffusion_h}\index{horizontale Massendiffusion}\index{Massendiffusion!horizontale}
-
-\subsection{Temperaturdiffuson}
-\label{sec:temperaturdiffusion_h}\index{horizontale Temperaturdiffusion}\index{Temperaturdiffusion!horizontale}
-
-\subsection{Impulsdiffusion}
-\label{sec:impulsdiffusion_h}\index{horizontale Impulsdiffusion}\index{Impulsdiffusion!horizontale}
-
-\subsubsection{Dissipation}
-\label{sec:dissipation_modell}
-
-\section{Vertikale Diffusion}
-\label{sec:vertikale_diffusion}\index{vertikale Diffusion}\index{Diffusion!vertikale}
-
-\subsection{Massendiffuson}
-\label{sec:massendiffusion_v}\index{vertikale Massendiffusion}\index{Massendiffusion!vertikale}
-
-\subsection{Temperaturdiffuson}
-\label{sec:temperaturdiffusion_v}\index{vertikale Temperaturdiffusion}\index{Temperaturdiffusion!vertikale}
-
-\subsection{Impulsdiffusion}
-\label{sec:impulsdiffusion_v}\index{vertikale Impulsdiffusion}\index{Impulsdiffusion!vertikale}
-
-Die mit der vertikalen Diffusion von Impuls\index{Impulsdiffusion!vertikale}\index{vertikale Impulsdiffusion} verbundene Dissipation\index{Dissipation} ist durch die Betrachtung in Abschn. \ref{sec:dissipation_modell} bereits vollständig festgelegt.
-
-\subsection{Obere Randbedingung}
-\label{sec:obere_randbedingung_irreversibel}\index{obere Randbedingung}\index{Randbedingung!obere}
-
-\section{Parametrisierungen}
-\label{sec:parametrisierungen_modell_irreversibel}\index{Parametrisierung}
+\section{Grundüberlegungen über Turbulenz-Parametrisierungen}
+\label{sec:grundueberlegungen_ueber_turbulenz-parametrisierungen}\index{Parametrisierung!Turbulenz}
 
 Die diffusiven (irreversiblen) Terme stellen eine Ankopplung der kontinuierlichen Welt der Navier-Stokes-Gleichungen\index{Navier-Stokes-Gleichung} and die molekulare Skala dar. Wie in Abschn. \ref{sec:thermodynamische_bedeutung_der_reibung} festgestellt wurde, vernichtet (dissipiert\index{Dissipation}) die Impulsdiffusion\index{Impulsdiffusion} kinetische Energie zugunsten der inneren Energie. Die Atmosphäre kann konzeptionell als Tiefpass\index{Tiefpass}\index{Atmosphäre!als Tiefpass} aufgefasst werden, wobei Wellenlängen  $< l_c$ gefiltert werden, wobei $l_c$ die charakteristische Länge laut Glg. \eqref{eq:characteristic_length} bezeichnet.
 
-Bisher wurden nur tatsächliche physikalische Gleichungen diskretisiert, dies bezeichnet man als \textit{direkte numerische Simulation (DNS)}\index{direkte numerische Simulation (DNS)}\index{DNS (direkte numerische Simulation)}. Dieses Vorgehen ist jedoch problematisch falls für die Auflösung $\Delta r$ gilt
+Bisher wurden nur tatsächliche physikalische Gleichungen diskretisiert, dies bezeichnet man als \textit{direkte numerische Simulation (DNS)}\index{direkte numerische Simulation (DNS)}\index{DNS (direkte numerische Simulation)}. Dieses Vorgehen ist jedoch problematisch falls für die Auflösung $\Delta x$ gilt
 %
 \begin{align}
-2\Delta r \gg l_c,
+2\Delta x\gg l_c,
 \end{align}
 %
-eine solche Diskretisierung\index{Diskretisierung} ist nämlich ein Tiefpass\index{Tiefpass}\index{Diskretisierung!als Tiefpass} mit der Grenzwellenlänge $2\Delta r$. Dementsprechend muss in einem numerischen Modell die Dissipation\index{Dissipation!numerische}\index{Numerik!Dissipation} schon eher einsetzen. Laut Glg. \eqref{eq:dyn_viscosity_kinetic_model} gilt für die kinematische Viskosität\index{kinematische Viskosität}\index{Viskosität!kinematische} $\nu$ die Gleichung
+eine solche Diskretisierung\index{Diskretisierung} ist nämlich ein Tiefpass\index{Tiefpass}\index{Diskretisierung!als Tiefpass} mit der Grenzwellenlänge $2\Delta x$. Dementsprechend muss in einem numerischen Modell die Dissipation\index{Dissipation!numerische}\index{Numerik!Dissipation} schon eher einsetzen. Laut Glg. \eqref{eq:dyn_viscosity_kinetic_model} gilt für die kinematische Viskosität\index{kinematische Viskosität}\index{Viskosität!kinematische} $\nu$ die Gleichung
 %
 \begin{align}
 \nu = \left(l_c^4\epsilon\right)^{1/3}.
@@ -24125,7 +24095,7 @@ Dementsprechend erwartet man, dass
 \frac{\nu_\text{numerisch}}{\nu_\text{molekular}} \sim \left(\frac{\text{min}\left(l_m, 2\Delta r\right)}{l_c}\right)^{4/3}
 \end{align}
 %
-eine sinnvolle Abschätzung für die numerische Viskosität\index{numerische Viskosität}\index{Viskosität!numerische} ist, hierbei ist $l_m$ die Mischungsweglänge. Die Beschränkung auf die Mischungsweglänge im Zähler ist sinnvoll, da das Fluid im Modell niemals zäher (viskoser) sein darf als das natürliche Medium, da sonst keine realistischen Simulationen der Dynamik zu erwarten sind. Für die vertikale Mischungsweglänge wurde mit Glg. \eqref{eq:estimate_mix_len} innerhalb der Ekman-Schicht ein Wert von ca. 20 m abgeschätzt, damit und der Abschätzungen $l_c = 5$ mm erhält man
+eine sinnvolle Abschätzung für die numerische Viskosität\index{numerische Viskosität}\index{Viskosität!numerische} ist, hierbei ist $l_m$ die Mischungsweglänge. Die Beschränkung auf die Mischungsweglänge im Zähler ist sinnvoll, da das Fluid im Modell niemals zäher (viskoser) sein darf als das natürliche Medium, da sonst keine realistischen Simulationen der Dynamik zu erwarten sind. Für die vertikale Mischungsweglänge wurde mit Glg. \eqref{eq:estimate_mix_len} innerhalb der Ekman-Schicht ein Wert von ca. 20 m abgeschätzt, damit und mit der Abschätzungen $l_c = 5$ mm erhält man
 %
 \begin{align}
 \text{log}_{10}\left(\frac{\nu_\text{numerisch}}{\nu_\text{molekular}}\right) = 4,8.
@@ -24133,48 +24103,60 @@ eine sinnvolle Abschätzung für die numerische Viskosität\index{numerische Vis
 %
 Dies entspricht grob dem in Glg. \eqref{sec:eddy_viscosity_vert_estimate} erhaltenen Wert.
 
-Außerhalb der planetarischen Grenzschicht kann von einem Wert für die vertikale Mischungsweglänge von ca. 100 m ausgegangen werden, da dort größere Wirbel existieren. Die horizontale Mischungsweglänge kann außerhalb der planetarischen Grenzschicht mit ca. 10 km abgeschätzt werden (zwei Größenordnungen über der horizontalen Mischungsweglänge). Simulationen, deren Auflösung die Mischungsweglänge unterschreiten, bezeichnet man als \textit{large eddy simulations (LES)}\index{large eddy simulation (LES)}. Bei weiterer Erhöhung der Auflösung findet eine Konvergenz der numerischen gegen die molekularen Diffusionskoeffizienten statt.
+Außerhalb der planetarischen Grenzschicht kann von einem Wert für die vertikale Mischungsweglänge von ca. 100 m ausgegangen werden, da dort größere Wirbel existieren. Die horizontale Mischungsweglänge kann außerhalb der planetarischen Grenzschicht mit ca. 10 km abgeschätzt werden (zwei Größenordnungen über der vertikalen Mischungsweglänge). Simulationen, deren Auflösung die Mischungsweglänge unterschreiten, bezeichnet man als \textit{large eddy simulations (LES)}\index{large eddy simulation (LES)}. Bei weiterer Erhöhung der Auflösung findet eine Konvergenz der numerischen gegen die molekularen Diffusionskoeffizienten statt.
 
-\subsection{Impuls}
-\label{sec:impuls}\index{Impulsdiffusion}\index{Diffusion!Impuls}
+\section{Smagorinsky-Modelle}
+\label{sec:smagorinsky-modelle}\index{Smagorinsky-Modell}
 
-Projiziert man Glg. \eqref{eq:friction_acceleration_for_discrete} auf $\mathbf{e}_x$, erhält man
+\subsection{Klassisches Smagorinsky-Modell}
+\label{sec:klassisches_smagorinsky-modell}\index{Smagorinsky-Modell!klassisch}
+
+Der einfachste Ansatz, den turbulenten horizontalen Diffusionskoeffizienten $K_h$ zu berechnen, ist das sogenannte \textit{klassische Smagorinsky-Modell (classic Smagorinsky model, CSM).} Der relevante Skalenbereich der turbulenten Diffusion in der Atmosphäre ist die inertial subrange ($k^\star < k \ll k_c$), in diesem gilt Glg. \eqref{eq:ekin_spec_inertial_subrange}, welche hier noch einmal wiedergegeben wird:
 %
 \begin{align}
-\mathbf{e}_x\cdot\mathbf{f}_R &= \mathbf{e}_x\cdot\left[\left(\frac{K_v}{\rho} + \frac{4K}{3}\right)\nabla D - K\nabla\times\zetabi\right] = \left(\frac{K_v}{\rho} + \frac{4K}{3}\right)\frac{\partial D}{\partial x} - K\left(\frac{\partial\zeta_z}{\partial y} - \frac{\partial\zeta_y}{\partial z}\right)\nonumber\\
-&= \left(\frac{K_v}{\rho} + \frac{4K}{3}\right)\frac{\partial D}{\partial x} + K\left(\frac{\partial\zeta_y}{\partial z} - \frac{\partial\zeta_z}{\partial y}\right).
+\newtilde{e}\left(k\right) = \kappa_K\epsilon^{2/3}k^{-5/3}\label{eq:ekin_spec_inertial_subrange_mod}
 \end{align}
 %
-Hier kann auch von der inkompressiblen Form ausgegangen werden:
-%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 \begin{align}
-\mathbf{e}_x\cdot\mathbf{f}_R &= K\frac{\partial D}{\partial x} + K\left(\frac{\partial\zeta_y}{\partial z} - \frac{\partial\zeta_z}{\partial y}\right).
+K_h = \rho c_SA\sqrt{E^2 + F^2}.
 \end{align}
-%
-Die subskalige Viskosität beschreibt den Einfluss des nicht aufgelösten Anteils der kinetischen Energie, welche man auch als \textit{turbulente kinetische Energie ($\TKE$)}\index{turbulente kinetische Energie ($\TKE$)}\index{kinetische Energie!turbulente ($\TKE$)}\index{$\TKE$ (turbulente kinetische Energie)} bezeichnet. Man kann die $\TKE$ als zusätzliche prognostische Größe einführen und für diese eine Gleichung
+\end{center}
+}}
+\end{center}
+
+\subsection{Dynamisches Smagorinsky-Modell}
+\label{sec:dynamisches_smagorinsky-modell}\index{Smagorinsky-Modell!dynamisch}
+
+\section{TKE-Ansatz}
+\label{sec:tke-ansatz}\index{TKE-Ansatz}
+
+Die subskalige Viskosität beschreibt den Einfluss des nicht aufgelösten Anteils der kinetischen Energie, welche man auch als \textit{turbulente kinetische Energie (TKE)}\index{turbulente kinetische Energie}\index{kinetische Energie!turbulente} bezeichnet. Man kann die volumetrische TKE $\tau$ als zusätzliche prognostische Größe einführen und für diese eine Gleichung
 %
 \begin{align}
-\frac{\partial\TKE}{\partial t} = -\mathbf{v}\cdot\nabla\TKE + \text{Quellen} - \text{Senken}\label{eq:tke_ansatz}
+\frac{\partial\tau}{\partial t} = -\nabla\cdot\left(\tau\mathbf{v}\right) + \text{Quellen} - \text{Senken}\label{eq:tke_ansatz}
 \end{align}
 %
 lösen. Anschließend können die Viskositätskoeffizienten als Funktionen 
 %
 \begin{align}
-K = K\left[\mathbf{v}\left(\mathbf{r}\right), \TKE\right]
+K = K\left[\mathbf{v}\left(\mathbf{r}\right),\tau\right]
 \end{align}
 %
-des derzeitigen Windfeldes und der $\TKE$ ausgedrückt werden. Über die prognostische Gleichung der $\TKE$ enthält dieser Ansatz dann auch Informationen über das vergangene Windfeld.
+des derzeitigen Windfeldes und der $\tau$ ausgedrückt werden. Über die prognostische Gleichung der $\tau$ enthält dieser Ansatz dann auch Informationen über das vergangene Windfeld.
 
 Die Senke der TKE (s. Glg. \eqref{eq:tke_ansatz}) ist die molekulare Dissipation $\epsilon$. Für die Quellen wird das Symbol $S$ verwendet, somit erhält man
 %
 \begin{align}
-\frac{\partial\TKE}{\partial t} = -\mathbf{v}\cdot\nabla\TKE + S - \epsilon.
+\frac{\partial\tau}{\partial t} = -\nabla\cdot\left(\tau\mathbf{v}\right) + S - \epsilon.
 \end{align}
 %
 Für $\epsilon$ bietet sich der einfache Ansatz
 %
 \begin{align}
-\epsilon = \kappa\TKE
+\epsilon = \kappa\tau
 \end{align}
 %
 an. $S$ besteht aus
@@ -24187,7 +24169,7 @@ an. $S$ besteht aus
 Somit erhält man
 %
 \begin{align}
-\frac{\partial\TKE}{\partial t} = -\mathbf{v}\cdot\nabla\TKE + \epsilon_\Delta + S' - \kappa\TKE.
+\frac{\partial\tau}{\partial t} = -\nabla\cdot\left(\tau\mathbf{v}\right) + \epsilon_\Delta + S' - \kappa\tau.
 \end{align}
 %
 Für $S'$ bietet sich der Ansatz
@@ -24199,7 +24181,7 @@ S' = \kappa'\KE
 an. Somit lautet die Gleichung für die TKE
 %
 \begin{align}
-\frac{\partial\TKE}{\partial t} = -\mathbf{v}\cdot\nabla\TKE + \epsilon_\Delta + \kappa'\KE - \kappa\TKE.
+\frac{\partial\tau}{\partial t} = -\mathbf{v}\cdot\nabla\tau + \epsilon_\Delta + \kappa'\KE - \kappa\tau.
 \end{align}
 %
 Um $\kappa$ zu bestimmen, macht man den eindimensionalen Ansatz
@@ -24216,42 +24198,35 @@ wobei $l = \frac{2\pi}{\lambda}$ in diesem Fall die Kreiswellenzahl bezeichnet. 
 %
 führt. $K$ ist hierbei ein diskreter Diffusionskoeffizient $K_\Delta$.
 
-\subsubsection{Horizontale und vertikale Diffusionskoeffizenten}
-\label{sec:horizontale_und_vertikale_diffusionskoeffizenten}\index{Diffusionskoeffizient!horizontaler}\index{Diffusionskoeffizient!vertikaler}
+\section{Besonderheiten vertikaler Diffusionskoeffizenten}
+\label{sec:besonderheiten_vertikaler_diffusionskoeffizenten}\index{Diffusionskoeffizient!vertikaler}
 
 Beim Smagorinsky- und TKE-Ansatz geht es letzten Endes darum, Diffusionskoeffizienten zu berechnen. Im Sinne des Mischungswegansatzes kann man den vertikalen Diffusionskoeffizienten $K_v$ über
 %
 \begin{align}
-K_v = \newoverline{lw'} \approx l\cdot 0,01\sqrt{2\TKE} \equiv cl\sqrt{2\TKE}
+K_v = \newoverline{lw'} \approx l\cdot 0,01\sqrt{2\tau} \equiv cl\sqrt{2\tau}
 \end{align}
 %
 berechnen, hierbei ist $l > 0$ die Mischungsweglänge. Der Parameter $c \approx 0,01$ kann in der Modellierung als Tuningparameter aufgefasst werden. Für Schichtdicken $\Delta z < l$ muss man dies zu
 %
 \begin{align}
-K_v = c\text{min}\left(l, \Delta z\right)\sqrt{2\TKE}
+K_v = c\text{min}\left(l, \Delta z\right)\sqrt{2\tau}
 \end{align}
 %
 verallgemeinern.
 
-\subsection{Masse}
-\label{sec:masse}\index{Massendiffusion}\index{Diffusion!Masse}
+\section{Dissipation}
+\label{sec:dissipation_modell}
 
+\section{Obere Randbedingung}
+\label{sec:obere_randbedingung_irreversibel}\index{obere Randbedingung}\index{Randbedingung!obere}
 
-
-\subsection{Temperatur}
-\label{sec:temperatur}\index{Temperaturdiffusion}\index{Diffusion!Temperatur}
-
-
-
-\chapter{\normalfont\textsc{Weiterführende Aspekte}}
-\label{chap:weiterfuehrende_aspekte}
-
-\section{Framework für die Berücksichtigung von Tracern}
-\label{sec:framework_fuer_die_beruecksichtigung_von_tracern}
+\chapter{\normalfont\textsc{Wasserdampf und Kondensate}}
+\label{chap:wasserdampf_und_kondensate}
 
 Führt man $N \geq 1$ Tracer ein (also Anteile der Luft, die nicht zur trockenen Luft gehören), von denen $1 \leq N_C \leq N - 1$ kondensiert sind, so benötigt man $N$ zusätzliche Kontinuitätsgleichungen. Macht man die Annahme des lokalen thermodynamischen Gleichgewichts (alle Kondensate haben die gleiche Temperatur wie die Gasphase), muss man keine zusätzlichen Ersten Hauptsätze einführen. Der Grundansatz zur dynamischen und thermodynamischen Ankopplung der gasförmigen und kondensierten Tracer an das Gleichungssystem für trockene Luft wurde in Abschn. \ref{sec:heterogene_atmosphaere} festgelegt.
 
-\subsection{Vertikale Advektion einer Massendichte}
+\section{Vertikale Advektion einer Massendichte}
 \label{sec:vertikale_advektion_einer_massendichte}
 
 Sei $\rho$ eine Massendichte. Vorbereitend wird das Crank-Nicolson-Verfahren mit $n$ als gegenwärtigem Zeitschritt notiert:
@@ -24379,15 +24354,15 @@ b_{N_L} &= 1 + \frac{\Delta t}{2}\frac{\alpha_{N_L - \frac{1}{2}, N_L}W_{N_L - 1
 c_i &= -\frac{\Delta t}{2}\alpha_{i + \frac{1}{2}, i + 1}\frac{W_{i + 1/2}^{(n + 1)}}{V_i}.
 \end{align}
 
-\subsection{Limiter}
+\section{Limiter}
 \label{sec:limiter}\index{Limiter}
 
 Nach Advektion, Diffusion und Phasenübergängen ist es möglich, dass negative Dichten entstehen können. Dies sollte nur durch Rundungsfehler der Fall sein. Diese numerischen Artefakte müssen korrigiert werden, indem man in diesen Gitterboxen am Ende des Zeitschritts die Dichte des jeweiligen Tracers auf Null setzt. Geschieht dies über Rundungsfehler hinaus, wird die Massenerhaltung verletzt, was nicht akzeptabel ist.
 
-\subsection{Parametrisierungen}
+\section{Parametrisierungen}
 \label{sec:parametrisierungen_tracer}\index{Parametrisierung!Phasenübergänge}\index{Phasenübergang!Parametrisierung}
 
-\subsection{Vier-Kondensate-Schema}
+\section{Vier-Kondensate-Schema}
 \label{sec:vier-kondensate-schema}\index{Vier-Kondensate-Schema}
 
 Dieses Schema berücksichtigt folgende vier Kondensatklassen:
@@ -24401,7 +24376,7 @@ Dieses Schema berücksichtigt folgende vier Kondensatklassen:
 %
 Dieses Schema ist adäquat für Globalmodelle.
 
-\subsubsection{Diskretisierung von Kondensation und Resublimation}
+\section{Diskretisierung von Kondensation und Resublimation}
 \label{sec:diskretisierung_von_kondensation_und_resublimation}\index{Kondensation!Diskretisierung}\index{Resublimation!Diskretisierung}
 
 Ist die Luft zum Zeitpunkt $t$ übersättigt, findet ein Phasenübergang von gasförmig nach flüssig oder von gasförmig nach fest statt, bis die Luft gesättigt ist. Ist die Luft untersättigt und ist noch Wolkenwasser oder Wolkeneis vorhanden, findet der Phasenübergang in die andere Richtung statt. Für die Modellierung geht man davon aus, dass nach einem Zeitschritt der Länge $\Delta t$ die Luft gesättigt ist, also
@@ -24454,14 +24429,14 @@ Nun ist noch zu bestimmen, welches der beiden Vorzeichen das physikalisch richti
 \Delta\rho_v = -\frac{p}{2} - \sqrt{\frac{p^2}{4} - q}.
 \end{align}
 
-\subsubsection{Entstehung von Niederschlag}
+\subsection{Entstehung von Niederschlag}
 \label{sec:entstehung_von_niederschlag}\index{Niederschlag!Modell}
 
 Es wird davon ausgegangen, dass die Größenverteilung der Regentropfen einer Marshall-Palmer-Verteilung Glg. \eqref{eq:marshall-palmer} entspricht.
 
 Es wird angenommen, dass bei und unterhalb von $-35^\circ$ C das Wolkenwasser komplett eisförmig ist und bei und oberhalb von $-10^\circ$ C das Wolkenwasser komplett flüssig ist und dazwischen ein linearer Übergang erfolgt. Dies ist durch Beobachtungen begründbar \cite{stensrud}.
 
-\subsection{Fünf-Kondensate-Schema}
+\section{Fünf-Kondensate-Schema}
 \label{sec:fuenf-kondensate-schema}\index{Fünf-Kondensate-Schema}
 
 Bei diesem Schema kommt gegenüber dem Vier-Kondensate-Schema noch eine fünfte Kondensatklasse hinzu, nämlich Graupel. Somit lauten die fünf hier verwendeten Kondensatklassen
@@ -24476,7 +24451,7 @@ Bei diesem Schema kommt gegenüber dem Vier-Kondensate-Schema noch eine fünfte 
 %
 Dieses Schema ist adäquat für Regionalmodelle.
 
-\subsection{Weiterführende Wolken-Mikrophysik-Schemata}
+\section{Weiterführende Wolken-Mikrophysik-Schemata}
 \label{sec:weiterfuehrende_wolken-mikrophysik-schemata}
 
 Bei den bisher betrachteten Schemata wird jede Kondesatklasse durch eine prognostische Variable, nämlich die Massendichte oder auch die spezifische Dichte beschrieben. Dies wäre nur dann eine vollständige Beschreibung, wenn alle Kondensate der jeweiligen Klasse den gleichen Radius und die gleiche Temperatur wie die Gasphase hätten. Beides ist jedoch im Allgemeinen nicht der Fall. Es bieten sich zwei Erweiterungen an:
@@ -24485,6 +24460,15 @@ Bei den bisher betrachteten Schemata wird jede Kondesatklasse durch eine prognos
 \item Jeder Kondensatklasse kann ihre eigene Temperatur zugewiesen werden.
 \item Die Größenverteilung innerhalb der Kondensatklassen kann berücksichtigt werden. Dies geschieht bei den sogenannten \textit{Multi-Moment-Schemata}\index{Multi-Moment-Schema}, bei denen die höheren Momente der Größenverteilungen (oder vergleichbare die Form der Verteilungen beschreibenden Größen) als zusätzliche prignostische Variablen eingeführt werden.
 \end{itemize}
+
+\chapter{\normalfont\textsc{Planetarische Grenzschicht}}
+\label{chap:planetarische_grenzschicht}
+
+\chapter{\normalfont\textsc{Soil-Parametrisierungen}}
+\label{chap:soil-parametrisierungen}
+
+\chapter{\normalfont\textsc{Weiterführende Aspekte}}
+\label{chap:weiterfuehrende_aspekte}
 
 \section{Ankopplung an ein Strahlungstransportmodell}
 \label{sec:ankopplung_an_ein_strahlungstransportmodell}
@@ -24502,9 +24486,9 @@ Nach diesen Verallgemeinerungen ist es sinnvoll, sich zu überlegen welche grund
 \end{itemize}
 
 \section{Post-processing}
-\label{sec:post-processing}
+\label{sec:post-processing}\index{Post-processing}
 
-\index{Post-processing}In diesem Abschnitt geht es um die Bestimmung von Größen, welche keine direkten Modellvariablen sind, jedoch standardmäßig von Wettermodellen erwartet werden.
+In diesem Abschnitt geht es um die Bestimmung von Größen, welche keine direkten Modellvariablen sind, jedoch standardmäßig von Wettermodellen erwartet werden.
 
 \subsection{2-m-Temperatur}
 \label{sec:2-m-temperatur}
