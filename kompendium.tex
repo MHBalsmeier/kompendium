@@ -24036,7 +24036,7 @@ Die Atmosphäre ist global. Ein Regionalmodell ist trotzdem praktisch, um Experi
 \chapter{\normalfont\textsc{Irreversible Dynamik}}
 \label{chap:irreversible_dynamik}\index{irreversible Dynamik}\index{Dynamik!irreversible}
 
-In diesem Kapitel wird weiterhin von trockener Luft\index{trockene Luft}\index{Luft!trockene} ausgegangen. Aufgrund von Glg. in Verbindung mit Glg. ist die im vorigen Kapitel entwickelte Diskretisierung reversibel. Die irreversible Effekte in einer trockenen Atmosphäre sind die Diffusionen. Es gibt zwei Arten von Diffusion:
+In diesem Kapitel wird die im vorigen Kapitel entwickelte reversible Diskretisierung um irreversible Effekte erweitert. Es wird weiterhin von trockener Luft\index{trockene Luft}\index{Luft!trockene} ausgegangen. Die irreversiblen Effekte in einer trockenen Atmosphäre sind die Diffusionen. Es gibt zwei Arten von Diffusion:
 %
 \begin{itemize}
 \item Temperaturdiffusion\index{Temperaturdiffusion}\index{Diffusion!Temperatur}
@@ -24077,13 +24077,13 @@ Alle in diesem Kapitel entwickelten Terme werden nur im Predictor-Schritt berech
 
 Die diffusiven (irreversiblen) Terme stellen eine Ankopplung der kontinuierlichen Welt der Navier-Stokes-Gleichungen\index{Navier-Stokes-Gleichung} and die molekulare Skala dar. Wie in Abschn. \ref{sec:thermodynamische_bedeutung_der_reibung} festgestellt wurde, vernichtet (dissipiert\index{Dissipation}) die Impulsdiffusion\index{Impulsdiffusion} kinetische Energie zugunsten der inneren Energie. Die Atmosphäre kann konzeptionell als Tiefpass\index{Tiefpass}\index{Atmosphäre!als Tiefpass} aufgefasst werden, wobei Wellenlängen  $< l_c$ gefiltert werden, wobei $l_c$ die charakteristische Länge laut Glg. \eqref{eq:characteristic_length} bezeichnet.
 
-Bisher wurden nur tatsächliche physikalische Gleichungen diskretisiert, dies bezeichnet man als \textit{direkte numerische Simulation (DNS)}\index{direkte numerische Simulation (DNS)}\index{DNS (direkte numerische Simulation)}. Dieses Vorgehen ist jedoch problematisch falls für die Auflösung $\Delta x$ gilt
+Bisher wurden nur tatsächliche physikalische Gleichungen diskretisiert, dies bezeichnet man als \textit{direkte numerische Simulation (DNS)}\index{direkte numerische Simulation (DNS)}\index{DNS (direkte numerische Simulation)}. Dieses Vorgehen ist jedoch problematisch falls für die Auflösung $\Delta$ gilt
 %
 \begin{align}
-2\Delta x\gg l_c,
+2\Delta\gg l_c,
 \end{align}
 %
-eine solche Diskretisierung\index{Diskretisierung} ist nämlich ein Tiefpass\index{Tiefpass}\index{Diskretisierung!als Tiefpass} mit der Grenzwellenlänge $2\Delta x$. Dementsprechend muss in einem numerischen Modell die Dissipation\index{Dissipation!numerische}\index{Numerik!Dissipation} schon eher einsetzen. Laut Glg. \eqref{eq:dyn_viscosity_kinetic_model} gilt für die kinematische Viskosität\index{kinematische Viskosität}\index{Viskosität!kinematische} $\nu$ die Gleichung
+eine solche Diskretisierung\index{Diskretisierung} ist nämlich ein Tiefpass\index{Tiefpass}\index{Diskretisierung!als Tiefpass} mit der Grenzwellenlänge $2\Delta$. Dementsprechend muss in einem numerischen Modell die Dissipation\index{Dissipation!numerische}\index{Numerik!Dissipation} schon eher einsetzen. Laut Glg. \eqref{eq:characteristic_length} gilt für die kinematische Viskosität\index{kinematische Viskosität}\index{Viskosität!kinematische} $\nu$ die Gleichung
 %
 \begin{align}
 \nu = \left(l_c^4\epsilon\right)^{1/3}.
@@ -24111,17 +24111,25 @@ Außerhalb der planetarischen Grenzschicht kann von einem Wert für die vertikal
 \subsection{Klassisches Smagorinsky-Modell}
 \label{sec:klassisches_smagorinsky-modell}\index{Smagorinsky-Modell!klassisch}
 
-Der einfachste Ansatz, den turbulenten horizontalen Diffusionskoeffizienten $K_h$ zu berechnen, ist das sogenannte \textit{klassische Smagorinsky-Modell (classic Smagorinsky model, CSM).} Der relevante Skalenbereich der turbulenten Diffusion in der Atmosphäre ist die inertial subrange ($k^\star < k \ll k_c$), in diesem gilt Glg. \eqref{eq:ekin_spec_inertial_subrange}, welche hier noch einmal wiedergegeben wird:
+Der einfachste Ansatz, den turbulenten horizontalen Diffusionskoeffizienten $K_\Delta$ zu berechnen, ist das sogenannte \textit{klassische Smagorinsky-Modell (classic Smagorinsky model, CSM).} Der relevante Skalenbereich der turbulenten Diffusion in der Atmosphäre ist die inertial subrange ($k^\star < k \ll k_c$), in diesem gilt Glg. \eqref{eq:ekin_spec_inertial_subrange}, welche hier noch einmal wiedergegeben wird:
 %
 \begin{align}
 \newtilde{e}\left(k\right) = \kappa_K\epsilon^{2/3}k^{-5/3}\label{eq:ekin_spec_inertial_subrange_mod}
 \end{align}
 %
+Aufgrund von Glg. \eqref{eq:characteristic_length} macht man für die turbulente kinematische Viskosität $\nu_\Delta$ den Ansatz
+%
+\begin{align}
+\nu_\Delta \propto \Delta^{4/3}\newtilde{\epsilon}^{1/3}.
+\end{align}
+%
+Hierbeit ist $\newtilde{\epsilon}$ die bei der Wellenlänge $\Delta$ aktive Dissipationsrate. Die turbulente dynamische Viskosität $K_\Delta$ lautet somit
+%
 \begin{center}
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-K_h = \rho c_SA\sqrt{E^2 + F^2}.
+K_\Delta = \rho\nu_\Delta = \rho c_S\Delta^2\sqrt{E^2 + F^2}.
 \end{align}
 \end{center}
 }}
