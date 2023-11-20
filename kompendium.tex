@@ -24033,6 +24033,38 @@ Die Atmosphäre ist global. Ein Regionalmodell ist trotzdem praktisch, um Experi
 \subsection{Nesting}
 \label{sec:nesting}\index{Nexting}
 
+Der Begriff \textit{Nesting} beschreibt die Generierung von Randbedingungen für ein regionales Modell. Sei
+%
+\begin{align}
+\psi = \psi\left(\mathbf{x}, z, t\right)
+\end{align}
+%
+ein Modellzustand, wobei $\mathbf{x}$ die horizontalen Koordinaten bezeichnet. Aus einem Modell mit größerer Domain, welches hier als Randmodell bezeichnet wird, beispielsweise einem Globalmodell, generiert man nun einen Zustand
+%
+\begin{align}
+\phi = \phi\left(\mathbf{x}, z, t\right),
+\end{align}
+%
+der durch örtliche und zeitliche Interpolation des Randodells auf das Gitter des Zielmodells gewonnen wird. Dabei wird zeitlich üblicherweise linear zwischen den Zeitschritten des Randmodells linearisiert, also
+%
+\begin{align}
+\phi\left(\mathbf{x}, z, t\right) = \frac{t_{n+1} - t}{t_{n+1} - t_n}\phi\left(\mathbf{x}, z, t_n\right) + \frac{t - t_n}{t_{n+1} - t_n}\phi\left(\mathbf{x}, z, t_{n + 1}\right).
+\end{align}
+%
+Bei jedem Zeitschritt des Zielmodells wird nun der Modellzustand $\psi$ an den Rändern der Domain ein Stück in Richtung $\phi$ bewegt, also
+%
+\begin{align}
+\psi_\text{neu}\left(\mathbf{x}, z, t\right) = \left(1 - f\left(\mathbf{x}\right)\right)\psi_\text{alt}\left(\mathbf{x}, z, t\right) + f\left(\mathbf{x}\right)\phi\left(\mathbf{x}, z, t\right).
+\end{align}
+%
+Hierbei ist $f = f\left(\mathbf{x}\right)$ eine Funktion, die die Beimengung des Randzustandes beschreibt. Der einfachst Ansatz wäre, diese Funktion am äußersten Rand der Domain auf Eins zu setzen und sonst auf Null. Dies kann jedoch relativ scharfe Gradienten erzeugen, welche unphysikalische Wellen ins Modellgebiet emittieren können. Sinnvoller ist beispielsweise ein Ansatz
+%
+\begin{align}
+f = f\left[d\left(\mathbf{x}\right)\right] = \cos\left[\text{min}\left(\frac{d\pi}{2n\Delta x},\frac{\pi}{2}\right)\right]^2.
+\end{align}
+%
+Hierbei ist ist $d\left(\mathbf{x}\right)$ der Abstand des Ortes $\mathbf{x}$ vom Rand der Domain und $n$ die Anzahl der Gitterzellen, innerhalb derer die Gewichtung der Randbedingungen auf Null abfällt. Diese Verfahren bezeichnet man auch als \textit{Nudging.}\index{Nudging}
+
 \chapter{\normalfont\textsc{Irreversible Dynamik}}
 \label{chap:irreversible_dynamik}\index{irreversible Dynamik}\index{Dynamik!irreversible}
 
