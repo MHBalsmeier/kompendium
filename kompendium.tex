@@ -24158,11 +24158,37 @@ Hierbeit ist $\newtilde{\epsilon}$ die bei der Wellenlänge $\Delta$ aktive Diss
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-K_\Delta = \rho\nu_\Delta = \rho c_S\Delta^2\sqrt{E^2 + F^2}.
+K_\Delta = \rho\nu_\Delta = \rho c_S\Delta^2\sqrt{\left(\frac{\partial u}{\partial x} - \frac{\partial v}{\partial y}\right)^2 + \left(\frac{\partial u}{\partial y} + \frac{\partial v}{\partial x}\right)^2} = \rho c_S\Delta^2\sqrt{E^2 + F^2}.
 \end{align}
 \end{center}
 }}
 \end{center}
+%
+Dies muss nun auf dem hexagonalen Gitter diskretisiert werden. Hierzu mittelt man zunächst die diskretisierten Terme:
+%
+\begin{align}
+K_\Delta = \rho c_S\Delta^2\sqrt{\newoverline{\left(\frac{\partial u}{\partial x} - \frac{\partial v}{\partial y}\right)}^2 + \newoverline{\left(\frac{\partial u}{\partial y} + \frac{\partial v}{\partial x}\right)}^2} = \rho c_S\Delta^2\sqrt{\left(\newoverline{\frac{\partial u}{\partial x}} - \newoverline{\frac{\partial v}{\partial y}}\right)^2 + \left(\newoverline{\frac{\partial u}{\partial y}} + \newoverline{\frac{\partial v}{\partial x}}\right)^2}
+\end{align}
+%
+Um die gemittelten Terme zu bestimmen, greift man sich zunächst beispielhaft den Term $\frac{\partial u}{\partial x}$ heraus und rechnet
+%
+\begin{align}
+\newoverline{\frac{\partial u}{\partial x}} = \frac{1}{A_c}\int_{A_c}\frac{\partial u}{\partial x}d^2r.
+\end{align}
+%
+Dieses Integral wird nun in kartesischen Koordinaten auf der Tangentialebene ausgewertet:
+%
+\begin{align}
+\newoverline{\frac{\partial u}{\partial x}} = \frac{1}{A_c}\int_{y_1}^{y_2}\int_{x_1\left(y\right)}^{x_2\left(y\right)}\frac{\partial u}{\partial x}dxdy = \frac{1}{A_c}\int_{y_1}^{y_2}u\left(x_2,y\right) - u\left(x_1,y\right)dy.
+\end{align}
+%
+Dies kann man als Linienintegral umformulieren:
+%
+\begin{align}
+\newoverline{\frac{\partial u}{\partial x}} = \frac{1}{A_c}\int_{\partial A_c}u\left(x,y\right)\mathbf{e}_y\cdot d\mathbf{r} = \frac{1}{A_c}\int_{\partial A_c}u\left(x,y\right)\cos\left(\phi\right)ds,
+\end{align}
+%
+hierbei ist $\phi$ der Winkel zwischen $d\mathbf{r}$ und $\mathbf{e}_y$.
 
 \section{TKE-Ansatz}
 \label{sec:tke-ansatz}\index{TKE-Ansatz}
