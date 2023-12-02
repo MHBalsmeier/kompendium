@@ -22598,7 +22598,7 @@ Die \textit{shallow-atmosphere}-Aprroximation\index{shallow atmosphere} geht von
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-\sqrt{g} \stackrel{\text{shallow-atmosphere-Modell}}{=} \Delta z\cos\left(\phi\right).
+\sqrt{g} \stackrel{\text{shallow-atmosphere-Modell}}{=} \Delta z\cos\left(\phi\right).\label{eq:shallow_atmosphere_approximation}
 \end{align}
 \end{center}
 }}
@@ -24542,7 +24542,7 @@ An dieser Stelle geht es dabei nur um die vertikale Wärmeleitung, die anderen T
 T^{(n + 1)} = T^{(n)} + \Delta t\newdot{T}^{(n)}_{\text{expl}} + \Delta t\frac{\lambda}{2\rho c}\frac{\partial}{\partial z}\left(\frac{\partial T^{(n)}}{\partial z} + \frac{\partial T^{(n + 1)}}{\partial z}\right)
 \end{align}
 %
-Hierbei sind $\lambda$ die Wärmeleitfähigkeit, $\rho$ die Massendichte und $c$ die spezifische Wärmekapazität. Diese Größen werden als bekannt und konstant vorausgesetzt. Den Anteil
+Hierbei sind $\lambda$ die Wärmeleitfähigkeit, $\rho$ die Massendichte und $c$ die spezifische Wärmekapazität. Diese Größen werden als bekannt und konstant vorausgesetzt. Weiterhin wird das vertikale Aufweiten der Gitterboxen aufgrund der geringen Dicke vernachlässigt, man macht also von der Shallow-Atmosphere-Approximation nach Glg. \eqref{eq:shallow_atmosphere_approximation} Gebrauch. Den Anteil
 %
 \begin{align}
 \frac{\lambda}{2\rho c}\frac{\partial}{\partial z}\frac{\partial T^{(n)}}{\partial z}
