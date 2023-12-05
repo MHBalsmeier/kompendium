@@ -11752,7 +11752,7 @@ In einer idealen adiabatischen einphasigen Atmosphäre laufen die Prozesse also 
 Die prognostische Gleichung der spezifischen kinetischen Energie $k = \frac{1}{2}\mathbf{v}^2$ erhält man durch Multiplikation der Impulsgleichung in der Form Glg. \eqref{eq:momentum_mod} von links mit $\mathbf{v}\cdot $:
 %
 \begin{align}
-\md{k} = \frac{\partial k}{\partial t} + \mathbf{v}\cdot\nabla k = -\frac{1}{\rho}\mathbf{v}\cdot\nabla p - wg + \mathbf{v}\cdot\mathbf{f}_R.
+\md{k} = \frac{\partial k}{\partial t} + \mathbf{v}\cdot\nabla k = -\frac{1}{\rho}\mathbf{v}\cdot\nabla p - wg + \mathbf{v}\cdot\mathbf{f}_R.\label{eq:e_kin_prog}
 \end{align}
 %
 Multipliziert man diese Gleichung mit $\rho$ und addiert das Produkt der Kontinuitätsgleichung mit $k$ dazu, erhält man
@@ -19481,13 +19481,13 @@ Die für Regentropfen am häufigsten genutzte Größenverteilung ist die \textit
 n\left(D\right) = n_0\exp\left(-\lambda D\right)\label{eq:marshall-palmer}
 \end{align}
 %
-hat. Hierbei sind $D$ der Durchmesser der Regentropfen, $\lambda$ ein Parameter und $n\left(D\right)$ die Anzahl der Tropfen mit Durchmesser zwischen $D$ und $D + dD$, dividiert durch $dD$. $n_0 = 8\cdot 10^6\text{ m}^{-4}$ wird als Konstante angesetzt. Dies ergibt sich empirisch. Der Parameter $\lambda$ kann mit der Dichte flüssigen Wassers $\rho_l$ verknüpft werden. Hierzu integriert man
+hat. Hierbei sind $D$ der Durchmesser der Regentropfen, $\lambda$ ein Parameter und $n\left(D\right)$ die Anzahl der Tropfen mit Durchmesser zwischen $D$ und $D + dD$, dividiert durch $dD$. $n_0 = 8\cdot 10^6\text{ m}^{-4}$ wird als Konstante angesetzt. Dies ergibt sich empirisch. Der Parameter $\lambda$ kann mit der dichte flüssigen Wassers $\rho_l$ verknüpft werden. Hierzu integriert man
 %
 \begin{align}
 \rho_l = \int_0^\infty n\left(D\right)mdD = \int_0^\infty n\left(D\right)\frac{4}{3}\pi\left(\frac{D}{2}\right)^3\rho_l'dD = \frac{\pi}{6}\int_0^\infty n\left(D\right)D^3\rho_l'dD = \frac{\pi}{6}\rho_l'n_0\int_0^\infty \exp\left(-\lambda D\right)D^3dD,\label{eq:marshall_palmer_deriv_1}
 \end{align}
 %
-hierbei ist $\rho_l'$ die mikroskopische Dichte von Wasser. Für das Integral erhält man mit Glg. \eqref{eq:int_prop_1}
+hierbei ist $\rho_l'$ die Dichte von Wasser. Für das Integral erhält man mit Glg. \eqref{eq:int_prop_1}
 %
 \begin{align}
 \int_0^\infty\exp\left(-\lambda D\right)D^3dD &= \frac{6}{\lambda^4}.
@@ -19496,7 +19496,7 @@ hierbei ist $\rho_l'$ die mikroskopische Dichte von Wasser. Für das Integral er
 Setzt man dies in Glg. \eqref{eq:marshall_palmer_deriv_1} ein, erhält man
 %
 \begin{align}
-\rho_l = \frac{\pi}{6}\rho_l'n_0\int_0^\infty \exp\left(-\lambda D\right)D^3dD = \frac{\pi\rho_l'n_0}{\lambda^4},\label{eq:marshall_palmer_deriv_2}
+\rho_l = \frac{\pi}{6}\rho_l'n_0\int_0^\infty \exp\left(-\lambda D\right)D^3dD = \frac{\pi\rho_l'n_0}{\lambda^4},
 \end{align}
 %
 hieraus folgt
@@ -19518,27 +19518,6 @@ D_0 = \left(\frac{\rho_l}{\pi\rho_l'n_0}\right)^{1/4}.
 \end{align}
 %
 Diese Formel kann genutzt werden, um einen mittleren Radius von Regentropfen aus der Dichte flüssigen Wassers diagnostisch abzuleiten.
-
-\subsubsection{Anwendung auf Graupel und Hagel}
-\label{sec:anwendung_auf_graupel_und_hagel}
-
-Empirisch zeigt sich, dass Marshall-Palmer-Verteilungen auch die Größenspektren von Graupel- und Hagelkörnern\index{Graupel}\index{Hagel} gut approximieren \cite{pruppacher_klett}. Hierbei wird üblicherweise der Ansatz
-%
-\begin{align}
-n_0 = A\lambda^b
-\end{align}
-%
-mit $b = 3,63$ und $A = 115\frac{1}{1000^{b-1}} = 1,481\cdot 10^{-6}$ gemacht. Setzt man dies in Glg. \eqref{eq:marshall_palmer_deriv_2} ein, erhält man
-%
-\begin{align}
-\rho_h = \frac{\pi\rho_i'n_0}{\lambda^4} = \frac{\pi\rho_i'A\lambda^b}{\lambda^4} = \frac{\pi\rho_i'A}{\lambda^{4 - b}},
-\end{align}
-%
-hierbei ist $\rho_h$ die Dichte von Graupel bzw. Hagel und $\rho_i'$ die mikroskopische Dichte von Eis. Stellt man dies nach $D_0 = 1/\lambda$ um, erhält man
-%
-\begin{align}
-D_0 = \left(\frac{\rho_h}{\pi\rho_i'A}\right)^{\frac{1}{4 - b}}.
-\end{align}
 
 \subsection{Koagulation}
 \label{sec:koagulation}\index{Koagulation}
@@ -24212,9 +24191,46 @@ Dies kann man als Linienintegral umformulieren:
 hierbei ist $\phi$ der Winkel zwischen $d\mathbf{r}$ und $\mathbf{e}_y$.
 
 \section{TKE-Ansatz}
-\label{sec:tke-ansatz}\index{TKE-Ansatz}
+\label{sec:tke-ansatz}\index{TKE-Ansatz}\index{turbulente kinetische Energie}
 
-Die subskalige Viskosität beschreibt den Einfluss des nicht aufgelösten Anteils der kinetischen Energie, welche man auch als \textit{turbulente kinetische Energie (TKE)}\index{turbulente kinetische Energie}\index{kinetische Energie!turbulente} bezeichnet. Man kann die volumetrische TKE $\tau$ als zusätzliche prognostische Größe einführen und für diese eine Gleichung
+Die sogenannte spezifische \textit{turbulente kinetische Energie} $k_s$ ist der subskalige Anteil der kinetischen Energie, in Abgrenzung zum aufgelösten Anteil, welcher hier mit $k_m$ bezeichnet wird. Für diese Größe soll eine prognostische Gleichung hergeleitet werden. Man beginnt, indem man zunächst die Gleichung der spezifischen kinetischen Energie Glg. \eqref{eq:e_kin_prog} nochmals notiert:
+%
+\begin{align}
+\frac{\partial k}{\partial t} = \frac{1}{2}\frac{\partial}{\partial t}\left(u^2 + v^2 + w^2\right) = -\mathbf{v}\cdot\nabla k -\frac{1}{\rho}\mathbf{v}\cdot\nabla p - wg + \mathbf{v}\cdot\mathbf{f}_R.
+\end{align}
+%
+Den Druckgradienten drückt man über den Exner-Druck aus:
+%
+\begin{align}
+\frac{\partial k}{\partial t} = \frac{1}{2}\frac{\partial}{\partial t}\left(u^2 + v^2 + w^2\right) = -\mathbf{v}\cdot\nabla k - c^{(p)}\theta\mathbf{v}\cdot\nabla\Pi - wg + \mathbf{v}\cdot\mathbf{f}_R.
+\end{align}
+%
+Führt man hier eine Reynolds-Mittelung durch, erhält man
+%
+\begin{align}
+\frac{\partial\newoverline{k}}{\partial t} + \frac{\partial k'}{\partial t} &= \frac{1}{2}\frac{\partial}{\partial t}\left(\newoverline{u}^2 + \newoverline{v}^2 + \newoverline{w}^2\right) + \frac{1}{2}\frac{\partial}{\partial t}\left(u'^2 + v'^2 + w'^2\right)\nonumber\\
+&= -\newoverline{\mathbf{v}}\cdot\nabla\newoverline{k} - \mathbf{v}'\cdot\nabla k' - c^{(p)}\newoverline{\theta}\newoverline{\mathbf{v}}\cdot\nabla\newoverline{\Pi} - c^{(p)}\theta'\mathbf{v}'\cdot\nabla\Pi' - \newoverline{w}g + \newoverline{\mathbf{v}}\cdot\newoverline{\mathbf{f}_R} + \mathbf{v}'\cdot\mathbf{f}'_R.\label{eq:tke_deriv}
+\end{align}
+%
+Der aufgelöste bzw. subskalige Anteil der kinetischen Energie ist nun über
+%
+\begin{align}
+k_m &\coloneqq \newoverline{k} = \frac{1}{2}\frac{\partial}{\partial t}\left(\newoverline{u}^2 + \newoverline{v}^2 + \newoverline{w}^2\right),\nonumber\\
+k_s &\coloneqq k' = \frac{1}{2}\frac{\partial}{\partial t}\left(u'^2 + v'^2 + w'^2\right)
+\end{align}
+%
+definierbar. Setzt man dies in Glg. \eqref{eq:tke_deriv} ein, erhält man
+%
+\begin{align}
+\frac{\partial k_m}{\partial t} + \frac{\partial k_s}{\partial t} &= -\newoverline{\mathbf{v}}\cdot\nabla\newoverline{k} - \mathbf{v}'\cdot\nabla k' - c^{(p)}\newoverline{\theta}\newoverline{\mathbf{v}}\cdot\nabla\newoverline{\Pi} - c^{(p)}\theta'\mathbf{v}'\cdot\nabla\Pi' - \newoverline{w}g + \newoverline{\mathbf{v}}\cdot\newoverline{\mathbf{f}_R} + \mathbf{v}'\cdot\mathbf{f}'_R.
+\end{align}
+
+Die subskalige Viskosität beschreibt den Einfluss der TKE auf die aufgelösten Skalen.
+
+\subsection{Modellierung}
+\label{sec:modellierung}
+
+Man kann die volumetrische TKE $\tau$ als zusätzliche prognostische Größe einführen und für diese eine Gleichung
 %
 \begin{align}
 \frac{\partial\tau}{\partial t} = -\nabla\cdot\left(\tau\mathbf{v}\right) + \text{Quellen} - \text{Senken}\label{eq:tke_ansatz}
