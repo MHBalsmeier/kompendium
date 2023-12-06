@@ -174,7 +174,7 @@
 \thispagestyle{empty}
 \vspace*{15 cm}
 \begin{center}
-\textcopyright\ Max H. Balsmeier 2020 - 2022\\
+\textcopyright\ Max H. Balsmeier 2020 - 2023\\
 Das Skript enthält mit großer Wahrscheinlichkeit Fehler und Ungenauigkeiten. Es befindet sich unter permanenter Überarbeitung. Teile sind unvollständig oder es sind nur die Überschriften vorhanden. Kommerzielle Nutzung wird untersagt. Alle Rechte vorbehalten.
 \end{center}
 \pagestyle{toc}
@@ -17760,6 +17760,62 @@ Dieses Gebiet des Spektrums ($k > k_c$) bezeichnet man als \textit{dissipative r
 %
 Diesen Bereich des Spektrums ($k^\star < k \ll k_c$) bezeichnet man als \textit{inertial subrange}\index{inertial subrange}.
 
+\section{Klassisches Smagorinsky-Modell}
+\label{sec:klassisches_smagorinsky-modell}\index{Smagorinsky-Modell!klassisches}
+
+Der einfachste Ansatz, den turbulenten horizontalen Diffusionskoeffizienten $K_\Delta$ zu berechnen, ist das sogenannte \textit{klassische Smagorinsky-Modell (classic Smagorinsky model, CSM).} Der relevante Skalenbereich der turbulenten Diffusion in der Atmosphäre ist die inertial subrange ($k^\star < k \ll k_c$), in diesem gilt Glg. \eqref{eq:ekin_spec_inertial_subrange}. Aufgrund von Glg. \eqref{eq:characteristic_length} macht man für die turbulente kinematische Viskosität $\nu_\Delta$ den Ansatz
+%
+\begin{align}
+\nu_\Delta \propto \Delta^{4/3}\newtilde{\epsilon}^{1/3}.
+\end{align}
+%
+Hierbei ist $\newtilde{\epsilon}$ die bei der Wellenlänge $\Delta$ aktive Dissipationsrate. Die turbulente dynamische Viskosität $K_\Delta$ lautet somit
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+K_\Delta = \rho\nu_\Delta = \rho c_S\Delta^2\sqrt{\left(\frac{\partial u}{\partial x} - \frac{\partial v}{\partial y}\right)^2 + \left(\frac{\partial u}{\partial y} + \frac{\partial v}{\partial x}\right)^2} = \rho c_S\Delta^2\sqrt{E^2 + F^2}.\label{eq:csm}
+\end{align}
+\end{center}
+}}
+\end{center}
+
+\section{Turbulente kinetische Energie}
+\label{sec:turbulente_kinetische_energie}\index{turbulente kinetische Energie}
+
+Die sogenannte spezifische \textit{turbulente kinetische Energie} $k_s$ ist der subskalige Anteil der kinetischen Energie, in Abgrenzung zum aufgelösten Anteil, welcher hier mit $k_m$ bezeichnet wird. Für diese Größe soll eine prognostische Gleichung hergeleitet werden. Man beginnt, indem man zunächst die Gleichung der spezifischen kinetischen Energie Glg. \eqref{eq:e_kin_prog} nochmals notiert:
+%
+\begin{align}
+\frac{\partial k}{\partial t} = \frac{1}{2}\frac{\partial}{\partial t}\left(u^2 + v^2 + w^2\right) = -\mathbf{v}\cdot\nabla k -\frac{1}{\rho}\mathbf{v}\cdot\nabla p - wg + \mathbf{v}\cdot\mathbf{f}_R.
+\end{align}
+%
+Den Druckgradienten drückt man über den Exner-Druck aus:
+%
+\begin{align}
+\frac{\partial k}{\partial t} = \frac{1}{2}\frac{\partial}{\partial t}\left(u^2 + v^2 + w^2\right) = -\mathbf{v}\cdot\nabla k - c^{(p)}\theta\mathbf{v}\cdot\nabla\Pi - wg + \mathbf{v}\cdot\mathbf{f}_R.
+\end{align}
+%
+Führt man hier eine Reynolds-Mittelung durch, erhält man
+%
+\begin{align}
+\frac{\partial\newoverline{k}}{\partial t} + \frac{\partial k'}{\partial t} &= \frac{1}{2}\frac{\partial}{\partial t}\left(\newoverline{u}^2 + \newoverline{v}^2 + \newoverline{w}^2\right) + \frac{1}{2}\frac{\partial}{\partial t}\left(u'^2 + v'^2 + w'^2\right)\nonumber\\
+&= -\newoverline{\mathbf{v}}\cdot\nabla\newoverline{k} - \mathbf{v}'\cdot\nabla k' - c^{(p)}\newoverline{\theta}\newoverline{\mathbf{v}}\cdot\nabla\newoverline{\Pi} - c^{(p)}\theta'\mathbf{v}'\cdot\nabla\Pi' - \newoverline{w}g + \newoverline{\mathbf{v}}\cdot\newoverline{\mathbf{f}_R} + \mathbf{v}'\cdot\mathbf{f}'_R.\label{eq:tke_deriv}
+\end{align}
+%
+Der aufgelöste bzw. subskalige Anteil der kinetischen Energie ist nun über
+%
+\begin{align}
+k_m &\coloneqq \newoverline{k} = \frac{1}{2}\frac{\partial}{\partial t}\left(\newoverline{u}^2 + \newoverline{v}^2 + \newoverline{w}^2\right),\nonumber\\
+k_s &\coloneqq k' = \frac{1}{2}\frac{\partial}{\partial t}\left(u'^2 + v'^2 + w'^2\right)
+\end{align}
+%
+definierbar. Setzt man dies in Glg. \eqref{eq:tke_deriv} ein, erhält man
+%
+\begin{align}
+\frac{\partial k_m}{\partial t} + \frac{\partial k_s}{\partial t} &= -\newoverline{\mathbf{v}}\cdot\nabla\newoverline{k} - \mathbf{v}'\cdot\nabla k' - c^{(p)}\newoverline{\theta}\newoverline{\mathbf{v}}\cdot\nabla\newoverline{\Pi} - c^{(p)}\theta'\mathbf{v}'\cdot\nabla\Pi' - \newoverline{w}g + \newoverline{\mathbf{v}}\cdot\newoverline{\mathbf{f}_R} + \mathbf{v}'\cdot\mathbf{f}'_R.
+\end{align}
+
 \section{Geostrophische Turbulenz}
 \label{sec:geostrophische_turbulenz}\index{geostrophische Turbulenz}\index{Turbulenz!geostrophische}
 
@@ -22388,6 +22444,493 @@ Strahlung wird in Modellen durch separate Simulationen, sogenannte \textit{Strah
 %
 Da das Lösen der Strahlungsübertragungsgleichung\index{Strahlungsübertragungsgleichung} zu einem globalen linearen Gleichungssystem führen würde, unterteilt man die Atmosphäre hierzu in nicht wechselwirkende Säulen ein, die mindestens so eine horizontale Ausdehnung haben, wie eine Gitterzelle.
 
+\chapter{\normalfont\textsc{Datenassimilation}}
+\label{chap:datenassimilation}\index{Datenassimilation}
+
+Bei der \textit{Datenassimilation}\index{Datenassimilation} geht es um die Bestimmung eines Modellzustandes aus Beobachtungen.
+
+\section{Objective analysis}
+\label{sec:objective_analysis}\index{objective analysis}
+
+Bis zur zweiten Häfte des 20. Jahrhunderts mussten Meteorologen Wetterkarten manuell auf Grundlage der zur Verfügeng stehenden Daten zeichen, was man als \textit{Analyse}\index{Analyse} bezeichnet. Auch die Anfangszustände der ersten operationellen Modellläufe wurden auf diese Weise festgelegt \cite{lynchrichardson}. Dies war zeitaufwendig, ineffizient und fehleranfällig. Daher begann man schnell damit, diesen Prozess zu automatisieren, was man als \textit{objective analysis}\index{objective analysis} bezeichnet. Die Analyse ist objektiv, da sie nun nicht mehr von der Person abhängt, von der sie erstellt wird. Im Wesentlichen handelt es sich bei solchen Analysen um Interpolationen und Umrechnungen der gemessenen Größen in Modellvariablen.
+
+\section{Optimum interpolation}
+\label{sec:optimum_interpolation}
+
+Ein Nachteil von Interpolationen ist, dass sie sehr ungenau werden können, wenn keine Messdaten in der näheren Umgebung vorliegen. Am Beginn der operationellen numerischen Wettervorhersage in den 1950er-Jahren gab es ausschließlich konventionelle Messungen, die meisten von ihnen in Europa und den USA. Auf der Südhalbkugel gab es kaum Wetterbeobachtungen. Eine naheliegende Lösung ist nun, in Regionen, in denen kaum Messungen vorgenommen werden, einen klimatologischen Hintergrundzustand oder den vorherigen Modelllauf als Ersatz für Messungen zu verwenden. Hierdurch können die Informationen aus den Gebieten mit vielen Beobachtungen mittels der vom Modell simulierten physikalischen Gesetze in die Regionen mit wenigen Beobachtungen propagieren.
+
+Bei der sogenannten \textit{optimum interpolation}\index{optimum interpolation} geht es nun darum, Informationen aus den Beobachtungsdaten und einem Hintergrundzustand auf optimale Art und Weise miteinander zu kombinieren. Damit ist gemeint, dass das Resultat (die Analyse) möglichst nahe am realen atmosphärischen Zustand zum Analysezeitpunkt liegen soll.\footnote{Dies ist nicht zwangsläufig auch der Zustand, der zur besten Vorhersage führt.} Hierzu verwendet man eine Kostenfunktion\index{Kostenfunktion} $J$, welche zwei Terme enthält:
+%
+\begin{itemize}
+\item Ein Anteil $J_B$, welcher die Differenz zwischen der Analyse und dem Hintergrundzustand repräsentiert.
+\item Ein Anteil $J_y$, welcher die Differenz zwischen der Analyse und den Beobachtungen repräsentiert.
+\end{itemize}
+%
+Als Formel notiert man
+%
+\begin{align}
+J\left(\mathbf{x}\right) = J_B\left(\mathbf{x}, \mathbf{x}_B\right) + J_y\left(\mathbf{x}, \mathbf{y}\right).
+\end{align}
+
+\subsection{Eine Beobachtung}
+\label{sec:eine_beobachtung}
+
+\subsubsection{Ein Modellfreiheitsgrad}
+\label{sec:ein_modellfreiheitsgrad}
+
+Zunächst stellt man sich vor, dass man nur eine Beobachtung $y$ hat und das Modell nur aus einer einzigen Zahl $x$ besteht. Als Ansatz $J'$ für $J$ orientiert man sich an der euklidischen Norm und notiert
+%
+\begin{align}
+J'\left(x\right) = \sqrt{J_B'\left(x, x_B\right)^2 + J_y'\left(x, y\right)^2} = \sqrt{\alpha_B\left(x - x_B\right)^2 + \alpha_y\left[x - \newhat{I}\left(y\right)\right]^2}.
+\end{align}
+%
+Hierbei sind $\alpha_B$, $\alpha_y$ zwei Gewichtungsfaktoren mit
+%
+\begin{align}
+\alpha_B + \alpha_y = 1.
+\end{align}
+%
+Da die Kostenfunktion minimert werden soll und die Wurzel streng monoton steigen ist, vereinfacht man die notation der Kostenfunktion zu
+%
+\begin{align}
+J\left(x\right) = J_B\left(x, x_B\right) + J_y\left(x, y\right) = \frac{1}{2}\alpha_B\left(x - x_B\right)^2 + \frac{1}{2}\alpha_y\left[x - \newhat{I}\left(y\right)\right]^2.
+\end{align}
+%
+Der Faktor $\frac{1}{2}$ ist Konvention und ändert das Minimum der Kostenfunktion nicht. Da im Falle von konventionellen Beobachtungen meist mehr Modellfreiheitsgrade als Messwerte vorliegen, führt die Ersetzung
+%
+\begin{align}
+\text{Modell} - \text{interpolierte Beobachtung} &\to \text{Beobachtung} - \text{interpoliertes Modell}\\
+\Rightarrow x - \newhat{I}\left(y\right) &\to y - \newhat{h}\left(x\right)\label{eq:replace_for_oi}
+\end{align}
+%
+zu einem kleineren Problem. Hierbei ist $\newhat{h}$ ein i. A. nichtlinearer Operator, der sogenannte \textit{Beobachtungsoperator}\index{Beobachtungsoperator}. Die Kostenfunktion lautet somit
+%
+\begin{align}
+J\left(x\right) = \frac{1}{2}\alpha_B\left(x - x_B\right)^2 + \frac{1}{2}\alpha_y\left[y - \newhat{h}\left(x\right)\right]^2.\label{eq:3dvar_cost_one_obs}
+\end{align}
+%
+Das Minimum der Kostenfunktion erfüllt
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\nabla J = 0.\label{eq:3dvar_criterion}
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+Diese Gleichung ist auch im mehrdimensionalen Fall notwendig und hinreichend für das Minimum: Da $J$ quadratisch ist, ist $\nabla J$ linear mit konstanten Gliedern, die man durch eine Koordinatentransformation verschwinden lassen kann. Die $\nabla J$ festlegende Matrix ist weiterhin symmetrisch. Da die Einträge auf der Hauptdiagonalen alle ungleich Null sind, ist diese Matrix invertierbar. Es gibt also nur ein $\mathbf{x}$ mit $\nabla J\left(\mathbf{x}\right) = \mathbf{0}$. Wegen $\lim_{\left|\mathbf{x}\right| \to \infty} J = \infty$ ist dies ein Minimum.
+
+Um das Problem mit linearer Algebra bearbeiten zu können, wird $\newhat{h}$ an der Stelle $x_B$ linearisiert, also
+%
+\begin{align}
+\newhat{h}\left(x\right) = \newhat{h}\left(x_B\right) + \newhat{H}\left(x - x_B\right) + \mathcal{O}\left[\left(x - x_B\right)^2\right],
+\end{align}
+%
+hierbei ist
+%
+\begin{align}
+\newhat{H}\left(x\right) \coloneqq \newhat{h}'\left(x_B\right)
+\end{align}
+%
+die Ableitung von $\newhat{h}$ an der Stelle $x_B$. Setzt man dies in Glg. \eqref{eq:3dvar_cost_one_obs} ein, erhält man unter Vernachlässigung eines Ungefährzeichens
+%
+\begin{align}
+J\left(x\right) = \frac{1}{2}\alpha_B\left(x - x_B\right)^2 + \frac{1}{2}\alpha_y\left[y - \newhat{h}\left(x_B\right) - \newhat{H}\left(x - x_B\right)\right]^2.\label{eq:3dvar_cost_simple}
+\end{align}
+%
+Die Ableitung hiervon lautet
+%
+\begin{align}
+J'\left(x\right) = \alpha_B\left(x - x_B\right) - \alpha_y\newhat{H}\left[y - \newhat{h}\left(x_B\right) - \newhat{H}\left(x - x_B\right)\right].\label{eq:3dvar_deriv_1obs}
+\end{align}
+%
+Bei nur einer Messung und einer Modellvariable ist $\newhat{H}$ einfach eine Zahl,
+%
+\begin{align}
+\newhat{H} = H.
+\end{align}
+%
+Die Kostenfunktion soll dimensionslos sein. Aus einer Dimensionsanalyse erhält man
+%
+\begin{align}
+\left[\alpha_B\right] = \frac{1}{\left[x^2\right]}, && \left[\alpha_y\right] = \frac{1}{\left[y^2\right]}.
+\end{align}
+%
+Ein sinnvoller Ansatz für die Gewichtungsfaktoren sind die inversen Varianzen:
+%
+\begin{align}
+\alpha_B = \frac{1}{\sigma_B^2}, && \alpha_y = \frac{1}{\sigma_y^2}
+\end{align}
+%
+Hierbei ist $\sigma_B$ die Standardabweichung des Hintergrundzustandes und $\sigma_y$ die Standardabweichung der Messung $y$. Dies kann man auch formaler begründen, indem man annimmt, dass sowohl der Fehler des Hintergrundzustandes als auch der Messung normalverteilt sind, also
+%
+\begin{align}
+P\left(x, y\right) \propto \exp\left[-\frac{\left(x - x_B\right)^2}{2\sigma_B^2}\right]\exp\left[-\frac{\left(y - \newhat{h}\left(x\right)\right)^2}{2\sigma_B^2}\right] = \exp\left[-\frac{\left(x - x_B\right)^2}{2\sigma_B^2} - \frac{\left(y - \newhat{h}\left(x\right)\right)^2}{2\sigma_B^2}\right].
+\end{align}
+%
+$P\left(x, y\right)$ ist die Wahrscheinlichkeitsdichte für $x$ under der Annahme, dass $y$ eingetreten ist. Dies maximiert man, indem man den negativen Logarithmus minimiert, also
+%
+\begin{align}
+P\left(x, y\right)\text{ maximal} \Rightarrow \frac{\left(x - x_B\right)^2}{2\sigma_B^2} + \frac{\left(y - \newhat{h}\left(x\right)\right)^2}{2\sigma_B^2}\text{ minimal.}
+\end{align}
+%
+Aus Glg. \eqref{eq:3dvar_deriv_1obs} erhält man mit Glg. \eqref{eq:3dvar_criterion}
+%
+\begin{align}
+\frac{1}{\sigma_B^2}\left(x - x_B\right) - \frac{H}{\sigma_y^2}\left[y - \newhat{h}\left(x_B\right) - H\left(x - x_B\right)\right] &= \frac{1}{\sigma_B^2}\left(x - x_B\right) - \frac{H}{\sigma_y^2}\left[y - \newhat{h}\left(x_B\right)\right] + \frac{H^2}{\sigma_y^2}\left(x - x_B\right) = 0\nonumber\\
+\Rightarrow\left(\frac{1}{\sigma_B^2} + \frac{H^2}{\sigma_y^2}\right)\left(x - x_B\right) - \frac{H}{\sigma_y^2}\left[y - \newhat{h}\left(x_B\right)\right] &= 0\nonumber\\
+\Rightarrow x = x_B + \frac{H}{\sigma_y^2\left(\frac{1}{\sigma_B^2} + \frac{H^2}{\sigma_y^2}\right)}\left[y - \newhat{h}\left(x_B\right)\right] &= x_B + \frac{H}{\frac{\sigma_y^2}{\sigma_B^2} + H^2}\left[y - \newhat{h}\left(x_B\right)\right].
+\end{align}
+%
+Hieraus folgen zwei interessante Grenzfälle:
+%
+\begin{itemize}
+\item Im Fall $\frac{\sigma_y^2}{\sigma_B^2} \to \infty$, was sehr ungenauen Messungen $y$ entspricht, gilt $x = x_B$. Die Analyse bestimmt sich in diesem Fall nur aus dem Hintergrundzustand.
+\item Im Fall $\frac{\sigma_B^2}{\sigma_y^2} \to \infty$, was einem sehr ungenauen Hintergrundzustand $x_B$ entspricht, gilt
+%
+\begin{align}
+x &= x_B + \frac{H}{H^2}\left[y - \newhat{h}\left(x_B\right)\right] = x_B + \frac{y - \newhat{h}\left(x_B\right)}{H}.
+\end{align}
+%
+Die Analyse bestimmt sich in diesem Fall nur aus den Messungen.
+\end{itemize}
+
+\subsubsection{Mehrere Modellfreiheitsgrade}
+\label{sec:mehrere_modellfreiheitsgrade}
+
+Nun nimmt man an, dass ein Modellzustand nicht durch eine einzelne Zahl $x$, sondern durch einen Zustandsvektor $\mathbf{x}$ der Länge $N$ festgelegt wird. Für diesen Fall verallgemeinert die Kostenfunktion Glg. \eqref{eq:3dvar_cost_simple} zu
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+J\left(\mathbf{x}\right) = \frac{1}{2}\left(\mathbf{x} - \mathbf{x}_B\right)^T\overleftrightarrow{B}^{-1}\left(\mathbf{x} - \mathbf{x}_B\right) + \frac{1}{2}\frac{1}{\sigma_y^2}\left[y - \newhat{h}\left(\mathbf{x}_B\right) - \mathbf{H}\left(\mathbf{x} - \mathbf{x}_B\right)\right]^2.\label{eq:3dvar_cost_1_obs}
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+$\mathbf{H}$ ist ein $1 \times N-$Vektor. $\overleftrightarrow{B} \in \mathbb{R}^{N \times N}$ ist die Kovarianzmatrix der Fehler des Hintergrundzustandes. Diese Matrix hat Diagonalform, auf ihrer Hauptdiagonalen stehen die Varianzen des Hintergrundzustandes:
+%
+\begin{align}
+\overleftrightarrow{B} = \left(\begin{array}{cccc}
+\sigma_{0, B}^2 & 0 & \dots & 0\\
+0 & \sigma_{1, B}^2 & 0 & \vdots\\
+\vdots & \dots & \ddots & 0\\
+0 & \dots & 0 & \sigma_{N - 1, B}^2
+\end{array}\right)
+\end{align}
+%
+Hieraus folgt
+%
+\begin{align}
+\overleftrightarrow{B}^{-1} = \left(\begin{array}{cccc}
+\frac{1}{\sigma_{0, B}^2} & 0 & \dots & 0\\
+0 & \frac{1}{\sigma_{1, B}^2} & 0 & \vdots\\
+\vdots & \dots & \ddots & 0\\
+0 & \dots & 0 & \frac{1}{\sigma_{N - 1, B}^2}
+\end{array}\right).
+\end{align}
+%
+Somit erhält man
+%
+\begin{align}
+\frac{1}{2}\left(\mathbf{x} - \mathbf{x}_B\right)^T\overleftrightarrow{B}^{-1}\left(\mathbf{x} - \mathbf{x}_B\right) = \sum_{i = 0}^{N - 1}\frac{\left(x_i - x_{i, B}\right)^2}{2\sigma_{i, B}^2}.
+\end{align}
+%
+Man erhält hieraus
+%
+\begin{align}
+\left(\nabla J\right)_i = \frac{\left(x_i - x_{i, B}\right)}{\sigma_{i, B}^2} - \frac{H_i}{\sigma_y^2}\left[y - \newhat{h}\left(\mathbf{x}_B\right) - \mathbf{H}\left(\mathbf{x} - \mathbf{x}_B\right)\right].
+\end{align}
+%
+Dies kann man in der kompakten Form
+%
+\begin{align}
+\nabla J = \overleftrightarrow{B}^{-1}\left(\mathbf{x} - \mathbf{x}_B\right) - \frac{\mathbf{H}^T}{\sigma_y^2}\left[y - \newhat{h}\left(\mathbf{x}_B\right) - \mathbf{H}\left(\mathbf{x} - \mathbf{x}_B\right)\right].
+\end{align}
+%
+notieren. Aus Glg. \eqref{eq:3dvar_criterion} folgt in diesem Fall also
+%
+\begin{align}
+\overleftrightarrow{B}^{-1}\left(\mathbf{x} - \mathbf{x}_B\right) &= \frac{\mathbf{H}^T}{\sigma_y^2}\left[y - \newhat{h}\left(\mathbf{x}_B\right) - \mathbf{H}\left(\mathbf{x} - \mathbf{x}_B\right)\right]\nonumber\\
+\Rightarrow\overleftrightarrow{B}^{-1}\left(\mathbf{x} - \mathbf{x}_B\right) + \frac{\mathbf{H}^T}{\sigma_y^2}\left[\mathbf{H}\left(\mathbf{x} - \mathbf{x}_B\right)\right] &= \frac{\mathbf{H}^T}{\sigma_y^2}\left[y - \newhat{h}\left(\mathbf{x}_B\right)\right]\nonumber\\
+\Rightarrow\left(\overleftrightarrow{B}^{-1} + \frac{\mathbf{H}^T\mathbf{H}}{\sigma_y^2}\right)\left(\mathbf{x} - \mathbf{x}_B\right) &= \frac{\mathbf{H}^T}{\sigma_y^2}\left[y - \newhat{h}\left(\mathbf{x}_B\right)\right]\nonumber
+\end{align}
+\begin{align}
+\Rightarrow\left(1 + \overleftrightarrow{B}\frac{\mathbf{H}^T\mathbf{H}}{\sigma_y^2}\right)\left(\mathbf{x} - \mathbf{x}_B\right) &= \frac{\overleftrightarrow{B}\mathbf{H}^T}{\sigma_y^2}\left[y - \newhat{h}\left(\mathbf{x}_B\right)\right]\nonumber\\
+\Rightarrow\mathbf{x} - \mathbf{x}_B &= \left(1 + \overleftrightarrow{B}\frac{\mathbf{H}^T\mathbf{H}}{\sigma_y^2}\right)^{-1}\frac{\overleftrightarrow{B}\mathbf{H}^T}{\sigma_y^2}\left[y - \newhat{h}\left(\mathbf{x}_B\right)\right]\nonumber
+\end{align}
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\Rightarrow\mathbf{x} &= \mathbf{x}_B + \left(\overleftrightarrow{B}\frac{\mathbf{H}^T\mathbf{H}}{\sigma_y^2} + 1\right)^{-1}\frac{\overleftrightarrow{B}\mathbf{H}^T}{\sigma_y^2}\left[y - \newhat{h}\left(\mathbf{x}_B\right)\right].
+\end{align}
+\end{center}
+}}
+\end{center}
+
+\subsection{Beliebige Anzahl von Beobachtungen}
+\label{sec:beliebige_anzahl_von_beobachtungen}
+
+Nun nimmt man an, dass nicht eine, sondern $M$ Beobachtungen vorliegen. Die Kostenfunktion Glg. \eqref{eq:3dvar_cost_1_obs} verallgemeinert man für diesen Fall zu
+%
+\begin{center}
+\doublebox{\parbox{\textwidth}{
+\begin{center}
+\begin{eqnarray}
+J\left(\mathbf{x}\right) = \frac{1}{2}\left(\mathbf{x} - \mathbf{x}_B\right)^T\overleftrightarrow{B}^{-1}\left(\mathbf{x} - \mathbf{x}_B\right) + \frac{1}{2}\left(\mathbf{y} - \newhat{h}\left(\mathbf{x}_B\right) - \overleftrightarrow{H}\left(\mathbf{x} - \mathbf{x}_B\right)\right)^T\overleftrightarrow{R}^{-1}\left(\mathbf{y} - \newhat{h}\left(\mathbf{x}_B\right) - \overleftrightarrow{H}\left(\mathbf{x} - \mathbf{x}_B\right)\right).\label{eq:3d-var_cost_function}
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
+%
+Hierbei ist $\overleftrightarrow{R}$ die Kovarianzmatrix der Fehler der Beobachtungen. Da es sich hierbei vorwiegend um statistische (und keine systematischen) Fehler handelt, kann man davon ausgehen, dass diese Diagonalform hat. Es gilt
+%
+\begin{align}
+\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}\right)^T\overleftrightarrow{R}^{-1}\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}\right) &= \mathbf{y}^T\overleftrightarrow{R}^{-1}\mathbf{y} - \mathbf{y}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H}\mathbf{x} - \mathbf{x}^T\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\mathbf{y} + \mathbf{x}^T\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H}\mathbf{x}.
+\end{align}
+%
+Man rechnet nun
+%
+\begin{align}
+\mathbf{y}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H}\mathbf{x} &= \left(\overleftrightarrow{R}^{-1}\overleftrightarrow{H}\mathbf{x}\right)^T\mathbf{y} = \mathbf{x}^T\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\mathbf{y}.
+\end{align}
+%
+Dabei wurde verwendet, dass $\overleftrightarrow{R}^{-1}$ orthogonal ist. Somit gilt
+%
+\begin{align}
+\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}\right)^T\overleftrightarrow{R}^{-1}\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}\right) &= \mathbf{y}^T\overleftrightarrow{R}^{-1}\mathbf{y} - 2\mathbf{x}^T\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\mathbf{y} + \mathbf{x}^T\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H}\mathbf{x}\nonumber\\
+&= \mathbf{y}^T\overleftrightarrow{R}^{-1}\mathbf{y} - 2\mathbf{x}^T\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\mathbf{y} + \left(\mathbf{x}^T\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H}\right)^T\cdot\mathbf{x}\nonumber\\
+&= \mathbf{y}^T\overleftrightarrow{R}^{-1}\mathbf{y} - 2\mathbf{x}^T\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\mathbf{y} + \left(\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H}\mathbf{x}\right)\cdot\mathbf{x}.\label{eq:3d-var_deriv}
+\end{align}
+%
+Dabei wurde berücksichtigt, dass wegen
+%
+\begin{align}
+\left(\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H}\right)^T &= \overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H}
+\end{align}
+%
+die Matrix $\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H}$ orthogonal ist. Bildet man den Gradienten von Glg. \eqref{eq:3d-var_deriv} (in Bezug auf $\mathbf{x}$), erhält man
+%
+\begin{align}
+\nabla\left[\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}\right)^T\overleftrightarrow{R}^{-1}\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}\right)\right] &= -2\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\mathbf{y} + 2\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H}\mathbf{x} = -2\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}\right).
+\end{align}
+%
+Hieraus folgt
+%
+\begin{eqnarray}
+\nabla J = \overleftrightarrow{B}^{-1}\left(\mathbf{x} - \mathbf{x}_B\right) - \overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\left(\mathbf{y} - \newhat{h}\left(\mathbf{x}_B\right) - \overleftrightarrow{H}\left(\mathbf{x} - \mathbf{x}_B\right)\right).
+\end{eqnarray}
+%
+Aus Glg. \eqref{eq:3dvar_criterion} folgt also
+%
+\begin{align}
+\overleftrightarrow{B}^{-1}\left(\mathbf{x} - \mathbf{x}_B\right) - \overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\left(\mathbf{y} - \newhat{h}\left(\mathbf{x}_B\right) - \overleftrightarrow{H}\left(\mathbf{x} - \mathbf{x}_B\right)\right) &= 0\nonumber\\
+\Leftrightarrow\left(\mathbf{x} - \mathbf{x}_B\right) - \overleftrightarrow{B}\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\left(\mathbf{y} - \newhat{h}\left(\mathbf{x}_B\right) - \overleftrightarrow{H}\left(\mathbf{x} - \mathbf{x}_B\right)\right) &= 0\nonumber\\
+\Leftrightarrow\left(\overleftrightarrow{B}\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H} + 1\right)\left(\mathbf{x} - \mathbf{x}_B\right) - \overleftrightarrow{B}\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\left(\mathbf{y} - \newhat{h}\left(\mathbf{x}_B\right)\right) &= 0\nonumber
+\end{align}
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\Leftrightarrow\left(\overleftrightarrow{B}\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H} + 1\right)\left(\mathbf{x} - \mathbf{x}_B\right) = \overleftrightarrow{B}\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\left(\mathbf{y} - \newhat{h}\left(\mathbf{x}_B\right)\right).\label{eq:oi_lin}
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+Dies ist das für $\mathbf{x}$ geltende lineare Gleichungssystem. Man kann dies weiter umformen zu
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\mathbf{x} &= \mathbf{x}_B + \left(\overleftrightarrow{B}\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H} + 1\right)^{-1}\overleftrightarrow{B}\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\left(\mathbf{y} - \newhat{h}\left(\mathbf{x}_B\right)\right).\label{eq:oi_result_pre}
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+Die Matrix
+%
+\begin{align}
+\overleftrightarrow{K} \coloneqq \left(\overleftrightarrow{B}\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H} + 1\right)^{-1}\overleftrightarrow{B}\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\label{eq:gain_first_version}
+\end{align}
+%
+bezeichnet man als \textit{Gain-Matrix}\index{Gain-Matrix}. Um die rechte Seite dieser Gleichung zu berechnen, muss man eine $N \times N-$Matrix invertieren.
+
+Man kann den Ausdruck für die Gain-Matrix noch etwas vereinfachen. Sei $\overleftrightarrow{A} \in \mathbb{R}^{N \times M}$. Dann gilt
+%
+\begin{align}
+\overleftrightarrow{A} &= \overleftrightarrow{A}\left(\overleftrightarrow{H}\overleftrightarrow{A} + 1\right)\left(\overleftrightarrow{H}\overleftrightarrow{A} + 1\right)^{-1}\nonumber\\
+\Leftrightarrow\overleftrightarrow{A} &= \left(\overleftrightarrow{A}\overleftrightarrow{H}\overleftrightarrow{A} + \overleftrightarrow{A}\right)\left(\overleftrightarrow{H}\overleftrightarrow{A} + 1\right)^{-1}\nonumber\\
+\Leftrightarrow\overleftrightarrow{A} &= \left(\overleftrightarrow{A}\overleftrightarrow{H} + 1\right)\overleftrightarrow{A}\left(\overleftrightarrow{H}\overleftrightarrow{A} + 1\right)^{-1}\nonumber\\
+\Leftrightarrow\left(\overleftrightarrow{A}\overleftrightarrow{H} + 1\right)^{-1}\overleftrightarrow{A} &= \overleftrightarrow{A}\left(\overleftrightarrow{H}\overleftrightarrow{A} + 1\right)^{-1}\nonumber.
+\end{align}
+%
+Definiert man nun
+%
+\begin{align}
+\overleftrightarrow{A} \coloneqq \overleftrightarrow{B}\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1},
+\end{align}
+%
+folgt
+%
+\begin{align}
+\overleftrightarrow{K} = \left(\overleftrightarrow{B}\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H} + 1\right)^{-1}\overleftrightarrow{B}\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1} = \overleftrightarrow{B}\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\left(\overleftrightarrow{H}\overleftrightarrow{B}\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1} + 1\right)^{-1}.
+\end{align}
+%
+Für die Berechnung der rechten Seite dieser Gleichung ist nun eine $M \times M-$Matrix zu invertieren, was für $M < N$ effizienter als Glg. \eqref{eq:gain_first_version} ist. Man kann dies weiter zu
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\overleftrightarrow{K} = \overleftrightarrow{B}\overleftrightarrow{H}^T\left(\overleftrightarrow{H}\overleftrightarrow{B}\overleftrightarrow{H}^T + \overleftrightarrow{R}\right)^{-1}
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+vereinfachen. Setzt man dies in Glg. \eqref{eq:oi_result_pre} ein, erhält man
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\mathbf{x} &= \mathbf{x}_B + \overleftrightarrow{B}\overleftrightarrow{H}^T\left(\overleftrightarrow{H}\overleftrightarrow{B}\overleftrightarrow{H}^T + \overleftrightarrow{R}\right)^{-1}\left(\mathbf{y} - \newhat{h}\left(\mathbf{x}_B\right)\right).\label{eq:oi_result}
+\end{align}
+\end{center}
+}}
+\end{center}
+
+\subsection{Sonderprobleme bei der Behandlung des Windfeldes}
+\label{sec:sonderprobleme_bei_der_behandlung_des_windfeldes}
+
+Das Windfeld kann als Teil der OI assimiliert werden. Dies hat bei groben Modellauflösungen jedoch den Nachteil, dass der so erhaltene Wind häufig weiter von der Balancegleichung entfernt ist, als dies auf der synoptischen Skala üblich ist und somit zu starke Schall- und Schwerewellen auslöst. Diese lösen dann Vorhersagefehler aus. Daher kann es sinnvoll sein, das Windfeld nicht auf Grundlage von Messungen zu bestimmen, sondern durch Lösen der Balancegleichung. Dies ist ein Beispiel dafür, dass die OI die Qualität der Analyse und nicht der Vorhersage maximiert.
+
+\subsection{Berücksichtigung von Hydrostatik}
+\label{sec:berücksichtigung_von_hydrostatik}\index{Hydrostatik!Datenassimilation}\index{Datenassimilation!Hydrostatik}
+
+Geht man von Hydrostatik aus, also von Gültigkeit der hydrostatischen Grundgleichung Glg. \eqref{eq:hydrostatic}, vereinfacht sich der thermodynamische Zustand der Atmosphäre erheblich: Üblicherweise reichen zwei thermodynamische Größen $q_1$, $q_2$ aus, um diesen festzulegen. Bei Gültigkeit einer Gleichung der Form
+%
+\begin{align}
+\frac{\partial q_1}{\partial z} = f\left(q_2\right)
+\end{align}
+%
+kann man jedoch die Festlegung der Größe $q_1$ in der gesamten Atmosphäre durch ihre Festlegung auf einer Fläche ersetzen, zum Beispiel der Erdoberfläche oder einer Druckfläche. Die exakte Gültigkeit einer Aussage über das Resultat einer Datenassimilation zu fordern bezeichnet man als \textit{strong constraint}\index{strong constraint}.
+
+\section{3D-Var}
+\label{sec:3d-var}\index{3D-Var}
+
+Die Inversion der $M \times M-$Matrix $\overleftrightarrow{H}\overleftrightarrow{B}\overleftrightarrow{H}^T + \overleftrightarrow{R}$ ist sehr aufwendig, wenn die Anzahl der Einzelbeobachtungen groß ist. Hierzu mache man sich klar, dass beispielsweise ein Radarbild aus einer sehr großen Zahl von Einzelbeobachtungen besteht. Dies ist ein Nachteil der OI. Diesen könnte man umgehen, indem man die Ersetzung Glg. \eqref{eq:replace_for_oi} rückgängig macht. Dies ist bei Fernerkundungsdaten nicht direkt möglich, da man beispielsweise eine spektrale Strahldichte an einem Satelliten nicht ohne weiteres in Temperaturen umrechnen kann. Eine Lösung hierfür wird in diesem Abschnitt dargestellt.
+
+Beim \textit{3D-Var-Verfahren}\index{3D-Var-Verfahren} geht es darum, Glg. \eqref{eq:oi_result} iterativ ohne explizite Berechnung der Gain-Matrix zu lösen. Definiere
+%
+\begin{align}
+\delta\mathbf{x} &\coloneqq \mathbf{x} - \mathbf{x}_B,\\
+\mathbf{d}_B &\coloneqq \mathbf{y} - \newhat{h}\left(\mathbf{x}_B\right),\\
+\end{align}
+%
+Glg. \eqref{eq:oi_lin} lautet dann
+%
+\begin{align}
+\left(\overleftrightarrow{B}\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H} + 1\right)\delta\mathbf{x} = \overleftrightarrow{B}\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\mathbf{d}_B.
+\end{align}
+%
+Multipliziert man mit $\overleftrightarrow{B}^{-1}$, erhält man
+%
+\begin{align}
+\left(\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H} + \overleftrightarrow{B}^{-1}\right)\delta\mathbf{x} = \overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\mathbf{d}_B.
+\end{align}
+%
+Hier muss also eine $N \times N-$Matrix invertiert werden. Hieraus würde man erwarten, dass diese Gleichung für $N < M$, falls also mehr Beobachtungen als Modellfreiheitsgrade vorliegen, effizienter ist als Glg. \eqref{eq:oi_result}.
+
+\subsection{Iteratives Lösungsverfahren}
+\label{sec:iteratives_lösungsverfahren}
+
+\subsection{Äußere und innere Schleife}
+\label{sec:äußere_und_innere_schleife}
+
+\subsubsection{Die äußere Schleife}
+\label{sec:die_äußere_schleife}
+
+\subsubsection{Die innere Schleife}
+\label{sec:die_innere_schleife}
+
+\subsection{Weak constraints}
+\label{sec:weak_constraints}
+
+Ein weiterer Vorteil von 3D-Var gegenüber OI besteht darin, Nebendingungen ohne großen Aufwand einfordern zu können, indem man sie in die Kostenfunktion aufnimmt. Dies bezeichnet man als \textit{weak constraint}\index{weak constraint}. Das in Abschn. \ref{sec:berücksichtigung_von_hydrostatik} dargelegte Verfahren kann man als weak constrain formulieren, indem man einen Term
+%
+\begin{align}
+J \propto \frac{1}{2}\int_A\left(\frac{\partial p}{\partial z} + g\rho\right)^2d^3r
+\end{align}
+%
+in die Kostenfunktion aufnimmt.
+
+\subsubsection{Balancegleichung}
+\label{sec:balancegleichung_data_ass}\index{Balancegleichung!Datenassimilation}\index{Datenassimilation!Balancegleichung}
+
+Der Horizontalwind ist auf der synoptischen Skala aufgrund der näherungsweisen Gültigkeit des geostrophischen Gleichgewichts sowie der Balancegleichung eng mit den thermodynamischen Größen verknüpft. Daher kann man ihn als diagnostische Größe betrachten. Ihn direkt aus der Geostrophie in Form von Glg. \eqref{eq:geostr_wind} zu berechnen ist aufgrund des in Abschn. \ref{sec:geostrophie} dargestellten Divergenzproblems in den Tropen nicht möglich. Daher kann man anstattdessen die Balancegleichung \eqref{eq:balance_equation} oder die linearisierte Balancegleichung Glg. \eqref{eq:balance_equation_linear} verwenden. Diese filtert sowohl Schall- als auch Schwerewellen, da beide mit Divergenzen verbunden sind.
+
+Analog zum Fall der Hydrostatik ist es auch hier wieder möglich, die Gültigkeit der Balancegleichung entweder exakt zu fordern, oder, was einfacher ist, sie in die Kostenfunktion aufzunehmen.
+
+\section{4D-Var}
+\label{sec:4d-var}\index{4D-Var}
+
+\textit{4D-Var} basiert auf 3D-Var, berücksichtigt jedoch zusätzlich noch die Zeitdimension. Hierzu verallgemeinert man die Kostenfunktion $J$ in der Form
+%
+\begin{eqnarray}
+J = J_{\text{3D-Var}} + \sum_{n = 1}^NJ_n,
+\end{eqnarray}
+%
+hierbei ist $N$ die Anzahl der involvierten Zeitschritte (außer dem Analysezeitpunkt selbst) und $J_n$ ist die Kostenfunktion an Schritt $n$. $J_{\text{3D-Var}}$ ist wie in Glg. \eqref{eq:3d-var_cost_function} definiert. $\mathbf{Y}_n$ sei der Vektor der Beobachtungen am Zeitschritt $n$. An jedem Zeitschritt kann dieser Vektor eine andere Größe sowie eine andere Bedeutung haben. $\mathbf{X}_n$ sei der Zustandsvektor der Modellatmosphäre bei Zeitschritt $n$, welcher aus dem Analysezustand $\mathbf{X}$ über
+%
+\begin{eqnarray}
+\mathbf{X}_n = M_n\mathbf{X},
+\end{eqnarray}
+%
+ermittelt wird. Hierbei ist $M_n$ die Integration des Modells vom Analysezeitpunkt zu Zeitschritt $n$. Um diese Integration zu linearisieren, berechnet man einen sogenannten \textit{tangentialen linearen Modelloperator} $\overleftrightarrow{M}$, welcher eine Matrix ist. Es gilt dann
+%
+\begin{eqnarray}
+M_n \approx \overleftrightarrow{M}^n,
+\end{eqnarray}
+%
+was für zunehmende $n$ immer ungenauer wird. Somit gilt
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{eqnarray}
+J_n = \left(\mathbf{Y}_n - \overleftrightarrow{H}_n\overleftrightarrow{M}^n\mathbf{X}\right)^T\overleftrightarrow{A}_{O, n}\left(\mathbf{Y}_n - \overleftrightarrow{H}_n\overleftrightarrow{M}^n\mathbf{X}\right).
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
+
+\subsection{Äußere und innere Schleife}
+\label{sec:äußere_und_innere_schleife_4d-var}
+
+\subsubsection{Die äußere Schleife}
+\label{sec:die_äußere_schleife_4d-var}
+
+\subsubsection{Die innere Schleife}
+\label{sec:die_innere_schleife_4d-var}
+
+\section{Interpolation eines anderen Modells}
+\label{sec:interpolation_eines_anderen_modells}
+
+Liegt der Anfangszustand eines anderen Modells vor (beispielsweise auf einem Länge-Breite-Gitter), ist es durchaus möglich, diesen einfach auf das gewünschte Modellgitter zu interpolieren und in die prognostischen Variablen umzurechnen. Hierbei wird die Analyse des anderen Modells als \glqq Beobachtung\grqq\ aufgefasst und es wird die Annahme gemacht, dass der Fehler der Datenassimilation des anderen Modells vernachlässigbar ist im Vergleich zum Fehler der Vorhersage des eigenen Modells. Diese Annahme ist häufig gerechtfertigt, und selbst wenn sie nicht gerechtfertigt ist, kann es sinnvoll sein, trotzdem diese Methode zu verwenden, um die durch die Einfachheit dieses Verfahrens freiwerdenden Rechenkapazitäten für den Modelllauf zu nutzen.
+
+\chapter{\normalfont\textsc{Machine learning}}
+\label{sec:machine_learning}\index{Machine learning}
+
 \part{Entwicklung eines dynamischen Kerns}
 \label{part:entwicklung_eines_dynamischen_kerns}\index{dynamischer Kern}\index{Kern!dynamischer}
 
@@ -24158,34 +24701,10 @@ Dies entspricht grob dem in Glg. \eqref{sec:eddy_viscosity_vert_estimate} erhalt
 
 Außerhalb der planetarischen Grenzschicht kann von einem Wert für die vertikale Mischungsweglänge von ca. 100 m ausgegangen werden, da dort größere Wirbel existieren. Die horizontale Mischungsweglänge kann außerhalb der planetarischen Grenzschicht mit ca. 10 km abgeschätzt werden (zwei Größenordnungen über der vertikalen Mischungsweglänge). Simulationen, deren Auflösung die Mischungsweglänge unterschreiten, bezeichnet man als \textit{large eddy simulations (LES)}\index{large eddy simulation (LES)}. Bei weiterer Erhöhung der Auflösung findet eine Konvergenz der numerischen gegen die molekularen Diffusionskoeffizienten statt.
 
-\section{Klassisches Smagorinsky-Modell}
-\label{sec:klassisches_smagorinsky-modell}\index{Smagorinsky-Modell!klassisch}
+\section{Impulsdiffusion}
+\label{sec:impulsdiffusion}\index{Impulsdiffusion}\index{Smagorinsky-Modell!klassisches}
 
-Der einfachste Ansatz, den turbulenten horizontalen Diffusionskoeffizienten $K_\Delta$ zu berechnen, ist das sogenannte \textit{klassische Smagorinsky-Modell (classic Smagorinsky model, CSM).} Der relevante Skalenbereich der turbulenten Diffusion in der Atmosphäre ist die inertial subrange ($k^\star < k \ll k_c$), in diesem gilt Glg. \eqref{eq:ekin_spec_inertial_subrange}, welche hier noch einmal wiedergegeben wird:
-%
-\begin{align}
-\newtilde{e}\left(k\right) = \kappa_K\epsilon^{2/3}k^{-5/3}\label{eq:ekin_spec_inertial_subrange_mod}
-\end{align}
-%
-Aufgrund von Glg. \eqref{eq:characteristic_length} macht man für die turbulente kinematische Viskosität $\nu_\Delta$ den Ansatz
-%
-\begin{align}
-\nu_\Delta \propto \Delta^{4/3}\newtilde{\epsilon}^{1/3}.
-\end{align}
-%
-Hierbeit ist $\newtilde{\epsilon}$ die bei der Wellenlänge $\Delta$ aktive Dissipationsrate. Die turbulente dynamische Viskosität $K_\Delta$ lautet somit
-%
-\begin{center}
-\doublebox{\parbox{0.8\textwidth}{
-\begin{center}
-\begin{align}
-K_\Delta = \rho\nu_\Delta = \rho c_S\Delta^2\sqrt{\left(\frac{\partial u}{\partial x} - \frac{\partial v}{\partial y}\right)^2 + \left(\frac{\partial u}{\partial y} + \frac{\partial v}{\partial x}\right)^2} = \rho c_S\Delta^2\sqrt{E^2 + F^2}.
-\end{align}
-\end{center}
-}}
-\end{center}
-%
-Dies muss nun auf dem hexagonalen Gitter diskretisiert werden. Hierzu mittelt man zunächst die diskretisierten Terme:
+Als Ansatz für die Impulsdiffusion wird das klassische Smagorinsky-Modell verwendet. Hierzu muss Glg. \eqref{eq:csm} muss nun auf dem hexagonalen Gitter diskretisiert werden. Hierzu mittelt man zunächst die diskretisierten Terme:
 %
 \begin{align}
 K_\Delta = \rho c_S\Delta^2\sqrt{\newoverline{\left(\frac{\partial u}{\partial x} - \frac{\partial v}{\partial y}\right)}^2 + \newoverline{\left(\frac{\partial u}{\partial y} + \frac{\partial v}{\partial x}\right)}^2} = \rho c_S\Delta^2\sqrt{\left(\newoverline{\frac{\partial u}{\partial x}} - \newoverline{\frac{\partial v}{\partial y}}\right)^2 + \left(\newoverline{\frac{\partial u}{\partial y}} + \newoverline{\frac{\partial v}{\partial x}}\right)^2}
@@ -24211,70 +24730,39 @@ Dies kann man als Linienintegral umformulieren:
 %
 hierbei ist $\phi$ der Winkel zwischen $d\mathbf{r}$ und $\mathbf{e}_y$.
 
-\section{TKE-Ansatz}
-\label{sec:tke-ansatz}\index{TKE-Ansatz}\index{turbulente kinetische Energie}
+\section{TKE als prognostische Variable}
+\label{sec:tke_als_prognostische_variable}
 
-Die sogenannte spezifische \textit{turbulente kinetische Energie} $k_s$ ist der subskalige Anteil der kinetischen Energie, in Abgrenzung zum aufgelösten Anteil, welcher hier mit $k_m$ bezeichnet wird. Für diese Größe soll eine prognostische Gleichung hergeleitet werden. Man beginnt, indem man zunächst die Gleichung der spezifischen kinetischen Energie Glg. \eqref{eq:e_kin_prog} nochmals notiert:
+Die subskalige Viskosität beschreibt den Einfluss der TKE auf die aufgelösten Skalen. Man kann die volumetrische TKE
 %
 \begin{align}
-\frac{\partial k}{\partial t} = \frac{1}{2}\frac{\partial}{\partial t}\left(u^2 + v^2 + w^2\right) = -\mathbf{v}\cdot\nabla k -\frac{1}{\rho}\mathbf{v}\cdot\nabla p - wg + \mathbf{v}\cdot\mathbf{f}_R.
+K_s \coloneqq \rho k_s
 \end{align}
 %
-Den Druckgradienten drückt man über den Exner-Druck aus:
+als zusätzliche prognostische Größe einführen und für diese eine Gleichung
 %
 \begin{align}
-\frac{\partial k}{\partial t} = \frac{1}{2}\frac{\partial}{\partial t}\left(u^2 + v^2 + w^2\right) = -\mathbf{v}\cdot\nabla k - c^{(p)}\theta\mathbf{v}\cdot\nabla\Pi - wg + \mathbf{v}\cdot\mathbf{f}_R.
-\end{align}
-%
-Führt man hier eine Reynolds-Mittelung durch, erhält man
-%
-\begin{align}
-\frac{\partial\newoverline{k}}{\partial t} + \frac{\partial k'}{\partial t} &= \frac{1}{2}\frac{\partial}{\partial t}\left(\newoverline{u}^2 + \newoverline{v}^2 + \newoverline{w}^2\right) + \frac{1}{2}\frac{\partial}{\partial t}\left(u'^2 + v'^2 + w'^2\right)\nonumber\\
-&= -\newoverline{\mathbf{v}}\cdot\nabla\newoverline{k} - \mathbf{v}'\cdot\nabla k' - c^{(p)}\newoverline{\theta}\newoverline{\mathbf{v}}\cdot\nabla\newoverline{\Pi} - c^{(p)}\theta'\mathbf{v}'\cdot\nabla\Pi' - \newoverline{w}g + \newoverline{\mathbf{v}}\cdot\newoverline{\mathbf{f}_R} + \mathbf{v}'\cdot\mathbf{f}'_R.\label{eq:tke_deriv}
-\end{align}
-%
-Der aufgelöste bzw. subskalige Anteil der kinetischen Energie ist nun über
-%
-\begin{align}
-k_m &\coloneqq \newoverline{k} = \frac{1}{2}\frac{\partial}{\partial t}\left(\newoverline{u}^2 + \newoverline{v}^2 + \newoverline{w}^2\right),\nonumber\\
-k_s &\coloneqq k' = \frac{1}{2}\frac{\partial}{\partial t}\left(u'^2 + v'^2 + w'^2\right)
-\end{align}
-%
-definierbar. Setzt man dies in Glg. \eqref{eq:tke_deriv} ein, erhält man
-%
-\begin{align}
-\frac{\partial k_m}{\partial t} + \frac{\partial k_s}{\partial t} &= -\newoverline{\mathbf{v}}\cdot\nabla\newoverline{k} - \mathbf{v}'\cdot\nabla k' - c^{(p)}\newoverline{\theta}\newoverline{\mathbf{v}}\cdot\nabla\newoverline{\Pi} - c^{(p)}\theta'\mathbf{v}'\cdot\nabla\Pi' - \newoverline{w}g + \newoverline{\mathbf{v}}\cdot\newoverline{\mathbf{f}_R} + \mathbf{v}'\cdot\mathbf{f}'_R.
-\end{align}
-
-Die subskalige Viskosität beschreibt den Einfluss der TKE auf die aufgelösten Skalen.
-
-\subsection{Modellierung}
-\label{sec:modellierung}
-
-Man kann die volumetrische TKE $\tau$ als zusätzliche prognostische Größe einführen und für diese eine Gleichung
-%
-\begin{align}
-\frac{\partial\tau}{\partial t} = -\nabla\cdot\left(\tau\mathbf{v}\right) + \text{Quellen} - \text{Senken}\label{eq:tke_ansatz}
+\frac{\partial K_s}{\partial t} = -\nabla\cdot\left(K_s\mathbf{v}\right) + \text{Quellen} - \text{Senken}\label{eq:tke_ansatz}
 \end{align}
 %
 lösen. Anschließend können die Viskositätskoeffizienten als Funktionen 
 %
 \begin{align}
-K = K\left[\mathbf{v}\left(\mathbf{r}\right),\tau\right]
+K = K\left[\mathbf{v}\left(\mathbf{r}\right),K_s\right]
 \end{align}
 %
-des derzeitigen Windfeldes und der $\tau$ ausgedrückt werden. Über die prognostische Gleichung der $\tau$ enthält dieser Ansatz dann auch Informationen über das vergangene Windfeld.
+des derzeitigen Windfeldes und der $K_s$ ausgedrückt werden. Über die prognostische Gleichung der $K_s$ enthält dieser Ansatz dann auch Informationen über das vergangene Windfeld.
 
 Die Senke der TKE (s. Glg. \eqref{eq:tke_ansatz}) ist die molekulare Dissipation $\epsilon$. Für die Quellen wird das Symbol $S$ verwendet, somit erhält man
 %
 \begin{align}
-\frac{\partial\tau}{\partial t} = -\nabla\cdot\left(\tau\mathbf{v}\right) + S - \epsilon.
+\frac{\partial K_s}{\partial t} = -\nabla\cdot\left(K_s\mathbf{v}\right) + S - \epsilon.
 \end{align}
 %
 Für $\epsilon$ bietet sich der einfache Ansatz
 %
 \begin{align}
-\epsilon = \kappa\tau
+\epsilon = \kappa K_s
 \end{align}
 %
 an. $S$ besteht aus
@@ -24287,7 +24775,7 @@ an. $S$ besteht aus
 Somit erhält man
 %
 \begin{align}
-\frac{\partial\tau}{\partial t} = -\nabla\cdot\left(\tau\mathbf{v}\right) + \epsilon_\Delta + S' - \kappa\tau.
+\frac{\partial K_s}{\partial t} = -\nabla\cdot\left(K_s\mathbf{v}\right) + \epsilon_\Delta + S' - \kappa K_s.
 \end{align}
 %
 Für $S'$ bietet sich der Ansatz
@@ -24299,7 +24787,7 @@ S' = \kappa'\KE
 an. Somit lautet die Gleichung für die TKE
 %
 \begin{align}
-\frac{\partial\tau}{\partial t} = -\mathbf{v}\cdot\nabla\tau + \epsilon_\Delta + \kappa'\KE - \kappa\tau.
+\frac{\partial K_s}{\partial t} = -\mathbf{v}\cdot\nabla K_s + \epsilon_\Delta + \kappa'\KE - \kappa K_s.
 \end{align}
 %
 Um $\kappa$ zu bestimmen, macht man den eindimensionalen Ansatz
@@ -24314,7 +24802,7 @@ wobei $l = \frac{2\pi}{\lambda}$ in diesem Fall die Kreiswellenzahl bezeichnet. 
 \frac{\partial k}{\partial t} = -\frac{32\pi^2K}{\Delta x^2}k
 \end{align}
 %
-führt. $K$ ist hierbei ein diskreter Diffusionskoeffizient $K_\Delta$.
+führt. Für $K$ ist hierbei ein diskreter Diffusionskoeffizient $K_\Delta$ einzusetzen.
 
 \section{Besonderheiten vertikaler Diffusionskoeffizenten}
 \label{sec:besonderheiten_vertikaler_diffusionskoeffizenten}\index{Diffusionskoeffizient!vertikaler}
@@ -24322,13 +24810,13 @@ führt. $K$ ist hierbei ein diskreter Diffusionskoeffizient $K_\Delta$.
 Beim Smagorinsky- und TKE-Ansatz geht es letzten Endes darum, Diffusionskoeffizienten zu berechnen. Im Sinne des Mischungswegansatzes kann man den vertikalen Diffusionskoeffizienten $K_v$ über
 %
 \begin{align}
-K_v = \newoverline{lw'} \approx l\cdot 0,01\sqrt{2\tau} \equiv cl\sqrt{2\tau}
+K_v = \newoverline{lw'} \approx l\cdot 0,01\sqrt{2k_s} \equiv cl\sqrt{2k_s}
 \end{align}
 %
 berechnen, hierbei ist $l > 0$ die Mischungsweglänge. Der Parameter $c \approx 0,01$ kann in der Modellierung als Tuningparameter aufgefasst werden. Für Schichtdicken $\Delta z < l$ muss man dies zu
 %
 \begin{align}
-K_v = c\text{min}\left(l, \Delta z\right)\sqrt{2\tau}
+K_v = c\text{min}\left(l, \Delta z\right)\sqrt{2k_s}
 \end{align}
 %
 verallgemeinern.
