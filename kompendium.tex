@@ -24965,23 +24965,6 @@ e_i &= -\frac{\Delta t}{2}\alpha_{i + \frac{1}{2}, i + 1}\frac{W_{i + 1/2}^{(n +
 
 Nach Advektion, Diffusion und Phasenübergängen ist es möglich, dass negative Dichten entstehen können. Dies sollte nur durch Rundungsfehler der Fall sein. Diese numerischen Artefakte müssen korrigiert werden, indem man in diesen Gitterboxen am Ende des Zeitschritts die Dichte des jeweiligen Tracers auf Null setzt. Geschieht dies über Rundungsfehler hinaus, wird die Massenerhaltung verletzt, was nicht akzeptabel ist.
 
-\section{Parametrisierungen}
-\label{sec:parametrisierungen_tracer}\index{Parametrisierung!Phasenübergänge}\index{Phasenübergang!Parametrisierung}
-
-\section{Vier-Kondensate-Schema}
-\label{sec:vier-kondensate-schema}\index{Vier-Kondensate-Schema}
-
-Dieses Schema berücksichtigt folgende vier Kondensatklassen:
-
-\begin{itemize}
-\item Wolkenwasser
-\item Regenwasser
-\item flüsiger Niederschlag
-\item fester Niederschlag
-\end{itemize}
-%
-Dieses Schema ist adäquat für Globalmodelle.
-
 \section{Diskretisierung von Kondensation und Resublimation}
 \label{sec:diskretisierung_von_kondensation_und_resublimation}\index{Kondensation!Diskretisierung}\index{Resublimation!Diskretisierung}
 
@@ -25033,6 +25016,48 @@ Nun ist noch zu bestimmen, welches der beiden Vorzeichen das physikalisch richti
 %
 \begin{align}
 \Delta\rho_v = -\frac{p}{2} - \sqrt{\frac{p^2}{4} - q}.
+\end{align}
+
+\section{Parametrisierungen}
+\label{sec:parametrisierungen_tracer}\index{Parametrisierung!Phasenübergänge}\index{Phasenübergang!Parametrisierung}
+
+\section{Vier-Kondensate-Schema}
+\label{sec:vier-kondensate-schema}\index{Vier-Kondensate-Schema}
+
+Dieses Schema berücksichtigt folgende vier Kondensatklassen:
+
+\begin{itemize}
+\item Wolkenwasser
+\item Regenwasser
+\item flüsiger Niederschlag
+\item fester Niederschlag
+\end{itemize}
+%
+Dieses Schema ist adäquat für Globalmodelle.
+
+\subsection{Effektive Radien}
+\label{sec:{effektive_radien}}\index{Radius!effektiver}
+
+Die Größen der Kondensate sind relevant, um die Fallgeschwindigkeit und die Wechselwirkung mit dem Strahlungsfeld zu berechnen. Daher ist für jede Kondensatklasse eine Formel für den effektiven Radius anzugeben.
+
+Es wird davon ausgegangen, dass die Größenverteilung der Regentropfen einer Marshall-Palmer-Verteilung Glg. \eqref{eq:marshall-palmer} entspricht.
+
+Für den effektiven Radius von Wolkeneis ist die in \cite{sun_rikus_cirrus_1999} entwickelte Formel eine der gebräuchlichsten Approximationen. Diese lautet
+%
+\begin{align}
+d_{\text{eff},i} &= \left(1,2351 + 0,0105\cdot\left(t - t_0\right)\right)\cdot\left(45,8966\cdot w^{0,2214} + 0,7957\cdot w^{0,2535}\cdot\left(t - 83,15\right)\right).\label{eq:sun_rikus}
+\end{align}
+%
+Hierbei sind $t\coloneqq T/\text{K}$ die Maßzahl der Temperatur in Kelvin, $t_0\coloneqq 273,15$, $w \coloneqq 1000\left(\rho_i + \rho_s\right)/\left(\text{kg}/\text{m}^3\right)$ die Maßzahl der Wolkeneisdichte (inklusive Schnee) in $\text{g}/\text{m}^3$ und $d_\text{eff}$ die Maßzahl des effektiven Durchmessers in Mikrometern. Das Ergebnis von Glg. \eqref{eq:sun_rikus} wird in folgender Weise eingeschränkt:
+%
+\begin{align}
+d_\text{eff} \to \text{max}\left(\text{min}\left(d_\text{eff},155\right),20 + 40\cdot\cos\left(\phi\right)\right)
+\end{align}
+%
+mit $\phi$ als geographischer Breite. Der effektive Radius $r_\text{eff}$ ergibt sich zu
+%
+\begin{align}
+r_{\text{eff},i} = \frac{3\sqrt{3}}{8}d_{\text{eff},i}\cdot 10^{-6}\text{m}.
 \end{align}
 
 \subsection{Entstehung von Niederschlag}

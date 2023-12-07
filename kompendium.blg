@@ -1,25 +1,25 @@
 [0] Config.pm:307> INFO - This is Biber 2.17
 [0] Config.pm:310> INFO - Logfile is 'kompendium.blg'
-[36] biber:340> INFO - === Mi Dez  6, 2023, 23:55:12
-[44] Biber.pm:418> INFO - Reading 'kompendium.bcf'
-[74] Biber.pm:972> INFO - Found 31 citekeys in bib section 0
-[80] Biber.pm:4383> INFO - Processing section 0
-[86] Biber.pm:4574> INFO - Looking for bibtex file 'references.bib' for section 0
-[90] bibtex.pm:1713> INFO - LaTeX decoding ...
-[143] bibtex.pm:1518> INFO - Found BibTeX data source 'references.bib'
-[233] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
-[233] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[233] Biber.pm:4203> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'de-DE'
-[233] Biber.pm:4209> INFO - No sort tailoring available for locale 'de-DE'
-[247] bbl.pm:654> INFO - Writing 'kompendium.bbl' with encoding 'UTF-8'
-[253] bbl.pm:757> INFO - Output to kompendium.bbl
-[253] Biber.pm:130> WARN - legacy month field 'mar' in entry '1960ApJ...131..442S' is not an integer - this will probably not sort properly.
-[253] Biber.pm:130> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
-[253] Biber.pm:130> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
-[253] Biber.pm:130> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
-[253] Biber.pm:130> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
-[253] Biber.pm:130> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
-[253] Biber.pm:130> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
-[253] Biber.pm:130> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
-[253] Biber.pm:130> WARN - I didn't find a database entry for 'staniforth' (section 0)
-[254] Biber.pm:132> INFO - WARNINGS: 9
+[37] biber:340> INFO - === Do Dez  7, 2023, 21:25:59
+[43] Biber.pm:418> INFO - Reading 'kompendium.bcf'
+[73] Biber.pm:972> INFO - Found 32 citekeys in bib section 0
+[79] Biber.pm:4383> INFO - Processing section 0
+[84] Biber.pm:4574> INFO - Looking for bibtex file 'references.bib' for section 0
+[88] bibtex.pm:1713> INFO - LaTeX decoding ...
+[142] bibtex.pm:1518> INFO - Found BibTeX data source 'references.bib'
+[240] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[241] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
+[241] Biber.pm:4203> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'de-DE'
+[241] Biber.pm:4209> INFO - No sort tailoring available for locale 'de-DE'
+[255] bbl.pm:654> INFO - Writing 'kompendium.bbl' with encoding 'UTF-8'
+[261] bbl.pm:757> INFO - Output to kompendium.bbl
+[262] Biber.pm:130> WARN - legacy month field 'mar' in entry '1960ApJ...131..442S' is not an integer - this will probably not sort properly.
+[262] Biber.pm:130> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
+[262] Biber.pm:130> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
+[262] Biber.pm:130> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
+[262] Biber.pm:130> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
+[262] Biber.pm:130> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
+[262] Biber.pm:130> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
+[262] Biber.pm:130> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
+[262] Biber.pm:130> WARN - I didn't find a database entry for 'staniforth' (section 0)
+[262] Biber.pm:132> INFO - WARNINGS: 9
