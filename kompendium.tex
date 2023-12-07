@@ -22607,16 +22607,16 @@ Nun nimmt man an, dass ein Modellzustand nicht durch eine einzelne Zahl $x$, son
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-J\left(\mathbf{x}\right) = \frac{1}{2}\left(\mathbf{x} - \mathbf{x}_B\right)^T\overleftrightarrow{B}^{-1}\left(\mathbf{x} - \mathbf{x}_B\right) + \frac{1}{2}\frac{1}{\sigma_y^2}\left[y - \newhat{h}\left(\mathbf{x}_B\right) - \mathbf{H}\left(\mathbf{x} - \mathbf{x}_B\right)\right]^2.\label{eq:3dvar_cost_1_obs}
+J\left(\mathbf{x}\right) = \frac{1}{2}\left(\mathbf{x} - \mathbf{x}_B\right)^TB^{-1}\left(\mathbf{x} - \mathbf{x}_B\right) + \frac{1}{2}\frac{1}{\sigma_y^2}\left[y - \newhat{h}\left(\mathbf{x}_B\right) - \mathbf{H}\left(\mathbf{x} - \mathbf{x}_B\right)\right]^2.\label{eq:3dvar_cost_1_obs}
 \end{align}
 \end{center}
 }}
 \end{center}
 %
-$\mathbf{H}$ ist ein $1 \times N-$Vektor. $\overleftrightarrow{B} \in \mathbb{R}^{N \times N}$ ist die Kovarianzmatrix der Fehler des Hintergrundzustandes. Diese Matrix hat Diagonalform, auf ihrer Hauptdiagonalen stehen die Varianzen des Hintergrundzustandes:
+$\mathbf{H}$ ist ein $1 \times N-$Vektor. $B \in \mathbb{R}^{N \times N}$ ist die Kovarianzmatrix der Fehler des Hintergrundzustandes. Diese Matrix hat Diagonalform, auf ihrer Hauptdiagonalen stehen die Varianzen des Hintergrundzustandes:
 %
 \begin{align}
-\overleftrightarrow{B} = \left(\begin{array}{cccc}
+B = \left(\begin{array}{cccc}
 \sigma_{0, B}^2 & 0 & \dots & 0\\
 0 & \sigma_{1, B}^2 & 0 & \vdots\\
 \vdots & \dots & \ddots & 0\\
@@ -22627,7 +22627,7 @@ $\mathbf{H}$ ist ein $1 \times N-$Vektor. $\overleftrightarrow{B} \in \mathbb{R}
 Hieraus folgt
 %
 \begin{align}
-\overleftrightarrow{B}^{-1} = \left(\begin{array}{cccc}
+B^{-1} = \left(\begin{array}{cccc}
 \frac{1}{\sigma_{0, B}^2} & 0 & \dots & 0\\
 0 & \frac{1}{\sigma_{1, B}^2} & 0 & \vdots\\
 \vdots & \dots & \ddots & 0\\
@@ -22638,7 +22638,7 @@ Hieraus folgt
 Somit erhält man
 %
 \begin{align}
-\frac{1}{2}\left(\mathbf{x} - \mathbf{x}_B\right)^T\overleftrightarrow{B}^{-1}\left(\mathbf{x} - \mathbf{x}_B\right) = \sum_{i = 0}^{N - 1}\frac{\left(x_i - x_{i, B}\right)^2}{2\sigma_{i, B}^2}.
+\frac{1}{2}\left(\mathbf{x} - \mathbf{x}_B\right)^TB^{-1}\left(\mathbf{x} - \mathbf{x}_B\right) = \sum_{i = 0}^{N - 1}\frac{\left(x_i - x_{i, B}\right)^2}{2\sigma_{i, B}^2}.
 \end{align}
 %
 Man erhält hieraus
@@ -22650,25 +22650,25 @@ Man erhält hieraus
 Dies kann man in der kompakten Form
 %
 \begin{align}
-\nabla J = \overleftrightarrow{B}^{-1}\left(\mathbf{x} - \mathbf{x}_B\right) - \frac{\mathbf{H}^T}{\sigma_y^2}\left[y - \newhat{h}\left(\mathbf{x}_B\right) - \mathbf{H}\left(\mathbf{x} - \mathbf{x}_B\right)\right].
+\nabla J = B^{-1}\left(\mathbf{x} - \mathbf{x}_B\right) - \frac{\mathbf{H}^T}{\sigma_y^2}\left[y - \newhat{h}\left(\mathbf{x}_B\right) - \mathbf{H}\left(\mathbf{x} - \mathbf{x}_B\right)\right].
 \end{align}
 %
 notieren. Aus Glg. \eqref{eq:3dvar_criterion} folgt in diesem Fall also
 %
 \begin{align}
-\overleftrightarrow{B}^{-1}\left(\mathbf{x} - \mathbf{x}_B\right) &= \frac{\mathbf{H}^T}{\sigma_y^2}\left[y - \newhat{h}\left(\mathbf{x}_B\right) - \mathbf{H}\left(\mathbf{x} - \mathbf{x}_B\right)\right]\nonumber\\
-\Rightarrow\overleftrightarrow{B}^{-1}\left(\mathbf{x} - \mathbf{x}_B\right) + \frac{\mathbf{H}^T}{\sigma_y^2}\left[\mathbf{H}\left(\mathbf{x} - \mathbf{x}_B\right)\right] &= \frac{\mathbf{H}^T}{\sigma_y^2}\left[y - \newhat{h}\left(\mathbf{x}_B\right)\right]\nonumber\\
-\Rightarrow\left(\overleftrightarrow{B}^{-1} + \frac{\mathbf{H}^T\mathbf{H}}{\sigma_y^2}\right)\left(\mathbf{x} - \mathbf{x}_B\right) &= \frac{\mathbf{H}^T}{\sigma_y^2}\left[y - \newhat{h}\left(\mathbf{x}_B\right)\right]\nonumber
+B^{-1}\left(\mathbf{x} - \mathbf{x}_B\right) &= \frac{\mathbf{H}^T}{\sigma_y^2}\left[y - \newhat{h}\left(\mathbf{x}_B\right) - \mathbf{H}\left(\mathbf{x} - \mathbf{x}_B\right)\right]\nonumber\\
+\Rightarrow B^{-1}\left(\mathbf{x} - \mathbf{x}_B\right) + \frac{\mathbf{H}^T}{\sigma_y^2}\left[\mathbf{H}\left(\mathbf{x} - \mathbf{x}_B\right)\right] &= \frac{\mathbf{H}^T}{\sigma_y^2}\left[y - \newhat{h}\left(\mathbf{x}_B\right)\right]\nonumber\\
+\Rightarrow\left(B^{-1} + \frac{\mathbf{H}^T\mathbf{H}}{\sigma_y^2}\right)\left(\mathbf{x} - \mathbf{x}_B\right) &= \frac{\mathbf{H}^T}{\sigma_y^2}\left[y - \newhat{h}\left(\mathbf{x}_B\right)\right]\nonumber
 \end{align}
 \begin{align}
-\Rightarrow\left(1 + \overleftrightarrow{B}\frac{\mathbf{H}^T\mathbf{H}}{\sigma_y^2}\right)\left(\mathbf{x} - \mathbf{x}_B\right) &= \frac{\overleftrightarrow{B}\mathbf{H}^T}{\sigma_y^2}\left[y - \newhat{h}\left(\mathbf{x}_B\right)\right]\nonumber\\
-\Rightarrow\mathbf{x} - \mathbf{x}_B &= \left(1 + \overleftrightarrow{B}\frac{\mathbf{H}^T\mathbf{H}}{\sigma_y^2}\right)^{-1}\frac{\overleftrightarrow{B}\mathbf{H}^T}{\sigma_y^2}\left[y - \newhat{h}\left(\mathbf{x}_B\right)\right]\nonumber
+\Rightarrow\left(1 + B\frac{\mathbf{H}^T\mathbf{H}}{\sigma_y^2}\right)\left(\mathbf{x} - \mathbf{x}_B\right) &= \frac{B\mathbf{H}^T}{\sigma_y^2}\left[y - \newhat{h}\left(\mathbf{x}_B\right)\right]\nonumber\\
+\Rightarrow\mathbf{x} - \mathbf{x}_B &= \left(1 + B\frac{\mathbf{H}^T\mathbf{H}}{\sigma_y^2}\right)^{-1}\frac{B\mathbf{H}^T}{\sigma_y^2}\left[y - \newhat{h}\left(\mathbf{x}_B\right)\right]\nonumber
 \end{align}
 \begin{center}
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-\Rightarrow\mathbf{x} &= \mathbf{x}_B + \left(\overleftrightarrow{B}\frac{\mathbf{H}^T\mathbf{H}}{\sigma_y^2} + 1\right)^{-1}\frac{\overleftrightarrow{B}\mathbf{H}^T}{\sigma_y^2}\left[y - \newhat{h}\left(\mathbf{x}_B\right)\right].
+\Rightarrow\mathbf{x} &= \mathbf{x}_B + \left(B\frac{\mathbf{H}^T\mathbf{H}}{\sigma_y^2} + 1\right)^{-1}\frac{B\mathbf{H}^T}{\sigma_y^2}\left[y - \newhat{h}\left(\mathbf{x}_B\right)\right].
 \end{align}
 \end{center}
 }}
@@ -22683,62 +22683,62 @@ Nun nimmt man an, dass nicht eine, sondern $M$ Beobachtungen vorliegen. Die Kost
 \doublebox{\parbox{\textwidth}{
 \begin{center}
 \begin{eqnarray}
-J\left(\mathbf{x}\right) = \frac{1}{2}\left(\mathbf{x} - \mathbf{x}_B\right)^T\overleftrightarrow{B}^{-1}\left(\mathbf{x} - \mathbf{x}_B\right) + \frac{1}{2}\left(\mathbf{y} - \newhat{h}\left(\mathbf{x}_B\right) - \overleftrightarrow{H}\left(\mathbf{x} - \mathbf{x}_B\right)\right)^T\overleftrightarrow{R}^{-1}\left(\mathbf{y} - \newhat{h}\left(\mathbf{x}_B\right) - \overleftrightarrow{H}\left(\mathbf{x} - \mathbf{x}_B\right)\right).\label{eq:3d-var_cost_function}
+J\left(\mathbf{x}\right) = \frac{1}{2}\left(\mathbf{x} - \mathbf{x}_B\right)^TB^{-1}\left(\mathbf{x} - \mathbf{x}_B\right) + \frac{1}{2}\left(\mathbf{y} - \newhat{h}\left(\mathbf{x}_B\right) - H\left(\mathbf{x} - \mathbf{x}_B\right)\right)^TR^{-1}\left(\mathbf{y} - \newhat{h}\left(\mathbf{x}_B\right) - H\left(\mathbf{x} - \mathbf{x}_B\right)\right).\label{eq:3d-var_cost_function}
 \end{eqnarray}
 \end{center}
 }}
 \end{center}
 %
-Hierbei ist $\overleftrightarrow{R}$ die Kovarianzmatrix der Fehler der Beobachtungen. Da es sich hierbei vorwiegend um statistische (und keine systematischen) Fehler handelt, kann man davon ausgehen, dass diese Diagonalform hat. Es gilt
+Hierbei ist $R$ die Kovarianzmatrix der Fehler der Beobachtungen. Da es sich hierbei vorwiegend um statistische (und keine systematischen) Fehler handelt, kann man davon ausgehen, dass diese Diagonalform hat. Es gilt
 %
 \begin{align}
-\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}\right)^T\overleftrightarrow{R}^{-1}\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}\right) &= \mathbf{y}^T\overleftrightarrow{R}^{-1}\mathbf{y} - \mathbf{y}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H}\mathbf{x} - \mathbf{x}^T\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\mathbf{y} + \mathbf{x}^T\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H}\mathbf{x}.
+\left(\mathbf{y} - H\mathbf{x}\right)^TR^{-1}\left(\mathbf{y} - H\mathbf{x}\right) &= \mathbf{y}^TR^{-1}\mathbf{y} - \mathbf{y}^TR^{-1}H\mathbf{x} - \mathbf{x}^TH^TR^{-1}\mathbf{y} + \mathbf{x}^TH^TR^{-1}H\mathbf{x}.
 \end{align}
 %
 Man rechnet nun
 %
 \begin{align}
-\mathbf{y}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H}\mathbf{x} &= \left(\overleftrightarrow{R}^{-1}\overleftrightarrow{H}\mathbf{x}\right)^T\mathbf{y} = \mathbf{x}^T\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\mathbf{y}.
+\mathbf{y}^TR^{-1}H\mathbf{x} &= \left(R^{-1}H\mathbf{x}\right)^T\mathbf{y} = \mathbf{x}^TH^TR^{-1}\mathbf{y}.
 \end{align}
 %
-Dabei wurde verwendet, dass $\overleftrightarrow{R}^{-1}$ orthogonal ist. Somit gilt
+Dabei wurde verwendet, dass $R^{-1}$ orthogonal ist. Somit gilt
 %
 \begin{align}
-\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}\right)^T\overleftrightarrow{R}^{-1}\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}\right) &= \mathbf{y}^T\overleftrightarrow{R}^{-1}\mathbf{y} - 2\mathbf{x}^T\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\mathbf{y} + \mathbf{x}^T\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H}\mathbf{x}\nonumber\\
-&= \mathbf{y}^T\overleftrightarrow{R}^{-1}\mathbf{y} - 2\mathbf{x}^T\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\mathbf{y} + \left(\mathbf{x}^T\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H}\right)^T\cdot\mathbf{x}\nonumber\\
-&= \mathbf{y}^T\overleftrightarrow{R}^{-1}\mathbf{y} - 2\mathbf{x}^T\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\mathbf{y} + \left(\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H}\mathbf{x}\right)\cdot\mathbf{x}.\label{eq:3d-var_deriv}
+\left(\mathbf{y} - H\mathbf{x}\right)^TR^{-1}\left(\mathbf{y} - H\mathbf{x}\right) &= \mathbf{y}^TR^{-1}\mathbf{y} - 2\mathbf{x}^TH^TR^{-1}\mathbf{y} + \mathbf{x}^TH^TR^{-1}H\mathbf{x}\nonumber\\
+&= \mathbf{y}^TR^{-1}\mathbf{y} - 2\mathbf{x}^TH^TR^{-1}\mathbf{y} + \left(\mathbf{x}^TH^TR^{-1}H\right)^T\cdot\mathbf{x}\nonumber\\
+&= \mathbf{y}^TR^{-1}\mathbf{y} - 2\mathbf{x}^TH^TR^{-1}\mathbf{y} + \left(H^TR^{-1}H\mathbf{x}\right)\cdot\mathbf{x}.\label{eq:3d-var_deriv}
 \end{align}
 %
 Dabei wurde berücksichtigt, dass wegen
 %
 \begin{align}
-\left(\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H}\right)^T &= \overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H}
+\left(H^TR^{-1}H\right)^T &= H^TR^{-1}H
 \end{align}
 %
-die Matrix $\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H}$ orthogonal ist. Bildet man den Gradienten von Glg. \eqref{eq:3d-var_deriv} (in Bezug auf $\mathbf{x}$), erhält man
+die Matrix $H^TR^{-1}H$ orthogonal ist. Bildet man den Gradienten von Glg. \eqref{eq:3d-var_deriv} (in Bezug auf $\mathbf{x}$), erhält man
 %
 \begin{align}
-\nabla\left[\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}\right)^T\overleftrightarrow{R}^{-1}\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}\right)\right] &= -2\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\mathbf{y} + 2\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H}\mathbf{x} = -2\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\left(\mathbf{y} - \overleftrightarrow{H}\mathbf{x}\right).
+\nabla\left[\left(\mathbf{y} - H\mathbf{x}\right)^TR^{-1}\left(\mathbf{y} - H\mathbf{x}\right)\right] &= -2H^TR^{-1}\mathbf{y} + 2H^TR^{-1}H\mathbf{x} = -2H^TR^{-1}\left(\mathbf{y} - H\mathbf{x}\right).
 \end{align}
 %
 Hieraus folgt
 %
 \begin{eqnarray}
-\nabla J = \overleftrightarrow{B}^{-1}\left(\mathbf{x} - \mathbf{x}_B\right) - \overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\left(\mathbf{y} - \newhat{h}\left(\mathbf{x}_B\right) - \overleftrightarrow{H}\left(\mathbf{x} - \mathbf{x}_B\right)\right).
+\nabla J = B^{-1}\left(\mathbf{x} - \mathbf{x}_B\right) - H^TR^{-1}\left(\mathbf{y} - \newhat{h}\left(\mathbf{x}_B\right) - H\left(\mathbf{x} - \mathbf{x}_B\right)\right).
 \end{eqnarray}
 %
 Aus Glg. \eqref{eq:3dvar_criterion} folgt also
 %
 \begin{align}
-\overleftrightarrow{B}^{-1}\left(\mathbf{x} - \mathbf{x}_B\right) - \overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\left(\mathbf{y} - \newhat{h}\left(\mathbf{x}_B\right) - \overleftrightarrow{H}\left(\mathbf{x} - \mathbf{x}_B\right)\right) &= 0\nonumber\\
-\Leftrightarrow\left(\mathbf{x} - \mathbf{x}_B\right) - \overleftrightarrow{B}\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\left(\mathbf{y} - \newhat{h}\left(\mathbf{x}_B\right) - \overleftrightarrow{H}\left(\mathbf{x} - \mathbf{x}_B\right)\right) &= 0\nonumber\\
-\Leftrightarrow\left(\overleftrightarrow{B}\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H} + 1\right)\left(\mathbf{x} - \mathbf{x}_B\right) - \overleftrightarrow{B}\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\left(\mathbf{y} - \newhat{h}\left(\mathbf{x}_B\right)\right) &= 0\nonumber
+B^{-1}\left(\mathbf{x} - \mathbf{x}_B\right) - H^TR^{-1}\left(\mathbf{y} - \newhat{h}\left(\mathbf{x}_B\right) - H\left(\mathbf{x} - \mathbf{x}_B\right)\right) &= 0\nonumber\\
+\Leftrightarrow\left(\mathbf{x} - \mathbf{x}_B\right) - BH^TR^{-1}\left(\mathbf{y} - \newhat{h}\left(\mathbf{x}_B\right) - H\left(\mathbf{x} - \mathbf{x}_B\right)\right) &= 0\nonumber\\
+\Leftrightarrow\left(BH^TR^{-1}H + 1\right)\left(\mathbf{x} - \mathbf{x}_B\right) - BH^TR^{-1}\left(\mathbf{y} - \newhat{h}\left(\mathbf{x}_B\right)\right) &= 0\nonumber
 \end{align}
 \begin{center}
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-\Leftrightarrow\left(\overleftrightarrow{B}\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H} + 1\right)\left(\mathbf{x} - \mathbf{x}_B\right) = \overleftrightarrow{B}\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\left(\mathbf{y} - \newhat{h}\left(\mathbf{x}_B\right)\right).\label{eq:oi_lin}
+\Leftrightarrow\left(BH^TR^{-1}H + 1\right)\left(\mathbf{x} - \mathbf{x}_B\right) = BH^TR^{-1}\left(\mathbf{y} - \newhat{h}\left(\mathbf{x}_B\right)\right).\label{eq:oi_lin}
 \end{align}
 \end{center}
 }}
@@ -22750,7 +22750,7 @@ Dies ist das für $\mathbf{x}$ geltende lineare Gleichungssystem. Man kann dies 
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-\mathbf{x} &= \mathbf{x}_B + \left(\overleftrightarrow{B}\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H} + 1\right)^{-1}\overleftrightarrow{B}\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\left(\mathbf{y} - \newhat{h}\left(\mathbf{x}_B\right)\right).\label{eq:oi_result_pre}
+\mathbf{x} &= \mathbf{x}_B + \left(BH^TR^{-1}H + 1\right)^{-1}BH^TR^{-1}\left(\mathbf{y} - \newhat{h}\left(\mathbf{x}_B\right)\right).\label{eq:oi_result_pre}
 \end{align}
 \end{center}
 }}
@@ -22759,30 +22759,30 @@ Dies ist das für $\mathbf{x}$ geltende lineare Gleichungssystem. Man kann dies 
 Die Matrix
 %
 \begin{align}
-\overleftrightarrow{K} \coloneqq \left(\overleftrightarrow{B}\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H} + 1\right)^{-1}\overleftrightarrow{B}\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\label{eq:gain_first_version}
+K \coloneqq \left(BH^TR^{-1}H + 1\right)^{-1}BH^TR^{-1}\label{eq:gain_first_version}
 \end{align}
 %
 bezeichnet man als \textit{Gain-Matrix}\index{Gain-Matrix}. Um die rechte Seite dieser Gleichung zu berechnen, muss man eine $N \times N-$Matrix invertieren.
 
-Man kann den Ausdruck für die Gain-Matrix noch etwas vereinfachen. Sei $\overleftrightarrow{A} \in \mathbb{R}^{N \times M}$. Dann gilt
+Man kann den Ausdruck für die Gain-Matrix noch etwas vereinfachen. Sei $A \in \mathbb{R}^{N \times M}$. Dann gilt
 %
 \begin{align}
-\overleftrightarrow{A} &= \overleftrightarrow{A}\left(\overleftrightarrow{H}\overleftrightarrow{A} + 1\right)\left(\overleftrightarrow{H}\overleftrightarrow{A} + 1\right)^{-1}\nonumber\\
-\Leftrightarrow\overleftrightarrow{A} &= \left(\overleftrightarrow{A}\overleftrightarrow{H}\overleftrightarrow{A} + \overleftrightarrow{A}\right)\left(\overleftrightarrow{H}\overleftrightarrow{A} + 1\right)^{-1}\nonumber\\
-\Leftrightarrow\overleftrightarrow{A} &= \left(\overleftrightarrow{A}\overleftrightarrow{H} + 1\right)\overleftrightarrow{A}\left(\overleftrightarrow{H}\overleftrightarrow{A} + 1\right)^{-1}\nonumber\\
-\Leftrightarrow\left(\overleftrightarrow{A}\overleftrightarrow{H} + 1\right)^{-1}\overleftrightarrow{A} &= \overleftrightarrow{A}\left(\overleftrightarrow{H}\overleftrightarrow{A} + 1\right)^{-1}\nonumber.
+A &= A\left(HA + 1\right)\left(HA + 1\right)^{-1}\nonumber\\
+\Leftrightarrow A &= \left(AHA + A\right)\left(HA + 1\right)^{-1}\nonumber\\
+\Leftrightarrow A &= \left(AH + 1\right)A\left(HA + 1\right)^{-1}\nonumber\\
+\Leftrightarrow\left(AH + 1\right)^{-1}A &= A\left(HA + 1\right)^{-1}\nonumber.
 \end{align}
 %
 Definiert man nun
 %
 \begin{align}
-\overleftrightarrow{A} \coloneqq \overleftrightarrow{B}\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1},
+A \coloneqq BH^TR^{-1},
 \end{align}
 %
 folgt
 %
 \begin{align}
-\overleftrightarrow{K} = \left(\overleftrightarrow{B}\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H} + 1\right)^{-1}\overleftrightarrow{B}\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1} = \overleftrightarrow{B}\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\left(\overleftrightarrow{H}\overleftrightarrow{B}\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1} + 1\right)^{-1}.
+K = \left(BH^TR^{-1}H + 1\right)^{-1}BH^TR^{-1} = BH^TR^{-1}\left(HBH^TR^{-1} + 1\right)^{-1}.
 \end{align}
 %
 Für die Berechnung der rechten Seite dieser Gleichung ist nun eine $M \times M-$Matrix zu invertieren, was für $M < N$ effizienter als Glg. \eqref{eq:gain_first_version} ist. Man kann dies weiter zu
@@ -22791,7 +22791,7 @@ Für die Berechnung der rechten Seite dieser Gleichung ist nun eine $M \times M-
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-\overleftrightarrow{K} = \overleftrightarrow{B}\overleftrightarrow{H}^T\left(\overleftrightarrow{H}\overleftrightarrow{B}\overleftrightarrow{H}^T + \overleftrightarrow{R}\right)^{-1}
+K = BH^T\left(HBH^T + R\right)^{-1}
 \end{align}
 \end{center}
 }}
@@ -22803,7 +22803,7 @@ vereinfachen. Setzt man dies in Glg. \eqref{eq:oi_result_pre} ein, erhält man
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-\mathbf{x} &= \mathbf{x}_B + \overleftrightarrow{B}\overleftrightarrow{H}^T\left(\overleftrightarrow{H}\overleftrightarrow{B}\overleftrightarrow{H}^T + \overleftrightarrow{R}\right)^{-1}\left(\mathbf{y} - \newhat{h}\left(\mathbf{x}_B\right)\right).\label{eq:oi_result}
+\mathbf{x} &= \mathbf{x}_B + BH^T\left(HBH^T + R\right)^{-1}\left(\mathbf{y} - \newhat{h}\left(\mathbf{x}_B\right)\right).\label{eq:oi_result}
 \end{align}
 \end{center}
 }}
@@ -22828,7 +22828,7 @@ kann man jedoch die Festlegung der Größe $q_1$ in der gesamten Atmosphäre dur
 \section{3D-Var}
 \label{sec:3d-var}\index{3D-Var}
 
-Die Inversion der $M \times M-$Matrix $\overleftrightarrow{H}\overleftrightarrow{B}\overleftrightarrow{H}^T + \overleftrightarrow{R}$ ist sehr aufwendig, wenn die Anzahl der Einzelbeobachtungen groß ist. Hierzu mache man sich klar, dass beispielsweise ein Radarbild aus einer sehr großen Zahl von Einzelbeobachtungen besteht. Dies ist ein Nachteil der OI. Diesen könnte man umgehen, indem man die Ersetzung Glg. \eqref{eq:replace_for_oi} rückgängig macht. Dies ist bei Fernerkundungsdaten nicht direkt möglich, da man beispielsweise eine spektrale Strahldichte an einem Satelliten nicht ohne weiteres in Temperaturen umrechnen kann. Eine Lösung hierfür wird in diesem Abschnitt dargestellt.
+Die Inversion der $M \times M-$Matrix $HBH^T + R$ ist sehr aufwendig, wenn die Anzahl der Einzelbeobachtungen groß ist. Hierzu mache man sich klar, dass beispielsweise ein Radarbild aus einer sehr großen Zahl von Einzelbeobachtungen besteht. Dies ist ein Nachteil der OI. Diesen könnte man umgehen, indem man die Ersetzung Glg. \eqref{eq:replace_for_oi} rückgängig macht. Dies ist bei Fernerkundungsdaten nicht direkt möglich, da man beispielsweise eine spektrale Strahldichte an einem Satelliten nicht ohne weiteres in Temperaturen umrechnen kann. Eine Lösung hierfür wird in diesem Abschnitt dargestellt.
 
 Beim \textit{3D-Var-Verfahren}\index{3D-Var-Verfahren} geht es darum, Glg. \eqref{eq:oi_result} iterativ ohne explizite Berechnung der Gain-Matrix zu lösen. Definiere
 %
@@ -22840,13 +22840,13 @@ Beim \textit{3D-Var-Verfahren}\index{3D-Var-Verfahren} geht es darum, Glg. \eqre
 Glg. \eqref{eq:oi_lin} lautet dann
 %
 \begin{align}
-\left(\overleftrightarrow{B}\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H} + 1\right)\delta\mathbf{x} = \overleftrightarrow{B}\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\mathbf{d}_B.
+\left(BH^TR^{-1}H + 1\right)\delta\mathbf{x} = BH^TR^{-1}\mathbf{d}_B.
 \end{align}
 %
-Multipliziert man mit $\overleftrightarrow{B}^{-1}$, erhält man
+Multipliziert man mit $B^{-1}$, erhält man
 %
 \begin{align}
-\left(\overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\overleftrightarrow{H} + \overleftrightarrow{B}^{-1}\right)\delta\mathbf{x} = \overleftrightarrow{H}^T\overleftrightarrow{R}^{-1}\mathbf{d}_B.
+\left(H^TR^{-1}H + B^{-1}\right)\delta\mathbf{x} = H^TR^{-1}\mathbf{d}_B.
 \end{align}
 %
 Hier muss also eine $N \times N-$Matrix invertiert werden. Hieraus würde man erwarten, dass diese Gleichung für $N < M$, falls also mehr Beobachtungen als Modellfreiheitsgrade vorliegen, effizienter ist als Glg. \eqref{eq:oi_result}.
@@ -22896,10 +22896,10 @@ hierbei ist $N$ die Anzahl der involvierten Zeitschritte (außer dem Analysezeit
 \mathbf{X}_n = M_n\mathbf{X},
 \end{eqnarray}
 %
-ermittelt wird. Hierbei ist $M_n$ die Integration des Modells vom Analysezeitpunkt zu Zeitschritt $n$. Um diese Integration zu linearisieren, berechnet man einen sogenannten \textit{tangentialen linearen Modelloperator} $\overleftrightarrow{M}$, welcher eine Matrix ist. Es gilt dann
+ermittelt wird. Hierbei ist $M_n$ die Integration des Modells vom Analysezeitpunkt zu Zeitschritt $n$. Um diese Integration zu linearisieren, berechnet man einen sogenannten \textit{tangentialen linearen Modelloperator} $M$, welcher eine Matrix ist. Es gilt dann
 %
 \begin{eqnarray}
-M_n \approx \overleftrightarrow{M}^n,
+M_n\approx M^n,
 \end{eqnarray}
 %
 was für zunehmende $n$ immer ungenauer wird. Somit gilt
@@ -22908,7 +22908,7 @@ was für zunehmende $n$ immer ungenauer wird. Somit gilt
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{eqnarray}
-J_n = \left(\mathbf{Y}_n - \overleftrightarrow{H}_n\overleftrightarrow{M}^n\mathbf{X}\right)^T\overleftrightarrow{A}_{O, n}\left(\mathbf{Y}_n - \overleftrightarrow{H}_n\overleftrightarrow{M}^n\mathbf{X}\right).
+J_n = \left(\mathbf{Y}_n - H_nM^n\mathbf{X}\right)^TA_{O, n}\left(\mathbf{Y}_n - H_nM^n\mathbf{X}\right).
 \end{eqnarray}
 \end{center}
 }}
