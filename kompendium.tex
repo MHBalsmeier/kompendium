@@ -25029,7 +25029,7 @@ Dieses Schema berücksichtigt folgende vier Kondensatklassen:
 \begin{itemize}
 \item Wolkenwasser
 \item Regenwasser
-\item flüsiger Niederschlag
+\item flüssiger Niederschlag
 \item fester Niederschlag
 \end{itemize}
 %
@@ -25040,9 +25040,12 @@ Dieses Schema ist adäquat für Globalmodelle.
 
 Die Größen der Kondensate sind relevant, um die Fallgeschwindigkeit und die Wechselwirkung mit dem Strahlungsfeld zu berechnen. Daher ist für jede Kondensatklasse eine Formel für den effektiven Radius anzugeben.
 
-Es wird davon ausgegangen, dass die Größenverteilung der Regentropfen einer Marshall-Palmer-Verteilung Glg. \eqref{eq:marshall-palmer} entspricht.
+\begin{itemize}
+\item Für Wolkentröpfchen wird ein effektiver Radius von 12 Mikrometern angenommen.
 
-Für den effektiven Radius von Wolkeneis ist die in \cite{sun_rikus_cirrus_1999} entwickelte Formel eine der gebräuchlichsten Approximationen. Diese lautet
+\item Es wird davon ausgegangen, dass die Größenverteilung der Regentropfen einer Marshall-Palmer-Verteilung Glg. \eqref{eq:marshall-palmer} entspricht.
+
+\item Für den effektiven Radius von Wolkeneis ist die in \cite{sun_rikus_cirrus_1999} entwickelte Formel eine der gebräuchlichsten Approximationen. Diese lautet
 %
 \begin{align}
 d_{\text{eff},i} &= \left(1,2351 + 0,0105\cdot\left(t - t_0\right)\right)\cdot\left(45,8966\cdot w^{0,2214} + 0,7957\cdot w^{0,2535}\cdot\left(t - 83,15\right)\right).\label{eq:sun_rikus}
@@ -25059,6 +25062,7 @@ mit $\phi$ als geographischer Breite. Der effektive Radius $r_\text{eff}$ ergibt
 \begin{align}
 r_{\text{eff},i} = \frac{3\sqrt{3}}{8}d_{\text{eff},i}\cdot 10^{-6}\text{m}.
 \end{align}
+\end{itemize}
 
 \subsection{Entstehung von Niederschlag}
 \label{sec:entstehung_von_niederschlag}\index{Niederschlag!Modell}
