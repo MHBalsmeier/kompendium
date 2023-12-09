@@ -25070,7 +25070,18 @@ r_{\text{eff},i} = \frac{3\sqrt{3}}{8}d_{\text{eff},i}\cdot 10^{-6}\text{m}.
 \end{align}
 \item Es wird davon ausgegangen, dass die Größenverteilung der Regentropfen einer Marshall-Palmer-Verteilung Glg. \eqref{eq:marshall-palmer} entspricht.
 \item Es wird davon ausgegangen, dass die Größenverteilung der Schneeflocken einer Marshall-Palmer-Verteilung Glg. \eqref{eq:marshall-palmer} gemäß Abschn. \ref{sec:anwendung_auf_schnee} entspricht.
-\item Für Graupelpartikel wird ein effektiver Radius von 0,5 Millimetern angenommen.
+\end{itemize}
+
+\subsection{Fallgeschwindigkeiten}
+\label{sec:fallgeschwindigkeiten}\index{Fallgeschwindigkeit}
+
+Um die Fallgeschwindigkeiten der Kondensate festzulegen, orientiert man sich an Abschn. \ref{sec:zusammengesetzte_formel_für_die_fallgeschwindigkeit}, allerdings mit einigen Vereinfachungen:
+%
+\begin{itemize}
+\item Für Wolkentröpfchen wird eine Fallgeschwindigkeit von Null angenommen.
+\item Für Wolkeneis wird eine Fallgeschwindigkeit angenommen.
+\item Für Schnee wird die semi-empirische Formel $v_\text{sink} = 9,356\cdot\left(2\cdot r_\text{eff}\right)^{0,3}$.
+\item Regentropfen werden turbulent umströmt, für sie wird Glg. \eqref{eq:sink_turb} mit $c_w = 0,8$ verwendet.
 \end{itemize}
 
 \subsection{Entstehung von Niederschlag}
@@ -25093,7 +25104,12 @@ Bei diesem Schema kommt gegenüber dem Vier-Kondensate-Schema noch eine fünfte 
 \item Graupel.
 \end{itemize}
 %
-Dieses Schema ist adäquat für Regionalmodelle.
+Dieses Schema ist adäquat für Regionalmodelle. Es entspricht dem in Abschn. \ref{sec:vier-kondensate-schema} vorgestellten Schema mit folgenden Modifikationen:
+%
+\begin{itemize}
+\item Für Graupelpartikel wird ein effektiver Radius von 0,5 Millimetern angenommen.
+\item Graupelpartikel werden turbulent umströmt, für sie wird Glg. \eqref{eq:sink_turb} mit $c_w = 0,8$ und der Ersetzung $\rho_l' \to \rho_i'$ verwendet.
+\end{itemize}
 
 \section{Weiterführende Wolken-Mikrophysik-Schemata}
 \label{sec:weiterfuehrende_wolken-mikrophysik-schemata}
