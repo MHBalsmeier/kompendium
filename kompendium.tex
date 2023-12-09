@@ -25042,7 +25042,7 @@ Dieses Schema berücksichtigt folgende vier Kondensatklassen:
 \item fester Niederschlag
 \end{itemize}
 %
-Dieses Schema ist adäquat für Globalmodelle.
+Dieses Schema ist adäquat für Globalmodelle. Es wird angenommen, dass bei und unterhalb von $-35^\circ$ C das Wolkenwasser komplett eisförmig ist und bei und oberhalb von $-10^\circ$ C das Wolkenwasser komplett flüssig ist und dazwischen ein linearer Übergang erfolgt. Dies ist durch Beobachtungen begründbar \cite{stensrud}.
 
 \subsection{Effektive Radien}
 \label{sec:{effektive_radien}}\index{Radius!effektiver}
@@ -25087,9 +25087,26 @@ Um die Fallgeschwindigkeiten der Kondensate festzulegen, orientiert man sich an 
 \subsection{Entstehung von Niederschlag}
 \label{sec:entstehung_von_niederschlag}\index{Niederschlag!Modell}
 
-Es wird davon ausgegangen, dass die Größenverteilung der Regentropfen einer Marshall-Palmer-Verteilung Glg. \eqref{eq:marshall-palmer} entspricht.
+\subsubsection{Warmer Regen}
+\label{sec:warmer_regen}\index{Regen}
 
-Es wird angenommen, dass bei und unterhalb von $-35^\circ$ C das Wolkenwasser komplett eisförmig ist und bei und oberhalb von $-10^\circ$ C das Wolkenwasser komplett flüssig ist und dazwischen ein linearer Übergang erfolgt. Dies ist durch Beobachtungen begründbar \cite{stensrud}.
+Das einfachste Verständnis der Entstehung von Regen ist die Annahme, dass dieser entsteht, wenn das Wolkenwasser $\rho_w$ ein kritisches Mischungsverhältnis $q_{w,\text{krit}}$ überschreitet. Ein einfacher hierauf basierender mathematischer Ansatz für die Quelldichte von Regenwasser lautet
+%
+\begin{align}
+Q_r = \frac{\text{max}\left(\rho_w - q_{w,\text{krit}}\cdot\rho_h,0\right)}{\tau}.
+\end{align}
+%
+Dies ist der sogenannte Kessler-Ansatz\index{Kessler-Ansatz} \cite{ghosh:hal-00316399}. Typische Werte lauten $q_{w,\text{krit}} = 0,2\cdot 10^{-3}\text{ kg}/\text{m}^3$, $\tau = 1000\text{ s}$.
+
+\subsubsection{Schnee}
+\label{sec:schnee}\index{Schnee}
+
+Der in Abschn. \ref{sec:warmer_regen} vorgestellte Kesser-Ansatz kann auch auf die Entstehung von Schnee angewandt werden, typische Werte lauten $q_{i,\text{krit}} = 1,0\cdot 10^{-3}\text{ kg}/\text{m}^3$, $\tau = 1000\text{ s}$.
+
+\subsubsection{Graupel}
+\label{sec:graupek}\index{Graupel}
+
+Der in Abschn. \ref{sec:warmer_regen} vorgestellte Kesser-Ansatz kann auch auf die Entstehung von Graupel angewandt werden, typische Werte lauten $q_{s,\text{krit}} = 0,6\cdot 10^{-3}\text{ kg}/\text{m}^3$, $\tau = 1000\text{ s}$.
 
 \section{Fünf-Kondensate-Schema}
 \label{sec:fuenf-kondensate-schema}\index{Fünf-Kondensate-Schema}
