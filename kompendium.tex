@@ -24972,7 +24972,9 @@ e_i &= -\frac{\Delta t}{2}\alpha_{i + \frac{1}{2}, i + 1}\frac{W_{i + 1/2}^{(n +
 \section{Limiter}
 \label{sec:limiter}\index{Limiter}
 
-Nach Advektion, Diffusion und Phasenübergängen ist es möglich, dass negative Dichten entstehen können. Dies sollte nur durch Rundungsfehler der Fall sein. Diese numerischen Artefakte müssen korrigiert werden, indem man in diesen Gitterboxen am Ende des Zeitschritts die Dichte des jeweiligen Tracers auf Null setzt. Geschieht dies über Rundungsfehler hinaus, wird die Massenerhaltung verletzt, was nicht akzeptabel ist.
+\textit{Limiter} erfüllen den Zweck, obere Schranken für Flüsse einzuhalten. Diese oberen Schranken beziehen sich meist darauf, dass aus den Flüssen resultierende Massendichten nicht negativ sein dürfen, da dies unphysikalisch wäre. Bei Tracern mit sehr variablen Dichten kann dies bereits rein durch die Advektion vorkommen. Da es sich bei Limitern um nicht rein aus physikalischen Gesetzen ableitbare numerische Eingriffe handelt, ist die Numerik so zu konstruieren, dass diese möglichst selten aufgerufen werden müssen und wenn doch die Eingriffe möglichst gering sind.
+
+Nach Advektion, Diffusion und Phasenübergängen ist es trotz Limiter möglich, dass negative Dichten entstehen. Diese müssen am Ende des Zeitschritts auf Null gesetzt werden. Dies verletzt zwar die Massenerhaltung, ist aber alternativlos.
 
 \section{Diskretisierung von Kondensation und Resublimation}
 \label{sec:diskretisierung_von_kondensation_und_resublimation}\index{Kondensation!Diskretisierung}\index{Resublimation!Diskretisierung}
