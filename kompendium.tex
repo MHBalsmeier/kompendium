@@ -24802,37 +24802,69 @@ an. Somit lautet die Gleichung für die TKE
 Um $\kappa$ zu bestimmen, macht man den eindimensionalen Ansatz
 %
 \begin{align}
-\frac{\partial k}{\partial t} = u\frac{\partial u}{\partial t} = uK\frac{\partial^2u}{\partial x^2} = -u^2Kl^2 = -2Kl^2k = -\frac{8\pi^2K}{\lambda^2}k,
+\frac{\partial k_s}{\partial t} = u'\frac{\partial u'}{\partial t} = u'K\frac{\partial^2u}{\partial x^2} = -u'^2Kl^2 = -2Kl^2k_s = -\frac{8\pi^2K}{\lambda^2}k_s,
 \end{align}
 %
 wobei $l = \frac{2\pi}{\lambda}$ in diesem Fall die Kreiswellenzahl bezeichnet. $K$ ist hierbei der effektive kinematische Diffusionskoeffizient, der auf Wellen der Länge $\lambda$ wirkt. Für $\lambda$ setzt man eine charakteristische subskalige Größenordnung $\Delta x$ ein. Dies ist der Mittelwert der Wellenlänge Null, die das Ende des Spektrums darstellt, und der Wellenlänge $2\Delta x$, die gerade noch vom Modell aufgelöst wird. Dies führt auf
 %
 \begin{align}
-\frac{\partial k}{\partial t} = -\frac{8\pi^2K}{\Delta x^2}k
+\frac{\partial k_s}{\partial t} = -\frac{8\pi^2K}{\Delta x^2}k_s
 \end{align}
 %
 führt. $K$ ist dabei der auf Bewegungen der Wellenlänge $\lambda = \Delta x$ wirkende Diffusionskoeffizient. Der Diffusionskoeffizient skaliert quadratisch mit der horizontalen Auflösung, daher ist für $K$ ein Viertel des turbulenten Diffusionskoeffizienten $K_\Delta$ einzusetzen, der auf Bewegungen der gerade noch aufgelösten Wellenlänge $2\Delta x$ wirkt. Somit erhält man
 %
 \begin{align}
-\frac{\partial k}{\partial t} = -\frac{2\pi^2K_\Delta}{\Delta x^2}k.
+\frac{\partial k_s}{\partial t} = -\frac{2\pi^2K_\Delta}{\Delta x^2}k_s.
 \end{align}
 
 \section{Besonderheiten vertikaler Diffusionskoeffizenten}
 \label{sec:besonderheiten_vertikaler_diffusionskoeffizenten}\index{Diffusionskoeffizient!vertikaler}
 
-Beim Smagorinsky- und TKE-Ansatz geht es letzten Endes darum, Diffusionskoeffizienten zu berechnen. Im Sinne des Mischungswegansatzes kann man den vertikalen Diffusionskoeffizienten $K_v$ über
+Beim TKE-Ansatz geht es letzten Endes darum, den vertikalen Diffusionskoeffizienten zu berechnen. Hierzu verwendet man als Modell das kinetische Gasmodell gemäß Abschn. \ref{sec:kinetisches_gasmodell}. Bei diesem fliegen Teilchen zwischen zwei Stößen eine mittlere freie Weglänge $\lambda$, ihre mittlere Geschwindigkeit ist $\newoverline{v}$. Der sich daraus ergebende Diffusionskoeffizient ergibt sich gemäß Glg. \eqref{eq:dyn_viscosity_kinetic_model} zu
 %
 \begin{align}
-K_v = \newoverline{lw'} \approx l\cdot 0,01\sqrt{2k_s} \equiv cl\sqrt{2k_s}
+K_v = \lambda\newoverline{v}.
 \end{align}
 %
-berechnen, hierbei ist $l > 0$ die Mischungsweglänge. Der Parameter $c \approx 0,01$ kann in der Modellierung als Tuningparameter aufgefasst werden. Für Schichtdicken $\Delta z < l$ muss man dies zu
+Der Faktor $\frac{1}{3}$ aus Glg. \eqref{eq:dyn_viscosity_kinetic_model} tritt hier nicht auf, da man hier nur vertikale Bewegungen betrachtet. Man geht nun weiter davon aus, dass die Fluidteilchen vertikal mit der Kreisfrezuenz $N$ gemäß Glg. \eqref{eq:bv_freq_theta} oszillieren und dabei eine maximale Amplitude $\newhat{z}$ haben. Ihre Bahnkurve lautet dann
 %
 \begin{align}
-K_v = c\text{min}\left(l, \Delta z\right)\sqrt{2k_s}
+z\left(t\right) = \newhat{z}\exp\left(iNt\right).
 \end{align}
 %
-verallgemeinern.
+Hieraus ergibt sich
+%
+\begin{align}
+\newoverline{v} = \frac{4\newhat{z}}{T} = \frac{4\newhat{z}}{2\pi}\frac{2\pi}{T} = \frac{2\newhat{z}N}{\pi},\label{eq:k_v_deriv_1}
+\end{align}
+%
+da das Teilchen während jeder Periode viermal die Strecke $\newhat{z}$ überwindet.
+
+Die mittlere freie Weglänge $\lambda$ lautet hier $2\newhat{z}$. Nun muss $\newhat{z}$ durch den vertikalen Anteil $k_s^{(v)}$ der TKE ausgedrückt werden. Die Gesamtenergie $E$ des harmonischen Oszillators (s. Abschn. \ref{sec:harmonischer_oszillator}) lautet
+%
+\begin{align}
+E = \frac{1}{2}N^2\newhat{z}^2,
+\end{align}
+%
+im Mittel ist die Hälfte davon in kinetischer Energie gespeichert, was auf
+%
+\begin{align}
+k_s^{(v)} = \frac{1}{4}N^2\newhat{z}^2 \Rightarrow \newhat{z} = \frac{2}{N}\sqrt{k_s^{(v)}} \Rightarrow \lambda = \frac{4}{N}\sqrt{k_s^{(v)}}
+\end{align}
+%
+Setzt man dies in Glg. \eqref{eq:k_v_deriv_1} ein, erhält man
+%
+\begin{align}
+\newoverline{v} = \frac{2\newhat{z}N}{\pi} = \frac{4}{\pi}\sqrt{k_s^{(v)}}.
+\end{align}
+%
+Nun muss noch $k_s^{(v)}$ aus der gesamten TKE $k_s$ abgeleitet werden. Im Falle eines würfelförmigne Gitters ($\Delta x = \Delta z$), auf dem in jeder Raumrichtung dieselbe Dynamik wirkt, muss $k_s^{(v)} = \frac{k_s}{3}$ gelten. Dies wird zu
+%
+\begin{align}
+k_s^{(v)} = \frac{\Delta z}{\Delta x}\frac{k_s}{3}
+\end{align}
+%
+verallgemeinert.
 
 \section{Dissipation}
 \label{sec:dissipation_modell}
