@@ -24802,16 +24802,20 @@ an. Somit lautet die Gleichung für die TKE
 Um $\kappa$ zu bestimmen, macht man den eindimensionalen Ansatz
 %
 \begin{align}
-\frac{\partial k}{\partial t} = u\frac{\partial u}{\partial t} = uK\frac{\partial^2u}{\partial t^2} = -u^2Kl^2 = -2Kl^2k = -\frac{8\pi^2K}{\lambda^2}k,
+\frac{\partial k}{\partial t} = u\frac{\partial u}{\partial t} = uK\frac{\partial^2u}{\partial x^2} = -u^2Kl^2 = -2Kl^2k = -\frac{8\pi^2K}{\lambda^2}k,
 \end{align}
 %
-wobei $l = \frac{2\pi}{\lambda}$ in diesem Fall die Kreiswellenzahl bezeichnet. $K$ ist hierbei der effektive kinematische Diffusionskoeffizient, der auf Wellen der Länge $\lambda$ wirkt. Für $\lambda$ setzt man eine charakteristische subskalige Größenordnung $\frac{\Delta x}{2}$ ein, was auf
+wobei $l = \frac{2\pi}{\lambda}$ in diesem Fall die Kreiswellenzahl bezeichnet. $K$ ist hierbei der effektive kinematische Diffusionskoeffizient, der auf Wellen der Länge $\lambda$ wirkt. Für $\lambda$ setzt man eine charakteristische subskalige Größenordnung $\Delta x$ ein. Dies ist der Mittelwert der Wellenlänge Null, die das Ende des Spektrums darstellt, und der Wellenlänge $2\Delta x$, die gerade noch vom Modell aufgelöst wird. Dies führt auf
 %
 \begin{align}
-\frac{\partial k}{\partial t} = -\frac{32\pi^2K}{\Delta x^2}k
+\frac{\partial k}{\partial t} = -\frac{8\pi^2K}{\Delta x^2}k
 \end{align}
 %
-führt. Für $K$ ist hierbei ein diskreter Diffusionskoeffizient $K_\Delta$ einzusetzen.
+führt. $K$ ist dabei der auf Bewegungen der Wellenlänge $\lambda = \Delta x$ wirkende Diffusionskoeffizient. Der Diffusionskoeffizient skaliert quadratisch mit der horizontalen Auflösung, daher ist für $K$ ein Viertel des turbulenten Diffusionskoeffizienten $K_\Delta$ einzusetzen, der auf Bewegungen der gerade noch aufgelösten Wellenlänge $2\Delta x$ wirkt. Somit erhält man
+%
+\begin{align}
+\frac{\partial k}{\partial t} = -\frac{2\pi^2K_\Delta}{\Delta x^2}k.
+\end{align}
 
 \section{Besonderheiten vertikaler Diffusionskoeffizenten}
 \label{sec:besonderheiten_vertikaler_diffusionskoeffizenten}\index{Diffusionskoeffizient!vertikaler}
