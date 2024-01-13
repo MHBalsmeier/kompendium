@@ -20221,6 +20221,51 @@ mit
 %
 Soll der verallgemeinerte Coriolisterm nicht zur Evolution der kinetischen Energie beitragen, muss dieser also mit dem Geschwindigkeitsfeld $\mathbf{v}_{1/2}$ berechnet werden. Die Überlegungen in diesem Abschnitt (\ref{sec:advektion_von_impuls}) wurden erstmals von Gassmann und Herzog in \cite{gassmann_herzog} vorgebracht.
 
+\subsubsection{Zeitentwicklung der inneren Energie}
+\label{sec:zeitentwicklung_der_inneren_energie}
+
+Für die Zeitentwicklung der inneren Energiedichte $\newtilde{I}$ kann man notieren
+%
+\begin{align}
+\frac{\Delta\newtilde{I}}{\Delta t} &= \frac{\newtilde{I}_1 - \newtilde{I}_0}{\Delta t} = c^{(v)}\rho_0\frac{T_1 - T_0}{\Delta t} + c^{(v)}T_1\frac{\rho_1 - \rho_0}{\Delta t}\label{eq:deriv_temp_evol_model_1}\\
+&= \frac{\newtilde{I}_1 - \newtilde{I}_0}{\Delta t} = c^{(v)}\rho_1\frac{T_1 - T_0}{\Delta t} + c^{(v)}T_0\frac{\rho_1 - \rho_0}{\Delta t}.\label{eq:deriv_temp_evol_model_2}
+\end{align}
+%
+Zunächst geht man von Glg. \eqref{eq:deriv_temp_evol_model_1} aus. Mittels der Kontinuitätsgleichung erhält man
+%
+\begin{align}
+\md{\rho} = -\rho_0\nabla\cdot\mathbf{v}.
+\end{align}
+%
+Aus Glg. \eqref{eq:td_1_ideal_gas_partial} folgt
+%
+\begin{align}
+\frac{T_1 - T_0}{\Delta t} = -\frac{R_d}{c^{(v)}}T_0\nabla\cdot\mathbf{v}.
+\end{align}
+%
+Beide Male wurde dabei davon ausgegangen, dass die skalaren Variablen vom alten Zeitschritt verwendet werden, wie es z. B. bei einem Forward-backward-Verfahren der Fall ist. Setzt man diese beiden Feststellungen in Glg. \eqref{eq:deriv_temp_evol_model_1} ein, erhält man
+%
+\begin{align}
+\frac{\newtilde{I}_1 - \newtilde{I}_0}{\Delta t} &= -c^{(v)}\rho_0\frac{R_d}{c^{(v)}}T_0\nabla\cdot\mathbf{v} - c^{(v)}T_1\rho_0\nabla\cdot\mathbf{v} = -c^{(v)}\rho_0\nabla\cdot\mathbf{v}\left(\frac{R_d}{c^{(v)}}T_0 + T_1\right)\nonumber\\
+&= -c^{(p)}\rho_0\nabla\cdot\mathbf{v}\left(\frac{R_d}{c^{(p)}}T_0 + \frac{c^{(v)}}{c^{(p)}}T_1\right).
+\end{align}
+%
+Hieraus folgert man, dass die Temperatur in der Gewichtung
+%
+\begin{align}
+T^\star \coloneqq \frac{R_d}{c^{(p)}}T_0 + \frac{c^{(v)}}{c^{(p)}}T_1\label{eq:c_v_c_p}
+\end{align}
+%
+in die diskretisierte Evolution der inneren Energiedichte eingeht.
+
+Geht man jedoch von Glg. \eqref{eq:deriv_temp_evol_model_2} aus, führt dies auf
+%
+\begin{align}
+T^\star \coloneqq \frac{c^{(v)}}{c^{(p)}}T_0 + \frac{R_d}{c^{(p)}}T_1.\label{eq:r_d_c_p}
+\end{align}
+%
+Glg. \eqref{eq:c_v_c_p} und Glg. \eqref{eq:r_d_c_p} sind die beiden Möglichkeiten für energetisch selbstkonsistente zeitliche Diskretisierungen der inneren Energie.
+
 \chapter{\normalfont\textsc{Auswahl einer zukunftsfähigen horizontalen Diskretisierung}}
 \label{sec:auswahl_einer_zukunftsfaehigen_horizontalen_diskretisierung}
 
@@ -24425,7 +24470,7 @@ w_{k + 1/2}^{(n + 1)} &= w_{k + 1/2}^{(\text{expl.})} - \epsilon\Delta tc^{(p)}\
 &= w_{k + 1/2}^{(\text{expl.})} - \epsilon\Delta tc^{(p)}\left(\newoverline{\theta_k^{(n + 1)^\star}}^{(k + 1/2)}\frac{\Pi^{'(n + 1)}_{k} - \Pi^{'(n + 1)}_{k + 1}}{z_{k} - z_{k + 1}} + \newoverline{\theta_k^{'(n + 1)}}^{(k + 1/2)}\frac{d\newoverline{\Pi}}{dz}\vline_{k+1/2}\right).\label{eq:wave_vertical_deriv_0}
 \end{align}
 %
-Hierbei ist $\epsilon$ das implizite Gewicht, welches meist im Bereich von 0,75 liegt. $\left(n + 1\right)^\star$ ist ein vorläufiger Wert für den neuen Zeitschritt. Für die impliziten Größen notiert man nun
+Hierbei ist $\epsilon$ das implizite Gewicht, für welches aufgrund der Feststellungen in Abschn. \ref{sec:zeitentwicklung_der_inneren_energie} meist $\frac{c^{(v)}}{c^{(p)}}$ eingesetzt wird. $\left(n + 1\right)^\star$ ist ein vorläufiger Wert für den neuen Zeitschritt. Für die impliziten Größen notiert man nun
 %
 \begin{align}
 \theta^{'(n + 1)}_k &= \theta^{'(\text{expl.})}_k + \theta''_k = \theta^{'(\text{expl.})}_k + \alpha_k\rho'_k + \beta_k\newtilde{\theta}'_k,\\
