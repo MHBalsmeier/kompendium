@@ -20258,13 +20258,26 @@ T^\star \coloneqq \frac{R_d}{c^{(p)}}T_0 + \frac{c^{(v)}}{c^{(p)}}T_1\label{eq:c
 %
 in die diskretisierte Evolution der inneren Energiedichte eingeht.
 
-Geht man jedoch von Glg. \eqref{eq:deriv_temp_evol_model_2} aus, führt dies auf
+Geht man jedoch von Glg. \eqref{eq:deriv_temp_evol_model_2} aus, führt dies mit
 %
 \begin{align}
-T^\star \coloneqq \frac{c^{(v)}}{c^{(p)}}T_0 + \frac{R_d}{c^{(p)}}T_1.\label{eq:r_d_c_p}
+\md{\rho} = -\rho_1\nabla\cdot\mathbf{v}
 \end{align}
 %
-Glg. \eqref{eq:c_v_c_p} und Glg. \eqref{eq:r_d_c_p} sind die beiden Möglichkeiten für energetisch selbstkonsistente zeitliche Diskretisierungen der inneren Energie.
+und
+%
+\begin{align}
+\frac{T_1 - T_0}{\Delta t} = -\frac{R_d}{c^{(v)}}T_1\nabla\cdot\mathbf{v}
+\end{align}
+%
+auf
+%
+\begin{align}
+\frac{\newtilde{I}_1 - \newtilde{I}_0}{\Delta t} &= -c^{(p)}\rho_1\nabla\cdot\mathbf{v}\left(\frac{c^{(v)}}{c^{(p)}}T_0 + \frac{R_d}{c^{(p)}}T_1\right),\\
+T^\star &\coloneqq \frac{c^{(v)}}{c^{(p)}}T_0 + \frac{R_d}{c^{(p)}}T_1.\label{eq:r_d_c_p}
+\end{align}
+%
+Dies sind die beiden Möglichkeiten für energetisch selbstkonsistente zeitliche Diskretisierungen der inneren Energie.
 
 \chapter{\normalfont\textsc{Auswahl einer zukunftsfähigen horizontalen Diskretisierung}}
 \label{sec:auswahl_einer_zukunftsfaehigen_horizontalen_diskretisierung}
