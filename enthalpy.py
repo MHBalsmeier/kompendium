@@ -50,13 +50,13 @@ def enthalpy_sublimation(temperature):
 	
 	return enthalpy_sublimation
 
-temp_c_evap_vector = np.linspace(-150, 100, 10000)
+temp_c_evap_vector = np.linspace(-35, 100, 10000)
 enthap_evap_vector = np.zeros([len(temp_c_evap_vector)])
 
 for ji in range(len(temp_c_evap_vector)):
 	enthap_evap_vector[ji] = enthalpy_evaporation(temp_c_evap_vector[ji] + t_0)
 
-temp_c_sub_vector = np.linspace(-150, 1000, 10000)
+temp_c_sub_vector = np.linspace(-100, 25, 10000)
 enthap_sub_vector = np.zeros([len(temp_c_evap_vector)])
 
 for ji in range(len(temp_c_evap_vector)):
