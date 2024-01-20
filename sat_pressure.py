@@ -2,9 +2,11 @@ import numpy as np;
 import matplotlib.pyplot as plt;
 import math;
 
-fig = plt.figure();
-
-epsilon = 1e-3;
+def sat_pressure_ice(temp_c):
+	
+	result = math.exp(43.494 - 6545.8/(temp_c + 278.0))/(temp_c + 868.0)**2
+	
+	return result
 
 def sat_pressure_water(temp_c):
 	
@@ -22,16 +24,34 @@ def sat_pressure_water(temp_c):
 	
 	return result
 
-temp_c_vector = np.linspace(-50, 100, 10000);
-sat_pressure_vector = np.zeros([len(temp_c_vector)]);
+temp_c_water_vector = np.linspace(-50, 100, 10000);
+sat_pressure_water_vector = np.zeros([len(temp_c_water_vector)]);
 
-for ji in range(len(temp_c_vector)):
-	sat_pressure_vector[ji] = math.log10(sat_pressure_water(temp_c_vector[ji]))
+for ji in range(len(temp_c_water_vector)):
+	sat_pressure_water_vector[ji] = math.log10(sat_pressure_water(temp_c_water_vector[ji]))
 
-plt.title("Sättigungsdampfdruck");
-plt.plot(temp_c_vector, sat_pressure_vector);
-plt.xlim([min(temp_c_vector), max(temp_c_vector)]);
-plt.ylim([min(sat_pressure_vector), max(sat_pressure_vector)]);
-plt.xlabel(r"Temperatur / $^\circ$C");
-plt.ylabel("log10(psat / Pa)");
-fig.savefig("figs/sat_pressure.png", dpi = 500);
+temp_c_ice_vector = np.linspace(-80, 0, 10000);
+sat_pressure_ice_vector = np.zeros([len(temp_c_ice_vector)]);
+
+for ji in range(len(temp_c_ice_vector)):
+	sat_pressure_ice_vector[ji] = math.log10(sat_pressure_ice(temp_c_ice_vector[ji]))
+
+fig = plt.figure()
+plt.title("Sättigungsdampfdruck")
+plt.plot(temp_c_water_vector, sat_pressure_water_vector)
+plt.plot(temp_c_ice_vector, sat_pressure_ice_vector)
+plt.xlim([min(temp_c_ice_vector), max(temp_c_water_vector)])
+plt.ylim([min(sat_pressure_ice_vector), max(sat_pressure_water_vector)])
+plt.legend(["über Wasser", "über Eis"])
+plt.xlabel(r"Temperatur / $^\circ$C")
+plt.ylabel("log10(psat / Pa)")
+plt.grid()
+fig.savefig("figs/sat_pressure.png", dpi = 500)
+
+
+
+
+
+
+
+
