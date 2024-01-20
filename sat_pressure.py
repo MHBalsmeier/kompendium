@@ -1,6 +1,6 @@
-import numpy as np;
-import matplotlib.pyplot as plt;
-import math;
+import numpy as np
+import matplotlib.pyplot as plt
+import math
 
 def saturation_pressure_ice_huang(temp_c):
 	
@@ -42,14 +42,14 @@ def sat_pressure_water(temp_c):
 	
 	return result
 
-temp_c_water_vector = np.linspace(-50, 100, 10000);
-sat_pressure_water_vector = np.zeros([len(temp_c_water_vector)]);
+temp_c_water_vector = np.linspace(-50, 100, 10000)
+sat_pressure_water_vector = np.zeros([len(temp_c_water_vector)])
 
 for ji in range(len(temp_c_water_vector)):
 	sat_pressure_water_vector[ji] = math.log10(sat_pressure_water(temp_c_water_vector[ji]))
 
-temp_c_ice_vector = np.linspace(-120, 0, 10000);
-sat_pressure_ice_vector = np.zeros([len(temp_c_ice_vector)]);
+temp_c_ice_vector = np.linspace(-120, 0, 10000)
+sat_pressure_ice_vector = np.zeros([len(temp_c_ice_vector)])
 
 for ji in range(len(temp_c_ice_vector)):
 	sat_pressure_ice_vector[ji] = math.log10(saturation_pressure_ice(temp_c_ice_vector[ji]))
