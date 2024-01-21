@@ -16,6 +16,22 @@ def saturation_pressure_ice_murphy(temp_k):
 	
 	return result
 
+def dsaturation_pressure_ice_huang_dT(temp_c):
+
+	# This function computes the derivative of the function saturation_pressure_ice_huang.
+
+	dsaturation_pressure_ice_huang_dT = saturation_pressure_ice_huang(temp_c)*(6545.80/(temp_c + 278.0)**2 - 2.0/(temp_c + 868.0))
+
+	return dsaturation_pressure_ice_huang_dT
+
+def dsaturation_pressure_ice_murphy_dT(temp_k):
+
+	# This function computes the derivative of the function saturation_pressure_ice_murphy.
+	
+	dsaturation_pressure_ice_murphy_dT = saturation_pressure_ice_murphy(temp_k)*(5723.265/temp_k**2 + 3.53068/temp_k - 0.00728332)
+
+	return dsaturation_pressure_ice_murphy_dT
+
 def saturation_pressure_ice(temp_c):
 	
 	if temp_c >= -80.0:
@@ -27,6 +43,29 @@ def saturation_pressure_ice(temp_c):
 		result = saturation_pressure_ice_murphy(temp_c + 273.15)
 	
 	return result
+
+def dsaturation_pressure_ice_dT(temp_k):
+
+	# This function computes the derivative of the function saturation_pressure_over_ice.
+
+	# calculating the temperature in degrees Celsius
+	temp_c = temp_k - t_0
+
+	# at temperatures > 0 degrees Celsius ice cannot exist in equilibrium which is why this is clipped
+	if (temp_c>0.0):
+		dsaturation_pressure_ice_dT = 0.0
+	elif (temp_c>=-80.0):
+		dsaturation_pressure_ice_dT = dsaturation_pressure_ice_huang_dT(temp_c)
+	elif (temp_c>=-100.0):
+		huang_weight = (temp_c + 100.0)/20.0
+		dsaturation_pressure_ice_dT = huang_weight*dsaturation_pressure_ice_huang_dT(temp_c) + (1.0 - huang_weight)*dsaturation_pressure_ice_murphy_dT(temp_k)
+	elif (temp_k>=110.0):
+		dsaturation_pressure_ice_dT = dsaturation_pressure_ice_murphy_dT(temp_k)
+	# clipping too extreme values for this approximation
+	else:
+		dsaturation_pressure_ice_dT = 0.0
+
+	return dsaturation_pressure_ice_dT
 
 def sat_pressure_water(temp_c):
 	
@@ -103,8 +142,27 @@ plt.legend(["über Wasser, analytisch", "über Wasser, numerisch"])
 plt.xlabel(r"Temperatur / $^\circ$C")
 plt.ylabel("dp/dT / Pa")
 plt.grid()
-fig.savefig("figs/dsat_pressure_dT.png", dpi = 500)
+fig.savefig("figs/dsat_pressure_dT_water.png", dpi = 500)
 
+dsat_pressure_ice_vector_dT_ana = np.zeros([len(temp_c_ice_vector)])
+dsat_pressure_ice_vector_dT_num = np.zeros([len(temp_c_ice_vector)])
+
+for ji in range(len(dsat_pressure_ice_vector_dT_ana)):
+	temp_c = temp_c_ice_vector[ji]
+	dsat_pressure_ice_vector_dT_ana[ji] = dsaturation_pressure_ice_dT(temp_c + t_0)
+	dsat_pressure_ice_vector_dT_num[ji] = saturation_pressure_ice(temp_c+0.5) - saturation_pressure_ice(temp_c-0.5)
+
+fig = plt.figure()
+plt.title("Ableitung Sättigungsdampfdruck")
+plt.plot(temp_c_ice_vector, dsat_pressure_ice_vector_dT_ana)
+plt.plot(temp_c_ice_vector, dsat_pressure_ice_vector_dT_num)
+plt.xlim([min(temp_c_ice_vector), max(temp_c_ice_vector)])
+plt.ylim([min(dsat_pressure_ice_vector_dT_ana), max(dsat_pressure_ice_vector_dT_ana)])
+plt.legend(["über Eis, analytisch", "über Eis, numerisch"])
+plt.xlabel(r"Temperatur / $^\circ$C")
+plt.ylabel("dp/dT / Pa")
+plt.grid()
+fig.savefig("figs/dsat_pressure_dT_ice.png", dpi = 500)
 
 
 
