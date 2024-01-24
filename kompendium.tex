@@ -17142,7 +17142,7 @@ Zunächst lässt sich festhalten, dass bei sehr feiner Auflösung die Diffusions
 Die Länge
 %
 \begin{align}
-L \coloneqq -\frac{\newoverline{\theta}u_\star^3}{kg\newoverline{\left(w'\theta'\right)}}
+L \coloneqq -\frac{\newoverline{\theta}u_\star^3}{kg\newoverline{\left(w'\theta'\right)}}\label{eq:mo_length}
 \end{align}
 %
 bezeichnet man als \textit{Monin-Obukhov-Länge}\index{Monin-Obukhov-Länge}.
@@ -25236,6 +25236,48 @@ Bei den bisher betrachteten Schemata wird jede Kondesatklasse durch eine prognos
 
 \chapter{\normalfont\textsc{Planetarische Grenzschicht}}
 \label{chap:planetarische_grenzschicht}
+
+\section{Berechnung der Monin-Obukhov-Länge}
+\label{sec:berechnung_der_monin-obukhov-laenge}
+
+Laut Glg. \eqref{eq:mo_length} lautet die Monin-Obukhov-Länge
+%
+\begin{align}
+L \coloneqq -\frac{\newoverline{\theta}u_\star^3}{kg\newoverline{\left(w'\theta'\right)}}.
+\end{align}
+%
+Problematisch ist hierbei die BEstimmung von $\newoverline{\left(w'\theta'\right)}_\text{sfc}$. Setzt man hier Glg. ein, erhält man
+%
+\begin{align}
+L \coloneqq -\frac{\newoverline{\theta}u_\star^3}{kg\frac{Q_H}{\rho c_v}} = -\frac{\newoverline{\theta}u_\star^3}{kg\frac{T_G - T_A}{r_H}} = -\frac{\newoverline{\theta}u_\star^3}{T_G - T_A}r_H.
+\end{align}
+%
+Der Flusswiderstand der sensiblen Wärme $r_H$ hängt dabei wiederum von $L$ ab:
+%
+\begin{align}
+L =  -\frac{\newoverline{\theta}u_\star^3}{T_G - T_A}r_H\left(L\right).
+\end{align}
+%
+Setzt man hier Glg. ein, erhält man
+%
+\begin{align}
+L = -\frac{\newoverline{\theta}u_\star^3}{T_G - T_A}\frac{1}{u_\star k}\left[\ln\left(\frac{z}{z_0}\right) - \psi_h\left(z,L\right) + \ln\left(7\right)\right] = -\frac{\newoverline{\theta}u_\star^2}{k\left(T_G - T_A\right)}\left[\ln\left(\frac{z}{z_0}\right) - \psi_h\left(z,L\right) + \ln\left(7\right)\right].
+\end{align}
+%
+Hier geht es um die Bestimmung $L$, dabei sind alle anderen Größen bekannt. Mit den Definitionen
+%
+\begin{align}
+a &\coloneqq -\frac{k\left(T_G - T_A\right)}{\newoverline{\theta}u_\star^2},\\
+b &\coloneqq \ln\left(\frac{z}{z_0}\right) + \ln\left(7\right)
+\end{align}
+%
+kann man dies in der Form
+%
+\begin{align}
+L = \frac{1}{a}\left[b - \psi_h\left(L\right)\right] \Leftrightarrow aL - b + \psi_h\left(L\right) = 0
+\end{align}
+%
+notieren.
 
 \chapter{\normalfont\textsc{Soil-Parametrisierungen}}
 \label{chap:soil-parametrisierungen}
