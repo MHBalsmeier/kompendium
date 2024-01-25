@@ -16866,7 +16866,7 @@ A_z \coloneqq \rho\newoverline{l^2}\left|\frac{\partial\newoverline{\mathbf{v}_h
 bezeichnet man als \index{Eddy-Austauschkoeffizient}\textit{Eddy-Austauschkoeffizienten}.
 
 \subsection{Planetarische Grenzschicht}
-\label{sec:planetarische_Grenzschicht}\index{planetarische Grenzschicht}\index{Grenzschicht!planetarische}
+\label{sec:planetarische_grenzschicht}\index{planetarische Grenzschicht}\index{Grenzschicht!planetarische}
 
 Die \textit{planetarische Grenzschicht}\index{planetarische Grenzschicht}\index{Grenzschicht!planetarische} ist definiert als diejenige untere Schicht der Atmosphäre, in der die \index{Bodenreibung}\textit{Bodenreibung}, d. h. die Existenz der Erdoberfläche, einen Einfluss hat. Als Kräftegleichgewicht setzt man hier an
 %
@@ -16885,7 +16885,7 @@ fu &= -\frac{1}{\rho}\frac{\partial p}{\partial y} + \frac{\partial}{\partial z}
 Man nimmt nun an, dass die Bewegung nur eine x-Komponente hat und definiert die sogenannte \textit{Reibungsgeschwindigkeit}\index{Reibungsgeschwindigkeit} $u_\star > 0$ durch
 %
 \begin{align}
-u_\star^2 \coloneqq \frac{\tau_{x, z}}{\rho} = \frac{A_z}{\rho}\frac{\partial\overline{u}}{\partial z}
+u_\star^2 \coloneqq \frac{\tau_{x, z}}{\rho} = \frac{A_z}{\rho}\frac{\partial\overline{u}}{\partial z}\label{eq:def_u_star}
 \end{align}
 %
 Bisher wurde angenommen, dass die Mischungsweglänge $l$ höhenunabhängig ist. Sehr nahe an der Erdoberfläche ist jedoch zu erwarten, dass die vertikale Ausdehung der Wirbel mit der Höhe zunimmt, was man im einfachsten Fal über
@@ -16894,7 +16894,7 @@ Bisher wurde angenommen, dass die Mischungsweglänge $l$ höhenunabhängig ist. 
 l\left(z\right) = kz\label{eq:karman_eq}
 \end{align}
 %
-ausdrücken kann, wobei die Zahl $k > 0$ als \textit{von Karman-Konstante}\index{von Karman-Konstante} bezeichnet wird. Diese hat einen typischen Wert von $0, 4$. Glg. \eqref{eq:karman_eq} ist nur bis zu einer gewissen Höhe gültig. Somit folgt
+ausdrücken kann, wobei die Zahl $k > 0$ als \textit{von Karman-Konstante}\index{von Karman-Konstante} bezeichnet wird. Diese hat einen typischen Wert von $0,4$. Glg. \eqref{eq:karman_eq} ist nur bis zu einer gewissen Höhe gültig. Somit folgt
 %
 \begin{align}
 u_\star^2 = k^2z^2\left|\frac{\partial\newoverline{u}}{\partial z}\right|^2, 
@@ -17986,6 +17986,45 @@ Ein Modell hätte zunächst nur Kenntnis vom aufgelösten Anteil $\newtilde{Q}_v
 
 Nichtsdestotrotz veranschaulicht dieser Abschnitt, dass alle Arten von Parametrisierungen letzten Endes mit subskaliger Variabilität zu tun haben.  Im Fall $\Omega, \Delta t \to 0$ geht $\Delta Q_v$ gegen Null, was ebenfalls für alle Parametrisierungen der Fall ist.
 
+\section{Flusswiderstände}
+\label{sec:flusswiderstaende}\index{Flusswiderstand}
+
+Das Konzept des \textit{Flusswiderstandes} soll zunächst anhand des horizontalen Impulses erläutert werden. Die Reibungsbeschleuningung lautet allgemein
+%
+\begin{align}
+\frac{\partial v_{N_L}}{\partial t} = \frac{1}{\rho}\frac{\tau_{N_L} - \tau_{N_L+1}}{\Delta z_{N_L}}.
+\end{align}
+%
+Hierbei ist $N_L$ die Anzahl der Schichten. Für den turbulenten Fluss an der Oberfläche notiert man nun
+%
+\begin{align}
+\tau_{N_L+1} \hastobe \rho\frac{v_{N_L+1}}{r_M}.
+\end{align}
+%
+Dies ist die Definitionsgleichung für den Flusswiderstand des Impulses $r_M$. Hieraus erhält man also
+%
+\begin{align}
+r_M = \rho\frac{v_{N_L+1}}{\tau_{N_L+1}}.
+\end{align}
+%
+Aus der Definitionsgleichung der Rauhigkeitsgeschwindigkeit Glg. \eqref{eq:def_u_star} erhält man
+%
+\begin{align}
+\tau_{N_L+1} = \rho u_\star^2.
+\end{align}
+%
+Darauf folgt
+%
+\begin{align}
+r_M = \frac{v_{N_L+1}}{u_\star^2}.
+\end{align}
+%
+Bei indifferenter Schichtung gilt das logarithmische Windprofil nach Glg. \eqref{eq:ln_wind_profile}, hieraus folgt
+%
+\begin{align}
+r_M = \frac{u_\star}{ku_\star^2}\ln\left(\frac{z_{N_L+1}}{z_0}\right) = \frac{1}{ku_\star}\ln\left(\frac{z_{N_L+1}}{z_0}\right).
+\end{align}
+
 \subsection{Verdunstungsraten}
 \label{sec:verdunstungsraten}\index{Verdunstungsrate}
 
@@ -18008,62 +18047,10 @@ Die Antwort darauf ließe sich aus den Diffusionsgesetzen bestimmen, nach Mittel
 Man notiert zunächst
 %
 \begin{align}
-Q = \frac{\rho_v^{(s)} - \rho_v}{r},
+Q = \frac{\rho_v^{(s)} - \rho_v}{r_H},
 \end{align}
 %
-hierbei ist $\rho_v^{(s)}$ die absolute Sättigugnsfeuchte bei der SST (sea surface temperature) und $\rho_v$ die tatsächliche absolute Feuchte in der untersten Modellschicht. Hierfür macht man einen diffusiven Ansatz
-%
-\begin{align}
-Q = A_z\frac{\rho_v^{(s)} - \rho_v}{z}\label{sec:ansatz_evaporation_rate}
-\end{align}
-%
-mit dem Diffusionskoeffizienten $A_z \geq 0$ aus Abschn. \ref{sec:mischungswegansatz}. $z > 0$ ist die Höhe der Gitterpunkte in der untersten Modellschicht über Grund. Für $A_z$ gilt laut Glg. \eqref{eq:def_eddy_exchange_coeff}
-%
-\begin{align}
-A_z &= l^2\left|\frac{\partial\newoverline{\mathbf{v}_h}}{\partial z}\right|
-\end{align}
-%
-Die Dichte tritt hier nicht auf, da ihre Höhenabhängigkeit im Rahmen dieser Herleitung vernachlässigt wird. Die betrachteten Flüsse sind nahe an der Erdoberfläche gültig, von daher kann man Glg. \eqref{eq:karman_eq} einsetzen, dies führt auf
-%
-\begin{align}
-A_z &= k^2z^2\left|\frac{\partial\newoverline{\mathbf{v}_h}}{\partial z}\right|.\label{eq:deriv_evaporation_0}
-\end{align}
-%
-Laut Glg. \eqref{eq:ln_wind_profile} gilt
-%
-\begin{align}
-\left|\frac{\partial\newoverline{\mathbf{v}_h}}{\partial z}\right| = \frac{u_\star}{kz}.
-\end{align}
-%
-Setzt man dies in Glg. \eqref{eq:deriv_evaporation_0} ein, erhält man
-%
-\begin{align}
-A_z &= u_\star kz.
-\end{align}
-%
-Hieraus folgt zunächst
-%
-\begin{align}
-\frac{1}{A_z\left(z'\right)} = \frac{1}{u_\star kz'}.
-\end{align}
-%
-Mittelt man dies von $z_0$ nach $z$ erhält man
-%
-\begin{align}
-\frac{1}{z - z_0}\int_{z_0}^z\frac{1}{A_z\left(z'\right)}dz' &\approx \frac{1}{z}\int_{z_0}^z\frac{1}{A_z\left(z'\right)}dz' = \frac{1}{z}\int_{z_0}^z\frac{1}{u_\star kz'}dz' = \frac{1}{zu_\star k}\ln\left(\frac{z}{z_0}\right).
-\end{align}
-%
-Setzt man dies in Glg. \eqref{sec:ansatz_evaporation_rate} ein, erhält man
-%
-\begin{align}
-Q = A_z\frac{\rho_v^{(s)} - \rho_v}{z} = \frac{zu_\star k}{\ln\left(\frac{z}{z_0}\right)}\frac{\rho_v^{(s)} - \rho_v}{z} = \frac{u_\star k}{\ln\left(\frac{z}{z_0}\right)}\left(\rho_v^{(s)} - \rho_v\right).
-\end{align}
-%
-Es gilt also
-%
-\begin{align}
-r = \frac{1}{ku_\star}\ln\left(\frac{z}{z_0}\right).
-\end{align}
+hierbei ist $\rho_v^{(s)}$ die absolute Sättigugnsfeuchte bei der SST (sea surface temperature), $\rho_v$ die tatsächliche absolute Feuchte in der untersten Modellschicht und $r_H$ der Flusswiderstand\index{Flusswiderstand} der sensiblen Wärme.
 
 \part{Anwendungen der Dynamik}
 \label{part:anwendungen_der_dynamik}
@@ -25236,6 +25223,8 @@ Bei den bisher betrachteten Schemata wird jede Kondesatklasse durch eine prognos
 
 \chapter{\normalfont\textsc{Planetarische Grenzschicht}}
 \label{chap:planetarische_grenzschicht}
+
+Innerhalb der planetarischen Grenzschicht, insbesondere innerhalb der Prandtl-Schicht, sind die vertikalen Gradienten der meteorologischen Variablen relativ groß. Sie können von einem Modell erst bei vertikalen Gitterpunktabständen im Bereich von einem Meter hinreichend gut abgetastet werden. Daher sind die in der freien Atmosphäre gültigen Ansätze für die vertikalen turbulenten Flüsse am Unterrand der untersten Modellschicht nicht mehr anwendbar. Daher werden in diesem Bereich die Erkenntnisse über planetarischen Grenzschicht, welche in Abschn. \ref{sec:planetarische_grenzschicht} entwickelt wurden, genutzt, um die vertikalen turbulenten Flüsse zu bestimmen.
 
 \section{Berechnung der Monin-Obukhov-Länge}
 \label{sec:berechnung_der_monin-obukhov-laenge}
