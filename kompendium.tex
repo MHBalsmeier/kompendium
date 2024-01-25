@@ -25244,7 +25244,7 @@ L \coloneqq -\frac{\newoverline{\theta}u_\star^3}{kg\frac{Q_H}{\rho c_v}} = -\fr
 Der Flusswiderstand der sensiblen Wärme $r_H$ hängt dabei wiederum von $L$ ab:
 %
 \begin{align}
-L =  -\frac{\newoverline{\theta}u_\star^3}{T_G - T_A}r_H\left(L\right).
+L =  -\frac{\newoverline{\theta}u_\star^3}{T_G - T_A}r_H\left(L\right).\label{eq:mo_length_model_ansatz}
 \end{align}
 %
 Setzt man hier Glg. ein, erhält man
@@ -25266,7 +25266,22 @@ kann man dies in der Form
 L = \frac{1}{a}\left[b - \psi_h\left(L\right)\right] \Leftrightarrow aL - b + \psi_h\left(L\right) = 0
 \end{align}
 %
-notieren.
+notieren. Das Vorzeichen von $L$ kann bereits im Voraus aus Glg. \eqref{eq:mo_length_model_ansatz} bestimmt werden. Im Fall $T_G < T_A$, was stabilen Bedingungen entspricht, gilt $L > 0.$ In diesem Fall gilt
+%
+\begin{align}
+aL - b - 4,7\cdot \frac{z}{L} &= 0\nonumber\\
+\Leftrightarrow aL^2 - bL - 4,7\cdot z &= 0\nonumber\\
+\Leftrightarrow L^2 - \frac{b}{a}L - 4,7\cdot\frac{z}{a} &= 0\nonumber\\
+\Leftrightarrow L &= \frac{b}{2a} \pm \sqrt{\frac{b^2}{4a^2} + 4,7\cdot\frac{z}{a}}.
+\end{align}
+%
+Wegen $z>0$, $a>0$ und $L>0$ ist nur das positive Vorzeichen physikalisch sinnvoll, was auf
+%
+\begin{align}
+L = \frac{b}{2a} + \sqrt{\frac{b^2}{4a^2} + 4,7\cdot\frac{z}{a}}
+\end{align}
+%
+führt.
 
 \chapter{\normalfont\textsc{Soil-Parametrisierungen}}
 \label{chap:soil-parametrisierungen}
