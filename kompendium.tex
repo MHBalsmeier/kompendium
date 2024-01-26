@@ -25285,7 +25285,7 @@ L = \frac{b}{2a} + \sqrt{\frac{b^2}{4a^2} + 4,7\cdot\frac{z}{a}}
 %
 führt.
 
-Im Fall $T_G > T_A$, was stabilen Bedingungen entspricht, gilt $L < 0.$ In diesem Fall gilt
+Im Fall $T_G > T_A$, was instabilen Bedingungen entspricht, gilt $L < 0.$ In diesem Fall gilt
 %
 \begin{align}
 f\left(L\right) \coloneqq aL - b + 2\ln\left(\frac{1 + \left(1 - \frac{15z}{L}\right)^\frac{1}{2}}{2}\right) &= 0.
@@ -25303,7 +25303,14 @@ Dies kann genutzt werden, um die Nullstellen von $f$ zu finden. Hierzu benutzt m
 f\left(L_i\right) + f'\left(L_i\right)\cdot\left(L_{i+1} - L_i\right) = 0,
 \end{align}
 %
-hierbei ist $i$ der Iterationsschritt.
+hierbei ist $i$ der Iterationsschritt. Unter der Annahme $f' \not= 0$ kann man dies zu
+%
+\begin{align}
+\frac{f\left(L_i\right)}{f'\left(L_i\right)} + L_{i+1} - L_i &= 0\nonumber\\
+\Leftrightarrow L_{i+1} &= L_i - \frac{f\left(L_i\right)}{f'\left(L_i\right)}
+\end{align}
+%
+umformulieren.
 
 \chapter{\normalfont\textsc{Soil-Parametrisierungen}}
 \label{chap:soil-parametrisierungen}
