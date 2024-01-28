@@ -25232,31 +25232,31 @@ Innerhalb der planetarischen Grenzschicht, insbesondere innerhalb der Prandtl-Sc
 Laut Glg. \eqref{eq:mo_length} lautet die Monin-Obukhov-Länge
 %
 \begin{align}
-L \coloneqq -\frac{\newoverline{\theta}u_\star^3}{kg\newoverline{\left(w'\theta'\right)}}.
+L \coloneqq -\frac{T_Au_\star^3}{kg\newoverline{\left(w'\theta'\right)}}.
 \end{align}
 %
-Problematisch ist hierbei die BEstimmung von $\newoverline{\left(w'\theta'\right)}_\text{sfc}$. Setzt man hier Glg. ein, erhält man
+Problematisch ist hierbei die Bestimmung von $\newoverline{\left(w'\theta'\right)}_\text{sfc}$. Setzt man hier Glg. ein, erhält man
 %
 \begin{align}
-L \coloneqq -\frac{\newoverline{\theta}u_\star^3}{kg\frac{Q_H}{\rho c_v}} = -\frac{\newoverline{\theta}u_\star^3}{kg\frac{T_G - T_A}{r_H}} = -\frac{\newoverline{\theta}u_\star^3}{g\left(T_G - T_A\right)}r_H.
+L \coloneqq -\frac{T_Au_\star^3}{kg\frac{Q_H}{\rho c_v}} = -\frac{T_Au_\star^3}{kg\frac{T_G - T_A'}{r_H}} = -\frac{T_Au_\star^3}{g\left(T_G - T_A'\right)}r_H.
 \end{align}
 %
 Der Flusswiderstand der sensiblen Wärme $r_H$ hängt dabei wiederum von $L$ ab:
 %
 \begin{align}
-L =  -\frac{\newoverline{\theta}u_\star^3}{g\left(T_G - T_A\right)}r_H\left(L\right).\label{eq:mo_length_model_ansatz}
+L =  -\frac{T_Au_\star^3}{g\left(T_G - T_A'\right)}r_H\left(L\right).\label{eq:mo_length_model_ansatz}
 \end{align}
 %
 Setzt man hier Glg. ein, erhält man
 %
 \begin{align}
-L = -\frac{\newoverline{\theta}u_\star^3}{g\left(T_G - T_A\right)}\frac{1}{u_\star k}\left[\ln\left(\frac{z}{z_0}\right) - \psi_h\left(z,L\right) + \ln\left(7\right)\right] = -\frac{\newoverline{\theta}u_\star^2}{kg\left(T_G - T_A\right)}\left[\ln\left(\frac{z}{z_0}\right) - \psi_h\left(z,L\right) + \ln\left(7\right)\right].
+L = -\frac{T_Au_\star^3}{g\left(T_G - T_A'\right)}\frac{1}{u_\star k}\left[\ln\left(\frac{z}{z_0}\right) - \psi_h\left(z,L\right) + \ln\left(7\right)\right] = -\frac{T_Au_\star^2}{kg\left(T_G - T_A'\right)}\left[\ln\left(\frac{z}{z_0}\right) - \psi_h\left(z,L\right) + \ln\left(7\right)\right].
 \end{align}
 %
 Hier geht es um die Bestimmung $L$, dabei sind alle anderen Größen bekannt. Mit den Definitionen
 %
 \begin{align}
-a &\coloneqq -\frac{kg\left(T_G - T_A\right)}{\newoverline{\theta}u_\star^2},\\
+a &\coloneqq -\frac{kg\left(T_G - T_A'\right)}{T_Au_\star^2},\\
 b &\coloneqq \ln\left(\frac{z}{z_0}\right) + \ln\left(7\right)
 \end{align}
 %
@@ -25268,7 +25268,7 @@ L = \frac{1}{a}\left[b - \psi_h\left(L\right)\right] \Leftrightarrow aL - b + \p
 %
 notieren.
 
-Das Vorzeichen von $L$ kann bereits im Voraus aus Glg. \eqref{eq:mo_length_model_ansatz} bestimmt werden. Im Fall $T_G < T_A$, was stabilen Bedingungen entspricht, gilt $L > 0.$ In diesem Fall gilt
+Das Vorzeichen von $L$ kann bereits im Voraus aus Glg. \eqref{eq:mo_length_model_ansatz} bestimmt werden. Im Fall $T_G < T_A'$, was stabilen Bedingungen entspricht, gilt $L > 0.$ In diesem Fall gilt
 %
 \begin{align}
 aL - b - 4,7\cdot \frac{z}{L} &= 0\nonumber\\
