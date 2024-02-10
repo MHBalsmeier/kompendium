@@ -25241,76 +25241,92 @@ Problematisch ist hierbei die Bestimmung von $\newoverline{\left(w'\theta'\right
 L \coloneqq -\frac{T_Au_\star^3}{kg\frac{Q_H}{\rho c_v}} = -\frac{T_Au_\star^3}{kg\frac{T_G - T_A'}{r_H}} = -\frac{T_Au_\star^3}{g\left(T_G - T_A'\right)}r_H.
 \end{align}
 %
-Der Flusswiderstand der sensiblen Wärme $r_H$ hängt dabei wiederum von $L$ ab:
+Die Reibungsgeschwindigkeit $u_\star$ und der Flusswiderstand der sensiblen Wärme $r_H$ hängen dabei wiederum von $L$ ab:
 %
 \begin{align}
-L =  -\frac{T_Au_\star^3}{g\left(T_G - T_A'\right)}r_H\left(L\right).\label{eq:mo_length_model_ansatz}
+L =  -\frac{T_Au_\star^3\left(L\right)}{g\left(T_G - T_A'\right)}r_H\left(L\right).\label{eq:mo_length_model_ansatz}
 \end{align}
 %
 Setzt man hier Glg. ein, erhält man
 %
 \begin{align}
-L = -\frac{T_Au_\star^3}{g\left(T_G - T_A'\right)}\frac{1}{u_\star k}\left[\ln\left(\frac{z}{z_0}\right) - \psi_h\left(z,L\right) + \ln\left(7\right)\right] = -\frac{T_Au_\star^2}{kg\left(T_G - T_A'\right)}\left[\ln\left(\frac{z}{z_0}\right) - \psi_h\left(z,L\right) + \ln\left(7\right)\right].
+L = -\frac{T_Au_\star^3}{g\left(T_G - T_A'\right)}\frac{1}{u_\star k}\left[\ln\left(\frac{z}{z_0}\right) - \psi_h\left(\frac{z}{L}\right) + \ln\left(7\right)\right] = -\frac{T_Au_\star^2}{kg\left(T_G - T_A'\right)}\left[\ln\left(\frac{z}{z_0}\right) - \psi_h\left(\frac{z}{L}\right) + \ln\left(7\right)\right].
+\end{align}
+%
+Setzt man weiter Glg.  ein, folgt
+%
+\begin{align}
+L = -\frac{T_AU^2k}{g\left(T_G - T_A'\right)}\frac{\ln\left(\frac{z}{z_0}\right) - \psi_h\left(\frac{z}{L}\right) + \ln\left(7\right)}{\left[\ln\left(\frac{z}{z_0}\right) - \psi_m\left(\frac{z}{L}\right)\right]^2}.
 \end{align}
 %
 Hier geht es um die Bestimmung $L$, dabei sind alle anderen Größen bekannt. Mit den Definitionen
 %
 \begin{align}
-a &\coloneqq -\frac{kg\left(T_G - T_A'\right)}{T_Au_\star^2},\\
-b &\coloneqq \ln\left(\frac{z}{z_0}\right) + \ln\left(7\right)
+a &\coloneqq -\frac{g\left(T_G - T_A'\right)}{T_AU^2k},\\
+g\left(L\right) &\coloneqq \frac{\ln\left(\frac{z}{z_0}\right) - \psi_h\left(\frac{z}{L}\right) + \ln\left(7\right)}{\left[\ln\left(\frac{z}{z_0}\right) - \psi_m\left(\frac{z}{L}\right)\right]^2}
 \end{align}
 %
 kann man dies in der Form
 %
 \begin{align}
-L = \frac{1}{a}\left[b - \psi_h\left(L\right)\right] \Leftrightarrow aL - b + \psi_h\left(L\right) = 0
+L = \frac{g\left(L\right)}{a} \Leftrightarrow aL - g\left(L\right) = 0\label{eq:mo_l_num_deriv_1}
 \end{align}
 %
 notieren.
 
-Das Vorzeichen von $L$ kann bereits im Voraus aus Glg. \eqref{eq:mo_length_model_ansatz} bestimmt werden. Im Fall $T_G < T_A'$, was stabilen Bedingungen entspricht, gilt $L > 0.$ In diesem Fall gilt
+Das Vorzeichen von $L$ kann bereits im Voraus aus Glg. \eqref{eq:mo_length_model_ansatz} bestimmt werden. Im Fall $T_G < T_A'$, was stabilen Bedingungen entspricht, gilt $L > 0.$ In diesem Fall gelten
 %
 \begin{align}
-aL - b - 4,7\cdot \frac{z}{L} &= 0\nonumber\\
-\Leftrightarrow aL^2 - bL - 4,7\cdot z &= 0\nonumber\\
-\Leftrightarrow L^2 - \frac{b}{a}L - 4,7\cdot\frac{z}{a} &= 0\nonumber\\
-\Leftrightarrow L &= \frac{b}{2a} \pm \sqrt{\frac{b^2}{4a^2} + 4,7\cdot\frac{z}{a}}.
+\psi_m\left(\frac{z}{L}\right) = \psi_h\left(\frac{z}{L}\right) = -4,7\cdot\frac{z}{L}.
 \end{align}
 %
-Wegen $z>0$, $a>0$ und $L>0$ ist nur das positive Vorzeichen physikalisch sinnvoll, was auf
+Definiere nun
 %
 \begin{align}
-L = \frac{b}{2a} + \sqrt{\frac{b^2}{4a^2} + 4,7\cdot\frac{z}{a}}
+h\left(L\right) \coloneqq \ln\left(\frac{z}{z_0}\right) + 4,7\cdot\frac{z}{L},
 \end{align}
 %
-führt.
+dann folgt aus Glg. \eqref{eq:mo_l_num_deriv_1}
+%
+\begin{align}
+aL - g\left(L\right) &= aL - \frac{h\left(L\right) + \ln\left(7\right)}{h^2\left(L\right)} = 0\nonumber\\
+\Leftrightarrow f_1\left(L\right) &\coloneqq aLh^2\left(L\right) - h\left(L\right) - \ln\left(7\right) = 0.\label{eq:mo_l_num_deriv_2}
+\end{align}
+%
+Glg. \eqref{eq:mo_l_num_deriv_2} ist nicht analytisch lösbar und muss daher numerisch gelöst werden. Dies entspricht der Ermittlung der Nullstelle von $f_1$. Hierzu benutzt man ein iteratives Verfahren mit
+%
+\begin{align}
+f_1\left(L_i\right) + f_1'\left(L_i\right)\cdot\left(L_{i+1} - L_i\right) = 0,
+\end{align}
+%
+hierbei ist $i$ der Iterationsschritt. Es gilt
+%
+\begin{align}
+f_1'\left(L_i\right) = h^2\left(L\right) + 2aLh\left(L\right)h'\left(L\right) - h'\left(L\right).
+\end{align}
+%
+Unter der Annahme $f_1' \not= 0$ kann man dies zu
+%
+\begin{align}
+\frac{f_1\left(L_i\right)}{f_1'\left(L_i\right)} + L_{i+1} - L_i &= 0\nonumber\\
+\Leftrightarrow L_{i+1} &= L_i - \frac{f_1\left(L_i\right)}{f_1'\left(L_i\right)}
+\end{align}
+%
+umformulieren.
 
 Im Fall $T_G > T_A$, was instabilen Bedingungen entspricht, gilt $L < 0.$ In diesem Fall gilt
 %
 \begin{align}
-f\left(L\right) \coloneqq aL - b + 2\ln\left(\frac{1 + \left(1 - \frac{15z}{L}\right)^\frac{1}{2}}{2}\right) &= 0.
+f_2\left(L\right) \coloneqq aL - b + 2\ln\left(\frac{1 + \left(1 - \frac{15z}{L}\right)^\frac{1}{2}}{2}\right) &= 0.
 \end{align}
 %
 Die Ableitung der Funktion $f$ lautet
 %
 \begin{align}
-f'\left(L\right) = a + 2\frac{15z}{4L^2\left(1 - \frac{15z}{L^2}\right)^\frac{1}{2}}\frac{2}{1 + \left(1 - \frac{15z}{L}\right)^\frac{1}{2}} = a + \frac{15z}{L^2}\frac{1}{\left(1 - \frac{15z}{L}\right)^\frac{1}{2} + 1 - \frac{15z}{L}}.
+f_2'\left(L\right) = a + 2\frac{15z}{4L^2\left(1 - \frac{15z}{L^2}\right)^\frac{1}{2}}\frac{2}{1 + \left(1 - \frac{15z}{L}\right)^\frac{1}{2}} = a + \frac{15z}{L^2}\frac{1}{\left(1 - \frac{15z}{L}\right)^\frac{1}{2} + 1 - \frac{15z}{L}}.
 \end{align}
 %
-Dies kann genutzt werden, um die Nullstellen von $f$ zu finden. Hierzu benutzt man ein iteratives Verfahren mit
-%
-\begin{align}
-f\left(L_i\right) + f'\left(L_i\right)\cdot\left(L_{i+1} - L_i\right) = 0,
-\end{align}
-%
-hierbei ist $i$ der Iterationsschritt. Unter der Annahme $f' \not= 0$ kann man dies zu
-%
-\begin{align}
-\frac{f\left(L_i\right)}{f'\left(L_i\right)} + L_{i+1} - L_i &= 0\nonumber\\
-\Leftrightarrow L_{i+1} &= L_i - \frac{f\left(L_i\right)}{f'\left(L_i\right)}
-\end{align}
-%
-umformulieren.
+Dies kann genutzt werden, um die Nullstellen von $f_2$ zu finden.
 
 \chapter{\normalfont\textsc{Soil-Parametrisierungen}}
 \label{chap:soil-parametrisierungen}
