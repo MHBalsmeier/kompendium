@@ -25317,16 +25317,15 @@ umformulieren.
 Im Fall $T_G > T_A$, was instabilen Bedingungen entspricht, gilt $L < 0.$ In diesem Fall gilt
 %
 \begin{align}
-f_2\left(L\right) \coloneqq aL - b + 2\ln\left(\frac{1 + \left(1 - \frac{15z}{L}\right)^\frac{1}{2}}{2}\right) &= 0.
+f_2\left(L\right) &\coloneqq aL - g\left(L\right) = aL - \frac{\ln\left(\frac{z}{z_0}\right) - \psi_h\left(\frac{z}{L}\right) + \ln\left(7\right)}{\left[\ln\left(\frac{z}{z_0}\right) - \psi_m\left(\frac{z}{L}\right)\right]^2} = 0.
 \end{align}
 %
-Die Ableitung der Funktion $f$ lautet
+Hieraus folgt
 %
 \begin{align}
-f_2'\left(L\right) = a + 2\frac{15z}{4L^2\left(1 - \frac{15z}{L^2}\right)^\frac{1}{2}}\frac{2}{1 + \left(1 - \frac{15z}{L}\right)^\frac{1}{2}} = a + \frac{15z}{L^2}\frac{1}{\left(1 - \frac{15z}{L}\right)^\frac{1}{2} + 1 - \frac{15z}{L}}.
+f_2'\left(L\right) &= a - g'\left(L\right) = a - \frac{\frac{z}{L^2}\psi'_h\left(\frac{z}{L}\right)\left[\ln\left(\frac{z}{z_0}\right) - \psi_m\left(\frac{z}{L}\right)\right]^2 - \left[\ln\left(\frac{z}{z_0}\right) - \psi_h\left(\frac{z}{L}\right) + \ln\left(7\right)\right]2\left[\ln\left(\frac{z}{z_0}\right) - \psi_m\left(\frac{z}{L}\right)\right]\frac{z}{L^2}\psi'_m\left(\frac{z}{L}\right)}{\left[\ln\left(\frac{z}{z_0}\right) - \psi_m\left(\frac{z}{L}\right)\right]^4}\nonumber\\
+&= a - \frac{\frac{z}{L^2}\psi'_h\left(\frac{z}{L}\right)}{\left[\ln\left(\frac{z}{z_0}\right) - \psi_m\left(\frac{z}{L}\right)\right]^2} + \frac{2\left[\ln\left(\frac{z}{z_0}\right) - \psi_h\left(\frac{z}{L}\right) + \ln\left(7\right)\right]\frac{z}{L^2}\psi'_m\left(\frac{z}{L}\right)}{\left[\ln\left(\frac{z}{z_0}\right) - \psi_m\left(\frac{z}{L}\right)\right]^3}.
 \end{align}
-%
-Dies kann genutzt werden, um die Nullstellen von $f_2$ zu finden.
 
 \chapter{\normalfont\textsc{Soil-Parametrisierungen}}
 \label{chap:soil-parametrisierungen}
