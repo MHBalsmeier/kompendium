@@ -17802,34 +17802,106 @@ K_\Delta = \rho\nu_\Delta = \rho c_S\Delta^2\sqrt{\left(\frac{\partial u}{\parti
 Die sogenannte spezifische \textit{turbulente kinetische Energie} $k_s$ ist der subskalige Anteil der kinetischen Energie, in Abgrenzung zum aufgelösten Anteil, welcher hier mit $k_m$ bezeichnet wird. Für diese Größe soll eine prognostische Gleichung hergeleitet werden. Man beginnt, indem man zunächst die Gleichung der spezifischen kinetischen Energie Glg. \eqref{eq:e_kin_prog} nochmals notiert:
 %
 \begin{align}
-\frac{\partial k}{\partial t} = \frac{1}{2}\frac{\partial}{\partial t}\left(u^2 + v^2 + w^2\right) = -\mathbf{v}\cdot\nabla k -\frac{1}{\rho}\mathbf{v}\cdot\nabla p - wg + \mathbf{v}\cdot\mathbf{f}_R.
+\frac{\partial k}{\partial t} = \frac{1}{2}\frac{\partial}{\partial t}\left(u^2 + v^2 + w^2\right) = -\mathbf{v}\cdot\nabla k -\frac{1}{\rho}\mathbf{v}\cdot\nabla p - wg - \epsilon = -\sum_{i,j=1}^3u_iu_j\frac{\partial u_j}{x_i} -\frac{1}{\rho}\mathbf{v}\cdot\nabla p - wg - \epsilon.
 \end{align}
 %
 Den Druckgradienten drückt man über den Exner-Druck aus:
 %
 \begin{align}
-\frac{\partial k}{\partial t} = \frac{1}{2}\frac{\partial}{\partial t}\left(u^2 + v^2 + w^2\right) = -\mathbf{v}\cdot\nabla k - c^{(p)}\theta\mathbf{v}\cdot\nabla\Pi - wg + \mathbf{v}\cdot\mathbf{f}_R.
+\frac{\partial k}{\partial t} = -\sum_{i,j=1}^3u_iu_j\frac{\partial u_j}{x_i} - c^{(p)}\theta\mathbf{v}\cdot\nabla\Pi - wg - \epsilon.\label{eq:tke_deriv_tk}
+\end{align}
+%
+Weiterhin notiert man die Impulsgleichung ohne Reibung:
+%
+\begin{align}
+\frac{\partial u_i}{\partial t} = -\sum_{j=1}^3u_j\frac{\partial u_i}{x_j} - c^{(p)}\theta\frac{\partial\Pi}{\partial x_i} - g_i.
 \end{align}
 %
 Führt man hier eine Reynolds-Mittelung durch, erhält man
 %
 \begin{align}
-\frac{\partial\newoverline{k}}{\partial t} + \frac{\partial k'}{\partial t} &= \frac{1}{2}\frac{\partial}{\partial t}\left(\newoverline{u}^2 + \newoverline{v}^2 + \newoverline{w}^2\right) + \frac{1}{2}\frac{\partial}{\partial t}\left(u'^2 + v'^2 + w'^2\right)\nonumber\\
-&= -\newoverline{\mathbf{v}}\cdot\nabla\newoverline{k} - \mathbf{v}'\cdot\nabla k' - c^{(p)}\newoverline{\theta}\newoverline{\mathbf{v}}\cdot\nabla\newoverline{\Pi} - c^{(p)}\theta'\mathbf{v}'\cdot\nabla\Pi' - \newoverline{w}g + \newoverline{\mathbf{v}}\cdot\newoverline{\mathbf{f}_R} + \mathbf{v}'\cdot\mathbf{f}'_R.\label{eq:tke_deriv}
+\frac{\partial\newoverline{u_i}}{\partial t} = -\sum_{j=1}^3\newoverline{u_j}\frac{\partial\newoverline{u_i}}{x_j} - \sum_{j=1}^3\newoverline{u_j'\frac{\partial u_i'}{x_j}} - c^{(p)}\newoverline{\theta}\frac{\partial\newoverline{\Pi}}{\partial x_i} - c^{(p)}\newoverline{\theta'\frac{\partial\Pi'}{\partial x_i}} - g_i.
 \end{align}
 %
-Der aufgelöste bzw. subskalige Anteil der kinetischen Energie ist nun über
+Multipliziert man diese Gleichung mit $\newoverline{u_i}$, erhält man
 %
 \begin{align}
-k_m &\coloneqq \newoverline{k} = \frac{1}{2}\frac{\partial}{\partial t}\left(\newoverline{u}^2 + \newoverline{v}^2 + \newoverline{w}^2\right),\nonumber\\
-k_s &\coloneqq k' = \frac{1}{2}\frac{\partial}{\partial t}\left(u'^2 + v'^2 + w'^2\right)
+\newoverline{u_i}\frac{\partial\newoverline{u_i}}{\partial t} = -\newoverline{u_i}\sum_{j=1}^3\newoverline{u_j}\frac{\partial\newoverline{u_i}}{x_j} - \newoverline{u_i}\sum_{j=1}^3\newoverline{u_j'\frac{\partial u_i'}{x_j}} - c^{(p)}\newoverline{u_i}\newoverline{\theta}\frac{\partial\newoverline{\Pi}}{\partial x_i} - c^{(p)}\newoverline{u_i}\newoverline{\theta'\frac{\partial\Pi'}{\partial x_i}} - \newoverline{u_i}g_i.
 \end{align}
 %
-definierbar. Setzt man dies in Glg. \eqref{eq:tke_deriv} ein, erhält man
+Summiert man diese Gleichung über $i$, erhält man
 %
 \begin{align}
-\frac{\partial k_m}{\partial t} + \frac{\partial k_s}{\partial t} &= -\newoverline{\mathbf{v}}\cdot\nabla\newoverline{k} - \mathbf{v}'\cdot\nabla k' - c^{(p)}\newoverline{\theta}\newoverline{\mathbf{v}}\cdot\nabla\newoverline{\Pi} - c^{(p)}\theta'\mathbf{v}'\cdot\nabla\Pi' - \newoverline{w}g + \newoverline{\mathbf{v}}\cdot\newoverline{\mathbf{f}_R} + \mathbf{v}'\cdot\mathbf{f}'_R.
+\frac{\partial k_m}{\partial t} &= -\sum_{i,j=1}^3\newoverline{u_i}\newoverline{u_j}\frac{\partial\newoverline{u_i}}{x_j} - \sum_{i,j=1}^3\newoverline{u_i}\newoverline{u_j'\frac{\partial u_i'}{x_j}} - c^{(p)}\newoverline{\theta}\newoverline{\mathbf{v}}\cdot\nabla\newoverline{\Pi} - c^{(p)}\newoverline{\mathbf{v}}\cdot\newoverline{\theta'\nabla\Pi'} + \newoverline{\mathbf{v}}\cdot\mathbf{g}\nonumber\\
+&= -\sum_{j=1}^3\newoverline{u_j}\sum_{i=1}^3\newoverline{u_i}\frac{\partial\newoverline{u_i}}{x_j} - \sum_{i,j=1}^3\newoverline{u_i}\newoverline{u_j'\frac{\partial u_i'}{x_j}} - c^{(p)}\newoverline{\theta}\newoverline{\mathbf{v}}\cdot\nabla\newoverline{\Pi} - c^{(p)}\newoverline{\mathbf{v}}\cdot\newoverline{\theta'\nabla\Pi'} + \newoverline{\mathbf{v}}\cdot\mathbf{g}\nonumber\\
+&= -\sum_{j=1}^3\newoverline{u_j}\frac{\partial k_m}{x_j} - \sum_{i,j=1}^3\newoverline{u_i}\newoverline{u_j'\frac{\partial u_i'}{x_j}} - c^{(p)}\newoverline{\theta}\newoverline{\mathbf{v}}\cdot\nabla\newoverline{\Pi} - c^{(p)}\newoverline{\mathbf{v}}\cdot\newoverline{\theta'\nabla\Pi'} + \newoverline{\mathbf{v}}\cdot\mathbf{g}\nonumber\\
+&= -\newoverline{\mathbf{v}}\cdot\nabla{k_m} - \sum_{i,j=1}^3\newoverline{u_i}\newoverline{u_j'\frac{\partial u_i'}{x_j}} - c^{(p)}\newoverline{\theta}\newoverline{\mathbf{v}}\cdot\nabla\newoverline{\Pi} - c^{(p)}\newoverline{\mathbf{v}}\cdot\newoverline{\theta'\nabla\Pi'} + \newoverline{\mathbf{v}}\cdot\mathbf{g}.
 \end{align}
+%
+Hierbei ist
+%
+\begin{align}
+k_m \coloneqq \frac{1}{2}\left(\newoverline{u}^2 + \newoverline{v}^2 + \newoverline{w}^2\right)
+\end{align}
+%
+die mittlere kinetische Energie. Nimmt man weiter an, dass der Hintergrundzustand hydrostatisch balanciert ist, also $-c^{(p)}\newoverline{\theta}\nabla\newoverline{\Pi} + \mathbf{g} = \mathbf{0}$, folgt
+%
+\begin{align}
+\frac{\partial k_m}{\partial t} = -\newoverline{\mathbf{v}}\cdot\nabla{k_m} - \sum_{i,j=1}^3\newoverline{u_i}\newoverline{u_j'\frac{\partial u_i'}{x_j}} - c^{(p)}\newoverline{\mathbf{v}}\cdot\newoverline{\theta'\nabla\Pi'}.\label{eq:tke_deriv_ke}
+\end{align}
+%
+Die subskalige oder turbulente kinetische Energie ist
+%
+\begin{align}
+k_s &\coloneqq k' = \frac{1}{2}\frac{\partial}{\partial t}\left(u'^2 + v'^2 + w'^2\right).
+\end{align}
+%
+Setzt man dies in Glg. \eqref{eq:tke_deriv_tk} ein, erhält man
+%
+\begin{align}
+\frac{\partial k_m}{\partial t} + \frac{\partial k_s}{\partial t} = -\sum_{i,j=1}^3u_iu_j\frac{\partial u_j}{x_i} - c^{(p)}\theta\mathbf{v}\cdot\nabla\Pi - wg - \epsilon.
+\end{align}
+%
+Führt man hier eine Reynolds-Mittelung durch, erhält man
+%
+\begin{align}
+\frac{\partial k_m}{\partial t} + \frac{\partial k_s}{\partial t} &= -\newoverline{\mathbf{v}}\cdot\nabla{k_m} - \sum_{i,j=1}^3\newoverline{u_i}\newoverline{u_j'\frac{\partial u_i'}{x_j}} - c^{(p)}\newoverline{\mathbf{v}}\cdot\newoverline{\theta'\nabla\Pi'}\nonumber\\
+&-\sum_{i,j=1}^3\newoverline{u_i'u_j'}\frac{\partial\newoverline{u_i}}{x_j} - \sum_{i,j=1}^3\newoverline{u_j}\newoverline{u_i'\frac{\partial u_i'}{x_j}} - c^{(p)}\newoverline{\theta'\mathbf{v}'}\cdot\nabla\newoverline{\Pi} - c^{(p)}\newoverline{\theta}\newoverline{\mathbf{v}'\cdot\nabla\Pi'} - \newoverline{\epsilon}\nonumber\\
+&= -\newoverline{\mathbf{v}}\cdot\nabla{k_m} - \sum_{i,j=1}^3\newoverline{u_i}\newoverline{u_j'\frac{\partial u_i'}{x_j}} - c^{(p)}\newoverline{\mathbf{v}}\cdot\newoverline{\theta'\nabla\Pi'}\nonumber\\
+&-\sum_{i,j=1}^3\newoverline{u_i'u_j'}\frac{\partial\newoverline{u_i}}{x_j} - \newoverline{\mathbf{v}}\cdot\nabla{k_s} - c^{(p)}\newoverline{\theta'w'}\frac{\partial\newoverline{\Pi}}{\partial z} - c^{(p)}\newoverline{\theta}\newoverline{\mathbf{v}'\cdot\nabla\Pi'} - \newoverline{\epsilon}.
+\end{align}
+%
+Zieht man hiervon Glg. \eqref{eq:tke_deriv_ke} ab, erhält man die sogenannte \textit{TKE-Gleichung}\index{TKE-Gleichung}:
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\frac{\partial k_s}{\partial t} = -\newoverline{\mathbf{v}}\cdot\nabla{k_s} - \sum_{i,j=1}^3\newoverline{u_i'u_j'}\frac{\partial\newoverline{u_i}}{x_j} - c^{(p)}\newoverline{\theta'w'}\frac{\partial\newoverline{\Pi}}{\partial z} - c^{(p)}\newoverline{\theta}\newoverline{\mathbf{v}'\cdot\nabla\Pi'} - \newoverline{\epsilon}\label{eq:tke}
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+Mit
+%
+\begin{align}
+-c^{(p)}\newoverline{\theta}\frac{\partial\newoverline{\Pi}}{\partial z} = g
+\end{align}
+%
+kann man dies umformulieren zu
+%
+\begin{align}
+\frac{\partial k_s}{\partial t} + \newoverline{\mathbf{v}}\cdot\nabla{k_s} =  -\sum_{i,j=1}^3\newoverline{u_i'u_j'}\frac{\partial\newoverline{u_i}}{x_j} + g\newoverline{\frac{\theta'}{\newoverline{\theta}}w'} - c^{(p)}\newoverline{\theta}\newoverline{\mathbf{v}'\cdot\nabla\Pi'} - \newoverline{\epsilon}.
+\end{align}
+%
+Den Term
+%
+\begin{align}
+C \coloneqq g\newoverline{\frac{\theta'}{\newoverline{\theta}}w'}
+\end{align}
+%
+bezeichnet man als \textit{Buoyancy flux}\index{Buoyancy flux}.
 
 \section{Geostrophische Turbulenz}
 \label{sec:geostrophische_turbulenz}\index{geostrophische Turbulenz}\index{Turbulenz!geostrophische}
