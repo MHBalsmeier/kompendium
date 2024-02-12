@@ -16885,7 +16885,7 @@ fu &= -\frac{1}{\rho}\frac{\partial p}{\partial y} + \frac{\partial}{\partial z}
 Man nimmt nun an, dass die Bewegung nur eine x-Komponente hat und definiert die sogenannte \textit{Reibungsgeschwindigkeit}\index{Reibungsgeschwindigkeit} $u_\star > 0$ durch
 %
 \begin{align}
-u_\star^2 \coloneqq \frac{\tau_{x, z}}{\rho} = \frac{A_z}{\rho}\frac{\partial\overline{u}}{\partial z}\label{eq:def_u_star}
+u_\star^2 \coloneqq \frac{\tau_{x, z}}{\rho} = \frac{A_z}{\rho}\frac{\partial\overline{u}}{\partial z}.\label{eq:def_u_star}
 \end{align}
 %
 Bisher wurde angenommen, dass die Mischungsweglänge $l$ höhenunabhängig ist. Sehr nahe an der Erdoberfläche ist jedoch zu erwarten, dass die vertikale Ausdehung der Wirbel mit der Höhe zunimmt, was man im einfachsten Fal über
@@ -16931,10 +16931,25 @@ Für die Reibungsgeschwindigkeit $u_\star$ gilt
 \newoverline{u}\left(z_\star\right) \hastobe u_\star \Leftrightarrow 1 =  \frac{1}{k}\ln\left(\frac{z_\star}{z_0}\right) \Leftrightarrow z_\star = z_0\exp\left(k\right).
 \end{align}
 %
-Die Rauhigkeitswindgeschwindigkeit ist also die Windgeschwindigkeit, die in der Höhe $z_\star = z_0e^k \approx 1,5 z_0$ herrscht. Kennt man den Wind $U$ in der Höhe $Z$ (beispielsweise die unterste Schicht eines Modells), so lässt sich die Reibungsgeschwindigkeit aus Glg. \eqref{eq:ln_wind_profile} bestimmen:
+Die Reibungsgeschwindigkeit ist also die Windgeschwindigkeit, die in der Höhe $z_\star = z_0e^k \approx 1,5 z_0$ herrscht. Kennt man den Wind $U$ in der Höhe $z$ (beispielsweise die unterste Schicht eines Modells), so lässt sich die Reibungsgeschwindigkeit aus Glg. \eqref{eq:ln_wind_profile} bestimmen:
 %
 \begin{align}
-U = \frac{u_\star}{k}\ln\left(\frac{Z}{z_0}\right) \Leftrightarrow u_\star = \frac{Uk}{\ln\left(\frac{Z}{z_0}\right)}.
+U = \frac{u_\star}{k}\ln\left(\frac{z}{z_0}\right) \Leftrightarrow u_\star = \frac{Uk}{\ln\left(\frac{z}{z_0}\right)}.
+\end{align}
+
+\subsubsection{Stabile oder labile Schichtung}
+\label{sec:stabile_oder_labile_schichtung}
+
+Die bisherigen Herleitungen dieses Abschnitts erfolgten unter der Annahme indifferenter Schichtung. Im Falle labiler oder stabiler Schichtung verallgemeinert man Glg. \eqref{eq:ln_wind_profile} zu
+%
+\begin{align}
+\newoverline{u}\left(z\right) = \frac{u_\star}{k}\left[\ln\left(\frac{z}{z_0}\right) - \psi_m\left(\frac{z}{L}\right)\right],\label{eq:wind_profile_pbl}
+\end{align}
+%
+hierbei ist $L$ die Monin-Obukhov-Länge. Im Falle indifferenter Schichtung ist $\psi_m = 0$. Die Reibungsgeschwindigkeit ergibt sich hieraus zu
+%
+\begin{align}
+u_\star = \frac{Uk}{\ln\left(\frac{z}{z_0}\right) - \psi_m\left(\frac{z}{L}\right)}.\label{eq:u_star}
 \end{align}
 
 \section{Ekman-Transport}
@@ -25253,7 +25268,7 @@ Setzt man hier Glg. ein, erhält man
 L = -\frac{T_Au_\star^3}{g\left(T_G - T_A'\right)}\frac{1}{u_\star k}\left[\ln\left(\frac{z}{z_0}\right) - \psi_h\left(\frac{z}{L}\right) + \ln\left(7\right)\right] = -\frac{T_Au_\star^2}{kg\left(T_G - T_A'\right)}\left[\ln\left(\frac{z}{z_0}\right) - \psi_h\left(\frac{z}{L}\right) + \ln\left(7\right)\right].
 \end{align}
 %
-Setzt man weiter Glg.  ein, folgt
+Setzt man weiter Glg. \eqref{eq:u_star} ein, folgt
 %
 \begin{align}
 L = -\frac{T_AU^2k}{g\left(T_G - T_A'\right)}\frac{\ln\left(\frac{z}{z_0}\right) - \psi_h\left(\frac{z}{L}\right) + \ln\left(7\right)}{\left[\ln\left(\frac{z}{z_0}\right) - \psi_m\left(\frac{z}{L}\right)\right]^2}.
@@ -25302,7 +25317,7 @@ f_1\left(L_i\right) + f_1'\left(L_i\right)\cdot\left(L_{i+1} - L_i\right) = 0,
 hierbei ist $i$ der Iterationsschritt. Es gilt
 %
 \begin{align}
-f_1'\left(L_i\right) = ah^2\left(L\right) + 2aLh\left(L\right)h'\left(L\right) - h'\left(L\right).
+f_1'\left(L\right) = ah^2\left(L\right) + 2aLh\left(L\right)h'\left(L\right) - h'\left(L\right).
 \end{align}
 %
 Unter der Annahme $f_1' \not= 0$ kann man dies zu
