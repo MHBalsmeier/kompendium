@@ -24931,22 +24931,16 @@ an. Somit lautet die Gleichung für die TKE
 \frac{\partial K_s}{\partial t} = -\mathbf{v}\cdot\nabla K_s + \epsilon_\Delta + \kappa'\KE - \kappa K_s.
 \end{align}
 %
-Um $\kappa$ zu bestimmen, macht man den eindimensionalen Ansatz
+Um $\kappa$ zu bestimmen, geht man von Glg. \eqref{eq:characteristic_length} aus:
 %
 \begin{align}
-\frac{\partial k_s}{\partial t} = u'\frac{\partial u'}{\partial t} = u'K\frac{\partial^2u}{\partial x^2} = -u'^2Kl^2 = -2Kl^2k_s = -\frac{8\pi^2K}{\lambda^2}k_s,
+l_c = \left(\frac{\nu^3}{\epsilon}\right)^{1/4} \Leftrightarrow l_c^4 = \frac{\nu^3}{\epsilon} \Leftrightarrow \epsilon = \frac{\nu^3}{l_c^4}.
 \end{align}
 %
-wobei $l = \frac{2\pi}{\lambda}$ in diesem Fall die Kreiswellenzahl bezeichnet. $K$ ist hierbei der effektive kinematische Diffusionskoeffizient, der auf Wellen der Länge $\lambda$ wirkt. Für $\lambda$ setzt man eine charakteristische subskalige Größenordnung $\Delta x$ ein. Dies ist der Mittelwert der Wellenlänge Null, die das Ende des Spektrums darstellt, und der Wellenlänge $2\Delta x$, die gerade noch vom Modell aufgelöst wird. Dies führt auf
+Mit den Ersetzungen $\nu\to K$ und $l_c\to L$ erhält man
 %
 \begin{align}
-\frac{\partial k_s}{\partial t} = -\frac{8\pi^2K}{\Delta x^2}k_s
-\end{align}
-%
-führt. $K$ ist dabei der auf Bewegungen der Wellenlänge $\lambda = \Delta x$ wirkende Diffusionskoeffizient. Der Diffusionskoeffizient skaliert quadratisch mit der horizontalen Auflösung, daher ist für $K$ ein Viertel des turbulenten Diffusionskoeffizienten $K_\Delta$ einzusetzen, der auf Bewegungen der gerade noch aufgelösten Wellenlänge $2\Delta x$ wirkt. Somit erhält man
-%
-\begin{align}
-\frac{\partial k_s}{\partial t} = -\frac{2\pi^2K_\Delta}{\Delta x^2}k_s.
+\epsilon_\Delta = \frac{K^3}{L^4}.\label{eq:diff_delta}
 \end{align}
 
 \section{Besonderheiten vertikaler Diffusionskoeffizenten}
@@ -24987,16 +24981,31 @@ k_s^{(v)} = \frac{1}{4}N^2\newhat{z}^2 \Rightarrow \newhat{z} = \frac{2}{N}\sqrt
 Setzt man dies in Glg. \eqref{eq:k_v_deriv_1} ein, erhält man
 %
 \begin{align}
-\newoverline{v} = \frac{2\newhat{z}N}{\pi} = \frac{4}{\pi}\sqrt{k_s^{(v)}}.
+\newoverline{v} = \frac{2\newhat{z}N}{\pi} = \frac{4}{\pi}\sqrt{k_s^{(v)}}.\label{eq:tke_vbar}
 \end{align}
 %
-Nun muss noch $k_s^{(v)}$ aus der gesamten TKE $k_s$ abgeleitet werden. Im Falle eines würfelförmigne Gitters ($\Delta x = \Delta z$), auf dem in jeder Raumrichtung dieselbe Dynamik wirkt, muss $k_s^{(v)} = \frac{k_s}{3}$ gelten. Dies wird zu
+Nun muss noch $k_s^{(v)}$ aus der gesamten TKE $k_s$ abgeleitet werden. Im Falle isotroper Turbulenz gilt
 %
 \begin{align}
-k_s^{(v)} = \frac{\Delta z}{\Delta x}\frac{k_s}{3}
+k_s^{(v)} = \frac{k_s}{3}
 \end{align}
 %
 verallgemeinert.
+
+Aus Glg. \eqref{eq:tke_vbar} lässt sich mithilfe von Glg. \eqref{eq:diff_delta} eine Formel für die Dissipation der TKE ableiten
+%
+\begin{align}
+\epsilon_\Delta = \frac{\left(L\frac{4}{\pi}\sqrt{k_s^{(v)}}\right)^3}{L^4} = \frac{\left(\frac{4}{\pi}\sqrt{k_s^{(v)}}\right)^3}{L} = \left(\frac{4}{\pi\sqrt{3}}\right)^3\frac{k_s^{3/2}}{L} \approx 0,397\frac{k_s^{3/2}}{L}.
+\end{align}
+%
+Hieraus lässt sich weiter eine algebraische Relation für die TKE unter stationären Bedingungen ableiten:
+%
+\begin{align}
+0 &= P - \left(\frac{4}{\pi\sqrt{3}}\right)^3\frac{k_s^{3/2}}{L}\nonumber\\
+\Leftrightarrow\left(\frac{4}{\pi\sqrt{3}}\right)^3\frac{k_s^{3/2}}{L} &= P\nonumber\\
+\Leftrightarrow k_s^{3/2} &= L\left(\frac{\pi\sqrt{3}}{4}\right)^3P\nonumber\\
+\Leftrightarrow k_s &= \left(\frac{\pi\sqrt{3}}{4}\right)^2\left(LP\right)^{2/3}
+\end{align}
 
 \section{Dissipation}
 \label{sec:dissipation_modell}
