@@ -1,0 +1,145 @@
+\subsubsection{Entropie-Form des Druckgradienten}
+\label{sec:entropie-form_des_druckgradienten_schwere}
+
+Verwendet man die mit Glg. \eqref{eq:entropy_form_of_pressure_gradient} erhaltene Formulierung
+%
+\begin{align}
+-\frac{1}{\rho}\nabla p &= -c^{(p)}\nabla T + T\nabla s = -c^{(p)}\nabla T + c^{(p)}\frac{T}{\theta}\nabla\theta\nonumber\\
+\Leftrightarrow -\frac{1}{\rho}\frac{\partial p}{\partial z} &= -c^{(p)}\frac{\partial T}{\partial z} + T\frac{c^{(p)}}{g}\frac{g}{\theta}\frac{\partial\theta}{\partial z} = -c^{(p)}\frac{\partial T}{\partial z} + T\frac{c^{(p)}}{g}N^2
+\end{align}
+%
+für die Druckgradientbeschleunigung, erhält man weitere Erkenntnisse über Schwerewellen. In Absch. \ref{sec:entropie-form_des_druckgradienten} wurde bereits gezeigt, dass für Schallwellen nur der term $-c^{(p)}\nabla T$ relevant ist.
+
+Glg. \eqref{eq:gw_disp_deriv_1} modifiziert man zu
+%
+\begin{align}
+T = T_0\left(z\right) + T', && s = s_0\left(z\right) + s'.
+\end{align}
+%
+Die hydrostatische Grundgleichung Glg. \eqref{eq:hydrostatic_gravity_wave} wird zu
+%
+\begin{align}
+c^{(p)}\frac{dT_0}{dz} - T\frac{ds_0}{dz} = -g.
+\end{align}
+%
+Der Erste Hauptsatz der Thermodynamik kann somit in der Form
+%
+\begin{align}
+\mdtilde{s'} &= -w'\frac{ds_0}{dz} = -w'c^{(p)}\frac{d\ln\left(\theta_0\right)}{dz} = -w'c^{(p)}\frac{1}{\theta_0}\frac{d\theta_0}{dz} = -w'\frac{c^{(p)}}{g}\frac{g}{\theta_0}\frac{d\theta_0}{dz}\nonumber\\
+\mdtilde{s'} &= -w'\frac{c^{(p)}}{g}N^2
+\end{align}
+%
+notiert werden, hierbei werden bei $N^2$ die gestrichenen Größen nicht berücksichtigt, also
+%
+\begin{align}
+N^2 = \frac{g}{\theta_0}\frac{d\theta_0}{dz}
+\end{align}
+%
+Unter der Annahme $T' = 0$ lautet das zu lösende Gleichungssystem
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\mdtilde{u'} &= fv' + T_0\frac{\partial s'}{\partial x},\\
+\mdtilde{v'} &= -fu' + T_0\frac{\partial s'}{\partial y},\\
+\textcolor{blue}{\mdtilde{w'}} &= T_0\frac{\partial s'}{\partial z},\\
+\mdtilde{s'} &= -w'\frac{c^{(p)}}{g}N^2.
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+Die Bretherton-Transformation notiert man hier in der Form
+%
+\begin{align}
+u'' \coloneqq\sqrt{\frac{T_\text{SFC}}{T_0}}u',&& v'' \coloneqq\sqrt{\frac{T_\text{SFC}}{T_0}}v',&& w'' \coloneqq\sqrt{\frac{T_\text{SFC}}{T_0}}w',&& s'' \coloneqq\sqrt{\frac{T_0}{T_\text{SFC}}}s'.
+\end{align}
+%
+Hieraus folgt
+%
+\begin{align}
+\frac{\partial s'}{\partial z} = \frac{\partial}{\partial z}\left(\sqrt{\frac{T_\text{SFC}}{T_0}}s''\right) = \sqrt{\frac{T_\text{SFC}}{T_0}}\frac{\partial s''}{\partial z} - s''\sqrt{\frac{T_\text{SFC}}{T_0}}\frac{1}{2T_0}\frac{dT_0}{dz}.
+\end{align}
+%
+Die thermische Skalenhöhe $H_T$ wird hier durch
+%
+\begin{align}
+\frac{1}{H_T} \coloneqq -\frac{1}{T_0}\frac{dT_0}{dz}
+\end{align}
+%
+definiert. Hieraus folgt
+%
+\begin{align}
+\frac{\partial s'}{\partial z} = \sqrt{\frac{T_\text{SFC}}{T_0}}\frac{\partial s''}{\partial z} + s''\sqrt{\frac{T_\text{SFC}}{T_0}}\frac{1}{2H_T}.
+\end{align}
+%
+Das Gleichungssystem wird damit zu
+%
+\begin{align}
+\mdtilde{u''} &= fv'' + T_\text{SFC}\frac{\partial s''}{\partial x},\\
+\mdtilde{v''} &= -fu'' + T_\text{SFC}\frac{\partial s''}{\partial y},\\
+\textcolor{blue}{\mdtilde{w''}} &= T_\text{SFC}\frac{\partial s''}{\partial z} + \frac{T_\text{SFC}}{2H_T}s'',\\
+\mdtilde{s''} &= -w''\frac{c^{(p)}}{g}N^2.
+\end{align}
+%
+Mit der Definition
+%
+\begin{align}
+s''' \coloneqq T_\text{SFC}s'' \Rightarrow s'' = \frac{1}{T_\text{SFC}}s'''
+\end{align}
+%
+erhält man
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\mdtilde{u''} &= fv'' + \frac{\partial s'''}{\partial x},\\
+\mdtilde{v''} &= -fu'' + \frac{\partial s'''}{\partial y},\\
+\textcolor{blue}{\mdtilde{w''}} &= \frac{\partial s'''}{\partial z} + \frac{1}{2H_T}s''',\\
+\mdtilde{s'''} &= -w''\frac{T_\text{SFC}c^{(p)}}{g}N^2.
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+Mit dem gleichen Ansatz wie im vorigen Abschnitt erhält man
+%
+\begin{align}
+\left(\begin{array}{ccccc}
+-i\omega_I & -f & 0 & -ik\\
+f & -i\omega_I & 0 & -il\\
+0 & 0 & \textcolor{blue}{-i\omega_I} & -im - \frac{1}{2H_T}\\
+0 & 0 & \frac{c^{(p)}T_\text{SFC}}{g}N^2 & -i\omega_I\\
+\end{array}\right)\cdot\left(\begin{array}{c}
+A_u\\
+A_v\\
+A_w\\
+A_s\\
+\end{array}\right) = 0.
+\end{align}
+%
+Nullsetzen der Determinante der Koeffizientenmatrix ergibt
+%
+\begin{align}
+0 &\hastobe -i\omega_I\left[-i^3\omega_I^3 - \frac{c^{(p)}T_\text{SFC}}{g}N^2i\omega_I\left(im + \frac{1}{2H_T}\right)\right] - f\left[-fi^2\omega_I^2 - \frac{c^{(p)}T_\text{SFC}}{g}N^2f\left(im + \frac{1}{2H_T}\right)\right]\nonumber\\
+\Leftrightarrow 0 &= -i\omega_I\left[i\omega_I^3 - \frac{c^{(p)}T_\text{SFC}}{g}N^2i\omega_I\left(im + \frac{1}{2H_T}\right)\right] + f^2\left[i^2\omega_I^2 + \frac{c^{(p)}T_\text{SFC}}{g}N^2\left(im + \frac{1}{2H_T}\right)\right]\nonumber\\
+\Leftrightarrow 0 &= -\omega_I\left[-\omega_I^3 + \frac{c^{(p)}T_\text{SFC}}{g}N^2\omega_I\left(im + \frac{1}{2H_T}\right)\right] + f^2\left[-\omega_I^2 + \frac{c^{(p)}T_\text{SFC}}{g}N^2\left(im + \frac{1}{2H_T}\right)\right]\nonumber
+\end{align}
+\begin{align}
+\Leftrightarrow 0 &= \omega_I\left[\omega_I^3 - \frac{c^{(p)}T_\text{SFC}}{g}N^2\omega_I\left(im + \frac{1}{2H_T}\right)\right] + f^2\left[-\omega_I^2 + \frac{c^{(p)}T_\text{SFC}}{g}N^2\left(im + \frac{1}{2H_T}\right)\right]\nonumber\\
+\Leftrightarrow 0 &= \omega_I^2\left[\omega_I^2 - \frac{c^{(p)}T_\text{SFC}}{g}N^2\left(im + \frac{1}{2H_T}\right)\right] - \omega_I^2f^2 + \frac{c^{(p)}T_\text{SFC}}{g}N^2f^2\left(im + \frac{1}{2H_T}\right)\nonumber\\
+\Leftrightarrow 0 &= \omega_I^4 - \omega_I^2\frac{c^{(p)}T_\text{SFC}}{g}N^2\left(im + \frac{1}{2H_T}\right) - \omega_I^2f^2 + \frac{c^{(p)}T_\text{SFC}}{g}N^2f^2\left(im + \frac{1}{2H_T}\right)\nonumber\\
+\Leftrightarrow 0 &= \omega_I^4 + \omega_I^2\left[-\frac{c^{(p)}T_\text{SFC}}{g}N^2\left(im + \frac{1}{2H_T}\right) - f^2\right] + \frac{c^{(p)}T_\text{SFC}}{g}N^2f^2\left(im + \frac{1}{2H_T}\right).
+\end{align}
+%
+Hieraus folgt
+%
+\begin{align}
+\omega_I^2 &= \frac{c^{(p)}}{2g}N^2\left(im + \frac{1}{2H_T}\right) + \frac{f^2}{2} \pm \sqrt{\left(\frac{c^{(p)}T_\text{SFC}}{2g}N^2\left(im + \frac{1}{2H_T}\right) + \frac{f^2}{2}\right)^2 - \frac{c^{(p)}T_\text{SFC}}{g}N^2f^2\left(im + \frac{1}{2H_T}\right)}\nonumber\\
+\Leftrightarrow\omega_I^2 &= \frac{c^{(p)}T_\text{SFC}}{2g}N^2\left(im + \frac{1}{2H_T}\right) + \frac{f^2}{2} \pm \sqrt{\frac{c^{(p)2}T^2_\text{SFC}}{4g^2}N^4\left(im + \frac{1}{2H_T}\right)^2 + \frac{f^4}{4} - \frac{c^{(p)}T_\text{SFC}}{2g}N^2f^2\left(im + \frac{1}{2H_T}\right)}.
+\end{align}
+%
+Dies ist nicht identisch mit Glg. \eqref{eq:disp_gravity_waves}. Die Temperaturschwankung $T'$ ist also durchaus für Schwerewellen relevant.
+
