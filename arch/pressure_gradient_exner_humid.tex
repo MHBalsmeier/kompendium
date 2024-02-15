@@ -1,0 +1,175 @@
+
+Nun muss die Entropie für ein solches System ausgerechnet werden. In der Atmosphäre definiert man die potentielle Temperatur durch
+%
+\begin{eqnarray}
+\theta = T\left(\frac{p_0}{p}\right)^{R_d/c_d^{(p)}},
+\end{eqnarray}
+%
+unabhängig von der genauen Zusammensetzung der Gasphase. Daher muss die Herleitung von Glg. \eqref{eq:entropy_spec_id_gas} wiederholt werden, wobei nun von Beginn an von spezifischen Größen ausgegangen wird. Zunächst wird die Entropie eines idealen Gases berechnet, welches von trockener Luft abweicht, wobei alle Größen als Abweichungen von trockener Luft formuliert werden. Für die Wärmekapazität des betrachteten Gases wird dabei $c^{(p} = c_d^{(p)} + \Delta c^{(p)}$ notiert:
+%
+\begin{eqnarray}
+s\left(E, V, N\right) & = & c^{(p)}\ln\left(T\right) - \frac{k_B}{\newtilde{M}}\ln\left(p\right) + \frac{1}{\newtilde{M}}c'\nonumber\\
+& = & c^{(p)}\ln\left[\theta\left(\frac{p}{p_0}\right)^{\frac{R_d}{c_d^{(p)}}}\right] - \frac{k_B}{\newtilde{M}}\ln\left(p\right) + \frac{1}{\newtilde{M}}c'\nonumber\\
+& = & c^{(p)}\ln\left(\theta\right) + R_d\frac{\left(c_d^{(p)} + \Delta c^{(p)}\right)}{c_d^{(p)}}\ln\left(\frac{p}{p_0}\right) - \frac{k_B}{\newtilde{M}}\ln\left(p\right) + \frac{1}{\newtilde{M}}c'\nonumber\\
+& = & c^{(p)}\ln\left(\theta\right) + \frac{k_B}{\newtilde{M}}\ln\left(\frac{p}{p_0}\right) + \frac{k_B}{\newtilde{M}}\frac{\Delta c^{(p)}}{c_d^{(p)}}\ln\left(\frac{p}{p_0}\right) - \frac{k_B}{\newtilde{M}}\ln\left(p\right) + \frac{1}{\newtilde{M}}c'\nonumber\\
+& = & c^{(p)}\ln\left(\theta\right) + \frac{k_B}{\newtilde{M}}\frac{\Delta c^{(p)}}{c_d^{(p)}}\ln\left(\frac{p}{p_0}\right) - \frac{k_B}{\newtilde{M}}\ln\left(p_0\right) + \frac{1}{\newtilde{M}}c'\nonumber\\
+& = & c^{(p)}\ln\left(\theta\right) + \frac{k_B}{\newtilde{M}}\frac{\Delta c^{(p)}}{c_d^{(p)}}\ln\left(\frac{p}{p_0}\right) - \frac{k_B}{\newtilde{M}}\ln\left(p_0\right) + \frac{k_B}{\newtilde{M}}\ln\left[\left(\frac{Me^{5/3}}{\pi\hbar^2}\right)^\frac{3}{2}k_B^2\right]\nonumber\\
+& = & c^{(p)}\ln\left(\theta\right) + \frac{k_B}{\newtilde{M}}\frac{\Delta c^{(p)}}{c_d^{(p)}}\ln\left(\frac{p}{p_0}\right) + \frac{k_B}{\newtilde{M}}\ln\left[\frac{1}{p_0}\left(\frac{\newtilde{M}e^{5/3}}{\pi\hbar^2}\right)^\frac{3}{2}k_B^2\right]\nonumber\\
+& = & c^{(p)}\ln\left(\theta\right) + \frac{k_B}{\newtilde{M}_d}\frac{\newtilde{M}_d}{\newtilde{M}}\frac{\Delta c^{(p)}}{c_d^{(p)}}\ln\left(\frac{p}{p_0}\right) + \frac{1}{\newtilde{M}}\newtilde{c}''\nonumber\\
+& = & c^{(p)}\ln\left(\theta\right) + \frac{\newtilde{M}_d}{\newtilde{M}}\Delta c^{(p)}\ln\left(\Pi\right) + \frac{1}{\newtilde{M}}\newtilde{c}''
+\end{eqnarray}
+%
+Dabei wurde
+%
+\begin{eqnarray}
+\newtilde{c}'' \coloneqq k_B\ln\left[\frac{1}{p_0}\left(\frac{\newtilde{M}e^{5/3}}{\pi\hbar^2}\right)^\frac{3}{2}k_B^2\right]
+\end{eqnarray}
+%
+definiert. Bei einer Durchmischung von $N \geq 1$ idealen Gasen ist für jede Komponente $i$ eine separate Gleichung
+%
+\begin{eqnarray}
+s_i & = & c_i^{(p)}\ln\left(\theta\right) + \frac{\newtilde{M}_d}{\newtilde{M}_i}\Delta c_i^{(p)}\ln\left(\Pi\right) + \frac{1}{\newtilde{M}_i}\newtilde{c}_i''
+\end{eqnarray}
+%
+gültig.
+
+
+\subsubsection{Beispiel: feuchte Luft}
+\label{sec:beispiel:_feuchte_luft}
+
+In feuchter Luft gilt
+%
+\begin{eqnarray}
+s = \rho_d\left[c_d^{(p)}\ln\left(\theta\right) + \frac{1}{\newtilde{M}_d}\newtilde{c}_d''\right] + \rho_v\left[c_v^{(p)}\ln\left(\theta\right) + \frac{\newtilde{M}_d}{\newtilde{M}_v}\Delta c_v^{(p)}\ln\left(\Pi\right) + \frac{1}{\newtilde{M}_v}\newtilde{c}_v''\right].
+\end{eqnarray}
+%
+Hieraus soll ein Ausdruck für $\theta$ als Funktion von $s$ und der Massendichten hergeleitet werden. Hierfür werden zunächst drei unter diesen Voraussetzungen bekannte Größen
+%
+\begin{eqnarray}
+f_1' = f_1'\left(\rho_d, \rho_v\right) & \coloneqq & \rho_dc_d^{(p)} + \rho_vc_v^{(p)},\\
+f_2 = f_1\left(\rho_d, \rho_v\right) & \coloneqq & \frac{\rho_d}{\newtilde{M}_d}\newtilde{c}_d'' + \frac{\rho_v}{\newtilde{M}_v}\newtilde{c}_v'',\\
+f_3' = f_3'\left(\rho_d, \rho_v, \theta\right) & \coloneqq & \rho_v\frac{\newtilde{M}_d}{\newtilde{M}_v}\Delta c_v^{(p)}\ln\left(\Pi\right) = \rho_v\frac{\newtilde{M}_d}{\newtilde{M}_v}\Delta c_v^{(p)}\frac{R_d}{c_d^{(v)}}\ln\left(\frac{\rho_h'R_h\theta}{p_0}\right)
+\end{eqnarray}
+%
+definiert, wobei bei $f_3$ Glg. \eqref{eq:exner_pressure_diag} eingestzt wurde. Dabei wurden die Ersetzungen
+%
+\begin{eqnarray}
+\rho & \to & \rho_h',\\
+R_s & \to & R_h\text{ in der Basis},\\
+R_s & \to & R_d\text{ im Exponenten},\\
+c^{(v)} & \to & c_d^{(v)}\text{ im Exponenten}
+\end{eqnarray}
+%
+vorgenommen. $R_h$ ist eine Funktion von $\rho_d'$ und $\rho_v'$, für die Dichte der feuchten Luft gilt $\rho_h' = \rho_d' + \rho_v'$. Weiter definiert man
+%
+\begin{eqnarray}
+f_1 = f_1\left(\rho_d, \rho_v\right) & \coloneqq & f_1'\left(\rho_d, \rho_v\right) + \rho_v\frac{\newtilde{M}_d}{\newtilde{M}_v}\Delta c_v^{(p)}\frac{R_d}{c_d^{(v)}},\\
+f_3 = f_3\left(\rho_d, \rho_v\right) & \coloneqq & \rho_v\frac{\newtilde{M}_d}{\newtilde{M}_v}\Delta c_v^{(p)}\frac{R_d}{c_d^{(v)}}\ln\left(\frac{\rho_h'R_h}{p_0}\right).
+\end{eqnarray}
+%
+Man kann nun notieren
+%
+\begin{eqnarray}
+s = f_1\ln\left(\theta\right) + f_2 + f_3.
+\end{eqnarray}
+%
+Somit gilt
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{eqnarray}
+\theta = \exp\left(\frac{s - f_2 - f_3}{f_1}\right).
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
+%
+Im Falle $\rho_v = 0$ ergibt sich der korrekte Grenzfall Glg. \eqref{eq:pot_temp_entropy_diagnostics}. Hieraus kann mit Glg. \eqref{eq:exner_pressure_diag} den Exner-Druck\index{Exner-Druck} diagnostizieren und anschließend die Temperatur der Gasphase über
+%
+\begin{eqnarray}
+T = \theta\Pi.
+\end{eqnarray}
+%
+Für die Druckgradientbeschleunigung erhält man in einer Übertragung der Herleitung von Glg. \eqref{eq:exner_pressure_gradient_acc}
+%
+\begin{eqnarray}
+\nabla p & = & \nabla\left(\rho_h'R_h\theta\Pi\right) = R_h\rho_h'\theta\nabla\Pi + R_h\Pi\nabla\left(\rho_h'\theta\right)
+\end{eqnarray}
+%
+Die Ortsabhängigkeit der individuellen Gaskonstante der feuchten Luft\index{feuchte Luft!indivduelle Gaskonstante}\index{Luft!feuchte!individuelle Gaskonstante}\index{Gaskonstante!individuelle!feuchter Luft} $R_h$ wurde dabei in einer Näherung vernachlässigt. Man rechnet weiter
+%
+\begin{eqnarray}
+-c_h^{(v)}\theta\rho_h'\nabla\Pi + R_h\Pi\nabla\left(\rho_h'\theta\right) & = & -\left(\frac{R_h}{p_0}\right)^{R_d/c_d^{(v)}}c_h^{(v)}\theta\rho_h'\nabla\left(\rho_h'\theta\right)^{R_d/c_d^{(v)}} + R_h\Pi\nabla\left(\rho_h'\theta\right)\nonumber\\
+ & = & R_h\left(\Pi - \left(\frac{R_h}{p_0}\right)^{R_d/c_d^{(v)}}\frac{R_dc_h^{(v)}}{R_hc_d^{(v)}}\left(\rho_h'\theta\right)^{R_d/c_d^{(v)}}\right)\nabla\left(\rho_h'\theta\right) = 0.
+\end{eqnarray}
+%
+Definiere nun
+%
+\begin{eqnarray}
+\xi_1 \coloneqq \frac{R_dc_h^{(v)}}{R_hc_d^{(v)}} - 1,
+\end{eqnarray}
+%
+dann folgt
+%
+\begin{eqnarray}
+-c_h^{(v)}\theta\rho_h'\nabla\Pi + R_h\Pi\nabla\left(\rho_h'\theta\right) & = & -R_h\left(\frac{R_h}{p_0}\right)^{R_d/c_d^{(v)}}\xi_1\left(\rho_h'\theta\right)^{R_d/c_d^{(v)}}\nabla\left(\rho_h'\theta\right).
+\end{eqnarray}
+%
+Somit kann man für die Druckgradientbeschleunigung\index{Druckgradientbeschleunigung} in einer feuchten Atmosphäre
+%
+\begin{eqnarray}
+-\frac{1}{\rho}\nabla p & = & -\frac{\rho_h'}{\rho}c_h^{(p)}\theta\nabla\Pi - \frac{R_h}{\rho}\left(\frac{R_h}{p_0}\right)^{R_d/c_d^{(v)}}\xi_1\left(\rho_h'\theta\right)^{R_d/c_d^{(v)}}\nabla\left(\rho_h'\theta\right)\nonumber\\
+& = & -\frac{\rho_h'}{\rho}c_h^{(p)}\theta\nabla\Pi - \frac{R_h}{\rho}\xi_1\Pi\nabla\left(\rho_h'\theta\right)\nonumber\\
+& = & -\frac{\rho_h'}{\rho}c_h^{(p)}\theta\nabla\Pi - \frac{R_h}{\rho}\xi_1\Pi\nabla\left(\frac{p_0}{R_h}\Pi^{c_d^{(v)}/R_d}\right)\nonumber\\
+& = & -\frac{\rho_h'}{\rho}c_h^{(p)}\theta\nabla\Pi - \frac{p_0}{\rho}\xi_1\Pi^{c_d^{(v)}/R_d - 1}\nabla\Pi\nonumber\\
+& = & -\frac{1}{\rho}\left[\rho_h'c_h^{(p)}\theta + p_0\xi_1\Pi^{c_d^{(v)}/R_d - 1}\right]\nabla\Pi
+\end{eqnarray}
+%
+schreiben. Definiere weiter
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{eqnarray}
+\xi_2 \coloneqq \frac{\rho_h'c_h^{(p)}}{c_d^{(p)}\rho} - 1,
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
+%
+dann erhält man
+%
+\begin{eqnarray}
+-\frac{1}{\rho}\nabla p & = & -\left(\xi_2 + 1\right)c_d^{(p)}\theta\nabla\Pi - \frac{p_0}{\rho}\xi_1\Pi^{c_d^{(v)}/R_d - 1}\nabla\Pi\nonumber\\
+& = & -c_d^{(p)}\theta\nabla\Pi - \xi_2c_d^{(p)}\theta\nabla\Pi - \frac{p_0}{\rho}\xi_1\Pi^{c_d^{(v)}/R_d - 1}\nabla\Pi\nonumber\\
+& = & -c_d^{(p)}\theta\nabla\Pi - \left(\xi_2c_d^{(p)}\theta + \frac{p_0}{\rho}\xi_1\Pi^{c_d^{(v)}/R_d - 1}\right)\nabla\Pi\nonumber\\
+& = & -c_d^{(p)}\theta\nabla\Pi - \left(\xi_2 + \frac{p_0}{T\rho c_d^{(p)}}\xi_1\Pi^{c_d^{(v)}/R_d}\right)c_d^{(p)}\theta\nabla\Pi\nonumber\\
+& = & -c_d^{(p)}\theta\nabla\Pi - \left(\xi_2 + \frac{p_0}{p}\frac{R_h}{c_h^{(p)}}\xi_1\Pi^{c_d^{(v)}/R_d}\right)c_d^{(p)}\theta\nabla\Pi\nonumber\\
+& = & -c_d^{(p)}\theta\nabla\Pi - \left(\xi_2 + \frac{R_h}{c_h^{(p)}}\xi_1\Pi^{c_d^{(v)}/R_d - 1}\right)c_d^{(p)}\theta\nabla\Pi\nonumber\\
+& = & -c_d^{(p)}\theta\nabla\Pi - \left(\xi_2 + \xi_1'\Pi^{c_d^{(v)}/R_d - 1}\right)c_d^{(p)}\theta\nabla\Pi\nonumber
+\end{eqnarray}
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{eqnarray}
+\Leftrightarrow -\frac{1}{\rho}\nabla p & = & -c_d^{(p)}\theta\left(1 + \xi_2 + \xi_1'\Pi^{c_d^{(v)}/R_d - 1}\right)\nabla\Pi
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
+%
+mit
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{eqnarray}
+\xi_1' \coloneqq \frac{R_h}{c_h^{(p)}}\xi_1.
+\end{eqnarray}
+\end{center}
+}}
+\end{center}
+%
+$\xi_1'$ und $\xi_2$ stehen für den Unterschied gegenüber der trockenen Atmosphäre.
