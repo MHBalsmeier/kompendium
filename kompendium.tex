@@ -18076,9 +18076,9 @@ Der Quellterm $Q_v$ setzt sich somit aus zwei Anteilen zusammen:
 \item Der Term $\Delta Q_v \leq 0$ entspricht dem subskaligen Anteil.
 \end{itemize}
 %
-Ein Modell hätte zunächst nur Kenntnis vom aufgelösten Anteil $\newtilde{Q}_v$ und würde somit den Gesamt-Phasenübergang $Q_v$ unterschätzen. Insbesondere kann es Situationen mit $\newtilde{Q}_v = 0$ und $\Delta Q_v < 0$ geben. Man könnte nun aus hergeleiteten oder gemessenen Spektraleigenschaften der Felder Ansätze für den Term $\Delta Q_v$ herleiten. Dies wäre jedoch mit großem theoretischen Aufwand verbunden. Anstattdessen wäre es sinnvoll, sich einen sehr einfachen Ansatz für $\Delta Q_v$ zu überlegen und die hierin vorhandenen Koeffizienten direkt an Beobachtungen anzupassen.
+Ein Modell hätte zunächst nur Kenntnis vom aufgelösten Anteil $\newtilde{Q}_v$ und würde somit den Gesamt-Phasenübergang $Q_v$ unterschätzen. Insbesondere kann es Situationen mit $\newtilde{Q}_v = 0$ und $\Delta Q_v < 0$ geben. Man kann nun aus hergeleiteten oder gemessenen Spektraleigenschaften der Felder Ansätze für den Term $\Delta Q_v$ herleiten.
 
-Nichtsdestotrotz veranschaulicht dieser Abschnitt, dass alle Arten von Parametrisierungen letzten Endes mit subskaliger Variabilität zu tun haben.  Im Fall $\Omega, \Delta t \to 0$ geht $\Delta Q_v$ gegen Null, was ebenfalls für alle Parametrisierungen der Fall ist.
+Dieser Abschnitt weiterhin, dass alle Arten von Parametrisierungen letzten Endes mit subskaliger Variabilität zu tun haben.  Im Fall $\Omega, \Delta t \to 0$ geht $\Delta Q_v$ gegen Null, was ebenfalls für alle Parametrisierungen der Fall ist.
 
 \section{Flusswiderstände}
 \label{sec:flusswiderstaende}\index{Flusswiderstand}
@@ -18118,6 +18118,25 @@ Bei indifferenter Schichtung gilt das logarithmische Windprofil nach Glg. \eqref
 \begin{align}
 r_M = \frac{u_\star}{ku_\star^2}\ln\left(\frac{z_{N_L+1}}{z_0}\right) = \frac{1}{ku_\star}\ln\left(\frac{z_{N_L+1}}{z_0}\right).
 \end{align}
+
+\section{Konvektion}
+\label{sec:konvektion}
+
+Lokal entsteht Konvektion bei vorliegen thermischer Instabilität, also im Fall
+%
+\begin{align}
+N^2 < 0.\label{eq:conv_crit_local}
+\end{align}
+%
+Mittelt man jedoch über eine Grundfläche $A\subseteq\mathbb{R}^2$, so ist aufgrund der Variabilität von $N$, also
+%
+\begin{align}
+N^2_\text{min}\leq\newoverline{N}^2,
+\end{align}
+%
+Glg. \eqref{eq:conv_crit_local} irgendwo innerhalb von $A$ lokal erfüllt, bevor das Kriterium im Mittel erfüllt ist.
+
+Häufig werden auch die in Abschn. \ref{sec:phasenuebergaenge} behandelten Zusammenhänge im Rahmen der Konvektionsparametrisierungen abgehandelt.
 
 \subsection{Verdunstungsraten}
 \label{sec:verdunstungsraten}\index{Verdunstungsrate}
