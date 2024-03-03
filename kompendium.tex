@@ -17616,16 +17616,17 @@ Setzt man hier Glg. \eqref{eq:heisenberg-ansatz} ein und beachtet $k'' > k'$, er
 \Leftrightarrow \epsilon &= 2\nu\int_0^k\left(k'\right)^2\newtilde{e}\left(k'\right)dk' + 2\kappa_H\int_0^k\int_k^\infty\left(k'\right)^2\newtilde{e}\left(k'\right)\newtilde{e}\left(k''\right)^{1/2}\left(k''\right)^{-3/2}dk''dk'\nonumber\\
 \Leftrightarrow \epsilon &= 2\nu\int_0^k\left(k'\right)^2\newtilde{e}\left(k'\right)dk' + 2\kappa_H\int_k^\infty\newtilde{e}\left(k''\right)^{1/2}\left(k''\right)^{-3/2}dk''\int_0^k\left(k'\right)^2\newtilde{e}\left(k'\right)dk'\nonumber\\
 \Leftrightarrow \epsilon &= 2\nu\int_0^k\left(k'\right)^2\newtilde{e}\left(k'\right)dk' + 2\kappa_H\int_k^\infty\sqrt{\frac{\newtilde{e}\left(k''\right)}{\left(k''\right)^3}}dk''\int_0^k\left(k'\right)^2\newtilde{e}\left(k'\right)dk'\nonumber\\
-\Leftrightarrow\epsilon &= \left(2\nu + 2\kappa_H\int_k^\infty\sqrt{\frac{\newtilde{e}\left(k''\right)}{\left(k''\right)^3}}dk''\right)\int_0^k\left(k'\right)^2\newtilde{e}\left(k'\right)dk'.\label{eq:heisenberg_turb_3}
+\Leftrightarrow\epsilon &= \left(2\nu + 2\kappa_H\int_k^\infty\sqrt{\frac{\newtilde{e}\left(k''\right)}{\left(k''\right)^3}}dk''\right)\int_0^k\left(k'\right)^2\newtilde{e}\left(k'\right)dk'\nonumber\\
+\Leftrightarrow\epsilon &= \left(\nu + \kappa_H\int_k^\infty\sqrt{\frac{\newtilde{e}\left(k''\right)}{\left(k''\right)^3}}dk''\right)\int_0^k2\left(k'\right)^2\newtilde{e}\left(k'\right)dk'.\label{eq:heisenberg_turb_3}
 \end{align}
 %
 Die Größe
 %
 \begin{align}
-K \coloneqq \kappa_H\int_k^\infty\sqrt{\frac{\newtilde{e}\left(k'\right)}{\left(k'\right)^3}}dk'
+K \coloneqq \kappa_H\int_k^\infty\sqrt{\frac{\newtilde{e}\left(k'\right)}{\left(k'\right)^3}}dk'\label{eq:heisenberg_exchange}
 \end{align}
 %
-hat die Dimension ener Viskosität\index{Viskosität} und wird als \textit{Heisenberg'scher Austauschkoeffizient}\index{Heisenberg'scher Austauschkoeffizient} bezeichnet.
+hat die Dimension einer Viskosität\index{Viskosität} und wird als \textit{Heisenberg'scher Austauschkoeffizient}\index{Heisenberg'scher Austauschkoeffizient} bezeichnet.
 
 Man definiert nun eine Hilfsfunktion
 %
@@ -17778,19 +17779,54 @@ Diesen Bereich des Spektrums ($k^\star < k \ll k_c$) bezeichnet man als \textit{
 \section{Klassisches Smagorinsky-Modell}
 \label{sec:klassisches_smagorinsky-modell}\index{Smagorinsky-Modell!klassisches}
 
-Der einfachste Ansatz, den turbulenten horizontalen Diffusionskoeffizienten $K_\Delta$ zu berechnen, ist das sogenannte \textit{klassische Smagorinsky-Modell (classic Smagorinsky model, CSM).} Der relevante Skalenbereich der turbulenten Diffusion in der Atmosphäre ist die inertial subrange ($k^\star < k \ll k_c$), in diesem gilt Glg. \eqref{eq:ekin_spec_inertial_subrange}. Aufgrund von Glg. \eqref{eq:characteristic_length} macht man für die turbulente kinematische Viskosität $\nu_\Delta$ den Ansatz
+Der einfachste Ansatz, den turbulenten horizontalen Diffusionskoeffizienten $K$ zu berechnen, ist das sogenannte \textit{klassische Smagorinsky-Modell (classic Smagorinsky model, CSM).} Der Ausgangspunkt für die Herleitung bildet Glg. \eqref{eq:heisenberg_exchange}, wobei für $k$ die gerade noch aufgelöste Kreiswellenzahl $\frac{2\pi}{2\Delta} = \frac{\pi}{\Delta}$ eingesetzt wird:
 %
 \begin{align}
-\nu_\Delta \propto \Delta^{4/3}\newtilde{\epsilon}^{1/3}.
+K\coloneqq\kappa_H\int_\frac{\pi}{\Delta}^\infty\sqrt{\frac{\newtilde{e}\left(k\right)}{k^3}}dk
 \end{align}
 %
-Hierbei ist $\newtilde{\epsilon}$ die bei der Wellenlänge $\Delta$ aktive Dissipationsrate. Die turbulente dynamische Viskosität $K_\Delta$ lautet somit
+Der relevante Skalenbereich der turbulenten Diffusion in der Atmosphäre ist die inertial subrange ($k^\star < k \ll k_c$), in diesem gilt Glg. \eqref{eq:ekin_spec_inertial_subrange}. Hieraus folgt
+%
+\begin{align}
+K &= \kappa_H\int_\frac{\pi}{\Delta}^\infty\sqrt{\frac{\kappa_K\epsilon^{2/3}k^{-5/3}}{k^3}}dk = \kappa_H\sqrt{\kappa_K}\epsilon^{1/3}\int_\frac{\pi}{\Delta}^\infty\sqrt{k^{-14/3}}dk\nonumber\\
+\Leftrightarrow K &= \kappa_H\sqrt{\kappa_K}\epsilon^{1/3}\int_\frac{\pi}{\Delta}^\infty k^{-7/3}dk = \kappa_H\sqrt{\kappa_K}\epsilon^{1/3}\left[-\frac{3}{4}k^{-4/3}\right]_\frac{\pi}{\Delta}^\infty\nonumber\\
+\Leftrightarrow K &= \frac{3}{4}\kappa_H\sqrt{\kappa_K}\epsilon^{1/3}\left(\frac{\pi}{\Delta}\right)^{-4/3} = \frac{3}{4}\kappa_H\sqrt{\kappa_K}\epsilon^{1/3}\left(\frac{\Delta}{\pi}\right)^{4/3}.\label{eq:csm_deriv}
+\end{align}
+%
+Dieses Ergebnis ist für ein numerisches Modell noch nicht direkt verwendbar, da $\epsilon$ nicht bekannt ist. Um einen Ausdruck für $\epsilon$ zu bestimmen, geht man von Glg. \eqref{eq:heisenberg_turb_3} aus:
+%
+\begin{align}
+\epsilon &= \left(\nu + K\right)\int_0^\frac{\pi}{\Delta}2k^2\newtilde{e}\left(k\right)dk.
+\end{align}
+%
+Vergleicht man dies mit Glg. , folgt
+%
+\begin{align}
+\epsilon &= \left(\nu + K\right)S^2\nonumber.
+\end{align}
+%
+Wegen $\Delta \gg l_c$ gilt in guter Näherung
+%
+\begin{align}
+\epsilon &= KS^2 \Rightarrow \epsilon^\frac{1}{3} = K^\frac{1}{3}S^\frac{2}{3}.
+\end{align}
+%
+Setzt man dies in Glg. \eqref{eq:csm_deriv} ein, erhält man
+%
+\begin{align}
+K &= \frac{3}{4}\kappa_H\sqrt{\kappa_K}K^\frac{1}{3}S^\frac{2}{3}\left(\frac{\Delta}{\pi}\right)^{4/3}\nonumber\\
+\Leftrightarrow K^\frac{2}{3} &= \frac{3}{4}\kappa_H\sqrt{\kappa_K}S^\frac{2}{3}\left(\frac{\Delta}{\pi}\right)^{4/3}\nonumber\\
+\Leftrightarrow K &= \kappa_K^\frac{3}{4}\left(\frac{3}{4}\kappa_H\right)^\frac{3}{2}S\left(\frac{\Delta}{\pi}\right)^2\nonumber\\
+\Leftrightarrow K &= \frac{1}{\pi^2}\kappa_K^\frac{3}{4}\left(\frac{3}{4}\kappa_H\right)^\frac{3}{2}\Delta^2S.
+\end{align}
+%
+Hieraus folgt im Fall zweidimensionalen Flusses
 %
 \begin{center}
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-K_\Delta = \rho\nu_\Delta = \rho c_S\Delta^2\sqrt{\left(\frac{\partial u}{\partial x} - \frac{\partial v}{\partial y}\right)^2 + \left(\frac{\partial u}{\partial y} + \frac{\partial v}{\partial x}\right)^2} = \rho c_S\Delta^2\sqrt{E^2 + F^2}.\label{eq:csm}
+K = \rho\nu_\Delta = \rho c_S\Delta^2\sqrt{\left(\frac{\partial u}{\partial x} - \frac{\partial v}{\partial y}\right)^2 + \left(\frac{\partial u}{\partial y} + \frac{\partial v}{\partial x}\right)^2} = \rho c_S\Delta^2\sqrt{E^2 + F^2}.\label{eq:csm}
 \end{align}
 \end{center}
 }}
