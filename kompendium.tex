@@ -17516,7 +17516,13 @@ Der Heisenberg-Ansatz\index{Heisenberg-Ansatz} bezieht sich ausschließlich auf 
 W\left(k, k'\right) = -2\kappa_Hk^2\newtilde{e}\left(k\right)g\left(k', \newtilde{e}\left(k'\right)\right),
 \end{align}
 %
-wobei von $k, k' \geq k^\star$ und $k' > k$ ausgegangen wird. $\kappa_H \geq 0$ ist eine Art dimensionslose Viskosität\index{Viskosität}, die sogenannte \textit{Heisenberg-Konstante}\index{Heisenberg-Konstante}. Diese Formel ist analog zum molekularen dissipativen Term $-2\nu k^2\newtilde{e}\left(k\right)$. Die Funktion $g\left(k', \newtilde{e}\left(k'\right)\right)$ beschreibt, wie die kleinere Skala $k'$ auf die auf die Skala $k$ wirkt, wobei eine explizite Abhängigkeit von der bei $k'$ vorhandenen Energie $\newtilde{e}\left(k'\right)$ mit aufgenommen wurde. Im SI-Sytem gelten
+wobei von $k, k' \geq k^\star$ und $k' > k$ ausgegangen wird.
+%
+\begin{align}
+\kappa_H = 0,5\pm 0,03\label{eq:heisenberg_constant_value}
+\end{align}
+%
+\cite{bott_dynamics} ist eine Art dimensionslose Viskosität\index{Viskosität}, die sogenannte \textit{Heisenberg-Konstante}\index{Heisenberg-Konstante}. Diese Formel ist analog zum molekularen dissipativen Term $-2\nu k^2\newtilde{e}\left(k\right)$. Die Funktion $g\left(k', \newtilde{e}\left(k'\right)\right)$ beschreibt, wie die kleinere Skala $k'$ auf die auf die Skala $k$ wirkt, wobei eine explizite Abhängigkeit von der bei $k'$ vorhandenen Energie $\newtilde{e}\left(k'\right)$ mit aufgenommen wurde. Im SI-Sytem gelten
 %
 \begin{align}
 \left[\newtilde{e}\right] &= \frac{\text{J}}{\text{kg/m}} = \frac{\text{Jm}}{\text{kg}} = \frac{\text{Nm}^2}{\text{kg}} = \frac{\text{m}^3}{\text{s}^2}\\
@@ -17717,7 +17723,7 @@ Damit wird Glg. \eqref{eq:turb_iso_inc_spec_pre_1} zu
 Weiterhin definiert man die \textit{Kolmogorov-Konstante}\index{Kolmogorov-Konstante} $\kappa_K$ durch
 %
 \begin{align}
-\kappa_K \coloneqq \left(\frac{8}{9\kappa_H}\right)^{2/3},
+\kappa_K \coloneqq \left(\frac{8}{9\kappa_H}\right)^{2/3},\label{eq:def_kappa_k}
 \end{align}
 %
 die \textit{charakteristische Länge}\index{charakteristische Länge}\index{Länge!charakteristische} $l_c$ durch
@@ -17824,13 +17830,33 @@ K &= \frac{3}{4}\kappa_H\sqrt{\kappa_K}K^\frac{1}{3}S^\frac{2}{3}\left(\frac{\De
 \Leftrightarrow K &= \frac{1}{\pi^2}\kappa_K^\frac{3}{4}\left(\frac{3}{4}\kappa_H\right)^\frac{3}{2}\Delta^2S.
 \end{align}
 %
-Hieraus folgt im Fall zweidimensionalen Flusses
+Mit der Definition
+%
+\begin{align}
+c_S^2 &\coloneqq \frac{1}{\pi^2}\kappa_K^\frac{3}{4}\left(\frac{3}{4}\kappa_H\right)^\frac{3}{2} \stackrel{\text{Glg. \eqref{eq:def_kappa_k}}}{=} \frac{1}{\pi^2}\left(\frac{8}{9\kappa_H}\right)^{1/2}\left(\frac{3}{4}\kappa_H\right)^\frac{3}{2} = \frac{\kappa_H}{\pi^2}\left(\frac{8}{9}\right)^{1/2}\left(\frac{3}{4}\right)^\frac{3}{2} = \frac{\kappa_H}{\pi^2}\left(\frac{8\cdot 9}{9\cdot 16}\right)^{1/2}\left(\frac{3}{4}\right)^\frac{1}{2}\nonumber\\
+&= \frac{\sqrt{3}\kappa_H}{2\sqrt{2}\pi^2} \stackrel{\text{Glg. \eqref{eq:heisenberg_constant_value}}}{\approx} \frac{\sqrt{3}}{4\sqrt{2}\pi^2} \approx 0,03\nonumber\\
+\Leftrightarrow c_S &= \left(\frac{3}{8}\right)^{1/4}\frac{\sqrt{\kappa_H}}{\pi} \approx \left(\frac{3}{8}\right)^{1/4}\frac{1}{\sqrt{2}\pi} \approx 0,176
+\end{align}
+%
+kann man dies in der Form
+%
+\begin{align}
+K &= c_S^2\Delta^2S
+\end{align}
+%
+notieren. Hieraus folgt im Fall zweidimensionalen Flusses mit
+%
+\begin{align}
+\newtilde{c}_S \coloneqq c_S^2
+\end{align}
+%
+die Gleichung
 %
 \begin{center}
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-K = \rho\nu_\Delta = \rho c_S\Delta^2\sqrt{\left(\frac{\partial u}{\partial x} - \frac{\partial v}{\partial y}\right)^2 + \left(\frac{\partial u}{\partial y} + \frac{\partial v}{\partial x}\right)^2} = \rho c_S\Delta^2\sqrt{E^2 + F^2}.\label{eq:csm}
+K = \rho\nu_\Delta = \rho\newtilde{c}_S\Delta^2\sqrt{\left(\frac{\partial u}{\partial x} - \frac{\partial v}{\partial y}\right)^2 + \left(\frac{\partial u}{\partial y} + \frac{\partial v}{\partial x}\right)^2} = \rho c_S\Delta^2\sqrt{E^2 + F^2}.\label{eq:csm}
 \end{align}
 \end{center}
 }}
