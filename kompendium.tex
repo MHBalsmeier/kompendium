@@ -24983,7 +24983,7 @@ g\newoverline{\frac{\theta'}{\newoverline{\theta}}w'} &= -K\frac{g}{\newoverline
 Setzt man dies in Glg. \eqref{eq:tke_num} an, erhält man
 %
 \begin{align}
-\frac{\partial K_s}{\partial t} = -\nabla\cdot\left(K_s\mathbf{v}\right) + \rho K\left[\left(\frac{\partial\newoverline{u}}{\partial z}\right)^2 + \left(\frac{\partial\newoverline{v}}{\partial z}\right)^2\right] - KN^2 - \rho\newoverline{\epsilon}\label{eq:tke_num_mod}
+\frac{\partial K_s}{\partial t} = -\nabla\cdot\left(K_s\mathbf{v}\right) + \rho K\left[\left(\frac{\partial\newoverline{u}}{\partial z}\right)^2 + \left(\frac{\partial\newoverline{v}}{\partial z}\right)^2\right] - \rho KN^2 - \rho\newoverline{\epsilon}\label{eq:tke_num_mod}
 \end{align}
 %
 Um $\newoverline{\epsilon}$ zu bestimmen, geht man von Glg. \eqref{eq:characteristic_length} aus:
@@ -25006,7 +25006,7 @@ K = K\left[\mathbf{v}\left(\mathbf{r}\right),K_s\right]
 %
 des derzeitigen Windfeldes und von $K_s$ ausgedrückt werden. Über Glg. \eqref{eq:tke_num_mod} enthält dieser Ansatz auch Informationen über das vergangene Windfeld.
 
-Aus Glg. \eqref{eq:tke_num_mod} erhält man unter Vernachlässigung der Advektion eine approximative diagnostische Relation für die TKE:
+Aus Glg. \eqref{eq:tke_num_mod} erhält man unter Vernachlässigung der Advektion eine approximative diagnostische Relation für die Dissipation der TKE:
 %
 \begin{align}
 \newoverline{\epsilon} = K\left[\left(\frac{\partial\newoverline{u}}{\partial z}\right)^2 + \left(\frac{\partial\newoverline{v}}{\partial z}\right)^2 - N^2\right]\label{eq:tke_diag}
@@ -25070,9 +25070,9 @@ Aus Glg. \eqref{eq:tke_vbar} lässt sich mithilfe von Glg. \eqref{eq:diff_delta}
 Setzt man dies sowie Glg. \eqref{eq:tke_vbar} in Glg. \eqref{eq:tke_diag} ein, erhält man
 %
 \begin{align}
-\left(\frac{4}{\pi\sqrt{3}}\right)^3\frac{k_s^{3/2}}{L} &= K\left[\left(\frac{\partial\newoverline{u}}{\partial z}\right)^2 + \left(\frac{\partial\newoverline{v}}{\partial z}\right)^2\right]\nonumber\\
-\Leftrightarrow\left(\frac{4}{\pi\sqrt{3}}\right)^3\frac{k_s^{3/2}}{L} &= L\frac{4}{\sqrt{3}\pi}\sqrt{k_s}\left[\left(\frac{\partial\newoverline{u}}{\partial z}\right)^2 + \left(\frac{\partial\newoverline{v}}{\partial z}\right)^2\right]\nonumber\\
-\Leftrightarrow k_s &= L^2\left(\frac{\pi\sqrt{3}}{4}\right)^2\left[\left(\frac{\partial\newoverline{u}}{\partial z}\right)^2 + \left(\frac{\partial\newoverline{v}}{\partial z}\right)^2\right].
+\left(\frac{4}{\pi\sqrt{3}}\right)^3\frac{k_s^{3/2}}{L} &= K\left[\left(\frac{\partial\newoverline{u}}{\partial z}\right)^2 + \left(\frac{\partial\newoverline{v}}{\partial z}\right)^2 - N^2\right]\nonumber\\
+\Leftrightarrow\left(\frac{4}{\pi\sqrt{3}}\right)^3\frac{k_s^{3/2}}{L} &= L\frac{4}{\sqrt{3}\pi}\sqrt{k_s}\left[\left(\frac{\partial\newoverline{u}}{\partial z}\right)^2 + \left(\frac{\partial\newoverline{v}}{\partial z}\right)^2 - N^2\right]\nonumber\\
+\Leftrightarrow k_s &= L^2\left(\frac{\pi\sqrt{3}}{4}\right)^2\left[\left(\frac{\partial\newoverline{u}}{\partial z}\right)^2 + \left(\frac{\partial\newoverline{v}}{\partial z}\right)^2 - N^2\right].
 \end{align}
 
 \section{Dissipation}
