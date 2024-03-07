@@ -17844,19 +17844,13 @@ kann man dies in der Form
 K &= c_S^2\Delta^2S
 \end{align}
 %
-notieren. Hieraus folgt im Fall zweidimensionalen Flusses mit
-%
-\begin{align}
-\newtilde{c}_S \coloneqq c_S^2
-\end{align}
-%
-die Gleichung
+notieren. Hieraus folgt im Fall zweidimensionalen Flusses
 %
 \begin{center}
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-K = \rho\nu_\Delta = \rho\newtilde{c}_S\Delta^2\sqrt{\left(\frac{\partial u}{\partial x} - \frac{\partial v}{\partial y}\right)^2 + \left(\frac{\partial u}{\partial y} + \frac{\partial v}{\partial x}\right)^2} = \rho c_S\Delta^2\sqrt{E^2 + F^2}.\label{eq:csm}
+K = \rho\nu_\Delta = \rho c_S^2\Delta^2\sqrt{\left(\frac{\partial u}{\partial x} - \frac{\partial v}{\partial y}\right)^2 + \left(\frac{\partial u}{\partial y} + \frac{\partial v}{\partial x}\right)^2} = \rho c_S^2\Delta^2\sqrt{E^2 + F^2}.\label{eq:csm}
 \end{align}
 \end{center}
 }}
@@ -24940,7 +24934,7 @@ Außerhalb der planetarischen Grenzschicht kann von einem Wert für die vertikal
 Als Ansatz für die Impulsdiffusion wird das klassische Smagorinsky-Modell verwendet. Hierzu muss Glg. \eqref{eq:csm} muss nun auf dem hexagonalen Gitter diskretisiert werden. Hierzu mittelt man zunächst die diskretisierten Terme:
 %
 \begin{align}
-K_\Delta = \rho c_S\Delta^2\sqrt{\newoverline{\left(\frac{\partial u}{\partial x} - \frac{\partial v}{\partial y}\right)}^2 + \newoverline{\left(\frac{\partial u}{\partial y} + \frac{\partial v}{\partial x}\right)}^2} = \rho c_S\Delta^2\sqrt{\left(\newoverline{\frac{\partial u}{\partial x}} - \newoverline{\frac{\partial v}{\partial y}}\right)^2 + \left(\newoverline{\frac{\partial u}{\partial y}} + \newoverline{\frac{\partial v}{\partial x}}\right)^2}
+K_\Delta = \rho c_S^2\Delta^2\sqrt{\newoverline{\left(\frac{\partial u}{\partial x} - \frac{\partial v}{\partial y}\right)}^2 + \newoverline{\left(\frac{\partial u}{\partial y} + \frac{\partial v}{\partial x}\right)}^2} = \rho c_S^2\Delta^2\sqrt{\left(\newoverline{\frac{\partial u}{\partial x}} - \newoverline{\frac{\partial v}{\partial y}}\right)^2 + \left(\newoverline{\frac{\partial u}{\partial y}} + \newoverline{\frac{\partial v}{\partial x}}\right)^2}
 \end{align}
 %
 Um die gemittelten Terme zu bestimmen, greift man sich zunächst beispielhaft den Term $\frac{\partial u}{\partial x}$ heraus und rechnet
