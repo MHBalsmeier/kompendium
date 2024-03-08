@@ -25402,31 +25402,31 @@ L \coloneqq -\frac{T_Au_\star^3}{kg\newoverline{\left(w'\theta'\right)}}.
 Problematisch ist hierbei die Bestimmung von $\newoverline{\left(w'\theta'\right)}_\text{sfc}$. Setzt man hier Glg. ein, erhält man
 %
 \begin{align}
-L \coloneqq -\frac{T_Au_\star^3}{kg\frac{Q_H}{\rho c_v}} = -\frac{T_Au_\star^3}{kg\frac{T_G - T_A'}{r_H}} = -\frac{T_Au_\star^3}{g\left(T_G - T_A'\right)}r_H.
+L \coloneqq -\frac{T_Au_\star^3}{kg\frac{Q_H}{\rho c_v}} = -\frac{T_Au_\star^3}{kg\frac{T_G - T_A'}{r_H}} = -\frac{T_Au_\star^3}{kg\left(T_G - T_A'\right)}r_H.
 \end{align}
 %
 Die Reibungsgeschwindigkeit $u_\star$ und der Flusswiderstand der sensiblen Wärme $r_H$ hängen dabei wiederum von $L$ ab:
 %
 \begin{align}
-L =  -\frac{T_Au_\star^3\left(L\right)}{g\left(T_G - T_A'\right)}r_H\left(L\right).\label{eq:mo_length_model_ansatz}
+L =  -\frac{T_Au_\star^3\left(L\right)}{kg\left(T_G - T_A'\right)}r_H\left(L\right).\label{eq:mo_length_model_ansatz}
 \end{align}
 %
 Setzt man hier Glg. ein, erhält man
 %
 \begin{align}
-L = -\frac{T_Au_\star^3}{g\left(T_G - T_A'\right)}\frac{1}{u_\star k}\left[\ln\left(\frac{z}{z_0}\right) - \psi_h\left(\frac{z}{L}\right) + \ln\left(7\right)\right] = -\frac{T_Au_\star^2}{kg\left(T_G - T_A'\right)}\left[\ln\left(\frac{z}{z_0}\right) - \psi_h\left(\frac{z}{L}\right) + \ln\left(7\right)\right].
+L = -\frac{T_Au_\star^3}{g\left(T_G - T_A'\right)}\frac{1}{u_\star k^2}\left[\ln\left(\frac{z}{z_0}\right) - \psi_h\left(\frac{z}{L}\right) + \ln\left(7\right)\right] = -\frac{T_Au_\star^2}{k^2g\left(T_G - T_A'\right)}\left[\ln\left(\frac{z}{z_0}\right) - \psi_h\left(\frac{z}{L}\right) + \ln\left(7\right)\right].
 \end{align}
 %
 Setzt man weiter Glg. \eqref{eq:u_star} ein, folgt
 %
 \begin{align}
-L = -\frac{T_AU^2k}{g\left(T_G - T_A'\right)}\frac{\ln\left(\frac{z}{z_0}\right) - \psi_h\left(\frac{z}{L}\right) + \ln\left(7\right)}{\left[\ln\left(\frac{z}{z_0}\right) - \psi_m\left(\frac{z}{L}\right)\right]^2}.
+L = -\frac{T_AU^2}{g\left(T_G - T_A'\right)}\frac{\ln\left(\frac{z}{z_0}\right) - \psi_h\left(\frac{z}{L}\right) + \ln\left(7\right)}{\left[\ln\left(\frac{z}{z_0}\right) - \psi_m\left(\frac{z}{L}\right)\right]^2}.
 \end{align}
 %
 Hier geht es um die Bestimmung $L$, dabei sind alle anderen Größen bekannt. Mit den Definitionen
 %
 \begin{align}
-a &\coloneqq -\frac{g\left(T_G - T_A'\right)}{T_AU^2k},\\
+a &\coloneqq -\frac{g\left(T_G - T_A'\right)}{T_AU^2},\\
 g\left(L\right) &\coloneqq \frac{\ln\left(\frac{z}{z_0}\right) - \psi_h\left(\frac{z}{L}\right) + \ln\left(7\right)}{\left[\ln\left(\frac{z}{z_0}\right) - \psi_m\left(\frac{z}{L}\right)\right]^2}
 \end{align}
 %
