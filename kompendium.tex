@@ -25423,17 +25423,28 @@ Setzt man weiter Glg. \eqref{eq:u_star} ein, folgt
 L = -\frac{T_AU^2}{g\left(T_G - T_A'\right)}\frac{\ln\left(\frac{z}{z_0}\right) - \psi_h\left(\frac{z}{L}\right) + \ln\left(7\right)}{\left[\ln\left(\frac{z}{z_0}\right) - \psi_m\left(\frac{z}{L}\right)\right]^2}.
 \end{align}
 %
-Hier geht es um die Bestimmung $L$, dabei sind alle anderen Größen bekannt. Mit den Definitionen
+Hier geht es um die Bestimmung $L$, dabei sind alle anderen Größen bekannt. Die Größe
 %
 \begin{align}
-a &\coloneqq -\frac{g\left(T_G - T_A'\right)}{T_AU^2},\\
-g\left(L\right) &\coloneqq \frac{\ln\left(\frac{z}{z_0}\right) - \psi_h\left(\frac{z}{L}\right) + \ln\left(7\right)}{\left[\ln\left(\frac{z}{z_0}\right) - \psi_m\left(\frac{z}{L}\right)\right]^2}
+R_\text{i,b} \coloneqq \frac{zg\left(T_G - T_A'\right)}{T_AU^2}.
+\end{align}
+%
+bezeichnet man als \textit{Bulk-Richardson-Zahl}\index{Bulk-Richardson-Zahl}\index{Richardson-Zahl!Bulk}. Mit der Hilfsfunktion
+%
+\begin{align}
+s\left(L\right) &\coloneqq \frac{\ln\left(\frac{z}{z_0}\right) - \psi_h\left(\frac{z}{L}\right) + \ln\left(7\right)}{\left[\ln\left(\frac{z}{z_0}\right) - \psi_m\left(\frac{z}{L}\right)\right]^2}
+\end{align}
+%
+und
+%
+\begin{align}
+a \coloneqq -\frac{R_\text{i,b}}{z}
 \end{align}
 %
 kann man dies in der Form
 %
 \begin{align}
-L = \frac{g\left(L\right)}{a} \Leftrightarrow aL - g\left(L\right) = 0\label{eq:mo_l_num_deriv_1}
+L = -\frac{z}{R_\text{i,b}}s\left(L\right) = \frac{s\left(L\right)}{a} \Leftrightarrow aL - s\left(L\right) = 0\label{eq:mo_l_num_deriv_1}
 \end{align}
 %
 notieren.
@@ -25453,7 +25464,7 @@ h\left(L\right) \coloneqq \ln\left(\frac{z}{z_0}\right) + 4,7\cdot\frac{z}{L},
 dann folgt aus Glg. \eqref{eq:mo_l_num_deriv_1}
 %
 \begin{align}
-aL - g\left(L\right) &= aL - \frac{h\left(L\right) + \ln\left(7\right)}{h^2\left(L\right)} = 0\nonumber\\
+aL - s\left(L\right) &= aL - \frac{h\left(L\right) + \ln\left(7\right)}{h^2\left(L\right)} = 0\nonumber\\
 \Leftrightarrow f_1\left(L\right) &\coloneqq aLh^2\left(L\right) - h\left(L\right) - \ln\left(7\right) = 0.\label{eq:mo_l_num_deriv_2}
 \end{align}
 %
@@ -25481,7 +25492,7 @@ umformulieren.
 Im Fall $T_G > T_A$, was instabilen Bedingungen entspricht, gilt $L < 0.$ In diesem Fall gilt
 %
 \begin{align}
-f_2\left(L\right) &\coloneqq aL - g\left(L\right) = aL - \frac{\ln\left(\frac{z}{z_0}\right) - \psi_h\left(\frac{z}{L}\right) + \ln\left(7\right)}{\left[\ln\left(\frac{z}{z_0}\right) - \psi_m\left(\frac{z}{L}\right)\right]^2} = 0.
+f_2\left(L\right) &\coloneqq aL - s\left(L\right) = aL - \frac{\ln\left(\frac{z}{z_0}\right) - \psi_h\left(\frac{z}{L}\right) + \ln\left(7\right)}{\left[\ln\left(\frac{z}{z_0}\right) - \psi_m\left(\frac{z}{L}\right)\right]^2} = 0.
 \end{align}
 %
 Hieraus folgt
