@@ -18,10 +18,10 @@ f_vector_simple = np.zeros([len(mo_l_vector)])
 
 for jl in range(len(mo_l_vector)):
 	l = mo_l_vector[jl]
-	bulk_richardson = z_agl*gravity*(temp_sfc - temp_sfc_extrap)/(temp_atmos*u_lowest_layer**2)
+	bulk_richardson = z_agl*gravity*(temp_sfc_extrap - temp_sfc)/(temp_atmos*u_lowest_layer**2)
 	s = (np.log(z_agl/z_0) + 4.7*z_agl/l + np.log(7.0))/(np.log(z_agl/z_0) + 4.7*z_agl/l)**2
-	f_vector[jl] = -z_agl/bulk_richardson*s
-	f_vector_simple[jl] = -z_agl/bulk_richardson
+	f_vector[jl] = z_agl/bulk_richardson*s
+	f_vector_simple[jl] = z_agl/bulk_richardson
 
 if temp_sfc > temp_sfc_extrap:
 	print("Conditions are unstable.")

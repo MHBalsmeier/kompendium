@@ -25414,19 +25414,19 @@ L = -\frac{T_Au_\star^3\left(L\right)}{kg\left(T_G - T_A'\right)}r_H\left(L\righ
 Setzt man hier Glg. ein, erhält man
 %
 \begin{align}
-L = -\frac{T_Au_\star^3}{g\left(T_G - T_A'\right)}\frac{1}{u_\star k^2}\left[\ln\left(\frac{z}{z_0}\right) - \psi_h\left(\frac{z}{L}\right) + \ln\left(7\right)\right] = -\frac{T_Au_\star^2}{k^2g\left(T_G - T_A'\right)}\left[\ln\left(\frac{z}{z_0}\right) - \psi_h\left(\frac{z}{L}\right) + \ln\left(7\right)\right].
+L = -\frac{T_Au_\star^3}{g\left(T_G - T_A'\right)}\frac{1}{u_\star k^2}\left[\ln\left(\frac{z}{z_0}\right) - \psi_h\left(\frac{z}{L}\right) + \ln\left(7\right)\right] = \frac{T_Au_\star^2}{k^2g\left(T_A' - T_G\right)}\left[\ln\left(\frac{z}{z_0}\right) - \psi_h\left(\frac{z}{L}\right) + \ln\left(7\right)\right].
 \end{align}
 %
 Setzt man weiter Glg. \eqref{eq:u_star} ein, folgt
 %
 \begin{align}
-L = -\frac{T_AU^2}{g\left(T_G - T_A'\right)}\frac{\ln\left(\frac{z}{z_0}\right) - \psi_h\left(\frac{z}{L}\right) + \ln\left(7\right)}{\left[\ln\left(\frac{z}{z_0}\right) - \psi_m\left(\frac{z}{L}\right)\right]^2}.
+L = \frac{T_AU^2}{g\left(T_A' - T_G\right)}\frac{\ln\left(\frac{z}{z_0}\right) - \psi_h\left(\frac{z}{L}\right) + \ln\left(7\right)}{\left[\ln\left(\frac{z}{z_0}\right) - \psi_m\left(\frac{z}{L}\right)\right]^2}.
 \end{align}
 %
 Hier geht es um die Bestimmung $L$, dabei sind alle anderen Größen bekannt. Die Größe
 %
 \begin{align}
-R_\text{i,b} \coloneqq \frac{zg\left(T_G - T_A'\right)}{T_AU^2}.
+R_\text{i,b} \coloneqq \frac{zg\left(T_A' - T_G\right)}{T_AU^2}.
 \end{align}
 %
 bezeichnet man als \textit{Bulk-Richardson-Zahl}\index{Bulk-Richardson-Zahl}\index{Richardson-Zahl!Bulk}. Mit der Hilfsfunktion
@@ -25438,13 +25438,13 @@ s\left(L\right) &\coloneqq \frac{\ln\left(\frac{z}{z_0}\right) - \psi_h\left(\fr
 und
 %
 \begin{align}
-a \coloneqq -\frac{R_\text{i,b}}{z}
+a \coloneqq \frac{R_\text{i,b}}{z}
 \end{align}
 %
 kann man dies in der Form
 %
 \begin{align}
-L = -\frac{z}{R_\text{i,b}}s\left(L\right) = \frac{s\left(L\right)}{a} \Leftrightarrow aL - s\left(L\right) = 0\label{eq:mo_l_num_deriv_1}
+L = \frac{z}{R_\text{i,b}}s\left(L\right) = \frac{s\left(L\right)}{a} \Leftrightarrow aL - s\left(L\right) = 0\label{eq:mo_l_num_deriv_1}
 \end{align}
 %
 notieren.
@@ -25468,7 +25468,7 @@ aL - s\left(L\right) &= aL - \frac{h\left(L\right) + \ln\left(7\right)}{h^2\left
 \Leftrightarrow f_1\left(L\right) &\coloneqq aLh^2\left(L\right) - h\left(L\right) - \ln\left(7\right) = 0.\label{eq:mo_l_num_deriv_2}
 \end{align}
 %
-Glg. \eqref{eq:mo_l_num_deriv_2} ist nicht analytisch lösbar und muss daher numerisch gelöst werden. Dies entspricht der Ermittlung der Nullstelle von $f_1$. Hierzu benutzt man ein iteratives Verfahren mit
+Glg. \eqref{eq:mo_l_num_deriv_2} ist nicht analytisch lösbar und muss daher numerisch gelöst werden. Dies entspricht der Ermittlung der Nullstelle von $f_1$. Hierzu benutzt man eine Newton-Iteration\index{Newton-Iteration} mit
 %
 \begin{align}
 f_1\left(L_i\right) + f_1'\left(L_i\right)\cdot\left(L_{i+1} - L_i\right) = 0,
