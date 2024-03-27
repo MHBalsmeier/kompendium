@@ -3,13 +3,13 @@ import numpy as np
 
 # ji = 1000 in ullrich_real
 
-z_0 = 1.0279899463057518E-002
-z_agl = 291.50790405273438
+z_0 = 1.0e-2
+z_agl = 290.0
 gravity = 9.8
 c_d_p = 1005.0
-u_lowest_layer = 3.0568986604327884
-temp_sfc = 292.64180557174751
-temp_atmos = 292.58439115255260
+u_lowest_layer = 3.0
+temp_sfc = 292.0
+temp_atmos = 299.0
 temp_sfc_extrap = temp_atmos + gravity/c_d_p*z_agl
 
 mo_l_vector = np.linspace(0.01, 200.0, 1000)
