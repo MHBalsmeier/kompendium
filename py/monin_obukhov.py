@@ -4,7 +4,7 @@ import numpy as np
 # ji = 1000 in ullrich_real
 
 z_0 = 1.0e-2
-z_agl = 290.0
+z_agl = 147.0
 gravity = 9.8
 c_d_p = 1005.0
 u_lowest_layer = 3.0
