@@ -10,11 +10,11 @@ kappa_vector = np.linspace(0 + epsilon, 2*math.pi - 10*epsilon, 10000);
 velocitys_array = np.zeros([len(kappa_vector), 4]);
 
 for i in range(len(kappa_vector)):
-	kappa = kappa_vector[i];
-	velocitys_array[i, 0] = math.sin(kappa)/kappa;
-	velocitys_array[i, 1] = math.cos(kappa);
-	velocitys_array[i, 2] = math.sqrt((2 - 2*math.cos(kappa))/(kappa**2));
-	velocitys_array[i, 3] = math.sin(kappa)/math.sqrt(2 - 2*math.cos(kappa));
+    kappa = kappa_vector[i];
+    velocitys_array[i, 0] = math.sin(kappa)/kappa;
+    velocitys_array[i, 1] = math.cos(kappa);
+    velocitys_array[i, 2] = math.sqrt((2 - 2*math.cos(kappa))/(kappa**2));
+    velocitys_array[i, 3] = math.sin(kappa)/math.sqrt(2 - 2*math.cos(kappa));
 
 plt.title("Dispersionsrelationen Arakawa-Gitter");
 plt.plot(kappa_vector, velocitys_array[:, 0]);

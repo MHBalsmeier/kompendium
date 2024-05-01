@@ -18,11 +18,11 @@ d_aperiod = mat.sqrt(k);
 eigenf = mat.sqrt(k - d_swing**2);
 
 for i in range(vector_length):
-	t = time_vector[i];
-	undamped[i] = mat.cos(omega*t);
-	swing[i] = mat.exp(-d_swing*t)*mat.cos(eigenf*t);
-	creep[i] = mat.exp(-(d_creep + mat.sqrt(d_creep**2 - k))*t);
-	aperiod[i] = (1 + 3*t)*mat.exp(-d_aperiod*t);
+    t = time_vector[i];
+    undamped[i] = mat.cos(omega*t);
+    swing[i] = mat.exp(-d_swing*t)*mat.cos(eigenf*t);
+    creep[i] = mat.exp(-(d_creep + mat.sqrt(d_creep**2 - k))*t);
+    aperiod[i] = (1 + 3*t)*mat.exp(-d_aperiod*t);
 
 fig = plt.figure(figsize = (8, 8));
 plt.plot(time_vector, undamped);
@@ -45,10 +45,10 @@ amplitude_spec = np.zeros([vector_length]);
 phase_spec = np.zeros([vector_length]);
 
 for i in range(vector_length):
-	omega_rel = rel_frequency_vector[i];
-	omega = omega_rel*eigenf;
-	amplitude_spec[i] = mat.pow((k - omega**2)**2 + 4*d_swing**2*omega**2, -0.5);
-	phase_spec[i] = mat.atan(2*d_swing*omega/(k - omega**2));
+    omega_rel = rel_frequency_vector[i];
+    omega = omega_rel*eigenf;
+    amplitude_spec[i] = mat.pow((k - omega**2)**2 + 4*d_swing**2*omega**2, -0.5);
+    phase_spec[i] = mat.atan(2*d_swing*omega/(k - omega**2));
 
 fig = plt.figure(figsize = (6, 6));
 ax = plt.axes();
