@@ -5,11 +5,14 @@ import numpy as np
 
 z_0 = 1.0e-2
 z_agl = 147.0
+z_agl = 10.0
 gravity = 9.8
 c_d_p = 1005.0
 u_lowest_layer = 3.0
+u_lowest_layer = 1.0
 temp_sfc = 292.0
 temp_atmos = 299.0
+temp_atmos = 293.0
 temp_sfc_extrap = temp_atmos + gravity/c_d_p*z_agl
 
 mo_l_vector = np.linspace(0.01, 200.0, 1000)
