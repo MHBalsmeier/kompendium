@@ -19618,13 +19618,13 @@ gleich, erhält man
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-v_\text{sink} = \frac{F}{6\pi a\eta} = \frac{4\pi a^3\left(\rho_l' - \rho_h'\right)g}{18\pi a\rho_h'\nu} = \frac{2 a^2\left(\rho_l' - \rho_h'\right)g}{9\rho_h'\nu}\label{eq:sink_stokes}
+v_F = \frac{F}{6\pi a\eta} = \frac{4\pi a^3\left(\rho_l' - \rho_h'\right)g}{18\pi a\rho_h'\nu} = \frac{2 a^2\left(\rho_l' - \rho_h'\right)g}{9\rho_h'\nu}\label{eq:sink_stokes}
 \end{align}
 \end{center}
 }}
 \end{center}
 %
-als Formel für die Gleichgewichts-Fallgeschwindigkeit $v_\text{sink}$. Dabei wurde in Glg. \eqref{eq:gravity_on_condensate} der statische Auftrieb des Kondensats abgezogen.
+als Formel für die Gleichgewichts-Fallgeschwindigkeit $v_F$. Dabei wurde in Glg. \eqref{eq:gravity_on_condensate} der statische Auftrieb des Kondensats abgezogen.
 
 \subsection{Turbulente Umströmung}
 \label{sec:turbulente_umstroemung}
@@ -19638,19 +19638,19 @@ F = \frac{1}{2}c_w\pi a^2\rho_h'U^2,\label{eq:turbulent_friction}
 wobei $c_w \geq 0$ eine von der Form des umströmten Objektes abhängige Konstante, der sogenannte \textit{$c_w-$Wert}\index{$c_w-$Wert}, ist. Im Englischen bezeichnet man diese Größe als \textit{drag coefficient}\index{drag coefficient} $c_d$. Setzt man dies mit der Gewichtskraft laut Glg. \eqref{eq:gravity_on_condensate} gleich, erhält man
 %
 \begin{align}
-\frac{1}{2}c_w\pi a^2\rho_h'v_\text{sink}^2 &= \frac{4}{3}\pi a^3\rho_l'g \Leftrightarrow v_\text{sink}^2 = \frac{8a\rho_l'g}{3\rho_h'c_w}
+\frac{1}{2}c_w\pi a^2\rho_h'v_F^2 &= \frac{4}{3}\pi a^3\rho_l'g \Leftrightarrow v_F^2 = \frac{8a\rho_l'g}{3\rho_h'c_w}
 \end{align}
 \begin{center}
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-\Leftrightarrow v_\text{sink} = \sqrt{\frac{8a\rho_l'g}{3\rho_h'c_w}}\label{eq:sink_turb}
+\Leftrightarrow v_F = \sqrt{\frac{8a\rho_l'g}{3\rho_h'c_w}}\label{eq:sink_turb}
 \end{align}
 \end{center}
 }}
 \end{center}
 %
-als Formel für die Gleichgewichts-Fallgeschwindigkeit $v_\text{sink}$.
+als Formel für die Gleichgewichts-Fallgeschwindigkeit $v_F$.
 
 \subsection{Zusammengesetzte Formel für die Fallgeschwindigkeit}
 \label{sec:zusammengesetzte_formel_für_die_fallgeschwindigkeit}
@@ -19670,12 +19670,12 @@ F = \alpha\frac{1}{2}c_w\pi a^2\rho_h'U^2 + \left(1 - \alpha\right)6\pi a\rho_h'
 Hierbei ist $c_w \approx 0,8$ ein realistischer Wert. Setzt man dies mit der Gewichtskraft laut Glg. \eqref{eq:gravity_on_condensate} gleich, erhält man unter der Annahme $\alpha \not= 0$
 
 \begin{align}
-\left(1 - \alpha\right)6\pi a\rho_h'\nu v_\text{sink} + \alpha\frac{1}{2}c_w\pi a^2\rho_h'v_\text{sink}^2 &= \frac{4}{3}\pi a^3\rho_l'g\nonumber\\
-\Leftrightarrow\alpha\frac{1}{2}c_w\pi a\rho_h'v_\text{sink}^2 + \left(1 - \alpha\right)6\pi\rho_h'\nu v_\text{sink} - \frac{4}{3}\pi a^2\rho_l'g &= 0\nonumber\\
-\Leftrightarrow\alpha c_w\pi a\rho_h'v_\text{sink}^2 + \left(1 - \alpha\right)12\pi\rho_h'\nu v_\text{sink} - \frac{8\pi a^2\rho_l'g}{3} &= 0\nonumber\\
-\Leftrightarrow\alpha c_w\pi av_\text{sink}^2 + \left(1 - \alpha\right)12\pi\nu v_\text{sink} - \frac{8\pi a^2\rho_l'g}{3\rho_h'} &= 0\nonumber\\
-\Leftrightarrow \pi av_\text{sink}^2 + \frac{\left(1 - \alpha\right)}{\alpha c_w}12\pi \nu v_\text{sink} - \frac{8\pi a^2\rho_l'g}{3\alpha\rho_h'c_w} &= 0\nonumber\\
-\Leftrightarrow v_\text{sink}^2 + \frac{\left(1 - \alpha\right)}{a\alpha c_w}12\nu v_\text{sink} - \frac{8a\rho_l'g}{3\alpha\rho_h'c_w} &= 0.
+\left(1 - \alpha\right)6\pi a\rho_h'\nu v_F + \alpha\frac{1}{2}c_w\pi a^2\rho_h'v_F^2 &= \frac{4}{3}\pi a^3\rho_l'g\nonumber\\
+\Leftrightarrow\alpha\frac{1}{2}c_w\pi a\rho_h'v_F^2 + \left(1 - \alpha\right)6\pi\rho_h'\nu v_F - \frac{4}{3}\pi a^2\rho_l'g &= 0\nonumber\\
+\Leftrightarrow\alpha c_w\pi a\rho_h'v_F^2 + \left(1 - \alpha\right)12\pi\rho_h'\nu v_F - \frac{8\pi a^2\rho_l'g}{3} &= 0\nonumber\\
+\Leftrightarrow\alpha c_w\pi av_F^2 + \left(1 - \alpha\right)12\pi\nu v_F - \frac{8\pi a^2\rho_l'g}{3\rho_h'} &= 0\nonumber\\
+\Leftrightarrow \pi av_F^2 + \frac{\left(1 - \alpha\right)}{\alpha c_w}12\pi \nu v_F - \frac{8\pi a^2\rho_l'g}{3\alpha\rho_h'c_w} &= 0\nonumber\\
+\Leftrightarrow v_F^2 + \frac{\left(1 - \alpha\right)}{a\alpha c_w}12\nu v_F - \frac{8a\rho_l'g}{3\alpha\rho_h'c_w} &= 0.
 \end{align}
 %
 Es ist zu erwarten, dass der Übergang von laminarer zu turbulenter Reibung entscheidend von der Reynolds-Zahl
@@ -19687,7 +19687,7 @@ R \coloneqq \frac{U^2a^2}{\nu Ua} = \frac{Ua}{\nu}
 abhängt. Man nimmt nun an, dass der Übergang von laminarer zu turbulenter Reibung bei einer kritischen Reynolds-Zahl $R_k$ erfolgt. Um die Gleichgewichts-Sinkgeschindigkeit zu bestimmen, kann man wie folgt vorgehen:
 %
 \begin{enumerate}
-\item Berechne $v_\text{sink}$ aus Glg. \eqref{eq:sink_stokes}.
+\item Berechne $v_F$ aus Glg. \eqref{eq:sink_stokes}.
 \item Berechne hieraus die Reynoldszahl $R$.
 \item Wenn das Ergebnis nicht größer als $R_k$ ist, $R \leq R_k$, gilt $\alpha = 0$ und das Ergebnis liegt bereits vor. Dabei kann bei Kugeln von $R_k = 10$ ausgegangen werden.
 \item Andernfalls gilt $\alpha = 1$, dann verwende \eqref{eq:sink_turb} zur Bestimmung der Gleichgewichts-Fallgeschwindigkeit. Dabei kann bei Kugeln von $c_w = 1$ ausgegangen werden.
@@ -19776,7 +19776,7 @@ D_0 = \left(\frac{\rho_h}{\pi\rho_i'A}\right)^{\frac{1}{4 - b}}.
 \subsection{Koagulation}
 \label{sec:koagulation}\index{Koagulation}
 
-Die sogenannte \textit{Koagulation} bezeichnet das Entstehen von Regentropfen über das Wachsen von Wolkentröpfchen.
+Die sogenannte \textit{Koagulation}, auch \textit{Autokonversion}\index{Autokonversion} genannt, bezeichnet das Entstehen von Regentropfen über das Wachsen von Wolkentröpfchen.
 
 \subsubsection{Bergeron-Findeisen-Prozess}
 \label{sec:bergeron-findeisen-prozess}\index{Bergeron-Findeisen-Prozess}
@@ -19784,7 +19784,17 @@ Die sogenannte \textit{Koagulation} bezeichnet das Entstehen von Regentropfen ü
 \subsection{Koaleszenz}
 \label{sec:koaleszenz}\index{Koaleszenz}
 
-Die sogenannte \textit{Koaleszenz} bezeichnet das Anwachsen von Regentropfen durch Kollisionen mit Wolkentröpfchen.
+Die sogenannte \textit{Koaleszenz} bezeichnet das Anwachsen von Regentropfen durch Kollisionen mit Wolkentröpfchen. Um die entsprechende Quelldichte $Q_{KS}$ zu bestimmen, geht man davon aus, dass Wolkentröpfchen keine Fallgeschwindigkeit und Regentropfen eine Fallgeschwindigkeit $v_R = v_R\left(r\right)>0$ haben. Zunächst wird die vereinfachende Annahme gemacht, dass alle Regentropfen den Radius $r$ haben:
+%
+\begin{align}
+Q_{KS} = \rho_w'E_Rn_R\pi r^2v_R\left(r\right)n_c.
+\end{align}
+%
+Hierbei sind $n_c$ und $n_R$ die Teilchendichten von Wolkenwasser und Regen sowie $E_{c,R}$ die Wahrscheinlichkeit, dass zwei Tropfen nach einer Kollision zu einem Tropfen verschmelzen. Sie wird von nun an vernachlässigt, d. h. sie wird mit Eins angesetzt:
+%
+\begin{align}
+Q_{KS} = \rho_w'n_R\pi r^2v_R\left(r\right)n_c.
+\end{align}
 
 \section{Zerbrechen von Wassertropfen}
 \label{sec:zerbrechen_von_wassertropfen}
@@ -25343,7 +25353,7 @@ Um die Fallgeschwindigkeiten der Kondensate festzulegen, orientiert man sich an 
 \begin{itemize}
 \item Für Wolkentröpfchen wird eine Fallgeschwindigkeit von Null angenommen.
 \item Für Wolkeneis wird eine Fallgeschwindigkeit angenommen.
-\item Für Schnee wird die semi-empirische Formel $v_\text{sink} = 9,356\cdot\left(2\cdot r_\text{eff}\right)^{0,3}$.
+\item Für Schnee wird die semi-empirische Formel $v_F = 9,356\cdot\left(2\cdot r_\text{eff}\right)^{0,3}$.
 \item Regentropfen werden turbulent umströmt, für sie wird Glg. \eqref{eq:sink_turb} mit $c_w = 0,8$ verwendet.
 \end{itemize}
 
