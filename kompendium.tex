@@ -19784,50 +19784,55 @@ Die sogenannte \textit{Koagulation}, auch \textit{Autokonversion}\index{Autokonv
 \subsection{Koaleszenz}
 \label{sec:koaleszenz}\index{Koaleszenz}
 
-Die sogenannte \textit{Koaleszenz} bezeichnet das Anwachsen von Regentropfen durch Kollisionen mit Wolkentröpfchen. Um die entsprechende Quelldichte $Q_{KS}$ zu bestimmen, geht man davon aus, dass Wolkentröpfchen keine Fallgeschwindigkeit und Regentropfen eine Fallgeschwindigkeit $v_R = v_R\left(r\right)>0$ haben. Zunächst wird die vereinfachende Annahme gemacht, dass alle Regentropfen den Radius $r$ haben:
+Die sogenannte \textit{Koaleszenz} bezeichnet das Anwachsen von Niederschlagspartikeln $p$ durch Kollisionen mit Wolkentröpfchen. Um die entsprechende Quelldichte $Q_{K,p}$ zu bestimmen, geht man davon aus, dass Wolkenpartikel keine Fallgeschwindigkeit und Niderschlagspartikel eine Fallgeschwindigkeit $v_p = v_p\left(r\right)>0$ haben. Zunächst wird die vereinfachende Annahme gemacht, dass alle Niderschlagspartikel den Radius $r$ haben:
 %
 \begin{align}
-Q_{KS} = E_{c,r}n_R\pi r^2v_R\left(r\right)\rho_c.
+Q_{K,p} = E_{c,p}n_p\pi r^2v_p\left(r\right)\rho_c.
 \end{align}
 %
-Hierbei sind $\rho_c$ und $n_R$ die Teilchendichten von Wolkenwasser und Regen sowie $E_{c,r}$ die Wahrscheinlichkeit, dass zwei Tropfen nach einer Kollision zu einem Tropfen verschmelzen. Sie wird von nun an vernachlässigt, d. h. sie wird mit Eins angesetzt:
+Hierbei sind $\rho_c$ und $n_p$ die Teilchendichten der Wolken- und Niederschlagspartikel sowie $E_{c,r}$ die Wahrscheinlichkeit, dass zwei Teilchen nach einer Kollision zu einem Teilchen verschmelzen. Sie wird von nun an vernachlässigt, d. h. sie wird mit Eins angesetzt:
 %
 \begin{align}
-Q_{KS} = n_R\pi r^2v_R\left(r\right)\rho_c.
+Q_{K,p} = n_p\pi r^2v_p\left(r\right)\rho_c.
 \end{align}
 %
-Nimmt man hingegen eine Größenverteilung der Regentropfen $n_R\left(r\right)$ an, erhält man
+Nimmt man hingegen eine Größenverteilung der Regentropfen $n_p\left(r\right)$ an, erhält man
 %
 \begin{align}
-Q_{KS} = \int_0^\infty n_R\left(r\right)\pi r^2v_R\left(r\right)\rho_cdr = \pi\rho_c\int_0^\infty n_R\left(r\right)r^2v_R\left(r\right)dr = \pi\rho_c\int_0^\infty n_R\left(r\right)r^2v_R\left(r\right)dr.
+Q_{K,p} = \int_0^\infty n_p\left(r\right)\pi r^2v_p\left(r\right)\rho_cdr = \pi\rho_c\int_0^\infty n_p\left(r\right)r^2v_p\left(r\right)dr = \pi\rho_c\int_0^\infty n_p\left(r\right)r^2v_p\left(r\right)dr.
 \end{align}
 %
 Setzt man hier Glg. \eqref{eq:marshall-palmer} ein, erhält man
 %
 \begin{align}
-Q_{KS} = \pi\rho_c\int_0^\infty n_{0,r}\exp\left(-\lambda_r D\right)\frac{D^2}{4}v_R\left(\frac{D}{2}\right)dD = \frac{n_{0,r}\pi\rho_c}{4}\int_0^\infty\exp\left(-\lambda_r D\right)D^2v_R\left(\frac{D}{2}\right)dD.\label{eq:accretion_deriv}
+Q_{K,p} = \pi\rho_c\int_0^\infty n_{0,p}\exp\left(-\lambda_p D\right)\frac{D^2}{4}v_p\left(\frac{D}{2}\right)dD = \frac{n_{0,p}\pi\rho_c}{4}\int_0^\infty\exp\left(-\lambda_p D\right)D^2v_p\left(\frac{D}{2}\right)dD.\label{eq:accretion_deriv}
 \end{align}
-%
-Setzt man hier weiter Glg. \eqref{eq:sink_turb} für die Fallgeschwindigkeit ein, erhält man
+
+\subsubsection{Anwendung auf Regen}
+\label{sec:anwendung_auf_regen}
+
+Setzt man in Glg. \eqref{eq:accretion_deriv} Glg. \eqref{eq:sink_turb} für die Fallgeschwindigkeit sowie $n_{0,p} = n_{0,r}$ und $E_{r,c} = 1$ ein, erhält man
 %
 \begin{align}
-Q_{KS} &= \frac{n_{0,r}\pi\rho_c}{4}\int_0^\infty\exp\left(-\lambda_r D\right)D^2\sqrt{\frac{4D\rho_l'g}{3\rho_h'c_w}}dD = \frac{n_{0,r}\pi\rho_c}{4}\sqrt{\frac{4\rho_l'g}{3\rho_h'c_w}}\int_0^\infty\exp\left(-\lambda_r D\right)D^{5/2}dD\nonumber\\
+Q_{K,c} &= \frac{n_{0,r}\pi\rho_c}{4}\int_0^\infty\exp\left(-\lambda_r D\right)D^2\sqrt{\frac{4D\rho_l'g}{3\rho_h'c_w}}dD = \frac{n_{0,r}\pi\rho_c}{4}\sqrt{\frac{4\rho_l'g}{3\rho_h'c_w}}\int_0^\infty\exp\left(-\lambda_r D\right)D^{5/2}dD\nonumber\\
 &= \frac{n_{0,r}\pi\rho_c}{4\lambda_r^{7/2}}\sqrt{\frac{4\rho_l'g}{3\rho_h'c_w}}\Gamma\left(\frac{7}{2}\right) = \frac{n_{0,r}\pi\rho_c}{\lambda_r^{7/2}}\sqrt{\frac{\rho_l'g}{12\rho_h'c_w}}\Gamma\left(\frac{7}{2}\right).
 \end{align}
-%
-Für Schnee muss diese Formel etwas modifiziert werden. Setzt man Glg. \eqref{eq:fall_snow} in Glg. \eqref{eq:accretion_deriv} ein und nimmt dabei auch die Kollisionseffizienz $E_{s,i}$ mit auf, erhält man
-%
-\begin{align}
-Q_{KS} = \frac{E_{s,i}n_{0,s}\pi\rho_i}{4}\int_0^\infty\exp\left(-\lambda_s D\right)D^2\frac{a}{2^b}D^bdD = \frac{n_{0,s}\pi\rho_ia\Gamma\left(3 + b\right)}{4\cdot 2^b\lambda_s^{3+b}}.
-\end{align}
-%
-Für $E_{s,i}$ wird dabei
+
+\subsubsection{Anwendung auf Schnee}
+\label{sec:anwendung_auf_schnee_accretion}
+
+Setzt man in Glg. \eqref{eq:accretion_deriv} Glg. \eqref{eq:fall_snow} sowie $n_{0,p} = n_{0,s}$ ein und nimmt für die Kollisionseffizienz
 %
 \begin{align}
 E_{s,i} = \exp\left[0,025\cdot\left(T - T_0\right)\right]
 \end{align}
 %
-\cite{BulkParameterizationoftheSnowFieldinaCloudModel} angenommen.
+\cite{BulkParameterizationoftheSnowFieldinaCloudModel} an, erhält man
+%
+\begin{align}
+Q_{K,s} &= \frac{E_{s,i}n_{0,s}\pi\rho_i}{4}\int_0^\infty\exp\left(-\lambda_s D\right)D^2\frac{a}{2^b}D^bdD = \frac{E_{s,i}n_{0,s}\pi\rho_ia}{4\cdot 2^b}\int_0^\infty\exp\left(-\lambda_s D\right)D^{2+b}dD\nonumber\\
+&= \frac{n_{0,s}\pi\rho_ia\Gamma\left(3 + b\right)}{4\cdot 2^b\lambda_s^{3+b}}.
+\end{align}
 
 \section{Zerbrechen von Wassertropfen}
 \label{sec:zerbrechen_von_wassertropfen}
