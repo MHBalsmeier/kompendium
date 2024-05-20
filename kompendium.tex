@@ -19787,10 +19787,10 @@ Die sogenannte \textit{Koagulation}, auch \textit{Autokonversion}\index{Autokonv
 Die sogenannte \textit{Koaleszenz} bezeichnet das Anwachsen von Regentropfen durch Kollisionen mit Wolkentröpfchen. Um die entsprechende Quelldichte $Q_{KS}$ zu bestimmen, geht man davon aus, dass Wolkentröpfchen keine Fallgeschwindigkeit und Regentropfen eine Fallgeschwindigkeit $v_R = v_R\left(r\right)>0$ haben. Zunächst wird die vereinfachende Annahme gemacht, dass alle Regentropfen den Radius $r$ haben:
 %
 \begin{align}
-Q_{KS} = E_Rn_R\pi r^2v_R\left(r\right)\rho_c.
+Q_{KS} = E_{c,r}n_R\pi r^2v_R\left(r\right)\rho_c.
 \end{align}
 %
-Hierbei sind $\rho_c$ und $n_R$ die Teilchendichten von Wolkenwasser und Regen sowie $E_{c,R}$ die Wahrscheinlichkeit, dass zwei Tropfen nach einer Kollision zu einem Tropfen verschmelzen. Sie wird von nun an vernachlässigt, d. h. sie wird mit Eins angesetzt:
+Hierbei sind $\rho_c$ und $n_R$ die Teilchendichten von Wolkenwasser und Regen sowie $E_{c,r}$ die Wahrscheinlichkeit, dass zwei Tropfen nach einer Kollision zu einem Tropfen verschmelzen. Sie wird von nun an vernachlässigt, d. h. sie wird mit Eins angesetzt:
 %
 \begin{align}
 Q_{KS} = n_R\pi r^2v_R\left(r\right)\rho_c.
@@ -19805,15 +19805,29 @@ Q_{KS} = \int_0^\infty n_R\left(r\right)\pi r^2v_R\left(r\right)\rho_cdr = \pi\r
 Setzt man hier Glg. \eqref{eq:marshall-palmer} ein, erhält man
 %
 \begin{align}
-Q_{KS} = \pi\rho_c\int_0^\infty n_0\exp\left(-\lambda D\right)\frac{D^2}{4}v_R\left(\frac{D}{2}\right)dD = \frac{n_0\pi\rho_c}{4}\int_0^\infty\exp\left(-\lambda D\right)D^2v_R\left(\frac{D}{2}\right)dD.
+Q_{KS} = \pi\rho_c\int_0^\infty n_{0,r}\exp\left(-\lambda_r D\right)\frac{D^2}{4}v_R\left(\frac{D}{2}\right)dD = \frac{n_{0,r}\pi\rho_c}{4}\int_0^\infty\exp\left(-\lambda_r D\right)D^2v_R\left(\frac{D}{2}\right)dD.\label{eq:accretion_deriv}
 \end{align}
 %
 Setzt man hier weiter Glg. \eqref{eq:sink_turb} für die Fallgeschwindigkeit ein, erhält man
 %
 \begin{align}
-Q_{KS} &= \frac{n_0\pi\rho_c}{4}\int_0^\infty\exp\left(-\lambda D\right)D^2\sqrt{\frac{4D\rho_l'g}{3\rho_h'c_w}}dD = \frac{n_0\pi\rho_c}{4}\sqrt{\frac{4\rho_l'g}{3\rho_h'c_w}}\int_0^\infty\exp\left(-\lambda D\right)D^{5/2}dD\nonumber\\
-&= \frac{n_0\pi\rho_c}{4\lambda^{7/2}}\sqrt{\frac{4\rho_l'g}{3\rho_h'c_w}}\Gamma\left(\frac{7}{2}\right) = \frac{n_0\pi\rho_c}{\lambda^{7/2}}\sqrt{\frac{\rho_l'g}{12\rho_h'c_w}}\Gamma\left(\frac{7}{2}\right).
+Q_{KS} &= \frac{n_{0,r}\pi\rho_c}{4}\int_0^\infty\exp\left(-\lambda_r D\right)D^2\sqrt{\frac{4D\rho_l'g}{3\rho_h'c_w}}dD = \frac{n_{0,r}\pi\rho_c}{4}\sqrt{\frac{4\rho_l'g}{3\rho_h'c_w}}\int_0^\infty\exp\left(-\lambda_r D\right)D^{5/2}dD\nonumber\\
+&= \frac{n_{0,r}\pi\rho_c}{4\lambda_r^{7/2}}\sqrt{\frac{4\rho_l'g}{3\rho_h'c_w}}\Gamma\left(\frac{7}{2}\right) = \frac{n_{0,r}\pi\rho_c}{\lambda_r^{7/2}}\sqrt{\frac{\rho_l'g}{12\rho_h'c_w}}\Gamma\left(\frac{7}{2}\right).
 \end{align}
+%
+Für Schnee muss diese Formel etwas modifiziert werden. Setzt man Glg. \eqref{eq:fall_snow} in Glg. \eqref{eq:accretion_deriv} ein und nimmt dabei auch die Kollisionseffizienz $E_{s,i}$ mit auf, erhält man
+%
+\begin{align}
+Q_{KS} = \frac{E_{s,i}n_{0,s}\pi\rho_i}{4}\int_0^\infty\exp\left(-\lambda_s D\right)D^2\frac{a}{2^b}D^bdD = \frac{n_{0,s}\pi\rho_ia\Gamma\left(3 + b\right)}{4\cdot 2^b\lambda_s^{3+b}}.
+\end{align}
+%
+Für $E_{s,i}$ wird dabei
+%
+\begin{align}
+E_{s,i} = \exp\left[0,025\cdot\left(T - T_0\right)\right]
+\end{align}
+%
+\cite{BulkParameterizationoftheSnowFieldinaCloudModel} angenommen.
 
 \section{Zerbrechen von Wassertropfen}
 \label{sec:zerbrechen_von_wassertropfen}
@@ -25372,7 +25386,13 @@ Um die Fallgeschwindigkeiten der Kondensate festzulegen, orientiert man sich an 
 \begin{itemize}
 \item Für Wolkentröpfchen wird eine Fallgeschwindigkeit von Null angenommen.
 \item Für Wolkeneis wird eine Fallgeschwindigkeit angenommen.
-\item Für Schnee wird die semi-empirische Formel $v_F = 9,356\cdot\left(2\cdot r_\text{eff}\right)^{0,3}$.
+\item Für Schnee wird die semi-empirische Formel
+%
+\begin{align}
+v_F = a\cdot r^b = 9,356\frac{\text{m}^{0,7}}{\text{s}}\cdot\left(2\cdot r_\text{eff}\right)^{0,3} = 11,519\frac{\text{m}^{0,7}}{\text{s}}\cdot\left(r_\text{eff}\right)^{0,3}\label{eq:fall_snow}
+\end{align}
+%
+\cite{cosmo_2} angenommen.
 \item Regentropfen werden turbulent umströmt, für sie wird Glg. \eqref{eq:sink_turb} mit $c_w = 0,8$ verwendet.
 \end{itemize}
 
