@@ -5901,7 +5901,7 @@ fest. Das \index{Mischungsverhältnis}\textit{Mischungsverhältnis} $r$ wird dur
 r \coloneqq\frac{\rho_v}{\rho_d}
 \end{align}
 %
-definiert. Weiterhin wird das \index{Volumenmischungverhältnis}\textit{Volumenmischungverhältnis} $r_V$ durch
+definiert. Weiterhin wird das \index{Volumenmischungsverhältnis}\textit{Volumenmischungsverhältnis} $r_V$ durch
 %
 \begin{align}
 r_V \coloneqq\frac{n_v}{n_d}
@@ -12604,7 +12604,7 @@ Das KS wurde wiederum in das Zentrum des Schlauches gelegt. Hieraus folgt
 Für die y-Komponente der relativen Vorticity gilt
 %
 \begin{align}
-\zeta_y = \frac{\partial u}{\partial z} - \frac{\partial w}{\partial x}
+\zeta_y = \frac{\partial u}{\partial z} - \frac{\partial w}{\partial x}.
 \end{align}
 %
 Hieraus folgt
@@ -19726,13 +19726,13 @@ Setzt man dies in Glg. \eqref{eq:marshall_palmer_deriv_1} ein, erhält man
 hieraus folgt
 %
 \begin{align}
-\lambda = \left(\frac{\pi\rho_l'n_0}{\rho_l}\right)^{1/4}.
+\lambda = \left(\frac{\pi\rho_l'n_0}{\rho_l}\right)^{1/4}.\label{eq:marshall-palmer_lambda}
 \end{align}
 %
 Für den mittleren Durchmesser $D_0$ folgt, wiederum mit Glg. \eqref{eq:int_prop_1},
 %
 \begin{align}
-D_0 = \frac{\int_0^\infty\exp\left(-\lambda D\right)DdD}{\int_0^\infty\exp\left(-\lambda D\right)dD} = \frac{1}{\lambda},
+D_0 = \frac{\int_0^\infty\exp\left(-\lambda D\right)DdD}{\int_0^\infty\exp\left(-\lambda D\right)dD} = \frac{1}{\lambda},\label{eq:marshall-palmer_d_lambda}
 \end{align}
 %
 also
@@ -25391,15 +25391,55 @@ Um die Fallgeschwindigkeiten der Kondensate festzulegen, orientiert man sich an 
 \begin{itemize}
 \item Für Wolkentröpfchen wird eine Fallgeschwindigkeit von Null angenommen.
 \item Für Wolkeneis wird eine Fallgeschwindigkeit angenommen.
-\item Für Schnee wird die semi-empirische Formel
+\item Für Schnee wird die empirische Formel
 %
 \begin{align}
-v_F = a\cdot r^b = 9,356\frac{\text{m}^{0,7}}{\text{s}}\cdot\left(2\cdot r_\text{eff}\right)^{0,3} = 11,519\frac{\text{m}^{0,7}}{\text{s}}\cdot\left(r_\text{eff}\right)^{0,3}\label{eq:fall_snow}
+v_S = a\cdot r^b = 9,356\frac{\text{m}^{0,7}}{\text{s}}\cdot\left(2\cdot r_\text{eff}\right)^{0,3} = 11,519\frac{\text{m}^{0,7}}{\text{s}}\cdot\left(r_\text{eff}\right)^{0,3}\label{eq:fall_snow}
 \end{align}
 %
 \cite{cosmo_2} angenommen.
 \item Regentropfen werden turbulent umströmt, für sie wird Glg. \eqref{eq:sink_turb} mit $c_w = 0,8$ verwendet.
 \end{itemize}
+
+\subsubsection{Massengewichtete Fallgeschwindigkeiten}
+\label{sec:massengewichtete_fallgeschindigkeiten}
+
+Lautet die Fallgeschwindigkeit einer Niederschlagsklasse $v_{D,P}\left(D\right)$, hat sie ein Volumenmischungsverhältnis $r_P$ sowie ein Größenspektrum $n\left(D\right)$, lässt sich eine massengewichtete Fallgeschwindigkeit über
+%
+\begin{align}
+v_P\left(D\right) = \frac{1}{r_P}\int_0^\infty\frac{\pi D^3}{6}v_{D,P}\left(D\right)n\left(D\right)dD
+\end{align}
+%
+berechnen. Nimmt man an, dass $v_{D,P}$ die Form
+%
+\begin{align}
+v_{D,P}\left(D\right) = aD^b
+\end{align}
+%
+hat sowie die Marshall-Palmer-Verteilung Glg. \eqref{eq:marshall-palmer} gilt, folgt
+%
+\begin{align}
+v_P\left(D\right) &= \frac{1}{r_P}\int_0^\infty\frac{\pi D^3}{6}aD^bn_0e^{-\lambda D}dD = \frac{an_0\pi}{6r_P}\int_0^\infty D^{b + 3}e^{-\lambda D}dD = \frac{an_0\pi}{6r_P\lambda^{b + 4}}\int_0^\infty D^{b + 3}e^{-D}dD\nonumber\\
+&= \frac{an_0\pi\Gamma\left(b + 4\right)}{6r_P\lambda^{b + 4}}.
+\end{align}
+%
+Aus Glg. \eqref{eq:marshall-palmer_lambda} erhält man
+%
+\begin{align}
+\frac{1}{\lambda^4} = \frac{r_P}{\pi n_0}.
+\end{align}
+%
+Hieraus folgt
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+v_P\left(D\right) &= \frac{a\Gamma\left(b + 4\right)}{6\lambda^b} \stackrel{\text{Glg. \eqref{eq:marshall-palmer_d_lambda}}}{=} \frac{\Gamma\left(b + 4\right)}{6}aD^b.
+\end{align}
+\end{center}
+}}
+\end{center}
 
 \subsection{Entstehung von Niederschlag}
 \label{sec:entstehung_von_niederschlag}\index{Niederschlag!Modell}
