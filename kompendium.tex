@@ -25347,8 +25347,8 @@ Nun ist noch zu bestimmen, welches der beiden Vorzeichen das physikalisch richti
 Dieses Schema berücksichtigt folgende vier Kondensatklassen:
 
 \begin{itemize}
-\item Wolkenwasser
-\item Regenwasser
+\item flüssiges Wolkenwasser
+\item Wolkeneis
 \item flüssiger Niederschlag
 \item fester Niederschlag
 \end{itemize}
@@ -25458,12 +25458,12 @@ Dies ist der sogenannte Kessler-Ansatz\index{Kessler-Ansatz} \cite{ghosh:hal-003
 \subsubsection{Schnee}
 \label{sec:schnee}\index{Schnee}
 
-Der in Abschn. \ref{sec:warmer_regen} vorgestellte Kesser-Ansatz kann auch auf die Entstehung von Schnee angewandt werden, typische Werte lauten $q_{i,\text{krit}} = 1,0\cdot 10^{-3}\text{ kg}/\text{m}^3$, $\tau = 1000\text{ s}$.
+Der in Abschn. \ref{sec:warmer_regen} vorgestellte Kessler-Ansatz kann auch auf die Entstehung von Schnee angewandt werden, typische Werte lauten $q_{i,\text{krit}} = 1,0\cdot 10^{-3}\text{ kg}/\text{m}^3$, $\tau = 1000\text{ s}$.
 
 \subsubsection{Graupel}
 \label{sec:graupek}\index{Graupel}
 
-Der in Abschn. \ref{sec:warmer_regen} vorgestellte Kesser-Ansatz kann auch auf die Entstehung von Graupel angewandt werden, typische Werte lauten $q_{s,\text{krit}} = 0,6\cdot 10^{-3}\text{ kg}/\text{m}^3$, $\tau = 1000\text{ s}$.
+Der in Abschn. \ref{sec:warmer_regen} vorgestellte Kessler-Ansatz kann auch auf die Entstehung von Graupel angewandt werden, typische Werte lauten $q_{s,\text{krit}} = 0,6\cdot 10^{-3}\text{ kg}/\text{m}^3$, $\tau = 1000\text{ s}$.
 
 \section{Fünf-Kondensate-Schema}
 \label{sec:fuenf-kondensate-schema}\index{Fünf-Kondensate-Schema}
@@ -25471,8 +25471,8 @@ Der in Abschn. \ref{sec:warmer_regen} vorgestellte Kesser-Ansatz kann auch auf d
 Bei diesem Schema kommt gegenüber dem Vier-Kondensate-Schema noch eine fünfte Kondensatklasse hinzu, nämlich Graupel. Somit lauten die fünf hier verwendeten Kondensatklassen
 %
 \begin{itemize}
-\item Wolkenwasser,
-\item Regenwasser,
+\item flüssiges Wolkenwasser,
+\item Wolkeneis,
 \item flüsiger Niederschlag,
 \item fester Niederschlag,
 \item Graupel.
@@ -25488,11 +25488,11 @@ Dieses Schema ist adäquat für Regionalmodelle. Es entspricht dem in Abschn. \r
 \section{Weiterführende Wolken-Mikrophysik-Schemata}
 \label{sec:weiterfuehrende_wolken-mikrophysik-schemata}
 
-Bei den bisher betrachteten Schemata wird jede Kondesatklasse durch eine prognostische Variable, nämlich die Massendichte oder auch die spezifische Dichte beschrieben. Dies wäre nur dann eine vollständige Beschreibung, wenn alle Kondensate der jeweiligen Klasse den gleichen Radius und die gleiche Temperatur wie die Gasphase hätten. Beides ist jedoch im Allgemeinen nicht der Fall. Es bieten sich zwei Erweiterungen an:
+Bei den bisher betrachteten Schemata wird jede Kondesatklasse durch eine prognostische Variable, nämlich die Massendichte oder auch die spezifische Dichte, beschrieben. Dies wäre nur dann eine vollständige Beschreibung, wenn alle Kondensate der jeweiligen Klasse den gleichen Radius und die gleiche Temperatur wie die Gasphase hätten. Beides ist jedoch im Allgemeinen nicht der Fall. Es bieten sich zwei Erweiterungen an:
 %
 \begin{itemize}
 \item Jeder Kondensatklasse kann ihre eigene Temperatur zugewiesen werden.
-\item Die Größenverteilung innerhalb der Kondensatklassen kann berücksichtigt werden. Dies geschieht bei den sogenannten \textit{Multi-Moment-Schemata}\index{Multi-Moment-Schema}, bei denen die höheren Momente der Größenverteilungen (oder vergleichbare die Form der Verteilungen beschreibenden Größen) als zusätzliche prignostische Variablen eingeführt werden.
+\item Die Größenverteilung innerhalb der Kondensatklassen kann berücksichtigt werden. Dies geschieht bei den sogenannten \textit{Multi-Moment-Schemata}\index{Multi-Moment-Schema}, bei denen die höheren Momente der Größenverteilungen (oder vergleichbare die Form der Verteilungen beschreibenden Größen) als zusätzliche prognostische Variablen eingeführt werden.
 \end{itemize}
 
 \chapter{\normalfont\textsc{Planetarische Grenzschicht}}
