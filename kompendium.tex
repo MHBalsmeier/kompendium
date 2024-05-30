@@ -26497,7 +26497,7 @@ Nun soll
 \int_{0}^{\infty}x^ne^{-\beta x}dx = \frac{n!}{\beta^{n + 1}}\label{eq:int_prop_1}
 \end{align}
 %
-mit $\beta\in\mathbb{R}$, $\beta > 0$, $n\in\mathbb{N}$ eingesehen werden. Dies tut man am besten per vollständiger Induktion. Für $n = 0$ gilt
+mit $\beta\in\mathbb{R}$, $\beta>0$, $n\in\mathbb{N}$ eingesehen werden. Dies tut man am besten per vollständiger Induktion. Für $n = 0$ gilt
 %
 \begin{align}
 \int_{0}^{\infty}e^{-\beta x}dx = \frac{1}{\beta}, 
@@ -26527,6 +26527,18 @@ Damit folgt mit den Glg.en \eqref{eq:int_prop_1} und \eqref{eq:reihe_1}
 \int_{0}^\infty\frac{x^3}{e^x - 1}dx &= \sum_{n = 1}^{\infty}\int_{0}^{\infty}x^3e^{-nx}dx = 6\sum_{n = 1}^{\infty}\frac{1}{n^4} = \frac{\pi^4}{15}.\label{eq:int_prop_3}
 \end{align}
 %
+Die sogenannte \textit{Gamma-Funktion}\index{Gamma-Funktion} ist durch
+%
+\begin{align}
+\Gamma\left(n+1\right)\coloneqq\int_{0}^{\infty}x^ne^{-x}dx
+\end{align}
+%
+definiert. Für sie folgt mit Glg. \eqref{eq:int_prop_1}
+%
+\begin{align}
+\Gamma\left(n\right) = \left(n - 1\right)!.
+\end{align}
+
 Die \index{Fehlerfunktion}\textit{Fehlerfunktion} $\text{erf}$ ist definiert durch
 %
 \begin{align}
