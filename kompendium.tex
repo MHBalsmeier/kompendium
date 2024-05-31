@@ -30846,6 +30846,26 @@ h_\lambda = \sqrt{\left(\frac{\partial x}{\partial \lambda}\right)^2 + \left(\fr
 }}
 \end{center}
 
+Für die Determinante $g$ des metrischen Tensors der \textsc{Great}-Koordinaten gilt
+%
+\begin{align}
+\sqrt{g} &= h_Rh_\lambda h_\varphi = h_Rr_\perp h_\varphi = h_Rr_\perp\frac{r_\perp z}{\left(1 - \nu z^2\right)\left(R^2 + \left(\mu + \nu R^2\right)\left(1 + \mu + \nu R^2\right)z^2\right)^{1/2}}\left|\frac{d\ln\left[D\left(\varphi\right)\right]}{d\varphi}\right|\nonumber\\
+&= h_R\frac{r_\perp^2z}{\left(1 - \nu z^2\right)\left(R^2 + \left(\mu + \nu R^2\right)\left(1 + \mu + \nu R^2\right)z^2\right)^{1/2}}\left|\frac{d\ln\left[D\left(\varphi\right)\right]}{d\varphi}\right|\nonumber\\
+&= \frac{R\left(1 - \nu z^2\right)}{\left[R^2 + z^2\left(1 + \mu + \nu R^2\right)\left(\mu + \nu R^2\right)\right]^{1/2}}\frac{r_\perp^2z}{\left(1 - \nu z^2\right)\left(R^2 + \left(\mu + \nu R^2\right)\left(1 + \mu + \nu R^2\right)z^2\right)^{1/2}}\left|\frac{d\ln\left[D\left(\varphi\right)\right]}{d\varphi}\right|\nonumber\\
+&= \frac{R}{\left[R^2 + z^2\left(1 + \mu + \nu R^2\right)\left(\mu + \nu R^2\right)\right]^{1/2}}\frac{r_\perp^2z}{\left(R^2 + \left(\mu + \nu R^2\right)\left(1 + \mu + \nu R^2\right)z^2\right)^{1/2}}\left|\frac{d\ln\left[D\left(\varphi\right)\right]}{d\varphi}\right|\nonumber\\
+&= \frac{Rr_\perp^2z}{R^2 + \left(\mu + \nu R^2\right)\left(1 + \mu + \nu R^2\right)z^2}\left|\frac{d\ln\left[D\left(\varphi\right)\right]}{d\varphi}\right|\nonumber
+\end{align}
+\begin{center}
+\doublebox{\parbox{0.99\textwidth}{
+\begin{center}
+\begin{align}
+\Leftrightarrow\sqrt{g} &= \frac{Rr_\perp^2z}{R^2 + \left(\mu + \nu R^2\right)\left(1 + \mu + \nu R^2\right)z^2}\cdot\nonumber\\
+& \cdot\left|\frac{1}{\sin\left(\varphi\right)\cos\left(\varphi\right)} + \mu\tan\left(\varphi\right)\frac{c^2}{\cos^2\left(\varphi\right) + c^2\sin^2\left(\varphi\right)} + \nu\frac{\sin\left(\varphi\right)\cos\left(\varphi\right)c^2\left(1 - c^2\right)}{\left(\cos^2\left(\varphi\right) + c^2\sin^2\left(\varphi\right)\right)^2}\right|.
+\end{align}
+\end{center}
+}}
+\end{center}
+
 \subsection{Transformation von \textsc{Great}-Koordinaten in globale Koordinaten}
 \label{sec:transformation_von_greatKoordinaten_in_globale_koordinaten}\index{\textsc{Great}-Koordinaten!Transformation}
 
@@ -31031,37 +31051,6 @@ Somit erhält man
 \end{center}
 }}
 \end{center}
-
-\subsection{Rotation in \textsc{Great}-Koordinaten}
-\label{sec:rotation_in_great-koordinaten}\index{Rotation!\textsc{Great}-Koordinaten}\index{\textsc{Great}-Koordinaten!Rotation}
-
-Für die Determinante $g$ des metrischen Tensors der \textsc{Great}-Koordinaten gilt
-%
-\begin{align}
-\sqrt{g} &= h_Rh_\lambda h_\varphi = h_Rr_\perp h_\varphi = h_Rr_\perp\frac{r_\perp z}{\left(1 - \nu z^2\right)\left(R^2 + \left(\mu + \nu R^2\right)\left(1 + \mu + \nu R^2\right)z^2\right)^{1/2}}\left|\frac{d\ln\left[D\left(\varphi\right)\right]}{d\varphi}\right|\nonumber\\
-&= h_R\frac{r_\perp^2z}{\left(1 - \nu z^2\right)\left(R^2 + \left(\mu + \nu R^2\right)\left(1 + \mu + \nu R^2\right)z^2\right)^{1/2}}\left|\frac{d\ln\left[D\left(\varphi\right)\right]}{d\varphi}\right|\nonumber\\
-&= \frac{R\left(1 - \nu z^2\right)}{\left[R^2 + z^2\left(1 + \mu + \nu R^2\right)\left(\mu + \nu R^2\right)\right]^{1/2}}\frac{r_\perp^2z}{\left(1 - \nu z^2\right)\left(R^2 + \left(\mu + \nu R^2\right)\left(1 + \mu + \nu R^2\right)z^2\right)^{1/2}}\left|\frac{d\ln\left[D\left(\varphi\right)\right]}{d\varphi}\right|\nonumber\\
-&= \frac{R}{\left[R^2 + z^2\left(1 + \mu + \nu R^2\right)\left(\mu + \nu R^2\right)\right]^{1/2}}\frac{r_\perp^2z}{\left(R^2 + \left(\mu + \nu R^2\right)\left(1 + \mu + \nu R^2\right)z^2\right)^{1/2}}\left|\frac{d\ln\left[D\left(\varphi\right)\right]}{d\varphi}\right|\nonumber\\
-&= \frac{Rr_\perp^2z}{R^2 + \left(\mu + \nu R^2\right)\left(1 + \mu + \nu R^2\right)z^2}\left|\frac{d\ln\left[D\left(\varphi\right)\right]}{d\varphi}\right|\nonumber
-\end{align}
-\begin{center}
-\doublebox{\parbox{0.99\textwidth}{
-\begin{center}
-\begin{align}
-\Leftrightarrow\sqrt{g} &= \frac{Rr_\perp^2z}{R^2 + \left(\mu + \nu R^2\right)\left(1 + \mu + \nu R^2\right)z^2}\cdot\nonumber\\
-& \cdot\left|\frac{1}{\sin\left(\varphi\right)\cos\left(\varphi\right)} + \mu\tan\left(\varphi\right)\frac{c^2}{\cos^2\left(\varphi\right) + c^2\sin^2\left(\varphi\right)} + \nu\frac{\sin\left(\varphi\right)\cos\left(\varphi\right)c^2\left(1 - c^2\right)}{\left(\cos^2\left(\varphi\right) + c^2\sin^2\left(\varphi\right)\right)^2}\right|.
-\end{align}
-\end{center}
-}}
-\end{center}
-%
-Zunächst stellt man
-%
-\begin{align}
-\frac{\partial\sqrt{g}}{\partial\lambda} &= 0
-\end{align}
-%
-fest, was auch aus Symmetriegründen der Fall sein muss.
 
 \section{Ellipsoidische Geometrie}
 \label{sec:ellipsoidische_geometrie}\index{ellipsoidische Geometrie}\index{Geometrie!ellipsoidische}
