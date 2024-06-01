@@ -19773,39 +19773,41 @@ hierbei ist $\rho_g$ die Dichte von Graupel bzw. Hagel und $\rho_i'$ die mikrosk
 D_0 = \left(\frac{\rho_g}{\pi\rho_i'A}\right)^{\frac{1}{4 - b}}.
 \end{align}
 
-\subsection{Koagulation}
-\label{sec:koagulation}\index{Koagulation}
+\subsection{Autokonversion}
+\label{sec:autokonversion}\index{Autokonversion}
 
-Die sogenannte \textit{Koagulation}, auch \textit{Autokonversion}\index{Autokonversion} genannt, bezeichnet das Entstehen von Regentropfen über das Wachsen von Wolkentröpfchen.
+Die sogenannte \textit{Autokonversion}\index{Autokonversion} bezeichnet das Entstehen von Niederschlag über das Wachsen von Wolkenpartikeln. Es vereinigen sich also mehrere Wolkenpartikel zu einem Niederschlagspartikel. Dies ist der erste Schritt der Niederschlagsbildung.
 
 \subsubsection{Bergeron-Findeisen-Prozess}
 \label{sec:bergeron-findeisen-prozess}\index{Bergeron-Findeisen-Prozess}
 
-\subsection{Koaleszenz}
-\label{sec:koaleszenz}\index{Koaleszenz}
+\subsection{Akkretion}
+\label{sec:akkretion}\index{Akkretion}\index{Koaleszenz}
 
-Die sogenannte \textit{Koaleszenz} bezeichnet das Anwachsen von Niederschlagspartikeln $p$ durch Kollisionen mit Wolkentröpfchen. Um die entsprechende Quelldichte $Q_{K,p}$ zu bestimmen, geht man davon aus, dass Wolkenpartikel keine Fallgeschwindigkeit und Niderschlagspartikel eine Fallgeschwindigkeit $v_p = v_p\left(r\right)>0$ haben. Zunächst wird die vereinfachende Annahme gemacht, dass alle Niderschlagspartikel den Radius $r$ haben:
+Die sogenannte \textit{Akkretion}\index{Akkretion} bezeichnet das Anwachsen von Niederschlagspartikeln $p$ durch Kollisionen mit Wolkentröpfchen oder Wolkeneispartikeln. Teilweise werden hierfür auch die Begriffe \textit{Koaleszenz}\index{Koaleszenz} und \textit{Koagulation}\index{Koagulation} verwendet, allerdings in nicht immer ganz einheitlicher Bedeutung. Koaleszenz wird meistens synonym zu Akkretion benutzt, häufig in Bezug auf Regentropfen (Abschn. \ref{sec:anwendung_auf_regen}). Koagulation ist grundsätzlich ebenfalls synonym zu Akkretion und Koaleszenz, bezieht sich aber meist auf das Anwachsen von Schnee auf Kosten von anderen Kondensatklassen (Abschn. \ref{sec:anwendung_auf_schnee_accretion}). In diesem Text soll daher nur von Akkretion gesprochen werden.
+
+Um die entsprechende Quelldichte $Q_{A,p}$ zu bestimmen, geht man davon aus, dass Wolkenpartikel keine Fallgeschwindigkeit und Niderschlagspartikel eine Fallgeschwindigkeit $v_p = v_p\left(r\right)>0$ haben. Zunächst wird die vereinfachende Annahme gemacht, dass alle Niderschlagspartikel den Radius $r$ haben:
 %
 \begin{align}
-Q_{K,p} = E_{p,c}n_p\pi r^2v_p\left(r\right)\rho_c.\label{eq:accretion_deriv_1}
+Q_{A,p} = E_{p,c}n_p\pi r^2v_p\left(r\right)\rho_c.\label{eq:accretion_deriv_1}
 \end{align}
 %
 Hierbei sind $\rho_c$ und $n_p$ die Teilchendichten der Wolken- und Niederschlagspartikel sowie $E_{p,c}$ die Wahrscheinlichkeit, dass zwei Teilchen nach einer Kollision zu einem Teilchen verschmelzen. Sie wird von nun an vernachlässigt, d. h. sie wird mit Eins angesetzt:
 %
 \begin{align}
-Q_{K,p} = n_p\pi r^2v_p\left(r\right)\rho_c.
+Q_{A,p} = n_p\pi r^2v_p\left(r\right)\rho_c.
 \end{align}
 %
 Nimmt man hingegen eine Größenverteilung der Regentropfen $n_p\left(r\right)$ an, erhält man
 %
 \begin{align}
-Q_{K,p} = \int_0^\infty n_p\left(r\right)\pi r^2v_p\left(r\right)\rho_cdr = \pi\rho_c\int_0^\infty n_p\left(r\right)r^2v_p\left(r\right)dr = \pi\rho_c\int_0^\infty n_p\left(r\right)r^2v_p\left(r\right)dr.
+Q_{A,p} = \int_0^\infty n_p\left(r\right)\pi r^2v_p\left(r\right)\rho_cdr = \pi\rho_c\int_0^\infty n_p\left(r\right)r^2v_p\left(r\right)dr = \pi\rho_c\int_0^\infty n_p\left(r\right)r^2v_p\left(r\right)dr.
 \end{align}
 %
 Setzt man hier Glg. \eqref{eq:marshall-palmer} ein, erhält man
 %
 \begin{align}
-Q_{K,p} = \pi\rho_c\int_0^\infty n_{0,p}\exp\left(-\lambda_p D\right)\frac{D^2}{4}v_p\left(\frac{D}{2}\right)dD = \frac{n_{0,p}\pi\rho_c}{4}\int_0^\infty\exp\left(-\lambda_p D\right)D^2v_p\left(\frac{D}{2}\right)dD.\label{eq:accretion_deriv_2}
+Q_{A,p} = \pi\rho_c\int_0^\infty n_{0,p}\exp\left(-\lambda_p D\right)\frac{D^2}{4}v_p\left(\frac{D}{2}\right)dD = \frac{n_{0,p}\pi\rho_c}{4}\int_0^\infty\exp\left(-\lambda_p D\right)D^2v_p\left(\frac{D}{2}\right)dD.\label{eq:accretion_deriv_2}
 \end{align}
 
 \subsubsection{Anwendung auf Regen}
@@ -19814,7 +19816,7 @@ Q_{K,p} = \pi\rho_c\int_0^\infty n_{0,p}\exp\left(-\lambda_p D\right)\frac{D^2}{
 Setzt man in Glg. \eqref{eq:accretion_deriv_2} Glg. \eqref{eq:sink_turb} für die Fallgeschwindigkeit sowie $n_{0,p} = n_{0,r}$ und $E_{r,c} = 1$ ein, erhält man
 %
 \begin{align}
-Q_{K,c} &= \frac{n_{0,r}\pi\rho_c}{4}\int_0^\infty\exp\left(-\lambda_r D\right)D^2\sqrt{\frac{4D\rho_l'g}{3\rho_h'c_w}}dD = \frac{n_{0,r}\pi\rho_c}{4}\sqrt{\frac{4\rho_l'g}{3\rho_h'c_w}}\int_0^\infty\exp\left(-\lambda_r D\right)D^{5/2}dD\nonumber\\
+Q_{A,c} &= \frac{n_{0,r}\pi\rho_c}{4}\int_0^\infty\exp\left(-\lambda_r D\right)D^2\sqrt{\frac{4D\rho_l'g}{3\rho_h'c_w}}dD = \frac{n_{0,r}\pi\rho_c}{4}\sqrt{\frac{4\rho_l'g}{3\rho_h'c_w}}\int_0^\infty\exp\left(-\lambda_r D\right)D^{5/2}dD\nonumber\\
 &= \frac{n_{0,r}\pi\rho_c}{4\lambda_r^{7/2}}\sqrt{\frac{4\rho_l'g}{3\rho_h'c_w}}\Gamma\left(\frac{7}{2}\right) = \frac{n_{0,r}\pi\rho_c}{\lambda_r^{7/2}}\sqrt{\frac{\rho_l'g}{12\rho_h'c_w}}\Gamma\left(\frac{7}{2}\right).
 \end{align}
 
@@ -19830,7 +19832,7 @@ E_{s,i} = \exp\left[0,025\cdot\left(T - T_0\right)\right]
 \cite{BulkParameterizationoftheSnowFieldinaCloudModel} an, erhält man
 %
 \begin{align}
-Q_{K,s} &= \frac{E_{s,i}n_{0,s}\pi\rho_i}{4}\int_0^\infty\exp\left(-\lambda_s D\right)D^2\frac{a}{2^b}D^bdD = \frac{E_{s,i}n_{0,s}\pi\rho_ia}{4\cdot 2^b}\int_0^\infty\exp\left(-\lambda_s D\right)D^{2+b}dD\nonumber\\
+Q_{A,s} &= \frac{E_{s,i}n_{0,s}\pi\rho_i}{4}\int_0^\infty\exp\left(-\lambda_s D\right)D^2\frac{a}{2^b}D^bdD = \frac{E_{s,i}n_{0,s}\pi\rho_ia}{4\cdot 2^b}\int_0^\infty\exp\left(-\lambda_s D\right)D^{2+b}dD\nonumber\\
 &= \frac{n_{0,s}\pi\rho_ia\Gamma\left(3 + b\right)}{4\cdot 2^b\lambda_s^{3+b}}.
 \end{align}
 
@@ -19840,7 +19842,7 @@ Q_{K,s} &= \frac{E_{s,i}n_{0,s}\pi\rho_i}{4}\int_0^\infty\exp\left(-\lambda_s D\
 Für die Akkrektion von Schnee durch Hagel modifiziert man zunächst Glg. \eqref{eq:accretion_deriv_1} folgendermaßen:
 %
 \begin{align}
-Q_{K,g} &= E_{g,s}n_g\pi\left(r_g + r_s\right)^2\left|v_g - v_s\right|\rho_s = E_{g,s}n_gn_s\pi\left(r_g + r_s\right)^2\left|v_g - v_s\right|\frac{4}{3}\pi r_s^3\rho_i'\nonumber\\
+Q_{A,g} &= E_{g,s}n_g\pi\left(r_g + r_s\right)^2\left|v_g - v_s\right|\rho_s = E_{g,s}n_gn_s\pi\left(r_g + r_s\right)^2\left|v_g - v_s\right|\frac{4}{3}\pi r_s^3\rho_i'\nonumber\\
 &= E_{g,s}n_gn_s\pi\frac{1}{24}\left(D_g + D_s\right)^2\left|v_g - v_s\right|\pi D_s^3\rho_i'\nonumber\\
 &= E_{g,s}\rho_i'n_gn_s\pi^2\left|v_g - v_s\right|\frac{1}{24}\left(r_s^3r_g^2 + 2r_s^4r_g + r_s^5\right).
 \end{align}
@@ -19848,7 +19850,7 @@ Q_{K,g} &= E_{g,s}n_g\pi\left(r_g + r_s\right)^2\left|v_g - v_s\right|\rho_s = E
 Hierbei wurde davon ausgegangen, dass alle Graupelteilchen den Radius $r_g$ und alle Schneeflocken den Radius $r_s$ haben. Nun setzt man Marshall-Palmer-Verteilungen Glg. \eqref{eq:marshall-palmer} ein, und integriert über das gesamte Größenspektrum. Für die Relativgeschwindigkeit setzt man die massengewichtete Fallgeschwindigkeit ein:
 %
 \begin{align}
-Q_{K,g} &= E_{g,s}\rho_i'\pi^2\left|v_g - v_s\right|\frac{1}{24}\int_{D_s=0}^\infty\int_{r_g=0}^\infty n_{0,g}n_{0,s}\exp\left(-\lambda_gD_g - \lambda_sD_s\right)\left(D_s^3D_g^2 + 2D_s^4D_g + D_s^5\right)dr_gdD_s\nonumber\\
+Q_{A,g} &= E_{g,s}\rho_i'\pi^2\left|v_g - v_s\right|\frac{1}{24}\int_{D_s=0}^\infty\int_{r_g=0}^\infty n_{0,g}n_{0,s}\exp\left(-\lambda_gD_g - \lambda_sD_s\right)\left(D_s^3D_g^2 + 2D_s^4D_g + D_s^5\right)dr_gdD_s\nonumber\\
 &= E_{g,s}\rho_i'\pi^2n_{0,g}n_{0,s}\left|v_g - v_s\right|\frac{1}{24}\int_{D_s=0}^\infty\int_{r_g=0}^\infty\exp\left(-\lambda_gr_g - \lambda_sD_s\right)\left(D_s^3r_g^2 + 2D_s^4r_g + D_s^5\right)dr_gdD_s\\
 &= E_{g,s}\rho_i'\pi^2n_{0,g}n_{0,s}\left|v_g - v_s\right|\frac{1}{24}\int_{D_s=0}^\infty\exp\left(-\lambda_sD_s\right)\int_{D_g=0}^\infty\exp\left(-\lambda_gr_g\right)\left(D_s^3r_g^2 + 2D_s^4D_g + D_s^5\right)dr_gdD_s.
 \end{align}
@@ -19856,7 +19858,7 @@ Q_{K,g} &= E_{g,s}\rho_i'\pi^2\left|v_g - v_s\right|\frac{1}{24}\int_{D_s=0}^\in
 Hieraus folgt mit Glg. \eqref{eq:int_prop_1}
 %
 \begin{align}
-Q_{K,g} &= E_{p,c}\rho_i'\pi^2n_{0,g}n_{0,s}\left|v_g - v_s\right|\frac{1}{24}\int_{D_s=0}^\infty\exp\left(-\lambda_sD_s\right)\left(\frac{2D_s^3}{\lambda_g^3} + \frac{D_s^4}{\lambda_g^2} + \frac{D_s^5}{\lambda_g}\right)dD_s\nonumber\\
+Q_{A,g} &= E_{p,c}\rho_i'\pi^2n_{0,g}n_{0,s}\left|v_g - v_s\right|\frac{1}{24}\int_{D_s=0}^\infty\exp\left(-\lambda_sD_s\right)\left(\frac{2D_s^3}{\lambda_g^3} + \frac{D_s^4}{\lambda_g^2} + \frac{D_s^5}{\lambda_g}\right)dD_s\nonumber\\
 &= E_{p,c}\rho_i'\pi^2n_{0,g}n_{0,s}\left|v_g - v_s\right|\frac{1}{24}\left(\frac{2\cdot 3!}{\lambda_g^3\lambda_s^4} + \frac{2\cdot 4!}{\lambda_g^2\lambda_s^5} + \frac{5!}{\lambda_g\lambda_s^6}\right)\nonumber\\
 &= E_{p,c}\rho_i'\pi^2n_{0,g}n_{0,s}\left|v_g - v_s\right|\left(\frac{1}{2\lambda_g^3\lambda_s^4} + \frac{2}{\lambda_g^2\lambda_s^5} + \frac{5}{\lambda_g\lambda_s^6}\right).
 \end{align}
