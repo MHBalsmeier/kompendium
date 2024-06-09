@@ -19836,6 +19836,32 @@ Q_{a,i,r} &= \frac{n_{0,r}\pi\rho_i}{4M_i}\sqrt{\frac{4\rho_l'g}{3\rho_h'c_w}}\i
 %
 Hierbei ist $M_i$ eine angenommene Masse aller Eiskristalle. Da unterkühlter Regen beim Kollidieren mit Eiskristallen gefriert, ist $Q_{a,i,r}$ eine Quelldichte für Schnee. Hiermit geht eine Phasenübergangswärmeflussdichte einher, da ein Phasenübergang von flüssig zu fest stattfindet.
 
+Für die Akkrektion von Schnee durch Regen modifiziert man zunächst Glg. \eqref{eq:accretion_deriv_1} folgendermaßen:
+%
+\begin{align}
+Q_{a,r,s} &= E_{r,s}n_r\pi\left(r_r + r_s\right)^2\left|v_r - v_s\right|\rho_s = E_{r,s}n_rn_s\pi\left(r_r + r_s\right)^2\left|v_r - v_s\right|\frac{4}{3}\pi r_s^3\rho_i'\nonumber\\
+&= E_{r,s}n_rn_s\pi\frac{1}{24}\left(D_r + D_s\right)^2\left|v_r - v_s\right|\pi D_s^3\rho_i'\nonumber\\
+&= E_{r,s}\rho_i'n_rn_s\pi^2\left|v_r - v_s\right|\frac{1}{24}\left(r_s^3r_r^2 + 2r_s^4r_r + r_s^5\right).
+\end{align}
+%
+Hierbei wurde davon ausgegangen, dass alle Regentropfen den Radius $r_r$ und alle Schneeflocken den Radius $r_s$ haben. Nun setzt man Marshall-Palmer-Verteilungen Glg. \eqref{eq:marshall-palmer} ein, und integriert über das gesamte Größenspektrum. Für die Relativgeschwindigkeit setzt man die massengewichtete Fallgeschwindigkeit ein:
+%
+\begin{align}
+Q_{a,r,s} &= E_{r,s}\rho_i'\pi^2\left|v_r - v_s\right|\frac{1}{24}\int_{D_s=0}^\infty\int_{r_r=0}^\infty n_{0,r}n_{0,s}\exp\left(-\lambda_rD_g - \lambda_sD_s\right)\left(D_s^3D_g^2 + 2D_s^4D_g + D_s^5\right)dr_rdD_s\nonumber\\
+&= E_{r,s}\rho_i'\pi^2n_{0,r}n_{0,s}\left|v_r - v_s\right|\frac{1}{24}\int_{D_s=0}^\infty\int_{r_r=0}^\infty\exp\left(-\lambda_rr_r - \lambda_sD_s\right)\left(D_s^3r_r^2 + 2D_s^4r_r + D_s^5\right)dr_rdD_s\\
+&= E_{r,s}\rho_i'\pi^2n_{0,r}n_{0,s}\left|v_r - v_s\right|\frac{1}{24}\int_{D_s=0}^\infty\exp\left(-\lambda_sD_s\right)\int_{D_g=0}^\infty\exp\left(-\lambda_r r_r\right)\left(D_s^3r_r^2 + 2D_s^4D_g + D_s^5\right)dr_rdD_s.
+\end{align}
+%
+Hieraus folgt mit Glg. \eqref{eq:int_prop_1}
+%
+\begin{align}
+Q_{a,r,s} &= E_{r,s}\rho_i'\pi^2n_{0,r}n_{0,s}\left|v_r - v_s\right|\frac{1}{24}\int_{D_s=0}^\infty\exp\left(-\lambda_sD_s\right)\left(\frac{2D_s^3}{\lambda_r^3} + \frac{D_s^4}{\lambda_r^2} + \frac{D_s^5}{\lambda_r}\right)dD_s\nonumber\\
+&= E_{r,s}\rho_i'\pi^2n_{0,r}n_{0,s}\left|v_r - v_s\right|\frac{1}{24}\left(\frac{2\cdot 3!}{\lambda_r^3\lambda_s^4} + \frac{2\cdot 4!}{\lambda_r^2\lambda_s^5} + \frac{5!}{\lambda_r\lambda_s^6}\right)\nonumber\\
+&= E_{r,s}\rho_i'\pi^2n_{0,r}n_{0,s}\left|v_r - v_s\right|\left(\frac{1}{2\lambda_r^3\lambda_s^4} + \frac{2}{\lambda_r^2\lambda_s^5} + \frac{5}{\lambda_r\lambda_s^6}\right).
+\end{align}
+%
+Für die Kollisionseffizienz $E_{r,s}$ nimmt man $E_{r,s} = 1$ \cite{BulkParameterizationoftheSnowFieldinaCloudModel} an.
+
 \subsubsection{Anwendung auf Schnee}
 \label{sec:anwendung_auf_schnee_accretion}
 
@@ -19869,28 +19895,10 @@ E_{s,l} = 1
 \subsubsection{Anwendung auf Graupel}
 \label{sec:anwendung_auf_graupel}
 
-Für die Akkrektion von Schnee durch Hagel modifiziert man zunächst Glg. \eqref{eq:accretion_deriv_1} folgendermaßen:
+Für die Akkrektion von Schnee durch Hagel erhält man analog zu.
 %
 \begin{align}
-Q_{a,g,s} &= E_{g,s}n_g\pi\left(r_g + r_s\right)^2\left|v_g - v_s\right|\rho_s = E_{g,s}n_gn_s\pi\left(r_g + r_s\right)^2\left|v_g - v_s\right|\frac{4}{3}\pi r_s^3\rho_i'\nonumber\\
-&= E_{g,s}n_gn_s\pi\frac{1}{24}\left(D_g + D_s\right)^2\left|v_g - v_s\right|\pi D_s^3\rho_i'\nonumber\\
-&= E_{g,s}\rho_i'n_gn_s\pi^2\left|v_g - v_s\right|\frac{1}{24}\left(r_s^3r_g^2 + 2r_s^4r_g + r_s^5\right).
-\end{align}
-%
-Hierbei wurde davon ausgegangen, dass alle Graupelteilchen den Radius $r_g$ und alle Schneeflocken den Radius $r_s$ haben. Nun setzt man Marshall-Palmer-Verteilungen Glg. \eqref{eq:marshall-palmer} ein, und integriert über das gesamte Größenspektrum. Für die Relativgeschwindigkeit setzt man die massengewichtete Fallgeschwindigkeit ein:
-%
-\begin{align}
-Q_{a,g,s} &= E_{g,s}\rho_i'\pi^2\left|v_g - v_s\right|\frac{1}{24}\int_{D_s=0}^\infty\int_{r_g=0}^\infty n_{0,g}n_{0,s}\exp\left(-\lambda_gD_g - \lambda_sD_s\right)\left(D_s^3D_g^2 + 2D_s^4D_g + D_s^5\right)dr_gdD_s\nonumber\\
-&= E_{g,s}\rho_i'\pi^2n_{0,g}n_{0,s}\left|v_g - v_s\right|\frac{1}{24}\int_{D_s=0}^\infty\int_{r_g=0}^\infty\exp\left(-\lambda_gr_g - \lambda_sD_s\right)\left(D_s^3r_g^2 + 2D_s^4r_g + D_s^5\right)dr_gdD_s\\
-&= E_{g,s}\rho_i'\pi^2n_{0,g}n_{0,s}\left|v_g - v_s\right|\frac{1}{24}\int_{D_s=0}^\infty\exp\left(-\lambda_sD_s\right)\int_{D_g=0}^\infty\exp\left(-\lambda_gr_g\right)\left(D_s^3r_g^2 + 2D_s^4D_g + D_s^5\right)dr_gdD_s.
-\end{align}
-%
-Hieraus folgt mit Glg. \eqref{eq:int_prop_1}
-%
-\begin{align}
-Q_{a,g,s} &= E_{p,c}\rho_i'\pi^2n_{0,g}n_{0,s}\left|v_g - v_s\right|\frac{1}{24}\int_{D_s=0}^\infty\exp\left(-\lambda_sD_s\right)\left(\frac{2D_s^3}{\lambda_g^3} + \frac{D_s^4}{\lambda_g^2} + \frac{D_s^5}{\lambda_g}\right)dD_s\nonumber\\
-&= E_{p,c}\rho_i'\pi^2n_{0,g}n_{0,s}\left|v_g - v_s\right|\frac{1}{24}\left(\frac{2\cdot 3!}{\lambda_g^3\lambda_s^4} + \frac{2\cdot 4!}{\lambda_g^2\lambda_s^5} + \frac{5!}{\lambda_g\lambda_s^6}\right)\nonumber\\
-&= E_{p,c}\rho_i'\pi^2n_{0,g}n_{0,s}\left|v_g - v_s\right|\left(\frac{1}{2\lambda_g^3\lambda_s^4} + \frac{2}{\lambda_g^2\lambda_s^5} + \frac{5}{\lambda_g\lambda_s^6}\right).
+Q_{a,g,s} &= E_{g,s}\rho_i'\pi^2n_{0,g}n_{0,s}\left|v_g - v_s\right|\left(\frac{1}{2\lambda_g^3\lambda_s^4} + \frac{2}{\lambda_g^2\lambda_s^5} + \frac{5}{\lambda_g\lambda_s^6}\right).
 \end{align}
 %
 Für die Kollisionseffizienz wird folgender Ansatz gewählt \cite{BulkParameterizationoftheSnowFieldinaCloudModel}:
