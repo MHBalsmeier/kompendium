@@ -19857,10 +19857,10 @@ Hieraus folgt mit Glg. \eqref{eq:int_prop_1}
 \begin{align}
 Q_{a,r,s} &= E_{r,s}\rho_i'\pi^2n_{0,r}n_{0,s}\left|v_r - v_s\right|\frac{1}{24}\int_{D_s=0}^\infty\exp\left(-\lambda_sD_s\right)\left(\frac{2D_s^3}{\lambda_r^3} + \frac{D_s^4}{\lambda_r^2} + \frac{D_s^5}{\lambda_r}\right)dD_s\nonumber\\
 &= E_{r,s}\rho_i'\pi^2n_{0,r}n_{0,s}\left|v_r - v_s\right|\frac{1}{24}\left(\frac{2\cdot 3!}{\lambda_r^3\lambda_s^4} + \frac{2\cdot 4!}{\lambda_r^2\lambda_s^5} + \frac{5!}{\lambda_r\lambda_s^6}\right)\nonumber\\
-&= E_{r,s}\rho_i'\pi^2n_{0,r}n_{0,s}\left|v_r - v_s\right|\left(\frac{1}{2\lambda_r^3\lambda_s^4} + \frac{2}{\lambda_r^2\lambda_s^5} + \frac{5}{\lambda_r\lambda_s^6}\right).
+&= E_{r,s}\rho_i'\pi^2n_{0,r}n_{0,s}\left|v_r - v_s\right|\left(\frac{1}{2\lambda_r^3\lambda_s^4} + \frac{2}{\lambda_r^2\lambda_s^5} + \frac{5}{\lambda_r\lambda_s^6}\right).\label{eq:q_ars}
 \end{align}
 %
-Für die Kollisionseffizienz $E_{r,s}$ nimmt man $E_{r,s} = 1$ \cite{BulkParameterizationoftheSnowFieldinaCloudModel} an.
+Für die Kollisionseffizienz $E_{r,s}$ nimmt man $E_{r,s} = 1$ \cite{BulkParameterizationoftheSnowFieldinaCloudModel} an. Mit $Q_{a,r,s}$ geht eine Phasenübergangswärmeflussdichte einher, da ein Phasenübergang von fest zu flüssig stattfindet.
 
 \subsubsection{Anwendung auf Schnee}
 \label{sec:anwendung_auf_schnee_accretion}
@@ -19891,6 +19891,14 @@ E_{s,l} = 1
 \end{align}
 %
 \cite{BulkParameterizationoftheSnowFieldinaCloudModel} angenommen. Mit $Q_{a,s,l}$ geht eine Phasenübergangswärmeflussdichte einher, da ein Phasenübergang von flüssig zu fest stattfindet.
+
+Analog zu Glg. \eqref{eq:q_ars} erhält man für die Akkretion von Regen durch Schnee
+%
+\begin{align}
+Q_{a,s,r} &= E_{s,r}\rho_l'\pi^2n_{0,r}n_{0,s}\left|v_r - v_s\right|\left(\frac{1}{2\lambda_s^3\lambda_r^4} + \frac{2}{\lambda_s^2\lambda_r^5} + \frac{5}{\lambda_s\lambda_r^6}\right).\label{eq:q_asr}
+\end{align}
+%
+Für die Kollisionseffizienz $E_{s,r}$ nimmt man $E_{s,r} = 1$ \cite{BulkParameterizationoftheSnowFieldinaCloudModel} an. Mit $Q_{a,s,r}$ geht eine Phasenübergangswärmeflussdichte einher, da ein Phasenübergang von flüssig zu fest stattfindet.
 
 \subsubsection{Anwendung auf Graupel}
 \label{sec:anwendung_auf_graupel}
