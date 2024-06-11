@@ -19903,7 +19903,7 @@ Für die Kollisionseffizienz $E_{s,r}$ nimmt man $E_{s,r} = 1$ \cite{BulkParamet
 \subsubsection{Anwendung auf Graupel}
 \label{sec:anwendung_auf_graupel}
 
-Für die Akkrektion von Schnee durch Hagel erhält man analog zu.
+Für die Akkrektion von Schnee durch Hagel erhält man analog zu Glg. \eqref{eq:q_ars}
 %
 \begin{align}
 Q_{a,g,s} &= E_{g,s}\rho_i'\pi^2n_{0,g}n_{0,s}\left|v_g - v_s\right|\left(\frac{1}{2\lambda_g^3\lambda_s^4} + \frac{2}{\lambda_g^2\lambda_s^5} + \frac{5}{\lambda_g\lambda_s^6}\right).
@@ -19917,6 +19917,14 @@ E_{g,s} = \begin{cases}
 1,\text{ sonst.}
 \end{cases}
 \end{align}
+
+Für die Akkrektion von Schnee durch Regen erhält man analog zu Glg. \eqref{eq:q_ars}
+%
+\begin{align}
+Q_{a,g,r} &= E_{g,r}\rho_l'\pi^2n_{0,g}n_{0,r}\left|v_g - v_r\right|\left(\frac{1}{2\lambda_g^3\lambda_r^4} + \frac{2}{\lambda_g^2\lambda_r^5} + \frac{5}{\lambda_g\lambda_r^6}\right).
+\end{align}
+%
+Die Kollisionseffizienz wird mit $1$ angesetzt \cite{BulkParameterizationoftheSnowFieldinaCloudModel}. Mit $Q_{a,g,r}$ geht bei $T<T_0$ eine Phasenübergangswärmeflussdichte einher, da dann ein Phasenübergang von flüssig zu fest stattfindet.
 
 \section{Zerbrechen von Wassertropfen}
 \label{sec:zerbrechen_von_wassertropfen}
