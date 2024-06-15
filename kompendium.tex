@@ -19817,13 +19817,13 @@ Setzt man in Glg. \eqref{eq:accretion_deriv_2} Glg. \eqref{eq:sink_turb} für di
 %
 \begin{align}
 Q_{a,r,l} &= \frac{n_{0,r}\pi\rho_l}{4}\int_0^\infty\exp\left(-\lambda_r D\right)D^2\sqrt{\frac{4D\rho_l'g}{3\rho_h'c_w}}dD = \frac{n_{0,r}\pi\rho_l}{4}\sqrt{\frac{4\rho_l'g}{3\rho_h'c_w}}\int_0^\infty\exp\left(-\lambda_r D\right)D^{5/2}dD\nonumber\\
-&= \frac{n_{0,r}\pi\rho_c}{4\lambda_r^{7/2}}\sqrt{\frac{4\rho_l'g}{3\rho_h'c_w}}\Gamma\left(\frac{7}{2}\right) = \frac{n_{0,r}\pi\rho_l}{\lambda_r^{7/2}}\sqrt{\frac{\rho_l'g}{12\rho_h'c_w}}\Gamma\left(\frac{7}{2}\right).
+&= \frac{n_{0,r}\pi\rho_c}{4\lambda_r^{7/2}}\sqrt{\frac{4\rho_l'g}{3\rho_h'c_w}}\Gamma\left(\frac{7}{2}\right) = \frac{n_{0,r}\pi\rho_l}{\lambda_r^{7/2}}\sqrt{\frac{\rho_l'g}{12\rho_h'c_w}}\Gamma\left(\frac{7}{2}\right).\label{eq:q_arl}
 \end{align}
 %
 Analog erhält man
 %
 \begin{align}
-Q_{a,r,i} &= \frac{n_{0,r}\pi\rho_i}{\lambda_r^{7/2}}\sqrt{\frac{\rho_l'g}{12\rho_h'c_w}}\Gamma\left(\frac{7}{2}\right).
+Q_{a,r,i} &= \frac{n_{0,r}\pi\rho_i}{\lambda_r^{7/2}}\sqrt{\frac{\rho_l'g}{12\rho_h'c_w}}\Gamma\left(\frac{7}{2}\right).\label{eq:q_ari}
 \end{align}
 %
 Da die Eispartikel bei $T<T_0$ beim Zusammenprall mit unterkühlten Regentropfen zum Gefrieren dieser führen, ist dies eine Quelldichte für Schnee. $Q_{a,r,i}$ geht nicht mit einer Phasenübergangswärme einher, da die Eiskristalle beim Auftreffen bereits gefroren sind. Bei der Akkretion von Eis durch Regen handelt es sich um einen \textit{Drei-Komponenten-Prozess}\index{Drei-Komponenten-Prozess}, da die Kollision von Teilchen zweier Kondensatklassen zum Entstehen einer dritten führt.
@@ -19924,7 +19924,30 @@ Für die Akkrektion von Schnee durch Regen erhält man analog zu Glg. \eqref{eq:
 Q_{a,g,r} &= E_{g,r}\rho_l'\pi^2n_{0,g}n_{0,r}\left|v_g - v_r\right|\left(\frac{1}{2\lambda_g^3\lambda_r^4} + \frac{2}{\lambda_g^2\lambda_r^5} + \frac{5}{\lambda_g\lambda_r^6}\right).
 \end{align}
 %
-Die Kollisionseffizienz wird mit $1$ angesetzt \cite{BulkParameterizationoftheSnowFieldinaCloudModel}. Mit $Q_{a,g,r}$ geht bei $T<T_0$ eine Phasenübergangswärmeflussdichte einher, da dann ein Phasenübergang von flüssig zu fest stattfindet.
+Die Kollisionseffizienz $E_{g,r}$ wird mit $1$ angesetzt \cite{BulkParameterizationoftheSnowFieldinaCloudModel}. Mit $Q_{a,g,r}$ geht bei $T<T_0$ eine Phasenübergangswärmeflussdichte einher, da dann ein Phasenübergang von flüssig zu fest stattfindet.
+
+Für die Akkretion von flüssigem Wolkenwasser durch Graupel erhält man analog zu Glg. \eqref{eq:q_arl}
+%
+\begin{align}
+Q_{a,g,l} = E_{g,l}\frac{n_{0,g}\pi\rho_l}{\lambda_g^{7/2}}\sqrt{\frac{\rho_l'g}{12\rho_h'c_w}}\Gamma\left(\frac{7}{2}\right).\label{eq:q_agl}
+\end{align}
+%
+Die Kollisionseffizienz $E_{g,l}$ wird mit $1$ angesetzt \cite{BulkParameterizationoftheSnowFieldinaCloudModel}. Mit $Q_{a,g,l}$ geht bei $T<T_0$ eine Phasenübergangswärmeflussdichte einher, da dann ein Phasenübergang von flüssig zu fest stattfindet.
+
+Analog zu Glg. \eqref{eq:q_ari} erhält man für die Akkretion von Wolkeneis durch Graupel
+%
+\begin{align}
+Q_{a,g,i} &= E_{g,i}\frac{n_{0,g}\pi\rho_i}{\lambda_g^{7/2}}\sqrt{\frac{\rho_i'g}{12\rho_h'c_w}}\Gamma\left(\frac{7}{2}\right).\label{eq:q_agi}
+\end{align}
+%
+Für die Kollisionseffizienz $E_{g,i}$ wird folgender Ansatz gemacht \cite{BulkParameterizationoftheSnowFieldinaCloudModel}:
+%
+\begin{align}
+E_{g,i} = \begin{cases}
+0,1, T<T_0,\\
+1,\text{ sonst.}
+\end{cases}
+\end{align}
 
 \section{Zerbrechen von Wassertropfen}
 \label{sec:zerbrechen_von_wassertropfen}
