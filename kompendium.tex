@@ -25246,10 +25246,10 @@ Aus Glg. \eqref{eq:tke_num_mod} erhält man unter Vernachlässigung der Advektio
 \section{Besonderheiten vertikaler Diffusionskoeffizenten}
 \label{sec:besonderheiten_vertikaler_diffusionskoeffizenten}\index{Diffusionskoeffizient!vertikaler}
 
-Beim TKE-Ansatz geht es letzten Endes darum, den vertikalen Diffusionskoeffizienten zu berechnen. Hierzu verwendet man als Modell das kinetische Gasmodell gemäß Abschn. \ref{sec:kinetisches_gasmodell}. Bei diesem fliegen Teilchen zwischen zwei Stößen eine mittlere freie Weglänge $\lambda$, ihre mittlere Geschwindigkeit ist $\newoverline{v}$. Der sich daraus ergebende Diffusionskoeffizient ergibt sich gemäß Glg. \eqref{eq:dyn_viscosity_kinetic_model} zu
+Beim TKE-Ansatz geht es letzten Endes darum, den vertikalen Diffusionskoeffizienten zu berechnen. Hierzu verwendet man als Modell das kinetische Gasmodell gemäß Abschn. \ref{sec:kinetisches_gasmodell}. Bei diesem fliegen Teilchen zwischen zwei Stößen eine mittlere freie Weglänge, die hier als \textit{Mischungsweglänge} $L_m$ \index{Mischungsweglänge}, ihre mittlere Geschwindigkeit ist $\newoverline{v}$. Der sich daraus ergebende Diffusionskoeffizient ergibt sich gemäß Glg. \eqref{eq:dyn_viscosity_kinetic_model} zu
 %
 \begin{align}
-K_v = \lambda\newoverline{v}.
+K_v = L_m\newoverline{v}.\label{eq:k_eff_deriv_1}
 \end{align}
 %
 Der Faktor $\frac{1}{3}$ aus Glg. \eqref{eq:dyn_viscosity_kinetic_model} tritt hier nicht auf, da man hier nur vertikale Bewegungen betrachtet. Man geht nun weiter davon aus, dass die Fluidteilchen vertikal mit der Kreisfrequenz $N$ gemäß Glg. \eqref{eq:bv_freq_theta} oszillieren und dabei eine maximale Amplitude $\newhat{z}$ haben. Ihre Bahnkurve lautet dann
@@ -25270,7 +25270,7 @@ da das Teilchen während jeder Periode viermal die Strecke $\newhat{z}$ überwin
 v_\text{max} = N\newhat{z} = \frac{\pi}{2}\newoverline{v}.
 \end{align}
 
-Die mittlere freie Weglänge $\lambda$ lautet hier $2\newhat{z}$. Nun muss $\newhat{z}$ durch den vertikalen Anteil $k_s^{(v)}$ der TKE ausgedrückt werden. Die Gesamtenergie $E$ des harmonischen Oszillators (s. Abschn. \ref{sec:harmonischer_oszillator}) lautet
+Die mittlere freie Weglänge $L_m$ lautet hier $2\newhat{z}$. Nun muss $\newhat{z}$ durch den vertikalen Anteil $k_s^{(v)}$ der TKE ausgedrückt werden. Die Gesamtenergie $E$ des harmonischen Oszillators (s. Abschn. \ref{sec:harmonischer_oszillator}) lautet
 %
 \begin{align}
 E = \frac{1}{2}N^2\newhat{z}^2,
@@ -25279,7 +25279,7 @@ E = \frac{1}{2}N^2\newhat{z}^2,
 im Mittel ist die Hälfte davon in kinetischer Energie gespeichert, was auf
 %
 \begin{align}
-k_s^{(v)} = \frac{1}{4}N^2\newhat{z}^2 \Rightarrow \newhat{z} = \frac{2}{N}\sqrt{k_s^{(v)}} \Rightarrow \lambda = \frac{4}{N}\sqrt{k_s^{(v)}}
+k_s^{(v)} = \frac{1}{4}N^2\newhat{z}^2 \Rightarrow \newhat{z} = \frac{2}{N}\sqrt{k_s^{(v)}} \Rightarrow L_m = \frac{4}{N}\sqrt{k_s^{(v)}}
 \end{align}
 %
 Setzt man dies in Glg. \eqref{eq:k_v_deriv_1} ein, erhält man
@@ -25294,20 +25294,41 @@ Nun muss noch $k_s^{(v)}$ aus der gesamten TKE $k_s$ abgeleitet werden. Im Falle
 k_s^{(v)} = \frac{k_s}{3}
 \end{align}
 %
-verallgemeinert.
-
-Aus Glg. \eqref{eq:tke_vbar} lässt sich mithilfe von Glg. \eqref{eq:diff_delta} eine Formel für die Dissipation der TKE ableiten
+verallgemeinert. Hieraus folgt für den Diffusionskoeffizienten mit Glg. \eqref{eq:k_eff_deriv_1}
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+K_v = L_m\newoverline{v} = L_m\frac{4}{\pi}\sqrt{k_s^{(v)}} = \frac{4}{\pi\sqrt{3}}L_m\sqrt{k_s} \approx 0,735L_m\sqrt{k_s}.\label{eq:tke_diff_derived}
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+Empirisch stellt man fest, dass der Vorfaktor $C \coloneqq \frac{4}{\pi\sqrt{3}}$ nicht für alle diffundierten Größen gleich groß ist. Dies liegt daran, dass die Korrelationen zwischen den Schwankungen unterschiedlicher Größen unterschiedlich sind. An dieser Stelle wird
 %
 \begin{align}
-\newoverline{\epsilon} = \frac{\left(L\frac{4}{\pi}\sqrt{k_s^{(v)}}\right)^3}{L^4} = \frac{\left(\frac{4}{\pi}\sqrt{k_s^{(v)}}\right)^3}{L} = \left(\frac{4}{\pi\sqrt{3}}\right)^3\frac{k_s^{3/2}}{L} \approx 0,397\frac{k_s^{3/2}}{L}.
+C_m &= 0,126,\\
+C_e &= 0,34,\\
+C_h &= 0,142
 \end{align}
 %
-Setzt man dies sowie Glg. \eqref{eq:tke_vbar} in Glg. \eqref{eq:tke_diag} ein, erhält man
+gewählt \cite{tke_at_mf}. Hierbei ist $C_m$ der Vorfaktor für die vertikale Diffusion von Impuls, $C_e$ der Vorfaktor für die vertikale Diffusion von TKE und $C_h$ der Vorfaktor für die vertikale Diffusion von Feuchte und potentieller Temperature (passive Tracer).
+
+%
+Aus Glg. \eqref{eq:tke_diff_derived} lässt sich mithilfe von Glg. \eqref{eq:diff_delta} eine Formel für die Dissipation der TKE ableiten
 %
 \begin{align}
-\left(\frac{4}{\pi\sqrt{3}}\right)^3\frac{k_s^{3/2}}{L} &= K\left[\left(\frac{\partial\newoverline{u}}{\partial z}\right)^2 + \left(\frac{\partial\newoverline{v}}{\partial z}\right)^2 - N^2\right]\nonumber\\
-\Leftrightarrow\left(\frac{4}{\pi\sqrt{3}}\right)^3\frac{k_s^{3/2}}{L} &= L\frac{4}{\sqrt{3}\pi}\sqrt{k_s}\left[\left(\frac{\partial\newoverline{u}}{\partial z}\right)^2 + \left(\frac{\partial\newoverline{v}}{\partial z}\right)^2 - N^2\right]\nonumber\\
-\Leftrightarrow k_s &= L^2\left(\frac{\pi\sqrt{3}}{4}\right)^2\left[\left(\frac{\partial\newoverline{u}}{\partial z}\right)^2 + \left(\frac{\partial\newoverline{v}}{\partial z}\right)^2 - N^2\right].
+\newoverline{\epsilon} = \frac{\left(C_\epsilon L_m\sqrt{k_s}\right)^3}{L_m^4} = C_\epsilon^3\frac{k_s^{3/2}}{L_m}.
+\end{align}
+%
+Hierbei ist $C_\epsilon = 0,85$ \cite{tke_at_mf} der Vorfaktor der Mischungsweglänge der Dissipation. Setzt man dies sowie Glg. \eqref{eq:tke_vbar} in Glg. \eqref{eq:tke_diag} ein, erhält man
+%
+\begin{align}
+C_\epsilon^3\frac{k_s^{3/2}}{L_m} &= K\left[\left(\frac{\partial\newoverline{u}}{\partial z}\right)^2 + \left(\frac{\partial\newoverline{v}}{\partial z}\right)^2 - N^2\right]\nonumber\\
+\Leftrightarrow C_\epsilon^3\frac{k_s^{3/2}}{L_m} &= L_mC_\epsilon\sqrt{k_s}\left[\left(\frac{\partial\newoverline{u}}{\partial z}\right)^2 + \left(\frac{\partial\newoverline{v}}{\partial z}\right)^2 - N^2\right]\nonumber\\
+\Leftrightarrow k_s &= \frac{L_m^2}{C_\epsilon^2}\left[\left(\frac{\partial\newoverline{u}}{\partial z}\right)^2 + \left(\frac{\partial\newoverline{v}}{\partial z}\right)^2 - N^2\right].
 \end{align}
 
 \section{Dissipation}
