@@ -10198,7 +10198,7 @@ Desto größer die Reynolds-Zahl\index{Reynolds-Zahl} ist, desto instabiler und 
 N_\text{Re} \sim \frac{10^110^6}{10^{-5}} = 10^{12}.
 \end{align}
 %
-Synotische Strömungen\index{Synoptik} sind also sehr instabil.
+Synoptische Strömungen\index{Synoptik} sind also sehr instabil.
 
 Die \textit{Rossby-Zahl}\index{Rossby-Zahl} $N_\text{Ro}$ definiert man als Verhältnis von advektiven Termen zu Coriolis-Kraft, also
 %
@@ -19836,6 +19836,23 @@ Hierbei ist $\rho_{v,a}$ die absolute Sättigungsfeuchte $\rho_{S}\left(T\right)
 \begin{align}
 \frac{dm}{dt} &= 4\pi aD\rho_{S}\left(T\right)\left(\frac{\rho_v}{\rho_{S}\left(T\right)} - 1\right).
 \end{align}
+
+\subsubsection{Ventilationskoeffizient}
+\label{sec:ventilationskoeffizient}\index{Ventilationskoeffizient}
+
+Die bisherigen Herleitungen dieses Abschnitts beziehen sich auf Tropfen, die sich relativ zu der sie umgebenden Luft nicht bewegen. Fallen sie jedoch duch die Luft, erhöht sich die Wachstumsrate um den Faktor
+%
+\begin{align}
+f_v \coloneqq \frac{dm/dt}{\left(dm/dt\right)_0},
+\end{align}
+%
+wobei $\left(dm/dt\right)_0$ die Wachstumsrate des sich nicht bewegenden Tropfen bezeichnet. $f_v$ ist der \textit{Ventilationskoeffizient}\index{Ventilationskoeffizient}. Für $f_v$ wurde aus experimentellen Daten die Formel
+%
+\begin{align}
+f_v = 0,78 + 0,308\cdot S_c^{1/3}N_\text{Re}^{1/2}\label{eq:ventilation_rate}
+\end{align}
+%
+abgeleitet \cite{AWindTunnelInvestigationoftheRateofEvaporationofSmallWaterDropsFallingatTerminalVelocityinAir}. Hierbei sind $S_c\coloneqq\frac{\nu}{D}$ die \textit{Schmidt-Zahl}\index{Schmidt-Zahl} und $N_\text{Re} = \frac{U2r}{\nu}$ die Reynolds-Zahl.
 
 \subsection{Akkretion}
 \label{sec:akkretion}\index{Akkretion}\index{Koaleszenz}
