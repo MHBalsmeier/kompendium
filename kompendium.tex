@@ -19853,35 +19853,44 @@ Für $\rho_{S}\left(T_s\right)$ macht man nun eine Taylor-Entwicklung erster Ord
 Nun muss ein Ausdruck für die Oberflächentemperatur $T_s$ hergeleitet werden. Der Grundansatz hierfür ist die Annahme, dass die Wärme durch den Phasenübergang durch einen Wärmeübergang an der Oberfläche des Tropfens kompensiert wird. Der Wärmeübergang an der Oberfläche des Tropfens ist ebenfalls ein diffusiver Prozess, für ihn gilt daher in Verallgemeinerung von Glg. \eqref{eq:diff_growth_deriv_1}
 %
 \begin{align}
-\frac{dT_s}{dt} &= 4\pi a\kappa_v\left(T - T_s\right).
+\frac{dT_s}{dt} &= \frac{4\pi ak_h}{mc_w}\left(T - T_s\right).
 \end{align}
 %
-Hierbei sind $c_w$ die spezifische Wärmekapazität von Wasser und $k_v$ die Temperaturleitfähigkeit von Wasserdampf. Die Temperaturtendenz durch den Phasenübergang lautet
+Hierbei sind $c_w$ die spezifische Wärmekapazität von Wasser und $k_h = c_h^{(p)}\rho_h\kappa_h$ die Wärmeleitfähigkeit von feuchter Luft mit $\kappa_h$ als Temperaturleitfähigkeit. Die Temperaturtendenz durch den Phasenübergang lautet
 %
 \begin{align}
 \frac{dT_s}{dt} &= \frac{L_v}{mc_w}\frac{dm}{dt}.
 \end{align}
 %
-Setzt man diese beiden Temperaturtendenzen gleich, erhält man
+Die Summe dieser beiden Temperaturtendenzen ist Null, damit erhält man
 %
 \begin{align}
-4\pi a\kappa_v\left(T - T_s\right) &= \frac{L_v}{mc_w}\frac{dm}{dt} \Leftrightarrow T_s - T = -\frac{L_v}{mc_w4\pi a\kappa_v}\frac{dm}{dt}.
+\frac{4\pi ak_h}{mc_w}\left(T - T_s\right) &= -\frac{L_v}{mc_w}\frac{dm}{dt} \Leftrightarrow T_s - T = \frac{L_v}{4\pi ak_h}\frac{dm}{dt}.
 \end{align}
 %
 Setzt man dies in Glg. \eqref{eq:diff_growth_deriv_2} ein, erhält man
 %
 \begin{align}
-\rho_{S}\left(T_s\right) &\approx \rho_{S}\left(T\right) - \rho_{S}\left(T\right)\frac{L_v^2}{R_vT^2mc_w4\pi a\kappa_v}\frac{dm}{dt}.
+\rho_{S}\left(T_s\right) &\approx \rho_{S}\left(T\right) + \rho_{S}\left(T\right)\frac{L_v^2}{R_vT^24\pi ak_h}\frac{dm}{dt}.
 \end{align}
 %
 Setzt man dies in Glg. \eqref{eq:diff_growth_deriv_1} ein, folgt
 %
 \begin{align}
-\frac{dm}{dt} &= 4\pi aD\left(\rho_v - \rho_{S}\left(T\right) + \rho_{S}\left(T\right)\frac{L_v^2}{R_vT^2mc_w4\pi a\kappa_v}\frac{dm}{dt}\right)\nonumber\\
-\Leftrightarrow\frac{dm}{dt}\left(1 - 4\pi aD\rho_{S}\left(T\right)\frac{L_v^2}{R_vT^2mc_w4\pi a\kappa_v}\right) &= 4\pi aD\left(\rho_v - \rho_{S}\left(T\right)\right)\nonumber\\
-\Leftrightarrow\frac{dm}{dt}\left(1 - D\rho_{S}\left(T\right)\frac{L_v^2}{R_vT^2mc_w\kappa_v}\right) &= 4\pi aD\left(\rho_v - \rho_{S}\left(T\right)\right)\nonumber\\
-\Leftrightarrow\frac{dm}{dt} &= \frac{4\pi aD}{1 - D\rho_{S}\left(T\right)\frac{L_v^2}{R_vT^2mc_w\kappa_v}}\left(\rho_v - \rho_{S}\left(T\right)\right).
+\frac{dm}{dt} &= 4\pi aD\left(\rho_v - \rho_{S}\left(T\right) - \rho_{S}\left(T\right)\frac{L_v^2}{R_vT^24\pi ak_h}\frac{dm}{dt}\right)\nonumber\\
+\Leftrightarrow\frac{dm}{dt}\left(1 + \rho_{S}\left(T\right)\frac{L_v^2D}{R_vT^2k_h}\right) &= 4\pi aD\left(\rho_v - \rho_{S}\left(T\right)\right)\nonumber\\
+\Leftrightarrow\frac{dm}{dt} &= \frac{4\pi aD}{1 + \rho_{S}\left(T\right)\frac{L_v^2D}{R_vT^2k_h}}\left(\rho_v - \rho_{S}\left(T\right)\right) = \frac{4\pi a}{\frac{1}{D} + \rho_{S}\left(T\right)\frac{L_v^2}{R_vT^2k_h}}\left(\rho_v - \rho_{S}\left(T\right)\right)\nonumber
 \end{align}
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\Leftrightarrow\frac{dm}{dt} &= \frac{4\pi a}{\frac{1}{D\rho_{S}\left(T\right)} + \frac{L_v^2}{R_vT^2k_h}}\left(\frac{\rho_v}{\rho_{S}\left(T\right)} - 1\right).\label{eq:dmdt_diff_growth}
+\end{align}
+\end{center}
+}}
+\end{center}
 
 \subsubsection{Ventilationskoeffizient}
 \label{sec:ventilationskoeffizient}\index{Ventilationskoeffizient}
@@ -19899,6 +19908,18 @@ f_v = 0,78 + 0,308\cdot S_c^{1/3}N_\text{Re}^{1/2}\label{eq:ventilation_rate}
 \end{align}
 %
 abgeleitet \cite{AWindTunnelInvestigationoftheRateofEvaporationofSmallWaterDropsFallingatTerminalVelocityinAir}. Hierbei sind $S_c\coloneqq\frac{\nu}{D}$ die \textit{Schmidt-Zahl}\index{Schmidt-Zahl} und $N_\text{Re} = \frac{U2r}{\nu}$ die Reynolds-Zahl.
+
+Multpliziert man Glg. \eqref{eq:dmdt_diff_growth} mit Glg. \eqref{eq:ventilation_rate}, erhält man
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\frac{dm}{dt} &= \frac{4\pi a}{\frac{1}{D\rho_{S}\left(T\right)} + \frac{L_v^2}{R_vT^2k_h}}\left(\frac{\rho_v}{\rho_{S}\left(T\right)} - 1\right)\left(0,78 + 0,308\cdot S_c^{1/3}N_\text{Re}^{1/2}\right).\label{eq:dmdt_diff_growth_vent}
+\end{align}
+\end{center}
+}}
+\end{center}
 
 \subsection{Akkretion}
 \label{sec:akkretion}\index{Akkretion}\index{Koaleszenz}
