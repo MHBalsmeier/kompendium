@@ -19909,7 +19909,7 @@ f_v = 0,78 + 0,308\cdot S_c^{1/3}N_\text{Re}^{1/2}\label{eq:ventilation_rate}
 %
 abgeleitet \cite{AWindTunnelInvestigationoftheRateofEvaporationofSmallWaterDropsFallingatTerminalVelocityinAir}. Hierbei sind $S_c\coloneqq\frac{\nu}{\psi}$ die \textit{Schmidt-Zahl}\index{Schmidt-Zahl} und $N_\text{Re} = \frac{U2r}{\nu}$ die Reynolds-Zahl.
 
-Multpliziert man Glg. \eqref{eq:dmdt_diff_growth} mit Glg. \eqref{eq:ventilation_rate}, erhält man
+Unter der Annahme, dass der Ventilationseffekt für Wärme und Masse gleich ist, multipliziert man Glg. \eqref{eq:dmdt_diff_growth} mit Glg. \eqref{eq:ventilation_rate}, um die diffusive Wachstumsrate eines fallenden Tropfens zu erhalten:
 %
 \begin{center}
 \doublebox{\parbox{0.9\textwidth}{
@@ -19960,6 +19960,16 @@ Da $Q_{d,r}$ ein Phasenübergang von gasförmig zu flüssig ($\rho_v>\rho_{S,l}$
 
 \subsubsection{Anwendung auf Schnee}
 \label{sec:anwendung_auf_schnee_diffusion}
+
+Setzt man in Glg. \eqref{eq:diff_growth_source_gen} Glg. \eqref{eq:fall_snow} für die Fallgeschwindigkeit ein, erhält man
+%
+\begin{align}
+Q_{d,s} &= \frac{2\pi}{\frac{1}{\psi\rho_{S,i}\left(T\right)} + \frac{L_v^2}{R_vT^2k_h}}\left(\frac{\rho_v}{\rho_{S,i}\left(T\right)} - 1\right)n_{0,i}\left(0,78\lambda_s^{-2} + 0,308S_c^{1/3}\nu^{-1/2}\int_0^\infty D^{3/2}\left(aD^b\right)^{1/2}\exp\left(-\lambda_sD\right)dD\right)\nonumber\\
+&= \frac{2\pi}{\frac{1}{\psi\rho_{S,i}\left(T\right)} + \frac{L_v^2}{R_vT^2k_h}}\left(\frac{\rho_v}{\rho_{S,i}\left(T\right)} - 1\right)n_{0,i}\left(0,78\lambda_s^{-2} + 0,308S_c^{1/3}\nu^{-1/2}a^{1/2}\int_0^\infty D^{(3+b)/2}\exp\left(-\lambda_sD\right)dD\right)\nonumber\\
+&= \frac{2\pi}{\frac{1}{\psi\rho_{S,i}\left(T\right)} + \frac{L_v^2}{R_vT^2k_h}}\left(\frac{\rho_v}{\rho_{S,i}\left(T\right)} - 1\right)n_{0,i}\left(0,78\lambda_s^{-2} + 0,308S_c^{1/3}\nu^{-1/2}a^{1/2}\lambda_s^{-(5+b)/2}\Gamma\left(\frac{5+b}{2}\right)\right).
+\end{align}
+%
+Da $Q_{d,s}$ ein Phasenübergang von gasförmig zu fest ($\rho_v>\rho_{S,i}$, Übersättigung) bzw. von fest zu gasförmig ($\rho_v<\rho_{S,i}$, Untersättigung) ist, ist hiermit eine Phasenübergangswärmeflussdichte verbunden.
 
 \subsubsection{Anwendung auf Graupel}
 \label{sec:anwendung_auf_graupel_diffusion}
@@ -20131,18 +20141,6 @@ E_{g,i} = \begin{cases}
 1,\text{ sonst.}
 \end{cases}
 \end{align}
-
-\section{Zerbrechen von Wassertropfen}
-\label{sec:zerbrechen_von_wassertropfen}
-
-\subsection{Innere Zirkulation}
-\label{sec:innere_zirkulation}
-
-\subsection{Oszillationen}
-\label{sec:oszillationen}
-
-\subsection{Instabilitäten}
-\label{sec:instabilitäten}
 
 \part{Numerik}
 \label{part:numerik}\index{Numerik}
