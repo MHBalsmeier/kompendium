@@ -19974,6 +19974,16 @@ Da $Q_{d,s}$ ein Phasenübergang von gasförmig zu fest ($\rho_v>\rho_{S,i}$, Ü
 \subsubsection{Anwendung auf Graupel}
 \label{sec:anwendung_auf_graupel_diffusion}
 
+Setzt man in Glg. \eqref{eq:diff_growth_source_gen} Glg. \eqref{eq:fall_snow} für die Fallgeschwindigkeit ein, erhält man
+%
+\begin{align}
+Q_{d,g} &= \frac{2\pi}{\frac{1}{\psi\rho_{S,i}\left(T\right)} + \frac{L_v^2}{R_vT^2k_h}}\left(\frac{\rho_v}{\rho_{S,i}\left(T\right)} - 1\right)n_{0,i}\left(0,78\lambda_g^{-2} + 0,308S_c^{1/3}\nu^{-1/2}\int_0^\infty D^{3/2}\left(aD^b\right)^{1/2}\exp\left(-\lambda_gD\right)dD\right)\nonumber\\
+&= \frac{2\pi}{\frac{1}{\psi\rho_{S,i}\left(T\right)} + \frac{L_v^2}{R_vT^2k_h}}\left(\frac{\rho_v}{\rho_{S,i}\left(T\right)} - 1\right)n_{0,i}\left(0,78\lambda_g^{-2} + 0,308S_c^{1/3}\nu^{-1/2}a^{1/2}\int_0^\infty D^{(3+b)/2}\exp\left(-\lambda_gD\right)dD\right)\nonumber\\
+&= \frac{2\pi}{\frac{1}{\psi\rho_{S,i}\left(T\right)} + \frac{L_v^2}{R_vT^2k_h}}\left(\frac{\rho_v}{\rho_{S,i}\left(T\right)} - 1\right)n_{0,i}\left(0,78\lambda_g^{-2} + 0,308S_c^{1/3}\nu^{-1/2}a^{1/2}\lambda_g^{-(5+b)/2}\Gamma\left(\frac{5+b}{2}\right)\right).
+\end{align}
+%
+Da $Q_{d,g}$ ein Phasenübergang von gasförmig zu fest ($\rho_v>\rho_{S,i}$, Übersättigung) bzw. von fest zu gasförmig ($\rho_v<\rho_{S,i}$, Untersättigung) ist, ist hiermit eine Phasenübergangswärmeflussdichte verbunden.
+
 \subsection{Akkretion}
 \label{sec:akkretion}\index{Akkretion}\index{Koaleszenz}
 
@@ -20148,7 +20158,7 @@ E_{g,i} = \begin{cases}
 In diesem Abschnitt werden Gleichungen für die Massenquelldichten hergeleitet, die aus Phasenübergängen von Niederschlagspartikeln folgen.
 
 \subsection{Gefrieren von Regentropfen}
-\label{eq:gefrieren_von_regentropfen}\index{Regentropfen!Gefrieren}
+\label{sec:gefrieren_von_regentropfen}\index{Regentropfen!Gefrieren}
 
 Für die Wahrscheinlichkeit, dass ein Tropfen mit Volumen $V'$ in Luft der Temperatur $T$ gefriert innerhalb einer Zeit $t$ schmilzt, wählt man den stochastischen Ansatz \cite{ANumericalModelofaHailBearingCloud}
 %
@@ -20187,6 +20197,15 @@ Q_{f,g,r} &= B'\frac{\pi}{6}\left[\exp\left(A'\left(T_0 - T\right)\right) - 1\ri
 \end{align}
 %
 Da dieser Prozess mit einem Phasenübergang von flüssig nach fest einhergeht, ist hiermit eine Phasenübergangswärmeflussdichte verbunden.
+
+\subsection{Schmelzen von Niederschlag}
+\label{sec:schmelzen_von_niederschlag}\index{Niederschlag!Schmelzen}
+
+\subsubsection{Anwendung auf Schnee}
+\label{eq:anwendung_auf_schnee_schmelzen}\index{Schnee!Schmelzen}
+
+\subsubsection{Anwendung auf Graupel}
+\label{eq:anwendung_auf_schnee_graupel}\index{Graupel!Schmelzen}
 
 \part{Numerik}
 \label{part:numerik}\index{Numerik}
