@@ -20142,6 +20142,52 @@ E_{g,i} = \begin{cases}
 \end{cases}
 \end{align}
 
+\section{Phasenübergänge von Niederschlag}
+\label{sec:phasenuebergaenge_von_niederschlag}
+
+In diesem Abschnitt werden Gleichungen für die Massenquelldichten hergeleitet, die aus Phasenübergängen von Niederschlagspartikeln folgen.
+
+\subsection{Gefrieren von Regentropfen}
+\label{eq:gefrieren_von_regentropfen}\index{Regentropfen!Gefrieren}
+
+Für die Wahrscheinlichkeit, dass ein Tropfen mit Volumen $V'$ in Luft der Temperatur $T$ gefriert innerhalb einer Zeit $t$ schmilzt, wählt man den stochastischen Ansatz \cite{ANumericalModelofaHailBearingCloud}
+%
+\begin{align}
+P &= 1 - \exp\left\{-B'V't\left[\exp\left(A'\left(T_0 - T\right)\right) - 1\right]\right\}.
+\end{align}
+%
+Hieraus sind $A' = 0,66\text{K}^{-1}$ und $B' = 100\frac{1}{\text{m}^3\text{s}}$ empirische Koeffizienten. Hieraus folgt
+%
+\begin{align}
+1 - P &= \exp\left\{-B'V't\left[\exp\left(A'\left(T_0 - T\right)\right) - 1\right]\right\}\nonumber\\
+\Leftrightarrow\ln\left(1 - P\right) &= -B'V't\left[\exp\left(A'\left(T_0 - T\right)\right) - 1\right]\nonumber\\
+\Leftrightarrow P &\approx B'V't\left[\exp\left(A'\left(T_0 - T\right)\right) - 1\right].
+\end{align}
+%
+Hieraus lässt sich leicht die Änderungsrate der Anzahl der Regentropfen herleiten:
+%
+\begin{align}
+\frac{dN_r}{dt} = -NB'V'\left[\exp\left(A'\left(T_0 - T\right)\right) - 1\right]
+\end{align}
+%
+Haben diese Tropfen einen Durchmesser $D$, folgt
+%
+\begin{align}
+\frac{dN_r}{dt} = -NB'\frac{\pi D^3}{6}\left[\exp\left(A'\left(T_0 - T\right)\right) - 1\right].
+\end{align}
+%
+Für die Quelldichte von Hagel oder Schnee $Q_{f,g,r}$, die aus diesem Prozess folgt, erhält man mit Glg. \eqref{eq:int_prop_1}
+%
+\begin{align}
+Q_{f,g,r} &= B'\frac{\pi}{6}\left[\exp\left(A'\left(T_0 - T\right)\right) - 1\right]\int_0^D\rho_l'\pi\frac{D^3}{6}D^3N\left(D\right)dD\nonumber\\
+&= \rho_l'B'\frac{\pi^2}{6^2}\left[\exp\left(A'\left(T_0 - T\right)\right) - 1\right]n_{0,r}\int_0^D\exp\left(-\lambda_rD\right)D^6dD\nonumber\\
+&= \rho_l'B'\frac{\pi^2}{6^2}\left[\exp\left(A'\left(T_0 - T\right)\right) - 1\right]n_{0,r}\frac{6!}{\lambda_r^7}\nonumber\\
+&= \rho_l'B'\frac{\pi^2}{6}\left[\exp\left(A'\left(T_0 - T\right)\right) - 1\right]n_{0,r}\frac{5!}{\lambda_r^7}\nonumber\\
+&= \rho_l'B'20\pi^2\left[\exp\left(A'\left(T_0 - T\right)\right) - 1\right]\frac{n_{0,r}}{\lambda_r^7}.
+\end{align}
+%
+Da dieser Prozess mit einem Phasenübergang von flüssig nach fest einhergeht, ist hiermit eine Phasenübergangswärmeflussdichte verbunden.
+
 \part{Numerik}
 \label{part:numerik}\index{Numerik}
 
