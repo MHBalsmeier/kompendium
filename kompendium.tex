@@ -19853,19 +19853,19 @@ Für $\rho_{S}\left(T_s\right)$ macht man nun eine Taylor-Entwicklung erster Ord
 Nun muss ein Ausdruck für die Oberflächentemperatur $T_s$ hergeleitet werden. Der Grundansatz hierfür ist die Annahme, dass die Wärme durch den Phasenübergang durch einen Wärmeübergang an der Oberfläche des Tropfens kompensiert wird. Der Wärmeübergang an der Oberfläche des Tropfens ist ebenfalls ein diffusiver Prozess, für ihn gilt daher in Verallgemeinerung von Glg. \eqref{eq:diff_growth_deriv_1}
 %
 \begin{align}
-\frac{dT_s}{dt} &= \frac{4\pi ak_h}{mc_w}\left(T - T_s\right).
+\frac{dT_s}{dt} &= \frac{4\pi ak_h}{mc_l^{(p)}}\left(T - T_s\right).\label{eq:heat_conduc_to_sphere}
 \end{align}
 %
-Hierbei sind $c_w$ die spezifische Wärmekapazität von Wasser und $k_h = c_h^{(p)}\rho_h\kappa_h$ die Wärmeleitfähigkeit von feuchter Luft mit $\kappa_h$ als Temperaturleitfähigkeit. Die Temperaturtendenz durch den Phasenübergang lautet
+Hierbei sind $c_l^{(p)}$ die spezifische Wärmekapazität von Wasser und $k_h = c_h^{(p)}\rho_h\kappa_h$ die Wärmeleitfähigkeit von feuchter Luft mit $\kappa_h$ als Temperaturleitfähigkeit. Die Temperaturtendenz durch den Phasenübergang lautet
 %
 \begin{align}
-\frac{dT_s}{dt} &= \frac{L_v}{mc_w}\frac{dm}{dt}.
+\frac{dT_s}{dt} &= \frac{L_v}{mc_l^{(p)}}\frac{dm}{dt}.
 \end{align}
 %
 Die Summe dieser beiden Temperaturtendenzen ist Null, damit erhält man
 %
 \begin{align}
-\frac{4\pi ak_h}{mc_w}\left(T - T_s\right) &= -\frac{L_v}{mc_w}\frac{dm}{dt} \Leftrightarrow T_s - T = \frac{L_v}{4\pi ak_h}\frac{dm}{dt}.
+\frac{4\pi ak_h}{mc_l^{(p)}}\left(T - T_s\right) &= -\frac{L_v}{mc_l^{(p)}}\frac{dm}{dt} \Leftrightarrow T_s - T = \frac{L_v}{4\pi ak_h}\frac{dm}{dt}.
 \end{align}
 %
 Setzt man dies in Glg. \eqref{eq:diff_growth_deriv_2} ein, erhält man
@@ -19951,9 +19951,9 @@ Q_{d,p} &= \frac{2\pi}{\frac{1}{\psi\rho_{S}\left(T\right)} + \frac{L_v^2}{R_vT^
 Setzt man in Glg. \eqref{eq:diff_growth_source_gen} Glg. \eqref{eq:sink_turb} für die Fallgeschwindigkeit ein, erhält man
 %
 \begin{align}
-Q_{d,r} &= \frac{2\pi}{\frac{1}{\psi\rho_{S,l}\left(T\right)} + \frac{L_v^2}{R_vT^2k_h}}\left(\frac{\rho_v}{\rho_{S,l}\left(T\right)} - 1\right)n_{0,r}\left(0,78\lambda_r^{-2} + 0,308S_c^{1/3}\nu^{-1/2}\int_0^\infty D^{3/2}\left(\frac{4D\rho_l'g}{3\rho_h'c_w}\right)^{1/4}\exp\left(-\lambda_rD\right)dD\right)\nonumber\\
-&= \frac{2\pi}{\frac{1}{\psi\rho_{S,l}\left(T\right)} + \frac{L_v^2}{R_vT^2k_h}}\left(\frac{\rho_v}{\rho_{S,l}\left(T\right)} - 1\right)n_{0,r}\left(0,78\lambda_r^{-2} + 0,308S_c^{1/3}\nu^{-1/2}\left(\frac{4\rho_l'g}{3\rho_h'c_w}\right)^{1/4}\int_0^\infty D^{7/4}\exp\left(-\lambda_rD\right)dD\right)\nonumber\\
-&= \frac{2\pi}{\frac{1}{\psi\rho_{S,l}\left(T\right)} + \frac{L_v^2}{R_vT^2k_h}}\left(\frac{\rho_v}{\rho_{S,l}\left(T\right)} - 1\right)n_{0,r}\left(0,78\lambda_r^{-2} + 0,308S_c^{1/3}\nu^{-1/2}\left(\frac{4\rho_l'g}{3\rho_h'c_w}\right)^{1/4}\lambda_r^{-11/4}\Gamma\left(\frac{11}{4}\right)\right).\label{eq:diff_growth_rain}
+Q_{d,r} &= \frac{2\pi}{\frac{1}{\psi\rho_{S,l}\left(T\right)} + \frac{L_v^2}{R_vT^2k_h}}\left(\frac{\rho_v}{\rho_{S,l}\left(T\right)} - 1\right)n_{0,r}\left(0,78\lambda_r^{-2} + 0,308S_c^{1/3}\nu^{-1/2}\int_0^\infty D^{3/2}\left(\frac{4D\rho_l'g}{3\rho_h'c_l^{(p)}}\right)^{1/4}\exp\left(-\lambda_rD\right)dD\right)\nonumber\\
+&= \frac{2\pi}{\frac{1}{\psi\rho_{S,l}\left(T\right)} + \frac{L_v^2}{R_vT^2k_h}}\left(\frac{\rho_v}{\rho_{S,l}\left(T\right)} - 1\right)n_{0,r}\left(0,78\lambda_r^{-2} + 0,308S_c^{1/3}\nu^{-1/2}\left(\frac{4\rho_l'g}{3\rho_h'c_l^{(p)}}\right)^{1/4}\int_0^\infty D^{7/4}\exp\left(-\lambda_rD\right)dD\right)\nonumber\\
+&= \frac{2\pi}{\frac{1}{\psi\rho_{S,l}\left(T\right)} + \frac{L_v^2}{R_vT^2k_h}}\left(\frac{\rho_v}{\rho_{S,l}\left(T\right)} - 1\right)n_{0,r}\left(0,78\lambda_r^{-2} + 0,308S_c^{1/3}\nu^{-1/2}\left(\frac{4\rho_l'g}{3\rho_h'c_l^{(p)}}\right)^{1/4}\lambda_r^{-11/4}\Gamma\left(\frac{11}{4}\right)\right).\label{eq:diff_growth_rain}
 \end{align}
 %
 Da $Q_{d,r}$ ein Phasenübergang von gasförmig zu flüssig ($\rho_v>\rho_{S,l}$, Übersättigung) bzw. von flüssig zu gasförmig ($\rho_v<\rho_{S,l}$, Untersättigung) ist, ist hiermit eine Phasenübergangswärmeflussdichte verbunden.
@@ -20017,14 +20017,14 @@ Q_{a,p} = \pi\rho_c\int_0^\infty n_{0,p}\exp\left(-\lambda_p D\right)\frac{D^2}{
 Setzt man in Glg. \eqref{eq:accretion_deriv_2} Glg. \eqref{eq:sink_turb} für die Fallgeschwindigkeit sowie $n_{0,p} = n_{0,r}$ und $E_{r,c} = 1$ ein, erhält man
 %
 \begin{align}
-Q_{a,r,l} &= \frac{n_{0,r}\pi\rho_l}{4}\int_0^\infty\exp\left(-\lambda_r D\right)D^2\sqrt{\frac{4D\rho_l'g}{3\rho_h'c_w}}dD = \frac{n_{0,r}\pi\rho_l}{4}\sqrt{\frac{4\rho_l'g}{3\rho_h'c_w}}\int_0^\infty\exp\left(-\lambda_r D\right)D^{5/2}dD\nonumber\\
-&= \frac{n_{0,r}\pi\rho_c}{4\lambda_r^{7/2}}\sqrt{\frac{4\rho_l'g}{3\rho_h'c_w}}\Gamma\left(\frac{7}{2}\right) = \frac{n_{0,r}\pi\rho_l}{\lambda_r^{7/2}}\sqrt{\frac{\rho_l'g}{12\rho_h'c_w}}\Gamma\left(\frac{7}{2}\right).\label{eq:q_arl}
+Q_{a,r,l} &= \frac{n_{0,r}\pi\rho_l}{4}\int_0^\infty\exp\left(-\lambda_r D\right)D^2\sqrt{\frac{4D\rho_l'g}{3\rho_h'c_l^{(p)}}}dD = \frac{n_{0,r}\pi\rho_l}{4}\sqrt{\frac{4\rho_l'g}{3\rho_h'c_l^{(p)}}}\int_0^\infty\exp\left(-\lambda_r D\right)D^{5/2}dD\nonumber\\
+&= \frac{n_{0,r}\pi\rho_c}{4\lambda_r^{7/2}}\sqrt{\frac{4\rho_l'g}{3\rho_h'c_l^{(p)}}}\Gamma\left(\frac{7}{2}\right) = \frac{n_{0,r}\pi\rho_l}{\lambda_r^{7/2}}\sqrt{\frac{\rho_l'g}{12\rho_h'c_l^{(p)}}}\Gamma\left(\frac{7}{2}\right).\label{eq:q_arl}
 \end{align}
 %
 Analog erhält man
 %
 \begin{align}
-Q_{a,r,i} &= \frac{n_{0,r}\pi\rho_i}{\lambda_r^{7/2}}\sqrt{\frac{\rho_l'g}{12\rho_h'c_w}}\Gamma\left(\frac{7}{2}\right).\label{eq:q_ari}
+Q_{a,r,i} &= \frac{n_{0,r}\pi\rho_i}{\lambda_r^{7/2}}\sqrt{\frac{\rho_l'g}{12\rho_h'c_l^{(p)}}}\Gamma\left(\frac{7}{2}\right).\label{eq:q_ari}
 \end{align}
 %
 Da die Eispartikel bei $T<T_0$ beim Zusammenprall mit unterkühlten Regentropfen zum Gefrieren dieser führen, ist dies eine Quelldichte für Schnee. $Q_{a,r,i}$ geht nicht mit einer Phasenübergangswärme einher, da die Eiskristalle beim Auftreffen bereits gefroren sind. Bei der Akkretion von Eis durch Regen handelt es sich um einen \textit{Drei-Komponenten-Prozess}\index{Drei-Komponenten-Prozess}, da die Kollision von Teilchen zweier Kondensatklassen zum Entstehen einer dritten führt.
@@ -20032,7 +20032,7 @@ Da die Eispartikel bei $T<T_0$ beim Zusammenprall mit unterkühlten Regentropfen
 Für die Akkretion von Regen durch Schnee (Masse an Regen pro Volumen und Zeit, welche mit Eiskristallen kollidiert) erhält man
 %
 \begin{align}
-Q_{a,i,r} &= \frac{n_{0,r}\pi\rho_i}{4M_i}\sqrt{\frac{4\rho_l'g}{3\rho_h'c_w}}\int_0^\infty\exp\left(-\lambda_r D\right)D^{5/2}\frac{D^3}{6}\pi\rho_l'dD = \frac{n_{0,r}\pi^2\rho_l'}{6M_i\lambda_r^{13/2}}\sqrt{\frac{\rho_l'g}{12\rho_h'c_w}}\Gamma\left(\frac{13}{2}\right).
+Q_{a,i,r} &= \frac{n_{0,r}\pi\rho_i}{4M_i}\sqrt{\frac{4\rho_l'g}{3\rho_h'c_l^{(p)}}}\int_0^\infty\exp\left(-\lambda_r D\right)D^{5/2}\frac{D^3}{6}\pi\rho_l'dD = \frac{n_{0,r}\pi^2\rho_l'}{6M_i\lambda_r^{13/2}}\sqrt{\frac{\rho_l'g}{12\rho_h'c_l^{(p)}}}\Gamma\left(\frac{13}{2}\right).
 \end{align}
 %
 Hierbei ist $M_i$ eine angenommene Masse aller Eiskristalle. Da unterkühlter Regen beim Kollidieren mit Eiskristallen gefriert, ist $Q_{a,i,r}$ eine Quelldichte für Schnee. Hiermit geht eine Phasenübergangswärmeflussdichte einher, da ein Phasenübergang von flüssig zu fest stattfindet.
@@ -20122,7 +20122,7 @@ E_{g,s} = \begin{cases}
 Für die Akkrektion von Schnee durch Regen erhält man analog zu Glg. \eqref{eq:q_ars}
 %
 \begin{align}
-Q_{a,g,r} &= E_{g,r}\rho_l'\pi^2n_{0,g}n_{0,r}\left|v_g - v_r\right|\left(\frac{1}{2\lambda_g^3\lambda_r^4} + \frac{2}{\lambda_g^2\lambda_r^5} + \frac{5}{\lambda_g\lambda_r^6}\right).
+Q_{a,g,r} &= E_{g,r}\rho_l'\pi^2n_{0,g}n_{0,r}\left|v_g - v_r\right|\left(\frac{1}{2\lambda_g^3\lambda_r^4} + \frac{2}{\lambda_g^2\lambda_r^5} + \frac{5}{\lambda_g\lambda_r^6}\right).\label{eq:q_agr}
 \end{align}
 %
 Die Kollisionseffizienz $E_{g,r}$ wird mit $1$ angesetzt \cite{BulkParameterizationoftheSnowFieldinaCloudModel}. Mit $Q_{a,g,r}$ geht bei $T<T_0$ eine Phasenübergangswärmeflussdichte einher, da dann ein Phasenübergang von flüssig zu fest stattfindet.
@@ -20130,7 +20130,7 @@ Die Kollisionseffizienz $E_{g,r}$ wird mit $1$ angesetzt \cite{BulkParameterizat
 Für die Akkretion von flüssigem Wolkenwasser durch Graupel erhält man analog zu Glg. \eqref{eq:q_arl}
 %
 \begin{align}
-Q_{a,g,l} = E_{g,l}\frac{n_{0,g}\pi\rho_l}{\lambda_g^{7/2}}\sqrt{\frac{\rho_l'g}{12\rho_h'c_w}}\Gamma\left(\frac{7}{2}\right).\label{eq:q_agl}
+Q_{a,g,l} = E_{g,l}\frac{n_{0,g}\pi\rho_l}{\lambda_g^{7/2}}\sqrt{\frac{\rho_l'g}{12\rho_h'c_l^{(p)}}}\Gamma\left(\frac{7}{2}\right).\label{eq:q_agl}
 \end{align}
 %
 Die Kollisionseffizienz $E_{g,l}$ wird mit $1$ angesetzt \cite{BulkParameterizationoftheSnowFieldinaCloudModel}. Mit $Q_{a,g,l}$ geht bei $T<T_0$ eine Phasenübergangswärmeflussdichte einher, da dann ein Phasenübergang von flüssig zu fest stattfindet.
@@ -20138,7 +20138,7 @@ Die Kollisionseffizienz $E_{g,l}$ wird mit $1$ angesetzt \cite{BulkParameterizat
 Analog zu Glg. \eqref{eq:q_ari} erhält man für die Akkretion von Wolkeneis durch Graupel
 %
 \begin{align}
-Q_{a,g,i} &= E_{g,i}\frac{n_{0,g}\pi\rho_i}{\lambda_g^{7/2}}\sqrt{\frac{\rho_i'g}{12\rho_h'c_w}}\Gamma\left(\frac{7}{2}\right).\label{eq:q_agi}
+Q_{a,g,i} &= E_{g,i}\frac{n_{0,g}\pi\rho_i}{\lambda_g^{7/2}}\sqrt{\frac{\rho_i'g}{12\rho_h'c_l^{(p)}}}\Gamma\left(\frac{7}{2}\right).\label{eq:q_agi}
 \end{align}
 %
 Für die Kollisionseffizienz $E_{g,i}$ wird folgender Ansatz gemacht \cite{BulkParameterizationoftheSnowFieldinaCloudModel}:
@@ -20196,14 +20196,69 @@ Q_{f,g,r} &= B'\frac{\pi}{6}\left[\exp\left(A'\left(T_0 - T\right)\right) - 1\ri
 %
 Da dieser Prozess mit einem Phasenübergang von flüssig nach fest einhergeht, ist hiermit eine Phasenübergangswärmeflussdichte verbunden.
 
-\subsection{Schmelzen von Niederschlag}
-\label{sec:schmelzen_von_niederschlag}\index{Niederschlag!Schmelzen}
+\subsection{Schmelzen von festem Niederschlag}
+\label{sec:schmelzen_von_festem_niederschlag}\index{Niederschlag!Schmelzen}
+
+Schmelzen von Schnee oder Graupel findet bei $T>T_0$ genau dann statt, wenn die Summe der anderen Wärmeflüsse positiv ist:
+%
+\begin{align}
+L_sQ_{s,r,p} &= c_l^{(p)}\left(T - T_0\right)\left(Q_{a,g,l} + Q_{a,g,r}\right) + c_v^{(p)}\left(T - T_0\right)Q_\text{conduction} - L_vQ_\text{sublimation}\nonumber\\
+\Leftrightarrow Q_{s,r,p} &= \frac{c_l^{(p)}}{L_s}\left(T - T_0\right)\left(Q_{a,g,l} + Q_{a,g,r}\right) + \frac{1}{L_s}\left[c_v^{(p)}\left(T - T_0\right)Q_\text{conduction} - L_vQ_\text{sublimation}\right].
+\end{align}
+%
+$Q_{a,g,l}$ und $Q_{a,g,r}$ sind aus Glg. \eqref{eq:q_agl} bzw. Glg. \eqref{eq:q_agr} bekannt. $Q_\text{sublimation}$ entsteht duch den Sublimation an der Oberfläche des Niederschlagspartikels, dieser Term kann aus Glg. \eqref{eq:diff_growth_source_gen} entnommen werden, wobei im Nenner der zweite Term wegfällt, da die Wärmeflussdichte hier nicht durch den Phasenübergang der Sublimation kompensiert wird, sondern durch den des Schmelzens:
+%
+\begin{align}
+Q_{s,r,p} &= \frac{c_l^{(p)}}{L_s}\left(T - T_0\right)\left(Q_{a,g,l} + Q_{a,g,r}\right)\nonumber\\
+&+ \frac{1}{L_s}\Big[L_v\frac{2\pi}{\frac{1}{\psi\rho_{S}\left(T\right)}}\left(\frac{\rho_v}{\rho_{S}\left(T\right)} - 1\right)n_{0,p}\left(0,78\lambda_p^{-2} + 0,308S_c^{1/3}\nu^{-1/2}\int_0^\infty D^{3/2}v_F^{1/2}\exp\left(-\lambda_pD\right)dD\right)\nonumber\\
+&+ c_v^{(p)}\left(T - T_0\right)Q_\text{conduction}\Big]\nonumber
+\end{align}
+\begin{align}
+&= \frac{c_l^{(p)}}{L_s}\left(T - T_0\right)\left(Q_{a,g,l} + Q_{a,g,r}\right)\nonumber\\
+&+ \frac{1}{L_s}\Big[L_v2\pi\psi\left(\rho_v - \rho_{S}\left(T\right)\right)n_{0,p}\left(0,78\lambda_p^{-2} + 0,308S_c^{1/3}\nu^{-1/2}\int_0^\infty D^{3/2}v_F^{1/2}\exp\left(-\lambda_pD\right)dD\right)\nonumber\\
+&+ c_v^{(p)}\left(T - T_0\right)Q_\text{conduction}\Big].
+\end{align}
+%
+Um $c_v^{(p)}\left(T - T_0\right)Q_\text{conduction}$ zu bestimmen, verwendet man Glg. \eqref{eq:heat_conduc_to_sphere}:
+%
+\begin{align}
+mc_l^{(p)}\frac{dT_s}{dt} = 2\pi Dk_h\left(T - T_0\right).
+\end{align}
+%
+Hieraus ergibt sich ein Term analog zu Glg. \eqref{eq:diff_growth_source_gen} mit der Ersetzung
+%
+\begin{align}
+L_v\psi\left(\rho_v - \rho_{S}\left(T\right)\right) \to k_h\left(T - T_0\right).
+\end{align}
+%
+Hieraus folgt
+%
+\begin{align}
+Q_{s,r,p} &= \frac{c_l^{(p)}}{L_s}\left(T - T_0\right)\left(Q_{a,g,l} + Q_{a,g,r}\right)\nonumber\\
+&+ \frac{2\pi}{L_s}\left[L_v\psi\left[\rho_v - \rho_{S}\left(T\right) + k_h\left(T - T_0\right)\right]n_{0,p}\left(0,78\lambda_p^{-2} + 0,308S_c^{1/3}\nu^{-1/2}\int_0^\infty D^{3/2}v_F^{1/2}\exp\left(-\lambda_pD\right)dD\right)\right].\label{eq:q_sp}
+\end{align}
+%
+Da $Q_{s,r,p}$ mit einem Phasenübergang von fest nach flüssig verbunden ist, ist hiermit eine Phasenübergangswärmeflussdichte verbunden.
 
 \subsubsection{Anwendung auf Schnee}
 \label{eq:anwendung_auf_schnee_schmelzen}\index{Schnee!Schmelzen}
 
+Wendet man Glg. \eqref{eq:q_sp} auf Schnee an, folgt
+%
+\begin{align}
+Q_{s,r,s} &= \frac{c_l^{(p)}}{L_s}\left(T - T_0\right)\left(Q_{a,s,l} + Q_{a,s,r}\right)\nonumber\\
+&+ \frac{2\pi}{L_s}\left[L_v\psi\left[\rho_v - \rho_{S,i}\left(T\right) + k_h\left(T - T_0\right)\right]n_{0,s}\left(0,78\lambda_s^{-2} + 0,308S_c^{1/3}\nu^{-1/2}a^{1/2}\lambda_s^{-(5+b)/2}\Gamma\left(\frac{5+b}{2}\right)\right)\right].\label{eq:q_ss}
+\end{align}
+
 \subsubsection{Anwendung auf Graupel}
 \label{eq:anwendung_auf_schnee_graupel}\index{Graupel!Schmelzen}
+
+Wendet man Glg. \eqref{eq:q_sp} auf Graupel an, folgt
+%
+\begin{align}
+Q_{s,r,g} &= \frac{c_l^{(p)}}{L_s}\left(T - T_0\right)\left(Q_{a,g,l} + Q_{a,g,r}\right)\nonumber\\
+&+ \frac{2\pi}{L_s}\left[L_v\psi\left[\rho_v - \rho_{S,i}\left(T\right) + k_h\left(T - T_0\right)\right]n_{0,g}\left(0,78\lambda_g^{-2} + 0,308S_c^{1/3}\nu^{-1/2}\left(\frac{4\rho_i'g}{3\rho_h'c_l^{(p)}}\right)^{1/4}\lambda_g^{-11/4}\Gamma\left(\frac{11}{4}\right)\right)\right].\label{eq:q_sg}
+\end{align}
 
 \part{Numerik}
 \label{part:numerik}\index{Numerik}
