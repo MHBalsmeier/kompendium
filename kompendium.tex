@@ -19752,7 +19752,7 @@ Diese Formel kann genutzt werden, um einen mittleren Radius von Regentropfen aus
 \subsubsection{Anwendung auf Schnee}
 \label{sec:anwendung_auf_schnee}
 
-Empirisch zeigt sich, dass Marshall-Palmer-Verteilungen auch die Größenspektren von Schneeflocken\index{SChnee} gut approximieren \cite{pruppacher_klett}. Hierbei ist
+Empirisch zeigt sich, dass Marshall-Palmer-Verteilungen auch die Größenspektren von Schneeflocken\index{Schnee} gut approximieren \cite{pruppacher_klett}.\footnote{Eiskristalle unterhalb eines gewissen Durchmessers werden zwar nicht mehr als Schnee, sondern als Wolkeneis bezeichnet, über das gesamte Größenspektrum hinweg ist die Marshall-Palmer-Verteilung unter den Verteilungen, die sich durch einen Parameter (hier $\lambda$) beschreiben lassen, jedoch die geeignetste.} Hierbei ist
 %
 \begin{align}
 n_0 = 4,6\cdot 10^{6}\text{ m}^{-4}.
@@ -19761,7 +19761,7 @@ n_0 = 4,6\cdot 10^{6}\text{ m}^{-4}.
 \subsubsection{Anwendung auf Graupel und Hagel}
 \label{sec:anwendung_auf_graupel_und_hagel}
 
-Empirisch zeigt sich, dass Marshall-Palmer-Verteilungen auch die Größenspektren von Graupel- und Hagelkörnern\index{Graupel}\index{Hagel} gut approximieren \cite{pruppacher_klett}. Hierbei wird üblicherweise der Ansatz
+Empirisch zeigt sich, dass Marshall-Palmer-Verteilungen auch die Größenspektren von Graupel- und Hagelkörnern\index{Graupel}\index{Hagel} gut approximieren \cite{pruppacher_klett}.\footnote{Siehe die vorherige Fußnote.} Hierbei wird üblicherweise der Ansatz
 %
 \begin{align}
 n_0 = A\lambda^b
@@ -25816,10 +25816,10 @@ Dieses Schema berücksichtigt folgende vier Kondensatklassen:
 %
 Dieses Schema ist adäquat für Globalmodelle. Es wird angenommen, dass bei und unterhalb von $-35^\circ$ C das Wolkenwasser komplett eisförmig ist und bei und oberhalb von $-10^\circ$ C das Wolkenwasser komplett flüssig ist und dazwischen ein linearer Übergang erfolgt. Dies ist durch Beobachtungen begründbar \cite{stensrud}.
 
-\subsection{Effektive Radien}
-\label{sec:{effektive_radien}}\index{Radius!effektiver}
+\subsection{Größenspektren}
+\label{sec:groessenspektren}\index{Größenspektrum}\index{Radius!effektiver}
 
-Die Größen der Kondensate sind relevant, um die Fallgeschwindigkeit und die Wechselwirkung mit dem Strahlungsfeld zu berechnen. Daher ist für jede Kondensatklasse eine Formel für den effektiven Radius anzugeben.
+Die Größenverteilungen der Kondensate sind relevant, um die Fallgeschwindigkeiten, die Wechselwirkungen mit dem Strahlungsfeld und die Wechselwirkungen untereinander zu berechnen. Daher ist für jede Kondensatklasse eine Formel für den effektiven Radius anzugeben.
 
 \begin{itemize}
 \item Für Wolkentröpfchen wird ein effektiver Radius von 12 Mikrometern angenommen.
@@ -25843,6 +25843,8 @@ r_{\text{eff},i} = \frac{3\sqrt{3}}{8}d_{\text{eff},i}\cdot 10^{-6}\text{m}.
 \item Es wird davon ausgegangen, dass die Größenverteilung der Regentropfen einer Marshall-Palmer-Verteilung Glg. \eqref{eq:marshall-palmer} entspricht.
 \item Es wird davon ausgegangen, dass die Größenverteilung der Schneeflocken einer Marshall-Palmer-Verteilung Glg. \eqref{eq:marshall-palmer} gemäß Abschn. \ref{sec:anwendung_auf_schnee} entspricht.
 \end{itemize}
+%
+Die Annahme von Marshall-Palmer-Verteilungen impliziert, dass der Prozess des Zerbrechens von Kondensaten, welcher das Spektrum nach oben limitiert, nicht explizit simuliert werden muss, sondern bereits über die Verteilung parmetrisiert ist.
 
 \subsection{Fallgeschwindigkeiten}
 \label{sec:fallgeschwindigkeiten}\index{Fallgeschwindigkeit}
