@@ -20466,7 +20466,7 @@ Phasen- und Gruppengeschwindigkeit sind also gleich $U$. Nun werden Ort und Zeit
 f_{l}^{(m)} = e^{Cm\Delta t}e^{i\left(kl\Delta x - \omega m\Delta t\right)}\label{eq:ansatz_time_stepping_1d_analysis}
 \end{align}
 %
-mit $f_{l}^{(0)} = e^{ikl\Delta x}$ als Anfangszustand. Es sollen $C$ und die Dispersion $\omega\left(k\right)$ bestimmt werden.
+mit $f_{l}^{(0)} = e^{ikl\Delta x}$ als Anfangszustand. Hierbei sind $C$, $k$ und $\omega$ reelle Zahlen. $k$ kann hierbei aus Symmetriegründen keinen Imaginärteil haben. Es sollen $C$ und die Dispersion $\omega\left(k\right)$ bestimmt werden.
 
 \section{Rein explizite Verfahren}
 \label{sec:rein_explizite_verfahren}
@@ -20523,7 +20523,65 @@ $\lambda$ sei die Wellenlänge, also $k = \frac{2\pi}{\lambda}$. Für $\lambda\g
 \subsubsection{First-order-upwind-Verfahren}
 \label{sec:first-order-upwind-verfahren}\index{First-order-upwind-Verfahren}
 
+Im Fall $U>0$ bezeichnet man die Diskretisierung
+%
+\begin{align}
+\frac{f_l^{(m + 1)} - f_l^{(m)}}{\Delta t} + U\frac{f_{l}^{(m)} - f_{l - 1}^{(m)}}{\Delta x} = 0
+\end{align}
+%
+als \textit{First-order-upwind-Verfahren}. Dies führt auf
+%
+\begin{align}
+\frac{e^{C\Delta t}e^{-i\omega\Delta t} - 1}{\Delta t} + U \frac{1 - e^{-ik\Delta x}}{\Delta x} = \frac{e^{C\Delta t}\cos\left(\omega\Delta t\right) - ie^{C\Delta t}\sin\left(\omega\Delta t\right) - 1}{\Delta t} + U\frac{1 - \cos\left( k\Delta x\right) + i\sin\left(k\Delta x\right)}{\Delta x} = 0.
+\end{align}
+%
+Der Imaginärteil hiervon ist
+%
+\begin{align}
+&\frac{e^{C\Delta t}\sin\left(\omega\Delta t\right)}{\Delta t} = U\frac{\sin\left(k\Delta x\right)}{\Delta x}\nonumber\\
+&\Leftrightarrow e^{C\Delta t}\sin\left(\omega\Delta t\right) = U\frac{\Delta t\sin\left(k\Delta x\right)}{\Delta x}\nonumber\\
+&\Leftrightarrow e^{C\Delta t} = U\frac{\Delta t\sin\left(k\Delta x\right)}{\Delta x\sin\left(\omega\Delta t\right)}.
+\end{align}
+%
+Die Diskretisierung ist genau dann stabil, wenn $C\leq 0$ ist, also für
+%
+\begin{align}
+U\frac{\Delta t\sin\left(k\Delta x\right)}{\Delta x\sin\left(\omega\Delta t\right)}\leq 1.
+\end{align}
+%
+Wegen
+%
+\begin{align}
+c = \frac{\omega}{k}\leq\frac{\Delta x}{\Delta t}\Leftrightarrow\omega\Delta t\leq k\Delta x
+\end{align}
+%
+folgt weiter die Abschätzung
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+U\frac{\Delta t}{\Delta x}\leq U\frac{\Delta t\sin\left(k\Delta x\right)}{\Delta x\sin\left(\omega\Delta t\right)}\leq 1.
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+Diese Gleichung bezeichnet man als \textit{Courant-Friedrichs-Lewy-Kriterium (CFL-Kriterium)}\index{CFL-Kriterium}. Man definiert die \textit{Courant-Zahl}\index{Courant-Zahl} oder auch \textit{CFL-Zahl}\index{CFL-Zahl} $c$ durch
+%
+\begin{align}
+c\coloneqq\frac{U\Delta t}{\Delta x}.
+\end{align}
+%
+Das CFL-Kriterium lautet sprachlich
 
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+Ist das explizite Euler-Verfahren für die lineare 1D-Advektionsgleichung stabil, ist $c\leq 1$.
+\end{center}
+}}
+\end{center}
 
 \subsection{Leapfrog-Verfahren}
 \label{sec:leapfrog-verfahren}\index{Leapfrog-Verfahren}
@@ -20634,25 +20692,6 @@ f\left(t\right) &= f_0 + tF\left(f_0 + f_1\right) + O\left(t^3\right).
 %
 Im nichtlinearen Fall ist eine Diskretisierung in Form von Glg. \eqref{eq:rk_lin} also immer zweiter Ordnung.
 
-\section{CFL-Kriterium}
-\label{sec:cfl-kriterium}\index{CFL-Kriterium}\index{Courant-Friedrichs-Lewy-Kriterium}
-
-Das \textit{Courant-Friedrichs-Lewy-Kriterium (CFL-Kriterium)} ist eine Beschränkung des maximalen Zeitschrittes bei expliziten Verfahren. Sei $u$ die Phasengeschwindigkeit der am schnellsten propagierenden Welle. Man definiert die \textit{Courant-Zahl}\index{Courant-Zahl} oder auch \textit{CFL-Zahl}\index{CFL-Zahl} $c$ durch
-%
-\begin{align}
-c \coloneqq \frac{u\Delta t}{\Delta x}.
-\end{align}
-%
-Das CFL-Kriterium lautet
-
-\begin{center}
-\doublebox{\parbox{0.8\textwidth}{
-\begin{center}
-Das explizite Euler-Verfahren ist genau dann stabil, wenn $c < 1$ ist.
-\end{center}
-}}
-\end{center}
-
 \section{Verfahren mit impliziten Anteilen}
 \label{sec:verfahren_mit_impliziten_anteilen}
 
@@ -20678,7 +20717,7 @@ Der Realteil ergibt
 1 = e^{-C\Delta t}\cos\left(\omega\Delta t\right).
 \end{align}
 %
-Das bedeutet $C < 0$, die Lösung ist also stabil, sie verschwindet jedoch irgendwann. Der Imaginärteil wird zu
+Das bedeutet $C<0$, die Lösung ist also immer stabil, sie konvergiert jedoch gegen Null. Der Imaginärteil wird zu
 %
 \begin{align}
 \frac{e^{-C\Delta t}\sin\left(\omega\Delta t\right)}{\Delta t} = U\frac{\sin\left(k\Delta x\right)}{\Delta x}.
