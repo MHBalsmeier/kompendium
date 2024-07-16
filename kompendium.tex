@@ -6501,7 +6501,7 @@ Setzt man die letzten beiden Gleichungen in Glg. \eqref{eq:salt_sat_deriv_0} ein
 Im letzten Schritt wurde ein kleiner Term $ck_B\Delta T_s$ weggelassen. Bei $c = 0$ gilt
 %
 \begin{align}
-\mu_A\left(T_s, p\right) = \mu_C\left(T_s, p\right),
+\mu_A\left(T_s, p\right) = \mu_C\left(T_s, p\right),\label{eq:salt_sat_deriv_3}
 \end{align}
 %
 was der Phasengrenze unter Abwesenheit des gelösten Stoffes entspricht. Somit folgt
@@ -6535,6 +6535,77 @@ Hier lassen sich zwei Fälle unterscheiden:
 \item $C$ ist gasförmig: Dies impliziert $L_{A\to C} > 0$, was wiederum auf $\Delta T_s > 0$ führt, was einer Siedepunkterhöhung\index{Siedepunkterhöhung} entspricht. Dies ist zum Beispiel über der Ozeanoberfläche der Fall.
 \item $C$ ist fest: Dies impliziert $L_{A\to C} < 0$, was wiederum auf $\Delta T_s < 0$ führt, was einer Gefrierpunkterniedrigung\index{Gefrierpunkterniedrigung} entspricht. Dies mindert den Gefrierpunkt von Ozeanwasser auf unter Null Grad Celsius.
 \end{itemize}
+
+Anstelle der Siede- oder Gefrierpunktänderung kann auch der Einfluss einer Lösung auf den Sättigungsdampfdruck ermittelt werden. Anstelle von Glg. \eqref{eq:salt_sat_deriv_0} beginnt man hierfür mit
+%
+\begin{align}
+\mu_A\left(T, p_s + \Delta p_s\right) - ck_BT &= \mu_C\left(T, p_s + \Delta p_s\right)\label{eq:salt_sat_deriv_2}
+\end{align}
+%
+Aus Glg. \eqref{eq:gibbs-duhem} folgt
+%
+\begin{align}
+\left(\frac{\partial\mu_A}{\partial p}\right)_T = v_A,
+\end{align}
+%
+was
+%
+\begin{align}
+\mu_A\left(T, p_s + \Delta p_s\right) = \mu_A\left(T, p_s\right) + \int_{p_s}^{p_s + \Delta p_s}\left(\frac{\partial\mu_A}{\partial p}\right)_Tdp = \mu_A\left(T, p_s\right) + \int_{p_s}^{p_s + \Delta p_s}v_Adp
+\end{align}
+%
+impliziert. Analog gilt für die Phase $C$
+%
+\begin{align}
+\mu_C\left(T, p_s + \Delta p_s\right) = \mu_C\left(T, p_s\right) + \int_{p_s}^{p_s + \Delta p_s}\left(\frac{\partial\mu_C}{\partial p}\right)_Tdp = \mu_C\left(T, p_s\right) + \int_{p_s}^{p_s + \Delta p_s}v_Cdp.
+\end{align}
+%
+Setzt man die letzten beiden Gleichungen in Glg. \eqref{eq:salt_sat_deriv_2} ein, erhält man
+%
+\begin{align}
+\mu_A\left(T, p_s\right) + \int_{p_s}^{p_s + \Delta p_s}v_Adp - ck_BT = \mu_C\left(T, p_s\right) + \int_{p_s}^{p_s + \Delta p_s}v_Cdp.
+\end{align}
+%
+Analog zu Glg. \eqref{eq:salt_sat_deriv_3} gilt
+%
+\begin{align}
+\mu_A\left(T, p_s\right) = \mu_C\left(T, p_s\right),
+\end{align}
+%
+hieraus folgt
+%
+\begin{align}
+\int_{p_s}^{p_s + \Delta p_s}v_Adp - ck_BT = \int_{p_s}^{p_s + \Delta p_s}v_Cdp \Rightarrow \int_{p_s}^{p_s + \Delta p_s}\frac{dp}{n_A} - ck_BT = \int_{p_s}^{p_s + \Delta p_s}\frac{dp_s}{n_C}.
+\end{align}
+%
+Da in diesem Fall $A$ flüssig und $C$ gasförmig ist, gilt $n_A\gg n_C$, was auf
+%
+\begin{align}
+-ck_BT \approx \int_{p_s}^{p_s + \Delta p_s}\frac{dp}{n_C}
+\end{align}
+%
+führt. Mit der Zustandsgleichung idealer Gase folgt
+%
+\begin{align}
+-ck_BT &= k_BT\int_{p_s}^{p_s + \Delta p_s}\frac{dp}{p_s} = k_BT\ln\left(\frac{p_s + \Delta p_s}{p_s}\right)\nonumber
+\end{align}
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\Leftrightarrow\ln\left(\frac{p_s + \Delta p_s}{p_s}\right) &= -c.
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+Im Fall kleiner Konzentrationen $c\ll 1$ erhält man näherungsweise
+%
+\begin{align}
+\frac{\Delta p_s}{p_s} = -c,
+\end{align}
+%
+was man als \textit{Raoult'sches Gesetz}\index{Raoult'sches Gesetz} bezeichnet.
 
 \subsection{Boltzmann-Gleichung}
 \label{sec:boltzmann-gleichung}\index{Boltzmann-Gleichung}
