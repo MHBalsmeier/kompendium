@@ -25701,10 +25701,18 @@ Aus Glg. \eqref{eq:tke_num_mod} erhält man unter Vernachlässigung der Advektio
 \newoverline{\epsilon} = K\left[\left(\frac{\partial\newoverline{u}}{\partial z}\right)^2 + \left(\frac{\partial\newoverline{v}}{\partial z}\right)^2 - N^2\right]\label{eq:tke_diag}
 \end{align}
 
-\section{Besonderheiten vertikaler Diffusionskoeffizenten}
-\label{sec:besonderheiten_vertikaler_diffusionskoeffizenten}\index{Diffusionskoeffizient!vertikaler}
+\subsection{Schließung 1,5-ter Ordnung}
+\label{sec:schliessung_1,5ter_ordnung}\index{Schließung!1,5-ter Ordnung}
 
-Beim TKE-Ansatz geht es letzten Endes darum, den vertikalen Diffusionskoeffizienten zu berechnen. Hierzu verwendet man als Modell das kinetische Gasmodell gemäß Abschn. \ref{sec:kinetisches_gasmodell}. Bei diesem fliegen Teilchen zwischen zwei Stößen eine mittlere freie Weglänge, die hier als \textit{Mischungsweglänge} $L_m$ \index{Mischungsweglänge}, ihre mittlere Geschwindigkeit ist $\newoverline{v}$. Der sich daraus ergebende Diffusionskoeffizient ergibt sich gemäß Glg. \eqref{eq:dyn_viscosity_kinetic_model} zu
+Beim TKE-Ansatz geht es letzten Endes darum, den vertikalen Diffusionskoeffizienten zu berechnen. Hierzu gibt es grundsätzlich drei Ansätze:
+%
+\begin{itemize}
+\item Bei der \textit{Schließung erster Ordnung}\index{Schließung!erster Ordnung} wird der vertikale Diffusionskoeffizient anhand der vertikalen Windscherung, multipliziert mit einer Längenskala, berechnet.
+\item Bei der \textit{Schließung zweiter Ordnung}\index{Schließung!zweiter Ordnung} werden sowohl für die TKE als auch für die Dissipation der TKE prognostische Variablen gelöst. Der vertikale Diffusionskoeffizient kann daraus abgeleitet werden.
+\item Bei der \textit{Schließung 1,5-ter Ordnung}\index{Schließung!1,5-ter Ordnung} wird eine prognostische Gleichung für die TKE gelöst, nicht jedoch für die Dissipation. Der vertikale Diffusionskoeffizient wird aus der TKE algebraisch abgelitet.
+\end{itemize}
+%
+Hier wird nur die Schließung 1,5-ter Ordnung weiterverfolgt. Um den vertikalen Diffusionskoeffizienten zu bestimmen, verwendet man als Modell das kinetische Gasmodell gemäß Abschn. \ref{sec:kinetisches_gasmodell}. Bei diesem fliegen Teilchen zwischen zwei Stößen eine mittlere freie Weglänge, die hier als \textit{Mischungsweglänge} $L_m$ \index{Mischungsweglänge}, ihre mittlere Geschwindigkeit ist $\newoverline{v}$. Der sich daraus ergebende Diffusionskoeffizient ergibt sich gemäß Glg. \eqref{eq:dyn_viscosity_kinetic_model} zu
 %
 \begin{align}
 K_v = L_m\newoverline{v}.\label{eq:k_eff_deriv_1}
