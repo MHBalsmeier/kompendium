@@ -6444,8 +6444,8 @@ p_\text{osm} = k_BTn_B\label{eq:vant_hoff_law}
 %
 mit der Konzentration $n_B\coloneqq\frac{N_B}{V}$ des gelösten Stoffes. Glg. \eqref{eq:vant_hoff_law} bezeichnet man als \textit{van't Hoff'sches Gesetz}\index{van't Hoff'sches Gesetz}\index{Gesetz!van't Hoff'sches}.
 
-\subsection{Dampfdruck über einer Salzlösung}
-\label{sec:dampfdruck_ueber_einer_salzloesung}\index{Dampfdruck!über einer Salzlösung}\index{Salzlösung!Dampfdruck}
+\subsection{Dampfdruck über einer Lösung}
+\label{sec:dampfdruck_ueber_einer_loesung}\index{Dampfdruck!über einer Lösung}\index{Lösung!Dampfdruck}
 
 Bei gegebenem Druck $p$ liegt bei einer Temperatur $T_s$ der Phasenübergang zwischen der Phase $A$, welche flüssig sei (z. B. Wasser), und der Phase $C$, welche gasförmig oder fest sei, vor. Dies wird durch eine Funktion $p_S = p_S\left(T_s\right)$ beschrieben, welche Lösung der Clausius-Clapeyron-Gleichung\index{Clausius-Clapeyron-Gleichung} Glg. \eqref{eq:clausius-clapeyron} ist. Löst man nun einen Stoff $B$ in $A$ (z. B. Salz), der auf $A$ beschrämkt sei, verschiebt sich $T_s$ um $\Delta T_s$. Bezeichne
 %
@@ -6593,7 +6593,7 @@ führt. Mit der Zustandsgleichung idealer Gase folgt
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-\Leftrightarrow\ln\left(\frac{p_s + \Delta p_s}{p_s}\right) &= -c.
+\Leftrightarrow\ln\left(\frac{p_s + \Delta p_s}{p_s}\right) &= -c.\label{eq:p_s_over_solute}
 \end{align}
 \end{center}
 }}
@@ -6855,7 +6855,7 @@ folgt hieraus die \textit{Kelvin-Gleichung}\index{Kelvin-Gleichung}
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-\ln\left(\frac{p_R}{p_S}\right) = \frac{2\gamma}{R_sTR\rho_l}.
+\ln\left(\frac{p_R}{p_S}\right) = \frac{2\gamma}{R_sTR\rho_l}.\label{eq:kelvin}
 \end{align}
 \end{center}
 }}
@@ -19229,11 +19229,89 @@ In die Evolution dieser Größe gehen viele Faktoren ein. Ziel dieses Abschnitte
 \chapter{\normalfont\textsc{Wolkenmikrophysik}}
 \label{chap:wolkenmikrophysik}\index{Wolkenmikrophysik}
 
+In der sogenannten \textit{Wolkenmikrophysik}\index{Wolkenmikrophysik} geht es um die Beantwortung folgender Fragen:
+%
+\begin{itemize}
+\item Wie entstehen Wolken und Niederschlag?
+\item Welche Größenspektren haben Wolken und Niederschlag?
+\item Welche Fallgeschwindigkeit haben Wolken und Niederschlag?
+\item Welche Wechselwirkungen existieren zwischen den Kondensaten?
+\end{itemize}
+
 \section{Köhler-Gleichung}
 \label{sec:köhler-gleichung}\index{Köhler-Gleichung}
 
+Der Dampfdruck über einer Lösung ist durch Gleichung \eqref{eq:p_s_over_solute} gegeben:
+%
+\begin{align}
+\ln\left(\frac{p_S\left(n_s\right)}{p_S^{(0)}}\right) &= -\frac{n_s}{n_w}.
+\end{align}
+%
+Hierbei wurde die Notation an die in der Wolkenphysik übliche angepasst.
+
+Der Dampfdruck über einer gekrümmten Oberfläche ist durch Gleichung \eqref{eq:kelvin} gegeben:
+%
+\begin{align}
+\ln\left(\frac{p_S\left(R\right)}{p_S^{(0)}}\right) &= \frac{2\gamma}{R_sTR\rho_w}.
+\end{align}
+%
+Treten beide Effekte gleichzeitig auf, erhält man
+%
+\begin{align}
+\ln\left(\frac{p_S\left(R,n_s\right)}{p_S^{(0)}}\right) &= \frac{2\gamma}{R_sTR\rho_w} - \frac{n_s}{n_w}
+\end{align}
+%
+als Gleichung für den Dampfdruck über einer gekrümmten Oberfläche, innerhalb der sich eine Lösung befindet. Für $n_w$ gilt
+%
+\begin{align}
+n_w = \frac{m_w}{M_w} = \frac{4\pi R^3\rho_w}{3M_w}.
+\end{align}
+%
+Hieraus folgt
+%
+\begin{align}
+\ln\left(\frac{p_S\left(R,n_s\right)}{p_S^{(0)}}\right) &= \frac{2\gamma}{R_sTR\rho_w} - \frac{3M_wn_s}{4\pi R^3\rho_w}.
+\end{align}
+%
+Verwendet man anstelle das Radius $R$ den Durchmesser $D$, folgt
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\ln\left(\frac{p_S\left(D,n_s\right)}{p_S^{(0)}}\right) &= \frac{4\gamma}{R_sTD\rho_w} - \frac{6M_wn_s}{\pi D^3\rho_w}.
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+Diese Gleichung bezeichnet man als \textit{Köhler-Gleichung}\index{Köhler-Gleichung}.
+
+Leitet man diese Gleichung nach $D$ ab und setzt die Ableitung gleich Null, erhält man
+%
+\begin{align}
+0 &= -\frac{4\gamma}{R_sTD_c^2\rho_w} + \frac{18M_wn_s}{\pi D_c^4\rho_w}\nonumber\\
+\Leftrightarrow \frac{4\gamma}{R_sTD_c^2} &= \frac{18M_wn_s}{\pi D_c^4}\nonumber\\
+\Leftrightarrow \frac{4\gamma D_c^2}{R_sT} &= \frac{18M_wn_s}{\pi}\nonumber\\
+\Leftrightarrow D_c^2 &= \frac{9R_sTM_wn_s}{2\gamma\pi} = \frac{9RTn_s}{2\gamma\pi}.
+\end{align}
+%
+$D_c$ bezeichnet man als \textit{kritischen Durchmesser}\index{kritischer Durchmesser}\index{Durchmesser!kritisch}. Am kritischen Durchmesser ist der Sättigungsdampfdruck maximal. Nur Tropfen mit $D>D_c$ können weiterwachsen und zu Wolken- und Regentropfen werden. Solche Tropfen entstehen in der freien Atmosphäre nur für $p_v>p_S\left(D_c\right)$.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width = 0.6\textwidth]{figs/koehler.png}
+\caption{Köhler-Kurven von Wassertröpfchen.}
+\label{fig:koehler}
+\end{center}
+\end{figure}
+
+Wie aus Abb. \ref{fig:koehler} ersichtlich ist, steigt der kritische Durchmesser mit $n_s$ an, wohingegen der maximale Sättigungsdampfdruck absinkt.
+
 \section{Zirkulation um Kondensate}
 \label{sec:zirkulation_um_kondensate}
+
+Aus dem Strömungsfeld um ein Kondensat herum kann man die Kraft ableiten, die auf das Kondensat wirkt, woraus sich mittels Gleichsetzen mit der Gewichtskraft die Fallgeschwindigkeit ergibt.
 
 \subsection{Laminare Umströmung}
 \label{sec:laminare_umstroemung}\index{Kondensat!laminare Umströmung}\index{laminare Umströmung!von Kondensaten}\index{Umströmung!laminare!von Kondensaten}
