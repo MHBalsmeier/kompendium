@@ -3,9 +3,11 @@
 \usepackage[style = numeric, backend = biber]{biblatex}
 \usepackage[nodisplayskipstretch]{setspace}
 \usepackage[oldsyntax]{stackengine}
-\usepackage{csquotes, makeidx, fancybox, microtype, graphicx, mathtools, subcaption, amssymb, fancyhdr, titlesec, mathspec, fontspec, listings, color, array, xcolor}
+\usepackage{csquotes, makeidx, fancybox, microtype, graphicx, mathtools, subcaption, amssymb, fancyhdr, titlesec, mathspec, fontspec, listings, color, array, xcolor, tocloft}
 \usepackage[ngerman]{babel}
 \usepackage[hidelinks]{hyperref}
+\setlength\cftsecnumwidth{3em}
+\setlength\cftsubsecnumwidth{4em}
 \setmainfont{OldStandard}[Extension = .otf, Path = /home/max/latex_man_fonts/oldstandard/fonts/opentype/public/oldstandard/, UprightFont = *-Regular, BoldFont = *-Bold, ItalicFont = *-Italic, Ligatures = TeX]
 \setmathsfont(Latin)[Path = /home/max/latex_man_fonts/oldstandard/fonts/opentype/public/oldstandard/, Extension = .otf]{OldStandard-Italic}
 \setmathrm[Path = /home/max/latex_man_fonts/oldstandard/fonts/opentype/public/oldstandard/, Extension = .otf]{OldStandard-BoldItalic}
@@ -174,9 +176,10 @@
 \thispagestyle{empty}
 \vspace*{15 cm}
 \begin{center}
-\textcopyright\ Max H. Balsmeier 2020 - 2023\\
+\textcopyright\ Max H. Balsmeier 2020 - \the\year{}\\
 Dieses Werk enthält mit großer Wahrscheinlichkeit Fehler und Ungenauigkeiten. Es befindet sich unter permanenter Überarbeitung. Teile sind unvollständig oder es sind nur die Überschriften vorhanden. Kommerzielle Nutzung wird untersagt. Alle Rechte vorbehalten.
 \end{center}
+\newpage
 \pagestyle{toc}
 \tableofcontents
 \newpage
@@ -11486,8 +11489,80 @@ Nimmt man einen homogenen Untergrund $b$ an, sowie eine mittlere Tiefe $D$, der 
 \frac{\partial\mathbf{v}}{\partial t} &= -g\nabla d - f\mathbf{k}\times\mathbf{v},\label{eq:flach_lin_1}\\
 \frac{\partial d}{\partial t} + D\nabla\cdot\mathbf{v} &= 0.\label{eq:flach_lin_2}
 \end{align}
+\section{Entwicklungen des Coriolis-Parameters in ebener Geometrie}
+\label{sec:entwicklungen_des_coriolisparameters_in_ebener_geometrie}
 
-\section{Geostrophie}
+Für den Coriolis-Parameter $f$ als Funktion der Breite $\varphi$ gilt
+%
+\begin{align}
+f\left(\phi\right) = 2\omega\sin\left(\phi\right).
+\end{align}
+%
+Taylor-entwickelt man dies an einer Breite $\phi_0$, erhält man
+%
+\begin{align}
+f\left(\phi\right) &= f\left(\phi_0\right) + f'\left(\phi_0\right)\left(\phi - \phi_0\right) + \frac{1}{2}f''\left(\phi_0\right)\left(\phi - \phi_0\right)^2 + \frac{1}{6}f'''\left(\phi_0\right)\left(\phi - \phi_0\right)^2 + \mathcal{O}\left[\left(\phi - \phi_0\right)^4\right]\nonumber\\
+&= f\left(\phi_0\right)\left[1 + \cot\left(\phi_0\right)\left(\phi - \phi_0\right) - \frac{1}{2}\left(\phi - \phi_0\right)^2 - \frac{1}{6}\cot\left(\phi_0\right)\left(\phi - \phi_0\right)^3\right], 
+\end{align}
+%
+wobei die Terme vierter und höherer Ordnung nicht mehr mitnotiert wurden. Mit
+%
+\begin{align}
+y \coloneqq r\left(\phi - \phi_0\right)
+\end{align}
+%
+mit $r$ als Abstand vom Erdmittelpunkt kann man dies als
+%
+\begin{align}
+f\left(\phi\right) &= f\left(\phi_0\right)\left[1 + \cot\left(\phi_0\right)\frac{y}{r} - \frac{y^2}{2r^2} - \frac{y^3}{6r^3}\cot\left(\phi_0\right)\right]\label{eq:f_dev}
+\end{align}
+%
+notieren. Der \textit{Rossby-Parameter}\index{Rossby-Parameter} wird definiert durch
+%
+\begin{align}
+\beta\left(\phi_0\right) \coloneqq \cot\left(\phi_0\right)\frac{f\left(\phi_0\right)}{r} = \frac{2\omega\cos\left(\phi_0\right)}{r} = \frac{d\phi}{dy}\frac{df}{d\phi} = \frac{df}{dy}.
+\end{align}
+%
+In den nun herzuleitenden Approximationen wird von einem zonalen Kanal der meridionalen Ausdehnung $2B$ ausgegangen, der an der Breite $\varphi_0$ zentriert ist. Die Krümmungsterme werden vernachlässigt, daher spricht man von Ebenen.
+
+\subsection{f-Ebene}
+\label{sec:febene}\index{f-Ebene}
+
+Hier macht man die Approximation
+%
+\begin{align}
+f\left(\phi\right) \approx f\left(\phi_0\right).
+\end{align}
+%
+Nach Glg. \eqref{eq:f_dev} ist dies gerechtfertigt, falls
+%
+\begin{align}
+B \ll r\tan\left(\phi_0\right), && B \ll \sqrt{2}r
+\end{align}
+%
+gelten. Bei der sogenannten \textit{f-Kugel}\index{f-Kugel} nimmt man einen global homogenen Coriolisparameter an, was für operationelle Vorhersagen nicht geeignet ist.
+
+\subsection{$\beta-$Ebene}
+\label{sec:betaebene}\index{$\beta-$Ebene}
+
+Hier setzt man die Approximation
+%
+\begin{align}
+f\left(\phi\right) \approx f\left(\phi_0\right) + \beta y
+\end{align}
+%
+an. Nach Glg. \eqref{eq:f_dev} ist dies gerechtfertigt, falls
+%
+\begin{align}
+B \ll 2r\cot\left(\phi_0\right), && B \ll \sqrt{6}r
+\end{align}
+%
+gelten.
+
+\section{Gleichgewichtswinde}
+\label{sec:gleichgewichtswinde}\index{Gleichgewichtswind}
+
+\subsection{Geostrophie}
 \label{sec:geostrophie}\index{Geostrophie}
 
 \renewcommand{\arraystretch}{1.2}
@@ -11597,77 +11672,7 @@ mit einer gewichteten Schichtmitteltemperatur
 \newoverline{T}\left(p_1, p_2\right) &= \frac{\int_{p_1}^{p_2}\frac{1}{p}Tdp}{\int_{p_1}^{p_2}\frac{1}{p}dp}.
 \end{align}
 
-\section{Entwicklungen des Coriolis-Parameters in ebener Geometrie}
-\label{sec:entwicklungen_des_coriolisparameters_in_ebener_geometrie}
-
-Für den Coriolis-Parameter $f$ als Funktion der Breite $\varphi$ gilt
-%
-\begin{align}
-f\left(\phi\right) = 2\omega\sin\left(\phi\right).
-\end{align}
-%
-Taylor-entwickelt man dies an einer Breite $\phi_0$, erhält man
-%
-\begin{align}
-f\left(\phi\right) &= f\left(\phi_0\right) + f'\left(\phi_0\right)\left(\phi - \phi_0\right) + \frac{1}{2}f''\left(\phi_0\right)\left(\phi - \phi_0\right)^2 + \frac{1}{6}f'''\left(\phi_0\right)\left(\phi - \phi_0\right)^2 + \mathcal{O}\left[\left(\phi - \phi_0\right)^4\right]\nonumber\\
-&= f\left(\phi_0\right)\left[1 + \cot\left(\phi_0\right)\left(\phi - \phi_0\right) - \frac{1}{2}\left(\phi - \phi_0\right)^2 - \frac{1}{6}\cot\left(\phi_0\right)\left(\phi - \phi_0\right)^3\right], 
-\end{align}
-%
-wobei die Terme vierter und höherer Ordnung nicht mehr mitnotiert wurden. Mit
-%
-\begin{align}
-y \coloneqq r\left(\phi - \phi_0\right)
-\end{align}
-%
-mit $r$ als Abstand vom Erdmittelpunkt kann man dies als
-%
-\begin{align}
-f\left(\phi\right) &= f\left(\phi_0\right)\left[1 + \cot\left(\phi_0\right)\frac{y}{r} - \frac{y^2}{2r^2} - \frac{y^3}{6r^3}\cot\left(\phi_0\right)\right]\label{eq:f_dev}
-\end{align}
-%
-notieren. Der \textit{Rossby-Parameter}\index{Rossby-Parameter} wird definiert durch
-%
-\begin{align}
-\beta\left(\phi_0\right) \coloneqq \cot\left(\phi_0\right)\frac{f\left(\phi_0\right)}{r} = \frac{2\omega\cos\left(\phi_0\right)}{r} = \frac{d\phi}{dy}\frac{df}{d\phi} = \frac{df}{dy}.
-\end{align}
-%
-In den nun herzuleitenden Approximationen wird von einem zonalen Kanal der meridionalen Ausdehnung $2B$ ausgegangen, der an der Breite $\varphi_0$ zentriert ist. Die Krümmungsterme werden vernachlässigt, daher spricht man von Ebenen.
-
-\subsection{f-Ebene}
-\label{sec:febene}\index{f-Ebene}
-
-Hier macht man die Approximation
-%
-\begin{align}
-f\left(\phi\right) \approx f\left(\phi_0\right).
-\end{align}
-%
-Nach Glg. \eqref{eq:f_dev} ist dies gerechtfertigt, falls
-%
-\begin{align}
-B \ll r\tan\left(\phi_0\right), && B \ll \sqrt{2}r
-\end{align}
-%
-gelten. Bei der sogenannten \textit{f-Kugel}\index{f-Kugel} nimmt man einen global homogenen Coriolisparameter an, was für operationelle Vorhersagen nicht geeignet ist.
-
-\subsection{$\beta-$Ebene}
-\label{sec:betaebene}\index{$\beta-$Ebene}
-
-Hier setzt man die Approximation
-%
-\begin{align}
-f\left(\phi\right) \approx f\left(\phi_0\right) + \beta y
-\end{align}
-%
-an. Nach Glg. \eqref{eq:f_dev} ist dies gerechtfertigt, falls
-%
-\begin{align}
-B \ll 2r\cot\left(\phi_0\right), && B \ll \sqrt{6}r
-\end{align}
-%
-gelten.
-
-\section{Gradientenwind}
+\subsection{Gradientenwind}
 \label{sec:gradientenwind}\index{Gradientenwind}
 
 Beim \textit{Gradientenwind} geht man davon aus, dass Coriolis-Kraft und Druckgradient zusammen die Zentripetalkraft aufbringen, die nötig ist, um ein Fluidteilchen auf einer Trajekorie mit Radius $R > 0$ zu bewegen, also
@@ -11708,7 +11713,7 @@ Antizyklonen werden sind also in Kernnähe gradientenschwächer, solch eine Besc
 %
 auf der synoptischen Skala tatsächlich bedeutsam.
 
-\section{Reibungswind}
+\subsection{Reibungswind}
 \label{sec:reibungswind}\index{Reibungswind}
 
 Nimmt man eine Druckgradientbeschleunigung
@@ -11732,7 +11737,7 @@ wobei $\psi$ der Winkel ist, unter dem der Wind die Isobare schneidet. Dies beze
 %
 wobei die Grenzschichthöhe mit $H = 500$ m abgeschätzt wurde. Der Reibungswind dissipiert eine Zyklone also innerhalb von Stunden, es handelt sich also um einen relevanten Effekt auf der synoptischen Skala. Divergenzen oberhalb der Reibungsschicht wurden hierbei nicht berücksichtigt, außerdem wurde $\psi$ als höhenunabhängig innerhalb der Grenzschicht angenommen. In der Realität ist dies natürlich nicht der Fall, sondern $\psi$ nimmt mit der Höhe ab, was zur Ausbildung eines spiralartigen Windfeldes führt, der sogenannten \textit{Ekman-Spirale}\index{Ekman-Spirale}.
 
-\section{Euler-Wind}
+\subsection{Euler-Wind}
 \label{sec:euler-wind}\index{Euler-Wind}
 
 Als \textit{Euler-Wind} bezeichnet man die Zunahme des Windes unter Wirkung eines Druckgradienten und Abwesenheit der Coriolis-Beschleunigung, also
@@ -11741,7 +11746,7 @@ Als \textit{Euler-Wind} bezeichnet man die Zunahme des Windes unter Wirkung eine
 \mathbf{v}_h = -t\frac{1}{\rho}\nabla p.
 \end{align}
 
-\section{Zyklostrophischer Wind}
+\subsection{Zyklostrophischer Wind}
 \label{sec:zyklostrophischer_wind}\index{zyklostrophischer Wind}\index{Wind!zyklostrophsicher}
 
 Der \textit{zyklostrophische Wind} ist gegeben, wenn ein Druckgradient eine Zentripetalkraft aufbringt:
@@ -11751,6 +11756,173 @@ Der \textit{zyklostrophische Wind} ist gegeben, wenn ein Druckgradient eine Zent
 \end{align}
 %
 Er gilt in \textit{Tornados}\index{Tornado} und \textit{Staubteufeln}\index{Staubteufel}.
+
+\section{Quasigeostrophie}
+\label{sec:quasigeostrophie}\index{Quasigeostrophe}
+
+Hier geht man aus vom hydrostatischen adiabatischen Gleichungssystem, welches in Abschn. \ref{sec:zusammenfassung_hydrostat} zusammengefasst wurde:
+%
+\begin{align}
+\md{_h\mathbf{v}_h} + \omega\frac{\partial\mathbf{v}_h}{\partial p} &= -f\mathbf{k}\times\mathbf{v}_h - \nabla\Phi,\label{eq:hydrostat_1}\\
+\frac{\partial\Phi}{\partial p} &= -\alpha,\label{eq:hydrostat_2}\\
+\frac{\partial^2\Phi}{\partial p\partial t} + \left(u\frac{\partial}{\partial x} + v\frac{\partial}{\partial y}\right)\frac{\partial\Phi}{\partial p} + \sigma\omega &= 0,\label{eq:hydrostat_3}\\
+\nabla\cdot\mathbf{v}_h + \frac{\partial\omega}{\partial p} &= 0,\label{eq:hydrostat_4}\\
+p\alpha &= R_dT.\label{eq:hydrostat_5}
+\end{align}
+%
+Nun müssen zunächst einige Vereinfachungen vorgenommen werden. Ziel ist das \textit{quasigeostrophische Gleichungssystem}.\index{Quasigeostrophie} Dieses Konzept wendet man ausschließlich auf Kanäle in den Extratropen an, die schmal genug für die $\beta-$Ebene sind. Man nähert außerdem den Coriolis-Parameter $f$ zu
+%
+\begin{align}
+f = f_0 + \beta\left(y - y_0\right)\stackrel{y_0 \equiv 0}{=}f_0 + \beta y, 
+\end{align}
+%
+vgl. Abschn. \ref{sec:entwicklungen_des_coriolisparameters_in_ebener_geometrie}. Dann gilt für den geostrophischen Wind Glg. \eqref{eq:geostr_wind}
+%
+\begin{align}
+\mathbf{v}_{h, g} = \mathbf{k}\times\frac{1}{f}\nabla\Phi = \mathbf{k}\times\frac{1}{f_0}\nabla\Phi - \mathbf{k}\times\frac{\beta y}{f_0^2}\nabla\Phi + \mathcal{O}\left(f''\right)\stackrel{\text{in 0. Ordnung}}{\to}\mathbf{v}_{h, g} = \mathbf{k}\times\frac{1}{f_0}\nabla\Phi.\label{eq:geostr_wind_vereinfacht}
+\end{align}
+%
+Hieraus kann man für den thermischen Wind ableiten
+%
+\begin{align}
+\frac{\partial\mathbf{v}_{h, g}}{\partial p} = -\frac{1}{f_0}\mathbf{k}\times\nabla\alpha.
+\end{align}
+%
+Die relative Vorticity $\zeta$ ersetzt man nun näherungsweise durch die relative Vorticity des geostrophischen Windes $\zeta_g$, welche nach Glg. \eqref{eq:geostro_vort_skal} näherungsweise durch
+%
+\begin{align}
+\zeta_g = \frac{1}{f_0}\Delta\phi.
+\end{align}
+%
+gegeben ist. Für die absolute Vorticity nähert man hieraus folgernd
+%
+\begin{align}
+\eta_g \coloneqq f + \zeta_g = f_0 + \beta y + \zeta_g.
+\end{align}
+%
+Mit Glg. \eqref{eq:geostr_wind_vereinfacht} vereinfacht man nun die materielle Ableitung zu
+%
+\begin{align}
+\md{} &= \md{_h} + \omega\frac{\partial}{\partial p} = \frac{\partial}{\partial t} + \mathbf{v}_h\cdot\nabla_h + \omega\frac{\partial}{\partial p}\nonumber\\
+&\to \md{^{(g)}} \coloneqq\md{_h^{(g)}} + \omega\frac{\partial}{\partial p} = \frac{\partial}{\partial t} + \mathbf{v}_{h, g}\cdot\nabla_h + \omega\frac{\partial}{\partial p}.
+\end{align}
+%
+Hiermit folgt für den Ersten Hauptsatz
+%
+\begin{align}
+\frac{\partial}{\partial t}\left(\frac{\partial\Phi}{\partial p}\right) = -\mathbf{v}_{h, g}\cdot\nabla_h\left(\frac{\partial\Phi}{\partial p}\right) - \sigma\omega.\label{eq:first_theorem_qg}
+\end{align}
+%
+Die Vorticitygleichung Glg. \eqref{eq:vorticity_p} wird hier noch einmal wiederholt:
+%
+\begin{align}
+\frac{\partial\zeta}{\partial t} &= -v\beta - \left(f + \zeta\right)\nabla\cdot\mathbf{v}_h - \mathbf{v}_h\cdot\nabla\zeta - \omega\frac{\partial\zeta}{\partial p} + \mathbf{k}\cdot\left[\frac{\partial\mathbf{v}_h}{\partial p}\times\nabla\omega\right]
+\end{align}
+%
+Der geostrophische Wind ist nach Abschn. \ref{sec:geostrophie} eine Größenordnung größer als die ageostrophische Komponente, daher kann man die horizontale Advektion mit $\mathbf{v}_{h, g}$ berechnen und $\zeta$ durch $\zeta_g$ ersetzen:
+%
+\begin{align}
+\frac{\partial\zeta_g}{\partial t} &= -v_g\beta - \left(f + \zeta_g\right)\nabla\cdot\mathbf{v}_h - \mathbf{v}_{h, g}\cdot\nabla\zeta_g - \omega\frac{\partial\zeta_g}{\partial p} + \mathbf{k}\cdot\left[\frac{\partial\mathbf{v}_{h}}{\partial p}\times\nabla\omega\right]
+\end{align}
+%
+Die Werte in Tab. \ref{tab:syn_scale} ergeben außerdem in SI-Einheiten
+%
+\begin{itemize}
+\item $\frac{\partial\zeta_g}{\partial t}\sim10^{-10}$, 
+\item $\omega\frac{\partial\zeta_g}{\partial p}\sim10^{-11}$, 
+\item $\mathbf{k}\cdot\left[\frac{\partial\mathbf{v}_h}{\partial p}\times\nabla\omega\right]\sim10^{-11}$.
+\end{itemize}
+%
+Folglich können auch der Drehterm und die vertikale Advektion vernachlässigt werden und außerdem die relative gegenüber der absoluten Vorticity im Drehterm, dies führt mit $f\approx f_0$ auf die sogenannte \textit{quasigeostrophische Vorticitygleichung}\index{Vorticitygleichung!quasigeostrophische}\index{quasigeostrophische Vorticitygleichung}
+%
+\begin{align}
+\frac{\partial\zeta_g}{\partial t} &= -\mathbf{v}_{h, g}\cdot\nabla\left(\zeta_g + f\right) - f_0\nabla\cdot\mathbf{v}_h = -\mathbf{v}_{h, g}\cdot\nabla\left(\zeta_g + f\right) + f_0\frac{\partial\omega}{\partial p}.\label{eq:vorticity_p_qg}
+\end{align}
+%
+An dieser Stelle führt man zur Vereinfachung eine Stromfunktion
+%
+\begin{align}
+\psi \coloneqq\frac{\Phi}{f_0}
+\end{align}
+%
+ein, damit folgen
+%
+\begin{align}
+\mathbf{v}_{h, g} &= \mathbf{k}\times\nabla\psi, \label{eq:geostr_wind_stream}\\
+\zeta_g &= \Delta_h\psi.
+\end{align}
+%
+Hieraus folgt für die Vorticitygleichung Glg. \eqref{eq:vorticity_p_qg} und den Ersten Hauptsatz Glg. \eqref{eq:e_vom_pot}
+%
+\begin{align}
+\Delta\frac{\partial\psi}{\partial t} &= -\mathbf{v}_{h, g}\cdot\nabla\left(\Delta\psi + f\right) + f_0\frac{\partial\omega}{\partial p}, \label{eq:vorticity_p_qg_mod}\\
+\frac{\partial}{\partial t}\left(\frac{\partial\psi}{\partial p}\right) &= -\mathbf{v}_{h, g}\cdot\nabla\left(\frac{\partial\psi}{\partial p}\right) - \frac{\sigma}{f_0}\omega\nonumber\\
+\Rightarrow\frac{f_0^2}{\sigma}\frac{\partial^2}{\partial p^2}\left(\frac{\partial\psi}{\partial t}\right) &= -\frac{f_0^2}{\sigma}\mathbf{v}_h\cdot\nabla\left(\frac{\partial^2\psi}{\partial p^2}\right) - f_0\frac{\partial\omega}{\partial p}
+\end{align}
+%
+Bei der letzten Implikation wurde die $p-$Abhängigkeit von $\sigma$ vernachlässigt und dies wird auch weiterhin getan werden. Da $\sigma$ mit der Schichtung zusammenhängt, ist dies eine schlechte Annahme, da die Schichtung natürlich in der Realität innerhalb der Troposphäre stark ortsabhängig ist. Nichtsdestotrotz kann man diese Annahme hier machen, da die relevanten Phänomene durch diese Annahme nicht gefiltert werden. Außerdem wurde
+%
+\begin{align}
+\frac{\partial\mathbf{v}_{h, g}}{\partial p}\cdot\nabla\left(\frac{\partial\psi}{\partial p}\right) \stackrel{\text{Glg. \eqref{eq:geostr_wind_stream}}}{=}\left(\mathbf{k}\times\nabla\frac{\partial\psi}{\partial p}\right)\cdot\nabla\left(\frac{\partial\psi}{\partial p}\right) = 0
+\end{align}
+%
+eingesetzt. Nun werden die beiden Gleichungen addiert
+%
+\begin{align}
+\frac{\partial}{\partial t}\left(f + \Delta\psi + \frac{f_0^2}{\sigma}\frac{\partial^2\psi}{\partial p^2}\right) + \mathbf{v}_{h, g}\cdot\nabla\left(f + \Delta\psi + \frac{f_0^2}{\sigma}\frac{\partial^2\psi}{\partial p^2}\right) = 0.\label{eq:tendency_eq_pre}
+\end{align}
+%
+Die Größe
+%
+\begin{align}
+q_g \coloneqq f + \Delta\psi + \frac{f_0^2}{\sigma}\frac{\partial^2\psi}{\partial p^2}
+\end{align}
+%
+bezeichnet man als \textit{quasigeostrophische potentielle Vorticity}\index{Vorticity!quasigeostrophische!potentielle}\index{quasigeostrophische potentielle Vorticity} oder auch \textit{pseudopotentielle Vorticity}\index{pseudopotentielle Vorticity}\index{Vorticity!pseudopotentielle}, damit lässt sich Glg. \eqref{eq:tendency_eq_pre} als
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\md{_h^{(g)}}q_g = 0\label{eq:tendency_eq}
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+notieren. Dies ist die sogenannte \index{Tendenzgleichung}\textit{Tendenzgleichung}. $\omega$ kann hieraus diagnostiziert werden, hierzu wendet man zunächst den horizontalen Laplace-Operator $\Delta_h$ auf Glg. \eqref{eq:first_theorem_qg} an:
+%
+\begin{align}
+\Delta\frac{\partial}{\partial p}\frac{\partial\psi}{\partial t} = -\Delta_h\left[\mathbf{v}_{h, g}\cdot\nabla\left(\frac{\partial\psi}{\partial p}\right)\right] - \frac{\sigma}{f_0}\Delta\omega.\label{eq:omega_eq_deriv_1}
+\end{align}
+%
+Nun wird Glg. \eqref{eq:vorticity_p_qg} nach $p$ differenziert:
+%
+\begin{align}
+\frac{\partial}{\partial p}\Delta\frac{\partial\psi}{\partial t} = -\frac{\partial}{\partial p}\left[\mathbf{v}_{h, g}\cdot\nabla\left(\Delta\psi + f\right)\right] + f_0\frac{\partial^2\omega}{\partial p^2}\label{eq:omega_eq_deriv_2}
+\end{align}
+%
+Nun subtrahiert man Glg. \eqref{eq:omega_eq_deriv_1} von \eqref{eq:omega_eq_deriv_2} und erhält
+%
+\begin{align}
+0 &= \Delta\left[\mathbf{v}_{h, g}\cdot\nabla\left(\frac{\partial\psi}{\partial p}\right)\right] + \frac{\sigma}{f_0}\Delta\omega - \frac{\partial}{\partial p}\left[\mathbf{v}_{h, g}\cdot\nabla\left(\Delta\psi + f\right)\right] + f_0\frac{\partial^2\omega}{\partial p^2}\nonumber
+\end{align}
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\Rightarrow\left[\Delta + \frac{f_0^2}{\sigma}\frac{\partial^2}{\partial p^2}\right]\omega &= \frac{f_0}{\sigma}\frac{\partial}{\partial p}\left[\mathbf{v}_{h, g}\cdot\nabla\left(\Delta\psi + f\right)\right] + \frac{f_0}{\sigma}\Delta\left[\mathbf{v}_{h, g}\cdot\nabla\left(\frac{\partial\psi}{\partial p}\right)\right].\label{eq:omega_eq}
+\end{align}
+\end{center}
+}}
+\end{center}
+%
+Dies ist die \textit{$\omega-$Gleichung}\index{$\omega-$Gleichung}. Dieser Formalismus ist aufgrund der darin enthaltenen linearen Entwicklung von $f$ nicht global anwendbar, die Leistungsfähigkeit besteht darin, dass hiermit innerhalb zonaler Kanäle beschränkter Ausdehnung in den Extratropen barokline Rossby-Wellen und barokline Instabilitäten verstanden werden können, was die theoretische Grundlage der \textit{Zyklogenese}\index{Zyklogenese} ist.
+
+\section{Semigeostrophie}
+\label{sec:semigeostrophie}\index{Semigeostrophie}
+
+Die semigeostrophische Annahme ist eine Relaxation der quasigeostrophischen Annahme. Als Teil des Lösungsspektrums erhält man Flächen im Raum besonderer Baroklinität, sogenannte \textit{Fronten}\index{Front}.
 
 \chapter{\normalfont\textsc{Integralrelationen einer einphasigen Atmosphäre}}
 \label{chap:integralrelationen_einer_einphasigen_atmosphäre}\index{Integralrelation!einer einphasigen Atmosphäre}\index{Atmosphäre!einphasige!Integralrelation}
@@ -15317,166 +15489,6 @@ Diejenigen Spektralanteile der Orographie, welche diese Ungleichung erfüllen, k
 \subsection{Rossby-Wellen}
 \label{sec:rossby-wellen}\index{Rossby-Welle!barokline}\index{barokline Rossby-Welle}
 
-Hier geht man aus vom hydrostatischen adiabatischen Gleichungssystem, welches in Abschn. \ref{sec:zusammenfassung_hydrostat} zusammengefasst wurde:
-%
-\begin{align}
-\md{_h\mathbf{v}_h} + \omega\frac{\partial\mathbf{v}_h}{\partial p} &= -f\mathbf{k}\times\mathbf{v}_h - \nabla\Phi,\label{eq:hydrostat_1}\\
-\frac{\partial\Phi}{\partial p} &= -\alpha,\label{eq:hydrostat_2}\\
-\frac{\partial^2\Phi}{\partial p\partial t} + \left(u\frac{\partial}{\partial x} + v\frac{\partial}{\partial y}\right)\frac{\partial\Phi}{\partial p} + \sigma\omega &= 0,\label{eq:hydrostat_3}\\
-\nabla\cdot\mathbf{v}_h + \frac{\partial\omega}{\partial p} &= 0,\label{eq:hydrostat_4}\\
-p\alpha &= R_dT.\label{eq:hydrostat_5}
-\end{align}
-%
-Nun müssen zunächst einige Vereinfachungen vorgenommen werden. Ziel ist das \textit{quasigeostrophische Gleichungssystem}.\index{Quasigeostrophie} Dieses Konzept wendet man ausschließlich auf Kanäle in den Extratropen an, die schmal genug für die $\beta-$Ebene sind. Man nähert außerdem den Coriolis-Parameter $f$ zu
-%
-\begin{align}
-f = f_0 + \beta\left(y - y_0\right)\stackrel{y_0 \equiv 0}{=}f_0 + \beta y, 
-\end{align}
-%
-vgl. Abschn. \ref{sec:entwicklungen_des_coriolisparameters_in_ebener_geometrie}. Dann gilt für den geostrophischen Wind Glg. \eqref{eq:geostr_wind}
-%
-\begin{align}
-\mathbf{v}_{h, g} = \mathbf{k}\times\frac{1}{f}\nabla\Phi = \mathbf{k}\times\frac{1}{f_0}\nabla\Phi - \mathbf{k}\times\frac{\beta y}{f_0^2}\nabla\Phi + \mathcal{O}\left(f''\right)\stackrel{\text{in 0. Ordnung}}{\to}\mathbf{v}_{h, g} = \mathbf{k}\times\frac{1}{f_0}\nabla\Phi.\label{eq:geostr_wind_vereinfacht}
-\end{align}
-%
-Hieraus kann man für den thermischen Wind ableiten
-%
-\begin{align}
-\frac{\partial\mathbf{v}_{h, g}}{\partial p} = -\frac{1}{f_0}\mathbf{k}\times\nabla\alpha.
-\end{align}
-%
-Die relative Vorticity $\zeta$ ersetzt man nun näherungsweise durch die relative Vorticity des geostrophischen Windes $\zeta_g$, welche nach Glg. \eqref{eq:geostro_vort_skal} näherungsweise durch
-%
-\begin{align}
-\zeta_g = \frac{1}{f_0}\Delta\phi.
-\end{align}
-%
-gegeben ist. Für die absolute Vorticity nähert man hieraus folgernd
-%
-\begin{align}
-\eta_g \coloneqq f + \zeta_g = f_0 + \beta y + \zeta_g.
-\end{align}
-%
-Mit Glg. \eqref{eq:geostr_wind_vereinfacht} vereinfacht man nun die materielle Ableitung zu
-%
-\begin{align}
-\md{} &= \md{_h} + \omega\frac{\partial}{\partial p} = \frac{\partial}{\partial t} + \mathbf{v}_h\cdot\nabla_h + \omega\frac{\partial}{\partial p}\nonumber\\
-&\to \md{^{(g)}} \coloneqq\md{_h^{(g)}} + \omega\frac{\partial}{\partial p} = \frac{\partial}{\partial t} + \mathbf{v}_{h, g}\cdot\nabla_h + \omega\frac{\partial}{\partial p}.
-\end{align}
-%
-Hiermit folgt für den Ersten Hauptsatz
-%
-\begin{align}
-\frac{\partial}{\partial t}\left(\frac{\partial\Phi}{\partial p}\right) = -\mathbf{v}_{h, g}\cdot\nabla_h\left(\frac{\partial\Phi}{\partial p}\right) - \sigma\omega.\label{eq:first_theorem_qg}
-\end{align}
-%
-Die Vorticitygleichung Glg. \eqref{eq:vorticity_p} wird hier noch einmal wiederholt:
-%
-\begin{align}
-\frac{\partial\zeta}{\partial t} &= -v\beta - \left(f + \zeta\right)\nabla\cdot\mathbf{v}_h - \mathbf{v}_h\cdot\nabla\zeta - \omega\frac{\partial\zeta}{\partial p} + \mathbf{k}\cdot\left[\frac{\partial\mathbf{v}_h}{\partial p}\times\nabla\omega\right]
-\end{align}
-%
-Der geostrophische Wind ist nach Abschn. \ref{sec:geostrophie} eine Größenordnung größer als die ageostrophische Komponente, daher kann man die horizontale Advektion mit $\mathbf{v}_{h, g}$ berechnen und $\zeta$ durch $\zeta_g$ ersetzen:
-%
-\begin{align}
-\frac{\partial\zeta_g}{\partial t} &= -v_g\beta - \left(f + \zeta_g\right)\nabla\cdot\mathbf{v}_h - \mathbf{v}_{h, g}\cdot\nabla\zeta_g - \omega\frac{\partial\zeta_g}{\partial p} + \mathbf{k}\cdot\left[\frac{\partial\mathbf{v}_{h}}{\partial p}\times\nabla\omega\right]
-\end{align}
-%
-Die Werte in Tab. \ref{tab:syn_scale} ergeben außerdem in SI-Einheiten
-%
-\begin{itemize}
-\item $\frac{\partial\zeta_g}{\partial t}\sim10^{-10}$, 
-\item $\omega\frac{\partial\zeta_g}{\partial p}\sim10^{-11}$, 
-\item $\mathbf{k}\cdot\left[\frac{\partial\mathbf{v}_h}{\partial p}\times\nabla\omega\right]\sim10^{-11}$.
-\end{itemize}
-%
-Folglich können auch der Drehterm und die vertikale Advektion vernachlässigt werden und außerdem die relative gegenüber der absoluten Vorticity im Drehterm, dies führt mit $f\approx f_0$ auf die sogenannte \textit{quasigeostrophische Vorticitygleichung}\index{Vorticitygleichung!quasigeostrophische}\index{quasigeostrophische Vorticitygleichung}
-%
-\begin{align}
-\frac{\partial\zeta_g}{\partial t} &= -\mathbf{v}_{h, g}\cdot\nabla\left(\zeta_g + f\right) - f_0\nabla\cdot\mathbf{v}_h = -\mathbf{v}_{h, g}\cdot\nabla\left(\zeta_g + f\right) + f_0\frac{\partial\omega}{\partial p}.\label{eq:vorticity_p_qg}
-\end{align}
-%
-An dieser Stelle führt man zur Vereinfachung eine Stromfunktion
-%
-\begin{align}
-\psi \coloneqq\frac{\Phi}{f_0}
-\end{align}
-%
-ein, damit folgen
-%
-\begin{align}
-\mathbf{v}_{h, g} &= \mathbf{k}\times\nabla\psi, \label{eq:geostr_wind_stream}\\
-\zeta_g &= \Delta_h\psi.
-\end{align}
-%
-Hieraus folgt für die Vorticitygleichung Glg. \eqref{eq:vorticity_p_qg} und den Ersten Hauptsatz Glg. \eqref{eq:e_vom_pot}
-%
-\begin{align}
-\Delta\frac{\partial\psi}{\partial t} &= -\mathbf{v}_{h, g}\cdot\nabla\left(\Delta\psi + f\right) + f_0\frac{\partial\omega}{\partial p}, \label{eq:vorticity_p_qg_mod}\\
-\frac{\partial}{\partial t}\left(\frac{\partial\psi}{\partial p}\right) &= -\mathbf{v}_{h, g}\cdot\nabla\left(\frac{\partial\psi}{\partial p}\right) - \frac{\sigma}{f_0}\omega\nonumber\\
-\Rightarrow\frac{f_0^2}{\sigma}\frac{\partial^2}{\partial p^2}\left(\frac{\partial\psi}{\partial t}\right) &= -\frac{f_0^2}{\sigma}\mathbf{v}_h\cdot\nabla\left(\frac{\partial^2\psi}{\partial p^2}\right) - f_0\frac{\partial\omega}{\partial p}
-\end{align}
-%
-Bei der letzten Implikation wurde die $p-$Abhängigkeit von $\sigma$ vernachlässigt und dies wird auch weiterhin getan werden. Da $\sigma$ mit der Schichtung zusammenhängt, ist dies eine schlechte Annahme, da die Schichtung natürlich in der Realität innerhalb der Troposphäre stark ortsabhängig ist. Nichtsdestotrotz kann man diese Annahme hier machen, da die relevanten Phänomene durch diese Annahme nicht gefiltert werden. Außerdem wurde
-%
-\begin{align}
-\frac{\partial\mathbf{v}_{h, g}}{\partial p}\cdot\nabla\left(\frac{\partial\psi}{\partial p}\right) \stackrel{\text{Glg. \eqref{eq:geostr_wind_stream}}}{=}\left(\mathbf{k}\times\nabla\frac{\partial\psi}{\partial p}\right)\cdot\nabla\left(\frac{\partial\psi}{\partial p}\right) = 0
-\end{align}
-%
-eingesetzt. Nun werden die beiden Gleichungen addiert
-%
-\begin{align}
-\frac{\partial}{\partial t}\left(f + \Delta\psi + \frac{f_0^2}{\sigma}\frac{\partial^2\psi}{\partial p^2}\right) + \mathbf{v}_{h, g}\cdot\nabla\left(f + \Delta\psi + \frac{f_0^2}{\sigma}\frac{\partial^2\psi}{\partial p^2}\right) = 0.\label{eq:tendency_eq_pre}
-\end{align}
-%
-Die Größe
-%
-\begin{align}
-q_g \coloneqq f + \Delta\psi + \frac{f_0^2}{\sigma}\frac{\partial^2\psi}{\partial p^2}
-\end{align}
-%
-bezeichnet man als \textit{quasigeostrophische potentielle Vorticity}\index{Vorticity!quasigeostrophische!potentielle}\index{quasigeostrophische potentielle Vorticity} oder auch \textit{pseudopotentielle Vorticity}\index{pseudopotentielle Vorticity}\index{Vorticity!pseudopotentielle}, damit lässt sich Glg. \eqref{eq:tendency_eq_pre} als
-%
-\begin{center}
-\doublebox{\parbox{0.8\textwidth}{
-\begin{center}
-\begin{align}
-\md{_h^{(g)}}q_g = 0\label{eq:tendency_eq}
-\end{align}
-\end{center}
-}}
-\end{center}
-%
-notieren. Dies ist die sogenannte \index{Tendenzgleichung}\textit{Tendenzgleichung}. $\omega$ kann hieraus diagnostiziert werden, hierzu wendet man zunächst den horizontalen Laplace-Operator $\Delta_h$ auf Glg. \eqref{eq:first_theorem_qg} an:
-%
-\begin{align}
-\Delta\frac{\partial}{\partial p}\frac{\partial\psi}{\partial t} = -\Delta_h\left[\mathbf{v}_{h, g}\cdot\nabla\left(\frac{\partial\psi}{\partial p}\right)\right] - \frac{\sigma}{f_0}\Delta\omega.\label{eq:omega_eq_deriv_1}
-\end{align}
-%
-Nun wird Glg. \eqref{eq:vorticity_p_qg} nach $p$ differenziert:
-%
-\begin{align}
-\frac{\partial}{\partial p}\Delta\frac{\partial\psi}{\partial t} = -\frac{\partial}{\partial p}\left[\mathbf{v}_{h, g}\cdot\nabla\left(\Delta\psi + f\right)\right] + f_0\frac{\partial^2\omega}{\partial p^2}\label{eq:omega_eq_deriv_2}
-\end{align}
-%
-Nun subtrahiert man Glg. \eqref{eq:omega_eq_deriv_1} von \eqref{eq:omega_eq_deriv_2} und erhält
-%
-\begin{align}
-0 &= \Delta\left[\mathbf{v}_{h, g}\cdot\nabla\left(\frac{\partial\psi}{\partial p}\right)\right] + \frac{\sigma}{f_0}\Delta\omega - \frac{\partial}{\partial p}\left[\mathbf{v}_{h, g}\cdot\nabla\left(\Delta\psi + f\right)\right] + f_0\frac{\partial^2\omega}{\partial p^2}\nonumber
-\end{align}
-\begin{center}
-
-\doublebox{\parbox{0.8\textwidth}{
-\begin{center}
-\begin{align}
-\Rightarrow\left[\Delta + \frac{f_0^2}{\sigma}\frac{\partial^2}{\partial p^2}\right]\omega &= \frac{f_0}{\sigma}\frac{\partial}{\partial p}\left[\mathbf{v}_{h, g}\cdot\nabla\left(\Delta\psi + f\right)\right] + \frac{f_0}{\sigma}\Delta\left[\mathbf{v}_{h, g}\cdot\nabla\left(\frac{\partial\psi}{\partial p}\right)\right].\label{eq:omega_eq}
-\end{align}
-\end{center}
-}}
-\end{center}
-%
-Dies ist die \textit{$\omega-$Gleichung}\index{$\omega-$Gleichung}. Dieser Formalismus ist aufgrund der darin enthaltenen linearen Entwicklung von $f$ nicht global anwendbar, die Leistungsfähigkeit besteht darin, dass hiermit innerhalb zonaler Kanäle beschränkter Ausdehnung in den Extratropen barokline Rossby-Wellen und barokline Instabilitäten verstanden werden können, was die theoretische Grundlage der \textit{Zyklogenese}\index{Zyklogenese} ist.
-
 Hierfür verwendet man das \textit{quasigeostrophische Zweischichtmodell}.\index{Zweischichtmodell!quasigeostrophisches}\index{quasigeostrophisches Zweischichtmodell} Dieses berechnet zwei Stromfunktionen $\psi_1, \psi_3$, umfasst insgesamt aber fünf Schichten, die in Tab. \ref{tab:zweischichtmodell} zusammengefasst sind. Es wird mit den Randbedingungen $\omega_0 = \omega_4 = 0$ gerechnet.
 %
 \renewcommand{\arraystretch}{1.2}
@@ -18313,8 +18325,8 @@ hierbei ist $\rho_v^{(s)}$ die absolute Sättigugnsfeuchte bei der SST (sea surf
 
 Die Gebiete zwischen den \index{Wendekreis}\textit{Wendekreisen}, die bei Breiten $\pm\beta$ liegen, werden als \index{Tropen}\textit{Tropen} bezeichnet, die Bereiche außerhalb dieses Streifens als \index{Extratropen}\textit{Extratropen}. Die Gebiete bei Breiten jenseits der \textit{Polarkreise}\index{Polarkreis}, die sich bei Breiten $\pm\left(\frac{\pi}{2} - \beta\right)$ befinden, werden als \index{Breiten!hohe}\index{hohe Breiten}\textit{hohe Breiten} bezeichnet. Die Bereiche zwischen den Tropen und den hohen Breiten bezeichnet man als \textit{mittlere Breiten}\index{mittlere Breiten}\index{Breiten!mittlere}. Die Dynamik der Extratropen unterscheidet sich wesentlich von der der Tropen, da in ersteren die diabatischen Flüsse durch die schwächere Konvektion und Strahlung kleiner sind und die geostrophische Annahme gerechtfertigter ist. Die Dynamik der Tropen enthält also gewisse Schwierigkeiten und wird daher separat in Kap. \ref{chap:tropische_dynamik} untersucht.
 
-\section{Quasigeostrophie}
-\label{sec:quasigeostrophie}\index{Quasigeostrophie}
+\section{Zyklogenese}
+\label{sec:zyklogenese}\index{Zyklogenese}
 
 Die Geostrophie gilt in nullter Ordnung auf der synoptischen Skala in den Extratropen, Folgerungen daraus wurden in Abschn. \ref{sec:geostrophie} besprochen. In Abschn. \ref{sec:barokline_instabilitaet} wurde bereits das quasigeostrophische Gleichungssystem, bestehend aus Tendenzgleichung Glg. \eqref{eq:tendency_eq_pre} und $\omega-$Gleichung Ggl. \eqref{eq:omega_eq}, abgeleitet, welches auf zonale Kanäle in den Extratropen angewandt werden kann, deren meridionale Ausdehnung eine Anwendung der $\beta-$Ebenen-Approximation erlaubt. Es wurde gezeigt, dass die baroklinen Wellen, die man als Lösungen eines quasigeostrophischen linearisierten Zweischichtmodells findet, instabil sind. Der hierdurch angestoßene Prozess ist die Zyklogenese, was hier näher behandelt werden soll. Man definiert zunächst die \index{Geopotentialtendenz}\textit{Geopotentialtendenz}\index{Tendenz!des Geopotentials} durch
 %
@@ -18441,10 +18453,8 @@ Warmluftadvektion in der Höhe und Kaltluftadvektion in der Tiefe führt also zu
 \subsection{$\omega-$Gleichung}
 \label{sec:omegagleichung}\index{$\omega-$Gleichung}
 
-\section{Semigeostrophie}
-\label{sec:semigeostrophie}\index{Semigeostrophie}
-
-Die semigeostrophische Annahme ist eine Relaxation der quasigeostrophischen Annahme. Als Teil des Lösungsspektrums erhält man Flächen im Raum besonderer Baroklinität, sogenannte \textit{Fronten}\index{Front}.
+\section{Frontogenese}
+\label{sec:frontogenese}\index{Frontogenese}
 
 \section{PV-Denken}
 \label{sec:pv-denken}\index{PV-Denken}\index{potentielle Vorticitiy}\index{Vorticity!potentielle}
@@ -18689,7 +18699,7 @@ Zwischen den Wendekreisen ist die Baroklinität im Allgemeinen deutlich kleiner 
 \label{sec:skalenanalyse}\index{Skalenanalyse!Tropen}
 
 \section{Zyklogenese}
-\label{sec:zyklogenese}\index{Zyklogenese}
+\label{sec:zyklogenese_tropen}\index{Zyklogenese}
 
 \chapter{\normalfont\textsc{Ozeanzirkulation}}
 \label{chap:ozeanzirkulation}\index{Ozeanzirkulation}
