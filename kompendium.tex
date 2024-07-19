@@ -15489,7 +15489,7 @@ Diejenigen Spektralanteile der Orographie, welche diese Ungleichung erfüllen, k
 \subsection{Rossby-Wellen}
 \label{sec:rossby-wellen}\index{Rossby-Welle!barokline}\index{barokline Rossby-Welle}
 
-Hierfür verwendet man das \textit{quasigeostrophische Zweischichtmodell}.\index{Zweischichtmodell!quasigeostrophisches}\index{quasigeostrophisches Zweischichtmodell} Dieses berechnet zwei Stromfunktionen $\psi_1, \psi_3$, umfasst insgesamt aber fünf Schichten, die in Tab. \ref{tab:zweischichtmodell} zusammengefasst sind. Es wird mit den Randbedingungen $\omega_0 = \omega_4 = 0$ gerechnet.
+Um sogenannte \textit{Rossby-Wellen}\index{Rossby-Wellen} zu verstehen, verwendet man das in Abschn. \ref{sec:quasigeostrophie} hergeleitete quasigeostrophische Gleichungssystem, bestehend aus Tendenzgleichung Glg. \eqref{eq:tendency_eq_pre} und $\omega-$Gleichung Ggl. \eqref{eq:omega_eq}, hier jedoch in diskretisierter Form. Die prognostischen (den Zustand festlegenden) Variablen sind hier zwei Stromfunktionen $\psi_1$, $\psi_3$. Die sich insgesamt ergebenden fünf Schichten sind in Tab. \ref{tab:zweischichtmodell} zusammengefasst. Es wird mit den Randbedingungen $\omega_0 = \omega_4 = 0$ gerechnet.
 %
 \renewcommand{\arraystretch}{1.2}
 \begin{table}
@@ -15513,6 +15513,8 @@ $4$ & $1000$ & $\omega_4 = 0$ (Randbedingung)\\
 \end{table}
 \renewcommand{\arraystretch}{1.0}
 %
+Diesen Ansatz bezeichnet man als \textit{quasigeostrophisches Zweischichtmodell}\index{Zweischichtmodell!quasigeostrophisches}\index{quasigeostrophisches Zweischichtmodell}.
+
 Für die quasigeostrophischen potentiellen Vorticities gilt
 %
 \begin{align}
@@ -18328,15 +18330,17 @@ Die Gebiete zwischen den \index{Wendekreis}\textit{Wendekreisen}, die bei Breite
 \section{Zyklogenese}
 \label{sec:zyklogenese}\index{Zyklogenese}
 
-Die Geostrophie gilt in nullter Ordnung auf der synoptischen Skala in den Extratropen, Folgerungen daraus wurden in Abschn. \ref{sec:geostrophie} besprochen. In Abschn. \ref{sec:barokline_instabilitaet} wurde bereits das quasigeostrophische Gleichungssystem, bestehend aus Tendenzgleichung Glg. \eqref{eq:tendency_eq_pre} und $\omega-$Gleichung Ggl. \eqref{eq:omega_eq}, abgeleitet, welches auf zonale Kanäle in den Extratropen angewandt werden kann, deren meridionale Ausdehnung eine Anwendung der $\beta-$Ebenen-Approximation erlaubt. Es wurde gezeigt, dass die baroklinen Wellen, die man als Lösungen eines quasigeostrophischen linearisierten Zweischichtmodells findet, instabil sind. Der hierdurch angestoßene Prozess ist die Zyklogenese, was hier näher behandelt werden soll. Man definiert zunächst die \index{Geopotentialtendenz}\textit{Geopotentialtendenz}\index{Tendenz!des Geopotentials} durch
-%
-\begin{align}
-\chi \coloneqq \frac{\partial\Phi}{\partial t}, \label{sec:tendency_def}
-\end{align}
+Die Geostrophie gilt in nullter Ordnung auf der synoptischen Skala in den Extratropen, Folgerungen daraus wurden in Abschn. \ref{sec:geostrophie} besprochen. In Abschn. \ref{sec:quasigeostrophie} wurde bereits das quasigeostrophische Gleichungssystem, bestehend aus Tendenzgleichung Glg. \eqref{eq:tendency_eq_pre} und $\omega-$Gleichung Ggl. \eqref{eq:omega_eq}, abgeleitet, welches auf zonale Kanäle in den Extratropen angewandt werden kann, deren meridionale Ausdehnung eine Anwendung der $\beta-$Ebenen-Approximation erlaubt. In Abschn. \ref{sec:barokline_instabilitaet} wurde gezeigt, dass die baroklinen Wellen, die man als Lösungen eines quasigeostrophischen linearisierten Zweischichtmodells findet, instabil sind. Der hierdurch angestoßene Prozess ist die Zyklogenese, was hier näher behandelt werden soll.
 %
 \subsection{Tendenzgleichung}
 \label{sec:tendenzgleichung}\index{Tendenzgleichung}
 
+ Man definiert zunächst die \index{Geopotentialtendenz}\textit{Geopotentialtendenz}\index{Tendenz!des Geopotentials} durch
+%
+\begin{align}
+\chi \coloneqq \frac{\partial\Phi}{\partial t}.\label{sec:tendency_def}
+\end{align}
+%
 Glg. \eqref{eq:tendency_eq_pre} lautete
 %
 \begin{align}
