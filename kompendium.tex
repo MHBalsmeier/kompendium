@@ -10278,7 +10278,7 @@ Synoptische Strömungen\index{Synoptik} sind also sehr instabil.
 Die \textit{Rossby-Zahl}\index{Rossby-Zahl} $N_\text{Ro}$ definiert man als Verhältnis von advektiven Termen zu Coriolis-Kraft, also
 %
 \begin{align}
-N_\text{Ro} \coloneqq \frac{U^2}{LfU} = \frac{U}{Lf}.
+N_\text{Ro} \coloneqq \frac{U^2}{LfU} = \frac{U}{Lf}.\label{eq:def_rossby_number}
 \end{align}
 
 \section{Spherical geopotential approximation}
@@ -11922,7 +11922,44 @@ Dies ist die \textit{$\omega-$Gleichung}\index{$\omega-$Gleichung}. Dieser Forma
 \section{Semigeostrophie}
 \label{sec:semigeostrophie}\index{Semigeostrophie}
 
-Die semigeostrophische Annahme ist eine Relaxation der quasigeostrophischen Annahme. Als Teil des Lösungsspektrums erhält man Flächen im Raum besonderer Baroklinität, sogenannte \textit{Fronten}\index{Front}.
+Die semigeostrophische Annahme ist eine Relaxation der quasigeostrophischen Annahme. Sie führt im Gegensatz zu dieser auf ein global anwendbares Gleichungssystem. Als Teil des Lösungsspektrums erhält man Flächen im Raum besonderer Baroklinität, sogenannte \textit{Fronten}\index{Front}.
+
+Ausgangspunkt ist das in Abschn. \ref{sec:hydrostatik} hergeleitete hydrostatische Gleichungssystem, welches hier noch einmal notiert wird:
+%
+\begin{align}
+\frac{\partial u}{\partial t} - \mathbf{v}_h\cdot\nabla u - \omega\frac{\partial u}{\partial p} - fv + \frac{\partial\Phi}{\partial x} &= 0\\
+\frac{\partial v}{\partial t} - \mathbf{v}_h\cdot\nabla v - \omega\frac{\partial v}{\partial p} + fu + \frac{\partial\Phi}{\partial y} &= 0\\
+\frac{\partial^2\Phi}{\partial p\partial t} + \left(u\frac{\partial}{\partial x} + v\frac{\partial}{\partial y}\right)\frac{\partial\Phi}{\partial p} + \frac{\alpha^2}{g^2}N^2\omega &= 0\\
+\frac{\partial\omega}{\partial p} + \nabla\cdot\mathbf{v}_h&= 0,\\
+\frac{\partial\Phi}{\partial p} + \frac{1}{\rho} = 0.
+\end{align}
+%
+Dabei wurden diabatische Terme weggelassen. 
+
+Bei der semigeostrophischen Approximation wird lediglich die horizontale Impulsgleichung modifiziert. Grundvoraussetzung ist
+%
+\begin{align}
+N_\text{Ro} = \frac{U}{Lf} \ll 1,
+\end{align}
+%
+also, dass die materielle Beschleunigung klein im Vergleich zur Coriolisbeschleunigung ist \cite{TheGeostrophicMomentumApproximationandtheSemiGeostrophicEquations}. $N_\text{Ro}$ ist hierbei die in Glg. \eqref{eq:def_rossby_number} definierte Rossby-Zahl.
+
+Das semigeostrophische Gleichungssystem lautet somit zusammenfassend
+%
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
+\begin{align}
+\frac{\partial u_g}{\partial t} + \mathbf{v}_h\cdot\nabla u - \omega\frac{\partial u}{\partial p} - fv + \frac{\partial\Phi}{\partial x} &= 0,\\
+\frac{\partial v_g}{\partial t} + \mathbf{v}_h\cdot\nabla v - \omega\frac{\partial v}{\partial p} + fu + \frac{\partial\Phi}{\partial y} &= 0,\\
+\frac{\partial\theta}{\partial t} + \mathbf{v}_h\cdot\nabla\theta - \omega\frac{\partial\theta}{\partial p} &= 0,\\
+\frac{\partial^2\Phi}{\partial p\partial t} + \left(u\frac{\partial}{\partial x} + v\frac{\partial}{\partial y}\right)\frac{\partial\Phi}{\partial p} + \frac{\alpha^2}{g^2}N^2\omega &= 0,\\
+\frac{\partial\omega}{\partial p} + \nabla\cdot\mathbf{v}_h &= 0,\\
+\frac{\partial\Phi}{\partial p} + \frac{1}{\rho} = 0.
+\end{align}
+\end{center}
+}}
+\end{center}
 
 \chapter{\normalfont\textsc{Integralrelationen einer einphasigen Atmosphäre}}
 \label{chap:integralrelationen_einer_einphasigen_atmosphäre}\index{Integralrelation!einer einphasigen Atmosphäre}\index{Atmosphäre!einphasige!Integralrelation}
