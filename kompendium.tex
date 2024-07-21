@@ -11929,7 +11929,7 @@ Ausgangspunkt ist das in Abschn. \ref{sec:hydrostatik} hergeleitete hydrostatisc
 \begin{align}
 \frac{\partial u}{\partial t} - \mathbf{v}_h\cdot\nabla u - \omega\frac{\partial u}{\partial p} - fv + \frac{\partial\Phi}{\partial x} &= 0\\
 \frac{\partial v}{\partial t} - \mathbf{v}_h\cdot\nabla v - \omega\frac{\partial v}{\partial p} + fu + \frac{\partial\Phi}{\partial y} &= 0\\
-\frac{\partial^2\Phi}{\partial p\partial t} + \left(u\frac{\partial}{\partial x} + v\frac{\partial}{\partial y}\right)\frac{\partial\Phi}{\partial p} + \frac{\alpha^2}{g^2}N^2\omega &= 0\\
+\frac{\partial^2\Phi}{\partial t\partial p} + \mathbf{v}_h\cdot\nabla\frac{\partial\Phi}{\partial p} + \frac{1}{\rho^2g^2}N^2\omega &= 0\\
 \frac{\partial\omega}{\partial p} + \nabla\cdot\mathbf{v}_h&= 0,\\
 \frac{\partial\Phi}{\partial p} + \frac{1}{\rho} = 0.
 \end{align}
@@ -11950,16 +11950,18 @@ Das semigeostrophische Gleichungssystem lautet somit zusammenfassend
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-\frac{\partial u_g}{\partial t} + \mathbf{v}_h\cdot\nabla u - \omega\frac{\partial u}{\partial p} - fv + \frac{\partial\Phi}{\partial x} &= 0,\\
-\frac{\partial v_g}{\partial t} + \mathbf{v}_h\cdot\nabla v - \omega\frac{\partial v}{\partial p} + fu + \frac{\partial\Phi}{\partial y} &= 0,\\
+\frac{\partial u_g}{\partial t} + \mathbf{v}_h\cdot\nabla u_g - \omega\frac{\partial u_g}{\partial p} - fv + \frac{\partial\Phi}{\partial x} &= 0,\\
+\frac{\partial v_g}{\partial t} + \mathbf{v}_h\cdot\nabla v_g - \omega\frac{\partial v_g}{\partial p} + fu + \frac{\partial\Phi}{\partial y} &= 0,\\
 \frac{\partial\theta}{\partial t} + \mathbf{v}_h\cdot\nabla\theta - \omega\frac{\partial\theta}{\partial p} &= 0,\\
-\frac{\partial^2\Phi}{\partial p\partial t} + \left(u\frac{\partial}{\partial x} + v\frac{\partial}{\partial y}\right)\frac{\partial\Phi}{\partial p} + \frac{\alpha^2}{g^2}N^2\omega &= 0,\\
+\frac{\partial^2\Phi}{\partial t\partial p} + \mathbf{v}_h\cdot\nabla\frac{\partial\Phi}{\partial p} + \frac{1}{\rho^2g^2}N^2\omega &= 0,\\
 \frac{\partial\omega}{\partial p} + \nabla\cdot\mathbf{v}_h &= 0,\\
 \frac{\partial\Phi}{\partial p} + \frac{1}{\rho} = 0.
 \end{align}
 \end{center}
 }}
 \end{center}
+%
+Dies ist ein Gleichungssystem für die prognostischen Variablen $u$, $v$, $\omega$, $\Phi$, $\theta$. Man beachte, dass $u_g$ und $v_g$ diagnostische Variablen sind, obwohl für sie Zeitableitungen festgelegt sind.
 
 \chapter{\normalfont\textsc{Integralrelationen einer einphasigen Atmosphäre}}
 \label{chap:integralrelationen_einer_einphasigen_atmosphäre}\index{Integralrelation!einer einphasigen Atmosphäre}\index{Atmosphäre!einphasige!Integralrelation}
