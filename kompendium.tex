@@ -26055,8 +26055,56 @@ Nun ist noch zu bestimmen, welches der beiden Vorzeichen das physikalisch richti
 \Delta\rho_v = -\frac{p}{2} - \sqrt{\frac{p^2}{4} - q}.
 \end{align}
 
-\section{Parametrisierungen}
+\section{Parametrisierungen von Phasenübergängen}
 \label{sec:parametrisierungen_tracer}\index{Parametrisierung!Phasenübergänge}\index{Phasenübergang!Parametrisierung}
+
+Berechnet man Phasenübergänge mit den gemittelten thermodynamischen Variablen, so vernachlässigt man die in Abschn. \ref{sec:phasenuebergaenge} betrachtete subskalige Variabilität. Hier sollen die in Abschn. \ref{sec:phasenuebergaenge} grundsätzlich angestellten Überlegungen für ein Modell nutzbar gemacht werden. Sei $T = T\left(\mathbf{r}\right)$ das zu einem festen Zeitpunkt $t$ gültige Temperaturfeld in einer Gitterbox $V\subseteq\mathbb{R}^3$. Seien $T_\text{min}$ und $T_\text{max}$ die minimale und die maximale Temperatur innerhalb dieser Menge. Dann leitet sich daraus aufgrund der strengen Monotonie von $p_S\left(T\right)$ der minimale und maximale Sättigungsdampfdruck ab:
+%
+\begin{align}
+p_{S,\text{min}} &= p_S\left(T_\text{min}\right),\\
+p_{S,\text{max}} &= p_S\left(T_\text{max}\right).
+\end{align}
+%
+Sei $p_v$ der gemittelte Dampfdruck innerhalb der betrachteten Gitterbox. Nun macht man die Annahme, dass der Dampfdruck $p_v$ innerhalb von $V$ homogen ist. Die Grundidee ist, dass bereits bei $p_v>p_{S,\text{min}}$ Kondensation einsetzt, allerdings zunächst in einem sehr geringen Volumenanteil, dem wolkenbefüllte Volumenanteil der Gitterbox $c_f$. Für $c_f$ macht man folgenden Ansatz
+%
+\begin{align}
+c_f\left(p_v\leq p_{S,\text{min}}\right) &= 0,\\
+c_f\left(p_v\geq p_{S,\text{max}}\right) &= 1.
+\end{align}
+%
+Dies ist in jedem Fall richtig. Die einfachste Möglichkeit, dies für $p_{S,\text{min}}\leq p_v\leq p_{S,\text{max}}$ zu erfüllen, ist eine lineare Interpolation:
+%
+\begin{align}
+c_f\left(p_v\right) &= \frac{p_v - p_{S,\text{min}}}{p_{S,\text{max}} - p_{S,\text{min}}}.
+\end{align}
+%
+Dies wäre zum Beispiell dann der Fall, wenn die Temperatur gleichverteilt zwischen $T_\text{min}$ und $T_\text{max}$ gleichverteilt wäre und der Sättigungsdampfdruck in diesem Intervall linear von der Temperatur abhinge, was in erster Ordnung erfüllt ist. Die Idee ist nun, den Dampfdruck, mit dem man die Phasenübergangsraten berechnet, im Fall $p_v>p_{S,\text{min}}$ (in dem überhaupt nur eine Wolkenbildung stattfinden kann) über einen Ansatz
+%
+\begin{align}
+p_v^{(\text{eff})} = p_{S,\text{min}} + \xi\left(p_v - p_{S,\text{min}}\right)
+\end{align}
+%
+auszudrücken. Zu bestimmen ist nun $\xi$. $\xi$ berechnet sich über
+%
+\begin{align}
+\xi = \frac{p_v^{(\text{eff})} - p_{S,\text{min}}}{p_v - p_{S,\text{min}}} = \frac{\int_V\text{max}\left(p_v - p_S\left(\mathbf{r}\right),0\right)d^3r}{V\left(p_v - p_{S,\text{min}}\right)}.
+\end{align}
+%
+Unter der oben bereits gemachten Annahme, dass $T$ und $p_S$ innerhalb von $V$ gleichverteilt sind, folgt im Fall $p_{S,\text{min}}\leq p_v\leq p_{S,\text{max}}$
+%
+\begin{align}
+\xi &= \frac{\int_{p_{S,\text{min}}}^{p_v}p_v - p_S'dp_S'}{\left(p_{S,\text{max}} - p_{S,\text{min}}\right)\left(p_v - p_{S,\text{min}}\right)} = \frac{p_v\left(p_v - p_{S,\text{min}}\right) - \frac{1}{2}\left(p_v^2 - p_{S,\text{min}}^2\right)}{\left(p_{S,\text{max}} - p_{S,\text{min}}\right)\left(p_v - p_{S,\text{min}}\right)}\nonumber\\
+&= \frac{p_v\left(p_v - p_{S,\text{min}}\right) - \frac{1}{2}\left(p_v + p_{S,\text{min}}\right)\left(p_v - p_{S,\text{min}}\right)}{\left(p_{S,\text{max}} - p_{S,\text{min}}\right)\left(p_v - p_{S,\text{min}}\right)} = \frac{p_v - \frac{1}{2}\left(p_v + p_{S,\text{min}}\right)}{p_{S,\text{max}} - p_{S,\text{min}}} = \frac{p_v - p_{S,\text{min}}}{2\left(p_{S,\text{max}} - p_{S,\text{min}}\right)} = \frac{c_f}{2}.
+\end{align}
+%
+Dann sind im Fall $p_v>p_{S,\text{max}}$
+%
+\begin{align}
+p_{S,\text{min}} &= p_S\left(T_\text{min}\right),\\
+c_f &= 1,
+\end{align}
+%
+die Gitterbox ist zu 100 Prozent mit Wolken bedeckt.
 
 \section{Vier-Kondensate-Schema}
 \label{sec:vier-kondensate-schema}\index{Vier-Kondensate-Schema}
