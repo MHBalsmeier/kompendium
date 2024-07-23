@@ -26097,14 +26097,18 @@ Unter der oben bereits gemachten Annahme, dass $T$ und $p_S$ innerhalb von $V$ g
 &= \frac{p_v\left(p_v - p_{S,\text{min}}\right) - \frac{1}{2}\left(p_v + p_{S,\text{min}}\right)\left(p_v - p_{S,\text{min}}\right)}{\left(p_{S,\text{max}} - p_{S,\text{min}}\right)\left(p_v - p_{S,\text{min}}\right)} = \frac{p_v - \frac{1}{2}\left(p_v + p_{S,\text{min}}\right)}{p_{S,\text{max}} - p_{S,\text{min}}} = \frac{p_v - p_{S,\text{min}}}{2\left(p_{S,\text{max}} - p_{S,\text{min}}\right)} = \frac{c_f}{2}.
 \end{align}
 %
-Dann sind im Fall $p_v>p_{S,\text{max}}$
+Im Fall $p_v>p_{S,\text{max}}$ gilt
 %
 \begin{align}
-p_{S,\text{min}} &= p_S\left(T_\text{min}\right),\\
 c_f &= 1,
 \end{align}
 %
-die Gitterbox ist zu 100 Prozent mit Wolken bedeckt.
+die Gitterbox ist zu 100 Prozent mit Wolken bedeckt. Für $\xi$ folgt in diesem Fall
+%
+\begin{align}
+\xi &= \frac{\int_{p_{S,\text{min}}}^{p_{S,\text{max}}}p_v - p_S'dp_S'}{\left(p_{S,\text{max}} - p_{S,\text{min}}\right)\left(p_v - p_{S,\text{min}}\right)} = \frac{p_v\left(p_{S,\text{max}} - p_{S,\text{min}}\right) - \frac{1}{2}\left(p_{S,\text{max}}^2 - p_{S,\text{min}}^2\right)}{\left(p_{S,\text{max}} - p_{S,\text{min}}\right)\left(p_v - p_{S,\text{min}}\right)}\nonumber\\
+&= \frac{p_v\left(p_{S,\text{max}} - p_{S,\text{min}}\right) - \frac{1}{2}\left(p_{S,\text{max}} + p_{S,\text{min}}\right)\left(p_{S,\text{max}} - p_{S,\text{min}}\right)}{\left(p_{S,\text{max}} - p_{S,\text{min}}\right)\left(p_v - p_{S,\text{min}}\right)} = \frac{p_v - \frac{1}{2}\left(p_{S,\text{max}} + p_{S,\text{min}}\right)}{p_v - p_{S,\text{min}}}.
+\end{align}
 
 \section{Vier-Kondensate-Schema}
 \label{sec:vier-kondensate-schema}\index{Vier-Kondensate-Schema}
