@@ -18273,6 +18273,23 @@ Ein Modell hätte zunächst nur Kenntnis vom aufgelösten Anteil $\newtilde{Q}_v
 
 Dieser Abschnitt weiterhin, dass alle Arten von Parametrisierungen letzten Endes mit subskaliger Variabilität zu tun haben.  Im Fall $\Omega, \Delta t \to 0$ geht $\Delta Q_v$ gegen Null, was ebenfalls für alle Parametrisierungen der Fall ist.
 
+\subsection{Konvektion}
+\label{sec:konvektion}
+
+Lokal entsteht Konvektion bei Vorliegen thermischer Instabilität, also im Fall
+%
+\begin{align}
+N^2 < 0.\label{eq:conv_crit_local}
+\end{align}
+%
+Mittelt man jedoch über eine Grundfläche $A\subseteq\mathbb{R}^2$, so ist aufgrund der Variabilität von $N$, also
+%
+\begin{align}
+N^2_\text{min}\leq\newoverline{N^2},
+\end{align}
+%
+Glg. \eqref{eq:conv_crit_local} irgendwo innerhalb von $A$ lokal erfüllt, bevor das Kriterium im Mittel erfüllt ist.
+
 \section{Flusswiderstände}
 \label{sec:flusswiderstaende}\index{Flusswiderstand}
 
@@ -18311,23 +18328,6 @@ Bei indifferenter Schichtung gilt das logarithmische Windprofil nach Glg. \eqref
 \begin{align}
 r_M = \frac{u_\star}{ku_\star^2}\ln\left(\frac{z_{N_L+1}}{z_0}\right) = \frac{1}{ku_\star}\ln\left(\frac{z_{N_L+1}}{z_0}\right).
 \end{align}
-
-\section{Konvektion}
-\label{sec:konvektion}
-
-Lokal entsteht Konvektion bei Vorliegen thermischer Instabilität, also im Fall
-%
-\begin{align}
-N^2 < 0.\label{eq:conv_crit_local}
-\end{align}
-%
-Mittelt man jedoch über eine Grundfläche $A\subseteq\mathbb{R}^2$, so ist aufgrund der Variabilität von $N$, also
-%
-\begin{align}
-N^2_\text{min}\leq\newoverline{N}^2,
-\end{align}
-%
-Glg. \eqref{eq:conv_crit_local} irgendwo innerhalb von $A$ lokal erfüllt, bevor das Kriterium im Mittel erfüllt ist.
 
 Häufig werden auch die in Abschn. \ref{sec:phasenuebergaenge} behandelten Zusammenhänge im Rahmen der Konvektionsparametrisierungen abgehandelt.
 
@@ -25855,6 +25855,42 @@ C_\epsilon\frac{k_s^{3/2}}{L_m} &= K\left[\left(\frac{\partial\newoverline{u}}{\
 \Leftrightarrow C_\epsilon\frac{k_s^{3/2}}{L_m} &= L_mC_m\sqrt{k_s}\left[\left(\frac{\partial\newoverline{u}}{\partial z}\right)^2 + \left(\frac{\partial\newoverline{v}}{\partial z}\right)^2 - N^2\right]\nonumber\\
 \Leftrightarrow k_s &= \frac{C_mL_m^2}{C_\epsilon}\left[\left(\frac{\partial\newoverline{u}}{\partial z}\right)^2 + \left(\frac{\partial\newoverline{v}}{\partial z}\right)^2 - N^2\right].
 \end{align}
+
+\subsection{Konvektionsparametrisierung}
+\label{sec:konvektionsparametrisierung}\index{Konvektionsparametrisierung}
+
+Das Grundproblem der \textit{Konvektionsparametrisierungen} wurde bereits in Abschn. \ref{sec:konvektion} skizziert. Der Ansatz, diese Überlegungen ins Modell zu bringen, ist der, dass die Konvektion über zwei Anteile abzubilden ist:
+%
+\begin{itemize}
+\item Der aufgelöste Anteil ist der, der von einem nichthydrostatischen Modell in den prognostischen Variablen \glqq gesehen\grqq\ wird. Dieser Anteil muss nicht weiter behandelt werden, sondern wird explizit simuliert.
+\item Der nicht aufgelöste Anteil besteht aus instabilen Teilregionen (Flächenanteil $0\leq c\leq 1$), welche kleiner als die Gitterzellen sind. Dieser Anteil wird vom Modell ohne weiteres Zutun nicht berücksichtigt.
+\end{itemize}
+%
+Konvektion ist vertikale Durchmischung. Daher versucht man, den nicht aufgelösten Anteil über eine Modifikation der Mischungsweglänge abzubilden:
+%
+\begin{align}
+L_m \to L_m + c\Delta z,
+\end{align}
+%
+hierbei ist $\Delta z$ die Schichtdicke, welche von der Mischungsweglänge niemals überschritten werden kann. Für $c$ wird folgender Ansatz gemacht:
+%
+\begin{align}
+c = \text{min}\left(\text{max}\left(\frac{\left(-\frac{\partial T}{\partial z}\right) - \left(-\frac{\partial T}{\partial z}\right)_{c,m}}{\left(-\frac{\partial T}{\partial z}\right)_{c,l} - \left(-\frac{\partial T}{\partial z}\right)_{c,m}},0\right),1\right).
+\end{align}
+%
+Hierbei sind $\frac{\partial T}{\partial z}$ der tatsächliche negative vertikale Temperaturgradient, $\left(-\frac{\partial T}{\partial z}\right)_{c,m}$ der mittlere negative vertikale Temperaturgradient, bei dem irgendwo in der Zelle Konvektion anfängt und $\left(-\frac{\partial T}{\partial z}\right)_{c,l}$ der negative vertikale Temperaturgradient, bei dem Konvektion lokal anfängt. Dies führt dazu, dass im Fall $\left(-\frac{\partial T}{\partial z}\right) = \left(-\frac{\partial T}{\partial z}\right)_{c,l}$ die Konvektion beginnt und im Fall $\left(-\frac{\partial T}{\partial z}\right) = \left(-\frac{\partial T}{\partial z}\right)_{c,l}$ die gesamt Gitterzelle von Konvektion bedeckt wird. Es gilt
+%
+\begin{align}
+\left(-\frac{\partial T}{\partial z}\right)_{c,l} = \frac{g}{c^{(p)}}.
+\end{align}
+%
+$\frac{\partial T}{\partial z}$ selbst kann aus dem Modellzustand berechnet werden. Für $\left(-\frac{\partial T}{\partial z}\right)_{c,m}$ wird der Ansatz
+%
+\begin{align}
+\left(-\frac{\partial T}{\partial z}\right)_{c,m} = \left(1 - \frac{1}{3}\text{min}\left(\frac{A}{\left(200\:\text{km}\right)^2},1\right)\right)\frac{g}{c^{(p)}}.
+\end{align}
+%
+$A$ ist die Grundfläche der betrachteten Gitterzelle. Dieser Ansatz impliziert $\left(-\frac{\partial T}{\partial z}\right)_{c,m} \to \left(-\frac{\partial T}{\partial z}\right)_{c,l}$ für $A\to 0$, was notwendig ist. Außrdem impliziert er, dass bei einer Kantenlänge der Gitterzellen von 200 km bereits zwei Drittel des lokel notwendigen Temperaturgradienten ausreichen, damit irgendwo in der Gitterzelle Konvektion vorliegt.
 
 \section{Dissipation}
 \label{sec:dissipation_modell}
