@@ -25869,10 +25869,10 @@ Das Grundproblem der \textit{Konvektionsparametrisierungen} wurde bereits in Abs
 Konvektion ist vertikale Durchmischung. Daher versucht man, den nicht aufgelösten Anteil über eine Modifikation der Mischungsweglänge abzubilden:
 %
 \begin{align}
-L_m \to L_m + c\Delta z,
+L_m \to L_m + cL_\text{max},
 \end{align}
 %
-hierbei ist $\Delta z$ die Schichtdicke, welche von der Mischungsweglänge niemals überschritten werden kann. Für $c$ wird folgender Ansatz gemacht:
+hierbei ist $L_\text{max}$ eine maximale Mischungsweglänge. Für $c$ wird folgender Ansatz gemacht:
 %
 \begin{align}
 c = \text{min}\left(\text{max}\left(\frac{\left(-\frac{\partial T}{\partial z}\right) - \left(-\frac{\partial T}{\partial z}\right)_{c,m}}{\left(-\frac{\partial T}{\partial z}\right)_{c,l} - \left(-\frac{\partial T}{\partial z}\right)_{c,m}},0\right),1\right).
