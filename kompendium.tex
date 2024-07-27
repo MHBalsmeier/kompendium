@@ -26117,7 +26117,7 @@ c_f\left(p_v\right) &= \frac{p_v - p_{S,\text{min}}}{p_{S,\text{max}} - p_{S,\te
 Dies wäre zum Beispiell dann der Fall, wenn die Temperatur gleichverteilt zwischen $T_\text{min}$ und $T_\text{max}$ gleichverteilt wäre und der Sättigungsdampfdruck in diesem Intervall linear von der Temperatur abhinge, was in erster Ordnung erfüllt ist. Die Idee ist nun, den Dampfdruck, mit dem man die Phasenübergangsraten berechnet, im Fall $p_v>p_{S,\text{min}}$ (in dem überhaupt nur eine Wolkenbildung stattfinden kann) über einen Ansatz
 %
 \begin{align}
-p_v^{(\text{eff})} = p_{S,\text{min}} + \xi\left(p_v - p_{S,\text{min}}\right)
+p_v^{(\text{eff})} = p_{S,\text{min}} + \xi\left(p_v - p_{S,\text{min}}\right)\label{eq:p_v_eff}
 \end{align}
 %
 auszudrücken. Zu bestimmen ist nun $\xi$. $\xi$ berechnet sich über
@@ -26145,6 +26145,14 @@ die Gitterbox ist zu 100 Prozent mit Wolken bedeckt. Für $\xi$ folgt in diesem 
 \xi &= \frac{\int_{p_{S,\text{min}}}^{p_{S,\text{max}}}p_v - p_S'dp_S'}{\left(p_{S,\text{max}} - p_{S,\text{min}}\right)\left(p_v - p_{S,\text{min}}\right)} = \frac{p_v\left(p_{S,\text{max}} - p_{S,\text{min}}\right) - \frac{1}{2}\left(p_{S,\text{max}}^2 - p_{S,\text{min}}^2\right)}{\left(p_{S,\text{max}} - p_{S,\text{min}}\right)\left(p_v - p_{S,\text{min}}\right)}\nonumber\\
 &= \frac{p_v\left(p_{S,\text{max}} - p_{S,\text{min}}\right) - \frac{1}{2}\left(p_{S,\text{max}} + p_{S,\text{min}}\right)\left(p_{S,\text{max}} - p_{S,\text{min}}\right)}{\left(p_{S,\text{max}} - p_{S,\text{min}}\right)\left(p_v - p_{S,\text{min}}\right)} = \frac{p_v - \frac{1}{2}\left(p_{S,\text{max}} + p_{S,\text{min}}\right)}{p_v - p_{S,\text{min}}}.
 \end{align}
+
+Die bisherige Herleitung in diesem Abschnitt bezieht sich auf die Entsteheung von Wolken (Umgang mit Übersättigung, auch bekannt als saturation adjustment\index{saturation adjustment}). Auch für die Wechselwirkungen und Verdungstungen von Kondensaten hat die Tatsache, dass nur ein gewisser Anteil $c_f$ der Gitterboxen mit Wolken befüllt ist, Konsequenzen. Der Ansatz ist folgender:
+%
+\begin{enumerate}
+\item Dividiere alle Kondensatdichten durch $c_f$. Wenn $c_f<0,1$ ist, verwende aus Stabilitätsgründen 0,1. Dies tut man, weil die Wolkenphysik nur innerhalb des wolkenbefüllten Bereichs der Gitterbox abläuft und dort die Dichten um den Faktor $1/c_f$ höher sind.
+\item Berechnet die Wolkenphysik mit den umskalierten Dichten.
+\item Multipliziere die resultierenden Quelldichten mit $\text{max}\left(c_f,0,1\right)$, um die Tendenzen für die gemittelten Dichten zu erhalten (welche die prognostischen Variablen sind).
+\end{enumerate}
 
 \section{Vier-Kondensate-Schema}
 \label{sec:vier-kondensate-schema}\index{Vier-Kondensate-Schema}
