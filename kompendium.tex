@@ -26652,6 +26652,31 @@ wobei $z_g$ die Rauhigkeitslänge von Gras ist (0,02 m) und davon ausgegangen wu
 v_h\left(z_{10}\right) &= v_h\left(z_l\right)\frac{\ln\left(\frac{z_{10}}{z_g}\right)}{\ln\left(\frac{z_l}{z_0}\right)}.
 \end{align}
 
+\subsection{Gesamtbedeckungsgrad}
+\label{sec:gesamtbedeckungsgrad}\index{Gesamtbedeckungsgrad}\index{Bedeckungsgrad}\index{total cloud cover}\index{cloud cover}
+
+Der \textit{Gesamtbedeckungsgrad}\index{Gesamtbedeckungsgrad} (engl. \textit{total cloud cover (TCC)}\index{total cloud cover}) ist der der Anteil des von Wolken bedeckten Himmelsgewölbes. Die richtige Weise, die TCC zu berechnen, ist daher ein Integral über den Halbraum zu bilden und den wolkenbedeckten Anteil ins Verhältnis zum gesamten Anteil ($2\pi$) zu setzen. In Modellen wird jedoch meist ein vereinfachter Ansatz gewählt. Sei $N_L$ die Anzahll der Schichten und $c_{f,i}$ der wolkenbefüllte Anteil der $i-$ten Schicht.
+
+Der erste Schritt ist, aus $c_{f,i}$ den nicht wolkenbedeckten vertikalen Flächenanteil $f_i$ der Gitterbox zu berechnen. Unter der Annahme einer einzelnen kugelförmigen Wolke gilt
+%
+\begin{align}
+f_i = 1 - \frac{6c_{d,i}}{\pi}.
+\end{align}
+%
+Unter der Annahme zufälliger Überlappung zwischen den Schichten erhält man
+%
+\begin{align}
+\text{TCC} = 1 - \prod_{i=1}^{N_L}f_i.\label{eq:tcc_random_overlap}
+\end{align}
+%
+In der Realität ist jedoch davon auszugehen, dass die Überlappung zwischen den Schichten nicht zufällig ist, sondern, dass Wolken sich z. B. vertikal über mehrere Schichten erstrecken. Dies drückt man über eine \textit{Kohärenzlänge}\index{Kohärenzlänge} $l_c$ aus und verallgemeinert Glg. \eqref{eq:tcc_random_overlap} zu
+%
+\begin{align}
+\text{TCC} = 1 - f_1\prod_{i=2}^{N_L}f_i + \left(1 - f_i\right)\exp\left(-\frac{\left|z_i - z_{i-1}\right|}{l_{c,i}}\right).\label{eq:tcc_general_overlap}
+\end{align}
+%
+Es ist sinnvoll, für $l_{c,i}$ die vertikale Mischungsweglänge $L_m$ einzusetzen. Im Fall kurzer Kohärenzlängen $l_{c,i}\to 0$ geht Glg. \eqref{eq:tcc_general_overlap} zu Glg. \eqref{eq:tcc_random_overlap} über, im Fall unendlicher Kohärenzlängen $l_{c,i}\to\infty$ folgt aus \eqref{eq:tcc_general_overlap} $\text{TCC} = 1 - f_1$, weil sich dann die Wolken in allen Schichten perfekt überlappen.
+
 \section{Tuning}
 \label{sec:tuning}
 
