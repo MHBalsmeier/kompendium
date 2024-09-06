@@ -25730,9 +25730,15 @@ g\newoverline{\frac{\theta'}{\newoverline{\theta}}w'} &= -K\frac{g}{\newoverline
 %
 Setzt man dies in Glg. \eqref{eq:tke_num} an, erhält man
 %
+\begin{center}
+\doublebox{\parbox{0.8\textwidth}{
+\begin{center}
 \begin{align}
-\frac{\partial K_s}{\partial t} = -\nabla\cdot\left(K_s\mathbf{v}\right) + \rho K\left[\left(\frac{\partial\newoverline{u}}{\partial z}\right)^2 + \left(\frac{\partial\newoverline{v}}{\partial z}\right)^2\right] - \rho KN^2 - \rho\newoverline{\epsilon}\label{eq:tke_num_mod}
+\frac{\partial K_s}{\partial t} = -\nabla\cdot\left(K_s\mathbf{v}\right) + \rho K\left[\left(\frac{\partial\newoverline{u}}{\partial z}\right)^2 + \left(\frac{\partial\newoverline{v}}{\partial z}\right)^2\right] - \rho KN^2 - \rho\newoverline{\epsilon}.\label{eq:tke_num_mod}
 \end{align}
+\end{center}
+}}
+\end{center}
 %
 Um $\newoverline{\epsilon}$ zu bestimmen, geht man von Glg. \eqref{eq:characteristic_length} aus:
 %
@@ -25795,7 +25801,7 @@ da das Teilchen während jeder Periode viermal die Strecke $\newhat{z}$ überwin
 v_\text{max} = N\newhat{z} = \frac{\pi}{2}\newoverline{v}.
 \end{align}
 
-Die mittlere freie Weglänge $L_m$ lautet hier $2\newhat{z}$. Nun muss $\newhat{z}$ durch den vertikalen Anteil $k_s^{(v)}$ der TKE ausgedrückt werden. Die Gesamtenergie $E$ des harmonischen Oszillators (s. Abschn. \ref{sec:harmonischer_oszillator}) lautet
+Die mittlere freie Weglänge $L_m$ lautet hier $2\newhat{z}$. Nun muss $\newhat{z}$ durch die TKE $k_s$ ausgedrückt werden. Die Gesamtenergie $E$ des harmonischen Oszillators (s. Abschn. \ref{sec:harmonischer_oszillator}) lautet
 %
 \begin{align}
 E = \frac{1}{2}N^2\newhat{z}^2,
@@ -25804,34 +25810,28 @@ E = \frac{1}{2}N^2\newhat{z}^2,
 im Mittel ist die Hälfte davon in kinetischer Energie gespeichert, was auf
 %
 \begin{align}
-k_s^{(v)} = \frac{1}{4}N^2\newhat{z}^2 \Rightarrow \newhat{z} = \frac{2}{N}\sqrt{k_s^{(v)}} \Rightarrow L_m = \frac{4}{N}\sqrt{k_s^{(v)}}
+k_s = \frac{1}{4}N^2\newhat{z}^2 \Rightarrow \newhat{z} = \frac{2}{N}\sqrt{k_s} \Rightarrow L_m = \frac{4}{N}\sqrt{k_s} = \frac{C_l}{N}\sqrt{k_s}
 \end{align}
 %
-Setzt man dies in Glg. \eqref{eq:k_v_deriv_1} ein, erhält man
+führt. Hierbei ist gemäß der Herleitung $C_l = 4$, empirisch stellt man jedoch eher $C_l = 1$ fest. Setzt man dies in Glg. \eqref{eq:k_v_deriv_1} ein, erhält man
 %
 \begin{align}
-\newoverline{v} = \frac{2\newhat{z}N}{\pi} = \frac{4}{\pi}\sqrt{k_s^{(v)}}.\label{eq:tke_vbar}
+\newoverline{v} = \frac{2\newhat{z}N}{\pi} = \frac{4}{\pi}\sqrt{k_s}.\label{eq:tke_vbar}
 \end{align}
 %
-Nun muss noch $k_s^{(v)}$ aus der gesamten TKE $k_s$ abgeleitet werden. Im Falle isotroper Turbulenz gilt
-%
-\begin{align}
-k_s^{(v)} = \frac{k_s}{3}
-\end{align}
-%
-verallgemeinert. Hieraus folgt für den Diffusionskoeffizienten mit Glg. \eqref{eq:k_eff_deriv_1}
+Unter der Annahme, dass je ein Drittel der Teilchen entlang der Richtung einer der Koordinatenachsen fliegt, folgt hieraus für den Diffusionskoeffizienten mit Glg. \eqref{eq:k_eff_deriv_1}
 %
 \begin{center}
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-K_v = L_m\newoverline{v} = L_m\frac{4}{\pi}\sqrt{k_s^{(v)}} = \frac{4}{\pi\sqrt{3}}L_m\sqrt{k_s} \approx 0,735L_m\sqrt{k_s}.\label{eq:tke_diff_derived}
+K_v = \frac{L_m}{3}\newoverline{v} = \frac{4}{3\pi}L_m\sqrt{k_s} \approx 0,424L_m\sqrt{k_s}.\label{eq:tke_diff_derived}
 \end{align}
 \end{center}
 }}
 \end{center}
 %
-Empirisch stellt man fest, dass der Vorfaktor $C \coloneqq \frac{4}{\pi\sqrt{3}}$ nicht für alle diffundierten Größen gleich groß ist. Dies liegt daran, dass die Korrelationen zwischen den Schwankungen unterschiedlicher Größen unterschiedlich sind. An dieser Stelle wird
+Empirisch stellt man fest, dass der Vorfaktor $C \coloneqq \frac{4}{3\pi}$ nicht für alle diffundierten Größen gleich groß ist. Dies liegt daran, dass die Korrelationen zwischen den Schwankungen unterschiedlicher Größen unterschiedlich sind. An dieser Stelle wird
 %
 \begin{align}
 C_m &= 0,126,\\
