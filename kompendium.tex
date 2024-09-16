@@ -26683,7 +26683,14 @@ In der Realität ist jedoch davon auszugehen, dass die Überlappung zwischen den
 \text{TCC} = 1 - f_1\prod_{i=2}^{N_L}f_i + \left(1 - f_i\right)\exp\left(-\frac{\left|z_i - z_{i-1}\right|}{l_{c,i}}\right).\label{eq:tcc_general_overlap}
 \end{align}
 %
-Es ist sinnvoll, für $l_{c,i}$ die vertikale Mischungsweglänge $L_m$ einzusetzen. Im Fall kurzer Kohärenzlängen $l_{c,i}\to 0$ geht Glg. \eqref{eq:tcc_general_overlap} zu Glg. \eqref{eq:tcc_random_overlap} über, im Fall unendlicher Kohärenzlängen $l_{c,i}\to\infty$ folgt aus \eqref{eq:tcc_general_overlap} $\text{TCC} = 1 - f_1$, weil sich dann die Wolken in allen Schichten perfekt überlappen.
+Im Fall kurzer Kohärenzlängen $l_{c,i}\to 0$ geht Glg. \eqref{eq:tcc_general_overlap} zu Glg. \eqref{eq:tcc_random_overlap} über, im Fall unendlicher Kohärenzlängen $l_{c,i}\to\infty$ folgt aus \eqref{eq:tcc_general_overlap} $\text{TCC} = 1 - f_1$, weil sich dann die Wolken in allen Schichten perfekt überlappen. Festgelegt werden müssen nun noch die Wolkenhöhe $d_i$ sowie die Kohärenzlänge $l_{c,i}$. Hier wird folgender Ansatz gewählt:
+%
+\begin{align}
+d_i &= \text{max}\left(50,0\:\text{m},L_{m,i}\right),\\
+l_{c,i} &= d_i,
+\end{align}
+%
+hierbei ist $L_{m,i}$ die vertikale Mischungsweglänge.
 
 \section{Tuning}
 \label{sec:tuning}
