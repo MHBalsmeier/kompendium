@@ -26665,13 +26665,13 @@ v_h\left(z_{10}\right) &= v_h\left(z_l\right)\frac{\ln\left(\frac{z_{10}}{z_g}\r
 
 Der \textit{Gesamtbedeckungsgrad}\index{Gesamtbedeckungsgrad} (engl. \textit{total cloud cover (TCC)}\index{total cloud cover}) ist der der Anteil des von Wolken bedeckten Himmelsgewölbes. Die richtige Weise, die TCC zu berechnen, ist daher ein Integral über den Halbraum zu bilden und den wolkenbedeckten Anteil ins Verhältnis zum gesamten Anteil ($2\pi$) zu setzen. In Modellen wird jedoch meist ein vereinfachter Ansatz gewählt. Sei $N_L$ die Anzahll der Schichten und $c_{f,i}$ der wolkenbefüllte Anteil der $i-$ten Schicht.
 
-Der erste Schritt ist, aus $c_{f,i}$ den nicht wolkenbedeckten vertikalen Flächenanteil $f_i$ der Gitterbox zu berechnen. Unter der Annahme einer einzelnen kugelförmigen Wolke gilt
+Der erste Schritt ist, aus $c_{f,i}$ den nicht wolkenbedeckten vertikalen Flächenanteil $f_i$ der Gitterbox zu berechnen. Unter der Annahme, dass die Wolken aus einer einzigen Schicht der Dicke $d_i$ bestehen, erhält man
 %
 \begin{align}
-f_i = 1 - \frac{6c_{d,i}}{\pi}.
+f_i = \text{max}\left(1 - \frac{c_{d,i}}{d_i/\Delta z_i},0\right),
 \end{align}
 %
-Unter der Annahme zufälliger Überlappung zwischen den Schichten erhält man
+wobei $\Delta z_i$ die Schichtdicke ist. Dies führt dazu, dass bereits bei $c_{d,i} = \frac{d_i}{\Delta z_i}$ vollständige Bedecktung $f_i = 0$ erreicht ist. Unter der Annahme zufälliger Überlappung zwischen den Schichten erhält man
 %
 \begin{align}
 \text{TCC} = 1 - \prod_{i=1}^{N_L}f_i.\label{eq:tcc_random_overlap}
