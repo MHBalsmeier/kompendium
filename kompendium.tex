@@ -18506,7 +18506,7 @@ Warmluftadvektion in der Höhe und Kaltluftadvektion in der Tiefe führt also zu
 \label{sec:semigeostrophische_frontogenese}\index{Frontogenese!semigeostrophische}
 
 \section{PV-Denken}
-\label{sec:pv-denken}\index{PV-Denken}\index{potentielle Vorticitiy}\index{Vorticity!potentielle}
+\label{sec:pv-denken}\index{PV-Denken}\index{potentielle Vorticity}\index{Vorticity!potentielle}
 
 
 \chapter{\normalfont\textsc{Klimatologie der Atmosphäre}}
@@ -24631,7 +24631,7 @@ T &= f\left(\rho, \newtilde{\theta}\right).\label{eq:prog_rev_3}
 }}
 \end{center}
 %
-Die Funktion $f$ in Glg. \eqref{eq:prog_rev_3} ist die thermische Zustandsgleichung idealer Gase.
+Die Funktion $f$ in Glg. \eqref{eq:prog_rev_3} ist die thermische Zustandsgleichung idealer Gase, $\etabi\coloneqq\zetabi + \mathbf{f}$ ist die absolute Vorticity\index{absolute Vorticity}\index{Vorticity!absolute}.
 
 \section{Diskretisierung der Poisson-Klammern}
 \label{sec:diskretisierung_der_poisson-klammern}\index{Poisson-Klammer!Diskretisierung}\index{Diskretisierung von Poisson-Klammern}
@@ -25624,7 +25624,7 @@ Dementsprechend muss das Gleichungssystem Glg.en \eqref{eq:prog_rev_0} - \eqref{
 \begin{align}
 \frac{\partial\mathbf{v}}{\partial t} &= -c^{(p)}\theta\nabla\Pi - \nabla k + \mathbf{v}\times\etabi - \nabla\phi + \textcolor{red}{\mathbf{f}_R}\label{eq:prog_irrev_0}\\
 \frac{\partial\rho}{\partial t} &= -\nabla\cdot\left(\rho\mathbf{v}\right)\label{eq:prog_irrev_1}\\
-\frac{\partial\newtilde{s}}{\partial t} &= -\nabla\cdot\left(\newtilde{\theta}\mathbf{v}\right) + \textcolor{red}{\frac{q^{(V)}}{c^{(p)}\Pi}}\label{eq:prog_irrev_2}\\
+\frac{\partial\newtilde{\theta}}{\partial t} &= -\nabla\cdot\left(\newtilde{\theta}\mathbf{v}\right) + \textcolor{red}{\frac{q^{(V)}}{c^{(p)}\Pi}}\label{eq:prog_irrev_2}\\
 \Pi &= f\left(\newtilde{\theta}\right)\label{eq:prog_irrev_3}
 \end{align}
 \end{center}
