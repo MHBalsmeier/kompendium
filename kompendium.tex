@@ -20166,9 +20166,9 @@ Q_{d,p} &= \frac{2\pi}{\frac{1}{\psi\rho_{S}\left(T\right)} + \frac{L_v^2}{R_vT^
 Setzt man in Glg. \eqref{eq:diff_growth_source_gen} Glg. \eqref{eq:sink_turb} für die Fallgeschwindigkeit ein, erhält man
 %
 \begin{align}
-Q_{d,r} &= \frac{2\pi}{\frac{1}{\psi\rho_{S,l}\left(T\right)} + \frac{L_v^2}{R_vT^2k_h}}\left(\frac{\rho_v}{\rho_{S,l}\left(T\right)} - 1\right)n_{0,r}\left(0,78\lambda_r^{-2} + 0,308S_c^{1/3}\nu^{-1/2}\int_0^\infty D^{3/2}\left(\frac{4D\rho_l'g}{3\rho_h'c_l^{(p)}}\right)^{1/4}\exp\left(-\lambda_rD\right)dD\right)\nonumber\\
-&= \frac{2\pi}{\frac{1}{\psi\rho_{S,l}\left(T\right)} + \frac{L_v^2}{R_vT^2k_h}}\left(\frac{\rho_v}{\rho_{S,l}\left(T\right)} - 1\right)n_{0,r}\left(0,78\lambda_r^{-2} + 0,308S_c^{1/3}\nu^{-1/2}\left(\frac{4\rho_l'g}{3\rho_h'c_l^{(p)}}\right)^{1/4}\int_0^\infty D^{7/4}\exp\left(-\lambda_rD\right)dD\right)\nonumber\\
-&= \frac{2\pi}{\frac{1}{\psi\rho_{S,l}\left(T\right)} + \frac{L_v^2}{R_vT^2k_h}}\left(\frac{\rho_v}{\rho_{S,l}\left(T\right)} - 1\right)n_{0,r}\left(0,78\lambda_r^{-2} + 0,308S_c^{1/3}\nu^{-1/2}\left(\frac{4\rho_l'g}{3\rho_h'c_l^{(p)}}\right)^{1/4}\lambda_r^{-11/4}\Gamma\left(\frac{11}{4}\right)\right).\label{eq:diff_growth_rain}
+Q_{d,r} &= \frac{2\pi}{\frac{1}{\psi\rho_{S,l}\left(T\right)} + \frac{L_v^2}{R_vT^2k_h}}\left(\frac{\rho_v}{\rho_{S,l}\left(T\right)} - 1\right)n_{0,r}\left(0,78\lambda_r^{-2} + 0,308S_c^{1/3}\nu^{-1/2}\int_0^\infty D^{3/2}\left(\frac{4D\rho_l'g}{3\rho_h'c_w}\right)^{1/4}\exp\left(-\lambda_rD\right)dD\right)\nonumber\\
+&= \frac{2\pi}{\frac{1}{\psi\rho_{S,l}\left(T\right)} + \frac{L_v^2}{R_vT^2k_h}}\left(\frac{\rho_v}{\rho_{S,l}\left(T\right)} - 1\right)n_{0,r}\left(0,78\lambda_r^{-2} + 0,308S_c^{1/3}\nu^{-1/2}\left(\frac{4\rho_l'g}{3\rho_h'c_w}\right)^{1/4}\int_0^\infty D^{7/4}\exp\left(-\lambda_rD\right)dD\right)\nonumber\\
+&= \frac{2\pi}{\frac{1}{\psi\rho_{S,l}\left(T\right)} + \frac{L_v^2}{R_vT^2k_h}}\left(\frac{\rho_v}{\rho_{S,l}\left(T\right)} - 1\right)n_{0,r}\left(0,78\lambda_r^{-2} + 0,308S_c^{1/3}\nu^{-1/2}\left(\frac{4\rho_l'g}{3\rho_h'c_w}\right)^{1/4}\lambda_r^{-11/4}\Gamma\left(\frac{11}{4}\right)\right).\label{eq:diff_growth_rain}
 \end{align}
 %
 Da $Q_{d,r}$ ein Phasenübergang von gasförmig zu flüssig ($\rho_v>\rho_{S,l}$, Übersättigung) bzw. von flüssig zu gasförmig ($\rho_v<\rho_{S,l}$, Untersättigung) ist, ist hiermit eine Phasenübergangswärmeflussdichte verbunden.
@@ -20238,14 +20238,14 @@ Q_{a,p} = \pi\rho_c\int_0^\infty n_{0,p}\exp\left(-\lambda_p D\right)\frac{D^2}{
 Setzt man in Glg. \eqref{eq:accretion_deriv_2} Glg. \eqref{eq:sink_turb} für die Fallgeschwindigkeit sowie $n_{0,p} = n_{0,r}$ und $E_{r,c} = 1$ ein, erhält man
 %
 \begin{align}
-Q_{a,r,l} &= \frac{n_{0,r}\pi\rho_l}{4}\int_0^\infty\exp\left(-\lambda_r D\right)D^2\sqrt{\frac{4D\rho_l'g}{3\rho_h'c_l^{(p)}}}dD = \frac{n_{0,r}\pi\rho_l}{4}\sqrt{\frac{4\rho_l'g}{3\rho_h'c_l^{(p)}}}\int_0^\infty\exp\left(-\lambda_r D\right)D^{5/2}dD\nonumber\\
-&= \frac{n_{0,r}\pi\rho_c}{4\lambda_r^{7/2}}\sqrt{\frac{4\rho_l'g}{3\rho_h'c_l^{(p)}}}\Gamma\left(\frac{7}{2}\right) = \frac{n_{0,r}\pi\rho_l}{\lambda_r^{7/2}}\sqrt{\frac{\rho_l'g}{12\rho_h'c_l^{(p)}}}\Gamma\left(\frac{7}{2}\right).\label{eq:q_arl}
+Q_{a,r,l} &= \frac{n_{0,r}\pi\rho_l}{4}\int_0^\infty\exp\left(-\lambda_r D\right)D^2\sqrt{\frac{4D\rho_l'g}{3\rho_h'c_w}}dD = \frac{n_{0,r}\pi\rho_l}{4}\sqrt{\frac{4\rho_l'g}{3\rho_h'c_w}}\int_0^\infty\exp\left(-\lambda_r D\right)D^{5/2}dD\nonumber\\
+&= \frac{n_{0,r}\pi\rho_c}{4\lambda_r^{7/2}}\sqrt{\frac{4\rho_l'g}{3\rho_h'c_w}}\Gamma\left(\frac{7}{2}\right) = \frac{n_{0,r}\pi\rho_l}{\lambda_r^{7/2}}\sqrt{\frac{\rho_l'g}{12\rho_h'c_w}}\Gamma\left(\frac{7}{2}\right).\label{eq:q_arl}
 \end{align}
 %
 Analog erhält man
 %
 \begin{align}
-Q_{a,r,i} &= \frac{n_{0,r}\pi\rho_i}{\lambda_r^{7/2}}\sqrt{\frac{\rho_l'g}{12\rho_h'c_l^{(p)}}}\Gamma\left(\frac{7}{2}\right).\label{eq:q_ari}
+Q_{a,r,i} &= \frac{n_{0,r}\pi\rho_i}{\lambda_r^{7/2}}\sqrt{\frac{\rho_l'g}{12\rho_h'c_w}}\Gamma\left(\frac{7}{2}\right).\label{eq:q_ari}
 \end{align}
 %
 Da die Eispartikel bei $T<T_0$ beim Zusammenprall mit unterkühlten Regentropfen zum Gefrieren dieser führen, ist dies eine Quelldichte für Schnee. $Q_{a,r,i}$ geht nicht mit einer Phasenübergangswärme einher, da die Eiskristalle beim Auftreffen bereits gefroren sind. Bei der Akkretion von Eis durch Regen handelt es sich um einen \textit{Drei-Komponenten-Prozess}\index{Drei-Komponenten-Prozess}, da die Kollision von Teilchen zweier Kondensatklassen zum Entstehen einer dritten führt.
@@ -20253,7 +20253,7 @@ Da die Eispartikel bei $T<T_0$ beim Zusammenprall mit unterkühlten Regentropfen
 Für die Akkretion von Regen durch Schnee (Masse an Regen pro Volumen und Zeit, welche mit Eiskristallen kollidiert) erhält man
 %
 \begin{align}
-Q_{a,i,r} &= \frac{n_{0,r}\pi\rho_i}{4M_i}\sqrt{\frac{4\rho_l'g}{3\rho_h'c_l^{(p)}}}\int_0^\infty\exp\left(-\lambda_r D\right)D^{5/2}\frac{D^3}{6}\pi\rho_l'dD = \frac{n_{0,r}\pi^2\rho_l'}{6M_i\lambda_r^{13/2}}\sqrt{\frac{\rho_l'g}{12\rho_h'c_l^{(p)}}}\Gamma\left(\frac{13}{2}\right).
+Q_{a,i,r} &= \frac{n_{0,r}\pi\rho_i}{4M_i}\sqrt{\frac{4\rho_l'g}{3\rho_h'c_w}}\int_0^\infty\exp\left(-\lambda_r D\right)D^{5/2}\frac{D^3}{6}\pi\rho_l'dD = \frac{n_{0,r}\pi^2\rho_l'}{6M_i\lambda_r^{13/2}}\sqrt{\frac{\rho_l'g}{12\rho_h'c_w}}\Gamma\left(\frac{13}{2}\right).
 \end{align}
 %
 Hierbei ist $M_i$ eine angenommene Masse aller Eiskristalle. Da unterkühlter Regen beim Kollidieren mit Eiskristallen gefriert, ist $Q_{a,i,r}$ eine Quelldichte für Schnee. Hiermit geht eine Phasenübergangswärmeflussdichte einher, da ein Phasenübergang von flüssig zu fest stattfindet.
@@ -20351,7 +20351,7 @@ Die Kollisionseffizienz $E_{g,r}$ wird mit $1$ angesetzt \cite{BulkParameterizat
 Für die Akkretion von flüssigem Wolkenwasser durch Graupel erhält man analog zu Glg. \eqref{eq:q_arl}
 %
 \begin{align}
-Q_{a,g,l} = E_{g,l}\frac{n_{0,g}\pi\rho_l}{\lambda_g^{7/2}}\sqrt{\frac{\rho_l'g}{12\rho_h'c_l^{(p)}}}\Gamma\left(\frac{7}{2}\right).\label{eq:q_agl}
+Q_{a,g,l} = E_{g,l}\frac{n_{0,g}\pi\rho_l}{\lambda_g^{7/2}}\sqrt{\frac{\rho_l'g}{12\rho_h'c_w}}\Gamma\left(\frac{7}{2}\right).\label{eq:q_agl}
 \end{align}
 %
 Die Kollisionseffizienz $E_{g,l}$ wird mit $1$ angesetzt \cite{BulkParameterizationoftheSnowFieldinaCloudModel}. Mit $Q_{a,g,l}$ geht bei $T<T_0$ eine Phasenübergangswärmeflussdichte einher, da dann ein Phasenübergang von flüssig zu fest stattfindet.
@@ -20359,7 +20359,7 @@ Die Kollisionseffizienz $E_{g,l}$ wird mit $1$ angesetzt \cite{BulkParameterizat
 Analog zu Glg. \eqref{eq:q_ari} erhält man für die Akkretion von Wolkeneis durch Graupel
 %
 \begin{align}
-Q_{a,g,i} &= E_{g,i}\frac{n_{0,g}\pi\rho_i}{\lambda_g^{7/2}}\sqrt{\frac{\rho_i'g}{12\rho_h'c_l^{(p)}}}\Gamma\left(\frac{7}{2}\right).\label{eq:q_agi}
+Q_{a,g,i} &= E_{g,i}\frac{n_{0,g}\pi\rho_i}{\lambda_g^{7/2}}\sqrt{\frac{\rho_i'g}{12\rho_h'c_w}}\Gamma\left(\frac{7}{2}\right).\label{eq:q_agi}
 \end{align}
 %
 Für die Kollisionseffizienz $E_{g,i}$ wird folgender Ansatz gemacht \cite{BulkParameterizationoftheSnowFieldinaCloudModel}:
@@ -20492,7 +20492,7 @@ Wendet man Glg. \eqref{eq:q_sp} auf Graupel an, folgt
 %
 \begin{align}
 Q_{s,r,g} &= \frac{c_l^{(p)}}{L_s}\left(T - T_0\right)\left(Q_{a,g,l} + Q_{a,g,r}\right)\nonumber\\
-&+ \frac{2\pi}{L_s}\left[L_v\psi\left[\rho_v - \rho_{S,i}\left(T\right) + k_h\left(T - T_0\right)\right]n_{0,g}\left(0,78\lambda_g^{-2} + 0,308S_c^{1/3}\nu^{-1/2}\left(\frac{4\rho_i'g}{3\rho_h'c_l^{(p)}}\right)^{1/4}\lambda_g^{-11/4}\Gamma\left(\frac{11}{4}\right)\right)\right].\label{eq:q_sg}
+&+ \frac{2\pi}{L_s}\left[L_v\psi\left[\rho_v - \rho_{S,i}\left(T\right) + k_h\left(T - T_0\right)\right]n_{0,g}\left(0,78\lambda_g^{-2} + 0,308S_c^{1/3}\nu^{-1/2}\left(\frac{4\rho_i'g}{3\rho_h'c_w}\right)^{1/4}\lambda_g^{-11/4}\Gamma\left(\frac{11}{4}\right)\right)\right].\label{eq:q_sg}
 \end{align}
 
 \part{Numerik}
