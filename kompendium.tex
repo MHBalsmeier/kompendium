@@ -26150,9 +26150,20 @@ Die bisherige Herleitung in diesem Abschnitt bezieht sich auf die Entsteheung vo
 %
 \begin{enumerate}
 \item Dividiere alle Kondensatdichten durch $c_f$. Wenn $c_f<0,1$ ist, verwende aus Stabilitätsgründen 0,1. Dies tut man, weil die Wolkenphysik nur innerhalb des wolkenbefüllten Bereichs der Gitterbox abläuft und dort die Dichten um den Faktor $1/c_f$ höher sind.
-\item Berechnet die Wolkenphysik mit den umskalierten Dichten.
+\item Berechne die Wolkenphysik mit den umskalierten Dichten.
 \item Multipliziere die resultierenden Quelldichten mit $\text{max}\left(c_f,0,1\right)$, um die Tendenzen für die gemittelten Dichten zu erhalten (welche die prognostischen Variablen sind).
 \end{enumerate}
+%
+Für den mit Niederschlag befüllten Anteil $c_p$ der Gitterbox macht man den Ansatz.
+%
+\begin{align}
+c_p = \begin{cases}
+\frac{1}{3}, c_f = 0 \land \rho_s + \rho_r + \rho_g>0,\\
+c_f, \:\text{sonst}.
+\end{cases}
+\end{align}
+%
+Man geht also davon aus, dass der mit Niederschlag befüllte Anteil gleich dem mit Wolken befüllten Anteil ist, außer es ist nur Niederschlag aber keine Wolken in der Gitterbox vorhanden. Dies ist typischerweise unter Wolken der Fall, aus denen Niederschlag ausfällt.
 
 \section{Vier-Kondensate-Schema}
 \label{sec:vier-kondensate-schema}\index{Vier-Kondensate-Schema}
