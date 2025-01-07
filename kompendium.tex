@@ -17013,7 +17013,7 @@ Man nimmt nun an, dass die Bewegung nur eine x-Komponente hat und definiert die 
 u_\star^2 \coloneqq \frac{\tau_{x, z}}{\rho} = \frac{A_z}{\rho}\frac{\partial\overline{u}}{\partial z}.\label{eq:def_u_star}
 \end{align}
 %
-Bisher wurde angenommen, dass die Mischungsweglänge $l$ höhenunabhängig ist. Sehr nahe an der Erdoberfläche ist jedoch zu erwarten, dass die vertikale Ausdehung der Wirbel mit der Höhe zunimmt, was man im einfachsten Fal über
+Bisher wurde angenommen, dass die Mischungsweglänge $l$ höhenunabhängig ist. Sehr nahe an der Erdoberfläche ist jedoch zu erwarten, dass die vertikale Ausdehung der Wirbel mit der Höhe zunimmt, was man im einfachsten Fall über
 %
 \begin{align}
 l\left(z\right) = kz\label{eq:karman_eq}
@@ -17065,13 +17065,31 @@ U = \frac{u_\star}{k}\ln\left(\frac{z}{z_0}\right) \Leftrightarrow u_\star = \fr
 \subsubsection{Stabile oder labile Schichtung}
 \label{sec:stabile_oder_labile_schichtung}
 
-Die bisherigen Herleitungen dieses Abschnitts erfolgten unter der Annahme indifferenter Schichtung. Im Falle labiler oder stabiler Schichtung verallgemeinert man Glg. \eqref{eq:ln_wind_profile} zu
+Die bisherigen Herleitungen dieses Abschnitts erfolgten unter der Annahme indifferenter Schichtung. Im Falle labiler oder stabiler Schichtung ist die Mischungsweglänge nicht mehr einfach durch Glg. \eqref{eq:karman_eq} gegeben. Im Falle labiler Schichtung können die Teilchen vertikal weiter schwingen, also $l>\kappa z$, im Falle labiler Schichtung können diese weniger weit schwingen, also $l<\kappa z$. In \cite{Nakanishi2001} werden aus kleinskaligen Simulationen Ausdrücke hierfür hergeleitet, diese lauten
 %
 \begin{align}
-\newoverline{u}\left(z\right) = \frac{u_\star}{k}\left[\ln\left(\frac{z}{z_0}\right) - \psi_m\left(\frac{z}{L}\right)\right],\label{eq:wind_profile_pbl}
+l = \begin{cases}
+\frac{kz}{3,7},\:\zeta\geq 1,\\
+\frac{kz}{1 + 2,7\zeta},\:0\leq\zeta<1,\\
+kz\left(1 - 100\zeta\right)^{0,2},\:\zeta<0
+\end{cases}
 \end{align}
 %
-hierbei ist $L$ die Monin-Obukhov-Länge. Im Falle indifferenter Schichtung ist $\psi_m = 0$. Die Reibungsgeschwindigkeit ergibt sich hieraus zu
+mit
+%
+\begin{align}
+\zeta\coloneqq\frac{z}{L},
+\end{align}
+%
+hierbei ist $L$ die Monin-Obukhov-Länge.
+
+Weiter verallgemeinert man Glg. \eqref{eq:ln_wind_profile} zu
+%
+\begin{align}
+\newoverline{u}\left(z\right) = \frac{u_\star}{k}\left[\ln\left(\frac{z}{z_0}\right) - \psi_m\left(\zeta\right)\right],\label{eq:wind_profile_pbl}
+\end{align}
+%
+Im Falle indifferenter Schichtung ist $\psi_m = 0$. Die Reibungsgeschwindigkeit ergibt sich hieraus zu
 %
 \begin{align}
 u_\star = \frac{Uk}{\ln\left(\frac{z}{z_0}\right) - \psi_m\left(\frac{z}{L}\right)}.\label{eq:u_star}
