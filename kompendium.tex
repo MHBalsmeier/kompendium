@@ -25723,6 +25723,35 @@ Dies kann man als Linienintegral umformulieren:
 %
 hierbei ist $\phi$ der Winkel zwischen $d\mathbf{r}$ und $\mathbf{e}_y$.
 
+\subsection{Hyperdiffusion}
+\label{sec:hyperdiffusion}\index{Hyperdiffusion}
+
+Aus physikalischen Herleitungen erhält man üblicherweise diffusive Terme proportional zur zweiten Ableitung des zu diffundierenden Feldes. Aus numerischen Gründen wird jedoch in Modellen häufig sogenannte \textit{Hyperdiffusion}\index{Hyperdiffusion} genutzt, welche proportional zu einer höheren Potenz des Nablaoperators ist. Im eindimensionalen Fall lautet der Ansatz für Diffusion 4. Ordnung
+%
+\begin{align}
+\frac{\partial\psi}{\partial t} = -\alpha\frac{\partial^4\psi}{\partial x^4},
+\end{align}
+%
+hierbei wie $\alpha$ oft als \textit{Hyperviskosität}\index{Hyperviskosität} bezeichnet. Macht man hier den Ansatz $\psi = \psi_0\exp\left(-ikx-\frac{t}{\tau}\right)$, folgt
+%
+\begin{align}
+-\frac{1}{\tau}\psi &= -\alpha k^4\psi\nonumber\\
+\Leftrightarrow \frac{1}{\tau} &= \alpha k^4.
+\end{align}
+%
+Die kürzeste aufgelöste Welle hat die Länge $2\Delta x$, woraus $k = \frac{2\pi}{2\Delta x} = \frac{\pi}{\Delta x}$ folgt. Setzt man dies ein, erhält man
+%
+\begin{align}
+\frac{1}{\tau} &= \alpha\frac{\pi^4}{\Delta x^4}\nonumber\\
+\Leftrightarrow \alpha &= \frac{A^2}{\pi^4\tau}
+\end{align}
+%
+für den Zusammenhang zwischen Diffusionskoeffizient und Zerfallszeit der kürzesten aufgelösten Welle, hierbei ist $A = \Delta x^2$ die Fläche der Gitterzellen. Drückt man $\tau$ als das Vielfache das Modellzeitschritts $\Delta t$ aus, erhält man
+%
+\begin{align}
+\alpha &= \frac{A^2}{c\Delta t\pi^4}.
+\end{align}
+
 \section{TKE als prognostische Variable}
 \label{sec:tke_als_prognostische_variable}
 
