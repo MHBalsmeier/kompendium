@@ -26104,14 +26104,14 @@ hierbei sind $p_v$ der Dampfdruck und $p_S$ wie üblich der Sättigungsdampfdruc
 hierbei bezeichnen Größen ohne explizit angegebene Zeitabhängigkeit Größen zum Zeitpunkt $t$, also $\rho_v\coloneqq\rho_v\left(t\right).$ Hieraus folgt mit $\rho_t$ als Gesamtdichte weiter
 %
 \begin{align}
-\left(\rho_v + \Delta\rho_v\right)R_v\left(T - \Delta\rho_v\frac{L_v}{\rho_tc_v}\right) &= p_S\left(T - \Delta\rho_v\frac{L_v}{\rho_tc_v}\right).
+\left(\rho_v + \Delta\rho_v\right)R_v\left(T - \Delta\rho_v\frac{L_v}{\rho_tc_p}\right) &= p_S\left(T - \Delta\rho_v\frac{L_v}{\rho_tc_p}\right).
 \end{align}
 %
 Multipliziert man die linke Seite aus und macht auf der rechten Seite eine Taylor-Entwicklung erster Ordnung, erhält man
 %
 \begin{align}
-p_v + \Delta\rho_vR_vT - R_v\Delta\rho_v\rho_v\frac{L_v}{\rho_tc_v} - \left(\Delta\rho_v\right)^2R_v\frac{L_v}{\rho_tc_v} &= p_S - p_S'\Delta\rho_v\frac{L_v}{\rho_tc_v}\nonumber\\
-\Leftrightarrow -\left(\Delta\rho_v\right)^2R_v\frac{L_v}{\rho_tc_v} + \Delta\rho_v\left(R_vT - R_v\rho_v\frac{L_v}{\rho_tc_v} + p_S'\frac{L_v}{\rho_tc_v}\right) + p_v - p_S &= 0\nonumber\\
+p_v + \Delta\rho_vR_vT - R_v\Delta\rho_v\rho_v\frac{L_v}{\rho_tc_p} - \left(\Delta\rho_v\right)^2R_v\frac{L_v}{\rho_tc_p} &= p_S - p_S'\Delta\rho_v\frac{L_v}{\rho_tc_p}\nonumber\\
+\Leftrightarrow -\left(\Delta\rho_v\right)^2R_v\frac{L_v}{\rho_tc_p} + \Delta\rho_v\left(R_vT - R_v\rho_v\frac{L_v}{\rho_tc_p} + p_S'\frac{L_v}{\rho_tc_p}\right) + p_v - p_S &= 0\nonumber\\
 \Leftrightarrow a\left(\Delta\rho_v\right)^2 + b\Delta\rho_v + c &= 0\nonumber\\
 \Leftrightarrow \left(\Delta\rho_v\right)^2 + p\Delta\rho_v + q &= 0
 \end{align}
@@ -26119,8 +26119,8 @@ p_v + \Delta\rho_vR_vT - R_v\Delta\rho_v\rho_v\frac{L_v}{\rho_tc_v} - \left(\Del
 mit
 %
 \begin{align}
-a &\coloneqq -R_v\frac{L_v}{\rho_tc_v} < 0,\\
-b &\coloneqq R_vT - R_v\rho_v\frac{L_v}{\rho_tc_v} + p_S'\frac{L_v}{\rho_tc_v},\\
+a &\coloneqq -R_v\frac{L_v}{\rho_tc_p} < 0,\\
+b &\coloneqq R_vT - R_v\rho_v\frac{L_v}{\rho_tc_p} + p_S'\frac{L_v}{\rho_tc_p},\\
 c &\coloneqq p_v - p_S,\\
 p &\coloneqq \frac{b}{a},\\
 q &\coloneqq \frac{c}{a}.
