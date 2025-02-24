@@ -26726,7 +26726,7 @@ Der \textit{Gesamtbedeckungsgrad}\index{Gesamtbedeckungsgrad} (engl. \textit{tot
 Der erste Schritt ist, aus $c_{f,i}$ den nicht wolkenbedeckten vertikalen Flächenanteil $f_i$ der Gitterbox zu berechnen. Unter der Annahme, dass die Wolken aus einer einzigen Schicht der Dicke $d_i$ bestehen, erhält man
 %
 \begin{align}
-f_i = \text{max}\left(1 - \frac{c_{d,i}}{d_i/\Delta z_i},0\right),
+f_i = \text{max}\left(1 - \frac{c_{d,i}}{\text{min}\left(d_i/\Delta z_i, 1\right)}, 0\right),
 \end{align}
 %
 wobei $\Delta z_i$ die Schichtdicke ist. Dies führt dazu, dass bereits bei $c_{d,i} = \frac{d_i}{\Delta z_i}$ vollständige Bedecktung $f_i = 0$ erreicht ist. Unter der Annahme zufälliger Überlappung zwischen den Schichten erhält man
@@ -26744,7 +26744,7 @@ In der Realität ist jedoch davon auszugehen, dass die Überlappung zwischen den
 Im Fall kurzer Kohärenzlängen $l_{c,i}\to 0$ geht Glg. \eqref{eq:tcc_general_overlap} zu Glg. \eqref{eq:tcc_random_overlap} über, im Fall unendlicher Kohärenzlängen $l_{c,i}\to\infty$ folgt aus \eqref{eq:tcc_general_overlap} $\text{TCC} = 1 - f_1$, weil sich dann die Wolken in allen Schichten perfekt überlappen. Festgelegt werden müssen nun noch die Wolkenhöhe $d_i$ sowie die Kohärenzlänge $l_{c,i}$. Hier wird folgender Ansatz gewählt:
 %
 \begin{align}
-d_i &= \text{max}\left(930,0\:\text{m},10\cdot L_{m,i}\right),\\
+d_i &= 10\cdot L_{m,i},\\
 l_{c,i} &= d_i,
 \end{align}
 %
