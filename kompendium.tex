@@ -26161,7 +26161,7 @@ Dies ist in jedem Fall richtig. Die einfachste Möglichkeit, dies für $p_{S,\te
 c_f\left(p_v\right) &= \frac{p_v - p_{S,\text{min}}}{p_{S,\text{max}} - p_{S,\text{min}}}.
 \end{align}
 %
-Dies wäre zum Beispiell dann der Fall, wenn die Temperatur gleichverteilt zwischen $T_\text{min}$ und $T_\text{max}$ gleichverteilt wäre und der Sättigungsdampfdruck in diesem Intervall linear von der Temperatur abhinge, was in erster Ordnung erfüllt ist. Die Idee ist nun, den Dampfdruck, mit dem man die Phasenübergangsraten berechnet, im Fall $p_v>p_{S,\text{min}}$ (in dem überhaupt nur eine Wolkenbildung stattfinden kann) über einen Ansatz
+Dies wäre zum Beispiel dann der Fall, wenn die Temperatur gleichverteilt zwischen $T_\text{min}$ und $T_\text{max}$ gleichverteilt wäre und der Sättigungsdampfdruck in diesem Intervall linear von der Temperatur abhinge, was in erster Ordnung erfüllt ist. Die Idee ist nun, den Dampfdruck, mit dem man die Phasenübergangsraten berechnet, im Fall $p_v>p_{S,\text{min}}$ (in dem überhaupt nur eine Wolkenbildung stattfinden kann) über einen Ansatz
 %
 \begin{align}
 p_v^{(\text{eff})} = p_{S,\text{min}} + \xi\left(p_v - p_{S,\text{min}}\right)\label{eq:p_v_eff}
@@ -26198,7 +26198,7 @@ Die bisherige Herleitung in diesem Abschnitt bezieht sich auf die Entsteheung vo
 \begin{enumerate}
 \item Dividiere alle Kondensatdichten durch $c_f$. Wenn $c_f<0,1$ ist, verwende aus Stabilitätsgründen 0,1. Dies tut man, weil die Wolkenphysik nur innerhalb des wolkenbefüllten Bereichs der Gitterbox abläuft und dort die Dichten um den Faktor $1/c_f$ höher sind.
 \item Berechne die Wolkenphysik mit den umskalierten Dichten.
-\item Multipliziere die resultierenden Quelldichten mit $\text{max}\left(c_f,0,1\right)$, um die Tendenzen für die gemittelten Dichten zu erhalten (welche die prognostischen Variablen sind).
+\item Multipliziere die resultierenden Quelldichten mit $\text{max}\left(c_f;0,1\right)$, um die Tendenzen für die gemittelten Dichten zu erhalten (welche die prognostischen Variablen sind).
 \end{enumerate}
 %
 Für den mit Niederschlag befüllten Anteil $c_p$ der Gitterbox macht man den Ansatz.
