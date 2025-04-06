@@ -25916,28 +25916,28 @@ Das Grundproblem der \textit{Konvektionsparametrisierungen} wurde bereits in Abs
 Konvektion ist vertikale Durchmischung. Daher versucht man, den nicht aufgelösten Anteil über eine Modifikation der Mischungsweglänge abzubilden:
 %
 \begin{align}
-L_m \to L_m + cL_\text{max},
+L_m \to cL_\text{conv} + \left(c - 1\right)L_m,
 \end{align}
 %
-hierbei ist $L_\text{max}$ eine maximale Mischungsweglänge. Für $c$ wird folgender Ansatz gemacht:
+hierbei ist $L_\text{conv}$ eine konvektive Mischungsweglänge. $c$ ist der Anteil der Grundfläche der Gitterzelle, in welchem thermische Instabilität vorherrscht:
 %
 \begin{align}
-c = \text{min}\left(\text{max}\left(\frac{\left(-\frac{\partial T}{\partial z}\right) - \left(-\frac{\partial T}{\partial z}\right)_{c,m}}{\left(-\frac{\partial T}{\partial z}\right)_{c,l} - \left(-\frac{\partial T}{\partial z}\right)_{c,m}},0\right),1\right).
+c = \frac{1}{A_c}\int_{A_c}\Theta\left(\Gamma-\Gamma_d\right)dA\label{eq:ansatz_c_conv}
 \end{align}
 %
-Hierbei sind $\frac{\partial T}{\partial z}$ der tatsächliche negative vertikale Temperaturgradient, $\left(-\frac{\partial T}{\partial z}\right)_{c,m}$ der mittlere negative vertikale Temperaturgradient, bei dem irgendwo in der Zelle Konvektion anfängt und $\left(-\frac{\partial T}{\partial z}\right)_{c,l}$ der negative vertikale Temperaturgradient, bei dem Konvektion lokal anfängt. Dies führt dazu, dass im Fall $\left(-\frac{\partial T}{\partial z}\right) = \left(-\frac{\partial T}{\partial z}\right)_{c,l}$ die Konvektion beginnt und im Fall $\left(-\frac{\partial T}{\partial z}\right) = \left(-\frac{\partial T}{\partial z}\right)_{c,l}$ die gesamt Gitterzelle von Konvektion bedeckt wird. Es gilt
+$\newoverline{\Gamma}$ sei der mittlere negative vertikale Temperaturgradient, also der aus den gemittelten (d. h. aufgelösten) Variablen berechnete. Nimmt man weiter an, dass $\Gamma$ normalverteilt ist, folgt aus Glg. \eqref{eq:ansatz_c_conv}
 %
 \begin{align}
-\left(-\frac{\partial T}{\partial z}\right)_{c,l} = \frac{g}{c^{(p)}}.
+c &= \int_{\Gamma_d}^\infty f_\sigma\left(\Gamma - \newoverline{\Gamma}\right)d\Gamma = \int_{\Gamma_d - \newoverline{\Gamma}}^\infty f_\sigma\left(\Gamma\right)d\Gamma = \int_{\frac{\Gamma_d - \newoverline{\Gamma}}{\sigma}}^\infty f_1\left(\Gamma\right)d\Gamma = \int_{\frac{\Gamma_d - \newoverline{\Gamma}}{\sigma}}^\infty\frac{1}{\sqrt{2\pi}}\exp\left(-\frac{\Gamma^2}{2}\right)d\Gamma\nonumber\\
+&= \frac{1}{\sqrt{\pi}}\int_{\frac{\Gamma_d - \newoverline{\Gamma}}{\sqrt{2}\sigma}}^\infty\exp\left(-\Gamma^2\right)d\Gamma = \frac{1}{\sqrt{\pi}}\left(\int_{0}^\infty\exp\left(-\Gamma^2\right)d\Gamma - \int_{0}^{\frac{\Gamma_d - \newoverline{\Gamma}}{\sqrt{2}\sigma}}\exp\left(-\Gamma^2\right)d\Gamma\right)\nonumber\\
+&= \frac{1}{\sqrt{\pi}}\left(\frac{\sqrt{\pi}}{2} - \int_{0}^{\frac{\Gamma_d - \newoverline{\Gamma}}{\sqrt{2}\sigma}}\exp\left(-\Gamma^2\right)d\Gamma\right) = \frac{1}{2} - \frac{1}{\sqrt{\pi}}\int_{0}^{\frac{\Gamma_d - \newoverline{\Gamma}}{\sqrt{2}\sigma}}\exp\left(-\Gamma^2\right)d\Gamma = \frac{1}{2}\left[1 - \text{erf}\left(\frac{\Gamma_d - \newoverline{\Gamma}}{\sqrt{2}\sigma}\right)\right].
 \end{align}
 %
-$\frac{\partial T}{\partial z}$ selbst kann aus dem Modellzustand berechnet werden. Für $\left(-\frac{\partial T}{\partial z}\right)_{c,m}$ wird der Ansatz
+Zu bestimmen ist nun die Standardabweichung der Schichtung $\sigma$. Hierfür macht man den Ansatz
 %
 \begin{align}
-\left(-\frac{\partial T}{\partial z}\right)_{c,m} = \left(1 - \frac{1}{3}\text{min}\left(\frac{A}{\left(200\:\text{km}\right)^2},1\right)\right)\frac{g}{c^{(p)}}.
+\sigma = \frac{A_c}{\left(200\:\text{km}\right)^2}\frac{g}{3c_d^{(p)}}.
 \end{align}
-%
-$A$ ist die Grundfläche der betrachteten Gitterzelle. Dieser Ansatz impliziert $\left(-\frac{\partial T}{\partial z}\right)_{c,m} \to \left(-\frac{\partial T}{\partial z}\right)_{c,l}$ für $A\to 0$, was notwendig ist. Außrdem impliziert er, dass bei einer Kantenlänge der Gitterzellen von 200 km bereits zwei Drittel des lokel notwendigen Temperaturgradienten ausreichen, damit irgendwo in der Gitterzelle Konvektion vorliegt.
 
 \section{Dissipation}
 \label{sec:dissipation_modell}
