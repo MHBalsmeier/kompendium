@@ -25933,11 +25933,25 @@ c &= \int_{\Gamma_d}^\infty f_\sigma\left(\Gamma - \newoverline{\Gamma}\right)d\
 &= \frac{1}{\sqrt{\pi}}\left(\frac{\sqrt{\pi}}{2} - \int_{0}^{\frac{\Gamma_d - \newoverline{\Gamma}}{\sqrt{2}\sigma}}\exp\left(-\Gamma^2\right)d\Gamma\right) = \frac{1}{2} - \frac{1}{\sqrt{\pi}}\int_{0}^{\frac{\Gamma_d - \newoverline{\Gamma}}{\sqrt{2}\sigma}}\exp\left(-\Gamma^2\right)d\Gamma = \frac{1}{2}\left[1 - \text{erf}\left(\frac{\Gamma_d - \newoverline{\Gamma}}{\sqrt{2}\sigma}\right)\right].
 \end{align}
 %
-Zu bestimmen ist nun die Standardabweichung der Schichtung $\sigma$. Hierfür macht man den Ansatz
+Zu bestimmen ist nun die Standardabweichung der Schichtung $\sigma$. Bei einem random walk ist der Erwartungswert des Abstandes vom Ursprung proportional zur Wurzel der Anzahl der Schritte. Man gehe nun in Schritten von $\Delta r$ radial vom Mittelpunkt einer Gitterzelle in Richtung des Randes. Für die Standardabweichung $\sigma_r$ der Wahrscheinlichkeitsverteilung der Schichtung $\Gamma_r$ an einem Punkt mit der Entferung $r$ vom Mittelpunkt macht man daher den Ansatz
 %
 \begin{align}
-\sigma = \frac{A_c}{\left(200\:\text{km}\right)^2}\frac{g}{3c_d^{(p)}}.
+\sigma_r = k\sqrt{r}.
 \end{align}
+%
+Für die über die Grundfläche einer kreisförmigen Zelle gemittelte Standardabweichung $\newoverline{\sigma}$ gilt somit
+%
+\begin{align}
+\newoverline{\sigma} = \frac{\int_A\sigma dA}{\int_A\sigma dA} = \frac{\int_0^R2\pi r\sigma_rdr}{\pi R^2} = \frac{\int_0^R2\pi rk\sqrt{r}dr}{\pi R^2} = \frac{2\pi k\int_0^R r^{3/2}dr}{\pi R^2} = 2\pi k\frac{2R^{5/2}}{5\pi R^2} = 2\pi k\frac{2R^{1/2}}{5\pi} = \frac{4k}{5\pi^{1/4}}A_c^{1/4}.
+\end{align}
+%
+Für $k$ macht man einen heuristischen Ansatz
+%
+\begin{align}
+k = \frac{\delta\Gamma}{\sqrt{d}}.
+\end{align}
+%
+Hierbei ist $\delta\Gamma$ eine typische Schwankungsbreite, für die $\delta\Gamma = \frac{\Gamma_d}{3}$ angenommen wird. $d$ ist die zu dieser Schwankung gehörende typische Längenskala, für die 1000 km angenommen wird.
 
 \section{Dissipation}
 \label{sec:dissipation_modell}
