@@ -15931,7 +15931,7 @@ Hierbei wurde die hydrostatische Grundgleichung eingesetzt. Für die Wärmeleist
 dq = \frac{c_{c}}{v}_hdm_c
 \end{align}
 %
-mit $m_c$ als kondensiertet oder resublimierter Masse und $c_{c}$ als Phasenübergangswärme. Mit der Zustandsgleichung für Wasserdampf gilt
+mit $m_c$ als kondensierter oder resublimierter Masse und $c_{c}$ als Phasenübergangswärme. Mit der Zustandsgleichung für Wasserdampf gilt
 %
 \begin{align}
 p_v &= \rho_vR_vT\Rightarrow m_v = \frac{V_vp_v}{R_vT} = \frac{V_hp_v}{R_vT} = \frac{m_hR_hp_v^{(S)}\left(T\right)}{pR_v}\nonumber\\
@@ -25952,6 +25952,14 @@ k = \frac{\delta\Gamma}{\sqrt{d}}.
 \end{align}
 %
 Hierbei ist $\delta\Gamma$ eine typische Schwankungsbreite, für die $\delta\Gamma = \frac{\Gamma_d}{3}$ angenommen wird. $d$ ist die zu dieser Schwankung gehörende typische Längenskala, für die 1000 km angenommen wird.
+
+Bisher wurde in Glg. \eqref{eq:ansatz_c_conv} von dem trockenadiabatischen Temperaturgradienten $\Gamma_d$ ausgegangen. In der Realität ist jedoch eine Teilmenge einer Gitterbox gesättigt, dort ist der feuchtadiabatische Temperaturgradient $\Gamma_h$ zu verwenden. Um dies approximativ zu berücksichtigen, wird ab Glg. \eqref{eq:ansatz_c_conv} die Ersetzung
+%
+\begin{align}
+\Gamma_d \to c_f\Gamma_h + \left(1 - c_f\right)\Gamma_d
+\end{align}
+%
+vorgenommen. Hierbei ist $c_f$ der wolkenbefüllte (d. h. übersättigte) Volumenanteil gemäß Anschn. \ref{sec:parametrisierungen_tracer}.
 
 \section{Dissipation}
 \label{sec:dissipation_modell}
