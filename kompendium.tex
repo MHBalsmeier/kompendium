@@ -17065,6 +17065,13 @@ U = \frac{u_\star}{k}\ln\left(\frac{z}{z_0}\right) \Leftrightarrow u_\star = \fr
 \subsubsection{Stabile oder labile Schichtung}
 \label{sec:stabile_oder_labile_schichtung}
 
+\begin{figure}
+\centering
+\includegraphics[width = .6\textwidth]{figs/wind_profile.png}
+\caption{Windprofile bei gegebener Windgeschwindigkeit in 50 m Höhe.}
+\label{fig:wind_profile}
+\end{figure}
+
 Die bisherigen Herleitungen dieses Abschnitts erfolgten unter der Annahme indifferenter Schichtung. Im Falle labiler oder stabiler Schichtung ist die Mischungsweglänge nicht mehr einfach durch Glg. \eqref{eq:karman_eq} gegeben. Im Falle labiler Schichtung können die Teilchen vertikal weiter schwingen, also $l>\kappa z$, im Falle labiler Schichtung können diese weniger weit schwingen, also $l<\kappa z$. In \cite{Nakanishi2001} werden aus kleinskaligen Simulationen Ausdrücke hierfür hergeleitet, diese lauten
 %
 \begin{align}
@@ -17089,7 +17096,9 @@ Weiter verallgemeinert man Glg. \eqref{eq:ln_wind_profile} zu
 \newoverline{u}\left(z\right) = \frac{u_\star}{k}\left[\ln\left(\frac{z}{z_0}\right) - \psi_m\left(\zeta\right)\right],\label{eq:wind_profile_pbl}
 \end{align}
 %
-Im Falle indifferenter Schichtung ist $\psi_m = 0$. Die Reibungsgeschwindigkeit ergibt sich hieraus zu
+$\psi_m$ ist hierbei eine das logarithmische Windrofil modifizierende Hilfsfunktion. Im Falle indifferenter Schichtung ist $\psi_m = 0$. Abb. \ref{fig:wind_profile} zeigt mit Glg. \eqref{eq:wind_profile_pbl} berechnete Windprofile.
+
+Die Reibungsgeschwindigkeit ergibt sich hieraus zu
 %
 \begin{align}
 u_\star = \frac{Uk}{\ln\left(\frac{z}{z_0}\right) - \psi_m\left(\frac{z}{L}\right)}.\label{eq:u_star}
