@@ -25376,11 +25376,6 @@ Es besteht folgender Konflikt zwischen expliziten\index{explizites Zeitschrittve
 %
 Hieraus folgt, dass ein schnelles implizites Verfahren ideal für einen dynamischen Kern wäre. Da die zu lösenden Gleichungen jedoch nichtlinear sind, ist ein dreidimensional implizites Verfahren nur über ein iteratives Vorgehen möglich. In diesem Abschnitt wählt man als Kompromiss das \textit{HEVI-Konzept,}\index{HEVI-Konzept} was für \textit{horizontally explicit, vertically implicit}\index{horizontally explicit, vertically implicit (HEVI)} steht.
 
-\subsection{Festlegung auf ein Predictor-Corrector-Verfahren}
-\label{sec:Festlegung_auf_ein_predictor-corrector-verfahren}
-
-Das grundlegende Zeitschrittverfahren des Modells soll explizit sein. Das explizite Euler-Verfahren ist nur erster Ordnung und daher nicht genau genug. Ein Multi-Schritt-Verfahren erzeugt unphysikalische Moden, was ebenfalls unvorteilhaft ist. Daher verwendet man ein Predictor-Corrector-Verfahren.
-
 \subsection{Split-explicit-Techniken}
 \label{sec:split-explicit-techniken}\index{Split-explicit-Verfahren}
 
@@ -25572,6 +25567,33 @@ vornehmen.
 \label{sec:horizontales_forward-backward-Verfahren}\index{Forward-Backward-Verfahren}
 
 Das Forward-Backward-Verfahren wurde in Abschn. \ref{sec:forward-backward-verfahren} dargestellt. Es erhöht nicht die Genauigkeit, jedoch die Stabilität des Modells. Im hier zu formulierenden dynamischen Kern\index{dynamischer Kern}\index{Kern!dynamischer} wird die horizontale Impulsgleichung zunächst vorwärts integriert, anschließend werden die skalaren Gleichungen mit den neuen Werten der Geschwindigkeiten gelöst.
+
+\subsection{Performancevergleich verschiedener HEVI-Verfahren}
+\label{sec:performancevergleich_verschiedener_hevi-verfahren}
+
+Die Performance eines HEVI-Verfahrens mit Separierung von horizontalen schnellen (akutischen) und langsamen (advektiven) Anteilen kann allgemein berechnet werden. Es seien $\tau$ der akustische Zeitschritt, und $T$ der advektive Zeitschritt. Es gilt $T\geq\tau$. Innerhalb der Abarbeitung eines vollständigen Zeitschrittes werden bei Verfahren höherer Ordnung allerdings die entpsprechenden Terme mehrmals berechnet. $n_\tau$ sie die Anzahl der Berechnungen der akustischen Anteile und $n_T$ die Anzahl der Berechnungen der advektiven Anteile. Damit lassen sich effektive Zeitschritte
+%
+\begin{align}
+\tau_\text{eff} &\coloneqq \frac{\tau}{n_\tau},\\
+T_\text{eff} &\coloneqq \frac{T}{n_T}
+\end{align}
+%
+definieren. Desto größer diese Zeitschritte sind, desto besser für die Performance des Modells. Die Geschwindigkeit $c$ des Modells, also die integrierte Zeit $t$ dividiert durch die dafür benötigte Zeit, berechnet sich durch
+%
+\begin{align}
+c = \frac{t}{\frac{t}{T_\text{eff}}t_T + \frac{t}{\tau_\text{eff}}t_\tau} = \frac{1}{\frac{1}{T_\text{eff}}t_T + \frac{1}{\tau_\text{eff}}t_\tau} = \frac{\tau_\text{eff}T_\text{eff}}{\tau_\text{eff}t_T + T_\text{eff}t_\tau}.
+\end{align}
+%
+Hierbei ist $t_T$ die Zeit, die für einen advektiven Zeitschritt benötigt wird und $t_\tau$ die Zeit, die für einen akustischen Zeitschritt benötigt wird. Mit der Notation $t_T\equiv\alpha t_\tau$ wird dies zu
+%
+\begin{align}
+c = \frac{\tau_\text{eff}T_\text{eff}}{\tau_\text{eff}\alpha t_\tau + T_\text{eff}t_\tau} = \frac{\tau_\text{eff}}{t_\tau}\frac{T_\text{eff}}{\alpha\tau_\text{eff} + T_\text{eff}}.
+\end{align}
+
+\subsection{Festlegung auf ein Predictor-Corrector-Verfahren}
+\label{sec:Festlegung_auf_ein_predictor-corrector-verfahren}
+
+Das grundlegende Zeitschrittverfahren des Modells soll explizit sein. Das explizite Euler-Verfahren ist nur erster Ordnung und daher nicht genau genug. Ein Multi-Schritt-Verfahren erzeugt unphysikalische Moden, was ebenfalls unvorteilhaft ist. Daher verwendet man ein Predictor-Corrector-Verfahren.
 
 \subsubsection{Konstanthalten des horizontalen Druckgradienten}
 \label{sec:konstanthalten_des_horizontalen_druckgradienten}
