@@ -22828,13 +22828,13 @@ Diejenigen Kanten, die nicht an das betrachtete Hexagon grenzen, tragen jeweils 
 \frac{\sqrt{3}d}{4}\left(\sum_{l \in h}D_l^{(t)} - \sum_{u \in h}D_u^{(t)}\right) &= 2\sum_{e \in h}v_e + \sum_{t \in h}\sum_{e \in t, e \not\in h}v_e
 \end{align}
 %
-Betrachte an dieser Stelle die Größe $\newtilde{v}_1^{(1)}$, welche Im Zentrum des betrachteten Hexagons definiert ist. Diese ist eine Überlagerung aus vier Geschwindigkeitskonponenten, zwei davon liegen auf der $\mathbf{i}_1-$Achse, zwei senkrecht zu dieser. Erstere tragen mit dem Gewicht $1/3$ zu $\newtilde{v}_1^{(1)}$ bei, letztere mit dem Gewicht $1/6$ Dies kann man zyklisch auch auf die anderen Raumrichtungen übertragen. Somit gilt
+Betrachte an dieser Stelle die Größe $\newtilde{v}_1^{(1)}$, welche im Zentrum des betrachteten Hexagons definiert ist. Diese ist eine Überlagerung aus vier Geschwindigkeitskomponenten, zwei davon liegen auf der $\mathbf{i}_1-$Achse, zwei senkrecht zu dieser. Erstere tragen mit dem Gewicht $1/3$ zu $\newtilde{v}_1^{(1)}$ bei, letztere mit dem Gewicht $1/6.$ Dies kann man zyklisch auch auf die anderen Raumrichtungen übertragen. Somit gilt
 %
 \begin{align}
 \frac{\sqrt{3}d}{4}\left(\sum_{l \in h}D_l^{(t)} - \sum_{u \in h}D_u^{(t)}\right) &= 6\left(\newtilde{v}_1^{(1)} + \newtilde{v}_2^{(2)} + \newtilde{v}_3^{3}\right).\label{eq:checkerboard_triangular}
 \end{align}
 %
-Ist die Bedingung $\newtilde{v}_1^{(1)} + \newtilde{v}_2^{(2)} + \newtilde{v}_3^{3} = 0$ nicht erfüllt, so ist der Mittelwert der Divergenz der drei nach oben gerichteten Dreiecke i. A. ungleich dem Mittelwert der Divergenz der nach unten gerichteten Dreiecke. Dies führt zur Entstehung eines sogenannten \textit{Checkerboard-Patterns}\index{Checkerboard-Pattern} in der Divergenz. Dieser Lärm pflanzt sich von dort auch in andere Felder fort. Es ist also wichtig, die Bedingung $\newtilde{v}_1^{(1)} + \newtilde{v}_2^{(2)} + \newtilde{v}_3^{3} = 0$ immer einzhalten.
+Ist die Bedingung $\newtilde{v}_1^{(1)} + \newtilde{v}_2^{(2)} + \newtilde{v}_3^{3} = 0$ nicht erfüllt, so ist der Mittelwert der Divergenz der drei nach oben gerichteten Dreiecke i. A. ungleich dem Mittelwert der Divergenz der nach unten gerichteten Dreiecke. Dies führt zur Entstehung eines sogenannten \textit{Checkerboard-Patterns}\index{Checkerboard-Pattern} in der Divergenz. Dieser Lärm pflanzt sich von dort auch in andere Felder fort. Es ist also wichtig, die Bedingung $\newtilde{v}_1^{(1)} + \newtilde{v}_2^{(2)} + \newtilde{v}_3^{3} = 0$ immer einzuhalten.
 
 Auf dem sechseckigen Gitter kann man die Gedankengänge vollständig analog auf die relative Vorticity übertragen, was auf
 %
@@ -22873,7 +22873,7 @@ Wendet man den Laplace-Operator\index{Laplace-Operator} auf Glg.en \eqref{eq:hex
 \Delta u_3 &= \frac{1}{\sqrt{3}}\left(\delta_2\Delta\newtilde{\psi}^{(1)} - \delta_1\Delta \newtilde{\psi}^{(2)}\right) + \delta_3\Delta\chi.\label{eq:rhombus_curl_deriv_2}
 \end{align}
 %
-Da diskretisierte partielle Ableitungen und Mittelungsoperatoren vertauchen, folgt hieraus unmittelbar
+Da diskretisierte partielle Ableitungen und Mittelungsoperatoren vertauschen, folgt hieraus unmittelbar
 %
 \begin{align}
 \newtilde{\Delta u_1}^{(1)} + \newtilde{\Delta u_2}^{(2)} + \newtilde{\Delta u_3}^{(3)} = 0.
