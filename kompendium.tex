@@ -2651,7 +2651,7 @@ Bei zweckmäßiger Wahl der Reihenfolge der $f_i$ gilt $\lim\limits_{i\to\infty}
 %
 In diesem Fall wird der Zustand $\psi\left(\mathbf{r}, t\right)$ durch $\left(\newtilde{a}_i\left(t\right)\right)$ festgelegt. Ein Beispiel für eine solche Transformation ist die Fourier-Transformation.
 
-Hat man die Schrödinger-Gleichung für ein System gelöst und eine Quantelung der Zustände gefunden, so kann man einen Zustand $\psi\left(\mathbf{r}\right)$ durch $N\geq 1$ Quantenzahlen $n_1, \dotsc, n_N$ festlegen, $\psi\left(\mathbf{r}, t\right) = \psi\left(n_1, \dotsc, n_N, \mathbf{r}, t\right)$. Es gibt also unendlich viele Möglichkeiten, einen Zustand eines Teilchens festzulegen. Will man sich nicht auf eine solche Möglichkeit festlegen, schreibt man einfach
+Hat man die Schrödinger-Gleichung für ein System gelöst und eine Quantelung der Zustände gefunden, so kann man einen Zustand $\psi\left(\mathbf{r}\right)$ durch $N\geq 1$ Quantenzahlen $n_1, \dotsc, n_N$ festlegen, $\psi\left(\mathbf{r}, t\right) = \psi\left(n_1, \dotsc, n_N,\mathbf{r},t\right)$. Es gibt also unendlich viele Möglichkeiten, einen Zustand eines Teilchens festzulegen. Will man sich nicht auf eine solche Möglichkeit festlegen, schreibt man einfach
 %
 \begin{align}
 |\psi\rangle.
@@ -19030,10 +19030,10 @@ Es könnte nun als Satz prognosticher Gleichungen die in Abschn. \ref{sec:flachw
 Daher verwendet man zur Beschreibung von Wasseroberflächenwellen\index{Wasseroberflächenwelle} meistens eine Strahlungsübertragungsgleicung\index{Strahlungsübertragungsgleichung} (radiative transfer equation (\textsc{RTE}))\index{radiative transfer equation (\textsc{RTE})}\index{RTE (radiative transfer equation)}. Als prognostische Variable wird daher die spektrale Strahldichte\index{spektrale Strahldichte}\index{Strahldichte!spektrale}
 %
 \begin{align}
-N = N\left(\mathbf{r}, \mathbf{k}, t\right)
+N = N\left(\mathbf{k},\mathbf{r},t\right)
 \end{align}
 %
-verwendet. Hierbei sind $\mathbf{r}$ ein zweidimensionaler Ortsvektor und $\mathbf{k}$ ein zweidimensionaler Wellenvektor. Als Dispersionsrelation\index{Dispersionsrelation} $\omega = \omega\left(\mathbf{k}\right)$ wird diejenige der Wasseroberflächenwellen\index{Wasseroberflächenwelle!Dispersionsrelation}\index{Dispersionsrelation!Wasseroberflächenwelle}
+verwendet. Hierbei sind $\mathbf{r}$ ein zweidimensionaler Ortsvektor und $\mathbf{k}$ ein zweidimensionaler Wellenvektor. Üblicherweise wird $\mathbf{k}$ nicht in kartesischen, sondern in Polarkoordinaten $\left(k,\theta\right)$ angegeben. Als Dispersionsrelation\index{Dispersionsrelation} $\omega = \omega\left(k, \theta\right)$ wird diejenige der Wasseroberflächenwellen\index{Wasseroberflächenwelle!Dispersionsrelation}\index{Dispersionsrelation!Wasseroberflächenwelle}
 %
 \begin{align}
 \omega^2 &= gk\tanh\left(kD\right) \Rightarrow \omega = \sqrt{gk\tanh\left(kD\right)},
@@ -19047,8 +19047,6 @@ c_\text{gr} &= \frac{1}{2\omega}\frac{\partial\omega^2}{\partial k} = \frac{1}{2
 &= \frac{c_\text{ph}}{2}\left[1 + \frac{2kD}{2\sinh\left(kD\right)\cosh\left(kD\right)}\right] = \frac{c_\text{ph}}{2}\left[1 + \frac{2kD}{\sinh\left(2kD\right)}\right].
 \end{align}
 %
-Alternativ könnte statt $\mathbf{k}$ auch $\left(\mathbf{e}_k, \omega\right)$ oder $\left(\theta, \omega\right)$ mit $\mathbf{e}_k = \left(\sin\left(\theta\right), \cos\left(\theta\right)\right)^T$ verwenden.
-
 Die Gruppengeschwindigkeit wird als isotrop, aber nicht als homogen vorausgesetzt,
 %
 \begin{align}
@@ -19063,7 +19061,7 @@ die Ortsabhängigkeit entsteht über die Ortsabhängigkeit von $D$.
 Hieraus kann man eine spektrale Strahlungsflussdichte\index{spektrale Strahlungsflussdichte}\index{Strahlungsflussdichte!spektrale}
 %
 \begin{align}
-N\left(\mathbf{r}, \mathbf{k}, t\right)\left(c_\text{gr}\left(\mathbf{r}, \mathbf{k}, t\right) + \mathbf{v}\left(\mathbf{r}, t\right)\right)
+N\left(k, \theta,\mathbf{r},t\right)\left(c_\text{gr}\left(k, \theta,\mathbf{r},t\right) + \mathbf{v}\left(\mathbf{r}, t\right)\right)
 \end{align}
 %
 herleiten, hierbei ist $\mathbf{v} = \mathbf{v}\left(\mathbf{r}, t\right)$ die Stromgeschwindigkeit. Die Strahlungsübertragungsgleichung\index{Strahlungsübertragungsgleichung} ist eine Art Kontinuitätsgleichung für $N$, was konzeptionell mit der Energieerhaltung\index{Energieerhaltung} zusammenhängt:
@@ -19072,27 +19070,58 @@ herleiten, hierbei ist $\mathbf{v} = \mathbf{v}\left(\mathbf{r}, t\right)$ die S
 \doublebox{\parbox{0.8\textwidth}{
 \begin{center}
 \begin{align}
-\frac{\partial N}{\partial t} + \nabla\cdot\left(N\left(\mathbf{r}, \mathbf{k}, t\right)c_\text{gr}\left(\mathbf{r}, \mathbf{k}\right)\right) &= S_\text{nl}\left(\mathbf{r}, \mathbf{k}, t\right) + S_\text{ws}\left(\mathbf{r}, \mathbf{k}, t\right) + S_\text{wc}\left(\mathbf{r}, \mathbf{k}, t\right)\nonumber\\
-&   + S_\text{diss}\left(\mathbf{r}, \mathbf{k}, t\right) + S_\text{bd}\left(\mathbf{r}, \mathbf{k}, t\right)\label{eq:rte_water_surface}
+\frac{\partial N}{\partial t} + \nabla\cdot\left(N\left(k, \theta\right)c_\text{gr}\left(\mathbf{r}, k, \theta\right)\right) &= S_\text{nl}\left(k, \theta\right) + S_\text{ws}\left(k, \theta\right) + S_\text{wc}\left(k, \theta\right)\nonumber\\
+&   + S_\text{diss}\left(k, \theta\right) + S_\text{bd}\left(k, \theta\right)\label{eq:rte_water_surface}
 \end{align}
 \end{center}
 }}
 \end{center}
 %
-Hierbei wurden fünf zusätzliche Quellterme\index{Quellterm} aufgenommen:
+Die Orts- und Zeitabhängigkeit wurde hierbei nicht mehr mitnotiert. Weiterhin wurden fünf zusätzliche Quellterme\index{Quellterm} aufgenommen:
 %
 \begin{itemize}
-\item $S_\text{nl}\left(\mathbf{r}, \mathbf{k}, t\right)$ ist die Energiequelle, die aus nichtlinearen Effekten resultiert. Dieser Term ist besonders relevant für die Wechselwirkung von Skalen. Ein Beispiel ist die Entstehung langer Wellen (sogenannte \textit{Dünung}\index{Dünung}) aus der \textit{Windsee}\index{Windsee} (unmittelbar aus Windeinwirkung entstehende Wellen), welche aus kürzeren Wellen besteht, über upscaling\index{upscaling}.
-\item $S_\text{ws}\left(\mathbf{r}, \mathbf{k}, t\right)$ ist die Energiequelle, die aus der Wechselwirkung mit dem Windfeld resultiert. Dies ist die Hauptenergiequelle des Wellenfeldes.
-\item $S_\text{wc}\left(\mathbf{r}, \mathbf{k}, t\right)$ ist die Energiequelle, die aus der \textit{Gischt}\index{Gischt} (das sogenannte \textit{whitecapping}\index{whitecapping}) resultiert, dies ist ein dissipativer\index{Dissipation} und somit üblicherweise negativer Term.
-\item $S_\text{diss}\left(\mathbf{r}, \mathbf{k}, t\right)$ ist die Energiequelle, die mit der inneren Reibung (Viskosität\index{Viskosität}) zusammenhängt. Da die Viskosität quadratisch stärker auf die kleineren Skalen wirkt, führt dieser Effekt dazu, dass Windsee\index{Windsee} schneller als Dünung\index{Dünung} dissipiert\index{Dissipation} wird.
-\item $S_\text{bd}\left(\mathbf{r}, \mathbf{k}, t\right)$ ist die Energiequelle, die aus der Wechselwirkung mit der Bathymetrie\index{Bathymetrie} \textit{(bottom drag)}\index{bottom drag} zusammenhängt, auch dies ist ein dissipativer\index{Dissipation} und somit üblicherweise negativer Term.
+\item $S_\text{nl}\left(k, \theta\right)$ ist die Energiequelle, die aus nichtlinearen Effekten resultiert. Dieser Term ist besonders relevant für die Wechselwirkung von Skalen. Ein Beispiel ist die Entstehung langer Wellen (sogenannte \textit{Dünung}\index{Dünung}) aus der \textit{Windsee}\index{Windsee} (unmittelbar aus Windeinwirkung entstehende Wellen), welche aus kürzeren Wellen besteht, über upscaling\index{upscaling}.
+\item $S_\text{ws}\left(k, \theta\right)$ ist die Energiequelle, die aus der Wechselwirkung mit dem Windfeld resultiert. Dies ist die Hauptenergiequelle des Wellenfeldes.
+\item $S_\text{wc}\left(k, \theta\right)$ ist die Energiequelle, die aus der \textit{Gischt}\index{Gischt} (das sogenannte \textit{whitecapping}\index{whitecapping}) resultiert, dies ist ein dissipativer\index{Dissipation} und somit üblicherweise negativer Term.
+\item $S_\text{diss}\left(k, \theta\right)$ ist die Energiequelle, die mit der inneren Reibung (Viskosität\index{Viskosität}) zusammenhängt. Da die Viskosität quadratisch stärker auf die kleineren Skalen wirkt, führt dieser Effekt dazu, dass Windsee\index{Windsee} schneller als Dünung\index{Dünung} dissipiert\index{Dissipation} wird.
+\item $S_\text{bd}\left(k, \theta\right)$ ist die Energiequelle, die aus der Wechselwirkung mit der Bathymetrie\index{Bathymetrie} \textit{(bottom drag)}\index{bottom drag} zusammenhängt, auch dies ist ein dissipativer\index{Dissipation} und somit üblicherweise negativer Term.
 \end{itemize}
 %
 Abhängig von der konkreten Situation können weitere Quellterme\index{Quellterm} aufgenommen werden. Glg. \eqref{eq:rte_water_surface} bezeichnet man auch als \textit{wave action equation}\index{wave action equation}.
 
+Die Gesamtenergie des Wellenspektrums $E$ an einem gewissen Ort zu einer gewissen Zeit ist das Integral über das gesamt Spektrum:
+%
+\begin{align}
+E = \int_0^{2\pi}\int_0^\infty N\left(k,\theta\right)dkd\theta.\label{eq:wave_spectrum_total_energy}
+\end{align}
+%
+Das energiegewichtete spektrale Mittel einer Größe $\psi$ berechnet sich somit über
+%
+\begin{align}
+\newoverline{\psi} \coloneqq \frac{1}{E}\int_0^{2\pi}\int_0^\infty\psi\left(k,\theta\right)N\left(k,\theta\right)dkd\theta.\label{eq:wave_spectral_average}
+\end{align}
+
 \subsection{Diagnostische Variablen}
 \label{sec:diagnostische_variablen}\index{diagnostische Variable!Seegangsvorhersage}\index{Variable!diagnostische!Seegangsvorhersage}\index{Seegangsvorhersage!diagnostische Variablen}
+
+\subsubsection{Signifikante Wellenhöhe}
+\label{sec:signifikante_wellenhoehe}\index{Wellenhöhe!signifikante}
+
+\subsubsection{Mittlere Wellenrichtung}
+\label{sec:mittlere_wellenrichtung}\index{Wellenrichtung!mittlere}
+
+Die \textit{mittlere Wellenrichtung} $\theta_m$ berechnet sich gemäß Glg. \eqref{eq:wave_spectral_average} als
+%
+\begin{align}
+\theta_m = \arctan2\left(b,a\right)
+\end{align}
+%
+mit
+%
+\begin{align}
+a &\coloneqq \frac{1}{E}\int_0^{2\pi}\int_0^\infty\cos\left(\theta\right)N\left(k,\theta\right)dkd\theta,\nonumber\\
+b &\coloneqq \frac{1}{E}\int_0^{2\pi}\int_0^\infty\sin\left(\theta\right)N\left(k,\theta\right)dkd\theta.
+\end{align}
 
 \subsection{Seegangsvorhersagemodelle}
 \label{sec:seegangsvorhersagemodelle}\index{Seegangsvorhersagemodell}
