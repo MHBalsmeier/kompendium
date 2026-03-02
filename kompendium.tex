@@ -908,7 +908,7 @@ Die Hamilton-Funktion\index{Hamilton-Funktion} ist also genau dann konstant, wen
 Als Beispiel für die Anwendung der Theorie der klassischen Mechanik wird der sogenannte \textit{harmonische Oszillator}\index{harmonischer Oszillator}\index{Oszillator!harmonischer} verwendet. Dabei geht es um die Evolution einer generalisierten Koordinaten $x = x\left(t\right)$ entsprechend der Differenzialgleichung
 %
 \begin{align}
-x'' = -kx.\label{eq:harm_osz_base}
+\frac{d^2x}{dt^2} = -kx.\label{eq:harm_osz_base}
 \end{align}
 %
 Ist $x$ die kartesische Koordinate eines Massenpunktes mit der Masse $m$ und $k$ der Quotient aus Federkonstante und Masse, so handelt es sich um eine ungedämpften Feder, es gibt jedoch auch andere Beispiele.
@@ -929,6 +929,25 @@ Setzt man in Glg. \eqref{eq:harm_osz_base} eine Lösung $x = x_0e^{-i\omega_0t}$
 \end{center}
 %
 $\omega$ bezeichnet man als \textit{Eigenfrequenz}\index{Eigenfrequenz}.
+%
+Für die kinetische Energie $K$ als Funktion der Zeit gilt
+%
+\begin{align}
+K = \frac{1}{2}m\left(\frac{dx}{dt}\right)^2 = \frac{1}{2}mx_0^2\omega_0^2\sin\left(\omega_0t\right)^2,
+\end{align}
+%
+hierbei ist $m$ die Masse des schwingenden Massenpunktes. Für die potentielle Energie gilt
+%
+\begin{align}
+U = \frac{1}{2}mkx^2 = \frac{1}{2}mkx_0^2\cos\left(\omega_0t\right)^2.
+\end{align}
+%
+Für die Gesamtenergie $E$ gilt somit
+%
+\begin{align}
+E &= K + U = \frac{1}{2}mx_0^2\omega_0^2\sin\left(\omega_0t\right)^2 + \frac{1}{2}mkx_0^2\cos\left(\omega_0t\right)^2\nonumber\\
+&= \frac{1}{2}mkx_0^2\left[\sin\left(\omega_0t\right)^2 + \cos\left(\omega_0t\right)^2\right] = \frac{1}{2}mkx_0^2 = \frac{1}{2}m\omega_0^2x_0^2.\label{eq:e_tot_harm_osc}
+\end{align}
 
 \subsection{Gedämpfter Fall}
 \label{sec:gedämpfter_fall}
@@ -25939,13 +25958,13 @@ da das Teilchen während jeder Periode viermal die Strecke $\newhat{z}$ überwin
 v_\text{max} = N\newhat{z} = \frac{\pi}{2}\newoverline{v}.
 \end{align}
 
-Die mittlere freie Weglänge $L_m$ lautet hier $2\newhat{z}$. Nun muss $\newhat{z}$ durch die TKE $k_s$ ausgedrückt werden. Die Gesamtenergie $E$ des harmonischen Oszillators (s. Abschn. \ref{sec:harmonischer_oszillator}) lautet
+Die mittlere freie Weglänge $L_m$ lautet hier $2\newhat{z}$. Nun muss $\newhat{z}$ durch die TKE $k_s$ ausgedrückt werden. Für die spezifische Gesamtenergie $E$ des harmonischen Oszillators gilt laut Glg. \eqref{eq:e_tot_harm_osc} die Relation
 %
 \begin{align}
-E = \frac{1}{2}N^2\newhat{z}^2,
+E = \frac{1}{2}N^2\newhat{z}^2.
 \end{align}
 %
-im Mittel ist die Hälfte davon in kinetischer Energie gespeichert, was auf
+Im Mittel ist die Hälfte davon in kinetischer Energie gespeichert, was auf
 %
 \begin{align}
 k_s = \frac{1}{4}N^2\newhat{z}^2 \Rightarrow \newhat{z} = \frac{2}{N}\sqrt{k_s} \Rightarrow L_m = \frac{4}{N}\sqrt{k_s} = \frac{C_l}{N}\sqrt{k_s}
