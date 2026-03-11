@@ -16115,7 +16115,7 @@ Die reversibeläquivalentpotentielle Temperatur\index{reversibeläquivalentpoten
 Die in diesem Abschnitt durchgeführten Herleitungen beziehen sich auf eine vertikale Luftsäule, wobei dynamische, d. h. durch das Geschwindigkeitsfeld entstehende Effekte, nicht berücksichtigt werden. Man definiert eine Funktion $f\left(z, z'\right)$ als die spezifische Kraft, also die Beschleunigung, die auf das Teilchen bei $z$ wirkt, wenn man es adiabatisch auf das Niveau $z'$ bringt und von einer hydrostatischen Atmosphäre ausgeht, also
 %
 \begin{align}
-f\left(z, z'\right) \coloneqq -\frac{1}{\rho'\left(z, z'\right)}\frac{\partial p\left(z'\right)}{\partial z} - g = \frac{g\rho\left(z'\right)}{\rho'\left(z, z'\right)} - g = g\frac{\rho\left(z'\right) - \rho'\left(z, z'\right)}{\rho'\left(z, z'\right)}, 
+f\left(z, z'\right) \coloneqq -\frac{1}{\rho'\left(z, z'\right)}\frac{\partial p\left(z'\right)}{\partial z} - g \stackrel{\text{Glg. \eqref{eq:hydrostatic}}}{=} \frac{g\rho\left(z'\right)}{\rho'\left(z, z'\right)} - g = g\frac{\rho\left(z'\right) - \rho'\left(z, z'\right)}{\rho'\left(z, z'\right)},
 \end{align}
 %
 wobei $\rho'\left(z, z'\right)$ die Dichte des Teilchens bei $z$ ist, nachdem man es adiabatisch nach $z'$ verschoben hat. Man definiert außerdem eine Funktion $\newtilde{F}\left(z, z'\right)$ durch
@@ -16127,7 +16127,8 @@ wobei $\rho'\left(z, z'\right)$ die Dichte des Teilchens bei $z$ ist, nachdem ma
 als die Arbeit, die die Schichtung an einem Teilchen geleistet hat, welches adiabatisch von $z$ nach $z'$ ausgelenkt wurde. Üblicherweise wählt man $z = z_{\text{2m}} \coloneqq z_{\text{SFC}} + 2$ m, man definiert
 %
 \begin{align}
-F\left(z\right) \coloneqq g\int_{z_{\text{2m}}}^{z}\frac{\rho\left(z'\right) - \rho'\left(z'\right)}{\rho'\left(z'\right)}dz'
+F\left(z\right) &\coloneqq \newtilde{F}\left(z_{\text{2m}}, z\right) = g\int_{z_{\text{2m}}}^{z}\frac{\rho\left(z''\right) - \rho'\left(z_{\text{2m}}, z''\right)}{\rho'\left(z_{\text{2m}}, z''\right)}dz'' = g\int_{z_{\text{2m}}}^{z}\frac{\rho\left(z'\right) - \rho'\left(z_{\text{2m}}, z'\right)}{\rho'\left(z_{\text{2m}}, z'\right)}dz'\nonumber\\
+&= g\int_{z_{\text{2m}}}^{z}\frac{\rho\left(z'\right) - \rho'\left(z'\right)}{\rho'\left(z'\right)}dz'
 \end{align}
 %
 mit dem Bezeichnungsmissbrauch
@@ -16142,16 +16143,16 @@ Für den Integranden wird ebenso
 f\left(z'\right) \coloneqq g\frac{\rho\left(z'\right) - \rho'\left(z'\right)}{\rho'\left(z'\right)}\label{eq:uplift}
 \end{align}
 %
-definiert. In Termen der Funktionen $F$ und $f$ lassen sich viele der üblicherweise im Zusammenhang mit Konvektion verwendeten Größen definieren. $z_T$ sei die als bekannt vorausgesetzte Tropopausenhöhe\index{Tropopausenhöhe}. Man definiert die sogenannte \textit{konvektiv verfügbare potentielle Energie}\index{convective available potential Energy (CAPE)}\index{CAPE}\index{Energie!potentielle!konvektiv verfügbare}\index{potentielle Energie!konvektiv verfügbare}\index{konvektiv verfügbare potentielle Energie} \textit{CAPE} durch
+definiert. In Termen der Funktionen $F$ und $f$ lassen sich viele der üblicherweise im Zusammenhang mit Konvektion verwendeten Größen definieren. Man definiert die sogenannte \textit{konvektiv verfügbare potentielle Energie}\index{convective available potential Energy (CAPE)}\index{CAPE}\index{Energie!potentielle!konvektiv verfügbare}\index{potentielle Energie!konvektiv verfügbare}\index{konvektiv verfügbare potentielle Energie} \textit{CAPE} durch
 %
 \begin{align}
-\CAPE \coloneqq \int_{z_{\text{2m}}}^{z_T}\Theta\left(f\left(z'\right)\right)dz', \label{eq:def_cape}
+\CAPE \coloneqq \int_{z_{\text{2m}}}^{\infty}\Theta\left(f\left(z\right)\right)dz,\label{eq:def_cape}
 \end{align}
 %
-wobei $\Theta$ die $\Theta-$Funktion bezeichnet\index{$\Theta-$Funktion}. Im Falle eines idealen Gases kann man für $f$ notieren
+wobei $\Theta$ die $\Theta-$Funktion bezeichnet\index{$\Theta-$Funktion}. Realistisch integriert man natürlich nicht bis nach Unendlich, sondern nur bis zu einer Höhe $z_T$, in der sich typischerweise die Tropopause befindet, da darüber sowieso keine Instabilität mehr vorliegt. Im Falle trockener Luft kann man für $f$ notieren
 %
 \begin{align}
-f\left(z'\right) \coloneqq g\frac{\frac{1}{T} - \frac{1}{T'}}{\frac{1}{T'}} = g\frac{T' - T}{T} = g\frac{\theta' - \theta}{\theta}.
+f\left(z'\right) = g\frac{\frac{p}{R_dT} - \frac{p}{R_dT'}}{\frac{p}{R_dT'}} = g\frac{\frac{1}{T} - \frac{1}{T'}}{\frac{1}{T'}} = g\frac{T' - T}{T} = g\frac{\theta'\left(\frac{p}{p_0}\right)^{R_d/c_d^{(p)}} - \theta\left(\frac{p}{p_0}\right)^{R_d/c_d^{(p)}}}{\theta\left(\frac{p}{p_0}\right)^{R_d/c_d^{(p)}}} = g\frac{\theta' - \theta}{\theta}.
 \end{align}
 %
 Im Fall feuchter Luft kann man $T \to T_v$ ersetzen, hierbei ist $T_v$ die in Glg. \eqref{eq:def_virtual_temperature} definierte virtuelle Temperatur, da bei dieser Temperatur die trockene Luft die gleiche Dichte hätte wie die vorhandene feuchte Luft\index{feuchte Luft}\index{Luft!feuchte}. Das \textit{level of free convection}\index{level of free convection}\index{LFC} $z_{\text{LFC}}$ ist die Höhe, in der das adiabatisch aufsteigende Teilchen zum ersten mal leichter ist als die Umgebung
@@ -16183,7 +16184,7 @@ Hat ein Teilchen in zwei Metern Höhe die sogenannte \index{Auslösetemperatur}\
 wobei $\newtilde{\rho}'\left(z'\right)$ die Dichte des adiabatisch von $z_{\text{2m}}$ nach $z'$ gehobenen Teilchens ist, was in zwei Metern Höhe die Auslösetemperatur hätte. Die Energie $\CIN$, die dabei überwunden werden muss, also
 %
 \begin{align}
-\CIN \coloneqq \newtilde{F}\left(z_{\text{2m}}, z_{\text{LFC}}\right).
+\CIN \coloneqq -\newtilde{F}\left(z_{\text{2m}}, z_{\text{LFC}}\right).
 \end{align}
 %
 bezeichnet man als \textit{konvektive Schranke}\index{konvektive Schranke}\index{Schranke!konvektive} oder \textit{convective inhibition}\index{convective inhibition (CIN)}\index{CIN}. Die Höhe, in der ein auf die Auslösetemperatur aufgeheiztes Teilchen beim adiabatischen Aufstieg gesättigt wäre, bezeichnet man als \textit{convective condensation level (CCL)}\index{convective condensation level (CCL)}\index{Konvektionskondensationsniveau (KKN)}\index{KKN}\index{CCL}. Dies ist mindestens so groß wie das LCL, also
