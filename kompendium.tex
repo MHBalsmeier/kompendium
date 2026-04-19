@@ -267,7 +267,7 @@ Folgende Bücher sind maßgeblich in den unterschiedlichen Bereichen:
 \hline Meso$-\beta-$Skala & & $2\cdot 10^{4}$ - $2\cdot 10^5$ & $2\cdot 10^{3}$ - $2\cdot 10^4$ & Land-Seewind-Zirkulation \tabularnewline
 \hline Meso$-\gamma-$Skala & Sturmskala, konvektive Skala & $2\cdot 10^{3}$-$2\cdot 10^4$ & $2\cdot 10^{2}$-$2\cdot 10^3$ & Konvektion, Leewellen, Kelvin-Helmholtz-Instabilität\tabularnewline
 \hline Mikroskala & & $2\cdot 10^{-3}$-$2\cdot 10^3$ & $2\cdot 10^{-4}$ - $2\cdot 10^2$ & Turbulenz, Umströmung von Häusern und Bäumen etc. \tabularnewline
-\hline molekulare Skala & & $< 2\cdot 10{-3}$ & $< 2\cdot 10^{-4}$ & Impuls- und Stoffdiffusion, Strahlung \tabularnewline
+\hline molekulare Skala & & $< 2\cdot 10^{-3}$ & $< 2\cdot 10^{-4}$ & Impuls- und Stoffdiffusion, Strahlung \tabularnewline
 \hline 
 \end{tabular}
 \caption{Definitionen typischer Skalen in der Meteorologie. Natürlich sind diese Längen und Zeiten nicht technisch zu verstehen und die aufgeführten Phänomene können in den meisten Fällen auch auf den jeweils benachbarten Skalen auftreten.}
@@ -310,7 +310,7 @@ Das Wort \textit{Skalen} bezeichnet Größenordnungen. Ziel der Skalenanalyse is
 \begin{tabular}{|c|c|c|}
 \hline \textbf{Abk}. & \textbf{Aussprache} & \textbf{Bedeutung} \\
 \hline\hline P & peta & $10^{15}$ \\
-\hline T & terra & $10^{12}$ \\
+\hline T & tera & $10^{12}$ \\
 \hline G & giga & $10^{9}$ \\
 \hline M & mega & $10^{6}$ \\
 \hline k & kilo & $10^{3}$ \\
@@ -593,7 +593,7 @@ so ist diese Größe erhalten:
 %
 Die Energie eines Teilchens, welches sich unter der Wirkung einer konservativen Kraft bewegt, ist also konstant.
 
-Es existieren zwei weitere Formulierungen der klassischen Mechanik, der Lagrange-Formalismus\textit{Lagrange-Formalismus} sowie der Hamilton-Formalismus. Beide lassen sich aus den Newton'schen Axiomen herleiten.
+Es existieren zwei weitere Formulierungen der klassischen Mechanik, der \textit{Lagrange-Formalismus} sowie der Hamilton-Formalismus. Beide lassen sich aus den Newton'schen Axiomen herleiten.
 
 \section{Lagrange-Formalismus}
 \label{sec:lagrangeformalismus}\index{Lagrange-Formalismus}
@@ -612,7 +612,7 @@ g_\alpha\left(\mathbf{r}_1, \dotsc, \mathbf{r}_N, t\right) = 0
 %
 mit $1\leq\alpha\leq R$ und $R\leq 3N - 1$. Bei $R = 3N$ könnte keine Bewegung mehr stattfinden, da jede Zwangsbedingung einen Freiheitsgrad eliminiert.
 
-\subsection{Langrange-Gleichungen 1. Art}
+\subsection{Lagrange-Gleichungen 1. Art}
 \label{sec:langrange-Gleichungen_1._art}\index{Lagrange-Gleichung!1. Art}
 
 Die Einhaltung der Zwangsbedingungen wird durch die sogenannten Zwangskräfte sichergestellt. Diese sind senkrecht auf der durch die Zwangsbedingung vorgegebenen Fläche - dies kann man sich beispielsweise bei einer Bewegung auf einem Tisch leicht klarmachen. Die Reibungskraft wirkt zwar tangential zum Tisch, jedoch hat die Reibungskraft nichts mit der Einhaltung der Zwangsbedingung zu tun und ist daher auch keine Zwangskraft. Für eine Zwangskraft $\mathbf{Z}$ kann man also ansetzen
@@ -647,7 +647,7 @@ m_n\frac{d^2x_n}{dt^2} = F_n + \sum_{\alpha = 1}^{R}\lambda_\alpha\left(t\right)
 %
 Hierbei ist $m_1 = m_2 = m_3$ die Masse des ersten Teilchens usw. Zusammen mit den Zwangsbedingungen erhält man $3N + R$ Gleichungen an die $3N + R$ zu bestimmenden Funktionen $x_n\left(t\right), \lambda_\alpha\left(t\right)$. Diese $3N + R$ Gleichungen bezeichnet man als \textit{Lagrange-Gleichungen 1. Art}.\index{Lagrange-Gleichung!1. Art}
 
-\subsection{Langrange-Gleichungen 2. Art}
+\subsection{Lagrange-Gleichungen 2. Art}
 \label{sec:langrange-Gleichungen_2._art}\index{Lagrange-Gleichung!2. Art}
 
 Ist man an der Berechnung der Zwangskräfte nicht interessiert, bietet sich deren Eliminierung an. Dies wird nun durchgeführt.
@@ -738,7 +738,7 @@ Leitet man dies total nach der Zeit ab, erhält man
 \frac{d}{dt}\frac{\partial T}{\partial\newdot{q}_k} = \sum_{n = 1}^{3N}m_n\frac{d^2x_n}{dt^2}\frac{\partial x_n}{\partial q_k} + \sum_{n = 1}^{3N}m_n\newdot{x}_n\frac{\partial\newdot{x}_n}{\partial q_k}.\label{eq:lagrange_deriv_1}
 \end{align}
 %
-Im letztem Term wurde die folgende Identität ausgenutzt:
+Im letzten Term wurde die folgende Identität ausgenutzt:
 %
 \begin{align}
 \frac{d}{dt}\frac{\partial x_n}{\partial q_k} = \sum_{l = 1}^{f}\frac{\partial^2x_n}{\partial q_l\partial q_k}\newdot{q}_l + \frac{\partial^2 x_n}{\partial t\partial q_k} = \frac{\partial}{\partial q_k}\left(\sum_{l = 1}^{f}\frac{\partial x_n}{\partial q_l}\newdot{ q_l} + \frac{\partial x_n}{\partial t}\right) = \frac{\partial}{\partial q_k}\frac{dx_n}{dt}
@@ -810,7 +810,7 @@ Man definiert zunächst die \index{Impuls!kanonischer}\index{kanonischer Impuls}
 p_i \coloneqq\frac{\partial L}{\partial\newdot{q}_i}
 \end{align}
 %
-für $1\leq i\leq f$. Man eliminiert nun die generalisieren Geschwindigkeiten $\newdot{q}$:
+für $1\leq i\leq f$. Man eliminiert nun die generalisierten Geschwindigkeiten $\newdot{q}$:
 %
 \begin{align}
 p_i = \frac{\partial L\left(q, \newdot{q}, t\right)}{\partial\newdot{q}_i}\to\newdot{q}_j = \newdot{q}_j\left(q, p, t\right)
@@ -11682,7 +11682,7 @@ Der \textit{thermische Wind}\index{thermischer Wind}\index{Wind!thermischer} bez
 }}
 \end{center}
 %
-Die vertikale Scherung des geostrophischen Windes ergibt sich also aus der Baroklinität der Atmosphäre. Man spricht auch von auch von \textit{vertikaler Scherung des geostrophischen Windes aufgrund horizontaler Temperaturgradienten}, wobei sich \textit{horizontal} hier auf die Druckfläche bezieht. Glg. \eqref{eq:therm_wind} ist die \textit{thermische Windgleichung}.
+Die vertikale Scherung des geostrophischen Windes ergibt sich also aus der Baroklinität der Atmosphäre. Man spricht auch von \textit{vertikaler Scherung des geostrophischen Windes aufgrund horizontaler Temperaturgradienten}, wobei sich \textit{horizontal} hier auf die Druckfläche bezieht. Glg. \eqref{eq:therm_wind} ist die \textit{thermische Windgleichung}.
 
 Seien $p_1 < p_2$ zwei Druckniveaus, dann folgt über Integration von Glg. \eqref{eq:therm_wind}
 %
@@ -15074,7 +15074,7 @@ erfüllen. Es wird von einem trockenadiabatischen System ausgegangen, in einem s
 \md{\theta} = 0 && \Leftrightarrow && \md{\theta} + \md{\theta'} = 0 && \Leftrightarrow \md{\theta'} + w'\frac{d\theta_0}{dz} = 0.
 \end{align}
 %
-Man führt nun eine genäherte materielle Ableitung $\mdtilde{}$ ein, bei der Störprodukte vernachlässigt werden. Im folgenden werden hierfür Gleichheitszeichen notiert. Damit erhält man
+Man führt nun eine genäherte materielle Ableitung $\mdtilde{}$ ein, bei der Störprodukte vernachlässigt werden. Im Folgenden werden hierfür Gleichheitszeichen notiert. Damit erhält man
 %
 \begin{align}
 \mdtilde{\theta'} + w'\frac{d\theta_0}{dz} &= 0.
@@ -23541,7 +23541,7 @@ Bei der \textit{Datenassimilation}\index{Datenassimilation} geht es um die Besti
 \section{Objective analysis}
 \label{sec:objective_analysis}\index{objective analysis}
 
-Bis zur zweiten Häfte des 20. Jahrhunderts mussten Meteorologen Wetterkarten manuell auf Grundlage der zur Verfügeng stehenden Daten zeichen, was man als \textit{Analyse}\index{Analyse} bezeichnet. Auch die Anfangszustände der ersten operationellen Modellläufe wurden auf diese Weise festgelegt \cite{lynchrichardson}. Dies war zeitaufwendig, ineffizient und fehleranfällig. Daher begann man schnell damit, diesen Prozess zu automatisieren, was man als \textit{objective analysis}\index{objective analysis} bezeichnet. Die Analyse ist objektiv, da sie nun nicht mehr von der Person abhängt, von der sie erstellt wird. Im Wesentlichen handelt es sich bei solchen Analysen um Interpolationen und Umrechnungen der gemessenen Größen in Modellvariablen.
+Bis zur zweiten Hälfte des 20. Jahrhunderts mussten Meteorologen Wetterkarten manuell auf Grundlage der zur Verfügung stehenden Daten zeichnen, was man als \textit{Analyse}\index{Analyse} bezeichnet. Auch die Anfangszustände der ersten operationellen Modellläufe wurden auf diese Weise festgelegt \cite{lynchrichardson}. Dies war zeitaufwendig, ineffizient und fehleranfällig. Daher begann man schnell damit, diesen Prozess zu automatisieren, was man als \textit{objective analysis}\index{objective analysis} bezeichnet. Die Analyse ist objektiv, da sie nun nicht mehr von der Person abhängt, von der sie erstellt wird. Im Wesentlichen handelt es sich bei solchen Analysen um Interpolationen und Umrechnungen der gemessenen Größen in Modellvariablen.
 
 \section{Optimum interpolation}
 \label{sec:optimum_interpolation}
