@@ -20070,7 +20070,14 @@ also
 D_0 = \left(\frac{\rho_r}{\pi\rho_l'n_0}\right)^{1/4}.
 \end{align}
 %
-Diese Formel kann genutzt werden, um einen mittleren Radius von Regentropfen aus der Dichte des Regenwassers diagnostisch abzuleiten.
+Diese Formel kann genutzt werden, um einen mittleren Durchmesser von Regentropfen aus der Dichte des Regenwassers diagnostisch abzuleiten. Aus Glg. \eqref{eq:marshall-palmer_d_lambda} erhält man mithilfe der Substitutionsregel Glg. \eqref{eq:substitutionsregel} außerdem
+%
+\begin{align}
+D_0 &= \frac{\int_0^\infty\exp\left(-\lambda D\right)DdD}{\int_0^\infty\exp\left(-\lambda D\right)dD} = \frac{\int_0^{\frac{\infty}{2}}\exp\left(-\lambda 2D\right)2D\cdot 2\cdot dD}{\int_0^{\frac{\infty}{2}}\exp\left(-\lambda 2D\right)\cdot 2\cdot dD} = \frac{\int_0^{\infty}\exp\left(-\lambda 2D\right)2DdD}{\int_0^{\infty}\exp\left(-\lambda 2D\right)dD}\nonumber\\
+&= 2\frac{\int_0^{\infty}\exp\left(-\lambda 2D\right)DdD}{\int_0^{\infty}\exp\left(-\lambda 2D\right)dD} = 2\frac{\int_0^{\infty}\exp\left(-2\lambda r\right)rdr}{\int_0^{\infty}\exp\left(-2\lambda r\right)dr} = 2r_0.
+\end{align}
+%
+Der effektive Durchmesser ist also das Doppelte des effektiven Radius.
 
 \subsubsection{Anwendung auf Schnee}
 \label{sec:anwendung_auf_schnee}
@@ -27445,7 +27452,7 @@ Dies bezeichnet man als \textit{partielle Integration}\index{partielle Integrati
 Seien $a, b\in\mathbb{R}$ mit $a<b$, $f:\left[a, b\right]\to\mathbb{R}$ Riemann-integrierbar, $I\subseteq\mathbb{R}$ ein Intervall, $\varphi:I\to\left[a, b\right]$ stetig-differenzierbar und bijektiv und $F$ eine Stammfunktion von $f$. Dann gilt
 %
 \begin{align}
-\int_{a}^{b}f\left(x\right)dx = \left[F\left(x\right)\right]_a^b = \left[F\left(\varphi\left(x\right)\right)\right]_{\varphi^{-1}\left(a\right)}^{\varphi^{-1}\left(b\right)} = \int_{\varphi^{-1}\left(a\right)}^{\varphi^{-1}\left(b\right)}\frac{d}{dx}\left(F\left(\varphi\left(x\right)\right)\right)dx = \int_{\varphi^{-1}\left(a\right)}^{\varphi^{-1}\left(b\right)}f\left(\varphi\left(x\right)\right)\varphi'\left(x\right)dx.
+\int_{a}^{b}f\left(x\right)dx = \left[F\left(x\right)\right]_a^b = \left[F\left(\varphi\left(x\right)\right)\right]_{\varphi^{-1}\left(a\right)}^{\varphi^{-1}\left(b\right)} = \int_{\varphi^{-1}\left(a\right)}^{\varphi^{-1}\left(b\right)}\frac{d}{dx}\left(F\left(\varphi\left(x\right)\right)\right)dx = \int_{\varphi^{-1}\left(a\right)}^{\varphi^{-1}\left(b\right)}f\left(\varphi\left(x\right)\right)\varphi'\left(x\right)dx.\label{eq:substitutionsregel}
 \end{align}
 %
 Dies bezeichnet man als \textit{Substitutionsregel}.\index{Substitutionsregel}
